@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Local Hour (0-23)",
         "tr": "Yerel Saat (0-23)",
-        "de": "Local Hour (0-23)",
-        "fr": "Local Hour (0-23)",
+        "de": "Ortszeit Stunde (0-23)",
+        "fr": "Heure locale (0-23)",
         "es": "Local Hour (0-23)",
         "ar": "Local Hour (0-23)"
       },
       "businessContext_i18n": {
         "en": "The hour component of the local time (24-hour format)",
-        "tr": "Yerel saatin saat bileşeni (24 saat formatı)"
+        "tr": "Yerel saatin saat bileşeni (24 saat formatı)",
+        "de": "Die Stundenkomponente der Ortszeit (24-Stunden-Format)",
+        "fr": "Composante heure de l'heure locale (format 24h)"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Local Minute (0-59)",
         "tr": "Yerel Dakika (0-59)",
-        "de": "Local Minute (0-59)",
-        "fr": "Local Minute (0-59)",
+        "de": "Ortszeit Minute (0-59)",
+        "fr": "Minute locale (0-59)",
         "es": "Local Minute (0-59)",
         "ar": "Local Minute (0-59)"
       },
       "businessContext_i18n": {
         "en": "The minute component of the local time",
-        "tr": "Yerel saatin dakika bileşeni"
+        "tr": "Yerel saatin dakika bileşeni",
+        "de": "Die Minutenkomponente der Ortszeit",
+        "fr": "Composante minute de l'heure locale"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Source UTC Offset (hours)",
         "tr": "Kaynak UTC Farkı (saat)",
-        "de": "Source UTC Offset (hours)",
-        "fr": "Source UTC Offset (hours)",
+        "de": "Quell-UTC-Offset (Stunden)",
+        "fr": "Décalage UTC source (heures)",
         "es": "Source UTC Offset (hours)",
         "ar": "Source UTC Offset (hours)"
       },
       "businessContext_i18n": {
         "en": "UTC offset of the source location in hours (e.g., 3 for UTC+3, -5 for UTC-5)",
-        "tr": "Kaynak konumun UTC farkı saat cinsinden (örn. UTC+3 için 3, UTC-5 için -5)"
+        "tr": "Kaynak konumun UTC farkı saat cinsinden (örn. UTC+3 için 3, UTC-5 için -5)",
+        "de": "UTC-Offset des Quellorts in Stunden (z. B. 3 für UTC+3, -5 für UTC-5)",
+        "fr": "Décalage UTC de la source en heures (ex. 3 pour UTC+3, -5 pour UTC-5)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Target UTC Offset (hours)",
         "tr": "Hedef UTC Farkı (saat)",
-        "de": "Target UTC Offset (hours)",
-        "fr": "Target UTC Offset (hours)",
+        "de": "Ziel-UTC-Offset (Stunden)",
+        "fr": "Décalage UTC cible (heures)",
         "es": "Target UTC Offset (hours)",
         "ar": "Target UTC Offset (hours)"
       },
       "businessContext_i18n": {
         "en": "UTC offset of the target location in hours",
-        "tr": "Hedef konumun UTC farkı saat cinsinden"
+        "tr": "Hedef konumun UTC farkı saat cinsinden",
+        "de": "UTC-Offset des Zielorts in Stunden",
+        "fr": "Décalage UTC de l'emplacement cible en heures"
       }
     }
   ],

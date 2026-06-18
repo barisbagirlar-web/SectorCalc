@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Total Items (n)",
         "tr": "Toplam Öğe Sayısı (n)",
-        "de": "Total Items (n)",
-        "fr": "Total Items (n)",
-        "es": "Total Items (n)",
+        "de": "Gesamtanzahl (n)",
+        "fr": "Nombre total d'éléments (n)",
+        "es": "Total de elementos (n)",
         "ar": "Total Items (n)"
       },
       "businessContext_i18n": {
         "en": "Total number of distinct items in the set.",
-        "tr": "Kümedeki toplam farklı öğe sayısı."
+        "tr": "Kümedeki toplam farklı öğe sayısı.",
+        "de": "Gesamtzahl unterschiedlicher Elemente in der Menge.",
+        "fr": "Nombre total d'éléments distincts dans l'ensemble.",
+        "es": "Número total de elementos distintos en el conjunto."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Items to Arrange (r)",
         "tr": "Düzenlenecek Öğeler (r)",
-        "de": "Items to Arrange (r)",
-        "fr": "Items to Arrange (r)",
-        "es": "Items to Arrange (r)",
+        "de": "Anzuordnende Elemente (r)",
+        "fr": "Éléments à arranger (r)",
+        "es": "Elementos a disponer (r)",
         "ar": "Items to Arrange (r)"
       },
       "businessContext_i18n": {
         "en": "Number of items to select and arrange.",
-        "tr": "Seçilecek ve düzenlenecek öğe sayısı."
+        "tr": "Seçilecek ve düzenlenecek öğe sayısı.",
+        "de": "Anzahl der auszuwählenden und anzuordnenden Elemente.",
+        "fr": "Nombre d'éléments à sélectionner et à organiser.",
+        "es": "Número de elementos a seleccionar y ordenar."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Order Matters (1=Yes, 0=No)",
         "tr": "Sıra Önemli mi (1=Evet, 0=Hayır)",
-        "de": "Order Matters (1=Yes, 0=No)",
-        "fr": "Order Matters (1=Yes, 0=No)",
-        "es": "Order Matters (1=Yes, 0=No)",
+        "de": "Reihenfolge wichtig (1=Ja, 0=Nein)",
+        "fr": "L'ordre compte (1=Oui, 0=Non)",
+        "es": "El orden importa (1=Sí, 0=No)",
         "ar": "Order Matters (1=Yes, 0=No)"
       },
       "businessContext_i18n": {
         "en": "Whether the order of selection matters (permutation vs combination).",
-        "tr": "Seçim sırasının önemli olup olmadığı (permütasyon vs kombinasyon)."
+        "tr": "Seçim sırasının önemli olup olmadığı (permütasyon vs kombinasyon).",
+        "de": "Ob die Reihenfolge der Auswahl wichtig ist (Permutation vs. Kombination).",
+        "fr": "Si l'ordre de sélection compte (permutation vs combinaison).",
+        "es": "Si el orden de selección importa (permutación vs combinación)."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Repetition Allowed (1=Yes, 0=No)",
         "tr": "Tekrara İzin Ver (1=Evet, 0=Hayır)",
-        "de": "Repetition Allowed (1=Yes, 0=No)",
-        "fr": "Repetition Allowed (1=Yes, 0=No)",
-        "es": "Repetition Allowed (1=Yes, 0=No)",
+        "de": "Wiederholung erlaubt (1=Ja, 0=Nein)",
+        "fr": "Répétition autorisée (1=Oui, 0=Non)",
+        "es": "Repetición permitida (1=Sí, 0=No)",
         "ar": "Repetition Allowed (1=Yes, 0=No)"
       },
       "businessContext_i18n": {
         "en": "Whether the same item can be selected more than once.",
-        "tr": "Aynı öğenin birden fazla kez seçilip seçilemeyeceği."
+        "tr": "Aynı öğenin birden fazla kez seçilip seçilemeyeceği.",
+        "de": "Ob dasselbe Element mehrfach ausgewählt werden kann.",
+        "fr": "Si le même élément peut être sélectionné plusieurs fois.",
+        "es": "Si el mismo elemento puede seleccionarse más de una vez."
       }
     }
   ],

@@ -12,13 +12,16 @@
         "en": "Pints",
         "tr": "Pint",
         "de": "Pints",
-        "fr": "Pints",
-        "es": "Pints",
+        "fr": "Pintes",
+        "es": "Pintas",
         "ar": "Pints"
       },
       "businessContext_i18n": {
         "en": "Volume in pints to be converted",
-        "tr": "Dönüştürülecek pint cinsinden hacim"
+        "tr": "Dönüştürülecek pint cinsinden hacim",
+        "de": "Volumen in Pints, das umgerechnet werden soll",
+        "fr": "Volume en pintes à convertir",
+        "es": "Volumen en pintas a convertir"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Conversion Type",
         "tr": "Dönüştürme Türü",
-        "de": "Conversion Type",
-        "fr": "Conversion Type",
-        "es": "Conversion Type",
+        "de": "Umrechnungstyp",
+        "fr": "Type de conversion",
+        "es": "Tipo de conversión",
         "ar": "Conversion Type"
       },
       "businessContext_i18n": {
         "en": "Selection of pint definition; 1 for UK pint, 2 for US liquid pint, 3 for US dry pint",
-        "tr": "Pint tanımı seçimi; 1: İngiltere pinti, 2: ABD sıvı pinti, 3: ABD kuru pinti"
+        "tr": "Pint tanımı seçimi; 1: İngiltere pinti, 2: ABD sıvı pinti, 3: ABD kuru pinti",
+        "de": "Auswahl der Pint-Definition; 1 für UK-Pint, 2 für US-Flüssigpint, 3 für US-Trockenpint",
+        "fr": "Sélection de la définition de la pinte ; 1 pour pinte UK, 2 pour pinte US liquide, 3 pour pinte US sèche",
+        "es": "Selección de la definición de pinta; 1 para pinta UK, 2 para pinta líquida US, 3 para pinta seca US"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Batch ID",
         "tr": "Parti Kimliği",
-        "de": "Batch ID",
-        "fr": "Batch ID",
-        "es": "Batch ID",
+        "de": "Chargen-ID",
+        "fr": "ID de lot",
+        "es": "ID del lote",
         "ar": "Batch ID"
       },
       "businessContext_i18n": {
         "en": "Batch identifier for traceability (does not affect calculation)",
-        "tr": "İzlenebilirlik için parti tanımlayıcısı (hesaplamayı etkilemez)"
+        "tr": "İzlenebilirlik için parti tanımlayıcısı (hesaplamayı etkilemez)",
+        "de": "Chargenbezeichner für Rückverfolgbarkeit (beeinflusst die Berechnung nicht)",
+        "fr": "Identifiant de lot pour la traçabilité (n'affecte pas le calcul)",
+        "es": "Identificador del lote para trazabilidad (no afecta el cálculo)"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Temperature",
         "tr": "Sıcaklık",
         "de": "Temperatur",
-        "fr": "Temperature",
-        "es": "Temperature",
+        "fr": "Température",
+        "es": "Temperatura",
         "ar": "Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature at which volume is measured (for potential thermal correction, not used in current formula)",
-        "tr": "Hacmin ölçüldüğü sıcaklık (olası termal düzeltme için, mevcut formülde kullanılmaz)"
+        "tr": "Hacmin ölçüldüğü sıcaklık (olası termal düzeltme için, mevcut formülde kullanılmaz)",
+        "de": "Temperatur, bei der das Volumen gemessen wird (für mögliche thermische Korrektur, wird in der aktuellen Formel nicht verwendet)",
+        "fr": "Température à laquelle le volume est mesuré (pour correction thermique potentielle, non utilisée dans la formule actuelle)",
+        "es": "Temperatura a la que se mide el volumen (para posible corrección térmica, no utilizada en la fórmula actual)"
       }
     }
   ],

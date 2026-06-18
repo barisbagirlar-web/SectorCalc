@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Lower limit (a)",
         "tr": "Alt sınır (a)",
-        "de": "Lower limit (a)",
-        "fr": "Lower limit (a)",
+        "de": "Untere Grenze (a)",
+        "fr": "Limite inférieure (a)",
         "es": "Lower limit (a)",
         "ar": "Lower limit (a)"
       },
       "businessContext_i18n": {
         "en": "Integration lower bound",
-        "tr": "İntegral alt sınırı"
+        "tr": "İntegral alt sınırı",
+        "de": "Untere Integrationsgrenze",
+        "fr": "Borne inférieure d'intégration"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Upper limit (b)",
         "tr": "Üst sınır (b)",
-        "de": "Upper limit (b)",
-        "fr": "Upper limit (b)",
+        "de": "Obere Grenze (b)",
+        "fr": "Limite supérieure (b)",
         "es": "Upper limit (b)",
         "ar": "Upper limit (b)"
       },
       "businessContext_i18n": {
         "en": "Integration upper bound",
-        "tr": "İntegral üst sınırı"
+        "tr": "İntegral üst sınırı",
+        "de": "Obere Integrationsgrenze",
+        "fr": "Borne supérieure d'intégration"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Number of subintervals (n)",
         "tr": "Alt aralık sayısı (n)",
-        "de": "Number of subintervals (n)",
-        "fr": "Number of subintervals (n)",
+        "de": "Anzahl der Teilintervalle (n)",
+        "fr": "Nombre de sous-intervalles (n)",
         "es": "Number of subintervals (n)",
         "ar": "Number of subintervals (n)"
       },
       "businessContext_i18n": {
         "en": "Must be even for Simpson's rule",
-        "tr": "Simpson kuralı için çift olmalıdır"
+        "tr": "Simpson kuralı için çift olmalıdır",
+        "de": "Muss für Simpson-Regel gerade sein",
+        "fr": "Doit être pair pour la règle de Simpson"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Function type",
         "tr": "Fonksiyon türü",
-        "de": "Function type",
-        "fr": "Function type",
+        "de": "Funktionstyp",
+        "fr": "Type de fonction",
         "es": "Function type",
         "ar": "Function type"
       },
       "businessContext_i18n": {
         "en": "1: sin(x), 2: cos(x), 3: x^2, 4: sqrt(x), 5: exp(x), 6: log(x)",
-        "tr": "1: sin(x), 2: cos(x), 3: x², 4: √x, 5: eˣ, 6: log(x)"
+        "tr": "1: sin(x), 2: cos(x), 3: x², 4: √x, 5: eˣ, 6: log(x)",
+        "de": "1: sin(x), 2: cos(x), 3: x^2, 4: sqrt(x), 5: exp(x), 6: log(x)",
+        "fr": "1: sin(x), 2: cos(x), 3: x^2, 4: sqrt(x), 5: exp(x), 6: log(x)"
       }
     }
   ],

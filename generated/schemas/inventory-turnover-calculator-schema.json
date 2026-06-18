@@ -12,13 +12,16 @@
         "en": "Cost of Goods Sold",
         "tr": "Satılan Malın Maliyeti",
         "de": "Herstellkosten der verkauften Waren",
-        "fr": "Cost of Goods Sold",
-        "es": "Cost of Goods Sold",
+        "fr": "Coût des marchandises vendues",
+        "es": "Coste de los bienes vendidos",
         "ar": "Cost of Goods Sold"
       },
       "businessContext_i18n": {
         "en": "Total cost of goods sold during the period",
-        "tr": "Dönem boyunca satılan malların toplam maliyeti"
+        "tr": "Dönem boyunca satılan malların toplam maliyeti",
+        "de": "Gesamtkosten der verkauften Waren im Zeitraum",
+        "fr": "Coût total des marchandises vendues sur la période",
+        "es": "Costo total de los bienes vendidos durante el período"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Beginning Inventory",
         "tr": "Başlangıç Envanteri",
         "de": "Anfangsbestand",
-        "fr": "Beginning Inventory",
-        "es": "Beginning Inventory",
+        "fr": "Stock initial",
+        "es": "Inventario inicial",
         "ar": "Beginning Inventory"
       },
       "businessContext_i18n": {
         "en": "Inventory value at the start of the period",
-        "tr": "Dönem başındaki stok değeri"
+        "tr": "Dönem başındaki stok değeri",
+        "de": "Lagerbestand zu Beginn des Zeitraums",
+        "fr": "Valeur des stocks en début de période",
+        "es": "Valor del inventario al inicio del período"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Ending Inventory",
         "tr": "Bitiş Envanteri",
         "de": "Endbestand",
-        "fr": "Ending Inventory",
-        "es": "Ending Inventory",
+        "fr": "Stock final",
+        "es": "Inventario final",
         "ar": "Ending Inventory"
       },
       "businessContext_i18n": {
         "en": "Inventory value at the end of the period",
-        "tr": "Dönem sonundaki stok değeri"
+        "tr": "Dönem sonundaki stok değeri",
+        "de": "Lagerbestand am Ende des Zeitraums",
+        "fr": "Valeur des stocks en fin de période",
+        "es": "Valor del inventario al final del período"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Days in Period",
         "tr": "Dönemdeki Gün Sayısı",
         "de": "Tage im Zeitraum",
-        "fr": "Days in Period",
-        "es": "Days in Period",
+        "fr": "Jours dans la période",
+        "es": "Días del período",
         "ar": "Days in Period"
       },
       "businessContext_i18n": {
         "en": "Number of days in the period (e.g., 365 for annual)",
-        "tr": "Dönemdeki gün sayısı (örneğin, yıllık için 365)"
+        "tr": "Dönemdeki gün sayısı (örneğin, yıllık için 365)",
+        "de": "Anzahl der Tage im Zeitraum (z. B. 365 für jährlich)",
+        "fr": "Nombre de jours dans la période (ex. 365 pour annuel)",
+        "es": "Número de días del período (ej.: 365 para anual)"
       }
     }
   ],

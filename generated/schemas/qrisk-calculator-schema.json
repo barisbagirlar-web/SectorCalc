@@ -12,14 +12,16 @@
         "en": "Age (years)",
         "tr": "Yaş (yıl)",
         "de": "Alter (Jahre)",
-        "fr": "Age (years)",
-        "es": "Age (years)",
+        "fr": "Âge (années)",
+        "es": "Edad (años)",
         "ar": "Age (years)"
       },
       "businessContext_i18n": {
         "en": "Patient age",
         "tr": "Hasta yaşı",
-        "de": "Patientenalter"
+        "de": "Patientenalter",
+        "fr": "Âge du patient",
+        "es": "Edad del paciente"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Systolic Blood Pressure",
         "tr": "Sistolik Kan Basıncı",
         "de": "Systolischer Blutdruck",
-        "fr": "Systolic Blood Pressure",
-        "es": "Systolic Blood Pressure",
+        "fr": "Pression artérielle systolique",
+        "es": "Presión arterial sistólica",
         "ar": "Systolic Blood Pressure"
       },
       "businessContext_i18n": {
         "en": "Systolic blood pressure reading",
         "tr": "Sistolik kan basıncı değeri",
-        "de": "Systolischer Blutdruckwert"
+        "de": "Systolischer Blutdruckwert",
+        "fr": "Lecture de la pression artérielle systolique",
+        "es": "Lectura de presión arterial sistólica"
       }
     },
     {
@@ -54,13 +58,16 @@
         "en": "Total Cholesterol",
         "tr": "Toplam Kolesterol",
         "de": "Gesamtcholesterin",
-        "fr": "Total Cholesterol",
-        "es": "Total Cholesterol",
+        "fr": "Cholestérol total",
+        "es": "Colesterol total",
         "ar": "Total Cholesterol"
       },
       "businessContext_i18n": {
         "en": "Total cholesterol level",
-        "tr": "Toplam kolesterol seviyesi"
+        "tr": "Toplam kolesterol seviyesi",
+        "de": "Gesamtcholesterinspiegel",
+        "fr": "Taux de cholestérol total",
+        "es": "Nivel de colesterol total"
       }
     },
     {
@@ -74,13 +81,16 @@
         "en": "HDL Cholesterol",
         "tr": "HDL Kolesterol",
         "de": "HDL-Cholesterin",
-        "fr": "HDL Cholesterol",
-        "es": "HDL Cholesterol",
+        "fr": "Cholestérol HDL",
+        "es": "Colesterol HDL",
         "ar": "HDL Cholesterol"
       },
       "businessContext_i18n": {
         "en": "High-density lipoprotein cholesterol",
-        "tr": "Yüksek yoğunluklu lipoprotein kolesterol"
+        "tr": "Yüksek yoğunluklu lipoprotein kolesterol",
+        "de": "High-Density-Lipoprotein-Cholesterin",
+        "fr": "Cholestérol à lipoprotéines de haute densité",
+        "es": "Colesterol de lipoproteínas de alta densidad"
       }
     },
     {
@@ -93,14 +103,17 @@
       "label_i18n": {
         "en": "Smoking Status (0/1)",
         "tr": "Sigara İçme Durumu (0/1)",
-        "de": "Smoking Status (0/1)",
-        "fr": "Smoking Status (0/1)",
-        "es": "Smoking Status (0/1)",
+        "de": "Raucherstatus (0/1)",
+        "fr": "Statut tabagique (0/1)",
+        "es": "Estado de fumador (0/1)",
         "ar": "Smoking Status (0/1)"
       },
       "businessContext_i18n": {
         "en": "Current smoker (yes=1, no=0)",
-        "tr": "Mevcut sigara içicisi (evet=1, hayır=0)"
+        "tr": "Mevcut sigara içicisi (evet=1, hayır=0)",
+        "de": "Aktueller Raucher (ja=1, nein=0)",
+        "fr": "Fumeur actuel (oui=1, non=0)",
+        "es": "Fumador actual (sí=1, no=0)"
       }
     },
     {
@@ -113,14 +126,17 @@
       "label_i18n": {
         "en": "Diabetes Status (0/1)",
         "tr": "Diyabet Durumu (0/1)",
-        "de": "Diabetes Status (0/1)",
-        "fr": "Diabetes Status (0/1)",
-        "es": "Diabetes Status (0/1)",
+        "de": "Diabetesstatus (0/1)",
+        "fr": "Statut diabétique (0/1)",
+        "es": "Estado de diabetes (0/1)",
         "ar": "Diabetes Status (0/1)"
       },
       "businessContext_i18n": {
         "en": "Diabetes diagnosis (yes=1, no=0)",
-        "tr": "Diyabet teşhisi (evet=1, hayır=0)"
+        "tr": "Diyabet teşhisi (evet=1, hayır=0)",
+        "de": "Diabetesdiagnose (ja=1, nein=0)",
+        "fr": "Diagnostic de diabète (oui=1, non=0)",
+        "es": "Diagnóstico de diabetes (sí=1, no=0)"
       }
     }
   ],

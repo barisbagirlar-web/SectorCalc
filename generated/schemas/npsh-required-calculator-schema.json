@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Rotational Speed (N)",
         "tr": "Dönüş Hızı (N)",
-        "de": "Rotational Speed (N)",
-        "fr": "Rotational Speed (N)",
-        "es": "Rotational Speed (N)",
+        "de": "Drehzahl (N)",
+        "fr": "Vitesse de rotation (N)",
+        "es": "Velocidad de rotación (N)",
         "ar": "Rotational Speed (N)"
       },
       "businessContext_i18n": {
         "en": "Pump shaft rotational speed in revolutions per minute (rpm).",
-        "tr": "Pompa milinin dakikadaki devir sayısı (rpm)."
+        "tr": "Pompa milinin dakikadaki devir sayısı (rpm).",
+        "de": "Wellendrehzahl der Pumpe in Umdrehungen pro Minute (rpm).",
+        "fr": "Vitesse de rotation de l'arbre de la pompe en tours par minute (tr/min).",
+        "es": "Velocidad de rotación del eje de la bomba en revoluciones por minuto (rpm)."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Flow Rate (Q)",
         "tr": "Debi (Q)",
-        "de": "Flow Rate (Q)",
-        "fr": "Flow Rate (Q)",
-        "es": "Flow Rate (Q)",
+        "de": "Durchflussrate (Q)",
+        "fr": "Débit (Q)",
+        "es": "Caudal (Q)",
         "ar": "Flow Rate (Q)"
       },
       "businessContext_i18n": {
         "en": "Pump flow rate in US gallons per minute (gpm).",
-        "tr": "Pompa debisi, ABD galonu/dakika (gpm) cinsinden."
+        "tr": "Pompa debisi, ABD galonu/dakika (gpm) cinsinden.",
+        "de": "Durchflussrate der Pumpe in US-Gallonen pro Minute (gpm).",
+        "fr": "Débit de la pompe en gallons US par minute (gpm).",
+        "es": "Caudal de la bomba en galones estadounidenses por minuto (gpm)."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Suction Specific Speed (S)",
         "tr": "Emme Özgül Hızı (S)",
-        "de": "Suction Specific Speed (S)",
-        "fr": "Suction Specific Speed (S)",
-        "es": "Suction Specific Speed (S)",
+        "de": "Saugspezifische Drehzahl (S)",
+        "fr": "Vitesse spécifique d'aspiration (S)",
+        "es": "Velocidad específica de succión (S)",
         "ar": "Suction Specific Speed (S)"
       },
       "businessContext_i18n": {
         "en": "Pump suction specific speed (Nss) in US customary units (rpm, gpm, ft). Typical range 7000–12000.",
-        "tr": "Pompa emme özgül hızı (Nss), ABD birimlerinde (rpm, gpm, ft). Tipik aralık 7000–12000."
+        "tr": "Pompa emme özgül hızı (Nss), ABD birimlerinde (rpm, gpm, ft). Tipik aralık 7000–12000.",
+        "de": "Saugspezifische Drehzahl der Pumpe (Nss) in US-üblichen Einheiten (rpm, gpm, ft). Typischer Bereich 7000–12000.",
+        "fr": "Vitesse spécifique d'aspiration de la pompe (Nss) en unités US (tr/min, gpm, ft). Plage typique 7000–12000.",
+        "es": "Velocidad específica de succión de la bomba (Nss) en unidades habituales de EE. UU. (rpm, gpm, ft). Rango típico 7000–12000."
       }
     }
   ],

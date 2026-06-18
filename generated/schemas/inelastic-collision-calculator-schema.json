@@ -12,13 +12,16 @@
         "en": "Mass of Object 1",
         "tr": "Nesne 1'in Kütlesi",
         "de": "Mass of Object 1",
-        "fr": "Mass of Object 1",
-        "es": "Mass of Object 1",
+        "fr": "Masse de l'objet 1",
+        "es": "Masa del objeto 1",
         "ar": "Mass of Object 1"
       },
       "businessContext_i18n": {
         "en": "Mass of the first object in the collision.",
-        "tr": "Çarpışmadaki ilk nesnenin kütlesi."
+        "tr": "Çarpışmadaki ilk nesnenin kütlesi.",
+        "de": "Mass of the first object in the collision.",
+        "fr": "Masse du premier objet dans la collision.",
+        "es": "Masa del primer objeto en la colisión."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Initial Velocity of Object 1",
         "tr": "Nesne 1'in Başlangıç Hızı",
         "de": "Initial Velocity of Object 1",
-        "fr": "Initial Velocity of Object 1",
-        "es": "Initial Velocity of Object 1",
+        "fr": "Vitesse initiale de l'objet 1",
+        "es": "Velocidad inicial del objeto 1",
         "ar": "Initial Velocity of Object 1"
       },
       "businessContext_i18n": {
         "en": "Initial velocity of object 1 before collision, positive direction.",
-        "tr": "Nesne 1'in çarpışmadan önceki başlangıç hızı, pozitif yön."
+        "tr": "Nesne 1'in çarpışmadan önceki başlangıç hızı, pozitif yön.",
+        "de": "Initial velocity of object 1 before collision, positive direction.",
+        "fr": "Vitesse initiale de l'objet 1 avant la collision, direction positive.",
+        "es": "Velocidad inicial del objeto 1 antes de la colisión, dirección positiva."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Mass of Object 2",
         "tr": "Nesne 2'nin Kütlesi",
         "de": "Mass of Object 2",
-        "fr": "Mass of Object 2",
-        "es": "Mass of Object 2",
+        "fr": "Masse de l'objet 2",
+        "es": "Masa del objeto 2",
         "ar": "Mass of Object 2"
       },
       "businessContext_i18n": {
         "en": "Mass of the second object in the collision.",
-        "tr": "Çarpışmadaki ikinci nesnenin kütlesi."
+        "tr": "Çarpışmadaki ikinci nesnenin kütlesi.",
+        "de": "Mass of the second object in the collision.",
+        "fr": "Masse du second objet dans la collision.",
+        "es": "Masa del segundo objeto en la colisión."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Initial Velocity of Object 2",
         "tr": "Nesne 2'nin Başlangıç Hızı",
         "de": "Initial Velocity of Object 2",
-        "fr": "Initial Velocity of Object 2",
-        "es": "Initial Velocity of Object 2",
+        "fr": "Vitesse initiale de l'objet 2",
+        "es": "Velocidad inicial del objeto 2",
         "ar": "Initial Velocity of Object 2"
       },
       "businessContext_i18n": {
         "en": "Initial velocity of object 2 before collision, negative if opposite direction.",
-        "tr": "Nesne 2'nin çarpışmadan önceki başlangıç hızı, ters yönde ise negatif."
+        "tr": "Nesne 2'nin çarpışmadan önceki başlangıç hızı, ters yönde ise negatif.",
+        "de": "Initial velocity of object 2 before collision, negative if opposite direction.",
+        "fr": "Vitesse initiale de l'objet 2 avant la collision, négative si direction opposée.",
+        "es": "Velocidad inicial del objeto 2 antes de la colisión, negativa si es dirección opuesta."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Coefficient of Restitution",
         "tr": "Restitüsyon Katsayısı",
         "de": "Restitutionskoeffizient",
-        "fr": "Coefficient of Restitution",
-        "es": "Coefficient of Restitution",
+        "fr": "Coefficient de restitution",
+        "es": "Coeficiente de restitución",
         "ar": "Coefficient of Restitution"
       },
       "businessContext_i18n": {
         "en": "Ratio of relative speed after collision to before collision. Range 0 to 1.",
-        "tr": "Çarpışma sonrası bağıl hızın çarpışma öncesine oranı. 0 ile 1 arasında."
+        "tr": "Çarpışma sonrası bağıl hızın çarpışma öncesine oranı. 0 ile 1 arasında.",
+        "de": "Ratio of relative speed after collision to before collision. Range 0 to 1.",
+        "fr": "Rapport de la vitesse relative après collision sur avant collision. Plage de 0 à 1.",
+        "es": "Relación de velocidad relativa después de la colisión respecto a antes. Rango 0 a 1."
       }
     }
   ],

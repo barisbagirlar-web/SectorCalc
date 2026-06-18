@@ -23,12 +23,16 @@
       "label_i18n": {
         "en": "Compressor Flow Rate",
         "tr": "Kompresör Debisi",
-        "de": "Kompressor-Durchflussrate"
+        "de": "Kompressor-Durchflussrate",
+        "fr": "Débit du compresseur",
+        "es": "Caudal del compresor"
       },
       "businessContext_i18n": {
         "en": "Rated free air delivery of the compressor at standard conditions.",
         "tr": "Kompresörün standart koşullardaki anma serbest hava debisi.",
-        "de": "Nenn-Liefermenge des Kompressors bei Standardbedingungen."
+        "de": "Nenn-Liefermenge des Kompressors bei Standardbedingungen.",
+        "fr": "Débit d'air libre nominal du compresseur dans des conditions standard.",
+        "es": "Suministro de aire libre nominal del compresor en condiciones estándar."
       }
     },
     {
@@ -43,12 +47,16 @@
       "label_i18n": {
         "en": "Average Demand Flow Rate",
         "tr": "Ortalama Talep Debisi",
-        "de": "Durchschnittliche Bedarfs-Durchflussrate"
+        "de": "Durchschnittliche Bedarfs-Durchflussrate",
+        "fr": "Débit moyen de la demande",
+        "es": "Caudal de demanda promedio"
       },
       "businessContext_i18n": {
         "en": "Average compressed air consumption of the system.",
         "tr": "Sistemin ortalama basınçlı hava tüketimi.",
-        "de": "Durchschnittlicher Druckluftverbrauch des Systems."
+        "de": "Durchschnittlicher Druckluftverbrauch des Systems.",
+        "fr": "Consommation moyenne d'air comprimé du système.",
+        "es": "Consumo promedio de aire comprimido del sistema."
       }
     },
     {
@@ -63,12 +71,16 @@
       "label_i18n": {
         "en": "Peak Demand Flow Rate",
         "tr": "Tepe Talep Debisi",
-        "de": "Spitzenbedarfs-Durchflussrate"
+        "de": "Spitzenbedarfs-Durchflussrate",
+        "fr": "Débit de pointe de la demande",
+        "es": "Caudal de demanda pico"
       },
       "businessContext_i18n": {
         "en": "Maximum instantaneous demand during operation.",
         "tr": "Çalışma sırasında maksimum anlık talep.",
-        "de": "Maximaler momentaner Bedarf während des Betriebs."
+        "de": "Maximaler momentaner Bedarf während des Betriebs.",
+        "fr": "Demande instantanée maximale pendant le fonctionnement.",
+        "es": "Demanda máxima instantánea durante la operación."
       }
     },
     {
@@ -83,12 +95,16 @@
       "label_i18n": {
         "en": "Peak Demand Duration",
         "tr": "Tepe Talep Süresi",
-        "de": "Spitzenbedarfsdauer"
+        "de": "Spitzenbedarfsdauer",
+        "fr": "Durée de la demande de pointe",
+        "es": "Duración de la demanda pico"
       },
       "businessContext_i18n": {
         "en": "Duration of the peak demand event.",
         "tr": "Tepe talep olayının süresi.",
-        "de": "Dauer des Spitzenbedarfsereignisses."
+        "de": "Dauer des Spitzenbedarfsereignisses.",
+        "fr": "Durée de l'événement de demande de pointe.",
+        "es": "Duración del evento de demanda pico."
       }
     },
     {
@@ -103,12 +119,16 @@
       "label_i18n": {
         "en": "System Operating Pressure",
         "tr": "Sistem Çalışma Basıncı",
-        "de": "Systembetriebsdruck"
+        "de": "Systembetriebsdruck",
+        "fr": "Pression de fonctionnement du système",
+        "es": "Presión de operación del sistema"
       },
       "businessContext_i18n": {
         "en": "Nominal pressure at which the system operates.",
         "tr": "Sistemin çalıştığı nominal basınç.",
-        "de": "Nenndruck, bei dem das System arbeitet."
+        "de": "Nenndruck, bei dem das System arbeitet.",
+        "fr": "Pression nominale à laquelle le système fonctionne.",
+        "es": "Presión nominal a la que opera el sistema."
       }
     },
     {
@@ -123,12 +143,16 @@
       "label_i18n": {
         "en": "Allowable Pressure Differential",
         "tr": "İzin Verilen Basınç Farkı",
-        "de": "Zulässige Druckdifferenz"
+        "de": "Zulässige Druckdifferenz",
+        "fr": "Différentiel de pression admissible",
+        "es": "Diferencial de presión admisible"
       },
       "businessContext_i18n": {
         "en": "Maximum acceptable pressure drop during peak event.",
         "tr": "Tepe olayı sırasında izin verilen maksimum basınç düşüşü.",
-        "de": "Maximal akzeptabler Druckabfall während des Spitzenereignisses."
+        "de": "Maximal akzeptabler Druckabfall während des Spitzenereignisses.",
+        "fr": "Chute de pression maximale acceptable pendant un événement de pointe.",
+        "es": "Caída de presión máxima aceptable durante el evento pico."
       }
     },
     {
@@ -146,12 +170,16 @@
       "label_i18n": {
         "en": "Compressor Control Type",
         "tr": "Kompresör Kontrol Tipi",
-        "de": "Kompressor-Regelungsart"
+        "de": "Kompressor-Regelungsart",
+        "fr": "Type de régulation du compresseur",
+        "es": "Tipo de control del compresor"
       },
       "businessContext_i18n": {
         "en": "Type of compressor capacity control, affects tank sizing factor.",
         "tr": "Kompresör kapasite kontrol tipi, tank boyutlandırma faktörünü etkiler.",
-        "de": "Art der Kompressorleistungsregelung, beeinflusst den Tankdimensionierungsfaktor."
+        "de": "Art der Kompressorleistungsregelung, beeinflusst den Tankdimensionierungsfaktor.",
+        "fr": "Type de régulation de capacité du compresseur, affecte le facteur de dimensionnement du réservoir.",
+        "es": "Tipo de control de capacidad del compresor, afecta el factor de dimensionamiento del tanque."
       },
       "unit": "unit"
     },
@@ -167,12 +195,16 @@
       "label_i18n": {
         "en": "Ambient Temperature",
         "tr": "Ortam Sıcaklığı",
-        "de": "Umgebungstemperatur"
+        "de": "Umgebungstemperatur",
+        "fr": "Température ambiante",
+        "es": "Temperatura ambiente"
       },
       "businessContext_i18n": {
         "en": "Average ambient temperature at compressor location.",
         "tr": "Kompresör konumundaki ortalama ortam sıcaklığı.",
-        "de": "Durchschnittliche Umgebungstemperatur am Kompressorstandort."
+        "de": "Durchschnittliche Umgebungstemperatur am Kompressorstandort.",
+        "fr": "Température ambiante moyenne à l'emplacement du compresseur.",
+        "es": "Temperatura ambiente promedio en la ubicación del compresor."
       }
     }
   ],

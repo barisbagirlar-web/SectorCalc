@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Angle (x)",
         "tr": "Açı (x)",
-        "de": "Angle (x)",
+        "de": "Winkel (x)",
         "fr": "Angle (x)",
         "es": "Angle (x)",
         "ar": "Angle (x)"
       },
       "businessContext_i18n": {
         "en": "Input angle in degrees for trigonometric and sinusoidal function evaluation.",
-        "tr": "Trigonometrik ve sinüzoidal fonksiyon değerlendirmesi için derece cinsinden giriş açısı."
+        "tr": "Trigonometrik ve sinüzoidal fonksiyon değerlendirmesi için derece cinsinden giriş açısı.",
+        "de": "Eingabewinkel in Grad für die Auswertung trigonometrischer und sinusförmiger Funktionen.",
+        "fr": "Angle d'entrée en degrés pour l'évaluation des fonctions trigonométriques et sinusoïdales."
       }
     },
     {
@@ -33,12 +35,14 @@
         "tr": "Genlik (A)",
         "de": "Amplitude (A)",
         "fr": "Amplitude (A)",
-        "es": "Amplitude (A)",
+        "es": "Amplitud (A)",
         "ar": "Amplitude (A)"
       },
       "businessContext_i18n": {
         "en": "Amplitude of the sinusoidal function.",
-        "tr": "Sinüzoidal fonksiyonun genliği."
+        "tr": "Sinüzoidal fonksiyonun genliği.",
+        "de": "Amplitude der Sinusfunktion.",
+        "fr": "Amplitude de la fonction sinusoïdale."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Frequency (B)",
         "tr": "Frekans (B)",
-        "de": "Frequency (B)",
-        "fr": "Frequency (B)",
+        "de": "Frequenz (B)",
+        "fr": "Fréquence (B)",
         "es": "Frequency (B)",
         "ar": "Frequency (B)"
       },
       "businessContext_i18n": {
         "en": "Frequency factor, radians per degree.",
-        "tr": "Derece başına radyan cinsinden frekans faktörü."
+        "tr": "Derece başına radyan cinsinden frekans faktörü.",
+        "de": "Frequenzfaktor, Bogenmaß pro Grad.",
+        "fr": "Facteur de fréquence, radians par degré."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Phase Shift (C)",
         "tr": "Faz Kayması (C)",
-        "de": "Phase Shift (C)",
-        "fr": "Phase Shift (C)",
+        "de": "Phasenverschiebung (C)",
+        "fr": "Déphasage (C)",
         "es": "Phase Shift (C)",
         "ar": "Phase Shift (C)"
       },
       "businessContext_i18n": {
         "en": "Phase shift in radians.",
-        "tr": "Radyan cinsinden faz kayması."
+        "tr": "Radyan cinsinden faz kayması.",
+        "de": "Phasenverschiebung im Bogenmaß.",
+        "fr": "Déphasage en radians."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Vertical Shift (D)",
         "tr": "Dikey Kayma (D)",
-        "de": "Vertical Shift (D)",
-        "fr": "Vertical Shift (D)",
+        "de": "Vertikale Verschiebung (D)",
+        "fr": "Décalage vertical (D)",
         "es": "Vertical Shift (D)",
         "ar": "Vertical Shift (D)"
       },
       "businessContext_i18n": {
         "en": "Vertical shift of the sinusoidal function.",
-        "tr": "Sinus fonksiyonunun dikey kayması."
+        "tr": "Sinus fonksiyonunun dikey kayması.",
+        "de": "Vertikale Verschiebung der Sinusfunktion.",
+        "fr": "Décalage vertical de la fonction sinusoïdale."
       }
     }
   ],

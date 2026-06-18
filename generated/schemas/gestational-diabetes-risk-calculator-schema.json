@@ -12,14 +12,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Maternal age at conception",
         "tr": "Gebe kalma anındaki anne yaşı",
-        "de": "Mütterliches Alter bei Empfängnis"
+        "de": "Mütterliches Alter bei Empfängnis",
+        "fr": "Âge maternel à la conception",
+        "es": "Edad materna en la concepción"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "BMI",
         "tr": "VKİ",
         "de": "BMI",
-        "fr": "BMI",
-        "es": "BMI",
+        "fr": "IMC",
+        "es": "IMC",
         "ar": "BMI"
       },
       "businessContext_i18n": {
         "en": "Pre-pregnancy body mass index",
         "tr": "Gebelik öncesi vücut kitle indeksi",
-        "de": "Body-Mass-Index vor der Schwangerschaft"
+        "de": "Body-Mass-Index vor der Schwangerschaft",
+        "fr": "Indice de masse corporelle avant la grossesse",
+        "es": "Índice de masa corporal pregestacional"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Family History of Diabetes",
         "tr": "Ailede diyabet öyküsü",
         "de": "Familienanamnese Diabetes",
-        "fr": "Family History of Diabetes",
-        "es": "Family History of Diabetes",
+        "fr": "Antécédents familiaux de diabète",
+        "es": "Antecedentes familiares de diabetes",
         "ar": "Family History of Diabetes"
       },
       "businessContext_i18n": {
         "en": "First-degree relative with diabetes (1 if yes, 0 if no)",
         "tr": "Birinci derece akrabada diyabet (varsa 1, yoksa 0)",
-        "de": "Verwandter ersten Grades mit Diabetes (1 wenn ja, 0 wenn nein)"
+        "de": "Verwandter ersten Grades mit Diabetes (1 wenn ja, 0 wenn nein)",
+        "fr": "Parent au premier degré atteint de diabète (1 si oui, 0 si non)",
+        "es": "Familiar de primer grado con diabetes (1 si sí, 0 si no)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Previous Gestational Diabetes",
         "tr": "Önceki gestasyonel diyabet",
         "de": "Vorheriger Schwangerschaftsdiabetes",
-        "fr": "Previous Gestational Diabetes",
-        "es": "Previous Gestational Diabetes",
+        "fr": "Diabète gestationnel antérieur",
+        "es": "Diabetes gestacional previa",
         "ar": "Previous Gestational Diabetes"
       },
       "businessContext_i18n": {
         "en": "History of gestational diabetes in prior pregnancy (1 if yes, 0 if no)",
         "tr": "Önceki gebelikte gestasyonel diyabet öyküsü (varsa 1, yoksa 0)",
-        "de": "Vorgeschichte von Schwangerschaftsdiabetes in früherer Schwangerschaft (1 wenn ja, 0 wenn nein)"
+        "de": "Vorgeschichte von Schwangerschaftsdiabetes in früherer Schwangerschaft (1 wenn ja, 0 wenn nein)",
+        "fr": "Antécédent de diabète gestationnel lors d'une grossesse précédente (1 si oui, 0 si non)",
+        "es": "Antecedentes de diabetes gestacional en embarazo anterior (1 si sí, 0 si no)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Ethnicity Risk Factor",
         "tr": "Etnik köken risk faktörü",
         "de": "Ethnischer Risikofaktor",
-        "fr": "Ethnicity Risk Factor",
-        "es": "Ethnicity Risk Factor",
+        "fr": "Facteur de risque lié à l'origine ethnique",
+        "es": "Factor de riesgo étnico",
         "ar": "Ethnicity Risk Factor"
       },
       "businessContext_i18n": {
         "en": "High-risk ethnicity score (e.g., South Asian=2, Hispanic=1.5, Caucasian=1, etc.)",
         "tr": "Yüksek riskli etnik köken puanı (ör. Güney Asyalı=2, Hispanik=1.5, Kafkas=1, vb.)",
-        "de": "Ethnischer Risikoscore (z. B. Südasiatisch=2, Hispanoamerikanisch=1,5, Kaukasisch=1 usw.)"
+        "de": "Ethnischer Risikoscore (z. B. Südasiatisch=2, Hispanoamerikanisch=1,5, Kaukasisch=1 usw.)",
+        "fr": "Score de risque ethnique élevé (ex. : Asiatique du Sud=2, Hispanique=1,5, Caucasien=1, etc.)",
+        "es": "Puntuación de riesgo étnico alto (ej. Surasiático=2, Hispano=1.5, Caucásico=1, etc.)"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Fasting Plasma Glucose",
         "tr": "Açlık plazma glukozu",
         "de": "Nüchtern-Plasmaglukose",
-        "fr": "Fasting Plasma Glucose",
-        "es": "Fasting Plasma Glucose",
+        "fr": "Glycémie à jeun",
+        "es": "Glucosa plasmática en ayunas",
         "ar": "Fasting Plasma Glucose"
       },
       "businessContext_i18n": {
         "en": "First trimester fasting glucose level",
         "tr": "İlk trimester açlık glukoz seviyesi",
-        "de": "Nüchternblutzucker im ersten Trimester"
+        "de": "Nüchternblutzucker im ersten Trimester",
+        "fr": "Glycémie à jeun au premier trimestre",
+        "es": "Nivel de glucosa en ayunas del primer trimestre"
       }
     },
     {
@@ -145,7 +157,9 @@
       "businessContext_i18n": {
         "en": "Glycated hemoglobin percentage",
         "tr": "Glikozillenmiş hemoglobin yüzdesi",
-        "de": "Glykiertes Hämoglobin in Prozent"
+        "de": "Glykiertes Hämoglobin in Prozent",
+        "fr": "Pourcentage d'hémoglobine glyquée",
+        "es": "Porcentaje de hemoglobina glicosilada"
       }
     },
     {
@@ -159,14 +173,16 @@
         "en": "Triglycerides",
         "tr": "Trigliserit",
         "de": "Triglyceride",
-        "fr": "Triglycerides",
-        "es": "Triglycerides",
+        "fr": "Triglycérides",
+        "es": "Triglicéridos",
         "ar": "Triglycerides"
       },
       "businessContext_i18n": {
         "en": "Fasting triglyceride level",
         "tr": "Açlık trigliserit seviyesi",
-        "de": "Nüchtern-Triglyceridspiegel"
+        "de": "Nüchtern-Triglyceridspiegel",
+        "fr": "Triglycérides à jeun",
+        "es": "Nivel de triglicéridos en ayunas"
       }
     }
   ],

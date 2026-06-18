@@ -12,13 +12,16 @@
         "en": "Number of Servings",
         "tr": "Porsiyon Sayısı",
         "de": "Anzahl der Portionen",
-        "fr": "Number of Servings",
-        "es": "Number of Servings",
+        "fr": "Nombre de portions",
+        "es": "Número de porciones",
         "ar": "Number of Servings"
       },
       "businessContext_i18n": {
         "en": "Number of portions to prepare.",
-        "tr": "Hazırlanacak porsiyon sayısı."
+        "tr": "Hazırlanacak porsiyon sayısı.",
+        "de": "Anzahl der zuzubereitenden Portionen.",
+        "fr": "Nombre de portions à préparer.",
+        "es": "Número de porciones a preparar."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Pasta per Portion",
         "tr": "Porsiyon başına makarna",
-        "de": "Pasta per Portion",
-        "fr": "Pasta per Portion",
-        "es": "Pasta per Portion",
+        "de": "Nudeln pro Portion",
+        "fr": "Pâtes par portion",
+        "es": "Pasta por porción",
         "ar": "Pasta per Portion"
       },
       "businessContext_i18n": {
         "en": "Dry pasta weight per person in grams. Standard is 80-100g.",
-        "tr": "Kişi başı kuru makarna ağırlığı gram cinsinden. Standart 80-100g."
+        "tr": "Kişi başı kuru makarna ağırlığı gram cinsinden. Standart 80-100g.",
+        "de": "Trockennudelgewicht pro Person in Gramm. Standard sind 80-100g.",
+        "fr": "Poids sec des pâtes par personne en grammes. Standard 80-100g.",
+        "es": "Peso de pasta seca por persona en gramos. Estándar: 80-100 g."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Water Ratio",
         "tr": "Su oranı",
-        "de": "Water Ratio",
-        "fr": "Water Ratio",
-        "es": "Water Ratio",
+        "de": "Wasserverhältnis",
+        "fr": "Ratio d'eau",
+        "es": "Proporción de agua",
         "ar": "Water Ratio"
       },
       "businessContext_i18n": {
         "en": "Water needed per kilogram of dry pasta. Typically 10 liters per kg.",
-        "tr": "Kilogram kuru makarna başına gereken su. Tipik olarak kg başına 10 litre."
+        "tr": "Kilogram kuru makarna başına gereken su. Tipik olarak kg başına 10 litre.",
+        "de": "Wasserbedarf pro Kilogramm Trockennudeln. Typischerweise 10 Liter pro kg.",
+        "fr": "Eau nécessaire par kilogramme de pâtes sèches. Typiquement 10 litres par kg.",
+        "es": "Agua necesaria por kilogramo de pasta seca. Normalmente 10 litros por kg."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Salt Concentration",
         "tr": "Tuz konsantrasyonu",
-        "de": "Salt Concentration",
-        "fr": "Salt Concentration",
-        "es": "Salt Concentration",
+        "de": "Salzkonzentration",
+        "fr": "Concentration en sel",
+        "es": "Concentración de sal",
         "ar": "Salt Concentration"
       },
       "businessContext_i18n": {
         "en": "Salt added per liter of water. Standard is 10 g/L.",
-        "tr": "Litre su başına eklenen tuz. Standart 10 g/L."
+        "tr": "Litre su başına eklenen tuz. Standart 10 g/L.",
+        "de": "Salzzugabe pro Liter Wasser. Standard sind 10 g/L.",
+        "fr": "Sel ajouté par litre d'eau. Standard 10 g/L.",
+        "es": "Sal añadida por litro de agua. Estándar: 10 g/L."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Water Absorption Factor",
         "tr": "Su emme faktörü",
-        "de": "Water Absorption Factor",
-        "fr": "Water Absorption Factor",
-        "es": "Water Absorption Factor",
+        "de": "Wasserabsorptionsfaktor",
+        "fr": "Facteur d'absorption d'eau",
+        "es": "Factor de absorción de agua",
         "ar": "Water Absorption Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier for cooked weight relative to dry weight. Cooked pasta absorbs water. Typical 1.8-2.0.",
-        "tr": "Pişmiş ağırlığın kuru ağırlığa göre çarpanı. Pişmiş makarna su emer. Tipik 1.8-2.0."
+        "tr": "Pişmiş ağırlığın kuru ağırlığa göre çarpanı. Pişmiş makarna su emer. Tipik 1.8-2.0.",
+        "de": "Multiplikator für das Kochgewicht im Verhältnis zum Trockengewicht. Gekochte Nudeln nehmen Wasser auf. Typisch 1,8-2,0.",
+        "fr": "Multiplicateur pour le poids cuit par rapport au poids sec. Les pâtes cuites absorbent l'eau. Typique 1,8-2,0.",
+        "es": "Multiplicador del peso cocido respecto al peso seco. La pasta cocida absorbe agua. Típico: 1,8-2,0."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Calories per 100g Dry",
         "tr": "100g kuru başına kalori",
-        "de": "Calories per 100g Dry",
-        "fr": "Calories per 100g Dry",
-        "es": "Calories per 100g Dry",
+        "de": "Kalorien pro 100g trocken",
+        "fr": "Calories pour 100g sec",
+        "es": "Calorías por 100 g seco",
         "ar": "Calories per 100g Dry"
       },
       "businessContext_i18n": {
         "en": "Energy content per 100 grams of dry pasta (typical 371 kcal).",
-        "tr": "100 gram kuru makarnanın enerji içeriği (tipik 371 kcal)."
+        "tr": "100 gram kuru makarnanın enerji içeriği (tipik 371 kcal).",
+        "de": "Energiegehalt pro 100 Gramm Trockennudeln (typisch 371 kcal).",
+        "fr": "Contenu énergétique pour 100 grammes de pâtes sèches (typique 371 kcal).",
+        "es": "Contenido energético por 100 gramos de pasta seca (típico 371 kcal)."
       }
     }
   ],

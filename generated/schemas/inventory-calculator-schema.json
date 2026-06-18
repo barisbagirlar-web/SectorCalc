@@ -12,14 +12,16 @@
         "en": "Yıllık Talep",
         "tr": "Yıllık Talep",
         "de": "Jährliche Nachfrage",
-        "fr": "Yıllık Talep",
-        "es": "Yıllık Talep",
+        "fr": "Demande annuelle",
+        "es": "Demanda anual",
         "ar": "Yıllık Talep"
       },
       "businessContext_i18n": {
         "en": "Yıllık talep miktarı (adet)",
         "tr": "Yıllık talep miktarı (adet)",
-        "de": "Jährliche Nachfragemenge (Stück)"
+        "de": "Jährliche Nachfragemenge (Stück)",
+        "fr": "Quantité de demande annuelle (pièces)",
+        "es": "Demanda anual (unidades)"
       }
     },
     {
@@ -33,13 +35,16 @@
         "en": "Sipariş Maliyeti",
         "tr": "Sipariş Maliyeti",
         "de": "Bestellkosten",
-        "fr": "Sipariş Maliyeti",
-        "es": "Sipariş Maliyeti",
+        "fr": "Coût de commande",
+        "es": "Costo de pedido",
         "ar": "Sipariş Maliyeti"
       },
       "businessContext_i18n": {
         "en": "Sipariş başına maliyet (TL)",
-        "tr": "Sipariş başına maliyet (TL)"
+        "tr": "Sipariş başına maliyet (TL)",
+        "de": "Kosten pro Bestellung (TL)",
+        "fr": "Coût par commande (TL)",
+        "es": "Costo por pedido (TL)"
       }
     },
     {
@@ -52,14 +57,17 @@
       "label_i18n": {
         "en": "Birim Elde Tutma Maliyeti",
         "tr": "Birim Elde Tutma Maliyeti",
-        "de": "Birim Elde Tutma Maliyeti",
-        "fr": "Birim Elde Tutma Maliyeti",
-        "es": "Birim Elde Tutma Maliyeti",
+        "de": "Lagerhaltungskosten pro Einheit",
+        "fr": "Coût de détention unitaire",
+        "es": "Costo de mantenimiento unitario",
         "ar": "Birim Elde Tutma Maliyeti"
       },
       "businessContext_i18n": {
         "en": "Yıllık birim başına elde tutma maliyeti",
-        "tr": "Yıllık birim başına elde tutma maliyeti"
+        "tr": "Yıllık birim başına elde tutma maliyeti",
+        "de": "Jährliche Lagerhaltungskosten pro Einheit",
+        "fr": "Coût de détention annuel par unité",
+        "es": "Costo de mantenimiento anual por unidad"
       }
     },
     {
@@ -72,14 +80,17 @@
       "label_i18n": {
         "en": "Günlük Talep",
         "tr": "Günlük Talep",
-        "de": "Günlük Talep",
-        "fr": "Günlük Talep",
-        "es": "Günlük Talep",
+        "de": "Täglicher Bedarf",
+        "fr": "Demande quotidienne",
+        "es": "Demanda diaria",
         "ar": "Günlük Talep"
       },
       "businessContext_i18n": {
         "en": "Günlük ortalama talep miktarı",
-        "tr": "Günlük ortalama talep miktarı"
+        "tr": "Günlük ortalama talep miktarı",
+        "de": "Durchschnittliche tägliche Bedarfsmenge",
+        "fr": "Demande quotidienne moyenne",
+        "es": "Cantidad de demanda promedio diaria"
       }
     },
     {
@@ -93,13 +104,16 @@
         "en": "Tedarik Süresi",
         "tr": "Tedarik Süresi",
         "de": "Lieferzeit",
-        "fr": "Tedarik Süresi",
-        "es": "Tedarik Süresi",
+        "fr": "Délai d'approvisionnement",
+        "es": "Plazo de entrega",
         "ar": "Tedarik Süresi"
       },
       "businessContext_i18n": {
         "en": "Siparişin teslim süresi (gün)",
-        "tr": "Siparişin teslim süresi (gün)"
+        "tr": "Siparişin teslim süresi (gün)",
+        "de": "Lieferzeit der Bestellung (Tage)",
+        "fr": "Délai de livraison (jours)",
+        "es": "Plazo de entrega del pedido (días)"
       }
     }
   ],

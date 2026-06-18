@@ -12,14 +12,16 @@
         "en": "Caffeine Dose",
         "tr": "Kafein Dozu",
         "de": "Koffeindosis",
-        "fr": "Caffeine Dose",
-        "es": "Caffeine Dose",
+        "fr": "Dose de caféine",
+        "es": "Dosis de cafeína",
         "ar": "Caffeine Dose"
       },
       "businessContext_i18n": {
         "en": "Amount of caffeine consumed in milligrams. Typical cup of coffee: ~100 mg.",
         "tr": "Miligram cinsinden tüketilen kafein miktarı. Tipik bir fincan kahve: ~100 mg.",
-        "de": "Menge des konsumierten Koffeins in Milligramm. Typische Tasse Kaffee: ~100 mg."
+        "de": "Menge des konsumierten Koffeins in Milligramm. Typische Tasse Kaffee: ~100 mg.",
+        "fr": "Quantité de caféine consommée en milligrammes. Tasse de café typique : ~100 mg.",
+        "es": "Cantidad de cafeína consumida en miligramos. Una taza de café típica: ~100 mg."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Caffeine Half-life",
         "tr": "Kafein Yarılanma Süresi",
         "de": "Koffein-Halbwertszeit",
-        "fr": "Caffeine Half-life",
-        "es": "Caffeine Half-life",
+        "fr": "Demi-vie de la caféine",
+        "es": "Vida media de la cafeína",
         "ar": "Caffeine Half-life"
       },
       "businessContext_i18n": {
         "en": "Elimination half-life of caffeine. Default 5 hours for healthy adults.",
         "tr": "Kafeinin eliminasyon yarılanma süresi. Sağlıklı yetişkinler için varsayılan 5 saat.",
-        "de": "Eliminationshalbwertszeit von Koffein. Standard 5 Stunden für gesunde Erwachsene."
+        "de": "Eliminationshalbwertszeit von Koffein. Standard 5 Stunden für gesunde Erwachsene.",
+        "fr": "Demi-vie d'élimination de la caféine. Par défaut 5 heures pour un adulte sain.",
+        "es": "Vida media de eliminación de la cafeína. Por defecto 5 horas para adultos sanos."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Time Until Sleep",
         "tr": "Uykuya Kadar Geçen Süre",
         "de": "Zeit bis zum Schlafengehen",
-        "fr": "Time Until Sleep",
-        "es": "Time Until Sleep",
+        "fr": "Temps avant le sommeil",
+        "es": "Tiempo hasta dormir",
         "ar": "Time Until Sleep"
       },
       "businessContext_i18n": {
         "en": "Number of hours from caffeine consumption to desired bedtime.",
         "tr": "Kafein tüketiminden istenen yatma saatine kadar geçen saat sayısı.",
-        "de": "Anzahl der Stunden vom Koffeinkonsum bis zur gewünschten Schlafenszeit."
+        "de": "Anzahl der Stunden vom Koffeinkonsum bis zur gewünschten Schlafenszeit.",
+        "fr": "Nombre d'heures entre la consommation de caféine et l'heure de coucher souhaitée.",
+        "es": "Número de horas desde el consumo de cafeína hasta la hora deseada de acostarse."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Tolerance Factor",
         "tr": "Tolerans Faktörü",
         "de": "Toleranzfaktor",
-        "fr": "Tolerance Factor",
-        "es": "Tolerance Factor",
+        "fr": "Facteur de tolérance",
+        "es": "Factor de tolerancia",
         "ar": "Tolerance Factor"
       },
       "businessContext_i18n": {
         "en": "Individual tolerance multiplier: 1=normal, <1 more sensitive, >1 higher tolerance.",
         "tr": "Bireysel tolerans çarpanı: 1=normal, <1 daha hassas, >1 daha yüksek tolerans.",
-        "de": "Individueller Toleranzmultiplikator: 1=normal, <1 empfindlicher, >1 höhere Toleranz."
+        "de": "Individueller Toleranzmultiplikator: 1=normal, <1 empfindlicher, >1 höhere Toleranz.",
+        "fr": "Multiplicateur de tolérance individuelle : 1=normal, <1 plus sensible, >1 tolérance plus élevée.",
+        "es": "Multiplicador de tolerancia individual: 1=normal, <1 más sensible, >1 mayor tolerancia."
       }
     }
   ],

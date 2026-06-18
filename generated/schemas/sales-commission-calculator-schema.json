@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Total Sales",
         "tr": "Toplam Satış",
-        "de": "Total Sales",
-        "fr": "Total Sales",
+        "de": "Gesamtumsatz",
+        "fr": "Ventes totales",
         "es": "Total Sales",
         "ar": "Total Sales"
       },
       "businessContext_i18n": {
         "en": "Total monetary value of sales closed in the commission period.",
-        "tr": "Komisyon döneminde kapatılan satışların toplam parasal değeri."
+        "tr": "Komisyon döneminde kapatılan satışların toplam parasal değeri.",
+        "de": "Gesamter Geldwert der im Provisionszeitraum abgeschlossenen Verkäufe.",
+        "fr": "Valeur monétaire totale des ventes conclues au cours de la période de commission."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Commission Rate",
         "tr": "Komisyon Oranı",
-        "de": "Commission Rate",
-        "fr": "Commission Rate",
-        "es": "Commission Rate",
+        "de": "Provisionssatz",
+        "fr": "Taux de commission",
+        "es": "Comisión",
         "ar": "Commission Rate"
       },
       "businessContext_i18n": {
         "en": "Standard commission rate applied to total sales.",
-        "tr": "Toplam satışlara uygulanan standart komisyon oranı."
+        "tr": "Toplam satışlara uygulanan standart komisyon oranı.",
+        "de": "Standard-Provisionssatz, angewendet auf den Gesamtumsatz.",
+        "fr": "Taux de commission standard appliqué aux ventes totales."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Target Sales",
         "tr": "Hedef Satış",
-        "de": "Target Sales",
-        "fr": "Target Sales",
+        "de": "Zielumsatz",
+        "fr": "Objectif de ventes",
         "es": "Target Sales",
         "ar": "Target Sales"
       },
       "businessContext_i18n": {
         "en": "Sales threshold above which a bonus is earned.",
-        "tr": "Üzerinde prim kazanılan satış eşiği."
+        "tr": "Üzerinde prim kazanılan satış eşiği.",
+        "de": "Umsatzschwellenwert, ab dem ein Bonus verdient wird.",
+        "fr": "Seuil de ventes au-dessus duquel une prime est gagnée."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Bonus Rate",
         "tr": "Prim Oranı",
-        "de": "Bonus Rate",
-        "fr": "Bonus Rate",
+        "de": "Bonusrate",
+        "fr": "Taux de prime",
         "es": "Bonus Rate",
         "ar": "Bonus Rate"
       },
       "businessContext_i18n": {
         "en": "Additional commission rate applied to sales above target.",
-        "tr": "Hedefin üzerindeki satışlara uygulanan ek komisyon oranı."
+        "tr": "Hedefin üzerindeki satışlara uygulanan ek komisyon oranı.",
+        "de": "Zusätzlicher Provisionssatz, angewendet auf Umsätze über dem Ziel.",
+        "fr": "Taux de commission supplémentaire appliqué aux ventes au-dessus de l'objectif."
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Base Salary",
         "tr": "Temel Maaş",
         "de": "Grundgehalt",
-        "fr": "Base Salary",
-        "es": "Base Salary",
+        "fr": "Salaire de base",
+        "es": "Salario base",
         "ar": "Base Salary"
       },
       "businessContext_i18n": {
         "en": "Fixed base salary regardless of sales.",
-        "tr": "Satışlardan bağımsız sabit taban maaş."
+        "tr": "Satışlardan bağımsız sabit taban maaş.",
+        "de": "Festes Grundgehalt unabhängig vom Umsatz.",
+        "fr": "Salaire de base fixe indépendant des ventes."
       }
     }
   ],

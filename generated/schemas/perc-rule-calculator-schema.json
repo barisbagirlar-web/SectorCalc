@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Planned Production Time",
         "tr": "Planlanan Üretim Süresi",
-        "de": "Planned Production Time",
-        "fr": "Planned Production Time",
-        "es": "Planned Production Time",
+        "de": "Geplante Produktionszeit",
+        "fr": "Temps de production planifié",
+        "es": "Tiempo de producción planificado",
         "ar": "Planned Production Time"
       },
       "businessContext_i18n": {
         "en": "Total time planned for production including breaks and expected downtime.",
-        "tr": "Molalar ve beklenen duruşlar dahil üretim için planlanan toplam süre."
+        "tr": "Molalar ve beklenen duruşlar dahil üretim için planlanan toplam süre.",
+        "de": "Gesamte für die Produktion geplante Zeit einschließlich Pausen und erwarteter Ausfallzeiten.",
+        "fr": "Temps total prévu pour la production, y compris les pauses et les arrêts attendus.",
+        "es": "Tiempo total planificado para producción, incluyendo descansos y tiempo de inactividad esperado."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Operating Time",
         "tr": "Çalışma Süresi",
-        "de": "Operating Time",
-        "fr": "Operating Time",
-        "es": "Operating Time",
+        "de": "Betriebszeit",
+        "fr": "Temps de fonctionnement",
+        "es": "Tiempo de operación",
         "ar": "Operating Time"
       },
       "businessContext_i18n": {
         "en": "Actual time the machine was running and producing.",
-        "tr": "Makinenin çalıştığı ve üretim yaptığı fiili süre."
+        "tr": "Makinenin çalıştığı ve üretim yaptığı fiili süre.",
+        "de": "Tatsächliche Zeit, in der die Maschine lief und produzierte.",
+        "fr": "Temps réel pendant lequel la machine a fonctionné et produit.",
+        "es": "Tiempo real en que la máquina estuvo funcionando y produciendo."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Ideal Cycle Time",
         "tr": "İdeal Çevrim Süresi",
-        "de": "Ideal Cycle Time",
-        "fr": "Ideal Cycle Time",
-        "es": "Ideal Cycle Time",
+        "de": "Ideale Taktzeit",
+        "fr": "Temps de cycle idéal",
+        "es": "Tiempo de ciclo ideal",
         "ar": "Ideal Cycle Time"
       },
       "businessContext_i18n": {
         "en": "The theoretical fastest time to produce one unit.",
-        "tr": "Bir birimi üretmek için teorik en hızlı süre."
+        "tr": "Bir birimi üretmek için teorik en hızlı süre.",
+        "de": "Die theoretisch schnellste Zeit zur Herstellung einer Einheit.",
+        "fr": "Le temps théorique le plus rapide pour produire une unité.",
+        "es": "El tiempo teórico más rápido para producir una unidad."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Total Units Produced",
         "tr": "Toplam Üretilen Birim",
-        "de": "Total Units Produced",
-        "fr": "Total Units Produced",
-        "es": "Total Units Produced",
+        "de": "Gesamtproduzierte Einheiten",
+        "fr": "Nombre total d'unités produites",
+        "es": "Unidades totales producidas",
         "ar": "Total Units Produced"
       },
       "businessContext_i18n": {
         "en": "Total number of units produced, including defective ones.",
-        "tr": "Hatalı olanlar dahil üretilen toplam birim sayısı."
+        "tr": "Hatalı olanlar dahil üretilen toplam birim sayısı.",
+        "de": "Gesamtzahl der produzierten Einheiten einschließlich Ausschuss.",
+        "fr": "Nombre total d'unités produites, y compris les défectueuses.",
+        "es": "Número total de unidades producidas, incluyendo las defectuosas."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Defective Units",
         "tr": "Hatalı Birimler",
-        "de": "Defective Units",
-        "fr": "Defective Units",
-        "es": "Defective Units",
+        "de": "Fehlerhafte Einheiten",
+        "fr": "Unités défectueuses",
+        "es": "Unidades defectuosas",
         "ar": "Defective Units"
       },
       "businessContext_i18n": {
         "en": "Units that do not meet quality standards.",
-        "tr": "Kalite standartlarını karşılamayan birimler."
+        "tr": "Kalite standartlarını karşılamayan birimler.",
+        "de": "Einheiten, die nicht den Qualitätsstandards entsprechen.",
+        "fr": "Unités ne répondant pas aux normes de qualité.",
+        "es": "Unidades que no cumplen con los estándares de calidad."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Initial Cost",
         "tr": "Başlangıç Maliyeti",
         "de": "Anschaffungskosten",
-        "fr": "Initial Cost",
-        "es": "Initial Cost",
+        "fr": "Coût initial",
+        "es": "Costo inicial",
         "ar": "Initial Cost"
       },
       "businessContext_i18n": {
         "en": "The purchase price or initial cost of the asset.",
         "tr": "Varlığın satın alma fiyatı veya başlangıç maliyeti.",
-        "de": "Der Kaufpreis oder die Anschaffungskosten des Vermögenswerts."
+        "de": "Der Kaufpreis oder die Anschaffungskosten des Vermögenswerts.",
+        "fr": "Le prix d'achat ou le coût initial de l'actif.",
+        "es": "El precio de compra o costo inicial del activo."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Salvage Value",
         "tr": "Hurda Değeri",
         "de": "Restwert",
-        "fr": "Salvage Value",
-        "es": "Salvage Value",
+        "fr": "Valeur de récupération",
+        "es": "Valor de rescate",
         "ar": "Salvage Value"
       },
       "businessContext_i18n": {
         "en": "The estimated residual value at the end of useful life.",
         "tr": "Faydalı ömür sonunda tahmini hurda değeri.",
-        "de": "Der geschätzte Restwert am Ende der Nutzungsdauer."
+        "de": "Der geschätzte Restwert am Ende der Nutzungsdauer.",
+        "fr": "La valeur résiduelle estimée à la fin de la durée de vie utile.",
+        "es": "El valor residual estimado al final de la vida útil."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Useful Life",
         "tr": "Faydalı Ömür",
         "de": "Nutzungsdauer",
-        "fr": "Useful Life",
-        "es": "Useful Life",
+        "fr": "Durée de vie utile",
+        "es": "Vida útil",
         "ar": "Useful Life"
       },
       "businessContext_i18n": {
         "en": "The expected useful life of the asset in years.",
         "tr": "Varlığın beklenen faydalı ömrü (yıl).",
-        "de": "Die erwartete Nutzungsdauer des Vermögenswerts in Jahren."
+        "de": "Die erwartete Nutzungsdauer des Vermögenswerts in Jahren.",
+        "fr": "La durée de vie utile prévue de l'actif en années.",
+        "es": "La vida útil esperada del activo en años."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Depreciation Factor",
         "tr": "Amortisman Faktörü",
         "de": "Abschreibungsfaktor",
-        "fr": "Depreciation Factor",
-        "es": "Depreciation Factor",
+        "fr": "Facteur d'amortissement",
+        "es": "Factor de depreciación",
         "ar": "Depreciation Factor"
       },
       "businessContext_i18n": {
         "en": "The multiplying factor for straight-line rate (e.g., 2 for double-declining balance).",
         "tr": "Doğrusal amortisman oranı için çarpan faktör (örneğin, çift azalan bakiyeler için 2).",
-        "de": "Der Multiplikator für den linearen Satz (z. B. 2 für degressive Abschreibung)."
+        "de": "Der Multiplikator für den linearen Satz (z. B. 2 für degressive Abschreibung).",
+        "fr": "Le facteur multiplicateur du taux linéaire (par exemple, 2 pour le double amortissement dégressif).",
+        "es": "El factor multiplicador para la tasa lineal (ej. 2 para doble saldo decreciente)."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Year",
         "tr": "Yıl",
         "de": "Jahr",
-        "fr": "Year",
-        "es": "Year",
+        "fr": "Année",
+        "es": "Año",
         "ar": "Year"
       },
       "businessContext_i18n": {
         "en": "The year for which to calculate depreciation (1-based index).",
         "tr": "Amortismanın hesaplanacağı yıl (1 tabanlı indeks).",
-        "de": "Das Jahr, für das die Abschreibung berechnet werden soll (1-basierter Index)."
+        "de": "Das Jahr, für das die Abschreibung berechnet werden soll (1-basierter Index).",
+        "fr": "L'année pour laquelle calculer l'amortissement (index basé sur 1).",
+        "es": "El año para el cual calcular la depreciación (índice basado en 1)."
       }
     }
   ],

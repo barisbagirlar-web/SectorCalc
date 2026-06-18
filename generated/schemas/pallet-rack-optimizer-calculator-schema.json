@@ -22,11 +22,17 @@
       "businessContext": "Total vertical storage height per rack bay, typically 3-18m in high-bay warehouses.",
       "label_i18n": {
         "en": "Rack Height (mm)",
-        "tr": "Raf Yüksekliği (mm)"
+        "tr": "Raf Yüksekliği (mm)",
+        "de": "Regalhöhe (mm)",
+        "fr": "Hauteur du rack (mm)",
+        "es": "Altura del estante (mm)"
       },
       "businessContext_i18n": {
         "en": "Total vertical storage height per rack bay, typically 3-18m in high-bay warehouses.",
-        "tr": "Bir raf bölmesinin toplam dikey depolama yüksekliği, yüksek raflı depolarda tipik olarak 3-18 m."
+        "tr": "Bir raf bölmesinin toplam dikey depolama yüksekliği, yüksek raflı depolarda tipik olarak 3-18 m.",
+        "de": "Gesamte vertikale Lagerhöhe pro Regalfach, typischerweise 3-18 m in Hochregallagern",
+        "fr": "Hauteur de stockage vertical totale par alvéole de rack, généralement 3-18 m dans les entrepôts à haute densité.",
+        "es": "Altura total de almacenamiento vertical por bahía de estante, típicamente 3-18 m en almacenes de altura"
       }
     },
     {
@@ -40,11 +46,17 @@
       "businessContext": "Standard pallet depth (e.g., EUR pallet 1200mm, US pallet 1200mm).",
       "label_i18n": {
         "en": "Pallet Depth (mm)",
-        "tr": "Palet Derinliği (mm)"
+        "tr": "Palet Derinliği (mm)",
+        "de": "Palettentiefe (mm)",
+        "fr": "Profondeur de la palette (mm)",
+        "es": "Profundidad de la paleta (mm)"
       },
       "businessContext_i18n": {
         "en": "Standard pallet depth (e.g., EUR pallet 1200mm, US pallet 1200mm).",
-        "tr": "Standart palet derinliği (örneğin, EUR palet 1200 mm, ABD palet 1200 mm)."
+        "tr": "Standart palet derinliği (örneğin, EUR palet 1200 mm, ABD palet 1200 mm).",
+        "de": "Standard-Palettentiefe (z. B. EUR-Palette 1200 mm, US-Palette 1200 mm)",
+        "fr": "Profondeur standard de la palette (ex. palette EUR 1200 mm, palette US 1200 mm).",
+        "es": "Profundidad estándar de la paleta (ej., paleta EUR 1200 mm, paleta US 1200 mm)"
       }
     },
     {
@@ -58,11 +70,17 @@
       "businessContext": "Standard pallet width (e.g., EUR pallet 800mm, US pallet 1000mm).",
       "label_i18n": {
         "en": "Pallet Width (mm)",
-        "tr": "Palet Genişliği (mm)"
+        "tr": "Palet Genişliği (mm)",
+        "de": "Palettenbreite (mm)",
+        "fr": "Largeur de la palette (mm)",
+        "es": "Ancho de la paleta (mm)"
       },
       "businessContext_i18n": {
         "en": "Standard pallet width (e.g., EUR pallet 800mm, US pallet 1000mm).",
-        "tr": "Standart palet genişliği (örneğin, EUR palet 800 mm, ABD palet 1000 mm)."
+        "tr": "Standart palet genişliği (örneğin, EUR palet 800 mm, ABD palet 1000 mm).",
+        "de": "Standard-Palettenbreite (z. B. EUR-Palette 800 mm, US-Palette 1000 mm)",
+        "fr": "Largeur standard de la palette (ex. palette EUR 800 mm, palette US 1000 mm).",
+        "es": "Ancho estándar de la paleta (ej., paleta EUR 800 mm, paleta US 1000 mm)"
       }
     },
     {
@@ -76,11 +94,17 @@
       "businessContext": "Height of a single loaded pallet including pallet base.",
       "label_i18n": {
         "en": "Pallet Height (mm)",
-        "tr": "Palet Yüksekliği (mm)"
+        "tr": "Palet Yüksekliği (mm)",
+        "de": "Palettenhöhe (mm)",
+        "fr": "Hauteur de la palette (mm)",
+        "es": "Altura de la paleta (mm)"
       },
       "businessContext_i18n": {
         "en": "Height of a single loaded pallet including pallet base.",
-        "tr": "Palet tabanı dahil tek bir yüklü paletin yüksekliği."
+        "tr": "Palet tabanı dahil tek bir yüklü paletin yüksekliği.",
+        "de": "Höhe einer einzelnen beladenen Palette inklusive Palettenunterbau",
+        "fr": "Hauteur d'une palette chargée, y compris la base de la palette.",
+        "es": "Altura de una paleta cargada incluyendo la base de la paleta"
       }
     },
     {
@@ -94,11 +118,17 @@
       "businessContext": "Vertical thickness of horizontal load beams, affects usable height per level.",
       "label_i18n": {
         "en": "Beam Thickness (mm)",
-        "tr": "Kiriş Kalınlığı (mm)"
+        "tr": "Kiriş Kalınlığı (mm)",
+        "de": "Trägerstärke (mm)",
+        "fr": "Épaisseur des traverses (mm)",
+        "es": "Grosor de la viga (mm)"
       },
       "businessContext_i18n": {
         "en": "Vertical thickness of horizontal load beams, affects usable height per level.",
-        "tr": "Yatay yük kirişlerinin dikey kalınlığı, seviye başına kullanılabilir yüksekliği etkiler."
+        "tr": "Yatay yük kirişlerinin dikey kalınlığı, seviye başına kullanılabilir yüksekliği etkiler.",
+        "de": "Vertikale Dicke der horizontalen Lastträger, beeinflusst die nutzbare Höhe pro Ebene",
+        "fr": "Épaisseur verticale des traverses de charge horizontales, affecte la hauteur utile par niveau.",
+        "es": "Grosor vertical de las vigas de carga horizontales, afecta la altura utilizable por nivel"
       }
     },
     {
@@ -112,11 +142,17 @@
       "businessContext": "Safety gap between top of pallet and next beam for handling equipment.",
       "label_i18n": {
         "en": "Vertical Clearance (mm)",
-        "tr": "Dikey Açıklık (mm)"
+        "tr": "Dikey Açıklık (mm)",
+        "de": "Vertikaler Abstand (mm)",
+        "fr": "Jeu vertical (mm)",
+        "es": "Espacio libre vertical (mm)"
       },
       "businessContext_i18n": {
         "en": "Safety gap between top of pallet and next beam for handling equipment.",
-        "tr": "Palet üstü ile bir sonraki kiriş arasında, taşıma ekipmanı için güvenlik boşluğu."
+        "tr": "Palet üstü ile bir sonraki kiriş arasında, taşıma ekipmanı için güvenlik boşluğu.",
+        "de": "Sicherheitsabstand zwischen Palettenoberkante und nächstem Träger für Fördergeräte",
+        "fr": "Écart de sécurité entre le haut de la palette et la poutre suivante pour l'équipement de manutention.",
+        "es": "Espacio de seguridad entre la parte superior de la paleta y la siguiente viga para equipos de manipulación"
       }
     },
     {
@@ -130,11 +166,17 @@
       "businessContext": "Width of forklift travel aisle between rack rows, per OSHA/ISO 3691.",
       "label_i18n": {
         "en": "Aisle Width (mm)",
-        "tr": "Koridor Genişliği (mm)"
+        "tr": "Koridor Genişliği (mm)",
+        "de": "Gangbreite (mm)",
+        "fr": "Largeur d'allée (mm)",
+        "es": "Ancho del pasillo (mm)"
       },
       "businessContext_i18n": {
         "en": "Width of forklift travel aisle between rack rows, per OSHA/ISO 3691.",
-        "tr": "OSHA/ISO 3691'e göre raf sıraları arasındaki forklift geçiş koridoru genişliği."
+        "tr": "OSHA/ISO 3691'e göre raf sıraları arasındaki forklift geçiş koridoru genişliği.",
+        "de": "Breite des Gabelstapler-Durchfahrtsgangs zwischen Regalreihen, gemäß OSHA/ISO 3691.",
+        "fr": "Largeur de l'allée de circulation du chariot élévateur entre les rangées de rayonnages, selon OSHA/ISO 3691.",
+        "es": "Ancho del pasillo de circulación de montacargas entre filas de estanterías, según OSHA/ISO 3691."
       }
     },
     {
@@ -148,11 +190,17 @@
       "businessContext": "Horizontal length of a single rack bay (center-to-center of uprights).",
       "label_i18n": {
         "en": "Rack Bay Length (mm)",
-        "tr": "Raf Bölmesi Uzunluğu (mm)"
+        "tr": "Raf Bölmesi Uzunluğu (mm)",
+        "de": "Regalfeldlänge (mm)",
+        "fr": "Longueur de travée de rayonnage (mm)",
+        "es": "Longitud de la bahía de estantería (mm)"
       },
       "businessContext_i18n": {
         "en": "Horizontal length of a single rack bay (center-to-center of uprights).",
-        "tr": "Tek bir raf bölmesinin yatay uzunluğu (dikmelerin merkezinden merkezine)."
+        "tr": "Tek bir raf bölmesinin yatay uzunluğu (dikmelerin merkezinden merkezine).",
+        "de": "Horizontale Länge eines einzelnen Regalfeldes (Mitte-zu-Mitte der Ständer).",
+        "fr": "Longueur horizontale d'une travée de rayonnage unique (centre à centre des montants).",
+        "es": "Longitud horizontal de una bahía de estantería individual (de centro a centro de los montantes)."
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Standart Elektrot Potansiyeli (E°)",
         "tr": "Standart Elektrot Potansiyeli (E°)",
-        "de": "Standart Elektrot Potansiyeli (E°)",
-        "fr": "Standart Elektrot Potansiyeli (E°)",
-        "es": "Standart Elektrot Potansiyeli (E°)",
+        "de": "Standard-Elektrodenpotential (E°)",
+        "fr": "Potentiel standard d'électrode (E°)",
+        "es": "Potencial de electrodo estándar (E°)",
         "ar": "Standart Elektrot Potansiyeli (E°)"
       },
       "businessContext_i18n": {
         "en": "Redoks yarı hücresinin standart potansiyeli",
-        "tr": "Redoks yarı hücresinin standart potansiyeli"
+        "tr": "Redoks yarı hücresinin standart potansiyeli",
+        "de": "Standardpotential der Redox-Halbzelle",
+        "fr": "Potentiel standard de la demi-cellule redox",
+        "es": "Potencial estándar de la semicelda redox"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Sıcaklık (T)",
         "tr": "Sıcaklık (T)",
         "de": "Temperatur (T)",
-        "fr": "Sıcaklık (T)",
-        "es": "Sıcaklık (T)",
+        "fr": "Température (T)",
+        "es": "Temperatura (T)",
         "ar": "Sıcaklık (T)"
       },
       "businessContext_i18n": {
         "en": "Reaksiyon sıcaklığı",
-        "tr": "Reaksiyon sıcaklığı"
+        "tr": "Reaksiyon sıcaklığı",
+        "de": "Reaktionstemperatur",
+        "fr": "Température de réaction",
+        "es": "Temperatura de reacción"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Aktarılan Elektron Sayısı (n)",
         "tr": "Aktarılan Elektron Sayısı (n)",
-        "de": "Aktarılan Elektron Sayısı (n)",
-        "fr": "Aktarılan Elektron Sayısı (n)",
-        "es": "Aktarılan Elektron Sayısı (n)",
+        "de": "Anzahl der übertragenen Elektronen (n)",
+        "fr": "Nombre d'électrons transférés (n)",
+        "es": "Número de electrones transferidos (n)",
         "ar": "Aktarılan Elektron Sayısı (n)"
       },
       "businessContext_i18n": {
         "en": "Yarı reaksiyonda transfer edilen elektron sayısı",
-        "tr": "Yarı reaksiyonda transfer edilen elektron sayısı"
+        "tr": "Yarı reaksiyonda transfer edilen elektron sayısı",
+        "de": "Anzahl der in der Halbreaktion übertragenen Elektronen",
+        "fr": "Nombre d'électrons transférés dans la demi-réaction",
+        "es": "Número de electrones transferidos en la semirreacción"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Yükseltgenmiş Tür Derişimi [Ox]",
         "tr": "Yükseltgenmiş Tür Derişimi [Ox]",
-        "de": "Yükseltgenmiş Tür Derişimi [Ox]",
-        "fr": "Yükseltgenmiş Tür Derişimi [Ox]",
-        "es": "Yükseltgenmiş Tür Derişimi [Ox]",
+        "de": "Konzentration der oxidierten Spezies [Ox]",
+        "fr": "Concentration de l'espèce oxydée [Ox]",
+        "es": "Concentración de la especie oxidada [Ox]",
         "ar": "Yükseltgenmiş Tür Derişimi [Ox]"
       },
       "businessContext_i18n": {
         "en": "Yükseltgenmiş türün molar derişimi",
-        "tr": "Yükseltgenmiş türün molar derişimi"
+        "tr": "Yükseltgenmiş türün molar derişimi",
+        "de": "Molare Konzentration der oxidierten Spezies",
+        "fr": "Concentration molaire de l'espèce oxydée",
+        "es": "Concentración molar de la especie oxidada"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "İndirgenmiş Tür Derişimi [Red]",
         "tr": "İndirgenmiş Tür Derişimi [Red]",
-        "de": "İndirgenmiş Tür Derişimi [Red]",
-        "fr": "İndirgenmiş Tür Derişimi [Red]",
-        "es": "İndirgenmiş Tür Derişimi [Red]",
+        "de": "Konzentration der reduzierten Spezies [Red]",
+        "fr": "Concentration de l'espèce réduite [Red]",
+        "es": "Concentración de la especie reducida [Red]",
         "ar": "İndirgenmiş Tür Derişimi [Red]"
       },
       "businessContext_i18n": {
         "en": "İndirgenmiş türün molar derişimi",
-        "tr": "İndirgenmiş türün molar derişimi"
+        "tr": "İndirgenmiş türün molar derişimi",
+        "de": "Molare Konzentration der reduzierten Spezies",
+        "fr": "Concentration molaire de l'espèce réduite",
+        "es": "Concentración molar de la especie reducida"
       }
     }
   ],

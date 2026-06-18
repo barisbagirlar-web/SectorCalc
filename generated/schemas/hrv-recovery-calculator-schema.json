@@ -12,13 +12,16 @@
         "en": "Outdoor Temperature",
         "tr": "Dış Ortam Sıcaklığı",
         "de": "Außentemperatur",
-        "fr": "Outdoor Temperature",
-        "es": "Outdoor Temperature",
+        "fr": "Température extérieure",
+        "es": "Temperatura exterior",
         "ar": "Outdoor Temperature"
       },
       "businessContext_i18n": {
         "en": "Outside air temperature",
-        "tr": "Dış hava sıcaklığı"
+        "tr": "Dış hava sıcaklığı",
+        "de": "Außenlufttemperatur",
+        "fr": "Température de l'air extérieur",
+        "es": "Temperatura del aire exterior"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Exhaust Air Temperature",
         "tr": "Egzoz havası sıcaklığı",
-        "de": "Exhaust Air Temperature",
-        "fr": "Exhaust Air Temperature",
-        "es": "Exhaust Air Temperature",
+        "de": "Ablufttemperatur",
+        "fr": "Température de l'air extrait",
+        "es": "Temperatura del aire de extracción",
         "ar": "Exhaust Air Temperature"
       },
       "businessContext_i18n": {
         "en": "Indoor exhaust air temperature before heat exchanger",
-        "tr": "Isı eşanjörü öncesi iç egzoz havası sıcaklığı"
+        "tr": "Isı eşanjörü öncesi iç egzoz havası sıcaklığı",
+        "de": "Ablufttemperatur vor Wärmetauscher",
+        "fr": "Température de l'air intérieur extrait avant l'échangeur",
+        "es": "Temperatura del aire de extracción interior antes del intercambiador de calor"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Supply Air Temperature",
         "tr": "Besleme havası sıcaklığı",
-        "de": "Supply Air Temperature",
-        "fr": "Supply Air Temperature",
-        "es": "Supply Air Temperature",
+        "de": "Zulufttemperatur",
+        "fr": "Température de l'air soufflé",
+        "es": "Temperatura del aire de suministro",
         "ar": "Supply Air Temperature"
       },
       "businessContext_i18n": {
         "en": "Supply air temperature after heat recovery",
-        "tr": "Isı geri kazanımı sonrası besleme havası sıcaklığı"
+        "tr": "Isı geri kazanımı sonrası besleme havası sıcaklığı",
+        "de": "Zulufttemperatur nach Wärmerückgewinnung",
+        "fr": "Température de l'air soufflé après récupération de chaleur",
+        "es": "Temperatura del aire de suministro después de la recuperación de calor"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Airflow Rate",
         "tr": "Hava akış hızı",
-        "de": "Airflow Rate",
-        "fr": "Airflow Rate",
-        "es": "Airflow Rate",
+        "de": "Luftvolumenstrom",
+        "fr": "Débit d'air",
+        "es": "Caudal de aire",
         "ar": "Airflow Rate"
       },
       "businessContext_i18n": {
         "en": "Supply airflow rate",
-        "tr": "Besleme havası akış hızı"
+        "tr": "Besleme havası akış hızı",
+        "de": "Zuluftvolumenstrom",
+        "fr": "Débit d'air soufflé",
+        "es": "Caudal de aire de suministro"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Air Density",
         "tr": "Hava Yoğunluğu",
         "de": "Luftdichte",
-        "fr": "Air Density",
-        "es": "Air Density",
+        "fr": "Densité de l'air",
+        "es": "Densidad del aire",
         "ar": "Air Density"
       },
       "businessContext_i18n": {
         "en": "Density of air",
-        "tr": "Havanın yoğunluğu"
+        "tr": "Havanın yoğunluğu",
+        "de": "Dichte der Luft",
+        "fr": "Masse volumique de l'air",
+        "es": "Densidad del aire"
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Specific Heat Capacity",
         "tr": "Özgül Isı Kapasitesi",
         "de": "Spezifische Wärmekapazität",
-        "fr": "Specific Heat Capacity",
-        "es": "Specific Heat Capacity",
+        "fr": "Capacité thermique massique",
+        "es": "Capacidad calorífica específica",
         "ar": "Specific Heat Capacity"
       },
       "businessContext_i18n": {
         "en": "Specific heat capacity of air",
-        "tr": "Havanın özgül ısı kapasitesi"
+        "tr": "Havanın özgül ısı kapasitesi",
+        "de": "Spezifische Wärmekapazität der Luft",
+        "fr": "Capacité thermique massique de l'air",
+        "es": "Capacidad calorífica específica del aire"
       }
     }
   ],

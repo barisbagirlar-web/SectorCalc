@@ -12,14 +12,16 @@
         "en": "Load Current",
         "tr": "Yük Akımı",
         "de": "Laststrom",
-        "fr": "Load Current",
-        "es": "Load Current",
+        "fr": "Courant de charge",
+        "es": "Corriente de carga",
         "ar": "Load Current"
       },
       "businessContext_i18n": {
         "en": "The full load current drawn by the equipment.",
         "tr": "Ekipmanın çektiği tam yük akımı.",
-        "de": "Der volle Laststrom, der vom Gerät aufgenommen wird."
+        "de": "Der volle Laststrom, der vom Gerät aufgenommen wird.",
+        "fr": "Courant de pleine charge absorbé par l'équipement.",
+        "es": "Corriente nominal a plena carga del equipo."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Cable Length (one-way)",
         "tr": "Kablo Uzunluğu (tek yön)",
         "de": "Kabellänge (einfach)",
-        "fr": "Cable Length (one-way)",
-        "es": "Cable Length (one-way)",
+        "fr": "Longueur du câble (aller simple)",
+        "es": "Longitud del cable (ida)",
         "ar": "Cable Length (one-way)"
       },
       "businessContext_i18n": {
         "en": "One-way distance between power source and load.",
         "tr": "Güç kaynağı ile yük arasındaki tek yön mesafe.",
-        "de": "Einfache Entfernung zwischen Stromquelle und Last."
+        "de": "Einfache Entfernung zwischen Stromquelle und Last.",
+        "fr": "Distance aller simple entre la source d'alimentation et la charge.",
+        "es": "Distancia de ida entre la fuente de alimentación y la carga."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Supply Voltage",
         "tr": "Besleme Gerilimi",
         "de": "Versorgungsspannung",
-        "fr": "Supply Voltage",
-        "es": "Supply Voltage",
+        "fr": "Tension d'alimentation",
+        "es": "Tensión de alimentación",
         "ar": "Supply Voltage"
       },
       "businessContext_i18n": {
         "en": "Nominal voltage of the supply.",
         "tr": "Beslemenin nominal voltajı.",
-        "de": "Nennspannung der Versorgung."
+        "de": "Nennspannung der Versorgung.",
+        "fr": "Tension nominale de l'alimentation.",
+        "es": "Tensión nominal de la fuente de alimentación."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Max Voltage Drop",
         "tr": "Maksimum Gerilim Düşümü",
         "de": "Maximaler Spannungsabfall",
-        "fr": "Max Voltage Drop",
-        "es": "Max Voltage Drop",
+        "fr": "Chute de tension maximale",
+        "es": "Caída de tensión máxima",
         "ar": "Max Voltage Drop"
       },
       "businessContext_i18n": {
         "en": "Maximum allowable voltage drop as percentage of supply voltage.",
         "tr": "Besleme geriliminin yüzdesi olarak izin verilen maksimum gerilim düşümü.",
-        "de": "Maximal zulässiger Spannungsabfall in Prozent der Versorgungsspannung."
+        "de": "Maximal zulässiger Spannungsabfall in Prozent der Versorgungsspannung.",
+        "fr": "Pourcentage maximal de chute de tension autorisé par rapport à la tension d'alimentation.",
+        "es": "Caída de tensión máxima permitida como porcentaje de la tensión de alimentación."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Conductor Resistivity",
         "tr": "İletken Direnci",
         "de": "Leiterwiderstand",
-        "fr": "Conductor Resistivity",
-        "es": "Conductor Resistivity",
+        "fr": "Résistivité du conducteur",
+        "es": "Resistividad del conductor",
         "ar": "Conductor Resistivity"
       },
       "businessContext_i18n": {
         "en": "Resistivity of conductor material at operating temperature (e.g., copper: 0.0172, aluminum: 0.0282).",
         "tr": "İletken malzemesinin çalışma sıcaklığındaki direnci (örneğin bakır: 0,0172, alüminyum: 0,0282).",
-        "de": "Widerstand des Leitermaterials bei Betriebstemperatur (z. B. Kupfer: 0,0172, Aluminium: 0,0282)."
+        "de": "Widerstand des Leitermaterials bei Betriebstemperatur (z. B. Kupfer: 0,0172, Aluminium: 0,0282).",
+        "fr": "Résistivité du matériau conducteur à la température de fonctionnement (ex. cuivre : 0,0172, aluminium : 0,0282).",
+        "es": "Resistividad del material conductor a temperatura de operación (ej., cobre: 0.0172, aluminio: 0.0282)."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Design margin to account for future load increases or uncertainties.",
         "tr": "Gelecekteki yük artışları veya belirsizlikleri hesaba katmak için tasarım marjı.",
-        "de": "Auslegungsreserve für zukünftige Laststeigerungen oder Unsicherheiten."
+        "de": "Auslegungsreserve für zukünftige Laststeigerungen oder Unsicherheiten.",
+        "fr": "Marge de conception pour tenir compte des augmentations de charge futures ou des incertitudes.",
+        "es": "Margen de diseño para considerar futuros aumentos de carga o incertidumbres."
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Temperature Factor",
         "tr": "Sıcaklık Faktörü",
         "de": "Temperaturfaktor",
-        "fr": "Temperature Factor",
-        "es": "Temperature Factor",
+        "fr": "Facteur de température",
+        "es": "Factor de temperatura",
         "ar": "Temperature Factor"
       },
       "businessContext_i18n": {
         "en": "Correction factor for ambient temperature (1.0 for standard conditions).",
         "tr": "Ortam sıcaklığı için düzeltme faktörü (standart koşullar için 1,0).",
-        "de": "Korrekturfaktor für Umgebungstemperatur (1,0 für Standardbedingungen)."
+        "de": "Korrekturfaktor für Umgebungstemperatur (1,0 für Standardbedingungen).",
+        "fr": "Facteur de correction pour la température ambiante (1,0 pour des conditions standard).",
+        "es": "Factor de corrección por temperatura ambiente (1.0 para condiciones estándar)."
       }
     }
   ],

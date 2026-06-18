@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Portfolio Return",
         "tr": "Portföy Getirisi",
-        "de": "Portfolio Return",
-        "fr": "Portfolio Return",
-        "es": "Portfolio Return",
+        "de": "Portfoliorendite",
+        "fr": "Rendement du portefeuille",
+        "es": "Rendimiento de la cartera",
         "ar": "Portfolio Return"
       },
       "businessContext_i18n": {
         "en": "Expected or historical annualized portfolio return",
-        "tr": "Beklenen veya geçmiş yıllık portföy getirisi"
+        "tr": "Beklenen veya geçmiş yıllık portföy getirisi",
+        "de": "Erwartete oder historische annualisierte Portfoliorendite",
+        "fr": "Rendement annualisé attendu ou historique du portefeuille"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Risk-Free Rate",
         "tr": "Risksiz Faiz Oranı",
         "de": "Risikofreier Zinssatz",
-        "fr": "Risk-Free Rate",
-        "es": "Risk-Free Rate",
+        "fr": "Taux sans risque",
+        "es": "Tasa libre de riesgo",
         "ar": "Risk-Free Rate"
       },
       "businessContext_i18n": {
         "en": "Current risk-free rate (e.g., 10-year government bond yield)",
-        "tr": "Mevcut risksiz oran (ör. 10 yıllık devlet tahvili getirisi)"
+        "tr": "Mevcut risksiz oran (ör. 10 yıllık devlet tahvili getirisi)",
+        "de": "Aktueller risikofreier Zinssatz (z. B. 10-jährige Staatsanleiherendite)",
+        "fr": "Taux sans risque actuel (p. ex., rendement des obligations d'État à 10 ans)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Portfolio Beta",
         "tr": "Portföy Betası",
-        "de": "Portfolio Beta",
-        "fr": "Portfolio Beta",
+        "de": "Portfolio-Beta",
+        "fr": "Bêta du portefeuille",
         "es": "Portfolio Beta",
         "ar": "Portfolio Beta"
       },
       "businessContext_i18n": {
         "en": "Beta coefficient of the portfolio relative to the benchmark",
-        "tr": "Portföyün gösterge endekse göre beta katsayısı"
+        "tr": "Portföyün gösterge endekse göre beta katsayısı",
+        "de": "Beta-Koeffizient des Portfolios relativ zur Benchmark",
+        "fr": "Coefficient bêta du portefeuille par rapport à l'indice de référence"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Periods per Year",
         "tr": "Yıllık Dönem Sayısı",
-        "de": "Periods per Year",
-        "fr": "Periods per Year",
+        "de": "Perioden pro Jahr",
+        "fr": "Périodes par an",
         "es": "Periods per Year",
         "ar": "Periods per Year"
       },
       "businessContext_i18n": {
         "en": "Number of periods per year for returns (1 for annual, 12 for monthly). Used to annualize the ratio if returns are not annual.",
-        "tr": "Getiriler için yıllık dönem sayısı (yıllık için 1, aylık için 12). Getiriler yıllık değilse oranı yıllıklaştırmak için kullanılır."
+        "tr": "Getiriler için yıllık dönem sayısı (yıllık için 1, aylık için 12). Getiriler yıllık değilse oranı yıllıklaştırmak için kullanılır.",
+        "de": "Anzahl der Perioden pro Jahr für Renditen (1 für jährlich, 12 für monatlich). Wird zur Annualisierung der Kennzahl verwendet, falls die Renditen nicht annualisiert sind.",
+        "fr": "Nombre de périodes par an pour les rendements (1 pour annuel, 12 pour mensuel). Utilisé pour annualiser le ratio si les rendements ne sont pas annuels."
       }
     }
   ],

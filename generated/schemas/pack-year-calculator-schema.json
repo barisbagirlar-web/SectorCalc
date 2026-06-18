@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Smoking Start Age",
         "tr": "Sigara Başlama Yaşı",
-        "de": "Smoking Start Age",
-        "fr": "Smoking Start Age",
-        "es": "Smoking Start Age",
+        "de": "Rauchen Startalter",
+        "fr": "Âge de début du tabagisme",
+        "es": "Edad de inicio de tabaquismo",
         "ar": "Smoking Start Age"
       },
       "businessContext_i18n": {
         "en": "The age at which the individual began smoking regularly.",
-        "tr": "Bireyin düzenli olarak sigara içmeye başladığı yaş."
+        "tr": "Bireyin düzenli olarak sigara içmeye başladığı yaş.",
+        "de": "Das Alter, in dem die Person regelmäßig mit dem Rauchen begann.",
+        "fr": "Âge auquel la personne a commencé à fumer régulièrement.",
+        "es": "La edad a la que el individuo comenzó a fumar regularmente."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Smoking End Age (or Current Age)",
         "tr": "Sigara Bırakma Yaşı (veya Mevcut Yaş)",
-        "de": "Smoking End Age (or Current Age)",
-        "fr": "Smoking End Age (or Current Age)",
-        "es": "Smoking End Age (or Current Age)",
+        "de": "Rauchen Endalter (oder aktuelles Alter)",
+        "fr": "Âge de fin du tabagisme (ou âge actuel)",
+        "es": "Edad de finalización del tabaquismo (o edad actual)",
         "ar": "Smoking End Age (or Current Age)"
       },
       "businessContext_i18n": {
         "en": "The age at which smoking ended, or the current age if still smoking.",
-        "tr": "Sigaranın bırakıldığı yaş veya hala içiliyorsa mevcut yaş."
+        "tr": "Sigaranın bırakıldığı yaş veya hala içiliyorsa mevcut yaş.",
+        "de": "Das Alter, in dem das Rauchen aufgehört wurde, oder das aktuelle Alter, falls noch geraucht wird.",
+        "fr": "Âge auquel le tabagisme a cessé, ou âge actuel si la personne fume toujours.",
+        "es": "Edad en la que dejó de fumar, o la edad actual si sigue fumando."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Average Cigarettes per Day",
         "tr": "Günlük Ortalama Sigara Sayısı",
-        "de": "Average Cigarettes per Day",
-        "fr": "Average Cigarettes per Day",
-        "es": "Average Cigarettes per Day",
+        "de": "Durchschnittliche Zigaretten pro Tag",
+        "fr": "Nombre moyen de cigarettes par jour",
+        "es": "Promedio de cigarrillos por día",
         "ar": "Average Cigarettes per Day"
       },
       "businessContext_i18n": {
         "en": "The average number of cigarettes smoked per day during the smoking period.",
-        "tr": "Sigara içme dönemi boyunca günde içilen ortalama sigara sayısı."
+        "tr": "Sigara içme dönemi boyunca günde içilen ortalama sigara sayısı.",
+        "de": "Die durchschnittliche Anzahl der pro Tag gerauchten Zigaretten während der Raucherphase.",
+        "fr": "Nombre moyen de cigarettes fumées par jour pendant la période de tabagisme.",
+        "es": "Número promedio de cigarrillos fumados por día durante el período de consumo."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Cigarettes per Pack",
         "tr": "Paket Başına Sigara Sayısı",
         "de": "Zigaretten pro Packung",
-        "fr": "Cigarettes per Pack",
-        "es": "Cigarettes per Pack",
+        "fr": "Cigarettes par paquet",
+        "es": "Cigarrillos por paquete",
         "ar": "Cigarettes per Pack"
       },
       "businessContext_i18n": {
         "en": "The number of cigarettes contained in a single pack, typically 20.",
-        "tr": "Bir pakette bulunan sigara sayısı, genellikle 20."
+        "tr": "Bir pakette bulunan sigara sayısı, genellikle 20.",
+        "de": "Die Anzahl der Zigaretten in einer einzelnen Packung, typischerweise 20.",
+        "fr": "Nombre de cigarettes dans un paquet, généralement 20.",
+        "es": "Número de cigarrillos en un paquete, típicamente 20."
       }
     }
   ],

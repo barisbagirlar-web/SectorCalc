@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Pot Size Before Bet",
         "tr": "Bahis Öncesi Pot Büyüklüğü",
-        "de": "Pot Size Before Bet",
-        "fr": "Pot Size Before Bet",
-        "es": "Pot Size Before Bet",
+        "de": "Potgröße vor dem Einsatz",
+        "fr": "Taille du pot avant la mise",
+        "es": "Tamaño del bote antes de la apuesta",
         "ar": "Pot Size Before Bet"
       },
       "businessContext_i18n": {
         "en": "The size of the pot before the opponent's bet.",
-        "tr": "Rakibin bahisinden önceki pot büyüklüğü."
+        "tr": "Rakibin bahisinden önceki pot büyüklüğü.",
+        "de": "Die Größe des Pots vor dem Einsatz des Gegners.",
+        "fr": "La taille du pot avant la mise de l'adversaire.",
+        "es": "El tamaño del bote antes de la apuesta del oponente."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Opponent's Bet",
         "tr": "Rakibin Bahsi",
-        "de": "Opponent's Bet",
-        "fr": "Opponent's Bet",
-        "es": "Opponent's Bet",
+        "de": "Einsatz des Gegners",
+        "fr": "Mise de l'adversaire",
+        "es": "Apuesta del oponente",
         "ar": "Opponent's Bet"
       },
       "businessContext_i18n": {
         "en": "The amount the opponent bets.",
-        "tr": "Rakibin bahis miktarı."
+        "tr": "Rakibin bahis miktarı.",
+        "de": "Der Betrag, den der Gegner setzt.",
+        "fr": "Le montant misé par l'adversaire.",
+        "es": "La cantidad que apuesta el oponente."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Call Amount",
         "tr": "Çağırma Miktarı",
-        "de": "Call Amount",
-        "fr": "Call Amount",
-        "es": "Call Amount",
+        "de": "Call-Betrag",
+        "fr": "Montant du suivi",
+        "es": "Cantidad para igualar",
         "ar": "Call Amount"
       },
       "businessContext_i18n": {
         "en": "The amount required to call. Usually equal to the opponent's bet.",
-        "tr": "Çağırmak için gereken miktar. Genellikle rakibin bahsine eşittir."
+        "tr": "Çağırmak için gereken miktar. Genellikle rakibin bahsine eşittir.",
+        "de": "Der Betrag, der zum Callen erforderlich ist. Normalerweise gleich dem Einsatz des Gegners.",
+        "fr": "Le montant requis pour suivre. Généralement égal à la mise de l'adversaire.",
+        "es": "La cantidad requerida para igualar. Normalmente igual a la apuesta del oponente."
       }
     }
   ],

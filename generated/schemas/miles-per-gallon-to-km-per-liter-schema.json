@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Miles per Gallon (MPG)",
         "tr": "Mil/Galon (MPG)",
-        "de": "Miles per Gallon (MPG)",
-        "fr": "Miles per Gallon (MPG)",
-        "es": "Miles per Gallon (MPG)",
+        "de": "Meilen pro Gallone (MPG)",
+        "fr": "Miles par gallon (MPG)",
+        "es": "Millas por Galón (MPG)",
         "ar": "Miles per Gallon (MPG)"
       },
       "businessContext_i18n": {
         "en": "Fuel efficiency in miles per gallon (US).",
-        "tr": "Yakıt verimliliği (mil/galon, ABD)."
+        "tr": "Yakıt verimliliği (mil/galon, ABD).",
+        "de": "Kraftstoffeffizienz in Meilen pro Gallone (US).",
+        "fr": "Rendement énergétique en miles par gallon (US).",
+        "es": "Eficiencia de combustible en millas por galón (EE. UU.)."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Fuel Type",
         "tr": "Yakıt Türü",
-        "de": "Fuel Type",
-        "fr": "Fuel Type",
-        "es": "Fuel Type",
+        "de": "Kraftstofftyp",
+        "fr": "Type de carburant",
+        "es": "Tipo de combustible",
         "ar": "Fuel Type"
       },
       "businessContext_i18n": {
         "en": "Conversion factor for fuel type (1 for gasoline, 0.85 for diesel).",
-        "tr": "Yakıt türü için dönüşüm faktörü (benzin için 1, dizel için 0,85)."
+        "tr": "Yakıt türü için dönüşüm faktörü (benzin için 1, dizel için 0,85).",
+        "de": "Umrechnungsfaktor für Kraftstoffart (1 für Benzin, 0,85 für Diesel).",
+        "fr": "Facteur de conversion pour le type de carburant (1 pour essence, 0,85 pour diesel).",
+        "es": "Factor de conversión para el tipo de combustible (1 para gasolina, 0.85 para diésel)."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Temperature Correction Factor",
         "tr": "Sıcaklık Düzeltme Faktörü",
-        "de": "Temperature Correction Factor",
-        "fr": "Temperature Correction Factor",
-        "es": "Temperature Correction Factor",
+        "de": "Temperaturkorrekturfaktor",
+        "fr": "Facteur de correction de température",
+        "es": "Factor de Corrección por Temperatura",
         "ar": "Temperature Correction Factor"
       },
       "businessContext_i18n": {
         "en": "Correction for temperature effects on fuel density (0.95-1.05).",
-        "tr": "Yakıt yoğunluğu üzerindeki sıcaklık etkileri için düzeltme (0,95-1,05)."
+        "tr": "Yakıt yoğunluğu üzerindeki sıcaklık etkileri için düzeltme (0,95-1,05).",
+        "de": "Korrektur für Temperatureffekte auf die Kraftstoffdichte (0,95-1,05).",
+        "fr": "Correction pour les effets de température sur la densité du carburant (0,95-1,05).",
+        "es": "Corrección por efectos de temperatura en la densidad del combustible (0.95-1.05)."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Altitude Correction Factor",
         "tr": "Rakım Düzeltme Faktörü",
-        "de": "Altitude Correction Factor",
-        "fr": "Altitude Correction Factor",
-        "es": "Altitude Correction Factor",
+        "de": "Höhenkorrekturfaktor",
+        "fr": "Facteur de correction d'altitude",
+        "es": "Factor de Corrección por Altitud",
         "ar": "Altitude Correction Factor"
       },
       "businessContext_i18n": {
         "en": "Correction for altitude effects on engine efficiency (0.9-1.0).",
-        "tr": "Motor verimliliği üzerindeki rakım etkileri için düzeltme (0,9-1,0)."
+        "tr": "Motor verimliliği üzerindeki rakım etkileri için düzeltme (0,9-1,0).",
+        "de": "Korrektur für Höheneffekte auf die Motoreffizienz (0,9-1,0).",
+        "fr": "Correction pour les effets d'altitude sur le rendement du moteur (0,9-1,0).",
+        "es": "Corrección por efectos de altitud en la eficiencia del motor (0.9-1.0)."
       }
     }
   ],

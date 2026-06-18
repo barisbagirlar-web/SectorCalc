@@ -12,13 +12,16 @@
         "en": "Market Price per Share",
         "tr": "Hisse Başına Piyasa Fiyatı",
         "de": "Marktpreis pro Aktie",
-        "fr": "Market Price per Share",
-        "es": "Market Price per Share",
+        "fr": "Prix de marché par action",
+        "es": "Precio de mercado por acción",
         "ar": "Market Price per Share"
       },
       "businessContext_i18n": {
         "en": "Current trading price of one share",
-        "tr": "Bir hissenin güncel işlem fiyatı"
+        "tr": "Bir hissenin güncel işlem fiyatı",
+        "de": "Aktueller Handelspreis einer Aktie",
+        "fr": "Prix de négociation actuel d'une action",
+        "es": "Precio de negociación actual de una acción"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Total Shareholder Equity",
         "tr": "Toplam Özkaynak",
-        "de": "Total Shareholder Equity",
-        "fr": "Total Shareholder Equity",
-        "es": "Total Shareholder Equity",
+        "de": "Gesamtes Eigenkapital der Aktionäre",
+        "fr": "Capitaux propres totaux des actionnaires",
+        "es": "Patrimonio neto total",
         "ar": "Total Shareholder Equity"
       },
       "businessContext_i18n": {
         "en": "Total equity from balance sheet",
-        "tr": "Bilançodan toplam özkaynak"
+        "tr": "Bilançodan toplam özkaynak",
+        "de": "Gesamtes Eigenkapital aus der Bilanz",
+        "fr": "Capitaux propres totaux du bilan",
+        "es": "Patrimonio neto total del balance"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Shares Outstanding",
         "tr": "Tedavüldeki Hisse Sayısı",
         "de": "Ausstehende Aktien",
-        "fr": "Shares Outstanding",
-        "es": "Shares Outstanding",
+        "fr": "Actions en circulation",
+        "es": "Acciones en circulación",
         "ar": "Shares Outstanding"
       },
       "businessContext_i18n": {
         "en": "Number of common shares outstanding",
-        "tr": "Tedavüldeki adi hisse senedi sayısı"
+        "tr": "Tedavüldeki adi hisse senedi sayısı",
+        "de": "Anzahl der ausstehenden Stammaktien",
+        "fr": "Nombre d'actions ordinaires en circulation",
+        "es": "Número de acciones comunes en circulación"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Industry Average P/B Ratio",
         "tr": "Sektör Ortalama Fiyat/Defter Değeri Oranı",
-        "de": "Industry Average P/B Ratio",
-        "fr": "Industry Average P/B Ratio",
-        "es": "Industry Average P/B Ratio",
+        "de": "Branchendurchschnittliches KGV",
+        "fr": "Ratio P/B moyen du secteur",
+        "es": "Relación P/B promedio de la industria",
         "ar": "Industry Average P/B Ratio"
       },
       "businessContext_i18n": {
         "en": "Average P/B ratio for the industry",
-        "tr": "Sektör için ortalama Fiyat/Defter Değeri oranı"
+        "tr": "Sektör için ortalama Fiyat/Defter Değeri oranı",
+        "de": "Durchschnittliches KGV der Branche",
+        "fr": "Ratio P/B moyen pour le secteur",
+        "es": "Relación P/B promedio para la industria"
       }
     }
   ],

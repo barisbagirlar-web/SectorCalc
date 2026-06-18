@@ -12,14 +12,16 @@
         "en": "Average Daily Demand",
         "tr": "Ortalama Günlük Talep",
         "de": "Durchschnittlicher Tagesbedarf",
-        "fr": "Average Daily Demand",
-        "es": "Average Daily Demand",
+        "fr": "Demande quotidienne moyenne",
+        "es": "Demanda diaria promedio",
         "ar": "Average Daily Demand"
       },
       "businessContext_i18n": {
         "en": "The steady-state average daily usage rate derived from historical demand data.",
         "tr": "Geçmiş talep verilerinden elde edilen kararlı durum ortalama günlük kullanım oranı.",
-        "de": "Der stationäre durchschnittliche tägliche Verbrauch, abgeleitet aus historischen Bedarfsdaten."
+        "de": "Der stationäre durchschnittliche tägliche Verbrauch, abgeleitet aus historischen Bedarfsdaten.",
+        "fr": "Taux d'utilisation quotidien moyen en régime permanent, dérivé des données historiques de la demande.",
+        "es": "Tasa de uso diario promedio en estado estable derivada de datos históricos de demanda."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Demand Standard Deviation",
         "tr": "Talep Standart Sapması",
         "de": "Standardabweichung des Bedarfs",
-        "fr": "Demand Standard Deviation",
-        "es": "Demand Standard Deviation",
+        "fr": "Écart type de la demande",
+        "es": "Desviación estándar de la demanda",
         "ar": "Demand Standard Deviation"
       },
       "businessContext_i18n": {
         "en": "Variability of daily demand, measured as standard deviation, reflecting forecast error.",
         "tr": "Günlük talebin standart sapma olarak ölçülen değişkenliği, tahmin hatasını yansıtır.",
-        "de": "Variabilität der täglichen Nachfrage, gemessen als Standardabweichung, die den Prognosefehler widerspiegelt."
+        "de": "Variabilität der täglichen Nachfrage, gemessen als Standardabweichung, die den Prognosefehler widerspiegelt.",
+        "fr": "Variabilité de la demande quotidienne, mesurée par l'écart type, reflétant l'erreur de prévision.",
+        "es": "Variabilidad de la demanda diaria, medida como desviación estándar, que refleja el error de pronóstico."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Average Lead Time",
         "tr": "Ortalama Tedarik Süresi",
         "de": "Durchschnittliche Vorlaufzeit",
-        "fr": "Average Lead Time",
-        "es": "Average Lead Time",
+        "fr": "Délai de livraison moyen",
+        "es": "Tiempo de entrega promedio",
         "ar": "Average Lead Time"
       },
       "businessContext_i18n": {
         "en": "Mean replenishment lead time from supplier, in days.",
         "tr": "Tedarikçiden ortalama yenileme süresi, gün cinsinden.",
-        "de": "Mittlere Wiederbeschaffungszeit vom Lieferanten in Tagen."
+        "de": "Mittlere Wiederbeschaffungszeit vom Lieferanten in Tagen.",
+        "fr": "Délai de réapprovisionnement moyen du fournisseur, en jours.",
+        "es": "Tiempo medio de reabastecimiento del proveedor, en días."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Lead Time Standard Deviation",
         "tr": "Tedarik Süresi Standart Sapması",
         "de": "Standardabweichung der Vorlaufzeit",
-        "fr": "Lead Time Standard Deviation",
-        "es": "Lead Time Standard Deviation",
+        "fr": "Écart type du délai de livraison",
+        "es": "Desviación estándar del tiempo de entrega",
         "ar": "Lead Time Standard Deviation"
       },
       "businessContext_i18n": {
         "en": "Variability of lead time, measured as standard deviation, reflecting supply uncertainty.",
         "tr": "Tedarik süresinin standart sapma olarak ölçülen değişkenliği, tedarik belirsizliğini yansıtır.",
-        "de": "Variabilität der Vorlaufzeit, gemessen als Standardabweichung, die die Lieferunsicherheit widerspiegelt."
+        "de": "Variabilität der Vorlaufzeit, gemessen als Standardabweichung, die die Lieferunsicherheit widerspiegelt.",
+        "fr": "Variabilité du délai de livraison, mesurée par l'écart type, reflétant l'incertitude de l'approvisionnement.",
+        "es": "Variabilidad del tiempo de entrega, medida como desviación estándar, que refleja la incertidumbre del suministro."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Service Level (Z-score)",
         "tr": "Hizmet Seviyesi (Z-skoru)",
         "de": "Servicegrad (Z-Wert)",
-        "fr": "Service Level (Z-score)",
-        "es": "Service Level (Z-score)",
+        "fr": "Niveau de service (score Z)",
+        "es": "Nivel de servicio (puntuación Z)",
         "ar": "Service Level (Z-score)"
       },
       "businessContext_i18n": {
         "en": "Z-score corresponding to desired service level (e.g., 1.65 for 95% fill rate). Must be positive.",
         "tr": "İstenen hizmet seviyesine karşılık gelen Z-skoru (örneğin, %95 doluluk oranı için 1,65). Pozitif olmalıdır.",
-        "de": "Z-Wert, der dem gewünschten Servicegrad entspricht (z. B. 1,65 für 95 % Lieferbereitschaft). Muss positiv sein."
+        "de": "Z-Wert, der dem gewünschten Servicegrad entspricht (z. B. 1,65 für 95 % Lieferbereitschaft). Muss positiv sein.",
+        "fr": "Score Z correspondant au niveau de service souhaité (par exemple, 1,65 pour un taux de service de 95 %). Doit être positif.",
+        "es": "Puntuación Z correspondiente al nivel de servicio deseado (por ejemplo, 1.65 para una tasa de llenado del 95%). Debe ser positiva."
       }
     }
   ],

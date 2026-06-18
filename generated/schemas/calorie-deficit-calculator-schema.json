@@ -19,12 +19,16 @@
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
-        "de": "Alter"
+        "de": "Alter",
+        "fr": "Âge",
+        "es": "Edad"
       },
       "businessContext_i18n": {
         "en": "Age affects basal metabolic rate (BMR) due to changes in lean body mass and hormonal factors.",
         "tr": "Yaş, yağsız vücut kütlesi ve hormonal faktörlerdeki değişiklikler nedeniyle bazal metabolizma hızını (BMR) etkiler.",
-        "de": "Alter beeinflusst den Grundumsatz (BMR) aufgrund von Veränderungen der fettfreien Körpermasse und hormonellen Faktoren."
+        "de": "Alter beeinflusst den Grundumsatz (BMR) aufgrund von Veränderungen der fettfreien Körpermasse und hormonellen Faktoren.",
+        "fr": "L'âge affecte le métabolisme de base en raison des changements de masse maigre et des facteurs hormonaux.",
+        "es": "La edad afecta la tasa metabólica basal (TMB) debido a cambios en la masa corporal magra y factores hormonales."
       }
     },
     {
@@ -43,12 +47,16 @@
       "label_i18n": {
         "en": "Gender",
         "tr": "Cinsiyet",
-        "de": "Geschlecht"
+        "de": "Geschlecht",
+        "fr": "Genre",
+        "es": "Género"
       },
       "businessContext_i18n": {
         "en": "Gender influences BMR through differences in body composition and hormonal profiles.",
         "tr": "Cinsiyet, vücut kompozisyonu ve hormonal profillerdeki farklılıklar yoluyla BMR'yi etkiler.",
-        "de": "Geschlecht beeinflusst den Grundumsatz durch Unterschiede in der Körperzusammensetzung und den Hormonprofilen."
+        "de": "Geschlecht beeinflusst den Grundumsatz durch Unterschiede in der Körperzusammensetzung und den Hormonprofilen.",
+        "fr": "Le sexe influence le métabolisme de base via les différences de composition corporelle et de profils hormonaux.",
+        "es": "El género influye en la TMB a través de diferencias en la composición corporal y perfiles hormonales."
       }
     },
     {
@@ -63,12 +71,16 @@
       "label_i18n": {
         "en": "Weight",
         "tr": "Ağırlık",
-        "de": "Gewicht"
+        "de": "Gewicht",
+        "fr": "Poids",
+        "es": "Peso"
       },
       "businessContext_i18n": {
         "en": "Body weight is a primary driver of energy expenditure and calorie needs.",
         "tr": "Vücut ağırlığı, enerji harcaması ve kalori ihtiyacının birincil itici gücüdür.",
-        "de": "Körpergewicht ist ein Haupttreiber des Energieverbrauchs und des Kalorienbedarfs."
+        "de": "Körpergewicht ist ein Haupttreiber des Energieverbrauchs und des Kalorienbedarfs.",
+        "fr": "Le poids corporel est un moteur principal de la dépense énergétique et des besoins caloriques.",
+        "es": "El peso corporal es un factor principal del gasto energético y las necesidades calóricas."
       }
     },
     {
@@ -83,12 +95,16 @@
       "label_i18n": {
         "en": "Height",
         "tr": "Boy",
-        "de": "Größe"
+        "de": "Größe",
+        "fr": "Taille",
+        "es": "Altura"
       },
       "businessContext_i18n": {
         "en": "Height is used in BMR equations to estimate lean body mass and metabolic rate.",
         "tr": "Boy, BMR denklemlerinde yağsız vücut kütlesini ve metabolizma hızını tahmin etmek için kullanılır.",
-        "de": "Körpergröße wird in BMR-Gleichungen verwendet, um die fettfreie Körpermasse und den Stoffwechsel zu schätzen."
+        "de": "Körpergröße wird in BMR-Gleichungen verwendet, um die fettfreie Körpermasse und den Stoffwechsel zu schätzen.",
+        "fr": "La taille est utilisée dans les équations du métabolisme de base pour estimer la masse maigre et le taux métabolique.",
+        "es": "La altura se utiliza en las ecuaciones de TMB para estimar la masa corporal magra y la tasa metabólica."
       }
     },
     {
@@ -110,12 +126,16 @@
       "label_i18n": {
         "en": "Activity Level",
         "tr": "Aktivite Seviyesi",
-        "de": "Aktivitätsniveau"
+        "de": "Aktivitätsniveau",
+        "fr": "Niveau d'activité",
+        "es": "Nivel de actividad"
       },
       "businessContext_i18n": {
         "en": "Physical activity multiplier adjusts TDEE based on occupational and exercise habits.",
         "tr": "Fiziksel aktivite çarpanı, mesleki ve egzersiz alışkanlıklarına göre toplam günlük enerji harcamasını ayarlar.",
-        "de": "Der Multiplikator für körperliche Aktivität passt den Gesamtenergieumsatz basierend auf beruflichen und sportlichen Gewohnheiten an."
+        "de": "Der Multiplikator für körperliche Aktivität passt den Gesamtenergieumsatz basierend auf beruflichen und sportlichen Gewohnheiten an.",
+        "fr": "Le multiplicateur d'activité physique ajuste la dépense énergétique totale en fonction des habitudes professionnelles et d'exercice.",
+        "es": "El multiplicador de actividad física ajusta el TDEE según los hábitos ocupacionales y de ejercicio."
       }
     },
     {
@@ -135,12 +155,16 @@
       "label_i18n": {
         "en": "Weight Loss Rate",
         "tr": "Kilo Verme Hızı",
-        "de": "Gewichtsverlustrate"
+        "de": "Gewichtsverlustrate",
+        "fr": "Taux de perte de poids",
+        "es": "Tasa de pérdida de peso"
       },
       "businessContext_i18n": {
         "en": "Desired weekly weight loss rate determines the daily calorie deficit target.",
         "tr": "İstenen haftalık kilo verme hızı, günlük kalori açığı hedefini belirler.",
-        "de": "Die gewünschte wöchentliche Gewichtsverlustrate bestimmt das tägliche Kaloriendefizitziel."
+        "de": "Die gewünschte wöchentliche Gewichtsverlustrate bestimmt das tägliche Kaloriendefizitziel.",
+        "fr": "Le taux de perte de poids hebdomadaire souhaité détermine le déficit calorique quotidien cible.",
+        "es": "La tasa de pérdida de peso semanal deseada determina el objetivo de déficit calórico diario."
       }
     },
     {
@@ -155,12 +179,16 @@
       "label_i18n": {
         "en": "Body Fat Percentage",
         "tr": "Vücut yağ yüzdesi",
-        "de": "Körperfettanteil"
+        "de": "Körperfettanteil",
+        "fr": "Pourcentage de graisse corporelle",
+        "es": "Porcentaje de grasa corporal"
       },
       "businessContext_i18n": {
         "en": "Optional input for more accurate BMR estimation using the Katch-McArdle formula.",
         "tr": "Katch-McArdle formülü kullanılarak daha doğru BMR tahmini için isteğe bağlı girdi.",
-        "de": "Optionale Eingabe für eine genauere BMR-Schätzung mit der Katch-McArdle-Formel."
+        "de": "Optionale Eingabe für eine genauere BMR-Schätzung mit der Katch-McArdle-Formel.",
+        "fr": "Entrée facultative pour une estimation plus précise du métabolisme de base à l'aide de la formule de Katch-McArdle.",
+        "es": "Entrada opcional para una estimación más precisa de la TMB usando la fórmula de Katch-McArdle."
       }
     },
     {
@@ -175,12 +203,16 @@
       "label_i18n": {
         "en": "Pregnant",
         "tr": "Hamile",
-        "de": "Schwanger"
+        "de": "Schwanger",
+        "fr": "Enceinte",
+        "es": "Embarazada"
       },
       "businessContext_i18n": {
         "en": "Pregnancy increases energy requirements; deficit is not recommended during pregnancy.",
         "tr": "Hamilelik enerji gereksinimlerini artırır; hamilelik sırasında kalori açığı önerilmez.",
-        "de": "Schwangerschaft erhöht den Energiebedarf; ein Kaloriendefizit wird während der Schwangerschaft nicht empfohlen."
+        "de": "Schwangerschaft erhöht den Energiebedarf; ein Kaloriendefizit wird während der Schwangerschaft nicht empfohlen.",
+        "fr": "La grossesse augmente les besoins énergétiques ; un déficit n'est pas recommandé pendant la grossesse.",
+        "es": "El embarazo aumenta los requerimientos energéticos; no se recomienda un déficit durante el embarazo."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Satış Fiyatı (Birim)",
         "tr": "Satış Fiyatı (Birim)",
         "de": "Verkaufspreis (pro Einheit)",
-        "fr": "Satış Fiyatı (Birim)",
-        "es": "Satış Fiyatı (Birim)",
+        "fr": "Prix de vente (unité)",
+        "es": "Precio de Venta (Unidad)",
         "ar": "Satış Fiyatı (Birim)"
       },
       "businessContext_i18n": {
         "en": "Birim başına satış fiyatı",
         "tr": "Birim başına satış fiyatı",
-        "de": "Verkaufspreis pro Einheit"
+        "de": "Verkaufspreis pro Einheit",
+        "fr": "Prix de vente par unité",
+        "es": "Precio de venta por unidad"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Değişken Maliyet (Birim)",
         "tr": "Değişken Maliyet (Birim)",
         "de": "Variable Kosten (pro Einheit)",
-        "fr": "Değişken Maliyet (Birim)",
-        "es": "Değişken Maliyet (Birim)",
+        "fr": "Coût variable (unité)",
+        "es": "Costo Variable (Unidad)",
         "ar": "Değişken Maliyet (Birim)"
       },
       "businessContext_i18n": {
         "en": "Birim başına doğrudan değişken maliyet",
         "tr": "Birim başına doğrudan değişken maliyet",
-        "de": "Direkte variable Kosten pro Einheit"
+        "de": "Direkte variable Kosten pro Einheit",
+        "fr": "Coût variable direct par unité",
+        "es": "Costo variable directo por unidad"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Satılan Miktar",
         "tr": "Satılan Miktar",
         "de": "Verkaufte Menge",
-        "fr": "Satılan Miktar",
-        "es": "Satılan Miktar",
+        "fr": "Quantité vendue",
+        "es": "Cantidad Vendida",
         "ar": "Satılan Miktar"
       },
       "businessContext_i18n": {
         "en": "Satılan toplam birim sayısı",
         "tr": "Satılan toplam birim sayısı",
-        "de": "Gesamtzahl der verkauften Einheiten"
+        "de": "Gesamtzahl der verkauften Einheiten",
+        "fr": "Nombre total d'unités vendues",
+        "es": "Número total de unidades vendidas"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Sabit Maliyetler",
         "tr": "Sabit Maliyetler",
         "de": "Fixkosten",
-        "fr": "Sabit Maliyetler",
-        "es": "Sabit Maliyetler",
+        "fr": "Coûts fixes",
+        "es": "Fixed Costs",
         "ar": "Sabit Maliyetler"
       },
       "businessContext_i18n": {
         "en": "Toplam sabit maliyetler (faaliyet karı hesaplaması için isteğe bağlı)",
         "tr": "Toplam sabit maliyetler (faaliyet karı hesaplaması için isteğe bağlı)",
-        "de": "Gesamte Fixkosten (optional für die Berechnung des Betriebsgewinns)"
+        "de": "Gesamte Fixkosten (optional für die Berechnung des Betriebsgewinns)",
+        "fr": "Coûts fixes totaux (facultatif pour le calcul du bénéfice d'exploitation)",
+        "es": "Costos fijos totales (opcional para el cálculo de la utilidad operativa)"
       }
     }
   ],

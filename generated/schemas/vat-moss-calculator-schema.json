@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Net Amount (€)",
         "tr": "Net Tutar (€)",
-        "de": "Net Amount (€)",
-        "fr": "Net Amount (€)",
+        "de": "Nettobetrag (€)",
+        "fr": "Montant net (€)",
         "es": "Net Amount (€)",
         "ar": "Net Amount (€)"
       },
       "businessContext_i18n": {
         "en": "The price of the digital service excluding VAT.",
-        "tr": "Dijital hizmetin KDV hariç fiyatı."
+        "tr": "Dijital hizmetin KDV hariç fiyatı.",
+        "de": "Der Preis der digitalen Dienstleistung ohne MwSt.",
+        "fr": "Prix du service numérique hors TVA."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "VAT Rate (%)",
         "tr": "KDV Oranı (%)",
-        "de": "VAT Rate (%)",
-        "fr": "VAT Rate (%)",
+        "de": "Mehrwertsteuersatz (%)",
+        "fr": "Taux de TVA (%)",
         "es": "VAT Rate (%)",
         "ar": "VAT Rate (%)"
       },
       "businessContext_i18n": {
         "en": "The VAT rate applicable in the consumer's EU member state.",
-        "tr": "Tüketicinin AB üye ülkesinde geçerli KDV oranı."
+        "tr": "Tüketicinin AB üye ülkesinde geçerli KDV oranı.",
+        "de": "Der im EU-Mitgliedstaat des Verbrauchers geltende MwSt.-Satz.",
+        "fr": "Taux de TVA applicable dans l'État membre du consommateur."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Quantity",
         "tr": "Miktar",
         "de": "Menge",
-        "fr": "Quantity",
-        "es": "Quantity",
+        "fr": "Quantité",
+        "es": "Cantidad",
         "ar": "Quantity"
       },
       "businessContext_i18n": {
         "en": "Number of units or services sold.",
-        "tr": "Satılan birim veya hizmet sayısı."
+        "tr": "Satılan birim veya hizmet sayısı.",
+        "de": "Anzahl der verkauften Einheiten oder Dienstleistungen.",
+        "fr": "Nombre d'unités ou de services vendus."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Discount (%)",
         "tr": "İndirim (%)",
-        "de": "Discount (%)",
-        "fr": "Discount (%)",
-        "es": "Discount (%)",
+        "de": "Rabatt (%)",
+        "fr": "Remise (%)",
+        "es": "Descuento (%)",
         "ar": "Discount (%)"
       },
       "businessContext_i18n": {
         "en": "Discount percentage applied before VAT calculation.",
-        "tr": "KDV hesaplamasından önce uygulanan indirim yüzdesi."
+        "tr": "KDV hesaplamasından önce uygulanan indirim yüzdesi.",
+        "de": "Rabatt in Prozent, der vor der MwSt.-Berechnung angewendet wird.",
+        "fr": "Pourcentage de remise appliqué avant le calcul de la TVA."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Additional Costs (€)",
         "tr": "Ek Maliyetler (€)",
-        "de": "Additional Costs (€)",
-        "fr": "Additional Costs (€)",
+        "de": "Zusätzliche Kosten (€)",
+        "fr": "Coûts supplémentaires (€)",
         "es": "Additional Costs (€)",
         "ar": "Additional Costs (€)"
       },
       "businessContext_i18n": {
         "en": "Any additional charges (e.g., processing fees) included in the taxable amount.",
-        "tr": "Vergi matrahına dahil edilen ek ücretler (ör. işlem ücretleri)."
+        "tr": "Vergi matrahına dahil edilen ek ücretler (ör. işlem ücretleri).",
+        "de": "Zusätzliche Gebühren (z. B. Bearbeitungsgebühren), die im steuerpflichtigen Betrag enthalten sind.",
+        "fr": "Frais supplémentaires (ex. : frais de traitement) inclus dans la base imposable."
       }
     }
   ],

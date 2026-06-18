@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Current IRA Balance",
         "tr": "Mevcut IRA Bakiyesi",
-        "de": "Current IRA Balance",
-        "fr": "Current IRA Balance",
-        "es": "Current IRA Balance",
+        "de": "Aktueller IRA-Kontostand",
+        "fr": "Solde actuel du compte IRA",
+        "es": "Saldo actual de la IRA",
         "ar": "Current IRA Balance"
       },
       "businessContext_i18n": {
         "en": "The current value of the inherited IRA account.",
-        "tr": "Miras alınan IRA hesabının mevcut değeri."
+        "tr": "Miras alınan IRA hesabının mevcut değeri.",
+        "de": "Der aktuelle Wert des geerbten IRA-Kontos.",
+        "fr": "Valeur actuelle du compte IRA hérité.",
+        "es": "El valor actual de la cuenta IRA heredada."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Beneficiary's Age",
         "tr": "Yararlanıcının Yaşı",
-        "de": "Beneficiary's Age",
-        "fr": "Beneficiary's Age",
-        "es": "Beneficiary's Age",
+        "de": "Alter des Begünstigten",
+        "fr": "Âge du bénéficiaire",
+        "es": "Edad del beneficiario",
         "ar": "Beneficiary's Age"
       },
       "businessContext_i18n": {
         "en": "The current age of the beneficiary.",
-        "tr": "Yararlanıcının mevcut yaşı."
+        "tr": "Yararlanıcının mevcut yaşı.",
+        "de": "Das aktuelle Alter des Begünstigten.",
+        "fr": "Âge actuel du bénéficiaire.",
+        "es": "La edad actual del beneficiario."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Life Expectancy Factor",
         "tr": "Yaşam Beklentisi Faktörü",
-        "de": "Life Expectancy Factor",
-        "fr": "Life Expectancy Factor",
-        "es": "Life Expectancy Factor",
+        "de": "Lebenserwartungsfaktor",
+        "fr": "Facteur d'espérance de vie",
+        "es": "Factor de esperanza de vida",
         "ar": "Life Expectancy Factor"
       },
       "businessContext_i18n": {
         "en": "The IRS single life expectancy factor for the beneficiary's age, used to calculate RMD.",
-        "tr": "Yararlanıcının yaşına göre IRS tek yaşam beklentisi faktörü, RMD hesaplamasında kullanılır."
+        "tr": "Yararlanıcının yaşına göre IRS tek yaşam beklentisi faktörü, RMD hesaplamasında kullanılır.",
+        "de": "Der IRS-Lebenserwartungsfaktor für das Alter des Begünstigten, zur Berechnung der RMD.",
+        "fr": "Facteur d'espérance de vie unique de l'IRS pour l'âge du bénéficiaire, utilisé pour calculer le RMD.",
+        "es": "El factor de esperanza de vida individual del IRS para la edad del beneficiario, utilizado para calcular el RMD."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Expected Annual Return",
         "tr": "Beklenen Yıllık Getiri",
         "de": "Erwartete jährliche Rendite",
-        "fr": "Expected Annual Return",
-        "es": "Expected Annual Return",
+        "fr": "Rendement annuel attendu",
+        "es": "Rendimiento anual esperado",
         "ar": "Expected Annual Return"
       },
       "businessContext_i18n": {
         "en": "Expected annual rate of return on IRA investments, used for projection.",
-        "tr": "IRA yatırımlarında beklenen yıllık getiri oranı, projeksiyon için kullanılır."
+        "tr": "IRA yatırımlarında beklenen yıllık getiri oranı, projeksiyon için kullanılır.",
+        "de": "Erwartete jährliche Rendite der IRA-Investitionen, für die Prognose.",
+        "fr": "Taux de rendement annuel attendu sur les investissements IRA, utilisé pour la projection.",
+        "es": "Tasa de rendimiento anual esperada de las inversiones de la IRA, utilizada para la proyección."
       }
     }
   ],

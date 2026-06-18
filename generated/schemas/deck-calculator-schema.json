@@ -12,14 +12,16 @@
         "en": "Deck Length",
         "tr": "Deck Uzunluğu",
         "de": "Terrassenlänge",
-        "fr": "Deck Length",
-        "es": "Deck Length",
+        "fr": "Longueur du pont",
+        "es": "Longitud de la plataforma",
         "ar": "Deck Length"
       },
       "businessContext_i18n": {
         "en": "Total length of the deck area in meters.",
         "tr": "Güverte alanının metre cinsinden toplam uzunluğu.",
-        "de": "Gesamtlänge der Terrassenfläche in Metern."
+        "de": "Gesamtlänge der Terrassenfläche in Metern.",
+        "fr": "Longueur totale de la surface du pont en mètres.",
+        "es": "Longitud total del área de la plataforma en metros."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Deck Width",
         "tr": "Güverte Genişliği",
         "de": "Terrassenbreite",
-        "fr": "Deck Width",
-        "es": "Deck Width",
+        "fr": "Largeur du pont",
+        "es": "Ancho de la plataforma",
         "ar": "Deck Width"
       },
       "businessContext_i18n": {
         "en": "Total width of the deck area in meters.",
         "tr": "Güverte alanının metre cinsinden toplam genişliği.",
-        "de": "Gesamtbreite der Terrassenfläche in Metern."
+        "de": "Gesamtbreite der Terrassenfläche in Metern.",
+        "fr": "Largeur totale de la surface du pont en mètres.",
+        "es": "Ancho total del área de la plataforma en metros."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Board Length",
         "tr": "Tahta Uzunluğu",
         "de": "Brettlänge",
-        "fr": "Board Length",
-        "es": "Board Length",
+        "fr": "Longueur de la lame",
+        "es": "Longitud de la tabla",
         "ar": "Board Length"
       },
       "businessContext_i18n": {
         "en": "Length of one deck board, typically available in standard sizes.",
         "tr": "Bir güverte tahtasının uzunluğu, genellikle standart boyutlarda mevcuttur.",
-        "de": "Länge eines Terrassendielenbretts, typischerweise in Standardgrößen erhältlich."
+        "de": "Länge eines Terrassendielenbretts, typischerweise in Standardgrößen erhältlich.",
+        "fr": "Longueur d'une lame de terrasse, généralement disponible en tailles standard.",
+        "es": "Longitud de una tabla de cubierta, normalmente disponible en tamaños estándar."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Board Width",
         "tr": "Tahta Genişliği",
         "de": "Brettbreite",
-        "fr": "Board Width",
-        "es": "Board Width",
+        "fr": "Largeur de la lame",
+        "es": "Ancho de la tabla",
         "ar": "Board Width"
       },
       "businessContext_i18n": {
         "en": "Width of one deck board (e.g., 140 mm = 0.14 m).",
         "tr": "Bir güverte tahtasının genişliği (ör. 140 mm = 0,14 m).",
-        "de": "Breite eines Terrassendielenbretts (z. B. 140 mm = 0,14 m)."
+        "de": "Breite eines Terrassendielenbretts (z. B. 140 mm = 0,14 m).",
+        "fr": "Largeur d'une lame de terrasse (ex. : 140 mm = 0,14 m).",
+        "es": "Ancho de una tabla de cubierta (ej. 140 mm = 0.14 m)."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Board Price",
         "tr": "Tahta Fiyatı",
         "de": "Brettpreis",
-        "fr": "Board Price",
-        "es": "Board Price",
+        "fr": "Prix de la lame",
+        "es": "Precio de la tabla",
         "ar": "Board Price"
       },
       "businessContext_i18n": {
         "en": "Unit price of one deck board in currency.",
         "tr": "Bir güverte tahtasının para birimi cinsinden birim fiyatı.",
-        "de": "Stückpreis eines Terrassendielenbretts in Währung."
+        "de": "Stückpreis eines Terrassendielenbretts in Währung.",
+        "fr": "Prix unitaire d'une lame de terrasse en devise.",
+        "es": "Precio unitario de una tabla de cubierta en la moneda correspondiente."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
         "de": "Abfallfaktor",
-        "fr": "Waste Factor",
-        "es": "Waste Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Additional material percentage to account for cuts and waste (e.g., 10% = 0.1).",
         "tr": "Kesim ve fireyi hesaba katmak için ek malzeme yüzdesi (ör. %10 = 0,1).",
-        "de": "Zusätzlicher Materialprozentsatz für Zuschnitte und Verschnitt (z. B. 10 % = 0,1)."
+        "de": "Zusätzlicher Materialprozentsatz für Zuschnitte und Verschnitt (z. B. 10 % = 0,1).",
+        "fr": "Pourcentage de matériau supplémentaire pour tenir compte des coupes et des pertes (ex. : 10 % = 0,1).",
+        "es": "Porcentaje adicional de material para cortes y desperdicios (ej. 10% = 0.1)."
       }
     }
   ],

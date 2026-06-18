@@ -12,14 +12,16 @@
         "en": "Conversion Direction",
         "tr": "Dönüşüm yönü",
         "de": "Umrechnungsrichtung",
-        "fr": "Conversion Direction",
-        "es": "Conversion Direction",
+        "fr": "Sens de conversion",
+        "es": "Dirección de conversión",
         "ar": "Conversion Direction"
       },
       "businessContext_i18n": {
         "en": "0 for Cylindrical to Cartesian, 1 for Cartesian to Cylindrical",
         "tr": "0: Silindirikten Kartezyene, 1: Kartezyenden Silindiriğe",
-        "de": "0 für Zylindrisch nach Kartesisch, 1 für Kartesisch nach Zylindrisch"
+        "de": "0 für Zylindrisch nach Kartesisch, 1 für Kartesisch nach Zylindrisch",
+        "fr": "0 pour cylindrique vers cartésien, 1 pour cartésien vers cylindrique",
+        "es": "0 para cilíndrico a cartesiano, 1 para cartesiano a cilíndrico"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Radius (r)",
         "tr": "Yarıçap (r)",
         "de": "Radius (r)",
-        "fr": "Radius (r)",
-        "es": "Radius (r)",
+        "fr": "Rayon (r)",
+        "es": "Radio (r)",
         "ar": "Radius (r)"
       },
       "businessContext_i18n": {
         "en": "Radial distance in cylindrical coordinates",
         "tr": "Silindirik koordinatlarda radyal mesafe",
-        "de": "Radialer Abstand in Zylinderkoordinaten"
+        "de": "Radialer Abstand in Zylinderkoordinaten",
+        "fr": "Distance radiale en coordonnées cylindriques",
+        "es": "Distancia radial en coordenadas cilíndricas"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Azimuth (θ)",
         "tr": "Azimut (θ)",
         "de": "Azimut (θ)",
-        "fr": "Azimuth (θ)",
-        "es": "Azimuth (θ)",
+        "fr": "Azimut (θ)",
+        "es": "Azimut (θ)",
         "ar": "Azimuth (θ)"
       },
       "businessContext_i18n": {
         "en": "Angle in degrees, measured from positive x-axis",
         "tr": "Derece cinsinden açı, pozitif x ekseninden ölçülür",
-        "de": "Winkel in Grad, gemessen von der positiven x-Achse"
+        "de": "Winkel in Grad, gemessen von der positiven x-Achse",
+        "fr": "Angle en degrés, mesuré à partir de l'axe x positif",
+        "es": "Ángulo en grados, medido desde el eje x positivo"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "X-coordinate",
         "tr": "X koordinatı",
         "de": "X-Koordinate",
-        "fr": "X-coordinate",
-        "es": "X-coordinate",
+        "fr": "Coordonnée X",
+        "es": "Coordenada X",
         "ar": "X-coordinate"
       },
       "businessContext_i18n": {
         "en": "X-coordinate in Cartesian system",
         "tr": "Kartezyen sistemde X koordinatı",
-        "de": "X-Koordinate im kartesischen System"
+        "de": "X-Koordinate im kartesischen System",
+        "fr": "Coordonnée X dans le système cartésien",
+        "es": "Coordenada X en sistema cartesiano"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Y-coordinate",
         "tr": "Y koordinatı",
         "de": "Y-Koordinate",
-        "fr": "Y-coordinate",
-        "es": "Y-coordinate",
+        "fr": "Coordonnée Y",
+        "es": "Coordenada Y",
         "ar": "Y-coordinate"
       },
       "businessContext_i18n": {
         "en": "Y-coordinate in Cartesian system",
         "tr": "Kartezyen sistemde Y koordinatı",
-        "de": "Y-Koordinate im kartesischen System"
+        "de": "Y-Koordinate im kartesischen System",
+        "fr": "Coordonnée Y dans le système cartésien",
+        "es": "Coordenada Y en sistema cartesiano"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Z-coordinate",
         "tr": "Z koordinatı",
         "de": "Z-Koordinate",
-        "fr": "Z-coordinate",
-        "es": "Z-coordinate",
+        "fr": "Coordonnée Z",
+        "es": "Coordenada Z",
         "ar": "Z-coordinate"
       },
       "businessContext_i18n": {
         "en": "Z-coordinate (common to both coordinate systems)",
         "tr": "Z koordinatı (her iki koordinat sisteminde ortak)",
-        "de": "Z-Koordinate (beiden Koordinatensystemen gemeinsam)"
+        "de": "Z-Koordinate (beiden Koordinatensystemen gemeinsam)",
+        "fr": "Coordonnée Z (commune aux deux systèmes de coordonnées)",
+        "es": "Coordenada Z (común a ambos sistemas de coordenadas)"
       }
     }
   ],

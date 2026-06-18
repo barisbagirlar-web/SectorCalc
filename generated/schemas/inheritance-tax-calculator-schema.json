@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Estate Value",
         "tr": "Emlak Değeri",
-        "de": "Estate Value",
-        "fr": "Estate Value",
-        "es": "Estate Value",
+        "de": "Nachlasswert",
+        "fr": "Valeur de la succession",
+        "es": "Valor del patrimonio",
         "ar": "Estate Value"
       },
       "businessContext_i18n": {
         "en": "Total market value of all assets in the estate",
-        "tr": "Emlaktaki tüm varlıkların toplam piyasa değeri"
+        "tr": "Emlaktaki tüm varlıkların toplam piyasa değeri",
+        "de": "Gesamtmarktwert aller Vermögenswerte im Nachlass",
+        "fr": "Valeur totale de marché de tous les actifs de la succession",
+        "es": "Valor total de mercado de todos los activos en el patrimonio"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Funeral Expenses",
         "tr": "Cenaze Masrafları",
-        "de": "Funeral Expenses",
-        "fr": "Funeral Expenses",
-        "es": "Funeral Expenses",
+        "de": "Bestattungskosten",
+        "fr": "Frais funéraires",
+        "es": "Gastos funerarios",
         "ar": "Funeral Expenses"
       },
       "businessContext_i18n": {
         "en": "Funeral and burial expenses deductible from the estate",
-        "tr": "Emlaktan düşülebilecek cenaze ve defin masrafları"
+        "tr": "Emlaktan düşülebilecek cenaze ve defin masrafları",
+        "de": "Bestattungs- und Grabkosten, die vom Nachlass abgezogen werden können",
+        "fr": "Frais funéraires et d'inhumation déductibles de la succession",
+        "es": "Gastos de funeral y entierro deducibles del patrimonio"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Debts and Liabilities",
         "tr": "Borçlar ve Yükümlülükler",
-        "de": "Debts and Liabilities",
-        "fr": "Debts and Liabilities",
-        "es": "Debts and Liabilities",
+        "de": "Schulden und Verbindlichkeiten",
+        "fr": "Dettes et passifs",
+        "es": "Deudas y Pasivos",
         "ar": "Debts and Liabilities"
       },
       "businessContext_i18n": {
         "en": "Outstanding debts and liabilities of the deceased",
-        "tr": "Merhumun ödenmemiş borçları ve yükümlülükleri"
+        "tr": "Merhumun ödenmemiş borçları ve yükümlülükleri",
+        "de": "Ausstehende Schulden und Verbindlichkeiten des Verstorbenen",
+        "fr": "Dettes et passifs impayés du défunt",
+        "es": "Deudas y pasivos pendientes del fallecido"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Tax-Free Allowance",
         "tr": "Vergiden Muaf Tutar",
         "de": "Steuerfreier Freibetrag",
-        "fr": "Tax-Free Allowance",
-        "es": "Tax-Free Allowance",
+        "fr": "Abattement fiscal",
+        "es": "Exención fiscal",
         "ar": "Tax-Free Allowance"
       },
       "businessContext_i18n": {
         "en": "Tax-free threshold or nil-rate band",
-        "tr": "Vergisiz eşik veya sıfır oranlı bant"
+        "tr": "Vergisiz eşik veya sıfır oranlı bant",
+        "de": "Steuerfreibetrag oder Null-Prozent-Satz",
+        "fr": "Seuil d'exonération ou tranche à taux zéro",
+        "es": "Umbral exento de impuestos o banda sin tasa"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
         "de": "Steuersatz",
-        "fr": "Tax Rate",
-        "es": "Tax Rate",
+        "fr": "Taux de taxe",
+        "es": "Tasa de impuesto",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Effective inheritance tax rate in percentage",
-        "tr": "Etkin veraset vergisi oranı yüzde olarak"
+        "tr": "Etkin veraset vergisi oranı yüzde olarak",
+        "de": "Effektiver Erbschaftssteuersatz in Prozent",
+        "fr": "Taux effectif de l'impôt sur les successions en pourcentage",
+        "es": "Tasa efectiva del impuesto a la herencia en porcentaje"
       }
     }
   ],

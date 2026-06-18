@@ -22,11 +22,15 @@
       "businessContext": "Total headcount at the start of the period.",
       "label_i18n": {
         "en": "Number of Employees",
-        "tr": "Çalışan Sayısı"
+        "tr": "Çalışan Sayısı",
+        "de": "Anzahl der Mitarbeiter",
+        "fr": "Nombre d'employés"
       },
       "businessContext_i18n": {
         "en": "Total headcount at the start of the period.",
-        "tr": "Dönem başındaki toplam çalışan sayısı."
+        "tr": "Dönem başındaki toplam çalışan sayısı.",
+        "de": "Gesamtpersonalbestand zu Beginn des Zeitraums.",
+        "fr": "Effectif total au début de la période."
       }
     },
     {
@@ -40,11 +44,15 @@
       "businessContext": "Percentage of employees leaving per year (voluntary + involuntary).",
       "label_i18n": {
         "en": "Annual Turnover Rate",
-        "tr": "Yıllık İşgücü Devir Oranı"
+        "tr": "Yıllık İşgücü Devir Oranı",
+        "de": "Jährliche Fluktuationsrate",
+        "fr": "Taux de rotation annuel"
       },
       "businessContext_i18n": {
         "en": "Percentage of employees leaving per year (voluntary + involuntary).",
-        "tr": "Yılda ayrılan çalışan yüzdesi (gönüllü + gönülsüz)."
+        "tr": "Yılda ayrılan çalışan yüzdesi (gönüllü + gönülsüz).",
+        "de": "Prozentsatz der Mitarbeiter, die pro Jahr ausscheiden (freiwillig + unfreiwillig).",
+        "fr": "Pourcentage d'employés quittant l'entreprise par an (volontaire + involontaire)."
       }
     },
     {
@@ -58,11 +66,15 @@
       "businessContext": "Average total compensation (base + benefits) per employee.",
       "label_i18n": {
         "en": "Average Annual Salary per Employee",
-        "tr": "Çalışan Başına Ortalama Yıllık Maaş"
+        "tr": "Çalışan Başına Ortalama Yıllık Maaş",
+        "de": "Durchschnittliches Jahresgehalt pro Mitarbeiter",
+        "fr": "Salaire annuel moyen par employé"
       },
       "businessContext_i18n": {
         "en": "Average total compensation (base + benefits) per employee.",
-        "tr": "Çalışan başına ortalama toplam ücret (temel maaş + yan haklar)."
+        "tr": "Çalışan başına ortalama toplam ücret (temel maaş + yan haklar).",
+        "de": "Durchschnittliche Gesamtvergütung (Grundgehalt + Zusatzleistungen) pro Mitarbeiter.",
+        "fr": "Rémunération totale moyenne (salaire + avantages) par employé."
       }
     },
     {
@@ -76,11 +88,15 @@
       "businessContext": "Advertising, agency fees, screening, interviewing.",
       "label_i18n": {
         "en": "Recruitment Cost per Hire",
-        "tr": "İşe Alım Maliyeti (kişi başı)"
+        "tr": "İşe Alım Maliyeti (kişi başı)",
+        "de": "Rekrutierungskosten pro Einstellung",
+        "fr": "Coût de recrutement par embauche"
       },
       "businessContext_i18n": {
         "en": "Advertising, agency fees, screening, interviewing.",
-        "tr": "Reklam, ajans ücretleri, tarama, mülakat."
+        "tr": "Reklam, ajans ücretleri, tarama, mülakat.",
+        "de": "Werbung, Agenturgebühren, Screening, Vorstellungsgespräche.",
+        "fr": "Publicité, frais d'agence, sélection, entretiens."
       }
     },
     {
@@ -94,11 +110,15 @@
       "businessContext": "Training materials, orientation, IT setup, mentor time.",
       "label_i18n": {
         "en": "Onboarding Cost per Hire",
-        "tr": "İşe Başlatma Maliyeti (kişi başı)"
+        "tr": "İşe Başlatma Maliyeti (kişi başı)",
+        "de": "Onboarding-Kosten pro Einstellung",
+        "fr": "Coût d'intégration par embauche"
       },
       "businessContext_i18n": {
         "en": "Training materials, orientation, IT setup, mentor time.",
-        "tr": "Eğitim materyalleri, oryantasyon, BT kurulumu, mentor süresi."
+        "tr": "Eğitim materyalleri, oryantasyon, BT kurulumu, mentor süresi.",
+        "de": "Schulungsmaterialien, Einarbeitung, IT-Einrichtung, Mentorenzeit.",
+        "fr": "Matériel de formation, orientation, configuration informatique, temps du mentor."
       }
     },
     {
@@ -112,11 +132,15 @@
       "businessContext": "Formal training, certifications, on-the-job learning.",
       "label_i18n": {
         "en": "Training Cost per Hire (first year)",
-        "tr": "Eğitim Maliyeti (ilk yıl, kişi başı)"
+        "tr": "Eğitim Maliyeti (ilk yıl, kişi başı)",
+        "de": "Schulungskosten pro Einstellung (erstes Jahr)",
+        "fr": "Coût de formation par embauche (première année)"
       },
       "businessContext_i18n": {
         "en": "Formal training, certifications, on-the-job learning.",
-        "tr": "Resmi eğitim, sertifikalar, iş başında öğrenme."
+        "tr": "Resmi eğitim, sertifikalar, iş başında öğrenme.",
+        "de": "Formelle Schulungen, Zertifizierungen, Lernen am Arbeitsplatz.",
+        "fr": "Formation formelle, certifications, apprentissage en situation de travail."
       }
     },
     {
@@ -130,11 +154,15 @@
       "businessContext": "Average months of reduced output per new hire (ramp-up period).",
       "label_i18n": {
         "en": "Lost Productivity Duration",
-        "tr": "Kayıp Verimlilik Süresi"
+        "tr": "Kayıp Verimlilik Süresi",
+        "de": "Dauer der Produktivitätseinbuße",
+        "fr": "Durée de perte de productivité"
       },
       "businessContext_i18n": {
         "en": "Average months of reduced output per new hire (ramp-up period).",
-        "tr": "Yeni işe alınan başına düşen ortalama düşük çıktı süresi (alışma dönemi)."
+        "tr": "Yeni işe alınan başına düşen ortalama düşük çıktı süresi (alışma dönemi).",
+        "de": "Durchschnittliche Monate mit reduzierter Leistung pro Neueinstellung (Einarbeitungszeit).",
+        "fr": "Nombre moyen de mois de rendement réduit par nouvelle embauche (période de montée en compétence)."
       }
     },
     {
@@ -148,11 +176,15 @@
       "businessContext": "Average productivity level during ramp-up (e.g., 50% means half output).",
       "label_i18n": {
         "en": "Productivity Factor during Ramp-up",
-        "tr": "Rampa Çıkışı Sırasında Verimlilik Faktörü"
+        "tr": "Rampa Çıkışı Sırasında Verimlilik Faktörü",
+        "de": "Produktivitätsfaktor während des Hochlaufs",
+        "fr": "Facteur de productivité pendant la montée en régime"
       },
       "businessContext_i18n": {
         "en": "Average productivity level during ramp-up (e.g., 50% means half output).",
-        "tr": "Rampa çıkışı sırasındaki ortalama verimlilik seviyesi (örneğin, %50 yarı çıktı anlamına gelir)."
+        "tr": "Rampa çıkışı sırasındaki ortalama verimlilik seviyesi (örneğin, %50 yarı çıktı anlamına gelir).",
+        "de": "Durchschnittliches Produktivitätsniveau während des Hochlaufs (z.B. 50% bedeutet halbe Ausbeute).",
+        "fr": "Niveau de productivité moyen pendant la montée en régime (ex. : 50 % signifie moitié de la production)."
       }
     }
   ],

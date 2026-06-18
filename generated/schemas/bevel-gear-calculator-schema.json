@@ -12,14 +12,16 @@
         "en": "Modül (m)",
         "tr": "Modül (m)",
         "de": "Modul (m)",
-        "fr": "Modül (m)",
-        "es": "Modül (m)",
+        "fr": "Module (m)",
+        "es": "Módulo (m)",
         "ar": "Modül (m)"
       },
       "businessContext_i18n": {
         "en": "Modül, dişli boyutlandırma için standart bir parametredir.",
         "tr": "Modül, dişli boyutlandırma için standart bir parametredir.",
-        "de": "Modul, ein Standardparameter für die Zahnradbemessung."
+        "de": "Modul, ein Standardparameter für die Zahnradbemessung.",
+        "fr": "Le module est un paramètre standard pour le dimensionnement des engrenages.",
+        "es": "El módulo es un parámetro estándar para el dimensionamiento de engranajes."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Pinyon Diş Sayısı (z₁)",
         "tr": "Pinyon Diş Sayısı (z₁)",
         "de": "Ritzel Zähnezahl (z₁)",
-        "fr": "Pinyon Diş Sayısı (z₁)",
-        "es": "Pinyon Diş Sayısı (z₁)",
+        "fr": "Nombre de dents du pignon (z₁)",
+        "es": "Número de dientes del piñón (z₁)",
         "ar": "Pinyon Diş Sayısı (z₁)"
       },
       "businessContext_i18n": {
         "en": "Küçük (pinyon) dişlinin diş sayısı.",
         "tr": "Küçük (pinyon) dişlinin diş sayısı.",
-        "de": "Zähnezahl des kleinen (Ritzel-)Zahnrads."
+        "de": "Zähnezahl des kleinen (Ritzel-)Zahnrads.",
+        "fr": "Nombre de dents du petit engrenage (pignon).",
+        "es": "Número de dientes del engranaje pequeño (piñón)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Ayna Diş Sayısı (z₂)",
         "tr": "Ayna Diş Sayısı (z₂)",
         "de": "Tellerrad Zähnezahl (z₂)",
-        "fr": "Ayna Diş Sayısı (z₂)",
-        "es": "Ayna Diş Sayısı (z₂)",
+        "fr": "Nombre de dents de la couronne (z₂)",
+        "es": "Número de dientes de la corona (z₂)",
         "ar": "Ayna Diş Sayısı (z₂)"
       },
       "businessContext_i18n": {
         "en": "Büyük (ayna) dişlinin diş sayısı.",
         "tr": "Büyük (ayna) dişlinin diş sayısı.",
-        "de": "Zähnezahl des großen (Tellerrad-)Zahnrads."
+        "de": "Zähnezahl des großen (Tellerrad-)Zahnrads.",
+        "fr": "Nombre de dents du grand engrenage (couronne).",
+        "es": "Número de dientes del engranaje grande (corona)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Mil Açısı (Σ)",
         "tr": "Mil Açısı (Σ)",
         "de": "Wellenwinkel (Σ)",
-        "fr": "Mil Açısı (Σ)",
-        "es": "Mil Açısı (Σ)",
+        "fr": "Angle d'arbre (Σ)",
+        "es": "Ángulo del eje (Σ)",
         "ar": "Mil Açısı (Σ)"
       },
       "businessContext_i18n": {
         "en": "Kesişen iki mil arasındaki açı (genellikle 90°).",
         "tr": "Kesişen iki mil arasındaki açı (genellikle 90°).",
-        "de": "Winkel zwischen den beiden sich kreuzenden Wellen (normalerweise 90°)."
+        "de": "Winkel zwischen den beiden sich kreuzenden Wellen (normalerweise 90°).",
+        "fr": "Angle entre les deux arbres sécants (généralement 90°).",
+        "es": "Ángulo entre los dos ejes que se cruzan (generalmente 90°)."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Kavrama Açısı (α)",
         "tr": "Kavrama Açısı (α)",
         "de": "Eingriffswinkel (α)",
-        "fr": "Kavrama Açısı (α)",
-        "es": "Kavrama Açısı (α)",
+        "fr": "Angle de pression (α)",
+        "es": "Ángulo de presión (α)",
         "ar": "Kavrama Açısı (α)"
       },
       "businessContext_i18n": {
         "en": "Standart kavrama açısı; çoğunlukla 20° kullanılır.",
         "tr": "Standart kavrama açısı; çoğunlukla 20° kullanılır.",
-        "de": "Standard-Eingriffswinkel; meist 20° verwendet."
+        "de": "Standard-Eingriffswinkel; meist 20° verwendet.",
+        "fr": "Angle de pression standard ; généralement 20°.",
+        "es": "Ángulo de presión estándar; normalmente se usa 20°."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Diş Genişliği Faktörü (k)",
         "tr": "Diş Genişliği Faktörü (k)",
         "de": "Zahnbreitenfaktor (k)",
-        "fr": "Diş Genişliği Faktörü (k)",
-        "es": "Diş Genişliği Faktörü (k)",
+        "fr": "Facteur de largeur de dent (k)",
+        "es": "Factor de ancho de diente (k)",
         "ar": "Diş Genişliği Faktörü (k)"
       },
       "businessContext_i18n": {
         "en": "Diş genişliğinin konik mesafeye oranı (genelde 0,2 – 0,3 aralığında).",
         "tr": "Diş genişliğinin konik mesafeye oranı (genelde 0,2 – 0,3 aralığında).",
-        "de": "Verhältnis der Zahnbreite zur Kegeldistanz (normalerweise 0,2–0,3)."
+        "de": "Verhältnis der Zahnbreite zur Kegeldistanz (normalerweise 0,2–0,3).",
+        "fr": "Rapport de la largeur de dent à la distance conique (généralement entre 0,2 et 0,3).",
+        "es": "Relación entre el ancho del diente y la distancia cónica (generalmente entre 0,2 y 0,3)."
       }
     }
   ],

@@ -12,13 +12,15 @@
         "en": "Wall Height",
         "tr": "Duvar Yüksekliği",
         "de": "Wandhöhe",
-        "fr": "Wall Height",
-        "es": "Wall Height",
+        "fr": "Hauteur du mur",
+        "es": "Altura del muro",
         "ar": "Wall Height"
       },
       "businessContext_i18n": {
         "en": "Height of retaining wall from base to top.",
-        "tr": "Temelden tepeye istinat duvarı yüksekliği."
+        "tr": "Temelden tepeye istinat duvarı yüksekliği.",
+        "de": "Höhe der Stützmauer von der Basis bis zur Spitze.",
+        "fr": "Hauteur du mur de soutènement de la base au sommet."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Wall Length",
         "tr": "Duvar Uzunluğu (m)",
         "de": "Duvar Uzunluğu",
-        "fr": "Wall Length",
-        "es": "Wall Length",
+        "fr": "Longueur du mur",
+        "es": "Longitud del muro",
         "ar": "Wall Length"
       },
       "businessContext_i18n": {
         "en": "Length of wall section being drained.",
-        "tr": "Drene edilen duvar bölümünün uzunluğu."
+        "tr": "Drene edilen duvar bölümünün uzunluğu.",
+        "de": "Länge des zu entwässernden Wandabschnitts.",
+        "fr": "Longueur de la section de mur drainée."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Soil Permeability (k)",
         "tr": "Toprak geçirgenliği (k)",
-        "de": "Soil Permeability (k)",
-        "fr": "Soil Permeability (k)",
+        "de": "Bodendurchlässigkeit (k)",
+        "fr": "Perméabilité du sol (k)",
         "es": "Soil Permeability (k)",
         "ar": "Soil Permeability (k)"
       },
       "businessContext_i18n": {
         "en": "Hydraulic conductivity of backfill soil. Fine sand ~1e-5, gravel ~1e-3.",
-        "tr": "Dolgu toprağının hidrolik iletkenliği. İnce kum ~1e-5, çakıl ~1e-3."
+        "tr": "Dolgu toprağının hidrolik iletkenliği. İnce kum ~1e-5, çakıl ~1e-3.",
+        "de": "Hydraulische Leitfähigkeit des Hinterfüllbodens. Feiner Sand ~1e-5, Kies ~1e-3.",
+        "fr": "Conductivité hydraulique du sol de remblai. Sable fin ~1e-5, gravier ~1e-3."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Drain Pipe Diameter",
         "tr": "Drenaj borusu çapı",
-        "de": "Drain Pipe Diameter",
-        "fr": "Drain Pipe Diameter",
+        "de": "Durchmesser des Drainagerohrs",
+        "fr": "Diamètre du tuyau de drainage",
         "es": "Drain Pipe Diameter",
         "ar": "Drain Pipe Diameter"
       },
       "businessContext_i18n": {
         "en": "Inner diameter of drainage pipe.",
-        "tr": "Drenaj borusu iç çapı."
+        "tr": "Drenaj borusu iç çapı.",
+        "de": "Innendurchmesser des Drainagerohrs.",
+        "fr": "Diamètre intérieur du tuyau de drainage."
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Pipe Slope",
         "tr": "Boru Eğimi",
         "de": "Rohrgefälle",
-        "fr": "Pipe Slope",
-        "es": "Pipe Slope",
+        "fr": "Pente de la canalisation",
+        "es": "Pendiente de la tubería",
         "ar": "Pipe Slope"
       },
       "businessContext_i18n": {
         "en": "Slope of drain pipe as percentage (e.g., 1 = 1%).",
-        "tr": "Drenaj borusu eğimi yüzde olarak (örn. 1 = %1)."
+        "tr": "Drenaj borusu eğimi yüzde olarak (örn. 1 = %1).",
+        "de": "Gefälle des Drainagerohrs in Prozent (z.B. 1 = 1%).",
+        "fr": "Pente du tuyau de drainage en pourcentage (ex. 1 = 1%)."
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Manning's n",
         "tr": "Manning n",
         "de": "Manning's n",
-        "fr": "Manning's n",
-        "es": "Manning's n",
+        "fr": "n de Manning",
+        "es": "n de Manning",
         "ar": "Manning's n"
       },
       "businessContext_i18n": {
         "en": "Roughness coefficient for pipe material (e.g., concrete=0.013, corrugated metal=0.024).",
-        "tr": "Boru malzemesi pürüzlülük katsayısı (örn. beton=0.013, oluklu metal=0.024)."
+        "tr": "Boru malzemesi pürüzlülük katsayısı (örn. beton=0.013, oluklu metal=0.024).",
+        "de": "Rauheitsbeiwert des Rohrmaterials (z.B. Beton=0,013, Wellblech=0,024).",
+        "fr": "Coefficient de rugosité pour le matériau du tuyau (ex. béton=0,013, métal ondulé=0,024)."
       }
     }
   ],

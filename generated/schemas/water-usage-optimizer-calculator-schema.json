@@ -22,11 +22,15 @@
       "businessContext": "Total volume of water entering the facility from all sources (municipal, well, recycled).",
       "label_i18n": {
         "en": "Total Water Input (m³)",
-        "tr": "Toplam Su Girişi (m³)"
+        "tr": "Toplam Su Girişi (m³)",
+        "de": "Gesamtwasserzufuhr (m³)",
+        "fr": "Entrée d'eau totale (m³)"
       },
       "businessContext_i18n": {
         "en": "Total volume of water entering the facility from all sources (municipal, well, recycled).",
-        "tr": "Tesise tüm kaynaklardan (şebeke, kuyu, geri dönüştürülmüş) giren toplam su hacmi."
+        "tr": "Tesise tüm kaynaklardan (şebeke, kuyu, geri dönüştürülmüş) giren toplam su hacmi.",
+        "de": "Gesamtvolumen des Wassers, das aus allen Quellen (kommunal, Brunnen, recycelt) in die Anlage gelangt.",
+        "fr": "Volume total d'eau entrant dans l'installation de toutes sources (municipale, puits, recyclée)."
       }
     },
     {
@@ -40,11 +44,15 @@
       "businessContext": "Total number of units produced in the reporting period.",
       "label_i18n": {
         "en": "Production Output (units)",
-        "tr": "Üretim Çıktısı (birim)"
+        "tr": "Üretim Çıktısı (birim)",
+        "de": "Produktionsausstoß (Einheiten)",
+        "fr": "Production (unités)"
       },
       "businessContext_i18n": {
         "en": "Total number of units produced in the reporting period.",
-        "tr": "Raporlama döneminde üretilen toplam birim sayısı."
+        "tr": "Raporlama döneminde üretilen toplam birim sayısı.",
+        "de": "Gesamtzahl der im Berichtszeitraum produzierten Einheiten.",
+        "fr": "Nombre total d'unités produites au cours de la période de référence."
       }
     },
     {
@@ -58,11 +66,15 @@
       "businessContext": "Water directly used in manufacturing processes (e.g., cooling, rinsing, chemical mixing).",
       "label_i18n": {
         "en": "Process Water Used (m³)",
-        "tr": "Proses Suyu Kullanımı (m³)"
+        "tr": "Proses Suyu Kullanımı (m³)",
+        "de": "Prozesswasser verwendet (m³)",
+        "fr": "Eau de procédé utilisée (m³)"
       },
       "businessContext_i18n": {
         "en": "Water directly used in manufacturing processes (e.g., cooling, rinsing, chemical mixing).",
-        "tr": "İmalat proseslerinde doğrudan kullanılan su (ör. soğutma, durulama, kimyasal karıştırma)."
+        "tr": "İmalat proseslerinde doğrudan kullanılan su (ör. soğutma, durulama, kimyasal karıştırma).",
+        "de": "Wasser, das direkt in Herstellungsprozessen verwendet wird (z. B. Kühlung, Spülen, Chemikaliendosierung).",
+        "fr": "Eau directement utilisée dans les processus de fabrication (ex. refroidissement, rinçage, mélange chimique)."
       }
     },
     {
@@ -76,11 +88,15 @@
       "businessContext": "Water added to cooling towers or closed-loop systems to compensate for evaporation and blowdown.",
       "label_i18n": {
         "en": "Cooling Water Makeup (m³)",
-        "tr": "Soğutma Suyu Tamamlama (m³)"
+        "tr": "Soğutma Suyu Tamamlama (m³)",
+        "de": "Kühlwasser-Nachspeisung (m³)",
+        "fr": "Appoint d'eau de refroidissement (m³)"
       },
       "businessContext_i18n": {
         "en": "Water added to cooling towers or closed-loop systems to compensate for evaporation and blowdown.",
-        "tr": "Buharlaşma ve tahliyeyi telafi etmek için soğutma kulelerine veya kapalı devre sistemlere eklenen su."
+        "tr": "Buharlaşma ve tahliyeyi telafi etmek için soğutma kulelerine veya kapalı devre sistemlere eklenen su.",
+        "de": "Wasser, das Kühltürmen oder geschlossenen Kreisläufen zugeführt wird, um Verdunstung und Abblaseverluste auszugleichen.",
+        "fr": "Eau ajoutée aux tours de refroidissement ou aux circuits fermés pour compenser l'évaporation et la purge."
       }
     },
     {
@@ -94,11 +110,15 @@
       "businessContext": "Volume of wastewater discharged to sewer or treatment facility.",
       "label_i18n": {
         "en": "Wastewater Discharge (m³)",
-        "tr": "Atık Su Deşarjı (m³)"
+        "tr": "Atık Su Deşarjı (m³)",
+        "de": "Abwasserableitung (m³)",
+        "fr": "Rejet d'eaux usées (m³)"
       },
       "businessContext_i18n": {
         "en": "Volume of wastewater discharged to sewer or treatment facility.",
-        "tr": "Kanalizasyona veya arıtma tesisine deşarj edilen atık su hacmi."
+        "tr": "Kanalizasyona veya arıtma tesisine deşarj edilen atık su hacmi.",
+        "de": "Volumen des Abwassers, das in die Kanalisation oder Kläranlage abgeleitet wird.",
+        "fr": "Volume d'eaux usées rejetées à l'égout ou à une station de traitement."
       }
     },
     {
@@ -112,11 +132,15 @@
       "businessContext": "Volume of water treated and reused within the facility.",
       "label_i18n": {
         "en": "Recycled Water (m³)",
-        "tr": "Geri Dönüştürülmüş Su (m³)"
+        "tr": "Geri Dönüştürülmüş Su (m³)",
+        "de": "Recyclingwasser (m³)",
+        "fr": "Eau recyclée (m³)"
       },
       "businessContext_i18n": {
         "en": "Volume of water treated and reused within the facility.",
-        "tr": "Tesis içinde arıtılıp yeniden kullanılan su hacmi."
+        "tr": "Tesis içinde arıtılıp yeniden kullanılan su hacmi.",
+        "de": "Volumen des Wassers, das behandelt und innerhalb der Anlage wiederverwendet wird.",
+        "fr": "Volume d'eau traitée et réutilisée dans l'installation."
       }
     },
     {
@@ -130,11 +154,15 @@
       "businessContext": "Estimated water lost through leaks in pipes, valves, and fixtures.",
       "label_i18n": {
         "en": "Leakage Losses (m³)",
-        "tr": "Sızıntı Kayıpları (m³)"
+        "tr": "Sızıntı Kayıpları (m³)",
+        "de": "Leckageverluste (m³)",
+        "fr": "Pertes par fuite (m³)"
       },
       "businessContext_i18n": {
         "en": "Estimated water lost through leaks in pipes, valves, and fixtures.",
-        "tr": "Boru, vana ve armatürlerdeki sızıntılardan kaynaklanan tahmini su kaybı."
+        "tr": "Boru, vana ve armatürlerdeki sızıntılardan kaynaklanan tahmini su kaybı.",
+        "de": "Geschätzte Wassermenge, die durch Lecks in Rohren, Ventilen und Armaturen verloren geht.",
+        "fr": "Estimation de l'eau perdue par les fuites dans les tuyaux, vannes et raccords."
       }
     },
     {
@@ -157,11 +185,15 @@
       "label_i18n": {
         "en": "Industry Type",
         "tr": "Sektör Türü",
-        "de": "Branchentyp"
+        "de": "Branchentyp",
+        "fr": "Type d'industrie",
+        "es": "Tipo de industria"
       },
       "businessContext_i18n": {
         "en": "Industry classification used for benchmarking and normalization.",
-        "tr": "Kıyaslama ve normalizasyon için kullanılan endüstri sınıflandırması."
+        "tr": "Kıyaslama ve normalizasyon için kullanılan endüstri sınıflandırması.",
+        "de": "Branchenklassifikation für Benchmarking und Normierung.",
+        "fr": "Classification industrielle utilisée pour l'analyse comparative et la normalisation."
       }
     }
   ],

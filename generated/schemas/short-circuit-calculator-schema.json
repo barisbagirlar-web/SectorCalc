@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "System Voltage (LL)",
         "tr": "Sistem Gerilimi (Faz-Faz)",
-        "de": "System Voltage (LL)",
-        "fr": "System Voltage (LL)",
+        "de": "Systemspannung (LL)",
+        "fr": "Tension du système (phase-phase)",
         "es": "System Voltage (LL)",
         "ar": "System Voltage (LL)"
       },
       "businessContext_i18n": {
         "en": "Nominal line-to-line voltage of the power system (e.g., 400 V for low voltage).",
-        "tr": "Güç sisteminin nominal faz-faz gerilimi (örneğin, alçak gerilim için 400 V)."
+        "tr": "Güç sisteminin nominal faz-faz gerilimi (örneğin, alçak gerilim için 400 V).",
+        "de": "Nennspannung (Leiter-Leiter) des Stromsystems (z. B. 400 V für Niederspannung).",
+        "fr": "Tension nominale phase-phase du réseau électrique (ex. 400 V pour basse tension)."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Source Impedance",
         "tr": "Kaynak Empedansı",
-        "de": "Source Impedance",
-        "fr": "Source Impedance",
+        "de": "Quellenimpedanz",
+        "fr": "Impédance de source",
         "es": "Source Impedance",
         "ar": "Source Impedance"
       },
       "businessContext_i18n": {
         "en": "The equivalent impedance of the upstream network (often negligible for transformer-fed systems).",
-        "tr": "Yukarı akış şebekesinin eşdeğer empedansı (genellikle transformatör beslemeli sistemlerde ihmal edilebilir)."
+        "tr": "Yukarı akış şebekesinin eşdeğer empedansı (genellikle transformatör beslemeli sistemlerde ihmal edilebilir).",
+        "de": "Die äquivalente Impedanz des vorgelagerten Netzes (oft vernachlässigbar bei transformatorgespeisten Systemen).",
+        "fr": "Impédance équivalente du réseau amont (souvent négligeable pour les systèmes alimentés par transformateur)."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Transformer Rating",
         "tr": "Transformatör Anma Gücü",
         "de": "Transformator-Nennleistung",
-        "fr": "Transformer Rating",
-        "es": "Transformer Rating",
+        "fr": "Puissance nominale du transformateur",
+        "es": "Potencia nominal del transformador",
         "ar": "Transformer Rating"
       },
       "businessContext_i18n": {
         "en": "Rated apparent power of the transformer.",
-        "tr": "Transformatörün anma görünür gücü."
+        "tr": "Transformatörün anma görünür gücü.",
+        "de": "Bemessungsscheinleistung des Transformators.",
+        "fr": "Puissance apparente nominale du transformateur."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Impedance Voltage (%Z)",
         "tr": "Empedans Gerilimi (%Z)",
-        "de": "Impedance Voltage (%Z)",
-        "fr": "Impedance Voltage (%Z)",
+        "de": "Impedanzspannung (%Z)",
+        "fr": "Tension d'impédance (%Z)",
         "es": "Impedance Voltage (%Z)",
         "ar": "Impedance Voltage (%Z)"
       },
       "businessContext_i18n": {
         "en": "Percent impedance voltage of the transformer, typically 4–6% for distribution transformers.",
-        "tr": "Transformatörün yüzde empedans gerilimi, dağıtım transformatörleri için tipik olarak %4–6."
+        "tr": "Transformatörün yüzde empedans gerilimi, dağıtım transformatörleri için tipik olarak %4–6.",
+        "de": "Prozentuale Impedanzspannung des Transformators, typischerweise 4–6 % bei Verteilungstransformatoren.",
+        "fr": "Pourcentage de tension d'impédance du transformateur, généralement 4–6 % pour les transformateurs de distribution."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Cable Length",
         "tr": "Kablo Uzunluğu",
-        "de": "Cable Length",
-        "fr": "Cable Length",
+        "de": "Kabellänge",
+        "fr": "Longueur du câble",
         "es": "Cable Length",
         "ar": "Cable Length"
       },
       "businessContext_i18n": {
         "en": "Length of the cable between transformer and fault point.",
-        "tr": "Transformatör ile arıza noktası arasındaki kablo uzunluğu."
+        "tr": "Transformatör ile arıza noktası arasındaki kablo uzunluğu.",
+        "de": "Länge des Kabels zwischen Transformator und Fehlerort.",
+        "fr": "Longueur du câble entre le transformateur et le point de défaut."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Cable Cross-Section",
         "tr": "Kablo Kesiti",
-        "de": "Cable Cross-Section",
-        "fr": "Cable Cross-Section",
+        "de": "Kabelquerschnitt",
+        "fr": "Section du câble",
         "es": "Cable Cross-Section",
         "ar": "Cable Cross-Section"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional area of the cable conductor.",
-        "tr": "Kablo iletkeninin kesit alanı."
+        "tr": "Kablo iletkeninin kesit alanı.",
+        "de": "Querschnittsfläche des Kabelleiters.",
+        "fr": "Section transversale du conducteur du câble."
       }
     },
     {
@@ -132,13 +144,15 @@
         "en": "Conductor Resistivity",
         "tr": "İletken Direnci",
         "de": "Leiterwiderstand",
-        "fr": "Conductor Resistivity",
-        "es": "Conductor Resistivity",
+        "fr": "Résistivité du conducteur",
+        "es": "Resistividad del conductor",
         "ar": "Conductor Resistivity"
       },
       "businessContext_i18n": {
         "en": "Electrical resistivity of the conductor material (0.0175 for copper, 0.0282 for aluminum).",
-        "tr": "İletken malzemenin elektriksel özdirenci (bakır için 0,0175, alüminyum için 0,0282)."
+        "tr": "İletken malzemenin elektriksel özdirenci (bakır için 0,0175, alüminyum için 0,0282).",
+        "de": "Elektrischer Widerstand des Leitermaterials (0,0175 für Kupfer, 0,0282 für Aluminium).",
+        "fr": "Résistivité électrique du matériau conducteur (0,0175 pour le cuivre, 0,0282 pour l'aluminium)."
       }
     }
   ],

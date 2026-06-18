@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Cihaz Bekleme Gücü",
         "tr": "Cihaz Bekleme Gücü",
-        "de": "Cihaz Bekleme Gücü",
-        "fr": "Cihaz Bekleme Gücü",
-        "es": "Cihaz Bekleme Gücü",
+        "de": "Geräte-Standby-Leistung",
+        "fr": "Puissance en veille de l'appareil",
+        "es": "Potencia en espera del dispositivo",
         "ar": "Cihaz Bekleme Gücü"
       },
       "businessContext_i18n": {
         "en": "Cihazın bekleme modunda tükettiği güç, watt cinsinden.",
-        "tr": "Cihazın bekleme modunda tükettiği güç, watt cinsinden."
+        "tr": "Cihazın bekleme modunda tükettiği güç, watt cinsinden.",
+        "de": "Leistungsaufnahme des Geräts im Standby-Modus in Watt.",
+        "fr": "Puissance consommée par l'appareil en mode veille, en watts.",
+        "es": "Potencia consumida por el dispositivo en modo de espera, en vatios."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Cihaz Sayısı",
         "tr": "Cihaz Sayısı",
-        "de": "Cihaz Sayısı",
-        "fr": "Cihaz Sayısı",
-        "es": "Cihaz Sayısı",
+        "de": "Anzahl der Geräte",
+        "fr": "Nombre d'appareils",
+        "es": "Número de dispositivos",
         "ar": "Cihaz Sayısı"
       },
       "businessContext_i18n": {
         "en": "Aynı bekleme gücüne sahip cihaz sayısı.",
-        "tr": "Aynı bekleme gücüne sahip cihaz sayısı."
+        "tr": "Aynı bekleme gücüne sahip cihaz sayısı.",
+        "de": "Anzahl der Geräte mit gleicher Standby-Leistung.",
+        "fr": "Nombre d'appareils ayant la même puissance en veille.",
+        "es": "Número de dispositivos con la misma potencia en espera."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Günlük Bekleme Süresi",
         "tr": "Günlük Bekleme Süresi",
-        "de": "Günlük Bekleme Süresi",
-        "fr": "Günlük Bekleme Süresi",
-        "es": "Günlük Bekleme Süresi",
+        "de": "Tägliche Standby-Zeit",
+        "fr": "Temps d'attente quotidien",
+        "es": "Tiempo de espera diario",
         "ar": "Günlük Bekleme Süresi"
       },
       "businessContext_i18n": {
         "en": "Cihazın bir günde bekleme modunda kaldığı saat.",
-        "tr": "Cihazın bir günde bekleme modunda kaldığı saat."
+        "tr": "Cihazın bir günde bekleme modunda kaldığı saat.",
+        "de": "Stunden, die das Gerät pro Tag im Standby-Modus verbringt.",
+        "fr": "Heures pendant lesquelles l'équipement est en mode veille par jour.",
+        "es": "Horas que el dispositivo permanece en modo de espera en un día."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Elektrik Birim Fiyatı",
         "tr": "Elektrik Birim Fiyatı",
         "de": "Strompreis pro Einheit",
-        "fr": "Elektrik Birim Fiyatı",
-        "es": "Elektrik Birim Fiyatı",
+        "fr": "Prix unitaire de l'électricité",
+        "es": "Precio unitario de la electricidad",
         "ar": "Elektrik Birim Fiyatı"
       },
       "businessContext_i18n": {
         "en": "Elektrik birim fiyatı (TL/kWh cinsinden).",
-        "tr": "Elektrik birim fiyatı (TL/kWh cinsinden)."
+        "tr": "Elektrik birim fiyatı (TL/kWh cinsinden).",
+        "de": "Strompreis (in TL/kWh).",
+        "fr": "Prix unitaire de l'électricité (en TL/kWh).",
+        "es": "Precio unitario de la electricidad (en TL/kWh)."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Karbon Emisyon Faktörü",
         "tr": "Karbon Emisyon Faktörü",
-        "de": "Karbon Emisyon Faktörü",
-        "fr": "Karbon Emisyon Faktörü",
-        "es": "Karbon Emisyon Faktörü",
+        "de": "CO₂-Emissionsfaktor",
+        "fr": "Facteur d'émission carbone",
+        "es": "Factor de emisión de carbono",
         "ar": "Karbon Emisyon Faktörü"
       },
       "businessContext_i18n": {
         "en": "Birim elektrik tüketimi başına salınan CO2 miktarı.",
-        "tr": "Birim elektrik tüketimi başına salınan CO2 miktarı."
+        "tr": "Birim elektrik tüketimi başına salınan CO2 miktarı.",
+        "de": "Menge an CO₂, die pro Einheit Stromverbrauch freigesetzt wird.",
+        "fr": "Quantité de CO2 émise par unité de consommation électrique.",
+        "es": "Cantidad de CO₂ emitida por unidad de electricidad consumida."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Yıllık Çalışma Gün Sayısı",
         "tr": "Yıllık Çalışma Gün Sayısı",
-        "de": "Yıllık Çalışma Gün Sayısı",
-        "fr": "Yıllık Çalışma Gün Sayısı",
-        "es": "Yıllık Çalışma Gün Sayısı",
+        "de": "Jährliche Arbeitstage",
+        "fr": "Nombre de jours de fonctionnement par an",
+        "es": "Días laborables al año",
         "ar": "Yıllık Çalışma Gün Sayısı"
       },
       "businessContext_i18n": {
         "en": "Cihazların yıl boyunca çalıştığı gün sayısı.",
-        "tr": "Cihazların yıl boyunca çalıştığı gün sayısı."
+        "tr": "Cihazların yıl boyunca çalıştığı gün sayısı.",
+        "de": "Anzahl der Tage, an denen die Geräte im Jahr betrieben werden.",
+        "fr": "Nombre de jours de fonctionnement des équipements par an.",
+        "es": "Número de días que los equipos operan durante el año."
       }
     }
   ],

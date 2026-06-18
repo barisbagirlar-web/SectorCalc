@@ -12,14 +12,16 @@
         "en": "Weight",
         "tr": "Ağırlık",
         "de": "Gewicht",
-        "fr": "Weight",
-        "es": "Weight",
+        "fr": "Poids",
+        "es": "Peso",
         "ar": "Weight"
       },
       "businessContext_i18n": {
         "en": "Body weight in kilograms (e.g., from scale measurement).",
         "tr": "Vücut ağırlığı, kilogram (örneğin tartıdan).",
-        "de": "Körpergewicht in Kilogramm (z. B. von der Waage)."
+        "de": "Körpergewicht in Kilogramm (z. B. von der Waage).",
+        "fr": "Poids corporel en kilogrammes (par exemple, mesure sur balance).",
+        "es": "Peso corporal en kilogramos (ej. de medición en báscula)."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Height",
         "tr": "Boy",
         "de": "Größe",
-        "fr": "Height",
-        "es": "Height",
+        "fr": "Taille",
+        "es": "Altura",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "Body height in centimeters.",
         "tr": "Vücut boyu, santimetre.",
-        "de": "Körpergröße in Zentimetern."
+        "de": "Körpergröße in Zentimetern.",
+        "fr": "Taille corporelle en centimètres.",
+        "es": "Altura corporal en centímetros."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Age in years (for reference only; Navy formula does not use age).",
         "tr": "Yaş (sadece referans amaçlı; Navy formülü yaşı kullanmaz).",
-        "de": "Alter in Jahren (nur als Referenz; die Navy-Formel verwendet kein Alter)."
+        "de": "Alter in Jahren (nur als Referenz; die Navy-Formel verwendet kein Alter).",
+        "fr": "Âge en années (à titre indicatif uniquement ; la formule de la Marine n'utilise pas l'âge).",
+        "es": "Edad en años (solo como referencia; la fórmula de la Armada no usa la edad)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Gender",
         "tr": "Cinsiyet",
         "de": "Geschlecht",
-        "fr": "Gender",
-        "es": "Gender",
+        "fr": "Genre",
+        "es": "Género",
         "ar": "Gender"
       },
       "businessContext_i18n": {
         "en": "0 for female, 1 for male (required for U.S. Navy body fat formula).",
         "tr": "0 kadın, 1 erkek (ABD Navy vücut yağ formülü için gereklidir).",
-        "de": "0 für weiblich, 1 für männlich (erforderlich für die U.S. Navy-Körperfettformel)."
+        "de": "0 für weiblich, 1 für männlich (erforderlich für die U.S. Navy-Körperfettformel).",
+        "fr": "0 pour femme, 1 pour homme (requis pour la formule de graisse corporelle de la Marine américaine).",
+        "es": "0 para mujer, 1 para hombre (requerido para la fórmula de grasa corporal de la Armada de EE. UU.)."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Waist Circumference",
         "tr": "Bel Çevresi",
         "de": "Taillenumfang",
-        "fr": "Waist Circumference",
-        "es": "Waist Circumference",
+        "fr": "Tour de taille",
+        "es": "Circunferencia de cintura",
         "ar": "Waist Circumference"
       },
       "businessContext_i18n": {
         "en": "Waist circumference measured at the navel level (required for Navy formula).",
         "tr": "Göbek hizasında bel çevresi (Navy formülü için gereklidir).",
-        "de": "Taillenumfang gemessen auf Nabelhöhe (erforderlich für die Navy-Formel)."
+        "de": "Taillenumfang gemessen auf Nabelhöhe (erforderlich für die Navy-Formel).",
+        "fr": "Tour de taille mesuré au niveau du nombril (requis pour la formule de la Marine).",
+        "es": "Circunferencia de cintura medida a la altura del ombligo (requerida para la fórmula de la Armada)."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Hip Circumference",
         "tr": "Kalça Çevresi",
         "de": "Hüftumfang",
-        "fr": "Hip Circumference",
-        "es": "Hip Circumference",
+        "fr": "Tour de hanches",
+        "es": "Circunferencia de cadera",
         "ar": "Hip Circumference"
       },
       "businessContext_i18n": {
         "en": "Hip circumference at the widest point (required for female Navy formula).",
         "tr": "En geniş noktada kalça çevresi (kadın Navy formülü için gereklidir).",
-        "de": "Hüftumfang an der breitesten Stelle (erforderlich für die weibliche Navy-Formel)."
+        "de": "Hüftumfang an der breitesten Stelle (erforderlich für die weibliche Navy-Formel).",
+        "fr": "Tour de hanches au point le plus large (requis pour la formule de la Marine pour les femmes).",
+        "es": "Circunferencia de cadera en el punto más ancho (requerida para la fórmula femenina de la Armada)."
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Neck Circumference",
         "tr": "Boyun Çevresi",
         "de": "Halsumfang",
-        "fr": "Neck Circumference",
-        "es": "Neck Circumference",
+        "fr": "Tour de cou",
+        "es": "Circunferencia del cuello",
         "ar": "Neck Circumference"
       },
       "businessContext_i18n": {
         "en": "Neck circumference measured just below the larynx (required for Navy formula).",
         "tr": "Gırtlağın hemen altında boyun çevresi (Navy formülü için gereklidir).",
-        "de": "Halsumfang gemessen direkt unterhalb des Kehlkopfes (erforderlich für die Navy-Formel)."
+        "de": "Halsumfang gemessen direkt unterhalb des Kehlkopfes (erforderlich für die Navy-Formel).",
+        "fr": "Tour de cou mesuré juste sous le larynx (requis pour la formule de la Marine).",
+        "es": "Circunferencia del cuello medida justo debajo de la laringe (requerida para la fórmula de la Armada)."
       }
     }
   ],

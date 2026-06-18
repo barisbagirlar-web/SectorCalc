@@ -12,13 +12,15 @@
         "en": "1RM (One Rep Max)",
         "tr": "1TM (Bir Tekrar Maksimumu)",
         "de": "1RM (One Rep Max)",
-        "fr": "1RM (One Rep Max)",
+        "fr": "1RM (Répétition Maximale)",
         "es": "1RM (One Rep Max)",
         "ar": "1RM (One Rep Max)"
       },
       "businessContext_i18n": {
         "en": "The maximum weight you can lift for one repetition.",
-        "tr": "Bir tekrarda kaldırabileceğiniz maksimum ağırlık."
+        "tr": "Bir tekrarda kaldırabileceğiniz maksimum ağırlık.",
+        "de": "Das maximale Gewicht, das Sie für eine Wiederholung heben können.",
+        "fr": "Le poids maximal que vous pouvez soulever pour une répétition."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "5RM % of 1RM",
         "tr": "1TM'nin %5TM'si",
-        "de": "5RM % of 1RM",
-        "fr": "5RM % of 1RM",
+        "de": "5RM % des 1RM",
+        "fr": "% de 1RM pour 5RM",
         "es": "5RM % of 1RM",
         "ar": "5RM % of 1RM"
       },
       "businessContext_i18n": {
         "en": "Percentage of your 1RM that represents your 5-rep max. Typically 85%.",
-        "tr": "5 tekrar maksimumunuzu temsil eden 1TM'nizin yüzdesi. Tipik olarak %85."
+        "tr": "5 tekrar maksimumunuzu temsil eden 1TM'nizin yüzdesi. Tipik olarak %85.",
+        "de": "Prozentsatz Ihres 1RM, der Ihr 5-Wiederholungs-Maximum darstellt. Typischerweise 85%.",
+        "fr": "Pourcentage de votre 1RM représentant votre max 5 répétitions. Typiquement 85%."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Volume Day % of 5RM",
         "tr": "5TM'nin Hacim Günü %'si",
-        "de": "Volume Day % of 5RM",
-        "fr": "Volume Day % of 5RM",
+        "de": "Volumentag % des 5RM",
+        "fr": "% de 5RM pour le jour de volume",
         "es": "Volume Day % of 5RM",
         "ar": "Volume Day % of 5RM"
       },
       "businessContext_i18n": {
         "en": "Percentage of your 5RM used for the volume day (5 sets of 5 reps).",
-        "tr": "Hacim günü (5 set 5 tekrar) için kullanılan 5TM'nizin yüzdesi."
+        "tr": "Hacim günü (5 set 5 tekrar) için kullanılan 5TM'nizin yüzdesi.",
+        "de": "Prozentsatz Ihres 5RM, der für den Volumentag (5 Sätze mit 5 Wiederholungen) verwendet wird.",
+        "fr": "Pourcentage de votre 5RM utilisé pour le jour de volume (5 séries de 5 répétitions)."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Light Day % of Volume",
         "tr": "Hacmin Hafif Gün %'si",
-        "de": "Light Day % of Volume",
-        "fr": "Light Day % of Volume",
+        "de": "Leichter Tag % des Volumens",
+        "fr": "% du volume pour le jour léger",
         "es": "Light Day % of Volume",
         "ar": "Light Day % of Volume"
       },
       "businessContext_i18n": {
         "en": "Percentage of the volume day weight used for the light day (2 sets of 5 reps).",
-        "tr": "Hafif gün (2 set 5 tekrar) için kullanılan hacim günü ağırlığının yüzdesi."
+        "tr": "Hafif gün (2 set 5 tekrar) için kullanılan hacim günü ağırlığının yüzdesi.",
+        "de": "Prozentsatz des Volumentag-Gewichts, der für den leichten Tag (2 Sätze mit 5 Wiederholungen) verwendet wird.",
+        "fr": "Pourcentage du poids du jour de volume utilisé pour le jour léger (2 séries de 5 répétitions)."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Intensity Day Increment",
         "tr": "Yoğunluk Günü Artışı",
-        "de": "Intensity Day Increment",
-        "fr": "Intensity Day Increment",
+        "de": "Intensitätstag-Erhöhung",
+        "fr": "Incrément du jour d'intensité",
         "es": "Intensity Day Increment",
         "ar": "Intensity Day Increment"
       },
       "businessContext_i18n": {
         "en": "Weight added to the previous week's intensity day weight for a new 5RM attempt. Set to 0 if not incrementing.",
-        "tr": "Yeni bir 5TM denemesi için önceki haftanın yoğunluk günü ağırlığına eklenen ağırlık. Artırım yapılmıyorsa 0 olarak ayarlayın."
+        "tr": "Yeni bir 5TM denemesi için önceki haftanın yoğunluk günü ağırlığına eklenen ağırlık. Artırım yapılmıyorsa 0 olarak ayarlayın.",
+        "de": "Gewicht, das zum Intensitätstag-Gewicht der Vorwoche für einen neuen 5RM-Versuch hinzugefügt wird. Auf 0 setzen, wenn keine Erhöhung.",
+        "fr": "Poids ajouté au poids du jour d'intensité de la semaine précédente pour une nouvelle tentative de 5RM. Mettre à 0 si pas d'incrément."
       }
     }
   ],

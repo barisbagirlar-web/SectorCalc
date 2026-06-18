@@ -12,14 +12,16 @@
         "en": "Uzunluk",
         "tr": "Uzunluk",
         "de": "Länge",
-        "fr": "Uzunluk",
-        "es": "Uzunluk",
+        "fr": "Longueur",
+        "es": "Longitud",
         "ar": "Uzunluk"
       },
       "businessContext_i18n": {
         "en": "Alan uzunluğu",
-        "tr": "Alan uzunluğu",
-        "de": "Feldlänge"
+        "tr": "Alan Uzunluğu",
+        "de": "Feldlänge",
+        "fr": "Longueur de la parcelle",
+        "es": "Longitud del área"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Genişlik",
         "tr": "Genişlik",
         "de": "Breite",
-        "fr": "Genişlik",
-        "es": "Genişlik",
+        "fr": "Largeur",
+        "es": "Ancho",
         "ar": "Genişlik"
       },
       "businessContext_i18n": {
         "en": "Alan genişliği",
-        "tr": "Alan genişliği",
-        "de": "Feldbreite"
+        "tr": "Alan Genişliği",
+        "de": "Feldbreite",
+        "fr": "Largeur de la parcelle",
+        "es": "Ancho del área"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Tohumlama Oranı",
         "tr": "Tohumlama Oranı",
         "de": "Aussaatrate",
-        "fr": "Tohumlama Oranı",
-        "es": "Tohumlama Oranı",
+        "fr": "Taux de semis",
+        "es": "Tasa de Siembra",
         "ar": "Tohumlama Oranı"
       },
       "businessContext_i18n": {
         "en": "Metrekare başına tohum gram miktarı",
         "tr": "Metrekare başına tohum gram miktarı",
-        "de": "Gramm Saatgut pro Quadratmeter"
+        "de": "Gramm Saatgut pro Quadratmeter",
+        "fr": "Quantité de semences en grammes par mètre carré",
+        "es": "Gramos de semilla por metro cuadrado"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Fire Faktörü",
         "tr": "Fire Faktörü",
         "de": "Ausschussfaktor",
-        "fr": "Fire Faktörü",
-        "es": "Fire Faktörü",
+        "fr": "Facteur de rebut",
+        "es": "Factor de desperdicio",
         "ar": "Fire Faktörü"
       },
       "businessContext_i18n": {
         "en": "Uygulama kaybı yüzdesi",
-        "tr": "Uygulama kaybı yüzdesi",
-        "de": "Anwendungsverlust in Prozent"
+        "tr": "Uygulama Kaybı (%)",
+        "de": "Anwendungsverlust in Prozent",
+        "fr": "Pourcentage de perte d'application",
+        "es": "Porcentaje de pérdida en la aplicación"
       }
     },
     {
@@ -94,16 +102,18 @@
       "businessContext": "Tohumların çimlenme yüzdesi",
       "label_i18n": {
         "en": "Çimlenme Oranı",
-        "tr": "Çimlenme Oranı",
+        "tr": "Çimlenme Oranı (%)",
         "de": "Keimrate",
-        "fr": "Çimlenme Oranı",
-        "es": "Çimlenme Oranı",
+        "fr": "Taux de germination",
+        "es": "Tasa de Germinación",
         "ar": "Çimlenme Oranı"
       },
       "businessContext_i18n": {
         "en": "Tohumların çimlenme yüzdesi",
         "tr": "Tohumların çimlenme yüzdesi",
-        "de": "Keimungsrate der Samen"
+        "de": "Keimungsrate der Samen",
+        "fr": "Pourcentage de germination des semences",
+        "es": "Porcentaje de germinación de las semillas"
       }
     },
     {
@@ -115,16 +125,18 @@
       "businessContext": "Tohum karışımının saflık yüzdesi",
       "label_i18n": {
         "en": "Tohum Saflığı",
-        "tr": "Tohum Saflığı",
+        "tr": "Tohum Saflığı (%)",
         "de": "Saatgutreinheit",
-        "fr": "Tohum Saflığı",
-        "es": "Tohum Saflığı",
+        "fr": "Pureté des semences",
+        "es": "Pureza de la Semilla",
         "ar": "Tohum Saflığı"
       },
       "businessContext_i18n": {
         "en": "Tohum karışımının saflık yüzdesi",
         "tr": "Tohum karışımının saflık yüzdesi",
-        "de": "Reinheitsgrad der Saatgutmischung"
+        "de": "Reinheitsgrad der Saatgutmischung",
+        "fr": "Pourcentage de pureté du mélange de semences",
+        "es": "Porcentaje de pureza de la mezcla de semillas"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Yeniden Tohumlama Faktörü",
         "tr": "Yeniden Tohumlama Faktörü",
         "de": "Nachsaatfaktor",
-        "fr": "Yeniden Tohumlama Faktörü",
-        "es": "Yeniden Tohumlama Faktörü",
+        "fr": "Facteur de resemis",
+        "es": "Factor de Resiembra",
         "ar": "Yeniden Tohumlama Faktörü"
       },
       "businessContext_i18n": {
         "en": "Yeniden tohumlama çarpanı (1 = yeni çim, >1 = mevcut çime ek tohumlama)",
         "tr": "Yeniden tohumlama çarpanı (1 = yeni çim, >1 = mevcut çime ek tohumlama)",
-        "de": "Nachsaat-Multiplikator (1 = neue Aussaat, >1 = Nachsaat in bestehenden Rasen)"
+        "de": "Nachsaat-Multiplikator (1 = neue Aussaat, >1 = Nachsaat in bestehenden Rasen)",
+        "fr": "Multiplicateur de resemis (1 = nouvelle pelouse, >1 = sursemis sur pelouse existante)",
+        "es": "Multiplicador de resiembra (1 = césped nuevo, >1 = resiembra sobre césped existente)"
       }
     }
   ],

@@ -12,13 +12,15 @@
         "en": "Number 1",
         "tr": "Sayı 1",
         "de": "Zahl 1",
-        "fr": "Number 1",
-        "es": "Number 1",
+        "fr": "Nombre 1",
+        "es": "Número 1",
         "ar": "Number 1"
       },
       "businessContext_i18n": {
         "en": "First number for arithmetic",
-        "tr": "Aritmetik için ilk sayı"
+        "tr": "Aritmetik için ilk sayı",
+        "de": "Erste Zahl für Arithmetik",
+        "fr": "Premier nombre pour l'arithmétique"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Number 2",
         "tr": "Sayı 2",
         "de": "Nummer 2",
-        "fr": "Number 2",
-        "es": "Number 2",
+        "fr": "Nombre 2",
+        "es": "Número 2",
         "ar": "Number 2"
       },
       "businessContext_i18n": {
         "en": "Second number for arithmetic",
-        "tr": "Aritmetik için ikinci sayı"
+        "tr": "Aritmetik için ikinci sayı",
+        "de": "Zweite Zahl für Arithmetik",
+        "fr": "Deuxième nombre pour l'arithmétique"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Number 3",
         "tr": "Sayı 3",
         "de": "Nummer 3",
-        "fr": "Number 3",
-        "es": "Number 3",
+        "fr": "Nombre 3",
+        "es": "Número 3",
         "ar": "Number 3"
       },
       "businessContext_i18n": {
         "en": "Third number (optional, set to 1 if unused in multiplication, or 0 if unused in addition)",
-        "tr": "Üçüncü sayı (isteğe bağlı, çarpmada kullanılmıyorsa 1, toplamada kullanılmıyorsa 0 olarak ayarlayın)"
+        "tr": "Üçüncü sayı (isteğe bağlı, çarpmada kullanılmıyorsa 1, toplamada kullanılmıyorsa 0 olarak ayarlayın)",
+        "de": "Dritte Zahl (optional, auf 1 setzen, wenn nicht in Multiplikation verwendet, oder 0, wenn nicht in Addition verwendet)",
+        "fr": "Troisième nombre (facultatif, mettre 1 si non utilisé dans la multiplication, ou 0 si non utilisé dans l'addition)"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Number 4",
         "tr": "Sayı 4",
         "de": "Nummer 4",
-        "fr": "Number 4",
-        "es": "Number 4",
+        "fr": "Nombre 4",
+        "es": "Número 4",
         "ar": "Number 4"
       },
       "businessContext_i18n": {
         "en": "Fourth number (optional, set to 1 if unused in multiplication, or 0 if unused in addition)",
-        "tr": "Dördüncü sayı (isteğe bağlı, çarpmada kullanılmıyorsa 1, toplamada kullanılmıyorsa 0 olarak ayarlayın)"
+        "tr": "Dördüncü sayı (isteğe bağlı, çarpmada kullanılmıyorsa 1, toplamada kullanılmıyorsa 0 olarak ayarlayın)",
+        "de": "Vierte Zahl (optional, auf 1 setzen, wenn nicht in Multiplikation verwendet, oder 0, wenn nicht in Addition verwendet)",
+        "fr": "Quatrième nombre (facultatif, mettre 1 si non utilisé dans la multiplication, ou 0 si non utilisé dans l'addition)"
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Operation",
         "tr": "İşlem",
         "de": "Operation",
-        "fr": "Operation",
-        "es": "Operation",
+        "fr": "Opération",
+        "es": "Operación",
         "ar": "Operation"
       },
       "businessContext_i18n": {
         "en": "1 = addition/subtraction (rounds to fewest decimal places), 2 = multiplication/division (rounds to fewest significant figures)",
-        "tr": "1 = toplama/çıkarma (en az ondalık basamağa yuvarlar), 2 = çarpma/bölme (en az anlamlı basamağa yuvarlar)"
+        "tr": "1 = toplama/çıkarma (en az ondalık basamağa yuvarlar), 2 = çarpma/bölme (en az anlamlı basamağa yuvarlar)",
+        "de": "1 = Addition/Subtraktion (rundet auf die wenigsten Dezimalstellen), 2 = Multiplikation/Division (rundet auf die wenigsten signifikanten Stellen)",
+        "fr": "1 = addition/soustraction (arrondit au plus petit nombre de décimales), 2 = multiplication/division (arrondit au plus petit nombre de chiffres significatifs)"
       }
     }
   ],

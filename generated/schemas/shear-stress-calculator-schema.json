@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Shear Force (F)",
         "tr": "Kesme Kuvveti (F)",
-        "de": "Shear Force (F)",
-        "fr": "Shear Force (F)",
+        "de": "Scherkraft (F)",
+        "fr": "Effort tranchant (F)",
         "es": "Shear Force (F)",
         "ar": "Shear Force (F)"
       },
       "businessContext_i18n": {
         "en": "The total shear force applied to the cross-section.",
-        "tr": "Kesite uygulanan toplam kesme kuvveti."
+        "tr": "Kesite uygulanan toplam kesme kuvveti.",
+        "de": "Die gesamte auf den Querschnitt wirkende Scherkraft.",
+        "fr": "L'effort tranchant total appliqué à la section transversale."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Cross-Sectional Area (A)",
         "tr": "Kesit Alanı (A)",
         "de": "Querschnittsfläche (A)",
-        "fr": "Cross-Sectional Area (A)",
-        "es": "Cross-Sectional Area (A)",
+        "fr": "Section transversale (A)",
+        "es": "Área de la sección transversal (A)",
         "ar": "Cross-Sectional Area (A)"
       },
       "businessContext_i18n": {
         "en": "The effective area resisting the shear force.",
-        "tr": "Kesme kuvvetine direnen etkili alan."
+        "tr": "Kesme kuvvetine direnen etkili alan.",
+        "de": "Die effektive Fläche, die der Scherkraft widersteht.",
+        "fr": "La surface effective résistant à l'effort tranchant."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Number of Shear Planes",
         "tr": "Kesme Düzlemi Sayısı",
-        "de": "Number of Shear Planes",
-        "fr": "Number of Shear Planes",
+        "de": "Anzahl der Scherebenen",
+        "fr": "Nombre de plans de cisaillement",
         "es": "Number of Shear Planes",
         "ar": "Number of Shear Planes"
       },
       "businessContext_i18n": {
         "en": "1 for single shear, 2 for double shear (e.g., bolted connections).",
-        "tr": "Tek kesme için 1, çift kesme için 2 (örn. cıvatalı bağlantılar)."
+        "tr": "Tek kesme için 1, çift kesme için 2 (örn. cıvatalı bağlantılar).",
+        "de": "1 für einfache Scherung, 2 für doppelte Scherung (z. B. Schraubverbindungen).",
+        "fr": "1 pour cisaillement simple, 2 pour cisaillement double (ex. assemblages boulonnés)."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Allowable Shear Stress (τ_allow)",
         "tr": "İzin Verilen Kesme Gerilmesi (τ_allow)",
-        "de": "Allowable Shear Stress (τ_allow)",
-        "fr": "Allowable Shear Stress (τ_allow)",
+        "de": "Zulässige Schubspannung (τ_zul)",
+        "fr": "Contrainte de cisaillement admissible (τ_allow)",
         "es": "Allowable Shear Stress (τ_allow)",
         "ar": "Allowable Shear Stress (τ_allow)"
       },
       "businessContext_i18n": {
         "en": "The material's maximum permissible shear stress as per design codes.",
-        "tr": "Tasarım kodlarına göre malzemenin izin verilen maksimum kesme gerilmesi."
+        "tr": "Tasarım kodlarına göre malzemenin izin verilen maksimum kesme gerilmesi.",
+        "de": "Die maximal zulässige Schubspannung des Materials gemäß den Konstruktionsnormen.",
+        "fr": "La contrainte de cisaillement maximale permise par le matériau selon les codes de conception."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Safety Factor (SF)",
         "tr": "Güvenlik Faktörü (SF)",
-        "de": "Safety Factor (SF)",
-        "fr": "Safety Factor (SF)",
-        "es": "Safety Factor (SF)",
+        "de": "Sicherheitsfaktor (SF)",
+        "fr": "Facteur de sécurité (SF)",
+        "es": "Factor de seguridad (SF)",
         "ar": "Safety Factor (SF)"
       },
       "businessContext_i18n": {
         "en": "Design safety factor to account for uncertainties in load and material properties.",
-        "tr": "Yük ve malzeme özelliklerindeki belirsizlikleri hesaba katmak için tasarım güvenlik faktörü."
+        "tr": "Yük ve malzeme özelliklerindeki belirsizlikleri hesaba katmak için tasarım güvenlik faktörü.",
+        "de": "Sicherheitsfaktor zur Berücksichtigung von Unsicherheiten bei Lasten und Materialeigenschaften.",
+        "fr": "Coefficient de sécurité de conception pour tenir compte des incertitudes sur les charges et les propriétés des matériaux."
       }
     }
   ],

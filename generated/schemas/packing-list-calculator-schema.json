@@ -12,13 +12,16 @@
         "en": "Order Quantity",
         "tr": "Sipariş Miktarı",
         "de": "Bestellmenge",
-        "fr": "Order Quantity",
-        "es": "Order Quantity",
+        "fr": "Quantité commandée",
+        "es": "Cantidad del pedido",
         "ar": "Order Quantity"
       },
       "businessContext_i18n": {
         "en": "Total number of items ordered by customer",
-        "tr": "Müşteri tarafından sipariş edilen toplam ürün sayısı"
+        "tr": "Müşteri tarafından sipariş edilen toplam ürün sayısı",
+        "de": "Gesamtzahl der vom Kunden bestellten Artikel",
+        "fr": "Nombre total d'articles commandés par le client",
+        "es": "Número total de artículos solicitados por el cliente"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Units per Carton",
         "tr": "Koli Başına Birim",
-        "de": "Units per Carton",
-        "fr": "Units per Carton",
-        "es": "Units per Carton",
+        "de": "Einheiten pro Karton",
+        "fr": "Unités par carton",
+        "es": "Unidades por caja",
         "ar": "Units per Carton"
       },
       "businessContext_i18n": {
         "en": "How many items fit into one standard carton",
-        "tr": "Bir standart koliye kaç ürün sığar"
+        "tr": "Bir standart koliye kaç ürün sığar",
+        "de": "Wie viele Artikel in einen Standardkarton passen",
+        "fr": "Nombre d'articles pouvant tenir dans un carton standard",
+        "es": "Cuántos artículos caben en una caja estándar"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Carton Length",
         "tr": "Koli Uzunluğu",
-        "de": "Carton Length",
-        "fr": "Carton Length",
-        "es": "Carton Length",
+        "de": "Kartonlänge",
+        "fr": "Longueur du carton",
+        "es": "Largo de la caja",
         "ar": "Carton Length"
       },
       "businessContext_i18n": {
         "en": "Length dimension of a carton",
-        "tr": "Bir kolinin uzunluk boyutu"
+        "tr": "Bir kolinin uzunluk boyutu",
+        "de": "Längenmaß eines Kartons",
+        "fr": "Dimension de longueur d'un carton",
+        "es": "Dimensión de largo de una caja"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Carton Width",
         "tr": "Koli Genişliği",
-        "de": "Carton Width",
-        "fr": "Carton Width",
-        "es": "Carton Width",
+        "de": "Kartonbreite",
+        "fr": "Largeur du carton",
+        "es": "Ancho de la caja",
         "ar": "Carton Width"
       },
       "businessContext_i18n": {
         "en": "Width dimension of a carton",
-        "tr": "Bir kolinin genişlik boyutu"
+        "tr": "Bir kolinin genişlik boyutu",
+        "de": "Breitenmaß eines Kartons",
+        "fr": "Dimension de largeur d'un carton",
+        "es": "Dimensión de ancho de una caja"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Carton Height",
         "tr": "Koli Yüksekliği",
-        "de": "Carton Height",
-        "fr": "Carton Height",
-        "es": "Carton Height",
+        "de": "Kartonhöhe",
+        "fr": "Hauteur du carton",
+        "es": "Alto de la caja",
         "ar": "Carton Height"
       },
       "businessContext_i18n": {
         "en": "Height dimension of a carton",
-        "tr": "Bir kolinin yükseklik boyutu"
+        "tr": "Bir kolinin yükseklik boyutu",
+        "de": "Höhenmaß eines Kartons",
+        "fr": "Dimension de hauteur d'un carton",
+        "es": "Dimensión de alto de una caja"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Carton Weight (full)",
         "tr": "Karton Ağırlığı (dolu)",
-        "de": "Carton Weight (full)",
-        "fr": "Carton Weight (full)",
-        "es": "Carton Weight (full)",
+        "de": "Kartongewicht (voll)",
+        "fr": "Poids du carton (plein)",
+        "es": "Peso de la caja llena",
         "ar": "Carton Weight (full)"
       },
       "businessContext_i18n": {
         "en": "Weight of one full carton including items and packaging",
-        "tr": "Ürünler ve ambalaj dahil bir dolu kartonun ağırlığı"
+        "tr": "Ürünler ve ambalaj dahil bir dolu kartonun ağırlığı",
+        "de": "Gewicht eines vollen Kartons inklusive Artikel und Verpackung",
+        "fr": "Poids d'un carton plein incluant les articles et l'emballage",
+        "es": "Peso de una caja llena incluyendo artículos y empaque"
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Max Cartons per Pallet",
         "tr": "Palet Başına Maksimum Karton",
-        "de": "Max Cartons per Pallet",
-        "fr": "Max Cartons per Pallet",
-        "es": "Max Cartons per Pallet",
+        "de": "Maximale Kartons pro Palette",
+        "fr": "Max cartons par palette",
+        "es": "Máximo de cajas por palé",
         "ar": "Max Cartons per Pallet"
       },
       "businessContext_i18n": {
         "en": "Maximum number of cartons that can be stacked on a pallet (based on dimensions)",
-        "tr": "Bir palete (boyutlara göre) istiflenebilecek maksimum karton sayısı"
+        "tr": "Bir palete (boyutlara göre) istiflenebilecek maksimum karton sayısı",
+        "de": "Maximale Anzahl Kartons, die auf eine Palette gestapelt werden können (basierend auf Abmessungen)",
+        "fr": "Nombre maximum de cartons pouvant être empilés sur une palette (selon les dimensions)",
+        "es": "Número máximo de cajas que se pueden apilar en un palé (según dimensiones)"
       }
     },
     {
@@ -151,14 +172,17 @@
       "label_i18n": {
         "en": "Max Weight per Pallet",
         "tr": "Palet Başına Maksimum Ağırlık",
-        "de": "Max Weight per Pallet",
-        "fr": "Max Weight per Pallet",
-        "es": "Max Weight per Pallet",
+        "de": "Maximales Gewicht pro Palette",
+        "fr": "Poids max par palette",
+        "es": "Peso máximo por palé",
         "ar": "Max Weight per Pallet"
       },
       "businessContext_i18n": {
         "en": "Maximum weight a pallet can safely carry",
-        "tr": "Bir paletin güvenle taşıyabileceği maksimum ağırlık"
+        "tr": "Bir paletin güvenle taşıyabileceği maksimum ağırlık",
+        "de": "Maximales Gewicht, das eine Palette sicher tragen kann",
+        "fr": "Poids maximum qu'une palette peut supporter en toute sécurité",
+        "es": "Peso máximo que un palé puede transportar de forma segura"
       }
     }
   ],

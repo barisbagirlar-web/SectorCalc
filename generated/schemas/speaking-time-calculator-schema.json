@@ -12,13 +12,15 @@
         "en": "Total Words",
         "tr": "Toplam Kelime",
         "de": "Gesamtwörter",
-        "fr": "Total Words",
-        "es": "Total Words",
+        "fr": "Total des mots",
+        "es": "Total de palabras",
         "ar": "Total Words"
       },
       "businessContext_i18n": {
         "en": "Number of words in the speech or text to be spoken.",
-        "tr": "Konuşulacak konuşma veya metindeki kelime sayısı."
+        "tr": "Konuşulacak konuşma veya metindeki kelime sayısı.",
+        "de": "Anzahl der Wörter in der zu sprechenden Rede oder Text.",
+        "fr": "Nombre de mots dans le discours ou le texte à prononcer."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Slow Speaking Rate",
         "tr": "Yavaş Konuşma Hızı",
-        "de": "Slow Speaking Rate",
-        "fr": "Slow Speaking Rate",
+        "de": "Langsame Sprechgeschwindigkeit",
+        "fr": "Débit lent",
         "es": "Slow Speaking Rate",
         "ar": "Slow Speaking Rate"
       },
       "businessContext_i18n": {
         "en": "Speaking rate for a slow-paced delivery.",
-        "tr": "Yavaş tempolu bir sunum için konuşma hızı."
+        "tr": "Yavaş tempolu bir sunum için konuşma hızı.",
+        "de": "Sprechgeschwindigkeit für eine langsame Vortragsweise.",
+        "fr": "Débit d'élocution pour une livraison lente."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Normal Speaking Rate",
         "tr": "Normal Konuşma Hızı",
-        "de": "Normal Speaking Rate",
-        "fr": "Normal Speaking Rate",
+        "de": "Normale Sprechgeschwindigkeit",
+        "fr": "Débit normal",
         "es": "Normal Speaking Rate",
         "ar": "Normal Speaking Rate"
       },
       "businessContext_i18n": {
         "en": "Average or normal speaking rate.",
-        "tr": "Ortalama veya normal konuşma hızı."
+        "tr": "Ortalama veya normal konuşma hızı.",
+        "de": "Durchschnittliche oder normale Sprechgeschwindigkeit.",
+        "fr": "Taux de parole moyen ou normal."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Fast Speaking Rate",
         "tr": "Hızlı Konuşma Hızı",
-        "de": "Fast Speaking Rate",
-        "fr": "Fast Speaking Rate",
+        "de": "Schnelle Sprechgeschwindigkeit",
+        "fr": "Taux de parole rapide",
         "es": "Fast Speaking Rate",
         "ar": "Fast Speaking Rate"
       },
       "businessContext_i18n": {
         "en": "Speaking rate for a fast-paced delivery.",
-        "tr": "Hızlı bir sunum için konuşma hızı."
+        "tr": "Hızlı bir sunum için konuşma hızı.",
+        "de": "Sprechgeschwindigkeit für eine schnelle Vortragsweise.",
+        "fr": "Taux de parole pour un débit rapide."
       }
     }
   ],

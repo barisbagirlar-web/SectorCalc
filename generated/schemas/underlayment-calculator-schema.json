@@ -12,13 +12,15 @@
         "en": "Total Floor Area",
         "tr": "Toplam Kat Alanı",
         "de": "Gesamte Geschossfläche",
-        "fr": "Total Floor Area",
-        "es": "Total Floor Area",
+        "fr": "Surface de plancher totale",
+        "es": "Área total construida",
         "ar": "Total Floor Area"
       },
       "businessContext_i18n": {
         "en": "The total area of the floor to be covered with underlayment, measured in square feet.",
-        "tr": "Altlık ile kaplanacak zeminin toplam alanı, fit kare cinsinden."
+        "tr": "Altlık ile kaplanacak zeminin toplam alanı, fit kare cinsinden.",
+        "de": "Die gesamte Bodenfläche, die mit Unterlage bedeckt werden soll, gemessen in Quadratfuß.",
+        "fr": "La surface totale du sol à recouvrir de sous-couche, mesurée en pieds carrés."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Roll Length",
         "tr": "Rulo uzunluğu",
         "de": "Rollenlänge",
-        "fr": "Roll Length",
-        "es": "Roll Length",
+        "fr": "Longueur du rouleau",
+        "es": "Longitud de rollo",
         "ar": "Roll Length"
       },
       "businessContext_i18n": {
         "en": "The length of a single roll of underlayment, in feet.",
-        "tr": "Tek bir altlık rulosunun uzunluğu, fit cinsinden."
+        "tr": "Tek bir altlık rulosunun uzunluğu, fit cinsinden.",
+        "de": "Die Länge einer einzelnen Rolle Unterlage, in Fuß.",
+        "fr": "La longueur d'un rouleau de sous-couche, en pieds."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Roll Width",
         "tr": "Rulo genişliği",
         "de": "Rollenbreite",
-        "fr": "Roll Width",
-        "es": "Roll Width",
+        "fr": "Largeur du rouleau",
+        "es": "Ancho de rollo",
         "ar": "Roll Width"
       },
       "businessContext_i18n": {
         "en": "The width of a single roll of underlayment, in feet.",
-        "tr": "Tek bir altlık rulosunun genişliği, fit cinsinden."
+        "tr": "Tek bir altlık rulosunun genişliği, fit cinsinden.",
+        "de": "Die Breite einer einzelnen Rolle Unterlage, in Fuß.",
+        "fr": "La largeur d'un rouleau de sous-couche, en pieds."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
         "de": "Abfallfaktor",
-        "fr": "Waste Factor",
-        "es": "Waste Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "The percentage of additional material needed to account for cuts, fitting, and waste.",
-        "tr": "Kesim, uyum ve fireyi hesaba katmak için gereken ek malzeme yüzdesi."
+        "tr": "Kesim, uyum ve fireyi hesaba katmak için gereken ek malzeme yüzdesi.",
+        "de": "Der Prozentsatz an zusätzlichem Material, der für Zuschnitte, Anpassung und Verschnitt benötigt wird.",
+        "fr": "Le pourcentage de matériau supplémentaire nécessaire pour tenir compte des coupes, de l'ajustement et des déchets."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Price per Roll",
         "tr": "Rulo Başına Fiyat",
-        "de": "Price per Roll",
-        "fr": "Price per Roll",
+        "de": "Preis pro Rolle",
+        "fr": "Prix par rouleau",
         "es": "Price per Roll",
         "ar": "Price per Roll"
       },
       "businessContext_i18n": {
         "en": "The cost of one roll of underlayment in US dollars.",
-        "tr": "Bir rulo altlığın ABD doları cinsinden maliyeti."
+        "tr": "Bir rulo altlığın ABD doları cinsinden maliyeti.",
+        "de": "Die Kosten einer Rolle Unterlage in US-Dollar.",
+        "fr": "Le coût d'un rouleau de sous-couche en dollars américains."
       }
     }
   ],

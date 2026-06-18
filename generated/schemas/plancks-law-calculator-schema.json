@@ -12,13 +12,16 @@
         "en": "Temperature",
         "tr": "Sıcaklık",
         "de": "Temperatur",
-        "fr": "Temperature",
-        "es": "Temperature",
+        "fr": "Température",
+        "es": "Temperatura",
         "ar": "Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of the black body in Kelvin",
-        "tr": "Kara cismin Kelvin cinsinden sıcaklığı"
+        "tr": "Kara cismin Kelvin cinsinden sıcaklığı",
+        "de": "Temperatur des schwarzen Körpers in Kelvin",
+        "fr": "Température du corps noir en Kelvin",
+        "es": "Temperatura del cuerpo negro en Kelvin"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Wavelength",
         "tr": "Dalgaboyu",
         "de": "Wellenlänge",
-        "fr": "Wavelength",
-        "es": "Wavelength",
+        "fr": "Longueur d'onde",
+        "es": "Longitud de onda",
         "ar": "Wavelength"
       },
       "businessContext_i18n": {
         "en": "Wavelength at which spectral radiance is calculated",
-        "tr": "Spektral ışımanın hesaplandığı dalga boyu"
+        "tr": "Spektral ışımanın hesaplandığı dalga boyu",
+        "de": "Wellenlänge, für die die spektrale Strahldichte berechnet wird",
+        "fr": "Longueur d'onde à laquelle la radiance spectrale est calculée",
+        "es": "Longitud de onda a la que se calcula la radiancia espectral"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Wavelength Min",
         "tr": "Minimum Dalga Boyu",
-        "de": "Wavelength Min",
-        "fr": "Wavelength Min",
-        "es": "Wavelength Min",
+        "de": "Minimale Wellenlänge",
+        "fr": "Longueur d'onde min",
+        "es": "Longitud de onda mínima",
         "ar": "Wavelength Min"
       },
       "businessContext_i18n": {
         "en": "Minimum wavelength for integration range",
-        "tr": "Entegrasyon aralığı için minimum dalga boyu"
+        "tr": "Entegrasyon aralığı için minimum dalga boyu",
+        "de": "Minimale Wellenlänge für den Integrationsbereich",
+        "fr": "Longueur d'onde minimale pour la plage d'intégration",
+        "es": "Longitud de onda mínima para el rango de integración"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Wavelength Max",
         "tr": "Maksimum Dalga Boyu",
-        "de": "Wavelength Max",
-        "fr": "Wavelength Max",
-        "es": "Wavelength Max",
+        "de": "Maximale Wellenlänge",
+        "fr": "Longueur d'onde max",
+        "es": "Longitud de onda máxima",
         "ar": "Wavelength Max"
       },
       "businessContext_i18n": {
         "en": "Maximum wavelength for integration range",
-        "tr": "Entegrasyon aralığı için maksimum dalga boyu"
+        "tr": "Entegrasyon aralığı için maksimum dalga boyu",
+        "de": "Maximale Wellenlänge für Integrationsbereich",
+        "fr": "Longueur d'onde maximale pour la plage d'intégration",
+        "es": "Longitud de onda máxima para el rango de integración"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Integration Steps",
         "tr": "Entegrasyon Adımları",
-        "de": "Integration Steps",
-        "fr": "Integration Steps",
-        "es": "Integration Steps",
+        "de": "Integrationsschritte",
+        "fr": "Pas d'intégration",
+        "es": "Pasos de integración",
         "ar": "Integration Steps"
       },
       "businessContext_i18n": {
         "en": "Number of steps for numerical integration",
-        "tr": "Sayısal entegrasyon için adım sayısı"
+        "tr": "Sayısal entegrasyon için adım sayısı",
+        "de": "Anzahl der Schritte für numerische Integration",
+        "fr": "Nombre de pas pour l'intégration numérique",
+        "es": "Número de pasos para la integración numérica"
       }
     }
   ],

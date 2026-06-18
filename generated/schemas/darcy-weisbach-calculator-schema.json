@@ -12,14 +12,16 @@
         "en": "Pipe Inner Diameter",
         "tr": "Boru İç Çapı",
         "de": "Rohrinnendurchmesser",
-        "fr": "Pipe Inner Diameter",
-        "es": "Pipe Inner Diameter",
+        "fr": "Diamètre intérieur du tuyau",
+        "es": "Diámetro interior de la tubería",
         "ar": "Pipe Inner Diameter"
       },
       "businessContext_i18n": {
         "en": "Inner diameter of the pipe. Affects flow velocity and pressure loss.",
         "tr": "Boru iç çapı. Akış hızını ve basınç kaybını etkiler.",
-        "de": "Innendurchmesser des Rohrs. Beeinflusst Strömungsgeschwindigkeit und Druckverlust."
+        "de": "Innendurchmesser des Rohrs. Beeinflusst Strömungsgeschwindigkeit und Druckverlust.",
+        "fr": "Diamètre intérieur du tuyau. Affecte la vitesse d'écoulement et la perte de pression.",
+        "es": "Diámetro interior de la tubería. Afecta la velocidad del flujo y la pérdida de presión."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Pipe Length",
         "tr": "Boru Uzunluğu",
         "de": "Rohrlänge",
-        "fr": "Pipe Length",
-        "es": "Pipe Length",
+        "fr": "Longueur du tuyau",
+        "es": "Longitud de la tubería",
         "ar": "Pipe Length"
       },
       "businessContext_i18n": {
         "en": "Length of straight pipe segment. Pressure loss is directly proportional to length.",
         "tr": "Düz boru bölümünün uzunluğu. Basınç kaybı uzunlukla doğru orantılıdır.",
-        "de": "Länge des geraden Rohrabschnitts. Druckverlust ist direkt proportional zur Länge."
+        "de": "Länge des geraden Rohrabschnitts. Druckverlust ist direkt proportional zur Länge.",
+        "fr": "Longueur du segment de tuyau droit. La perte de pression est directement proportionnelle à la longueur.",
+        "es": "Longitud del tramo recto de tubería. La pérdida de presión es directamente proporcional a la longitud."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Darcy Friction Factor",
         "tr": "Darcy Sürtünme Faktörü",
         "de": "Darcy-Reibungsfaktor",
-        "fr": "Darcy Friction Factor",
-        "es": "Darcy Friction Factor",
+        "fr": "Facteur de frottement de Darcy",
+        "es": "Factor de fricción de Darcy",
         "ar": "Darcy Friction Factor"
       },
       "businessContext_i18n": {
         "en": "Dimensionless friction factor (f) from Moody chart or Colebrook equation, depends on pipe roughness and Reynolds number.",
         "tr": "Moody diyagramı veya Colebrook denkleminden boyutsuz sürtünme faktörü (f), boru pürüzlülüğüne ve Reynolds sayısına bağlıdır.",
-        "de": "Dimensionsloser Reibungsfaktor (f) aus Moody-Diagramm oder Colebrook-Gleichung, abhängig von Rohrrauheit und Reynolds-Zahl."
+        "de": "Dimensionsloser Reibungsfaktor (f) aus Moody-Diagramm oder Colebrook-Gleichung, abhängig von Rohrrauheit und Reynolds-Zahl.",
+        "fr": "Facteur de frottement sans dimension (f) issu du diagramme de Moody ou de l'équation de Colebrook, dépend de la rugosité du tuyau et du nombre de Reynolds.",
+        "es": "Factor de fricción adimensional (f) del diagrama de Moody o ecuación de Colebrook, depende de la rugosidad de la tubería y el número de Reynolds."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Fluid Density",
         "tr": "Akışkan Yoğunluğu",
         "de": "Flüssigkeitsdichte",
-        "fr": "Fluid Density",
-        "es": "Fluid Density",
+        "fr": "Densité du fluide",
+        "es": "Densidad del fluido",
         "ar": "Fluid Density"
       },
       "businessContext_i18n": {
         "en": "Mass density of the fluid (e.g., 1000 kg/m³ for water). Affects pressure loss magnitude.",
         "tr": "Akışkanın kütle yoğunluğu (örneğin su için 1000 kg/m³). Basınç kaybının büyüklüğünü etkiler.",
-        "de": "Massendichte des Fluids (z. B. 1000 kg/m³ für Wasser). Beeinflusst die Größe des Druckverlusts."
+        "de": "Massendichte des Fluids (z. B. 1000 kg/m³ für Wasser). Beeinflusst die Größe des Druckverlusts.",
+        "fr": "Masse volumique du fluide (par exemple, 1000 kg/m³ pour l'eau). Affecte l'ampleur de la perte de pression.",
+        "es": "Densidad másica del fluido (ej. 1000 kg/m³ para agua). Afecta la magnitud de la pérdida de presión."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Volumetric Flow Rate",
         "tr": "Hacimsel Akış Hızı",
         "de": "Volumenstrom",
-        "fr": "Volumetric Flow Rate",
-        "es": "Volumetric Flow Rate",
+        "fr": "Débit volumétrique",
+        "es": "Caudal volumétrico",
         "ar": "Volumetric Flow Rate"
       },
       "businessContext_i18n": {
         "en": "Volume flow rate of the fluid. Determines velocity and hence friction losses.",
         "tr": "Akışkanın hacimsel akış hızı. Hızı ve dolayısıyla sürtünme kayıplarını belirler.",
-        "de": "Volumenstrom des Fluids. Bestimmt die Geschwindigkeit und damit die Reibungsverluste."
+        "de": "Volumenstrom des Fluids. Bestimmt die Geschwindigkeit und damit die Reibungsverluste.",
+        "fr": "Débit volumique du fluide. Détermine la vitesse et donc les pertes par frottement.",
+        "es": "Caudal volumétrico del fluido. Determina la velocidad y, por tanto, las pérdidas por fricción."
       }
     }
   ],

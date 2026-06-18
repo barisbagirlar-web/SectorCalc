@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "MET Değeri",
         "tr": "MET Değeri",
-        "de": "MET Değeri",
-        "fr": "MET Değeri",
-        "es": "MET Değeri",
+        "de": "MET-Wert",
+        "fr": "Valeur MET",
+        "es": "Valor MET",
         "ar": "MET Değeri"
       },
       "businessContext_i18n": {
         "en": "Gerçekleştirilen aktivitenin MET değeri",
-        "tr": "Gerçekleştirilen aktivitenin MET değeri"
+        "tr": "Gerçekleştirilen aktivitenin MET değeri",
+        "de": "MET-Wert der ausgeführten Aktivität",
+        "fr": "Valeur MET de l'activité réalisée",
+        "es": "Valor MET de la actividad realizada"
       }
     },
     {
@@ -32,14 +35,16 @@
         "en": "Vücut Ağırlığı",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Vücut Ağırlığı",
-        "es": "Vücut Ağırlığı",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Vücut Ağırlığı"
       },
       "businessContext_i18n": {
         "en": "Kullanıcının kilogram cinsinden vücut ağırlığı",
         "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı",
-        "de": "Kullanıcının kilogram cinsinden vücut ağırlığı"
+        "de": "Körpergewicht des Benutzers in Kilogramm",
+        "fr": "Poids corporel de l'utilisateur en kilogrammes",
+        "es": "Peso corporal del usuario en kilogramos"
       }
     },
     {
@@ -53,13 +58,16 @@
         "en": "Süre",
         "tr": "Süre",
         "de": "Dauer",
-        "fr": "Süre",
-        "es": "Süre",
+        "fr": "Durée",
+        "es": "Duración",
         "ar": "Süre"
       },
       "businessContext_i18n": {
         "en": "Aktivitenin dakika cinsinden süresi",
-        "tr": "Aktivitenin dakika cinsinden süresi"
+        "tr": "Aktivitenin dakika cinsinden süresi",
+        "de": "Dauer der Aktivität in Minuten",
+        "fr": "Durée de l'activité en minutes",
+        "es": "Duración de la actividad en minutos"
       }
     },
     {
@@ -72,14 +80,17 @@
       "label_i18n": {
         "en": "Düzeltme Faktörü",
         "tr": "Düzeltme Faktörü",
-        "de": "Düzeltme Faktörü",
-        "fr": "Düzeltme Faktörü",
-        "es": "Düzeltme Faktörü",
+        "de": "Korrekturfaktor",
+        "fr": "Facteur de correction",
+        "es": "Factor de corrección",
         "ar": "Düzeltme Faktörü"
       },
       "businessContext_i18n": {
         "en": "Bireysel metabolizma farklılıkları için ayar katsayısı (varsayılan 1)",
-        "tr": "Bireysel metabolizma farklılıkları için ayar katsayısı (varsayılan 1)"
+        "tr": "Bireysel metabolizma farklılıkları için ayar katsayısı (varsayılan 1)",
+        "de": "Anpassungskoeffizient für individuelle Stoffwechselunterschiede (Standard 1)",
+        "fr": "Coefficient d'ajustement pour les différences métaboliques individuelles (par défaut 1)",
+        "es": "Coeficiente de ajuste por diferencias metabólicas individuales (por defecto 1)"
       }
     }
   ],

@@ -12,13 +12,16 @@
         "en": "Initial Investment",
         "tr": "Başlangıç Yatırımı",
         "de": "Anfangsinvestition",
-        "fr": "Initial Investment",
-        "es": "Initial Investment",
+        "fr": "Investissement initial",
+        "es": "Inversión inicial",
         "ar": "Initial Investment"
       },
       "businessContext_i18n": {
         "en": "Total upfront capital expenditure required for the investment.",
-        "tr": "Yatırım için gereken toplam peşin sermaye harcaması."
+        "tr": "Yatırım için gereken toplam peşin sermaye harcaması.",
+        "de": "Gesamte anfängliche Investitionsausgabe für die Investition.",
+        "fr": "Dépenses d'investissement initial totales requises pour l'investissement.",
+        "es": "Desembolso total de capital inicial requerido para la inversión."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Annual Net Cash Flow",
         "tr": "Yıllık Net Nakit Akışı",
-        "de": "Annual Net Cash Flow",
-        "fr": "Annual Net Cash Flow",
-        "es": "Annual Net Cash Flow",
+        "de": "Jährlicher Netto-Cashflow",
+        "fr": "Flux de trésorerie net annuel",
+        "es": "Flujo de caja neto anual",
         "ar": "Annual Net Cash Flow"
       },
       "businessContext_i18n": {
         "en": "Net cash inflow generated annually after all operational costs.",
-        "tr": "Tüm işletme maliyetleri sonrası yıllık net nakit girişi."
+        "tr": "Tüm işletme maliyetleri sonrası yıllık net nakit girişi.",
+        "de": "Netto-Cashzufluss, der jährlich nach allen Betriebskosten generiert wird.",
+        "fr": "Flux de trésorerie net généré annuellement après tous les coûts opérationnels.",
+        "es": "Entrada neta de efectivo generada anualmente después de todos los costos operativos."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Annual Growth Rate",
         "tr": "Yıllık Büyüme Oranı",
         "de": "Jährliche Wachstumsrate",
-        "fr": "Annual Growth Rate",
-        "es": "Annual Growth Rate",
+        "fr": "Taux de croissance annuel",
+        "es": "Tasa de crecimiento anual",
         "ar": "Annual Growth Rate"
       },
       "businessContext_i18n": {
         "en": "Annual percentage increase in net cash flow. Enter 0 for constant flows.",
-        "tr": "Net nakit akışındaki yıllık yüzde artış. Sabit akışlar için 0 girin."
+        "tr": "Net nakit akışındaki yıllık yüzde artış. Sabit akışlar için 0 girin.",
+        "de": "Jährlicher prozentualer Anstieg des Netto-Cashflows. Bei konstanten Flüssen 0 eingeben.",
+        "fr": "Augmentation annuelle en pourcentage du flux de trésorerie net. Entrez 0 pour des flux constants.",
+        "es": "Aumento porcentual anual del flujo de caja neto. Ingrese 0 para flujos constantes."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Salvage Value",
         "tr": "Hurda Değeri",
         "de": "Restwert",
-        "fr": "Salvage Value",
-        "es": "Salvage Value",
+        "fr": "Valeur de récupération",
+        "es": "Valor de rescate",
         "ar": "Salvage Value"
       },
       "businessContext_i18n": {
         "en": "Expected residual value of the asset at end of life; not directly used in simple payback.",
-        "tr": "Varlığın ömrü sonunda beklenen kalıntı değeri; basit geri ödemede doğrudan kullanılmaz."
+        "tr": "Varlığın ömrü sonunda beklenen kalıntı değeri; basit geri ödemede doğrudan kullanılmaz.",
+        "de": "Erwarteter Restwert des Vermögenswerts am Ende der Nutzungsdauer; wird bei einfachem Payback nicht direkt verwendet.",
+        "fr": "Valeur résiduelle attendue de l'actif en fin de vie ; non utilisée directement dans le calcul du délai de récupération simple.",
+        "es": "Valor residual esperado del activo al final de su vida útil; no se utiliza directamente en el cálculo del período de recuperación simple."
       }
     }
   ],

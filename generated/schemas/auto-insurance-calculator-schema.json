@@ -12,14 +12,16 @@
         "en": "Vehicle Value",
         "tr": "Araç Değeri",
         "de": "Fahrzeugwert",
-        "fr": "Vehicle Value",
-        "es": "Vehicle Value",
+        "fr": "Valeur du véhicule",
+        "es": "Valor del vehículo",
         "ar": "Vehicle Value"
       },
       "businessContext_i18n": {
         "en": "Current market value of the vehicle in USD.",
         "tr": "Aracın USD cinsinden güncel piyasa değeri.",
-        "de": "Aktueller Marktwert des Fahrzeugs in USD."
+        "de": "Aktueller Marktwert des Fahrzeugs in USD.",
+        "fr": "Valeur marchande actuelle du véhicule en USD.",
+        "es": "Valor de mercado actual del vehículo en USD."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Driver Age",
         "tr": "Sürücü Yaşı",
         "de": "Fahreralter",
-        "fr": "Driver Age",
-        "es": "Driver Age",
+        "fr": "Âge du conducteur",
+        "es": "Edad del conductor",
         "ar": "Driver Age"
       },
       "businessContext_i18n": {
         "en": "Age of the primary driver (18-100).",
         "tr": "Ana sürücünün yaşı (18-100).",
-        "de": "Alter des Hauptfahrers (18-100)."
+        "de": "Alter des Hauptfahrers (18-100).",
+        "fr": "Âge du conducteur principal (18-100).",
+        "es": "Edad del conductor principal (18-100)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Driving Experience",
         "tr": "Sürüş Deneyimi",
         "de": "Fahrerfahrung",
-        "fr": "Driving Experience",
-        "es": "Driving Experience",
+        "fr": "Expérience de conduite",
+        "es": "Experiencia de conducción",
         "ar": "Driving Experience"
       },
       "businessContext_i18n": {
         "en": "Total years of driving experience.",
         "tr": "Toplam sürüş deneyimi yılı.",
-        "de": "Gesamte Fahrerfahrung in Jahren."
+        "de": "Gesamte Fahrerfahrung in Jahren.",
+        "fr": "Nombre total d'années d'expérience de conduite.",
+        "es": "Años totales de experiencia de conducción."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Coverage Level",
         "tr": "Teminat Seviyesi",
         "de": "Deckungsstufe",
-        "fr": "Coverage Level",
-        "es": "Coverage Level",
+        "fr": "Niveau de couverture",
+        "es": "Nivel de cobertura",
         "ar": "Coverage Level"
       },
       "businessContext_i18n": {
         "en": "Coverage type: 1 = Liability only, 2 = Standard, 3 = Comprehensive. Acts as multiplier.",
         "tr": "Teminat türü: 1 = Sadece sorumluluk, 2 = Standart, 3 = Kapsamlı. Çarpan olarak çalışır.",
-        "de": "Deckungsart: 1 = Nur Haftpflicht, 2 = Standard, 3 = Vollkasko. Wirkt als Multiplikator."
+        "de": "Deckungsart: 1 = Nur Haftpflicht, 2 = Standard, 3 = Vollkasko. Wirkt als Multiplikator.",
+        "fr": "Type de couverture : 1 = Responsabilité civile uniquement, 2 = Standard, 3 = Tous risques. Agit comme multiplicateur.",
+        "es": "Tipo de cobertura: 1 = Solo responsabilidad civil, 2 = Estándar, 3 = Integral. Actúa como multiplicador."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Deductible Amount",
         "tr": "Muafiyet Tutarı",
         "de": "Selbstbeteiligung",
-        "fr": "Deductible Amount",
-        "es": "Deductible Amount",
+        "fr": "Montant de la franchise",
+        "es": "Monto del deducible",
         "ar": "Deductible Amount"
       },
       "businessContext_i18n": {
         "en": "Amount the insured pays out-of-pocket before coverage kicks in.",
         "tr": "Teminat devreye girmeden önce sigortalının cepten ödediği tutar.",
-        "de": "Betrag, den der Versicherte vor Leistungserbringung selbst zahlt."
+        "de": "Betrag, den der Versicherte vor Leistungserbringung selbst zahlt.",
+        "fr": "Montant que l'assuré paie de sa poche avant que la couverture ne s'applique.",
+        "es": "Cantidad que paga el asegurado de su bolsillo antes de que la cobertura entre en vigor."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Vehicle Age",
         "tr": "Araç Yaşı",
         "de": "Fahrzeugalter",
-        "fr": "Vehicle Age",
-        "es": "Vehicle Age",
+        "fr": "Âge du véhicule",
+        "es": "Antigüedad del vehículo",
         "ar": "Vehicle Age"
       },
       "businessContext_i18n": {
         "en": "Age of the vehicle from manufacturing year.",
         "tr": "Aracın üretim yılından itibaren yaşı.",
-        "de": "Alter des Fahrzeugs ab Baujahr."
+        "de": "Alter des Fahrzeugs ab Baujahr.",
+        "fr": "Âge du véhicule depuis l'année de fabrication.",
+        "es": "Antigüedad del vehículo desde el año de fabricación."
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Annual Mileage",
         "tr": "Yıllık Kilometre",
         "de": "Jährliche Fahrleistung",
-        "fr": "Annual Mileage",
-        "es": "Annual Mileage",
+        "fr": "Kilométrage annuel",
+        "es": "Kilometraje anual",
         "ar": "Annual Mileage"
       },
       "businessContext_i18n": {
         "en": "Estimated distance driven per year in kilometers.",
         "tr": "Yıllık tahmini sürüş mesafesi (kilometre).",
-        "de": "Geschätzte jährliche Fahrleistung in Kilometern."
+        "de": "Geschätzte jährliche Fahrleistung in Kilometern.",
+        "fr": "Distance estimée parcourue par an en kilomètres.",
+        "es": "Distancia estimada recorrida por año en kilómetros."
       }
     }
   ],

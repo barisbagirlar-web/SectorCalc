@@ -12,14 +12,16 @@
         "en": "Source Amount",
         "tr": "Kaynak Tutar",
         "de": "Quellbetrag",
-        "fr": "Source Amount",
-        "es": "Source Amount",
+        "fr": "Montant source",
+        "es": "Monto de origen",
         "ar": "Source Amount"
       },
       "businessContext_i18n": {
         "en": "Amount in original currency",
         "tr": "Orijinal para birimindeki tutar",
-        "de": "Betrag in ursprünglicher Währung"
+        "de": "Betrag in ursprünglicher Währung",
+        "fr": "Montant dans la devise d'origine",
+        "es": "Monto en moneda original"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Exchange Rate",
         "tr": "Döviz Kuru",
         "de": "Wechselkurs",
-        "fr": "Exchange Rate",
-        "es": "Exchange Rate",
+        "fr": "Taux de change",
+        "es": "Tipo de cambio",
         "ar": "Exchange Rate"
       },
       "businessContext_i18n": {
         "en": "Rate converting source to target currency",
         "tr": "Kaynak para birimini hedef para birimine dönüştüren kur",
-        "de": "Wechselkurs von Quell- in Zielwährung"
+        "de": "Wechselkurs von Quell- in Zielwährung",
+        "fr": "Taux de conversion de la devise source vers la devise cible",
+        "es": "Tasa de conversión de moneda origen a destino"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Fixed Fee",
         "tr": "Sabit Ücret",
         "de": "Feste Gebühr",
-        "fr": "Fixed Fee",
-        "es": "Fixed Fee",
+        "fr": "Frais fixes",
+        "es": "Tarifa fija",
         "ar": "Fixed Fee"
       },
       "businessContext_i18n": {
         "en": "Flat transaction fee in source currency",
         "tr": "Kaynak para biriminde sabit işlem ücreti",
-        "de": "Pauschale Transaktionsgebühr in Quellwährung"
+        "de": "Pauschale Transaktionsgebühr in Quellwährung",
+        "fr": "Frais forfaitaires dans la devise source",
+        "es": "Tarifa plana en moneda de origen"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Percentage Fee",
         "tr": "Yüzde Ücret",
         "de": "Prozentuale Gebühr",
-        "fr": "Percentage Fee",
-        "es": "Percentage Fee",
+        "fr": "Frais en pourcentage",
+        "es": "Tarifa porcentual",
         "ar": "Percentage Fee"
       },
       "businessContext_i18n": {
         "en": "Fee as decimal (e.g., 0.02 for 2%)",
         "tr": "Ondalık olarak ücret (ör. %2 için 0,02)",
-        "de": "Gebühr als Dezimalzahl (z. B. 0,02 für 2 %)"
+        "de": "Gebühr als Dezimalzahl (z. B. 0,02 für 2 %)",
+        "fr": "Frais sous forme décimale (ex. 0,02 pour 2%)",
+        "es": "Tarifa como decimal (ej., 0.02 para 2%)"
       }
     }
   ],

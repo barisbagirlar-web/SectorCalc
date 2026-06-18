@@ -12,13 +12,16 @@
         "en": "Cargo Weight",
         "tr": "Kargo Ağırlığı",
         "de": "Ladungsgewicht",
-        "fr": "Cargo Weight",
-        "es": "Cargo Weight",
+        "fr": "Poids de la cargaison",
+        "es": "Peso de la carga",
         "ar": "Cargo Weight"
       },
       "businessContext_i18n": {
         "en": "Total weight of cargo to be loaded (excluding pallets)",
-        "tr": "Yüklenecek toplam kargo ağırlığı (paletler hariç)"
+        "tr": "Yüklenecek toplam kargo ağırlığı (paletler hariç)",
+        "de": "Gesamtgewicht der zu ladenden Fracht (ohne Paletten)",
+        "fr": "Poids total de la cargaison à charger (hors palettes)",
+        "es": "Peso total de la carga a cargar (excluyendo palés)"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Vehicle Capacity",
         "tr": "Araç Kapasitesi",
-        "de": "Vehicle Capacity",
-        "fr": "Vehicle Capacity",
-        "es": "Vehicle Capacity",
+        "de": "Fahrzeugkapazität",
+        "fr": "Capacité du véhicule",
+        "es": "Capacidad del vehículo",
         "ar": "Vehicle Capacity"
       },
       "businessContext_i18n": {
         "en": "Maximum payload capacity of the vehicle",
-        "tr": "Aracın maksimum taşıma kapasitesi"
+        "tr": "Aracın maksimum taşıma kapasitesi",
+        "de": "Maximale Nutzlastkapazität des Fahrzeugs",
+        "fr": "Capacité de charge utile maximale du véhicule",
+        "es": "Capacidad máxima de carga útil del vehículo"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Number of Pallets",
         "tr": "Palet Sayısı",
-        "de": "Number of Pallets",
-        "fr": "Number of Pallets",
-        "es": "Number of Pallets",
+        "de": "Anzahl der Paletten",
+        "fr": "Nombre de palettes",
+        "es": "Número de palés",
         "ar": "Number of Pallets"
       },
       "businessContext_i18n": {
         "en": "Total count of pallets in the load",
-        "tr": "Yükteki toplam palet sayısı"
+        "tr": "Yükteki toplam palet sayısı",
+        "de": "Gesamtzahl der Paletten in der Ladung",
+        "fr": "Nombre total de palettes dans la charge",
+        "es": "Recuento total de palés en la carga"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Weight per Pallet",
         "tr": "Palet Başına Ağırlık",
-        "de": "Weight per Pallet",
-        "fr": "Weight per Pallet",
-        "es": "Weight per Pallet",
+        "de": "Gewicht pro Palette",
+        "fr": "Poids par palette",
+        "es": "Peso por palé",
         "ar": "Weight per Pallet"
       },
       "businessContext_i18n": {
         "en": "Average weight of an empty pallet",
-        "tr": "Boş bir paletin ortalama ağırlığı"
+        "tr": "Boş bir paletin ortalama ağırlığı",
+        "de": "Durchschnittsgewicht einer leeren Palette",
+        "fr": "Poids moyen d'une palette vide",
+        "es": "Peso promedio de un palé vacío"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier applied to total load for safety margin",
-        "tr": "Güvenlik marjı için toplam yüke uygulanan çarpan"
+        "tr": "Güvenlik marjı için toplam yüke uygulanan çarpan",
+        "de": "Multiplikator für die Gesamtlast zur Sicherheitsmarge",
+        "fr": "Multiplicateur appliqué à la charge totale pour la marge de sécurité",
+        "es": "Multiplicador aplicado a la carga total para margen de seguridad"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Axle Load Limit",
         "tr": "Aks Yük Sınırı",
-        "de": "Axle Load Limit",
-        "fr": "Axle Load Limit",
-        "es": "Axle Load Limit",
+        "de": "Achslastgrenze",
+        "fr": "Limite de charge par essieu",
+        "es": "Límite de carga por eje",
         "ar": "Axle Load Limit"
       },
       "businessContext_i18n": {
         "en": "Maximum permissible load per axle",
-        "tr": "Aks başına izin verilen maksimum yük"
+        "tr": "Aks başına izin verilen maksimum yük",
+        "de": "Maximal zulässige Last pro Achse",
+        "fr": "Charge maximale admissible par essieu",
+        "es": "Carga máxima permitida por eje"
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Number of Axles",
         "tr": "Aks Sayısı",
-        "de": "Number of Axles",
-        "fr": "Number of Axles",
-        "es": "Number of Axles",
+        "de": "Anzahl der Achsen",
+        "fr": "Nombre d'essieux",
+        "es": "Número de ejes",
         "ar": "Number of Axles"
       },
       "businessContext_i18n": {
         "en": "Total number of axles on the vehicle",
-        "tr": "Araçtaki toplam aks sayısı"
+        "tr": "Araçtaki toplam aks sayısı",
+        "de": "Gesamtzahl der Achsen des Fahrzeugs",
+        "fr": "Nombre total d'essieux sur le véhicule",
+        "es": "Número total de ejes en el vehículo"
       }
     }
   ],

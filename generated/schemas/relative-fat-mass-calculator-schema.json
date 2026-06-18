@@ -12,13 +12,15 @@
         "en": "Boy (cm)",
         "tr": "Boy (cm)",
         "de": "Körpergröße (cm)",
-        "fr": "Boy (cm)",
-        "es": "Boy (cm)",
+        "fr": "Taille (cm)",
+        "es": "Altura (cm)",
         "ar": "Boy (cm)"
       },
       "businessContext_i18n": {
         "en": "Kişinin boy uzunluğu santimetre cinsinden",
-        "tr": "Kişinin boy uzunluğu santimetre cinsinden"
+        "tr": "Kişinin boy uzunluğu santimetre cinsinden",
+        "de": "Körpergröße in Zentimetern",
+        "fr": "Taille de la personne en centimètres"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Bel Çevresi (cm)",
         "tr": "Bel Çevresi (cm)",
         "de": "Taillenumfang (cm)",
-        "fr": "Bel Çevresi (cm)",
-        "es": "Bel Çevresi (cm)",
+        "fr": "Tour de taille (cm)",
+        "es": "Circunferencia de cintura (cm)",
         "ar": "Bel Çevresi (cm)"
       },
       "businessContext_i18n": {
         "en": "Bel çevresi ölçümü santimetre cinsinden",
-        "tr": "Bel çevresi ölçümü santimetre cinsinden"
+        "tr": "Bel çevresi ölçümü santimetre cinsinden",
+        "de": "Taillenumfang in Zentimetern",
+        "fr": "Tour de taille en centimètres"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Cinsiyet (0: Erkek, 1: Kadın)",
         "tr": "Cinsiyet (0: Erkek, 1: Kadın)",
-        "de": "Cinsiyet (0: Erkek, 1: Kadın)",
-        "fr": "Cinsiyet (0: Erkek, 1: Kadın)",
-        "es": "Cinsiyet (0: Erkek, 1: Kadın)",
+        "de": "Geschlecht (0: Männlich, 1: Weiblich)",
+        "fr": "Sexe (0 : Homme, 1 : Femme)",
+        "es": "Sexo (0: Hombre, 1: Mujer)",
         "ar": "Cinsiyet (0: Erkek, 1: Kadın)"
       },
       "businessContext_i18n": {
         "en": "Cinsiyet göstergesi: 0 erkek, 1 kadın",
-        "tr": "Cinsiyet göstergesi: 0 erkek, 1 kadın"
+        "tr": "Cinsiyet göstergesi: 0 erkek, 1 kadın",
+        "de": "Geschlechtsindikator: 0 männlich, 1 weiblich",
+        "fr": "Indicateur de sexe : 0 homme, 1 femme"
       }
     }
   ],

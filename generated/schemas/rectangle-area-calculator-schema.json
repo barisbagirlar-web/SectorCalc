@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Uzunluk (mm)",
         "tr": "Uzunluk (mm)",
-        "de": "Uzunluk (mm)",
-        "fr": "Uzunluk (mm)",
-        "es": "Uzunluk (mm)",
+        "de": "Länge (mm)",
+        "fr": "Longueur (mm)",
+        "es": "Longitud (mm)",
         "ar": "Uzunluk (mm)"
       },
       "businessContext_i18n": {
         "en": "Dikdörtgenin milimetre cinsinden uzunluğu.",
-        "tr": "Dikdörtgenin milimetre cinsinden uzunluğu."
+        "tr": "Dikdörtgenin milimetre cinsinden uzunluğu.",
+        "de": "Länge des Rechtecks in Millimetern.",
+        "fr": "Longueur du rectangle en millimètres.",
+        "es": "Longitud del rectángulo en milímetros."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Genişlik (mm)",
         "tr": "Genişlik (mm)",
-        "de": "Genişlik (mm)",
-        "fr": "Genişlik (mm)",
-        "es": "Genişlik (mm)",
+        "de": "Breite (mm)",
+        "fr": "Largeur (mm)",
+        "es": "Ancho (mm)",
         "ar": "Genişlik (mm)"
       },
       "businessContext_i18n": {
         "en": "Dikdörtgenin milimetre cinsinden genişliği.",
-        "tr": "Dikdörtgenin milimetre cinsinden genişliği."
+        "tr": "Dikdörtgenin milimetre cinsinden genişliği.",
+        "de": "Breite des Rechtecks in Millimetern.",
+        "fr": "Largeur du rectangle en millimètres.",
+        "es": "Ancho del rectángulo en milímetros."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Alan Dönüşüm Faktörü",
         "tr": "Alan dönüşüm faktörü",
-        "de": "Alan Dönüşüm Faktörü",
-        "fr": "Alan Dönüşüm Faktörü",
-        "es": "Alan Dönüşüm Faktörü",
+        "de": "Flächenumrechnungsfaktor",
+        "fr": "Facteur de conversion de surface",
+        "es": "Factor de conversión de área",
         "ar": "Alan Dönüşüm Faktörü"
       },
       "businessContext_i18n": {
         "en": "Milimetrekareyi metrekareye çevirme faktörü. 1 mm² = 1e-6 m².",
-        "tr": "Milimetrekareyi metrekareye çevirme faktörü. 1 mm² = 1e-6 m²."
+        "tr": "Milimetrekareyi metrekareye çevirme faktörü. 1 mm² = 1e-6 m².",
+        "de": "Faktor zur Umrechnung von Quadratmillimetern in Quadratmeter. 1 mm² = 1e-6 m².",
+        "fr": "Facteur de conversion des millimètres carrés en mètres carrés. 1 mm² = 1e-6 m².",
+        "es": "Factor para convertir milímetros cuadrados a metros cuadrados. 1 mm² = 1e-6 m²."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Tolerans (%)",
         "tr": "Tolerans (%)",
-        "de": "Tolerans (%)",
-        "fr": "Tolerans (%)",
-        "es": "Tolerans (%)",
+        "de": "Toleranz (%)",
+        "fr": "Tolérance (%)",
+        "es": "Tolerancia (%)",
         "ar": "Tolerans (%)"
       },
       "businessContext_i18n": {
         "en": "İmalat toleransı, her iki boyuta uygulanacak yüzde.",
-        "tr": "İmalat toleransı, her iki boyuta uygulanacak yüzde."
+        "tr": "İmalat toleransı, her iki boyuta uygulanacak yüzde.",
+        "de": "Fertigungstoleranz, Prozentsatz, der auf beide Abmessungen angewendet wird.",
+        "fr": "Tolérance de fabrication, pourcentage appliqué aux deux dimensions.",
+        "es": "Tolerancia de fabricación, porcentaje aplicado a ambas dimensiones."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Emniyet Faktörü",
         "tr": "Emniyet Faktörü",
-        "de": "Emniyet Faktörü",
-        "fr": "Emniyet Faktörü",
-        "es": "Emniyet Faktörü",
+        "de": "Sicherheitsfaktor",
+        "fr": "Facteur de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Emniyet Faktörü"
       },
       "businessContext_i18n": {
         "en": "Alan hesaplamasına uygulanacak emniyet çarpanı.",
-        "tr": "Alan hesaplamasına uygulanacak emniyet çarpanı."
+        "tr": "Alan hesaplamasına uygulanacak emniyet çarpanı.",
+        "de": "Sicherheitsfaktor, der auf die Flächenberechnung angewendet wird.",
+        "fr": "Coefficient de sécurité à appliquer au calcul de surface.",
+        "es": "Factor de seguridad aplicado al cálculo del área."
       }
     }
   ],

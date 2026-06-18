@@ -12,13 +12,16 @@
         "en": "Hole Diameter",
         "tr": "Delik Çapı",
         "de": "Lochdurchmesser",
-        "fr": "Hole Diameter",
-        "es": "Hole Diameter",
+        "fr": "Diamètre du trou",
+        "es": "Diámetro del agujero",
         "ar": "Hole Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the cylindrical hole for the post, typically 3 times the post width.",
-        "tr": "Direk için silindirik deliğin çapı, tipik olarak direk genişliğinin 3 katı."
+        "tr": "Direk için silindirik deliğin çapı, tipik olarak direk genişliğinin 3 katı.",
+        "de": "Durchmesser des zylindrischen Lochs für den Pfosten, typischerweise das 3-fache der Pfostenbreite.",
+        "fr": "Diamètre du trou cylindrique pour le poteau, généralement 3 fois la largeur du poteau",
+        "es": "Diámetro del agujero cilíndrico para el poste, típicamente 3 veces el ancho del poste."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Hole Depth",
         "tr": "Delik Derinliği",
-        "de": "Hole Depth",
-        "fr": "Hole Depth",
-        "es": "Hole Depth",
+        "de": "Lochtiefe",
+        "fr": "Profondeur du trou",
+        "es": "Profundidad del agujero",
         "ar": "Hole Depth"
       },
       "businessContext_i18n": {
         "en": "Depth of the hole, usually 1/3 to 1/2 of the above-ground post height.",
-        "tr": "Deliğin derinliği, genellikle yer üstü direk yüksekliğinin 1/3 ila 1/2'si."
+        "tr": "Deliğin derinliği, genellikle yer üstü direk yüksekliğinin 1/3 ila 1/2'si.",
+        "de": "Tiefe des Lochs, normalerweise 1/3 bis 1/2 der oberirdischen Pfostenhöhe.",
+        "fr": "Profondeur du trou, généralement 1/3 à 1/2 de la hauteur du poteau hors sol",
+        "es": "Profundidad del agujero, usualmente 1/3 a 1/2 de la altura del poste sobre el suelo."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Post Side Width",
         "tr": "Direk Yan Genişliği",
-        "de": "Post Side Width",
-        "fr": "Post Side Width",
-        "es": "Post Side Width",
+        "de": "Pfostenseitenbreite",
+        "fr": "Largeur du côté du poteau",
+        "es": "Ancho lateral del poste",
         "ar": "Post Side Width"
       },
       "businessContext_i18n": {
         "en": "Width of a square post. For round posts, use diameter equivalent.",
-        "tr": "Kare direğin genişliği. Yuvarlak direkler için eşdeğer çap kullanın."
+        "tr": "Kare direğin genişliği. Yuvarlak direkler için eşdeğer çap kullanın.",
+        "de": "Breite eines quadratischen Pfostens. Bei runden Pfosten den äquivalenten Durchmesser verwenden.",
+        "fr": "Largeur d'un poteau carré. Pour les poteaux ronds, utiliser le diamètre équivalent",
+        "es": "Ancho de un poste cuadrado. Para postes redondos, usar el diámetro equivalente."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Number of Posts",
         "tr": "Direk Sayısı",
         "de": "Anzahl der Pfosten",
-        "fr": "Number of Posts",
-        "es": "Number of Posts",
+        "fr": "Nombre de poteaux",
+        "es": "Número de postes",
         "ar": "Number of Posts"
       },
       "businessContext_i18n": {
         "en": "Total number of post holes to be filled.",
-        "tr": "Doldurulacak toplam direk deliği sayısı."
+        "tr": "Doldurulacak toplam direk deliği sayısı.",
+        "de": "Gesamtzahl der zu füllenden Pfostenlöcher.",
+        "fr": "Nombre total de trous de poteau à remplir",
+        "es": "Número total de agujeros para postes a rellenar."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
         "de": "Abfallfaktor",
-        "fr": "Waste Factor",
-        "es": "Waste Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Extra percentage of concrete to order for spillage, over-digging, etc.",
-        "tr": "Dökülme, aşırı kazma vb. için sipariş edilecek ekstra beton yüzdesi."
+        "tr": "Dökülme, aşırı kazma vb. için sipariş edilecek ekstra beton yüzdesi.",
+        "de": "Zusätzlicher Prozentsatz an Beton für Verschütten, Überaushub usw.",
+        "fr": "Pourcentage supplémentaire de béton à commander pour les déversements, surcreusements, etc.",
+        "es": "Porcentaje extra de concreto a pedir por derrames, sobre-excavación, etc."
       }
     }
   ],

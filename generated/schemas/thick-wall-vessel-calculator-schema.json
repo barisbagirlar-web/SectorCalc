@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Inside Diameter",
         "tr": "İç Çap",
-        "de": "Inside Diameter",
-        "fr": "Inside Diameter",
+        "de": "Innendurchmesser",
+        "fr": "Diamètre intérieur",
         "es": "Inside Diameter",
         "ar": "Inside Diameter"
       },
       "businessContext_i18n": {
         "en": "Inner diameter of the thick wall vessel",
-        "tr": "Kalın cidarlı kabın iç çapı"
+        "tr": "Kalın cidarlı kabın iç çapı",
+        "de": "Innendurchmesser des dickwandigen Behälters",
+        "fr": "Diamètre intérieur du récipient à paroi épaisse"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Outside Diameter",
         "tr": "Dış Çap",
-        "de": "Outside Diameter",
-        "fr": "Outside Diameter",
-        "es": "Outside Diameter",
+        "de": "Außendurchmesser",
+        "fr": "Diamètre extérieur",
+        "es": "Diámetro exterior",
         "ar": "Outside Diameter"
       },
       "businessContext_i18n": {
         "en": "Outer diameter of the thick wall vessel",
-        "tr": "Kalın cidarlı kabın dış çapı"
+        "tr": "Kalın cidarlı kabın dış çapı",
+        "de": "Außendurchmesser des dickwandigen Behälters",
+        "fr": "Diamètre extérieur du récipient à paroi épaisse"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Internal Pressure",
         "tr": "İç Basınç",
-        "de": "Internal Pressure",
-        "fr": "Internal Pressure",
-        "es": "Internal Pressure",
+        "de": "Innendruck",
+        "fr": "Pression interne",
+        "es": "Presión interna",
         "ar": "Internal Pressure"
       },
       "businessContext_i18n": {
         "en": "Pressure inside the vessel",
-        "tr": "Kap içi basınç"
+        "tr": "Kap içi basınç",
+        "de": "Innendruck des Behälters",
+        "fr": "Pression à l'intérieur du récipient"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "External Pressure",
         "tr": "Dış Basınç",
-        "de": "External Pressure",
-        "fr": "External Pressure",
+        "de": "Außendruck",
+        "fr": "Pression externe",
         "es": "External Pressure",
         "ar": "External Pressure"
       },
       "businessContext_i18n": {
         "en": "Pressure outside the vessel, typically 0",
-        "tr": "Kap dışı basınç, genellikle 0"
+        "tr": "Kap dışı basınç, genellikle 0",
+        "de": "Druck außerhalb des Behälters, typischerweise 0",
+        "fr": "Pression à l'extérieur du récipient, généralement 0"
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Yield Strength",
         "tr": "Akma Dayanımı",
         "de": "Streckgrenze",
-        "fr": "Yield Strength",
-        "es": "Yield Strength",
+        "fr": "Limite d'élasticité",
+        "es": "Límite elástico",
         "ar": "Yield Strength"
       },
       "businessContext_i18n": {
         "en": "Material yield strength for safety factor calculation (0 to omit)",
-        "tr": "Güvenlik faktörü hesaplaması için malzeme akma dayanımı (0 atlanır)"
+        "tr": "Güvenlik faktörü hesaplaması için malzeme akma dayanımı (0 atlanır)",
+        "de": "Streckgrenze des Materials für Sicherheitsfaktorberechnung (0 zum Auslassen)",
+        "fr": "Limite d'élasticité du matériau pour le calcul du facteur de sécurité (0 pour omettre)"
       }
     }
   ],

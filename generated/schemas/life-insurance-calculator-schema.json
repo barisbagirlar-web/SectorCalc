@@ -12,13 +12,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Age of the insured person in years",
-        "tr": "Sigortalının yaşı (yıl)"
+        "tr": "Sigortalının yaşı (yıl)",
+        "de": "Alter der versicherten Person in Jahren",
+        "fr": "Âge de l'assuré en années",
+        "es": "Edad de la persona asegurada en años"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Coverage Amount",
         "tr": "Teminat Tutarı",
         "de": "Deckungssumme",
-        "fr": "Coverage Amount",
-        "es": "Coverage Amount",
+        "fr": "Montant de la couverture",
+        "es": "Monto de cobertura",
         "ar": "Coverage Amount"
       },
       "businessContext_i18n": {
         "en": "Total coverage amount (death benefit) in USD",
-        "tr": "Toplam teminat tutarı (ölüm yardımı) USD"
+        "tr": "Toplam teminat tutarı (ölüm yardımı) USD",
+        "de": "Gesamtversicherungssumme (Todesfallleistung) in USD",
+        "fr": "Montant total de la couverture (capital décès) en USD",
+        "es": "Monto total de cobertura (beneficio por fallecimiento) en USD"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Term Length",
         "tr": "Vade Süresi",
         "de": "Laufzeit",
-        "fr": "Term Length",
-        "es": "Term Length",
+        "fr": "Durée du terme",
+        "es": "Plazo",
         "ar": "Term Length"
       },
       "businessContext_i18n": {
         "en": "Length of the policy term in years",
-        "tr": "Poliçe süresi (yıl)"
+        "tr": "Poliçe süresi (yıl)",
+        "de": "Laufzeit der Police in Jahren",
+        "fr": "Durée du contrat en années",
+        "es": "Duración del plazo de la póliza en años"
       }
     },
     {
@@ -71,15 +80,17 @@
       "label_i18n": {
         "en": "Smoking Status",
         "tr": "Sigara İçme Durumu",
-        "de": "Smoking Status",
-        "fr": "Smoking Status",
-        "es": "Smoking Status",
+        "de": "Raucherstatus",
+        "fr": "Statut tabagique",
+        "es": "Estado de tabaquismo",
         "ar": "Smoking Status"
       },
       "businessContext_i18n": {
         "en": "0 for non-smoker, 1 for smoker",
         "tr": "0 içmiyor, 1 içiyor",
-        "de": "0 für Nichtraucher, 1 für Raucher"
+        "de": "0 für Nichtraucher, 1 für Raucher",
+        "fr": "0 pour non-fumeur, 1 pour fumeur",
+        "es": "0 para no fumador, 1 para fumador"
       }
     },
     {
@@ -93,13 +104,16 @@
         "en": "Gender",
         "tr": "Cinsiyet",
         "de": "Geschlecht",
-        "fr": "Gender",
-        "es": "Gender",
+        "fr": "Genre",
+        "es": "Género",
         "ar": "Gender"
       },
       "businessContext_i18n": {
         "en": "0 for male, 1 for female (used for risk adjustment)",
-        "tr": "0 erkek, 1 kadın (risk ayarlaması için kullanılır)"
+        "tr": "0 erkek, 1 kadın (risk ayarlaması için kullanılır)",
+        "de": "0 für männlich, 1 für weiblich (zur Risikobereinigung)",
+        "fr": "0 pour homme, 1 pour femme (utilisé pour l'ajustement du risque)",
+        "es": "0 para hombre, 1 para mujer (utilizado para ajuste de riesgo)"
       }
     },
     {
@@ -113,13 +127,16 @@
         "en": "Health Score",
         "tr": "Sağlık Puanı",
         "de": "Gesundheitswert",
-        "fr": "Health Score",
-        "es": "Health Score",
+        "fr": "Score de santé",
+        "es": "Puntuación de salud",
         "ar": "Health Score"
       },
       "businessContext_i18n": {
         "en": "Health score from 0-100, higher is better",
-        "tr": "0-100 arası sağlık puanı, yüksek daha iyi"
+        "tr": "0-100 arası sağlık puanı, yüksek daha iyi",
+        "de": "Gesundheitswert von 0-100, höher ist besser",
+        "fr": "Score de santé de 0 à 100, plus élevé est meilleur",
+        "es": "Puntuación de salud de 0 a 100, cuanto más alto mejor"
       }
     }
   ],

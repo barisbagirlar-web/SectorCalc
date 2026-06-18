@@ -12,13 +12,16 @@
         "en": "Inlet Pressure",
         "tr": "Giriş basıncı",
         "de": "Einlassdruck",
-        "fr": "Inlet Pressure",
-        "es": "Inlet Pressure",
+        "fr": "Pression d'entrée",
+        "es": "Presión de entrada",
         "ar": "Inlet Pressure"
       },
       "businessContext_i18n": {
         "en": "Suction pressure at compressor inlet",
-        "tr": "Kompresör girişinde emme basıncı"
+        "tr": "Kompresör girişinde emme basıncı",
+        "de": "Saugdruck am Verdichtereintritt",
+        "fr": "Pression d'aspiration à l'entrée du compresseur",
+        "es": "Presión de succión en la entrada del compresor"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Outlet Pressure",
         "tr": "Çıkış basıncı",
         "de": "Auslassdruck",
-        "fr": "Outlet Pressure",
-        "es": "Outlet Pressure",
+        "fr": "Pression de sortie",
+        "es": "Presión de salida",
         "ar": "Outlet Pressure"
       },
       "businessContext_i18n": {
         "en": "Discharge pressure required",
-        "tr": "Gerekli boşaltma basıncı"
+        "tr": "Gerekli boşaltma basıncı",
+        "de": "Erforderlicher Austrittsdruck",
+        "fr": "Pression de refoulement requise",
+        "es": "Presión de descarga requerida"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Max Pressure Ratio per Stage",
         "tr": "Kademe Başına Maksimum Basınç Oranı",
-        "de": "Max Pressure Ratio per Stage",
-        "fr": "Max Pressure Ratio per Stage",
-        "es": "Max Pressure Ratio per Stage",
+        "de": "Max. Druckverhältnis pro Stufe",
+        "fr": "Rapport de pression max par étage",
+        "es": "Relación de presión máxima por etapa",
         "ar": "Max Pressure Ratio per Stage"
       },
       "businessContext_i18n": {
         "en": "Maximum allowable pressure ratio for a single stage based on compressor type",
-        "tr": "Kompresör tipine göre tek bir kademe için izin verilen maksimum basınç oranı"
+        "tr": "Kompresör tipine göre tek bir kademe için izin verilen maksimum basınç oranı",
+        "de": "Maximal zulässiges Druckverhältnis für eine einzelne Stufe basierend auf dem Verdichtungstyp",
+        "fr": "Rapport de pression maximal autorisé pour un seul étage selon le type de compresseur",
+        "es": "Relación de presión máxima permitida para una sola etapa según el tipo de compresor"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Factor to oversize number of stages for reliability, typically 1.05-1.2",
-        "tr": "Güvenilirlik için kademe sayısını büyütme faktörü, tipik olarak 1.05-1.2"
+        "tr": "Güvenilirlik için kademe sayısını büyütme faktörü, tipik olarak 1.05-1.2",
+        "de": "Faktor zur Überdimensionierung der Stufenanzahl für Zuverlässigkeit, typischerweise 1,05–1,2",
+        "fr": "Facteur de surdimensionnement du nombre d'étages pour la fiabilité, généralement 1,05-1,2",
+        "es": "Factor para sobredimensionar el número de etapas por confiabilidad, típicamente 1.05-1.2"
       }
     }
   ],

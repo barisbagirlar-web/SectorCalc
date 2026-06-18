@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Newton Temperature",
         "tr": "CIDR notasyonunda alt ağ maskesi uzunluğu (0-32)",
-        "de": "Newton Temperature",
-        "fr": "Newton Temperature",
-        "es": "Newton Temperature",
+        "de": "Subnetzmaskenlänge in CIDR-Notation (0-32)",
+        "fr": "Température Newton",
+        "es": "Temperatura Newton",
         "ar": "Newton Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature value in Newton scale",
-        "tr": "Newton ölçeğinde sıcaklık değeri"
+        "tr": "Newton ölçeğinde sıcaklık değeri",
+        "de": "Newton-Temperatur",
+        "fr": "Valeur de température en échelle Newton",
+        "es": "Valor de temperatura en escala Newton"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for result",
-        "tr": "Sonuç için ondalık basamak sayısı"
+        "tr": "Sonuç için ondalık basamak sayısı",
+        "de": "Temperaturwert in Newton-Skala",
+        "fr": "Nombre de décimales pour le résultat",
+        "es": "Número de decimales para el resultado"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Rounding Method (0: round, 1: floor, 2: ceil)",
         "tr": "Yuvarlama yöntemi (0: yuvarla, 1: taban, 2: tavan)",
-        "de": "Rounding Method (0: round, 1: floor, 2: ceil)",
-        "fr": "Rounding Method (0: round, 1: floor, 2: ceil)",
-        "es": "Rounding Method (0: round, 1: floor, 2: ceil)",
+        "de": "Anzahl der Dezimalstellen für das Ergebnis",
+        "fr": "Méthode d'arrondi (0: arrondi, 1: plancher, 2: plafond)",
+        "es": "Método de redondeo (0: redondear, 1: suelo, 2: techo)",
         "ar": "Rounding Method (0: round, 1: floor, 2: ceil)"
       },
       "businessContext_i18n": {
         "en": "Mathematical rounding method code",
-        "tr": "Matematiksel yuvarlama yöntem kodu"
+        "tr": "Matematiksel yuvarlama yöntem kodu",
+        "de": "Code für mathematische Rundungsmethode",
+        "fr": "Code de méthode d'arrondi mathématique",
+        "es": "Código del método de redondeo matemático"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Calibration Offset",
         "tr": "Kalibrasyon Ofseti",
         "de": "Kalibrierungsversatz",
-        "fr": "Calibration Offset",
-        "es": "Calibration Offset",
+        "fr": "Décalage d'étalonnage",
+        "es": "Desviación de calibración",
         "ar": "Calibration Offset"
       },
       "businessContext_i18n": {
         "en": "Optional calibration offset in degrees Celsius",
-        "tr": "Santigrat derece cinsinden isteğe bağlı kalibrasyon ofseti"
+        "tr": "Santigrat derece cinsinden isteğe bağlı kalibrasyon ofseti",
+        "de": "Optionaler Kalibrierungs-Offset in Grad Celsius",
+        "fr": "Décalage d'étalonnage optionnel en degrés Celsius",
+        "es": "Desviación de calibración opcional en grados Celsius"
       }
     }
   ],

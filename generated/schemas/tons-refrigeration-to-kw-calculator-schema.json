@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Tons of Refrigeration",
         "tr": "Soğutma tonu",
-        "de": "Tons of Refrigeration",
-        "fr": "Tons of Refrigeration",
+        "de": "Kälteleistung in Tonnen",
+        "fr": "Tonnes de réfrigération",
         "es": "Tons of Refrigeration",
         "ar": "Tons of Refrigeration"
       },
       "businessContext_i18n": {
         "en": "Cooling capacity in tons of refrigeration (1 ton = 12000 BTU/hr)",
-        "tr": "Soğutma kapasitesi (soğutma tonu cinsinden; 1 ton = 12000 BTU/saat)"
+        "tr": "Soğutma kapasitesi (soğutma tonu cinsinden; 1 ton = 12000 BTU/saat)",
+        "de": "Kühlleistung in Kältetonnen (1 Tonne = 12000 BTU/h)",
+        "fr": "Capacité de refroidissement en tonnes de réfrigération (1 tonne = 12 000 BTU/h)"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor from tons to kilowatts (1 ton ≈ 3.51685 kW). Adjust for regional standards if needed.",
-        "tr": "Tondan kilovata standart dönüşüm faktörü (1 ton ≈ 3,51685 kW). Gerekirse bölgesel standartlara göre ayarlayın."
+        "tr": "Tondan kilovata standart dönüşüm faktörü (1 ton ≈ 3,51685 kW). Gerekirse bölgesel standartlara göre ayarlayın.",
+        "de": "Standard-Umrechnungsfaktor von Tonnen in Kilowatt (1 Tonne ≈ 3,51685 kW). Bei Bedarf an regionale Standards anpassen.",
+        "fr": "Facteur de conversion standard des tonnes en kilowatts (1 tonne ≈ 3,51685 kW). Ajustez selon les normes régionales si nécessaire."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Design safety margin multiplier, typically 1.0–1.2",
-        "tr": "Tasarım güvenlik marjı çarpanı, tipik olarak 1,0–1,2"
+        "tr": "Tasarım güvenlik marjı çarpanı, tipik olarak 1,0–1,2",
+        "de": "Sicherheitsfaktor für die Auslegung, typischerweise 1,0–1,2",
+        "fr": "Coefficient de marge de sécurité de conception, généralement 1,0–1,2"
       }
     },
     {
@@ -72,14 +78,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding output",
         "tr": "Yuvarlama için ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen für die Rundung der Ausgabe"
+        "de": "Anzahl der Dezimalstellen für die Rundung der Ausgabe",
+        "fr": "Nombre de décimales pour l'arrondi du résultat",
+        "es": "Número de decimales para redondear el resultado"
       }
     }
   ],

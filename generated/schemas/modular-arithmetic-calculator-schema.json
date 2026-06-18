@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Modulus (m)",
         "tr": "Modül (m)",
-        "de": "Modulus (m)",
-        "fr": "Modulus (m)",
-        "es": "Modulus (m)",
+        "de": "Modul (m)",
+        "fr": "Module (m)",
+        "es": "Módulo (m)",
         "ar": "Modulus (m)"
       },
       "businessContext_i18n": {
         "en": "The modulus for arithmetic operations, must be a positive integer.",
-        "tr": "Aritmetik işlemler için modül; pozitif tam sayı olmalıdır."
+        "tr": "Aritmetik işlemler için modül; pozitif tam sayı olmalıdır.",
+        "de": "Der Modul für arithmetische Operationen, muss eine positive ganze Zahl sein.",
+        "fr": "Le module pour les opérations arithmétiques, doit être un entier positif.",
+        "es": "El módulo para operaciones aritméticas, debe ser un entero positivo."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Number a",
         "tr": "a Sayısı",
-        "de": "Number a",
-        "fr": "Number a",
-        "es": "Number a",
+        "de": "Zahl a",
+        "fr": "Nombre a",
+        "es": "Número a",
         "ar": "Number a"
       },
       "businessContext_i18n": {
         "en": "First operand.",
-        "tr": "Birinci işlenen."
+        "tr": "Birinci işlenen.",
+        "de": "Erster Operand.",
+        "fr": "Premier opérande.",
+        "es": "Primer operando."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Number b",
         "tr": "b Sayısı",
-        "de": "Number b",
-        "fr": "Number b",
-        "es": "Number b",
+        "de": "Zahl b",
+        "fr": "Nombre b",
+        "es": "Número b",
         "ar": "Number b"
       },
       "businessContext_i18n": {
         "en": "Second operand, used in addition, subtraction, multiplication.",
-        "tr": "Toplama, çıkarma, çarpmada kullanılan ikinci işlenen."
+        "tr": "Toplama, çıkarma, çarpmada kullanılan ikinci işlenen.",
+        "de": "Zweiter Operand, verwendet bei Addition, Subtraktion, Multiplikation.",
+        "fr": "Second opérande, utilisé pour l'addition, la soustraction, la multiplication.",
+        "es": "Segundo operando, usado en suma, resta, multiplicación."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Exponent",
         "tr": "Üs",
         "de": "Exponent",
-        "fr": "Exponent",
-        "es": "Exponent",
+        "fr": "Exposant",
+        "es": "Exponente",
         "ar": "Exponent"
       },
       "businessContext_i18n": {
         "en": "Exponent for modular exponentiation (a^exponent mod m).",
-        "tr": "Modüler üs alma için üs (a^üs mod m)."
+        "tr": "Modüler üs alma için üs (a^üs mod m).",
+        "de": "Exponent für modulare Exponentiation (a^Exponent mod m).",
+        "fr": "Exposant pour l'exponentiation modulaire (a^exposant mod m).",
+        "es": "Exponente para exponenciación modular (a^exponente mod m)."
       }
     }
   ],

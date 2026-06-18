@@ -12,14 +12,16 @@
         "en": "Battery Capacity (Ah)",
         "tr": "Akü Kapasitesi (Ah)",
         "de": "Batteriekapazität (Ah)",
-        "fr": "Battery Capacity (Ah)",
-        "es": "Battery Capacity (Ah)",
+        "fr": "Capacité de la batterie (Ah)",
+        "es": "Capacidad de la batería (Ah)",
         "ar": "Battery Capacity (Ah)"
       },
       "businessContext_i18n": {
         "en": "Nominal capacity of the battery in ampere-hours.",
         "tr": "Akünün amper-saat cinsinden nominal kapasitesi.",
-        "de": "Nennkapazität der Batterie in Amperestunden"
+        "de": "Nennkapazität der Batterie in Amperestunden",
+        "fr": "Capacité nominale de la batterie en ampères-heures.",
+        "es": "Capacidad nominal de la batería en amperios-hora."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Current (A)",
         "tr": "Akım (A)",
         "de": "Strom (A)",
-        "fr": "Current (A)",
-        "es": "Current (A)",
+        "fr": "Courant (A)",
+        "es": "Corriente (A)",
         "ar": "Current (A)"
       },
       "businessContext_i18n": {
         "en": "Charge or discharge current in amperes.",
         "tr": "Amper cinsinden şarj veya deşarj akımı.",
-        "de": "Lade- oder Entladestrom in Ampere"
+        "de": "Lade- oder Entladestrom in Ampere",
+        "fr": "Courant de charge ou décharge en ampères.",
+        "es": "Corriente de carga o descarga en amperios."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Nominal Voltage (V)",
         "tr": "Nominal Gerilim (V)",
         "de": "Nennspannung (V)",
-        "fr": "Nominal Voltage (V)",
-        "es": "Nominal Voltage (V)",
+        "fr": "Tension nominale (V)",
+        "es": "Tensión nominal (V)",
         "ar": "Nominal Voltage (V)"
       },
       "businessContext_i18n": {
         "en": "Nominal voltage of the battery.",
         "tr": "Akünün nominal voltajı.",
-        "de": "Nennspannung der Batterie"
+        "de": "Nennspannung der Batterie",
+        "fr": "Tension nominale de la batterie.",
+        "es": "Tensión nominal de la batería."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Efficiency (%)",
         "tr": "Verimlilik (%)",
         "de": "Wirkungsgrad (%)",
-        "fr": "Efficiency (%)",
-        "es": "Efficiency (%)",
+        "fr": "Rendement (%)",
+        "es": "Eficiencia (%)",
         "ar": "Efficiency (%)"
       },
       "businessContext_i18n": {
         "en": "Charging/discharging efficiency for adjusted calculations (not used in core C-rate).",
         "tr": "Düzeltilmiş hesaplamalar için şarj/deşarj verimliliği (temel C-oranında kullanılmaz).",
-        "de": "Lade-/Entladewirkungsgrad für angepasste Berechnungen (wird nicht im Kern-C-Rate verwendet)"
+        "de": "Lade-/Entladewirkungsgrad für angepasste Berechnungen (wird nicht im Kern-C-Rate verwendet)",
+        "fr": "Rendement de charge/décharge pour des calculs ajustés (non utilisé dans le C-rate de base).",
+        "es": "Eficiencia de carga/descarga para cálculos ajustados (no se usa en el C-rate principal)."
       }
     }
   ],

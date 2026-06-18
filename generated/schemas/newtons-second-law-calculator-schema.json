@@ -12,13 +12,16 @@
         "en": "Calculation Mode",
         "tr": "Hesaplama Modu",
         "de": "Berechnungsmodus",
-        "fr": "Calculation Mode",
-        "es": "Calculation Mode",
+        "fr": "Mode de calcul",
+        "es": "Modo de cálculo",
         "ar": "Calculation Mode"
       },
       "businessContext_i18n": {
         "en": "1=Calculate Force, 2=Calculate Acceleration, 3=Calculate Mass",
-        "tr": "1=Kuvvet Hesapla, 2=İvme Hesapla, 3=Kütle Hesapla"
+        "tr": "1=Kuvvet Hesapla, 2=İvme Hesapla, 3=Kütle Hesapla",
+        "de": "1=Kraft berechnen, 2=Beschleunigung berechnen, 3=Masse berechnen",
+        "fr": "1=Calculer la force, 2=Calculer l'accélération, 3=Calculer la masse",
+        "es": "1=Calcular Fuerza, 2=Calcular Aceleración, 3=Calcular Masa"
       }
     },
     {
@@ -32,14 +35,16 @@
         "en": "Mass",
         "tr": "Kütle",
         "de": "Masse",
-        "fr": "Mass",
-        "es": "Mass",
+        "fr": "Masse",
+        "es": "Masa",
         "ar": "Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the object",
         "tr": "Cismin kütlesi",
-        "de": "Masse des Objekts"
+        "de": "Masse des Objekts",
+        "fr": "Masse de l'objet",
+        "es": "Masa del objeto"
       }
     },
     {
@@ -52,14 +57,17 @@
       "label_i18n": {
         "en": "Acceleration",
         "tr": "İvme",
-        "de": "Acceleration",
-        "fr": "Acceleration",
-        "es": "Acceleration",
+        "de": "Beschleunigung",
+        "fr": "Accélération",
+        "es": "Aceleración",
         "ar": "Acceleration"
       },
       "businessContext_i18n": {
         "en": "Acceleration of the object",
-        "tr": "Cismin ivmesi"
+        "tr": "Cismin ivmesi",
+        "de": "Beschleunigung des Objekts",
+        "fr": "Accélération de l'objet",
+        "es": "Aceleración del objeto"
       }
     },
     {
@@ -72,14 +80,17 @@
       "label_i18n": {
         "en": "Force",
         "tr": "Kuvvet",
-        "de": "Force",
+        "de": "Kuvvet",
         "fr": "Force",
-        "es": "Force",
+        "es": "Fuerza",
         "ar": "Force"
       },
       "businessContext_i18n": {
         "en": "Net force acting on the object",
-        "tr": "Cisme etki eden net kuvvet"
+        "tr": "Cisme etki eden net kuvvet",
+        "de": "Netto-Kraft, die auf das Objekt wirkt",
+        "fr": "Force nette agissant sur l'objet",
+        "es": "Fuerza neta que actúa sobre el objeto"
       }
     },
     {
@@ -93,13 +104,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier for engineering safety margin (>=1)",
-        "tr": "Mühendislik güvenlik marjı çarpanı (>=1)"
+        "tr": "Mühendislik güvenlik marjı çarpanı (>=1)",
+        "de": "Multiplikator für technischen Sicherheitsfaktor (>=1)",
+        "fr": "Multiplicateur pour marge de sécurité technique (>=1)",
+        "es": "Multiplicador para margen de seguridad de ingeniería (>=1)"
       }
     }
   ],

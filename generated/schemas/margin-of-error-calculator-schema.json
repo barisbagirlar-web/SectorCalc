@@ -12,13 +12,16 @@
         "en": "Sample Size (n)",
         "tr": "Örneklem Büyüklüğü (n)",
         "de": "Stichprobengröße (n)",
-        "fr": "Sample Size (n)",
-        "es": "Sample Size (n)",
+        "fr": "Taille de l'échantillon (n)",
+        "es": "Tamaño de la muestra (n)",
         "ar": "Sample Size (n)"
       },
       "businessContext_i18n": {
         "en": "Total number of observations or respondents in the sample.",
-        "tr": "Örneklemdeki toplam gözlem veya yanıt sayısı."
+        "tr": "Örneklemdeki toplam gözlem veya yanıt sayısı.",
+        "de": "Gesamtzahl der Beobachtungen oder Befragten in der Stichprobe.",
+        "fr": "Nombre total d'observations ou de répondants dans l'échantillon.",
+        "es": "Número total de observaciones o encuestados en la muestra."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Confidence Level (%)",
         "tr": "Güven Düzeyi (%)",
-        "de": "Confidence Level (%)",
-        "fr": "Confidence Level (%)",
-        "es": "Confidence Level (%)",
+        "de": "Konfidenzniveau (%)",
+        "fr": "Niveau de confiance (%)",
+        "es": "Nivel de confianza (%)",
         "ar": "Confidence Level (%)"
       },
       "businessContext_i18n": {
         "en": "Desired confidence level as a percentage (e.g., 95, 99). Note: The corresponding Z-score must be entered manually.",
-        "tr": "Yüzde olarak istenen güven düzeyi (ör. 95, 99). Not: Karşılık gelen Z-skoru manuel olarak girilmelidir."
+        "tr": "Yüzde olarak istenen güven düzeyi (ör. 95, 99). Not: Karşılık gelen Z-skoru manuel olarak girilmelidir.",
+        "de": "Gewünschtes Konfidenzniveau in Prozent (z. B. 95, 99). Hinweis: Der entsprechende Z-Wert muss manuell eingegeben werden.",
+        "fr": "Niveau de confiance souhaité en pourcentage (ex. 95, 99). Remarque : le Z-score correspondant doit être saisi manuellement.",
+        "es": "Nivel de confianza deseado como porcentaje (ej. 95, 99). Nota: El puntaje Z correspondiente debe ingresarse manualmente."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Z-Score",
         "tr": "Z-Skoru",
         "de": "Z-Wert",
-        "fr": "Z-Score",
-        "es": "Z-Score",
+        "fr": "Score Z",
+        "es": "Puntuación Z",
         "ar": "Z-Score"
       },
       "businessContext_i18n": {
         "en": "Critical value from the standard normal distribution corresponding to the confidence level (e.g., 1.96 for 95%, 2.576 for 99%).",
-        "tr": "Güven düzeyine karşılık gelen standart normal dağılımdan kritik değer (ör. %95 için 1,96, %99 için 2,576)."
+        "tr": "Güven düzeyine karşılık gelen standart normal dağılımdan kritik değer (ör. %95 için 1,96, %99 için 2,576).",
+        "de": "Kritischer Wert aus der Standardnormalverteilung entsprechend dem Konfidenzniveau (z. B. 1,96 für 95 %, 2,576 für 99 %).",
+        "fr": "Valeur critique de la distribution normale standard correspondant au niveau de confiance (ex. 1,96 pour 95 %, 2,576 pour 99 %).",
+        "es": "Valor crítico de la distribución normal estándar correspondiente al nivel de confianza (ej. 1.96 para 95%, 2.576 para 99%)."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Sample Proportion (p)",
         "tr": "Örneklem Oranı (p)",
-        "de": "Sample Proportion (p)",
-        "fr": "Sample Proportion (p)",
-        "es": "Sample Proportion (p)",
+        "de": "Stichprobenanteil (p)",
+        "fr": "Proportion de l'échantillon (p)",
+        "es": "Proporción muestral (p)",
         "ar": "Sample Proportion (p)"
       },
       "businessContext_i18n": {
         "en": "Proportion of the sample with the characteristic of interest; use 0.5 for maximum margin of error.",
-        "tr": "İlgilenilen özelliğe sahip örneklem oranı; maksimum hata payı için 0,5 kullanın."
+        "tr": "İlgilenilen özelliğe sahip örneklem oranı; maksimum hata payı için 0,5 kullanın.",
+        "de": "Anteil der Stichprobe mit dem interessierenden Merkmal; verwenden Sie 0,5 für den maximalen Stichprobenfehler.",
+        "fr": "Proportion de l'échantillon présentant la caractéristique d'intérêt ; utiliser 0,5 pour une marge d'erreur maximale.",
+        "es": "Proporción de la muestra con la característica de interés; use 0.5 para el máximo margen de error."
       }
     }
   ],

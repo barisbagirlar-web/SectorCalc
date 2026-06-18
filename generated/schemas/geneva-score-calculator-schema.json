@@ -12,14 +12,16 @@
         "en": "Boyutsal Doğruluk Puanı",
         "tr": "Boyutsal Doğruluk Puanı",
         "de": "Boyutsal Doğruluk Puanı",
-        "fr": "Boyutsal Doğruluk Puanı",
-        "es": "Boyutsal Doğruluk Puanı",
+        "fr": "Score de précision dimensionnelle",
+        "es": "Puntuación de precisión dimensional",
         "ar": "Boyutsal Doğruluk Puanı"
       },
       "businessContext_i18n": {
         "en": "Parçanın hedef ölçülerden sapma miktarı, mm cinsinden. Daha düşük değer daha iyi doğruluk.",
         "tr": "Parçanın hedef ölçülerden sapma miktarı, mm cinsinden. Daha düşük değer daha iyi doğruluk.",
-        "de": "Parçanın hedef ölçülerden sapma miktarı, mm cinsinden. Daha düşük değer daha iyi doğruluk."
+        "de": "Parçanın hedef ölçülerden sapma miktarı, mm cinsinden. Daha düşük değer daha iyi doğruluk.",
+        "fr": "Écart de la pièce par rapport aux dimensions cibles, en mm. Une valeur plus faible indique une meilleure précision.",
+        "es": "Desviación de la pieza respecto a las dimensiones objetivo, en mm. Un valor más bajo indica mayor precisión."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Yüzey Pürüzlülüğü Puanı",
         "tr": "Yüzey Pürüzlülüğü Puanı",
         "de": "Yüzey Pürüzlülüğü Puanı",
-        "fr": "Yüzey Pürüzlülüğü Puanı",
-        "es": "Yüzey Pürüzlülüğü Puanı",
+        "fr": "Score de rugosité de surface",
+        "es": "Puntuación de rugosidad superficial",
         "ar": "Yüzey Pürüzlülüğü Puanı"
       },
       "businessContext_i18n": {
         "en": "Yüzey pürüzlülüğü Ra cinsinden, mikrometre. Daha düşük değer daha iyi yüzey kalitesi.",
         "tr": "Yüzey pürüzlülüğü Ra cinsinden, mikrometre. Daha düşük değer daha iyi yüzey kalitesi.",
-        "de": "Yüzey pürüzlülüğü Ra cinsinden, mikrometre. Daha düşük değer daha iyi yüzey kalitesi."
+        "de": "Yüzey pürüzlülüğü Ra cinsinden, mikrometre. Daha düşük değer daha iyi yüzey kalitesi.",
+        "fr": "Rugosité de surface Ra, en micromètres. Une valeur plus faible indique une meilleure qualité de surface.",
+        "es": "Rugosidad superficial Ra en micrómetros. Un valor más bajo indica mejor calidad superficial."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Sertlik Değeri Puanı",
         "tr": "Sertlik Değeri Puanı",
         "de": "Sertlik Değeri Puanı",
-        "fr": "Sertlik Değeri Puanı",
-        "es": "Sertlik Değeri Puanı",
+        "fr": "Score de dureté",
+        "es": "Puntuación de dureza",
         "ar": "Sertlik Değeri Puanı"
       },
       "businessContext_i18n": {
         "en": "Rockwell C sertlik değeri. İstenen spesifikasyona uygunluk gösterir.",
         "tr": "Rockwell C sertlik değeri. İstenen spesifikasyona uygunluk gösterir.",
-        "de": "Rockwell C sertlik değeri. İstenen spesifikasyona uygunluk gösterir."
+        "de": "Rockwell C sertlik değeri. İstenen spesifikasyona uygunluk gösterir.",
+        "fr": "Dureté Rockwell C. Indique la conformité à la spécification souhaitée.",
+        "es": "Valor de dureza Rockwell C. Indica conformidad con la especificación deseada."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Malzeme Homojenlik Puanı",
         "tr": "Malzeme Homojenlik Puanı",
         "de": "Malzeme Homojenlik Puanı",
-        "fr": "Malzeme Homojenlik Puanı",
-        "es": "Malzeme Homojenlik Puanı",
+        "fr": "Score d'homogénéité du matériau",
+        "es": "Puntuación de homogeneidad del material",
         "ar": "Malzeme Homojenlik Puanı"
       },
       "businessContext_i18n": {
         "en": "Malzeme bileşiminin standarda uyum yüzdesi. 100 ideal.",
         "tr": "Malzeme bileşiminin standarda uyum yüzdesi. 100 ideal.",
-        "de": "Malzeme bileşiminin standarda uyum yüzdesi. 100 ideal."
+        "de": "Malzeme bileşiminin standarda uyum yüzdesi. 100 ideal.",
+        "fr": "Pourcentage de conformité de la composition du matériau à la norme. 100 est idéal.",
+        "es": "Porcentaje de conformidad de la composición del material con el estándar. 100 es ideal."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Görsel Hata Sayısı",
         "tr": "Görsel Hata Sayısı",
         "de": "Görsel Hata Sayısı",
-        "fr": "Görsel Hata Sayısı",
-        "es": "Görsel Hata Sayısı",
+        "fr": "Nombre de défauts visuels",
+        "es": "Número de defectos visuales",
         "ar": "Görsel Hata Sayısı"
       },
       "businessContext_i18n": {
         "en": "Parça üzerinde tespit edilen görsel hata sayısı. Daha düşük daha iyi.",
         "tr": "Parça üzerinde tespit edilen görsel hata sayısı. Daha düşük daha iyi.",
-        "de": "Parça üzerinde tespit edilen görsel hata sayısı. Daha düşük daha iyi."
+        "de": "Parça üzerinde tespit edilen görsel hata sayısı. Daha düşük daha iyi.",
+        "fr": "Nombre de défauts visuels détectés sur la pièce. Plus faible est meilleur.",
+        "es": "Número de defectos visuales detectados en la pieza. Cuanto menor, mejor."
       }
     }
   ],

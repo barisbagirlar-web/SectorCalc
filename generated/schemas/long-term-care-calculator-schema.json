@@ -12,13 +12,16 @@
         "en": "Current Age",
         "tr": "Mevcut Yaş",
         "de": "Aktuelles Alter",
-        "fr": "Current Age",
-        "es": "Current Age",
+        "fr": "Âge actuel",
+        "es": "Edad actual",
         "ar": "Current Age"
       },
       "businessContext_i18n": {
         "en": "User's current age in years",
-        "tr": "Kullanıcının yıl cinsinden mevcut yaşı"
+        "tr": "Kullanıcının yıl cinsinden mevcut yaşı",
+        "de": "Aktuelles Alter des Benutzers in Jahren",
+        "fr": "Âge actuel de l'utilisateur en années",
+        "es": "Edad actual del usuario en años"
       }
     },
     {
@@ -32,14 +35,16 @@
         "en": "Retirement Age",
         "tr": "Emeklilik Yaşı",
         "de": "Rentenalter",
-        "fr": "Retirement Age",
-        "es": "Retirement Age",
+        "fr": "Âge de la retraite",
+        "es": "Edad de jubilación",
         "ar": "Retirement Age"
       },
       "businessContext_i18n": {
         "en": "Expected retirement age",
         "tr": "Beklenen emeklilik yaşı",
-        "de": "Erwartetes Rentenalter"
+        "de": "Erwartetes Rentenalter",
+        "fr": "Âge de retraite prévu",
+        "es": "Edad de jubilación esperada"
       }
     },
     {
@@ -52,14 +57,17 @@
       "label_i18n": {
         "en": "Expected Care Duration",
         "tr": "Beklenen Bakım Süresi",
-        "de": "Expected Care Duration",
-        "fr": "Expected Care Duration",
-        "es": "Expected Care Duration",
+        "de": "Erwartete Pflegedauer",
+        "fr": "Durée prévue des soins",
+        "es": "Duración esperada del cuidado",
         "ar": "Expected Care Duration"
       },
       "businessContext_i18n": {
         "en": "Expected number of years requiring long-term care",
-        "tr": "Uzun süreli bakım gerektiren beklenen yıl sayısı"
+        "tr": "Uzun süreli bakım gerektiren beklenen yıl sayısı",
+        "de": "Erwartete Anzahl von Jahren mit Langzeitpflegebedarf",
+        "fr": "Nombre d'années prévu nécessitant des soins de longue durée",
+        "es": "Número esperado de años que requieren cuidados a largo plazo"
       }
     },
     {
@@ -72,14 +80,17 @@
       "label_i18n": {
         "en": "Daily Care Cost Today",
         "tr": "Bugünkü Günlük Bakım Maliyeti",
-        "de": "Daily Care Cost Today",
-        "fr": "Daily Care Cost Today",
-        "es": "Daily Care Cost Today",
+        "de": "Aktuelle tägliche Pflegekosten",
+        "fr": "Coût quotidien des soins aujourd'hui",
+        "es": "Coste diario del cuidado hoy",
         "ar": "Daily Care Cost Today"
       },
       "businessContext_i18n": {
         "en": "Current daily cost of long-term care in local currency",
-        "tr": "Yerel para biriminde uzun süreli bakımın güncel günlük maliyeti"
+        "tr": "Yerel para biriminde uzun süreli bakımın güncel günlük maliyeti",
+        "de": "Aktuelle tägliche Kosten der Langzeitpflege in lokaler Währung",
+        "fr": "Coût quotidien actuel des soins de longue durée en devise locale",
+        "es": "Coste diario actual del cuidado a largo plazo en moneda local"
       }
     },
     {
@@ -93,13 +104,16 @@
         "en": "Annual Inflation Rate",
         "tr": "Yıllık Enflasyon Oranı",
         "de": "Jährliche Inflationsrate",
-        "fr": "Annual Inflation Rate",
-        "es": "Annual Inflation Rate",
+        "fr": "Taux d'inflation annuel",
+        "es": "Tasa de inflación anual",
         "ar": "Annual Inflation Rate"
       },
       "businessContext_i18n": {
         "en": "Expected average annual inflation rate for healthcare costs",
-        "tr": "Sağlık hizmetleri maliyetleri için beklenen ortalama yıllık enflasyon oranı"
+        "tr": "Sağlık hizmetleri maliyetleri için beklenen ortalama yıllık enflasyon oranı",
+        "de": "Erwartete durchschnittliche jährliche Inflationsrate für Gesundheitskosten",
+        "fr": "Taux d'inflation annuel moyen attendu pour les coûts de santé",
+        "es": "Tasa de inflación anual media esperada para costes sanitarios"
       }
     },
     {
@@ -112,14 +126,17 @@
       "label_i18n": {
         "en": "Existing Savings Allocated",
         "tr": "Ayrılan Mevcut Birikimler",
-        "de": "Existing Savings Allocated",
-        "fr": "Existing Savings Allocated",
-        "es": "Existing Savings Allocated",
+        "de": "Bereits vorhandene Ersparnisse",
+        "fr": "Épargne existante allouée",
+        "es": "Ahorros existentes asignados",
         "ar": "Existing Savings Allocated"
       },
       "businessContext_i18n": {
         "en": "Amount already saved to cover future care",
-        "tr": "Gelecekteki bakımı karşılamak için halihazırda biriktirilen miktar"
+        "tr": "Gelecekteki bakımı karşılamak için halihazırda biriktirilen miktar",
+        "de": "Bereits gesparter Betrag zur Deckung zukünftiger Pflegekosten",
+        "fr": "Montant déjà épargné pour couvrir les soins futurs",
+        "es": "Cantidad ya ahorrada para cubrir cuidados futuros"
       }
     },
     {
@@ -132,14 +149,17 @@
       "label_i18n": {
         "en": "Other Retirement Income",
         "tr": "Diğer Emeklilik Geliri",
-        "de": "Other Retirement Income",
-        "fr": "Other Retirement Income",
-        "es": "Other Retirement Income",
+        "de": "Sonstiges Renteneinkommen",
+        "fr": "Autres revenus de retraite",
+        "es": "Otros ingresos de jubilación",
         "ar": "Other Retirement Income"
       },
       "businessContext_i18n": {
         "en": "Expected additional income during care period (e.g., pension, rental)",
-        "tr": "Bakım döneminde beklenen ek gelir (örneğin, emekli maaşı, kira geliri)"
+        "tr": "Bakım döneminde beklenen ek gelir (örneğin, emekli maaşı, kira geliri)",
+        "de": "Erwartetes zusätzliches Einkommen während der Pflegezeit (z. B. Rente, Mieteinnahmen)",
+        "fr": "Revenu supplémentaire attendu pendant la période de soins (ex. pension, loyer)",
+        "es": "Ingresos adicionales esperados durante el período de cuidado (p. ej., pensión, alquiler)"
       }
     }
   ],

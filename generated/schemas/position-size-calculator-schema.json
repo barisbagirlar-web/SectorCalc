@@ -12,13 +12,16 @@
         "en": "Account Balance",
         "tr": "Hesap Bakiyesi",
         "de": "Kontostand",
-        "fr": "Account Balance",
-        "es": "Account Balance",
+        "fr": "Solde du compte",
+        "es": "Saldo de la cuenta",
         "ar": "Account Balance"
       },
       "businessContext_i18n": {
         "en": "Total capital available for trading",
-        "tr": "İşlem için mevcut toplam sermaye"
+        "tr": "İşlem için mevcut toplam sermaye",
+        "de": "Gesamtkapital für den Handel verfügbar",
+        "fr": "Capital total disponible pour le trading",
+        "es": "Capital total disponible para trading"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Risk Percentage",
         "tr": "Risk yüzdesi",
-        "de": "Risk Percentage",
-        "fr": "Risk Percentage",
-        "es": "Risk Percentage",
+        "de": "Risikoprozentsatz",
+        "fr": "Pourcentage de risque",
+        "es": "Porcentaje de riesgo",
         "ar": "Risk Percentage"
       },
       "businessContext_i18n": {
         "en": "Maximum percentage of account to risk per trade",
-        "tr": "İşlem başına riske atılacak maksimum hesap yüzdesi"
+        "tr": "İşlem başına riske atılacak maksimum hesap yüzdesi",
+        "de": "Maximaler Prozentsatz des Kontos, der pro Trade riskiert wird",
+        "fr": "Pourcentage maximum du compte à risquer par transaction",
+        "es": "Porcentaje máximo de la cuenta a arriesgar por operación"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Entry Price",
         "tr": "Giriş Fiyatı",
         "de": "Einstiegskurs",
-        "fr": "Entry Price",
-        "es": "Entry Price",
+        "fr": "Prix d'entrée",
+        "es": "Precio de entrada",
         "ar": "Entry Price"
       },
       "businessContext_i18n": {
         "en": "Price at which the trade is entered",
-        "tr": "İşleme girilen fiyat"
+        "tr": "İşleme girilen fiyat",
+        "de": "Preis, zu dem der Trade eingegangen wird",
+        "fr": "Prix d'entrée de la transaction",
+        "es": "Precio al que se ingresa la operación"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Stop Loss Price",
         "tr": "Stop Loss Fiyatı",
-        "de": "Stop Loss Price",
-        "fr": "Stop Loss Price",
-        "es": "Stop Loss Price",
+        "de": "Stop-Loss-Preis",
+        "fr": "Prix stop loss",
+        "es": "Precio de stop loss",
         "ar": "Stop Loss Price"
       },
       "businessContext_i18n": {
         "en": "Price at which the trade will be exited to limit loss",
-        "tr": "Zararı sınırlamak için işlemden çıkılacak fiyat"
+        "tr": "Zararı sınırlamak için işlemden çıkılacak fiyat",
+        "de": "Preis, zu dem der Trade zur Verlustbegrenzung beendet wird",
+        "fr": "Prix auquel la transaction sera clôturée pour limiter les pertes",
+        "es": "Precio al que se saldrá de la operación para limitar la pérdida"
       }
     }
   ],

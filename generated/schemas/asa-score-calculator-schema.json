@@ -12,14 +12,16 @@
         "en": "Scrap Rate (%)",
         "tr": "Fire Oranı (%)",
         "de": "Ausschussrate (%)",
-        "fr": "Scrap Rate (%)",
-        "es": "Scrap Rate (%)",
+        "fr": "Taux de rebut (%)",
+        "es": "Tasa de desperdicio (%)",
         "ar": "Scrap Rate (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of material scrapped during production.",
         "tr": "Üretim sırasında hurdaya ayrılan malzeme yüzdesi.",
-        "de": "Prozentsatz des während der Produktion verschrotteten Materials."
+        "de": "Prozentsatz des während der Produktion verschrotteten Materials.",
+        "fr": "Pourcentage de matière mise au rebut pendant la production.",
+        "es": "Porcentaje de material desperdiciado durante la producción."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Material Cost (€)",
         "tr": "Malzeme Maliyeti (€)",
         "de": "Materialkosten (€)",
-        "fr": "Material Cost (€)",
-        "es": "Material Cost (€)",
+        "fr": "Coût matière (€)",
+        "es": "Coste de material (€)",
         "ar": "Material Cost (€)"
       },
       "businessContext_i18n": {
         "en": "Cost of raw materials per batch.",
         "tr": "Parti başına hammadde maliyeti.",
-        "de": "Kosten der Rohmaterialien pro Charge."
+        "de": "Kosten der Rohmaterialien pro Charge.",
+        "fr": "Coût des matières premières par lot.",
+        "es": "Coste de materias primas por lote."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Batch Size (units)",
         "tr": "Parti Büyüklüğü (birim)",
         "de": "Chargengröße (Einheiten)",
-        "fr": "Batch Size (units)",
-        "es": "Batch Size (units)",
+        "fr": "Taille de lot (unités)",
+        "es": "Tamaño de lote (unidades)",
         "ar": "Batch Size (units)"
       },
       "businessContext_i18n": {
         "en": "Number of units produced in a batch.",
         "tr": "Bir partide üretilen birim sayısı.",
-        "de": "Anzahl der in einer Charge produzierten Einheiten."
+        "de": "Anzahl der in einer Charge produzierten Einheiten.",
+        "fr": "Nombre d'unités produites dans un lot.",
+        "es": "Número de unidades producidas en un lote."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Rework Factor",
         "tr": "Yeniden İşleme Faktörü",
         "de": "Nacharbeitsfaktor",
-        "fr": "Rework Factor",
-        "es": "Rework Factor",
+        "fr": "Facteur de reprise",
+        "es": "Factor de retrabajo",
         "ar": "Rework Factor"
       },
       "businessContext_i18n": {
         "en": "Factor accounting for rework effort (0-1).",
         "tr": "Yeniden işleme çabasını hesaba katan faktör (0-1).",
-        "de": "Faktor, der den Nacharbeitsaufwand berücksichtigt (0-1)."
+        "de": "Faktor, der den Nacharbeitsaufwand berücksichtigt (0-1).",
+        "fr": "Facteur tenant compte de l'effort de reprise (0-1).",
+        "es": "Factor que representa el esfuerzo de retrabajo (0-1)."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Center Frequency",
         "tr": "Merkez Frekansı",
         "de": "Mittenfrequenz",
-        "fr": "Center Frequency",
-        "es": "Center Frequency",
+        "fr": "Fréquence centrale",
+        "es": "Frecuencia central",
         "ar": "Center Frequency"
       },
       "businessContext_i18n": {
         "en": "Notch frequency of the band-stop filter.",
         "tr": "Bant durdurma filtresinin çentik frekansı.",
-        "de": "Notchfrequenz des Bandsperrfilters."
+        "de": "Notchfrequenz des Bandsperrfilters.",
+        "fr": "Fréquence de réjection du filtre coupe-bande.",
+        "es": "Frecuencia de rechazo del filtro de banda eliminada."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Lower Cutoff Frequency",
         "tr": "Alt Kesim Frekansı",
         "de": "Untere Grenzfrequenz",
-        "fr": "Lower Cutoff Frequency",
-        "es": "Lower Cutoff Frequency",
+        "fr": "Fréquence de coupure inférieure",
+        "es": "Frecuencia de corte inferior",
         "ar": "Lower Cutoff Frequency"
       },
       "businessContext_i18n": {
         "en": "Lower -3 dB cutoff frequency of the stopband.",
         "tr": "Durdurma bandının alt -3 dB kesim frekansı.",
-        "de": "Untere -3-dB-Grenzfrequenz des Sperrbereichs."
+        "de": "Untere -3-dB-Grenzfrequenz des Sperrbereichs.",
+        "fr": "Fréquence de coupure inférieure à -3 dB de la bande atténuée.",
+        "es": "Frecuencia de corte inferior a -3 dB de la banda de parada."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Upper Cutoff Frequency",
         "tr": "Üst Kesim Frekansı",
         "de": "Obere Grenzfrequenz",
-        "fr": "Upper Cutoff Frequency",
-        "es": "Upper Cutoff Frequency",
+        "fr": "Fréquence de coupure supérieure",
+        "es": "Frecuencia de corte superior",
         "ar": "Upper Cutoff Frequency"
       },
       "businessContext_i18n": {
         "en": "Upper -3 dB cutoff frequency of the stopband.",
         "tr": "Durdurma bandının üst -3 dB kesim frekansı.",
-        "de": "Obere -3-dB-Grenzfrequenz des Sperrbereichs."
+        "de": "Obere -3-dB-Grenzfrequenz des Sperrbereichs.",
+        "fr": "Fréquence de coupure supérieure à -3 dB de la bande atténuée.",
+        "es": "Frecuencia de corte superior a -3 dB de la banda de parada."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Evaluation Frequency",
         "tr": "Değerlendirme Frekansı",
         "de": "Bewertungsfrequenz",
-        "fr": "Evaluation Frequency",
-        "es": "Evaluation Frequency",
+        "fr": "Fréquence d'évaluation",
+        "es": "Frecuencia de evaluación",
         "ar": "Evaluation Frequency"
       },
       "businessContext_i18n": {
         "en": "Frequency at which the filter response is evaluated.",
         "tr": "Filtre yanıtının değerlendirildiği frekans.",
-        "de": "Frequenz, bei der die Filterantwort bewertet wird."
+        "de": "Frequenz, bei der die Filterantwort bewertet wird.",
+        "fr": "Fréquence à laquelle la réponse du filtre est évaluée.",
+        "es": "Frecuencia a la que se evalúa la respuesta del filtro."
       }
     }
   ],

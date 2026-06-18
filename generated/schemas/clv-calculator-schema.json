@@ -12,14 +12,16 @@
         "en": "Ortalama Sipariş Değeri",
         "tr": "Ortalama Sipariş Değeri",
         "de": "Durchschnittlicher Bestellwert",
-        "fr": "Ortalama Sipariş Değeri",
-        "es": "Ortalama Sipariş Değeri",
+        "fr": "Valeur moyenne des commandes",
+        "es": "Valor promedio del pedido",
         "ar": "Ortalama Sipariş Değeri"
       },
       "businessContext_i18n": {
         "en": "Müşteri başına ortalama harcama tutarı.",
         "tr": "Müşteri başına ortalama harcama tutarı.",
-        "de": "Durchschnittlicher Ausgabenbetrag pro Kunde."
+        "de": "Durchschnittlicher Ausgabenbetrag pro Kunde.",
+        "fr": "Montant moyen des dépenses par client.",
+        "es": "Monto de gasto promedio por cliente."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Yıllık Sipariş Sıklığı",
         "tr": "Yıllık Sipariş Sıklığı",
         "de": "Jährliche Bestellhäufigkeit",
-        "fr": "Yıllık Sipariş Sıklığı",
-        "es": "Yıllık Sipariş Sıklığı",
+        "fr": "Fréquence annuelle des commandes",
+        "es": "Frecuencia anual de pedidos",
         "ar": "Yıllık Sipariş Sıklığı"
       },
       "businessContext_i18n": {
         "en": "Müşterinin yılda kaç kez sipariş verdiği.",
         "tr": "Müşterinin yılda kaç kez sipariş verdiği.",
-        "de": "Wie oft ein Kunde pro Jahr bestellt."
+        "de": "Wie oft ein Kunde pro Jahr bestellt.",
+        "fr": "Nombre de commandes passées par un client par an.",
+        "es": "Número de veces que un cliente realiza un pedido al año."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Müşteri Ömrü",
         "tr": "Müşteri Ömrü",
         "de": "Kundenlebensdauer",
-        "fr": "Müşteri Ömrü",
-        "es": "Müşteri Ömrü",
+        "fr": "Durée de vie du client",
+        "es": "Vida útil del cliente",
         "ar": "Müşteri Ömrü"
       },
       "businessContext_i18n": {
         "en": "Müşterinin aktif kaldığı süre.",
         "tr": "Müşterinin aktif kaldığı süre.",
-        "de": "Zeitraum, in dem der Kunde aktiv bleibt."
+        "de": "Zeitraum, in dem der Kunde aktiv bleibt.",
+        "fr": "Période pendant laquelle le client reste actif.",
+        "es": "Período durante el cual el cliente permanece activo."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Kar Marjı",
         "tr": "Kar Marjı",
         "de": "Gewinnmarge",
-        "fr": "Kar Marjı",
-        "es": "Kar Marjı",
+        "fr": "Marge bénéficiaire",
+        "es": "Margen de beneficio",
         "ar": "Kar Marjı"
       },
       "businessContext_i18n": {
         "en": "Sipariş değerinden elde edilen kar oranı.",
         "tr": "Sipariş değerinden elde edilen kar oranı.",
-        "de": "Gewinnanteil aus dem Bestellwert."
+        "de": "Gewinnanteil aus dem Bestellwert.",
+        "fr": "Taux de profit réalisé sur la valeur de la commande.",
+        "es": "Porcentaje de beneficio obtenido del valor del pedido."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "İndirim Oranı",
         "tr": "İndirim Oranı",
         "de": "Abzinsungssatz",
-        "fr": "İndirim Oranı",
-        "es": "İndirim Oranı",
+        "fr": "Taux d'actualisation",
+        "es": "Tasa de descuento",
         "ar": "İndirim Oranı"
       },
       "businessContext_i18n": {
         "en": "Gelecek nakit akışlarını bugüne indirgemek için kullanılan oran. %0 basit CLV için.",
         "tr": "Gelecek nakit akışlarını bugüne indirgemek için kullanılan oran. Basit CLV için %0.",
-        "de": "Satz zur Diskontierung zukünftiger Cashflows auf den Barwert. 0% für einfachen CLV."
+        "de": "Satz zur Diskontierung zukünftiger Cashflows auf den Barwert. 0% für einfachen CLV.",
+        "fr": "Taux utilisé pour actualiser les flux de trésorerie futurs. 0 % pour un CLV simple.",
+        "es": "Tasa utilizada para descontar flujos de efectivo futuros a su valor presente. 0% para CLV simple."
       }
     }
   ],

@@ -13,12 +13,15 @@
         "tr": "Mesafe",
         "de": "Entfernung",
         "fr": "Distance",
-        "es": "Distance",
+        "es": "Distancia",
         "ar": "Distance"
       },
       "businessContext_i18n": {
         "en": "Distance covered during skating drill or game shift, in meters",
-        "tr": "Paten veya maç vardiyası sırasında kat edilen mesafe (metre)"
+        "tr": "Paten veya maç vardiyası sırasında kat edilen mesafe (metre)",
+        "de": "Während der Schlittschuhübung oder Spielschicht zurückgelegte Strecke in Metern",
+        "fr": "Distance parcourue pendant l'exercice de patinage ou le quart de jeu, en mètres",
+        "es": "Distancia recorrida durante el ejercicio de patinaje o turno de juego, en metros"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Time",
         "tr": "Zaman",
         "de": "Zeit",
-        "fr": "Time",
-        "es": "Time",
+        "fr": "Temps",
+        "es": "Tiempo",
         "ar": "Time"
       },
       "businessContext_i18n": {
         "en": "Time taken to cover the distance, in seconds",
-        "tr": "Mesafeyi kat etmek için geçen süre (saniye)"
+        "tr": "Mesafeyi kat etmek için geçen süre (saniye)",
+        "de": "Zeit für die zurückgelegte Strecke in Sekunden",
+        "fr": "Temps nécessaire pour parcourir la distance, en secondes",
+        "es": "Tiempo empleado en recorrer la distancia, en segundos"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Stride Length",
         "tr": "Adım Uzunluğu",
-        "de": "Stride Length",
-        "fr": "Stride Length",
-        "es": "Stride Length",
+        "de": "Schrittlänge",
+        "fr": "Longueur de foulée",
+        "es": "Longitud de zancada",
         "ar": "Stride Length"
       },
       "businessContext_i18n": {
         "en": "Average length of one full skating stride, in meters",
-        "tr": "Tam bir kayma adımının ortalama uzunluğu, metre cinsinden"
+        "tr": "Tam bir kayma adımının ortalama uzunluğu, metre cinsinden",
+        "de": "Durchschnittliche Länge eines vollen Schlittschuhschritts in Metern",
+        "fr": "Longueur moyenne d'une foulée de patinage complète, en mètres",
+        "es": "Longitud promedio de una zancada completa de patinaje, en metros"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Stride Frequency",
         "tr": "Adım Frekansı",
-        "de": "Stride Frequency",
-        "fr": "Stride Frequency",
-        "es": "Stride Frequency",
+        "de": "Schrittfrequenz",
+        "fr": "Fréquence de foulée",
+        "es": "Frecuencia de zancada",
         "ar": "Stride Frequency"
       },
       "businessContext_i18n": {
         "en": "Number of strides per second (stride rate)",
-        "tr": "Saniyedeki adım sayısı (adım hızı)"
+        "tr": "Saniyedeki adım sayısı (adım hızı)",
+        "de": "Anzahl der Schritte pro Sekunde (Schrittrate)",
+        "fr": "Nombre de foulées par seconde (cadence de foulée)",
+        "es": "Número de zancadas por segundo (ritmo de zancada)"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Design Speed",
         "tr": "Tasarım Hızı",
         "de": "Entwurfsgeschwindigkeit",
-        "fr": "Design Speed",
-        "es": "Design Speed",
+        "fr": "Vitesse de conception",
+        "es": "Velocidad de diseño",
         "ar": "Design Speed"
       },
       "businessContext_i18n": {
         "en": "The design speed of the highway segment, typically between 40-140 km/h.",
         "tr": "Otoyol bölümünün tasarım hızı, tipik olarak 40-140 km/s arası.",
-        "de": "Die Entwurfsgeschwindigkeit des Autobahnabschnitts, typischerweise zwischen 40-140 km/h."
+        "de": "Die Entwurfsgeschwindigkeit des Autobahnabschnitts, typischerweise zwischen 40-140 km/h.",
+        "fr": "La vitesse de conception du tronçon autoroutier, généralement entre 40 et 140 km/h.",
+        "es": "La velocidad de diseño del segmento de carretera, típicamente entre 40-140 km/h."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Maximum Superelevation Rate",
         "tr": "Maksimum Dever Oranı",
         "de": "Maximale Überhöhungsrate",
-        "fr": "Maximum Superelevation Rate",
-        "es": "Maximum Superelevation Rate",
+        "fr": "Taux de dévers maximal",
+        "es": "Tasa máxima de peralte",
         "ar": "Maximum Superelevation Rate"
       },
       "businessContext_i18n": {
         "en": "The maximum superelevation (cross-slope) rate applied to the curve, usually 4%-12%.",
         "tr": "Viraja uygulanan maksimum dever (enine eğim) oranı, genellikle %4-%12.",
-        "de": "Die maximale Überhöhung (Querneigung) der Kurve, normalerweise 4%-12%."
+        "de": "Die maximale Überhöhung (Querneigung) der Kurve, normalerweise 4%-12%.",
+        "fr": "Le taux de dévers (pente transversale) maximal appliqué à la courbe, généralement 4 % à 12 %.",
+        "es": "La tasa máxima de peralte (pendiente transversal) aplicada a la curva, usualmente 4%-12%."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Side Friction Factor",
         "tr": "Yanal Sürtünme Katsayısı",
         "de": "Seitenreibungsbeiwert",
-        "fr": "Side Friction Factor",
-        "es": "Side Friction Factor",
+        "fr": "Coefficient de frottement latéral",
+        "es": "Factor de fricción lateral",
         "ar": "Side Friction Factor"
       },
       "businessContext_i18n": {
         "en": "The allowable side friction factor depending on design speed and surface conditions (e.g., 0.17 for low speeds, 0.10 for high speeds).",
         "tr": "Tasarım hızına ve yüzey koşullarına bağlı olarak izin verilen yanal sürtünme katsayısı (örneğin, düşük hızlar için 0.17, yüksek hızlar için 0.10).",
-        "de": "Der zulässige Seitenreibungsbeiwert in Abhängigkeit von Entwurfsgeschwindigkeit und Oberflächenbedingungen (z. B. 0,17 für niedrige Geschwindigkeiten, 0,10 für hohe Geschwindigkeiten)."
+        "de": "Der zulässige Seitenreibungsbeiwert in Abhängigkeit von Entwurfsgeschwindigkeit und Oberflächenbedingungen (z. B. 0,17 für niedrige Geschwindigkeiten, 0,10 für hohe Geschwindigkeiten).",
+        "fr": "Le coefficient de frottement latéral admissible en fonction de la vitesse de conception et des conditions de surface (par exemple, 0,17 pour les faibles vitesses, 0,10 pour les vitesses élevées).",
+        "es": "El factor de fricción lateral admisible según la velocidad de diseño y las condiciones de la superficie (ej., 0.17 para bajas velocidades, 0.10 para altas velocidades)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Desired Curve Radius",
         "tr": "İstenen Viraj Yarıçapı",
         "de": "Gewünschter Kurvenradius",
-        "fr": "Desired Curve Radius",
-        "es": "Desired Curve Radius",
+        "fr": "Rayon de courbe souhaité",
+        "es": "Radio de curva deseado",
         "ar": "Desired Curve Radius"
       },
       "businessContext_i18n": {
         "en": "The actual or desired radius of the horizontal curve. Set to 0 if unknown; otherwise used to compute required friction demand.",
         "tr": "Yatay virajın gerçek veya istenen yarıçapı. Bilinmiyorsa 0 olarak ayarlayın; aksi takdirde gerekli sürtünme talebini hesaplamak için kullanılır.",
-        "de": "Der tatsächliche oder gewünschte Radius der horizontalen Kurve. Auf 0 setzen, wenn unbekannt; andernfalls zur Berechnung des erforderlichen Reibungsbedarfs verwenden."
+        "de": "Der tatsächliche oder gewünschte Radius der horizontalen Kurve. Auf 0 setzen, wenn unbekannt; andernfalls zur Berechnung des erforderlichen Reibungsbedarfs verwenden.",
+        "fr": "Le rayon réel ou souhaité de la courbe horizontale. Mettre à 0 si inconnu ; sinon utilisé pour calculer la demande de frottement requise.",
+        "es": "El radio real o deseado de la curva horizontal. Establecer en 0 si se desconoce; de lo contrario, se utiliza para calcular la demanda de fricción requerida."
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Production Quantity",
         "tr": "Üretim Miktarı",
-        "de": "Production Quantity",
-        "fr": "Production Quantity",
-        "es": "Production Quantity",
+        "de": "Produktionsmenge",
+        "fr": "Quantité de production",
+        "es": "Cantidad de producción",
         "ar": "Production Quantity"
       },
       "businessContext_i18n": {
         "en": "Number of units to be produced",
-        "tr": "Üretilecek birim sayısı"
+        "tr": "Üretilecek birim sayısı",
+        "de": "Anzahl der zu produzierenden Einheiten",
+        "fr": "Nombre d'unités à produire",
+        "es": "Número de unidades a producir"
       }
     },
     {
@@ -31,15 +34,17 @@
       "label_i18n": {
         "en": "Material Cost per Unit",
         "tr": "Birim Başına Malzeme Maliyeti",
-        "de": "Material Cost per Unit",
-        "fr": "Material Cost per Unit",
-        "es": "Material Cost per Unit",
+        "de": "Materialkosten pro Einheit",
+        "fr": "Coût matière par unité",
+        "es": "Coste de material por unidad",
         "ar": "Material Cost per Unit"
       },
       "businessContext_i18n": {
         "en": "Cost of raw materials per unit",
         "tr": "Birim başına hammadde maliyeti",
-        "de": "Rohmaterialkosten pro Einheit"
+        "de": "Rohmaterialkosten pro Einheit",
+        "fr": "Coût des matières premières par unité",
+        "es": "Costo de materias primas por unidad"
       }
     },
     {
@@ -52,15 +57,17 @@
       "label_i18n": {
         "en": "Labor Cost per Unit",
         "tr": "Birim başına işçilik maliyeti",
-        "de": "Labor Cost per Unit",
-        "fr": "Labor Cost per Unit",
-        "es": "Labor Cost per Unit",
+        "de": "Arbeitskosten pro Stück",
+        "fr": "Coût de main-d'œuvre par unité",
+        "es": "Coste de mano de obra por unidad",
         "ar": "Labor Cost per Unit"
       },
       "businessContext_i18n": {
         "en": "Direct labor cost per unit",
         "tr": "Birim başına direkt işçilik maliyeti",
-        "de": "Direkte Arbeitskosten pro Einheit"
+        "de": "Direkte Arbeitskosten pro Einheit",
+        "fr": "Coût direct de la main-d'œuvre par unité",
+        "es": "Costo directo de mano de obra por unidad"
       }
     },
     {
@@ -73,14 +80,17 @@
       "label_i18n": {
         "en": "Fixed Overhead Costs",
         "tr": "Sabit Genel Giderler",
-        "de": "Fixed Overhead Costs",
-        "fr": "Fixed Overhead Costs",
-        "es": "Fixed Overhead Costs",
+        "de": "Fixe Gemeinkosten",
+        "fr": "Frais généraux fixes",
+        "es": "Costes generales fijos",
         "ar": "Fixed Overhead Costs"
       },
       "businessContext_i18n": {
         "en": "Total fixed overhead costs for the production run",
-        "tr": "Üretim partisi için toplam sabit genel giderler"
+        "tr": "Üretim partisi için toplam sabit genel giderler",
+        "de": "Gesamte fixe Gemeinkosten für den Produktionslauf",
+        "fr": "Total des frais généraux fixes pour la série de production",
+        "es": "Costes generales fijos totales para la tanda de producción"
       }
     },
     {
@@ -93,14 +103,17 @@
       "label_i18n": {
         "en": "Profit Margin (%)",
         "tr": "Kar Marjı (%)",
-        "de": "Profit Margin (%)",
-        "fr": "Profit Margin (%)",
-        "es": "Profit Margin (%)",
+        "de": "Gewinnmarge (%)",
+        "fr": "Marge bénéficiaire (%)",
+        "es": "Margen de beneficio (%)",
         "ar": "Profit Margin (%)"
       },
       "businessContext_i18n": {
         "en": "Desired profit margin as percentage of cost",
-        "tr": "Maliyetin yüzdesi olarak istenen kar marjı"
+        "tr": "Maliyetin yüzdesi olarak istenen kar marjı",
+        "de": "Gewünschte Gewinnmarge als Prozentsatz der Kosten",
+        "fr": "Marge bénéficiaire souhaitée en pourcentage du coût",
+        "es": "Margen de beneficio deseado como porcentaje del coste"
       }
     },
     {
@@ -113,14 +126,17 @@
       "label_i18n": {
         "en": "Tax Rate (%)",
         "tr": "Vergi Oranı (%)",
-        "de": "Tax Rate (%)",
-        "fr": "Tax Rate (%)",
-        "es": "Tax Rate (%)",
+        "de": "Steuersatz (%)",
+        "fr": "Taux d'imposition (%)",
+        "es": "Tasa impositiva (%)",
         "ar": "Tax Rate (%)"
       },
       "businessContext_i18n": {
         "en": "Applicable sales tax rate",
-        "tr": "Geçerli satış vergisi oranı"
+        "tr": "Geçerli satış vergisi oranı",
+        "de": "Anwendbarer Umsatzsteuersatz",
+        "fr": "Taux de taxe de vente applicable",
+        "es": "Tasa de impuesto a las ventas aplicable"
       }
     }
   ],

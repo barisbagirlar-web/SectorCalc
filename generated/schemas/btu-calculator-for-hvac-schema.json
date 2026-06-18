@@ -12,14 +12,16 @@
         "en": "Room Length",
         "tr": "Oda Uzunluğu",
         "de": "Raumlänge",
-        "fr": "Room Length",
-        "es": "Room Length",
+        "fr": "Longueur de la pièce",
+        "es": "Largo de la habitación",
         "ar": "Room Length"
       },
       "businessContext_i18n": {
         "en": "Length of the room to be cooled or heated.",
         "tr": "Soğutulacak veya ısıtılacak odanın uzunluğu.",
-        "de": "Länge des zu kühlenden oder zu beheizenden Raums."
+        "de": "Länge des zu kühlenden oder zu beheizenden Raums.",
+        "fr": "Longueur de la pièce à refroidir ou chauffer.",
+        "es": "Largo de la habitación a enfriar o calentar."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Room Width",
         "tr": "Oda Genişliği",
         "de": "Raumbreite",
-        "fr": "Room Width",
-        "es": "Room Width",
+        "fr": "Largeur de la pièce",
+        "es": "Ancho de la habitación",
         "ar": "Room Width"
       },
       "businessContext_i18n": {
         "en": "Width of the room to be cooled or heated.",
         "tr": "Soğutulacak veya ısıtılacak odanın genişliği.",
-        "de": "Breite des zu kühlenden oder zu beheizenden Raums."
+        "de": "Breite des zu kühlenden oder zu beheizenden Raums.",
+        "fr": "Largeur de la pièce à refroidir ou chauffer.",
+        "es": "Ancho de la habitación a enfriar o calentar."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Ceiling Height",
         "tr": "Tavan Yüksekliği",
         "de": "Deckenhöhe",
-        "fr": "Ceiling Height",
-        "es": "Ceiling Height",
+        "fr": "Hauteur sous plafond",
+        "es": "Altura del techo",
         "ar": "Ceiling Height"
       },
       "businessContext_i18n": {
         "en": "Height of the ceiling from floor.",
         "tr": "Zeminden tavan yüksekliği.",
-        "de": "Höhe der Decke vom Boden."
+        "de": "Höhe der Decke vom Boden.",
+        "fr": "Hauteur du plafond par rapport au sol.",
+        "es": "Altura del techo desde el suelo."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Insulation Factor",
         "tr": "Yalıtım Faktörü",
         "de": "Isolationsfaktor",
-        "fr": "Insulation Factor",
-        "es": "Insulation Factor",
+        "fr": "Facteur d'isolation",
+        "es": "Factor de aislamiento",
         "ar": "Insulation Factor"
       },
       "businessContext_i18n": {
         "en": "Insulation quality: 0.5 (excellent), 1.0 (average), 1.5 (poor).",
         "tr": "Yalıtım kalitesi: 0,5 (mükemmel), 1,0 (ortalama), 1,5 (kötü).",
-        "de": "Isolationsqualität: 0,5 (ausgezeichnet), 1,0 (durchschnittlich), 1,5 (schlecht)."
+        "de": "Isolationsqualität: 0,5 (ausgezeichnet), 1,0 (durchschnittlich), 1,5 (schlecht).",
+        "fr": "Qualité de l'isolation : 0,5 (excellente), 1,0 (moyenne), 1,5 (mauvaise).",
+        "es": "Calidad del aislamiento: 0.5 (excelente), 1.0 (promedio), 1.5 (deficiente)."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Sun Exposure",
         "tr": "Güneşe Maruziyet",
         "de": "Sonneneinstrahlung",
-        "fr": "Sun Exposure",
-        "es": "Sun Exposure",
+        "fr": "Exposition au soleil",
+        "es": "Exposición solar",
         "ar": "Sun Exposure"
       },
       "businessContext_i18n": {
         "en": "Additional BTU per square foot due to sun: 0 (none), 10 (moderate), 20 (high).",
         "tr": "Güneş nedeniyle metrekare başına ek BTU: 0 (yok), 10 (orta), 20 (yüksek).",
-        "de": "Zusätzliche BTU pro Quadratfuß durch Sonne: 0 (keine), 10 (mäßig), 20 (stark)."
+        "de": "Zusätzliche BTU pro Quadratfuß durch Sonne: 0 (keine), 10 (mäßig), 20 (stark).",
+        "fr": "BTU supplémentaire par pied carré dû au soleil : 0 (aucun), 10 (modéré), 20 (élevé).",
+        "es": "BTU adicionales por pie cuadrado debido al sol: 0 (ninguna), 10 (moderada), 20 (alta)."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Number of Occupants",
         "tr": "Kişi Sayısı",
         "de": "Anzahl der Personen",
-        "fr": "Number of Occupants",
-        "es": "Number of Occupants",
+        "fr": "Nombre d'occupants",
+        "es": "Número de ocupantes",
         "ar": "Number of Occupants"
       },
       "businessContext_i18n": {
         "en": "Typical number of people in the room.",
         "tr": "Odadaki tipik kişi sayısı.",
-        "de": "Typische Anzahl von Personen im Raum."
+        "de": "Typische Anzahl von Personen im Raum.",
+        "fr": "Nombre typique de personnes dans la pièce.",
+        "es": "Número típico de personas en la habitación."
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Number of Windows",
         "tr": "Pencere Sayısı",
         "de": "Anzahl der Fenster",
-        "fr": "Number of Windows",
-        "es": "Number of Windows",
+        "fr": "Nombre de fenêtres",
+        "es": "Número de ventanas",
         "ar": "Number of Windows"
       },
       "businessContext_i18n": {
         "en": "Number of windows in the room.",
         "tr": "Odadaki pencere sayısı.",
-        "de": "Anzahl der Fenster im Raum."
+        "de": "Anzahl der Fenster im Raum.",
+        "fr": "Nombre de fenêtres dans la pièce.",
+        "es": "Número de ventanas en la habitación."
       }
     }
   ],

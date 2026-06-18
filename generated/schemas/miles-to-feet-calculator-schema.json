@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Mil",
         "tr": "Mil",
-        "de": "Mil",
-        "fr": "Mil",
-        "es": "Mil",
+        "de": "Meile",
+        "fr": "Mille",
+        "es": "Milla",
         "ar": "Mil"
       },
       "businessContext_i18n": {
         "en": "Dönüştürülecek mil değeri",
-        "tr": "Dönüştürülecek mil değeri"
+        "tr": "Dönüştürülecek mil değeri",
+        "de": "Umzurechnender Meilenwert",
+        "fr": "Valeur en miles à convertir",
+        "es": "Valor de millas a convertir"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Ondalık Basamak",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Ondalık Basamak",
-        "es": "Ondalık Basamak",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Ondalık Basamak"
       },
       "businessContext_i18n": {
         "en": "Sonuç gösterim hassasiyeti",
-        "tr": "Sonuç gösterim hassasiyeti"
+        "tr": "Sonuç gösterim hassasiyeti",
+        "de": "Anzeigegenauigkeit des Ergebnisses",
+        "fr": "Précision d'affichage du résultat",
+        "es": "Precisión de visualización del resultado"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Yard Gösterimi",
         "tr": "Yard Gösterimi",
-        "de": "Yard Gösterimi",
-        "fr": "Yard Gösterimi",
-        "es": "Yard Gösterimi",
+        "de": "Yard-Anzeige",
+        "fr": "Affichage Yard",
+        "es": "Mostrar en Yardas",
         "ar": "Yard Gösterimi"
       },
       "businessContext_i18n": {
         "en": "Yard cinsinden eşdeğeri göster",
-        "tr": "Yard cinsinden eşdeğeri göster"
+        "tr": "Yard cinsinden eşdeğeri göster",
+        "de": "Äquivalent in Yard anzeigen",
+        "fr": "Afficher l'équivalent en yards",
+        "es": "Mostrar el equivalente en yardas"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Dönüşüm Katsayısı",
         "tr": "Dönüşüm Katsayısı",
-        "de": "Dönüşüm Katsayısı",
-        "fr": "Dönüşüm Katsayısı",
-        "es": "Dönüşüm Katsayısı",
+        "de": "Umrechnungsfaktor",
+        "fr": "Coefficient de conversion",
+        "es": "Factor de conversión",
         "ar": "Dönüşüm Katsayısı"
       },
       "businessContext_i18n": {
         "en": "Özel dönüşüm faktörü (standart: 5280)",
-        "tr": "Özel dönüşüm faktörü (standart: 5280)"
+        "tr": "Özel dönüşüm faktörü (standart: 5280)",
+        "de": "Individueller Umrechnungsfaktor (Standard: 5280)",
+        "fr": "Facteur de conversion personnalisé (standard : 5280)",
+        "es": "Factor de conversión personalizado (estándar: 5280)"
       }
     }
   ],

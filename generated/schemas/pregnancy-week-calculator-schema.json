@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Days Since Last Menstrual Period",
         "tr": "Son Adet Tarihinden Bu Yana Geçen Gün Sayısı",
-        "de": "Days Since Last Menstrual Period",
-        "fr": "Days Since Last Menstrual Period",
-        "es": "Days Since Last Menstrual Period",
+        "de": "Tage seit der letzten Menstruation",
+        "fr": "Jours depuis les dernières règles",
+        "es": "Días desde la última menstruación",
         "ar": "Days Since Last Menstrual Period"
       },
       "businessContext_i18n": {
         "en": "The number of days since the first day of the last menstrual period.",
-        "tr": "Son adet döneminin ilk gününden bu yana geçen gün sayısı."
+        "tr": "Son adet döneminin ilk gününden bu yana geçen gün sayısı.",
+        "de": "Die Anzahl der Tage seit dem ersten Tag der letzten Menstruation.",
+        "fr": "Le nombre de jours depuis le premier jour des dernières règles.",
+        "es": "El número de días desde el primer día de la última menstruación."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Menstrual Cycle Length",
         "tr": "Adet Döngüsü Uzunluğu",
-        "de": "Menstrual Cycle Length",
-        "fr": "Menstrual Cycle Length",
-        "es": "Menstrual Cycle Length",
+        "de": "Menstruationszykluslänge",
+        "fr": "Durée du cycle menstruel",
+        "es": "Duración del ciclo menstrual",
         "ar": "Menstrual Cycle Length"
       },
       "businessContext_i18n": {
         "en": "Average length of the menstrual cycle, typically 28 days.",
-        "tr": "Ortalama adet döngüsü uzunluğu, tipik olarak 28 gün."
+        "tr": "Ortalama adet döngüsü uzunluğu, tipik olarak 28 gün.",
+        "de": "Durchschnittliche Länge des Menstruationszyklus, typischerweise 28 Tage.",
+        "fr": "Durée moyenne du cycle menstruel, généralement 28 jours.",
+        "es": "Duración promedio del ciclo menstrual, típicamente 28 días."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Pre-pregnancy Weight",
         "tr": "Gebelik Öncesi Ağırlık",
-        "de": "Pre-pregnancy Weight",
-        "fr": "Pre-pregnancy Weight",
-        "es": "Pre-pregnancy Weight",
+        "de": "Gewicht vor der Schwangerschaft",
+        "fr": "Poids avant la grossesse",
+        "es": "Peso antes del embarazo",
         "ar": "Pre-pregnancy Weight"
       },
       "businessContext_i18n": {
         "en": "Weight before pregnancy in kilograms.",
-        "tr": "Hamilelik öncesi kilogram cinsinden ağırlık."
+        "tr": "Hamilelik öncesi kilogram cinsinden ağırlık.",
+        "de": "Gewicht vor der Schwangerschaft in Kilogramm.",
+        "fr": "Poids avant la grossesse en kilogrammes.",
+        "es": "Peso antes del embarazo en kilogramos."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Current Weight",
         "tr": "Mevcut Ağırlık",
         "de": "Aktuelles Gewicht",
-        "fr": "Current Weight",
-        "es": "Current Weight",
+        "fr": "Poids actuel",
+        "es": "Peso actual",
         "ar": "Current Weight"
       },
       "businessContext_i18n": {
         "en": "Current weight during pregnancy in kilograms.",
-        "tr": "Hamilelik sırasında kilogram cinsinden mevcut ağırlık."
+        "tr": "Hamilelik sırasında kilogram cinsinden mevcut ağırlık.",
+        "de": "Aktuelles Gewicht während der Schwangerschaft in Kilogramm.",
+        "fr": "Poids actuel pendant la grossesse en kilogrammes.",
+        "es": "Peso actual durante el embarazo en kilogramos."
       }
     },
     {
@@ -92,14 +104,16 @@
         "en": "Height",
         "tr": "Boy",
         "de": "Größe",
-        "fr": "Height",
-        "es": "Height",
+        "fr": "Taille",
+        "es": "Altura",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "Height in centimeters.",
         "tr": "Boy (cm).",
-        "de": "Körpergröße in Zentimetern."
+        "de": "Körpergröße in Zentimetern.",
+        "fr": "Taille en centimètres.",
+        "es": "Altura en centímetros."
       }
     }
   ],

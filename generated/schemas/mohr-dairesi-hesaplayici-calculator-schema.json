@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Normal Gerilme σx",
         "tr": "Normal Gerilme σx",
-        "de": "Normal Gerilme σx",
-        "fr": "Normal Gerilme σx",
-        "es": "Normal Gerilme σx",
+        "de": "Normalspannung σx",
+        "fr": "Contrainte normale σx",
+        "es": "Esfuerzo normal σx",
         "ar": "Normal Gerilme σx"
       },
       "businessContext_i18n": {
         "en": "Mekanik tasarım doğrulamada gerilme dönüşümü ve asal gerilme hesaplaması için x yönü normal gerilmesi.",
-        "tr": "Mekanik tasarım doğrulamada gerilme dönüşümü ve asal gerilme hesaplaması için x yönü normal gerilmesi."
+        "tr": "Mekanik tasarım doğrulamada gerilme dönüşümü ve asal gerilme hesaplaması için x yönü normal gerilmesi.",
+        "de": "Normalspannung in x-Richtung für Spannungstransformation und Hauptspannungsberechnung bei mechanischer Konstruktionsvalidierung.",
+        "fr": "Contrainte normale dans la direction x pour la transformation des contraintes et le calcul des contraintes principales en vérification de conception mécanique.",
+        "es": "Esfuerzo normal en dirección x para transformación de esfuerzos y cálculo de esfuerzos principales en validación de diseño mecánico."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Normal Gerilme σy",
         "tr": "Normal Gerilme σy",
-        "de": "Normal Gerilme σy",
-        "fr": "Normal Gerilme σy",
-        "es": "Normal Gerilme σy",
+        "de": "Normalspannung σy",
+        "fr": "Contrainte normale σy",
+        "es": "Esfuerzo normal σy",
         "ar": "Normal Gerilme σy"
       },
       "businessContext_i18n": {
         "en": "Mekanik tasarım doğrulamada gerilme dönüşümü ve asal gerilme hesaplaması için y yönü normal gerilmesi.",
-        "tr": "Mekanik tasarım doğrulamada gerilme dönüşümü ve asal gerilme hesaplaması için y yönü normal gerilmesi."
+        "tr": "Mekanik tasarım doğrulamada gerilme dönüşümü ve asal gerilme hesaplaması için y yönü normal gerilmesi.",
+        "de": "Normalspannung in y-Richtung für Spannungstransformation und Hauptspannungsberechnung bei mechanischer Konstruktionsvalidierung.",
+        "fr": "Contrainte normale dans la direction y pour la transformation des contraintes et le calcul des contraintes principales en vérification de conception mécanique.",
+        "es": "Esfuerzo normal en dirección y para transformación de esfuerzos y cálculo de esfuerzos principales en validación de diseño mecánico."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Kayma Gerilmesi τxy",
         "tr": "Kayma Gerilmesi τxy",
-        "de": "Kayma Gerilmesi τxy",
-        "fr": "Kayma Gerilmesi τxy",
-        "es": "Kayma Gerilmesi τxy",
+        "de": "Schubspannung τxy",
+        "fr": "Contrainte de cisaillement τxy",
+        "es": "Esfuerzo cortante τxy",
         "ar": "Kayma Gerilmesi τxy"
       },
       "businessContext_i18n": {
         "en": "Mekanik tasarım doğrulamada gerilme dönüşümü ve asal gerilme hesaplaması için kayma gerilmesi.",
-        "tr": "Mekanik tasarım doğrulamada gerilme dönüşümü ve asal gerilme hesaplaması için kayma gerilmesi."
+        "tr": "Mekanik tasarım doğrulamada gerilme dönüşümü ve asal gerilme hesaplaması için kayma gerilmesi.",
+        "de": "Schubspannung für Spannungstransformation und Hauptspannungsberechnung bei mechanischer Konstruktionsvalidierung.",
+        "fr": "Contrainte de cisaillement pour le calcul des contraintes principales et la transformation des contraintes dans la vérification de conception mécanique.",
+        "es": "Esfuerzo cortante para transformación de esfuerzos y cálculo de esfuerzos principales en validación de diseño mecánico."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Dönme Açısı θ",
         "tr": "Dönme Açısı θ",
-        "de": "Dönme Açısı θ",
-        "fr": "Dönme Açısı θ",
-        "es": "Dönme Açısı θ",
+        "de": "Drehwinkel θ",
+        "fr": "Angle de rotation θ",
+        "es": "Ángulo de rotación θ",
         "ar": "Dönme Açısı θ"
       },
       "businessContext_i18n": {
         "en": "Mekanik tasarım doğrulamada gerilme dönüşümü için dönme açısı.",
-        "tr": "Mekanik tasarım doğrulamada gerilme dönüşümü için dönme açısı."
+        "tr": "Mekanik tasarım doğrulamada gerilme dönüşümü için dönme açısı.",
+        "de": "Drehwinkel für Spannungstransformation bei mechanischer Konstruktionsvalidierung.",
+        "fr": "Angle de rotation pour la transformation des contraintes dans la vérification de conception mécanique.",
+        "es": "Ángulo de rotación para transformación de esfuerzos en validación de diseño mecánico."
       }
     }
   ],

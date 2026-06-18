@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Megabytes (MB)",
         "tr": "Megabayt (MB)",
-        "de": "Megabytes (MB)",
-        "fr": "Megabytes (MB)",
+        "de": "Megabyte (MB)",
+        "fr": "Mégaoctets (Mo)",
         "es": "Megabytes (MB)",
         "ar": "Megabytes (MB)"
       },
       "businessContext_i18n": {
         "en": "The amount of data in megabytes to convert.",
-        "tr": "Dönüştürülecek megabayt cinsinden veri miktarı."
+        "tr": "Dönüştürülecek megabayt cinsinden veri miktarı.",
+        "de": "Die Datenmenge in Megabyte, die umgerechnet werden soll.",
+        "fr": "Quantité de données en mégaoctets à convertir.",
+        "es": "Cantidad de datos en megabytes a convertir."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Use 1024 for binary (IEC) or 1000 for SI standard.",
-        "tr": "İkili (IEC) için 1024 veya SI standardı için 1000 kullanın."
+        "tr": "İkili (IEC) için 1024 veya SI standardı için 1000 kullanın.",
+        "de": "Verwenden Sie 1024 für binär (IEC) oder 1000 für SI-Standard.",
+        "fr": "Utilisez 1024 pour le binaire (IEC) ou 1000 pour le standard SI.",
+        "es": "Use 1024 para binario (IEC) o 1000 para estándar SI."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the primary output.",
-        "tr": "Birincil çıktı için ondalık basamak sayısı."
+        "tr": "Birincil çıktı için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für die primäre Ausgabe.",
+        "fr": "Nombre de décimales pour le résultat principal.",
+        "es": "Número de decimales para el resultado principal."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Batch Size",
         "tr": "Parti Büyüklüğü",
         "de": "Losgröße",
-        "fr": "Batch Size",
-        "es": "Batch Size",
+        "fr": "Taille de lot",
+        "es": "Tamaño de lote",
         "ar": "Batch Size"
       },
       "businessContext_i18n": {
         "en": "Multiply the result by this factor for batch conversions (e.g., number of files).",
-        "tr": "Toplu dönüşümler için sonucu bu faktörle çarpın (ör. dosya sayısı)."
+        "tr": "Toplu dönüşümler için sonucu bu faktörle çarpın (ör. dosya sayısı).",
+        "de": "Multiplizieren Sie das Ergebnis mit diesem Faktor für Batch-Konvertierungen (z. B. Anzahl der Dateien).",
+        "fr": "Multipliez le résultat par ce facteur pour les conversions par lots (ex. nombre de fichiers).",
+        "es": "Multiplique el resultado por este factor para conversiones por lotes (ej. número de archivos)."
       }
     }
   ],

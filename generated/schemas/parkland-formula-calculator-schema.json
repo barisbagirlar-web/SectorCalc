@@ -12,13 +12,16 @@
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Body Weight",
-        "es": "Body Weight",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "Patient's body weight used to calculate fluid resuscitation volume.",
-        "tr": "Sıvı resüsitasyon hacmini hesaplamak için kullanılan hasta vücut ağırlığı."
+        "tr": "Sıvı resüsitasyon hacmini hesaplamak için kullanılan hasta vücut ağırlığı.",
+        "de": "Körpergewicht des Patienten, das zur Berechnung des Flüssigkeitsvolumens verwendet wird.",
+        "fr": "Poids corporel du patient utilisé pour calculer le volume de réanimation liquidienne.",
+        "es": "Peso corporal del paciente usado para calcular el volumen de reanimación con líquidos."
       }
     },
     {
@@ -32,14 +35,16 @@
         "en": "Total Burn Surface Area",
         "tr": "Toplam Yanık Yüzey Alanı",
         "de": "Gesamte verbrannte Körperoberfläche",
-        "fr": "Total Burn Surface Area",
-        "es": "Total Burn Surface Area",
+        "fr": "Surface corporelle brûlée totale",
+        "es": "Superficie corporal total quemada",
         "ar": "Total Burn Surface Area"
       },
       "businessContext_i18n": {
         "en": "Percentage of total body surface area affected by burns.",
         "tr": "Yanıklardan etkilenen toplam vücut yüzey alanı yüzdesi.",
-        "de": "Prozentsatz der gesamten Körperoberfläche, die von Verbrennungen betroffen ist"
+        "de": "Prozentsatz der gesamten Körperoberfläche, die von Verbrennungen betroffen ist",
+        "fr": "Pourcentage de la surface corporelle totale affectée par les brûlures.",
+        "es": "Porcentaje de la superficie corporal total afectada por quemaduras."
       }
     },
     {
@@ -53,13 +58,16 @@
         "en": "Fluid Volume Factor",
         "tr": "Sıvı Hacim Faktörü",
         "de": "Flüssigkeitsvolumenfaktor",
-        "fr": "Fluid Volume Factor",
-        "es": "Fluid Volume Factor",
+        "fr": "Facteur de volume liquidien",
+        "es": "Factor de volumen de líquidos",
         "ar": "Fluid Volume Factor"
       },
       "businessContext_i18n": {
         "en": "Standard Parkland factor (4 mL per kg per % TBSA).",
-        "tr": "Standart Parkland faktörü (kg başına % TBSA başına 4 mL)."
+        "tr": "Standart Parkland faktörü (kg başına % TBSA başına 4 mL).",
+        "de": "Standard-Parkland-Faktor (4 ml pro kg pro % KOF).",
+        "fr": "Facteur standard de Parkland (4 mL par kg par % de surface corporelle brûlée).",
+        "es": "Factor estándar de Parkland (4 mL por kg por % de SCQ)."
       }
     },
     {
@@ -72,14 +80,17 @@
       "label_i18n": {
         "en": "First Half Duration",
         "tr": "İlk Yarı Süresi",
-        "de": "First Half Duration",
-        "fr": "First Half Duration",
-        "es": "First Half Duration",
+        "de": "Dauer der ersten Hälfte",
+        "fr": "Durée de la première moitié",
+        "es": "Duración de la primera mitad",
         "ar": "First Half Duration"
       },
       "businessContext_i18n": {
         "en": "Duration for the first half of total fluid volume (typically 8 hours).",
-        "tr": "Toplam sıvı hacminin ilk yarısı için süre (tipik olarak 8 saat)."
+        "tr": "Toplam sıvı hacminin ilk yarısı için süre (tipik olarak 8 saat).",
+        "de": "Dauer für die erste Hälfte des gesamten Flüssigkeitsvolumens (typischerweise 8 Stunden).",
+        "fr": "Durée pour la première moitié du volume liquidien total (généralement 8 heures).",
+        "es": "Duración de la primera mitad del volumen total de líquidos (típicamente 8 horas)."
       }
     },
     {
@@ -92,14 +103,17 @@
       "label_i18n": {
         "en": "Second Half Duration",
         "tr": "İkinci Yarı Süresi",
-        "de": "Second Half Duration",
-        "fr": "Second Half Duration",
-        "es": "Second Half Duration",
+        "de": "Dauer der zweiten Hälfte",
+        "fr": "Durée de la seconde moitié",
+        "es": "Duración de la segunda mitad",
         "ar": "Second Half Duration"
       },
       "businessContext_i18n": {
         "en": "Duration for the second half of total fluid volume (typically 16 hours).",
-        "tr": "Toplam sıvı hacminin ikinci yarısı için süre (tipik olarak 16 saat)."
+        "tr": "Toplam sıvı hacminin ikinci yarısı için süre (tipik olarak 16 saat).",
+        "de": "Dauer für die zweite Hälfte des gesamten Flüssigkeitsvolumens (typischerweise 16 Stunden).",
+        "fr": "Durée de la seconde moitié du volume total de fluide (généralement 16 heures).",
+        "es": "Duración de la segunda mitad del volumen total de líquidos (típicamente 16 horas)."
       }
     }
   ],

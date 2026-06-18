@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "ROA Pozitif",
         "tr": "ROA Pozitif",
-        "de": "ROA Pozitif",
-        "fr": "ROA Pozitif",
-        "es": "ROA Pozitif",
+        "de": "ROA Positiv",
+        "fr": "ROA positif",
+        "es": "ROA Positivo",
         "ar": "ROA Pozitif"
       },
       "businessContext_i18n": {
         "en": "Cari yıl net kar / toplam varlıklar pozitif ise 1, değilse 0.",
-        "tr": "Cari yıl net karı / toplam varlıklar pozitifse 1, değilse 0."
+        "tr": "Cari yıl net karı / toplam varlıklar pozitifse 1, değilse 0.",
+        "de": "1, wenn der Nettogewinn des laufenden Jahres / Gesamtvermögen positiv ist, sonst 0.",
+        "fr": "1 si bénéfice net de l'année en cours / actif total est positif, sinon 0.",
+        "es": "1 si la utilidad neta del año actual / activos totales es positiva, de lo contrario 0."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "İşletme Nakit Akışı Pozitif",
         "tr": "İşletme Nakit Akışı Pozitif",
-        "de": "İşletme Nakit Akışı Pozitif",
-        "fr": "İşletme Nakit Akışı Pozitif",
-        "es": "İşletme Nakit Akışı Pozitif",
+        "de": "Operativer Cashflow Positiv",
+        "fr": "Flux de trésorerie d'exploitation positif",
+        "es": "Flujo de Caja Operativo Positivo",
         "ar": "İşletme Nakit Akışı Pozitif"
       },
       "businessContext_i18n": {
         "en": "Cari yıl faaliyet nakit akışı pozitif ise 1, değilse 0.",
-        "tr": "Cari yıl faaliyet nakit akışı pozitifse 1, değilse 0."
+        "tr": "Cari yıl faaliyet nakit akışı pozitifse 1, değilse 0.",
+        "de": "1, wenn der operative Cashflow des laufenden Jahres positiv ist, sonst 0.",
+        "fr": "1 si le flux de trésorerie d'exploitation de l'année en cours est positif, sinon 0.",
+        "es": "1 si el flujo de caja operativo del año actual es positivo, de lo contrario 0."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "ROA Artışı",
         "tr": "ROA Artışı",
-        "de": "ROA Artışı",
-        "fr": "ROA Artışı",
-        "es": "ROA Artışı",
+        "de": "ROA-Anstieg",
+        "fr": "Augmentation du ROA",
+        "es": "Aumento de ROA",
         "ar": "ROA Artışı"
       },
       "businessContext_i18n": {
         "en": "Cari yıl ROA'sı önceki yıla göre arttıysa 1, değilse 0.",
-        "tr": "Cari yıl ROA'sı önceki yıla göre arttıysa 1, değilse 0."
+        "tr": "Cari yıl ROA'sı önceki yıla göre arttıysa 1, değilse 0.",
+        "de": "1, wenn der ROA des laufenden Jahres im Vergleich zum Vorjahr gestiegen ist, sonst 0.",
+        "fr": "1 si le ROA de l'année en cours a augmenté par rapport à l'année précédente, sinon 0.",
+        "es": "1 si el ROA del año actual aumentó respecto al año anterior, de lo contrario 0."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Düşük Tahakkuk",
         "tr": "Düşük Tahakkuk",
-        "de": "Düşük Tahakkuk",
-        "fr": "Düşük Tahakkuk",
-        "es": "Düşük Tahakkuk",
+        "de": "Niedrige Rückstellungen",
+        "fr": "Faible accumulation",
+        "es": "Bajo Devengo",
         "ar": "Düşük Tahakkuk"
       },
       "businessContext_i18n": {
         "en": "İşletme nakit akışı net kardan büyükse 1, değilse 0.",
-        "tr": "İşletme nakit akışı net kardan büyükse 1, değilse 0."
+        "tr": "İşletme nakit akışı net kardan büyükse 1, değilse 0.",
+        "de": "1, wenn der operative Cashflow größer als der Nettogewinn ist, sonst 0.",
+        "fr": "1 si le flux de trésorerie d'exploitation est supérieur au bénéfice net, sinon 0.",
+        "es": "1 si el flujo de caja operativo es mayor que la utilidad neta, de lo contrario 0."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Kaldıraç Azalışı",
         "tr": "Kaldıraç Azalışı",
-        "de": "Kaldıraç Azalışı",
-        "fr": "Kaldıraç Azalışı",
-        "es": "Kaldıraç Azalışı",
+        "de": "Verschuldungsrückgang",
+        "fr": "Diminution de l'endettement",
+        "es": "Disminución de Apalancamiento",
         "ar": "Kaldıraç Azalışı"
       },
       "businessContext_i18n": {
         "en": "Uzun vadeli borç / toplam varlıklar oranı azaldıysa 1, değilse 0.",
-        "tr": "Uzun vadeli borç / toplam varlıklar oranı azaldıysa 1, değilse 0."
+        "tr": "Uzun vadeli borç / toplam varlıklar oranı azaldıysa 1, değilse 0.",
+        "de": "1, wenn das Verhältnis von langfristigen Schulden zu Gesamtvermögen gesunken ist, sonst 0.",
+        "fr": "1 si le ratio dette à long terme / actif total a diminué, sinon 0.",
+        "es": "1 si la relación deuda a largo plazo / activos totales disminuyó, de lo contrario 0."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Cari Oran Artışı",
         "tr": "Cari Oran Artışı",
-        "de": "Cari Oran Artışı",
-        "fr": "Cari Oran Artışı",
-        "es": "Cari Oran Artışı",
+        "de": "Liquiditätsgrad-Anstieg",
+        "fr": "Augmentation du ratio de liquidité générale",
+        "es": "Aumento de Razón Circulante",
         "ar": "Cari Oran Artışı"
       },
       "businessContext_i18n": {
         "en": "Cari yıl cari oranı önceki yıla göre arttıysa 1, değilse 0.",
-        "tr": "Cari yıl cari oranı önceki yıla göre arttıysa 1, değilse 0."
+        "tr": "Cari yıl cari oranı önceki yıla göre arttıysa 1, değilse 0.",
+        "de": "1, wenn der Liquiditätsgrad des laufenden Jahres im Vergleich zum Vorjahr gestiegen ist, sonst 0.",
+        "fr": "1 si le ratio de liquidité générale de l'année en cours a augmenté par rapport à l'année précédente, sinon 0.",
+        "es": "1 si la razón circulante del año actual aumentó respecto al año anterior, de lo contrario 0."
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Brüt Kar Marjı Artışı",
         "tr": "Brüt Kar Marjı Artışı",
-        "de": "Brüt Kar Marjı Artışı",
-        "fr": "Brüt Kar Marjı Artışı",
-        "es": "Brüt Kar Marjı Artışı",
+        "de": "Bruttogewinnmargen-Anstieg",
+        "fr": "Augmentation de la marge brute",
+        "es": "Aumento de Margen de Utilidad Bruta",
         "ar": "Brüt Kar Marjı Artışı"
       },
       "businessContext_i18n": {
         "en": "Cari yıl brüt kar marjı önceki yıla göre arttıysa 1, değilse 0.",
-        "tr": "Cari yıl brüt kar marjı önceki yıla göre arttıysa 1, değilse 0."
+        "tr": "Cari yıl brüt kar marjı önceki yıla göre arttıysa 1, değilse 0.",
+        "de": "1, wenn die Bruttogewinnmarge des laufenden Jahres im Vergleich zum Vorjahr gestiegen ist, sonst 0.",
+        "fr": "1 si la marge brute de l'année en cours a augmenté par rapport à l'année précédente, sinon 0.",
+        "es": "1 si el margen de utilidad bruta del año actual aumentó respecto al año anterior, de lo contrario 0."
       }
     },
     {
@@ -151,14 +172,17 @@
       "label_i18n": {
         "en": "Varlık Devir Hızı Artışı",
         "tr": "Varlık Devir Hızı Artışı",
-        "de": "Varlık Devir Hızı Artışı",
-        "fr": "Varlık Devir Hızı Artışı",
-        "es": "Varlık Devir Hızı Artışı",
+        "de": "Vermögensumschlag-Anstieg",
+        "fr": "Augmentation de la rotation des actifs",
+        "es": "Aumento de Rotación de Activos",
         "ar": "Varlık Devir Hızı Artışı"
       },
       "businessContext_i18n": {
         "en": "Cari yıl varlık devir hızı önceki yıla göre arttıysa 1, değilse 0.",
-        "tr": "Cari yıl varlık devir hızı önceki yıla göre arttıysa 1, değilse 0."
+        "tr": "Cari yıl varlık devir hızı önceki yıla göre arttıysa 1, değilse 0.",
+        "de": "1, wenn der Vermögensumschlag des laufenden Jahres im Vergleich zum Vorjahr gestiegen ist, sonst 0.",
+        "fr": "1 si la rotation des actifs de l'année en cours a augmenté par rapport à l'année précédente, sinon 0.",
+        "es": "1 si la rotación de activos del año actual aumentó respecto al año anterior, de lo contrario 0."
       }
     }
   ],

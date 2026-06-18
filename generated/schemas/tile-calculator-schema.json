@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Room Length (m)",
         "tr": "Oda Uzunluğu (m)",
-        "de": "Room Length (m)",
-        "fr": "Room Length (m)",
-        "es": "Room Length (m)",
+        "de": "Raumlänge (m)",
+        "fr": "Longueur de la pièce (m)",
+        "es": "Largo de la habitación (m)",
         "ar": "Room Length (m)"
       },
       "businessContext_i18n": {
         "en": "Length of the room to be tiled",
-        "tr": "Fayans döşenecek odanın uzunluğu"
+        "tr": "Fayans döşenecek odanın uzunluğu",
+        "de": "Länge des zu fliesenden Raums",
+        "fr": "Longueur de la pièce à carreler"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Room Width (m)",
         "tr": "Oda Genişliği (m)",
-        "de": "Room Width (m)",
-        "fr": "Room Width (m)",
-        "es": "Room Width (m)",
+        "de": "Raumbreite (m)",
+        "fr": "Largeur de la pièce (m)",
+        "es": "Ancho de la habitación (m)",
         "ar": "Room Width (m)"
       },
       "businessContext_i18n": {
         "en": "Width of the room to be tiled",
-        "tr": "Fayans döşenecek odanın genişliği"
+        "tr": "Fayans döşenecek odanın genişliği",
+        "de": "Breite des zu fliesenden Raums",
+        "fr": "Largeur de la pièce à carreler"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Tile Length (cm)",
         "tr": "Fayans Uzunluğu (cm)",
-        "de": "Tile Length (cm)",
-        "fr": "Tile Length (cm)",
+        "de": "Fliesenlänge (cm)",
+        "fr": "Longueur du carreau (cm)",
         "es": "Tile Length (cm)",
         "ar": "Tile Length (cm)"
       },
       "businessContext_i18n": {
         "en": "Length of a single tile",
-        "tr": "Tek bir fayansın uzunluğu"
+        "tr": "Tek bir fayansın uzunluğu",
+        "de": "Länge einer einzelnen Fliese",
+        "fr": "Longueur d'un seul carreau"
       }
     },
     {
@@ -71,15 +77,17 @@
       "label_i18n": {
         "en": "Tile Width (cm)",
         "tr": "Fayans Genişliği (cm)",
-        "de": "Tile Width (cm)",
-        "fr": "Tile Width (cm)",
+        "de": "Fliesenbreite (cm)",
+        "fr": "Largeur du carreau (cm)",
         "es": "Tile Width (cm)",
         "ar": "Tile Width (cm)"
       },
       "businessContext_i18n": {
         "en": "Width of a single tile",
         "tr": "Tek bir fayansın genişliği",
-        "de": "Breite einer einzelnen Fliese"
+        "de": "Breite einer einzelnen Fliese",
+        "fr": "Largeur d'un seul carreau",
+        "es": "Ancho de una baldosa individual"
       }
     },
     {
@@ -93,13 +101,15 @@
         "en": "Waste Factor (%)",
         "tr": "Fire Faktörü (%)",
         "de": "Verschnittfaktor (%)",
-        "fr": "Waste Factor (%)",
-        "es": "Waste Factor (%)",
+        "fr": "Facteur de déchet (%)",
+        "es": "Factor de desperdicio (%)",
         "ar": "Waste Factor (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of extra tiles for waste and cuts",
-        "tr": "Atık ve kesimler için ek fayans yüzdesi"
+        "tr": "Atık ve kesimler için ek fayans yüzdesi",
+        "de": "Prozentsatz zusätzlicher Fliesen für Verschnitt und Zuschnitte",
+        "fr": "Pourcentage de carreaux supplémentaires pour les chutes et les coupes"
       }
     },
     {
@@ -112,14 +122,16 @@
       "label_i18n": {
         "en": "Price per Tile (currency)",
         "tr": "Fayans Başına Fiyat (para birimi)",
-        "de": "Price per Tile (currency)",
-        "fr": "Price per Tile (currency)",
+        "de": "Preis pro Fliese (Währung)",
+        "fr": "Prix par carreau (devise)",
         "es": "Price per Tile (currency)",
         "ar": "Price per Tile (currency)"
       },
       "businessContext_i18n": {
         "en": "Cost of one tile",
-        "tr": "Bir fayansın maliyeti"
+        "tr": "Bir fayansın maliyeti",
+        "de": "Kosten einer Fliese",
+        "fr": "Coût d'un carreau"
       }
     }
   ],

@@ -12,13 +12,15 @@
         "en": "String Tension",
         "tr": "Tel Gerilimi",
         "de": "Saitenspannung",
-        "fr": "String Tension",
-        "es": "String Tension",
+        "fr": "Tension de la corde",
+        "es": "Tensión de la cuerda",
         "ar": "String Tension"
       },
       "businessContext_i18n": {
         "en": "Desired tension for the string",
-        "tr": "İp için istenen gerginlik"
+        "tr": "İp için istenen gerginlik",
+        "de": "Gewünschte Besaitungshärte",
+        "fr": "Tension souhaitée pour le cordage"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "String Diameter",
         "tr": "Tel Çapı",
         "de": "Saitendurchmesser",
-        "fr": "String Diameter",
-        "es": "String Diameter",
+        "fr": "Diamètre de la corde",
+        "es": "Diámetro de la cuerda",
         "ar": "String Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the tennis string",
-        "tr": "Tenis teli çapı"
+        "tr": "Tenis teli çapı",
+        "de": "Durchmesser der Tennissaite",
+        "fr": "Diamètre du cordage de tennis"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Vibrating String Length",
         "tr": "Titreşen Tel Uzunluğu",
-        "de": "Vibrating String Length",
-        "fr": "Vibrating String Length",
+        "de": "Länge der schwingenden Saite",
+        "fr": "Longueur vibrante du cordage",
         "es": "Vibrating String Length",
         "ar": "Vibrating String Length"
       },
       "businessContext_i18n": {
         "en": "Length of the free vibrating portion of the string, typically measured from frame to frame",
-        "tr": "Tel çerçeveden çerçeveye ölçülen serbest titreşim bölümünün uzunluğu"
+        "tr": "Tel çerçeveden çerçeveye ölçülen serbest titreşim bölümünün uzunluğu",
+        "de": "Länge des frei schwingenden Teils der Saite, typischerweise von Rahmen zu Rahmen gemessen",
+        "fr": "Longueur de la partie libre du cordage, généralement mesurée d'un cadre à l'autre"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "String Material Density",
         "tr": "Tel Malzeme Yoğunluğu",
-        "de": "String Material Density",
-        "fr": "String Material Density",
+        "de": "Materialdichte der Saite",
+        "fr": "Densité du matériau du cordage",
         "es": "String Material Density",
         "ar": "String Material Density"
       },
       "businessContext_i18n": {
         "en": "Density of the string material (nylon ~1100 kg/m^3, polyester ~1350 kg/m^3)",
-        "tr": "Tel malzemesinin yoğunluğu (naylon ~1100 kg/m³, polyester ~1350 kg/m³)"
+        "tr": "Tel malzemesinin yoğunluğu (naylon ~1100 kg/m³, polyester ~1350 kg/m³)",
+        "de": "Dichte des Saitenmaterials (Nylon ~1100 kg/m³, Polyester ~1350 kg/m³)",
+        "fr": "Densité du matériau du cordage (nylon ~1100 kg/m³, polyester ~1350 kg/m³)"
       }
     }
   ],

@@ -13,12 +13,15 @@
         "tr": "Mesafe (km)",
         "de": "Strecke (km)",
         "fr": "Distance (km)",
-        "es": "Distance (km)",
+        "es": "Distancia (km)",
         "ar": "Distance (km)"
       },
       "businessContext_i18n": {
         "en": "Total distance traveled for business purposes",
-        "tr": "İş amaçlı kat edilen toplam mesafe"
+        "tr": "İş amaçlı kat edilen toplam mesafe",
+        "de": "Gesamte geschäftlich gefahrene Strecke",
+        "fr": "Distance totale parcourue à des fins professionnelles",
+        "es": "Distancia total recorrida por motivos de negocio"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Reimbursement Rate (€/km)",
         "tr": "Geri Ödeme Oranı (€/km)",
-        "de": "Reimbursement Rate (€/km)",
-        "fr": "Reimbursement Rate (€/km)",
-        "es": "Reimbursement Rate (€/km)",
+        "de": "Kilometerpauschale (€/km)",
+        "fr": "Taux de remboursement (€/km)",
+        "es": "Tarifa de Reembolso (€/km)",
         "ar": "Reimbursement Rate (€/km)"
       },
       "businessContext_i18n": {
         "en": "Rate per kilometer as per company policy or tax authority",
-        "tr": "Şirket politikası veya vergi dairesine göre kilometre başına oran"
+        "tr": "Şirket politikası veya vergi dairesine göre kilometre başına oran",
+        "de": "Satz pro Kilometer gemäß Unternehmensrichtlinie oder Steuerbehörde",
+        "fr": "Taux par kilomètre selon la politique de l'entreprise ou l'administration fiscale",
+        "es": "Tarifa por kilómetro según la política de la empresa o la autoridad fiscal"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Tolls (€)",
         "tr": "Köprü ve Otoyol Ücretleri (€)",
-        "de": "Tolls (€)",
-        "fr": "Tolls (€)",
-        "es": "Tolls (€)",
+        "de": "Maut (€)",
+        "fr": "Péages (€)",
+        "es": "Peajes (€)",
         "ar": "Tolls (€)"
       },
       "businessContext_i18n": {
         "en": "Total toll fees paid during the trip",
-        "tr": "Seyahat sırasında ödenen toplam köprü ve otoyol ücretleri"
+        "tr": "Seyahat sırasında ödenen toplam köprü ve otoyol ücretleri",
+        "de": "Gesamte Mautgebühren während der Fahrt",
+        "fr": "Total des frais de péage payés pendant le trajet",
+        "es": "Total de peajes pagados durante el viaje"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Parking Fees (€)",
         "tr": "Park Ücretleri (€)",
-        "de": "Parking Fees (€)",
-        "fr": "Parking Fees (€)",
-        "es": "Parking Fees (€)",
+        "de": "Parkgebühren (€)",
+        "fr": "Frais de stationnement (€)",
+        "es": "Tarifas de Aparcamiento (€)",
         "ar": "Parking Fees (€)"
       },
       "businessContext_i18n": {
         "en": "Total parking fees incurred",
-        "tr": "Oluşan toplam park ücretleri"
+        "tr": "Oluşan toplam park ücretleri",
+        "de": "Angefallene Parkgebühren insgesamt",
+        "fr": "Total des frais de stationnement engagés",
+        "es": "Total de tarifas de aparcamiento incurridas"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Flat Allowance (€)",
         "tr": "Sabit Ödenek (€)",
-        "de": "Flat Allowance (€)",
-        "fr": "Flat Allowance (€)",
-        "es": "Flat Allowance (€)",
+        "de": "Pauschalzulage (€)",
+        "fr": "Indemnité forfaitaire (€)",
+        "es": "Subsidio Fijo (€)",
         "ar": "Flat Allowance (€)"
       },
       "businessContext_i18n": {
         "en": "Any fixed allowance for the trip (e.g., meal per diem included in mileage claim)",
-        "tr": "Seyahat için herhangi bir sabit ödenek (örneğin, kilometre talebine dahil edilen günlük yemek ücreti)"
+        "tr": "Seyahat için herhangi bir sabit ödenek (örneğin, kilometre talebine dahil edilen günlük yemek ücreti)",
+        "de": "Feste Zulage für die Fahrt (z. B. Verpflegungspauschale in der Kilometerabrechnung)",
+        "fr": "Toute indemnité fixe pour le trajet (par exemple, indemnité repas incluse dans la demande de remboursement kilométrique)",
+        "es": "Cualquier subsidio fijo para el viaje (p. ej., dieta incluida en la reclamación de kilometraje)"
       }
     }
   ],

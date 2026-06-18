@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Initial Balance",
         "tr": "Başlangıç bakiyesi",
-        "de": "Initial Balance",
-        "fr": "Initial Balance",
-        "es": "Initial Balance",
+        "de": "Anfangsguthaben",
+        "fr": "Solde initial",
+        "es": "Saldo inicial",
         "ar": "Initial Balance"
       },
       "businessContext_i18n": {
         "en": "The starting balance of the annuity, if already invested.",
-        "tr": "Zaten yatırılmışsa, anüitenin başlangıç bakiyesi."
+        "tr": "Zaten yatırılmışsa, anüitenin başlangıç bakiyesi.",
+        "de": "Das Startguthaben der Rente, falls bereits investiert.",
+        "fr": "Le solde de départ de la rente, si déjà investi."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Annual Contribution",
         "tr": "Yıllık Katkı",
         "de": "Jährlicher Beitrag",
-        "fr": "Annual Contribution",
-        "es": "Annual Contribution",
+        "fr": "Cotisation annuelle",
+        "es": "Contribución anual",
         "ar": "Annual Contribution"
       },
       "businessContext_i18n": {
         "en": "The amount added to the annuity each year.",
-        "tr": "Anüiteye her yıl eklenen miktar."
+        "tr": "Anüiteye her yıl eklenen miktar.",
+        "de": "Der Betrag, der der Rente jedes Jahr hinzugefügt wird.",
+        "fr": "Le montant ajouté à la rente chaque année."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Investment Period",
         "tr": "Yatırım Süresi",
         "de": "Anlagedauer",
-        "fr": "Investment Period",
-        "es": "Investment Period",
+        "fr": "Période d'investissement",
+        "es": "Período de inversión",
         "ar": "Investment Period"
       },
       "businessContext_i18n": {
         "en": "Number of years the annuity will grow.",
-        "tr": "Anüitenin büyüyeceği yıl sayısı."
+        "tr": "Anüitenin büyüyeceği yıl sayısı.",
+        "de": "Anzahl der Jahre, in denen die Rente wächst.",
+        "fr": "Nombre d'années de croissance de la rente."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Expected Annual Return",
         "tr": "Beklenen Yıllık Getiri",
         "de": "Erwartete jährliche Rendite",
-        "fr": "Expected Annual Return",
-        "es": "Expected Annual Return",
+        "fr": "Rendement annuel attendu",
+        "es": "Rendimiento anual esperado",
         "ar": "Expected Annual Return"
       },
       "businessContext_i18n": {
         "en": "The average annual rate of return of the underlying investments before fees.",
-        "tr": "Ücretlerden önce temel yatırımların ortalama yıllık getiri oranı."
+        "tr": "Ücretlerden önce temel yatırımların ortalama yıllık getiri oranı.",
+        "de": "Die durchschnittliche jährliche Rendite der zugrunde liegenden Anlagen vor Gebühren.",
+        "fr": "Le taux de rendement annuel moyen des investissements sous-jacents avant frais."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Annual Fee",
         "tr": "Yıllık Ücret",
-        "de": "Annual Fee",
-        "fr": "Annual Fee",
+        "de": "Jahresgebühr",
+        "fr": "Frais annuels",
         "es": "Annual Fee",
         "ar": "Annual Fee"
       },
       "businessContext_i18n": {
         "en": "The annual management fee deducted from the account balance.",
-        "tr": "Hesap bakiyesinden kesilen yıllık yönetim ücreti."
+        "tr": "Hesap bakiyesinden kesilen yıllık yönetim ücreti.",
+        "de": "Die jährliche Verwaltungsgebühr, die vom Kontostand abgezogen wird.",
+        "fr": "Les frais de gestion annuels déduits du solde du compte."
       }
     }
   ],

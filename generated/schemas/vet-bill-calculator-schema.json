@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Consultation Fee",
         "tr": "Danışmanlık Ücreti",
-        "de": "Consultation Fee",
-        "fr": "Consultation Fee",
+        "de": "Beratungsgebühr",
+        "fr": "Frais de consultation",
         "es": "Consultation Fee",
         "ar": "Consultation Fee"
       },
       "businessContext_i18n": {
         "en": "Standard veterinary consultation charge",
-        "tr": "Standart veteriner muayene ücreti"
+        "tr": "Standart veteriner muayene ücreti",
+        "de": "Standardgebühr für tierärztliche Konsultation",
+        "fr": "Frais de consultation vétérinaire standard"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Medication Cost",
         "tr": "İlaç Maliyeti",
-        "de": "Medication Cost",
-        "fr": "Medication Cost",
+        "de": "Medikamentenkosten",
+        "fr": "Coût des médicaments",
         "es": "Medication Cost",
         "ar": "Medication Cost"
       },
       "businessContext_i18n": {
         "en": "Cost of prescribed medications",
-        "tr": "Reçeteli ilaçların maliyeti"
+        "tr": "Reçeteli ilaçların maliyeti",
+        "de": "Kosten der verschriebenen Medikamente",
+        "fr": "Coût des médicaments prescrits"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Procedure Cost",
         "tr": "Prosedür Maliyeti",
-        "de": "Procedure Cost",
-        "fr": "Procedure Cost",
+        "de": "Eingriffskosten",
+        "fr": "Coût de l'intervention",
         "es": "Procedure Cost",
         "ar": "Procedure Cost"
       },
       "businessContext_i18n": {
         "en": "Cost of any surgical or medical procedure",
-        "tr": "Herhangi bir cerrahi veya tıbbi prosedürün maliyeti"
+        "tr": "Herhangi bir cerrahi veya tıbbi prosedürün maliyeti",
+        "de": "Kosten eines chirurgischen oder medizinischen Eingriffs",
+        "fr": "Coût de toute intervention chirurgicale ou médicale"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Lab Tests Cost",
         "tr": "Laboratuvar Test Maliyeti",
-        "de": "Lab Tests Cost",
-        "fr": "Lab Tests Cost",
+        "de": "Labortestkosten",
+        "fr": "Coût des analyses de laboratoire",
         "es": "Lab Tests Cost",
         "ar": "Lab Tests Cost"
       },
       "businessContext_i18n": {
         "en": "Cost of laboratory tests and diagnostics",
-        "tr": "Laboratuvar testleri ve teşhis maliyeti"
+        "tr": "Laboratuvar testleri ve teşhis maliyeti",
+        "de": "Kosten für Labortests und Diagnostik",
+        "fr": "Coût des analyses et diagnostics de laboratoire"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Discount (%)",
         "tr": "İndirim (%)",
-        "de": "Discount (%)",
-        "fr": "Discount (%)",
-        "es": "Discount (%)",
+        "de": "Rabatt (%)",
+        "fr": "Remise (%)",
+        "es": "Descuento (%)",
         "ar": "Discount (%)"
       },
       "businessContext_i18n": {
         "en": "Applied discount percentage",
-        "tr": "Uygulanan indirim yüzdesi"
+        "tr": "Uygulanan indirim yüzdesi",
+        "de": "Angewandter Rabattprozentsatz",
+        "fr": "Pourcentage de réduction appliqué"
       }
     }
   ],

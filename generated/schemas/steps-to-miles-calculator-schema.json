@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Number of Steps",
         "tr": "Adım Sayısı",
-        "de": "Number of Steps",
-        "fr": "Number of Steps",
-        "es": "Number of Steps",
+        "de": "Anzahl der Schritte",
+        "fr": "Nombre d'étapes",
+        "es": "Número de pasos",
         "ar": "Number of Steps"
       },
       "businessContext_i18n": {
         "en": "Total number of steps recorded, e.g., from a pedometer or fitness tracker.",
-        "tr": "Kaydedilen toplam adım sayısı, örn. pedometre veya fitness takip cihazından."
+        "tr": "Kaydedilen toplam adım sayısı, örn. pedometre veya fitness takip cihazından.",
+        "de": "Gesamtzahl der aufgezeichneten Schritte, z. B. von einem Schrittzähler oder Fitness-Tracker.",
+        "fr": "Nombre total de pas enregistrés, par exemple à partir d'un podomètre ou d'un tracker d'activité."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Step Length",
         "tr": "Adım Uzunluğu",
-        "de": "Step Length",
-        "fr": "Step Length",
+        "de": "Schrittlänge",
+        "fr": "Longueur de pas",
         "es": "Step Length",
         "ar": "Step Length"
       },
       "businessContext_i18n": {
         "en": "User-measured step length in centimeters. Leave 0 to estimate from stride or height.",
-        "tr": "Kullanıcı tarafından ölçülen adım uzunluğu (santimetre). Tahmin için 0 bırakın."
+        "tr": "Kullanıcı tarafından ölçülen adım uzunluğu (santimetre). Tahmin için 0 bırakın.",
+        "de": "Vom Benutzer gemessene Schrittlänge in Zentimetern. 0 eingeben, um aus Schrittlänge oder Körpergröße zu schätzen.",
+        "fr": "Longueur de pas mesurée par l'utilisateur en centimètres. Laissez 0 pour estimer à partir de la foulée ou de la taille."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Stride Length",
         "tr": "Adım Uzunluğu",
-        "de": "Stride Length",
-        "fr": "Stride Length",
-        "es": "Stride Length",
+        "de": "Schrittlänge",
+        "fr": "Longueur de foulée",
+        "es": "Longitud de zancada",
         "ar": "Stride Length"
       },
       "businessContext_i18n": {
         "en": "User-measured stride length in centimeters (two steps). Leave 0 to use step length or estimate from height.",
-        "tr": "Kullanıcı tarafından ölçülen çift adım uzunluğu (santimetre). Adım uzunluğu veya boydan tahmin için 0 bırakın."
+        "tr": "Kullanıcı tarafından ölçülen çift adım uzunluğu (santimetre). Adım uzunluğu veya boydan tahmin için 0 bırakın.",
+        "de": "Vom Benutzer gemessene Schrittlänge in Zentimetern (zwei Schritte). 0 eingeben, um Schrittlänge zu verwenden oder aus Körpergröße zu schätzen.",
+        "fr": "Longueur de foulée mesurée par l'utilisateur en centimètres (deux pas). Laissez 0 pour utiliser la longueur de pas ou estimer à partir de la taille."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Height",
         "tr": "Boy",
         "de": "Größe",
-        "fr": "Height",
-        "es": "Height",
+        "fr": "Taille",
+        "es": "Altura",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "User height in centimeters. Used to estimate step length if step length and stride length are not provided. Typical formula: stepLength ≈ height × 0.415.",
-        "tr": "Kullanıcı boyu (santimetre). Adım uzunluğu ve çift adım uzunluğu verilmediğinde tahmin için kullanılır. Tipik formül: adımUzunluğu ≈ boy × 0.415."
+        "tr": "Kullanıcı boyu (santimetre). Adım uzunluğu ve çift adım uzunluğu verilmediğinde tahmin için kullanılır. Tipik formül: adımUzunluğu ≈ boy × 0.415.",
+        "de": "Körpergröße in Zentimetern. Wird zur Schätzung der Schrittlänge verwendet, wenn Schrittlänge und Schrittlänge nicht angegeben sind. Typische Formel: Schrittlänge ≈ Körpergröße × 0,415.",
+        "fr": "Taille de l'utilisateur en centimètres. Utilisée pour estimer la longueur de pas si celle-ci et la longueur de foulée ne sont pas fournies. Formule typique : longueurPas ≈ taille × 0,415."
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Terrain Factor",
         "tr": "Arazi Faktörü",
         "de": "Terrain Factor",
-        "fr": "Terrain Factor",
-        "es": "Terrain Factor",
+        "fr": "Facteur de terrain",
+        "es": "Factor de terreno",
         "ar": "Terrain Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier for terrain difficulty. 1.0 for flat, >1 for downhill (lengthens stride), <1 for uphill (shortens stride).",
-        "tr": "Arazi zorluğu çarpanı. Düz için 1.0, iniş için >1 (adımı uzatır), çıkış için <1 (adımı kısaltır)."
+        "tr": "Arazi zorluğu çarpanı. Düz için 1.0, iniş için >1 (adımı uzatır), çıkış için <1 (adımı kısaltır).",
+        "de": "Multiplikator für Geländeschwierigkeit. 1,0 für flach, >1 für bergab (verlängert Schritt), <1 für bergauf (verkürzt Schritt).",
+        "fr": "Multiplicateur pour la difficulté du terrain. 1,0 pour le plat, >1 pour la descente (allonge la foulée), <1 pour la montée (raccourcit la foulée)."
       }
     }
   ],

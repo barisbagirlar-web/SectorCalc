@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Outer Length",
         "tr": "Dış uzunluk",
-        "de": "Outer Length",
-        "fr": "Outer Length",
-        "es": "Outer Length",
+        "de": "Außenlänge",
+        "fr": "Longueur extérieure",
+        "es": "Longitud exterior",
         "ar": "Outer Length"
       },
       "businessContext_i18n": {
         "en": "External length of the tank including wall thickness",
-        "tr": "Duvar kalınlığı dahil tankın dış uzunluğu"
+        "tr": "Duvar kalınlığı dahil tankın dış uzunluğu",
+        "de": "Äußere Länge des Tanks einschließlich Wandstärke",
+        "fr": "Longueur externe du réservoir incluant l'épaisseur des parois",
+        "es": "Longitud externa del tanque incluyendo el espesor de la pared"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Outer Width",
         "tr": "Dış genişlik",
-        "de": "Outer Width",
-        "fr": "Outer Width",
-        "es": "Outer Width",
+        "de": "Außenbreite",
+        "fr": "Largeur extérieure",
+        "es": "Ancho exterior",
         "ar": "Outer Width"
       },
       "businessContext_i18n": {
         "en": "External width of the tank including wall thickness",
-        "tr": "Duvar kalınlığı dahil tankın dış genişliği"
+        "tr": "Duvar kalınlığı dahil tankın dış genişliği",
+        "de": "Äußere Breite des Tanks einschließlich Wandstärke",
+        "fr": "Largeur externe du réservoir incluant l'épaisseur des parois",
+        "es": "Ancho exterior del tanque incluyendo el espesor de la pared"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Outer Height",
         "tr": "Dış yükseklik",
-        "de": "Outer Height",
-        "fr": "Outer Height",
-        "es": "Outer Height",
+        "de": "Außenhöhe",
+        "fr": "Hauteur extérieure",
+        "es": "Altura exterior",
         "ar": "Outer Height"
       },
       "businessContext_i18n": {
         "en": "External height of the tank including top and bottom",
-        "tr": "Üst ve alt dahil tankın dış yüksekliği"
+        "tr": "Üst ve alt dahil tankın dış yüksekliği",
+        "de": "Äußere Höhe des Tanks einschließlich Boden und Decke",
+        "fr": "Hauteur externe du réservoir incluant le dessus et le dessous",
+        "es": "Altura exterior del tanque incluyendo la parte superior e inferior"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Wall Thickness",
         "tr": "Duvar Kalınlığı (cm)",
         "de": "Duvar Kalınlığı",
-        "fr": "Wall Thickness",
-        "es": "Wall Thickness",
+        "fr": "Épaisseur du mur",
+        "es": "Espesor del muro",
         "ar": "Wall Thickness"
       },
       "businessContext_i18n": {
         "en": "Uniform thickness of walls, roof, and floor",
-        "tr": "Duvarlar, çatı ve tabanın tek tip kalınlığı"
+        "tr": "Duvarlar, çatı ve tabanın tek tip kalınlığı",
+        "de": "Gleichmäßige Wand-, Dach- und Bodenstärke",
+        "fr": "Épaisseur uniforme des parois, du toit et du plancher",
+        "es": "Espesor uniforme de paredes, techo y piso"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Fill Level",
         "tr": "Dolum seviyesi",
-        "de": "Fill Level",
-        "fr": "Fill Level",
-        "es": "Fill Level",
+        "de": "Füllstand",
+        "fr": "Niveau de remplissage",
+        "es": "Nivel de llenado",
         "ar": "Fill Level"
       },
       "businessContext_i18n": {
         "en": "Liquid height measured from inside bottom, must not exceed inner height",
-        "tr": "İç tabandan ölçülen sıvı yüksekliği, iç yüksekliği aşmamalıdır"
+        "tr": "İç tabandan ölçülen sıvı yüksekliği, iç yüksekliği aşmamalıdır",
+        "de": "Flüssigkeitshöhe gemessen vom inneren Boden, darf die innere Höhe nicht überschreiten",
+        "fr": "Hauteur du liquide mesurée depuis le fond intérieur, ne doit pas dépasser la hauteur intérieure",
+        "es": "Altura del líquido medida desde el fondo interior, no debe exceder la altura interior"
       }
     }
   ],

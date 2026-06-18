@@ -12,14 +12,16 @@
         "en": "Buy Price",
         "tr": "Alış Fiyatı",
         "de": "Kaufpreis",
-        "fr": "Buy Price",
-        "es": "Buy Price",
+        "fr": "Prix d'achat",
+        "es": "Precio de compra",
         "ar": "Buy Price"
       },
       "businessContext_i18n": {
         "en": "The price per unit at which the asset is purchased.",
         "tr": "Varlığın birim başına satın alma fiyatı.",
-        "de": "Der Preis pro Einheit, zu dem das Asset gekauft wird."
+        "de": "Der Preis pro Einheit, zu dem das Asset gekauft wird.",
+        "fr": "Le prix unitaire auquel l'actif est acheté.",
+        "es": "Precio por unidad al que se adquiere el activo."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Sell Price",
         "tr": "Satış Fiyatı",
         "de": "Verkaufspreis",
-        "fr": "Sell Price",
-        "es": "Sell Price",
+        "fr": "Prix de vente",
+        "es": "Precio de venta",
         "ar": "Sell Price"
       },
       "businessContext_i18n": {
         "en": "The price per unit at which the asset is sold.",
         "tr": "Varlığın birim başına satış fiyatı.",
-        "de": "Der Preis pro Einheit, zu dem das Asset verkauft wird."
+        "de": "Der Preis pro Einheit, zu dem das Asset verkauft wird.",
+        "fr": "Le prix unitaire auquel l'actif est vendu.",
+        "es": "Precio por unidad al que se vende el activo."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Quantity",
         "tr": "Miktar",
         "de": "Menge",
-        "fr": "Quantity",
-        "es": "Quantity",
+        "fr": "Quantité",
+        "es": "Cantidad",
         "ar": "Quantity"
       },
       "businessContext_i18n": {
         "en": "The number of units traded in the arbitrage transaction.",
         "tr": "Arbitraj işleminde işlem gören birim sayısı.",
-        "de": "Die Anzahl der gehandelten Einheiten in der Arbitrage-Transaktion."
+        "de": "Die Anzahl der gehandelten Einheiten in der Arbitrage-Transaktion.",
+        "fr": "Le nombre d'unités échangées dans la transaction d'arbitrage.",
+        "es": "Número de unidades negociadas en la transacción de arbitraje."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Buy Transaction Fee",
         "tr": "Alış İşlem Ücreti",
         "de": "Kauf-Transaktionsgebühr",
-        "fr": "Buy Transaction Fee",
-        "es": "Buy Transaction Fee",
+        "fr": "Frais de transaction d'achat",
+        "es": "Comisión de compra",
         "ar": "Buy Transaction Fee"
       },
       "businessContext_i18n": {
         "en": "Fixed fee incurred when buying the asset.",
         "tr": "Varlığı satın alırken oluşan sabit ücret.",
-        "de": "Feste Gebühr beim Kauf des Assets."
+        "de": "Feste Gebühr beim Kauf des Assets.",
+        "fr": "Frais fixes encourus lors de l'achat de l'actif.",
+        "es": "Tarifa fija incurrida al comprar el activo."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Sell Transaction Fee",
         "tr": "Satış İşlem Ücreti",
         "de": "Verkaufsgebühr",
-        "fr": "Sell Transaction Fee",
-        "es": "Sell Transaction Fee",
+        "fr": "Frais de vente",
+        "es": "Tarifa de transacción de venta",
         "ar": "Sell Transaction Fee"
       },
       "businessContext_i18n": {
         "en": "Fixed fee incurred when selling the asset.",
         "tr": "Varlığı satarken oluşan sabit ücret.",
-        "de": "Feste Gebühr beim Verkauf des Vermögenswerts."
+        "de": "Feste Gebühr beim Verkauf des Vermögenswerts.",
+        "fr": "Frais fixes encourus lors de la vente de l'actif.",
+        "es": "Tarifa fija incurrida al vender el activo."
       }
     }
   ],

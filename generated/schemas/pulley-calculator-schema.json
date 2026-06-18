@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Driver Pulley Diameter",
         "tr": "Tahrik Kasnağı Çapı",
-        "de": "Driver Pulley Diameter",
-        "fr": "Driver Pulley Diameter",
-        "es": "Driver Pulley Diameter",
+        "de": "Durchmesser der Antriebsscheibe",
+        "fr": "Diamètre de la poulie motrice",
+        "es": "Diámetro de la polea motriz",
         "ar": "Driver Pulley Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the driving pulley, typically between 50 and 500 mm. Influences belt speed and tension.",
-        "tr": "Tahrik kasnağının çapı, genellikle 50 ile 500 mm arasındadır. Kayış hızını ve gerginliğini etkiler."
+        "tr": "Tahrik kasnağının çapı, genellikle 50 ile 500 mm arasındadır. Kayış hızını ve gerginliğini etkiler.",
+        "de": "Durchmesser der Antriebsscheibe, typischerweise zwischen 50 und 500 mm. Beeinflusst Riemengeschwindigkeit und -spannung.",
+        "fr": "Diamètre de la poulie motrice, généralement entre 50 et 500 mm. Influence la vitesse et la tension de la courroie.",
+        "es": "Diámetro de la polea motriz, típicamente entre 50 y 500 mm. Influye en la velocidad y tensión de la correa."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Driven Pulley Diameter",
         "tr": "Tahrik Edilen Kasnak Çapı",
-        "de": "Driven Pulley Diameter",
-        "fr": "Driven Pulley Diameter",
-        "es": "Driven Pulley Diameter",
+        "de": "Durchmesser der Abtriebsscheibe",
+        "fr": "Diamètre de la poulie menée",
+        "es": "Diámetro de la polea conducida",
         "ar": "Driven Pulley Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the driven pulley, which determines the speed reduction or increase ratio relative to the driver.",
-        "tr": "Tahrik edilen kasnağın çapı, sürücüye göre hız düşürme veya artırma oranını belirler."
+        "tr": "Tahrik edilen kasnağın çapı, sürücüye göre hız düşürme veya artırma oranını belirler.",
+        "de": "Durchmesser der Abtriebsscheibe, der das Übersetzungsverhältnis zur Antriebsscheibe bestimmt.",
+        "fr": "Diamètre de la poulie menée, qui détermine le rapport de réduction ou d'augmentation de vitesse par rapport à la motrice.",
+        "es": "Diámetro de la polea conducida, que determina la relación de reducción o aumento de velocidad respecto a la motriz."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Center Distance",
         "tr": "Merkez Mesafesi",
         "de": "Achsabstand",
-        "fr": "Center Distance",
-        "es": "Center Distance",
+        "fr": "Entraxe",
+        "es": "Distancia entre centros",
         "ar": "Center Distance"
       },
       "businessContext_i18n": {
         "en": "Distance between the centers of the two pulleys. Affects belt length and wrap angle.",
-        "tr": "İki kasnak merkezi arasındaki mesafe. Kayış uzunluğunu ve sarım açısını etkiler."
+        "tr": "İki kasnak merkezi arasındaki mesafe. Kayış uzunluğunu ve sarım açısını etkiler.",
+        "de": "Abstand zwischen den Mittelpunkten der beiden Riemenscheiben. Beeinflusst Riemenlänge und Umschlingungswinkel.",
+        "fr": "Distance entre les centres des deux poulies. Affecte la longueur de la courroie et l'angle d'enroulement.",
+        "es": "Distancia entre los centros de las dos poleas. Afecta la longitud de la correa y el ángulo de contacto."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Driver RPM",
         "tr": "Tahrik Devri (RPM)",
-        "de": "Driver RPM",
-        "fr": "Driver RPM",
-        "es": "Driver RPM",
+        "de": "Antriebsdrehzahl",
+        "fr": "Régime moteur (tr/min)",
+        "es": "RPM del motor",
         "ar": "Driver RPM"
       },
       "businessContext_i18n": {
         "en": "Rotational speed of the driving pulley in revolutions per minute. Standard motor speeds are 1500 or 1800 RPM.",
-        "tr": "Tahrik kasnağının dakikadaki devir sayısı. Standart motor hızları 1500 veya 1800 RPM'dir."
+        "tr": "Tahrik kasnağının dakikadaki devir sayısı. Standart motor hızları 1500 veya 1800 RPM'dir.",
+        "de": "Rotationsgeschwindigkeit der Antriebsscheibe in Umdrehungen pro Minute. Übliche Motordrehzahlen sind 1500 oder 1800 U/min.",
+        "fr": "Vitesse de rotation de la poulie motrice en tours par minute. Les vitesses moteur standard sont 1500 ou 1800 tr/min.",
+        "es": "Velocidad de rotación de la polea motriz en revoluciones por minuto. Las velocidades estándar del motor son 1500 o 1800 RPM."
       }
     }
   ],

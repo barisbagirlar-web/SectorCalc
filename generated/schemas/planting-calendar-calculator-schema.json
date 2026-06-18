@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Last Spring Frost Day",
         "tr": "Son İlkbahar Don Günü",
-        "de": "Last Spring Frost Day",
-        "fr": "Last Spring Frost Day",
-        "es": "Last Spring Frost Day",
+        "de": "Letzter Frühjahrsfrosttag",
+        "fr": "Dernier jour de gel printanier",
+        "es": "Último día de helada primaveral",
         "ar": "Last Spring Frost Day"
       },
       "businessContext_i18n": {
         "en": "Historical average last spring frost date (day of year, 1-365)",
-        "tr": "Tarihsel ortalama son ilkbahar don tarihi (yılın günü, 1-365)"
+        "tr": "Tarihsel ortalama son ilkbahar don tarihi (yılın günü, 1-365)",
+        "de": "Historischer durchschnittlicher letzter Frühjahrsfrosttag (Tag des Jahres, 1-365)",
+        "fr": "Date historique moyenne du dernier gel printanier (jour de l'année, 1-365)",
+        "es": "Fecha histórica promedio de la última helada primaveral (día del año, 1-365)"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Planting Delay after Frost",
         "tr": "Dondan Sonra Dikim Gecikmesi",
-        "de": "Planting Delay after Frost",
-        "fr": "Planting Delay after Frost",
-        "es": "Planting Delay after Frost",
+        "de": "Pflanzverzögerung nach Frost",
+        "fr": "Délai de plantation après le gel",
+        "es": "Retraso de siembra después de la helada",
         "ar": "Planting Delay after Frost"
       },
       "businessContext_i18n": {
         "en": "Recommended safe days after last frost for soil warming",
-        "tr": "Toprak ısınması için dondan sonra önerilen güvenli gün sayısı"
+        "tr": "Toprak ısınması için dondan sonra önerilen güvenli gün sayısı",
+        "de": "Empfohlene sichere Tage nach dem letzten Frost für Bodenerwärmung",
+        "fr": "Nombre de jours de sécurité recommandés après le dernier gel pour le réchauffement du sol",
+        "es": "Días seguros recomendados después de la última helada para calentar el suelo"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Crop Base Temperature",
         "tr": "Mahsul Taban Sıcaklığı",
-        "de": "Crop Base Temperature",
-        "fr": "Crop Base Temperature",
-        "es": "Crop Base Temperature",
+        "de": "Basistemperatur der Kultur",
+        "fr": "Température de base de la culture",
+        "es": "Temperatura base del cultivo",
         "ar": "Crop Base Temperature"
       },
       "businessContext_i18n": {
         "en": "Minimum temperature for crop growth (growing degree day base)",
-        "tr": "Mahsul büyümesi için minimum sıcaklık (büyüme derece günü tabanı)"
+        "tr": "Mahsul büyümesi için minimum sıcaklık (büyüme derece günü tabanı)",
+        "de": "Mindesttemperatur für Pflanzenwachstum (Grundlage für Wachstumsgradtage)",
+        "fr": "Température minimale pour la croissance de la culture (base des degrés-jours de croissance)",
+        "es": "Temperatura mínima para el crecimiento del cultivo (base de grados día de crecimiento)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Target GDD to Maturity",
         "tr": "Olgunlaşma için Hedef GDD",
-        "de": "Target GDD to Maturity",
-        "fr": "Target GDD to Maturity",
-        "es": "Target GDD to Maturity",
+        "de": "Ziel-GDD bis zur Reife",
+        "fr": "DJC cible jusqu'à maturité",
+        "es": "GDD objetivo hasta la madurez",
         "ar": "Target GDD to Maturity"
       },
       "businessContext_i18n": {
         "en": "Total growing degree days required from planting to harvest",
-        "tr": "Dikimden hasada kadar gereken toplam büyüme derece günü"
+        "tr": "Dikimden hasada kadar gereken toplam büyüme derece günü",
+        "de": "Gesamte Wachstumsgradtage von Pflanzung bis Ernte",
+        "fr": "Total des degrés-jours de croissance requis de la plantation à la récolte",
+        "es": "Total de grados día de crecimiento requeridos desde la siembra hasta la cosecha"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Expected Daily Average Temp",
         "tr": "Beklenen Günlük Ortalama Sıcaklık",
-        "de": "Expected Daily Average Temp",
-        "fr": "Expected Daily Average Temp",
-        "es": "Expected Daily Average Temp",
+        "de": "Erwartete tägliche Durchschnittstemperatur",
+        "fr": "Température moyenne quotidienne attendue",
+        "es": "Temperatura promedio diaria esperada",
         "ar": "Expected Daily Average Temp"
       },
       "businessContext_i18n": {
         "en": "Forecast average daily air temperature during growing season",
-        "tr": "Büyüme mevsimi boyunca tahmini ortalama günlük hava sıcaklığı"
+        "tr": "Büyüme mevsimi boyunca tahmini ortalama günlük hava sıcaklığı",
+        "de": "Vorhersage der durchschnittlichen täglichen Lufttemperatur während der Wachstumsperiode",
+        "fr": "Température moyenne de l'air prévue pendant la saison de croissance",
+        "es": "Pronóstico de temperatura media diaria del aire durante la temporada de crecimiento"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Current Soil Temperature",
         "tr": "Mevcut Toprak Sıcaklığı",
-        "de": "Current Soil Temperature",
-        "fr": "Current Soil Temperature",
-        "es": "Current Soil Temperature",
+        "de": "Aktuelle Bodentemperatur",
+        "fr": "Température actuelle du sol",
+        "es": "Temperatura actual del suelo",
         "ar": "Current Soil Temperature"
       },
       "businessContext_i18n": {
         "en": "Measured soil temperature at seeding depth",
-        "tr": "Ekim derinliğinde ölçülen toprak sıcaklığı"
+        "tr": "Ekim derinliğinde ölçülen toprak sıcaklığı",
+        "de": "Gemessene Bodentemperatur in Saattiefe",
+        "fr": "Température du sol mesurée à la profondeur de semis",
+        "es": "Temperatura del suelo medida a la profundidad de siembra"
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Minimum Soil Temperature",
         "tr": "Minimum Toprak Sıcaklığı",
-        "de": "Minimum Soil Temperature",
-        "fr": "Minimum Soil Temperature",
-        "es": "Minimum Soil Temperature",
+        "de": "Mindestbodentemperatur",
+        "fr": "Température minimale du sol",
+        "es": "Temperatura mínima del suelo",
         "ar": "Minimum Soil Temperature"
       },
       "businessContext_i18n": {
         "en": "Crop-specific minimum soil temperature for safe germination",
-        "tr": "Ürüne özel minimum toprak sıcaklığı (güvenli çimlenme için)"
+        "tr": "Ürüne özel minimum toprak sıcaklığı (güvenli çimlenme için)",
+        "de": "Kulturspezifische Mindestbodentemperatur für sichere Keimung",
+        "fr": "Température minimale du sol spécifique à la culture pour une germination sûre",
+        "es": "Temperatura mínima del suelo específica del cultivo para una germinación segura"
       }
     },
     {
@@ -151,14 +172,17 @@
       "label_i18n": {
         "en": "Harvest Safety Margin",
         "tr": "Hasat Güvenlik Marjı",
-        "de": "Harvest Safety Margin",
-        "fr": "Harvest Safety Margin",
-        "es": "Harvest Safety Margin",
+        "de": "Erntesicherheitsmarge",
+        "fr": "Marge de sécurité de récolte",
+        "es": "Margen de seguridad para la cosecha",
         "ar": "Harvest Safety Margin"
       },
       "businessContext_i18n": {
         "en": "Additional days to ensure full maturity and weather variability buffer",
-        "tr": "Tam olgunlaşma ve hava değişkenliği tamponu için ek günler"
+        "tr": "Tam olgunlaşma ve hava değişkenliği tamponu için ek günler",
+        "de": "Zusätzliche Tage zur Sicherstellung der vollständigen Reife und als Puffer für Wettervariabilität",
+        "fr": "Jours supplémentaires pour assurer la pleine maturité et la variabilité météorologique",
+        "es": "Días adicionales para asegurar la madurez total y el margen de variabilidad climática"
       }
     }
   ],

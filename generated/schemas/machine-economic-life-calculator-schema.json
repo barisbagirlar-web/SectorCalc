@@ -24,11 +24,16 @@
       "label_i18n": {
         "en": "Purchase Price",
         "tr": "Satın Alma Fiyatı",
-        "de": "Kaufpreis"
+        "de": "Kaufpreis",
+        "fr": "Prix d'achat",
+        "es": "Precio de compra"
       },
       "businessContext_i18n": {
         "en": "Initial capital investment for the machine, including installation and commissioning.",
-        "tr": "Kurulum ve devreye alma dahil makine için ilk sermaye yatırımı."
+        "tr": "Kurulum ve devreye alma dahil makine için ilk sermaye yatırımı.",
+        "de": "Anfängliche Kapitalinvestition für die Maschine, einschließlich Installation und Inbetriebnahme.",
+        "fr": "Investissement initial en capital pour la machine, incluant l'installation et la mise en service.",
+        "es": "Inversión de capital inicial para la máquina, incluyendo instalación y puesta en marcha."
       }
     },
     {
@@ -42,11 +47,17 @@
       "businessContext": "Estimated resale or scrap value at the end of the machine's useful life.",
       "label_i18n": {
         "en": "Salvage Value at End of Life",
-        "tr": "Ömür Sonu Hurda Değeri"
+        "tr": "Ömür Sonu Hurda Değeri",
+        "de": "Restwert am Ende der Lebensdauer",
+        "fr": "Valeur de récupération en fin de vie",
+        "es": "Valor residual al final de la vida útil"
       },
       "businessContext_i18n": {
         "en": "Estimated resale or scrap value at the end of the machine's useful life.",
-        "tr": "Makinenin faydalı ömrünün sonunda tahmini yeniden satış veya hurda değeri."
+        "tr": "Makinenin faydalı ömrünün sonunda tahmini yeniden satış veya hurda değeri.",
+        "de": "Geschätzter Wiederverkaufs- oder Schrottwert am Ende der Nutzungsdauer der Maschine.",
+        "fr": "Valeur de revente ou de rebut estimée à la fin de la durée de vie utile de la machine.",
+        "es": "Valor estimado de reventa o desecho al final de la vida útil de la máquina."
       }
     },
     {
@@ -60,11 +71,17 @@
       "businessContext": "Expected number of years the machine will be operational before major overhaul or replacement.",
       "label_i18n": {
         "en": "Estimated Useful Life",
-        "tr": "Tahmini Faydalı Ömür"
+        "tr": "Tahmini Faydalı Ömür",
+        "de": "Geschätzte Nutzungsdauer",
+        "fr": "Durée de vie utile estimée",
+        "es": "Vida útil estimada"
       },
       "businessContext_i18n": {
         "en": "Expected number of years the machine will be operational before major overhaul or replacement.",
-        "tr": "Makinenin büyük bir revizyon veya değiştirme öncesinde çalışır durumda olması beklenen yıl sayısı."
+        "tr": "Makinenin büyük bir revizyon veya değiştirme öncesinde çalışır durumda olması beklenen yıl sayısı.",
+        "de": "Erwartete Anzahl von Jahren, in denen die Maschine vor einer Generalüberholung oder einem Austausch betriebsbereit ist.",
+        "fr": "Nombre d'années prévu pendant lequel la machine sera opérationnelle avant une révision majeure ou un remplacement.",
+        "es": "Número esperado de años que la máquina estará operativa antes de una revisión mayor o reemplazo."
       }
     },
     {
@@ -78,11 +95,17 @@
       "businessContext": "Includes energy, consumables, labor, and routine maintenance in the first year.",
       "label_i18n": {
         "en": "Annual Operating Cost (Year 1)",
-        "tr": "Yıllık İşletme Maliyeti (1. Yıl)"
+        "tr": "Yıllık İşletme Maliyeti (1. Yıl)",
+        "de": "Jährliche Betriebskosten (Jahr 1)",
+        "fr": "Coût d'exploitation annuel (Année 1)",
+        "es": "Costo operativo anual (Año 1)"
       },
       "businessContext_i18n": {
         "en": "Includes energy, consumables, labor, and routine maintenance in the first year.",
-        "tr": "İlk yıldaki enerji, sarf malzemeleri, işçilik ve rutin bakımı içerir."
+        "tr": "İlk yıldaki enerji, sarf malzemeleri, işçilik ve rutin bakımı içerir.",
+        "de": "Umfasst Energie, Verbrauchsmaterialien, Arbeitskräfte und routinemäßige Wartung im ersten Jahr.",
+        "fr": "Inclut l'énergie, les consommables, la main-d'œuvre et la maintenance de routine la première année.",
+        "es": "Incluye energía, consumibles, mano de obra y mantenimiento rutinario en el primer año."
       }
     },
     {
@@ -96,11 +119,17 @@
       "businessContext": "Annual increase in operating costs due to aging, inflation, and wear.",
       "label_i18n": {
         "en": "Operating Cost Escalation Rate",
-        "tr": "İşletme Maliyeti Artış Oranı"
+        "tr": "İşletme Maliyeti Artış Oranı",
+        "de": "Steigerungsrate der Betriebskosten",
+        "fr": "Taux d'escalade des coûts d'exploitation",
+        "es": "Tasa de escalamiento del costo operativo"
       },
       "businessContext_i18n": {
         "en": "Annual increase in operating costs due to aging, inflation, and wear.",
-        "tr": "Eskime, enflasyon ve aşınma nedeniyle işletme maliyetlerindeki yıllık artış."
+        "tr": "Eskime, enflasyon ve aşınma nedeniyle işletme maliyetlerindeki yıllık artış.",
+        "de": "Jährlicher Anstieg der Betriebskosten aufgrund von Alterung, Inflation und Verschleiß.",
+        "fr": "Augmentation annuelle des coûts d'exploitation due au vieillissement, à l'inflation et à l'usure.",
+        "es": "Incremento anual en los costos operativos debido al envejecimiento, inflación y desgaste."
       }
     },
     {
@@ -115,11 +144,16 @@
       "label_i18n": {
         "en": "Discount Rate (WACC)",
         "tr": "İskonto Oranı (AOSM)",
-        "de": "Diskontierungssatz (WACC)"
+        "de": "Diskontierungssatz (WACC)",
+        "fr": "Taux d'actualisation (WACC)",
+        "es": "Tasa de descuento (WACC)"
       },
       "businessContext_i18n": {
         "en": "Weighted average cost of capital used for net present value calculations.",
-        "tr": "Net bugünkü değer hesaplamaları için kullanılan ağırlıklı ortalama sermaye maliyeti."
+        "tr": "Net bugünkü değer hesaplamaları için kullanılan ağırlıklı ortalama sermaye maliyeti.",
+        "de": "Gewichteter durchschnittlicher Kapitalkostensatz, der für die Nettobarwertberechnung verwendet wird.",
+        "fr": "Coût moyen pondéré du capital utilisé pour les calculs de valeur actuelle nette.",
+        "es": "Costo promedio ponderado del capital utilizado para cálculos de valor presente neto."
       }
     },
     {
@@ -133,11 +167,17 @@
       "businessContext": "Number of units produced per year at full capacity.",
       "label_i18n": {
         "en": "Annual Production Units",
-        "tr": "Yıllık Üretim Birimleri"
+        "tr": "Yıllık Üretim Birimleri",
+        "de": "Jährliche Produktionseinheiten",
+        "fr": "Unités de production annuelles",
+        "es": "Unidades de producción anuales"
       },
       "businessContext_i18n": {
         "en": "Number of units produced per year at full capacity.",
-        "tr": "Tam kapasitede yılda üretilen birim sayısı."
+        "tr": "Tam kapasitede yılda üretilen birim sayısı.",
+        "de": "Anzahl der pro Jahr bei voller Auslastung produzierten Einheiten.",
+        "fr": "Nombre d'unités produites par an à pleine capacité.",
+        "es": "Número de unidades producidas por año a plena capacidad."
       }
     },
     {
@@ -152,11 +192,16 @@
       "label_i18n": {
         "en": "Revenue per Unit",
         "tr": "Birim Başına Gelir",
-        "de": "Stillstandszeit"
+        "de": "Stillstandszeit",
+        "fr": "Revenu par unité",
+        "es": "Ingreso por unidad"
       },
       "businessContext_i18n": {
         "en": "Selling price per unit produced by the machine.",
-        "tr": "Makine tarafından üretilen birim başına satış fiyatı."
+        "tr": "Makine tarafından üretilen birim başına satış fiyatı.",
+        "de": "Verkaufspreis pro von der Maschine produzierter Einheit.",
+        "fr": "Prix de vente unitaire produit par la machine.",
+        "es": "Precio de venta por unidad producida por la máquina."
       }
     }
   ],

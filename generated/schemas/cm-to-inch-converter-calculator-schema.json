@@ -21,12 +21,16 @@
       "label_i18n": {
         "en": "Length in Centimeters",
         "tr": "Uzunluk (cm)",
-        "de": "Länge in Zentimetern"
+        "de": "Länge in Zentimetern",
+        "fr": "Longueur en centimètres",
+        "es": "Longitud en centímetros"
       },
       "businessContext_i18n": {
         "en": "Measured length in centimeters, typically from calipers, rulers, or CAD models.",
         "tr": "Kumpas, cetvel veya CAD modellerinden tipik olarak ölçülen santimetre cinsinden uzunluk.",
-        "de": "Gemessene Länge in Zentimetern, typischerweise von Messschiebern, Linealen oder CAD-Modellen."
+        "de": "Gemessene Länge in Zentimetern, typischerweise von Messschiebern, Linealen oder CAD-Modellen.",
+        "fr": "Longueur mesurée en centimètres, généralement à l'aide de pieds à coulisse, de règles ou de modèles CAO.",
+        "es": "Longitud medida en centímetros, típicamente con calibradores, reglas o modelos CAD."
       }
     },
     {
@@ -41,12 +45,16 @@
       "label_i18n": {
         "en": "Measurement Uncertainty",
         "tr": "Ölçüm Belirsizliği",
-        "de": "Messunsicherheit"
+        "de": "Messunsicherheit",
+        "fr": "Incertitude de mesure",
+        "es": "Incertidumbre de medición"
       },
       "businessContext_i18n": {
         "en": "Estimated uncertainty of the measurement (e.g., ±0.05 cm for standard calipers).",
         "tr": "Ölçümün tahmini belirsizliği (standart kumpas için ±0,05 cm gibi).",
-        "de": "Geschätzte Messunsicherheit (z. B. ±0,05 cm für Standard-Messschieber)."
+        "de": "Geschätzte Messunsicherheit (z. B. ±0,05 cm für Standard-Messschieber).",
+        "fr": "Incertitude estimée de la mesure (par exemple, ±0,05 cm pour un pied à coulisse standard).",
+        "es": "Incertidumbre estimada de la medición (p. ej., ±0.05 cm para calibradores estándar)."
       }
     },
     {
@@ -64,12 +72,16 @@
       "label_i18n": {
         "en": "Conversion Precision",
         "tr": "Dönüşüm Hassasiyeti",
-        "de": "Umrechnungsgenauigkeit"
+        "de": "Umrechnungsgenauigkeit",
+        "fr": "Précision de conversion",
+        "es": "Precisión de conversión"
       },
       "businessContext_i18n": {
         "en": "Select the conversion factor precision based on industry standard (ISO 80000-1, NIST).",
         "tr": "Endüstri standardına (ISO 80000-1, NIST) göre dönüşüm faktörü hassasiyetini seçin.",
-        "de": "Wählen Sie die Genauigkeit des Umrechnungsfaktors gemäß Industriestandard (ISO 80000-1, NIST)."
+        "de": "Wählen Sie die Genauigkeit des Umrechnungsfaktors gemäß Industriestandard (ISO 80000-1, NIST).",
+        "fr": "Sélectionnez la précision du facteur de conversion selon la norme industrielle (ISO 80000-1, NIST).",
+        "es": "Seleccione la precisión del factor de conversión según el estándar de la industria (ISO 80000-1, NIST)."
       }
     },
     {
@@ -87,12 +99,16 @@
       "label_i18n": {
         "en": "Tolerance Class",
         "tr": "Tolerans Sınıfı",
-        "de": "Toleranzklasse"
+        "de": "Toleranzklasse",
+        "fr": "Classe de tolérance",
+        "es": "Clase de tolerancia"
       },
       "businessContext_i18n": {
         "en": "Tolerance class for dimensional inspection per ISO 2768. Affects alert thresholds.",
         "tr": "ISO 2768'e göre boyutsal muayene için tolerans sınıfı. Uyarı eşiklerini etkiler.",
-        "de": "Toleranzklasse für Maßprüfung nach ISO 2768. Beeinflusst die Alarmschwellen."
+        "de": "Toleranzklasse für Maßprüfung nach ISO 2768. Beeinflusst die Alarmschwellen.",
+        "fr": "Classe de tolérance pour l'inspection dimensionnelle selon ISO 2768. Affecte les seuils d'alerte.",
+        "es": "Clase de tolerancia para inspección dimensional según ISO 2768. Afecta los umbrales de alerta."
       }
     },
     {
@@ -107,12 +123,16 @@
       "label_i18n": {
         "en": "Unit Cost per Inch",
         "tr": "Birim Maliyet (inç başına)",
-        "de": "Stückkosten pro Zoll"
+        "de": "Stückkosten pro Zoll",
+        "fr": "Coût unitaire par pouce",
+        "es": "Costo unitario por pulgada"
       },
       "businessContext_i18n": {
         "en": "Cost per inch of material or product, used for cost estimation in Lean/Six Sigma projects.",
         "tr": "Malzeme veya ürünün inç başına maliyeti, Yalın/Altı Sigma projelerinde maliyet tahmini için kullanılır.",
-        "de": "Kosten pro Zoll Material oder Produkt, verwendet für Kostenschätzung in Lean/Six Sigma-Projekten."
+        "de": "Kosten pro Zoll Material oder Produkt, verwendet für Kostenschätzung in Lean/Six Sigma-Projekten.",
+        "fr": "Coût par pouce de matériau ou produit, utilisé pour l'estimation des coûts dans les projets Lean/Six Sigma.",
+        "es": "Costo por pulgada de material o producto, utilizado para estimación de costos en proyectos Lean/Seis Sigma."
       }
     },
     {
@@ -127,12 +147,16 @@
       "label_i18n": {
         "en": "Batch Quantity",
         "tr": "Parti Miktarı",
-        "de": "Chargenmenge"
+        "de": "Chargenmenge",
+        "fr": "Quantité de lot",
+        "es": "Cantidad del lote"
       },
       "businessContext_i18n": {
         "en": "Number of units in the batch for total cost and waste calculations.",
         "tr": "Toplam maliyet ve fire hesaplamaları için partideki birim sayısı.",
-        "de": "Anzahl der Einheiten in der Charge für Gesamtkosten- und Abfallberechnungen."
+        "de": "Anzahl der Einheiten in der Charge für Gesamtkosten- und Abfallberechnungen.",
+        "fr": "Nombre d'unités dans le lot pour les calculs de coût total et de déchets.",
+        "es": "Número de unidades en el lote para cálculos de costo total y desperdicio."
       }
     }
   ],

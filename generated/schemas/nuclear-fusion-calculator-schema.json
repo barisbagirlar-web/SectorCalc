@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Deuterium Density (n_D)",
         "tr": "Döteryum Yoğunluğu (n_D)",
-        "de": "Deuterium Density (n_D)",
-        "fr": "Deuterium Density (n_D)",
-        "es": "Deuterium Density (n_D)",
+        "de": "Deuteriumdichte (n_D)",
+        "fr": "Densité de deutérium (n_D)",
+        "es": "Densidad de deuterio (n_D)",
         "ar": "Deuterium Density (n_D)"
       },
       "businessContext_i18n": {
         "en": "Density of deuterium ions in the fusion plasma, measured in units of 10^20 particles per cubic meter.",
-        "tr": "Füzyon plazmasındaki döteryum iyonlarının yoğunluğu, metreküp başına 10^20 parçacık birimiyle ölçülür."
+        "tr": "Füzyon plazmasındaki döteryum iyonlarının yoğunluğu, metreküp başına 10^20 parçacık birimiyle ölçülür.",
+        "de": "Dichte der Deuteriumionen im Fusionsplasma, gemessen in Einheiten von 10^20 Teilchen pro Kubikmeter.",
+        "fr": "Densité des ions deutérium dans le plasma de fusion, mesurée en unités de 10^20 particules par mètre cube.",
+        "es": "Densidad de iones de deuterio en el plasma de fusión, medida en unidades de 10^20 partículas por metro cúbico."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Tritium Density (n_T)",
         "tr": "Trityum Yoğunluğu (n_T)",
-        "de": "Tritium Density (n_T)",
-        "fr": "Tritium Density (n_T)",
-        "es": "Tritium Density (n_T)",
+        "de": "Tritiumdichte (n_T)",
+        "fr": "Densité de tritium (n_T)",
+        "es": "Densidad de tritio (n_T)",
         "ar": "Tritium Density (n_T)"
       },
       "businessContext_i18n": {
         "en": "Density of tritium ions in the fusion plasma, measured in units of 10^20 particles per cubic meter.",
-        "tr": "Füzyon plazmasındaki trityum iyonlarının yoğunluğu, metreküp başına 10^20 parçacık birimiyle ölçülür."
+        "tr": "Füzyon plazmasındaki trityum iyonlarının yoğunluğu, metreküp başına 10^20 parçacık birimiyle ölçülür.",
+        "de": "Dichte der Tritiumionen im Fusionsplasma, gemessen in Einheiten von 10^20 Teilchen pro Kubikmeter.",
+        "fr": "Densité des ions tritium dans le plasma de fusion, mesurée en unités de 10^20 particules par mètre cube.",
+        "es": "Densidad de iones de tritio en el plasma de fusión, medida en unidades de 10^20 partículas por metro cúbico."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Ion Temperature (T)",
         "tr": "İyon Sıcaklığı (T)",
-        "de": "Ion Temperature (T)",
-        "fr": "Ion Temperature (T)",
-        "es": "Ion Temperature (T)",
+        "de": "Ionentemperatur (T)",
+        "fr": "Température ionique (T)",
+        "es": "Temperatura iónica (T)",
         "ar": "Ion Temperature (T)"
       },
       "businessContext_i18n": {
         "en": "Plasma ion temperature in kilo-electronvolts (keV), typically 10-20 keV for DT fusion.",
-        "tr": "Plazma iyon sıcaklığı kilo-elektronvolt (keV) cinsinden, DT füzyonu için tipik olarak 10-20 keV."
+        "tr": "Plazma iyon sıcaklığı kilo-elektronvolt (keV) cinsinden, DT füzyonu için tipik olarak 10-20 keV.",
+        "de": "Plasma-Ionentemperatur in Kilo-Elektronenvolt (keV), typischerweise 10-20 keV für DT-Fusion.",
+        "fr": "Température des ions du plasma en kilo-électronvolts (keV), typiquement 10-20 keV pour la fusion DT.",
+        "es": "Temperatura del plasma iónico en kilo-electronvoltios (keV), típicamente 10-20 keV para fusión DT."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Energy Confinement Time (τ)",
         "tr": "Enerji Hapsolma Süresi (τ)",
-        "de": "Energy Confinement Time (τ)",
-        "fr": "Energy Confinement Time (τ)",
-        "es": "Energy Confinement Time (τ)",
+        "de": "Energieeinschlusszeit (τ)",
+        "fr": "Temps de confinement de l'énergie (τ)",
+        "es": "Tiempo de confinamiento de energía (τ)",
         "ar": "Energy Confinement Time (τ)"
       },
       "businessContext_i18n": {
         "en": "Energy confinement time in seconds, representing how well the plasma retains its heat.",
-        "tr": "Plazmanın ısısını ne kadar iyi koruduğunu temsil eden enerji hapsolma süresi saniye cinsinden."
+        "tr": "Plazmanın ısısını ne kadar iyi koruduğunu temsil eden enerji hapsolma süresi saniye cinsinden.",
+        "de": "Energieeinschlusszeit in Sekunden, die angibt, wie gut das Plasma seine Wärme behält.",
+        "fr": "Temps de confinement de l'énergie en secondes, représentant la capacité du plasma à retenir sa chaleur.",
+        "es": "Tiempo de confinamiento de energía en segundos, que representa qué tan bien el plasma retiene su calor."
       }
     }
   ],

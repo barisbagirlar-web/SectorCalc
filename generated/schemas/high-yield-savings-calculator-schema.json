@@ -12,14 +12,16 @@
         "en": "Initial Deposit",
         "tr": "Başlangıç Mevduatı",
         "de": "Anfangseinlage",
-        "fr": "Initial Deposit",
-        "es": "Initial Deposit",
+        "fr": "Dépôt initial",
+        "es": "Depósito inicial",
         "ar": "Initial Deposit"
       },
       "businessContext_i18n": {
         "en": "The starting balance of the savings account.",
         "tr": "Tasarruf hesabının başlangıç bakiyesi.",
-        "de": "Der Startguthaben des Sparkontos."
+        "de": "Der Startguthaben des Sparkontos.",
+        "fr": "Le solde initial du compte d'épargne.",
+        "es": "El saldo inicial de la cuenta de ahorros."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Monthly Contribution",
         "tr": "Aylık Katkı",
         "de": "Monatlicher Beitrag",
-        "fr": "Monthly Contribution",
-        "es": "Monthly Contribution",
+        "fr": "Cotisation mensuelle",
+        "es": "Aporte mensual",
         "ar": "Monthly Contribution"
       },
       "businessContext_i18n": {
         "en": "The amount deposited at the end of each month.",
         "tr": "Her ay sonunda yatırılan miktar.",
-        "de": "Der am Ende jedes Monats eingezahlte Betrag."
+        "de": "Der am Ende jedes Monats eingezahlte Betrag.",
+        "fr": "Le montant déposé à la fin de chaque mois.",
+        "es": "La cantidad depositada al final de cada mes."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Annual Interest Rate (APY)",
         "tr": "Yıllık Faiz Oranı (APY)",
         "de": "Jährlicher Zinssatz (APY)",
-        "fr": "Annual Interest Rate (APY)",
-        "es": "Annual Interest Rate (APY)",
+        "fr": "Taux d'intérêt annuel (APY)",
+        "es": "Tasa de interés anual (APY)",
         "ar": "Annual Interest Rate (APY)"
       },
       "businessContext_i18n": {
         "en": "The annual percentage yield, representing the effective annual rate of return taking compounding into account.",
         "tr": "Bileşik faiz etkisini hesaba katan efektif yıllık getiri oranı.",
-        "de": "Die jährliche Rendite, die den effektiven Jahreszins unter Berücksichtigung des Zinseszinses darstellt."
+        "de": "Die jährliche Rendite, die den effektiven Jahreszins unter Berücksichtigung des Zinseszinses darstellt.",
+        "fr": "Le rendement annuel en pourcentage, représentant le taux de rendement effectif annuel en tenant compte de la capitalisation.",
+        "es": "El rendimiento porcentual anual, que representa la tasa efectiva anual de rendimiento teniendo en cuenta la capitalización."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Investment Period",
         "tr": "Yatırım Süresi",
         "de": "Anlagedauer",
-        "fr": "Investment Period",
-        "es": "Investment Period",
+        "fr": "Période d'investissement",
+        "es": "Período de inversión",
         "ar": "Investment Period"
       },
       "businessContext_i18n": {
         "en": "The total number of years the money is invested.",
         "tr": "Paranın yatırıldığı toplam yıl sayısı.",
-        "de": "Die Gesamtzahl der Jahre, in denen das Geld angelegt ist."
+        "de": "Die Gesamtzahl der Jahre, in denen das Geld angelegt ist.",
+        "fr": "Le nombre total d'années pendant lesquelles l'argent est investi.",
+        "es": "El número total de años que el dinero está invertido."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Compounding Frequency",
         "tr": "Bileşik Sıklığı",
         "de": "Zinseszinshäufigkeit",
-        "fr": "Compounding Frequency",
-        "es": "Compounding Frequency",
+        "fr": "Fréquence de capitalisation",
+        "es": "Frecuencia de capitalización",
         "ar": "Compounding Frequency"
       },
       "businessContext_i18n": {
         "en": "Number of times interest is compounded per year. Typically 12 for monthly, 4 for quarterly, 1 for annually.",
         "tr": "Yıllık bileşik faiz dönemi sayısı. Genellikle aylık için 12, üç aylık için 4, yıllık için 1.",
-        "de": "Anzahl der Zinseszinsperioden pro Jahr. Typischerweise 12 für monatlich, 4 für vierteljährlich, 1 für jährlich."
+        "de": "Anzahl der Zinseszinsperioden pro Jahr. Typischerweise 12 für monatlich, 4 für vierteljährlich, 1 für jährlich.",
+        "fr": "Nombre de capitalisations par an. Généralement 12 pour mensuel, 4 pour trimestriel, 1 pour annuel.",
+        "es": "Número de veces que se capitaliza el interés por año. Normalmente 12 para mensual, 4 para trimestral, 1 para anual."
       }
     }
   ],

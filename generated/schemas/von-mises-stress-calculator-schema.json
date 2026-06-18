@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Normal Stress σ_x",
         "tr": "Normal Gerilme σ_x",
-        "de": "Normal Stress σ_x",
-        "fr": "Normal Stress σ_x",
+        "de": "Normalspannung σ_x",
+        "fr": "Contrainte normale σ_x",
         "es": "Normal Stress σ_x",
         "ar": "Normal Stress σ_x"
       },
       "businessContext_i18n": {
         "en": "Normal stress component in x-direction",
-        "tr": "x yönündeki normal gerilme bileşeni"
+        "tr": "x yönündeki normal gerilme bileşeni",
+        "de": "Normalspannungskomponente in x-Richtung",
+        "fr": "Composante de contrainte normale dans la direction x"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Normal Stress σ_y",
         "tr": "Normal Gerilme σ_y",
-        "de": "Normal Stress σ_y",
-        "fr": "Normal Stress σ_y",
+        "de": "Normalspannung σ_y",
+        "fr": "Contrainte normale σ_y",
         "es": "Normal Stress σ_y",
         "ar": "Normal Stress σ_y"
       },
       "businessContext_i18n": {
         "en": "Normal stress component in y-direction",
-        "tr": "y yönündeki normal gerilme bileşeni"
+        "tr": "y yönündeki normal gerilme bileşeni",
+        "de": "Normalspannungskomponente in y-Richtung",
+        "fr": "Composante de contrainte normale dans la direction y"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Shear Stress τ_xy",
         "tr": "Kayma Gerilmesi τ_xy",
-        "de": "Shear Stress τ_xy",
-        "fr": "Shear Stress τ_xy",
+        "de": "Schubspannung τ_xy",
+        "fr": "Contrainte de cisaillement τ_xy",
         "es": "Shear Stress τ_xy",
         "ar": "Shear Stress τ_xy"
       },
       "businessContext_i18n": {
         "en": "Shear stress component in xy-plane",
-        "tr": "xy düzlemindeki kayma gerilmesi bileşeni"
+        "tr": "xy düzlemindeki kayma gerilmesi bileşeni",
+        "de": "Schubspannungskomponente in der xy-Ebene",
+        "fr": "Composante de contrainte de cisaillement dans le plan xy"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Yield Strength",
         "tr": "Akma Dayanımı",
         "de": "Streckgrenze",
-        "fr": "Yield Strength",
-        "es": "Yield Strength",
+        "fr": "Limite d'élasticité",
+        "es": "Límite elástico",
         "ar": "Yield Strength"
       },
       "businessContext_i18n": {
         "en": "Material yield strength for safety assessment",
-        "tr": "Güvenlik değerlendirmesi için malzeme akma dayanımı"
+        "tr": "Güvenlik değerlendirmesi için malzeme akma dayanımı",
+        "de": "Materialstreckgrenze für die Sicherheitsbewertung",
+        "fr": "Limite d'élasticité du matériau pour l'évaluation de la sécurité"
       }
     }
   ],

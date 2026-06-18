@@ -12,14 +12,16 @@
         "en": "Number of Folds (k)",
         "tr": "Kat Sayısı (k)",
         "de": "Anzahl der Falten (k)",
-        "fr": "Number of Folds (k)",
-        "es": "Number of Folds (k)",
+        "fr": "Nombre de plis (k)",
+        "es": "Número de pliegues (k)",
         "ar": "Number of Folds (k)"
       },
       "businessContext_i18n": {
         "en": "Number of folds used in k-fold cross-validation.",
         "tr": "k-katlı çapraz doğrulamada kullanılan kat sayısı.",
-        "de": "Anzahl der Falten, die bei der k-fachen Kreuzvalidierung verwendet werden."
+        "de": "Anzahl der Falten, die bei der k-fachen Kreuzvalidierung verwendet werden.",
+        "fr": "Nombre de plis utilisés dans la validation croisée k-fold.",
+        "es": "Número de pliegues utilizados en la validación cruzada de k pliegues."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Mean Performance Score",
         "tr": "Ortalama Performans Puanı",
         "de": "Mittlere Leistungsbewertung",
-        "fr": "Mean Performance Score",
-        "es": "Mean Performance Score",
+        "fr": "Score de performance moyen",
+        "es": "Puntuación media de rendimiento",
         "ar": "Mean Performance Score"
       },
       "businessContext_i18n": {
         "en": "Average of the performance metric (e.g., accuracy, F1) across all folds.",
         "tr": "Tüm katlar arasında performans metriğinin (örn. doğruluk, F1) ortalaması.",
-        "de": "Durchschnitt der Leistungskennzahl (z. B. Genauigkeit, F1) über alle Faltungen."
+        "de": "Durchschnitt der Leistungskennzahl (z. B. Genauigkeit, F1) über alle Faltungen.",
+        "fr": "Moyenne de la métrique de performance (ex. précision, F1) sur tous les plis.",
+        "es": "Promedio de la métrica de rendimiento (ej. precisión, F1) en todos los pliegues."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Standard Deviation of Performance Scores",
         "tr": "Performans Puanlarının Standart Sapması",
         "de": "Standardabweichung der Leistungsbewertungen",
-        "fr": "Standard Deviation of Performance Scores",
-        "es": "Standard Deviation of Performance Scores",
+        "fr": "Écart type des scores de performance",
+        "es": "Desviación estándar de las puntuaciones de rendimiento",
         "ar": "Standard Deviation of Performance Scores"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of the performance metric across folds.",
         "tr": "Katlar arasında performans metriğinin standart sapması.",
-        "de": "Standardabweichung der Leistungskennzahl über die Faltungen."
+        "de": "Standardabweichung der Leistungskennzahl über die Faltungen.",
+        "fr": "Écart type de la métrique de performance sur les plis.",
+        "es": "Desviación estándar de la métrica de rendimiento en todos los pliegues."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Total Sample Size",
         "tr": "Toplam Örneklem Büyüklüğü",
         "de": "Gesamtstichprobengröße",
-        "fr": "Total Sample Size",
-        "es": "Total Sample Size",
+        "fr": "Taille totale de l'échantillon",
+        "es": "Tamaño total de la muestra",
         "ar": "Total Sample Size"
       },
       "businessContext_i18n": {
         "en": "Total number of samples in the dataset (for context, not used in formulas).",
         "tr": "Veri setindeki toplam örnek sayısı (bağlam için, formüllerde kullanılmaz).",
-        "de": "Gesamtzahl der Stichproben im Datensatz (zur Einordnung, nicht in Formeln verwendet)."
+        "de": "Gesamtzahl der Stichproben im Datensatz (zur Einordnung, nicht in Formeln verwendet).",
+        "fr": "Nombre total d'échantillons dans l'ensemble de données (pour contexte, non utilisé dans les formules).",
+        "es": "Número total de muestras en el conjunto de datos (para contexto, no se usa en fórmulas)."
       }
     }
   ],

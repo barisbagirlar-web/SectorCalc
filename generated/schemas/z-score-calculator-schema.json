@@ -22,11 +22,16 @@
       "businessContext": "Raw sample measurements from the process. At least 2 values required for calculation.",
       "label_i18n": {
         "en": "Data Points (comma-separated)",
-        "tr": "Veri Noktaları (virgülle ayrılmış)"
+        "tr": "Veri Noktaları (virgülle ayrılmış)",
+        "de": "Datenpunkte (durch Komma getrennt)",
+        "fr": "Points de données (séparés par des virgules)",
+        "es": "Puntos de datos (separados por comas)"
       },
       "businessContext_i18n": {
         "en": "Raw sample measurements from the process. At least 2 values required for calculation.",
-        "tr": "Prosesten alınan ham numune ölçümleri. Hesaplama için en az 2 değer gereklidir."
+        "tr": "Prosesten alınan ham numune ölçümleri. Hesaplama için en az 2 değer gereklidir.",
+        "de": "Rohmessungen aus dem Prozess. Für die Berechnung sind mindestens 2 Werte erforderlich.",
+        "fr": "Mesures brutes de l'échantillon. Au moins 2 valeurs requises pour le calcul."
       }
     },
     {
@@ -40,11 +45,15 @@
       "businessContext": "Target or historical mean of the process. If unknown, leave blank to use sample mean.",
       "label_i18n": {
         "en": "Population Mean (μ)",
-        "tr": "Popülasyon Ortalaması (μ)"
+        "tr": "Popülasyon Ortalaması (μ)",
+        "de": "Grundgesamtheitsmittelwert (μ)",
+        "fr": "Moyenne de la population (μ)"
       },
       "businessContext_i18n": {
         "en": "Target or historical mean of the process. If unknown, leave blank to use sample mean.",
-        "tr": "Prosesin hedef veya geçmiş ortalaması. Bilinmiyorsa, örneklem ortalamasını kullanmak için boş bırakın."
+        "tr": "Prosesin hedef veya geçmiş ortalaması. Bilinmiyorsa, örneklem ortalamasını kullanmak için boş bırakın.",
+        "de": "Ziel- oder historischer Mittelwert des Prozesses. Falls unbekannt, leer lassen, um den Stichprobenmittelwert zu verwenden.",
+        "fr": "Moyenne cible ou historique du processus. Si inconnue, laisser vide pour utiliser la moyenne de l'échantillon."
       }
     },
     {
@@ -58,11 +67,16 @@
       "businessContext": "Known process standard deviation. If unknown, leave blank to use sample standard deviation.",
       "label_i18n": {
         "en": "Population Standard Deviation (σ)",
-        "tr": "Popülasyon Standart Sapması (σ)"
+        "tr": "Popülasyon Standart Sapması (σ)",
+        "de": "Populationsstandardabweichung (σ)",
+        "fr": "Écart type de la population (σ)",
+        "es": "Desviación estándar poblacional (σ)"
       },
       "businessContext_i18n": {
         "en": "Known process standard deviation. If unknown, leave blank to use sample standard deviation.",
-        "tr": "Bilinen proses standart sapması. Bilinmiyorsa, örneklem standart sapmasını kullanmak için boş bırakın."
+        "tr": "Bilinen proses standart sapması. Bilinmiyorsa, örneklem standart sapmasını kullanmak için boş bırakın.",
+        "de": "Bekannte Standardabweichung des Prozesses. Falls unbekannt, leer lassen, um die Stichproben-Standardabweichung zu verwenden.",
+        "fr": "Écart-type connu du processus. Si inconnu, laisser vide pour utiliser l'écart-type de l'échantillon."
       }
     },
     {
@@ -82,11 +96,15 @@
       "label_i18n": {
         "en": "Confidence Level",
         "tr": "Güven Düzeyi",
-        "de": "Konfidenzniveau"
+        "de": "Konfidenzniveau",
+        "fr": "Niveau de confiance",
+        "es": "Nivel de confianza"
       },
       "businessContext_i18n": {
         "en": "Desired confidence level for interval estimation. Common values: 90%, 95%, 99%.",
-        "tr": "Aralık tahmini için istenen güven düzeyi. Yaygın değerler: %90, %95, %99."
+        "tr": "Aralık tahmini için istenen güven düzeyi. Yaygın değerler: %90, %95, %99.",
+        "de": "Gewünschtes Konfidenzniveau für die Intervallschätzung. Übliche Werte: 90 %, 95 %, 99 %.",
+        "fr": "Niveau de confiance souhaité pour l'estimation par intervalle. Valeurs courantes : 90 %, 95 %, 99 %."
       }
     },
     {
@@ -105,11 +123,16 @@
       ],
       "label_i18n": {
         "en": "Tail Type",
-        "tr": "Kuyruk Türü"
+        "tr": "Kuyruk Türü",
+        "de": "Seitentyp",
+        "fr": "Type de queue",
+        "es": "Tipo de cola"
       },
       "businessContext_i18n": {
         "en": "Specifies whether the test is one-tailed (upper/lower) or two-tailed.",
-        "tr": "Testin tek kuyruklu (üst/alt) veya çift kuyruklu olduğunu belirtir."
+        "tr": "Testin tek kuyruklu (üst/alt) veya çift kuyruklu olduğunu belirtir.",
+        "de": "Gibt an, ob der Test einseitig (oben/unten) oder zweiseitig ist.",
+        "fr": "Spécifie si le test est unilatéral (supérieur/inférieur) ou bilatéral."
       }
     },
     {
@@ -123,11 +146,15 @@
       "businessContext": "When true, the calculator will estimate σ from the sample data using Bessel's correction.",
       "label_i18n": {
         "en": "Use Sample Standard Deviation (if σ unknown)",
-        "tr": "Örneklem Standart Sapmasını Kullan (σ bilinmiyorsa)"
+        "tr": "Örneklem Standart Sapmasını Kullan (σ bilinmiyorsa)",
+        "de": "Stichproben-Standardabweichung verwenden (falls σ unbekannt)",
+        "fr": "Utiliser l'écart-type de l'échantillon (si σ inconnu)"
       },
       "businessContext_i18n": {
         "en": "When true, the calculator will estimate σ from the sample data using Bessel's correction.",
-        "tr": "Doğru olduğunda, hesaplama aracı σ'yı Bessel düzeltmesi kullanarak örneklem verisinden tahmin eder."
+        "tr": "Doğru olduğunda, hesaplama aracı σ'yı Bessel düzeltmesi kullanarak örneklem verisinden tahmin eder.",
+        "de": "Wenn wahr, schätzt der Rechner σ aus den Stichprobendaten mit Bessel-Korrektur.",
+        "fr": "Si vrai, le calculateur estimera σ à partir des données de l'échantillon en utilisant la correction de Bessel."
       }
     }
   ],

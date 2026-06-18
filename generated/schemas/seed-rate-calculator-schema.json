@@ -23,11 +23,15 @@
       "businessContext": "Desired final stand count per hectare based on agronomic recommendations and yield goals.",
       "label_i18n": {
         "en": "Target Plant Population (plants/ha)",
-        "tr": "Hedef Bitki Popülasyonu (bitki/ha)"
+        "tr": "Hedef Bitki Popülasyonu (bitki/ha)",
+        "de": "Ziel-Pflanzenbestand (Pflanzen/ha)",
+        "fr": "Population végétale cible (plants/ha)"
       },
       "businessContext_i18n": {
         "en": "Desired final stand count per hectare based on agronomic recommendations and yield goals.",
-        "tr": "Agronomik önerilere ve verim hedeflerine dayalı olarak hektar başına istenen nihai bitki sayısı."
+        "tr": "Agronomik önerilere ve verim hedeflerine dayalı olarak hektar başına istenen nihai bitki sayısı.",
+        "de": "Gewünschter Endbestand pro Hektar basierend auf agronomischen Empfehlungen und Ertragszielen.",
+        "fr": "Nombre final de pieds souhaité par hectare, basé sur les recommandations agronomiques et les objectifs de rendement."
       }
     },
     {
@@ -41,11 +45,15 @@
       "businessContext": "Percentage of seeds expected to germinate under optimal conditions, typically from seed lot analysis.",
       "label_i18n": {
         "en": "Germination Rate (%)",
-        "tr": "Çimlenme Oranı (%)"
+        "tr": "Çimlenme Oranı (%)",
+        "de": "Keimrate (%)",
+        "fr": "Taux de germination (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of seeds expected to germinate under optimal conditions, typically from seed lot analysis.",
-        "tr": "Optimal koşullar altında çimlenmesi beklenen tohum yüzdesi, tipik olarak tohum partisi analizinden."
+        "tr": "Optimal koşullar altında çimlenmesi beklenen tohum yüzdesi, tipik olarak tohum partisi analizinden.",
+        "de": "Prozentsatz der Samen, die unter optimalen Bedingungen keimen, typischerweise aus der Saatgutanalyse.",
+        "fr": "Pourcentage de semences censées germer dans des conditions optimales, généralement issu de l'analyse du lot de semences."
       }
     },
     {
@@ -59,11 +67,15 @@
       "businessContext": "Expected percentage of germinated seeds that emerge as healthy seedlings, accounting for soil conditions, pests, and weather.",
       "label_i18n": {
         "en": "Field Emergence Factor (%)",
-        "tr": "Tarla Çıkış Faktörü (%)"
+        "tr": "Tarla Çıkış Faktörü (%)",
+        "de": "Feldaufgangsfaktor (%)",
+        "fr": "Facteur de levée au champ (%)"
       },
       "businessContext_i18n": {
         "en": "Expected percentage of germinated seeds that emerge as healthy seedlings, accounting for soil conditions, pests, and weather.",
-        "tr": "Çimlenen tohumların sağlıklı fide olarak çıkması beklenen yüzde, toprak koşulları, zararlılar ve hava durumu dikkate alınarak."
+        "tr": "Çimlenen tohumların sağlıklı fide olarak çıkması beklenen yüzde, toprak koşulları, zararlılar ve hava durumu dikkate alınarak.",
+        "de": "Erwarteter Prozentsatz der gekeimten Samen, die als gesunde Sämlinge auflaufen, unter Berücksichtigung von Bodenbedingungen, Schädlingen und Wetter.",
+        "fr": "Pourcentage attendu de semences germées qui émergent en plantules saines, tenant compte des conditions du sol, des ravageurs et de la météo."
       }
     },
     {
@@ -77,11 +89,15 @@
       "businessContext": "Thousand kernel weight (TKW) from seed supplier or lab test, used to convert seed count to mass.",
       "label_i18n": {
         "en": "Seed Weight (g per 1000 seeds)",
-        "tr": "Tohum Ağırlığı (g/1000 tohum)"
+        "tr": "Tohum Ağırlığı (g/1000 tohum)",
+        "de": "Saatgutgewicht (g pro 1000 Samen)",
+        "fr": "Poids des semences (g pour 1000 semences)"
       },
       "businessContext_i18n": {
         "en": "Thousand kernel weight (TKW) from seed supplier or lab test, used to convert seed count to mass.",
-        "tr": "Tohum tedarikçisinden veya laboratuvar testinden bin tane ağırlığı (BTA), tohum sayısını kütleye dönüştürmek için kullanılır."
+        "tr": "Tohum tedarikçisinden veya laboratuvar testinden bin tane ağırlığı (BTA), tohum sayısını kütleye dönüştürmek için kullanılır.",
+        "de": "Tausendkorngewicht (TKG) vom Saatgutlieferanten oder aus dem Labor, zur Umrechnung von Samenzahl in Masse.",
+        "fr": "Poids de mille grains (PMG) du fournisseur de semences ou d'un test en laboratoire, utilisé pour convertir le nombre de semences en masse."
       }
     },
     {
@@ -95,11 +111,15 @@
       "businessContext": "Distance between planting rows, typically set by planter configuration and crop type.",
       "label_i18n": {
         "en": "Row Spacing (cm)",
-        "tr": "Sıra Aralığı (cm)"
+        "tr": "Sıra Aralığı (cm)",
+        "de": "Reihenabstand (cm)",
+        "fr": "Espacement des rangs (cm)"
       },
       "businessContext_i18n": {
         "en": "Distance between planting rows, typically set by planter configuration and crop type.",
-        "tr": "Ekim sıraları arasındaki mesafe, tipik olarak ekim makinesi konfigürasyonu ve ürün tipine göre belirlenir."
+        "tr": "Ekim sıraları arasındaki mesafe, tipik olarak ekim makinesi konfigürasyonu ve ürün tipine göre belirlenir.",
+        "de": "Abstand zwischen den Pflanzreihen, typischerweise durch die Sämaschinenkonfiguration und die Kulturart festgelegt.",
+        "fr": "Distance entre les rangs de plantation, généralement définie par la configuration du semoir et le type de culture."
       }
     },
     {
@@ -113,11 +133,15 @@
       "businessContext": "Operational efficiency of the planter accounting for skips, doubles, and mechanical losses (Lean OEE metric).",
       "label_i18n": {
         "en": "Planter Efficiency (%)",
-        "tr": "Ekim Makinesi Verimliliği (%)"
+        "tr": "Ekim Makinesi Verimliliği (%)",
+        "de": "Sämaschinen-Effizienz (%)",
+        "fr": "Efficacité du semoir (%)"
       },
       "businessContext_i18n": {
         "en": "Operational efficiency of the planter accounting for skips, doubles, and mechanical losses (Lean OEE metric).",
-        "tr": "Ekim makinesinin atlama, çift ekim ve mekanik kayıpları hesaba katan operasyonel verimliliği (Yalın OEE metriği)."
+        "tr": "Ekim makinesinin atlama, çift ekim ve mekanik kayıpları hesaba katan operasyonel verimliliği (Yalın OEE metriği).",
+        "de": "Betriebseffizienz der Sämaschine unter Berücksichtigung von Auslassungen, Doppelbelegungen und mechanischen Verlusten (Lean OEE-Kennzahl).",
+        "fr": "Efficacité opérationnelle du semoir tenant compte des sauts, des doubles et des pertes mécaniques (métrique OEE Lean)."
       }
     },
     {
@@ -131,11 +155,15 @@
       "businessContext": "Purchase price of seed per kilogram, used for economic analysis.",
       "label_i18n": {
         "en": "Seed Cost per Unit ($/kg)",
-        "tr": "Tohum Birim Maliyeti ($/kg)"
+        "tr": "Tohum Birim Maliyeti ($/kg)",
+        "de": "Saatgutkosten pro Einheit ($/kg)",
+        "fr": "Coût des semences par unité ($/kg)"
       },
       "businessContext_i18n": {
         "en": "Purchase price of seed per kilogram, used for economic analysis.",
-        "tr": "Tohumun kilogram başına satın alma fiyatı, ekonomik analiz için kullanılır."
+        "tr": "Tohumun kilogram başına satın alma fiyatı, ekonomik analiz için kullanılır.",
+        "de": "Kaufpreis des Saatguts pro Kilogramm, für wirtschaftliche Analysen.",
+        "fr": "Prix d'achat des semences par kilogramme, utilisé pour l'analyse économique."
       }
     },
     {
@@ -149,11 +177,15 @@
       "businessContext": "Market price per tonne of harvested crop, used for ROI calculations.",
       "label_i18n": {
         "en": "Expected Yield Value ($/tonne)",
-        "tr": "Beklenen Verim Değeri ($/ton)"
+        "tr": "Beklenen Verim Değeri ($/ton)",
+        "de": "Erwarteter Ertragswert ($/Tonne)",
+        "fr": "Valeur de rendement attendue ($/tonne)"
       },
       "businessContext_i18n": {
         "en": "Market price per tonne of harvested crop, used for ROI calculations.",
-        "tr": "Hasat edilen ürünün ton başına piyasa fiyatı, yatırım getirisi hesaplamaları için kullanılır."
+        "tr": "Hasat edilen ürünün ton başına piyasa fiyatı, yatırım getirisi hesaplamaları için kullanılır.",
+        "de": "Marktpreis pro Tonne der geernteten Kultur, für ROI-Berechnungen.",
+        "fr": "Prix du marché par tonne de récolte, utilisé pour les calculs de retour sur investissement."
       }
     }
   ],

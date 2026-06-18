@@ -12,14 +12,16 @@
         "en": "Nominal Annual Rate",
         "tr": "Nominal Yıllık Faiz Oranı",
         "de": "Nominaler Jahreszins",
-        "fr": "Nominal Annual Rate",
-        "es": "Nominal Annual Rate",
+        "fr": "Taux nominal annuel",
+        "es": "Tasa nominal anual",
         "ar": "Nominal Annual Rate"
       },
       "businessContext_i18n": {
         "en": "The stated annual interest rate before compounding.",
         "tr": "Bileşik faiz öncesi belirtilen yıllık faiz oranı.",
-        "de": "Der angegebene jährliche Zinssatz vor Zinseszins."
+        "de": "Der angegebene jährliche Zinssatz vor Zinseszins.",
+        "fr": "Taux d'intérêt annuel déclaré avant composition.",
+        "es": "Tasa de interés anual declarada antes de la capitalización."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Compounding Periods per Year",
         "tr": "Yıllık Bileşik Dönem Sayısı",
         "de": "Zinsperioden pro Jahr",
-        "fr": "Compounding Periods per Year",
-        "es": "Compounding Periods per Year",
+        "fr": "Périodes de capitalisation par an",
+        "es": "Períodos de capitalización por año",
         "ar": "Compounding Periods per Year"
       },
       "businessContext_i18n": {
         "en": "Number of times interest is compounded annually.",
         "tr": "Yıllık bileşik faiz dönemi sayısı.",
-        "de": "Anzahl der Zinseszinsperioden pro Jahr."
+        "de": "Anzahl der Zinseszinsperioden pro Jahr.",
+        "fr": "Nombre de fois que l'intérêt est composé par an.",
+        "es": "Número de veces que se capitaliza el interés por año."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Time Period",
         "tr": "Zaman Periyodu",
         "de": "Zeitraum",
-        "fr": "Time Period",
-        "es": "Time Period",
+        "fr": "Période",
+        "es": "Período de tiempo",
         "ar": "Time Period"
       },
       "businessContext_i18n": {
         "en": "Investment duration in years for growth factor computation.",
         "tr": "Büyüme faktörü hesaplaması için yatırım süresi (yıl).",
-        "de": "Anlagedauer in Jahren für die Berechnung des Wachstumsfaktors."
+        "de": "Anlagedauer in Jahren für die Berechnung des Wachstumsfaktors.",
+        "fr": "Durée d'investissement en années pour le calcul du facteur de croissance.",
+        "es": "Duración de la inversión en años para el cálculo del factor de crecimiento."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Principal Amount",
         "tr": "Anapara Tutarı",
         "de": "Kapitalbetrag",
-        "fr": "Principal Amount",
-        "es": "Principal Amount",
+        "fr": "Montant principal",
+        "es": "Monto principal",
         "ar": "Principal Amount"
       },
       "businessContext_i18n": {
         "en": "Initial investment amount (use 1 for factor-only calculations).",
         "tr": "Başlangıç yatırım tutarı (sadece faktör hesaplamaları için 1 kullanın).",
-        "de": "Anfänglicher Anlagebetrag (für reine Faktorberechnungen 1 verwenden)."
+        "de": "Anfänglicher Anlagebetrag (für reine Faktorberechnungen 1 verwenden).",
+        "fr": "Montant de l'investissement initial (utilisez 1 pour les calculs de facteur uniquement).",
+        "es": "Monto de inversión inicial (use 1 para cálculos solo de factor)."
       }
     }
   ],

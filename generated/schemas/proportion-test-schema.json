@@ -12,13 +12,16 @@
         "en": "Sample Size (n)",
         "tr": "Örneklem Büyüklüğü (n)",
         "de": "Stichprobengröße (n)",
-        "fr": "Sample Size (n)",
-        "es": "Sample Size (n)",
+        "fr": "Taille de l'échantillon (n)",
+        "es": "Tamaño de la muestra (n)",
         "ar": "Sample Size (n)"
       },
       "businessContext_i18n": {
         "en": "Total number of observations/trials.",
-        "tr": "Toplam gözlem/deneme sayısı."
+        "tr": "Toplam gözlem/deneme sayısı.",
+        "de": "Gesamtzahl der Beobachtungen/Versuche.",
+        "fr": "Nombre total d'observations/essais.",
+        "es": "Número total de observaciones/ensayos."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Number of Successes (x)",
         "tr": "Başarı sayısı (x)",
         "de": "Anzahl der Erfolge (x)",
-        "fr": "Number of Successes (x)",
-        "es": "Number of Successes (x)",
+        "fr": "Nombre de succès (x)",
+        "es": "Número de éxitos (x)",
         "ar": "Number of Successes (x)"
       },
       "businessContext_i18n": {
         "en": "Count of positive events/results in the sample.",
-        "tr": "Örneklemdeki pozitif olay/sonuç sayısı."
+        "tr": "Örneklemdeki pozitif olay/sonuç sayısı.",
+        "de": "Anzahl der positiven Ereignisse/Ergebnisse in der Stichprobe.",
+        "fr": "Nombre d'événements/résultats positifs dans l'échantillon.",
+        "es": "Recuento de eventos/resultados positivos en la muestra."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Hypothesized Proportion (p₀)",
         "tr": "Hipotez Edilen Oran (p₀)",
-        "de": "Hypothesized Proportion (p₀)",
-        "fr": "Hypothesized Proportion (p₀)",
-        "es": "Hypothesized Proportion (p₀)",
+        "de": "Hypothetischer Anteil (p₀)",
+        "fr": "Proportion hypothétique (p₀)",
+        "es": "Proporción hipotética (p₀)",
         "ar": "Hypothesized Proportion (p₀)"
       },
       "businessContext_i18n": {
         "en": "Null hypothesis proportion (often 0.5 for symmetry).",
-        "tr": "Sıfır hipotezi oranı (genellikle simetri için 0.5)."
+        "tr": "Sıfır hipotezi oranı (genellikle simetri için 0.5).",
+        "de": "Nullhypothesenanteil (oft 0,5 für Symmetrie).",
+        "fr": "Proportion sous l'hypothèse nulle (souvent 0,5 pour la symétrie).",
+        "es": "Proporción de la hipótesis nula (a menudo 0.5 para simetría)."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Significance Level (α)",
         "tr": "Anlamlılık Düzeyi (α)",
-        "de": "Significance Level (α)",
-        "fr": "Significance Level (α)",
-        "es": "Significance Level (α)",
+        "de": "Signifikanzniveau (α)",
+        "fr": "Niveau de signification (α)",
+        "es": "Nivel de significancia (α)",
         "ar": "Significance Level (α)"
       },
       "businessContext_i18n": {
         "en": "Type I error probability threshold (commonly 0.05).",
-        "tr": "Tip I hata olasılığı eşiği (genellikle 0.05)."
+        "tr": "Tip I hata olasılığı eşiği (genellikle 0.05).",
+        "de": "Schwellenwert für Fehler 1. Art (üblich 0,05).",
+        "fr": "Seuil de probabilité d'erreur de type I (généralement 0,05).",
+        "es": "Umbral de probabilidad de error tipo I (comúnmente 0.05)."
       }
     }
   ],

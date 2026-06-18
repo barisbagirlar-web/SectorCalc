@@ -12,13 +12,16 @@
         "en": "Systolic Blood Pressure",
         "tr": "Sistolik Kan Basıncı",
         "de": "Systolischer Blutdruck",
-        "fr": "Systolic Blood Pressure",
-        "es": "Systolic Blood Pressure",
+        "fr": "Pression artérielle systolique",
+        "es": "Presión arterial sistólica",
         "ar": "Systolic Blood Pressure"
       },
       "businessContext_i18n": {
         "en": "Measured systolic pressure in the brachial artery using a validated oscillometric device.",
-        "tr": "Geçerli bir osilometrik cihaz kullanılarak brakial arterde ölçülen sistolik basınç."
+        "tr": "Geçerli bir osilometrik cihaz kullanılarak brakial arterde ölçülen sistolik basınç.",
+        "de": "Gemessener systolischer Druck in der Arteria brachialis mit einem validierten oszillometrischen Gerät.",
+        "fr": "Pression systolique mesurée dans l'artère brachiale à l'aide d'un appareil oscillométrique validé.",
+        "es": "Presión sistólica medida en la arteria braquial con un dispositivo oscilométrico validado."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Diastolic Blood Pressure",
         "tr": "Diyastolik Kan Basıncı",
         "de": "Diastolischer Blutdruck",
-        "fr": "Diastolic Blood Pressure",
-        "es": "Diastolic Blood Pressure",
+        "fr": "Pression artérielle diastolique",
+        "es": "Presión arterial diastólica",
         "ar": "Diastolic Blood Pressure"
       },
       "businessContext_i18n": {
         "en": "Measured diastolic pressure, Korotkoff phase V.",
-        "tr": "Ölçülen diyastolik basınç, Korotkoff faz V."
+        "tr": "Ölçülen diyastolik basınç, Korotkoff faz V.",
+        "de": "Gemessener diastolischer Druck, Korotkoff-Phase V.",
+        "fr": "Pression diastolique mesurée, phase V de Korotkoff.",
+        "es": "Presión diastólica medida, fase V de Korotkoff."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Resting Heart Rate",
         "tr": "Dinlenme Kalp Atış Hızı",
         "de": "Ruhepuls",
-        "fr": "Resting Heart Rate",
-        "es": "Resting Heart Rate",
+        "fr": "Fréquence cardiaque au repos",
+        "es": "Frecuencia cardíaca en reposo",
         "ar": "Resting Heart Rate"
       },
       "businessContext_i18n": {
         "en": "Palpated or electronically measured pulse rate per minute, at rest for at least 5 minutes.",
-        "tr": "Palpasyonla veya elektronik olarak ölçülen dakikadaki nabız sayısı, en az 5 dakika dinlenme sonrası."
+        "tr": "Palpasyonla veya elektronik olarak ölçülen dakikadaki nabız sayısı, en az 5 dakika dinlenme sonrası.",
+        "de": "Getastete oder elektronisch gemessene Pulsfrequenz pro Minute, in Ruhe für mindestens 5 Minuten.",
+        "fr": "Fréquence cardiaque palpée ou mesurée électroniquement par minute, au repos depuis au moins 5 minutes.",
+        "es": "Frecuencia del pulso palpada o medida electrónicamente por minuto, en reposo durante al menos 5 minutos."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Patient Age",
         "tr": "Hasta Yaşı",
-        "de": "Patient Age",
-        "fr": "Patient Age",
-        "es": "Patient Age",
+        "de": "Patientenalter",
+        "fr": "Âge du patient",
+        "es": "Edad del paciente",
         "ar": "Patient Age"
       },
       "businessContext_i18n": {
         "en": "Age of the patient for normalization of expected pulse pressure.",
-        "tr": "Beklenen nabız basıncının normalizasyonu için hastanın yaşı."
+        "tr": "Beklenen nabız basıncının normalizasyonu için hastanın yaşı.",
+        "de": "Alter des Patienten zur Normalisierung des erwarteten Pulsdrucks.",
+        "fr": "Âge du patient pour la normalisation de la pression pulsée attendue.",
+        "es": "Edad del paciente para normalización de la presión de pulso esperada."
       }
     }
   ],

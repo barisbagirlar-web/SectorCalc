@@ -12,14 +12,16 @@
         "en": "Net Operating Income",
         "tr": "Net Faaliyet Geliri",
         "de": "Netto-Betriebseinkommen",
-        "fr": "Net Operating Income",
-        "es": "Net Operating Income",
+        "fr": "Résultat net d'exploitation",
+        "es": "Ingreso operativo neto",
         "ar": "Net Operating Income"
       },
       "businessContext_i18n": {
         "en": "Annual net operating income from core business operations, before debt service and taxes.",
         "tr": "Temel iş faaliyetlerinden elde edilen yıllık net faaliyet geliri, borç servisi ve vergiler öncesi.",
-        "de": "Jährliches Netto-Betriebseinkommen aus dem Kerngeschäft vor Schuldendienst und Steuern."
+        "de": "Jährliches Netto-Betriebseinkommen aus dem Kerngeschäft vor Schuldendienst und Steuern.",
+        "fr": "Résultat net d'exploitation annuel des activités principales, avant service de la dette et impôts.",
+        "es": "Ingreso operativo neto anual de las operaciones comerciales principales, antes del servicio de la deuda e impuestos."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Principal Repayments",
         "tr": "Anapara Geri Ödemeleri",
         "de": "Tilgungszahlungen",
-        "fr": "Principal Repayments",
-        "es": "Principal Repayments",
+        "fr": "Remboursements du principal",
+        "es": "Pagos de principal",
         "ar": "Principal Repayments"
       },
       "businessContext_i18n": {
         "en": "Annual principal repayments on all business debts (loans, mortgages, etc.).",
         "tr": "Tüm işletme borçlarına (krediler, ipotekler vb.) ilişkin yıllık anapara geri ödemeleri.",
-        "de": "Jährliche Tilgungszahlungen auf alle Geschäftsschulden (Darlehen, Hypotheken usw.)."
+        "de": "Jährliche Tilgungszahlungen auf alle Geschäftsschulden (Darlehen, Hypotheken usw.).",
+        "fr": "Remboursements annuels du principal sur toutes les dettes professionnelles (prêts, hypothèques, etc.).",
+        "es": "Pagos anuales de principal de todas las deudas comerciales (préstamos, hipotecas, etc.)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Interest Payments",
         "tr": "Faiz Ödemeleri",
         "de": "Zinszahlungen",
-        "fr": "Interest Payments",
-        "es": "Interest Payments",
+        "fr": "Paiements d'intérêts",
+        "es": "Pagos de intereses",
         "ar": "Interest Payments"
       },
       "businessContext_i18n": {
         "en": "Annual interest payments on all business debts.",
         "tr": "Tüm işletme borçlarına ilişkin yıllık faiz ödemeleri.",
-        "de": "Jährliche Zinszahlungen auf alle Geschäftsschulden."
+        "de": "Jährliche Zinszahlungen auf alle Geschäftsschulden.",
+        "fr": "Paiements annuels d'intérêts sur toutes les dettes professionnelles.",
+        "es": "Pagos anuales de intereses de todas las deudas comerciales."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Lease Payments",
         "tr": "Kira Ödemeleri",
         "de": "Leasingzahlungen",
-        "fr": "Lease Payments",
-        "es": "Lease Payments",
+        "fr": "Paiements de location",
+        "es": "Pagos de arrendamiento",
         "ar": "Lease Payments"
       },
       "businessContext_i18n": {
         "en": "Annual lease payments considered as debt obligations. Enter 0 if none.",
         "tr": "Borç yükümlülüğü olarak kabul edilen yıllık kira ödemeleri. Yoksa 0 girin.",
-        "de": "Jährliche Leasingzahlungen gelten als Schuldenverpflichtungen. Geben Sie 0 ein, falls keine."
+        "de": "Jährliche Leasingzahlungen gelten als Schuldenverpflichtungen. Geben Sie 0 ein, falls keine.",
+        "fr": "Paiements annuels de location considérés comme des obligations de dette. Entrez 0 si aucun.",
+        "es": "Pagos anuales de arrendamiento considerados como obligaciones de deuda. Ingrese 0 si no aplica."
       }
     }
   ],

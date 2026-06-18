@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Daily Benefit Amount",
         "tr": "Günlük Yardım Tutarı",
-        "de": "Daily Benefit Amount",
-        "fr": "Daily Benefit Amount",
-        "es": "Daily Benefit Amount",
+        "de": "Täglicher Leistungsbetrag",
+        "fr": "Montant journalier de l'indemnité",
+        "es": "Monto del beneficio diario",
         "ar": "Daily Benefit Amount"
       },
       "businessContext_i18n": {
         "en": "The amount paid per day of care",
-        "tr": "Bakım günü başına ödenen tutar"
+        "tr": "Bakım günü başına ödenen tutar",
+        "de": "Der pro Pflegetag gezahlte Betrag",
+        "fr": "Montant payé par jour de soins",
+        "es": "Cantidad pagada por día de cuidado"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Benefit Period (Years)",
         "tr": "Yardım Süresi (Yıl)",
-        "de": "Benefit Period (Years)",
-        "fr": "Benefit Period (Years)",
-        "es": "Benefit Period (Years)",
+        "de": "Leistungsdauer (Jahre)",
+        "fr": "Période d'indemnisation (années)",
+        "es": "Período de beneficio (años)",
         "ar": "Benefit Period (Years)"
       },
       "businessContext_i18n": {
         "en": "Maximum number of years benefits are paid",
-        "tr": "Yardımların ödendiği maksimum yıl sayısı"
+        "tr": "Yardımların ödendiği maksimum yıl sayısı",
+        "de": "Maximale Anzahl der Jahre, in denen Leistungen gezahlt werden",
+        "fr": "Nombre maximum d'années de versement des prestations",
+        "es": "Número máximo de años durante los cuales se pagan los beneficios"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Elimination Period (Days)",
         "tr": "Muafiyet Süresi (Gün)",
-        "de": "Elimination Period (Days)",
-        "fr": "Elimination Period (Days)",
-        "es": "Elimination Period (Days)",
+        "de": "Karenzzeit (Tage)",
+        "fr": "Période d'élimination (jours)",
+        "es": "Período de eliminación (días)",
         "ar": "Elimination Period (Days)"
       },
       "businessContext_i18n": {
         "en": "Waiting period before benefits start",
-        "tr": "Yardımlar başlamadan önceki bekleme süresi"
+        "tr": "Yardımlar başlamadan önceki bekleme süresi",
+        "de": "Wartezeit vor Leistungsbeginn",
+        "fr": "Délai de carence avant le début des prestations",
+        "es": "Período de espera antes de que comiencen los beneficios"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Annual Inflation Protection",
         "tr": "Yıllık Enflasyon Koruması",
-        "de": "Annual Inflation Protection",
-        "fr": "Annual Inflation Protection",
-        "es": "Annual Inflation Protection",
+        "de": "Jährlicher Inflationsschutz",
+        "fr": "Protection annuelle contre l'inflation",
+        "es": "Protección anual contra la inflación",
         "ar": "Annual Inflation Protection"
       },
       "businessContext_i18n": {
         "en": "Yearly percentage increase in daily benefit (informative, not used in core calculation)",
-        "tr": "Günlük yardımda yıllık yüzde artış (bilgilendirme amaçlıdır, temel hesaplamada kullanılmaz)"
+        "tr": "Günlük yardımda yıllık yüzde artış (bilgilendirme amaçlıdır, temel hesaplamada kullanılmaz)",
+        "de": "Jährlicher prozentualer Anstieg des Tagessatzes (informativ, nicht in der Kernberechnung verwendet)",
+        "fr": "Augmentation annuelle en pourcentage de l'indemnité journalière (informative, non utilisée dans le calcul principal)",
+        "es": "Incremento porcentual anual del beneficio diario (informativo, no se usa en el cálculo principal)"
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Dry Bulb Temperature",
         "tr": "Kuru Termometre Sıcaklığı",
-        "de": "Dry Bulb Temperature",
-        "fr": "Dry Bulb Temperature",
-        "es": "Dry Bulb Temperature",
+        "de": "Trockentemperatur",
+        "fr": "Température sèche",
+        "es": "Temperatura de bulbo seco",
         "ar": "Dry Bulb Temperature"
       },
       "businessContext_i18n": {
         "en": "The temperature of air measured by a thermometer freely exposed to air but shielded from radiation and moisture.",
-        "tr": "Radyasyon ve nemden korunmuş, serbest havaya maruz kalan bir termometre ile ölçülen hava sıcaklığı."
+        "tr": "Radyasyon ve nemden korunmuş, serbest havaya maruz kalan bir termometre ile ölçülen hava sıcaklığı.",
+        "de": "Die Temperatur der Luft, gemessen mit einem Thermometer, das frei der Luft ausgesetzt, aber vor Strahlung und Feuchtigkeit geschützt ist.",
+        "fr": "Température de l'air mesurée par un thermomètre librement exposé à l'air mais protégé du rayonnement et de l'humidité."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Relative Humidity",
         "tr": "Bağıl Nem",
         "de": "Relative Luftfeuchtigkeit",
-        "fr": "Relative Humidity",
-        "es": "Relative Humidity",
+        "fr": "Humidité relative",
+        "es": "Humedad relativa",
         "ar": "Relative Humidity"
       },
       "businessContext_i18n": {
         "en": "The ratio of the partial pressure of water vapor to the equilibrium vapor pressure of water at the same temperature.",
-        "tr": "Su buharı kısmi basıncının aynı sıcaklıktaki denge buhar basıncına oranı."
+        "tr": "Su buharı kısmi basıncının aynı sıcaklıktaki denge buhar basıncına oranı.",
+        "de": "Das Verhältnis des Partialdrucks von Wasserdampf zum Sättigungsdampfdruck bei derselben Temperatur.",
+        "fr": "Rapport de la pression partielle de vapeur d'eau à la pression de vapeur saturante à la même température."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Atmospheric Pressure",
         "tr": "Atmosfer Basıncı",
         "de": "Atmosphärendruck",
-        "fr": "Atmospheric Pressure",
-        "es": "Atmospheric Pressure",
+        "fr": "Pression atmosphérique",
+        "es": "Presión atmosférica",
         "ar": "Atmospheric Pressure"
       },
       "businessContext_i18n": {
         "en": "The pressure exerted by the weight of the atmosphere at the location (standard sea-level pressure is 1013.25 hPa). Not used in this simplified calculation.",
-        "tr": "Konumdaki atmosferin ağırlığının uyguladığı basınç (standart deniz seviyesi basıncı 1013.25 hPa'dır). Bu basitleştirilmiş hesaplamada kullanılmaz."
+        "tr": "Konumdaki atmosferin ağırlığının uyguladığı basınç (standart deniz seviyesi basıncı 1013.25 hPa'dır). Bu basitleştirilmiş hesaplamada kullanılmaz.",
+        "de": "Der Druck, der durch das Gewicht der Atmosphäre am Standort ausgeübt wird (Standard-Meeresniveau-Druck beträgt 1013,25 hPa). Wird in dieser vereinfachten Berechnung nicht verwendet.",
+        "fr": "Pression exercée par le poids de l'atmosphère à l'emplacement (pression standard au niveau de la mer : 1013,25 hPa). Non utilisée dans ce calcul simplifié."
       }
     },
     {
@@ -73,12 +79,14 @@
         "tr": "Rakım",
         "de": "Höhe",
         "fr": "Altitude",
-        "es": "Altitude",
+        "es": "Altitud",
         "ar": "Altitude"
       },
       "businessContext_i18n": {
         "en": "Elevation above sea level. Not used in this simplified calculation.",
-        "tr": "Deniz seviyesinden yükseklik. Bu basitleştirilmiş hesaplamada kullanılmaz."
+        "tr": "Deniz seviyesinden yükseklik. Bu basitleştirilmiş hesaplamada kullanılmaz.",
+        "de": "Höhe über dem Meeresspiegel. Wird in dieser vereinfachten Berechnung nicht verwendet.",
+        "fr": "Altitude au-dessus du niveau de la mer. Non utilisée dans ce calcul simplifié."
       }
     }
   ],

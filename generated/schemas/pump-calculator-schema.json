@@ -12,13 +12,16 @@
         "en": "Flow Rate",
         "tr": "Debi",
         "de": "Durchflussrate",
-        "fr": "Flow Rate",
-        "es": "Flow Rate",
+        "fr": "Débit",
+        "es": "Caudal",
         "ar": "Flow Rate"
       },
       "businessContext_i18n": {
         "en": "The volumetric flow rate of the fluid through the pump.",
-        "tr": "Pompadan geçen akışkanın hacimsel debisi."
+        "tr": "Pompadan geçen akışkanın hacimsel debisi.",
+        "de": "Der volumetrische Durchfluss des Fluids durch die Pumpe.",
+        "fr": "Débit volumétrique du fluide à travers la pompe.",
+        "es": "Caudal volumétrico del fluido a través de la bomba."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Total Head",
         "tr": "Toplam Basma Yüksekliği",
-        "de": "Total Head",
-        "fr": "Total Head",
-        "es": "Total Head",
+        "de": "Gesamtförderhöhe",
+        "fr": "Hauteur manométrique totale",
+        "es": "Altura total",
         "ar": "Total Head"
       },
       "businessContext_i18n": {
         "en": "The total dynamic head, i.e., the height to which the fluid is pumped.",
-        "tr": "Toplam dinamik basma yüksekliği, yani akışkanın pompalandığı yükseklik."
+        "tr": "Toplam dinamik basma yüksekliği, yani akışkanın pompalandığı yükseklik.",
+        "de": "Die gesamte dynamische Förderhöhe, d.h. die Höhe, auf die das Fluid gepumpt wird.",
+        "fr": "Hauteur manométrique totale, c'est-à-dire la hauteur à laquelle le fluide est pompé.",
+        "es": "Altura dinámica total, es decir, la altura a la que se bombea el fluido."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Fluid Density",
         "tr": "Akışkan Yoğunluğu",
         "de": "Flüssigkeitsdichte",
-        "fr": "Fluid Density",
-        "es": "Fluid Density",
+        "fr": "Densité du fluide",
+        "es": "Densidad del fluido",
         "ar": "Fluid Density"
       },
       "businessContext_i18n": {
         "en": "The mass density of the fluid. Default value is for water at 20°C.",
-        "tr": "Akışkanın kütle yoğunluğu. Varsayılan değer 20°C'deki su içindir."
+        "tr": "Akışkanın kütle yoğunluğu. Varsayılan değer 20°C'deki su içindir.",
+        "de": "Die Massendichte des Fluids. Standardwert für Wasser bei 20°C.",
+        "fr": "Masse volumique du fluide. La valeur par défaut est pour l'eau à 20°C.",
+        "es": "Densidad másica del fluido. El valor predeterminado es para agua a 20°C."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Pump Efficiency",
         "tr": "Pompa Verimliliği",
-        "de": "Pump Efficiency",
-        "fr": "Pump Efficiency",
-        "es": "Pump Efficiency",
+        "de": "Pumpenwirkungsgrad",
+        "fr": "Rendement de la pompe",
+        "es": "Eficiencia de la bomba",
         "ar": "Pump Efficiency"
       },
       "businessContext_i18n": {
         "en": "The hydraulic efficiency of the pump (from manufacturer curve). Enter as percentage.",
-        "tr": "Pompanın hidrolik verimliliği (üretici eğrisinden). Yüzde olarak girin."
+        "tr": "Pompanın hidrolik verimliliği (üretici eğrisinden). Yüzde olarak girin.",
+        "de": "Der hydraulische Wirkungsgrad der Pumpe (aus Herstellerkennlinie). Als Prozentsatz eingeben.",
+        "fr": "Rendement hydraulique de la pompe (d'après la courbe du fabricant). Saisir en pourcentage.",
+        "es": "Eficiencia hidráulica de la bomba (según curva del fabricante). Ingrese como porcentaje."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Motor Efficiency",
         "tr": "Motor verimliliği",
         "de": "Motorwirkungsgrad",
-        "fr": "Motor Efficiency",
-        "es": "Motor Efficiency",
+        "fr": "Rendement du moteur",
+        "es": "Eficiencia del motor",
         "ar": "Motor Efficiency"
       },
       "businessContext_i18n": {
         "en": "The efficiency of the electric motor driving the pump. Enter as percentage.",
-        "tr": "Pompayı çalıştıran elektrik motorunun verimliliği. Yüzde olarak girin."
+        "tr": "Pompayı çalıştıran elektrik motorunun verimliliği. Yüzde olarak girin.",
+        "de": "Der Wirkungsgrad des Elektromotors, der die Pumpe antreibt. Als Prozentsatz eingeben.",
+        "fr": "Rendement du moteur électrique entraînant la pompe. Saisir en pourcentage.",
+        "es": "Eficiencia del motor eléctrico que acciona la bomba. Ingrese como porcentaje."
       }
     }
   ],

@@ -13,13 +13,15 @@
         "tr": "Açı",
         "de": "Winkel",
         "fr": "Angle",
-        "es": "Angle",
+        "es": "Ángulo",
         "ar": "Angle"
       },
       "businessContext_i18n": {
         "en": "Angle value for trigonometric function",
         "tr": "Trigonometrik fonksiyon için açı değeri",
-        "de": "Winkelwert für trigonometrische Funktion"
+        "de": "Winkelwert für trigonometrische Funktion",
+        "fr": "Valeur de l'angle pour la fonction trigonométrique",
+        "es": "Valor del ángulo para la función trigonométrica"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Angle Mode",
         "tr": "Açı Modu",
         "de": "Winkelmodus",
-        "fr": "Angle Mode",
-        "es": "Angle Mode",
+        "fr": "Mode d'angle",
+        "es": "Modo de ángulo",
         "ar": "Angle Mode"
       },
       "businessContext_i18n": {
         "en": "0: Degrees, 1: Radians",
         "tr": "0: Derece, 1: Radyan",
-        "de": "0: Grad, 1: Bogenmaß"
+        "de": "0: Grad, 1: Bogenmaß",
+        "fr": "0: Degrés, 1: Radians",
+        "es": "0: Grados, 1: Radianes"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Function",
         "tr": "Fonksiyon",
         "de": "Funktion",
-        "fr": "Function",
-        "es": "Function",
+        "fr": "Fonction",
+        "es": "Función",
         "ar": "Function"
       },
       "businessContext_i18n": {
         "en": "0: sin, 1: cos, 2: tan, 3: arcsin, 4: arccos, 5: arctan",
         "tr": "0: sin, 1: cos, 2: tan, 3: arcsin, 4: arccos, 5: arctan",
-        "de": "0: sin, 1: cos, 2: tan, 3: arcsin, 4: arccos, 5: arctan"
+        "de": "0: sin, 1: cos, 2: tan, 3: arcsin, 4: arccos, 5: arctan",
+        "fr": "0: sin, 1: cos, 2: tan, 3: arcsin, 4: arccos, 5: arctan",
+        "es": "0: seno, 1: coseno, 2: tangente, 3: arcoseno, 4: arcocoseno, 5: arcotangente"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Precision",
         "tr": "Hassasiyet",
         "de": "Genauigkeit",
-        "fr": "Precision",
-        "es": "Precision",
+        "fr": "Précision",
+        "es": "Precisión",
         "ar": "Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding (0 or positive integer)",
         "tr": "Yuvarlama için ondalık basamak sayısı (0 veya pozitif tam sayı)",
-        "de": "Anzahl der Dezimalstellen für Rundung (0 oder positive ganze Zahl)"
+        "de": "Anzahl der Dezimalstellen für Rundung (0 oder positive ganze Zahl)",
+        "fr": "Nombre de décimales pour l'arrondi (0 ou entier positif)",
+        "es": "Número de decimales para redondeo (0 o entero positivo)"
       }
     }
   ],

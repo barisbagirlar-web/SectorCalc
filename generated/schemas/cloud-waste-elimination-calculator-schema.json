@@ -21,12 +21,16 @@
       "label_i18n": {
         "en": "Total Cloud Spend (Monthly)",
         "tr": "Toplam Bulut Harcaması (Aylık)",
-        "de": "Gesamte Cloud-Ausgaben (monatlich)"
+        "de": "Gesamte Cloud-Ausgaben (monatlich)",
+        "fr": "Dépenses cloud totales (mensuelles)",
+        "es": "Gasto total en la nube (mensual)"
       },
       "businessContext_i18n": {
         "en": "Total monthly cloud infrastructure cost across all services.",
         "tr": "Tüm hizmetler genelinde aylık toplam bulut altyapı maliyeti.",
-        "de": "Monatliche Gesamtkosten der Cloud-Infrastruktur über alle Dienste hinweg."
+        "de": "Monatliche Gesamtkosten der Cloud-Infrastruktur über alle Dienste hinweg.",
+        "fr": "Coût mensuel total de l'infrastructure cloud tous services confondus.",
+        "es": "Costo mensual total de infraestructura en la nube en todos los servicios."
       }
     },
     {
@@ -41,12 +45,16 @@
       "label_i18n": {
         "en": "Average Compute Utilization Rate",
         "tr": "Ortalama Bilgi İşlem Kullanım Oranı",
-        "de": "Durchschnittliche Compute-Auslastungsrate"
+        "de": "Durchschnittliche Compute-Auslastungsrate",
+        "fr": "Taux d'utilisation moyen du calcul",
+        "es": "Tasa de utilización promedio de cómputo"
       },
       "businessContext_i18n": {
         "en": "Average CPU/memory utilization across all compute instances.",
         "tr": "Tüm bilgi işlem örnekleri genelinde ortalama CPU/bellek kullanımı.",
-        "de": "Durchschnittliche CPU-/Speicherauslastung aller Compute-Instanzen."
+        "de": "Durchschnittliche CPU-/Speicherauslastung aller Compute-Instanzen.",
+        "fr": "Utilisation moyenne du processeur/mémoire sur toutes les instances de calcul.",
+        "es": "Utilización promedio de CPU/memoria en todas las instancias de cómputo."
       }
     },
     {
@@ -61,12 +69,16 @@
       "label_i18n": {
         "en": "Storage Waste Percentage",
         "tr": "Depolama İsrafı Yüzdesi",
-        "de": "Speicherverschwendungsprozentsatz"
+        "de": "Speicherverschwendungsprozentsatz",
+        "fr": "Pourcentage de gaspillage de stockage",
+        "es": "Porcentaje de desperdicio de almacenamiento"
       },
       "businessContext_i18n": {
         "en": "Estimated percentage of storage that is orphaned, unused, or over-provisioned.",
         "tr": "Yetim kalmış, kullanılmayan veya aşırı sağlanmış depolamanın tahmini yüzdesi.",
-        "de": "Geschätzter Prozentsatz des Speichers, der verwaist, ungenutzt oder überdimensioniert ist."
+        "de": "Geschätzter Prozentsatz des Speichers, der verwaist, ungenutzt oder überdimensioniert ist.",
+        "fr": "Pourcentage estimé de stockage orphelin, inutilisé ou sur-provisionné.",
+        "es": "Porcentaje estimado de almacenamiento huérfano, no utilizado o sobreaprovisionado."
       }
     },
     {
@@ -81,12 +93,16 @@
       "label_i18n": {
         "en": "Idle Resource Count",
         "tr": "Boşta Kaynak Sayısı",
-        "de": "Anzahl der Leerlaufressourcen"
+        "de": "Anzahl der Leerlaufressourcen",
+        "fr": "Nombre de ressources inactives",
+        "es": "Conteo de recursos inactivos"
       },
       "businessContext_i18n": {
         "en": "Number of compute instances that have been idle for more than 7 days.",
         "tr": "7 günden uzun süredir boşta olan bilgi işlem örneği sayısı.",
-        "de": "Anzahl der Compute-Instanzen, die länger als 7 Tage im Leerlauf waren."
+        "de": "Anzahl der Compute-Instanzen, die länger als 7 Tage im Leerlauf waren.",
+        "fr": "Nombre d'instances de calcul inactives depuis plus de 7 jours.",
+        "es": "Número de instancias de cómputo que han estado inactivas por más de 7 días."
       }
     },
     {
@@ -101,12 +117,16 @@
       "label_i18n": {
         "en": "Monthly Data Transfer Out",
         "tr": "Aylık Veri Çıkışı",
-        "de": "Monatliches Datenübertragungsvolumen ausgehend"
+        "de": "Monatliches Datenübertragungsvolumen ausgehend",
+        "fr": "Transfert mensuel de données sortantes",
+        "es": "Transferencia de datos saliente mensual"
       },
       "businessContext_i18n": {
         "en": "Total outbound data transfer volume per month.",
         "tr": "Aylık toplam giden veri aktarım hacmi.",
-        "de": "Gesamtes ausgehendes Datenübertragungsvolumen pro Monat."
+        "de": "Gesamtes ausgehendes Datenübertragungsvolumen pro Monat.",
+        "fr": "Volume total de transfert de données sortant par mois.",
+        "es": "Volumen total de transferencia de datos saliente por mes."
       }
     },
     {
@@ -121,12 +141,16 @@
       "label_i18n": {
         "en": "Reserved Instance Coverage",
         "tr": "Ayrılmış Örnek Kapsamı",
-        "de": "Abdeckung reservierter Instanzen"
+        "de": "Abdeckung reservierter Instanzen",
+        "fr": "Couverture des instances réservées",
+        "es": "Cobertura de instancias reservadas"
       },
       "businessContext_i18n": {
         "en": "Percentage of compute spend covered by reserved or savings plans.",
         "tr": "Ayrılmış veya tasarruf planları tarafından karşılanan bilgi işlem harcaması yüzdesi.",
-        "de": "Prozentsatz der Compute-Ausgaben, die durch reservierte oder Sparpläne abgedeckt sind."
+        "de": "Prozentsatz der Compute-Ausgaben, die durch reservierte oder Sparpläne abgedeckt sind.",
+        "fr": "Pourcentage des dépenses de calcul couvert par des instances réservées ou des plans d'économies.",
+        "es": "Porcentaje del gasto en cómputo cubierto por planes reservados o de ahorro."
       }
     },
     {
@@ -141,12 +165,16 @@
       "label_i18n": {
         "en": "Rightsizing Opportunity Score",
         "tr": "Doğru Boyutlandırma Fırsat Puanı",
-        "de": "Optimierungspotenzial-Score"
+        "de": "Optimierungspotenzial-Score",
+        "fr": "Score d'opportunité de redimensionnement",
+        "es": "Puntaje de oportunidad de redimensionamiento"
       },
       "businessContext_i18n": {
         "en": "Aggregate score (0-100) indicating potential savings from instance type adjustments.",
         "tr": "Örnek türü ayarlamalarından potansiyel tasarrufu gösteren toplam puan (0-100).",
-        "de": "Aggregierter Score (0-100), der potenzielle Einsparungen durch Anpassungen des Instanztyps anzeigt."
+        "de": "Aggregierter Score (0-100), der potenzielle Einsparungen durch Anpassungen des Instanztyps anzeigt.",
+        "fr": "Score agrégé (0-100) indiquant les économies potentielles liées aux ajustements de type d'instance.",
+        "es": "Puntaje agregado (0-100) que indica el ahorro potencial de ajustes de tipo de instancia."
       }
     },
     {
@@ -167,12 +195,16 @@
       "label_i18n": {
         "en": "Cloud Provider",
         "tr": "Bulut Sağlayıcısı",
-        "de": "Cloud-Anbieter"
+        "de": "Cloud-Anbieter",
+        "fr": "Fournisseur cloud",
+        "es": "Proveedor de nube"
       },
       "businessContext_i18n": {
         "en": "Primary cloud provider for cost analysis.",
         "tr": "Maliyet analizi için birincil bulut sağlayıcısı.",
-        "de": "Primärer Cloud-Anbieter für Kostenanalyse."
+        "de": "Primärer Cloud-Anbieter für Kostenanalyse.",
+        "fr": "Principal fournisseur cloud pour l'analyse des coûts.",
+        "es": "Proveedor de nube principal para el análisis de costos."
       }
     }
   ],

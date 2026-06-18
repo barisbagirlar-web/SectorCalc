@@ -12,14 +12,16 @@
         "en": "Age (years)",
         "tr": "Yaş (yıl)",
         "de": "Alter (Jahre)",
-        "fr": "Age (years)",
-        "es": "Age (years)",
+        "fr": "Âge (années)",
+        "es": "Edad (años)",
         "ar": "Age (years)"
       },
       "businessContext_i18n": {
         "en": "Patient age",
         "tr": "Hasta yaşı",
-        "de": "Patientenalter"
+        "de": "Patientenalter",
+        "fr": "Âge du patient",
+        "es": "Edad del paciente"
       }
     },
     {
@@ -33,13 +35,15 @@
         "en": "Systolic Blood Pressure",
         "tr": "Sistolik Kan Basıncı",
         "de": "Systolischer Blutdruck",
-        "fr": "Systolic Blood Pressure",
-        "es": "Systolic Blood Pressure",
+        "fr": "Pression artérielle systolique",
+        "es": "Presión arterial sistólica",
         "ar": "Systolic Blood Pressure"
       },
       "businessContext_i18n": {
         "en": "Treated or untreated systolic BP",
-        "tr": "Tedavi edilmiş veya edilmemiş sistolik KB"
+        "tr": "Tedavi edilmiş veya edilmemiş sistolik KB",
+        "de": "Behandelter oder unbehandelter systolischer Blutdruck",
+        "fr": "PAS traitée ou non traitée"
       }
     },
     {
@@ -53,13 +57,15 @@
         "en": "Total Cholesterol",
         "tr": "Toplam Kolesterol",
         "de": "Gesamtcholesterin",
-        "fr": "Total Cholesterol",
-        "es": "Total Cholesterol",
+        "fr": "Cholestérol total",
+        "es": "Colesterol total",
         "ar": "Total Cholesterol"
       },
       "businessContext_i18n": {
         "en": "Fasting total cholesterol",
-        "tr": "Açlık total kolesterol"
+        "tr": "Açlık total kolesterol",
+        "de": "Nüchtern-Gesamtcholesterin",
+        "fr": "Cholestérol total à jeun"
       }
     },
     {
@@ -73,13 +79,15 @@
         "en": "HDL Cholesterol",
         "tr": "HDL Kolesterol",
         "de": "HDL-Cholesterin",
-        "fr": "HDL Cholesterol",
-        "es": "HDL Cholesterol",
+        "fr": "Cholestérol HDL",
+        "es": "Colesterol HDL",
         "ar": "HDL Cholesterol"
       },
       "businessContext_i18n": {
         "en": "Fasting HDL cholesterol",
-        "tr": "Açlık HDL kolesterol"
+        "tr": "Açlık HDL kolesterol",
+        "de": "Nüchtern-HDL-Cholesterin",
+        "fr": "Cholestérol HDL à jeun"
       }
     },
     {
@@ -92,14 +100,16 @@
       "label_i18n": {
         "en": "Smoker",
         "tr": "Sigara içen",
-        "de": "Smoker",
-        "fr": "Smoker",
-        "es": "Smoker",
+        "de": "Raucher",
+        "fr": "Fumeur",
+        "es": "Fumador",
         "ar": "Smoker"
       },
       "businessContext_i18n": {
         "en": "Current smoker (1) or not (0)",
-        "tr": "Mevcut sigara içicisi (1) veya değil (0)"
+        "tr": "Mevcut sigara içicisi (1) veya değil (0)",
+        "de": "Aktueller Raucher (1) oder nicht (0)",
+        "fr": "Fumeur actuel (1) ou non (0)"
       }
     },
     {
@@ -112,14 +122,16 @@
       "label_i18n": {
         "en": "Diabetic",
         "tr": "Diyabetik",
-        "de": "Diabetic",
-        "fr": "Diabetic",
+        "de": "Diabetiker",
+        "fr": "Diabétique",
         "es": "Diabetic",
         "ar": "Diabetic"
       },
       "businessContext_i18n": {
         "en": "Diabetes diagnosis (1) or not (0)",
-        "tr": "Diyabet tanısı (1) veya değil (0)"
+        "tr": "Diyabet tanısı (1) veya değil (0)",
+        "de": "Diabetesdiagnose (1) oder nicht (0)",
+        "fr": "Diagnostic de diabète (1) ou non (0)"
       }
     },
     {
@@ -133,13 +145,15 @@
         "en": "Gender",
         "tr": "Cinsiyet",
         "de": "Geschlecht",
-        "fr": "Gender",
-        "es": "Gender",
+        "fr": "Genre",
+        "es": "Género",
         "ar": "Gender"
       },
       "businessContext_i18n": {
         "en": "0 = male, 1 = female",
-        "tr": "0 = erkek, 1 = kadın"
+        "tr": "0 = erkek, 1 = kadın",
+        "de": "0 = männlich, 1 = weiblich",
+        "fr": "0 = homme, 1 = femme"
       }
     }
   ],

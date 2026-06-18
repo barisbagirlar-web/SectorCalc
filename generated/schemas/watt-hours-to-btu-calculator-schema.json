@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Power",
         "tr": "Güç",
-        "de": "Power",
-        "fr": "Power",
+        "de": "Leistung",
+        "fr": "Puissance",
         "es": "Power",
         "ar": "Power"
       },
       "businessContext_i18n": {
         "en": "Power consumption in watts",
-        "tr": "Watt cinsinden güç tüketimi"
+        "tr": "Watt cinsinden güç tüketimi",
+        "de": "Leistungsaufnahme in Watt",
+        "fr": "Consommation électrique en watts"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Time",
         "tr": "Zaman",
         "de": "Zeit",
-        "fr": "Time",
-        "es": "Time",
+        "fr": "Temps",
+        "es": "Tiempo",
         "ar": "Time"
       },
       "businessContext_i18n": {
         "en": "Operating time in hours",
-        "tr": "Saat cinsinden çalışma süresi"
+        "tr": "Saat cinsinden çalışma süresi",
+        "de": "Betriebszeit in Stunden",
+        "fr": "Temps de fonctionnement en heures"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Efficiency",
         "tr": "Verim",
         "de": "Wirkungsgrad",
-        "fr": "Efficiency",
-        "es": "Efficiency",
+        "fr": "Rendement",
+        "es": "Eficiencia",
         "ar": "Efficiency"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the system (100% means no losses)",
-        "tr": "Sistemin verimliliği (%100 kayıp olmadığı anlamına gelir)"
+        "tr": "Sistemin verimliliği (%100 kayıp olmadığı anlamına gelir)",
+        "de": "Wirkungsgrad des Systems (100% bedeutet keine Verluste)",
+        "fr": "Rendement du système (100% signifie aucune perte)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "BTU Type",
         "tr": "BTU Türü",
-        "de": "BTU Type",
-        "fr": "BTU Type",
+        "de": "BTU-Typ",
+        "fr": "Type de BTU",
         "es": "BTU Type",
         "ar": "BTU Type"
       },
       "businessContext_i18n": {
         "en": "Type of BTU: 1 for IT (ISO 31-4), 2 for thermochemical, 3 for mean",
-        "tr": "BTU türü: 1 BT (ISO 31-4), 2 termokimyasal, 3 ortalama"
+        "tr": "BTU türü: 1 BT (ISO 31-4), 2 termokimyasal, 3 ortalama",
+        "de": "Typ der BTU: 1 für IT (ISO 31-4), 2 für thermochemisch, 3 für Mittelwert",
+        "fr": "Type de BTU : 1 pour IT (ISO 31-4), 2 pour thermochimique, 3 pour moyenne"
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Electricity Cost",
         "tr": "Elektrik Maliyeti",
         "de": "Stromkosten",
-        "fr": "Electricity Cost",
-        "es": "Electricity Cost",
+        "fr": "Coût de l'électricité",
+        "es": "Coste de electricidad",
         "ar": "Electricity Cost"
       },
       "businessContext_i18n": {
         "en": "Cost of electricity per kWh for cost estimation",
-        "tr": "Maliyet tahmini için kWh başına elektrik maliyeti"
+        "tr": "Maliyet tahmini için kWh başına elektrik maliyeti",
+        "de": "Stromkosten pro kWh für Kostenschätzung",
+        "fr": "Coût de l'électricité par kWh pour l'estimation des coûts"
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding outputs",
-        "tr": "Yuvarlama çıktıları için ondalık basamak sayısı"
+        "tr": "Yuvarlama çıktıları için ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen für gerundete Ausgaben",
+        "fr": "Nombre de décimales pour l'arrondi des résultats"
       }
     }
   ],

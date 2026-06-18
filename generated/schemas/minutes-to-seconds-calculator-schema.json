@@ -12,13 +12,16 @@
         "en": "Gün",
         "tr": "Gün",
         "de": "Tag",
-        "fr": "Gün",
-        "es": "Gün",
+        "fr": "Jour",
+        "es": "Día",
         "ar": "Gün"
       },
       "businessContext_i18n": {
         "en": "Gün cinsinden süre, saniyeye çevrilecek",
-        "tr": "Gün cinsinden süre, saniyeye çevrilecek"
+        "tr": "Gün cinsinden süre, saniyeye çevrilecek",
+        "de": "Dauer in Tagen, umzurechnen in Sekunden",
+        "fr": "Durée en jours, à convertir en secondes",
+        "es": "Duración en días, para convertir a segundos"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Saat",
         "tr": "Saat",
-        "de": "Saat",
-        "fr": "Saat",
-        "es": "Saat",
+        "de": "Stunde",
+        "fr": "Heure",
+        "es": "Hora",
         "ar": "Saat"
       },
       "businessContext_i18n": {
         "en": "Saat cinsinden süre, saniyeye çevrilecek",
-        "tr": "Saat cinsinden süre, saniyeye çevrilecek"
+        "tr": "Saat cinsinden süre, saniyeye çevrilecek",
+        "de": "Dauer in Stunden, umzurechnen in Sekunden",
+        "fr": "Durée en heures, à convertir en secondes",
+        "es": "Duración en horas, para convertir a segundos"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Dakika",
         "tr": "Dakika",
         "de": "Minuten",
-        "fr": "Dakika",
-        "es": "Dakika",
+        "fr": "Minutes",
+        "es": "Minutos",
         "ar": "Dakika"
       },
       "businessContext_i18n": {
         "en": "Dakika cinsinden süre (ana girdi), saniyeye çevrilecek",
-        "tr": "Dakika cinsinden süre (ana girdi), saniyeye çevrilecek"
+        "tr": "Dakika cinsinden süre (ana girdi), saniyeye çevrilecek",
+        "de": "Dauer in Minuten (Haupteingabe), umzurechnen in Sekunden",
+        "fr": "Durée en minutes (entrée principale), à convertir en secondes",
+        "es": "Duración en minutos (entrada principal), para convertir a segundos"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Saniye",
         "tr": "Saniye",
         "de": "Sekunden",
-        "fr": "Saniye",
-        "es": "Saniye",
+        "fr": "Secondes",
+        "es": "Segundos",
         "ar": "Saniye"
       },
       "businessContext_i18n": {
         "en": "Doğrudan saniye olarak eklenecek süre",
-        "tr": "Doğrudan saniye olarak eklenecek süre"
+        "tr": "Doğrudan saniye olarak eklenecek süre",
+        "de": "Direkt als Sekunden hinzuzufügende Dauer",
+        "fr": "Durée à ajouter directement en secondes",
+        "es": "Duración añadida directamente en segundos"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Ondalık Basamak",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Ondalık Basamak",
-        "es": "Ondalık Basamak",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Ondalık Basamak"
       },
       "businessContext_i18n": {
         "en": "Sonuçta gösterilecek ondalık basamak sayısı (0 tam sayıya yuvarlar, en fazla 10 önerilir)",
-        "tr": "Sonuçta gösterilecek ondalık basamak sayısı (0 tam sayıya yuvarlar, en fazla 10 önerilir)"
+        "tr": "Sonuçta gösterilecek ondalık basamak sayısı (0 tam sayıya yuvarlar, en fazla 10 önerilir)",
+        "de": "Anzahl der anzuzeigenden Dezimalstellen (0 rundet auf ganze Zahl, maximal 10 empfohlen)",
+        "fr": "Nombre de décimales à afficher dans le résultat (0 arrondit à l'entier, max 10 recommandé)",
+        "es": "Número de decimales a mostrar en el resultado (0 redondea a entero, máximo recomendado 10)"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Upper Specification Limit (USL)",
         "tr": "Üst Spesifikasyon Limiti (USL)",
-        "de": "Upper Specification Limit (USL)",
-        "fr": "Upper Specification Limit (USL)",
-        "es": "Upper Specification Limit (USL)",
+        "de": "Obere Spezifikationsgrenze (OSG)",
+        "fr": "Limite de spécification supérieure (USL)",
+        "es": "Límite superior de especificación (LSE)",
         "ar": "Upper Specification Limit (USL)"
       },
       "businessContext_i18n": {
         "en": "The maximum allowable value for a characteristic",
-        "tr": "Bir karakteristik için izin verilen maksimum değer"
+        "tr": "Bir karakteristik için izin verilen maksimum değer",
+        "de": "Maximal zulässiger Wert für ein Merkmal",
+        "fr": "Valeur maximale admissible pour une caractéristique",
+        "es": "Valor máximo permitido para una característica"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Lower Specification Limit (LSL)",
         "tr": "Alt Spesifikasyon Limiti (LSL)",
-        "de": "Lower Specification Limit (LSL)",
-        "fr": "Lower Specification Limit (LSL)",
-        "es": "Lower Specification Limit (LSL)",
+        "de": "Untere Spezifikationsgrenze (USG)",
+        "fr": "Limite de spécification inférieure (LSL)",
+        "es": "Límite de especificación inferior (LSL)",
         "ar": "Lower Specification Limit (LSL)"
       },
       "businessContext_i18n": {
         "en": "The minimum allowable value for a characteristic",
-        "tr": "Bir karakteristik için izin verilen minimum değer"
+        "tr": "Bir karakteristik için izin verilen minimum değer",
+        "de": "Minimal zulässiger Wert für ein Merkmal",
+        "fr": "Valeur minimale admissible pour une caractéristique",
+        "es": "Valor mínimo permitido para una característica"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Target Value",
         "tr": "Hedef Değer",
         "de": "Zielwert",
-        "fr": "Target Value",
-        "es": "Target Value",
+        "fr": "Valeur cible",
+        "es": "Valor objetivo",
         "ar": "Target Value"
       },
       "businessContext_i18n": {
         "en": "The ideal or nominal value",
-        "tr": "İdeal veya nominal değer"
+        "tr": "İdeal veya nominal değer",
+        "de": "Ideal- oder Nennwert",
+        "fr": "Valeur nominale ou idéale",
+        "es": "Valor ideal o nominal"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Process Mean",
         "tr": "Proses Ortalaması",
-        "de": "Process Mean",
-        "fr": "Process Mean",
-        "es": "Process Mean",
+        "de": "Prozessmittelwert",
+        "fr": "Moyenne du processus",
+        "es": "Media del proceso",
         "ar": "Process Mean"
       },
       "businessContext_i18n": {
         "en": "The arithmetic mean of the process output",
-        "tr": "Proses çıktısının aritmetik ortalaması"
+        "tr": "Proses çıktısının aritmetik ortalaması",
+        "de": "Arithmetischer Mittelwert des Prozessergebnisses",
+        "fr": "Moyenne arithmétique de la sortie du processus",
+        "es": "Media aritmética de la salida del proceso"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Process Standard Deviation",
         "tr": "Proses Standart Sapması",
-        "de": "Process Standard Deviation",
-        "fr": "Process Standard Deviation",
-        "es": "Process Standard Deviation",
+        "de": "Prozess-Standardabweichung",
+        "fr": "Écart type du processus",
+        "es": "Desviación estándar del proceso",
         "ar": "Process Standard Deviation"
       },
       "businessContext_i18n": {
         "en": "The standard deviation of the process output, measuring spread",
-        "tr": "Proses çıktısının standart sapması, yayılımı ölçer"
+        "tr": "Proses çıktısının standart sapması, yayılımı ölçer",
+        "de": "Standardabweichung des Prozessergebnisses, Maß für die Streuung",
+        "fr": "Écart type de la sortie du processus, mesurant la dispersion",
+        "es": "Desviación estándar de la salida del proceso, mide la dispersión"
       }
     }
   ],

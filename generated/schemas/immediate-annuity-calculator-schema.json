@@ -12,13 +12,16 @@
         "en": "Principal Amount",
         "tr": "Anapara Tutarı",
         "de": "Kapitalbetrag",
-        "fr": "Principal Amount",
-        "es": "Principal Amount",
+        "fr": "Montant principal",
+        "es": "Monto principal",
         "ar": "Principal Amount"
       },
       "businessContext_i18n": {
         "en": "The lump sum invested to purchase the immediate annuity.",
-        "tr": "Anüiteyi satın almak için yatırılan toplam tutar."
+        "tr": "Anüiteyi satın almak için yatırılan toplam tutar.",
+        "de": "Der investierte Pauschalbetrag für den Kauf der sofortigen Rente.",
+        "fr": "Montant forfaitaire investi pour acheter la rente immédiate.",
+        "es": "La suma global invertida para comprar la anualidad inmediata."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
         "de": "Jährlicher Zinssatz",
-        "fr": "Annual Interest Rate",
-        "es": "Annual Interest Rate",
+        "fr": "Taux d'intérêt annuel",
+        "es": "Tasa de Interés Anual",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Expected annual interest rate or discount rate.",
-        "tr": "Beklenen yıllık faiz oranı veya iskonto oranı."
+        "tr": "Beklenen yıllık faiz oranı veya iskonto oranı.",
+        "de": "Erwarteter jährlicher Zinssatz oder Diskontsatz.",
+        "fr": "Taux d'intérêt annuel attendu ou taux d'actualisation.",
+        "es": "Tasa de interés anual esperada o tasa de descuento."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Payments per Year",
         "tr": "Yıllık Ödeme Sayısı",
         "de": "Zahlungen pro Jahr",
-        "fr": "Payments per Year",
-        "es": "Payments per Year",
+        "fr": "Paiements par an",
+        "es": "Pagos por año",
         "ar": "Payments per Year"
       },
       "businessContext_i18n": {
         "en": "Number of annuity payments per year (e.g., 12 for monthly).",
-        "tr": "Yıllık anüite ödeme sayısı (örneğin aylık için 12)."
+        "tr": "Yıllık anüite ödeme sayısı (örneğin aylık için 12).",
+        "de": "Anzahl der Rentenzahlungen pro Jahr (z. B. 12 für monatlich).",
+        "fr": "Nombre de versements de rente par an (ex. 12 pour mensuel).",
+        "es": "Número de pagos de anualidad por año (ej. 12 para mensual)."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Number of Years",
         "tr": "Yıl Sayısı",
         "de": "Anzahl der Jahre",
-        "fr": "Number of Years",
-        "es": "Number of Years",
+        "fr": "Nombre d'années",
+        "es": "Número de años",
         "ar": "Number of Years"
       },
       "businessContext_i18n": {
         "en": "Total duration of the annuity in years.",
-        "tr": "Anüitenin toplam süresi (yıl cinsinden)."
+        "tr": "Anüitenin toplam süresi (yıl cinsinden).",
+        "de": "Gesamtlaufzeit der Rente in Jahren.",
+        "fr": "Durée totale de la rente en années.",
+        "es": "Duración total de la anualidad en años."
       }
     }
   ],

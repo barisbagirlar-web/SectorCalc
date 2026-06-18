@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Cost Price",
         "tr": "Maliyet Fiyatı",
-        "de": "Cost Price",
-        "fr": "Cost Price",
-        "es": "Cost Price",
+        "de": "Einstandspreis",
+        "fr": "Prix de revient",
+        "es": "Precio de coste",
         "ar": "Cost Price"
       },
       "businessContext_i18n": {
         "en": "The base cost of the product.",
-        "tr": "Ürünün taban maliyeti."
+        "tr": "Ürünün taban maliyeti.",
+        "de": "Die Basiskosten des Produkts",
+        "fr": "Le coût de base du produit."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Markup Percentage",
         "tr": "Kar Marjı Yüzdesi",
-        "de": "Markup Percentage",
-        "fr": "Markup Percentage",
-        "es": "Markup Percentage",
+        "de": "Aufschlagsprozentsatz",
+        "fr": "Pourcentage de marge",
+        "es": "Porcentaje de margen",
         "ar": "Markup Percentage"
       },
       "businessContext_i18n": {
         "en": "Percentage added to cost to determine initial selling price before discount and tax.",
-        "tr": "Maliyete eklenen ve indirim ile vergi öncesi başlangıç satış fiyatını belirleyen yüzde."
+        "tr": "Maliyete eklenen ve indirim ile vergi öncesi başlangıç satış fiyatını belirleyen yüzde.",
+        "de": "Prozentsatz, der auf die Kosten aufgeschlagen wird, um den anfänglichen Verkaufspreis vor Rabatt und Steuer zu ermitteln",
+        "fr": "Pourcentage ajouté au coût pour déterminer le prix de vente initial avant remise et taxe."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Discount",
         "tr": "İndirim",
-        "de": "Discount",
-        "fr": "Discount",
+        "de": "Rabatt",
+        "fr": "Remise",
         "es": "Discount",
         "ar": "Discount"
       },
       "businessContext_i18n": {
         "en": "Percentage discount applied to the initial selling price before tax.",
-        "tr": "Vergi öncesi başlangıç satış fiyatına uygulanan yüzde indirim."
+        "tr": "Vergi öncesi başlangıç satış fiyatına uygulanan yüzde indirim.",
+        "de": "Prozentualer Rabatt, der auf den anfänglichen Verkaufspreis vor Steuer gewährt wird",
+        "fr": "Pourcentage de remise appliqué au prix de vente initial avant taxe."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
         "de": "Steuersatz",
-        "fr": "Tax Rate",
-        "es": "Tax Rate",
+        "fr": "Taux de taxe",
+        "es": "Tasa de impuesto",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Sales tax rate applied to the discounted selling price.",
-        "tr": "İndirimli satış fiyatına uygulanan satış vergisi oranı."
+        "tr": "İndirimli satış fiyatına uygulanan satış vergisi oranı.",
+        "de": "Umsatzsteuersatz, der auf den reduzierten Verkaufspreis angewendet wird.",
+        "fr": "Taux de taxe de vente appliqué au prix de vente après remise."
       }
     }
   ],

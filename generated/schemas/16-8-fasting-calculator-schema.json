@@ -12,14 +12,16 @@
         "en": "Mevcut Saat (0-23)",
         "tr": "Mevcut Saat (0-23)",
         "de": "Aktuelle Stunde (0-23)",
-        "fr": "Mevcut Saat (0-23)",
-        "es": "Mevcut Saat (0-23)",
+        "fr": "Heure actuelle (0-23)",
+        "es": "Hora actual (0-23)",
         "ar": "Mevcut Saat (0-23)"
       },
       "businessContext_i18n": {
         "en": "Şu anki saat dilimi.",
         "tr": "Şu anki saat dilimi.",
-        "de": "Aktuelle Zeitzone."
+        "de": "Aktuelle Zeitzone.",
+        "fr": "Fuseau horaire actuel.",
+        "es": "Zona horaria actual."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Oruç Başlangıç Saati",
         "tr": "Oruç Başlangıç Saati",
         "de": "Fastenbeginn",
-        "fr": "Oruç Başlangıç Saati",
-        "es": "Oruç Başlangıç Saati",
+        "fr": "Heure de début du jeûne",
+        "es": "Hora de inicio del ayuno",
         "ar": "Oruç Başlangıç Saati"
       },
       "businessContext_i18n": {
         "en": "16 saatlik oruç penceresinin başlangıç saati (örn. 20:00).",
         "tr": "16 saatlik oruç penceresinin başlangıç saati (örn. 20:00).",
-        "de": "Startzeit des 16-stündigen Fastenfensters (z.B. 20:00)."
+        "de": "Startzeit des 16-stündigen Fastenfensters (z.B. 20:00).",
+        "fr": "Heure de début de la fenêtre de jeûne de 16 heures (ex. 20:00).",
+        "es": "Hora de inicio de la ventana de ayuno de 16 horas (ej. 20:00)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Oruç Süresi",
         "tr": "Oruç Süresi",
         "de": "Fastendauer",
-        "fr": "Oruç Süresi",
-        "es": "Oruç Süresi",
+        "fr": "Durée du jeûne",
+        "es": "Duración del ayuno",
         "ar": "Oruç Süresi"
       },
       "businessContext_i18n": {
         "en": "Oruç penceresinin toplam süresi (standart 16 saat).",
         "tr": "Oruç penceresinin toplam süresi (standart 16 saat).",
-        "de": "Gesamtdauer des Fastenfensters (Standard 16 Stunden)."
+        "de": "Gesamtdauer des Fastenfensters (Standard 16 Stunden).",
+        "fr": "Durée totale de la fenêtre de jeûne (standard 16 heures).",
+        "es": "Duración total de la ventana de ayuno (estándar 16 horas)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Yeme Penceresi Süresi",
         "tr": "Yeme Penceresi Süresi",
         "de": "Essensfensterdauer",
-        "fr": "Yeme Penceresi Süresi",
-        "es": "Yeme Penceresi Süresi",
+        "fr": "Durée de la fenêtre alimentaire",
+        "es": "Duración de la ventana de alimentación",
         "ar": "Yeme Penceresi Süresi"
       },
       "businessContext_i18n": {
         "en": "Yeme penceresi süresi (genelde 8 saat).",
         "tr": "Yeme penceresi süresi (genelde 8 saat).",
-        "de": "Dauer des Essensfensters (normalerweise 8 Stunden)."
+        "de": "Dauer des Essensfensters (normalerweise 8 Stunden).",
+        "fr": "Durée de la fenêtre alimentaire (généralement 8 heures).",
+        "es": "Duración de la ventana de alimentación (generalmente 8 horas)."
       }
     }
   ],

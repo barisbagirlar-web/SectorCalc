@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "True Positives",
         "tr": "Gerçek Pozitif",
-        "de": "True Positives",
-        "fr": "True Positives",
-        "es": "True Positives",
+        "de": "Richtig Positiv",
+        "fr": "Vrais positifs",
+        "es": "Verdaderos positivos",
         "ar": "True Positives"
       },
       "businessContext_i18n": {
         "en": "Number of cases with condition and positive test",
-        "tr": "Durumu olan ve testi pozitif çıkan vaka sayısı"
+        "tr": "Durumu olan ve testi pozitif çıkan vaka sayısı",
+        "de": "Anzahl der Fälle mit Erkrankung und positivem Test",
+        "fr": "Nombre de cas avec la condition et test positif",
+        "es": "Número de casos con la condición y prueba positiva"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "False Positives",
         "tr": "Yanlış Pozitif",
-        "de": "False Positives",
-        "fr": "False Positives",
-        "es": "False Positives",
+        "de": "Falsch Positiv",
+        "fr": "Faux positifs",
+        "es": "Falsos positivos",
         "ar": "False Positives"
       },
       "businessContext_i18n": {
         "en": "Number of cases without condition but positive test",
-        "tr": "Durumu olmayan ancak testi pozitif çıkan vaka sayısı"
+        "tr": "Durumu olmayan ancak testi pozitif çıkan vaka sayısı",
+        "de": "Anzahl der Fälle ohne Erkrankung und positivem Test",
+        "fr": "Nombre de cas sans la condition mais test positif",
+        "es": "Número de casos sin la condición pero con prueba positiva"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "False Negatives",
         "tr": "Yanlış Negatif",
-        "de": "False Negatives",
-        "fr": "False Negatives",
-        "es": "False Negatives",
+        "de": "Falsch Negativ",
+        "fr": "Faux négatifs",
+        "es": "Falsos negativos",
         "ar": "False Negatives"
       },
       "businessContext_i18n": {
         "en": "Number of cases with condition and negative test",
-        "tr": "Durumu olan ancak testi negatif çıkan vaka sayısı"
+        "tr": "Durumu olan ancak testi negatif çıkan vaka sayısı",
+        "de": "Anzahl der Fälle mit Erkrankung und negativem Test",
+        "fr": "Nombre de cas avec la condition et test négatif",
+        "es": "Número de casos con la condición y prueba negativa"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "True Negatives",
         "tr": "Gerçek Negatif",
-        "de": "True Negatives",
-        "fr": "True Negatives",
-        "es": "True Negatives",
+        "de": "Richtig Negativ",
+        "fr": "Vrais négatifs",
+        "es": "Verdaderos negativos",
         "ar": "True Negatives"
       },
       "businessContext_i18n": {
         "en": "Number of cases without condition and negative test",
-        "tr": "Durumu olmayan ve testi negatif çıkan vaka sayısı"
+        "tr": "Durumu olmayan ve testi negatif çıkan vaka sayısı",
+        "de": "Anzahl der Fälle ohne Erkrankung und negativem Test",
+        "fr": "Nombre de cas sans la condition et test négatif",
+        "es": "Número de casos sin la condición y prueba negativa"
       }
     }
   ],

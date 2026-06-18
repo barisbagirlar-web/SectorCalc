@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Speed (V)",
         "tr": "Hız (V)",
-        "de": "Speed (V)",
-        "fr": "Speed (V)",
+        "de": "Geschwindigkeit (V)",
+        "fr": "Vitesse (V)",
         "es": "Speed (V)",
         "ar": "Speed (V)"
       },
       "businessContext_i18n": {
         "en": "Vehicle design speed in kilometers per hour",
-        "tr": "Araç tasarım hızı (km/saat cinsinden)"
+        "tr": "Araç tasarım hızı (km/saat cinsinden)",
+        "de": "Fahrzeug-Entwurfsgeschwindigkeit in km/h",
+        "fr": "Vitesse de conception du véhicule en km/h"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Reaction Time (t)",
         "tr": "Tepki Süresi (t)",
-        "de": "Reaction Time (t)",
-        "fr": "Reaction Time (t)",
+        "de": "Reaktionszeit (t)",
+        "fr": "Temps de réaction (t)",
         "es": "Reaction Time (t)",
         "ar": "Reaction Time (t)"
       },
       "businessContext_i18n": {
         "en": "Driver perception-reaction time in seconds",
-        "tr": "Sürücü algılama-tepki süresi (saniye)"
+        "tr": "Sürücü algılama-tepki süresi (saniye)",
+        "de": "Wahrnehmungs-Reaktionszeit des Fahrers in Sekunden",
+        "fr": "Temps de perception-réaction du conducteur en secondes"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Friction Coefficient (f)",
         "tr": "Sürtünme Katsayısı (f)",
-        "de": "Friction Coefficient (f)",
-        "fr": "Friction Coefficient (f)",
+        "de": "Reibungskoeffizient (f)",
+        "fr": "Coefficient de frottement (f)",
         "es": "Friction Coefficient (f)",
         "ar": "Friction Coefficient (f)"
       },
       "businessContext_i18n": {
         "en": "Tire-road friction coefficient (typical range 0.3-0.8)",
-        "tr": "Lastik-yol sürtünme katsayısı (tipik aralık 0.3-0.8)"
+        "tr": "Lastik-yol sürtünme katsayısı (tipik aralık 0.3-0.8)",
+        "de": "Reibungskoeffizient zwischen Reifen und Fahrbahn (typischer Bereich 0,3-0,8)",
+        "fr": "Coefficient de frottement pneu-route (plage typique 0,3-0,8)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Grade (G)",
         "tr": "Eğim (G)",
-        "de": "Grade (G)",
-        "fr": "Grade (G)",
+        "de": "Steigung (G)",
+        "fr": "Pente (G)",
         "es": "Grade (G)",
         "ar": "Grade (G)"
       },
       "businessContext_i18n": {
         "en": "Road grade in percent, positive for uphill, negative for downhill",
-        "tr": "Yol eğimi yüzde olarak, pozitif yokuş yukarı, negatif yokuş aşağı"
+        "tr": "Yol eğimi yüzde olarak, pozitif yokuş yukarı, negatif yokuş aşağı",
+        "de": "Straßensteigung in Prozent, positiv für bergauf, negativ für bergab",
+        "fr": "Pente de la route en %, positif pour montée, négatif pour descente"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Grade Point (4.0 Scale)",
         "tr": "Not Puanı (4.0 Ölçeği)",
-        "de": "Grade Point (4.0 Scale)",
-        "fr": "Grade Point (4.0 Scale)",
-        "es": "Grade Point (4.0 Scale)",
+        "de": "Notenpunkt (4,0-Skala)",
+        "fr": "Note sur 4,0",
+        "es": "Puntaje de calificación (Escala 4.0)",
         "ar": "Grade Point (4.0 Scale)"
       },
       "businessContext_i18n": {
         "en": "The numeric grade point on a 4.0 scale, e.g., 4.0 for A, 3.0 for B, etc.",
-        "tr": "4.0 ölçeğinde sayısal not puanı, örn. A için 4.0, B için 3.0 vb."
+        "tr": "4.0 ölçeğinde sayısal not puanı, örn. A için 4.0, B için 3.0 vb.",
+        "de": "Der numerische Notenpunkt auf einer 4,0-Skala, z. B. 4,0 für A, 3,0 für B usw.",
+        "fr": "La note numérique sur une échelle de 4,0, par exemple 4,0 pour A, 3,0 pour B, etc.",
+        "es": "El puntaje numérico en una escala de 4.0, ej., 4.0 para A, 3.0 para B, etc."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Slope",
         "tr": "Eğim",
-        "de": "Slope",
-        "fr": "Slope",
-        "es": "Slope",
+        "de": "Steigung",
+        "fr": "Pente",
+        "es": "Pendiente",
         "ar": "Slope"
       },
       "businessContext_i18n": {
         "en": "Points per grade point.",
-        "tr": "Not puanı başına puan."
+        "tr": "Not puanı başına puan.",
+        "de": "Punkte pro Notenpunkt.",
+        "fr": "Points par point de note.",
+        "es": "Puntos por punto de calificación."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Intercept",
         "tr": "Kesişim",
-        "de": "Intercept",
-        "fr": "Intercept",
-        "es": "Intercept",
+        "de": "Achsenabschnitt",
+        "fr": "Ordonnée à l'origine",
+        "es": "Intersección",
         "ar": "Intercept"
       },
       "businessContext_i18n": {
         "en": "Base percentage when grade point is 0.",
-        "tr": "Not puanı 0 olduğunda temel yüzde."
+        "tr": "Not puanı 0 olduğunda temel yüzde.",
+        "de": "Basisprozentsatz, wenn der Notenpunkt 0 ist.",
+        "fr": "Pourcentage de base lorsque la note est 0.",
+        "es": "Porcentaje base cuando el puntaje de calificación es 0."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Minimum Percentage",
         "tr": "Minimum Yüzde",
-        "de": "Minimum Percentage",
-        "fr": "Minimum Percentage",
-        "es": "Minimum Percentage",
+        "de": "Mindestprozentsatz",
+        "fr": "Pourcentage minimum",
+        "es": "Porcentaje mínimo",
         "ar": "Minimum Percentage"
       },
       "businessContext_i18n": {
         "en": "Lower clamp limit for the output percentage.",
-        "tr": "Çıktı yüzdesi için alt sınır değeri."
+        "tr": "Çıktı yüzdesi için alt sınır değeri.",
+        "de": "Untere Begrenzung für den Ausgabeprozentsatz.",
+        "fr": "Limite inférieure pour le pourcentage de sortie.",
+        "es": "Límite inferior para el porcentaje de salida."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Maximum Percentage",
         "tr": "Maksimum Yüzde",
-        "de": "Maximum Percentage",
-        "fr": "Maximum Percentage",
-        "es": "Maximum Percentage",
+        "de": "Höchstprozentsatz",
+        "fr": "Pourcentage maximum",
+        "es": "Porcentaje máximo",
         "ar": "Maximum Percentage"
       },
       "businessContext_i18n": {
         "en": "Upper clamp limit for the output percentage.",
-        "tr": "Çıktı yüzdesi için üst sınır değeri."
+        "tr": "Çıktı yüzdesi için üst sınır değeri.",
+        "de": "Obere Begrenzung für den Ausgabeprozentsatz.",
+        "fr": "Limite supérieure pour le pourcentage de sortie.",
+        "es": "Límite superior para el porcentaje de salida."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Weight",
         "tr": "Ağırlık",
         "de": "Gewicht",
-        "fr": "Weight",
-        "es": "Weight",
+        "fr": "Poids",
+        "es": "Peso",
         "ar": "Weight"
       },
       "businessContext_i18n": {
         "en": "User body weight for metabolic rate estimation",
         "tr": "Metabolik hız tahmini için kullanıcı vücut ağırlığı",
-        "de": "Körpergewicht des Benutzers zur Schätzung der Stoffwechselrate"
+        "de": "Körpergewicht des Benutzers zur Schätzung der Stoffwechselrate",
+        "fr": "Poids corporel de l'utilisateur pour l'estimation du taux métabolique",
+        "es": "Peso corporal del usuario para la estimación de la tasa metabólica"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Height",
         "tr": "Boy",
         "de": "Größe",
-        "fr": "Height",
-        "es": "Height",
+        "fr": "Taille",
+        "es": "Altura",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "User height for body surface area proxy",
         "tr": "Vücut yüzey alanı vekili için kullanıcı boyu",
-        "de": "Körpergröße des Benutzers als Proxy für die Körperoberfläche"
+        "de": "Körpergröße des Benutzers als Proxy für die Körperoberfläche",
+        "fr": "Taille de l'utilisateur comme proxy de la surface corporelle",
+        "es": "Altura del usuario como proxy del área de superficie corporal"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Age affects basal metabolic rate",
         "tr": "Yaş, bazal metabolizma hızını etkiler",
-        "de": "Alter beeinflusst den Grundumsatz"
+        "de": "Alter beeinflusst den Grundumsatz",
+        "fr": "L'âge affecte le métabolisme de base",
+        "es": "La edad afecta la tasa metabólica basal"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Gender",
         "tr": "Cinsiyet",
         "de": "Geschlecht",
-        "fr": "Gender",
-        "es": "Gender",
+        "fr": "Genre",
+        "es": "Género",
         "ar": "Gender"
       },
       "businessContext_i18n": {
         "en": "Biological sex for Mifflin-St Jeor equation",
         "tr": "Mifflin-St Jeor denklemi için biyolojik cinsiyet",
-        "de": "Biologisches Geschlecht für die Mifflin-St-Jeor-Gleichung"
+        "de": "Biologisches Geschlecht für die Mifflin-St-Jeor-Gleichung",
+        "fr": "Sexe biologique pour l'équation de Mifflin-St Jeor",
+        "es": "Sexo biológico para la ecuación de Mifflin-St Jeor"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Activity Factor",
         "tr": "Aktivite Faktörü",
         "de": "Aktivitätsfaktor",
-        "fr": "Activity Factor",
-        "es": "Activity Factor",
+        "fr": "Facteur d'activité",
+        "es": "Factor de actividad",
         "ar": "Activity Factor"
       },
       "businessContext_i18n": {
         "en": "Physical activity level multiplier for TDEE",
         "tr": "Toplam günlük enerji harcaması için fiziksel aktivite seviyesi çarpanı",
-        "de": "Multiplikator für körperliche Aktivität für den Gesamtenergieumsatz"
+        "de": "Multiplikator für körperliche Aktivität für den Gesamtenergieumsatz",
+        "fr": "Multiplicateur du niveau d'activité physique pour la dépense énergétique totale",
+        "es": "Multiplicador del nivel de actividad física para el TDEE"
       }
     }
   ],

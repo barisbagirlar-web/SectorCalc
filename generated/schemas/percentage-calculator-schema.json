@@ -22,11 +22,17 @@
       "businessContext": "Total number of units produced in the reporting period (ISO 9001:2015 clause 9.1.3).",
       "label_i18n": {
         "en": "Total Units Produced",
-        "tr": "Toplam Üretilen Birim"
+        "tr": "Toplam Üretilen Birim",
+        "de": "Gesamtproduzierte Einheiten",
+        "fr": "Nombre total d'unités produites",
+        "es": "Unidades totales producidas"
       },
       "businessContext_i18n": {
         "en": "Total number of units produced in the reporting period (ISO 9001:2015 clause 9.1.3).",
-        "tr": "Raporlama döneminde üretilen toplam birim sayısı (ISO 9001:2015 madde 9.1.3)."
+        "tr": "Raporlama döneminde üretilen toplam birim sayısı (ISO 9001:2015 madde 9.1.3).",
+        "de": "Gesamtzahl der im Berichtszeitraum produzierten Einheiten (ISO 9001:2015, Klausel 9.1.3).",
+        "fr": "Nombre total d'unités produites au cours de la période de reporting (ISO 9001:2015 clause 9.1.3).",
+        "es": "Número total de unidades producidas en el período de reporte (ISO 9001:2015 cláusula 9.1.3)."
       }
     },
     {
@@ -40,11 +46,17 @@
       "businessContext": "Number of units failing quality inspection (Six Sigma DPMO metric).",
       "label_i18n": {
         "en": "Defective Units",
-        "tr": "Hatalı Birimler"
+        "tr": "Hatalı Birimler",
+        "de": "Fehlerhafte Einheiten",
+        "fr": "Unités défectueuses",
+        "es": "Unidades defectuosas"
       },
       "businessContext_i18n": {
         "en": "Number of units failing quality inspection (Six Sigma DPMO metric).",
-        "tr": "Kalite denetiminden geçemeyen birim sayısı (Altı Sigma DPMO metriği)."
+        "tr": "Kalite denetiminden geçemeyen birim sayısı (Altı Sigma DPMO metriği).",
+        "de": "Anzahl der Einheiten, die die Qualitätsprüfung nicht bestehen (Six Sigma DPMO-Kennzahl).",
+        "fr": "Nombre d'unités ne répondant pas à l'inspection qualité (métrique Six Sigma DPMO).",
+        "es": "Número de unidades que fallan la inspección de calidad (métrica DPMO de Seis Sigma)."
       }
     },
     {
@@ -58,11 +70,17 @@
       "businessContext": "Units that required rework to meet specifications (Lean waste reduction).",
       "label_i18n": {
         "en": "Rework Units",
-        "tr": "Yeniden İşleme Birimleri"
+        "tr": "Yeniden İşleme Birimleri",
+        "de": "Nacharbeits-Einheiten",
+        "fr": "Unités de reprise",
+        "es": "Unidades retrabajadas"
       },
       "businessContext_i18n": {
         "en": "Units that required rework to meet specifications (Lean waste reduction).",
-        "tr": "Spesifikasyonları karşılamak için yeniden işlem gerektiren birimler (Yalın israf azaltma)."
+        "tr": "Spesifikasyonları karşılamak için yeniden işlem gerektiren birimler (Yalın israf azaltma).",
+        "de": "Einheiten, die nachbearbeitet werden mussten, um die Spezifikationen zu erfüllen (Lean-Abfallreduzierung).",
+        "fr": "Unités nécessitant une reprise pour répondre aux spécifications (réduction des gaspillages Lean).",
+        "es": "Unidades que requirieron retrabajo para cumplir especificaciones (reducción de desperdicio Lean)."
       }
     },
     {
@@ -76,11 +94,17 @@
       "businessContext": "Units that are scrapped and cannot be reworked (material yield loss).",
       "label_i18n": {
         "en": "Scrap Units",
-        "tr": "Fire Birimler"
+        "tr": "Fire Birimler",
+        "de": "Ausschuss-Einheiten",
+        "fr": "Unités de rebut",
+        "es": "Unidades de desperdicio"
       },
       "businessContext_i18n": {
         "en": "Units that are scrapped and cannot be reworked (material yield loss).",
-        "tr": "Hurdaya ayrılan ve yeniden işlenemeyen birimler (malzeme verim kaybı)."
+        "tr": "Hurdaya ayrılan ve yeniden işlenemeyen birimler (malzeme verim kaybı).",
+        "de": "Einheiten, die verschrottet werden und nicht nachbearbeitet werden können (Materialausbeuteverlust).",
+        "fr": "Unités mises au rebut et ne pouvant être retravaillées (perte de rendement matière).",
+        "es": "Unidades que se desechan y no pueden retrabajarse (pérdida de rendimiento de material)."
       }
     },
     {
@@ -94,11 +118,17 @@
       "businessContext": "Desired first-pass yield percentage (Six Sigma target ≥ 99.99966% for 6σ).",
       "label_i18n": {
         "en": "Target Yield (%)",
-        "tr": "Hedef Verim (%)"
+        "tr": "Hedef Verim (%)",
+        "de": "Zielausbeute (%)",
+        "fr": "Rendement cible (%)",
+        "es": "Rendimiento objetivo (%)"
       },
       "businessContext_i18n": {
         "en": "Desired first-pass yield percentage (Six Sigma target ≥ 99.99966% for 6σ).",
-        "tr": "İstenen ilk geçiş verim yüzdesi (Altı Sigma hedefi ≥ %99,99966)."
+        "tr": "İstenen ilk geçiş verim yüzdesi (Altı Sigma hedefi ≥ %99,99966).",
+        "de": "Gewünschte Erstpass-Ausbeute in Prozent (Six Sigma-Ziel ≥ 99,99966 % für 6σ).",
+        "fr": "Pourcentage de rendement au premier passage souhaité (cible Six Sigma ≥ 99,99966 % pour 6σ).",
+        "es": "Porcentaje de rendimiento de primera pasada deseado (objetivo Seis Sigma ≥ 99.99966% para 6σ)."
       }
     },
     {
@@ -116,11 +146,17 @@
       "businessContext": "Type of process for contextual benchmarking (WERC DC metrics, ISO 9001).",
       "label_i18n": {
         "en": "Process Type",
-        "tr": "Proses Türü"
+        "tr": "Proses Türü",
+        "de": "Prozesstyp",
+        "fr": "Type de processus",
+        "es": "Tipo de proceso"
       },
       "businessContext_i18n": {
         "en": "Type of process for contextual benchmarking (WERC DC metrics, ISO 9001).",
-        "tr": "Bağlamsal kıyaslama için proses türü (WERC DC metrikleri, ISO 9001)."
+        "tr": "Bağlamsal kıyaslama için proses türü (WERC DC metrikleri, ISO 9001).",
+        "de": "Prozesstyp für kontextuelles Benchmarking (WERC DC-Kennzahlen, ISO 9001).",
+        "fr": "Type de processus pour un benchmarking contextuel (métriques WERC DC, ISO 9001).",
+        "es": "Tipo de proceso para evaluación comparativa contextual (métricas WERC DC, ISO 9001)."
       }
     },
     {
@@ -132,11 +168,17 @@
       "businessContext": "If true, scrap units are counted as defective for defect rate calculation.",
       "label_i18n": {
         "en": "Include Scrap in Defect Count",
-        "tr": "Fireyi Kusur Sayısına Dahil Et"
+        "tr": "Fireyi Kusur Sayısına Dahil Et",
+        "de": "Ausschuss in Fehlerzahl einbeziehen",
+        "fr": "Inclure le rebut dans le décompte des défauts",
+        "es": "Incluir desperdicio en el conteo de defectos"
       },
       "businessContext_i18n": {
         "en": "If true, scrap units are counted as defective for defect rate calculation.",
-        "tr": "Doğruysa, kusur oranı hesaplamasında fire birimler kusurlu sayılır."
+        "tr": "Doğruysa, kusur oranı hesaplamasında fire birimler kusurlu sayılır.",
+        "de": "Wenn wahr, werden Ausschussteile als fehlerhaft für die Fehlerratenberechnung gezählt.",
+        "fr": "Si vrai, les unités de rebut sont comptées comme défectueuses pour le calcul du taux de défauts.",
+        "es": "Si es verdadero, las unidades de desperdicio se cuentan como defectuosas para el cálculo de la tasa de defectos."
       }
     }
   ],

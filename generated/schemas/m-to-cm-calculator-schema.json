@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Meter Value",
         "tr": "Metre değeri",
-        "de": "Meter Value",
-        "fr": "Meter Value",
-        "es": "Meter Value",
+        "de": "Messwert",
+        "fr": "Valeur du compteur",
+        "es": "Valor del medidor",
         "ar": "Meter Value"
       },
       "businessContext_i18n": {
         "en": "The length measurement in meters.",
-        "tr": "Metre cinsinden uzunluk ölçümü."
+        "tr": "Metre cinsinden uzunluk ölçümü.",
+        "de": "Die Längenmessung in Metern.",
+        "fr": "Mesure de longueur en mètres.",
+        "es": "Medición de longitud en metros."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Calibration factor. Standard is 100 cm/m. Adjust if using non-standard units.",
-        "tr": "Kalibrasyon faktörü. Standart 100 cm/m'dir. Standart dışı birimler kullanılıyorsa ayarlayın."
+        "tr": "Kalibrasyon faktörü. Standart 100 cm/m'dir. Standart dışı birimler kullanılıyorsa ayarlayın.",
+        "de": "Kalibrierfaktor. Standard ist 100 cm/m. Bei nicht standardmäßigen Einheiten anpassen.",
+        "fr": "Facteur d'étalonnage. La valeur standard est 100 cm/m. Ajuster si des unités non standard sont utilisées.",
+        "es": "Factor de calibración. El estándar es 100 cm/m. Ajuste si usa unidades no estándar."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Measurement Uncertainty (%)",
         "tr": "Ölçüm Belirsizliği (%)",
         "de": "Messunsicherheit (%)",
-        "fr": "Measurement Uncertainty (%)",
-        "es": "Measurement Uncertainty (%)",
+        "fr": "Incertitude de mesure (%)",
+        "es": "Incertidumbre de medición (%)",
         "ar": "Measurement Uncertainty (%)"
       },
       "businessContext_i18n": {
         "en": "Relative uncertainty of the measurement, for error propagation.",
-        "tr": "Hata yayılımı için ölçümün bağıl belirsizliği."
+        "tr": "Hata yayılımı için ölçümün bağıl belirsizliği.",
+        "de": "Relative Unsicherheit der Messung für die Fehlerfortpflanzung.",
+        "fr": "Incertitude relative de la mesure, pour la propagation des erreurs.",
+        "es": "Incertidumbre relativa de la medición, para propagación de errores."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output rounding.",
-        "tr": "Çıktı yuvarlama için ondalık basamak sayısı."
+        "tr": "Çıktı yuvarlama için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für die Ausgaberundung.",
+        "fr": "Nombre de décimales pour l'arrondi du résultat.",
+        "es": "Número de decimales para el redondeo de salida."
       }
     }
   ],

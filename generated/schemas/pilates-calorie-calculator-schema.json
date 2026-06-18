@@ -12,14 +12,16 @@
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Body Weight",
-        "es": "Body Weight",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "Body weight of the person in kilograms",
         "tr": "Kişinin kilogram cinsinden vücut ağırlığı",
-        "de": "Körpergewicht der Person in Kilogramm"
+        "de": "Körpergewicht der Person in Kilogramm",
+        "fr": "Poids corporel de la personne en kilogrammes",
+        "es": "Peso corporal de la persona en kilogramos"
       }
     },
     {
@@ -32,14 +34,17 @@
       "label_i18n": {
         "en": "Warm-up Duration",
         "tr": "Isınma Süresi",
-        "de": "Warm-up Duration",
-        "fr": "Warm-up Duration",
-        "es": "Warm-up Duration",
+        "de": "Aufwärmdauer",
+        "fr": "Durée d'échauffement",
+        "es": "Duración del calentamiento",
         "ar": "Warm-up Duration"
       },
       "businessContext_i18n": {
         "en": "Duration of warm-up phase in minutes",
-        "tr": "Isınma aşamasının dakika cinsinden süresi"
+        "tr": "Isınma aşamasının dakika cinsinden süresi",
+        "de": "Dauer der Aufwärmphase in Minuten",
+        "fr": "Durée de la phase d'échauffement en minutes",
+        "es": "Duración de la fase de calentamiento en minutos"
       }
     },
     {
@@ -52,14 +57,17 @@
       "label_i18n": {
         "en": "Main Workout Duration",
         "tr": "Ana Egzersiz Süresi",
-        "de": "Main Workout Duration",
-        "fr": "Main Workout Duration",
-        "es": "Main Workout Duration",
+        "de": "Haupttrainingsdauer",
+        "fr": "Durée de l'entraînement principal",
+        "es": "Duración del entrenamiento principal",
         "ar": "Main Workout Duration"
       },
       "businessContext_i18n": {
         "en": "Duration of main Pilates exercises in minutes",
-        "tr": "Ana Pilates egzersizlerinin dakika cinsinden süresi"
+        "tr": "Ana Pilates egzersizlerinin dakika cinsinden süresi",
+        "de": "Dauer der Haupt-Pilates-Übungen in Minuten",
+        "fr": "Durée des exercices principaux de Pilates en minutes",
+        "es": "Duración de los ejercicios principales de Pilates en minutos"
       }
     },
     {
@@ -72,14 +80,17 @@
       "label_i18n": {
         "en": "Cool-down Duration",
         "tr": "Soğuma Süresi",
-        "de": "Cool-down Duration",
-        "fr": "Cool-down Duration",
-        "es": "Cool-down Duration",
+        "de": "Cool-down-Dauer",
+        "fr": "Durée de retour au calme",
+        "es": "Duración del enfriamiento",
         "ar": "Cool-down Duration"
       },
       "businessContext_i18n": {
         "en": "Duration of cool-down stretching in minutes",
-        "tr": "Soğuma esneme hareketlerinin dakika cinsinden süresi"
+        "tr": "Soğuma esneme hareketlerinin dakika cinsinden süresi",
+        "de": "Dauer des Cool-down-Stretchings in Minuten",
+        "fr": "Durée des étirements de retour au calme en minutes",
+        "es": "Duración de los estiramientos de enfriamiento en minutos"
       }
     },
     {
@@ -92,14 +103,17 @@
       "label_i18n": {
         "en": "Difficulty Factor",
         "tr": "Zorluk Faktörü",
-        "de": "Difficulty Factor",
-        "fr": "Difficulty Factor",
-        "es": "Difficulty Factor",
+        "de": "Schwierigkeitsfaktor",
+        "fr": "Facteur de difficulté",
+        "es": "Factor de dificultad",
         "ar": "Difficulty Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier for overall intensity (e.g. 1.0 = normal, 1.2 = advanced)",
-        "tr": "Genel yoğunluk için çarpan (örn. 1.0 = normal, 1.2 = ileri seviye)"
+        "tr": "Genel yoğunluk için çarpan (örn. 1.0 = normal, 1.2 = ileri seviye)",
+        "de": "Multiplikator für die Gesamtintensität (z. B. 1,0 = normal, 1,2 = fortgeschritten)",
+        "fr": "Multiplicateur pour l'intensité globale (ex. 1.0 = normal, 1.2 = avancé)",
+        "es": "Multiplicador de la intensidad general (ej. 1.0 = normal, 1.2 = avanzado)"
       }
     }
   ],

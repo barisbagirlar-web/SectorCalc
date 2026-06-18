@@ -23,12 +23,16 @@
       "label_i18n": {
         "en": "Labor Rate per Hour",
         "tr": "Saatlik İşçilik Ücreti",
-        "de": "Stundensatz"
+        "de": "Stundensatz",
+        "fr": "Taux de main-d'œuvre par heure",
+        "es": "Tarifa de mano de obra por hora"
       },
       "businessContext_i18n": {
         "en": "Standard hourly labor charge from the repair shop.",
         "tr": "Atölyeden standart saatlik işçilik ücreti.",
-        "de": "Standardmäßiger Arbeitslohn der Werkstatt pro Stunde."
+        "de": "Standardmäßiger Arbeitslohn der Werkstatt pro Stunde.",
+        "fr": "Taux horaire standard facturé par l'atelier de réparation.",
+        "es": "Cargo estándar por hora de mano de obra del taller de reparación."
       }
     },
     {
@@ -43,12 +47,16 @@
       "label_i18n": {
         "en": "Estimated Labor Hours",
         "tr": "Tahmini İşçilik Saati",
-        "de": "Geschätzte Arbeitsstunden"
+        "de": "Geschätzte Arbeitsstunden",
+        "fr": "Heures de main-d'œuvre estimées",
+        "es": "Horas de mano de obra estimadas"
       },
       "businessContext_i18n": {
         "en": "Total labor hours quoted for the repair job.",
         "tr": "Onarım işi için teklif edilen toplam işçilik saati.",
-        "de": "Gesamte Arbeitsstunden, die für den Reparaturauftrag veranschlagt wurden."
+        "de": "Gesamte Arbeitsstunden, die für den Reparaturauftrag veranschlagt wurden.",
+        "fr": "Total des heures de main-d'œuvre citées pour le travail de réparation.",
+        "es": "Total de horas de mano de obra cotizadas para el trabajo de reparación."
       }
     },
     {
@@ -63,12 +71,16 @@
       "label_i18n": {
         "en": "Parts Cost",
         "tr": "Parça Maliyeti",
-        "de": "Teilekosten"
+        "de": "Teilekosten",
+        "fr": "Coût des pièces",
+        "es": "Costo de piezas"
       },
       "businessContext_i18n": {
         "en": "Total cost of replacement parts as quoted.",
         "tr": "Teklif edilen yedek parçaların toplam maliyeti.",
-        "de": "Gesamtkosten der Ersatzteile laut Angebot."
+        "de": "Gesamtkosten der Ersatzteile laut Angebot.",
+        "fr": "Coût total des pièces de rechange tel que cité.",
+        "es": "Costo total de las piezas de repuesto según lo cotizado."
       }
     },
     {
@@ -83,12 +95,16 @@
       "label_i18n": {
         "en": "Shop Supplies Fee",
         "tr": "Atölye Sarf Malzemesi Ücreti",
-        "de": "Ladengebühren"
+        "de": "Ladengebühren",
+        "fr": "Frais de fournitures d'atelier",
+        "es": "Tarifa de suministros del taller"
       },
       "businessContext_i18n": {
         "en": "Miscellaneous supplies charge (e.g., fluids, rags).",
         "tr": "Sarf malzemeleri (ör. sıvılar, bezler) için ücret.",
-        "de": "Gebühr für verschiedene Verbrauchsmaterialien (z. B. Flüssigkeiten, Lappen)."
+        "de": "Gebühr für verschiedene Verbrauchsmaterialien (z. B. Flüssigkeiten, Lappen).",
+        "fr": "Frais de fournitures diverses (ex. fluides, chiffons).",
+        "es": "Cargo por suministros varios (p. ej., fluidos, trapos)."
       }
     },
     {
@@ -103,12 +119,16 @@
       "label_i18n": {
         "en": "Sales Tax Rate",
         "tr": "Satış Vergisi Oranı",
-        "de": "Umsatzsteuersatz"
+        "de": "Umsatzsteuersatz",
+        "fr": "Taux de taxe de vente",
+        "es": "Tasa de impuesto a las ventas"
       },
       "businessContext_i18n": {
         "en": "Applicable sales tax percentage on parts and supplies.",
         "tr": "Parça ve sarf malzemelerinde geçerli satış vergisi yüzdesi.",
-        "de": "Anwendbarer Umsatzsteuersatz auf Teile und Verbrauchsmaterialien."
+        "de": "Anwendbarer Umsatzsteuersatz auf Teile und Verbrauchsmaterialien.",
+        "fr": "Pourcentage de taxe de vente applicable sur les pièces et fournitures.",
+        "es": "Porcentaje de impuesto a las ventas aplicable a piezas y suministros."
       }
     },
     {
@@ -128,12 +148,16 @@
       "label_i18n": {
         "en": "Shop Type",
         "tr": "Atölye Türü",
-        "de": "Werkstatttyp"
+        "de": "Werkstatttyp",
+        "fr": "Type d'atelier",
+        "es": "Tipo de taller"
       },
       "businessContext_i18n": {
         "en": "Type of repair shop influences benchmark labor rates.",
         "tr": "Tamir atölyesi türü, referans işçilik ücretlerini etkiler.",
-        "de": "Die Art der Reparaturwerkstatt beeinflusst die Richtwerte für Arbeitsstunden."
+        "de": "Die Art der Reparaturwerkstatt beeinflusst die Richtwerte für Arbeitsstunden.",
+        "fr": "Le type d'atelier de réparation influence les taux de main-d'œuvre de référence.",
+        "es": "El tipo de taller de reparación influye en las tarifas de mano de obra de referencia."
       }
     },
     {
@@ -154,12 +178,16 @@
       "label_i18n": {
         "en": "Repair Category",
         "tr": "Tamir Kategorisi",
-        "de": "Reparaturkategorie"
+        "de": "Reparaturkategorie",
+        "fr": "Catégorie de réparation",
+        "es": "Categoría de reparación"
       },
       "businessContext_i18n": {
         "en": "Category of repair affects typical labor hours and parts markup.",
         "tr": "Tamir kategorisi, tipik işçilik saatlerini ve parça kâr marjını etkiler.",
-        "de": "Die Reparaturkategorie beeinflusst die typischen Arbeitsstunden und den Teileaufschlag."
+        "de": "Die Reparaturkategorie beeinflusst die typischen Arbeitsstunden und den Teileaufschlag.",
+        "fr": "La catégorie de réparation affecte les heures de main-d'œuvre typiques et la majoration des pièces.",
+        "es": "La categoría de reparación afecta las horas de mano de obra típicas y el margen de piezas."
       }
     },
     {
@@ -174,12 +202,16 @@
       "label_i18n": {
         "en": "Use Original Equipment Manufacturer (OEM) Parts",
         "tr": "Orijinal Ekipman Üreticisi (OEM) Parçaları Kullan",
-        "de": "Originalteile (OEM) verwenden"
+        "de": "Originalteile (OEM) verwenden",
+        "fr": "Utiliser des pièces d'origine (OEM)",
+        "es": "Usar piezas del fabricante de equipo original (OEM)"
       },
       "businessContext_i18n": {
         "en": "OEM parts are typically more expensive than aftermarket.",
         "tr": "OEM parçaları genellikle yedek parçalardan daha pahalıdır.",
-        "de": "OEM-Teile sind in der Regel teurer als Ersatzteile."
+        "de": "OEM-Teile sind in der Regel teurer als Ersatzteile.",
+        "fr": "Les pièces OEM sont généralement plus chères que les pièces de rechange.",
+        "es": "Las piezas OEM suelen ser más caras que las del mercado de accesorios."
       }
     }
   ],

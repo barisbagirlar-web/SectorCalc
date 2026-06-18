@@ -12,14 +12,16 @@
         "en": "Portföy Getirisi",
         "tr": "Portföy Getirisi",
         "de": "Portfolio-Rendite",
-        "fr": "Portföy Getirisi",
-        "es": "Portföy Getirisi",
+        "fr": "Rendement du portefeuille",
+        "es": "Rendimiento de la cartera",
         "ar": "Portföy Getirisi"
       },
       "businessContext_i18n": {
         "en": "Portföyün dönemsel getiri oranı.",
         "tr": "Portföyün dönemsel getiri oranı.",
-        "de": "Periodische Rendite des Portfolios."
+        "de": "Periodische Rendite des Portfolios.",
+        "fr": "Taux de rendement périodique du portefeuille.",
+        "es": "Tasa de rendimiento periódica de la cartera."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Benchmark Getirisi",
         "tr": "Benchmark Getirisi",
         "de": "Benchmark-Rendite",
-        "fr": "Benchmark Getirisi",
-        "es": "Benchmark Getirisi",
+        "fr": "Rendement de l'indice de référence",
+        "es": "Rendimiento del índice de referencia",
         "ar": "Benchmark Getirisi"
       },
       "businessContext_i18n": {
         "en": "Karşılaştırma ölçütünün (benchmark) dönemsel getiri oranı.",
         "tr": "Karşılaştırma ölçütünün (benchmark) dönemsel getiri oranı.",
-        "de": "Periodische Rendite des Vergleichsmaßstabs (Benchmark)."
+        "de": "Periodische Rendite des Vergleichsmaßstabs (Benchmark).",
+        "fr": "Taux de rendement périodique de l'indice de référence.",
+        "es": "Tasa de rendimiento periódica del índice de referencia (benchmark)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Takip Hatası",
         "tr": "Takip Hatası",
         "de": "Tracking Error",
-        "fr": "Takip Hatası",
-        "es": "Takip Hatası",
+        "fr": "Erreur de suivi",
+        "es": "Error de seguimiento",
         "ar": "Takip Hatası"
       },
       "businessContext_i18n": {
         "en": "Portföy getirisi ile benchmark getirisi arasındaki farkın standart sapması.",
         "tr": "Portföy getirisi ile benchmark getirisi arasındaki farkın standart sapması.",
-        "de": "Standardabweichung der Differenz zwischen Portfolio-Rendite und Benchmark-Rendite."
+        "de": "Standardabweichung der Differenz zwischen Portfolio-Rendite und Benchmark-Rendite.",
+        "fr": "Écart type de la différence entre le rendement du portefeuille et celui de l'indice de référence.",
+        "es": "Desviación estándar de la diferencia entre el rendimiento de la cartera y el del índice de referencia."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Yıllıklaştırma Çarpanı",
         "tr": "Yıllıklaştırma Çarpanı",
         "de": "Annualisierungsfaktor",
-        "fr": "Yıllıklaştırma Çarpanı",
-        "es": "Yıllıklaştırma Çarpanı",
+        "fr": "Multiplicateur d'annualisation",
+        "es": "Factor de anualización",
         "ar": "Yıllıklaştırma Çarpanı"
       },
       "businessContext_i18n": {
         "en": "Dönemsel getirileri ve takip hatasını yıllıklandırmak için kullanılan çarpan. Aylık veriler için genellikle √12 ≈ 3,464 kullanılır.",
         "tr": "Dönemsel getirileri ve takip hatasını yıllıklandırmak için kullanılan çarpan. Aylık veriler için genellikle √12 ≈ 3,464 kullanılır.",
-        "de": "Multiplikator zur Annualisierung periodischer Renditen und des Tracking Errors. Für monatliche Daten wird üblicherweise √12 ≈ 3,464 verwendet."
+        "de": "Multiplikator zur Annualisierung periodischer Renditen und des Tracking Errors. Für monatliche Daten wird üblicherweise √12 ≈ 3,464 verwendet.",
+        "fr": "Multiplicateur utilisé pour annualiser les rendements périodiques et l'erreur de suivi. Pour les données mensuelles, on utilise généralement √12 ≈ 3,464.",
+        "es": "Multiplicador para anualizar los rendimientos periódicos y el error de seguimiento. Para datos mensuales, generalmente se usa √12 ≈ 3,464."
       }
     }
   ],

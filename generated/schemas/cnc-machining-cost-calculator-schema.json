@@ -31,12 +31,16 @@
       "label_i18n": {
         "en": "Material Type",
         "tr": "Malzeme Türü",
-        "de": "Materialtyp"
+        "de": "Materialtyp",
+        "fr": "Type de matériau",
+        "es": "Tipo de material"
       },
       "businessContext_i18n": {
         "en": "Material selection directly impacts tool wear, cutting speed, and cost per part.",
         "tr": "Malzeme seçimi takım aşınmasını, kesme hızını ve parça başına maliyeti doğrudan etkiler.",
-        "de": "Die Materialauswahl beeinflusst direkt Werkzeugverschleiß, Schnittgeschwindigkeit und Kosten pro Teil."
+        "de": "Die Materialauswahl beeinflusst direkt Werkzeugverschleiß, Schnittgeschwindigkeit und Kosten pro Teil.",
+        "fr": "La sélection du matériau impacte directement l'usure de l'outil, la vitesse de coupe et le coût par pièce.",
+        "es": "La selección del material impacta directamente el desgaste de la herramienta, la velocidad de corte y el costo por pieza."
       }
     },
     {
@@ -51,12 +55,16 @@
       "label_i18n": {
         "en": "Part Weight (kg)",
         "tr": "Parça Ağırlığı (kg)",
-        "de": "Teilegewicht (kg)"
+        "de": "Teilegewicht (kg)",
+        "fr": "Poids de la pièce (kg)",
+        "es": "Peso de la pieza (kg)"
       },
       "businessContext_i18n": {
         "en": "Weight of the finished part, used to calculate raw material cost and scrap.",
         "tr": "Bitmiş parçanın ağırlığı, hammadde maliyeti ve fire hesaplamasında kullanılır.",
-        "de": "Gewicht des fertigen Teils, zur Berechnung von Rohmaterialkosten und Ausschuss."
+        "de": "Gewicht des fertigen Teils, zur Berechnung von Rohmaterialkosten und Ausschuss.",
+        "fr": "Poids de la pièce finie, utilisé pour calculer le coût des matières premières et le rebut.",
+        "es": "Peso de la pieza terminada, utilizado para calcular el costo de materia prima y el desperdicio."
       }
     },
     {
@@ -71,12 +79,16 @@
       "label_i18n": {
         "en": "Stock Volume (cm³)",
         "tr": "Stok Hacmi (cm³)",
-        "de": "Rohmaterialvolumen (cm³)"
+        "de": "Rohmaterialvolumen (cm³)",
+        "fr": "Volume du brut (cm³)",
+        "es": "Volumen del bloque (cm³)"
       },
       "businessContext_i18n": {
         "en": "Volume of raw material block before machining, determines material usage.",
         "tr": "Talaşlı imalat öncesi hammadde bloğunun hacmi, malzeme kullanımını belirler.",
-        "de": "Volumen des Rohmaterialblocks vor der Bearbeitung, bestimmt den Materialverbrauch."
+        "de": "Volumen des Rohmaterialblocks vor der Bearbeitung, bestimmt den Materialverbrauch.",
+        "fr": "Volume du bloc de matière avant usinage, détermine l'utilisation des matériaux.",
+        "es": "Volumen del bloque de materia prima antes del mecanizado, determina el uso de material."
       }
     },
     {
@@ -91,12 +103,16 @@
       "label_i18n": {
         "en": "Machining Time (minutes)",
         "tr": "İşleme Süresi (dakika)",
-        "de": "Bearbeitungszeit (Minuten)"
+        "de": "Bearbeitungszeit (Minuten)",
+        "fr": "Temps d'usinage (minutes)",
+        "es": "Tiempo de mecanizado (minutos)"
       },
       "businessContext_i18n": {
         "en": "Total cycle time per part including cutting, tool changes, and rapid moves.",
         "tr": "Kesme, takım değişimi ve hızlı hareketler dahil parça başına toplam çevrim süresi.",
-        "de": "Gesamtzykluszeit pro Teil einschließlich Schneiden, Werkzeugwechsel und Eilgängen."
+        "de": "Gesamtzykluszeit pro Teil einschließlich Schneiden, Werkzeugwechsel und Eilgängen.",
+        "fr": "Temps de cycle total par pièce incluant coupe, changements d'outils et déplacements rapides.",
+        "es": "Tiempo total de ciclo por pieza, incluyendo corte, cambios de herramienta y movimientos rápidos."
       }
     },
     {
@@ -111,12 +127,16 @@
       "label_i18n": {
         "en": "Setup Time (minutes)",
         "tr": "Kurulum Süresi (dakika)",
-        "de": "Rüstzeit (Minuten)"
+        "de": "Rüstzeit (Minuten)",
+        "fr": "Temps de réglage (minutes)",
+        "es": "Tiempo de preparación (minutos)"
       },
       "businessContext_i18n": {
         "en": "Time to fixture, align, and program the machine for the batch.",
         "tr": "Parti için makinenin fikstürlenmesi, hizalanması ve programlanması süresi.",
-        "de": "Zeit zum Spannen, Ausrichten und Programmieren der Maschine für die Charge."
+        "de": "Zeit zum Spannen, Ausrichten und Programmieren der Maschine für die Charge.",
+        "fr": "Temps pour fixer, aligner et programmer la machine pour le lot.",
+        "es": "Tiempo para fijar, alinear y programar la máquina para el lote."
       }
     },
     {
@@ -131,12 +151,16 @@
       "label_i18n": {
         "en": "Batch Size (parts)",
         "tr": "Parti Büyüklüğü (parça)",
-        "de": "Chargengröße (Teile)"
+        "de": "Chargengröße (Teile)",
+        "fr": "Taille du lot (pièces)",
+        "es": "Tamaño del lote (piezas)"
       },
       "businessContext_i18n": {
         "en": "Number of identical parts produced in one production run.",
         "tr": "Bir üretim partisinde üretilen aynı parça sayısı.",
-        "de": "Anzahl identischer Teile, die in einem Produktionslauf gefertigt werden."
+        "de": "Anzahl identischer Teile, die in einem Produktionslauf gefertigt werden.",
+        "fr": "Nombre de pièces identiques produites en une seule série de production.",
+        "es": "Número de piezas idénticas producidas en una ejecución de producción."
       }
     },
     {
@@ -151,12 +175,16 @@
       "label_i18n": {
         "en": "Machine Hourly Rate ($/hr)",
         "tr": "Makine Saatlik Ücreti ($/saat)",
-        "de": "Maschinenstundensatz ($/h)"
+        "de": "Maschinenstundensatz ($/h)",
+        "fr": "Taux horaire machine ($/h)",
+        "es": "Tarifa horaria de la máquina ($/h)"
       },
       "businessContext_i18n": {
         "en": "Fully burdened machine cost including depreciation, maintenance, and energy.",
         "tr": "Amortisman, bakım ve enerji dahil tam yüklü makine maliyeti.",
-        "de": "Voll belastete Maschinenkosten einschließlich Abschreibung, Wartung und Energie."
+        "de": "Voll belastete Maschinenkosten einschließlich Abschreibung, Wartung und Energie.",
+        "fr": "Coût machine complet incluant amortissement, maintenance et énergie.",
+        "es": "Costo total de la máquina incluyendo depreciación, mantenimiento y energía."
       }
     },
     {
@@ -171,12 +199,16 @@
       "label_i18n": {
         "en": "Labor Hourly Rate ($/hr)",
         "tr": "İşçilik Saatlik Ücreti ($/saat)",
-        "de": "Arbeitsstundensatz ($/h)"
+        "de": "Arbeitsstundensatz ($/h)",
+        "fr": "Taux horaire main-d'œuvre ($/h)",
+        "es": "Tarifa horaria de mano de obra ($/h)"
       },
       "businessContext_i18n": {
         "en": "Operator wage including overhead and benefits.",
         "tr": "Genel giderler ve yan haklar dahil operatör ücreti.",
-        "de": "Bedienungslohn einschließlich Gemeinkosten und Sozialleistungen."
+        "de": "Bedienungslohn einschließlich Gemeinkosten und Sozialleistungen.",
+        "fr": "Salaire de l'opérateur incluant frais généraux et avantages sociaux.",
+        "es": "Salario del operador incluyendo gastos generales y beneficios."
       }
     }
   ],

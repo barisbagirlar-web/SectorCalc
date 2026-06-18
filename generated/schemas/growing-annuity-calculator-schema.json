@@ -12,14 +12,16 @@
         "en": "Initial Payment (P)",
         "tr": "İlk Ödeme (P)",
         "de": "Anfangszahlung (P)",
-        "fr": "Initial Payment (P)",
-        "es": "Initial Payment (P)",
+        "fr": "Paiement initial (P)",
+        "es": "Pago inicial (P)",
         "ar": "Initial Payment (P)"
       },
       "businessContext_i18n": {
         "en": "The payment amount at the end of the first period.",
         "tr": "İlk dönem sonundaki ödeme tutarı.",
-        "de": "Der Zahlungsbetrag am Ende der ersten Periode."
+        "de": "Der Zahlungsbetrag am Ende der ersten Periode.",
+        "fr": "Montant du paiement à la fin de la première période.",
+        "es": "Monto del pago al final del primer período."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Growth Rate (g)",
         "tr": "Büyüme Oranı (g)",
         "de": "Wachstumsrate (g)",
-        "fr": "Growth Rate (g)",
-        "es": "Growth Rate (g)",
+        "fr": "Taux de croissance (g)",
+        "es": "Tasa de crecimiento (g)",
         "ar": "Growth Rate (g)"
       },
       "businessContext_i18n": {
         "en": "The rate at which the payment grows each period. Enter as decimal (e.g., 0.03 for 3%).",
         "tr": "Ödemenin her dönem büyüdüğü oran. Ondalık olarak girin (örneğin, %3 için 0,03).",
-        "de": "Die Rate, mit der die Zahlung pro Periode wächst. Als Dezimalzahl eingeben (z. B. 0,03 für 3 %)."
+        "de": "Die Rate, mit der die Zahlung pro Periode wächst. Als Dezimalzahl eingeben (z. B. 0,03 für 3 %).",
+        "fr": "Taux auquel le paiement augmente chaque période. Saisir en décimal (ex. 0,03 pour 3%).",
+        "es": "Tasa a la que crece el pago cada período. Ingrese como decimal (ej. 0.03 para 3%)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Discount Rate (r)",
         "tr": "İskonto Oranı (r)",
         "de": "Diskontsatz (r)",
-        "fr": "Discount Rate (r)",
-        "es": "Discount Rate (r)",
+        "fr": "Taux d'actualisation (r)",
+        "es": "Tasa de descuento (r)",
         "ar": "Discount Rate (r)"
       },
       "businessContext_i18n": {
         "en": "The interest rate per period used for discounting. Enter as decimal.",
         "tr": "İskonto için kullanılan dönem başına faiz oranı. Ondalık olarak girin.",
-        "de": "Der Zinssatz pro Periode, der für die Abzinsung verwendet wird. Als Dezimalzahl eingeben."
+        "de": "Der Zinssatz pro Periode, der für die Abzinsung verwendet wird. Als Dezimalzahl eingeben.",
+        "fr": "Taux d'intérêt par période utilisé pour l'actualisation. Saisir en décimal.",
+        "es": "Tasa de interés por período utilizada para descontar. Ingrese como decimal."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Number of Periods (n)",
         "tr": "Dönem Sayısı (n)",
         "de": "Anzahl der Perioden (n)",
-        "fr": "Number of Periods (n)",
-        "es": "Number of Periods (n)",
+        "fr": "Nombre de périodes (n)",
+        "es": "Número de períodos (n)",
         "ar": "Number of Periods (n)"
       },
       "businessContext_i18n": {
         "en": "Total number of payment periods.",
         "tr": "Toplam ödeme dönemi sayısı.",
-        "de": "Gesamtzahl der Zahlungsperioden."
+        "de": "Gesamtzahl der Zahlungsperioden.",
+        "fr": "Nombre total de périodes de paiement.",
+        "es": "Número total de períodos de pago."
       }
     }
   ],

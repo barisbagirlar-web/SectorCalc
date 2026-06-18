@@ -12,13 +12,16 @@
         "en": "Loan Amount",
         "tr": "Kredi Tutarı",
         "de": "Darlehensbetrag",
-        "fr": "Loan Amount",
-        "es": "Loan Amount",
+        "fr": "Montant du prêt",
+        "es": "Monto del préstamo",
         "ar": "Loan Amount"
       },
       "businessContext_i18n": {
         "en": "The total principal amount of the loan.",
-        "tr": "Kredinin toplam anapara tutarı."
+        "tr": "Kredinin toplam anapara tutarı.",
+        "de": "Der gesamte Kapitalbetrag des Darlehens.",
+        "fr": "Le montant total du principal du prêt.",
+        "es": "El monto principal total del préstamo."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
         "de": "Jährlicher Zinssatz",
-        "fr": "Annual Interest Rate",
-        "es": "Annual Interest Rate",
+        "fr": "Taux d'intérêt annuel",
+        "es": "Tasa de Interés Anual",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "The nominal annual interest rate as a percentage.",
-        "tr": "Yüzde olarak nominal yıllık faiz oranı."
+        "tr": "Yüzde olarak nominal yıllık faiz oranı.",
+        "de": "Der nominale jährliche Zinssatz in Prozent.",
+        "fr": "Le taux d'intérêt annuel nominal en pourcentage.",
+        "es": "La tasa de interés nominal anual como porcentaje."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Monthly Payment",
         "tr": "Aylık Ödeme",
         "de": "Monatliche Zahlung",
-        "fr": "Monthly Payment",
-        "es": "Monthly Payment",
+        "fr": "Paiement mensuel",
+        "es": "Pago mensual",
         "ar": "Monthly Payment"
       },
       "businessContext_i18n": {
         "en": "The regular monthly payment amount.",
-        "tr": "Düzenli aylık ödeme tutarı."
+        "tr": "Düzenli aylık ödeme tutarı.",
+        "de": "Der regelmäßige monatliche Zahlungsbetrag.",
+        "fr": "Le montant du paiement mensuel régulier.",
+        "es": "El monto del pago mensual regular."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Extra Monthly Payment",
         "tr": "Ek Aylık Ödeme",
         "de": "Zusätzliche monatliche Zahlung",
-        "fr": "Extra Monthly Payment",
-        "es": "Extra Monthly Payment",
+        "fr": "Paiement mensuel supplémentaire",
+        "es": "Pago mensual extra",
         "ar": "Extra Monthly Payment"
       },
       "businessContext_i18n": {
         "en": "Additional amount paid each month to accelerate payoff.",
-        "tr": "Ödemeyi hızlandırmak için her ay ödenen ek tutar."
+        "tr": "Ödemeyi hızlandırmak için her ay ödenen ek tutar.",
+        "de": "Zusätzlicher Betrag, der monatlich gezahlt wird, um die Rückzahlung zu beschleunigen.",
+        "fr": "Montant supplémentaire payé chaque mois pour accélérer le remboursement.",
+        "es": "Cantidad adicional pagada cada mes para acelerar la liquidación."
       }
     }
   ],

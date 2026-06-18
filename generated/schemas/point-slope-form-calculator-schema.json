@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "x₁ Koordinatı",
         "tr": "x₁ Koordinatı",
-        "de": "x₁ Koordinatı",
-        "fr": "x₁ Koordinatı",
-        "es": "x₁ Koordinatı",
+        "de": "x₁-Koordinate",
+        "fr": "Coordonnée x₁",
+        "es": "Coordenada x₁",
         "ar": "x₁ Koordinatı"
       },
       "businessContext_i18n": {
         "en": "Bilinen noktanın x koordinatı",
-        "tr": "Bilinen noktanın x koordinatı"
+        "tr": "Bilinen noktanın x koordinatı",
+        "de": "x-Koordinate des bekannten Punktes",
+        "fr": "Coordonnée x du point connu",
+        "es": "Coordenada x del punto conocido"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "y₁ Koordinatı",
         "tr": "y₁ Koordinatı",
-        "de": "y₁ Koordinatı",
-        "fr": "y₁ Koordinatı",
-        "es": "y₁ Koordinatı",
+        "de": "y₁-Koordinate",
+        "fr": "Coordonnée y₁",
+        "es": "Coordenada y₁",
         "ar": "y₁ Koordinatı"
       },
       "businessContext_i18n": {
         "en": "Bilinen noktanın y koordinatı",
-        "tr": "Bilinen noktanın y koordinatı"
+        "tr": "Bilinen noktanın y koordinatı",
+        "de": "y-Koordinate des bekannten Punktes",
+        "fr": "Coordonnée y du point connu",
+        "es": "Coordenada y del punto conocido"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Eğim (m)",
         "tr": "Eğim (m)",
-        "de": "Eğim (m)",
-        "fr": "Eğim (m)",
-        "es": "Eğim (m)",
+        "de": "Steigung (m)",
+        "fr": "Pente (m)",
+        "es": "Pendiente (m)",
         "ar": "Eğim (m)"
       },
       "businessContext_i18n": {
         "en": "Doğrunun eğimi",
-        "tr": "Doğrunun eğimi"
+        "tr": "Doğrunun eğimi",
+        "de": "Steigung der Geraden",
+        "fr": "Pente de la droite",
+        "es": "Pendiente de la recta"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Hedef x Değeri",
         "tr": "Hedef x Değeri",
-        "de": "Hedef x Değeri",
-        "fr": "Hedef x Değeri",
-        "es": "Hedef x Değeri",
+        "de": "Ziel-x-Wert",
+        "fr": "Valeur x cible",
+        "es": "Valor objetivo de x",
         "ar": "Hedef x Değeri"
       },
       "businessContext_i18n": {
         "en": "Üzerinde y hesaplanacak x değeri (varsayılan 0, y kesişimini verir)",
-        "tr": "Üzerinde y hesaplanacak x değeri (varsayılan 0, y kesişimini verir)"
+        "tr": "Üzerinde y hesaplanacak x değeri (varsayılan 0, y kesişimini verir)",
+        "de": "x-Wert, für den y berechnet wird (Standard 0, ergibt y-Achsenabschnitt)",
+        "fr": "Valeur x pour calculer y (par défaut 0, donne l'ordonnée à l'origine)",
+        "es": "Valor de x para calcular y (por defecto 0, da la intersección con y)"
       }
     }
   ],

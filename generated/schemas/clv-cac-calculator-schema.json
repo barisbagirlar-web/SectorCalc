@@ -24,12 +24,16 @@
       "label_i18n": {
         "en": "Average Order Value (AOV)",
         "tr": "Ortalama Sipariş Değeri (AOV)",
-        "de": "Durchschnittlicher Bestellwert (AOV)"
+        "de": "Durchschnittlicher Bestellwert (AOV)",
+        "fr": "Valeur moyenne des commandes (AOV)",
+        "es": "Valor promedio del pedido (AOV)"
       },
       "businessContext_i18n": {
         "en": "Mean revenue per transaction. Used in CLV calculation. Typical range: $20-$200 for B2C, $500-$5000 for B2B.",
         "tr": "İşlem başına ortalama gelir. CLV hesaplamasında kullanılır. Tipik aralık: B2C için $20-$200, B2B için $500-$5000.",
-        "de": "Mittlerer Umsatz pro Transaktion. Wird bei der CLV-Berechnung verwendet. Typischer Bereich: 20-200 $ für B2C, 500-5000 $ für B2B."
+        "de": "Mittlerer Umsatz pro Transaktion. Wird bei der CLV-Berechnung verwendet. Typischer Bereich: 20-200 $ für B2C, 500-5000 $ für B2B.",
+        "fr": "Revenu moyen par transaction. Utilisé dans le calcul de la CLV. Plage typique : 20-200 € pour B2C, 500-5000 € pour B2B.",
+        "es": "Ingreso medio por transacción. Se utiliza en el cálculo del CLV. Rango típico: $20-$200 para B2C, $500-$5000 para B2B."
       }
     },
     {
@@ -44,12 +48,16 @@
       "label_i18n": {
         "en": "Purchase Frequency per Year",
         "tr": "Yıllık Satın Alma Sıklığı",
-        "de": "Kauffrequenz pro Jahr"
+        "de": "Kauffrequenz pro Jahr",
+        "fr": "Fréquence d'achat par an",
+        "es": "Frecuencia de compra por año"
       },
       "businessContext_i18n": {
         "en": "Number of purchases per customer per year. Derived from historical data or cohort analysis.",
         "tr": "Müşteri başına yıllık satın alma sayısı. Geçmiş verilerden veya kohort analizinden elde edilir.",
-        "de": "Anzahl der Käufe pro Kunde pro Jahr. Abgeleitet aus historischen Daten oder Kohortenanalyse."
+        "de": "Anzahl der Käufe pro Kunde pro Jahr. Abgeleitet aus historischen Daten oder Kohortenanalyse.",
+        "fr": "Nombre d'achats par client par an. Dérivé des données historiques ou de l'analyse de cohorte.",
+        "es": "Número de compras por cliente al año. Derivado de datos históricos o análisis de cohortes."
       }
     },
     {
@@ -64,12 +72,16 @@
       "label_i18n": {
         "en": "Customer Lifetime (Years)",
         "tr": "Müşteri Ömrü (Yıl)",
-        "de": "Kundenlebensdauer (Jahre)"
+        "de": "Kundenlebensdauer (Jahre)",
+        "fr": "Durée de vie client (années)",
+        "es": "Vida útil del cliente (años)"
       },
       "businessContext_i18n": {
         "en": "Average retention period. For subscription models, use 1/churn rate.",
         "tr": "Ortalama elde tutma süresi. Abonelik modelleri için 1/kayıp oranı kullanın.",
-        "de": "Durchschnittliche Bindungsdauer. Bei Abonnementmodellen: 1/Abwanderungsrate."
+        "de": "Durchschnittliche Bindungsdauer. Bei Abonnementmodellen: 1/Abwanderungsrate.",
+        "fr": "Période de rétention moyenne. Pour les modèles d'abonnement, utiliser 1/taux de désabonnement.",
+        "es": "Período de retención promedio. Para modelos de suscripción, usar 1/tasa de abandono."
       }
     },
     {
@@ -84,12 +96,16 @@
       "label_i18n": {
         "en": "Gross Margin (%)",
         "tr": "Brüt Kar Marjı (%)",
-        "de": "Bruttomarge (%)"
+        "de": "Bruttomarge (%)",
+        "fr": "Marge brute (%)",
+        "es": "Margen bruto (%)"
       },
       "businessContext_i18n": {
         "en": "Profit margin after COGS. Typical range: 30-70% for product businesses, 60-90% for SaaS.",
         "tr": "SMM sonrası kar marjı. Tipik aralık: Ürün işletmeleri için %30-70, SaaS için %60-90.",
-        "de": "Gewinnspanne nach COGS. Typischer Bereich: 30-70% für Produktunternehmen, 60-90% für SaaS."
+        "de": "Gewinnspanne nach COGS. Typischer Bereich: 30-70% für Produktunternehmen, 60-90% für SaaS.",
+        "fr": "Marge bénéficiaire après COGS. Plage typique : 30-70 % pour les entreprises de produits, 60-90 % pour les SaaS.",
+        "es": "Margen de beneficio después del costo de los bienes vendidos. Rango típico: 30-70% para negocios de productos, 60-90% para SaaS."
       }
     },
     {
@@ -104,12 +120,16 @@
       "label_i18n": {
         "en": "Total Customer Acquisition Cost (CAC)",
         "tr": "Toplam Müşteri Edinme Maliyeti (CAC)",
-        "de": "Gesamte Kundenakquisitionskosten (CAC)"
+        "de": "Gesamte Kundenakquisitionskosten (CAC)",
+        "fr": "Coût total d'acquisition client (CAC)",
+        "es": "Costo total de adquisición de clientes (CAC)"
       },
       "businessContext_i18n": {
         "en": "Sum of all marketing and sales costs divided by number of new customers. Includes ad spend, salaries, tools.",
         "tr": "Tüm pazarlama ve satış maliyetlerinin yeni müşteri sayısına bölünmesi. Reklam harcamaları, maaşlar, araçlar dahildir.",
-        "de": "Summe aller Marketing- und Vertriebskosten geteilt durch Anzahl Neukunden. Enthält Werbeausgaben, Gehälter, Tools."
+        "de": "Summe aller Marketing- und Vertriebskosten geteilt durch Anzahl Neukunden. Enthält Werbeausgaben, Gehälter, Tools.",
+        "fr": "Somme de tous les coûts marketing et commerciaux divisée par le nombre de nouveaux clients. Inclut les dépenses publicitaires, les salaires, les outils.",
+        "es": "Suma de todos los costos de marketing y ventas dividida por el número de nuevos clientes. Incluye gasto en anuncios, salarios, herramientas."
       }
     },
     {
@@ -124,12 +144,16 @@
       "label_i18n": {
         "en": "Annual Retention Rate",
         "tr": "Yıllık Elde Tutma Oranı",
-        "de": "Jährliche Bindungsrate"
+        "de": "Jährliche Bindungsrate",
+        "fr": "Taux de rétention annuel",
+        "es": "Tasa de retención anual"
       },
       "businessContext_i18n": {
         "en": "Percentage of customers retained year over year. Used for churn adjustment. Industry benchmark: 60-90%.",
         "tr": "Yıldan yıla elde tutulan müşteri yüzdesi. Kayıp düzeltmesi için kullanılır. Sektör referansı: %60-90.",
-        "de": "Prozentsatz der Kunden, die Jahr für Jahr gehalten werden. Zur Abwanderungsanpassung. Branchenbenchmark: 60-90%."
+        "de": "Prozentsatz der Kunden, die Jahr für Jahr gehalten werden. Zur Abwanderungsanpassung. Branchenbenchmark: 60-90%.",
+        "fr": "Pourcentage de clients conservés d'une année sur l'autre. Utilisé pour l'ajustement du taux d'attrition. Référence sectorielle : 60-90 %.",
+        "es": "Porcentaje de clientes retenidos año tras año. Se utiliza para el ajuste por abandono. Referencia del sector: 60-90%."
       }
     },
     {
@@ -144,12 +168,16 @@
       "label_i18n": {
         "en": "Discount Rate (Annual)",
         "tr": "İndirim Oranı (Yıllık)",
-        "de": "Abzinsungssatz (jährlich)"
+        "de": "Abzinsungssatz (jährlich)",
+        "fr": "Taux d'actualisation (annuel)",
+        "es": "Tasa de descuento (anual)"
       },
       "businessContext_i18n": {
         "en": "Cost of capital or required rate of return. Typical range: 8-15%.",
         "tr": "Sermaye maliyeti veya gerekli getiri oranı. Tipik aralık: %8-15.",
-        "de": "Kapitalkosten oder erforderliche Rendite. Typischer Bereich: 8-15%."
+        "de": "Kapitalkosten oder erforderliche Rendite. Typischer Bereich: 8-15%.",
+        "fr": "Coût du capital ou taux de rendement requis. Plage typique : 8-15 %.",
+        "es": "Costo de capital o tasa de rendimiento requerida. Rango típico: 8-15%."
       }
     },
     {
@@ -166,12 +194,16 @@
       "label_i18n": {
         "en": "Data Confidence Level",
         "tr": "Veri Güven Düzeyi",
-        "de": "Datenvertrauensniveau"
+        "de": "Datenvertrauensniveau",
+        "fr": "Niveau de confiance des données",
+        "es": "Nivel de confianza de los datos"
       },
       "businessContext_i18n": {
         "en": "Subjective assessment of input data reliability. Low = estimates, High = audited data.",
         "tr": "Girdi verilerinin güvenilirliğine ilişkin öznel değerlendirme. Düşük = tahminler, Yüksek = denetlenmiş veri.",
-        "de": "Subjektive Bewertung der Zuverlässigkeit der Eingabedaten. Niedrig = Schätzungen, Hoch = geprüfte Daten."
+        "de": "Subjektive Bewertung der Zuverlässigkeit der Eingabedaten. Niedrig = Schätzungen, Hoch = geprüfte Daten.",
+        "fr": "Évaluation subjective de la fiabilité des données d'entrée. Faible = estimations, Élevé = données auditées.",
+        "es": "Evaluación subjetiva de la fiabilidad de los datos de entrada. Bajo = estimaciones, Alto = datos auditados."
       },
       "unit": "unit"
     }

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Angle in Radians",
         "tr": "Radyan Cinsinden Açı",
-        "de": "Angle in Radians",
-        "fr": "Angle in Radians",
-        "es": "Angle in Radians",
+        "de": "Winkel in Radiant",
+        "fr": "Angle en radians",
+        "es": "Ángulo en radianes",
         "ar": "Angle in Radians"
       },
       "businessContext_i18n": {
         "en": "The angle measurement in radians to be converted.",
-        "tr": "Dönüştürülecek radyan cinsinden açı ölçümü."
+        "tr": "Dönüştürülecek radyan cinsinden açı ölçümü.",
+        "de": "Der umzurechnende Winkel in Radiant.",
+        "fr": "Mesure de l'angle en radians à convertir.",
+        "es": "La medida del ángulo en radianes a convertir."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Gradians per radian. Standard is 200/π. Adjust for custom units.",
-        "tr": "Radyan başına gradyan. Standart 200/π'dir. Özel birimler için ayarlayın."
+        "tr": "Radyan başına gradyan. Standart 200/π'dir. Özel birimler için ayarlayın.",
+        "de": "Gradianten pro Radiant. Standard ist 200/π. Für benutzerdefinierte Einheiten anpassen.",
+        "fr": "Gradians par radian. La valeur standard est 200/π. Ajustez pour des unités personnalisées.",
+        "es": "Gradianes por radián. El estándar es 200/π. Ajustar para unidades personalizadas."
       }
     },
     {
@@ -52,14 +58,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output.",
         "tr": "Çıktı için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen für die Ausgabe."
+        "de": "Anzahl der Dezimalstellen für die Ausgabe.",
+        "fr": "Nombre de décimales pour le résultat.",
+        "es": "Número de decimales para la salida."
       }
     },
     {
@@ -73,13 +81,16 @@
         "en": "Calibration Offset",
         "tr": "Kalibrasyon Ofseti",
         "de": "Kalibrierungsversatz",
-        "fr": "Calibration Offset",
-        "es": "Calibration Offset",
+        "fr": "Décalage d'étalonnage",
+        "es": "Desviación de calibración",
         "ar": "Calibration Offset"
       },
       "businessContext_i18n": {
         "en": "Additive offset in gradians for calibration purposes.",
-        "tr": "Kalibrasyon amacıyla gradyan cinsinden eklenen ofset."
+        "tr": "Kalibrasyon amacıyla gradyan cinsinden eklenen ofset.",
+        "de": "Additiver Offset in Gradianten für Kalibrierungszwecke.",
+        "fr": "Décalage additif en gradians à des fins de calibration.",
+        "es": "Desplazamiento aditivo en gradianes para fines de calibración."
       }
     }
   ],

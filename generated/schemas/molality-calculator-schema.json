@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Mass of Solute",
         "tr": "Çözünen Kütlesi",
-        "de": "Mass of Solute",
-        "fr": "Mass of Solute",
-        "es": "Mass of Solute",
+        "de": "Masse des gelösten Stoffes",
+        "fr": "Masse du soluté",
+        "es": "Masa del soluto",
         "ar": "Mass of Solute"
       },
       "businessContext_i18n": {
         "en": "The mass of the solute substance in grams.",
-        "tr": "Çözünen maddenin gram cinsinden kütlesi."
+        "tr": "Çözünen maddenin gram cinsinden kütlesi.",
+        "de": "Die Masse des gelösten Stoffes in Gramm.",
+        "fr": "La masse de la substance solutée en grammes.",
+        "es": "La masa de la sustancia soluto en gramos."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Molar Mass",
         "tr": "Molar Kütle",
         "de": "Molmasse",
-        "fr": "Molar Mass",
-        "es": "Molar Mass",
+        "fr": "Masse molaire",
+        "es": "Masa molar",
         "ar": "Molar Mass"
       },
       "businessContext_i18n": {
         "en": "Molar mass of the solute, e.g., 58.44 g/mol for NaCl.",
-        "tr": "Çözünenin molar kütlesi, örn. NaCl için 58,44 g/mol."
+        "tr": "Çözünenin molar kütlesi, örn. NaCl için 58,44 g/mol.",
+        "de": "Molmasse des gelösten Stoffes, z. B. 58,44 g/mol für NaCl.",
+        "fr": "Masse molaire du soluté, par exemple 58,44 g/mol pour NaCl.",
+        "es": "Masa molar del soluto, p. ej., 58.44 g/mol para NaCl."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Mass of Solvent",
         "tr": "Çözücü kütlesi",
         "de": "Masse des Lösungsmittels",
-        "fr": "Mass of Solvent",
-        "es": "Mass of Solvent",
+        "fr": "Masse de solvant",
+        "es": "Masa de disolvente",
         "ar": "Mass of Solvent"
       },
       "businessContext_i18n": {
         "en": "The mass of the solvent in grams.",
-        "tr": "Çözücünün gram cinsinden kütlesi."
+        "tr": "Çözücünün gram cinsinden kütlesi.",
+        "de": "Die Masse des Lösungsmittels in Gramm.",
+        "fr": "Masse du solvant en grammes.",
+        "es": "La masa del disolvente en gramos."
       }
     }
   ],

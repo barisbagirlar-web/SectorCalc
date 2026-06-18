@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Progesterone (ng/mL)",
         "tr": "Progesteron (ng/mL)",
-        "de": "Progesterone (ng/mL)",
-        "fr": "Progesterone (ng/mL)",
-        "es": "Progesterone (ng/mL)",
+        "de": "Progesteron (ng/mL)",
+        "fr": "Progestérone (ng/mL)",
+        "es": "Progesterona (ng/mL)",
         "ar": "Progesterone (ng/mL)"
       },
       "businessContext_i18n": {
         "en": "Measured progesterone concentration in nanograms per milliliter.",
-        "tr": "Mililitre başına nanogram cinsinden ölçülen progesteron konsantrasyonu."
+        "tr": "Mililitre başına nanogram cinsinden ölçülen progesteron konsantrasyonu.",
+        "de": "Gemessene Progesteronkonzentration in Nanogramm pro Milliliter.",
+        "fr": "Concentration de progestérone mesurée en nanogrammes par millilitre.",
+        "es": "Concentración de progesterona medida en nanogramos por mililitro."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Molecular Weight (g/mol)",
         "tr": "Molekül Ağırlığı (g/mol)",
-        "de": "Molecular Weight (g/mol)",
-        "fr": "Molecular Weight (g/mol)",
-        "es": "Molecular Weight (g/mol)",
+        "de": "Molekulargewicht (g/mol)",
+        "fr": "Masse moléculaire (g/mol)",
+        "es": "Peso molecular (g/mol)",
         "ar": "Molecular Weight (g/mol)"
       },
       "businessContext_i18n": {
         "en": "Molecular weight of progesterone (default 314.46 g/mol).",
-        "tr": "Progesteronun moleküler ağırlığı (varsayılan 314,46 g/mol)."
+        "tr": "Progesteronun moleküler ağırlığı (varsayılan 314,46 g/mol).",
+        "de": "Molekulargewicht von Progesteron (Standard 314,46 g/mol).",
+        "fr": "Masse moléculaire de la progestérone (par défaut 314,46 g/mol).",
+        "es": "Peso molecular de la progesterona (por defecto 314.46 g/mol)."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Dilution Factor",
         "tr": "Seyreltme Faktörü",
-        "de": "Dilution Factor",
-        "fr": "Dilution Factor",
-        "es": "Dilution Factor",
+        "de": "Verdünnungsfaktor",
+        "fr": "Facteur de dilution",
+        "es": "Factor de dilución",
         "ar": "Dilution Factor"
       },
       "businessContext_i18n": {
         "en": "Dilution factor applied to the sample (1 if undiluted).",
-        "tr": "Numuneye uygulanan seyreltme faktörü (seyreltilmemişse 1)."
+        "tr": "Numuneye uygulanan seyreltme faktörü (seyreltilmemişse 1).",
+        "de": "Auf die Probe angewendeter Verdünnungsfaktor (1 wenn unverdünnt).",
+        "fr": "Facteur de dilution appliqué à l'échantillon (1 si non dilué).",
+        "es": "Factor de dilución aplicado a la muestra (1 si no está diluida)."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Sample Volume (mL)",
         "tr": "Numune Hacmi (mL)",
-        "de": "Sample Volume (mL)",
-        "fr": "Sample Volume (mL)",
-        "es": "Sample Volume (mL)",
+        "de": "Probenvolumen (mL)",
+        "fr": "Volume de l'échantillon (mL)",
+        "es": "Volumen de muestra (mL)",
         "ar": "Sample Volume (mL)"
       },
       "businessContext_i18n": {
         "en": "Volume of the sample in milliliters.",
-        "tr": "Numunenin mililitre cinsinden hacmi."
+        "tr": "Numunenin mililitre cinsinden hacmi.",
+        "de": "Volumen der Probe in Millilitern.",
+        "fr": "Volume de l'échantillon en millilitres.",
+        "es": "Volumen de la muestra en mililitros."
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Initial Length",
         "tr": "İlk Uzunluk",
-        "de": "Initial Length",
-        "fr": "Initial Length",
+        "de": "Anfangslänge",
+        "fr": "Longueur initiale",
         "es": "Initial Length",
         "ar": "Initial Length"
       },
       "businessContext_i18n": {
         "en": "Original length before deformation",
-        "tr": "Deformasyondan önceki orijinal uzunluk"
+        "tr": "Deformasyondan önceki orijinal uzunluk",
+        "de": "Ursprüngliche Länge vor Verformung",
+        "fr": "Longueur originale avant déformation"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Final Length",
         "tr": "Son Uzunluk",
-        "de": "Final Length",
-        "fr": "Final Length",
+        "de": "Endlänge",
+        "fr": "Longueur finale",
         "es": "Final Length",
         "ar": "Final Length"
       },
       "businessContext_i18n": {
         "en": "Length after deformation (e.g., under load or temperature)",
-        "tr": "Deformasyon sonrası uzunluk (örneğin yük veya sıcaklık altında)"
+        "tr": "Deformasyon sonrası uzunluk (örneğin yük veya sıcaklık altında)",
+        "de": "Länge nach Verformung (z. B. unter Last oder Temperatur)",
+        "fr": "Longueur après déformation (par exemple, sous charge ou température)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Temperature Change",
         "tr": "Sıcaklık Değişimi",
-        "de": "Temperature Change",
-        "fr": "Temperature Change",
-        "es": "Temperature Change",
+        "de": "Temperaturänderung",
+        "fr": "Variation de température",
+        "es": "Cambio de Temperatura",
         "ar": "Temperature Change"
       },
       "businessContext_i18n": {
         "en": "Change in temperature for thermal expansion calculation",
-        "tr": "Termal genleşme hesaplaması için sıcaklık değişimi"
+        "tr": "Termal genleşme hesaplaması için sıcaklık değişimi",
+        "de": "Temperaturänderung für die Berechnung der Wärmeausdehnung",
+        "fr": "Changement de température pour le calcul de dilatation thermique"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Coefficient of Thermal Expansion",
         "tr": "Termal Genleşme Katsayısı",
-        "de": "Coefficient of Thermal Expansion",
-        "fr": "Coefficient of Thermal Expansion",
+        "de": "Wärmeausdehnungskoeffizient",
+        "fr": "Coefficient de dilatation thermique",
         "es": "Coefficient of Thermal Expansion",
         "ar": "Coefficient of Thermal Expansion"
       },
       "businessContext_i18n": {
         "en": "Material's linear thermal expansion coefficient (e.g., steel 12e-6)",
-        "tr": "Malzemenin doğrusal termal genleşme katsayısı (örneğin çelik 12e-6)"
+        "tr": "Malzemenin doğrusal termal genleşme katsayısı (örneğin çelik 12e-6)",
+        "de": "Linearer Wärmeausdehnungskoeffizient des Materials (z. B. Stahl 12e-6)",
+        "fr": "Coefficient de dilatation thermique linéaire du matériau (ex. acier 12e-6)"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Young's Modulus",
         "tr": "Elastisite Modülü",
-        "de": "Young's Modulus",
-        "fr": "Young's Modulus",
-        "es": "Young's Modulus",
+        "de": "Elastizitätsmodul",
+        "fr": "Module d'Young",
+        "es": "Módulo de Young",
         "ar": "Young's Modulus"
       },
       "businessContext_i18n": {
         "en": "Material's modulus of elasticity. Set to 0 to ignore stress",
-        "tr": "Malzemenin elastisite modülü. Gerilmeyi yok saymak için 0 olarak ayarlayın"
+        "tr": "Malzemenin elastisite modülü. Gerilmeyi yok saymak için 0 olarak ayarlayın",
+        "de": "Elastizitätsmodul des Materials. Auf 0 setzen, um Spannung zu ignorieren",
+        "fr": "Module d'élasticité du matériau. Mettre à 0 pour ignorer la contrainte"
       }
     }
   ],

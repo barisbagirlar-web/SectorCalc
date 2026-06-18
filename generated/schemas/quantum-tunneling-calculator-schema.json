@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Effective Mass Ratio (m*/m₀)",
         "tr": "Etkin Kütle Oranı (m*/m₀)",
-        "de": "Effective Mass Ratio (m*/m₀)",
-        "fr": "Effective Mass Ratio (m*/m₀)",
-        "es": "Effective Mass Ratio (m*/m₀)",
+        "de": "Effektives Massenverhältnis (m*/m₀)",
+        "fr": "Rapport de masse effective (m*/m₀)",
+        "es": "Relación de masa efectiva (m*/m₀)",
         "ar": "Effective Mass Ratio (m*/m₀)"
       },
       "businessContext_i18n": {
         "en": "Particle effective mass relative to free electron mass (m₀ = 9.1093837e-31 kg). For electron, use 1.0; for hole, use appropriate value.",
-        "tr": "Parçacığın serbest elektron kütlesine (m₀ = 9.1093837e-31 kg) göre etkin kütlesi. Elektron için 1.0 kullanın; boşluk için uygun değeri kullanın."
+        "tr": "Parçacığın serbest elektron kütlesine (m₀ = 9.1093837e-31 kg) göre etkin kütlesi. Elektron için 1.0 kullanın; boşluk için uygun değeri kullanın.",
+        "de": "Effektive Masse des Teilchens relativ zur freien Elektronenmasse (m₀ = 9,1093837e-31 kg). Für Elektronen 1,0; für Löcher entsprechenden Wert verwenden.",
+        "fr": "Masse effective de la particule par rapport à la masse de l'électron libre (m₀ = 9,1093837e-31 kg). Pour un électron, utiliser 1,0 ; pour un trou, utiliser la valeur appropriée.",
+        "es": "Masa efectiva de la partícula relativa a la masa del electrón libre (m₀ = 9.1093837e-31 kg). Para electrones, use 1.0; para huecos, use el valor apropiado."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Barrier Height (V)",
         "tr": "Bariyer Yüksekliği (V)",
-        "de": "Barrier Height (V)",
-        "fr": "Barrier Height (V)",
-        "es": "Barrier Height (V)",
+        "de": "Barrierenhöhe (V)",
+        "fr": "Hauteur de barrière (V)",
+        "es": "Altura de barrera (V)",
         "ar": "Barrier Height (V)"
       },
       "businessContext_i18n": {
         "en": "Potential barrier height in electronvolts. Must be greater than particle energy for tunneling to occur classically.",
-        "tr": "Elektronvolt cinsinden potansiyel bariyer yüksekliği. Klasik olarak tünelleme gerçekleşmesi için parçacık enerjisinden büyük olmalıdır."
+        "tr": "Elektronvolt cinsinden potansiyel bariyer yüksekliği. Klasik olarak tünelleme gerçekleşmesi için parçacık enerjisinden büyük olmalıdır.",
+        "de": "Potenzielle Barrierenhöhe in Elektronenvolt. Muss größer als die Teilchenenergie sein, damit klassisch Tunneln möglich ist.",
+        "fr": "Hauteur de la barrière de potentiel en électronvolts. Doit être supérieure à l'énergie de la particule pour un effet tunnel classique.",
+        "es": "Altura de la barrera de potencial en electronvoltios. Debe ser mayor que la energía de la partícula para que ocurra tunelamiento clásico."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Particle Energy (E)",
         "tr": "Parçacık Enerjisi (E)",
-        "de": "Particle Energy (E)",
-        "fr": "Particle Energy (E)",
-        "es": "Particle Energy (E)",
+        "de": "Teilchenenergie (E)",
+        "fr": "Énergie de la particule (E)",
+        "es": "Energía de la partícula (E)",
         "ar": "Particle Energy (E)"
       },
       "businessContext_i18n": {
         "en": "Energy of the incident particle. Must be less than barrier height for meaningful tunneling probability.",
-        "tr": "Gelen parçacığın enerjisi. Anlamlı bir tünelleme olasılığı için bariyer yüksekliğinden küçük olmalıdır."
+        "tr": "Gelen parçacığın enerjisi. Anlamlı bir tünelleme olasılığı için bariyer yüksekliğinden küçük olmalıdır.",
+        "de": "Energie des einfallenden Teilchens. Muss kleiner als die Barrierenhöhe sein, um eine sinnvolle Tunnelwahrscheinlichkeit zu erhalten.",
+        "fr": "Énergie de la particule incidente. Doit être inférieure à la hauteur de barrière pour une probabilité d'effet tunnel significative.",
+        "es": "Energía de la partícula incidente. Debe ser menor que la altura de la barrera para una probabilidad de tunelamiento significativa."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Barrier Width (d)",
         "tr": "Bariyer Genişliği (d)",
-        "de": "Barrier Width (d)",
-        "fr": "Barrier Width (d)",
-        "es": "Barrier Width (d)",
+        "de": "Barrierenbreite (d)",
+        "fr": "Largeur de barrière (d)",
+        "es": "Ancho de barrera (d)",
         "ar": "Barrier Width (d)"
       },
       "businessContext_i18n": {
         "en": "Width of the potential barrier in nanometers. Typical nanoscale dimensions.",
-        "tr": "Nanometre cinsinden potansiyel bariyer genişliği. Tipik nano ölçekli boyutlar."
+        "tr": "Nanometre cinsinden potansiyel bariyer genişliği. Tipik nano ölçekli boyutlar.",
+        "de": "Breite der potenziellen Barriere in Nanometern. Typische Nanometerabmessungen.",
+        "fr": "Largeur de la barrière de potentiel en nanomètres. Dimensions nanométriques typiques.",
+        "es": "Ancho de la barrera de potencial en nanómetros. Dimensiones típicas a nanoescala."
       }
     }
   ],

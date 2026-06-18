@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Speed in mph",
         "tr": "mph cinsinden hız",
-        "de": "Speed in mph",
-        "fr": "Speed in mph",
-        "es": "Speed in mph",
+        "de": "Geschwindigkeit in mph",
+        "fr": "Vitesse en mph",
+        "es": "Velocidad en mph",
         "ar": "Speed in mph"
       },
       "businessContext_i18n": {
         "en": "The speed to convert from miles per hour.",
-        "tr": "Mil/saat'ten dönüştürülecek hız."
+        "tr": "Mil/saat'ten dönüştürülecek hız.",
+        "de": "Die Geschwindigkeit, die von Meilen pro Stunde umgerechnet werden soll.",
+        "fr": "La vitesse à convertir depuis les miles par heure.",
+        "es": "La velocidad a convertir desde millas por hora."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "The factor to multiply mph by to get knots. 1 mph = 0.868976 knots (standard). Editable for calibration.",
-        "tr": "mph'yi knot'a çarpmak için faktör. 1 mph = 0,868976 knot (standart). Kalibrasyon için düzenlenebilir."
+        "tr": "mph'yi knot'a çarpmak için faktör. 1 mph = 0,868976 knot (standart). Kalibrasyon için düzenlenebilir.",
+        "de": "Der Faktor, mit dem mph multipliziert wird, um Knoten zu erhalten. 1 mph = 0,868976 Knoten (Standard). Bearbeitbar für Kalibrierung.",
+        "fr": "Le facteur pour multiplier mph afin d'obtenir des nœuds. 1 mph = 0,868976 nœuds (standard). Modifiable pour étalonnage.",
+        "es": "El factor por el que multiplicar mph para obtener nudos. 1 mph = 0.868976 nudos (estándar). Editable para calibración."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Decimal places",
         "tr": "Ondalık basamaklar",
         "de": "Dezimalstellen",
-        "fr": "Decimal places",
-        "es": "Decimal places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the output knots.",
-        "tr": "Çıktı knot'larını yuvarlamak için ondalık basamak sayısı."
+        "tr": "Çıktı knot'larını yuvarlamak için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für die Rundung der Ausgabeknoten.",
+        "fr": "Nombre de décimales pour arrondir les nœuds de sortie.",
+        "es": "Número de decimales para redondear los nudos de salida."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Known knots (for QC)",
         "tr": "Bilinen knot (QC için)",
-        "de": "Known knots (for QC)",
-        "fr": "Known knots (for QC)",
-        "es": "Known knots (for QC)",
+        "de": "Bekannte Knoten (für Qualitätskontrolle)",
+        "fr": "Nœuds connus (pour contrôle qualité)",
+        "es": "Nudos conocidos (para control de calidad)",
         "ar": "Known knots (for QC)"
       },
       "businessContext_i18n": {
         "en": "Optional known value in knots to validate conversion accuracy.",
-        "tr": "Dönüşüm doğruluğunu doğrulamak için knot cinsinden isteğe bağlı bilinen değer."
+        "tr": "Dönüşüm doğruluğunu doğrulamak için knot cinsinden isteğe bağlı bilinen değer.",
+        "de": "Optionaler bekannter Wert in Knoten zur Validierung der Umrechnungsgenauigkeit.",
+        "fr": "Valeur connue facultative en nœuds pour valider la précision de la conversion.",
+        "es": "Valor conocido opcional en nudos para validar la precisión de la conversión."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Tolerance",
         "tr": "Tolerans",
         "de": "Toleranz",
-        "fr": "Tolerance",
-        "es": "Tolerance",
+        "fr": "Tolérance",
+        "es": "Tolerancia",
         "ar": "Tolerance"
       },
       "businessContext_i18n": {
         "en": "Maximum allowed deviation between computed and known knots for quality check.",
-        "tr": "Kalite kontrol için hesaplanan ve bilinen knot arasındaki izin verilen maksimum sapma."
+        "tr": "Kalite kontrol için hesaplanan ve bilinen knot arasındaki izin verilen maksimum sapma.",
+        "de": "Maximal zulässige Abweichung zwischen berechneten und bekannten Knoten für die Qualitätsprüfung.",
+        "fr": "Écart maximal autorisé entre les nœuds calculés et connus pour le contrôle qualité.",
+        "es": "Desviación máxima permitida entre los nudos calculados y los conocidos para la verificación de calidad."
       }
     }
   ],

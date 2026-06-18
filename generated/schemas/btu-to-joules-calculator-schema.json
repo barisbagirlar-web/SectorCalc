@@ -12,14 +12,16 @@
         "en": "BTU Value",
         "tr": "BTU Değeri",
         "de": "BTU-Wert",
-        "fr": "BTU Value",
-        "es": "BTU Value",
+        "fr": "Valeur BTU",
+        "es": "Valor BTU",
         "ar": "BTU Value"
       },
       "businessContext_i18n": {
         "en": "Energy quantity in British Thermal Units",
         "tr": "İngiliz Isı Birimleri cinsinden enerji miktarı",
-        "de": "Energiemenge in British Thermal Units"
+        "de": "Energiemenge in British Thermal Units",
+        "fr": "Quantité d'énergie en British Thermal Units",
+        "es": "Cantidad de energía en unidades térmicas británicas"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "BTU Standard",
         "tr": "BTU Standardı",
         "de": "BTU-Standard",
-        "fr": "BTU Standard",
-        "es": "BTU Standard",
+        "fr": "Norme BTU",
+        "es": "Estándar BTU",
         "ar": "BTU Standard"
       },
       "businessContext_i18n": {
         "en": "1: IT (1055.06 J), 2: Thermochemical (1054.35 J), 3: ISO (1055.06 J), 4: Mean (1055.87 J)",
         "tr": "1: IT (1055,06 J), 2: Termokimyasal (1054,35 J), 3: ISO (1055,06 J), 4: Ortalama (1055,87 J)",
-        "de": "1: IT (1055,06 J), 2: thermochemisch (1054,35 J), 3: ISO (1055,06 J), 4: Mittelwert (1055,87 J)"
+        "de": "1: IT (1055,06 J), 2: thermochemisch (1054,35 J), 3: ISO (1055,06 J), 4: Mittelwert (1055,87 J)",
+        "fr": "1 : IT (1055,06 J), 2 : Thermochimique (1054,35 J), 3 : ISO (1055,06 J), 4 : Moyenne (1055,87 J)",
+        "es": "1: IT (1055.06 J), 2: Termoquímico (1054.35 J), 3: ISO (1055.06 J), 4: Medio (1055.87 J)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Precision",
         "tr": "Hassasiyet",
         "de": "Genauigkeit",
-        "fr": "Precision",
-        "es": "Precision",
+        "fr": "Précision",
+        "es": "Precisión",
         "ar": "Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output",
         "tr": "Çıktı için ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen für die Ausgabe"
+        "de": "Anzahl der Dezimalstellen für die Ausgabe",
+        "fr": "Nombre de décimales pour le résultat",
+        "es": "Número de decimales para la salida"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Custom Conversion Factor",
         "tr": "Özel Dönüşüm Faktörü",
         "de": "Benutzerdefinierter Umrechnungsfaktor",
-        "fr": "Custom Conversion Factor",
-        "es": "Custom Conversion Factor",
+        "fr": "Facteur de conversion personnalisé",
+        "es": "Factor de conversión personalizado",
         "ar": "Custom Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Override standard factor; 0 to use selected standard",
         "tr": "Standart faktörü geçersiz kıl; 0 standart kullanmak için",
-        "de": "Standardfaktor überschreiben; 0, um den ausgewählten Standard zu verwenden"
+        "de": "Standardfaktor überschreiben; 0, um den ausgewählten Standard zu verwenden",
+        "fr": "Remplace le facteur standard ; 0 pour utiliser la norme sélectionnée",
+        "es": "Anular el factor estándar; 0 para usar el estándar seleccionado"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Output Unit",
         "tr": "Çıktı Birimi",
         "de": "Ausgabeeinheit",
-        "fr": "Output Unit",
-        "es": "Output Unit",
+        "fr": "Unité de sortie",
+        "es": "Unidad de salida",
         "ar": "Output Unit"
       },
       "businessContext_i18n": {
         "en": "1: Joules, 2: Kilojoules",
         "tr": "1: Joule, 2: Kilojoule",
-        "de": "1: Joule, 2: Kilojoule"
+        "de": "1: Joule, 2: Kilojoule",
+        "fr": "1: Joules, 2: Kilojoules",
+        "es": "1: Julios, 2: Kilojulios"
       }
     }
   ],

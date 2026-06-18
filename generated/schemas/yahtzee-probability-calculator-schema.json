@@ -12,13 +12,15 @@
         "en": "Number of Dice",
         "tr": "Zar Sayısı",
         "de": "Anzahl der Würfel",
-        "fr": "Number of Dice",
-        "es": "Number of Dice",
+        "fr": "Nombre de dés",
+        "es": "Número de Dados",
         "ar": "Number of Dice"
       },
       "businessContext_i18n": {
         "en": "Total dice used in the game (standard Yahtzee uses 5).",
-        "tr": "Oyunda kullanılan toplam zar sayısı (standart Yahtzee 5 kullanır)."
+        "tr": "Oyunda kullanılan toplam zar sayısı (standart Yahtzee 5 kullanır).",
+        "de": "Gesamtzahl der im Spiel verwendeten Würfel (Standard Yahtzee verwendet 5).",
+        "fr": "Nombre total de dés utilisés dans le jeu (le Yahtzee standard en utilise 5)."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Target Matching Dice",
         "tr": "Hedef Eşleşen Zar",
-        "de": "Target Matching Dice",
-        "fr": "Target Matching Dice",
+        "de": "Zielanzahl übereinstimmender Würfel",
+        "fr": "Dés correspondants cibles",
         "es": "Target Matching Dice",
         "ar": "Target Matching Dice"
       },
       "businessContext_i18n": {
         "en": "Number of dice that must show the same value (e.g., 5 for a Yahtzee).",
-        "tr": "Aynı değeri göstermesi gereken zar sayısı (ör. Yahtzee için 5)."
+        "tr": "Aynı değeri göstermesi gereken zar sayısı (ör. Yahtzee için 5).",
+        "de": "Anzahl der Würfel, die denselben Wert zeigen müssen (z. B. 5 für einen Yahtzee).",
+        "fr": "Nombre de dés qui doivent montrer la même valeur (ex. 5 pour un Yahtzee)."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Current Matching Dice",
         "tr": "Mevcut Eşleşen Zar",
-        "de": "Current Matching Dice",
-        "fr": "Current Matching Dice",
+        "de": "Aktuelle Anzahl übereinstimmender Würfel",
+        "fr": "Dés correspondants actuels",
         "es": "Current Matching Dice",
         "ar": "Current Matching Dice"
       },
       "businessContext_i18n": {
         "en": "Number of dice already showing the desired value from previous rolls.",
-        "tr": "Önceki atışlardan istenen değeri gösteren zar sayısı."
+        "tr": "Önceki atışlardan istenen değeri gösteren zar sayısı.",
+        "de": "Anzahl der Würfel, die bereits den gewünschten Wert aus vorherigen Würfen zeigen.",
+        "fr": "Nombre de dés montrant déjà la valeur souhaitée après les lancers précédents."
       }
     }
   ],

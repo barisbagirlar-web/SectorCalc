@@ -12,13 +12,15 @@
         "en": "Total Assets",
         "tr": "Toplam Varlıklar",
         "de": "Gesamtvermögen",
-        "fr": "Total Assets",
-        "es": "Total Assets",
+        "fr": "Actif total",
+        "es": "Activos totales",
         "ar": "Total Assets"
       },
       "businessContext_i18n": {
         "en": "Total value of all owned assets (home, cars, investments, etc.)",
-        "tr": "Sahip olunan tüm varlıkların toplam değeri (ev, araba, yatırımlar vb.)"
+        "tr": "Sahip olunan tüm varlıkların toplam değeri (ev, araba, yatırımlar vb.)",
+        "de": "Gesamtwert aller eigenen Vermögenswerte (Haus, Autos, Investitionen usw.)",
+        "fr": "Valeur totale de tous les actifs possédés (maison, voitures, investissements, etc.)"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Total Liabilities",
         "tr": "Toplam Yükümlülükler",
         "de": "Gesamtverbindlichkeiten",
-        "fr": "Total Liabilities",
-        "es": "Total Liabilities",
+        "fr": "Passif total",
+        "es": "Pasivos totales",
         "ar": "Total Liabilities"
       },
       "businessContext_i18n": {
         "en": "Outstanding debts (mortgage, loans, etc.)",
-        "tr": "Ödenmemiş borçlar (ipotek, krediler vb.)"
+        "tr": "Ödenmemiş borçlar (ipotek, krediler vb.)",
+        "de": "Ausstehende Schulden (Hypothek, Darlehen usw.)",
+        "fr": "Dettes impayées (hypothèque, prêts, etc.)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Underlying Liability Coverage",
         "tr": "Temel Sorumluluk Teminatı",
-        "de": "Underlying Liability Coverage",
-        "fr": "Underlying Liability Coverage",
+        "de": "Deckungssumme der zugrunde liegenden Haftpflicht",
+        "fr": "Couverture de responsabilité sous-jacente",
         "es": "Underlying Liability Coverage",
         "ar": "Underlying Liability Coverage"
       },
       "businessContext_i18n": {
         "en": "Combined liability limits from auto, home, and other primary insurance policies",
-        "tr": "Oto, konut ve diğer birincil sigorta poliçelerinden birleşik sorumluluk limitleri"
+        "tr": "Oto, konut ve diğer birincil sigorta poliçelerinden birleşik sorumluluk limitleri",
+        "de": "Kombinierte Haftpflichtgrenzen aus Kfz-, Hausrat- und anderen Erstversicherungspolicen",
+        "fr": "Limites de responsabilité combinées des polices d'assurance auto, habitation et autres polices principales"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Risk Factor",
         "tr": "Risk Faktörü",
-        "de": "Risk Factor",
-        "fr": "Risk Factor",
+        "de": "Risikofaktor",
+        "fr": "Facteur de risque",
         "es": "Risk Factor",
         "ar": "Risk Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier based on occupation, lifestyle, and property risks (100% = standard)",
-        "tr": "Meslek, yaşam tarzı ve mülk risklerine dayalı çarpan (%100 = standart)"
+        "tr": "Meslek, yaşam tarzı ve mülk risklerine dayalı çarpan (%100 = standart)",
+        "de": "Multiplikator basierend auf Beruf, Lebensstil und Sachrisiken (100 % = Standard)",
+        "fr": "Multiplicateur basé sur la profession, le mode de vie et les risques immobiliers (100 % = standard)"
       }
     }
   ],

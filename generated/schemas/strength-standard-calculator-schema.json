@@ -12,13 +12,15 @@
         "en": "Weight Lifted",
         "tr": "Kaldırılan Ağırlık",
         "de": "Gehobenes Gewicht",
-        "fr": "Weight Lifted",
-        "es": "Weight Lifted",
+        "fr": "Poids soulevé",
+        "es": "Peso levantado",
         "ar": "Weight Lifted"
       },
       "businessContext_i18n": {
         "en": "The total weight used in the exercise, including barbell if applicable",
-        "tr": "Egzersizde kullanılan toplam ağırlık (varsa halter dahil)"
+        "tr": "Egzersizde kullanılan toplam ağırlık (varsa halter dahil)",
+        "de": "Gesamtgewicht der Übung, inkl. Langhantel falls zutreffend",
+        "fr": "Poids total utilisé dans l'exercice, incluant la barre si applicable"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Repetitions",
         "tr": "Tekrar Sayısı",
         "de": "Wiederholungen",
-        "fr": "Repetitions",
-        "es": "Repetitions",
+        "fr": "Répétitions",
+        "es": "Repeticiones",
         "ar": "Repetitions"
       },
       "businessContext_i18n": {
         "en": "Number of repetitions completed with the given weight",
-        "tr": "Verilen ağırlıkla tamamlanan tekrar sayısı"
+        "tr": "Verilen ağırlıkla tamamlanan tekrar sayısı",
+        "de": "Anzahl der Wiederholungen mit dem gegebenen Gewicht",
+        "fr": "Nombre de répétitions effectuées avec le poids donné"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Body Weight",
-        "es": "Body Weight",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "Lifter's body weight for relative strength calculation",
-        "tr": "Göreceli kuvvet hesaplaması için sporcunun vücut ağırlığı"
+        "tr": "Göreceli kuvvet hesaplaması için sporcunun vücut ağırlığı",
+        "de": "Körpergewicht des Sportlers für relative Kraftberechnung",
+        "fr": "Poids corporel du sportif pour le calcul de la force relative"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Lifter's age (optional, for future age-adjusted standards)",
-        "tr": "Sporcunun yaşı (isteğe bağlı, gelecekteki yaşa göre ayarlanmış standartlar için)"
+        "tr": "Sporcunun yaşı (isteğe bağlı, gelecekteki yaşa göre ayarlanmış standartlar için)",
+        "de": "Alter des Sportlers (optional, für zukünftige altersangepasste Standards)",
+        "fr": "Âge du sportif (optionnel, pour les normes ajustées à l'âge)"
       }
     }
   ],

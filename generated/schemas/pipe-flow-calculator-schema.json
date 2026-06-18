@@ -23,11 +23,16 @@
       "label_i18n": {
         "en": "Pipe Inner Diameter",
         "tr": "Boru İç Çapı",
-        "de": "Rohrinnendurchmesser"
+        "de": "Rohrinnendurchmesser",
+        "fr": "Diamètre intérieur du tuyau",
+        "es": "Diámetro interior de la tubería"
       },
       "businessContext_i18n": {
         "en": "Nominal pipe diameter per ISO 6708. Affects cross-sectional area and velocity.",
-        "tr": "ISO 6708'e göre nominal boru çapı. Kesit alanını ve hızı etkiler."
+        "tr": "ISO 6708'e göre nominal boru çapı. Kesit alanını ve hızı etkiler.",
+        "de": "Nennrohrdurchmesser nach ISO 6708. Beeinflusst Querschnittsfläche und Geschwindigkeit.",
+        "fr": "Diamètre nominal du tuyau selon ISO 6708. Affecte la section transversale et la vitesse.",
+        "es": "Diámetro nominal de tubería según ISO 6708. Afecta el área transversal y la velocidad."
       }
     },
     {
@@ -42,11 +47,16 @@
       "label_i18n": {
         "en": "Pipe Length",
         "tr": "Boru Uzunluğu",
-        "de": "Rohrlänge"
+        "de": "Rohrlänge",
+        "fr": "Longueur du tuyau",
+        "es": "Longitud de la tubería"
       },
       "businessContext_i18n": {
         "en": "Total straight pipe length. Used for friction loss calculation.",
-        "tr": "Toplam düz boru uzunluğu. Sürtünme kaybı hesaplamasında kullanılır."
+        "tr": "Toplam düz boru uzunluğu. Sürtünme kaybı hesaplamasında kullanılır.",
+        "de": "Gesamtlänge des geraden Rohrs. Wird für die Berechnung des Reibungsverlusts verwendet.",
+        "fr": "Longueur totale de tuyau droit. Utilisée pour le calcul des pertes par frottement.",
+        "es": "Longitud total de tubería recta. Se utiliza para el cálculo de pérdida por fricción."
       }
     },
     {
@@ -61,11 +71,16 @@
       "label_i18n": {
         "en": "Volumetric Flow Rate",
         "tr": "Hacimsel Akış Hızı",
-        "de": "Volumenstrom"
+        "de": "Volumenstrom",
+        "fr": "Débit volumétrique",
+        "es": "Caudal volumétrico"
       },
       "businessContext_i18n": {
         "en": "Design flow rate. Must be within pump capacity and pipe rating.",
-        "tr": "Tasarım debisi. Pompa kapasitesi ve boru değeri dahilinde olmalıdır."
+        "tr": "Tasarım debisi. Pompa kapasitesi ve boru değeri dahilinde olmalıdır.",
+        "de": "Auslegungsdurchfluss. Muss innerhalb der Pumpenkapazität und Rohrnennweite liegen.",
+        "fr": "Débit de conception. Doit être dans la capacité de la pompe et la plage nominale du tuyau.",
+        "es": "Caudal de diseño. Debe estar dentro de la capacidad de la bomba y la clasificación de la tubería."
       }
     },
     {
@@ -80,11 +95,16 @@
       "label_i18n": {
         "en": "Fluid Density",
         "tr": "Akışkan Yoğunluğu",
-        "de": "Flüssigkeitsdichte"
+        "de": "Flüssigkeitsdichte",
+        "fr": "Densité du fluide",
+        "es": "Densidad del fluido"
       },
       "businessContext_i18n": {
         "en": "Density at operating temperature. Water = 1000, oil ≈ 850.",
-        "tr": "İşletme sıcaklığındaki yoğunluk. Su = 1000, yağ ≈ 850."
+        "tr": "İşletme sıcaklığındaki yoğunluk. Su = 1000, yağ ≈ 850.",
+        "de": "Dichte bei Betriebstemperatur. Wasser = 1000, Öl ≈ 850.",
+        "fr": "Masse volumique à la température de fonctionnement. Eau = 1000, huile ≈ 850.",
+        "es": "Densidad a temperatura de operación. Agua = 1000, aceite ≈ 850."
       }
     },
     {
@@ -99,11 +119,16 @@
       "label_i18n": {
         "en": "Dynamic Viscosity",
         "tr": "Dinamik viskozite",
-        "de": "Dynamische Viskosität"
+        "de": "Dynamische Viskosität",
+        "fr": "Viscosité dynamique",
+        "es": "Viscosidad dinámica"
       },
       "businessContext_i18n": {
         "en": "Dynamic viscosity at operating temperature. Water = 0.001, heavy oil up to 1.",
-        "tr": "İşletme sıcaklığındaki dinamik viskozite. Su = 0.001, ağır yağ 1'e kadar."
+        "tr": "İşletme sıcaklığındaki dinamik viskozite. Su = 0.001, ağır yağ 1'e kadar.",
+        "de": "Dynamische Viskosität bei Betriebstemperatur. Wasser = 0,001, Schweröl bis zu 1.",
+        "fr": "Viscosité dynamique à la température de fonctionnement. Eau = 0,001, huile lourde jusqu'à 1.",
+        "es": "Viscosidad dinámica a temperatura de operación. Agua = 0.001, aceite pesado hasta 1."
       }
     },
     {
@@ -117,11 +142,17 @@
       "businessContext": "Absolute roughness height. Steel = 0.000045, concrete = 0.001. Per ISO 9906.",
       "label_i18n": {
         "en": "Pipe Roughness",
-        "tr": "Boru Pürüzlülüğü"
+        "tr": "Boru Pürüzlülüğü",
+        "de": "Rohrrauheit",
+        "fr": "Rugosité du tuyau",
+        "es": "Rugosidad de la tubería"
       },
       "businessContext_i18n": {
         "en": "Absolute roughness height. Steel = 0.000045, concrete = 0.001. Per ISO 9906.",
-        "tr": "Mutlak pürüzlülük yüksekliği. Çelik = 0.000045, beton = 0.001. ISO 9906'ya göre."
+        "tr": "Mutlak pürüzlülük yüksekliği. Çelik = 0.000045, beton = 0.001. ISO 9906'ya göre.",
+        "de": "Absolute Rauheitshöhe. Stahl = 0,000045, Beton = 0,001. Gemäß ISO 9906.",
+        "fr": "Hauteur de rugosité absolue. Acier = 0,000045, béton = 0,001. Selon ISO 9906.",
+        "es": "Altura de rugosidad absoluta. Acero = 0.000045, hormigón = 0.001. Según ISO 9906."
       }
     },
     {
@@ -135,11 +166,17 @@
       "businessContext": "Positive if outlet is higher than inlet. Affects gravitational head.",
       "label_i18n": {
         "en": "Elevation Change",
-        "tr": "Kot Farkı"
+        "tr": "Kot Farkı",
+        "de": "Höhenänderung",
+        "fr": "Changement d'altitude",
+        "es": "Cambio de elevación"
       },
       "businessContext_i18n": {
         "en": "Positive if outlet is higher than inlet. Affects gravitational head.",
-        "tr": "Çıkış girişten yüksekse pozitif. Yerçekimi yükünü etkiler."
+        "tr": "Çıkış girişten yüksekse pozitif. Yerçekimi yükünü etkiler.",
+        "de": "Positiv, wenn der Auslass höher als der Einlass liegt. Beeinflusst die geodätische Förderhöhe.",
+        "fr": "Positif si la sortie est plus haute que l'entrée. Affecte la hauteur gravitationnelle.",
+        "es": "Positivo si la salida está más alta que la entrada. Afecta la altura gravitacional."
       }
     },
     {
@@ -153,11 +190,17 @@
       "businessContext": "Sum of K factors for fittings, valves, bends. Per Crane Technical Paper No. 410.",
       "label_i18n": {
         "en": "Minor Loss Coefficient (K)",
-        "tr": "Yerel Kayıp Katsayısı (K)"
+        "tr": "Yerel Kayıp Katsayısı (K)",
+        "de": "Verlustbeiwert (K)",
+        "fr": "Coefficient de perte mineure (K)",
+        "es": "Coeficiente de pérdida menor (K)"
       },
       "businessContext_i18n": {
         "en": "Sum of K factors for fittings, valves, bends. Per Crane Technical Paper No. 410.",
-        "tr": "Bağlantı parçaları, vanalar, dirsekler için K faktörlerinin toplamı. Crane Teknik Rapor No. 410'a göre."
+        "tr": "Bağlantı parçaları, vanalar, dirsekler için K faktörlerinin toplamı. Crane Teknik Rapor No. 410'a göre.",
+        "de": "Summe der K-Faktoren für Formstücke, Ventile, Bögen. Gemäß Crane Technical Paper No. 410.",
+        "fr": "Somme des facteurs K pour raccords, vannes, coudes. Selon Crane Technical Paper No. 410.",
+        "es": "Suma de factores K para accesorios, válvulas, codos. Según Crane Technical Paper No. 410."
       }
     }
   ],

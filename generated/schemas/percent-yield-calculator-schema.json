@@ -12,13 +12,16 @@
         "en": "Raw Material Input",
         "tr": "Hammadde Girdisi",
         "de": "Rohmaterialeinsatz",
-        "fr": "Raw Material Input",
-        "es": "Raw Material Input",
+        "fr": "Entrée de matière première",
+        "es": "Entrada de materia prima",
         "ar": "Raw Material Input"
       },
       "businessContext_i18n": {
         "en": "Total weight of raw material fed into the process",
-        "tr": "Proseese beslenen toplam hammadde ağırlığı"
+        "tr": "Proseese beslenen toplam hammadde ağırlığı",
+        "de": "Gesamtgewicht des in den Prozess eingespeisten Rohmaterials",
+        "fr": "Poids total de matière première introduite dans le processus",
+        "es": "Peso total de materia prima alimentada al proceso"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Product Output",
         "tr": "Ürün Çıktısı",
-        "de": "Product Output",
-        "fr": "Product Output",
-        "es": "Product Output",
+        "de": "Produktausstoß",
+        "fr": "Production de produit",
+        "es": "Salida de producto",
         "ar": "Product Output"
       },
       "businessContext_i18n": {
         "en": "Net weight of finished good product obtained",
-        "tr": "Elde edilen net mamul ürün ağırlığı"
+        "tr": "Elde edilen net mamul ürün ağırlığı",
+        "de": "Nettogewicht des hergestellten Fertigprodukts",
+        "fr": "Poids net du produit fini obtenu",
+        "es": "Peso neto del producto terminado obtenido"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Expected Yield (%)",
         "tr": "Beklenen Verim (%)",
-        "de": "Expected Yield (%)",
-        "fr": "Expected Yield (%)",
-        "es": "Expected Yield (%)",
+        "de": "Erwartete Ausbeute (%)",
+        "fr": "Rendement attendu (%)",
+        "es": "Rendimiento esperado (%)",
         "ar": "Expected Yield (%)"
       },
       "businessContext_i18n": {
         "en": "Standard or budgeted yield percentage for the process",
-        "tr": "Proses için standart veya bütçelenmiş verim yüzdesi"
+        "tr": "Proses için standart veya bütçelenmiş verim yüzdesi",
+        "de": "Standard- oder planmäßige Ausbeute in Prozent für den Prozess",
+        "fr": "Pourcentage de rendement standard ou budgété pour le processus",
+        "es": "Porcentaje de rendimiento estándar o presupuestado para el proceso"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Waste Material",
         "tr": "Atık Malzeme",
-        "de": "Waste Material",
-        "fr": "Waste Material",
-        "es": "Waste Material",
+        "de": "Abfallmaterial",
+        "fr": "Déchets",
+        "es": "Material de desperdicio",
         "ar": "Waste Material"
       },
       "businessContext_i18n": {
         "en": "Weight of waste or scrap produced during production",
-        "tr": "Üretim sırasında oluşan atık veya fire ağırlığı"
+        "tr": "Üretim sırasında oluşan atık veya fire ağırlığı",
+        "de": "Gewicht des während der Produktion anfallenden Abfalls oder Ausschusses",
+        "fr": "Poids des déchets ou rebuts produits pendant la production",
+        "es": "Peso del desperdicio o desecho producido durante la fabricación"
       }
     }
   ],

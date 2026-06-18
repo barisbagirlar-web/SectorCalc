@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Shaft Diameter (mm)",
         "tr": "Mil Çapı (mm)",
-        "de": "Shaft Diameter (mm)",
-        "fr": "Shaft Diameter (mm)",
-        "es": "Shaft Diameter (mm)",
+        "de": "Wellendurchmesser (mm)",
+        "fr": "Diamètre de l'arbre (mm)",
+        "es": "Diámetro del eje (mm)",
         "ar": "Shaft Diameter (mm)"
       },
       "businessContext_i18n": {
         "en": "Nominal diameter of the shaft",
-        "tr": "Mil nominal çapı"
+        "tr": "Mil nominal çapı",
+        "de": "Nenndurchmesser der Welle",
+        "fr": "Diamètre nominal de l'arbre",
+        "es": "Diámetro nominal del eje"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Hub Outer Diameter (mm)",
         "tr": "Göbek Dış Çapı (mm)",
-        "de": "Hub Outer Diameter (mm)",
-        "fr": "Hub Outer Diameter (mm)",
-        "es": "Hub Outer Diameter (mm)",
+        "de": "Außendurchmesser der Nabe (mm)",
+        "fr": "Diamètre extérieur du moyeu (mm)",
+        "es": "Diámetro exterior del cubo (mm)",
         "ar": "Hub Outer Diameter (mm)"
       },
       "businessContext_i18n": {
         "en": "Outer diameter of the hub",
-        "tr": "Göbek dış çapı"
+        "tr": "Göbek dış çapı",
+        "de": "Außendurchmesser der Nabe",
+        "fr": "Diamètre extérieur du moyeu",
+        "es": "Diámetro exterior del cubo"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Interference (mm)",
         "tr": "Sıkı Geçme (mm)",
-        "de": "Interference (mm)",
-        "fr": "Interference (mm)",
-        "es": "Interference (mm)",
+        "de": "Presspassung (mm)",
+        "fr": "Interférence (mm)",
+        "es": "Interferencia (mm)",
         "ar": "Interference (mm)"
       },
       "businessContext_i18n": {
         "en": "Radial interference between shaft and hub",
-        "tr": "Mil ile göbek arasındaki radyal sıkı geçme"
+        "tr": "Mil ile göbek arasındaki radyal sıkı geçme",
+        "de": "Radiale Presspassung zwischen Welle und Nabe",
+        "fr": "Interférence radiale entre l'arbre et le moyeu",
+        "es": "Interferencia radial entre eje y cubo"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Young's Modulus Shaft (GPa)",
         "tr": "Mil Elastisite Modülü (GPa)",
-        "de": "Young's Modulus Shaft (GPa)",
-        "fr": "Young's Modulus Shaft (GPa)",
-        "es": "Young's Modulus Shaft (GPa)",
+        "de": "Elastizitätsmodul Welle (GPa)",
+        "fr": "Module d'Young de l'arbre (GPa)",
+        "es": "Módulo de Young del eje (GPa)",
         "ar": "Young's Modulus Shaft (GPa)"
       },
       "businessContext_i18n": {
         "en": "Elastic modulus of shaft material",
-        "tr": "Mil malzemesinin elastisite modülü"
+        "tr": "Mil malzemesinin elastisite modülü",
+        "de": "Elastizitätsmodul des Wellenmaterials",
+        "fr": "Module d'élasticité du matériau de l'arbre",
+        "es": "Módulo elástico del material del eje"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Young's Modulus Hub (GPa)",
         "tr": "Göbek Elastisite Modülü (GPa)",
-        "de": "Young's Modulus Hub (GPa)",
-        "fr": "Young's Modulus Hub (GPa)",
-        "es": "Young's Modulus Hub (GPa)",
+        "de": "Elastizitätsmodul Nabe (GPa)",
+        "fr": "Module d'Young du moyeu (GPa)",
+        "es": "Módulo de Young del cubo (GPa)",
         "ar": "Young's Modulus Hub (GPa)"
       },
       "businessContext_i18n": {
         "en": "Elastic modulus of hub material",
-        "tr": "Göbek malzemesinin elastisite modülü"
+        "tr": "Göbek malzemesinin elastisite modülü",
+        "de": "Elastizitätsmodul des Nabenmaterials",
+        "fr": "Module d'élasticité du matériau du moyeu",
+        "es": "Módulo elástico del material del cubo"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Poisson's Ratio Shaft",
         "tr": "Mil Poisson Oranı",
-        "de": "Poisson's Ratio Shaft",
-        "fr": "Poisson's Ratio Shaft",
-        "es": "Poisson's Ratio Shaft",
+        "de": "Poissonzahl Welle",
+        "fr": "Coefficient de Poisson de l'arbre",
+        "es": "Coeficiente de Poisson del eje",
         "ar": "Poisson's Ratio Shaft"
       },
       "businessContext_i18n": {
         "en": "Poisson's ratio of shaft material",
-        "tr": "Mil malzemesinin Poisson oranı"
+        "tr": "Mil malzemesinin Poisson oranı",
+        "de": "Poissonzahl des Wellenmaterials",
+        "fr": "Coefficient de Poisson du matériau de l'arbre",
+        "es": "Coeficiente de Poisson del material del eje"
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Poisson's Ratio Hub",
         "tr": "Göbek Poisson Oranı",
-        "de": "Poisson's Ratio Hub",
-        "fr": "Poisson's Ratio Hub",
-        "es": "Poisson's Ratio Hub",
+        "de": "Poissonzahl Nabe",
+        "fr": "Coefficient de Poisson du moyeu",
+        "es": "Coeficiente de Poisson del cubo",
         "ar": "Poisson's Ratio Hub"
       },
       "businessContext_i18n": {
         "en": "Poisson's ratio of hub material",
-        "tr": "Göbek malzemesinin Poisson oranı"
+        "tr": "Göbek malzemesinin Poisson oranı",
+        "de": "Poissonzahl des Nabenmaterials",
+        "fr": "Coefficient de Poisson du matériau du moyeu",
+        "es": "Coeficiente de Poisson del material del cubo"
       }
     },
     {
@@ -152,13 +173,16 @@
         "en": "Friction Coefficient",
         "tr": "Sürtünme Katsayısı",
         "de": "Reibungskoeffizient",
-        "fr": "Friction Coefficient",
-        "es": "Friction Coefficient",
+        "fr": "Coefficient de frottement",
+        "es": "Coeficiente de fricción",
         "ar": "Friction Coefficient"
       },
       "businessContext_i18n": {
         "en": "Coefficient of friction between mating surfaces",
-        "tr": "Birleşme yüzeyleri arasındaki sürtünme katsayısı"
+        "tr": "Birleşme yüzeyleri arasındaki sürtünme katsayısı",
+        "de": "Reibungskoeffizient zwischen den Passflächen",
+        "fr": "Coefficient de frottement entre les surfaces en contact",
+        "es": "Coeficiente de fricción entre superficies de contacto"
       }
     }
   ],

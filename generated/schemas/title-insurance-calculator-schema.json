@@ -12,13 +12,15 @@
         "en": "Property Value",
         "tr": "Mülk Değeri",
         "de": "Eigenschaftswert",
-        "fr": "Property Value",
-        "es": "Property Value",
+        "fr": "Valeur du bien",
+        "es": "Valor de la propiedad",
         "ar": "Property Value"
       },
       "businessContext_i18n": {
         "en": "The market value or purchase price of the property.",
-        "tr": "Mülkün piyasa değeri veya satın alma fiyatı."
+        "tr": "Mülkün piyasa değeri veya satın alma fiyatı.",
+        "de": "Der Marktwert oder Kaufpreis der Immobilie.",
+        "fr": "La valeur marchande ou le prix d'achat de la propriété."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Coverage Amount",
         "tr": "Teminat Tutarı",
         "de": "Deckungssumme",
-        "fr": "Coverage Amount",
-        "es": "Coverage Amount",
+        "fr": "Montant de la couverture",
+        "es": "Monto de cobertura",
         "ar": "Coverage Amount"
       },
       "businessContext_i18n": {
         "en": "The amount of title insurance coverage, typically equal to the property value. Can be higher if there is additional risk.",
-        "tr": "Genellikle mülk değerine eşit olan tapu sigortası teminat tutarı. Ek risk varsa daha yüksek olabilir."
+        "tr": "Genellikle mülk değerine eşit olan tapu sigortası teminat tutarı. Ek risk varsa daha yüksek olabilir.",
+        "de": "Die Höhe der Eigentumsversicherung, in der Regel gleich dem Immobilienwert. Kann bei zusätzlichem Risiko höher sein.",
+        "fr": "Le montant de la couverture d'assurance titres, généralement égal à la valeur de la propriété. Peut être plus élevé en cas de risque supplémentaire."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Rate per $1000",
         "tr": "1000$ başına oran",
-        "de": "Rate per $1000",
-        "fr": "Rate per $1000",
+        "de": "Satz pro 1000 €",
+        "fr": "Taux par 1000 $",
         "es": "Rate per $1000",
         "ar": "Rate per $1000"
       },
       "businessContext_i18n": {
         "en": "The title insurance premium rate per $1000 of coverage. Varies by state and insurer.",
-        "tr": "1000$ teminat başına tapu sigortası prim oranı. Eyalete ve sigortacıya göre değişir."
+        "tr": "1000$ teminat başına tapu sigortası prim oranı. Eyalete ve sigortacıya göre değişir.",
+        "de": "Der Prämien-Satz der Eigentumsversicherung pro 1000 € Deckung. Variiert je nach Bundesland und Versicherer.",
+        "fr": "Le taux de prime d'assurance titres par 1000 $ de couverture. Varie selon l'État et l'assureur."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Policy Fee",
         "tr": "Poliçe Ücreti",
-        "de": "Policy Fee",
-        "fr": "Policy Fee",
+        "de": "Police-Gebühr",
+        "fr": "Frais de police",
         "es": "Policy Fee",
         "ar": "Policy Fee"
       },
       "businessContext_i18n": {
         "en": "Fixed administrative fee for issuing the title insurance policy.",
-        "tr": "Tapu sigortası poliçesi düzenlenmesi için sabit idari ücret."
+        "tr": "Tapu sigortası poliçesi düzenlenmesi için sabit idari ücret.",
+        "de": "Feste Verwaltungsgebühr für die Ausstellung der Eigentumsversicherungspolice.",
+        "fr": "Frais administratifs fixes pour l'émission de la police d'assurance titres."
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "State Tax Rate",
         "tr": "Eyalet Vergi Oranı",
         "de": "Steuersatz des Bundesstaats",
-        "fr": "State Tax Rate",
-        "es": "State Tax Rate",
+        "fr": "Taux d'imposition de l'État",
+        "es": "Tasa impositiva estatal",
         "ar": "State Tax Rate"
       },
       "businessContext_i18n": {
         "en": "State tax rate applied to the premium, expressed as a percentage.",
-        "tr": "Prime uygulanan eyalet vergi oranı, yüzde olarak ifade edilir."
+        "tr": "Prime uygulanan eyalet vergi oranı, yüzde olarak ifade edilir.",
+        "de": "Staatlicher Steuersatz auf die Prämie, ausgedrückt als Prozentsatz.",
+        "fr": "Taux d'imposition de l'État appliqué à la prime, exprimé en pourcentage."
       }
     }
   ],

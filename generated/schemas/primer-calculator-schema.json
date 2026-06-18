@@ -12,13 +12,16 @@
         "en": "Surface Area",
         "tr": "Yüzey Alanı",
         "de": "Oberfläche",
-        "fr": "Surface Area",
-        "es": "Surface Area",
+        "fr": "Surface",
+        "es": "Área superficial",
         "ar": "Surface Area"
       },
       "businessContext_i18n": {
         "en": "Total area to be primed.",
-        "tr": "Astarlanacak toplam alan."
+        "tr": "Astarlanacak toplam alan.",
+        "de": "Zu grundierende Gesamtfläche",
+        "fr": "Surface totale à apprêter",
+        "es": "Área total a imprimar."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Coverage Rate",
         "tr": "Kaplama Oranı",
         "de": "Auftragsrate",
-        "fr": "Coverage Rate",
-        "es": "Coverage Rate",
+        "fr": "Taux de couverture",
+        "es": "Tasa de cobertura",
         "ar": "Coverage Rate"
       },
       "businessContext_i18n": {
         "en": "Area covered per liter of primer as per technical data sheet.",
-        "tr": "Teknik veri sayfasına göre litre başına kaplanan alan."
+        "tr": "Teknik veri sayfasına göre litre başına kaplanan alan.",
+        "de": "Flächenabdeckung pro Liter Grundierung gemäß technischem Datenblatt",
+        "fr": "Surface couverte par litre d'apprêt selon la fiche technique",
+        "es": "Área cubierta por litro de imprimación según ficha técnica."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Number of Coats",
         "tr": "Kat Sayısı",
         "de": "Anzahl der Anstriche",
-        "fr": "Number of Coats",
-        "es": "Number of Coats",
+        "fr": "Nombre de couches",
+        "es": "Número de capas",
         "ar": "Number of Coats"
       },
       "businessContext_i18n": {
         "en": "Recommended number of primer coats.",
-        "tr": "Önerilen astar kat sayısı."
+        "tr": "Önerilen astar kat sayısı.",
+        "de": "Empfohlene Anzahl Grundierungsanstriche",
+        "fr": "Nombre de couches d'apprêt recommandé",
+        "es": "Número recomendado de capas de imprimación."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
         "de": "Abfallfaktor",
-        "fr": "Waste Factor",
-        "es": "Waste Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Additional material for wastage, overspray, etc.",
-        "tr": "Fire, aşırı püskürtme vb. için ek malzeme."
+        "tr": "Fire, aşırı püskürtme vb. için ek malzeme.",
+        "de": "Zusätzliches Material für Ausschuss, Overspray usw.",
+        "fr": "Matériel supplémentaire pour pertes, surpulvérisation, etc.",
+        "es": "Material adicional por desperdicio, sobrepulverización, etc."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Container Size",
         "tr": "Konteyner Boyutu",
-        "de": "Container Size",
-        "fr": "Container Size",
-        "es": "Container Size",
+        "de": "Gebindegröße",
+        "fr": "Taille du contenant",
+        "es": "Tamaño del envase",
         "ar": "Container Size"
       },
       "businessContext_i18n": {
         "en": "Typical container volume for purchase.",
-        "tr": "Satın alma için tipik konteyner hacmi."
+        "tr": "Satın alma için tipik konteyner hacmi.",
+        "de": "Typisches Gebindevolumen für den Kauf",
+        "fr": "Volume typique du contenant pour l'achat",
+        "es": "Volumen típico del envase para compra."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Price per Container",
         "tr": "Konteyner Başına Fiyat",
-        "de": "Price per Container",
-        "fr": "Price per Container",
-        "es": "Price per Container",
+        "de": "Preis pro Gebinde",
+        "fr": "Prix par contenant",
+        "es": "Precio por envase",
         "ar": "Price per Container"
       },
       "businessContext_i18n": {
         "en": "Unit price per container of primer.",
-        "tr": "Astar konteyneri başına birim fiyat."
+        "tr": "Astar konteyneri başına birim fiyat.",
+        "de": "Stückpreis pro Gebinde Grundierung",
+        "fr": "Prix unitaire par contenant d'apprêt",
+        "es": "Precio unitario por envase de imprimación."
       }
     }
   ],

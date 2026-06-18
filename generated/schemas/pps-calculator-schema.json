@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Conveyor Speed",
         "tr": "Konveyör Hızı",
-        "de": "Conveyor Speed",
-        "fr": "Conveyor Speed",
-        "es": "Conveyor Speed",
+        "de": "Förderbandgeschwindigkeit",
+        "fr": "Vitesse du convoyeur",
+        "es": "Velocidad del transportador",
         "ar": "Conveyor Speed"
       },
       "businessContext_i18n": {
         "en": "Speed of the conveyor belt",
-        "tr": "Konveyör bandının hızı"
+        "tr": "Konveyör bandının hızı",
+        "de": "Geschwindigkeit des Förderbands",
+        "fr": "Vitesse de la bande transporteuse",
+        "es": "Velocidad de la cinta transportadora"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Piece Spacing",
         "tr": "Parça Aralığı",
-        "de": "Piece Spacing",
-        "fr": "Piece Spacing",
-        "es": "Piece Spacing",
+        "de": "Teileabstand",
+        "fr": "Espacement des pièces",
+        "es": "Espaciado de piezas",
         "ar": "Piece Spacing"
       },
       "businessContext_i18n": {
         "en": "Distance between consecutive pieces on the conveyor",
-        "tr": "Konveyör üzerindeki ardışık parçalar arasındaki mesafe"
+        "tr": "Konveyör üzerindeki ardışık parçalar arasındaki mesafe",
+        "de": "Abstand zwischen aufeinanderfolgenden Teilen auf dem Förderband",
+        "fr": "Distance entre pièces consécutives sur le convoyeur",
+        "es": "Distancia entre piezas consecutivas en el transportador"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Number of Lanes",
         "tr": "Şerit Sayısı",
-        "de": "Number of Lanes",
-        "fr": "Number of Lanes",
-        "es": "Number of Lanes",
+        "de": "Anzahl der Spuren",
+        "fr": "Nombre de voies",
+        "es": "Número de carriles",
         "ar": "Number of Lanes"
       },
       "businessContext_i18n": {
         "en": "Number of parallel lanes on the conveyor",
-        "tr": "Konveyör üzerindeki paralel şerit sayısı"
+        "tr": "Konveyör üzerindeki paralel şerit sayısı",
+        "de": "Anzahl paralleler Spuren auf dem Förderband",
+        "fr": "Nombre de voies parallèles sur le convoyeur",
+        "es": "Número de carriles paralelos en el transportador"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Efficiency",
         "tr": "Verim",
         "de": "Wirkungsgrad",
-        "fr": "Efficiency",
-        "es": "Efficiency",
+        "fr": "Rendement",
+        "es": "Eficiencia",
         "ar": "Efficiency"
       },
       "businessContext_i18n": {
         "en": "Overall line efficiency factor",
-        "tr": "Genel hat verimlilik faktörü"
+        "tr": "Genel hat verimlilik faktörü",
+        "de": "Gesamtanlageneffizienzfaktor",
+        "fr": "Facteur d'efficacité global de la ligne",
+        "es": "Factor de eficiencia general de la línea"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Shift Duration",
         "tr": "Vardiya Süresi",
         "de": "Schichtdauer",
-        "fr": "Shift Duration",
-        "es": "Shift Duration",
+        "fr": "Durée du poste",
+        "es": "Duración del turno",
         "ar": "Shift Duration"
       },
       "businessContext_i18n": {
         "en": "Duration of a standard production shift",
-        "tr": "Standart bir üretim vardiyasının süresi"
+        "tr": "Standart bir üretim vardiyasının süresi",
+        "de": "Dauer einer Standardschicht",
+        "fr": "Durée d'un poste de production standard",
+        "es": "Duración de un turno de producción estándar"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Boy (cm)",
         "tr": "Boy (cm)",
         "de": "Körpergröße (cm)",
-        "fr": "Boy (cm)",
-        "es": "Boy (cm)",
+        "fr": "Taille (cm)",
+        "es": "Altura (cm)",
         "ar": "Boy (cm)"
       },
       "businessContext_i18n": {
         "en": "Kişinin santimetre cinsinden boy uzunluğu",
         "tr": "Kişinin santimetre cinsinden boy uzunluğu",
-        "de": "Körpergröße in Zentimetern"
+        "de": "Körpergröße in Zentimetern",
+        "fr": "Taille de la personne en centimètres",
+        "es": "Altura de la persona en centímetros"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Cinsiyet (0:Kadın, 1:Erkek)",
         "tr": "Cinsiyet (0:Kadın, 1:Erkek)",
         "de": "Geschlecht (0:Weiblich, 1:Männlich)",
-        "fr": "Cinsiyet (0:Kadın, 1:Erkek)",
-        "es": "Cinsiyet (0:Kadın, 1:Erkek)",
+        "fr": "Sexe (0:Femme, 1:Homme)",
+        "es": "Sexo (0:Mujer, 1:Hombre)",
         "ar": "Cinsiyet (0:Kadın, 1:Erkek)"
       },
       "businessContext_i18n": {
         "en": "0 kadın, 1 erkek olarak cinsiyet seçimi",
         "tr": "0 kadın, 1 erkek olarak cinsiyet seçimi",
-        "de": "Geschlechtsauswahl: 0 weiblich, 1 männlich"
+        "de": "Geschlechtsauswahl: 0 weiblich, 1 männlich",
+        "fr": "Sélection du sexe : 0 pour femme, 1 pour homme",
+        "es": "Selección de sexo: 0 mujer, 1 hombre"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Yaş",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Yaş",
-        "es": "Yaş",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Yaş"
       },
       "businessContext_i18n": {
         "en": "Kişinin yaşı (referans amaçlı)",
         "tr": "Kişinin yaşı (referans amaçlı)",
-        "de": "Alter der Person (Referenzzweck)"
+        "de": "Alter der Person (Referenzzweck)",
+        "fr": "Âge de la personne (à titre indicatif)",
+        "es": "Edad de la persona (referencia)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Mevcut Ağırlık",
         "tr": "Mevcut Ağırlık",
         "de": "Aktuelles Gewicht",
-        "fr": "Mevcut Ağırlık",
-        "es": "Mevcut Ağırlık",
+        "fr": "Poids actuel",
+        "es": "Peso actual",
         "ar": "Mevcut Ağırlık"
       },
       "businessContext_i18n": {
         "en": "Kişinin mevcut ağırlığı (karşılaştırma için)",
         "tr": "Kişinin mevcut ağırlığı (karşılaştırma için)",
-        "de": "Aktuelles Gewicht der Person (zum Vergleich)"
+        "de": "Aktuelles Gewicht der Person (zum Vergleich)",
+        "fr": "Poids actuel de la personne (pour comparaison)",
+        "es": "Peso actual de la persona (para comparación)"
       }
     }
   ],

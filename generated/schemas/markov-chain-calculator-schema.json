@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Transition Probability A → B",
         "tr": "Geçiş Olasılığı A → B",
-        "de": "Transition Probability A → B",
-        "fr": "Transition Probability A → B",
-        "es": "Transition Probability A → B",
+        "de": "Übergangswahrscheinlichkeit A → B",
+        "fr": "Probabilité de transition A → B",
+        "es": "Probabilidad de transición A → B",
         "ar": "Transition Probability A → B"
       },
       "businessContext_i18n": {
         "en": "Probability of transitioning from state A to state B in one step.",
-        "tr": "Bir adımda A durumundan B durumuna geçme olasılığı."
+        "tr": "Bir adımda A durumundan B durumuna geçme olasılığı.",
+        "de": "Wahrscheinlichkeit des Übergangs von Zustand A zu Zustand B in einem Schritt.",
+        "fr": "Probabilité de passer de l'état A à l'état B en une étape.",
+        "es": "Probabilidad de transición del estado A al estado B en un paso."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Transition Probability B → A",
         "tr": "Geçiş Olasılığı B → A",
-        "de": "Transition Probability B → A",
-        "fr": "Transition Probability B → A",
-        "es": "Transition Probability B → A",
+        "de": "Übergangswahrscheinlichkeit B → A",
+        "fr": "Probabilité de transition B → A",
+        "es": "Probabilidad de transición B → A",
         "ar": "Transition Probability B → A"
       },
       "businessContext_i18n": {
         "en": "Probability of transitioning from state B to state A in one step.",
-        "tr": "Bir adımda B durumundan A durumuna geçme olasılığı."
+        "tr": "Bir adımda B durumundan A durumuna geçme olasılığı.",
+        "de": "Wahrscheinlichkeit des Übergangs von Zustand B zu Zustand A in einem Schritt.",
+        "fr": "Probabilité de passer de l'état B à l'état A en une étape.",
+        "es": "Probabilidad de transición del estado B al estado A en un paso."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Initial Probability of State A",
         "tr": "A Durumunun Başlangıç Olasılığı",
-        "de": "Initial Probability of State A",
-        "fr": "Initial Probability of State A",
-        "es": "Initial Probability of State A",
+        "de": "Anfangswahrscheinlichkeit von Zustand A",
+        "fr": "Probabilité initiale de l'état A",
+        "es": "Probabilidad inicial del estado A",
         "ar": "Initial Probability of State A"
       },
       "businessContext_i18n": {
         "en": "Initial probability of being in state A (1 means definitely in state A).",
-        "tr": "A durumunda olma başlangıç olasılığı (1, kesinlikle A durumunda olduğu anlamına gelir)."
+        "tr": "A durumunda olma başlangıç olasılığı (1, kesinlikle A durumunda olduğu anlamına gelir).",
+        "de": "Anfangswahrscheinlichkeit, sich in Zustand A zu befinden (1 bedeutet definitiv in Zustand A).",
+        "fr": "Probabilité initiale d'être dans l'état A (1 signifie définitivement dans l'état A).",
+        "es": "Probabilidad inicial de estar en el estado A (1 significa definitivamente en el estado A)."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Number of Steps",
         "tr": "Adım Sayısı",
-        "de": "Number of Steps",
-        "fr": "Number of Steps",
-        "es": "Number of Steps",
+        "de": "Anzahl der Schritte",
+        "fr": "Nombre d'étapes",
+        "es": "Número de pasos",
         "ar": "Number of Steps"
       },
       "businessContext_i18n": {
         "en": "Number of transitions to perform.",
-        "tr": "Gerçekleştirilecek geçiş sayısı."
+        "tr": "Gerçekleştirilecek geçiş sayısı.",
+        "de": "Anzahl der durchzuführenden Übergänge.",
+        "fr": "Nombre de transitions à effectuer.",
+        "es": "Número de transiciones a realizar."
       }
     }
   ],

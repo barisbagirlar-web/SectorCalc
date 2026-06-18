@@ -20,11 +20,17 @@
       "businessContext": "Input pressure in pounds per square inch (PSI). Typical range: 0–100,000 psi for industrial applications.",
       "label_i18n": {
         "en": "Pressure (PSI)",
-        "tr": "Basınç (PSI)"
+        "tr": "Basınç (PSI)",
+        "de": "Druck (PSI)",
+        "fr": "Pression (PSI)",
+        "es": "Presión (PSI)"
       },
       "businessContext_i18n": {
         "en": "Input pressure in pounds per square inch (PSI). Typical range: 0–100,000 psi for industrial applications.",
-        "tr": "Pound bölü inçkare (PSI) cinsinden giriş basıncı. Tipik aralık: endüstriyel uygulamalar için 0–100.000 psi."
+        "tr": "Pound bölü inçkare (PSI) cinsinden giriş basıncı. Tipik aralık: endüstriyel uygulamalar için 0–100.000 psi.",
+        "de": "Eingangsdruck in Pfund pro Quadratzoll (PSI). Typischer Bereich: 0–100.000 psi für industrielle Anwendungen.",
+        "fr": "Pression d'entrée en livres par pouce carré (PSI). Plage typique : 0–100 000 psi pour les applications industrielles.",
+        "es": "Presión de entrada en libras por pulgada cuadrada (PSI). Rango típico: 0–100,000 psi para aplicaciones industriales."
       }
     },
     {
@@ -39,11 +45,16 @@
       "label_i18n": {
         "en": "Temperature (°C)",
         "tr": "Sıcaklık (°C)",
-        "de": "Temperatur (°C)"
+        "de": "Temperatur (°C)",
+        "fr": "Température (°C)",
+        "es": "Temperatura (°C)"
       },
       "businessContext_i18n": {
         "en": "Process temperature in Celsius. Used for thermal correction per ISO 80000-1.",
-        "tr": "Proses sıcaklığı (°C). ISO 80000-1'e göre termal düzeltme için kullanılır."
+        "tr": "Proses sıcaklığı (°C). ISO 80000-1'e göre termal düzeltme için kullanılır.",
+        "de": "Prozesstemperatur in Celsius. Wird für die thermische Korrektur gemäß ISO 80000-1 verwendet.",
+        "fr": "Température du processus en degrés Celsius. Utilisée pour la correction thermique selon la norme ISO 80000-1.",
+        "es": "Temperatura del proceso en Celsius. Se utiliza para corrección térmica según ISO 80000-1."
       }
     },
     {
@@ -57,11 +68,17 @@
       "businessContext": "Altitude above sea level for barometric correction. Relevant for high-altitude installations.",
       "label_i18n": {
         "en": "Altitude (m)",
-        "tr": "Rakım (m)"
+        "tr": "Rakım (m)",
+        "de": "Höhe (m)",
+        "fr": "Altitude (m)",
+        "es": "Altitud (m)"
       },
       "businessContext_i18n": {
         "en": "Altitude above sea level for barometric correction. Relevant for high-altitude installations.",
-        "tr": "Barometrik düzeltme için deniz seviyesinden yükseklik. Yüksek rakımlı tesisler için önemlidir."
+        "tr": "Barometrik düzeltme için deniz seviyesinden yükseklik. Yüksek rakımlı tesisler için önemlidir.",
+        "de": "Höhe über dem Meeresspiegel für die barometrische Korrektur. Relevant für Installationen in großer Höhe.",
+        "fr": "Altitude au-dessus du niveau de la mer pour la correction barométrique. Pertinente pour les installations en haute altitude.",
+        "es": "Altitud sobre el nivel del mar para corrección barométrica. Relevante para instalaciones en altitud."
       }
     },
     {
@@ -81,11 +98,17 @@
       ],
       "label_i18n": {
         "en": "Fluid Type",
-        "tr": "Akışkan Türü"
+        "tr": "Akışkan Türü",
+        "de": "Fluidtyp",
+        "fr": "Type de fluide",
+        "es": "Tipo de fluido"
       },
       "businessContext_i18n": {
         "en": "Select fluid type for density correction. Options: water, oil, gas, steam.",
-        "tr": "Yoğunluk düzeltmesi için akışkan türünü seçin. Seçenekler: su, yağ, gaz, buhar."
+        "tr": "Yoğunluk düzeltmesi için akışkan türünü seçin. Seçenekler: su, yağ, gaz, buhar.",
+        "de": "Wählen Sie den Fluidtyp für die Dichtekorrektur. Optionen: Wasser, Öl, Gas, Dampf.",
+        "fr": "Sélectionnez le type de fluide pour la correction de densité. Options : eau, huile, gaz, vapeur.",
+        "es": "Seleccione el tipo de fluido para la corrección de densidad. Opciones: agua, aceite, gas, vapor."
       }
     },
     {
@@ -99,11 +122,17 @@
       "businessContext": "Enable thermal expansion correction for pressure measurement.",
       "label_i18n": {
         "en": "Apply Temperature Correction",
-        "tr": "Sıcaklık Düzeltmesini Uygula"
+        "tr": "Sıcaklık Düzeltmesini Uygula",
+        "de": "Temperaturkorrektur anwenden",
+        "fr": "Appliquer la correction de température",
+        "es": "Aplicar corrección de temperatura"
       },
       "businessContext_i18n": {
         "en": "Enable thermal expansion correction for pressure measurement.",
-        "tr": "Basınç ölçümü için termal genleşme düzeltmesini etkinleştir."
+        "tr": "Basınç ölçümü için termal genleşme düzeltmesini etkinleştir.",
+        "de": "Aktivieren Sie die Korrektur der thermischen Ausdehnung für die Druckmessung.",
+        "fr": "Activer la correction de dilatation thermique pour la mesure de pression.",
+        "es": "Habilitar la corrección por expansión térmica para la medición de presión."
       }
     },
     {
@@ -117,11 +146,17 @@
       "businessContext": "Enable barometric pressure correction based on altitude.",
       "label_i18n": {
         "en": "Apply Altitude Correction",
-        "tr": "Rakım Düzeltmesini Uygula"
+        "tr": "Rakım Düzeltmesini Uygula",
+        "de": "Höhenkorrektur anwenden",
+        "fr": "Appliquer la correction d'altitude",
+        "es": "Aplicar corrección de altitud"
       },
       "businessContext_i18n": {
         "en": "Enable barometric pressure correction based on altitude.",
-        "tr": "Rakıma dayalı barometrik basınç düzeltmesini etkinleştir."
+        "tr": "Rakıma dayalı barometrik basınç düzeltmesini etkinleştir.",
+        "de": "Aktivieren Sie die barometrische Druckkorrektur basierend auf der Höhe.",
+        "fr": "Activer la correction de pression barométrique en fonction de l'altitude.",
+        "es": "Habilitar la corrección de presión barométrica basada en la altitud."
       }
     }
   ],

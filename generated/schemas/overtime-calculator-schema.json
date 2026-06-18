@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Regular Hours",
         "tr": "Normal Saatler",
-        "de": "Regular Hours",
-        "fr": "Regular Hours",
-        "es": "Regular Hours",
+        "de": "Reguläre Stunden",
+        "fr": "Heures normales",
+        "es": "Horas regulares",
         "ar": "Regular Hours"
       },
       "businessContext_i18n": {
         "en": "Normal working hours per period (e.g., per week)",
-        "tr": "Dönem başına normal çalışma saatleri (ör. haftalık)"
+        "tr": "Dönem başına normal çalışma saatleri (ör. haftalık)",
+        "de": "Normale Arbeitsstunden pro Periode (z. B. pro Woche)",
+        "fr": "Heures de travail normales par période (ex. par semaine)",
+        "es": "Horas normales de trabajo por período (ej., por semana)"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Overtime Hours",
         "tr": "Fazla Mesai Saatleri",
         "de": "Überstunden",
-        "fr": "Overtime Hours",
-        "es": "Overtime Hours",
+        "fr": "Heures supplémentaires",
+        "es": "Horas extra",
         "ar": "Overtime Hours"
       },
       "businessContext_i18n": {
         "en": "Overtime hours worked beyond regular time",
-        "tr": "Fazla mesai saatleri (normal sürenin üzerinde çalışılan)"
+        "tr": "Fazla mesai saatleri (normal sürenin üzerinde çalışılan)",
+        "de": "Überstunden, die über die reguläre Zeit hinaus geleistet werden",
+        "fr": "Heures supplémentaires effectuées au-delà des heures normales",
+        "es": "Horas extra trabajadas fuera del tiempo regular"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Hourly Rate",
         "tr": "Saatlik Ücret",
         "de": "Stundensatz",
-        "fr": "Hourly Rate",
-        "es": "Hourly Rate",
+        "fr": "Taux horaire",
+        "es": "Tarifa por hora",
         "ar": "Hourly Rate"
       },
       "businessContext_i18n": {
         "en": "Normal hourly wage rate",
-        "tr": "Normal saatlik ücret"
+        "tr": "Normal saatlik ücret",
+        "de": "Normaler Stundenlohn",
+        "fr": "Taux horaire normal",
+        "es": "Tarifa salarial por hora normal"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Overtime Multiplier",
         "tr": "Fazla Mesai Çarpanı",
-        "de": "Overtime Multiplier",
-        "fr": "Overtime Multiplier",
-        "es": "Overtime Multiplier",
+        "de": "Überstundenzuschlag",
+        "fr": "Multiplicateur d'heures supplémentaires",
+        "es": "Multiplicador de horas extra",
         "ar": "Overtime Multiplier"
       },
       "businessContext_i18n": {
         "en": "Multiplier applied to hourly rate for overtime (e.g., 1.5 for time and a half)",
-        "tr": "Fazla mesai için saatlik ücrete uygulanan çarpan (ör. 1.5 bir buçuk kat)"
+        "tr": "Fazla mesai için saatlik ücrete uygulanan çarpan (ör. 1.5 bir buçuk kat)",
+        "de": "Multiplikator auf den Stundensatz für Überstunden (z. B. 1,5 für Zeit und Hälfte)",
+        "fr": "Multiplicateur appliqué au taux horaire pour les heures supplémentaires (ex. 1,5 pour le tarif majoré de moitié)",
+        "es": "Multiplicador aplicado a la tarifa por hora para horas extra (ej., 1.5 para tiempo y medio)"
       }
     }
   ],

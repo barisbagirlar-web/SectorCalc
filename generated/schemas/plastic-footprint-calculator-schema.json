@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Production Volume",
         "tr": "Üretim Hacmi",
-        "de": "Production Volume",
-        "fr": "Production Volume",
-        "es": "Production Volume",
+        "de": "Produktionsvolumen",
+        "fr": "Volume de production",
+        "es": "Volumen de producción",
         "ar": "Production Volume"
       },
       "businessContext_i18n": {
         "en": "Total number of units produced",
-        "tr": "Üretilen toplam birim sayısı"
+        "tr": "Üretilen toplam birim sayısı",
+        "de": "Gesamtzahl der produzierten Einheiten",
+        "fr": "Nombre total d'unités produites",
+        "es": "Número total de unidades producidas"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Plastic per Unit",
         "tr": "Birim Başına Plastik",
-        "de": "Plastic per Unit",
-        "fr": "Plastic per Unit",
-        "es": "Plastic per Unit",
+        "de": "Kunststoff pro Einheit",
+        "fr": "Plastique par unité",
+        "es": "Plástico por unidad",
         "ar": "Plastic per Unit"
       },
       "businessContext_i18n": {
         "en": "Weight of plastic used per unit product",
-        "tr": "Birim ürün başına kullanılan plastik ağırlığı"
+        "tr": "Birim ürün başına kullanılan plastik ağırlığı",
+        "de": "Gewicht des pro Produkteinheit verwendeten Kunststoffs",
+        "fr": "Poids de plastique utilisé par unité de produit",
+        "es": "Peso de plástico utilizado por unidad de producto"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Recycling Rate",
         "tr": "Geri Dönüşüm Oranı",
         "de": "Recyclingquote",
-        "fr": "Recycling Rate",
-        "es": "Recycling Rate",
+        "fr": "Taux de recyclage",
+        "es": "Tasa de reciclaje",
         "ar": "Recycling Rate"
       },
       "businessContext_i18n": {
         "en": "Percentage of plastic that is recycled content",
-        "tr": "Geri dönüştürülmüş içerik yüzdesi"
+        "tr": "Geri dönüştürülmüş içerik yüzdesi",
+        "de": "Prozentsatz des Kunststoffs, der aus recyceltem Material besteht",
+        "fr": "Pourcentage de plastique recyclé dans le contenu",
+        "es": "Porcentaje de plástico que es contenido reciclado"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Production Waste",
         "tr": "Üretim Firesi",
-        "de": "Production Waste",
-        "fr": "Production Waste",
-        "es": "Production Waste",
+        "de": "Produktionsabfall",
+        "fr": "Rebut de production",
+        "es": "Desperdicio de producción",
         "ar": "Production Waste"
       },
       "businessContext_i18n": {
         "en": "Percentage of plastic wasted during manufacturing",
-        "tr": "Üretim sırasında israf edilen plastik yüzdesi"
+        "tr": "Üretim sırasında israf edilen plastik yüzdesi",
+        "de": "Prozentsatz des Kunststoffs, der während der Fertigung verschwendet wird",
+        "fr": "Pourcentage de plastique perdu lors de la fabrication",
+        "es": "Porcentaje de plástico desperdiciado durante la fabricación"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Carbon Factor (Virgin)",
         "tr": "Karbon Faktörü (Saf)",
-        "de": "Carbon Factor (Virgin)",
-        "fr": "Carbon Factor (Virgin)",
-        "es": "Carbon Factor (Virgin)",
+        "de": "Kohlenstofffaktor (Neuware)",
+        "fr": "Facteur carbone (vierge)",
+        "es": "Factor de carbono (virgen)",
         "ar": "Carbon Factor (Virgin)"
       },
       "businessContext_i18n": {
         "en": "Carbon footprint of virgin plastic per kg",
-        "tr": "Saf plastiğin kg başına karbon ayak izi"
+        "tr": "Saf plastiğin kg başına karbon ayak izi",
+        "de": "CO₂-Fußabdruck von Neukunststoff pro kg",
+        "fr": "Empreinte carbone du plastique vierge par kg",
+        "es": "Huella de carbono del plástico virgen por kg"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Emission Reduction (Recycled)",
         "tr": "Emisyon Azaltımı (Geri Dönüştürülmüş)",
-        "de": "Emission Reduction (Recycled)",
-        "fr": "Emission Reduction (Recycled)",
-        "es": "Emission Reduction (Recycled)",
+        "de": "Emissionsreduktion (Recycelt)",
+        "fr": "Réduction d'émissions (recyclé)",
+        "es": "Reducción de emisiones (reciclado)",
         "ar": "Emission Reduction (Recycled)"
       },
       "businessContext_i18n": {
         "en": "Percentage reduction in carbon footprint for recycled plastic",
-        "tr": "Geri dönüştürülmüş plastik için karbon ayak izindeki azalma yüzdesi"
+        "tr": "Geri dönüştürülmüş plastik için karbon ayak izindeki azalma yüzdesi",
+        "de": "Prozentuale Reduzierung des CO₂-Fußabdrucks für recycelten Kunststoff",
+        "fr": "Pourcentage de réduction de l'empreinte carbone pour le plastique recyclé",
+        "es": "Porcentaje de reducción en la huella de carbono para plástico reciclado"
       }
     }
   ],

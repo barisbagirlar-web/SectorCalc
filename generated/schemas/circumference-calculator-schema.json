@@ -12,14 +12,16 @@
         "en": "Radius",
         "tr": "Yarıçap",
         "de": "Radius",
-        "fr": "Radius",
-        "es": "Radius",
+        "fr": "Rayon",
+        "es": "Radio",
         "ar": "Radius"
       },
       "businessContext_i18n": {
         "en": "The radius of the circle. Provide if known.",
         "tr": "Dairenin yarıçapı. Biliniyorsa girin.",
-        "de": "Der Radius des Kreises. Angeben, falls bekannt."
+        "de": "Der Radius des Kreises. Angeben, falls bekannt.",
+        "fr": "Le rayon du cercle. Indiquez-le si connu.",
+        "es": "El radio del círculo. Proporcionar si se conoce."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Diameter",
         "tr": "Çap",
         "de": "Durchmesser",
-        "fr": "Diameter",
-        "es": "Diameter",
+        "fr": "Diamètre",
+        "es": "Diámetro",
         "ar": "Diameter"
       },
       "businessContext_i18n": {
         "en": "The diameter of the circle. Provide if known.",
         "tr": "Dairenin çapı. Biliniyorsa girin.",
-        "de": "Der Durchmesser des Kreises. Angeben, falls bekannt."
+        "de": "Der Durchmesser des Kreises. Angeben, falls bekannt.",
+        "fr": "Le diamètre du cercle. Indiquez-le si connu.",
+        "es": "El diámetro del círculo. Proporcione si se conoce."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Area",
         "tr": "Alan",
         "de": "Fläche",
-        "fr": "Area",
-        "es": "Area",
+        "fr": "Surface",
+        "es": "Área",
         "ar": "Area"
       },
       "businessContext_i18n": {
         "en": "The area of the circle. Provide if known.",
         "tr": "Dairenin alanı. Biliniyorsa girin.",
-        "de": "Die Fläche des Kreises. Angeben, falls bekannt."
+        "de": "Die Fläche des Kreises. Angeben, falls bekannt.",
+        "fr": "La surface du cercle. Indiquez-la si connue.",
+        "es": "El área del círculo. Proporcione si se conoce."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Unit Conversion Factor",
         "tr": "Birim Dönüşüm Faktörü",
         "de": "Einheitenumrechnungsfaktor",
-        "fr": "Unit Conversion Factor",
-        "es": "Unit Conversion Factor",
+        "fr": "Facteur de conversion d'unité",
+        "es": "Factor de conversión de unidad",
         "ar": "Unit Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Factor to convert input length unit to output length unit. E.g., cm to m: 0.01. Area is squared automatically.",
         "tr": "Giriş uzunluk birimini çıkış uzunluk birimine dönüştüren faktör. Örn. cm'den m'ye: 0.01. Alan otomatik olarak kare alınır.",
-        "de": "Faktor zur Umrechnung der Eingangslängeneinheit in die Ausgangslängeneinheit. Z.B. cm in m: 0,01. Fläche wird automatisch quadriert."
+        "de": "Faktor zur Umrechnung der Eingangslängeneinheit in die Ausgangslängeneinheit. Z.B. cm in m: 0,01. Fläche wird automatisch quadriert.",
+        "fr": "Facteur pour convertir l'unité de longueur d'entrée en unité de longueur de sortie. Ex. : cm en m : 0,01. La surface est automatiquement mise au carré.",
+        "es": "Factor para convertir la unidad de longitud de entrada a la unidad de longitud de salida. Ej.: cm a m: 0.01. El área se eleva al cuadrado automáticamente."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding outputs.",
         "tr": "Çıktıları yuvarlamak için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen zum Runden der Ausgaben."
+        "de": "Anzahl der Dezimalstellen zum Runden der Ausgaben.",
+        "fr": "Nombre de décimales pour l'arrondi des résultats.",
+        "es": "Número de decimales para redondear los resultados."
       }
     }
   ],

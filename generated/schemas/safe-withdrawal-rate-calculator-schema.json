@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Initial Portfolio Value",
         "tr": "Başlangıç Portföy Değeri",
-        "de": "Initial Portfolio Value",
-        "fr": "Initial Portfolio Value",
+        "de": "Anfänglicher Portfoliowert",
+        "fr": "Valeur initiale du portefeuille",
         "es": "Initial Portfolio Value",
         "ar": "Initial Portfolio Value"
       },
       "businessContext_i18n": {
         "en": "The total value of your investment portfolio at the start of retirement.",
-        "tr": "Emeklilik başlangıcında yatırım portföyünüzün toplam değeri."
+        "tr": "Emeklilik başlangıcında yatırım portföyünüzün toplam değeri.",
+        "de": "Der Gesamtwert Ihres Anlageportfolios zu Beginn des Ruhestands.",
+        "fr": "La valeur totale de votre portefeuille d'investissement au début de la retraite."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Expected Annual Return",
         "tr": "Beklenen Yıllık Getiri",
         "de": "Erwartete jährliche Rendite",
-        "fr": "Expected Annual Return",
-        "es": "Expected Annual Return",
+        "fr": "Rendement annuel attendu",
+        "es": "Rendimiento anual esperado",
         "ar": "Expected Annual Return"
       },
       "businessContext_i18n": {
         "en": "Assumed average annual return of the portfolio. Typically 5-8% for a balanced portfolio.",
-        "tr": "Portföyün varsayılan ortalama yıllık getirisi. Dengeli bir portföy için tipik olarak %5-8."
+        "tr": "Portföyün varsayılan ortalama yıllık getirisi. Dengeli bir portföy için tipik olarak %5-8.",
+        "de": "Angenommene durchschnittliche jährliche Rendite des Portfolios. Typischerweise 5-8% für ein ausgewogenes Portfolio.",
+        "fr": "Rendement annuel moyen supposé du portefeuille. Généralement 5-8% pour un portefeuille équilibré."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Expected Inflation Rate",
         "tr": "Beklenen Enflasyon Oranı",
         "de": "Erwartete Inflationsrate",
-        "fr": "Expected Inflation Rate",
-        "es": "Expected Inflation Rate",
+        "fr": "Taux d'inflation attendu",
+        "es": "Tasa de inflación esperada",
         "ar": "Expected Inflation Rate"
       },
       "businessContext_i18n": {
         "en": "Expected long-term average inflation rate. Used to adjust withdrawals for purchasing power.",
-        "tr": "Beklenen uzun vadeli ortalama enflasyon oranı. Satın alma gücü için çekimleri ayarlamak amacıyla kullanılır."
+        "tr": "Beklenen uzun vadeli ortalama enflasyon oranı. Satın alma gücü için çekimleri ayarlamak amacıyla kullanılır.",
+        "de": "Erwartete langfristige durchschnittliche Inflationsrate. Wird verwendet, um Entnahmen an die Kaufkraft anzupassen.",
+        "fr": "Taux d'inflation moyen à long terme attendu. Utilisé pour ajuster les retraits au pouvoir d'achat."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Retirement Period",
         "tr": "Emeklilik Süresi",
-        "de": "Retirement Period",
-        "fr": "Retirement Period",
+        "de": "Ruhestandszeitraum",
+        "fr": "Période de retraite",
         "es": "Retirement Period",
         "ar": "Retirement Period"
       },
       "businessContext_i18n": {
         "en": "Number of years you expect to live in retirement (life expectancy).",
-        "tr": "Emeklilikte yaşamayı beklediğiniz yıl sayısı (yaşam beklentisi)."
+        "tr": "Emeklilikte yaşamayı beklediğiniz yıl sayısı (yaşam beklentisi).",
+        "de": "Anzahl der Jahre, die Sie voraussichtlich im Ruhestand leben werden (Lebenserwartung).",
+        "fr": "Nombre d'années que vous prévoyez vivre à la retraite (espérance de vie)."
       }
     }
   ],

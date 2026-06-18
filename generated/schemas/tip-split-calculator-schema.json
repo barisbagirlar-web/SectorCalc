@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Total Bill Amount",
         "tr": "Toplam Fatura Tutarı",
-        "de": "Total Bill Amount",
-        "fr": "Total Bill Amount",
+        "de": "Gesamtrechnungsbetrag",
+        "fr": "Montant total de la facture",
         "es": "Total Bill Amount",
         "ar": "Total Bill Amount"
       },
       "businessContext_i18n": {
         "en": "Total amount of the bill including tax.",
-        "tr": "Vergi dahil toplam fatura tutarı."
+        "tr": "Vergi dahil toplam fatura tutarı.",
+        "de": "Gesamtbetrag der Rechnung inklusive Steuern.",
+        "fr": "Montant total de la facture, taxes comprises."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Tip Percentage",
         "tr": "Bahşiş Yüzdesi",
         "de": "Trinkgeldprozentsatz",
-        "fr": "Tip Percentage",
-        "es": "Tip Percentage",
+        "fr": "Pourcentage de pourboire",
+        "es": "Porcentaje de propina",
         "ar": "Tip Percentage"
       },
       "businessContext_i18n": {
         "en": "Percentage of the pre-tax amount to tip.",
-        "tr": "Vergi öncesi tutarın bahşiş olarak verilecek yüzdesi."
+        "tr": "Vergi öncesi tutarın bahşiş olarak verilecek yüzdesi.",
+        "de": "Prozentsatz des Nettobetrags für Trinkgeld.",
+        "fr": "Pourcentage du montant avant impôt à donner en pourboire."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Number of People",
         "tr": "Kişi Sayısı",
         "de": "Anzahl der Personen",
-        "fr": "Number of People",
-        "es": "Number of People",
+        "fr": "Nombre de personnes",
+        "es": "Número de personas",
         "ar": "Number of People"
       },
       "businessContext_i18n": {
         "en": "Number of people sharing the bill.",
-        "tr": "Faturayı paylaşan kişi sayısı."
+        "tr": "Faturayı paylaşan kişi sayısı.",
+        "de": "Anzahl der Personen, die die Rechnung teilen.",
+        "fr": "Nombre de personnes partageant la facture."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Tax Amount",
         "tr": "Vergi Tutarı",
-        "de": "Tax Amount",
-        "fr": "Tax Amount",
+        "de": "Steuerbetrag",
+        "fr": "Montant de la taxe",
         "es": "Tax Amount",
         "ar": "Tax Amount"
       },
       "businessContext_i18n": {
         "en": "Amount of tax included in the total bill. Used to calculate pre-tax amount for tipping.",
-        "tr": "Toplam faturadaki vergi tutarı. Bahşiş hesaplamak için vergi öncesi tutarı bulmada kullanılır."
+        "tr": "Toplam faturadaki vergi tutarı. Bahşiş hesaplamak için vergi öncesi tutarı bulmada kullanılır.",
+        "de": "Steuerbetrag in der Gesamtrechnung. Wird zur Berechnung des Nettobetrags für das Trinkgeld verwendet.",
+        "fr": "Montant de la taxe inclus dans la facture totale. Utilisé pour calculer le montant avant impôt pour le pourboire."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Round Up Total Per Person?",
         "tr": "Kişi Başı Toplamı Yuvarla?",
-        "de": "Round Up Total Per Person?",
-        "fr": "Round Up Total Per Person?",
+        "de": "Gesamtbetrag pro Person aufrunden?",
+        "fr": "Arrondir le total par personne ?",
         "es": "Round Up Total Per Person?",
         "ar": "Round Up Total Per Person?"
       },
       "businessContext_i18n": {
         "en": "Set to 1 to round the total cost per person up to the nearest whole dollar, otherwise 0.",
-        "tr": "Kişi başı toplam maliyeti en yakın tam dolara yuvarlamak için 1, aksi halde 0."
+        "tr": "Kişi başı toplam maliyeti en yakın tam dolara yuvarlamak için 1, aksi halde 0.",
+        "de": "Auf 1 setzen, um die Gesamtkosten pro Person auf den nächsten ganzen Dollar aufzurunden, sonst 0.",
+        "fr": "Mettre à 1 pour arrondir le coût total par personne au dollar supérieur, sinon 0."
       }
     }
   ],

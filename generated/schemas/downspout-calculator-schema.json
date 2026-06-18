@@ -12,14 +12,16 @@
         "en": "Roof Length",
         "tr": "Çatı Uzunluğu",
         "de": "Dachlänge",
-        "fr": "Roof Length",
-        "es": "Roof Length",
+        "fr": "Longueur du toit",
+        "es": "Longitud del techo",
         "ar": "Roof Length"
       },
       "businessContext_i18n": {
         "en": "Length of the roof area draining to the downspout.",
         "tr": "Yağmur oluğuna akan çatı alanının uzunluğu.",
-        "de": "Anzahl der gleichzeitigen Download-Verbindungen (geht von linearer Geschwindigkeitsskalierung aus)."
+        "de": "Anzahl der gleichzeitigen Download-Verbindungen (geht von linearer Geschwindigkeitsskalierung aus).",
+        "fr": "Longueur de la zone de toit drainant vers la descente pluviale.",
+        "es": "Longitud del área del techo que drena hacia la bajante."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Roof Width",
         "tr": "Çatı Genişliği",
         "de": "Dachbreite",
-        "fr": "Roof Width",
-        "es": "Roof Width",
+        "fr": "Largeur du toit",
+        "es": "Ancho del techo",
         "ar": "Roof Width"
       },
       "businessContext_i18n": {
         "en": "Width of the roof area draining to the downspout.",
         "tr": "Yağmur oluğuna akan çatı alanının genişliği.",
-        "de": "Länge der Dachfläche, die zum Fallrohr entwässert."
+        "de": "Länge der Dachfläche, die zum Fallrohr entwässert.",
+        "fr": "Largeur de la zone de toit drainant vers la descente pluviale.",
+        "es": "Ancho del área del techo que drena hacia la bajante."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Rainfall Intensity",
         "tr": "Yağış Yoğunluğu",
         "de": "Breite der Dachfläche, die zum Fallrohr entwässert.",
-        "fr": "Rainfall Intensity",
-        "es": "Rainfall Intensity",
+        "fr": "Intensité des précipitations",
+        "es": "Intensidad de lluvia",
         "ar": "Rainfall Intensity"
       },
       "businessContext_i18n": {
         "en": "Design rainfall intensity for the geographical location.",
         "tr": "Coğrafi konum için tasarım yağış yoğunluğu.",
-        "de": "Regenintensität"
+        "de": "Regenintensität",
+        "fr": "Intensité des précipitations de conception pour la localisation géographique.",
+        "es": "Intensidad de lluvia de diseño para la ubicación geográfica."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Downspout Diameter",
         "tr": "Yağmur Borusu Çapı",
         "de": "Bemessungs-Regenintensität für den geografischen Standort.",
-        "fr": "Downspout Diameter",
-        "es": "Downspout Diameter",
+        "fr": "Diamètre de la descente pluviale",
+        "es": "Diámetro de la bajante",
         "ar": "Downspout Diameter"
       },
       "businessContext_i18n": {
         "en": "Inner diameter of the downspout pipe.",
         "tr": "Yağmur borusunun iç çapı.",
-        "de": "Fallrohrdurchmesser"
+        "de": "Fallrohrdurchmesser",
+        "fr": "Diamètre intérieur du tuyau de descente pluviale.",
+        "es": "Diámetro interior del tubo de la bajante."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Efficiency Factor",
         "tr": "Verimlilik Faktörü",
         "de": "Effizienzfaktor",
-        "fr": "Efficiency Factor",
-        "es": "Efficiency Factor",
+        "fr": "Facteur d'efficacité",
+        "es": "Factor de eficiencia",
         "ar": "Efficiency Factor"
       },
       "businessContext_i18n": {
         "en": "Reduction factor accounting for bends, obstructions, and installation imperfections.",
         "tr": "Dirsekler, tıkanıklıklar ve montaj kusurlarını hesaba katan azaltma faktörü.",
-        "de": "Innendurchmesser des Fallrohrs."
+        "de": "Innendurchmesser des Fallrohrs.",
+        "fr": "Facteur de réduction tenant compte des coudes, obstructions et imperfections d'installation.",
+        "es": "Factor de reducción que considera codos, obstrucciones e imperfecciones de instalación."
       }
     }
   ],

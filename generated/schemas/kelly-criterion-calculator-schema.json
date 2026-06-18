@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Winning Probability (p)",
         "tr": "Kazanma Olasılığı (p)",
-        "de": "Winning Probability (p)",
-        "fr": "Winning Probability (p)",
-        "es": "Winning Probability (p)",
+        "de": "Gewinnwahrscheinlichkeit (p)",
+        "fr": "Probabilité de gain (p)",
+        "es": "Probabilidad de ganar (p)",
         "ar": "Winning Probability (p)"
       },
       "businessContext_i18n": {
         "en": "Probability that the bet wins (between 0 and 1).",
-        "tr": "Bahsin kazanma olasılığı (0 ile 1 arasında)."
+        "tr": "Bahsin kazanma olasılığı (0 ile 1 arasında).",
+        "de": "Wahrscheinlichkeit, dass die Wette gewinnt (zwischen 0 und 1).",
+        "fr": "Probabilité que le pari gagne (entre 0 et 1).",
+        "es": "Probabilidad de que la apuesta gane (entre 0 y 1)."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Net Odds (b)",
         "tr": "Net Oran (b)",
-        "de": "Net Odds (b)",
-        "fr": "Net Odds (b)",
-        "es": "Net Odds (b)",
+        "de": "Nettoquote (b)",
+        "fr": "Cotes nettes (b)",
+        "es": "Cuota neta (b)",
         "ar": "Net Odds (b)"
       },
       "businessContext_i18n": {
         "en": "Net odds received per unit bet; if you bet 1 and win, you get back your stake plus b (i.e., total return = 1 + b).",
-        "tr": "Birim bahis başına alınan net oran; 1 bahis yapıp kazanırsanız, bahisinizi artı b alırsınız (yani toplam getiri = 1 + b)."
+        "tr": "Birim bahis başına alınan net oran; 1 bahis yapıp kazanırsanız, bahisinizi artı b alırsınız (yani toplam getiri = 1 + b).",
+        "de": "Nettoquote pro eingesetzter Einheit; bei Einsatz von 1 und Gewinn erhalten Sie Ihren Einsatz plus b zurück (Gesamtrückzahlung = 1 + b).",
+        "fr": "Cotes nettes reçues par unité mise ; si vous misez 1 et gagnez, vous récupérez votre mise plus b (c'est-à-dire le retour total = 1 + b).",
+        "es": "Cuota neta recibida por unidad apostada; si apuesta 1 y gana, recupera su apuesta más b (es decir, retorno total = 1 + b)."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Total Bankroll",
         "tr": "Toplam Bakiye",
-        "de": "Total Bankroll",
-        "fr": "Total Bankroll",
-        "es": "Total Bankroll",
+        "de": "Gesamtkapital",
+        "fr": "Capital total",
+        "es": "Bankroll total",
         "ar": "Total Bankroll"
       },
       "businessContext_i18n": {
         "en": "Total capital available for betting.",
-        "tr": "Bahis için mevcut toplam sermaye."
+        "tr": "Bahis için mevcut toplam sermaye.",
+        "de": "Gesamtes verfügbares Kapital für Wetten.",
+        "fr": "Capital total disponible pour les paris.",
+        "es": "Capital total disponible para apuestas."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Kelly Fraction",
         "tr": "Kelly Kesri",
-        "de": "Kelly Fraction",
-        "fr": "Kelly Fraction",
-        "es": "Kelly Fraction",
+        "de": "Kelly-Anteil",
+        "fr": "Fraction de Kelly",
+        "es": "Fracción de Kelly",
         "ar": "Kelly Fraction"
       },
       "businessContext_i18n": {
         "en": "Multiplier on the full Kelly bet size (1 = full Kelly, 0.5 = half Kelly, etc.).",
-        "tr": "Tam Kelly bahis büyüklüğü üzerindeki çarpan (1 = tam Kelly, 0,5 = yarım Kelly, vb.)."
+        "tr": "Tam Kelly bahis büyüklüğü üzerindeki çarpan (1 = tam Kelly, 0,5 = yarım Kelly, vb.).",
+        "de": "Multiplikator für den vollen Kelly-Einsatz (1 = volles Kelly, 0,5 = halbes Kelly usw.).",
+        "fr": "Multiplicateur de la taille de mise Kelly complète (1 = Kelly complet, 0,5 = demi-Kelly, etc.).",
+        "es": "Multiplicador del tamaño de apuesta Kelly completo (1 = Kelly completo, 0.5 = medio Kelly, etc.)."
       }
     }
   ],

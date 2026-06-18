@@ -11,15 +11,17 @@
       "label_i18n": {
         "en": "Fortnights",
         "tr": "Fortnights",
-        "de": "Fortnights",
-        "fr": "Fortnights",
-        "es": "Fortnights",
+        "de": "Vierzehn-Tage-Zeiträume",
+        "fr": "Quinzaines",
+        "es": "Quincenas",
         "ar": "Fortnights"
       },
       "businessContext_i18n": {
         "en": "Number of fortnights to convert",
         "tr": "Dönüştürülecek fortnights sayısı",
-        "de": "Number of fortnights to convert"
+        "de": "Anzahl der umzurechnenden Vierzehn-Tage-Zeiträume",
+        "fr": "Nombre de quinzaines à convertir",
+        "es": "Número de quincenas a convertir"
       }
     },
     {
@@ -32,15 +34,17 @@
       "label_i18n": {
         "en": "Days per Fortnight",
         "tr": "Fortnight başına gün",
-        "de": "Days per Fortnight",
-        "fr": "Days per Fortnight",
-        "es": "Days per Fortnight",
+        "de": "Tage pro Vierzehn-Tage-Zeitraum",
+        "fr": "Jours par quinzaine",
+        "es": "Días por quincena",
         "ar": "Days per Fortnight"
       },
       "businessContext_i18n": {
         "en": "Conversion factor, standard 14 days per fortnight",
         "tr": "Dönüşüm faktörü, standart 14 gün/fortnight",
-        "de": "Conversion factor, standard 14 days per fortnight"
+        "de": "Umrechnungsfaktor, Standard 14 Tage pro Vierzehn-Tage-Zeitraum",
+        "fr": "Facteur de conversion, standard 14 jours par quinzaine",
+        "es": "Factor de conversión, estándar 14 días por quincena"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounded output",
         "tr": "Yuvarlatılmış çıktı için ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen für die gerundete Ausgabe"
+        "de": "Anzahl der Dezimalstellen für die gerundete Ausgabe",
+        "fr": "Nombre de décimales pour le résultat arrondi",
+        "es": "Número de decimales para la salida redondeada"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Batch Size",
         "tr": "Parti Büyüklüğü",
         "de": "Losgröße",
-        "fr": "Batch Size",
-        "es": "Batch Size",
+        "fr": "Taille de lot",
+        "es": "Tamaño de lote",
         "ar": "Batch Size"
       },
       "businessContext_i18n": {
         "en": "Multiplier for bulk conversions (e.g., number of projects)",
         "tr": "Toplu dönüşümler için çarpan (örneğin, proje sayısı)",
-        "de": "Multiplier for bulk conversions (e.g., number of projects)"
+        "de": "Multiplikator für Sammelumrechnungen (z. B. Anzahl der Projekte)",
+        "fr": "Multiplicateur pour conversions en vrac (ex. nombre de projets)",
+        "es": "Multiplicador para conversiones masivas (ej. número de proyectos)"
       }
     }
   ],

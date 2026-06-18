@@ -12,13 +12,16 @@
         "en": "Yıl",
         "tr": "Yıl",
         "de": "Jahr",
-        "fr": "Yıl",
-        "es": "Yıl",
+        "fr": "Année",
+        "es": "Año",
         "ar": "Yıl"
       },
       "businessContext_i18n": {
         "en": "Hesaplanacak ay fazı için yıl bilgisi",
-        "tr": "Hesaplanacak ay fazı için yıl bilgisi"
+        "tr": "Hesaplanacak ay fazı için yıl bilgisi",
+        "de": "Jahresangabe für die zu berechnende Monatsphase",
+        "fr": "Année pour le calcul de la phase lunaire",
+        "es": "Año para la fase de meses a calcular"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Ay",
         "tr": "Ay",
         "de": "Monat",
-        "fr": "Ay",
-        "es": "Ay",
+        "fr": "Mois",
+        "es": "Mes",
         "ar": "Ay"
       },
       "businessContext_i18n": {
         "en": "Hesaplanacak ay fazı için ay bilgisi (1-12)",
-        "tr": "Hesaplanacak ay fazı için ay bilgisi (1-12)"
+        "tr": "Hesaplanacak ay fazı için ay bilgisi (1-12)",
+        "de": "Monatsangabe für die zu berechnende Monatsphase (1-12)",
+        "fr": "Mois pour le calcul de la phase lunaire (1-12)",
+        "es": "Mes para la fase de meses a calcular (1-12)"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Gün",
         "tr": "Gün",
         "de": "Tag",
-        "fr": "Gün",
-        "es": "Gün",
+        "fr": "Jour",
+        "es": "Día",
         "ar": "Gün"
       },
       "businessContext_i18n": {
         "en": "Hesaplanacak ay fazı için gün bilgisi",
-        "tr": "Hesaplanacak ay fazı için gün bilgisi"
+        "tr": "Hesaplanacak ay fazı için gün bilgisi",
+        "de": "Tage für die zu berechnende Monatsphase",
+        "fr": "Jour pour le calcul de la phase lunaire",
+        "es": "Días del mes para calcular la fase"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Saat (UTC)",
         "tr": "Saat (UTC)",
-        "de": "Saat (UTC)",
-        "fr": "Saat (UTC)",
-        "es": "Saat (UTC)",
+        "de": "Stunde (UTC)",
+        "fr": "Heure (UTC)",
+        "es": "Hora (UTC)",
         "ar": "Saat (UTC)"
       },
       "businessContext_i18n": {
         "en": "Günün ondalık saat dilimi (örn: 12.5 = 12:30 UTC)",
-        "tr": "Günün ondalık saat dilimi (örn: 12.5 = 12:30 UTC)"
+        "tr": "Günün ondalık saat dilimi (örn: 12.5 = 12:30 UTC)",
+        "de": "Dezimale Tageszeit (z.B. 12,5 = 12:30 UTC)",
+        "fr": "Fraction décimale du jour (ex: 12.5 = 12:30 UTC)",
+        "es": "Fracción decimal del día (ej: 12.5 = 12:30 UTC)"
       }
     }
   ],

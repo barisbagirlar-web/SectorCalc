@@ -12,14 +12,16 @@
         "en": "Yıllık Talep",
         "tr": "Yıllık Talep",
         "de": "Jährliche Nachfrage",
-        "fr": "Yıllık Talep",
-        "es": "Yıllık Talep",
+        "fr": "Demande annuelle",
+        "es": "Demanda anual",
         "ar": "Yıllık Talep"
       },
       "businessContext_i18n": {
         "en": "Yıllık satılan veya kullanılan ürün miktarı",
         "tr": "Yıllık satılan veya kullanılan ürün miktarı",
-        "de": "Jährlich verkaufte oder verwendete Produktmenge"
+        "de": "Jährlich verkaufte oder verwendete Produktmenge",
+        "fr": "Quantité de produits vendus ou utilisés par an.",
+        "es": "Cantidad de producto vendido o utilizado anualmente"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Sipariş Maliyeti",
         "tr": "Sipariş Maliyeti",
         "de": "Bestellkosten",
-        "fr": "Sipariş Maliyeti",
-        "es": "Sipariş Maliyeti",
+        "fr": "Coût de commande",
+        "es": "Costo de pedido",
         "ar": "Sipariş Maliyeti"
       },
       "businessContext_i18n": {
         "en": "Bir sipariş verildiğinde oluşan sabit maliyet (nakliye, işleme vb.)",
         "tr": "Bir sipariş verildiğinde oluşan sabit maliyet (nakliye, işleme vb.)",
-        "de": "Fixe Kosten pro Bestellung (Transport, Bearbeitung usw.)"
+        "de": "Fixe Kosten pro Bestellung (Transport, Bearbeitung usw.)",
+        "fr": "Coût fixe engagé lors de la passation d'une commande (transport, traitement, etc.)",
+        "es": "Costo fijo por pedido (transporte, procesamiento, etc.)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Elde Tutma Maliyeti",
         "tr": "Elde Tutma Maliyeti",
         "de": "Lagerhaltungskosten",
-        "fr": "Elde Tutma Maliyeti",
-        "es": "Elde Tutma Maliyeti",
+        "fr": "Coût de détention",
+        "es": "Costo de mantenimiento",
         "ar": "Elde Tutma Maliyeti"
       },
       "businessContext_i18n": {
         "en": "Bir birim stoğun yıllık depolama, sigorta, bozulma vb. maliyeti",
         "tr": "Bir birim stoğun yıllık depolama, sigorta, bozulma vb. maliyeti",
-        "de": "Jährliche Kosten für Lagerung, Versicherung, Verderb usw. pro Lagereinheit"
+        "de": "Jährliche Kosten für Lagerung, Versicherung, Verderb usw. pro Lagereinheit",
+        "fr": "Coût annuel de stockage, assurance, détérioration, etc. par unité de stock.",
+        "es": "Costo anual de almacenamiento, seguro, deterioro, etc. por unidad de inventario"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Birim Maliyet",
         "tr": "Birim Maliyet",
         "de": "Stückkosten",
-        "fr": "Birim Maliyet",
-        "es": "Birim Maliyet",
+        "fr": "Coût unitaire",
+        "es": "Costo unitario",
         "ar": "Birim Maliyet"
       },
       "businessContext_i18n": {
         "en": "Birim başına satın alma maliyeti (toplam maliyete eklenir, isteğe bağlı)",
         "tr": "Birim başına satın alma maliyeti (toplam maliyete eklenir, isteğe bağlı)",
-        "de": "Beschaffungskosten pro Einheit (wird zu Gesamtkosten addiert, optional)"
+        "de": "Beschaffungskosten pro Einheit (wird zu Gesamtkosten addiert, optional)",
+        "fr": "Coût d'achat unitaire (ajouté au coût total, facultatif)",
+        "es": "Costo de compra por unidad (se añade al costo total, opcional)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Tedarik Süresi",
         "tr": "Tedarik Süresi",
         "de": "Lieferzeit",
-        "fr": "Tedarik Süresi",
-        "es": "Tedarik Süresi",
+        "fr": "Délai d'approvisionnement",
+        "es": "Plazo de entrega",
         "ar": "Tedarik Süresi"
       },
       "businessContext_i18n": {
         "en": "Siparişin teslim edilme süresi (yeniden sipariş noktası için)",
         "tr": "Siparişin teslim edilme süresi (yeniden sipariş noktası için)",
-        "de": "Zeit von der Bestellung bis zur Lieferung (für den Meldebestand)"
+        "de": "Zeit von der Bestellung bis zur Lieferung (für den Meldebestand)",
+        "fr": "Délai de livraison de la commande (pour le point de commande)",
+        "es": "Tiempo de entrega del pedido (para el punto de reorden)"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Yıllık Çalışma Günü",
         "tr": "Yıllık Çalışma Günü",
         "de": "Jährliche Arbeitstage",
-        "fr": "Yıllık Çalışma Günü",
-        "es": "Yıllık Çalışma Günü",
+        "fr": "Jours ouvrables par an",
+        "es": "Días laborables al año",
         "ar": "Yıllık Çalışma Günü"
       },
       "businessContext_i18n": {
         "en": "Yıllık çalışma gün sayısı (talebin dağılımı için)",
         "tr": "Yıllık çalışma gün sayısı (talebin dağılımı için)",
-        "de": "Anzahl der Arbeitstage pro Jahr (für die Nachfrageverteilung)"
+        "de": "Anzahl der Arbeitstage pro Jahr (für die Nachfrageverteilung)",
+        "fr": "Nombre de jours ouvrables par an (pour la répartition de la demande)",
+        "es": "Número de días laborables al año (para la distribución de la demanda)"
       }
     }
   ],

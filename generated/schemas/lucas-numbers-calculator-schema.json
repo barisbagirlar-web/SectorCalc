@@ -12,13 +12,16 @@
         "en": "Start Index",
         "tr": "Başlangıç İndeksi",
         "de": "Startindex",
-        "fr": "Start Index",
-        "es": "Start Index",
+        "fr": "Indice de début",
+        "es": "Índice de inicio",
         "ar": "Start Index"
       },
       "businessContext_i18n": {
         "en": "Starting index of Lucas sequence (inclusive).",
-        "tr": "Lucas dizisinin başlangıç indeksi (dahil)."
+        "tr": "Lucas dizisinin başlangıç indeksi (dahil).",
+        "de": "Startindex der Lucas-Folge (inklusive).",
+        "fr": "Indice de début de la suite de Lucas (inclus).",
+        "es": "Índice inicial de la secuencia de Lucas (inclusive)."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "End Index",
         "tr": "Bitiş İndeksi",
         "de": "Endindex",
-        "fr": "End Index",
-        "es": "End Index",
+        "fr": "Indice de fin",
+        "es": "Índice final",
         "ar": "End Index"
       },
       "businessContext_i18n": {
         "en": "Ending index of Lucas sequence (inclusive). Must be >= startIndex.",
-        "tr": "Lucas dizisinin bitiş indeksi (dahil). startIndex'ten büyük veya eşit olmalıdır."
+        "tr": "Lucas dizisinin bitiş indeksi (dahil). startIndex'ten büyük veya eşit olmalıdır.",
+        "de": "Endindex der Lucas-Folge (inklusive). Muss >= Startindex sein.",
+        "fr": "Indice de fin de la suite de Lucas (inclus). Doit être >= startIndex.",
+        "es": "Índice final de la secuencia de Lucas (inclusive). Debe ser >= índice inicial."
       }
     },
     {
@@ -58,7 +64,10 @@
       },
       "businessContext_i18n": {
         "en": "Value of Lucas number at index 0 (typically 2).",
-        "tr": "0 indeksindeki Lucas sayısının değeri (genellikle 2)."
+        "tr": "0 indeksindeki Lucas sayısının değeri (genellikle 2).",
+        "de": "Wert der Lucas-Zahl bei Index 0 (typischerweise 2).",
+        "fr": "Valeur du nombre de Lucas à l'indice 0 (généralement 2).",
+        "es": "Valor del número de Lucas en el índice 0 (típicamente 2)."
       }
     },
     {
@@ -78,7 +87,10 @@
       },
       "businessContext_i18n": {
         "en": "Value of Lucas number at index 1 (typically 1).",
-        "tr": "1 indeksindeki Lucas sayısının değeri (genellikle 1)."
+        "tr": "1 indeksindeki Lucas sayısının değeri (genellikle 1).",
+        "de": "Wert der Lucas-Zahl bei Index 1 (typischerweise 1).",
+        "fr": "Valeur du nombre de Lucas à l'indice 1 (généralement 1).",
+        "es": "Valor del número de Lucas en el índice 1 (típicamente 1)."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Show Sequence",
         "tr": "Diziyi Göster",
-        "de": "Show Sequence",
-        "fr": "Show Sequence",
-        "es": "Show Sequence",
+        "de": "Sequenz anzeigen",
+        "fr": "Afficher la suite",
+        "es": "Mostrar secuencia",
         "ar": "Show Sequence"
       },
       "businessContext_i18n": {
         "en": "Set to 1 to include the full sequence in breakdown, 0 for only start and end values.",
-        "tr": "Dökümde tam diziyi dahil etmek için 1, yalnızca başlangıç ve bitiş değerleri için 0."
+        "tr": "Dökümde tam diziyi dahil etmek için 1, yalnızca başlangıç ve bitiş değerleri için 0.",
+        "de": "Auf 1 setzen, um die vollständige Sequenz in der Aufschlüsselung anzuzeigen, 0 für nur Start- und Endwerte.",
+        "fr": "Mettre à 1 pour inclure la suite complète dans la décomposition, 0 pour seulement les valeurs de début et de fin.",
+        "es": "Establecer en 1 para incluir la secuencia completa en el desglose, 0 para solo los valores inicial y final."
       }
     }
   ],

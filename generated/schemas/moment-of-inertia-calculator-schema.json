@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Shape",
         "tr": "Şekil",
-        "de": "Shape",
-        "fr": "Shape",
-        "es": "Shape",
+        "de": "Form",
+        "fr": "Forme",
+        "es": "Forma",
         "ar": "Shape"
       },
       "businessContext_i18n": {
         "en": "Select shape: 1=Rectangle, 2=Circle, 3=Hollow Circle, 4=I-beam",
-        "tr": "Şekil seçin: 1=Dikdörtgen, 2=Daire, 3=İçi boş daire, 4=I-kiriş"
+        "tr": "Şekil seçin: 1=Dikdörtgen, 2=Daire, 3=İçi boş daire, 4=I-kiriş",
+        "de": "Form auswählen: 1=Rechteck, 2=Kreis, 3=Hohlkreis, 4=I-Träger",
+        "fr": "Sélectionnez la forme : 1=Rectangle, 2=Cercle, 3=Cercle creux, 4=Poutre en I",
+        "es": "Seleccionar forma: 1=Rectángulo, 2=Círculo, 3=Círculo hueco, 4=Viga I"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Width/Outer Radius (b or R)",
         "tr": "Genişlik/Dış yarıçap (b veya R)",
-        "de": "Width/Outer Radius (b or R)",
-        "fr": "Width/Outer Radius (b or R)",
-        "es": "Width/Outer Radius (b or R)",
+        "de": "Breite/Außenradius (b oder R)",
+        "fr": "Largeur/Rayon extérieur (b ou R)",
+        "es": "Ancho/Radio exterior (b o R)",
         "ar": "Width/Outer Radius (b or R)"
       },
       "businessContext_i18n": {
         "en": "Base width for rectangle/I-beam, outer radius for circle/hollow circle",
-        "tr": "Dikdörtgen/I-kiriş için taban genişliği, daire/içi boş daire için dış yarıçap"
+        "tr": "Dikdörtgen/I-kiriş için taban genişliği, daire/içi boş daire için dış yarıçap",
+        "de": "Basisbreite für Rechteck/I-Träger, Außenradius für Kreis/Hohlkreis",
+        "fr": "Largeur de base pour rectangle/poutre en I, rayon extérieur pour cercle/cercle creux",
+        "es": "Ancho base para rectángulo/viga I, radio exterior para círculo/círculo hueco"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Height (h)",
         "tr": "Yükseklik (h)",
         "de": "Höhe (h)",
-        "fr": "Height (h)",
-        "es": "Height (h)",
+        "fr": "Hauteur (h)",
+        "es": "Altura (h)",
         "ar": "Height (h)"
       },
       "businessContext_i18n": {
         "en": "Height for rectangle, overall height for I-beam (includes flanges); unused for circle",
-        "tr": "Dikdörtgen için yükseklik, I-kiriş için toplam yükseklik (flanşlar dahil); daire için kullanılmaz"
+        "tr": "Dikdörtgen için yükseklik, I-kiriş için toplam yükseklik (flanşlar dahil); daire için kullanılmaz",
+        "de": "Höhe für Rechteck, Gesamthöhe für I-Träger (inkl. Flansche); nicht verwendet für Kreis",
+        "fr": "Hauteur pour rectangle, hauteur totale pour poutre en I (inclut les semelles) ; inutilisé pour cercle",
+        "es": "Altura para rectángulo, altura total para viga I (incluye alas); no se usa para círculo"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Flange Thickness/Inner Radius (tf or r)",
         "tr": "Flanş kalınlığı/İç yarıçap (tf veya r)",
-        "de": "Flange Thickness/Inner Radius (tf or r)",
-        "fr": "Flange Thickness/Inner Radius (tf or r)",
-        "es": "Flange Thickness/Inner Radius (tf or r)",
+        "de": "Flanschdicke/Innenradius (tf oder r)",
+        "fr": "Épaisseur de semelle/Rayon intérieur (tf ou r)",
+        "es": "Espesor del ala/Radio interior (tf o r)",
         "ar": "Flange Thickness/Inner Radius (tf or r)"
       },
       "businessContext_i18n": {
         "en": "Flange thickness for I-beam, inner radius for hollow circle; unused for rectangle/circle",
-        "tr": "I-kiriş için flanş kalınlığı, içi boş daire için iç yarıçap; dikdörtgen/daire için kullanılmaz"
+        "tr": "I-kiriş için flanş kalınlığı, içi boş daire için iç yarıçap; dikdörtgen/daire için kullanılmaz",
+        "de": "Flanschdicke für I-Träger, Innenradius für Hohlkreis; nicht verwendet für Rechteck/Kreis",
+        "fr": "Épaisseur de semelle pour poutre en I, rayon intérieur pour cercle creux ; inutilisé pour rectangle/cercle",
+        "es": "Espesor del ala para viga I, radio interior para círculo hueco; no se usa para rectángulo/círculo"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Web Thickness (tw)",
         "tr": "Gövde kalınlığı (tw)",
-        "de": "Web Thickness (tw)",
-        "fr": "Web Thickness (tw)",
-        "es": "Web Thickness (tw)",
+        "de": "Stegdicke (tw)",
+        "fr": "Épaisseur d'âme (tw)",
+        "es": "Espesor del alma (tw)",
         "ar": "Web Thickness (tw)"
       },
       "businessContext_i18n": {
         "en": "Web thickness for I-beam; unused for other shapes",
-        "tr": "I-kiriş için gövde kalınlığı; diğer şekiller için kullanılmaz"
+        "tr": "I-kiriş için gövde kalınlığı; diğer şekiller için kullanılmaz",
+        "de": "Stegdicke für I-Träger; nicht verwendet für andere Formen",
+        "fr": "Épaisseur d'âme pour poutre en I ; inutilisé pour autres formes",
+        "es": "Espesor del alma para viga I; no se usa para otras formas"
       }
     }
   ],

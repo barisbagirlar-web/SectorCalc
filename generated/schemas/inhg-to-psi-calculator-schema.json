@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Pressure (inHg)",
         "tr": "Basınç (inHg)",
-        "de": "Pressure (inHg)",
-        "fr": "Pressure (inHg)",
-        "es": "Pressure (inHg)",
+        "de": "Druck (inHg)",
+        "fr": "Pression (inHg)",
+        "es": "Presión (inHg)",
         "ar": "Pressure (inHg)"
       },
       "businessContext_i18n": {
         "en": "The measured pressure in inches of mercury.",
-        "tr": "Inç cıva cinsinden ölçülen basınç."
+        "tr": "Inç cıva cinsinden ölçülen basınç.",
+        "de": "Der gemessene Druck in Zoll Quecksilbersäule.",
+        "fr": "Pression mesurée en pouces de mercure.",
+        "es": "La presión medida en pulgadas de mercurio."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor from inHg to psi (1 inHg = 0.491154 psi).",
-        "tr": "inHg'den psi'ye standart dönüşüm faktörü (1 inHg = 0,491154 psi)."
+        "tr": "inHg'den psi'ye standart dönüşüm faktörü (1 inHg = 0,491154 psi).",
+        "de": "Standard-Umrechnungsfaktor von inHg in psi (1 inHg = 0,491154 psi).",
+        "fr": "Facteur de conversion standard d'inHg en psi (1 inHg = 0,491154 psi).",
+        "es": "Factor de conversión estándar de inHg a psi (1 inHg = 0.491154 psi)."
       }
     },
     {
@@ -52,14 +58,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the result.",
         "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses."
+        "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses.",
+        "fr": "Nombre de décimales pour arrondir le résultat.",
+        "es": "Número de decimales para redondear el resultado."
       }
     },
     {
@@ -73,13 +81,16 @@
         "en": "Altitude (feet)",
         "tr": "Rakım (feet)",
         "de": "Höhe (Fuß)",
-        "fr": "Altitude (feet)",
-        "es": "Altitude (feet)",
+        "fr": "Altitude (pieds)",
+        "es": "Altitud (pies)",
         "ar": "Altitude (feet)"
       },
       "businessContext_i18n": {
         "en": "Altitude above sea level, provided for informational context (not used in conversion).",
-        "tr": "Deniz seviyesinden yükseklik, bilgilendirme amaçlı verilmiştir (dönüşümde kullanılmaz)."
+        "tr": "Deniz seviyesinden yükseklik, bilgilendirme amaçlı verilmiştir (dönüşümde kullanılmaz).",
+        "de": "Höhe über dem Meeresspiegel, zur Information (nicht für die Umrechnung verwendet).",
+        "fr": "Altitude au-dessus du niveau de la mer, fournie à titre d'information contextuelle (non utilisée dans la conversion).",
+        "es": "Altitud sobre el nivel del mar, proporcionada para contexto informativo (no se utiliza en la conversión)."
       }
     },
     {
@@ -93,13 +104,16 @@
         "en": "Temperature (°F)",
         "tr": "Sıcaklık (°F)",
         "de": "Temperatur (°F)",
-        "fr": "Temperature (°F)",
-        "es": "Temperature (°F)",
+        "fr": "Température (°F)",
+        "es": "Temperatura (°F)",
         "ar": "Temperature (°F)"
       },
       "businessContext_i18n": {
         "en": "Temperature of the mercury column, provided for informational context (not used in standard conversion).",
-        "tr": "Cıva sütununun sıcaklığı, bilgilendirme amaçlı verilmiştir (standart dönüşümde kullanılmaz)."
+        "tr": "Cıva sütununun sıcaklığı, bilgilendirme amaçlı verilmiştir (standart dönüşümde kullanılmaz).",
+        "de": "Temperatur der Quecksilbersäule, zur Information (nicht für die Standardumrechnung verwendet).",
+        "fr": "Température de la colonne de mercure, fournie à titre d'information contextuelle (non utilisée dans la conversion standard).",
+        "es": "Temperatura de la columna de mercurio, proporcionada para contexto informativo (no se utiliza en la conversión estándar)."
       }
     }
   ],

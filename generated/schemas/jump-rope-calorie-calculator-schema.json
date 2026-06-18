@@ -12,13 +12,16 @@
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Body Weight",
-        "es": "Body Weight",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "User's body weight in kilograms. Used to compute energy expenditure.",
-        "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı. Enerji harcamasını hesaplamak için kullanılır."
+        "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı. Enerji harcamasını hesaplamak için kullanılır.",
+        "de": "Körpergewicht des Benutzers in Kilogramm. Wird zur Berechnung des Energieverbrauchs verwendet.",
+        "fr": "Poids corporel de l'utilisateur en kilogrammes. Utilisé pour calculer la dépense énergétique.",
+        "es": "Peso corporal del usuario en kilogramos. Se utiliza para calcular el gasto energético."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Duration",
         "tr": "Süre",
         "de": "Dauer",
-        "fr": "Duration",
-        "es": "Duration",
+        "fr": "Durée",
+        "es": "Duración",
         "ar": "Duration"
       },
       "businessContext_i18n": {
         "en": "Total time spent jumping rope in minutes.",
-        "tr": "İp atlamada geçen toplam süre (dakika)."
+        "tr": "İp atlamada geçen toplam süre (dakika).",
+        "de": "Gesamtzeit des Seilspringens in Minuten.",
+        "fr": "Temps total passé à sauter à la corde en minutes.",
+        "es": "Tiempo total dedicado a saltar la cuerda en minutos."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Jumps per Minute",
         "tr": "Dakikadaki Zıplama Sayısı",
-        "de": "Jumps per Minute",
-        "fr": "Jumps per Minute",
-        "es": "Jumps per Minute",
+        "de": "Sprünge pro Minute",
+        "fr": "Sauts par minute",
+        "es": "Saltos por minuto",
         "ar": "Jumps per Minute"
       },
       "businessContext_i18n": {
         "en": "Average number of rope skips per minute. Influences intensity (MET).",
-        "tr": "Dakika başına ortalama ip atlama sayısı. Yoğunluğu (MET) etkiler."
+        "tr": "Dakika başına ortalama ip atlama sayısı. Yoğunluğu (MET) etkiler.",
+        "de": "Durchschnittliche Anzahl von Seilsprüngen pro Minute. Beeinflusst die Intensität (MET).",
+        "fr": "Nombre moyen de sauts à la corde par minute. Influence l'intensité (MET).",
+        "es": "Número promedio de saltos de cuerda por minuto. Influye en la intensidad (MET)."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Efficiency Factor",
         "tr": "Verimlilik Faktörü",
         "de": "Effizienzfaktor",
-        "fr": "Efficiency Factor",
-        "es": "Efficiency Factor",
+        "fr": "Facteur d'efficacité",
+        "es": "Factor de eficiencia",
         "ar": "Efficiency Factor"
       },
       "businessContext_i18n": {
         "en": "Individual fitness variation multiplier (1.0 = average, >1 = higher calorie burn).",
-        "tr": "Bireysel fitness değişim çarpanı (1.0 = ortalama, >1 = daha yüksek kalori yakımı)."
+        "tr": "Bireysel fitness değişim çarpanı (1.0 = ortalama, >1 = daha yüksek kalori yakımı).",
+        "de": "Individueller Fitness-Variationsmultiplikator (1,0 = Durchschnitt, >1 = höherer Kalorienverbrauch).",
+        "fr": "Multiplicateur de variation individuelle de la condition physique (1,0 = moyenne, >1 = brûlure calorique plus élevée).",
+        "es": "Multiplicador de variación individual de condición física (1.0 = promedio, >1 = mayor quema de calorías)."
       }
     }
   ],

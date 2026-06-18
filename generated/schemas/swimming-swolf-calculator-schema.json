@@ -12,13 +12,15 @@
         "en": "Time (minutes)",
         "tr": "Süre (dakika)",
         "de": "Zeit (Minuten)",
-        "fr": "Time (minutes)",
-        "es": "Time (minutes)",
+        "fr": "Temps (minutes)",
+        "es": "Tiempo (minutos)",
         "ar": "Time (minutes)"
       },
       "businessContext_i18n": {
         "en": "Minutes portion of total swim time",
-        "tr": "Toplam yüzme süresinin dakika kısmı"
+        "tr": "Toplam yüzme süresinin dakika kısmı",
+        "de": "Minutenanteil der Gesamtschwimmzeit",
+        "fr": "Partie minutes du temps de nage total"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Time (seconds)",
         "tr": "Süre (saniye)",
         "de": "Zeit (Sekunden)",
-        "fr": "Time (seconds)",
-        "es": "Time (seconds)",
+        "fr": "Temps (secondes)",
+        "es": "Tiempo (segundos)",
         "ar": "Time (seconds)"
       },
       "businessContext_i18n": {
         "en": "Seconds portion of total swim time",
-        "tr": "Toplam yüzme süresinin saniye kısmı"
+        "tr": "Toplam yüzme süresinin saniye kısmı",
+        "de": "Sekundenanteil der Gesamtschwimmzeit",
+        "fr": "Partie secondes du temps de nage total"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Total strokes",
         "tr": "Toplam kol çekme",
-        "de": "Total strokes",
-        "fr": "Total strokes",
+        "de": "Gesamtzahl der Hübe",
+        "fr": "Total des coups de bras",
         "es": "Total strokes",
         "ar": "Total strokes"
       },
       "businessContext_i18n": {
         "en": "Total number of strokes over the entire swim",
-        "tr": "Tüm yüzme boyunca toplam kol çekme sayısı"
+        "tr": "Tüm yüzme boyunca toplam kol çekme sayısı",
+        "de": "Gesamtzahl der Hübe während des gesamten Schwimmens",
+        "fr": "Nombre total de coups de bras sur l'ensemble de la nage"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Number of lengths",
         "tr": "Boy sayısı",
-        "de": "Number of lengths",
-        "fr": "Number of lengths",
+        "de": "Anzahl der Bahnen",
+        "fr": "Nombre de longueurs",
         "es": "Number of lengths",
         "ar": "Number of lengths"
       },
       "businessContext_i18n": {
         "en": "Number of pool lengths swam",
-        "tr": "Yüzülen havuz boyu sayısı"
+        "tr": "Yüzülen havuz boyu sayısı",
+        "de": "Anzahl der geschwommenen Bahnen",
+        "fr": "Nombre de longueurs de piscine nagées"
       }
     }
   ],

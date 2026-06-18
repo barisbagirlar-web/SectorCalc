@@ -12,14 +12,16 @@
         "en": "Base Salary",
         "tr": "Temel Maaş",
         "de": "Grundgehalt",
-        "fr": "Base Salary",
-        "es": "Base Salary",
+        "fr": "Salaire de base",
+        "es": "Salario base",
         "ar": "Base Salary"
       },
       "businessContext_i18n": {
         "en": "Monthly base salary of the employee",
         "tr": "Çalışanın aylık temel maaşı",
-        "de": "Monatliches Grundgehalt des Mitarbeiters"
+        "de": "Monatliches Grundgehalt des Mitarbeiters",
+        "fr": "Salaire mensuel de base de l'employé",
+        "es": "Salario base mensual del empleado"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Bonus Months",
         "tr": "İkramiye Ayları",
         "de": "Bonusmonate",
-        "fr": "Bonus Months",
-        "es": "Bonus Months",
+        "fr": "Mois de prime",
+        "es": "Meses de bonificación",
         "ar": "Bonus Months"
       },
       "businessContext_i18n": {
         "en": "Number of months' salary as Chinese New Year bonus (typically 1)",
         "tr": "Çin Yeni Yılı ikramiyesi olarak maaş ayı sayısı (genellikle 1)",
-        "de": "Anzahl der Monatsgehälter als chinesischer Neujahrsbonus (normalerweise 1)"
+        "de": "Anzahl der Monatsgehälter als chinesischer Neujahrsbonus (normalerweise 1)",
+        "fr": "Nombre de mois de salaire comme prime du Nouvel An chinois (généralement 1)",
+        "es": "Número de meses de salario como bonificación de Año Nuevo chino (normalmente 1)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Years of Service",
         "tr": "Hizmet Yılı",
         "de": "Dienstjahre",
-        "fr": "Years of Service",
-        "es": "Years of Service",
+        "fr": "Années de service",
+        "es": "Años de servicio",
         "ar": "Years of Service"
       },
       "businessContext_i18n": {
         "en": "Total years of service for loyalty bonus calculation",
         "tr": "Kıdem ikramiyesi hesaplaması için toplam hizmet yılı",
-        "de": "Gesamtdienstjahre für die Berechnung des Treuebonus"
+        "de": "Gesamtdienstjahre für die Berechnung des Treuebonus",
+        "fr": "Nombre total d'années de service pour le calcul de la prime d'ancienneté",
+        "es": "Total de años de servicio para el cálculo de la bonificación por lealtad"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Dependents",
         "tr": "Bağımlı Kişi Sayısı",
         "de": "Angehörige",
-        "fr": "Dependents",
-        "es": "Dependents",
+        "fr": "Personnes à charge",
+        "es": "Dependientes",
         "ar": "Dependents"
       },
       "businessContext_i18n": {
         "en": "Number of dependents for family allowance bonus",
         "tr": "Aile yardımı ikramiyesi için bağımlı kişi sayısı",
-        "de": "Anzahl der Angehörigen für den Familienzulagenbonus"
+        "de": "Anzahl der Angehörigen für den Familienzulagenbonus",
+        "fr": "Nombre de personnes à charge pour la prime d'allocation familiale",
+        "es": "Número de dependientes para la bonificación por asignación familiar"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Overtime Hours",
         "tr": "Fazla Mesai Saatleri",
         "de": "Überstunden",
-        "fr": "Overtime Hours",
-        "es": "Overtime Hours",
+        "fr": "Heures supplémentaires",
+        "es": "Horas extra",
         "ar": "Overtime Hours"
       },
       "businessContext_i18n": {
         "en": "Overtime hours worked in the bonus period",
         "tr": "İkramiye döneminde çalışılan fazla mesai saatleri",
-        "de": "Im Bonuszeitraum geleistete Überstunden"
+        "de": "Im Bonuszeitraum geleistete Überstunden",
+        "fr": "Heures supplémentaires travaillées pendant la période de prime",
+        "es": "Horas extra trabajadas en el período de bonificación"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
         "de": "Steuersatz",
-        "fr": "Tax Rate",
-        "es": "Tax Rate",
+        "fr": "Taux de taxe",
+        "es": "Tasa de impuesto",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Applicable tax rate as a decimal (e.g., 0.2 for 20%)",
         "tr": "Ondalık olarak uygulanabilir vergi oranı (ör. %20 için 0.2)",
-        "de": "Anwendbarer Steuersatz als Dezimalzahl (z. B. 0,2 für 20%)"
+        "de": "Anwendbarer Steuersatz als Dezimalzahl (z. B. 0,2 für 20%)",
+        "fr": "Taux d'imposition applicable sous forme décimale (par exemple, 0,2 pour 20 %)",
+        "es": "Tasa impositiva aplicable como decimal (ej., 0.2 para 20%)"
       }
     }
   ],

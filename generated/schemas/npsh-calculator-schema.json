@@ -12,13 +12,16 @@
         "en": "Atmospheric Pressure",
         "tr": "Atmosfer Basıncı",
         "de": "Atmosphärendruck",
-        "fr": "Atmospheric Pressure",
-        "es": "Atmospheric Pressure",
+        "fr": "Pression atmosphérique",
+        "es": "Presión atmosférica",
         "ar": "Atmospheric Pressure"
       },
       "businessContext_i18n": {
         "en": "Standard atmospheric pressure at sea level.",
-        "tr": "Deniz seviyesinde standart atmosfer basıncı."
+        "tr": "Deniz seviyesinde standart atmosfer basıncı.",
+        "de": "Standard-Atmosphärendruck auf Meereshöhe.",
+        "fr": "Pression atmosphérique standard au niveau de la mer.",
+        "es": "Presión atmosférica estándar al nivel del mar."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Vapor Pressure",
         "tr": "Buhar Basıncı",
         "de": "Dampfdruck",
-        "fr": "Vapor Pressure",
-        "es": "Vapor Pressure",
+        "fr": "Pression de vapeur",
+        "es": "Presión de vapor",
         "ar": "Vapor Pressure"
       },
       "businessContext_i18n": {
         "en": "Vapor pressure of the fluid at pumping temperature.",
-        "tr": "Pompalama sıcaklığında akışkanın buhar basıncı."
+        "tr": "Pompalama sıcaklığında akışkanın buhar basıncı.",
+        "de": "Dampfdruck der Flüssigkeit bei Pumptemperatur.",
+        "fr": "Pression de vapeur du fluide à la température de pompage.",
+        "es": "Presión de vapor del fluido a la temperatura de bombeo."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Liquid Density",
         "tr": "Sıvı Yoğunluğu",
-        "de": "Liquid Density",
-        "fr": "Liquid Density",
-        "es": "Liquid Density",
+        "de": "Flüssigkeitsdichte",
+        "fr": "Densité du liquide",
+        "es": "Densidad del líquido",
         "ar": "Liquid Density"
       },
       "businessContext_i18n": {
         "en": "Density of the fluid being pumped.",
-        "tr": "Pompalanan akışkanın yoğunluğu."
+        "tr": "Pompalanan akışkanın yoğunluğu.",
+        "de": "Dichte der geförderten Flüssigkeit.",
+        "fr": "Densité du fluide pompé.",
+        "es": "Densidad del fluido bombeado."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Static Suction Head",
         "tr": "Statik Emme Yüksekliği",
-        "de": "Static Suction Head",
-        "fr": "Static Suction Head",
-        "es": "Static Suction Head",
+        "de": "Statische Saughöhe",
+        "fr": "Hauteur d'aspiration statique",
+        "es": "Altura de succión estática",
         "ar": "Static Suction Head"
       },
       "businessContext_i18n": {
         "en": "Height from fluid surface to pump centerline. Positive if fluid above pump, negative for suction lift.",
-        "tr": "Sıvı yüzeyinden pompa merkezine olan yükseklik. Sıvı pompanın üzerindeyse pozitif, emme yüksekliği için negatif."
+        "tr": "Sıvı yüzeyinden pompa merkezine olan yükseklik. Sıvı pompanın üzerindeyse pozitif, emme yüksekliği için negatif.",
+        "de": "Höhe von der Flüssigkeitsoberfläche bis zur Pumpenmitte. Positiv, wenn Flüssigkeit oberhalb der Pumpe, negativ bei Saughub.",
+        "fr": "Hauteur de la surface du fluide à l'axe de la pompe. Positive si le fluide est au-dessus de la pompe, négative pour l'aspiration.",
+        "es": "Altura desde la superficie del fluido hasta la línea central de la bomba. Positiva si el fluido está por encima de la bomba, negativa para elevación de succión."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Friction Head Loss",
         "tr": "Sürtünme Kaybı Yüksekliği",
-        "de": "Friction Head Loss",
-        "fr": "Friction Head Loss",
-        "es": "Friction Head Loss",
+        "de": "Reibungsdruckverlust",
+        "fr": "Perte de charge par frottement",
+        "es": "Pérdida de carga por fricción",
         "ar": "Friction Head Loss"
       },
       "businessContext_i18n": {
         "en": "Friction losses in suction piping, including fittings.",
-        "tr": "Emme boru hattındaki bağlantı parçaları dahil sürtünme kayıpları."
+        "tr": "Emme boru hattındaki bağlantı parçaları dahil sürtünme kayıpları.",
+        "de": "Reibungsverluste in der Saugleitung, einschließlich Formstücke.",
+        "fr": "Pertes par frottement dans la tuyauterie d'aspiration, y compris les raccords.",
+        "es": "Pérdidas por fricción en la tubería de succión, incluyendo accesorios."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Velocity Head",
         "tr": "Hız Yüksekliği",
-        "de": "Velocity Head",
-        "fr": "Velocity Head",
-        "es": "Velocity Head",
+        "de": "Geschwindigkeitshöhe",
+        "fr": "Hauteur de vitesse",
+        "es": "Altura de velocidad",
         "ar": "Velocity Head"
       },
       "businessContext_i18n": {
         "en": "Velocity head at pump suction, typically v²/(2g).",
-        "tr": "Pompa emişindeki hız yüksekliği, tipik olarak v²/(2g)."
+        "tr": "Pompa emişindeki hız yüksekliği, tipik olarak v²/(2g).",
+        "de": "Geschwindigkeitshöhe am Pumpeneintritt, typischerweise v²/(2g).",
+        "fr": "Hauteur de vitesse à l'aspiration de la pompe, généralement v²/(2g).",
+        "es": "Altura de velocidad en la succión de la bomba, típicamente v²/(2g)."
       }
     }
   ],

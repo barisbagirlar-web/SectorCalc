@@ -22,11 +22,15 @@
       "businessContext": "Total planned duration of scaffolding usage on site.",
       "label_i18n": {
         "en": "Project Duration (days)",
-        "tr": "Proje Süresi (gün)"
+        "tr": "Proje Süresi (gün)",
+        "de": "Projektdauer (Tage)",
+        "fr": "Durée du projet (jours)"
       },
       "businessContext_i18n": {
         "en": "Total planned duration of scaffolding usage on site.",
-        "tr": "İskele kullanımının sahada planlanan toplam süresi."
+        "tr": "İskele kullanımının sahada planlanan toplam süresi.",
+        "de": "Gesamte geplante Nutzungsdauer des Gerüsts auf der Baustelle.",
+        "fr": "Durée totale prévue d'utilisation de l'échafaudage sur le site."
       }
     },
     {
@@ -40,11 +44,15 @@
       "businessContext": "Total surface area of scaffolding required.",
       "label_i18n": {
         "en": "Total Scaffold Area (sqm)",
-        "tr": "Toplam İskele Alanı (m²)"
+        "tr": "Toplam İskele Alanı (m²)",
+        "de": "Gesamte Gerüstfläche (qm)",
+        "fr": "Surface totale d'échafaudage (m²)"
       },
       "businessContext_i18n": {
         "en": "Total surface area of scaffolding required.",
-        "tr": "Gerekli iskelenin toplam yüzey alanı."
+        "tr": "Gerekli iskelenin toplam yüzey alanı.",
+        "de": "Gesamte Oberfläche des benötigten Gerüsts.",
+        "fr": "Surface totale d'échafaudage nécessaire."
       }
     },
     {
@@ -58,11 +66,15 @@
       "businessContext": "Daily rental cost per square meter of scaffolding.",
       "label_i18n": {
         "en": "Rental Rate per sqm per day",
-        "tr": "m² başına günlük kiralama ücreti"
+        "tr": "m² başına günlük kiralama ücreti",
+        "de": "Mietpreis pro qm pro Tag",
+        "fr": "Tarif de location par m² par jour"
       },
       "businessContext_i18n": {
         "en": "Daily rental cost per square meter of scaffolding.",
-        "tr": "İskelenin metrekare başına günlük kiralama maliyeti."
+        "tr": "İskelenin metrekare başına günlük kiralama maliyeti.",
+        "de": "Tägliche Mietkosten pro Quadratmeter Gerüst.",
+        "fr": "Coût de location quotidien par mètre carré d'échafaudage."
       }
     },
     {
@@ -76,11 +88,15 @@
       "businessContext": "Cost per delivery or pickup trip for scaffolding materials.",
       "label_i18n": {
         "en": "Transport Cost per Trip",
-        "tr": "Sefer Başına Nakliye Maliyeti"
+        "tr": "Sefer Başına Nakliye Maliyeti",
+        "de": "Transportkosten pro Fahrt",
+        "fr": "Coût de transport par trajet"
       },
       "businessContext_i18n": {
         "en": "Cost per delivery or pickup trip for scaffolding materials.",
-        "tr": "İskele malzemelerinin teslimat veya toplama seferi başına maliyeti."
+        "tr": "İskele malzemelerinin teslimat veya toplama seferi başına maliyeti.",
+        "de": "Kosten pro Liefer- oder Abholfahrt für Gerüstmaterial.",
+        "fr": "Coût par livraison ou trajet de collecte pour les matériaux d'échafaudage."
       }
     },
     {
@@ -94,11 +110,15 @@
       "businessContext": "Total trips for delivery and return of scaffolding.",
       "label_i18n": {
         "en": "Number of Transport Trips",
-        "tr": "Nakliye Sefer Sayısı"
+        "tr": "Nakliye Sefer Sayısı",
+        "de": "Anzahl der Transportfahrten",
+        "fr": "Nombre de trajets de transport"
       },
       "businessContext_i18n": {
         "en": "Total trips for delivery and return of scaffolding.",
-        "tr": "İskelenin teslimatı ve iadesi için toplam sefer sayısı."
+        "tr": "İskelenin teslimatı ve iadesi için toplam sefer sayısı.",
+        "de": "Gesamte Fahrten für Anlieferung und Rücktransport des Gerüsts.",
+        "fr": "Nombre total de trajets pour la livraison et le retour des échafaudages."
       }
     },
     {
@@ -113,11 +133,15 @@
       "label_i18n": {
         "en": "Labor Cost per Hour",
         "tr": "Saatlik işçilik maliyeti",
-        "de": "Arbeitskosten pro Stunde"
+        "de": "Arbeitskosten pro Stunde",
+        "fr": "Coût de la main-d'œuvre par heure",
+        "es": "Costo de mano de obra por hora"
       },
       "businessContext_i18n": {
         "en": "Hourly wage for scaffolding erectors/dismantlers.",
-        "tr": "İskele montajcıları/sökücüleri için saatlik ücret."
+        "tr": "İskele montajcıları/sökücüleri için saatlik ücret.",
+        "de": "Stundenlohn für Gerüstbauer/Monteure",
+        "fr": "Salaire horaire des monteurs/démonteurs d'échafaudages."
       }
     },
     {
@@ -131,11 +155,15 @@
       "businessContext": "Standard labor hours to erect one square meter of scaffolding.",
       "label_i18n": {
         "en": "Erection Hours per sqm",
-        "tr": "Metrekare Başına Montaj Saati"
+        "tr": "Metrekare Başına Montaj Saati",
+        "de": "Montagestunden pro m²",
+        "fr": "Heures de montage par m²"
       },
       "businessContext_i18n": {
         "en": "Standard labor hours to erect one square meter of scaffolding.",
-        "tr": "Bir metrekare iskele kurmak için standart işçilik saati."
+        "tr": "Bir metrekare iskele kurmak için standart işçilik saati.",
+        "de": "Standardarbeitsstunden zum Aufstellen eines Quadratmeters Gerüst.",
+        "fr": "Heures de main-d'œuvre standard pour monter un mètre carré d'échafaudage."
       }
     },
     {
@@ -149,11 +177,15 @@
       "businessContext": "Standard labor hours to dismantle one square meter.",
       "label_i18n": {
         "en": "Dismantle Hours per sqm",
-        "tr": "Metrekare Başına Söküm Saati"
+        "tr": "Metrekare Başına Söküm Saati",
+        "de": "Demontagestunden pro m²",
+        "fr": "Heures de démontage par m²"
       },
       "businessContext_i18n": {
         "en": "Standard labor hours to dismantle one square meter.",
-        "tr": "Bir metrekare iskeleyi sökmek için standart işçilik saati."
+        "tr": "Bir metrekare iskeleyi sökmek için standart işçilik saati.",
+        "de": "Standardarbeitsstunden zum Abbau eines Quadratmeters.",
+        "fr": "Heures de main-d'œuvre standard pour démonter un mètre carré."
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Joist Width",
         "tr": "Kiriş Genişliği",
-        "de": "Joist Width",
-        "fr": "Joist Width",
-        "es": "Joist Width",
+        "de": "Balkenbreite",
+        "fr": "Largeur de la solive",
+        "es": "Ancho del vigueta",
         "ar": "Joist Width"
       },
       "businessContext_i18n": {
         "en": "Actual width of the joist in inches (e.g., 1.5 for a nominal 2x).",
-        "tr": "Kirişin inç cinsinden gerçek genişliği (örneğin, nominal 2x için 1,5)."
+        "tr": "Kirişin inç cinsinden gerçek genişliği (örneğin, nominal 2x için 1,5).",
+        "de": "Tatsächliche Breite des Balkens in Zoll (z. B. 1,5 für ein Nennmaß 2x).",
+        "fr": "Largeur réelle de la solive en pouces (par exemple, 1,5 pour un 2x nominal).",
+        "es": "Ancho real del vigueta en pulgadas (p. ej., 1.5 para un nominal 2x)."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Joist Depth",
         "tr": "Kiriş Yüksekliği",
-        "de": "Joist Depth",
-        "fr": "Joist Depth",
-        "es": "Joist Depth",
+        "de": "Balkenhöhe",
+        "fr": "Hauteur de la solive",
+        "es": "Peralte del vigueta",
         "ar": "Joist Depth"
       },
       "businessContext_i18n": {
         "en": "Actual depth of the joist in inches (e.g., 9.25 for a nominal 2x10).",
-        "tr": "Kirişin inç cinsinden gerçek yüksekliği (örneğin, nominal 2x10 için 9,25)."
+        "tr": "Kirişin inç cinsinden gerçek yüksekliği (örneğin, nominal 2x10 için 9,25).",
+        "de": "Tatsächliche Höhe des Balkens in Zoll (z. B. 9,25 für ein Nennmaß 2x10).",
+        "fr": "Hauteur réelle de la solive en pouces (par exemple, 9,25 pour un 2x10 nominal).",
+        "es": "Peralte real del vigueta en pulgadas (p. ej., 9.25 para un nominal 2x10)."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Joist Spacing",
         "tr": "Kiriş Aralığı",
         "de": "Balkenabstand",
-        "fr": "Joist Spacing",
-        "es": "Joist Spacing",
+        "fr": "Espacement des solives",
+        "es": "Separación de viguetas",
         "ar": "Joist Spacing"
       },
       "businessContext_i18n": {
         "en": "Center-to-center spacing between joists in inches.",
-        "tr": "Kiriş Aralığı"
+        "tr": "Kiriş Aralığı",
+        "de": "Achsabstand zwischen den Balken in Zoll.",
+        "fr": "Entraxe entre les solives en pouces.",
+        "es": "Separación centro a centro entre viguetas en pulgadas."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Live Load",
         "tr": "Hareketli Yük",
         "de": "Nutzlast",
-        "fr": "Live Load",
-        "es": "Live Load",
+        "fr": "Charge vive",
+        "es": "Carga viva",
         "ar": "Live Load"
       },
       "businessContext_i18n": {
         "en": "Design live load in pounds per square foot (e.g., residential floor = 40 psf).",
-        "tr": "Tasarım Hareketli Yükü"
+        "tr": "Tasarım Hareketli Yükü",
+        "de": "Bemessungs-Nutzlast in Pfund pro Quadratfuß (z. B. Wohnboden = 40 psf).",
+        "fr": "Charge d'exploitation de conception en livres par pied carré (par exemple, plancher résidentiel = 40 psf).",
+        "es": "Carga viva de diseño en libras por pie cuadrado (p. ej., piso residencial = 40 psf)."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Dead Load",
         "tr": "Sabit Yük",
         "de": "Eigenlast",
-        "fr": "Dead Load",
-        "es": "Dead Load",
+        "fr": "Charge morte",
+        "es": "Carga muerta",
         "ar": "Dead Load"
       },
       "businessContext_i18n": {
         "en": "Superimposed dead load in pounds per square foot (e.g., flooring, ceiling = 10 psf).",
-        "tr": "Ek Ölü Yük"
+        "tr": "Ek Ölü Yük",
+        "de": "Zusätzliche ständige Last in Pfund pro Quadratfuß (z. B. Bodenbelag, Decke = 10 psf).",
+        "fr": "Charge permanente supplémentaire en livres par pied carré (par exemple, revêtement de sol, plafond = 10 psf).",
+        "es": "Carga muerta superpuesta en libras por pie cuadrado (p. ej., piso, techo = 10 psf)."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Bending Design Value (Fb)",
         "tr": "Eğilme Tasarım Değeri (Fb)",
-        "de": "Bending Design Value (Fb)",
-        "fr": "Bending Design Value (Fb)",
-        "es": "Bending Design Value (Fb)",
+        "de": "Biegebemessungswert (Fb)",
+        "fr": "Valeur de conception en flexion (Fb)",
+        "es": "Valor de diseño a flexión (Fb)",
         "ar": "Bending Design Value (Fb)"
       },
       "businessContext_i18n": {
         "en": "Allowable bending stress for the lumber species and grade (e.g., #2 Douglas Fir-Larch = 900-1000 psi).",
-        "tr": "Kereste türü ve kalitesi için izin verilen eğilme gerilmesi (örneğin, #2 Douglas Göknarı-Karaçam = 900-1000 psi)."
+        "tr": "Kereste türü ve kalitesi için izin verilen eğilme gerilmesi (örneğin, #2 Douglas Göknarı-Karaçam = 900-1000 psi).",
+        "de": "Zulässige Biegespannung für die Holzart und -güte (z. B. #2 Douglasie-Lärche = 900-1000 psi).",
+        "fr": "Contrainte de flexion admissible pour l'essence et la qualité du bois (par exemple, #2 Douglas Mélèze = 900-1000 psi).",
+        "es": "Esfuerzo admisible a flexión para la especie y grado de madera (p. ej., #2 Douglas Fir-Larch = 900-1000 psi)."
       }
     }
   ],

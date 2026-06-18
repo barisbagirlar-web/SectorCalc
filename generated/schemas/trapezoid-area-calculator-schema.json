@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Base 1",
         "tr": "Taban 1",
-        "de": "Base 1",
+        "de": "Basis 1",
         "fr": "Base 1",
         "es": "Base 1",
         "ar": "Base 1"
       },
       "businessContext_i18n": {
         "en": "Length of the first parallel side of the trapezoid",
-        "tr": "Yamuğun birinci paralel kenarının uzunluğu"
+        "tr": "Yamuğun birinci paralel kenarının uzunluğu",
+        "de": "Länge der ersten parallelen Seite des Trapezes",
+        "fr": "Longueur du premier côté parallèle du trapèze"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Base 2",
         "tr": "Taban 2",
-        "de": "Base 2",
+        "de": "Basis 2",
         "fr": "Base 2",
         "es": "Base 2",
         "ar": "Base 2"
       },
       "businessContext_i18n": {
         "en": "Length of the second parallel side of the trapezoid",
-        "tr": "Yamuğun ikinci paralel kenarının uzunluğu"
+        "tr": "Yamuğun ikinci paralel kenarının uzunluğu",
+        "de": "Länge der zweiten parallelen Seite des Trapezes",
+        "fr": "Longueur du second côté parallèle du trapèze"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Height",
         "tr": "Boy",
         "de": "Größe",
-        "fr": "Height",
-        "es": "Height",
+        "fr": "Taille",
+        "es": "Altura",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "Perpendicular distance between the two bases",
-        "tr": "İki taban arasındaki dik mesafe"
+        "tr": "İki taban arasındaki dik mesafe",
+        "de": "Senkrechter Abstand zwischen den beiden Basen",
+        "fr": "Distance perpendiculaire entre les deux bases"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Output Unit",
         "tr": "Çıktı Birimi",
         "de": "Ausgabeeinheit",
-        "fr": "Output Unit",
-        "es": "Output Unit",
+        "fr": "Unité de sortie",
+        "es": "Unidad de salida",
         "ar": "Output Unit"
       },
       "businessContext_i18n": {
         "en": "1 for mm², 2 for cm², 3 for m²",
-        "tr": "1 mm², 2 cm², 3 m² için"
+        "tr": "1 mm², 2 cm², 3 m² için",
+        "de": "1 für mm², 2 für cm², 3 für m²",
+        "fr": "1 pour mm², 2 pour cm², 3 pour m²"
       }
     }
   ],

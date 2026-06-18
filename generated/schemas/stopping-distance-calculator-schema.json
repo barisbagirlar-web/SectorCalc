@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Hız",
         "tr": "Hız",
-        "de": "Hız",
-        "fr": "Hız",
+        "de": "Geschwindigkeit",
+        "fr": "Vitesse",
         "es": "Hız",
         "ar": "Hız"
       },
       "businessContext_i18n": {
         "en": "Araç hızı (km/saat cinsinden)",
-        "tr": "Araç hızı (km/saat cinsinden)"
+        "tr": "Araç hızı (km/saat cinsinden)",
+        "de": "Fahrzeuggeschwindigkeit (km/h)",
+        "fr": "Vitesse du véhicule (en km/h)"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Tepki Süresi",
         "tr": "Tepki Süresi",
-        "de": "Tepki Süresi",
-        "fr": "Tepki Süresi",
+        "de": "Reaktionszeit",
+        "fr": "Temps de réaction",
         "es": "Tepki Süresi",
         "ar": "Tepki Süresi"
       },
       "businessContext_i18n": {
         "en": "Sürücünün tepki süresi (saniye)",
-        "tr": "Sürücünün tepki süresi (saniye)"
+        "tr": "Sürücünün tepki süresi (saniye)",
+        "de": "Reaktionszeit des Fahrers (Sekunden)",
+        "fr": "Temps de réaction du conducteur (en secondes)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Sürtünme Katsayısı (μ)",
         "tr": "Sürtünme Katsayısı (μ)",
-        "de": "Sürtünme Katsayısı (μ)",
-        "fr": "Sürtünme Katsayısı (μ)",
+        "de": "Reibungskoeffizient (μ)",
+        "fr": "Coefficient de frottement (μ)",
         "es": "Sürtünme Katsayısı (μ)",
         "ar": "Sürtünme Katsayısı (μ)"
       },
       "businessContext_i18n": {
         "en": "Lastik ile yol arasındaki sürtünme katsayısı (kuru asfalt: 0.7)",
-        "tr": "Lastik ile yol arasındaki sürtünme katsayısı (kuru asfalt: 0.7)"
+        "tr": "Lastik ile yol arasındaki sürtünme katsayısı (kuru asfalt: 0.7)",
+        "de": "Reibungskoeffizient zwischen Reifen und Fahrbahn (trockener Asphalt: 0,7)",
+        "fr": "Coefficient de frottement pneu-route (asphalte sec : 0,7)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Yol Eğimi",
         "tr": "Yol Eğimi",
-        "de": "Yol Eğimi",
-        "fr": "Yol Eğimi",
+        "de": "Steigung",
+        "fr": "Pente de la route",
         "es": "Yol Eğimi",
         "ar": "Yol Eğimi"
       },
       "businessContext_i18n": {
         "en": "Yolun eğimi (% olarak; pozitif: yokuş yukarı, negatif: yokuş aşağı)",
-        "tr": "Yolun eğimi (% olarak; pozitif: yokuş yukarı, negatif: yokuş aşağı)"
+        "tr": "Yolun eğimi (% olarak; pozitif: yokuş yukarı, negatif: yokuş aşağı)",
+        "de": "Steigung der Straße in Prozent (positiv: bergauf, negativ: bergab)",
+        "fr": "Pente de la route en % (positif : montée, négatif : descente)"
       }
     }
   ],

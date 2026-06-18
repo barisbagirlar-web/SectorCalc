@@ -12,13 +12,16 @@
         "en": "Annual Property Tax",
         "tr": "Yıllık Emlak Vergisi",
         "de": "Jährliche Grundsteuer",
-        "fr": "Annual Property Tax",
-        "es": "Annual Property Tax",
+        "fr": "Taxe foncière annuelle",
+        "es": "Impuesto anual a la propiedad",
         "ar": "Annual Property Tax"
       },
       "businessContext_i18n": {
         "en": "The total property tax for the full year as assessed by the local government.",
-        "tr": "Yerel yönetim tarafından değerlendirilen tam yıl için toplam emlak vergisi."
+        "tr": "Yerel yönetim tarafından değerlendirilen tam yıl için toplam emlak vergisi.",
+        "de": "Die gesamte Grundsteuer für das volle Jahr, wie von der lokalen Regierung festgesetzt.",
+        "fr": "Le montant total de la taxe foncière pour l'année complète tel qu'évalué par le gouvernement local.",
+        "es": "El impuesto predial total para el año completo según lo evaluado por el gobierno local."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Days in Tax Year",
         "tr": "Vergi Yılındaki Gün Sayısı",
-        "de": "Days in Tax Year",
-        "fr": "Days in Tax Year",
-        "es": "Days in Tax Year",
+        "de": "Tage im Steuerjahr",
+        "fr": "Jours dans l'année fiscale",
+        "es": "Días en el año fiscal",
         "ar": "Days in Tax Year"
       },
       "businessContext_i18n": {
         "en": "The number of days in the tax year (typically 365, or 366 for a leap year).",
-        "tr": "Vergi yılındaki gün sayısı (genellikle 365 veya artık yıl için 366)."
+        "tr": "Vergi yılındaki gün sayısı (genellikle 365 veya artık yıl için 366).",
+        "de": "Die Anzahl der Tage im Steuerjahr (typischerweise 365 oder 366 in einem Schaltjahr).",
+        "fr": "Le nombre de jours dans l'année fiscale (généralement 365, ou 366 pour une année bissextile).",
+        "es": "El número de días en el año fiscal (típicamente 365, o 366 para un año bisiesto)."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Days Owned",
         "tr": "Sahip Olunan Gün Sayısı",
-        "de": "Days Owned",
-        "fr": "Days Owned",
-        "es": "Days Owned",
+        "de": "Tage im Besitz",
+        "fr": "Jours de possession",
+        "es": "Días de propiedad",
         "ar": "Days Owned"
       },
       "businessContext_i18n": {
         "en": "Number of days the property was owned during the tax year.",
-        "tr": "Vergi yılı boyunca mülkün sahip olunduğu gün sayısı."
+        "tr": "Vergi yılı boyunca mülkün sahip olunduğu gün sayısı.",
+        "de": "Anzahl der Tage, an denen die Immobilie während des Steuerjahres im Besitz war.",
+        "fr": "Nombre de jours pendant lesquels la propriété a été possédée au cours de l'année fiscale.",
+        "es": "Número de días que la propiedad fue poseída durante el año fiscal."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Other Fees",
         "tr": "Diğer Ücretler",
-        "de": "Other Fees",
-        "fr": "Other Fees",
-        "es": "Other Fees",
+        "de": "Sonstige Gebühren",
+        "fr": "Autres frais",
+        "es": "Otros cargos",
         "ar": "Other Fees"
       },
       "businessContext_i18n": {
         "en": "Any additional fees or adjustments (e.g., closing costs, penalties, credits).",
-        "tr": "Ek ücretler veya düzeltmeler (örneğin, kapanış maliyetleri, cezalar, krediler)."
+        "tr": "Ek ücretler veya düzeltmeler (örneğin, kapanış maliyetleri, cezalar, krediler).",
+        "de": "Zusätzliche Gebühren oder Anpassungen (z. B. Abschlusskosten, Strafen, Gutschriften).",
+        "fr": "Tous frais ou ajustements supplémentaires (par exemple, frais de clôture, pénalités, crédits).",
+        "es": "Cualquier tarifa o ajuste adicional (por ejemplo, costos de cierre, multas, créditos)."
       }
     }
   ],

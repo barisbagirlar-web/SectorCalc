@@ -12,14 +12,16 @@
         "en": "Normal Day Calorie Intake",
         "tr": "Normal Gün Kalori Alımı",
         "de": "Kalorienaufnahme an normalen Tagen",
-        "fr": "Normal Day Calorie Intake",
-        "es": "Normal Day Calorie Intake",
+        "fr": "Apport calorique d'un jour normal",
+        "es": "Ingesta calórica en día normal",
         "ar": "Normal Day Calorie Intake"
       },
       "businessContext_i18n": {
         "en": "Average calorie consumption on normal eating days.",
         "tr": "Normal yeme günlerinde ortalama kalori tüketimi.",
-        "de": "Durchschnittliche Kalorienaufnahme an normalen Esstagen."
+        "de": "Durchschnittliche Kalorienaufnahme an normalen Esstagen.",
+        "fr": "Consommation calorique moyenne lors des jours d'alimentation normale.",
+        "es": "Consumo calórico promedio en días de alimentación normal."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Fasting Day Calorie Intake",
         "tr": "Oruç Günü Kalori Alımı",
         "de": "Kalorienaufnahme an Fastentagen",
-        "fr": "Fasting Day Calorie Intake",
-        "es": "Fasting Day Calorie Intake",
+        "fr": "Apport calorique d'un jour de jeûne",
+        "es": "Ingesta calórica en día de ayuno",
         "ar": "Fasting Day Calorie Intake"
       },
       "businessContext_i18n": {
         "en": "Calorie intake on fasting days (often 0-500 kcal).",
         "tr": "Oruç günlerinde kalori alımı (genellikle 0-500 kcal).",
-        "de": "Kalorienaufnahme an Fastentagen (oft 0-500 kcal)."
+        "de": "Kalorienaufnahme an Fastentagen (oft 0-500 kcal).",
+        "fr": "Apport calorique lors des jours de jeûne (souvent 0-500 kcal).",
+        "es": "Ingesta calórica en días de ayuno (a menudo 0-500 kcal)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Number of Days",
         "tr": "Gün Sayısı",
         "de": "Anzahl der Tage",
-        "fr": "Number of Days",
-        "es": "Number of Days",
+        "fr": "Nombre de jours",
+        "es": "Número de días",
         "ar": "Number of Days"
       },
       "businessContext_i18n": {
         "en": "Total number of days to calculate for the regimen.",
         "tr": "Rejim için hesaplanacak toplam gün sayısı.",
-        "de": "Gesamtzahl der Tage für die Berechnung des Regimes."
+        "de": "Gesamtzahl der Tage für die Berechnung des Regimes.",
+        "fr": "Nombre total de jours pour calculer le régime.",
+        "es": "Número total de días para calcular el régimen."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Starting Day Type",
         "tr": "Başlangıç Gün Türü",
         "de": "Starttag-Typ",
-        "fr": "Starting Day Type",
-        "es": "Starting Day Type",
+        "fr": "Type de jour de départ",
+        "es": "Tipo de día inicial",
         "ar": "Starting Day Type"
       },
       "businessContext_i18n": {
         "en": "0 if starting with a normal day, 1 if starting with a fasting day.",
         "tr": "Normal günle başlıyorsa 0, oruç günüyle başlıyorsa 1.",
-        "de": "0, wenn mit einem normalen Tag begonnen wird, 1, wenn mit einem Fastentag begonnen wird."
+        "de": "0, wenn mit einem normalen Tag begonnen wird, 1, wenn mit einem Fastentag begonnen wird.",
+        "fr": "0 si commence par un jour normal, 1 si commence par un jour de jeûne.",
+        "es": "0 si comienza con un día normal, 1 si comienza con un día de ayuno."
       }
     }
   ],

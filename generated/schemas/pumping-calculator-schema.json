@@ -12,13 +12,16 @@
         "en": "Flow Rate",
         "tr": "Debi",
         "de": "Durchflussrate",
-        "fr": "Flow Rate",
-        "es": "Flow Rate",
+        "fr": "Débit",
+        "es": "Caudal",
         "ar": "Flow Rate"
       },
       "businessContext_i18n": {
         "en": "Volumetric flow rate of the fluid being pumped",
-        "tr": "Pompalanan akışkanın hacimsel debisi"
+        "tr": "Pompalanan akışkanın hacimsel debisi",
+        "de": "Volumenstrom der geförderten Flüssigkeit",
+        "fr": "Débit volumétrique du fluide pompé",
+        "es": "Caudal volumétrico del fluido bombeado"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Head",
         "tr": "Düşü",
-        "de": "Head",
-        "fr": "Head",
-        "es": "Head",
+        "de": "Fallhöhe",
+        "fr": "Hauteur de chute",
+        "es": "Altura",
         "ar": "Head"
       },
       "businessContext_i18n": {
         "en": "Total dynamic head the pump must overcome",
-        "tr": "Pompanın aşması gereken toplam dinamik yük"
+        "tr": "Pompanın aşması gereken toplam dinamik yük",
+        "de": "Gesamtförderhöhe, die die Pumpe überwinden muss",
+        "fr": "Hauteur manométrique totale que la pompe doit surmonter",
+        "es": "Altura dinámica total que la bomba debe superar"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Fluid Density",
         "tr": "Akışkan Yoğunluğu",
         "de": "Flüssigkeitsdichte",
-        "fr": "Fluid Density",
-        "es": "Fluid Density",
+        "fr": "Densité du fluide",
+        "es": "Densidad del fluido",
         "ar": "Fluid Density"
       },
       "businessContext_i18n": {
         "en": "Density of the fluid (water = 1000 kg/m³)",
-        "tr": "Akışkanın yoğunluğu (su = 1000 kg/m³)"
+        "tr": "Akışkanın yoğunluğu (su = 1000 kg/m³)",
+        "de": "Dichte der Flüssigkeit (Wasser = 1000 kg/m³)",
+        "fr": "Masse volumique du fluide (eau = 1000 kg/m³)",
+        "es": "Densidad del fluido (agua = 1000 kg/m³)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Pump Efficiency",
         "tr": "Pompa Verimliliği",
-        "de": "Pump Efficiency",
-        "fr": "Pump Efficiency",
-        "es": "Pump Efficiency",
+        "de": "Pumpenwirkungsgrad",
+        "fr": "Rendement de la pompe",
+        "es": "Eficiencia de la bomba",
         "ar": "Pump Efficiency"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the pump (0-100%)",
-        "tr": "Pompa verimliliği (%0-100)"
+        "tr": "Pompa verimliliği (%0-100)",
+        "de": "Wirkungsgrad der Pumpe (0-100 %)",
+        "fr": "Rendement de la pompe (0-100%)",
+        "es": "Eficiencia de la bomba (0-100%)"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Motor Efficiency",
         "tr": "Motor verimliliği",
         "de": "Motorwirkungsgrad",
-        "fr": "Motor Efficiency",
-        "es": "Motor Efficiency",
+        "fr": "Rendement du moteur",
+        "es": "Eficiencia del motor",
         "ar": "Motor Efficiency"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the electric motor driving the pump (0-100%)",
-        "tr": "Pompayı çalıştıran elektrik motorunun verimliliği (%0-100)"
+        "tr": "Pompayı çalıştıran elektrik motorunun verimliliği (%0-100)",
+        "de": "Wirkungsgrad des Elektromotors, der die Pumpe antreibt (0-100 %)",
+        "fr": "Rendement du moteur électrique entraînant la pompe (0-100%)",
+        "es": "Eficiencia del motor eléctrico que impulsa la bomba (0-100%)"
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Operating Hours",
         "tr": "Çalışma Saatleri",
         "de": "Betriebsstunden",
-        "fr": "Operating Hours",
-        "es": "Operating Hours",
+        "fr": "Heures de fonctionnement",
+        "es": "Horas de operación",
         "ar": "Operating Hours"
       },
       "businessContext_i18n": {
         "en": "Daily operating hours of the pump",
-        "tr": "Pompanın günlük çalışma saati"
+        "tr": "Pompanın günlük çalışma saati",
+        "de": "Tägliche Betriebsstunden der Pumpe",
+        "fr": "Heures de fonctionnement quotidiennes de la pompe",
+        "es": "Horas de operación diarias de la bomba"
       }
     }
   ],

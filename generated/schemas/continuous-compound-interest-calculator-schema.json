@@ -12,14 +12,16 @@
         "en": "Principal",
         "tr": "Anapara",
         "de": "Auftraggeber",
-        "fr": "Principal",
+        "fr": "Capital",
         "es": "Principal",
         "ar": "Principal"
       },
       "businessContext_i18n": {
         "en": "The initial amount of money invested or borrowed.",
         "tr": "Yatırılan veya borç alınan başlangıç para miktarı.",
-        "de": "Der ursprünglich investierte oder geliehene Geldbetrag."
+        "de": "Der ursprünglich investierte oder geliehene Geldbetrag.",
+        "fr": "Montant initial investi ou emprunté.",
+        "es": "Cantidad inicial de dinero invertida o prestada."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
         "de": "Jährlicher Zinssatz",
-        "fr": "Annual Interest Rate",
-        "es": "Annual Interest Rate",
+        "fr": "Taux d'intérêt annuel",
+        "es": "Tasa de Interés Anual",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "The annual nominal interest rate as a percentage (e.g., 5 means 5%).",
         "tr": "Yıllık nominal faiz oranı yüzde olarak (örneğin 5, %5 anlamına gelir).",
-        "de": "Der jährliche Nominalzinssatz in Prozent (z.B. 5 bedeutet 5%)."
+        "de": "Der jährliche Nominalzinssatz in Prozent (z.B. 5 bedeutet 5%).",
+        "fr": "Taux d'intérêt nominal annuel en pourcentage (ex. 5 signifie 5%).",
+        "es": "Tasa de interés nominal anual como porcentaje (ej. 5 significa 5%)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Time",
         "tr": "Zaman",
         "de": "Zeit",
-        "fr": "Time",
-        "es": "Time",
+        "fr": "Temps",
+        "es": "Tiempo",
         "ar": "Time"
       },
       "businessContext_i18n": {
         "en": "The length of time the money is invested or borrowed for, in years.",
         "tr": "Paranın yatırıldığı veya borç alındığı süre, yıl cinsinden.",
-        "de": "Die Laufzeit der Geldanlage oder des Darlehens in Jahren."
+        "de": "Die Laufzeit der Geldanlage oder des Darlehens in Jahren.",
+        "fr": "Durée de l'investissement ou de l'emprunt, en années.",
+        "es": "Período de tiempo durante el cual el dinero está invertido o prestado, en años."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "The number of decimal places to display in the results.",
         "tr": "Sonuçlarda görüntülenecek ondalık basamak sayısı.",
-        "de": "Die Anzahl der Dezimalstellen, die in den Ergebnissen angezeigt werden sollen."
+        "de": "Die Anzahl der Dezimalstellen, die in den Ergebnissen angezeigt werden sollen.",
+        "fr": "Nombre de décimales à afficher dans les résultats.",
+        "es": "Número de decimales a mostrar en los resultados."
       }
     }
   ],

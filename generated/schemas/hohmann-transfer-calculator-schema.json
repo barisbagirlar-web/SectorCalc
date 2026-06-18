@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Central Body Radius",
         "tr": "Merkezi Cisim Yarıçapı",
-        "de": "Central Body Radius",
-        "fr": "Central Body Radius",
-        "es": "Central Body Radius",
+        "de": "Radius des Zentralkörpers",
+        "fr": "Rayon du corps central",
+        "es": "Radio del cuerpo central",
         "ar": "Central Body Radius"
       },
       "businessContext_i18n": {
         "en": "Radius of the central body (e.g., Earth radius = 6378 km)",
-        "tr": "Merkezi cismin yarıçapı (ör. Dünya yarıçapı = 6378 km)"
+        "tr": "Merkezi cismin yarıçapı (ör. Dünya yarıçapı = 6378 km)",
+        "de": "Radius des Zentralkörpers (z. B. Erdradius = 6378 km)",
+        "fr": "Rayon du corps central (ex. rayon terrestre = 6378 km)",
+        "es": "Radio del cuerpo central (ej. radio terrestre = 6378 km)"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Initial Altitude",
         "tr": "Başlangıç Rakımı",
         "de": "Anfangshöhe",
-        "fr": "Initial Altitude",
-        "es": "Initial Altitude",
+        "fr": "Altitude initiale",
+        "es": "Altitud inicial",
         "ar": "Initial Altitude"
       },
       "businessContext_i18n": {
         "en": "Altitude of initial circular orbit above the surface",
-        "tr": "İlk dairesel yörüngenin yüzeyden yüksekliği"
+        "tr": "İlk dairesel yörüngenin yüzeyden yüksekliği",
+        "de": "Höhe des anfänglichen Kreisorbits über der Oberfläche",
+        "fr": "Altitude de l'orbite circulaire initiale au-dessus de la surface",
+        "es": "Altitud de la órbita circular inicial sobre la superficie"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Final Altitude",
         "tr": "Son Rakım",
         "de": "Endhöhe",
-        "fr": "Final Altitude",
-        "es": "Final Altitude",
+        "fr": "Altitude finale",
+        "es": "Altitud final",
         "ar": "Final Altitude"
       },
       "businessContext_i18n": {
         "en": "Altitude of final circular orbit above the surface",
-        "tr": "Son dairesel yörüngenin yüzeyden yüksekliği"
+        "tr": "Son dairesel yörüngenin yüzeyden yüksekliği",
+        "de": "Höhe des endgültigen Kreisorbits über der Oberfläche",
+        "fr": "Altitude de l'orbite circulaire finale au-dessus de la surface",
+        "es": "Altitud de la órbita circular final sobre la superficie"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Gravitational Parameter",
         "tr": "Yerçekim Parametresi",
         "de": "Gravitationsparameter",
-        "fr": "Gravitational Parameter",
-        "es": "Gravitational Parameter",
+        "fr": "Paramètre gravitationnel",
+        "es": "Parámetro gravitacional",
         "ar": "Gravitational Parameter"
       },
       "businessContext_i18n": {
         "en": "Standard gravitational parameter of the central body (Earth default)",
-        "tr": "Merkezi cismin standart yerçekimi parametresi (Dünya varsayılanı)"
+        "tr": "Merkezi cismin standart yerçekimi parametresi (Dünya varsayılanı)",
+        "de": "Standardgravitationsparameter des Zentralkörpers (Erde Standard)",
+        "fr": "Paramètre gravitationnel standard du corps central (Terre par défaut)",
+        "es": "Parámetro gravitacional estándar del cuerpo central (valor por defecto Tierra)"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Reactor Volume",
         "tr": "Reaktör Hacmi",
         "de": "Reaktorvolumen",
-        "fr": "Reactor Volume",
-        "es": "Reactor Volume",
+        "fr": "Volume du réacteur",
+        "es": "Volumen del reactor",
         "ar": "Reactor Volume"
       },
       "businessContext_i18n": {
         "en": "Nominal volume of the batch reactor vessel.",
         "tr": "Kesikli reaktör kabının nominal hacmi.",
-        "de": "Nennvolumen des Batch-Reaktors."
+        "de": "Nennvolumen des Batch-Reaktors.",
+        "fr": "Volume nominal de la cuve du réacteur batch.",
+        "es": "Volumen nominal del reactor discontinuo."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Initial Concentration (C_A0)",
         "tr": "Başlangıç Konsantrasyonu (C_A0)",
         "de": "Anfangskonzentration (C_A0)",
-        "fr": "Initial Concentration (C_A0)",
-        "es": "Initial Concentration (C_A0)",
+        "fr": "Concentration initiale (C_A0)",
+        "es": "Concentración inicial (C_A0)",
         "ar": "Initial Concentration (C_A0)"
       },
       "businessContext_i18n": {
         "en": "Initial concentration of reactant A in the feed.",
         "tr": "Reaktan A'nın beslemedeki başlangıç konsantrasyonu.",
-        "de": "Anfangskonzentration des Reaktanten A im Zulauf."
+        "de": "Anfangskonzentration des Reaktanten A im Zulauf.",
+        "fr": "Concentration initiale du réactif A dans l'alimentation.",
+        "es": "Concentración inicial del reactivo A en la alimentación."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Rate Constant (k)",
         "tr": "Hız Sabiti (k)",
         "de": "Geschwindigkeitskonstante (k)",
-        "fr": "Rate Constant (k)",
-        "es": "Rate Constant (k)",
+        "fr": "Constante de vitesse (k)",
+        "es": "Constante de velocidad (k)",
         "ar": "Rate Constant (k)"
       },
       "businessContext_i18n": {
         "en": "First-order rate constant for the reaction.",
         "tr": "Reaksiyon için birinci derece hız sabiti.",
-        "de": "Geschwindigkeitskonstante erster Ordnung für die Reaktion."
+        "de": "Geschwindigkeitskonstante erster Ordnung für die Reaktion.",
+        "fr": "Constante de vitesse du premier ordre pour la réaction.",
+        "es": "Constante de velocidad de primer orden para la reacción."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Desired Conversion (X)",
         "tr": "Hedef Dönüşüm (X)",
         "de": "Gewünschter Umsatz (X)",
-        "fr": "Desired Conversion (X)",
-        "es": "Desired Conversion (X)",
+        "fr": "Conversion souhaitée (X)",
+        "es": "Conversión deseada (X)",
         "ar": "Desired Conversion (X)"
       },
       "businessContext_i18n": {
         "en": "Target fractional conversion of reactant A (0 to 1).",
         "tr": "Reaktan A'nın hedef kesirli dönüşümü (0 ile 1 arası).",
-        "de": "Ziel-Umsatz des Reaktanten A (0 bis 1)."
+        "de": "Ziel-Umsatz des Reaktanten A (0 bis 1).",
+        "fr": "Conversion fractionnaire cible du réactif A (0 à 1).",
+        "es": "Conversión fraccional objetivo del reactivo A (0 a 1)."
       }
     }
   ],

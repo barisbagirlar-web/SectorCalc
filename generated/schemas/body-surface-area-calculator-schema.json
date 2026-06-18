@@ -12,14 +12,16 @@
         "en": "Weight (kg)",
         "tr": "Ağırlık (kg)",
         "de": "Gewicht (kg)",
-        "fr": "Weight (kg)",
-        "es": "Weight (kg)",
+        "fr": "Poids (kg)",
+        "es": "Peso (kg)",
         "ar": "Weight (kg)"
       },
       "businessContext_i18n": {
         "en": "Enter body weight in kilograms. If not available, use weight in pounds instead.",
         "tr": "Vücut ağırlığını kilogram cinsinden girin. Mevcut değilse, pound cinsinden ağırlık kullanın.",
-        "de": "Vücut ağırlığını kilogram cinsinden girin. Mevcut değilse, pound cinsinden ağırlık kullanın."
+        "de": "Vücut ağırlığını kilogram cinsinden girin. Mevcut değilse, pound cinsinden ağırlık kullanın.",
+        "fr": "Entrez le poids corporel en kilogrammes. Si non disponible, utilisez le poids en livres.",
+        "es": "Vücut ağırlığını kilogram olarak girin. Mevcut değilse, pound cinsinden ağırlık kullanın."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Height (cm)",
         "tr": "Boy (cm)",
         "de": "Größe (cm)",
-        "fr": "Height (cm)",
-        "es": "Height (cm)",
+        "fr": "Taille (cm)",
+        "es": "Altura (cm)",
         "ar": "Height (cm)"
       },
       "businessContext_i18n": {
         "en": "Enter body height in centimeters. If not available, use height in inches instead.",
         "tr": "Vücut boyunu santimetre cinsinden girin. Mevcut değilse, inç cinsinden boy kullanın.",
-        "de": "Vücut boyunu santimetre cinsinden girin. Mevcut değilse, inç cinsinden boy kullanın."
+        "de": "Vücut boyunu santimetre cinsinden girin. Mevcut değilse, inç cinsinden boy kullanın.",
+        "fr": "Entrez la taille corporelle en centimètres. Si non disponible, utilisez la taille en pouces.",
+        "es": "Vücut boyunu santimetre olarak girin. Mevcut değilse, inç cinsinden boy kullanın."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Weight (lb)",
         "tr": "Ağırlık (lb)",
         "de": "Gewicht (lb)",
-        "fr": "Weight (lb)",
-        "es": "Weight (lb)",
+        "fr": "Poids (lb)",
+        "es": "Peso (lb)",
         "ar": "Weight (lb)"
       },
       "businessContext_i18n": {
         "en": "Alternative: enter body weight in pounds. Ignored if weight in kg is provided.",
         "tr": "Alternatif: vücut ağırlığını pound cinsinden girin. Kg cinsinden ağırlık sağlanırsa yok sayılır.",
-        "de": "Alternatif: vücut ağırlığını pound cinsinden girin. kg cinsinden ağırlık sağlanırsa dikkate alınmaz."
+        "de": "Alternatif: vücut ağırlığını pound cinsinden girin. kg cinsinden ağırlık sağlanırsa dikkate alınmaz.",
+        "fr": "Alternative : entrez le poids corporel en livres. Ignoré si le poids en kg est fourni.",
+        "es": "Alternatif: vücut ağırlığını pound olarak girin. kg cinsinden ağırlık sağlanmışsa yok sayılır."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Height (in)",
         "tr": "Boy (inç)",
         "de": "Boy (inç)",
-        "fr": "Height (in)",
-        "es": "Height (in)",
+        "fr": "Taille (po)",
+        "es": "Boy (inç)",
         "ar": "Height (in)"
       },
       "businessContext_i18n": {
         "en": "Alternative: enter body height in inches. Ignored if height in cm is provided.",
         "tr": "Alternatif: vücut boyunu inç cinsinden girin. Cm cinsinden boy sağlanırsa yok sayılır.",
-        "de": "Alternatif: vücut boyunu inç cinsinden girin. cm cinsinden boy sağlanırsa dikkate alınmaz."
+        "de": "Alternatif: vücut boyunu inç cinsinden girin. cm cinsinden boy sağlanırsa dikkate alınmaz.",
+        "fr": "Alternative : entrez la taille corporelle en pouces. Ignoré si la taille en cm est fournie.",
+        "es": "Alternatif: vücut boyunu inç olarak girin. cm cinsinden boy sağlanmışsa yok sayılır."
       }
     }
   ],

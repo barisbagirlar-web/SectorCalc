@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "R1 (Gain Resistor)",
         "tr": "R1 (Kazanç Direnci)",
-        "de": "R1 (Gain Resistor)",
-        "fr": "R1 (Gain Resistor)",
-        "es": "R1 (Gain Resistor)",
+        "de": "R1 (Verstärkungswiderstand)",
+        "fr": "R1 (Résistance de gain)",
+        "es": "R1 (Resistencia de ganancia)",
         "ar": "R1 (Gain Resistor)"
       },
       "businessContext_i18n": {
         "en": "Value of the gain-setting resistor in the instrumentation amplifier circuit. Adjusted to set the desired gain.",
-        "tr": "Enstrümantasyon yükseltici devresinde kazancı ayarlayan direncin değeri. İstenen kazancı ayarlamak için değiştirilir."
+        "tr": "Enstrümantasyon yükseltici devresinde kazancı ayarlayan direncin değeri. İstenen kazancı ayarlamak için değiştirilir.",
+        "de": "Wert des verstärkungseinstellenden Widerstands in der Instrumentenverstärkerschaltung. Wird angepasst, um die gewünschte Verstärkung einzustellen.",
+        "fr": "Valeur de la résistance de réglage du gain dans le circuit de l'amplificateur d'instrumentation. Ajustée pour définir le gain souhaité.",
+        "es": "Valor de la resistencia que ajusta la ganancia en el circuito del amplificador de instrumentación. Se ajusta para establecer la ganancia deseada."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "R2 (Feedback Resistor)",
         "tr": "R2 (Geri Besleme Direnci)",
-        "de": "R2 (Feedback Resistor)",
-        "fr": "R2 (Feedback Resistor)",
-        "es": "R2 (Feedback Resistor)",
+        "de": "R2 (Rückkopplungswiderstand)",
+        "fr": "R2 (Résistance de rétroaction)",
+        "es": "R2 (Resistencia de realimentación)",
         "ar": "R2 (Feedback Resistor)"
       },
       "businessContext_i18n": {
         "en": "Value of the two feedback resistors (typically equal) in the first stage of the instrumentation amplifier. Usually matched for symmetry.",
-        "tr": "Enstrümantasyon yükselticinin ilk aşamasındaki iki geri besleme direncinin (genellikle eşit) değeri. Simetri için genellikle eşleştirilir."
+        "tr": "Enstrümantasyon yükselticinin ilk aşamasındaki iki geri besleme direncinin (genellikle eşit) değeri. Simetri için genellikle eşleştirilir.",
+        "de": "Wert der beiden Rückkopplungswiderstände (normalerweise gleich) in der ersten Stufe des Instrumentenverstärkers. Üblicherweise symmetrisch abgeglichen.",
+        "fr": "Valeur des deux résistances de rétroaction (généralement égales) dans le premier étage de l'amplificateur d'instrumentation. Généralement appariées pour la symétrie.",
+        "es": "Valor de las dos resistencias de realimentación (típicamente iguales) en la primera etapa del amplificador de instrumentación. Generalmente emparejadas para simetría."
       }
     },
     {
@@ -58,7 +64,10 @@
       },
       "businessContext_i18n": {
         "en": "Non-inverting input voltage. Typically a small differential signal plus common-mode.",
-        "tr": "Evirmeyen giriş voltajı. Genellikle ortak modlu küçük bir diferansiyel sinyal."
+        "tr": "Evirmeyen giriş voltajı. Genellikle ortak modlu küçük bir diferansiyel sinyal.",
+        "de": "Nichtinvertierende Eingangsspannung. Typischerweise ein kleines Differenzsignal plus Gleichtakt.",
+        "fr": "Tension d'entrée non inverseuse. Typiquement un petit signal différentiel plus un mode commun.",
+        "es": "Tensión de entrada no inversora. Típicamente una pequeña señal diferencial más modo común."
       }
     },
     {
@@ -78,7 +87,10 @@
       },
       "businessContext_i18n": {
         "en": "Inverting input voltage. The differential voltage is Vin+ minus Vin-.",
-        "tr": "Evevirici giriş voltajı. Diferansiyel voltaj Vin+ eksi Vin-'dir."
+        "tr": "Evevirici giriş voltajı. Diferansiyel voltaj Vin+ eksi Vin-'dir.",
+        "de": "Invertierende Eingangsspannung. Die Differenzspannung ist Vin+ minus Vin-.",
+        "fr": "Tension d'entrée inverseuse. La tension différentielle est Vin+ moins Vin-.",
+        "es": "Tensión de entrada inversora. La tensión diferencial es Vin+ menos Vin-."
       }
     },
     {
@@ -98,7 +110,10 @@
       },
       "businessContext_i18n": {
         "en": "Reference voltage applied to the output stage, allowing level shifting of the output.",
-        "tr": "Çıkış aşamasına uygulanan referans voltajı, çıkışın seviye kaydırmasına izin verir."
+        "tr": "Çıkış aşamasına uygulanan referans voltajı, çıkışın seviye kaydırmasına izin verir.",
+        "de": "Referenzspannung, die an die Ausgangsstufe angelegt wird und eine Pegelverschiebung des Ausgangs ermöglicht.",
+        "fr": "Tension de référence appliquée à l'étage de sortie, permettant le décalage de niveau de la sortie.",
+        "es": "Tensión de referencia aplicada a la etapa de salida, permitiendo el desplazamiento de nivel de la salida."
       }
     }
   ],

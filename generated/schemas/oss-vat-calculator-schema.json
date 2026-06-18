@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Net Tutar (TRY)",
         "tr": "Net Tutar (TRY)",
-        "de": "Net Tutar (TRY)",
-        "fr": "Net Tutar (TRY)",
-        "es": "Net Tutar (TRY)",
+        "de": "Nettobetrag (TRY)",
+        "fr": "Montant net (TRY)",
+        "es": "Importe neto (TRY)",
         "ar": "Net Tutar (TRY)"
       },
       "businessContext_i18n": {
         "en": "Ürün/hizmetin KDV hariç tutarı",
-        "tr": "Ürün/hizmetin KDV hariç tutarı"
+        "tr": "Ürün/hizmetin KDV hariç tutarı",
+        "de": "Betrag des Produkts/der Dienstleistung ohne MwSt.",
+        "fr": "Montant hors TVA du produit/service",
+        "es": "Importe del producto/servicio sin IVA"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "KDV Oranı (%)",
         "tr": "KDV Oranı (%)",
         "de": "Mehrwertsteuersatz (%)",
-        "fr": "KDV Oranı (%)",
-        "es": "KDV Oranı (%)",
+        "fr": "Taux de TVA (%)",
+        "es": "Tasa de IVA (%)",
         "ar": "KDV Oranı (%)"
       },
       "businessContext_i18n": {
         "en": "Geçerli KDV oranı",
-        "tr": "Geçerli KDV oranı"
+        "tr": "Geçerli KDV oranı",
+        "de": "Aktueller MwSt.-Satz",
+        "fr": "Taux de TVA applicable",
+        "es": "Tipo de IVA aplicable"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Adet",
         "tr": "Adet",
         "de": "Adet",
-        "fr": "Adet",
-        "es": "Adet",
+        "fr": "Quantité",
+        "es": "Cantidad",
         "ar": "Adet"
       },
       "businessContext_i18n": {
         "en": "Ürün adedi veya hizmet sayısı",
-        "tr": "Ürün adedi veya hizmet sayısı"
+        "tr": "Ürün adedi veya hizmet sayısı",
+        "de": "Anzahl der Produkte oder Dienstleistungen",
+        "fr": "Quantité de produits ou services",
+        "es": "Cantidad de productos o servicios"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "İskonto (%)",
         "tr": "İskonto (%)",
-        "de": "İskonto (%)",
-        "fr": "İskonto (%)",
-        "es": "İskonto (%)",
+        "de": "Rabatt (%)",
+        "fr": "Remise (%)",
+        "es": "Descuento (%)",
         "ar": "İskonto (%)"
       },
       "businessContext_i18n": {
         "en": "Net tutar üzerinden yüzde indirim",
-        "tr": "Net tutar üzerinden yüzde indirim"
+        "tr": "Net tutar üzerinden yüzde indirim",
+        "de": "Prozentualer Rabatt auf den Nettobetrag",
+        "fr": "Pourcentage de remise sur le montant net",
+        "es": "Porcentaje de descuento sobre el importe neto"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Ek Masraflar (TRY)",
         "tr": "Ek Masraflar (TRY)",
-        "de": "Ek Masraflar (TRY)",
-        "fr": "Ek Masraflar (TRY)",
-        "es": "Ek Masraflar (TRY)",
+        "de": "Zusätzliche Kosten (TRY)",
+        "fr": "Frais supplémentaires (TRY)",
+        "es": "Gastos adicionales (TRY)",
         "ar": "Ek Masraflar (TRY)"
       },
       "businessContext_i18n": {
         "en": "KDV matrahına eklenen diğer masraflar",
-        "tr": "KDV matrahına eklenen diğer masraflar"
+        "tr": "KDV matrahına eklenen diğer masraflar",
+        "de": "Sonstige Kosten, die zur MwSt.-Bemessungsgrundlage hinzugefügt werden",
+        "fr": "Autres frais ajoutés à la base de TVA",
+        "es": "Otros gastos añadidos a la base imponible del IVA"
       }
     }
   ],

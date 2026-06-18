@@ -12,14 +12,16 @@
         "en": "Battery Capacity",
         "tr": "Pil Kapasitesi",
         "de": "Batteriekapazität",
-        "fr": "Battery Capacity",
-        "es": "Battery Capacity",
+        "fr": "Capacité de la batterie",
+        "es": "Capacidad de la batería",
         "ar": "Battery Capacity"
       },
       "businessContext_i18n": {
         "en": "Usable battery capacity of the electric vehicle",
         "tr": "Elektrikli aracın kullanılabilir batarya kapasitesi",
-        "de": "Nutzbare Batteriekapazität des Elektrofahrzeugs"
+        "de": "Nutzbare Batteriekapazität des Elektrofahrzeugs",
+        "fr": "Capacité utile de la batterie du véhicule électrique",
+        "es": "Capacidad utilizable de la batería del vehículo eléctrico"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Base Energy Consumption",
         "tr": "Temel Enerji Tüketimi",
         "de": "Basisenergieverbrauch",
-        "fr": "Base Energy Consumption",
-        "es": "Base Energy Consumption",
+        "fr": "Consommation énergétique de base",
+        "es": "Consumo base de energía",
         "ar": "Base Energy Consumption"
       },
       "businessContext_i18n": {
         "en": "Energy consumption per kilometer under standard conditions",
         "tr": "Standart koşullarda kilometre başına enerji tüketimi",
-        "de": "Energieverbrauch pro Kilometer unter Standardbedingungen"
+        "de": "Energieverbrauch pro Kilometer unter Standardbedingungen",
+        "fr": "Consommation d'énergie par kilomètre dans des conditions standard",
+        "es": "Consumo de energía por kilómetro en condiciones estándar"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Temperature Factor",
         "tr": "Sıcaklık Faktörü",
         "de": "Temperaturfaktor",
-        "fr": "Temperature Factor",
-        "es": "Temperature Factor",
+        "fr": "Facteur de température",
+        "es": "Factor de temperatura",
         "ar": "Temperature Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier for consumption due to ambient temperature",
         "tr": "Ortam sıcaklığına bağlı tüketim çarpanı",
-        "de": "Multiplikator für Verbrauch aufgrund der Umgebungstemperatur"
+        "de": "Multiplikator für Verbrauch aufgrund der Umgebungstemperatur",
+        "fr": "Multiplicateur de consommation dû à la température ambiante",
+        "es": "Multiplicador de consumo por temperatura ambiente"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Driving Style Factor",
         "tr": "Sürüş Tarzı Faktörü",
         "de": "Fahrstilfaktor",
-        "fr": "Driving Style Factor",
-        "es": "Driving Style Factor",
+        "fr": "Facteur de style de conduite",
+        "es": "Factor de estilo de conducción",
         "ar": "Driving Style Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier for consumption due to driving behavior",
         "tr": "Sürüş davranışına bağlı tüketim çarpanı",
-        "de": "Multiplikator für Verbrauch aufgrund des Fahrverhaltens"
+        "de": "Multiplikator für Verbrauch aufgrund des Fahrverhaltens",
+        "fr": "Multiplicateur de consommation dû au comportement de conduite",
+        "es": "Multiplicador de consumo por comportamiento de conducción"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Auxiliary Power",
         "tr": "Yardımcı Güç",
         "de": "Hilfsstrom",
-        "fr": "Auxiliary Power",
-        "es": "Auxiliary Power",
+        "fr": "Puissance auxiliaire",
+        "es": "Potencia auxiliar",
         "ar": "Auxiliary Power"
       },
       "businessContext_i18n": {
         "en": "Continuous power draw from accessories like climate control",
         "tr": "İklimlendirme gibi aksesuarlardan sürekli güç çekişi",
-        "de": "Dauerhafter Stromverbrauch durch Zubehör wie Klimaanlage"
+        "de": "Dauerhafter Stromverbrauch durch Zubehör wie Klimaanlage",
+        "fr": "Puissance continue des accessoires comme la climatisation",
+        "es": "Consumo continuo de accesorios como climatización"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Average Speed",
         "tr": "Ortalama Hız",
         "de": "Durchschnittsgeschwindigkeit",
-        "fr": "Average Speed",
-        "es": "Average Speed",
+        "fr": "Vitesse moyenne",
+        "es": "Velocidad media",
         "ar": "Average Speed"
       },
       "businessContext_i18n": {
         "en": "Estimated average speed during the trip",
         "tr": "Yolculuk sırasında tahmini ortalama hız",
-        "de": "Geschätzte Durchschnittsgeschwindigkeit während der Fahrt"
+        "de": "Geschätzte Durchschnittsgeschwindigkeit während der Fahrt",
+        "fr": "Vitesse moyenne estimée pendant le trajet",
+        "es": "Velocidad media estimada durante el viaje"
       }
     }
   ],

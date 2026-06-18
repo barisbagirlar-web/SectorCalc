@@ -12,14 +12,16 @@
         "en": "Span Length (m)",
         "tr": "Açıklık Uzunluğu (m)",
         "de": "Spannweite (m)",
-        "fr": "Span Length (m)",
-        "es": "Span Length (m)",
+        "fr": "Longueur de la portée (m)",
+        "es": "Longitud del vano (m)",
         "ar": "Span Length (m)"
       },
       "businessContext_i18n": {
         "en": "Distance between bridge supports",
         "tr": "Köprü mesnetleri arasındaki mesafe",
-        "de": "Abstand zwischen Brückenstützen"
+        "de": "Abstand zwischen Brückenstützen",
+        "fr": "Distance entre les supports du pont",
+        "es": "Distancia entre apoyos del puente"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Deck Width (m)",
         "tr": "Döşeme Genişliği (m)",
         "de": "Fahrbahnbreite (m)",
-        "fr": "Deck Width (m)",
-        "es": "Deck Width (m)",
+        "fr": "Largeur du tablier (m)",
+        "es": "Ancho del tablero (m)",
         "ar": "Deck Width (m)"
       },
       "businessContext_i18n": {
         "en": "Width of the bridge deck",
         "tr": "Köprü döşemesinin genişliği",
-        "de": "Breite der Brückenfahrbahn"
+        "de": "Breite der Brückenfahrbahn",
+        "fr": "Largeur du tablier du pont",
+        "es": "Ancho del tablero del puente"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Load per Area (kN/m²)",
         "tr": "Alan Başına Yük (kN/m²)",
         "de": "Flächenlast (kN/m²)",
-        "fr": "Load per Area (kN/m²)",
-        "es": "Load per Area (kN/m²)",
+        "fr": "Charge par surface (kN/m²)",
+        "es": "Carga por área (kN/m²)",
         "ar": "Load per Area (kN/m²)"
       },
       "businessContext_i18n": {
         "en": "Distributed load on the deck",
         "tr": "Döşeme üzerindeki yayılı yük",
-        "de": "Verteilte Last auf der Fahrbahn"
+        "de": "Verteilte Last auf der Fahrbahn",
+        "fr": "Charge répartie sur le tablier",
+        "es": "Carga distribuida sobre el tablero"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Steel Yield Strength (MPa)",
         "tr": "Çelik Akma Dayanımı (MPa)",
         "de": "Streckgrenze des Stahls (MPa)",
-        "fr": "Steel Yield Strength (MPa)",
-        "es": "Steel Yield Strength (MPa)",
+        "fr": "Limite d'élasticité de l'acier (MPa)",
+        "es": "Límite elástico del acero (MPa)",
         "ar": "Steel Yield Strength (MPa)"
       },
       "businessContext_i18n": {
         "en": "Yield strength of structural steel",
         "tr": "Yapısal çeliğin akma dayanımı",
-        "de": "Streckgrenze des Baustahls"
+        "de": "Streckgrenze des Baustahls",
+        "fr": "Limite d'élasticité de l'acier de construction",
+        "es": "Límite elástico del acero estructural"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Factor of safety for design",
         "tr": "Tasarım için güvenlik faktörü",
-        "de": "Sicherheitsfaktor für die Bemessung"
+        "de": "Sicherheitsfaktor für die Bemessung",
+        "fr": "Coefficient de sécurité pour la conception",
+        "es": "Factor de seguridad para el diseño"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Beam Depth (m)",
         "tr": "Kiriş Yüksekliği (m)",
         "de": "Balkentiefe (m)",
-        "fr": "Beam Depth (m)",
-        "es": "Beam Depth (m)",
+        "fr": "Hauteur de la poutre (m)",
+        "es": "Peralte de la viga (m)",
         "ar": "Beam Depth (m)"
       },
       "businessContext_i18n": {
         "en": "Depth of main beams",
         "tr": "Ana kirişlerin yüksekliği",
-        "de": "Tiefe der Hauptträger"
+        "de": "Tiefe der Hauptträger",
+        "fr": "Hauteur des poutres principales",
+        "es": "Peralte de las vigas principales"
       }
     }
   ],

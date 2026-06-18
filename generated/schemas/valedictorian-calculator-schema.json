@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Quality Rate",
         "tr": "Kalite Oranı",
-        "de": "Quality Rate",
-        "fr": "Quality Rate",
+        "de": "Qualitätsrate",
+        "fr": "Taux de qualité",
         "es": "Quality Rate",
         "ar": "Quality Rate"
       },
       "businessContext_i18n": {
         "en": "Percentage of defect-free outputs",
-        "tr": "Hataya düşmeyen çıktıların yüzdesi"
+        "tr": "Hataya düşmeyen çıktıların yüzdesi",
+        "de": "Prozentsatz der fehlerfreien Ausgaben",
+        "fr": "Pourcentage de produits sans défaut"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Efficiency Rate",
         "tr": "Verimlilik Oranı",
-        "de": "Efficiency Rate",
-        "fr": "Efficiency Rate",
+        "de": "Effizienzrate",
+        "fr": "Taux d'efficacité",
         "es": "Efficiency Rate",
         "ar": "Efficiency Rate"
       },
       "businessContext_i18n": {
         "en": "Actual production rate vs. ideal rate",
-        "tr": "Gerçek üretim hızının ideal hıza oranı"
+        "tr": "Gerçek üretim hızının ideal hıza oranı",
+        "de": "Tatsächliche Produktionsrate im Vergleich zur idealen Rate",
+        "fr": "Taux de production réel par rapport au taux idéal"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Availability Rate",
         "tr": "Kullanılabilirlik Oranı",
-        "de": "Availability Rate",
-        "fr": "Availability Rate",
+        "de": "Verfügbarkeitsrate",
+        "fr": "Taux de disponibilité",
         "es": "Availability Rate",
         "ar": "Availability Rate"
       },
       "businessContext_i18n": {
         "en": "Percentage of scheduled uptime",
-        "tr": "Planlanan çalışma süresinin yüzdesi"
+        "tr": "Planlanan çalışma süresinin yüzdesi",
+        "de": "Prozentsatz der geplanten Betriebszeit",
+        "fr": "Pourcentage de temps de fonctionnement planifié"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Cost Index",
         "tr": "Maliyet Endeksi",
-        "de": "Cost Index",
-        "fr": "Cost Index",
+        "de": "Kostenindex",
+        "fr": "Indice de coût",
         "es": "Cost Index",
         "ar": "Cost Index"
       },
       "businessContext_i18n": {
         "en": "Cost index relative to standard (100 = standard, higher is worse)",
-        "tr": "Standart değere göre maliyet endeksi (100 = standart, yüksek değer daha kötü)"
+        "tr": "Standart değere göre maliyet endeksi (100 = standart, yüksek değer daha kötü)",
+        "de": "Kostenindex relativ zum Standard (100 = Standard, höher ist schlechter)",
+        "fr": "Indice de coût par rapport à la norme (100 = standard, plus élevé = moins bon)"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Safety Score",
         "tr": "Güvenlik Puanı",
-        "de": "Safety Score",
-        "fr": "Safety Score",
+        "de": "Sicherheitsbewertung",
+        "fr": "Score de sécurité",
         "es": "Safety Score",
         "ar": "Safety Score"
       },
       "businessContext_i18n": {
         "en": "Safety performance score (0–100)",
-        "tr": "Güvenlik performans puanı (0–100)"
+        "tr": "Güvenlik performans puanı (0–100)",
+        "de": "Sicherheitsleistungswert (0–100)",
+        "fr": "Score de performance sécurité (0–100)"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Energy Efficiency",
         "tr": "Enerji Verimliliği",
-        "de": "Energy Efficiency",
-        "fr": "Energy Efficiency",
+        "de": "Energieeffizienz",
+        "fr": "Efficacité énergétique",
         "es": "Energy Efficiency",
         "ar": "Energy Efficiency"
       },
       "businessContext_i18n": {
         "en": "Energy consumption performance vs. baseline",
-        "tr": "Taban değere göre enerji tüketim performansı"
+        "tr": "Taban değere göre enerji tüketim performansı",
+        "de": "Energieverbrauchsleistung im Vergleich zum Basiswert",
+        "fr": "Performance de consommation d'énergie par rapport à la référence"
       }
     }
   ],

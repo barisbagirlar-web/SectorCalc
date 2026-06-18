@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Metal Surface Area",
         "tr": "Metal Yüzey Alanı",
-        "de": "Metal Surface Area",
-        "fr": "Metal Surface Area",
-        "es": "Metal Surface Area",
+        "de": "Metalloberfläche",
+        "fr": "Surface métallique",
+        "es": "Área de superficie metálica",
         "ar": "Metal Surface Area"
       },
       "businessContext_i18n": {
         "en": "Total area of metal to be pickled.",
-        "tr": "Dekapaj yapılacak metalin toplam alanı."
+        "tr": "Dekapaj yapılacak metalin toplam alanı.",
+        "de": "Gesamtfläche des zu beizenden Metalls.",
+        "fr": "Surface totale du métal à décaper.",
+        "es": "Área total de metal a decapar."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Scale Thickness",
         "tr": "Tufal Kalınlığı",
-        "de": "Scale Thickness",
-        "fr": "Scale Thickness",
-        "es": "Scale Thickness",
+        "de": "Zunderdicke",
+        "fr": "Épaisseur de la calamine",
+        "es": "Espesor de la incrustación",
         "ar": "Scale Thickness"
       },
       "businessContext_i18n": {
         "en": "Average oxide scale thickness.",
-        "tr": "Ortalama oksit tufal kalınlığı."
+        "tr": "Ortalama oksit tufal kalınlığı.",
+        "de": "Durchschnittliche Zunderdicke.",
+        "fr": "Épaisseur moyenne de la couche d'oxyde.",
+        "es": "Grosor medio de la capa de óxido."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Scale Density",
         "tr": "Tufal Yoğunluğu",
-        "de": "Scale Density",
-        "fr": "Scale Density",
-        "es": "Scale Density",
+        "de": "Zunderdichte",
+        "fr": "Densité de la calamine",
+        "es": "Densidad de la capa",
         "ar": "Scale Density"
       },
       "businessContext_i18n": {
         "en": "Density of the scale (e.g., iron oxide ≈ 5000 kg/m³).",
-        "tr": "Tufalın yoğunluğu (örneğin, demir oksit ≈ 5000 kg/m³)."
+        "tr": "Tufalın yoğunluğu (örneğin, demir oksit ≈ 5000 kg/m³).",
+        "de": "Dichte des Zunders (z. B. Eisenoxid ≈ 5000 kg/m³).",
+        "fr": "Densité de la calamine (ex. oxyde de fer ≈ 5000 kg/m³).",
+        "es": "Densidad de la capa (ej. óxido de hierro ≈ 5000 kg/m³)."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Acid Concentration",
         "tr": "Asit Konsantrasyonu",
         "de": "Säurekonzentration",
-        "fr": "Acid Concentration",
-        "es": "Acid Concentration",
+        "fr": "Concentration de l'acide",
+        "es": "Concentración del ácido",
         "ar": "Acid Concentration"
       },
       "businessContext_i18n": {
         "en": "Concentration of hydrochloric acid by weight (typical 15-20%).",
-        "tr": "Hidroklorik Asit Konsantrasyonu"
+        "tr": "Hidroklorik Asit Konsantrasyonu",
+        "de": "Gewichtsprozent Salzsäure (typisch 15-20 %).",
+        "fr": "Concentration massique en acide chlorhydrique (typ. 15-20 %).",
+        "es": "Concentración de ácido clorhídrico en peso (típico 15-20%)."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Acid Density",
         "tr": "Ağırlıkça hidroklorik asit konsantrasyonu (tipik %15-20).",
-        "de": "Acid Density",
-        "fr": "Acid Density",
-        "es": "Acid Density",
+        "de": "Säuredichte",
+        "fr": "Densité de l'acide",
+        "es": "Densidad del ácido",
         "ar": "Acid Density"
       },
       "businessContext_i18n": {
         "en": "Density of the acid solution (18% HCl ≈ 1.09 kg/L).",
-        "tr": "Asit Yoğunluğu"
+        "tr": "Asit Yoğunluğu",
+        "de": "Dichte der Säurelösung (18 % HCl ≈ 1,09 kg/L).",
+        "fr": "Densité de la solution acide (HCl 18 % ≈ 1,09 kg/L).",
+        "es": "Densidad de la solución ácida (HCl al 18% ≈ 1.09 kg/L)."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Stoichiometric Ratio",
         "tr": "Asit çözeltisinin yoğunluğu (%18 HCl ≈ 1,09 kg/L).",
-        "de": "Stoichiometric Ratio",
-        "fr": "Stoichiometric Ratio",
-        "es": "Stoichiometric Ratio",
+        "de": "Stöchiometrisches Verhältnis",
+        "fr": "Rapport stœchiométrique",
+        "es": "Relación estequiométrica",
         "ar": "Stoichiometric Ratio"
       },
       "businessContext_i18n": {
         "en": "Mass of acid required to dissolve 1 kg of scale, considering chemical reaction.",
-        "tr": "Stokiyometrik Oran"
+        "tr": "Stokiyometrik Oran",
+        "de": "Säuremasse, die benötigt wird, um 1 kg Zunder aufzulösen, unter Berücksichtigung der chemischen Reaktion.",
+        "fr": "Masse d'acide nécessaire pour dissoudre 1 kg de calamine, compte tenu de la réaction chimique.",
+        "es": "Masa de ácido necesaria para disolver 1 kg de capa, considerando la reacción química."
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Drag-out Rate",
         "tr": "1 kg tufalı çözmek için gereken asit kütlesi (kimyasal reaksiyon dikkate alınarak).",
-        "de": "Drag-out Rate",
-        "fr": "Drag-out Rate",
-        "es": "Drag-out Rate",
+        "de": "Verschleppungsrate",
+        "fr": "Taux d'entraînement",
+        "es": "Tasa de arrastre",
         "ar": "Drag-out Rate"
       },
       "businessContext_i18n": {
         "en": "Volume of acid solution carried out on metal surface per m².",
-        "tr": "Sürüklenme Oranı"
+        "tr": "Sürüklenme Oranı",
+        "de": "Volumen der Säurelösung, das pro m² auf der Metalloberfläche ausgetragen wird.",
+        "fr": "Volume de solution acide entraîné par m² de surface métallique.",
+        "es": "Volumen de solución ácida arrastrado sobre la superficie metálica por m²."
       }
     },
     {
@@ -151,14 +172,17 @@
       "label_i18n": {
         "en": "Rinse Water Ratio",
         "tr": "m² başına metal yüzeyinde taşınan asit çözeltisi hacmi.",
-        "de": "Rinse Water Ratio",
-        "fr": "Rinse Water Ratio",
-        "es": "Rinse Water Ratio",
+        "de": "Spülwasserverhältnis",
+        "fr": "Rapport eau de rinçage",
+        "es": "Relación de agua de enjuague",
         "ar": "Rinse Water Ratio"
       },
       "businessContext_i18n": {
         "en": "Volume of rinse water needed per m² of metal surface.",
-        "tr": "Durulama Suyu Oranı"
+        "tr": "Durulama Suyu Oranı",
+        "de": "Volumen Spülwasser pro m² Metalloberfläche.",
+        "fr": "Volume d'eau de rinçage nécessaire par m² de surface métallique.",
+        "es": "Volumen de agua de enjuague necesario por m² de superficie metálica."
       }
     }
   ],

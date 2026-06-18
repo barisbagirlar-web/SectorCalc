@@ -24,12 +24,16 @@
       "label_i18n": {
         "en": "Planned Duration (Days)",
         "tr": "Planlanan Süre (Gün)",
-        "de": "Geplante Dauer (Tage)"
+        "de": "Geplante Dauer (Tage)",
+        "fr": "Durée prévue (jours)",
+        "es": "Duración planificada (días)"
       },
       "businessContext_i18n": {
         "en": "Total planned duration of the project from start to finish, as per CPM schedule baseline.",
         "tr": "CPM takvimi baz alınarak projenin başlangıcından bitişine kadar planlanan toplam süre.",
-        "de": "Gesamte geplante Projektdauer von Anfang bis Ende gemäß CPM-Zeitplanbasis."
+        "de": "Gesamte geplante Projektdauer von Anfang bis Ende gemäß CPM-Zeitplanbasis.",
+        "fr": "Durée totale prévue du projet du début à la fin, selon la référence du planning CPM.",
+        "es": "Duración total planificada del proyecto desde el inicio hasta el final, según la línea base del cronograma CPM."
       }
     },
     {
@@ -44,12 +48,16 @@
       "label_i18n": {
         "en": "Actual Duration (Days)",
         "tr": "Gerçek Süre (Gün)",
-        "de": "Tatsächliche Dauer (Tage)"
+        "de": "Tatsächliche Dauer (Tage)",
+        "fr": "Durée réelle (jours)",
+        "es": "Duración real (días)"
       },
       "businessContext_i18n": {
         "en": "Actual elapsed duration from project start to current date or completion.",
         "tr": "Proje başlangıcından bugüne veya tamamlanmaya kadar geçen gerçek süre.",
-        "de": "Tatsächliche vergangene Dauer vom Projektstart bis zum aktuellen Datum oder Abschluss."
+        "de": "Tatsächliche vergangene Dauer vom Projektstart bis zum aktuellen Datum oder Abschluss.",
+        "fr": "Durée réelle écoulée depuis le début du projet jusqu'à la date actuelle ou la fin.",
+        "es": "Duración real transcurrida desde el inicio del proyecto hasta la fecha actual o finalización."
       }
     },
     {
@@ -64,12 +72,16 @@
       "label_i18n": {
         "en": "Daily Penalty Rate (Currency)",
         "tr": "Günlük Ceza Oranı (Para Birimi)",
-        "de": "Tägliche Vertragsstrafe (Währung)"
+        "de": "Tägliche Vertragsstrafe (Währung)",
+        "fr": "Taux de pénalité journalier (devise)",
+        "es": "Tasa de penalización diaria (moneda)"
       },
       "businessContext_i18n": {
         "en": "Contractual liquidated damages or penalty per day of delay beyond the planned duration.",
         "tr": "Planlanan sürenin ötesindeki her gecikme günü için sözleşmeye bağlı gecikme cezası veya tazminat.",
-        "de": "Vertragliche Verzugsschäden oder Strafe pro Tag Verzug über die geplante Dauer hinaus."
+        "de": "Vertragliche Verzugsschäden oder Strafe pro Tag Verzug über die geplante Dauer hinaus.",
+        "fr": "Dommages-intérêts contractuels ou pénalité par jour de retard au-delà de la durée prévue.",
+        "es": "Daños y perjuicios contractuales o penalización por día de retraso más allá de la duración planificada."
       }
     },
     {
@@ -84,12 +96,16 @@
       "label_i18n": {
         "en": "Total Float on Critical Path (Days)",
         "tr": "Kritik Yoldaki Toplam Bollaşma (Gün)",
-        "de": "Gesamtpuffer auf kritischem Pfad (Tage)"
+        "de": "Gesamtpuffer auf kritischem Pfad (Tage)",
+        "fr": "Marge totale sur le chemin critique (jours)",
+        "es": "Holgura total en la ruta crítica (días)"
       },
       "businessContext_i18n": {
         "en": "Sum of total float for all activities on the critical path. Zero or negative indicates schedule compression.",
         "tr": "Kritik yoldaki tüm faaliyetlerin toplam bollaşma toplamı. Sıfır veya negatif, program sıkışmasını gösterir.",
-        "de": "Summe der Gesamtpuffer aller Aktivitäten auf dem kritischen Pfad. Null oder negativ zeigt eine Verdichtung des Zeitplans an."
+        "de": "Summe der Gesamtpuffer aller Aktivitäten auf dem kritischen Pfad. Null oder negativ zeigt eine Verdichtung des Zeitplans an.",
+        "fr": "Somme des marges totales pour toutes les activités du chemin critique. Zéro ou négatif indique une compression du planning.",
+        "es": "Suma de la holgura total de todas las actividades en la ruta crítica. Cero o negativo indica compresión del cronograma."
       }
     },
     {
@@ -104,12 +120,16 @@
       "label_i18n": {
         "en": "Productivity Factor (0-1)",
         "tr": "Verimlilik Faktörü (0-1)",
-        "de": "Produktivitätsfaktor (0-1)"
+        "de": "Produktivitätsfaktor (0-1)",
+        "fr": "Facteur de productivité (0-1)",
+        "es": "Factor de productividad (0-1)"
       },
       "businessContext_i18n": {
         "en": "Lean metric: ratio of actual output to standard output. Values below 0.8 indicate significant waste.",
         "tr": "Yalın metrik: gerçek çıktının standart çıktıya oranı. 0,8'in altındaki değerler önemli israfı gösterir.",
-        "de": "Lean-Kennzahl: Verhältnis von tatsächlichem Output zu Standard-Output. Werte unter 0,8 deuten auf erhebliche Verschwendung hin."
+        "de": "Lean-Kennzahl: Verhältnis von tatsächlichem Output zu Standard-Output. Werte unter 0,8 deuten auf erhebliche Verschwendung hin.",
+        "fr": "Métrique Lean : rapport entre la production réelle et la production standard. Des valeurs inférieures à 0,8 indiquent un gaspillage important.",
+        "es": "Métrica Lean: relación entre la producción real y la producción estándar. Valores por debajo de 0,8 indican desperdicio significativo."
       }
     },
     {
@@ -124,12 +144,16 @@
       "label_i18n": {
         "en": "Rework Percentage (%)",
         "tr": "Yeniden İşleme Yüzdesi (%)",
-        "de": "Nacharbeitsanteil (%)"
+        "de": "Nacharbeitsanteil (%)",
+        "fr": "Pourcentage de reprise (%)",
+        "es": "Porcentaje de retrabajo (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of completed work requiring rework, a key Six Sigma quality metric.",
         "tr": "Tamamlanan işin yeniden işleme gerektiren yüzdesi, önemli bir Altı Sigma kalite metriği.",
-        "de": "Prozentsatz der abgeschlossenen Arbeiten, die Nacharbeit erfordern, eine wichtige Six-Sigma-Qualitätskennzahl."
+        "de": "Prozentsatz der abgeschlossenen Arbeiten, die Nacharbeit erfordern, eine wichtige Six-Sigma-Qualitätskennzahl.",
+        "fr": "Pourcentage des travaux terminés nécessitant une reprise, une métrique clé de la qualité Six Sigma.",
+        "es": "Porcentaje de trabajo completado que requiere retrabajo, una métrica clave de calidad Seis Sigma."
       }
     },
     {
@@ -148,12 +172,16 @@
       "label_i18n": {
         "en": "Delay Type",
         "tr": "Gecikme Türü",
-        "de": "Verzögerungstyp"
+        "de": "Verzögerungstyp",
+        "fr": "Type de retard",
+        "es": "Tipo de retraso"
       },
       "businessContext_i18n": {
         "en": "Classification per standard construction delay analysis (AACE, SCL protocols).",
         "tr": "Standart inşaat gecikme analizine (AACE, SCL protokolleri) göre sınıflandırma.",
-        "de": "Klassifizierung gemäß Standard-Bauverzögerungsanalyse (AACE, SCL-Protokolle)."
+        "de": "Klassifizierung gemäß Standard-Bauverzögerungsanalyse (AACE, SCL-Protokolle).",
+        "fr": "Classification selon l'analyse standard des retards de construction (protocoles AACE, SCL).",
+        "es": "Clasificación según el análisis estándar de retrasos en la construcción (protocolos AACE, SCL)."
       }
     },
     {
@@ -166,12 +194,16 @@
       "label_i18n": {
         "en": "Use Earned Schedule Method",
         "tr": "Kazanılmış Çizelge Yöntemini Kullan",
-        "de": "Earned-Schedule-Methode verwenden"
+        "de": "Earned-Schedule-Methode verwenden",
+        "fr": "Utiliser la méthode de l'échéancier acquis",
+        "es": "Usar método de cronograma ganado"
       },
       "businessContext_i18n": {
         "en": "If true, applies earned schedule (ES) metrics for more accurate delay impact assessment.",
         "tr": "Doğruysa, gecikme etkisi değerlendirmesi için daha doğru kazanılmış çizelge (ES) metriklerini uygular.",
-        "de": "Wenn wahr, werden Earned-Schedule-Kennzahlen (ES) für eine genauere Bewertung der Verzögerungsauswirkungen angewendet."
+        "de": "Wenn wahr, werden Earned-Schedule-Kennzahlen (ES) für eine genauere Bewertung der Verzögerungsauswirkungen angewendet.",
+        "fr": "Si vrai, applique les métriques de l'échéancier acquis (ES) pour une évaluation plus précise de l'impact des retards.",
+        "es": "Si es verdadero, aplica métricas de cronograma ganado (ES) para una evaluación más precisa del impacto del retraso."
       }
     }
   ],

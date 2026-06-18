@@ -12,14 +12,16 @@
         "en": "Equipment Power Rating",
         "tr": "Ekipman Güç Değeri",
         "de": "Leistungsaufnahme der Anlage",
-        "fr": "Equipment Power Rating",
-        "es": "Equipment Power Rating",
+        "fr": "Puissance Nominale de l'Équipement",
+        "es": "Potencia Nominal del Equipo",
         "ar": "Equipment Power Rating"
       },
       "businessContext_i18n": {
         "en": "Total power rating of equipment being audited.",
         "tr": "Denetlenen ekipmanın toplam güç değeri.",
-        "de": "Gesamte Leistungsaufnahme der zu prüfenden Anlage."
+        "de": "Gesamte Leistungsaufnahme der zu prüfenden Anlage.",
+        "fr": "Puissance totale des équipements audités.",
+        "es": "Potencia nominal total del equipo auditado."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Operating Hours per Year",
         "tr": "Yıllık Çalışma Saati",
         "de": "Betriebsstunden pro Jahr",
-        "fr": "Operating Hours per Year",
-        "es": "Operating Hours per Year",
+        "fr": "Heures de fonctionnement par an",
+        "es": "Horas de operación por año",
         "ar": "Operating Hours per Year"
       },
       "businessContext_i18n": {
         "en": "Annual operating hours of the equipment.",
         "tr": "Ekipmanın yıllık çalışma saati.",
-        "de": "Jährliche Betriebsstunden der Anlage."
+        "de": "Jährliche Betriebsstunden der Anlage.",
+        "fr": "Heures de fonctionnement annuelles de l'équipement.",
+        "es": "Horas anuales de funcionamiento del equipo."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Load Factor",
         "tr": "Yük Faktörü",
         "de": "Lastfaktor",
-        "fr": "Load Factor",
-        "es": "Load Factor",
+        "fr": "Facteur de charge",
+        "es": "Factor de carga",
         "ar": "Load Factor"
       },
       "businessContext_i18n": {
         "en": "Percentage of full power at which equipment typically operates.",
         "tr": "Ekipmanın tipik olarak çalıştığı tam güç yüzdesi.",
-        "de": "Prozentsatz der vollen Leistung, mit dem die Anlage typischerweise arbeitet."
+        "de": "Prozentsatz der vollen Leistung, mit dem die Anlage typischerweise arbeitet.",
+        "fr": "Pourcentage de la puissance nominale à laquelle l'équipement fonctionne généralement.",
+        "es": "Porcentaje de potencia máxima al que opera típicamente el equipo."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Cost per kWh",
         "tr": "kWh Başına Maliyet",
         "de": "Kosten pro kWh",
-        "fr": "Cost per kWh",
-        "es": "Cost per kWh",
+        "fr": "Coût par kWh",
+        "es": "Costo por kWh",
         "ar": "Cost per kWh"
       },
       "businessContext_i18n": {
         "en": "Electricity cost per kilowatt-hour.",
         "tr": "Kilovatsaat başına elektrik maliyeti.",
-        "de": "Stromkosten pro Kilowattstunde."
+        "de": "Stromkosten pro Kilowattstunde.",
+        "fr": "Coût de l'électricité par kilowattheure.",
+        "es": "Coste de la electricidad por kilovatio-hora."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Floor Area",
         "tr": "Alan",
         "de": "Grundfläche",
-        "fr": "Floor Area",
-        "es": "Floor Area",
+        "fr": "Surface au sol",
+        "es": "Superficie del Suelo",
         "ar": "Floor Area"
       },
       "businessContext_i18n": {
         "en": "Total floor area of the facility being audited.",
         "tr": "Denetlenen tesisin toplam taban alanı.",
-        "de": "Gesamte Grundfläche der zu prüfenden Einrichtung."
+        "de": "Gesamte Grundfläche der zu prüfenden Einrichtung.",
+        "fr": "Surface totale au sol de l'installation auditée.",
+        "es": "Superficie total del área de la instalación auditada."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "CO2 Emission Factor",
         "tr": "CO2 Emisyon Faktörü",
         "de": "CO₂-Emissionsfaktor",
-        "fr": "CO2 Emission Factor",
-        "es": "CO2 Emission Factor",
+        "fr": "Facteur d'émission de CO2",
+        "es": "Factor de emisión de CO₂",
         "ar": "CO2 Emission Factor"
       },
       "businessContext_i18n": {
         "en": "Carbon emission factor for grid electricity.",
         "tr": "Şebeke elektriği için karbon emisyon faktörü.",
-        "de": "CO₂-Emissionsfaktor für Netzstrom."
+        "de": "CO₂-Emissionsfaktor für Netzstrom.",
+        "fr": "Facteur d'émission carbone pour l'électricité du réseau.",
+        "es": "Factor de emisión de carbono para la electricidad de la red."
       }
     }
   ],

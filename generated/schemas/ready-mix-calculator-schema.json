@@ -12,13 +12,16 @@
         "en": "Length",
         "tr": "Uzunluk",
         "de": "Länge",
-        "fr": "Length",
-        "es": "Length",
+        "fr": "Longueur",
+        "es": "Longitud",
         "ar": "Length"
       },
       "businessContext_i18n": {
         "en": "Length of the concrete slab or formwork",
-        "tr": "Beton döşeme veya kalıp uzunluğu"
+        "tr": "Beton döşeme veya kalıp uzunluğu",
+        "de": "Länge der Betonplatte oder Schalung",
+        "fr": "Longueur de la dalle ou du coffrage en béton",
+        "es": "Longitud de la losa de hormigón o encofrado"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Width",
         "tr": "Genişlik",
         "de": "Breite",
-        "fr": "Width",
-        "es": "Width",
+        "fr": "Largeur",
+        "es": "Ancho",
         "ar": "Width"
       },
       "businessContext_i18n": {
         "en": "Width of the concrete slab or formwork",
-        "tr": "Beton döşeme veya kalıp genişliği"
+        "tr": "Beton döşeme veya kalıp genişliği",
+        "de": "Breite der Betonplatte oder Schalung",
+        "fr": "Largeur de la dalle ou du coffrage en béton",
+        "es": "Ancho de la losa de hormigón o encofrado"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Thickness",
         "tr": "Kalınlık",
         "de": "Dicke",
-        "fr": "Thickness",
-        "es": "Thickness",
+        "fr": "Épaisseur",
+        "es": "Espesor",
         "ar": "Thickness"
       },
       "businessContext_i18n": {
         "en": "Thickness (depth) of the concrete pour",
-        "tr": "Döküm kalınlığı (derinlik)"
+        "tr": "Döküm kalınlığı (derinlik)",
+        "de": "Dicke (Tiefe) des Betongusses",
+        "fr": "Épaisseur (profondeur) de la coulée de béton",
+        "es": "Espesor (profundidad) del vertido de hormigón"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
         "de": "Abfallfaktor",
-        "fr": "Waste Factor",
-        "es": "Waste Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Additional percentage for spillage, over-excavation, and formwork inaccuracies",
-        "tr": "Dökülme, fazla kazı ve kalıp hataları için ek yüzde"
+        "tr": "Dökülme, fazla kazı ve kalıp hataları için ek yüzde",
+        "de": "Zusätzlicher Prozentsatz für Verschütten, Überaushub und Schalungsungenauigkeiten",
+        "fr": "Pourcentage supplémentaire pour les déversements, les sur-excavations et les imprécisions du coffrage",
+        "es": "Porcentaje adicional por derrames, sobreexcavación e imprecisiones del encofrado"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Concrete Density",
         "tr": "Beton Yoğunluğu",
         "de": "Betondichte",
-        "fr": "Concrete Density",
-        "es": "Concrete Density",
+        "fr": "Densité du béton",
+        "es": "Densidad del hormigón",
         "ar": "Concrete Density"
       },
       "businessContext_i18n": {
         "en": "Standard density for ready mix concrete (typically 2400 kg/m³)",
-        "tr": "Hazır beton için standart yoğunluk (genellikle 2400 kg/m³)"
+        "tr": "Hazır beton için standart yoğunluk (genellikle 2400 kg/m³)",
+        "de": "Standarddichte für Transportbeton (typischerweise 2400 kg/m³)",
+        "fr": "Densité standard du béton prêt à l'emploi (généralement 2400 kg/m³)",
+        "es": "Densidad estándar del hormigón premezclado (típicamente 2400 kg/m³)"
       }
     }
   ],

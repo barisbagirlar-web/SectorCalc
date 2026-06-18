@@ -12,13 +12,16 @@
         "en": "Purchase Price",
         "tr": "Satın Alma Fiyatı",
         "de": "Kaufpreis",
-        "fr": "Purchase Price",
-        "es": "Purchase Price",
+        "fr": "Prix d'achat",
+        "es": "Precio de compra",
         "ar": "Purchase Price"
       },
       "businessContext_i18n": {
         "en": "The initial cost to acquire the NFT, including any minting or purchase expenses.",
-        "tr": "NFT'yi edinme maliyeti, basma veya satın alma giderleri dahil."
+        "tr": "NFT'yi edinme maliyeti, basma veya satın alma giderleri dahil.",
+        "de": "Anschaffungskosten des NFT, einschließlich Minting- oder Kaufkosten.",
+        "fr": "Coût initial d'acquisition du NFT, y compris les frais de frappe ou d'achat.",
+        "es": "Costo inicial para adquirir el NFT, incluyendo gastos de acuñación o compra."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Gas Fee",
         "tr": "Gaz ücreti",
-        "de": "Gas Fee",
-        "fr": "Gas Fee",
-        "es": "Gas Fee",
+        "de": "Gas-Gebühr",
+        "fr": "Frais de gaz",
+        "es": "Tarifa de gas",
         "ar": "Gas Fee"
       },
       "businessContext_i18n": {
         "en": "Transaction fee paid for minting or transferring the NFT on the blockchain.",
-        "tr": "NFT'yi blok zincirinde basma veya transfer etme için ödenen işlem ücreti."
+        "tr": "NFT'yi blok zincirinde basma veya transfer etme için ödenen işlem ücreti.",
+        "de": "Transaktionsgebühr für das Minting oder den Transfer des NFT auf der Blockchain.",
+        "fr": "Frais de transaction payés pour la frappe ou le transfert du NFT sur la blockchain.",
+        "es": "Tarifa de transacción pagada por acuñar o transferir el NFT en la blockchain."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Listing Fee",
         "tr": "Listeleme ücreti",
-        "de": "Listing Fee",
-        "fr": "Listing Fee",
-        "es": "Listing Fee",
+        "de": "Listing-Gebühr",
+        "fr": "Frais de mise en vente",
+        "es": "Tarifa de listado",
         "ar": "Listing Fee"
       },
       "businessContext_i18n": {
         "en": "Fee charged by the marketplace for listing the NFT for sale.",
-        "tr": "NFT'yi satışa sunmak için pazar yeri tarafından alınan ücret."
+        "tr": "NFT'yi satışa sunmak için pazar yeri tarafından alınan ücret.",
+        "de": "Gebühr des Marktplatzes für die Listung des NFT zum Verkauf.",
+        "fr": "Frais facturés par la plateforme pour mettre le NFT en vente.",
+        "es": "Tarifa cobrada por el mercado por listar el NFT para la venta."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Estimated Sale Price",
         "tr": "Tahmini satış fiyatı",
-        "de": "Estimated Sale Price",
-        "fr": "Estimated Sale Price",
-        "es": "Estimated Sale Price",
+        "de": "Geschätzter Verkaufspreis",
+        "fr": "Prix de vente estimé",
+        "es": "Precio de venta estimado",
         "ar": "Estimated Sale Price"
       },
       "businessContext_i18n": {
         "en": "The expected price at which the NFT will be sold on the secondary market.",
-        "tr": "NFT'nin ikincil piyasada satılması beklenen fiyat."
+        "tr": "NFT'nin ikincil piyasada satılması beklenen fiyat.",
+        "de": "Erwarteter Preis, zu dem das NFT auf dem Sekundärmarkt verkauft wird.",
+        "fr": "Prix attendu auquel le NFT sera vendu sur le marché secondaire.",
+        "es": "Precio esperado al que se venderá el NFT en el mercado secundario."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Royalty Percentage",
         "tr": "Telif yüzdesi",
-        "de": "Royalty Percentage",
-        "fr": "Royalty Percentage",
-        "es": "Royalty Percentage",
+        "de": "Lizenzgebühren-Prozentsatz",
+        "fr": "Pourcentage de redevance",
+        "es": "Porcentaje de regalías",
         "ar": "Royalty Percentage"
       },
       "businessContext_i18n": {
         "en": "Percentage of the sale price paid to the original creator as a royalty.",
-        "tr": "Orijinal yaratıcıya telif olarak ödenen satış fiyatının yüzdesi."
+        "tr": "Orijinal yaratıcıya telif olarak ödenen satış fiyatının yüzdesi.",
+        "de": "Prozentsatz des Verkaufspreises, der als Lizenzgebühr an den ursprünglichen Ersteller gezahlt wird.",
+        "fr": "Pourcentage du prix de vente versé au créateur original à titre de redevance.",
+        "es": "Porcentaje del precio de venta pagado al creador original como regalía."
       }
     }
   ],

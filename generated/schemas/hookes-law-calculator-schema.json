@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Force (F)",
         "tr": "Kuvvet (F)",
-        "de": "Force (F)",
+        "de": "Kraft (F)",
         "fr": "Force (F)",
-        "es": "Force (F)",
+        "es": "Fuerza (F)",
         "ar": "Force (F)"
       },
       "businessContext_i18n": {
         "en": "Applied force on the spring",
-        "tr": "Yay üzerine uygulanan kuvvet"
+        "tr": "Yay üzerine uygulanan kuvvet",
+        "de": "Auf die Feder ausgeübte Kraft",
+        "fr": "Force appliquée sur le ressort",
+        "es": "Fuerza aplicada sobre el resorte"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Spring Constant (k)",
         "tr": "Yay Sabiti (k)",
         "de": "Federkonstante (k)",
-        "fr": "Spring Constant (k)",
-        "es": "Spring Constant (k)",
+        "fr": "Constante de raideur (k)",
+        "es": "Constante del resorte (k)",
         "ar": "Spring Constant (k)"
       },
       "businessContext_i18n": {
         "en": "Stiffness of the spring",
-        "tr": "Yayın sertliği"
+        "tr": "Yayın sertliği",
+        "de": "Federsteifigkeit",
+        "fr": "Raideur du ressort",
+        "es": "Rigidez del resorte"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Displacement (x)",
         "tr": "Yer Değiştirme (x)",
-        "de": "Displacement (x)",
-        "fr": "Displacement (x)",
-        "es": "Displacement (x)",
+        "de": "Auslenkung (x)",
+        "fr": "Déplacement (x)",
+        "es": "Desplazamiento (x)",
         "ar": "Displacement (x)"
       },
       "businessContext_i18n": {
         "en": "Extension or compression from equilibrium",
-        "tr": "Denge konumundan uzama veya sıkışma"
+        "tr": "Denge konumundan uzama veya sıkışma",
+        "de": "Verlängerung oder Stauchung aus dem Gleichgewicht",
+        "fr": "Extension ou compression par rapport à l'équilibre",
+        "es": "Extensión o compresión desde el equilibrio"
       }
     }
   ],

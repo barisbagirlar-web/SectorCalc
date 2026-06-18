@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Toplam Enerji Tüketimi",
         "tr": "Toplam Enerji Tüketimi",
-        "de": "Toplam Enerji Tüketimi",
-        "fr": "Toplam Enerji Tüketimi",
-        "es": "Toplam Enerji Tüketimi",
+        "de": "Gesamtenergieverbrauch",
+        "fr": "Consommation totale d'énergie",
+        "es": "Consumo total de energía",
         "ar": "Toplam Enerji Tüketimi"
       },
       "businessContext_i18n": {
         "en": "Dönem boyunca tüketilen toplam enerji miktarı (kWh)",
-        "tr": "Dönem boyunca tüketilen toplam enerji miktarı (kWh)"
+        "tr": "Dönem boyunca tüketilen toplam enerji miktarı (kWh)",
+        "de": "Gesamtenergiemenge, die im Zeitraum verbraucht wurde (kWh)",
+        "fr": "Quantité totale d'énergie consommée pendant la période (kWh)",
+        "es": "Cantidad total de energía consumida durante el período (kWh)"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Pik Talep",
         "tr": "Pik Talep",
-        "de": "Pik Talep",
-        "fr": "Pik Talep",
-        "es": "Pik Talep",
+        "de": "Spitzenlast",
+        "fr": "Demande de pointe",
+        "es": "Demanda máxima",
         "ar": "Pik Talep"
       },
       "businessContext_i18n": {
         "en": "Aynı dönemde ölçülen en yüksek güç talebi (kW)",
-        "tr": "Aynı dönemde ölçülen en yüksek güç talebi (kW)"
+        "tr": "Aynı dönemde ölçülen en yüksek güç talebi (kW)",
+        "de": "Höchster im gleichen Zeitraum gemessener Leistungsbedarf (kW)",
+        "fr": "Demande de puissance la plus élevée mesurée sur la même période (kW)",
+        "es": "Demanda de potencia más alta medida en el mismo período (kW)"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Gün Sayısı",
         "tr": "Gün Sayısı",
-        "de": "Gün Sayısı",
-        "fr": "Gün Sayısı",
-        "es": "Gün Sayısı",
+        "de": "Anzahl der Tage",
+        "fr": "Nombre de jours",
+        "es": "Número de días",
         "ar": "Gün Sayısı"
       },
       "businessContext_i18n": {
         "en": "Ölçüm periyodunun gün cinsinden süresi",
-        "tr": "Ölçüm periyodunun gün cinsinden süresi"
+        "tr": "Ölçüm periyodunun gün cinsinden süresi",
+        "de": "Dauer des Messzeitraums in Tagen",
+        "fr": "Durée de la période de mesure en jours",
+        "es": "Duración del período de medición en días"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Günlük Çalışma Saati",
         "tr": "Günlük Çalışma Saati",
         "de": "Günlük Çalışma Saati",
-        "fr": "Günlük Çalışma Saati",
-        "es": "Günlük Çalışma Saati",
+        "fr": "Heures de travail par jour",
+        "es": "Horas de trabajo diarias",
         "ar": "Günlük Çalışma Saati"
       },
       "businessContext_i18n": {
         "en": "Tesisin günlük ortalama çalışma süresi",
-        "tr": "Tesisin günlük ortalama çalışma süresi"
+        "tr": "Tesisin günlük ortalama çalışma süresi",
+        "de": "Durchschnittliche tägliche Betriebszeit der Anlage",
+        "fr": "Temps de fonctionnement quotidien moyen de l'installation",
+        "es": "Tiempo de trabajo diario promedio de la instalación"
       }
     }
   ],

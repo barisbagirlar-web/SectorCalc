@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Raw Data Volume (PB)",
         "tr": "Ham Veri Hacmi (PB)",
-        "de": "Raw Data Volume (PB)",
-        "fr": "Raw Data Volume (PB)",
-        "es": "Raw Data Volume (PB)",
+        "de": "Rohdatenvolumen (PB)",
+        "fr": "Volume de données brutes (Po)",
+        "es": "Volumen de datos brutos (PB)",
         "ar": "Raw Data Volume (PB)"
       },
       "businessContext_i18n": {
         "en": "The raw data volume in petabytes.",
-        "tr": "Petabayt cinsinden ham veri hacmi."
+        "tr": "Petabayt cinsinden ham veri hacmi.",
+        "de": "Das Rohdatenvolumen in Petabyte.",
+        "fr": "Le volume de données brutes en pétaoctets.",
+        "es": "El volumen de datos brutos en petabytes."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Replication Factor",
         "tr": "Çoğaltma Faktörü",
-        "de": "Replication Factor",
-        "fr": "Replication Factor",
-        "es": "Replication Factor",
+        "de": "Replikationsfaktor",
+        "fr": "Facteur de réplication",
+        "es": "Factor de replicación",
         "ar": "Replication Factor"
       },
       "businessContext_i18n": {
         "en": "Number of replicas (e.g., HDFS replication factor).",
-        "tr": "Kopya sayısı (ör. HDFS çoğaltma faktörü)."
+        "tr": "Kopya sayısı (ör. HDFS çoğaltma faktörü).",
+        "de": "Anzahl der Replikate (z. B. HDFS-Replikationsfaktor).",
+        "fr": "Nombre de réplicas (ex. facteur de réplication HDFS).",
+        "es": "Número de réplicas (por ejemplo, factor de replicación de HDFS)."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Redundancy Overhead (%)",
         "tr": "Yedeklilik Ek Yükü (%)",
-        "de": "Redundancy Overhead (%)",
-        "fr": "Redundancy Overhead (%)",
-        "es": "Redundancy Overhead (%)",
+        "de": "Redundanz-Overhead (%)",
+        "fr": "Surcharge de redondance (%)",
+        "es": "Sobrecarga de redundancia (%)",
         "ar": "Redundancy Overhead (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage overhead for RAID, erasure coding, or other redundancy.",
-        "tr": "RAID, hata düzeltme kodlaması veya diğer yedeklilik için yüzde ek yük."
+        "tr": "RAID, hata düzeltme kodlaması veya diğer yedeklilik için yüzde ek yük.",
+        "de": "Prozentualer Overhead für RAID, Erasure Coding oder andere Redundanz.",
+        "fr": "Pourcentage de surcharge pour RAID, codage d'effacement ou autre redondance.",
+        "es": "Porcentaje de sobrecarga para RAID, codificación de borrado u otra redundancia."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Provisioning Buffer (%)",
         "tr": "Tedarik Tamponu (%)",
-        "de": "Provisioning Buffer (%)",
-        "fr": "Provisioning Buffer (%)",
-        "es": "Provisioning Buffer (%)",
+        "de": "Bereitstellungspuffer (%)",
+        "fr": "Tampon de provisionnement (%)",
+        "es": "Margen de aprovisionamiento (%)",
         "ar": "Provisioning Buffer (%)"
       },
       "businessContext_i18n": {
         "en": "Extra capacity for future growth or temporary spikes.",
-        "tr": "Gelecekteki büyüme veya geçici ani artışlar için ek kapasite."
+        "tr": "Gelecekteki büyüme veya geçici ani artışlar için ek kapasite.",
+        "de": "Zusätzliche Kapazität für zukünftiges Wachstum oder temporäre Spitzen.",
+        "fr": "Capacité supplémentaire pour la croissance future ou les pics temporaires.",
+        "es": "Capacidad extra para crecimiento futuro o picos temporales."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Compression Ratio",
         "tr": "Sıkıştırma Oranı",
         "de": "Kompressionsverhältnis",
-        "fr": "Compression Ratio",
-        "es": "Compression Ratio",
+        "fr": "Taux de compression",
+        "es": "Relación de compresión",
         "ar": "Compression Ratio"
       },
       "businessContext_i18n": {
         "en": "Lossless compression ratio (e.g., 2 means 2:1 compression).",
-        "tr": "Kayıpsız sıkıştırma oranı (örneğin, 2, 2:1 sıkıştırma anlamına gelir)."
+        "tr": "Kayıpsız sıkıştırma oranı (örneğin, 2, 2:1 sıkıştırma anlamına gelir).",
+        "de": "Verlustfreies Kompressionsverhältnis (z.B. 2 bedeutet 2:1-Kompression).",
+        "fr": "Taux de compression sans perte (par exemple, 2 signifie compression 2:1).",
+        "es": "Relación de compresión sin pérdida (ej. 2 significa compresión 2:1)."
       }
     },
     {
@@ -112,14 +127,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output.",
         "tr": "Çıktı için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen für die Ausgabe."
+        "de": "Anzahl der Dezimalstellen für die Ausgabe.",
+        "fr": "Nombre de décimales pour le résultat.",
+        "es": "Número de decimales para la salida."
       }
     }
   ],

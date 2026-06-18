@@ -12,14 +12,16 @@
         "en": "Plaka Yüksekliği (L)",
         "tr": "Plaka Yüksekliği (L)",
         "de": "Plattenhöhe (L)",
-        "fr": "Plaka Yüksekliği (L)",
-        "es": "Plaka Yüksekliği (L)",
+        "fr": "Hauteur de la plaque (L)",
+        "es": "Altura de la placa (L)",
         "ar": "Plaka Yüksekliği (L)"
       },
       "businessContext_i18n": {
         "en": "Taşınımın gerçekleştiği dikey plakanın yüksekliği.",
         "tr": "Taşınımın gerçekleştiği dikey plakanın yüksekliği.",
-        "de": "Höhe der vertikalen Platte, an der die Konvektion stattfindet."
+        "de": "Höhe der vertikalen Platte, an der die Konvektion stattfindet.",
+        "fr": "Hauteur de la plaque verticale où se produit la convection.",
+        "es": "Altura de la placa vertical donde ocurre la convección."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Plaka Genişliği (W)",
         "tr": "Plaka Genişliği (W)",
         "de": "Plattenbreite (W)",
-        "fr": "Plaka Genişliği (W)",
-        "es": "Plaka Genişliği (W)",
+        "fr": "Largeur de la plaque (W)",
+        "es": "Ancho de la placa (W)",
         "ar": "Plaka Genişliği (W)"
       },
       "businessContext_i18n": {
         "en": "Isı transfer alanı hesabı için plaka genişliği.",
         "tr": "Isı transfer alanı hesabı için plaka genişliği.",
-        "de": "Plattenbreite zur Berechnung der Wärmeübertragungsfläche."
+        "de": "Plattenbreite zur Berechnung der Wärmeübertragungsfläche.",
+        "fr": "Largeur de la plaque pour le calcul de la surface de transfert thermique.",
+        "es": "Ancho de la placa para el cálculo del área de transferencia de calor."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Yüzey Sıcaklığı",
         "tr": "Yüzey Sıcaklığı",
         "de": "Oberflächentemperatur",
-        "fr": "Yüzey Sıcaklığı",
-        "es": "Yüzey Sıcaklığı",
+        "fr": "Température de surface",
+        "es": "Temperatura de la superficie",
         "ar": "Yüzey Sıcaklığı"
       },
       "businessContext_i18n": {
         "en": "Plaka yüzey sıcaklığı.",
         "tr": "Plaka yüzey sıcaklığı.",
-        "de": "Oberflächentemperatur der Platte."
+        "de": "Oberflächentemperatur der Platte.",
+        "fr": "Température de la surface de la plaque.",
+        "es": "Temperatura de la superficie de la placa."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Akışkan Sıcaklığı",
         "tr": "Akışkan Sıcaklığı",
         "de": "Fluidtemperatur",
-        "fr": "Akışkan Sıcaklığı",
-        "es": "Akışkan Sıcaklığı",
+        "fr": "Température du fluide",
+        "es": "Temperatura del fluido",
         "ar": "Akışkan Sıcaklığı"
       },
       "businessContext_i18n": {
         "en": "Ortam akışkan sıcaklığı (genellikle hava).",
         "tr": "Ortam akışkan sıcaklığı (genellikle hava).",
-        "de": "Umgebungsfluidtemperatur (normalerweise Luft)."
+        "de": "Umgebungsfluidtemperatur (normalerweise Luft).",
+        "fr": "Température du fluide ambiant (généralement de l'air).",
+        "es": "Temperatura del fluido ambiente (generalmente aire)."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Isıl İletkenlik (k)",
         "tr": "Isıl İletkenlik (k)",
         "de": "Wärmeleitfähigkeit (k)",
-        "fr": "Isıl İletkenlik (k)",
-        "es": "Isıl İletkenlik (k)",
+        "fr": "Conductivité thermique (k)",
+        "es": "Conductividad térmica (k)",
         "ar": "Isıl İletkenlik (k)"
       },
       "businessContext_i18n": {
         "en": "Akışkanın ısıl iletkenlik katsayısı (hava için ~0.0257 W/mK).",
         "tr": "Akışkanın ısıl iletkenlik katsayısı (hava için ~0.0257 W/mK).",
-        "de": "Wärmeleitfähigkeit des Fluids (für Luft ~0,0257 W/mK)."
+        "de": "Wärmeleitfähigkeit des Fluids (für Luft ~0,0257 W/mK).",
+        "fr": "Coefficient de conductivité thermique du fluide (pour l'air ~0,0257 W/mK).",
+        "es": "Coeficiente de conductividad térmica del fluido (para aire ~0.0257 W/mK)."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Kinematik Viskozite (ν)",
         "tr": "Kinematik Viskozite (ν)",
         "de": "Kinematische Viskosität (ν)",
-        "fr": "Kinematik Viskozite (ν)",
-        "es": "Kinematik Viskozite (ν)",
+        "fr": "Viscosité cinématique (ν)",
+        "es": "Viscosidad cinemática (ν)",
         "ar": "Kinematik Viskozite (ν)"
       },
       "businessContext_i18n": {
         "en": "Akışkanın kinematik viskozitesi (hava için ~1.6e-5 m²/s).",
         "tr": "Akışkanın kinematik viskozitesi (hava için ~1.6e-5 m²/s).",
-        "de": "Kinematische Viskosität des Fluids (für Luft ~1,6e-5 m²/s)."
+        "de": "Kinematische Viskosität des Fluids (für Luft ~1,6e-5 m²/s).",
+        "fr": "Viscosité cinématique du fluide (pour l'air ~1,6e-5 m²/s).",
+        "es": "Viscosidad cinemática del fluido (para aire ~1.6e-5 m²/s)."
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Prandtl Sayısı (Pr)",
         "tr": "Prandtl Sayısı (Pr)",
         "de": "Prandtl-Zahl (Pr)",
-        "fr": "Prandtl Sayısı (Pr)",
-        "es": "Prandtl Sayısı (Pr)",
+        "fr": "Nombre de Prandtl (Pr)",
+        "es": "Número de Prandtl (Pr)",
         "ar": "Prandtl Sayısı (Pr)"
       },
       "businessContext_i18n": {
         "en": "Akışkanın Prandtl sayısı (hava için ~0.7).",
         "tr": "Akışkanın Prandtl sayısı (hava için ~0.7).",
-        "de": "Prandtl-Zahl des Fluids (für Luft ~0,7)."
+        "de": "Prandtl-Zahl des Fluids (für Luft ~0,7).",
+        "fr": "Nombre de Prandtl du fluide (pour l'air ~0,7).",
+        "es": "Número de Prandtl del fluido (para aire ~0.7)."
       }
     }
   ],

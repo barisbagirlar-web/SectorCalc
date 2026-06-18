@@ -12,13 +12,15 @@
         "en": "Feed Rate",
         "tr": "İlerleme Hızı",
         "de": "Vorschubgeschwindigkeit",
-        "fr": "Feed Rate",
-        "es": "Feed Rate",
+        "fr": "Avance",
+        "es": "Avance",
         "ar": "Feed Rate"
       },
       "businessContext_i18n": {
         "en": "Feed per revolution in turning/milling.",
-        "tr": "Tornalama/frezelemede devir başına ilerleme."
+        "tr": "Tornalama/frezelemede devir başına ilerleme.",
+        "de": "Vorschub pro Umdrehung beim Drehen/Fräsen.",
+        "fr": "Avance par tour en tournage/fraisage."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Tool Nose Radius",
         "tr": "Takım Uç Radyüsü",
-        "de": "Tool Nose Radius",
-        "fr": "Tool Nose Radius",
+        "de": "Schneidplattenradius",
+        "fr": "Rayon de bec d'outil",
         "es": "Tool Nose Radius",
         "ar": "Tool Nose Radius"
       },
       "businessContext_i18n": {
         "en": "Insert nose radius.",
-        "tr": "Insert uç radyüsü."
+        "tr": "Insert uç radyüsü.",
+        "de": "Schneidplattenradius.",
+        "fr": "Rayon de bec de plaquette."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Cutting Speed",
         "tr": "Kesme Hızı",
         "de": "Schnittgeschwindigkeit",
-        "fr": "Cutting Speed",
-        "es": "Cutting Speed",
+        "fr": "Vitesse de coupe",
+        "es": "Velocidad de corte",
         "ar": "Cutting Speed"
       },
       "businessContext_i18n": {
         "en": "Cutting speed (not directly used in roughness formula but provided for reference).",
-        "tr": "Kesme hızı (pürüzlülük formülünde doğrudan kullanılmaz, referans olarak verilmiştir)."
+        "tr": "Kesme hızı (pürüzlülük formülünde doğrudan kullanılmaz, referans olarak verilmiştir).",
+        "de": "Schnittgeschwindigkeit (nicht direkt in der Rauheitsformel verwendet, aber als Referenz angegeben).",
+        "fr": "Vitesse de coupe (non utilisée directement dans la formule de rugosité mais fournie à titre indicatif)."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Depth of Cut",
         "tr": "Kesme Derinliği",
         "de": "Schnitttiefe",
-        "fr": "Depth of Cut",
-        "es": "Depth of Cut",
+        "fr": "Profondeur de passe",
+        "es": "Profundidad de corte",
         "ar": "Depth of Cut"
       },
       "businessContext_i18n": {
         "en": "Depth of cut (affects forces, minor effect on finish).",
-        "tr": "Kesme derinliği (kuvvetleri etkiler, yüzey kalitesine küçük etkisi vardır)."
+        "tr": "Kesme derinliği (kuvvetleri etkiler, yüzey kalitesine küçük etkisi vardır).",
+        "de": "Schnitttiefe (beeinflusst Kräfte, geringe Auswirkung auf die Oberflächengüte).",
+        "fr": "Profondeur de passe (affecte les efforts, effet mineur sur l'état de surface)."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Desired Surface Roughness Ra",
         "tr": "Hedef Yüzey Pürüzlülüğü Ra",
-        "de": "Desired Surface Roughness Ra",
-        "fr": "Desired Surface Roughness Ra",
+        "de": "Gewünschte Oberflächenrauheit Ra",
+        "fr": "Rugosité moyenne Ra souhaitée",
         "es": "Desired Surface Roughness Ra",
         "ar": "Desired Surface Roughness Ra"
       },
       "businessContext_i18n": {
         "en": "Target average roughness.",
-        "tr": "Hedef ortalama pürüzlülük."
+        "tr": "Hedef ortalama pürüzlülük.",
+        "de": "Zielwert der mittleren Rauheit.",
+        "fr": "Rugosité moyenne cible."
       }
     }
   ],

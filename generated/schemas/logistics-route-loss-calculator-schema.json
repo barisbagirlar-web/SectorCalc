@@ -22,11 +22,17 @@
       "businessContext": "Total distance of the route from origin to destination.",
       "label_i18n": {
         "en": "Route Distance (km)",
-        "tr": "Rota Mesafesi (km)"
+        "tr": "Rota Mesafesi (km)",
+        "de": "Routendistanz (km)",
+        "fr": "Distance de route (km)",
+        "es": "Distancia de ruta (km)"
       },
       "businessContext_i18n": {
         "en": "Total distance of the route from origin to destination.",
-        "tr": "Rota mesafesi, başlangıç noktasından varış noktasına toplam mesafe."
+        "tr": "Rota mesafesi, başlangıç noktasından varış noktasına toplam mesafe.",
+        "de": "Gesamtdistanz der Route vom Start zum Ziel.",
+        "fr": "Distance totale du trajet de l'origine à la destination.",
+        "es": "Distancia total de la ruta desde el origen hasta el destino."
       }
     },
     {
@@ -41,11 +47,16 @@
       "label_i18n": {
         "en": "Average Speed (km/h)",
         "tr": "Ortalama Hız (km/s)",
-        "de": "Durchschnittsgeschwindigkeit (km/h)"
+        "de": "Durchschnittsgeschwindigkeit (km/h)",
+        "fr": "Vitesse moyenne (km/h)",
+        "es": "Velocidad media (km/h)"
       },
       "businessContext_i18n": {
         "en": "Expected average speed under normal conditions.",
-        "tr": "Normal koşullar altında beklenen ortalama hız."
+        "tr": "Normal koşullar altında beklenen ortalama hız.",
+        "de": "Erwartete Durchschnittsgeschwindigkeit unter normalen Bedingungen.",
+        "fr": "Vitesse moyenne attendue dans des conditions normales.",
+        "es": "Velocidad media esperada en condiciones normales."
       }
     },
     {
@@ -59,11 +70,17 @@
       "businessContext": "Number of planned stops along the route (e.g., for pickup/delivery).",
       "label_i18n": {
         "en": "Planned Stops",
-        "tr": "Planlı Duraklar"
+        "tr": "Planlı Duraklar",
+        "de": "Geplante Stopps",
+        "fr": "Arrêts planifiés",
+        "es": "Paradas planificadas"
       },
       "businessContext_i18n": {
         "en": "Number of planned stops along the route (e.g., for pickup/delivery).",
-        "tr": "Rota boyunca planlı durak sayısı (örneğin, yükleme/boşaltma için)."
+        "tr": "Rota boyunca planlı durak sayısı (örneğin, yükleme/boşaltma için).",
+        "de": "Anzahl der geplanten Stopps entlang der Route (z. B. für Abholung/Lieferung).",
+        "fr": "Nombre d'arrêts planifiés le long du trajet (ex. pour ramassage/livraison).",
+        "es": "Número de paradas planificadas en la ruta (p. ej., para recogida/entrega)."
       }
     },
     {
@@ -77,11 +94,17 @@
       "businessContext": "Average time spent per stop, including waiting and handling.",
       "label_i18n": {
         "en": "Average Stop Time (min)",
-        "tr": "Ortalama Durak Süresi (dk)"
+        "tr": "Ortalama Durak Süresi (dk)",
+        "de": "Durchschnittliche Stoppzeit (Min.)",
+        "fr": "Temps d'arrêt moyen (min)",
+        "es": "Tiempo medio de parada (min)"
       },
       "businessContext_i18n": {
         "en": "Average time spent per stop, including waiting and handling.",
-        "tr": "Bekleme ve elleçleme dahil, durak başına ortalama süre."
+        "tr": "Bekleme ve elleçleme dahil, durak başına ortalama süre.",
+        "de": "Durchschnittliche Zeit pro Stopp, einschließlich Warte- und Bearbeitungszeit.",
+        "fr": "Temps moyen passé par arrêt, y compris l'attente et la manutention.",
+        "es": "Tiempo medio por parada, incluyendo espera y manipulación."
       }
     },
     {
@@ -95,11 +118,17 @@
       "businessContext": "Fraction of driving time lost due to traffic congestion (0 = none, 1 = 100% delay).",
       "label_i18n": {
         "en": "Traffic Delay Factor",
-        "tr": "Trafik Gecikme Faktörü"
+        "tr": "Trafik Gecikme Faktörü",
+        "de": "Verkehrsverzögerungsfaktor",
+        "fr": "Facteur de retard dû au trafic",
+        "es": "Factor de demora por tráfico"
       },
       "businessContext_i18n": {
         "en": "Fraction of driving time lost due to traffic congestion (0 = none, 1 = 100% delay).",
-        "tr": "Trafik sıkışıklığı nedeniyle kaybedilen sürüş süresinin oranı (0 = yok, 1 = %100 gecikme)."
+        "tr": "Trafik sıkışıklığı nedeniyle kaybedilen sürüş süresinin oranı (0 = yok, 1 = %100 gecikme).",
+        "de": "Anteil der Fahrzeit, der durch Verkehrsstaus verloren geht (0 = keine, 1 = 100 % Verzögerung).",
+        "fr": "Fraction du temps de conduite perdue à cause des embouteillages (0 = aucun, 1 = 100 % de retard).",
+        "es": "Fracción del tiempo de conducción perdida por congestión (0 = ninguna, 1 = 100% de demora)."
       }
     },
     {
@@ -113,11 +142,17 @@
       "businessContext": "Average fuel cost per kilometer for the vehicle type.",
       "label_i18n": {
         "en": "Fuel Cost per km",
-        "tr": "km Başına Yakıt Maliyeti"
+        "tr": "km Başına Yakıt Maliyeti",
+        "de": "Kraftstoffkosten pro km",
+        "fr": "Coût du carburant par km",
+        "es": "Coste de combustible por km"
       },
       "businessContext_i18n": {
         "en": "Average fuel cost per kilometer for the vehicle type.",
-        "tr": "Araç tipi için km başına ortalama yakıt maliyeti."
+        "tr": "Araç tipi için km başına ortalama yakıt maliyeti.",
+        "de": "Durchschnittliche Kraftstoffkosten pro Kilometer für den Fahrzeugtyp.",
+        "fr": "Coût moyen du carburant par kilomètre pour le type de véhicule.",
+        "es": "Coste medio de combustible por kilómetro para el tipo de vehículo."
       }
     },
     {
@@ -132,11 +167,16 @@
       "label_i18n": {
         "en": "Driver Wage per Hour",
         "tr": "Sürücü Saatlik Ücreti",
-        "de": "Fahrerlohn pro Stunde"
+        "de": "Fahrerlohn pro Stunde",
+        "fr": "Salaire du conducteur par heure",
+        "es": "Salario del conductor por hora"
       },
       "businessContext_i18n": {
         "en": "Hourly wage of the driver (including benefits).",
-        "tr": "Sürücünün saatlik ücreti (yan haklar dahil)."
+        "tr": "Sürücünün saatlik ücreti (yan haklar dahil).",
+        "de": "Stundenlohn des Fahrers (einschließlich Zusatzleistungen).",
+        "fr": "Salaire horaire du conducteur (incluant les avantages).",
+        "es": "Salario por hora del conductor (incluyendo prestaciones)."
       }
     },
     {
@@ -150,11 +190,17 @@
       "businessContext": "Non-fuel operating costs per km (maintenance, tires, depreciation).",
       "label_i18n": {
         "en": "Vehicle Operating Cost per km",
-        "tr": "km Başına Araç İşletme Maliyeti"
+        "tr": "km Başına Araç İşletme Maliyeti",
+        "de": "Fahrzeugbetriebskosten pro km",
+        "fr": "Coût d'exploitation du véhicule par km",
+        "es": "Coste operativo del vehículo por km"
       },
       "businessContext_i18n": {
         "en": "Non-fuel operating costs per km (maintenance, tires, depreciation).",
-        "tr": "km başına yakıt dışı işletme maliyetleri (bakım, lastik, amortisman)."
+        "tr": "km başına yakıt dışı işletme maliyetleri (bakım, lastik, amortisman).",
+        "de": "Nicht-kraftstoffbezogene Betriebskosten pro km (Wartung, Reifen, Abschreibung).",
+        "fr": "Coûts d'exploitation hors carburant par km (entretien, pneus, amortissement).",
+        "es": "Costes operativos no relacionados con combustible por km (mantenimiento, neumáticos, depreciación)."
       }
     }
   ],

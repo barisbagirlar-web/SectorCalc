@@ -12,14 +12,16 @@
         "en": "True Positives (TP)",
         "tr": "Gerçek Pozitif (TP)",
         "de": "Richtig Positive (TP)",
-        "fr": "True Positives (TP)",
-        "es": "True Positives (TP)",
+        "fr": "Vrais positifs (VP)",
+        "es": "Verdaderos positivos (VP)",
         "ar": "True Positives (TP)"
       },
       "businessContext_i18n": {
         "en": "Number of correctly identified positive cases (e.g., defective products correctly flagged)",
         "tr": "Doğru tanımlanan pozitif vaka sayısı (örneğin, hatalı ürünlerin doğru şekilde işaretlenmesi)",
-        "de": "Anzahl korrekt identifizierter positiver Fälle (z. B. fehlerhafte Produkte korrekt erkannt)"
+        "de": "Anzahl korrekt identifizierter positiver Fälle (z. B. fehlerhafte Produkte korrekt erkannt)",
+        "fr": "Nombre de cas positifs correctement identifiés (ex. produits défectueux correctement signalés)",
+        "es": "Número de casos positivos correctamente identificados (p. ej., productos defectuosos correctamente marcados)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "False Positives (FP)",
         "tr": "Yanlış Pozitif (FP)",
         "de": "Falsch Positive (FP)",
-        "fr": "False Positives (FP)",
-        "es": "False Positives (FP)",
+        "fr": "Faux positifs (FP)",
+        "es": "Falsos Positivos (FP)",
         "ar": "False Positives (FP)"
       },
       "businessContext_i18n": {
         "en": "Number of incorrectly identified positive cases (e.g., good products flagged as defective)",
         "tr": "Yanlış tanımlanan pozitif vaka sayısı (örneğin, iyi ürünlerin hatalı olarak işaretlenmesi)",
-        "de": "Anzahl fälschlich als positiv identifizierter Fälle (z. B. gute Produkte als fehlerhaft markiert)"
+        "de": "Anzahl fälschlich als positiv identifizierter Fälle (z. B. gute Produkte als fehlerhaft markiert)",
+        "fr": "Nombre de cas positifs incorrectement identifiés (ex. bons produits signalés comme défectueux)",
+        "es": "Número de casos positivos incorrectamente identificados (p. ej., productos buenos marcados como defectuosos)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "True Negatives (TN)",
         "tr": "Gerçek Negatif (TN)",
         "de": "Richtig Negative (TN)",
-        "fr": "True Negatives (TN)",
-        "es": "True Negatives (TN)",
+        "fr": "Vrais négatifs (VN)",
+        "es": "Verdaderos Negativos (VN)",
         "ar": "True Negatives (TN)"
       },
       "businessContext_i18n": {
         "en": "Number of correctly identified negative cases (e.g., good products correctly passed)",
         "tr": "Doğru tanımlanan negatif vaka sayısı (örneğin, iyi ürünlerin doğru şekilde geçmesi)",
-        "de": "Anzahl korrekt identifizierter negativer Fälle (z. B. gute Produkte korrekt durchgelassen)"
+        "de": "Anzahl korrekt identifizierter negativer Fälle (z. B. gute Produkte korrekt durchgelassen)",
+        "fr": "Nombre de cas négatifs correctement identifiés (ex. bons produits correctement acceptés)",
+        "es": "Número de casos negativos correctamente identificados (p. ej., productos buenos correctamente aprobados)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "False Negatives (FN)",
         "tr": "Yanlış Negatif (FN)",
         "de": "Falsch Negative (FN)",
-        "fr": "False Negatives (FN)",
-        "es": "False Negatives (FN)",
+        "fr": "Faux négatifs (FN)",
+        "es": "Falsos Negativos (FN)",
         "ar": "False Negatives (FN)"
       },
       "businessContext_i18n": {
         "en": "Number of incorrectly identified negative cases (e.g., defective products missed)",
         "tr": "Yanlış tanımlanan negatif vaka sayısı (örneğin, hatalı ürünlerin kaçırılması)",
-        "de": "Anzahl übersehener negativer Fälle (z. B. fehlerhafte Produkte nicht erkannt)"
+        "de": "Anzahl übersehener negativer Fälle (z. B. fehlerhafte Produkte nicht erkannt)",
+        "fr": "Nombre de cas négatifs incorrectement identifiés (ex. produits défectueux manqués)",
+        "es": "Número de casos negativos incorrectamente identificados (p. ej., productos defectuosos no detectados)"
       }
     }
   ],

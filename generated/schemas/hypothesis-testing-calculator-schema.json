@@ -12,13 +12,16 @@
         "en": "Sample Mean (x̄)",
         "tr": "Örneklem ortalaması (x̄)",
         "de": "Stichprobenmittelwert (x̄)",
-        "fr": "Sample Mean (x̄)",
-        "es": "Sample Mean (x̄)",
+        "fr": "Moyenne de l'échantillon (x̄)",
+        "es": "Media muestral (x̄)",
         "ar": "Sample Mean (x̄)"
       },
       "businessContext_i18n": {
         "en": "Observed average of the sample data.",
-        "tr": "Örnek verilerin gözlemlenen ortalaması."
+        "tr": "Örnek verilerin gözlemlenen ortalaması.",
+        "de": "Beobachteter Mittelwert der Stichprobendaten.",
+        "fr": "Moyenne observée des données de l'échantillon.",
+        "es": "Media observada de los datos de la muestra"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Null Hypothesis Mean (μ₀)",
         "tr": "Sıfır Hipotezi Ortalaması (μ₀)",
-        "de": "Null Hypothesis Mean (μ₀)",
-        "fr": "Null Hypothesis Mean (μ₀)",
-        "es": "Null Hypothesis Mean (μ₀)",
+        "de": "Mittelwert der Nullhypothese (μ₀)",
+        "fr": "Moyenne de l'hypothèse nulle (μ₀)",
+        "es": "Media de la hipótesis nula (μ₀)",
         "ar": "Null Hypothesis Mean (μ₀)"
       },
       "businessContext_i18n": {
         "en": "Hypothesized population mean under the null hypothesis.",
-        "tr": "Sıfır hipotezi altında varsayılan popülasyon ortalaması."
+        "tr": "Sıfır hipotezi altında varsayılan popülasyon ortalaması.",
+        "de": "Hypothetischer Populationsmittelwert unter der Nullhypothese.",
+        "fr": "Moyenne de la population hypothétique sous l'hypothèse nulle.",
+        "es": "Media poblacional hipotética bajo la hipótesis nula."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Population Standard Deviation (σ)",
         "tr": "Popülasyon Standart Sapması (σ)",
-        "de": "Population Standard Deviation (σ)",
-        "fr": "Population Standard Deviation (σ)",
-        "es": "Population Standard Deviation (σ)",
+        "de": "Populationsstandardabweichung (σ)",
+        "fr": "Écart type de la population (σ)",
+        "es": "Desviación estándar poblacional (σ)",
         "ar": "Population Standard Deviation (σ)"
       },
       "businessContext_i18n": {
         "en": "Known standard deviation of the population. For unknown σ, use sample standard deviation with t-test; this tool assumes normal distribution.",
-        "tr": "Popülasyonun bilinen standart sapması. σ bilinmiyorsa, t-testi ile örnek standart sapması kullanın; bu araç normal dağılım varsayar."
+        "tr": "Popülasyonun bilinen standart sapması. σ bilinmiyorsa, t-testi ile örnek standart sapması kullanın; bu araç normal dağılım varsayar.",
+        "de": "Bekannte Standardabweichung der Population. Bei unbekanntem σ verwenden Sie die Stichprobenstandardabweichung mit t-Test; dieses Tool setzt Normalverteilung voraus.",
+        "fr": "Écart type connu de la population. Pour σ inconnu, utilisez l'écart type de l'échantillon avec un test t ; cet outil suppose une distribution normale.",
+        "es": "Desviación estándar conocida de la población. Para σ desconocida, use la desviación estándar muestral con prueba t; esta herramienta asume distribución normal."
       }
     },
     {
@@ -72,14 +81,16 @@
         "en": "Sample Size (n)",
         "tr": "Örneklem Büyüklüğü (n)",
         "de": "Stichprobengröße (n)",
-        "fr": "Sample Size (n)",
-        "es": "Sample Size (n)",
+        "fr": "Taille de l'échantillon (n)",
+        "es": "Tamaño de la muestra (n)",
         "ar": "Sample Size (n)"
       },
       "businessContext_i18n": {
         "en": "Number of observations in the sample.",
         "tr": "Örneklemdeki gözlem sayısı.",
-        "de": "Anzahl der Beobachtungen in der Stichprobe."
+        "de": "Anzahl der Beobachtungen in der Stichprobe.",
+        "fr": "Nombre d'observations dans l'échantillon.",
+        "es": "Número de observaciones en la muestra."
       }
     },
     {
@@ -92,14 +103,17 @@
       "label_i18n": {
         "en": "Significance Level (α)",
         "tr": "Anlamlılık Düzeyi (α)",
-        "de": "Significance Level (α)",
-        "fr": "Significance Level (α)",
-        "es": "Significance Level (α)",
+        "de": "Signifikanzniveau (α)",
+        "fr": "Niveau de signification (α)",
+        "es": "Nivel de significancia (α)",
         "ar": "Significance Level (α)"
       },
       "businessContext_i18n": {
         "en": "Probability threshold for rejecting the null hypothesis (e.g., 0.05 for 5%).",
-        "tr": "Sıfır hipotezini reddetmek için olasılık eşiği (örneğin %5 için 0,05)."
+        "tr": "Sıfır hipotezini reddetmek için olasılık eşiği (örneğin %5 için 0,05).",
+        "de": "Wahrscheinlichkeitsschwelle für die Ablehnung der Nullhypothese (z. B. 0,05 für 5 %).",
+        "fr": "Seuil de probabilité pour rejeter l'hypothèse nulle (par exemple, 0,05 pour 5 %).",
+        "es": "Umbral de probabilidad para rechazar la hipótesis nula (ej., 0.05 para 5%)."
       }
     },
     {
@@ -112,14 +126,17 @@
       "label_i18n": {
         "en": "Tail Type",
         "tr": "Kuyruk Türü",
-        "de": "Tail Type",
-        "fr": "Tail Type",
-        "es": "Tail Type",
+        "de": "Seitentyp",
+        "fr": "Type de queue",
+        "es": "Tipo de cola",
         "ar": "Tail Type"
       },
       "businessContext_i18n": {
         "en": "1 for one-tailed test, 2 for two-tailed test.",
-        "tr": "Tek kuyruklu test için 1, çift kuyruklu test için 2."
+        "tr": "Tek kuyruklu test için 1, çift kuyruklu test için 2.",
+        "de": "1 für einseitigen Test, 2 für zweiseitigen Test.",
+        "fr": "1 pour un test unilatéral, 2 pour un test bilatéral.",
+        "es": "1 para prueba de una cola, 2 para prueba de dos colas."
       }
     }
   ],

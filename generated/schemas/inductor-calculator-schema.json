@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Core Diameter",
         "tr": "Çekirdek Çapı",
-        "de": "Core Diameter",
-        "fr": "Core Diameter",
-        "es": "Core Diameter",
+        "de": "Kerndurchmesser",
+        "fr": "Diamètre du noyau",
+        "es": "Diámetro del núcleo",
         "ar": "Core Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the magnetic core",
-        "tr": "Manyetik çekirdeğin çapı"
+        "tr": "Manyetik çekirdeğin çapı",
+        "de": "Durchmesser des Magnetkerns",
+        "fr": "Diamètre du noyau magnétique",
+        "es": "Diámetro del núcleo magnético"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Core Length",
         "tr": "Çekirdek Uzunluğu",
-        "de": "Core Length",
-        "fr": "Core Length",
-        "es": "Core Length",
+        "de": "Kernlänge",
+        "fr": "Longueur du noyau",
+        "es": "Longitud del núcleo",
         "ar": "Core Length"
       },
       "businessContext_i18n": {
         "en": "Length of the magnetic core",
-        "tr": "Manyetik çekirdeğin uzunluğu"
+        "tr": "Manyetik çekirdeğin uzunluğu",
+        "de": "Länge des Magnetkerns",
+        "fr": "Longueur du noyau magnétique",
+        "es": "Longitud del núcleo magnético"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Number of Turns",
         "tr": "Sarım Sayısı",
         "de": "Windungszahl",
-        "fr": "Number of Turns",
-        "es": "Number of Turns",
+        "fr": "Nombre de spires",
+        "es": "Número de vueltas",
         "ar": "Number of Turns"
       },
       "businessContext_i18n": {
         "en": "Number of wire turns around the core",
-        "tr": "Çekirdek etrafındaki tel sarım sayısı"
+        "tr": "Çekirdek etrafındaki tel sarım sayısı",
+        "de": "Anzahl der Windungen um den Kern",
+        "fr": "Nombre de spires de fil autour du noyau",
+        "es": "Número de vueltas de alambre alrededor del núcleo"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Relative Permeability",
         "tr": "Bağıl Geçirgenlik",
         "de": "Relative Permeability",
-        "fr": "Relative Permeability",
-        "es": "Relative Permeability",
+        "fr": "Perméabilité relative",
+        "es": "Permeabilidad relativa",
         "ar": "Relative Permeability"
       },
       "businessContext_i18n": {
         "en": "Relative magnetic permeability of core material",
-        "tr": "Çekirdek malzemesinin bağıl manyetik geçirgenliği"
+        "tr": "Çekirdek malzemesinin bağıl manyetik geçirgenliği",
+        "de": "Relative magnetic permeability of core material",
+        "fr": "Perméabilité magnétique relative du matériau du noyau",
+        "es": "Permeabilidad magnética relativa del material del núcleo"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Wire Diameter",
         "tr": "Tel Çapı",
         "de": "Drahtdurchmesser",
-        "fr": "Wire Diameter",
-        "es": "Wire Diameter",
+        "fr": "Diamètre du fil",
+        "es": "Diámetro del alambre",
         "ar": "Wire Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the copper wire",
-        "tr": "Bakır telin çapı"
+        "tr": "Bakır telin çapı",
+        "de": "Diameter of the copper wire",
+        "fr": "Diamètre du fil de cuivre",
+        "es": "Diámetro del alambre de cobre"
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Copper Resistivity",
         "tr": "Bakır Direnci",
         "de": "Copper Resistivity",
-        "fr": "Copper Resistivity",
-        "es": "Copper Resistivity",
+        "fr": "Résistivité du cuivre",
+        "es": "Resistividad del cobre",
         "ar": "Copper Resistivity"
       },
       "businessContext_i18n": {
         "en": "Electrical resistivity of copper at 20°C",
-        "tr": "Bakırın 20°C'deki elektriksel direnci"
+        "tr": "Bakırın 20°C'deki elektriksel direnci",
+        "de": "Electrical resistivity of copper at 20°C",
+        "fr": "Résistivité électrique du cuivre à 20°C",
+        "es": "Resistividad eléctrica del cobre a 20°C"
       }
     }
   ],

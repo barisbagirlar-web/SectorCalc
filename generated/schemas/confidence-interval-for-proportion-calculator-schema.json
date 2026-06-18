@@ -12,14 +12,16 @@
         "en": "Sample Size (n)",
         "tr": "Örneklem Büyüklüğü (n)",
         "de": "Stichprobengröße (n)",
-        "fr": "Sample Size (n)",
-        "es": "Sample Size (n)",
+        "fr": "Taille de l'échantillon (n)",
+        "es": "Tamaño de la muestra (n)",
         "ar": "Sample Size (n)"
       },
       "businessContext_i18n": {
         "en": "Number of observations or trials in the sample",
         "tr": "Örneklemdeki gözlem veya deneme sayısı",
-        "de": "Anzahl der Beobachtungen oder Versuche in der Stichprobe"
+        "de": "Anzahl der Beobachtungen oder Versuche in der Stichprobe",
+        "fr": "Nombre d'observations ou d'essais dans l'échantillon",
+        "es": "Número de observaciones o ensayos en la muestra"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Number of Successes (x)",
         "tr": "Başarı sayısı (x)",
         "de": "Anzahl der Erfolge (x)",
-        "fr": "Number of Successes (x)",
-        "es": "Number of Successes (x)",
+        "fr": "Nombre de succès (x)",
+        "es": "Número de éxitos (x)",
         "ar": "Number of Successes (x)"
       },
       "businessContext_i18n": {
         "en": "Count of successful outcomes in the sample",
         "tr": "Örneklemdeki başarılı sonuçların sayısı",
-        "de": "Anzahl der erfolgreichen Ergebnisse in der Stichprobe"
+        "de": "Anzahl der erfolgreichen Ergebnisse in der Stichprobe",
+        "fr": "Nombre de résultats positifs dans l'échantillon",
+        "es": "Conteo de resultados exitosos en la muestra"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Z-value",
         "tr": "Z-değeri",
         "de": "Z-Wert",
-        "fr": "Z-value",
-        "es": "Z-value",
+        "fr": "Valeur z",
+        "es": "Valor Z",
         "ar": "Z-value"
       },
       "businessContext_i18n": {
         "en": "Critical z-value for the desired confidence level (e.g., 1.96 for 95% CI)",
         "tr": "İstenen güven düzeyi için kritik z-değeri (ör. %95 GA için 1,96)",
-        "de": "Kritischer Z-Wert für das gewünschte Konfidenzniveau (z. B. 1,96 für 95 % KI)"
+        "de": "Kritischer Z-Wert für das gewünschte Konfidenzniveau (z. B. 1,96 für 95 % KI)",
+        "fr": "Valeur z critique pour le niveau de confiance souhaité (ex. 1,96 pour IC à 95 %)",
+        "es": "Valor z crítico para el nivel de confianza deseado (ej., 1.96 para IC del 95%)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Confidence Level",
         "tr": "Güven Düzeyi",
         "de": "Konfidenzniveau",
-        "fr": "Confidence Level",
-        "es": "Confidence Level",
+        "fr": "Niveau de confiance",
+        "es": "Nivel de confianza",
         "ar": "Confidence Level"
       },
       "businessContext_i18n": {
         "en": "Reference confidence level corresponding to the z-value (e.g., 0.95 for 95%)",
         "tr": "Z-değerine karşılık gelen referans güven düzeyi (ör. %95 için 0,95)",
-        "de": "Referenz-Konfidenzniveau entsprechend dem Z-Wert (z. B. 0,95 für 95 %)"
+        "de": "Referenz-Konfidenzniveau entsprechend dem Z-Wert (z. B. 0,95 für 95 %)",
+        "fr": "Niveau de confiance de référence correspondant à la valeur z (ex. 0,95 pour 95 %)",
+        "es": "Nivel de confianza de referencia correspondiente al valor z (ej., 0.95 para 95%)"
       }
     }
   ],

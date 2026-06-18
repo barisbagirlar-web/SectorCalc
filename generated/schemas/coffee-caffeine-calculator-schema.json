@@ -12,14 +12,16 @@
         "en": "Cup Volume",
         "tr": "Fincan Hacmi",
         "de": "Bechervolumen",
-        "fr": "Cup Volume",
-        "es": "Cup Volume",
+        "fr": "Volume de la tasse",
+        "es": "Volumen de la taza",
         "ar": "Cup Volume"
       },
       "businessContext_i18n": {
         "en": "Volume of one cup in milliliters.",
         "tr": "Bir fincanın mililitre cinsinden hacmi.",
-        "de": "Volumen eines Bechers in Millilitern."
+        "de": "Volumen eines Bechers in Millilitern.",
+        "fr": "Volume d'une tasse en millilitres.",
+        "es": "Volumen de una taza en mililitros."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Caffeine per 100ml",
         "tr": "100ml'de Kafein",
         "de": "Koffein pro 100 ml",
-        "fr": "Caffeine per 100ml",
-        "es": "Caffeine per 100ml",
+        "fr": "Caféine pour 100ml",
+        "es": "Cafeína por 100ml",
         "ar": "Caffeine per 100ml"
       },
       "businessContext_i18n": {
         "en": "Caffeine content per 100ml for the coffee type (e.g., drip: 40-60, espresso: 212 per 100ml).",
         "tr": "Kahve türü için 100ml başına kafein miktarı (örneğin, filtre: 40-60, espresso: 212/100ml).",
-        "de": "Koffeingehalt pro 100 ml für die Kaffeesorte (z. B. Filterkaffee: 40–60, Espresso: 212 pro 100 ml)."
+        "de": "Koffeingehalt pro 100 ml für die Kaffeesorte (z. B. Filterkaffee: 40–60, Espresso: 212 pro 100 ml).",
+        "fr": "Teneur en caféine pour 100ml selon le type de café (ex. filtre : 40-60, expresso : 212 pour 100ml).",
+        "es": "Contenido de cafeína por 100ml para el tipo de café (ej., goteo: 40-60, espresso: 212 por 100ml)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Number of Cups",
         "tr": "Fincan Sayısı",
         "de": "Anzahl der Tassen",
-        "fr": "Number of Cups",
-        "es": "Number of Cups",
+        "fr": "Nombre de tasses",
+        "es": "Número de tazas",
         "ar": "Number of Cups"
       },
       "businessContext_i18n": {
         "en": "Total number of cups consumed.",
         "tr": "Tüketilen toplam fincan sayısı.",
-        "de": "Gesamtzahl der konsumierten Tassen."
+        "de": "Gesamtzahl der konsumierten Tassen.",
+        "fr": "Nombre total de tasses consommées.",
+        "es": "Número total de tazas consumidas."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Brew Strength Factor",
         "tr": "Demleme Gücü Faktörü",
         "de": "Brühstärke-Faktor",
-        "fr": "Brew Strength Factor",
-        "es": "Brew Strength Factor",
+        "fr": "Facteur d'intensité d'infusion",
+        "es": "Factor de intensidad de preparación",
         "ar": "Brew Strength Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier for brew strength (1 = standard, >1 stronger, <1 weaker).",
         "tr": "Demleme gücü çarpanı (1 = standart, >1 daha güçlü, <1 daha zayıf).",
-        "de": "Multiplikator für die Brühstärke (1 = Standard, >1 stärker, <1 schwächer)."
+        "de": "Multiplikator für die Brühstärke (1 = Standard, >1 stärker, <1 schwächer).",
+        "fr": "Multiplicateur pour l'intensité d'infusion (1 = standard, >1 plus fort, <1 plus faible).",
+        "es": "Multiplicador de intensidad (1 = estándar, >1 más fuerte, <1 más suave)."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Decaf",
         "tr": "Kafeinsiz",
         "de": "Entkoffeiniert",
-        "fr": "Decaf",
-        "es": "Decaf",
+        "fr": "Décaféiné",
+        "es": "Descafeinado",
         "ar": "Decaf"
       },
       "businessContext_i18n": {
         "en": "0 = regular coffee, 1 = decaf (removes 97% caffeine).",
         "tr": "0 = normal kahve, 1 = kafeinsiz (kafeinin %97'sini giderir).",
-        "de": "0 = normaler Kaffee, 1 = entkoffeiniert (entfernt 97 % Koffein)."
+        "de": "0 = normaler Kaffee, 1 = entkoffeiniert (entfernt 97 % Koffein).",
+        "fr": "0 = café normal, 1 = décaféiné (élimine 97% de la caféine).",
+        "es": "0 = café regular, 1 = descafeinado (elimina el 97% de cafeína)."
       }
     }
   ],

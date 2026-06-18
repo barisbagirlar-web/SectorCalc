@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Orientation Score",
         "tr": "Oryantasyon Puanı",
-        "de": "Orientation Score",
-        "fr": "Orientation Score",
-        "es": "Orientation Score",
+        "de": "Orientierungspunktzahl",
+        "fr": "Score d'orientation",
+        "es": "Puntuación de Orientación",
         "ar": "Orientation Score"
       },
       "businessContext_i18n": {
         "en": "Score for orientation to time and place (0-10 points)",
-        "tr": "Zaman ve mekana oryantasyon puanı (0-10 puan)"
+        "tr": "Zaman ve mekana oryantasyon puanı (0-10 puan)",
+        "de": "Punktzahl für die Orientierung in Zeit und Ort (0-10 Punkte)",
+        "fr": "Score d'orientation dans le temps et l'espace (0-10 points)",
+        "es": "Puntuación de orientación en tiempo y lugar (0-10 puntos)"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Registration Score",
         "tr": "Kayıt Puanı",
-        "de": "Registration Score",
-        "fr": "Registration Score",
-        "es": "Registration Score",
+        "de": "Registrierungspunktzahl",
+        "fr": "Score d'enregistrement",
+        "es": "Puntuación de Registro",
         "ar": "Registration Score"
       },
       "businessContext_i18n": {
         "en": "Score for registration of three words (0-3 points)",
-        "tr": "Üç kelimenin kaydedilmesi puanı (0-3 puan)"
+        "tr": "Üç kelimenin kaydedilmesi puanı (0-3 puan)",
+        "de": "Punktzahl für die Registrierung von drei Wörtern (0-3 Punkte)",
+        "fr": "Score d'enregistrement de trois mots (0-3 points)",
+        "es": "Puntuación de registro de tres palabras (0-3 puntos)"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Attention and Calculation Score",
         "tr": "Dikkat ve Hesaplama Puanı",
-        "de": "Attention and Calculation Score",
-        "fr": "Attention and Calculation Score",
-        "es": "Attention and Calculation Score",
+        "de": "Aufmerksamkeits- und Rechenpunktzahl",
+        "fr": "Score d'attention et de calcul",
+        "es": "Puntuación de Atención y Cálculo",
         "ar": "Attention and Calculation Score"
       },
       "businessContext_i18n": {
         "en": "Score for attention and calculation (serial sevens or spelling backwards) (0-5 points)",
-        "tr": "Dikkat ve hesaplama puanı (seri yediler veya geriye doğru heceleme) (0-5 puan)"
+        "tr": "Dikkat ve hesaplama puanı (seri yediler veya geriye doğru heceleme) (0-5 puan)",
+        "de": "Punktzahl für Aufmerksamkeit und Rechnen (Serielle Siebener oder Rückwärtsbuchstabieren) (0-5 Punkte)",
+        "fr": "Score d'attention et de calcul (soustractions en série de 7 ou épellation à l'envers) (0-5 points)",
+        "es": "Puntuación de atención y cálculo (series de siete o deletreo inverso) (0-5 puntos)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Recall Score",
         "tr": "Hatırlama Puanı",
-        "de": "Recall Score",
-        "fr": "Recall Score",
-        "es": "Recall Score",
+        "de": "Abrufpunktzahl",
+        "fr": "Score de rappel",
+        "es": "Puntuación de Recuerdo",
         "ar": "Recall Score"
       },
       "businessContext_i18n": {
         "en": "Score for delayed recall of three words (0-3 points)",
-        "tr": "Üç kelimenin gecikmeli hatırlanması puanı (0-3 puan)"
+        "tr": "Üç kelimenin gecikmeli hatırlanması puanı (0-3 puan)",
+        "de": "Punktzahl für den verzögerten Abruf von drei Wörtern (0-3 Punkte)",
+        "fr": "Score de rappel différé de trois mots (0-3 points)",
+        "es": "Puntuación de recuerdo diferido de tres palabras (0-3 puntos)"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Language Score",
         "tr": "Dil Puanı",
-        "de": "Language Score",
-        "fr": "Language Score",
-        "es": "Language Score",
+        "de": "Sprachpunktzahl",
+        "fr": "Score de langage",
+        "es": "Puntuación de Lenguaje",
         "ar": "Language Score"
       },
       "businessContext_i18n": {
         "en": "Score for language tasks including naming, repetition, comprehension, reading, writing, and drawing (0-9 points)",
-        "tr": "Adlandırma, tekrarlama, anlama, okuma, yazma ve çizim dahil dil görevleri puanı (0-9 puan)"
+        "tr": "Adlandırma, tekrarlama, anlama, okuma, yazma ve çizim dahil dil görevleri puanı (0-9 puan)",
+        "de": "Punktzahl für Sprachaufgaben einschließlich Benennung, Wiederholung, Verständnis, Lesen, Schreiben und Zeichnen (0-9 Punkte)",
+        "fr": "Score pour les tâches de langage incluant dénomination, répétition, compréhension, lecture, écriture et dessin (0-9 points)",
+        "es": "Puntuación de tareas de lenguaje que incluyen nombrar, repetir, comprensión, lectura, escritura y dibujo (0-9 puntos)"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Initial Value",
         "tr": "Başlangıç Değeri",
-        "de": "Initial Value",
-        "fr": "Initial Value",
-        "es": "Initial Value",
+        "de": "Anfangswert",
+        "fr": "Valeur initiale",
+        "es": "Valor inicial",
         "ar": "Initial Value"
       },
       "businessContext_i18n": {
         "en": "The starting value or baseline measurement.",
-        "tr": "Başlangıç değeri veya temel ölçüm."
+        "tr": "Başlangıç değeri veya temel ölçüm.",
+        "de": "Der Startwert oder die Basismessung.",
+        "fr": "La valeur de départ ou la mesure de référence.",
+        "es": "El valor inicial o medición de referencia."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Final Value",
         "tr": "Nihai Değer",
         "de": "Endwert",
-        "fr": "Final Value",
-        "es": "Final Value",
+        "fr": "Valeur finale",
+        "es": "Valor final",
         "ar": "Final Value"
       },
       "businessContext_i18n": {
         "en": "The ending value or current measurement.",
-        "tr": "Bitiş değeri veya mevcut ölçüm."
+        "tr": "Bitiş değeri veya mevcut ölçüm.",
+        "de": "Der Endwert oder die aktuelle Messung.",
+        "fr": "La valeur finale ou la mesure actuelle.",
+        "es": "El valor final o medición actual."
       }
     },
     {
@@ -52,14 +58,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the result.",
         "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses."
+        "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses.",
+        "fr": "Nombre de décimales pour arrondir le résultat.",
+        "es": "Número de decimales para redondear el resultado."
       }
     },
     {
@@ -73,13 +81,16 @@
         "en": "Multiplier",
         "tr": "Çarpan",
         "de": "Multiplikator",
-        "fr": "Multiplier",
-        "es": "Multiplier",
+        "fr": "Multiplicateur",
+        "es": "Multiplicador",
         "ar": "Multiplier"
       },
       "businessContext_i18n": {
         "en": "Factor to convert the relative change to a scaled percentage; typical value is 100 for percentage, 10000 for basis points.",
-        "tr": "Göreceli değişimi ölçeklendirilmiş yüzdeye dönüştüren faktör; yüzde için tipik değer 100, baz puan için 10000'dir."
+        "tr": "Göreceli değişimi ölçeklendirilmiş yüzdeye dönüştüren faktör; yüzde için tipik değer 100, baz puan için 10000'dir.",
+        "de": "Faktor zur Umrechnung der relativen Änderung in einen skalierten Prozentsatz; typischer Wert ist 100 für Prozent, 10000 für Basispunkte.",
+        "fr": "Facteur pour convertir le changement relatif en pourcentage mis à l'échelle ; valeur typique 100 pour le pourcentage, 10000 pour les points de base.",
+        "es": "Factor para convertir el cambio relativo a un porcentaje escalado; valor típico 100 para porcentaje, 10000 para puntos base."
       }
     }
   ],

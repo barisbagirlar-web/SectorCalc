@@ -12,13 +12,16 @@
         "en": "True Positives (TP)",
         "tr": "Gerçek Pozitif (TP)",
         "de": "Richtig Positive (TP)",
-        "fr": "True Positives (TP)",
-        "es": "True Positives (TP)",
+        "fr": "Vrais positifs (VP)",
+        "es": "Verdaderos positivos (VP)",
         "ar": "True Positives (TP)"
       },
       "businessContext_i18n": {
         "en": "Testin doğru pozitif olarak işaretlediği gerçek pozitiflerin sayısı.",
-        "tr": "Testin doğru pozitif olarak işaretlediği gerçek pozitiflerin sayısı."
+        "tr": "Testin doğru pozitif olarak işaretlediği gerçek pozitiflerin sayısı.",
+        "de": "Anzahl der tatsächlichen Positiven, die vom Test korrekt als positiv markiert wurden.",
+        "fr": "Nombre de vrais positifs correctement identifiés par le test",
+        "es": "Número de verdaderos positivos que la prueba marcó como positivos."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "False Positives (FP)",
         "tr": "Yanlış Pozitif (FP)",
         "de": "Falsch Positive (FP)",
-        "fr": "False Positives (FP)",
-        "es": "False Positives (FP)",
+        "fr": "Faux positifs (FP)",
+        "es": "Falsos Positivos (FP)",
         "ar": "False Positives (FP)"
       },
       "businessContext_i18n": {
         "en": "Testin yanlışlıkla pozitif işaretlediği negatiflerin sayısı.",
-        "tr": "Testin yanlışlıkla pozitif işaretlediği negatiflerin sayısı."
+        "tr": "Testin yanlışlıkla pozitif işaretlediği negatiflerin sayısı.",
+        "de": "Anzahl der Negativen, die fälschlicherweise als positiv markiert wurden.",
+        "fr": "Nombre de négatifs incorrectement marqués comme positifs par le test",
+        "es": "Número de negativos que la prueba marcó incorrectamente como positivos."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "True Negatives (TN)",
         "tr": "Gerçek Negatif (TN)",
         "de": "Richtig Negative (TN)",
-        "fr": "True Negatives (TN)",
-        "es": "True Negatives (TN)",
+        "fr": "Vrais négatifs (VN)",
+        "es": "Verdaderos Negativos (VN)",
         "ar": "True Negatives (TN)"
       },
       "businessContext_i18n": {
         "en": "Testin doğru negatif olarak işaretlediği gerçek negatiflerin sayısı.",
-        "tr": "Testin doğru negatif olarak işaretlediği gerçek negatiflerin sayısı."
+        "tr": "Testin doğru negatif olarak işaretlediği gerçek negatiflerin sayısı.",
+        "de": "Anzahl der korrekt als negativ markierten echten Negativen.",
+        "fr": "Nombre de vrais négatifs correctement identifiés par le test",
+        "es": "Número de verdaderos negativos que la prueba marcó correctamente como negativos."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "False Negatives (FN)",
         "tr": "Yanlış Negatif (FN)",
         "de": "Falsch Negative (FN)",
-        "fr": "False Negatives (FN)",
-        "es": "False Negatives (FN)",
+        "fr": "Faux négatifs (FN)",
+        "es": "Falsos Negativos (FN)",
         "ar": "False Negatives (FN)"
       },
       "businessContext_i18n": {
         "en": "Testin yanlışlıkla negatif işaretlediği pozitiflerin sayısı.",
-        "tr": "Testin yanlışlıkla negatif işaretlediği pozitiflerin sayısı."
+        "tr": "Testin yanlışlıkla negatif işaretlediği pozitiflerin sayısı.",
+        "de": "Anzahl der Positiven, die fälschlicherweise als negativ markiert wurden.",
+        "fr": "Nombre de positifs incorrectement marqués comme négatifs par le test",
+        "es": "Número de positivos que la prueba marcó incorrectamente como negativos."
       }
     }
   ],

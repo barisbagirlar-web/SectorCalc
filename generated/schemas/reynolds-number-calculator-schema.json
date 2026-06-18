@@ -22,11 +22,16 @@
       "businessContext": "Select the working fluid to auto-populate density and viscosity. Options include water, air, oil, and custom.",
       "label_i18n": {
         "en": "Fluid Type",
-        "tr": "Akışkan Türü"
+        "tr": "Akışkan Türü",
+        "de": "Fluidtyp",
+        "fr": "Type de fluide",
+        "es": "Tipo de fluido"
       },
       "businessContext_i18n": {
         "en": "Select the working fluid to auto-populate density and viscosity. Options include water, air, oil, and custom.",
-        "tr": "Yoğunluk ve viskoziteyi otomatik doldurmak için çalışma akışkanını seçin. Seçenekler: su, hava, yağ ve özel."
+        "tr": "Yoğunluk ve viskoziteyi otomatik doldurmak için çalışma akışkanını seçin. Seçenekler: su, hava, yağ ve özel.",
+        "de": "Wählen Sie das Arbeitsfluid aus, um Dichte und Viskosität automatisch auszufüllen. Optionen umfassen Wasser, Luft, Öl und benutzerdefiniert.",
+        "fr": "Sélectionnez le fluide de travail pour remplir automatiquement la densité et la viscosité. Options : eau, air, huile et personnalisé."
       }
     },
     {
@@ -41,11 +46,15 @@
       "label_i18n": {
         "en": "Fluid Density",
         "tr": "Akışkan Yoğunluğu",
-        "de": "Flüssigkeitsdichte"
+        "de": "Flüssigkeitsdichte",
+        "fr": "Densité du fluide",
+        "es": "Densidad del fluido"
       },
       "businessContext_i18n": {
         "en": "Mass density of the fluid at operating temperature. For water at 20°C: 998.2 kg/m³.",
-        "tr": "Akışkanın çalışma sıcaklığındaki kütle yoğunluğu. 20°C'de su için: 998.2 kg/m³."
+        "tr": "Akışkanın çalışma sıcaklığındaki kütle yoğunluğu. 20°C'de su için: 998.2 kg/m³.",
+        "de": "Massendichte des Fluids bei Betriebstemperatur. Für Wasser bei 20 °C: 998,2 kg/m³.",
+        "fr": "Masse volumique du fluide à la température de fonctionnement. Pour l'eau à 20 °C : 998,2 kg/m³."
       }
     },
     {
@@ -60,11 +69,15 @@
       "label_i18n": {
         "en": "Dynamic Viscosity",
         "tr": "Dinamik viskozite",
-        "de": "Dynamische Viskosität"
+        "de": "Dynamische Viskosität",
+        "fr": "Viscosité dynamique",
+        "es": "Viscosidad dinámica"
       },
       "businessContext_i18n": {
         "en": "Absolute viscosity of the fluid. For water at 20°C: 0.001002 Pa·s.",
-        "tr": "Akışkanın mutlak viskozitesi. 20°C'de su için: 0.001002 Pa·s."
+        "tr": "Akışkanın mutlak viskozitesi. 20°C'de su için: 0.001002 Pa·s.",
+        "de": "Absolute Viskosität des Fluids. Für Wasser bei 20 °C: 0,001002 Pa·s.",
+        "fr": "Viscosité absolue du fluide. Pour l'eau à 20 °C : 0,001002 Pa·s."
       }
     },
     {
@@ -79,11 +92,15 @@
       "label_i18n": {
         "en": "Flow Velocity",
         "tr": "Akış Hızı",
-        "de": "Strömungsgeschwindigkeit"
+        "de": "Strömungsgeschwindigkeit",
+        "fr": "Vitesse d'écoulement",
+        "es": "Velocidad de flujo"
       },
       "businessContext_i18n": {
         "en": "Average velocity of the fluid in the pipe cross-section.",
-        "tr": "Boru kesitindeki akışkanın ortalama hızı."
+        "tr": "Boru kesitindeki akışkanın ortalama hızı.",
+        "de": "Durchschnittliche Geschwindigkeit des Fluids im Rohrquerschnitt.",
+        "fr": "Vitesse moyenne du fluide dans la section transversale du tuyau."
       }
     },
     {
@@ -98,11 +115,15 @@
       "label_i18n": {
         "en": "Pipe Inner Diameter",
         "tr": "Boru İç Çapı",
-        "de": "Rohrinnendurchmesser"
+        "de": "Rohrinnendurchmesser",
+        "fr": "Diamètre intérieur du tuyau",
+        "es": "Diámetro interior de la tubería"
       },
       "businessContext_i18n": {
         "en": "Internal diameter of the pipe or conduit.",
-        "tr": "Boru veya kanalın iç çapı."
+        "tr": "Boru veya kanalın iç çapı.",
+        "de": "Innendurchmesser des Rohrs oder Kanals.",
+        "fr": "Diamètre intérieur du tuyau ou conduit."
       }
     },
     {
@@ -116,11 +137,16 @@
       "businessContext": "Average height of surface irregularities inside the pipe. For commercial steel: 0.000045 m.",
       "label_i18n": {
         "en": "Pipe Roughness",
-        "tr": "Boru Pürüzlülüğü"
+        "tr": "Boru Pürüzlülüğü",
+        "de": "Rohrrauheit",
+        "fr": "Rugosité du tuyau",
+        "es": "Rugosidad de la tubería"
       },
       "businessContext_i18n": {
         "en": "Average height of surface irregularities inside the pipe. For commercial steel: 0.000045 m.",
-        "tr": "Boru iç yüzeyindeki pürüzlülüklerin ortalama yüksekliği. Ticari çelik için: 0.000045 m."
+        "tr": "Boru iç yüzeyindeki pürüzlülüklerin ortalama yüksekliği. Ticari çelik için: 0.000045 m.",
+        "de": "Durchschnittliche Höhe der Oberflächenunregelmäßigkeiten im Rohr. Für Baustahl: 0,000045 m.",
+        "fr": "Hauteur moyenne des irrégularités de surface à l'intérieur du tuyau. Pour l'acier commercial : 0,000045 m."
       }
     },
     {
@@ -135,11 +161,15 @@
       "label_i18n": {
         "en": "Operating Temperature",
         "tr": "Çalışma Sıcaklığı",
-        "de": "Betriebstemperatur"
+        "de": "Betriebstemperatur",
+        "fr": "Température de fonctionnement",
+        "es": "Temperatura de operación"
       },
       "businessContext_i18n": {
         "en": "Fluid temperature used for viscosity and density corrections if applicable.",
-        "tr": "Varsa viskozite ve yoğunluk düzeltmeleri için kullanılan akışkan sıcaklığı."
+        "tr": "Varsa viskozite ve yoğunluk düzeltmeleri için kullanılan akışkan sıcaklığı.",
+        "de": "Fluidtemperatur, die ggf. für Viskositäts- und Dichtekorrekturen verwendet wird.",
+        "fr": "Température du fluide utilisée pour les corrections de viscosité et de densité si applicable."
       }
     },
     {
@@ -153,11 +183,15 @@
       "businessContext": "Select threshold standard: 'standard' (Re<2300 laminar, 2300-4000 transitional, >4000 turbulent) or 'conservative' (Re<2000 laminar, 2000-3000 transitional, >3000 turbulent).",
       "label_i18n": {
         "en": "Flow Regime Threshold",
-        "tr": "Akış Rejimi Eşiği"
+        "tr": "Akış Rejimi Eşiği",
+        "de": "Schwellenwert des Strömungsregimes",
+        "fr": "Seuil de régime d'écoulement"
       },
       "businessContext_i18n": {
         "en": "Select threshold standard: 'standard' (Re<2300 laminar, 2300-4000 transitional, >4000 turbulent) or 'conservative' (Re<2000 laminar, 2000-3000 transitional, >3000 turbulent).",
-        "tr": "Eşik standardını seçin: 'standart' (Re<2300 laminer, 2300-4000 geçiş, >4000 türbülanslı) veya 'muhafazakar' (Re<2000 laminer, 2000-3000 geçiş, >3000 türbülanslı)."
+        "tr": "Eşik standardını seçin: 'standart' (Re<2300 laminer, 2300-4000 geçiş, >4000 türbülanslı) veya 'muhafazakar' (Re<2000 laminer, 2000-3000 geçiş, >3000 türbülanslı).",
+        "de": "Wählen Sie den Schwellenwertstandard: 'Standard' (Re<2300 laminar, 2300-4000 Übergang, >4000 turbulent) oder 'Konservativ' (Re<2000 laminar, 2000-3000 Übergang, >3000 turbulent).",
+        "fr": "Sélectionnez la norme de seuil : 'standard' (Re<2300 laminaire, 2300-4000 transitionnel, >4000 turbulent) ou 'conservateur' (Re<2000 laminaire, 2000-3000 transitionnel, >3000 turbulent)."
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Current Loan Balance",
         "tr": "Mevcut Kredi Bakiyesi",
-        "de": "Current Loan Balance",
-        "fr": "Current Loan Balance",
-        "es": "Current Loan Balance",
+        "de": "Aktueller Darlehenssaldo",
+        "fr": "Solde actuel du prêt",
+        "es": "Saldo actual del préstamo",
         "ar": "Current Loan Balance"
       },
       "businessContext_i18n": {
         "en": "The outstanding principal balance of the existing student loan.",
-        "tr": "Mevcut öğrenci kredisinin ödenmemiş anapara bakiyesi."
+        "tr": "Mevcut öğrenci kredisinin ödenmemiş anapara bakiyesi.",
+        "de": "Ausstehender Kapitalsaldo des bestehenden Studienkredits.",
+        "fr": "Solde du principal impayé du prêt étudiant existant."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Current Interest Rate (APR)",
         "tr": "Mevcut Faiz Oranı (APR)",
-        "de": "Current Interest Rate (APR)",
-        "fr": "Current Interest Rate (APR)",
+        "de": "Aktueller Zinssatz (APY)",
+        "fr": "Taux d'intérêt actuel (TAEG)",
         "es": "Current Interest Rate (APR)",
         "ar": "Current Interest Rate (APR)"
       },
       "businessContext_i18n": {
         "en": "Annual Percentage Rate of the current loan.",
-        "tr": "Mevcut kredinin Yıllık Yüzde Oranı."
+        "tr": "Mevcut kredinin Yıllık Yüzde Oranı.",
+        "de": "Jährlicher Prozentzinssatz des aktuellen Kredits.",
+        "fr": "Taux annuel effectif global du prêt actuel."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Remaining Term",
         "tr": "Kalan Vade",
-        "de": "Remaining Term",
-        "fr": "Remaining Term",
+        "de": "Restlaufzeit",
+        "fr": "Durée restante",
         "es": "Remaining Term",
         "ar": "Remaining Term"
       },
       "businessContext_i18n": {
         "en": "Number of months left on the current loan.",
-        "tr": "Mevcut kredide kalan ay sayısı."
+        "tr": "Mevcut kredide kalan ay sayısı.",
+        "de": "Verbleibende Monate des aktuellen Kredits.",
+        "fr": "Nombre de mois restants sur le prêt actuel."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "New Interest Rate (APR)",
         "tr": "Yeni Faiz Oranı (APR)",
-        "de": "New Interest Rate (APR)",
-        "fr": "New Interest Rate (APR)",
+        "de": "Neuer Zinssatz (APY)",
+        "fr": "Nouveau taux d'intérêt (TAEG)",
         "es": "New Interest Rate (APR)",
         "ar": "New Interest Rate (APR)"
       },
       "businessContext_i18n": {
         "en": "Offered APR for the refinanced loan.",
-        "tr": "Yeniden finansman kredisi için sunulan APR."
+        "tr": "Yeniden finansman kredisi için sunulan APR.",
+        "de": "Angebotener APY für den umgeschuldeten Kredit.",
+        "fr": "TAEG offert pour le prêt refinancé."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "New Loan Term",
         "tr": "Yeni Kredi Vadesi",
-        "de": "New Loan Term",
-        "fr": "New Loan Term",
-        "es": "New Loan Term",
+        "de": "Neue Darlehenslaufzeit",
+        "fr": "Durée du nouveau prêt",
+        "es": "Nuevo plazo del préstamo",
         "ar": "New Loan Term"
       },
       "businessContext_i18n": {
         "en": "Repayment period for the refinanced loan in months.",
-        "tr": "Yeniden finanse edilen kredinin ay cinsinden geri ödeme süresi."
+        "tr": "Yeniden finanse edilen kredinin ay cinsinden geri ödeme süresi.",
+        "de": "Rückzahlungszeitraum für den umgeschuldeten Kredit in Monaten.",
+        "fr": "Période de remboursement du prêt refinancé en mois."
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Origination Fee",
         "tr": "Başlangıç Ücreti",
         "de": "Bearbeitungsgebühr",
-        "fr": "Origination Fee",
-        "es": "Origination Fee",
+        "fr": "Frais de mise en place",
+        "es": "Comisión de originación",
         "ar": "Origination Fee"
       },
       "businessContext_i18n": {
         "en": "One-time fee charged by the lender, expressed as a percentage of the loan balance.",
-        "tr": "Borç veren tarafından alınan, kredi bakiyesinin yüzdesi olarak ifade edilen tek seferlik ücret."
+        "tr": "Borç veren tarafından alınan, kredi bakiyesinin yüzdesi olarak ifade edilen tek seferlik ücret.",
+        "de": "Einmalige Gebühr des Kreditgebers, ausgedrückt als Prozentsatz des Kreditsaldos.",
+        "fr": "Frais uniques facturés par le prêteur, exprimés en pourcentage du solde du prêt."
       }
     }
   ],

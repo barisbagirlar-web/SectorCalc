@@ -12,14 +12,16 @@
         "en": "Aquarium Length",
         "tr": "Akvaryum Uzunluğu",
         "de": "Aquariumlänge",
-        "fr": "Aquarium Length",
-        "es": "Aquarium Length",
+        "fr": "Longueur de l'aquarium",
+        "es": "Largo del acuario",
         "ar": "Aquarium Length"
       },
       "businessContext_i18n": {
         "en": "Length of the aquarium in centimeters",
         "tr": "Akvaryumun santimetre cinsinden uzunluğu",
-        "de": "Länge des Aquariums in Zentimetern"
+        "de": "Länge des Aquariums in Zentimetern",
+        "fr": "Longueur de l'aquarium en centimètres",
+        "es": "Largo del acuario en centímetros"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Aquarium Width",
         "tr": "Akvaryum Genişliği",
         "de": "Aquariumbreite",
-        "fr": "Aquarium Width",
-        "es": "Aquarium Width",
+        "fr": "Largeur de l'aquarium",
+        "es": "Ancho del acuario",
         "ar": "Aquarium Width"
       },
       "businessContext_i18n": {
         "en": "Width of the aquarium in centimeters",
         "tr": "Akvaryumun santimetre cinsinden genişliği",
-        "de": "Breite des Aquariums in Zentimetern"
+        "de": "Breite des Aquariums in Zentimetern",
+        "fr": "Largeur de l'aquarium en centimètres",
+        "es": "Ancho del acuario en centímetros"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Aquarium Height",
         "tr": "Akvaryum Yüksekliği",
         "de": "Aquariumhöhe",
-        "fr": "Aquarium Height",
-        "es": "Aquarium Height",
+        "fr": "Hauteur de l'aquarium",
+        "es": "Altura del acuario",
         "ar": "Aquarium Height"
       },
       "businessContext_i18n": {
         "en": "Height of the aquarium (water depth) in centimeters",
         "tr": "Akvaryumun santimetre cinsinden yüksekliği (su derinliği)",
-        "de": "Höhe des Aquariums (Wassertiefe) in Zentimetern"
+        "de": "Höhe des Aquariums (Wassertiefe) in Zentimetern",
+        "fr": "Hauteur de l'aquarium (profondeur d'eau) en centimètres",
+        "es": "Altura del acuario (profundidad del agua) en centímetros"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Desired Illuminance",
         "tr": "Hedef Aydınlık Düzeyi",
         "de": "Gewünschte Beleuchtungsstärke",
-        "fr": "Desired Illuminance",
-        "es": "Desired Illuminance",
+        "fr": "Éclairement souhaité",
+        "es": "Iluminancia deseada",
         "ar": "Desired Illuminance"
       },
       "businessContext_i18n": {
         "en": "Target light intensity at the substrate level in lux (10-20 low, 20-40 medium, 40+ high)",
         "tr": "Substrat seviyesinde lüks cinsinden hedef ışık yoğunluğu (10-20 düşük, 20-40 orta, 40+ yüksek)",
-        "de": "Ziel-Lichtintensität auf Substratebene in Lux (10-20 niedrig, 20-40 mittel, 40+ hoch)"
+        "de": "Ziel-Lichtintensität auf Substratebene in Lux (10-20 niedrig, 20-40 mittel, 40+ hoch)",
+        "fr": "Intensité lumineuse cible au niveau du substrat en lux (10-20 faible, 20-40 moyen, 40+ élevé)",
+        "es": "Intensidad de luz objetivo en el nivel del sustrato en lux (10-20 baja, 20-40 media, 40+ alta)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Light Efficiency",
         "tr": "Işık Verimliliği",
         "de": "Lichteffizienz",
-        "fr": "Light Efficiency",
-        "es": "Light Efficiency",
+        "fr": "Efficacité lumineuse",
+        "es": "Eficiencia lumínica",
         "ar": "Light Efficiency"
       },
       "businessContext_i18n": {
         "en": "Lumens per watt of the light source (LED: 80-100, T5: 90-110)",
         "tr": "Işık kaynağının lümen başına watt değeri (LED: 80-100, T5: 90-110)",
-        "de": "Lumen pro Watt der Lichtquelle (LED: 80-100, T5: 90-110)"
+        "de": "Lumen pro Watt der Lichtquelle (LED: 80-100, T5: 90-110)",
+        "fr": "Lumens par watt de la source lumineuse (LED : 80-100, T5 : 90-110)",
+        "es": "Lúmenes por vatio de la fuente de luz (LED: 80-100, T5: 90-110)"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Photoperiod",
         "tr": "Fotoperiyot",
         "de": "Photoperiode",
-        "fr": "Photoperiod",
-        "es": "Photoperiod",
+        "fr": "Photopériode",
+        "es": "Fotoperiodo",
         "ar": "Photoperiod"
       },
       "businessContext_i18n": {
         "en": "Daily lighting duration in hours",
         "tr": "Günlük aydınlatma süresi (saat)",
-        "de": "Tägliche Beleuchtungsdauer in Stunden"
+        "de": "Tägliche Beleuchtungsdauer in Stunden",
+        "fr": "Durée d'éclairage quotidienne en heures",
+        "es": "Duración diaria de iluminación en horas"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Electricity Cost",
         "tr": "Elektrik Maliyeti",
         "de": "Stromkosten",
-        "fr": "Electricity Cost",
-        "es": "Electricity Cost",
+        "fr": "Coût de l'électricité",
+        "es": "Coste de electricidad",
         "ar": "Electricity Cost"
       },
       "businessContext_i18n": {
         "en": "Cost of electricity per kilowatt-hour (e.g., EUR or USD)",
         "tr": "Kilovatsaat başına elektrik maliyeti (ör. EUR veya USD)",
-        "de": "Stromkosten pro Kilowattstunde (z. B. EUR oder USD)"
+        "de": "Stromkosten pro Kilowattstunde (z. B. EUR oder USD)",
+        "fr": "Coût de l'électricité par kilowattheure (par ex. EUR ou USD)",
+        "es": "Coste de electricidad por kilovatio-hora (ej. EUR o USD)"
       }
     }
   ],

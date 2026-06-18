@@ -25,11 +25,16 @@
       "businessContext": "Direct cost of raw materials per signage unit, including substrate, ink, and laminates.",
       "label_i18n": {
         "en": "Material Cost per Unit",
-        "tr": "Birim Başına Malzeme Maliyeti"
+        "tr": "Birim Başına Malzeme Maliyeti",
+        "de": "Materialkosten pro Einheit",
+        "fr": "Coût matière par unité",
+        "es": "Coste de material por unidad"
       },
       "businessContext_i18n": {
         "en": "Direct cost of raw materials per signage unit, including substrate, ink, and laminates.",
-        "tr": "Tabela birimi başına doğrudan hammadde maliyeti (alt tabaka, mürekkep ve laminat dahil)."
+        "tr": "Tabela birimi başına doğrudan hammadde maliyeti (alt tabaka, mürekkep ve laminat dahil).",
+        "de": "Direkte Kosten für Rohmaterial pro Beschilderungseinheit, einschließlich Substrat, Tinte und Laminate.",
+        "fr": "Coût direct des matières premières par unité de signalétique, incluant substrat, encre et laminés."
       }
     },
     {
@@ -43,11 +48,16 @@
       "businessContext": "Standard direct labor hours required to produce one signage unit, based on time studies.",
       "label_i18n": {
         "en": "Labor Hours per Unit",
-        "tr": "Birim Başına İşçilik Saati"
+        "tr": "Birim Başına İşçilik Saati",
+        "de": "Arbeitsstunden pro Einheit",
+        "fr": "Heures de main-d'œuvre par unité",
+        "es": "Horas de mano de obra por unidad"
       },
       "businessContext_i18n": {
         "en": "Standard direct labor hours required to produce one signage unit, based on time studies.",
-        "tr": "Zaman etütlerine dayalı olarak bir tabela birimi üretmek için gereken standart doğrudan işçilik saati."
+        "tr": "Zaman etütlerine dayalı olarak bir tabela birimi üretmek için gereken standart doğrudan işçilik saati.",
+        "de": "Standarddirekte Arbeitsstunden zur Herstellung einer Beschilderungseinheit, basierend auf Zeitstudien.",
+        "fr": "Heures de main-d'œuvre directe standard nécessaires pour produire une unité de signalétique, basées sur des études de temps."
       }
     },
     {
@@ -62,11 +72,15 @@
       "label_i18n": {
         "en": "Labor Rate per Hour",
         "tr": "Saatlik İşçilik Ücreti",
-        "de": "Stundensatz"
+        "de": "Stundensatz",
+        "fr": "Taux de main-d'œuvre par heure",
+        "es": "Tarifa de mano de obra por hora"
       },
       "businessContext_i18n": {
         "en": "Fully burdened hourly wage including benefits, taxes, and overhead allocation.",
-        "tr": "Yan haklar, vergiler ve genel gider dağıtımı dahil tam yüklü saatlik ücret."
+        "tr": "Yan haklar, vergiler ve genel gider dağıtımı dahil tam yüklü saatlik ücret.",
+        "de": "Voll belasteter Stundenlohn einschließlich Zusatzleistungen, Steuern und Gemeinkostenzuschlag.",
+        "fr": "Taux horaire entièrement chargé incluant salaire, avantages, impôts et allocation des frais généraux."
       }
     },
     {
@@ -81,11 +95,15 @@
       "label_i18n": {
         "en": "Overhead Rate",
         "tr": "Genel gider oranı",
-        "de": "Gemeinkostensatz"
+        "de": "Gemeinkostensatz",
+        "fr": "Taux de frais généraux",
+        "es": "Tasa de gastos generales"
       },
       "businessContext_i18n": {
         "en": "Percentage applied to direct costs to cover facility, equipment, and administrative overhead.",
-        "tr": "Tesis, ekipman ve idari genel giderleri karşılamak için doğrudan maliyetlere uygulanan yüzde."
+        "tr": "Tesis, ekipman ve idari genel giderleri karşılamak için doğrudan maliyetlere uygulanan yüzde.",
+        "de": "Prozentsatz, der auf direkte Kosten angewendet wird, um Betriebs-, Ausrüstungs- und Verwaltungsgemeinkosten zu decken.",
+        "fr": "Pourcentage appliqué aux coûts directs pour couvrir les frais d'installation, d'équipement et administratifs."
       }
     },
     {
@@ -104,11 +122,16 @@
       "businessContext": "Adjusts labor and waste factors based on design complexity per ISO 9001 process variation guidelines.",
       "label_i18n": {
         "en": "Complexity Factor",
-        "tr": "Karmaşıklık Faktörü"
+        "tr": "Karmaşıklık Faktörü",
+        "de": "Komplexitätsfaktor",
+        "fr": "Facteur de complexité",
+        "es": "Factor de complejidad"
       },
       "businessContext_i18n": {
         "en": "Adjusts labor and waste factors based on design complexity per ISO 9001 process variation guidelines.",
-        "tr": "ISO 9001 proses varyasyon kılavuzlarına göre tasarım karmaşıklığına bağlı olarak işçilik ve fire faktörlerini ayarlar."
+        "tr": "ISO 9001 proses varyasyon kılavuzlarına göre tasarım karmaşıklığına bağlı olarak işçilik ve fire faktörlerini ayarlar.",
+        "de": "Passt Arbeits- und Abfallfaktoren basierend auf der Designkomplexität gemäß ISO 9001 Prozessvariationsrichtlinien an.",
+        "fr": "Ajuste les facteurs de main-d'œuvre et de rebut en fonction de la complexité de conception selon les directives de variation de processus ISO 9001."
       }
     },
     {
@@ -127,11 +150,15 @@
       "businessContext": "Defines inspection rigor and rework allowance based on Six Sigma quality levels.",
       "label_i18n": {
         "en": "Quality Level",
-        "tr": "Kalite Seviyesi"
+        "tr": "Kalite Seviyesi",
+        "de": "Qualitätsniveau",
+        "fr": "Niveau de qualité"
       },
       "businessContext_i18n": {
         "en": "Defines inspection rigor and rework allowance based on Six Sigma quality levels.",
-        "tr": "Altı Sigma kalite seviyelerine göre muayene titizliğini ve yeniden işleme payını tanımlar."
+        "tr": "Altı Sigma kalite seviyelerine göre muayene titizliğini ve yeniden işleme payını tanımlar.",
+        "de": "Definiert Prüfschärfe und Nacharbeitszuschlag basierend auf Six Sigma Qualitätsniveaus.",
+        "fr": "Définit la rigueur d'inspection et la tolérance de reprise en fonction des niveaux de qualité Six Sigma."
       }
     },
     {
@@ -146,11 +173,15 @@
       "label_i18n": {
         "en": "Order Quantity",
         "tr": "Sipariş Miktarı",
-        "de": "Bestellmenge"
+        "de": "Bestellmenge",
+        "fr": "Quantité commandée",
+        "es": "Cantidad del pedido"
       },
       "businessContext_i18n": {
         "en": "Total number of signage units in the order, affecting volume discounts and setup amortization.",
-        "tr": "Siparişteki toplam tabela birimi sayısı, hacim indirimlerini ve kurulum amortismanını etkiler."
+        "tr": "Siparişteki toplam tabela birimi sayısı, hacim indirimlerini ve kurulum amortismanını etkiler.",
+        "de": "Gesamtzahl der Beschilderungseinheiten in der Bestellung, beeinflusst Mengenrabatte und Rüstamortisation.",
+        "fr": "Nombre total d'unités de signalisation dans la commande, affectant les remises sur volume et l'amortissement de la configuration."
       }
     },
     {
@@ -165,11 +196,15 @@
       "label_i18n": {
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
-        "de": "Abfallfaktor"
+        "de": "Abfallfaktor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio"
       },
       "businessContext_i18n": {
         "en": "Expected material waste percentage due to setup, trimming, and defects, aligned with Lean manufacturing targets.",
-        "tr": "Kurulum, düzeltme ve kusurlar nedeniyle beklenen malzeme fire yüzdesi, Yalın üretim hedefleriyle uyumludur."
+        "tr": "Kurulum, düzeltme ve kusurlar nedeniyle beklenen malzeme fire yüzdesi, Yalın üretim hedefleriyle uyumludur.",
+        "de": "Erwarteter Materialabfallprozentsatz aufgrund von Rüstung, Beschnitt und Fehlern, abgestimmt auf Lean-Produktionsziele.",
+        "fr": "Pourcentage de déchets de matière attendu dû à la configuration, au rognage et aux défauts, aligné sur les objectifs de production Lean."
       }
     }
   ],

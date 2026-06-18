@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Trench Length",
         "tr": "Hendek Uzunluğu",
-        "de": "Trench Length",
-        "fr": "Trench Length",
+        "de": "Grabenlänge",
+        "fr": "Longueur de la tranchée",
         "es": "Trench Length",
         "ar": "Trench Length"
       },
       "businessContext_i18n": {
         "en": "Total length of the trench to be excavated",
-        "tr": "Kazılacak hendeğin toplam uzunluğu."
+        "tr": "Kazılacak hendeğin toplam uzunluğu.",
+        "de": "Gesamtlänge des auszuhebenden Grabens",
+        "fr": "Longueur totale de la tranchée à excaver"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Base Width",
         "tr": "Taban genişliği",
-        "de": "Base Width",
-        "fr": "Base Width",
+        "de": "Basisbreite",
+        "fr": "Largeur de la base",
         "es": "Base Width",
         "ar": "Base Width"
       },
       "businessContext_i18n": {
         "en": "Width of the trench at the bottom",
-        "tr": "Hendek Taban Genişliği"
+        "tr": "Hendek Taban Genişliği",
+        "de": "Breite des Grabens an der Sohle",
+        "fr": "Largeur de la tranchée au fond"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Depth",
         "tr": "Derinlik",
         "de": "Tiefe",
-        "fr": "Depth",
-        "es": "Depth",
+        "fr": "Profondeur",
+        "es": "Profundidad",
         "ar": "Depth"
       },
       "businessContext_i18n": {
         "en": "Vertical depth of excavation",
-        "tr": "Kazı derinliği (dikey)."
+        "tr": "Kazı derinliği (dikey).",
+        "de": "Vertikale Aushubtiefe",
+        "fr": "Profondeur verticale d'excavation"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Side Slope (H:V)",
         "tr": "Şev Eğimi (Y:D)",
-        "de": "Side Slope (H:V)",
-        "fr": "Side Slope (H:V)",
+        "de": "Böschungsneigung (H:V)",
+        "fr": "Pente latérale (H:V)",
         "es": "Side Slope (H:V)",
         "ar": "Side Slope (H:V)"
       },
       "businessContext_i18n": {
         "en": "Horizontal distance per unit vertical (0 for vertical walls)",
-        "tr": "Dikey birim başına yatay mesafe (dikey duvarlar için 0)."
+        "tr": "Dikey birim başına yatay mesafe (dikey duvarlar için 0).",
+        "de": "Horizontaler Abstand pro vertikaler Einheit (0 für senkrechte Wände)",
+        "fr": "Distance horizontale par unité verticale (0 pour parois verticales)"
       }
     }
   ],

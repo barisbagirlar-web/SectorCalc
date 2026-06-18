@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Number of Conditions (k)",
         "tr": "Koşul Sayısı (k)",
-        "de": "Number of Conditions (k)",
-        "fr": "Number of Conditions (k)",
+        "de": "Anzahl der Bedingungen (k)",
+        "fr": "Nombre de conditions (k)",
         "es": "Number of Conditions (k)",
         "ar": "Number of Conditions (k)"
       },
       "businessContext_i18n": {
         "en": "Number of repeated measurement levels or conditions.",
-        "tr": "Tekrarlanan ölçüm seviyelerinin veya koşullarının sayısı."
+        "tr": "Tekrarlanan ölçüm seviyelerinin veya koşullarının sayısı.",
+        "de": "Anzahl der wiederholten Messstufen oder Bedingungen.",
+        "fr": "Nombre de niveaux de mesure répétés ou conditions."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Number of Subjects (n)",
         "tr": "Denek Sayısı (n)",
-        "de": "Number of Subjects (n)",
-        "fr": "Number of Subjects (n)",
+        "de": "Anzahl der Probanden (n)",
+        "fr": "Nombre de sujets (n)",
         "es": "Number of Subjects (n)",
         "ar": "Number of Subjects (n)"
       },
       "businessContext_i18n": {
         "en": "Total number of subjects (participants).",
-        "tr": "Toplam denek (katılımcı) sayısı."
+        "tr": "Toplam denek (katılımcı) sayısı.",
+        "de": "Gesamtzahl der Probanden (Teilnehmer).",
+        "fr": "Nombre total de sujets (participants)."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "SS Condition",
         "tr": "Koşul KT",
-        "de": "SS Condition",
-        "fr": "SS Condition",
+        "de": "SS Bedingung",
+        "fr": "SC Condition",
         "es": "SS Condition",
         "ar": "SS Condition"
       },
       "businessContext_i18n": {
         "en": "Sum of squares due to the within-subjects factor (condition).",
-        "tr": "Denek içi faktörden (koşul) kaynaklanan kareler toplamı."
+        "tr": "Denek içi faktörden (koşul) kaynaklanan kareler toplamı.",
+        "de": "Summe der Quadrate aufgrund des Innersubjektfaktors (Bedingung).",
+        "fr": "Somme des carrés due au facteur intra-sujet (condition)."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "SS Error",
         "tr": "SS Hatası",
-        "de": "SS Error",
-        "fr": "SS Error",
+        "de": "SS Fehler",
+        "fr": "Erreur SS",
         "es": "SS Error",
         "ar": "SS Error"
       },
       "businessContext_i18n": {
         "en": "Sum of squares error (residual) for the within-subjects factor.",
-        "tr": "Denek içi faktör için kareler toplamı hatası (artık)."
+        "tr": "Denek içi faktör için kareler toplamı hatası (artık).",
+        "de": "Summe der Quadrate des Fehlers (Residuum) für den Innersubjektfaktor.",
+        "fr": "Somme des carrés de l'erreur (résiduelle) pour le facteur intra-sujet."
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Reference Frequency (A4)",
         "tr": "Referans Frekans (A4)",
-        "de": "Reference Frequency (A4)",
-        "fr": "Reference Frequency (A4)",
-        "es": "Reference Frequency (A4)",
+        "de": "Referenzfrequenz (A4)",
+        "fr": "Fréquence de référence (A4)",
+        "es": "Frecuencia de referencia (A4)",
         "ar": "Reference Frequency (A4)"
       },
       "businessContext_i18n": {
         "en": "Standard tuning frequency for A4 note.",
-        "tr": "A4 notası için standart akort frekansı."
+        "tr": "A4 notası için standart akort frekansı.",
+        "de": "Standard-Stimmfrequenz für den Ton A4.",
+        "fr": "Fréquence d'accord standard pour la note A4.",
+        "es": "Frecuencia de afinación estándar para la nota A4."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Reference MIDI Note",
         "tr": "Referans MIDI Notası",
-        "de": "Reference MIDI Note",
-        "fr": "Reference MIDI Note",
-        "es": "Reference MIDI Note",
+        "de": "Referenz-MIDI-Note",
+        "fr": "Note MIDI de référence",
+        "es": "Nota MIDI de referencia",
         "ar": "Reference MIDI Note"
       },
       "businessContext_i18n": {
         "en": "MIDI note number for the reference pitch; A4=69.",
-        "tr": "Referans perde için MIDI nota numarası; A4=69."
+        "tr": "Referans perde için MIDI nota numarası; A4=69.",
+        "de": "MIDI-Notennummer für die Referenztonhöhe; A4=69.",
+        "fr": "Numéro de note MIDI pour la hauteur de référence ; A4=69.",
+        "es": "Número de nota MIDI para el tono de referencia; A4=69."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Target MIDI Note",
         "tr": "Hedef MIDI Notası",
-        "de": "Target MIDI Note",
-        "fr": "Target MIDI Note",
-        "es": "Target MIDI Note",
+        "de": "Ziel-MIDI-Note",
+        "fr": "Note MIDI cible",
+        "es": "Nota MIDI objetivo",
         "ar": "Target MIDI Note"
       },
       "businessContext_i18n": {
         "en": "MIDI note number for which to calculate frequency.",
-        "tr": "Frekansı hesaplanacak MIDI nota numarası."
+        "tr": "Frekansı hesaplanacak MIDI nota numarası.",
+        "de": "MIDI-Notennummer, für die die Frequenz berechnet werden soll.",
+        "fr": "Numéro de note MIDI pour lequel calculer la fréquence.",
+        "es": "Número de nota MIDI para el cual calcular la frecuencia."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Cents Adjustment",
         "tr": "Cent Ayarı",
-        "de": "Cents Adjustment",
-        "fr": "Cents Adjustment",
-        "es": "Cents Adjustment",
+        "de": "Cent-Anpassung",
+        "fr": "Ajustement en cents",
+        "es": "Ajuste de cents",
         "ar": "Cents Adjustment"
       },
       "businessContext_i18n": {
         "en": "Fine-tuning adjustment in cents (100 cents = 1 semitone).",
-        "tr": "Cent cinsinden ince ayar (100 cent = 1 yarım ses)."
+        "tr": "Cent cinsinden ince ayar (100 cent = 1 yarım ses).",
+        "de": "Feinabstimmung in Cent (100 Cent = 1 Halbton).",
+        "fr": "Ajustement fin en cents (100 cents = 1 demi-ton).",
+        "es": "Ajuste de afinación fina en cents (100 cents = 1 semitono)."
       }
     }
   ],

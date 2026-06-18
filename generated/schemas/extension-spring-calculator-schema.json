@@ -12,14 +12,16 @@
         "en": "Wire Diameter (d)",
         "tr": "Tel Çapı (d)",
         "de": "Drahtdurchmesser (d)",
-        "fr": "Wire Diameter (d)",
-        "es": "Wire Diameter (d)",
+        "fr": "Diamètre du fil (d)",
+        "es": "Diámetro del alambre (d)",
         "ar": "Wire Diameter (d)"
       },
       "businessContext_i18n": {
         "en": "Spring wire diameter",
         "tr": "Yay teli çapı",
-        "de": "Drahtdurchmesser der Feder"
+        "de": "Drahtdurchmesser der Feder",
+        "fr": "Diamètre du fil du ressort",
+        "es": "Diámetro del alambre del resorte"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Outer Diameter (OD)",
         "tr": "Dış Çap (OD)",
         "de": "Außendurchmesser (AD)",
-        "fr": "Outer Diameter (OD)",
-        "es": "Outer Diameter (OD)",
+        "fr": "Diamètre extérieur (DE)",
+        "es": "Diámetro exterior (DE)",
         "ar": "Outer Diameter (OD)"
       },
       "businessContext_i18n": {
         "en": "Outer diameter of coil",
         "tr": "Bobin dış çapı",
-        "de": "Außendurchmesser der Spule"
+        "de": "Außendurchmesser der Spule",
+        "fr": "Diamètre extérieur de la bobine",
+        "es": "Diámetro exterior de la bobina"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Total Coils (Nt)",
         "tr": "Toplam Sarım Sayısı (Nt)",
         "de": "Gesamtwindungen (Nt)",
-        "fr": "Total Coils (Nt)",
-        "es": "Total Coils (Nt)",
+        "fr": "Nombre total de spires (Nt)",
+        "es": "Espiras totales (Nt)",
         "ar": "Total Coils (Nt)"
       },
       "businessContext_i18n": {
         "en": "Total number of coils including end hooks",
         "tr": "Uç kancalar dahil toplam sarım sayısı",
-        "de": "Gesamtzahl der Windungen einschließlich Endhaken"
+        "de": "Gesamtzahl der Windungen einschließlich Endhaken",
+        "fr": "Nombre total de spires incluant les crochets d'extrémité",
+        "es": "Número total de espiras incluyendo ganchos de extremo"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Shear Modulus (G)",
         "tr": "Kayma Modülü (G)",
         "de": "Schubmodul (G)",
-        "fr": "Shear Modulus (G)",
-        "es": "Shear Modulus (G)",
+        "fr": "Module de cisaillement (G)",
+        "es": "Módulo de corte (G)",
         "ar": "Shear Modulus (G)"
       },
       "businessContext_i18n": {
         "en": "Material shear modulus (steel ≈ 79000 MPa)",
         "tr": "Malzeme kayma modülü (çelik ≈ 79000 MPa)",
-        "de": "Schubmodul des Materials (Stahl ≈ 79000 MPa)"
+        "de": "Schubmodul des Materials (Stahl ≈ 79000 MPa)",
+        "fr": "Module de cisaillement du matériau (acier ≈ 79000 MPa)",
+        "es": "Módulo de corte del material (acero ≈ 79000 MPa)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Allowable Shear Stress",
         "tr": "İzin Verilen Kayma Gerilmesi",
         "de": "Zulässige Schubspannung",
-        "fr": "Allowable Shear Stress",
-        "es": "Allowable Shear Stress",
+        "fr": "Contrainte de cisaillement admissible",
+        "es": "Esfuerzo cortante admisible",
         "ar": "Allowable Shear Stress"
       },
       "businessContext_i18n": {
         "en": "Maximum permissible torsional shear stress",
         "tr": "Maksimum izin verilen burulma kayma gerilmesi",
-        "de": "Maximal zulässige Torsionsschubspannung"
+        "de": "Maximal zulässige Torsionsschubspannung",
+        "fr": "Contrainte de cisaillement torsionnelle maximale admissible",
+        "es": "Esfuerzo cortante torsional máximo permitido"
       }
     }
   ],

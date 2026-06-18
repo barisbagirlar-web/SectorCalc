@@ -12,14 +12,16 @@
         "en": "Wire Diameter",
         "tr": "Tel Çapı",
         "de": "Drahtdurchmesser",
-        "fr": "Wire Diameter",
-        "es": "Wire Diameter",
+        "fr": "Diamètre du fil",
+        "es": "Diámetro del alambre",
         "ar": "Wire Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the spring wire",
         "tr": "Yay telinin çapı",
-        "de": "Durchmesser des Federdrahts"
+        "de": "Durchmesser des Federdrahts",
+        "fr": "Diamètre du fil du ressort",
+        "es": "Diámetro del alambre del resorte"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Mean Coil Diameter",
         "tr": "Ortalama bobin çapı",
         "de": "Mittlerer Windungsdurchmesser",
-        "fr": "Mean Coil Diameter",
-        "es": "Mean Coil Diameter",
+        "fr": "Diamètre moyen de la spire",
+        "es": "Diámetro medio de la bobina",
         "ar": "Mean Coil Diameter"
       },
       "businessContext_i18n": {
         "en": "Average diameter of the coil",
         "tr": "Bobinin ortalama çapı",
-        "de": "Mittlerer Durchmesser der Windung"
+        "de": "Mittlerer Durchmesser der Windung",
+        "fr": "Diamètre moyen de la bobine",
+        "es": "Diámetro promedio de la bobina"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Number of Active Coils",
         "tr": "Aktif bobin sayısı",
         "de": "Anzahl der aktiven Windungen",
-        "fr": "Number of Active Coils",
-        "es": "Number of Active Coils",
+        "fr": "Nombre de spires actives",
+        "es": "Número de bobinas activas",
         "ar": "Number of Active Coils"
       },
       "businessContext_i18n": {
         "en": "Number of coils contributing to spring deflection",
         "tr": "Yay deformasyonuna katkıda bulunan bobin sayısı",
-        "de": "Anzahl der Windungen, die zur Federdurchbiegung beitragen"
+        "de": "Anzahl der Windungen, die zur Federdurchbiegung beitragen",
+        "fr": "Nombre de spires contribuant à la déflexion du ressort",
+        "es": "Número de bobinas que contribuyen a la deflexión del resorte"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Shear Modulus",
         "tr": "Kayma modülü",
         "de": "Schubmodul",
-        "fr": "Shear Modulus",
-        "es": "Shear Modulus",
+        "fr": "Module de cisaillement",
+        "es": "Módulo de corte",
         "ar": "Shear Modulus"
       },
       "businessContext_i18n": {
         "en": "Material shear modulus (e.g., steel ~80000 N/mm²)",
         "tr": "Malzeme kayma modülü (örneğin çelik ~80000 N/mm²)",
-        "de": "Schubmodul des Materials (z. B. Stahl ~80000 N/mm²)."
+        "de": "Schubmodul des Materials (z. B. Stahl ~80000 N/mm²).",
+        "fr": "Module de cisaillement du matériau (ex. acier ~80000 N/mm²)",
+        "es": "Módulo de corte del material (ej., acero ~80000 N/mm²)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Applied Load",
         "tr": "Uygulanan Yük",
         "de": "Aufgebrachte Last",
-        "fr": "Applied Load",
-        "es": "Applied Load",
+        "fr": "Charge appliquée",
+        "es": "Carga aplicada",
         "ar": "Applied Load"
       },
       "businessContext_i18n": {
         "en": "Maximum working force applied to the spring",
         "tr": "Yaya uygulanan maksimum çalışma kuvveti",
-        "de": "Maximale Betriebskraft auf die Feder"
+        "de": "Maximale Betriebskraft auf die Feder",
+        "fr": "Force de travail maximale appliquée au ressort",
+        "es": "Fuerza máxima de trabajo aplicada al resorte"
       }
     }
   ],

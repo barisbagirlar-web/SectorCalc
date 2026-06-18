@@ -12,13 +12,16 @@
         "en": "Year",
         "tr": "Yıl",
         "de": "Jahr",
-        "fr": "Year",
-        "es": "Year",
+        "fr": "Année",
+        "es": "Año",
         "ar": "Year"
       },
       "businessContext_i18n": {
         "en": "The Gregorian calendar year to check for leap year status.",
-        "tr": "Artık yıl durumunu kontrol etmek için Gregoryen takvim yılı."
+        "tr": "Artık yıl durumunu kontrol etmek için Gregoryen takvim yılı.",
+        "de": "Das gregorianische Kalenderjahr, das auf Schaltjahrstatus geprüft werden soll.",
+        "fr": "Année du calendrier grégorien à vérifier pour le statut d'année bissextile.",
+        "es": "Año calendario gregoriano para verificar si es bisiesto."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "4-Year Rule Divisor",
         "tr": "4 Yıl Kuralı Böleni",
-        "de": "4-Year Rule Divisor",
-        "fr": "4-Year Rule Divisor",
-        "es": "4-Year Rule Divisor",
+        "de": "Teiler der 4-Jahres-Regel",
+        "fr": "Diviseur de la règle des 4 ans",
+        "es": "Divisor de la regla de 4 años",
         "ar": "4-Year Rule Divisor"
       },
       "businessContext_i18n": {
         "en": "The divisor for the 4-year cycle. Standard is 4 for Gregorian.",
-        "tr": "4 yıllık döngü için bölen. Gregoryen için standart 4'tür."
+        "tr": "4 yıllık döngü için bölen. Gregoryen için standart 4'tür.",
+        "de": "Der Teiler für den 4-Jahres-Zyklus. Standard ist 4 für den gregorianischen Kalender.",
+        "fr": "Le diviseur pour le cycle de 4 ans. La norme est 4 pour le grégorien.",
+        "es": "El divisor para el ciclo de 4 años. Estándar es 4 para el gregoriano."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "100-Year Rule Divisor",
         "tr": "100 Yıl Kuralı Böleni",
-        "de": "100-Year Rule Divisor",
-        "fr": "100-Year Rule Divisor",
-        "es": "100-Year Rule Divisor",
+        "de": "Teiler der 100-Jahres-Regel",
+        "fr": "Diviseur de la règle des 100 ans",
+        "es": "Divisor de la regla de 100 años",
         "ar": "100-Year Rule Divisor"
       },
       "businessContext_i18n": {
         "en": "The divisor for the century exception. Standard is 100 for Gregorian.",
-        "tr": "Yüzyıl istisnası için bölen. Gregoryen için standart 100'dür."
+        "tr": "Yüzyıl istisnası için bölen. Gregoryen için standart 100'dür.",
+        "de": "Der Teiler für die Jahrhundert-Ausnahme. Standard ist 100 für den gregorianischen Kalender.",
+        "fr": "Le diviseur pour l'exception du siècle. La norme est 100 pour le grégorien.",
+        "es": "El divisor para la excepción del siglo. Estándar es 100 para el gregoriano."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "400-Year Rule Divisor",
         "tr": "400 Yıl Kuralı Böleni",
-        "de": "400-Year Rule Divisor",
-        "fr": "400-Year Rule Divisor",
-        "es": "400-Year Rule Divisor",
+        "de": "Teiler der 400-Jahres-Regel",
+        "fr": "Diviseur de la règle des 400 ans",
+        "es": "Divisor de la regla de 400 años",
         "ar": "400-Year Rule Divisor"
       },
       "businessContext_i18n": {
         "en": "The divisor for the 400-year exception. Standard is 400 for Gregorian.",
-        "tr": "400 yıllık istisna için bölen. Gregoryen için standart 400'dür."
+        "tr": "400 yıllık istisna için bölen. Gregoryen için standart 400'dür.",
+        "de": "Der Teiler für die 400-Jahres-Ausnahme. Standard ist 400 für den gregorianischen Kalender.",
+        "fr": "Le diviseur pour l'exception des 400 ans. La norme est 400 pour le grégorien.",
+        "es": "El divisor para la excepción de 400 años. Estándar es 400 para el gregoriano."
       }
     }
   ],

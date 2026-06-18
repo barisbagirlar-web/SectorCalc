@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Kilometers",
         "tr": "Kilometre",
-        "de": "Kilometers",
-        "fr": "Kilometers",
-        "es": "Kilometers",
+        "de": "Kilometer",
+        "fr": "Kilomètres",
+        "es": "Kilómetros",
         "ar": "Kilometers"
       },
       "businessContext_i18n": {
         "en": "Distance in kilometers to convert.",
-        "tr": "Dönüştürülecek kilometre cinsinden mesafe."
+        "tr": "Dönüştürülecek kilometre cinsinden mesafe.",
+        "de": "Entfernung in Kilometern zur Umrechnung.",
+        "fr": "Distance en kilomètres à convertir.",
+        "es": "Distancia en kilómetros a convertir."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Miles per km",
         "tr": "Km başına mil",
-        "de": "Miles per km",
-        "fr": "Miles per km",
-        "es": "Miles per km",
+        "de": "Meilen pro km",
+        "fr": "Miles par km",
+        "es": "Millas por km",
         "ar": "Miles per km"
       },
       "businessContext_i18n": {
         "en": "Conversion factor from kilometers to miles. Standard value 0.621371192.",
-        "tr": "Kilometreden mile dönüşüm faktörü. Standart değer 0,621371192."
+        "tr": "Kilometreden mile dönüşüm faktörü. Standart değer 0,621371192.",
+        "de": "Umrechnungsfaktor von Kilometern in Meilen. Standardwert 0,621371192.",
+        "fr": "Facteur de conversion des kilomètres en miles. Valeur standard : 0,621371192.",
+        "es": "Factor de conversión de kilómetros a millas. Valor estándar 0.621371192."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Feet per mile",
         "tr": "Mil başına fit",
-        "de": "Feet per mile",
-        "fr": "Feet per mile",
-        "es": "Feet per mile",
+        "de": "Fuß pro Meile",
+        "fr": "Pieds par mile",
+        "es": "Pies por milla",
         "ar": "Feet per mile"
       },
       "businessContext_i18n": {
         "en": "Number of feet in one mile. Standard value 5280.",
-        "tr": "Bir mildeki fit sayısı. Standart değer 5280."
+        "tr": "Bir mildeki fit sayısı. Standart değer 5280.",
+        "de": "Anzahl der Fuß in einer Meile. Standardwert 5280.",
+        "fr": "Nombre de pieds dans un mile. Valeur standard : 5280.",
+        "es": "Número de pies en una milla. Valor estándar 5280."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output values.",
-        "tr": "Çıktı değerleri için ondalık basamak sayısı."
+        "tr": "Çıktı değerleri için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für die Ausgabewerte.",
+        "fr": "Nombre de décimales pour les valeurs de sortie.",
+        "es": "Número de decimales para los valores de salida."
       }
     }
   ],

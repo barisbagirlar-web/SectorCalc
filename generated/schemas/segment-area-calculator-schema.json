@@ -12,13 +12,15 @@
         "en": "Radius",
         "tr": "Yarıçap",
         "de": "Radius",
-        "fr": "Radius",
-        "es": "Radius",
+        "fr": "Rayon",
+        "es": "Radio",
         "ar": "Radius"
       },
       "businessContext_i18n": {
         "en": "The radius of the circle from which the segment is taken.",
-        "tr": "Segmentin alındığı dairenin yarıçapı."
+        "tr": "Segmentin alındığı dairenin yarıçapı.",
+        "de": "Der Radius des Kreises, aus dem das Segment entnommen wird.",
+        "fr": "Le rayon du cercle dont est issu le segment."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Central Angle",
         "tr": "Merkez Açı",
         "de": "Zentriwinkel",
-        "fr": "Central Angle",
-        "es": "Central Angle",
+        "fr": "Angle central",
+        "es": "Ángulo central",
         "ar": "Central Angle"
       },
       "businessContext_i18n": {
         "en": "The central angle of the segment in degrees.",
-        "tr": "Segmentin merkez açısı (derece cinsinden)."
+        "tr": "Segmentin merkez açısı (derece cinsinden).",
+        "de": "Der Mittelpunktswinkel des Segments in Grad.",
+        "fr": "L'angle au centre du segment en degrés."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Scale Factor",
         "tr": "Ölçek Faktörü",
         "de": "Skalierungsfaktor",
-        "fr": "Scale Factor",
-        "es": "Scale Factor",
+        "fr": "Facteur d'échelle",
+        "es": "Factor de escala",
         "ar": "Scale Factor"
       },
       "businessContext_i18n": {
         "en": "Factor to account for safety or overage, e.g., 1.1 for 10% extra.",
-        "tr": "Güvenlik veya fire payı faktörü, örn. %10 fazla için 1.1."
+        "tr": "Güvenlik veya fire payı faktörü, örn. %10 fazla için 1.1.",
+        "de": "Faktor zur Berücksichtigung von Sicherheit oder Überbestand, z. B. 1,1 für 10 % Extra.",
+        "fr": "Facteur de sécurité ou de marge, par exemple 1,1 pour 10 % de supplément."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Number of Segments",
         "tr": "Segment Sayısı",
-        "de": "Number of Segments",
-        "fr": "Number of Segments",
+        "de": "Anzahl der Segmente",
+        "fr": "Nombre de segments",
         "es": "Number of Segments",
         "ar": "Number of Segments"
       },
       "businessContext_i18n": {
         "en": "Number of identical segments to calculate total area.",
-        "tr": "Toplam alanı hesaplamak için özdeş segment sayısı."
+        "tr": "Toplam alanı hesaplamak için özdeş segment sayısı.",
+        "de": "Anzahl identischer Segmente zur Berechnung der Gesamtfläche.",
+        "fr": "Nombre de segments identiques pour calculer la surface totale."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Oda Uzunluğu",
         "tr": "Oda Uzunluğu",
         "de": "Raumlänge",
-        "fr": "Oda Uzunluğu",
-        "es": "Oda Uzunluğu",
+        "fr": "Longueur de la pièce",
+        "es": "Longitud de la habitación",
         "ar": "Oda Uzunluğu"
       },
       "businessContext_i18n": {
         "en": "Odanın uzunluğu (metre cinsinden). Ör: 5",
         "tr": "Odanın uzunluğu (metre cinsinden). Ör: 5",
-        "de": "Raumlänge (in Metern). Z.B. 5"
+        "de": "Raumlänge (in Metern). Z.B. 5",
+        "fr": "Longueur de la pièce (en mètres). Ex : 5",
+        "es": "Longitud de la habitación (en metros). Ej: 5"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Oda Genişliği",
         "tr": "Oda Genişliği",
         "de": "Raumbreite",
-        "fr": "Oda Genişliği",
-        "es": "Oda Genişliği",
+        "fr": "Largeur de la pièce",
+        "es": "Ancho de la habitación",
         "ar": "Oda Genişliği"
       },
       "businessContext_i18n": {
         "en": "Odanın genişliği (metre cinsinden). Ör: 4",
         "tr": "Odanın genişliği (metre cinsinden). Ör: 4",
-        "de": "Raumbreite (in Metern). Z.B. 4"
+        "de": "Raumbreite (in Metern). Z.B. 4",
+        "fr": "Largeur de la pièce (en mètres). Ex : 4",
+        "es": "Ancho de la habitación (en metros). Ej: 4"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Oda Yüksekliği",
         "tr": "Oda Yüksekliği",
         "de": "Raumhöhe",
-        "fr": "Oda Yüksekliği",
-        "es": "Oda Yüksekliği",
+        "fr": "Hauteur de la pièce",
+        "es": "Altura de la habitación",
         "ar": "Oda Yüksekliği"
       },
       "businessContext_i18n": {
         "en": "Duvar yüksekliği (metre cinsinden). Ör: 2.5",
         "tr": "Duvar yüksekliği (metre cinsinden). Ör: 2.5",
-        "de": "Wandhöhe (in Metern). Z.B. 2,5"
+        "de": "Wandhöhe (in Metern). Z.B. 2,5",
+        "fr": "Hauteur du mur (en mètres). Ex : 2,5",
+        "es": "Altura de la pared (en metros). Ej: 2.5"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Kapı Sayısı",
         "tr": "Kapı Sayısı",
         "de": "Anzahl Türen",
-        "fr": "Kapı Sayısı",
-        "es": "Kapı Sayısı",
+        "fr": "Nombre de portes",
+        "es": "Número de puertas",
         "ar": "Kapı Sayısı"
       },
       "businessContext_i18n": {
         "en": "Açıklık çıkarılacak kapı sayısı (her kapı 2 m²). Ör: 1",
         "tr": "Açıklık çıkarılacak kapı sayısı (her kapı 2 m²). Ör: 1",
-        "de": "Anzahl der abzuziehenden Türen (jede Tür 2 m²). Z.B. 1"
+        "de": "Anzahl der abzuziehenden Türen (jede Tür 2 m²). Z.B. 1",
+        "fr": "Nombre de portes à déduire (chaque porte 2 m²). Ex : 1",
+        "es": "Número de puertas a descontar (cada puerta 2 m²). Ej: 1"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Pencere Sayısı",
         "tr": "Pencere Sayısı",
         "de": "Anzahl der Fenster",
-        "fr": "Pencere Sayısı",
-        "es": "Pencere Sayısı",
+        "fr": "Nombre de fenêtres",
+        "es": "Número de ventanas",
         "ar": "Pencere Sayısı"
       },
       "businessContext_i18n": {
         "en": "Açıklık çıkarılacak pencere sayısı (her pencere 1.5 m²). Ör: 2",
         "tr": "Açıklık çıkarılacak pencere sayısı (her pencere 1.5 m²). Ör: 2",
-        "de": "Anzahl der abzuziehenden Fenster (jedes Fenster 1,5 m²). Z.B. 2"
+        "de": "Anzahl der abzuziehenden Fenster (jedes Fenster 1,5 m²). Z.B. 2",
+        "fr": "Nombre de fenêtres à déduire (chaque fenêtre 1,5 m²). Ex : 2",
+        "es": "Número de ventanas a descontar (cada ventana 1.5 m²). Ej: 2"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Alçıpan Alanı",
         "tr": "Alçıpan Alanı",
         "de": "Gipskartonfläche",
-        "fr": "Alçıpan Alanı",
-        "es": "Alçıpan Alanı",
+        "fr": "Surface de plaque de plâtre",
+        "es": "Área de panel de yeso",
         "ar": "Alçıpan Alanı"
       },
       "businessContext_i18n": {
         "en": "Tek bir alçıpan levhanın alanı (m²). Standart 1.2x2.4m = 2.88 m². Ör: 2.88",
         "tr": "Tek bir alçıpan levhanın alanı (m²). Standart 1.2x2.4m = 2.88 m². Ör: 2.88",
-        "de": "Fläche einer einzelnen Gipskartonplatte (m²). Standard 1,2x2,4m = 2,88 m². Z.B. 2,88"
+        "de": "Fläche einer einzelnen Gipskartonplatte (m²). Standard 1,2x2,4m = 2,88 m². Z.B. 2,88",
+        "fr": "Surface d'une seule plaque de plâtre (m²). Standard 1,2x2,4m = 2,88 m². Ex : 2,88",
+        "es": "Área de una sola placa de panel de yeso (m²). Estándar 1.2x2.4m = 2.88 m². Ej: 2.88"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Fire Oranı",
         "tr": "Fire Oranı",
         "de": "Verschnittanteil",
-        "fr": "Fire Oranı",
-        "es": "Fire Oranı",
+        "fr": "Taux de perte",
+        "es": "Porcentaje de desperdicio",
         "ar": "Fire Oranı"
       },
       "businessContext_i18n": {
         "en": "Kesim ve kayıp için eklenecek yüzde. Ör: 10",
         "tr": "Kesim ve kayıp için eklenecek yüzde. Ör: 10",
-        "de": "Prozentsatz für Zuschnitt und Verschnitt. Z.B. 10"
+        "de": "Prozentsatz für Zuschnitt und Verschnitt. Z.B. 10",
+        "fr": "Pourcentage à ajouter pour les coupes et pertes. Ex : 10",
+        "es": "Porcentaje adicional por corte y desperdicio. Ej: 10"
       }
     }
   ],

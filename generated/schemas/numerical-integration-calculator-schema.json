@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Lower Limit",
         "tr": "Alt Sınır",
-        "de": "Lower Limit",
-        "fr": "Lower Limit",
-        "es": "Lower Limit",
+        "de": "Untere Grenze",
+        "fr": "Limite inférieure",
+        "es": "Límite inferior",
         "ar": "Lower Limit"
       },
       "businessContext_i18n": {
         "en": "Lower bound of integration",
-        "tr": "İntegralin alt sınırı"
+        "tr": "İntegralin alt sınırı",
+        "de": "Untere Integrationsgrenze",
+        "fr": "Borne inférieure d'intégration",
+        "es": "Límite inferior de integración"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Upper Limit",
         "tr": "Üst Sınır",
-        "de": "Upper Limit",
-        "fr": "Upper Limit",
-        "es": "Upper Limit",
+        "de": "Obere Grenze",
+        "fr": "Limite supérieure",
+        "es": "Límite superior",
         "ar": "Upper Limit"
       },
       "businessContext_i18n": {
         "en": "Upper bound of integration",
-        "tr": "İntegralin üst sınırı"
+        "tr": "İntegralin üst sınırı",
+        "de": "Obere Integrationsgrenze",
+        "fr": "Borne supérieure d'intégration",
+        "es": "Límite superior de integración"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Number of Intervals",
         "tr": "Aralık Sayısı",
-        "de": "Number of Intervals",
-        "fr": "Number of Intervals",
-        "es": "Number of Intervals",
+        "de": "Anzahl der Intervalle",
+        "fr": "Nombre d'intervalles",
+        "es": "Número de intervalos",
         "ar": "Number of Intervals"
       },
       "businessContext_i18n": {
         "en": "Number of subintervals (will be rounded to nearest even number for Simpson's rule)",
-        "tr": "Alt aralık sayısı (Simpson kuralı için en yakın çift sayıya yuvarlanır)"
+        "tr": "Alt aralık sayısı (Simpson kuralı için en yakın çift sayıya yuvarlanır)",
+        "de": "Anzahl der Teilintervalle (wird für die Simpson-Regel auf die nächste gerade Zahl gerundet)",
+        "fr": "Nombre de sous-intervalles (sera arrondi au nombre pair le plus proche pour la règle de Simpson)",
+        "es": "Número de subintervalos (se redondeará al número par más cercano para la regla de Simpson)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Coefficient a (quadratic)",
         "tr": "Katsayı a (kuadratik)",
-        "de": "Coefficient a (quadratic)",
-        "fr": "Coefficient a (quadratic)",
-        "es": "Coefficient a (quadratic)",
+        "de": "Koeffizient a (quadratisch)",
+        "fr": "Coefficient a (quadratique)",
+        "es": "Coeficiente a (cuadrático)",
         "ar": "Coefficient a (quadratic)"
       },
       "businessContext_i18n": {
         "en": "Coefficient for x² term in f(x) = a·x² + b·x + c",
-        "tr": "f(x) = a·x² + b·x + c'deki x² teriminin katsayısı"
+        "tr": "f(x) = a·x² + b·x + c'deki x² teriminin katsayısı",
+        "de": "Koeffizient für x²-Term in f(x) = a·x² + b·x + c",
+        "fr": "Coefficient du terme x² dans f(x) = a·x² + b·x + c",
+        "es": "Coeficiente para el término x² en f(x) = a·x² + b·x + c"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Coefficient b (linear)",
         "tr": "Katsayı b (doğrusal)",
-        "de": "Coefficient b (linear)",
-        "fr": "Coefficient b (linear)",
-        "es": "Coefficient b (linear)",
+        "de": "Koeffizient b (linear)",
+        "fr": "Coefficient b (linéaire)",
+        "es": "Coeficiente b (lineal)",
         "ar": "Coefficient b (linear)"
       },
       "businessContext_i18n": {
         "en": "Coefficient for x term in f(x) = a·x² + b·x + c",
-        "tr": "f(x) = a·x² + b·x + c'deki x teriminin katsayısı"
+        "tr": "f(x) = a·x² + b·x + c'deki x teriminin katsayısı",
+        "de": "Koeffizient für x-Term in f(x) = a·x² + b·x + c",
+        "fr": "Coefficient du terme x dans f(x) = a·x² + b·x + c",
+        "es": "Coeficiente para el término x en f(x) = a·x² + b·x + c"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Coefficient c (constant)",
         "tr": "Katsayı c (sabit)",
-        "de": "Coefficient c (constant)",
-        "fr": "Coefficient c (constant)",
-        "es": "Coefficient c (constant)",
+        "de": "Koeffizient c (konstant)",
+        "fr": "Coefficient c (constante)",
+        "es": "Coeficiente c (constante)",
         "ar": "Coefficient c (constant)"
       },
       "businessContext_i18n": {
         "en": "Constant term in f(x) = a·x² + b·x + c",
-        "tr": "f(x) = a·x² + b·x + c'deki sabit terim"
+        "tr": "f(x) = a·x² + b·x + c'deki sabit terim",
+        "de": "Konstanter Term in f(x) = a·x² + b·x + c",
+        "fr": "Terme constant dans f(x) = a·x² + b·x + c",
+        "es": "Término constante en f(x) = a·x² + b·x + c"
       }
     }
   ],

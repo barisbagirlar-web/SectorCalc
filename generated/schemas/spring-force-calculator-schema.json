@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Yay Sabiti (k)",
         "tr": "Yay Sabiti (k)",
-        "de": "Yay Sabiti (k)",
-        "fr": "Yay Sabiti (k)",
+        "de": "Federkonstante (k)",
+        "fr": "Constante de raideur (k)",
         "es": "Yay Sabiti (k)",
         "ar": "Yay Sabiti (k)"
       },
       "businessContext_i18n": {
         "en": "Doğrudan yay sabiti değeri. Sıfır bırakılırsa geometriden hesaplanır.",
-        "tr": "Doğrudan yay sabiti değeri. Sıfır bırakılırsa geometriden hesaplanır."
+        "tr": "Doğrudan yay sabiti değeri. Sıfır bırakılırsa geometriden hesaplanır.",
+        "de": "Direkter Wert der Federkonstante. Bei Null wird aus Geometrie berechnet.",
+        "fr": "Valeur directe de la constante de raideur. Laisser à zéro pour calcul à partir de la géométrie."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Sıkıştırma Miktarı (x)",
         "tr": "Sıkıştırma Miktarı (x)",
-        "de": "Sıkıştırma Miktarı (x)",
-        "fr": "Sıkıştırma Miktarı (x)",
+        "de": "Federweg (x)",
+        "fr": "Quantité de compression (x)",
         "es": "Sıkıştırma Miktarı (x)",
         "ar": "Sıkıştırma Miktarı (x)"
       },
       "businessContext_i18n": {
         "en": "Yayın sıkıştırma veya uzama miktarı.",
-        "tr": "Yayın sıkıştırma veya uzama miktarı."
+        "tr": "Yayın sıkıştırma veya uzama miktarı.",
+        "de": "Betrag der Kompression oder Ausdehnung der Feder.",
+        "fr": "Quantité de compression ou d'extension du ressort."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Tel Çapı (d)",
         "tr": "Tel Çapı (d)",
-        "de": "Tel Çapı (d)",
-        "fr": "Tel Çapı (d)",
-        "es": "Tel Çapı (d)",
+        "de": "Drahtdurchmesser (d)",
+        "fr": "Diamètre du fil (d)",
+        "es": "Diámetro del alambre (d)",
         "ar": "Tel Çapı (d)"
       },
       "businessContext_i18n": {
         "en": "Yay telinin çapı.",
-        "tr": "Tel Çapı (d)"
+        "tr": "Tel Çapı (d)",
+        "de": "Durchmesser des Federdrahts.",
+        "fr": "Diamètre du fil du ressort."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Bobin Çapı (D)",
         "tr": "Bobin Çapı (D)",
-        "de": "Bobin Çapı (D)",
-        "fr": "Bobin Çapı (D)",
+        "de": "Spulendurchmesser (D)",
+        "fr": "Diamètre de la bobine (D)",
         "es": "Bobin Çapı (D)",
         "ar": "Bobin Çapı (D)"
       },
       "businessContext_i18n": {
         "en": "Yayın ortalama bobin çapı.",
-        "tr": "Yaydaki aktif sarım sayısı."
+        "tr": "Yaydaki aktif sarım sayısı.",
+        "de": "Mittlerer Spulendurchmesser der Feder.",
+        "fr": "Diamètre moyen de la bobine du ressort."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Aktif Sarım Sayısı (n)",
         "tr": "Aktif Sarım Sayısı (n)",
-        "de": "Aktif Sarım Sayısı (n)",
-        "fr": "Aktif Sarım Sayısı (n)",
-        "es": "Aktif Sarım Sayısı (n)",
+        "de": "Anzahl aktiver Windungen (n)",
+        "fr": "Nombre de spires actives (n)",
+        "es": "Número de espiras activas (n)",
         "ar": "Aktif Sarım Sayısı (n)"
       },
       "businessContext_i18n": {
         "en": "Yaydaki aktif sarım sayısı.",
-        "tr": "Malzemenin kayma modülü. Çelik için yaklaşık 80 GPa."
+        "tr": "Malzemenin kayma modülü. Çelik için yaklaşık 80 GPa.",
+        "de": "Anzahl der aktiven Windungen der Feder.",
+        "fr": "Nombre de spires actives dans le ressort."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Kayma Modülü (G)",
         "tr": "Kayma Modülü (G)",
-        "de": "Kayma Modülü (G)",
-        "fr": "Kayma Modülü (G)",
-        "es": "Kayma Modülü (G)",
+        "de": "Schubmodul (G)",
+        "fr": "Module de cisaillement (G)",
+        "es": "Módulo de rigidez (G)",
         "ar": "Kayma Modülü (G)"
       },
       "businessContext_i18n": {
         "en": "Malzemenin kayma modülü. Çelik için yaklaşık 80 GPa.",
-        "tr": "Yay Sabiti (k)"
+        "tr": "Yay Sabiti (k)",
+        "de": "Schubmodul des Materials. Für Stahl etwa 80 GPa.",
+        "fr": "Module de cisaillement du matériau. Pour l'acier, environ 80 GPa."
       }
     }
   ],

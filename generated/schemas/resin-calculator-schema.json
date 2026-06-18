@@ -12,13 +12,15 @@
         "en": "Area",
         "tr": "Alan",
         "de": "Fläche",
-        "fr": "Area",
-        "es": "Area",
+        "fr": "Surface",
+        "es": "Área",
         "ar": "Area"
       },
       "businessContext_i18n": {
         "en": "The surface area to be coated",
-        "tr": "Kaplanacak yüzey alanı"
+        "tr": "Kaplanacak yüzey alanı",
+        "de": "Zu beschichtende Oberfläche",
+        "fr": "Surface à revêtir"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Thickness",
         "tr": "Kalınlık",
         "de": "Dicke",
-        "fr": "Thickness",
-        "es": "Thickness",
+        "fr": "Épaisseur",
+        "es": "Espesor",
         "ar": "Thickness"
       },
       "businessContext_i18n": {
         "en": "Desired coating thickness",
-        "tr": "İstenen kaplama kalınlığı"
+        "tr": "İstenen kaplama kalınlığı",
+        "de": "Gewünschte Beschichtungsdicke",
+        "fr": "Épaisseur de revêtement souhaitée"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Resin Ratio",
         "tr": "Reçine Oranı",
-        "de": "Resin Ratio",
-        "fr": "Resin Ratio",
+        "de": "Harzverhältnis",
+        "fr": "Ratio de résine",
         "es": "Resin Ratio",
         "ar": "Resin Ratio"
       },
       "businessContext_i18n": {
         "en": "Parts of resin in the mix by weight",
-        "tr": "Karışımdaki reçine kısımları (ağırlıkça)"
+        "tr": "Karışımdaki reçine kısımları (ağırlıkça)",
+        "de": "Teile Harz im Gemisch nach Gewicht",
+        "fr": "Parties de résine dans le mélange en poids"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Hardener Ratio",
         "tr": "Sertleştirici Oranı",
-        "de": "Hardener Ratio",
-        "fr": "Hardener Ratio",
+        "de": "Härterverhältnis",
+        "fr": "Ratio de durcisseur",
         "es": "Hardener Ratio",
         "ar": "Hardener Ratio"
       },
       "businessContext_i18n": {
         "en": "Parts of hardener in the mix by weight",
-        "tr": "Karışımdaki sertleştirici kısımları (ağırlıkça)"
+        "tr": "Karışımdaki sertleştirici kısımları (ağırlıkça)",
+        "de": "Anteile Härter in der Mischung nach Gewicht",
+        "fr": "Parties de durcisseur dans le mélange en poids"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Resin Density",
         "tr": "Reçine Yoğunluğu",
-        "de": "Resin Density",
-        "fr": "Resin Density",
+        "de": "Harzdichte",
+        "fr": "Densité de la résine",
         "es": "Resin Density",
         "ar": "Resin Density"
       },
       "businessContext_i18n": {
         "en": "Density of resin",
-        "tr": "Reçinenin yoğunluğu"
+        "tr": "Reçinenin yoğunluğu",
+        "de": "Dichte des Harzes",
+        "fr": "Densité de la résine"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Hardener Density",
         "tr": "Sertleştirici Yoğunluğu",
-        "de": "Hardener Density",
-        "fr": "Hardener Density",
+        "de": "Härterdichte",
+        "fr": "Densité du durcisseur",
         "es": "Hardener Density",
         "ar": "Hardener Density"
       },
       "businessContext_i18n": {
         "en": "Density of hardener",
-        "tr": "Sertleştiricinin yoğunluğu"
+        "tr": "Sertleştiricinin yoğunluğu",
+        "de": "Dichte des Härters",
+        "fr": "Densité du durcisseur"
       }
     },
     {
@@ -132,13 +144,15 @@
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
         "de": "Abfallfaktor",
-        "fr": "Waste Factor",
-        "es": "Waste Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Extra material percentage for waste and spillage",
-        "tr": "Atık ve dökülme için ekstra malzeme yüzdesi"
+        "tr": "Atık ve dökülme için ekstra malzeme yüzdesi",
+        "de": "Zusätzlicher Materialanteil für Abfall und Verschütten",
+        "fr": "Pourcentage de matière supplémentaire pour déchets et pertes"
       }
     }
   ],

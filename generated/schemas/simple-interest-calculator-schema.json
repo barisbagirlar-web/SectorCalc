@@ -12,13 +12,15 @@
         "en": "Principal",
         "tr": "Anapara",
         "de": "Auftraggeber",
-        "fr": "Principal",
+        "fr": "Capital",
         "es": "Principal",
         "ar": "Principal"
       },
       "businessContext_i18n": {
         "en": "The initial amount of money invested or borrowed",
-        "tr": "Yatırılan veya borç alınan ilk para miktarı"
+        "tr": "Yatırılan veya borç alınan ilk para miktarı",
+        "de": "Der ursprünglich investierte oder geliehene Geldbetrag",
+        "fr": "Montant initial de l'argent investi ou emprunté"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
         "de": "Jährlicher Zinssatz",
-        "fr": "Annual Interest Rate",
-        "es": "Annual Interest Rate",
+        "fr": "Taux d'intérêt annuel",
+        "es": "Tasa de Interés Anual",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "The annual interest rate as a percentage",
-        "tr": "Yıllık faiz oranı yüzde olarak"
+        "tr": "Yıllık faiz oranı yüzde olarak",
+        "de": "Der jährliche Zinssatz in Prozent",
+        "fr": "Taux d'intérêt annuel en pourcentage"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Start Year",
         "tr": "Başlangıç Yılı",
         "de": "Startjahr",
-        "fr": "Start Year",
-        "es": "Start Year",
+        "fr": "Année de début",
+        "es": "Año de Inicio",
         "ar": "Start Year"
       },
       "businessContext_i18n": {
         "en": "The starting year for the interest calculation",
-        "tr": "Faiz hesaplamasının başlangıç yılı"
+        "tr": "Faiz hesaplamasının başlangıç yılı",
+        "de": "Das Startjahr für die Zinsberechnung",
+        "fr": "Année de début du calcul des intérêts"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "End Year",
         "tr": "Bitiş Yılı",
         "de": "Endjahr",
-        "fr": "End Year",
-        "es": "End Year",
+        "fr": "Année de fin",
+        "es": "Año de Finalización",
         "ar": "End Year"
       },
       "businessContext_i18n": {
         "en": "The ending year for the interest calculation",
-        "tr": "Faiz hesaplamasının bitiş yılı"
+        "tr": "Faiz hesaplamasının bitiş yılı",
+        "de": "Das Endjahr für die Zinsberechnung",
+        "fr": "Année de fin du calcul des intérêts"
       }
     }
   ],

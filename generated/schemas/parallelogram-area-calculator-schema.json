@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Base length",
         "tr": "Taban uzunluğu",
-        "de": "Base length",
-        "fr": "Base length",
-        "es": "Base length",
+        "de": "Grundseite",
+        "fr": "Longueur de la base",
+        "es": "Longitud de la base",
         "ar": "Base length"
       },
       "businessContext_i18n": {
         "en": "Length of the base of the parallelogram.",
-        "tr": "Paralelkenarın tabanının uzunluğu."
+        "tr": "Paralelkenarın tabanının uzunluğu.",
+        "de": "Länge der Grundseite des Parallelogramms.",
+        "fr": "Longueur de la base du parallélogramme.",
+        "es": "Longitud de la base del paralelogramo."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Height",
         "tr": "Boy",
         "de": "Größe",
-        "fr": "Height",
-        "es": "Height",
+        "fr": "Taille",
+        "es": "Altura",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "Perpendicular distance between bases.",
-        "tr": "Tabanlar arasındaki dik mesafe."
+        "tr": "Tabanlar arasındaki dik mesafe.",
+        "de": "Senkrechter Abstand zwischen den Grundseiten.",
+        "fr": "Distance perpendiculaire entre les bases.",
+        "es": "Distancia perpendicular entre bases."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Side length",
         "tr": "Kenar uzunluğu",
-        "de": "Side length",
-        "fr": "Side length",
-        "es": "Side length",
+        "de": "Seitenlänge",
+        "fr": "Longueur du côté",
+        "es": "Longitud del lado",
         "ar": "Side length"
       },
       "businessContext_i18n": {
         "en": "Length of the adjacent side. Used if base and height not provided.",
-        "tr": "Komşu kenarın uzunluğu. Taban ve yükseklik sağlanmadığında kullanılır."
+        "tr": "Komşu kenarın uzunluğu. Taban ve yükseklik sağlanmadığında kullanılır.",
+        "de": "Länge der angrenzenden Seite. Wird verwendet, wenn Grundseite und Höhe nicht angegeben sind.",
+        "fr": "Longueur du côté adjacent. Utilisé si la base et la hauteur ne sont pas fournies.",
+        "es": "Longitud del lado adyacente. Se usa si no se proporcionan base y altura."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Angle between base and side",
         "tr": "Taban ve kenar arasındaki açı",
-        "de": "Angle between base and side",
-        "fr": "Angle between base and side",
-        "es": "Angle between base and side",
+        "de": "Winkel zwischen Grundseite und Seite",
+        "fr": "Angle entre la base et le côté",
+        "es": "Ángulo entre base y lado",
         "ar": "Angle between base and side"
       },
       "businessContext_i18n": {
         "en": "Angle between base and side. Used for alternative area calculation.",
-        "tr": "Taban ve kenar arasındaki açı. Alternatif alan hesaplaması için kullanılır."
+        "tr": "Taban ve kenar arasındaki açı. Alternatif alan hesaplaması için kullanılır.",
+        "de": "Winkel zwischen Grundseite und Seite. Wird für alternative Flächenberechnung verwendet.",
+        "fr": "Angle entre la base et le côté. Utilisé pour un calcul alternatif de l'aire.",
+        "es": "Ángulo entre la base y el lado. Se usa para cálculo alternativo del área."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Diagonal 1",
         "tr": "Köşegen 1",
-        "de": "Diagonal 1",
-        "fr": "Diagonal 1",
+        "de": "Diagonale 1",
+        "fr": "Diagonale 1",
         "es": "Diagonal 1",
         "ar": "Diagonal 1"
       },
       "businessContext_i18n": {
         "en": "First diagonal length.",
-        "tr": "Birinci köşegen uzunluğu."
+        "tr": "Birinci köşegen uzunluğu.",
+        "de": "Länge der ersten Diagonale.",
+        "fr": "Longueur de la première diagonale.",
+        "es": "Longitud de la primera diagonal."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Diagonal 2",
         "tr": "Köşegen 2",
-        "de": "Diagonal 2",
-        "fr": "Diagonal 2",
+        "de": "Diagonale 2",
+        "fr": "Diagonale 2",
         "es": "Diagonal 2",
         "ar": "Diagonal 2"
       },
       "businessContext_i18n": {
         "en": "Second diagonal length.",
-        "tr": "İkinci köşegen uzunluğu."
+        "tr": "İkinci köşegen uzunluğu.",
+        "de": "Länge der zweiten Diagonale.",
+        "fr": "Longueur de la deuxième diagonale.",
+        "es": "Longitud de la segunda diagonal."
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Angle between diagonals",
         "tr": "Köşegenler arasındaki açı",
-        "de": "Angle between diagonals",
-        "fr": "Angle between diagonals",
-        "es": "Angle between diagonals",
+        "de": "Winkel zwischen den Diagonalen",
+        "fr": "Angle entre les diagonales",
+        "es": "Ángulo entre diagonales",
         "ar": "Angle between diagonals"
       },
       "businessContext_i18n": {
         "en": "Angle between the diagonals. Used for alternative area calculation.",
-        "tr": "Köşegenler arasındaki açı. Alternatif alan hesaplaması için kullanılır."
+        "tr": "Köşegenler arasındaki açı. Alternatif alan hesaplaması için kullanılır.",
+        "de": "Winkel zwischen den Diagonalen. Wird für alternative Flächenberechnung verwendet.",
+        "fr": "Angle entre les diagonales. Utilisé pour un calcul alternatif de l'aire.",
+        "es": "Ángulo entre las diagonales. Se usa para cálculo alternativo del área."
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Kütle (m)",
         "tr": "Kütle (m)",
-        "de": "Kütle (m)",
-        "fr": "Kütle (m)",
-        "es": "Kütle (m)",
+        "de": "Masse (m)",
+        "fr": "Masse (m)",
+        "es": "Masa (m)",
         "ar": "Kütle (m)"
       },
       "businessContext_i18n": {
         "en": "Isıtılan veya soğutulan maddenin kütlesi (kg)",
-        "tr": "Isıtılan veya soğutulan maddenin kütlesi (kg)"
+        "tr": "Isıtılan veya soğutulan maddenin kütlesi (kg)",
+        "de": "Masse des zu erhitzenden oder kühlenden Materials (kg)",
+        "fr": "Masse de la substance chauffée ou refroidie (kg)",
+        "es": "Masa de la sustancia a calentar o enfriar (kg)"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Özgül Isı (c)",
         "tr": "Özgül Isı (c)",
-        "de": "Özgül Isı (c)",
-        "fr": "Özgül Isı (c)",
-        "es": "Özgül Isı (c)",
+        "de": "Spezifische Wärmekapazität (c)",
+        "fr": "Chaleur spécifique (c)",
+        "es": "Calor específico (c)",
         "ar": "Özgül Isı (c)"
       },
       "businessContext_i18n": {
         "en": "Malzemenin özgül ısı kapasitesi (J/(kg·K)), su için 4184",
-        "tr": "Malzemenin özgül ısı kapasitesi (J/(kg·K)), su için 4184"
+        "tr": "Malzemenin özgül ısı kapasitesi (J/(kg·K)), su için 4184",
+        "de": "Spezifische Wärmekapazität des Materials (J/(kg·K)), für Wasser 4184",
+        "fr": "Capacité thermique massique du matériau (J/(kg·K)), pour l'eau : 4184",
+        "es": "Capacidad calorífica específica del material (J/(kg·K)), para agua 4184"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Başlangıç Sıcaklığı (T₁)",
         "tr": "Başlangıç Sıcaklığı (T₁)",
-        "de": "Başlangıç Sıcaklığı (T₁)",
-        "fr": "Başlangıç Sıcaklığı (T₁)",
-        "es": "Başlangıç Sıcaklığı (T₁)",
+        "de": "Anfangstemperatur (T₁)",
+        "fr": "Température initiale (T₁)",
+        "es": "Temperatura inicial (T₁)",
         "ar": "Başlangıç Sıcaklığı (T₁)"
       },
       "businessContext_i18n": {
         "en": "Başlangıç sıcaklık değeri (°C)",
-        "tr": "Başlangıç sıcaklık değeri (°C)"
+        "tr": "Başlangıç sıcaklık değeri (°C)",
+        "de": "Anfangstemperaturwert (°C)",
+        "fr": "Valeur de température initiale (°C)",
+        "es": "Valor de temperatura inicial (°C)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Bitiş Sıcaklığı (T₂)",
         "tr": "Bitiş Sıcaklığı (T₂)",
-        "de": "Bitiş Sıcaklığı (T₂)",
-        "fr": "Bitiş Sıcaklığı (T₂)",
-        "es": "Bitiş Sıcaklığı (T₂)",
+        "de": "Endtemperatur (T₂)",
+        "fr": "Température finale (T₂)",
+        "es": "Temperatura final (T₂)",
         "ar": "Bitiş Sıcaklığı (T₂)"
       },
       "businessContext_i18n": {
         "en": "Hedef veya son sıcaklık değeri (°C)",
-        "tr": "Hedef veya son sıcaklık değeri (°C)"
+        "tr": "Hedef veya son sıcaklık değeri (°C)",
+        "de": "Ziel- oder Endtemperaturwert (°C)",
+        "fr": "Valeur de température cible ou finale (°C)",
+        "es": "Valor de temperatura objetivo o final (°C)"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Isı Kaybı Faktörü",
         "tr": "Isı Kaybı Faktörü",
-        "de": "Isı Kaybı Faktörü",
-        "fr": "Isı Kaybı Faktörü",
-        "es": "Isı Kaybı Faktörü",
+        "de": "Wärmeverlustfaktor",
+        "fr": "Facteur de perte de chaleur",
+        "es": "Factor de pérdida de calor",
         "ar": "Isı Kaybı Faktörü"
       },
       "businessContext_i18n": {
         "en": "Ortam, yalıtım vb. kaynaklı yüzdesel ısı kaybı (0–100)",
-        "tr": "Ortam, yalıtım vb. kaynaklı yüzdesel ısı kaybı (0–100)"
+        "tr": "Ortam, yalıtım vb. kaynaklı yüzdesel ısı kaybı (0–100)",
+        "de": "Prozentualer Wärmeverlust durch Umgebung, Isolierung usw. (0–100)",
+        "fr": "Perte de chaleur en pourcentage due à l'environnement, à l'isolation, etc. (0–100)",
+        "es": "Pérdida de calor porcentual debida al ambiente, aislamiento, etc. (0–100)"
       }
     }
   ],

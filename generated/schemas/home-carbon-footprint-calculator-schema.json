@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Annual Electricity Consumption",
         "tr": "Yıllık Elektrik Tüketimi",
-        "de": "Annual Electricity Consumption",
-        "fr": "Annual Electricity Consumption",
-        "es": "Annual Electricity Consumption",
+        "de": "Jährlicher Stromverbrauch",
+        "fr": "Consommation annuelle d'électricité",
+        "es": "Consumo anual de electricidad",
         "ar": "Annual Electricity Consumption"
       },
       "businessContext_i18n": {
         "en": "Total electricity used in a year, typically found on utility bills or annual energy statements.",
-        "tr": "Bir yılda kullanılan toplam elektrik, genellikle elektrik faturalarında veya yıllık enerji bildirimlerinde bulunur."
+        "tr": "Bir yılda kullanılan toplam elektrik, genellikle elektrik faturalarında veya yıllık enerji bildirimlerinde bulunur.",
+        "de": "Gesamter Stromverbrauch pro Jahr, typischerweise auf Stromrechnungen oder jährlichen Energieabrechnungen zu finden.",
+        "fr": "Électricité totale utilisée en un an, généralement trouvée sur les factures d'électricité ou les relevés annuels.",
+        "es": "Electricidad total utilizada en un año, típicamente encontrada en facturas de servicios públicos o estados de cuenta anuales de energía."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Annual Natural Gas Consumption",
         "tr": "Yıllık Doğal Gaz Tüketimi",
-        "de": "Annual Natural Gas Consumption",
-        "fr": "Annual Natural Gas Consumption",
-        "es": "Annual Natural Gas Consumption",
+        "de": "Jährlicher Erdgasverbrauch",
+        "fr": "Consommation annuelle de gaz naturel",
+        "es": "Consumo anual de gas natural",
         "ar": "Annual Natural Gas Consumption"
       },
       "businessContext_i18n": {
         "en": "Total natural gas consumed in a year for heating, cooking, etc., from gas utility bills.",
-        "tr": "Isınma, yemek pişirme vb. için bir yılda tüketilen toplam doğal gaz, gaz faturalarından alınır."
+        "tr": "Isınma, yemek pişirme vb. için bir yılda tüketilen toplam doğal gaz, gaz faturalarından alınır.",
+        "de": "Gesamter Erdgasverbrauch pro Jahr für Heizung, Kochen usw., aus Gasrechnungen.",
+        "fr": "Gaz naturel total consommé en un an pour le chauffage, la cuisson, etc., à partir des factures de gaz.",
+        "es": "Gas natural total consumido en un año para calefacción, cocina, etc., de facturas de gas."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Annual Car Travel",
         "tr": "Yıllık Araba Seyahati",
-        "de": "Annual Car Travel",
-        "fr": "Annual Car Travel",
-        "es": "Annual Car Travel",
+        "de": "Jährliche Autofahrten",
+        "fr": "Déplacements annuels en voiture",
+        "es": "Viaje anual en automóvil",
         "ar": "Annual Car Travel"
       },
       "businessContext_i18n": {
         "en": "Total miles driven per year in a typical gasoline-powered car (average fuel economy ~25 mpg).",
-        "tr": "Tipik bir benzinli otomobilde yılda sürülen toplam mil (ortalama yakıt ekonomisi ~25 mpg)."
+        "tr": "Tipik bir benzinli otomobilde yılda sürülen toplam mil (ortalama yakıt ekonomisi ~25 mpg).",
+        "de": "Gesamte gefahrene Kilometer pro Jahr mit einem typischen benzinbetriebenen Auto (durchschnittlicher Kraftstoffverbrauch ~10,6 km/l).",
+        "fr": "Nombre total de miles parcourus par an dans une voiture à essence typique (consommation moyenne ~25 mpg).",
+        "es": "Millas totales conducidas por año en un automóvil típico de gasolina (rendimiento promedio de combustible ~25 mpg)."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Annual Air Travel",
         "tr": "Yıllık Hava Seyahati",
-        "de": "Annual Air Travel",
-        "fr": "Annual Air Travel",
-        "es": "Annual Air Travel",
+        "de": "Jährliche Flugreisen",
+        "fr": "Voyages aériens annuels",
+        "es": "Viaje anual en avión",
         "ar": "Annual Air Travel"
       },
       "businessContext_i18n": {
         "en": "Total distance flown per year as a passenger, including all flights (long-haul average emission factor).",
-        "tr": "Yolcu olarak yılda uçulan toplam mesafe, tüm uçuşlar dahil (uzun mesafe ortalama emisyon faktörü)."
+        "tr": "Yolcu olarak yılda uçulan toplam mesafe, tüm uçuşlar dahil (uzun mesafe ortalama emisyon faktörü).",
+        "de": "Gesamte Flugstrecke pro Jahr als Passagier, einschließlich aller Flüge (Langstrecken-Durchschnittsemissionsfaktor).",
+        "fr": "Distance totale parcourue par an en tant que passager, tous vols confondus (facteur d'émission moyen long-courrier).",
+        "es": "Distancia total volada por año como pasajero, incluyendo todos los vuelos (factor de emisión promedio de larga distancia)."
       }
     }
   ],

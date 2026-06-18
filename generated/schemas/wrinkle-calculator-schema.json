@@ -12,13 +12,15 @@
         "en": "Kalınlık",
         "tr": "Kalınlık",
         "de": "Dicke",
-        "fr": "Kalınlık",
-        "es": "Kalınlık",
+        "fr": "Épaisseur",
+        "es": "Grosor",
         "ar": "Kalınlık"
       },
       "businessContext_i18n": {
         "en": "Sac malzemenin kalınlığı",
-        "tr": "Sac malzemenin kalınlığı"
+        "tr": "Sac malzemenin kalınlığı",
+        "de": "Blechdicke",
+        "fr": "Épaisseur du matériau de la tôle"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Blank Çapı",
         "tr": "Blank Çapı",
-        "de": "Blank Çapı",
-        "fr": "Blank Çapı",
+        "de": "Ronden-Durchmesser",
+        "fr": "Diamètre du flan",
         "es": "Blank Çapı",
         "ar": "Blank Çapı"
       },
       "businessContext_i18n": {
         "en": "Başlangıç sac çapı (blanck çapı)",
-        "tr": "Başlangıç sac çapı (blank çapı)"
+        "tr": "Başlangıç sac çapı (blank çapı)",
+        "de": "Anfänglicher Blechdurchmesser (Rondendurchmesser)",
+        "fr": "Diamètre initial de la tôle (diamètre du flan)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Zımba Çapı",
         "tr": "Zımba Çapı",
-        "de": "Zımba Çapı",
-        "fr": "Zımba Çapı",
+        "de": "Stempeldurchmesser",
+        "fr": "Diamètre du poinçon",
         "es": "Zımba Çapı",
         "ar": "Zımba Çapı"
       },
       "businessContext_i18n": {
         "en": "Deep drawing zımba çapı",
-        "tr": "Derin çekme zımba çapı"
+        "tr": "Derin çekme zımba çapı",
+        "de": "Tiefzieh-Stempeldurchmesser",
+        "fr": "Diamètre du poinçon d'emboutissage profond"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Çekme Derinliği",
         "tr": "Çekme Derinliği",
-        "de": "Çekme Derinliği",
-        "fr": "Çekme Derinliği",
+        "de": "Ziehtiefe",
+        "fr": "Profondeur d'emboutissage",
         "es": "Çekme Derinliği",
         "ar": "Çekme Derinliği"
       },
       "businessContext_i18n": {
         "en": "Deep drawing derinliği",
-        "tr": "Derin çekme derinliği"
+        "tr": "Derin çekme derinliği",
+        "de": "Tiefzieh-Tiefe",
+        "fr": "Profondeur d'emboutissage profond"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Akma Dayanımı",
         "tr": "Akma Dayanımı",
-        "de": "Akma Dayanımı",
-        "fr": "Akma Dayanımı",
-        "es": "Akma Dayanımı",
+        "de": "Streckgrenze",
+        "fr": "Limite d'élasticité",
+        "es": "Límite elástico",
         "ar": "Akma Dayanımı"
       },
       "businessContext_i18n": {
         "en": "Malzemenin akma dayanımı (Re)",
-        "tr": "Malzemenin akma dayanımı (Re)"
+        "tr": "Malzemenin akma dayanımı (Re)",
+        "de": "Streckgrenze des Materials (Re)",
+        "fr": "Limite d'élasticité du matériau (Re)"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Elastisite Modülü",
         "tr": "Elastisite Modülü",
-        "de": "Elastisite Modülü",
-        "fr": "Elastisite Modülü",
+        "de": "Elastizitätsmodul",
+        "fr": "Module d'élasticité",
         "es": "Elastisite Modülü",
         "ar": "Elastisite Modülü"
       },
       "businessContext_i18n": {
         "en": "Malzemenin elastisite modülü (E)",
-        "tr": "Malzemenin elastisite modülü (E)"
+        "tr": "Malzemenin elastisite modülü (E)",
+        "de": "Elastizitätsmodul des Materials (E)",
+        "fr": "Module d'élasticité du matériau (E)"
       }
     }
   ],

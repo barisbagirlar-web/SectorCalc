@@ -12,14 +12,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Age in years for BMR calculation",
         "tr": "BMR hesaplaması için yaş (yıl)",
-        "de": "Alter in Jahren für die BMR-Berechnung"
+        "de": "Alter in Jahren für die BMR-Berechnung",
+        "fr": "Âge en années pour le calcul du BMR",
+        "es": "Edad en años para el cálculo de la TMB"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Gender",
         "tr": "Cinsiyet",
         "de": "Geschlecht",
-        "fr": "Gender",
-        "es": "Gender",
+        "fr": "Genre",
+        "es": "Género",
         "ar": "Gender"
       },
       "businessContext_i18n": {
         "en": "0 for female, 1 for male",
         "tr": "0 kadın, 1 erkek",
-        "de": "0 für weiblich, 1 für männlich"
+        "de": "0 für weiblich, 1 für männlich",
+        "fr": "0 pour femme, 1 pour homme",
+        "es": "0 para mujer, 1 para hombre"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Height",
         "tr": "Boy",
         "de": "Größe",
-        "fr": "Height",
-        "es": "Height",
+        "fr": "Taille",
+        "es": "Altura",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "Height in centimeters",
         "tr": "Santimetre cinsinden boy",
-        "de": "Größe in Zentimetern"
+        "de": "Größe in Zentimetern",
+        "fr": "Taille en centimètres",
+        "es": "Altura en centímetros"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Weight",
         "tr": "Ağırlık",
         "de": "Gewicht",
-        "fr": "Weight",
-        "es": "Weight",
+        "fr": "Poids",
+        "es": "Peso",
         "ar": "Weight"
       },
       "businessContext_i18n": {
         "en": "Weight in kilograms",
         "tr": "Ağırlık (kg)",
-        "de": "Gewicht in Kilogramm"
+        "de": "Gewicht in Kilogramm",
+        "fr": "Poids en kilogrammes",
+        "es": "Peso en kilogramos"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Activity Level",
         "tr": "Aktivite Seviyesi",
         "de": "Aktivitätsniveau",
-        "fr": "Activity Level",
-        "es": "Activity Level",
+        "fr": "Niveau d'activité",
+        "es": "Nivel de actividad",
         "ar": "Activity Level"
       },
       "businessContext_i18n": {
         "en": "1=Sedentary,2=Light,3=Moderate,4=Active,5=Very Active",
         "tr": "1=Hareketsiz, 2=Hafif, 3=Orta, 4=Aktif, 5=Çok Aktif",
-        "de": "1=Sitzend, 2=Leicht, 3=Mäßig, 4=Aktiv, 5=Sehr aktiv"
+        "de": "1=Sitzend, 2=Leicht, 3=Mäßig, 4=Aktiv, 5=Sehr aktiv",
+        "fr": "1=Sédentaire, 2=Léger, 3=Modéré, 4=Actif, 5=Très actif",
+        "es": "1=Sedentario, 2=Ligero, 3=Moderado, 4=Activo, 5=Muy activo"
       }
     }
   ],

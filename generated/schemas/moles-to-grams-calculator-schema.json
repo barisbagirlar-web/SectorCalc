@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Amount (mole)",
         "tr": "Miktar (mol)",
-        "de": "Amount (mole)",
-        "fr": "Amount (mole)",
-        "es": "Amount (mole)",
+        "de": "Stoffmenge (Mol)",
+        "fr": "Quantité (mole)",
+        "es": "Cantidad (mol)",
         "ar": "Amount (mole)"
       },
       "businessContext_i18n": {
         "en": "Number of moles of substance",
-        "tr": "Maddenin mol sayısı"
+        "tr": "Maddenin mol sayısı",
+        "de": "Anzahl der Mol der Substanz",
+        "fr": "Nombre de moles de substance",
+        "es": "Número de moles de sustancia"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Molecular Weight",
         "tr": "Molekül Ağırlığı",
         "de": "Molekulargewicht",
-        "fr": "Molecular Weight",
-        "es": "Molecular Weight",
+        "fr": "Masse moléculaire",
+        "es": "Peso molecular",
         "ar": "Molecular Weight"
       },
       "businessContext_i18n": {
         "en": "Molar mass of the substance",
-        "tr": "Maddenin molar kütlesi"
+        "tr": "Maddenin molar kütlesi",
+        "de": "Molmasse der Substanz",
+        "fr": "Masse molaire de la substance",
+        "es": "Masa molar de la sustancia"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Purity",
         "tr": "Saflık",
         "de": "Reinheit",
-        "fr": "Purity",
-        "es": "Purity",
+        "fr": "Pureté",
+        "es": "Pureza",
         "ar": "Purity"
       },
       "businessContext_i18n": {
         "en": "Purity of the substance, 100 for pure",
-        "tr": "Maddenin saflığı, saf için 100"
+        "tr": "Maddenin saflığı, saf için 100",
+        "de": "Reinheit der Substanz, 100 für rein",
+        "fr": "Pureté de la substance, 100 pour pur",
+        "es": "Pureza de la sustancia, 100 para pura"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Scaling Factor",
         "tr": "Ölçekleme Faktörü",
-        "de": "Scaling Factor",
-        "fr": "Scaling Factor",
-        "es": "Scaling Factor",
+        "de": "Skalierungsfaktor",
+        "fr": "Facteur d'échelle",
+        "es": "Factor de Escala",
         "ar": "Scaling Factor"
       },
       "businessContext_i18n": {
         "en": "Factor for multiple batches or units",
-        "tr": "Birden çok parti veya birim için faktör"
+        "tr": "Birden çok parti veya birim için faktör",
+        "de": "Faktor für mehrere Chargen oder Einheiten",
+        "fr": "Facteur pour lots ou unités multiples",
+        "es": "Factor para múltiples lotes o unidades"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Tolerance",
         "tr": "Tolerans",
         "de": "Toleranz",
-        "fr": "Tolerance",
-        "es": "Tolerance",
+        "fr": "Tolérance",
+        "es": "Tolerancia",
         "ar": "Tolerance"
       },
       "businessContext_i18n": {
         "en": "Measurement tolerance in grams",
-        "tr": "Gram cinsinden ölçüm toleransı"
+        "tr": "Gram cinsinden ölçüm toleransı",
+        "de": "Messtoleranz in Gramm",
+        "fr": "Tolérance de mesure en grammes",
+        "es": "Tolerancia de medición en gramos"
       }
     }
   ],

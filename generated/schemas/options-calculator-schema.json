@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Option Type (1=Call, 0=Put)",
         "tr": "Opsiyon Türü (1=Alım, 0=Satım)",
-        "de": "Option Type (1=Call, 0=Put)",
-        "fr": "Option Type (1=Call, 0=Put)",
-        "es": "Option Type (1=Call, 0=Put)",
+        "de": "Optionsart (1=Call, 0=Put)",
+        "fr": "Type d'option (1=Call, 0=Put)",
+        "es": "Tipo de opción (1=Call, 0=Put)",
         "ar": "Option Type (1=Call, 0=Put)"
       },
       "businessContext_i18n": {
         "en": "Specify 1 for a call option, 0 for a put option.",
-        "tr": "Alım opsiyonu için 1, satım opsiyonu için 0 belirtin."
+        "tr": "Alım opsiyonu için 1, satım opsiyonu için 0 belirtin.",
+        "de": "Geben Sie 1 für eine Call-Option, 0 für eine Put-Option an.",
+        "fr": "Spécifiez 1 pour une option d'achat, 0 pour une option de vente.",
+        "es": "Especifique 1 para una opción de compra, 0 para una opción de venta."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Current Stock Price",
         "tr": "Mevcut Hisse Senedi Fiyatı",
         "de": "Aktueller Aktienkurs",
-        "fr": "Current Stock Price",
-        "es": "Current Stock Price",
+        "fr": "Cours actuel de l'action",
+        "es": "Precio actual de la acción",
         "ar": "Current Stock Price"
       },
       "businessContext_i18n": {
         "en": "The current market price of the underlying asset.",
-        "tr": "Dayanak varlığın güncel piyasa fiyatı."
+        "tr": "Dayanak varlığın güncel piyasa fiyatı.",
+        "de": "Aktueller Marktpreis des Basiswerts.",
+        "fr": "Prix actuel du marché de l'actif sous-jacent.",
+        "es": "El precio de mercado actual del activo subyacente."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Strike Price",
         "tr": "Kullanım Fiyatı",
         "de": "Basispreis",
-        "fr": "Strike Price",
-        "es": "Strike Price",
+        "fr": "Prix d'exercice",
+        "es": "Precio de ejercicio",
         "ar": "Strike Price"
       },
       "businessContext_i18n": {
         "en": "The price at which the option can be exercised.",
-        "tr": "Opsiyonun kullanılabileceği fiyat."
+        "tr": "Opsiyonun kullanılabileceği fiyat.",
+        "de": "Preis, zu dem die Option ausgeübt werden kann.",
+        "fr": "Prix auquel l'option peut être exercée.",
+        "es": "El precio al que se puede ejercer la opción."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Time to Maturity",
         "tr": "Vadeye Kalan Süre",
         "de": "Restlaufzeit",
-        "fr": "Time to Maturity",
-        "es": "Time to Maturity",
+        "fr": "Temps jusqu'à l'échéance",
+        "es": "Tiempo hasta el vencimiento",
         "ar": "Time to Maturity"
       },
       "businessContext_i18n": {
         "en": "Time remaining until option expiration, expressed in years.",
-        "tr": "Opsiyon vadesine kalan süre, yıl cinsinden ifade edilir."
+        "tr": "Opsiyon vadesine kalan süre, yıl cinsinden ifade edilir.",
+        "de": "Verbleibende Zeit bis zum Optionsverfall, ausgedrückt in Jahren.",
+        "fr": "Temps restant jusqu'à l'expiration de l'option, exprimé en années.",
+        "es": "Tiempo restante hasta el vencimiento de la opción, expresado en años."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Risk-Free Interest Rate",
         "tr": "Risksiz Faiz Oranı",
-        "de": "Risk-Free Interest Rate",
-        "fr": "Risk-Free Interest Rate",
-        "es": "Risk-Free Interest Rate",
+        "de": "Risikofreier Zinssatz",
+        "fr": "Taux d'intérêt sans risque",
+        "es": "Tasa de interés libre de riesgo",
         "ar": "Risk-Free Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Annual risk-free interest rate (e.g., 5 for 5%).",
-        "tr": "Yıllık risksiz faiz oranı (örneğin %5 için 5)."
+        "tr": "Yıllık risksiz faiz oranı (örneğin %5 için 5).",
+        "de": "Jährlicher risikofreier Zinssatz (z. B. 5 für 5%).",
+        "fr": "Taux d'intérêt annuel sans risque (ex. 5 pour 5%).",
+        "es": "Tasa de interés anual libre de riesgo (por ejemplo, 5 para 5%)."
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Volatility",
         "tr": "Volatilite",
         "de": "Volatilität",
-        "fr": "Volatility",
-        "es": "Volatility",
+        "fr": "Volatilité",
+        "es": "Volatilidad",
         "ar": "Volatility"
       },
       "businessContext_i18n": {
         "en": "Annualized standard deviation of the underlying's returns (e.g., 20 for 20%).",
-        "tr": "Dayanak varlık getirilerinin yıllık standart sapması (örneğin %20 için 20)."
+        "tr": "Dayanak varlık getirilerinin yıllık standart sapması (örneğin %20 için 20).",
+        "de": "Annualisierte Standardabweichung der Renditen des Basiswerts (z. B. 20 für 20%).",
+        "fr": "Écart-type annualisé des rendements du sous-jacent (ex. 20 pour 20%).",
+        "es": "Desviación estándar anualizada de los rendimientos del subyacente (por ejemplo, 20 para 20%)."
       }
     }
   ],

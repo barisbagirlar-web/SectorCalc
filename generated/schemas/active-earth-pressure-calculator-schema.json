@@ -12,14 +12,16 @@
         "en": "Wall Height",
         "tr": "Duvar Yüksekliği",
         "de": "Wandhöhe",
-        "fr": "Wall Height",
-        "es": "Wall Height",
+        "fr": "Hauteur du mur",
+        "es": "Altura del muro",
         "ar": "Wall Height"
       },
       "businessContext_i18n": {
         "en": "Vertical height of retaining wall from base to top of backfill",
         "tr": "İstinat duvarının tabandan dolgu üstüne kadar dikey yüksekliği",
-        "de": "Vertikale Höhe der Stützmauer von der Basis bis zur Oberkante der Hinterfüllung"
+        "de": "Vertikale Höhe der Stützmauer von der Basis bis zur Oberkante der Hinterfüllung",
+        "fr": "Hauteur verticale du mur de soutènement de la base au sommet du remblai",
+        "es": "Altura vertical del muro de contención desde la base hasta la parte superior del relleno"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Soil Unit Weight",
         "tr": "Zemin Birim Hacim Ağırlığı",
         "de": "Bodenwichte",
-        "fr": "Soil Unit Weight",
-        "es": "Soil Unit Weight",
+        "fr": "Poids volumique du sol",
+        "es": "Peso unitario del suelo",
         "ar": "Soil Unit Weight"
       },
       "businessContext_i18n": {
         "en": "Unit weight of backfill soil (γ)",
         "tr": "Dolgu zeminin birim hacim ağırlığı (γ)",
-        "de": "Wichte des Hinterfüllbodens (γ)"
+        "de": "Wichte des Hinterfüllbodens (γ)",
+        "fr": "Poids volumique du sol de remblai (γ)",
+        "es": "Peso unitario del suelo de relleno (γ)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Friction Angle",
         "tr": "Sürtünme Açısı",
         "de": "Reibungswinkel",
-        "fr": "Friction Angle",
-        "es": "Friction Angle",
+        "fr": "Angle de frottement",
+        "es": "Ángulo de fricción",
         "ar": "Friction Angle"
       },
       "businessContext_i18n": {
         "en": "Internal friction angle of backfill soil (φ)",
         "tr": "Dolgu zemininin içsel sürtünme açısı (φ)",
-        "de": "Reibungswinkel des Hinterfüllbodens (φ)"
+        "de": "Reibungswinkel des Hinterfüllbodens (φ)",
+        "fr": "Angle de frottement interne du sol de remblai (φ)",
+        "es": "Ángulo de fricción interna del suelo de relleno (φ)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Cohesion",
         "tr": "Kohezyon",
         "de": "Kohäsion",
-        "fr": "Cohesion",
-        "es": "Cohesion",
+        "fr": "Cohésion",
+        "es": "Cohesión",
         "ar": "Cohesion"
       },
       "businessContext_i18n": {
         "en": "Cohesion intercept of backfill soil (c)",
         "tr": "Dolgu zemininin kohezyon kesişimi (c)",
-        "de": "Kohäsionsinterzept des Hinterfüllbodens (c)"
+        "de": "Kohäsionsinterzept des Hinterfüllbodens (c)",
+        "fr": "Intercepte de cohésion du sol de remblai (c)",
+        "es": "Intercepto de cohesión del suelo de relleno (c)"
       }
     },
     {
@@ -97,13 +105,15 @@
         "tr": "Sürşarj",
         "de": "Auflast",
         "fr": "Surcharge",
-        "es": "Surcharge",
+        "es": "Sobrecarga",
         "ar": "Surcharge"
       },
       "businessContext_i18n": {
         "en": "Uniform surcharge load applied at top of backfill (q)",
         "tr": "Dolgu üstüne uygulanan düzgün yayılı sürşarj yükü (q)",
-        "de": "Gleichmäßige Auflast oben auf der Hinterfüllung (q)"
+        "de": "Gleichmäßige Auflast oben auf der Hinterfüllung (q)",
+        "fr": "Charge de surcharge uniforme appliquée au sommet du remblai (q)",
+        "es": "Carga uniforme de sobrecarga aplicada en la parte superior del relleno (q)"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Patient age",
         "tr": "Hasta yaşı",
-        "de": "Patientenalter"
+        "de": "Patientenalter",
+        "fr": "Âge du patient",
+        "es": "Edad del paciente"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "BMI",
         "tr": "VKİ",
         "de": "BMI",
-        "fr": "BMI",
-        "es": "BMI",
+        "fr": "IMC",
+        "es": "IMC",
         "ar": "BMI"
       },
       "businessContext_i18n": {
         "en": "Body Mass Index",
         "tr": "Vücut Kitle İndeksi",
-        "de": "Body-Mass-Index"
+        "de": "Body-Mass-Index",
+        "fr": "Indice de masse corporelle",
+        "es": "Índice de masa corporal"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Fasting Glucose",
         "tr": "Açlık Glukozu",
         "de": "Nüchternblutzucker",
-        "fr": "Fasting Glucose",
-        "es": "Fasting Glucose",
+        "fr": "Glycémie à jeun",
+        "es": "Glucosa en ayunas",
         "ar": "Fasting Glucose"
       },
       "businessContext_i18n": {
         "en": "Fasting blood glucose level",
         "tr": "Açlık kan şekeri seviyesi",
-        "de": "Nüchternblutzuckerspiegel"
+        "de": "Nüchternblutzuckerspiegel",
+        "fr": "Glycémie à jeun",
+        "es": "Nivel de glucosa en sangre en ayunas"
       }
     },
     {
@@ -82,7 +88,9 @@
       "businessContext_i18n": {
         "en": "Glycated hemoglobin (A1C)",
         "tr": "Glikozillenmiş hemoglobin (A1C)",
-        "de": "Glykiertes Hämoglobin (A1C)"
+        "de": "Glykiertes Hämoglobin (A1C)",
+        "fr": "Hémoglobine glyquée (A1C)",
+        "es": "Hemoglobina glicosilada (A1C)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Family History",
         "tr": "Aile Öyküsü",
         "de": "Familienanamnese",
-        "fr": "Family History",
-        "es": "Family History",
+        "fr": "Antécédents familiaux",
+        "es": "Antecedentes familiares",
         "ar": "Family History"
       },
       "businessContext_i18n": {
         "en": "Family history of diabetes (0=no, 1=yes)",
         "tr": "Ailede diyabet öyküsü (0=hayır, 1=evet)",
-        "de": "Familienanamnese für Diabetes (0=nein, 1=ja)"
+        "de": "Familienanamnese für Diabetes (0=nein, 1=ja)",
+        "fr": "Antécédents familiaux de diabète (0=non, 1=oui)",
+        "es": "Antecedentes familiares de diabetes (0=no, 1=sí)"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Physical Activity",
         "tr": "Fiziksel Aktivite",
         "de": "Körperliche Aktivität",
-        "fr": "Physical Activity",
-        "es": "Physical Activity",
+        "fr": "Activité physique",
+        "es": "Actividad física",
         "ar": "Physical Activity"
       },
       "businessContext_i18n": {
         "en": "Regular physical activity (0=sedentary, 1=active)",
         "tr": "Düzenli fiziksel aktivite (0=hareketsiz, 1=aktif)",
-        "de": "Regelmäßige körperliche Aktivität (0=sesshaft, 1=aktiv)"
+        "de": "Regelmäßige körperliche Aktivität (0=sesshaft, 1=aktiv)",
+        "fr": "Activité physique régulière (0=sédentaire, 1=actif)",
+        "es": "Actividad física regular (0=sedentario, 1=activo)"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Vücut Uzunluğu (cm)",
         "tr": "Vücut Uzunluğu (cm)",
-        "de": "Vücut Uzunluğu (cm)",
-        "fr": "Vücut Uzunluğu (cm)",
-        "es": "Vücut Uzunluğu (cm)",
+        "de": "Körperlänge (cm)",
+        "fr": "Longueur du corps (cm)",
+        "es": "Longitud corporal (cm)",
         "ar": "Vücut Uzunluğu (cm)"
       },
       "businessContext_i18n": {
         "en": "Omuzdan kuyruk dibine kadar ölçülen uzunluk.",
-        "tr": "Omuzdan kuyruk dibine kadar ölçülen uzunluk."
+        "tr": "Omuzdan kuyruk dibine kadar ölçülen uzunluk.",
+        "de": "Länge gemessen von Schulter bis Schwanzansatz.",
+        "fr": "Longueur mesurée de l'épaule à la base de la queue.",
+        "es": "Longitud medida desde el hombro hasta la base de la cola."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Göğüs Çevresi (cm)",
         "tr": "Göğüs Çevresi (cm)",
         "de": "Brustumfang (cm)",
-        "fr": "Göğüs Çevresi (cm)",
-        "es": "Göğüs Çevresi (cm)",
+        "fr": "Tour de poitrine (cm)",
+        "es": "Circunferencia de pecho (cm)",
         "ar": "Göğüs Çevresi (cm)"
       },
       "businessContext_i18n": {
         "en": "Ön bacakların hemen arkasından alınan çevre ölçüsü.",
-        "tr": "Ön bacakların hemen arkasından alınan çevre ölçüsü."
+        "tr": "Ön bacakların hemen arkasından alınan çevre ölçüsü.",
+        "de": "Brustumfang gemessen direkt hinter den Vorderbeinen.",
+        "fr": "Circonférence mesurée juste derrière les pattes avant.",
+        "es": "Circunferencia torácica medida justo detrás de las patas delanteras."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Yaş (Ay)",
         "tr": "Yaş (Ay)",
         "de": "Alter (Monate)",
-        "fr": "Yaş (Ay)",
-        "es": "Yaş (Ay)",
+        "fr": "Âge (mois)",
+        "es": "Edad (meses)",
         "ar": "Yaş (Ay)"
       },
       "businessContext_i18n": {
         "en": "Evcil hayvanın ay cinsinden yaşı. 12 aydan küçükse büyüme faktörü uygulanır.",
-        "tr": "Evcil hayvanın ay cinsinden yaşı. 12 aydan küçükse büyüme faktörü uygulanır."
+        "tr": "Evcil hayvanın ay cinsinden yaşı. 12 aydan küçükse büyüme faktörü uygulanır.",
+        "de": "Alter des Haustiers in Monaten. Bei unter 12 Monaten wird ein Wachstumsfaktor angewendet.",
+        "fr": "Âge de l'animal en mois. Si moins de 12 mois, un facteur de croissance est appliqué.",
+        "es": "Edad de la mascota en meses. Si es menor de 12 meses, se aplica un factor de crecimiento."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Kondisyon Faktörü (1-5)",
         "tr": "Kondisyon Faktörü (1-5)",
-        "de": "Kondisyon Faktörü (1-5)",
-        "fr": "Kondisyon Faktörü (1-5)",
-        "es": "Kondisyon Faktörü (1-5)",
+        "de": "Konditionsfaktor (1-5)",
+        "fr": "Facteur de condition (1-5)",
+        "es": "Factor de condición (1-5)",
         "ar": "Kondisyon Faktörü (1-5)"
       },
       "businessContext_i18n": {
         "en": "Vücut kondisyon skoru: 1 çok zayıf, 3 ideal, 5 obez. Ağırlık buna göre ayarlanır.",
-        "tr": "Vücut kondisyon skoru: 1 çok zayıf, 3 ideal, 5 obez. Ağırlık buna göre ayarlanır."
+        "tr": "Vücut kondisyon skoru: 1 çok zayıf, 3 ideal, 5 obez. Ağırlık buna göre ayarlanır.",
+        "de": "Körperkonditionswert: 1 sehr dünn, 3 ideal, 5 fettleibig. Das Gewicht wird entsprechend angepasst.",
+        "fr": "Score de condition corporelle : 1 très maigre, 3 idéal, 5 obèse. Le poids est ajusté en conséquence.",
+        "es": "Puntuación de condición corporal: 1 muy delgado, 3 ideal, 5 obeso. El peso se ajusta en consecuencia."
       }
     }
   ],

@@ -12,13 +12,15 @@
         "en": "Mass (kg)",
         "tr": "Kütle (kg)",
         "de": "Masse (kg)",
-        "fr": "Mass (kg)",
-        "es": "Mass (kg)",
+        "fr": "Masse (kg)",
+        "es": "Masa (kg)",
         "ar": "Mass (kg)"
       },
       "businessContext_i18n": {
         "en": "The mass of the oscillating body in kilograms.",
-        "tr": "Salınım yapan cismin kilogram cinsinden kütlesi."
+        "tr": "Salınım yapan cismin kilogram cinsinden kütlesi.",
+        "de": "Masse des schwingenden Körpers in Kilogramm.",
+        "fr": "Masse du corps oscillant en kilogrammes."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Spring Stiffness (N/m)",
         "tr": "Yay Sertliği (N/m)",
-        "de": "Spring Stiffness (N/m)",
-        "fr": "Spring Stiffness (N/m)",
+        "de": "Federsteifigkeit (N/m)",
+        "fr": "Raideur du ressort (N/m)",
         "es": "Spring Stiffness (N/m)",
         "ar": "Spring Stiffness (N/m)"
       },
       "businessContext_i18n": {
         "en": "The stiffness of the spring or structural element in Newtons per meter.",
-        "tr": "Yayın veya yapısal elemanın metre başına Newton cinsinden sertliği."
+        "tr": "Yayın veya yapısal elemanın metre başına Newton cinsinden sertliği.",
+        "de": "Die Steifigkeit der Feder oder des Strukturelements in Newton pro Meter.",
+        "fr": "Raideur du ressort ou de l'élément structurel en Newtons par mètre."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Damping Ratio (ζ)",
         "tr": "Sönüm Oranı (ζ)",
-        "de": "Damping Ratio (ζ)",
-        "fr": "Damping Ratio (ζ)",
+        "de": "Dämpfungsverhältnis (ζ)",
+        "fr": "Coefficient d'amortissement (ζ)",
         "es": "Damping Ratio (ζ)",
         "ar": "Damping Ratio (ζ)"
       },
       "businessContext_i18n": {
         "en": "The damping ratio ζ = c/(2√(mk)), typically between 0 and 1.",
-        "tr": "Sönüm oranı ζ = c/(2√(mk)), tipik olarak 0 ile 1 arasında."
+        "tr": "Sönüm oranı ζ = c/(2√(mk)), tipik olarak 0 ile 1 arasında.",
+        "de": "Das Dämpfungsverhältnis ζ = c/(2√(mk)), typischerweise zwischen 0 und 1.",
+        "fr": "Coefficient d'amortissement ζ = c/(2√(mk)), généralement entre 0 et 1."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Excitation Frequency (Hz)",
         "tr": "Uyarım Frekansı (Hz)",
-        "de": "Excitation Frequency (Hz)",
-        "fr": "Excitation Frequency (Hz)",
+        "de": "Erregerfrequenz (Hz)",
+        "fr": "Fréquence d'excitation (Hz)",
         "es": "Excitation Frequency (Hz)",
         "ar": "Excitation Frequency (Hz)"
       },
       "businessContext_i18n": {
         "en": "The frequency of the applied oscillating force or base motion.",
-        "tr": "Uygulanan salınımlı kuvvetin veya taban hareketinin frekansı."
+        "tr": "Uygulanan salınımlı kuvvetin veya taban hareketinin frekansı.",
+        "de": "Die Frequenz der aufgebrachten oszillierenden Kraft oder Basisbewegung.",
+        "fr": "Fréquence de la force oscillante appliquée ou du mouvement de base."
       }
     }
   ],

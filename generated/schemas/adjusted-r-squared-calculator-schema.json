@@ -12,14 +12,16 @@
         "en": "R-squared (R²)",
         "tr": "R-kare (R²)",
         "de": "R-Quadrat (R²)",
-        "fr": "R-squared (R²)",
-        "es": "R-squared (R²)",
+        "fr": "R² (coefficient de détermination)",
+        "es": "R-cuadrado (R²)",
         "ar": "R-squared (R²)"
       },
       "businessContext_i18n": {
         "en": "The coefficient of determination from the regression model, ranging from 0 to 1.",
         "tr": "Regresyon modelinden belirleme katsayısı, 0 ile 1 arasında değişir.",
-        "de": "Das Bestimmtheitsmaß aus dem Regressionsmodell, das zwischen 0 und 1 liegt."
+        "de": "Das Bestimmtheitsmaß aus dem Regressionsmodell, das zwischen 0 und 1 liegt.",
+        "fr": "Coefficient de détermination du modèle de régression, compris entre 0 et 1.",
+        "es": "El coeficiente de determinación del modelo de regresión, que va de 0 a 1."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Sample Size (n)",
         "tr": "Örneklem Büyüklüğü (n)",
         "de": "Stichprobengröße (n)",
-        "fr": "Sample Size (n)",
-        "es": "Sample Size (n)",
+        "fr": "Taille de l'échantillon (n)",
+        "es": "Tamaño de la muestra (n)",
         "ar": "Sample Size (n)"
       },
       "businessContext_i18n": {
         "en": "Total number of observations in the dataset.",
         "tr": "Veri setindeki toplam gözlem sayısı.",
-        "de": "Gesamtzahl der Beobachtungen im Datensatz."
+        "de": "Gesamtzahl der Beobachtungen im Datensatz.",
+        "fr": "Nombre total d'observations dans l'ensemble de données.",
+        "es": "Número total de observaciones en el conjunto de datos."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Number of Predictors (p)",
         "tr": "Tahmin Edici Sayısı (p)",
         "de": "Anzahl der Prädiktoren (p)",
-        "fr": "Number of Predictors (p)",
-        "es": "Number of Predictors (p)",
+        "fr": "Nombre de prédicteurs (p)",
+        "es": "Número de predictores (p)",
         "ar": "Number of Predictors (p)"
       },
       "businessContext_i18n": {
         "en": "Number of independent variables in the regression model, excluding the constant term.",
         "tr": "Regresyon modelindeki sabit terim hariç bağımsız değişken sayısı.",
-        "de": "Anzahl der unabhängigen Variablen im Regressionsmodell, ohne die Konstante."
+        "de": "Anzahl der unabhängigen Variablen im Regressionsmodell, ohne die Konstante.",
+        "fr": "Nombre de variables indépendantes dans le modèle de régression, hors constante.",
+        "es": "Número de variables independientes en el modelo de regresión, excluyendo el término constante."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the final result.",
         "tr": "Nihai sonucun yuvarlanması için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen für die Rundung des Endergebnisses."
+        "de": "Anzahl der Dezimalstellen für die Rundung des Endergebnisses.",
+        "fr": "Nombre de décimales pour l'arrondi du résultat final.",
+        "es": "Número de decimales para redondear el resultado final."
       }
     }
   ],

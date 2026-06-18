@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Sample Size per Group",
         "tr": "Grup Başına Örneklem Büyüklüğü",
-        "de": "Sample Size per Group",
-        "fr": "Sample Size per Group",
-        "es": "Sample Size per Group",
+        "de": "Stichprobengröße pro Gruppe",
+        "fr": "Taille d'échantillon par groupe",
+        "es": "Tamaño de Muestra por Grupo",
         "ar": "Sample Size per Group"
       },
       "businessContext_i18n": {
         "en": "Number of observations in each group (assumed equal across groups)",
-        "tr": "Her gruptaki gözlem sayısı (gruplar arasında eşit olduğu varsayılır)"
+        "tr": "Her gruptaki gözlem sayısı (gruplar arasında eşit olduğu varsayılır)",
+        "de": "Anzahl der Beobachtungen in jeder Gruppe (als gleich über Gruppen hinweg angenommen)",
+        "fr": "Nombre d'observations dans chaque groupe (supposé égal entre les groupes)",
+        "es": "Número de observaciones en cada grupo (se asume igual entre grupos)"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Mean Group 1",
         "tr": "Grup 1 Ortalaması",
         "de": "Mittelwert Gruppe 1",
-        "fr": "Mean Group 1",
-        "es": "Mean Group 1",
+        "fr": "Moyenne Groupe 1",
+        "es": "Media Grupo 1",
         "ar": "Mean Group 1"
       },
       "businessContext_i18n": {
         "en": "Sample mean of group 1",
-        "tr": "Grup 1'in örneklem ortalaması"
+        "tr": "Grup 1'in örneklem ortalaması",
+        "de": "Stichprobenmittelwert von Gruppe 1",
+        "fr": "Moyenne d'échantillon du groupe 1",
+        "es": "Media muestral del grupo 1"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Mean Group 2",
         "tr": "Grup 2 Ortalaması",
         "de": "Mittelwert Gruppe 2",
-        "fr": "Mean Group 2",
-        "es": "Mean Group 2",
+        "fr": "Moyenne Groupe 2",
+        "es": "Media Grupo 2",
         "ar": "Mean Group 2"
       },
       "businessContext_i18n": {
         "en": "Sample mean of group 2",
-        "tr": "Grup 2'nin örneklem ortalaması"
+        "tr": "Grup 2'nin örneklem ortalaması",
+        "de": "Stichprobenmittelwert von Gruppe 2",
+        "fr": "Moyenne d'échantillon du groupe 2",
+        "es": "Media muestral del grupo 2"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Mean Group 3",
         "tr": "Grup 3 Ortalaması",
-        "de": "Mean Group 3",
-        "fr": "Mean Group 3",
-        "es": "Mean Group 3",
+        "de": "Mittelwert Gruppe 3",
+        "fr": "Groupe moyen 3",
+        "es": "Media del Grupo 3",
         "ar": "Mean Group 3"
       },
       "businessContext_i18n": {
         "en": "Sample mean of group 3",
-        "tr": "Grup 3 örneklem ortalaması"
+        "tr": "Grup 3 örneklem ortalaması",
+        "de": "Stichprobenmittelwert von Gruppe 3",
+        "fr": "Moyenne de l'échantillon du groupe 3",
+        "es": "Media muestral del grupo 3"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Standard Deviation Group 1",
         "tr": "Grup 1 Standart Sapması",
         "de": "Standardabweichung Gruppe 1",
-        "fr": "Standard Deviation Group 1",
-        "es": "Standard Deviation Group 1",
+        "fr": "Écart-type Groupe 1",
+        "es": "Desviación estándar Grupo 1",
         "ar": "Standard Deviation Group 1"
       },
       "businessContext_i18n": {
         "en": "Sample standard deviation of group 1",
-        "tr": "Grup 1 örneklem standart sapması"
+        "tr": "Grup 1 örneklem standart sapması",
+        "de": "Stichprobenstandardabweichung von Gruppe 1",
+        "fr": "Écart type de l'échantillon du groupe 1",
+        "es": "Desviación estándar muestral del grupo 1"
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Standard Deviation Group 2",
         "tr": "Grup 2 Standart Sapması",
         "de": "Standardabweichung Gruppe 2",
-        "fr": "Standard Deviation Group 2",
-        "es": "Standard Deviation Group 2",
+        "fr": "Écart-type Groupe 2",
+        "es": "Desviación estándar Grupo 2",
         "ar": "Standard Deviation Group 2"
       },
       "businessContext_i18n": {
         "en": "Sample standard deviation of group 2",
-        "tr": "Grup 2 örneklem standart sapması"
+        "tr": "Grup 2 örneklem standart sapması",
+        "de": "Stichproben-Standardabweichung von Gruppe 2",
+        "fr": "Écart type de l'échantillon du groupe 2",
+        "es": "Desviación estándar de la muestra del grupo 2"
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Standard Deviation Group 3",
         "tr": "Grup 3 Standart Sapması",
-        "de": "Standard Deviation Group 3",
-        "fr": "Standard Deviation Group 3",
-        "es": "Standard Deviation Group 3",
+        "de": "Standardabweichung Gruppe 3",
+        "fr": "Écart type du groupe 3",
+        "es": "Desviación estándar del grupo 3",
         "ar": "Standard Deviation Group 3"
       },
       "businessContext_i18n": {
         "en": "Sample standard deviation of group 3",
-        "tr": "Grup 3 örneklem standart sapması"
+        "tr": "Grup 3 örneklem standart sapması",
+        "de": "Stichproben-Standardabweichung von Gruppe 3",
+        "fr": "Écart type de l'échantillon du groupe 3",
+        "es": "Desviación estándar de la muestra del grupo 3"
       }
     }
   ],

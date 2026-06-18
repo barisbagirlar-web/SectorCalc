@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Cost of Attendance",
         "tr": "Katılım Maliyeti",
-        "de": "Cost of Attendance",
-        "fr": "Cost of Attendance",
-        "es": "Cost of Attendance",
+        "de": "Studienkosten",
+        "fr": "Coût de présence",
+        "es": "Costo de asistencia",
         "ar": "Cost of Attendance"
       },
       "businessContext_i18n": {
         "en": "Total annual cost including tuition, fees, books, and living expenses.",
-        "tr": "Öğrenim ücreti, harçlar, kitaplar ve yaşam giderleri dahil toplam yıllık maliyet."
+        "tr": "Öğrenim ücreti, harçlar, kitaplar ve yaşam giderleri dahil toplam yıllık maliyet.",
+        "de": "Jährliche Gesamtkosten einschließlich Studiengebühren, Gebühren, Bücher und Lebenshaltungskosten.",
+        "fr": "Coût annuel total incluant les frais de scolarité, les frais, les livres et les dépenses de subsistance.",
+        "es": "Costo anual total que incluye matrícula, cuotas, libros y gastos de manutención."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Annual Family Income",
         "tr": "Yıllık Aile Geliri",
         "de": "Jährliches Familieneinkommen",
-        "fr": "Annual Family Income",
-        "es": "Annual Family Income",
+        "fr": "Revenu familial annuel",
+        "es": "Ingreso familiar anual",
         "ar": "Annual Family Income"
       },
       "businessContext_i18n": {
         "en": "Total adjusted gross income of the family.",
-        "tr": "Ailenin toplam düzeltilmiş brüt geliri."
+        "tr": "Ailenin toplam düzeltilmiş brüt geliri.",
+        "de": "Gesamtes bereinigtes Bruttoeinkommen der Familie.",
+        "fr": "Revenu brut total ajusté de la famille.",
+        "es": "Ingreso bruto ajustado total de la familia."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Number of Dependents",
         "tr": "Bağımlı Sayısı",
         "de": "Anzahl der Angehörigen",
-        "fr": "Number of Dependents",
-        "es": "Number of Dependents",
+        "fr": "Nombre de personnes à charge",
+        "es": "Número de dependientes",
         "ar": "Number of Dependents"
       },
       "businessContext_i18n": {
         "en": "Number of family members financially dependent (including the student).",
-        "tr": "Finansal olarak bağımlı aile üyesi sayısı (öğrenci dahil)."
+        "tr": "Finansal olarak bağımlı aile üyesi sayısı (öğrenci dahil).",
+        "de": "Anzahl der finanziell abhängigen Familienmitglieder (einschließlich des Studenten).",
+        "fr": "Nombre de membres de la famille financièrement à charge (y compris l'étudiant).",
+        "es": "Número de miembros de la familia financieramente dependientes (incluyendo al estudiante)."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Total Assets",
         "tr": "Toplam Varlıklar",
         "de": "Gesamtvermögen",
-        "fr": "Total Assets",
-        "es": "Total Assets",
+        "fr": "Actif total",
+        "es": "Activos totales",
         "ar": "Total Assets"
       },
       "businessContext_i18n": {
         "en": "Total value of cash, savings, investments, and other assets.",
-        "tr": "Nakit, tasarruf, yatırım ve diğer varlıkların toplam değeri."
+        "tr": "Nakit, tasarruf, yatırım ve diğer varlıkların toplam değeri.",
+        "de": "Gesamtwert von Bargeld, Ersparnissen, Investitionen und anderen Vermögenswerten.",
+        "fr": "Valeur totale des liquidités, de l'épargne, des investissements et autres actifs.",
+        "es": "Valor total de efectivo, ahorros, inversiones y otros activos."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Other Financial Aid",
         "tr": "Diğer Mali Yardımlar",
-        "de": "Other Financial Aid",
-        "fr": "Other Financial Aid",
-        "es": "Other Financial Aid",
+        "de": "Andere finanzielle Unterstützung",
+        "fr": "Autre aide financière",
+        "es": "Otras ayudas financieras",
         "ar": "Other Financial Aid"
       },
       "businessContext_i18n": {
         "en": "Other scholarships, grants, or aid already awarded.",
-        "tr": "Halihazırda verilmiş diğer burslar, hibeler veya yardımlar."
+        "tr": "Halihazırda verilmiş diğer burslar, hibeler veya yardımlar.",
+        "de": "Bereits erhaltene andere Stipendien, Zuschüsse oder Beihilfen.",
+        "fr": "Autres bourses, subventions ou aides déjà attribuées.",
+        "es": "Otras becas, subvenciones o ayudas ya otorgadas."
       }
     }
   ],

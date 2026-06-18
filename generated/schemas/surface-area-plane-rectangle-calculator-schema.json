@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Slope in X-direction (dz/dx)",
         "tr": "X yönünde eğim (dz/dx)",
-        "de": "Slope in X-direction (dz/dx)",
-        "fr": "Slope in X-direction (dz/dx)",
+        "de": "Steigung in X-Richtung (dz/dx)",
+        "fr": "Pente en X (dz/dx)",
         "es": "Slope in X-direction (dz/dx)",
         "ar": "Slope in X-direction (dz/dx)"
       },
       "businessContext_i18n": {
         "en": "Partial derivative of surface height with respect to X.",
-        "tr": "Yüzey yüksekliğinin X'e göre kısmi türevi."
+        "tr": "Yüzey yüksekliğinin X'e göre kısmi türevi.",
+        "de": "Partielle Ableitung der Oberflächenhöhe nach X.",
+        "fr": "Dérivée partielle de la hauteur de surface par rapport à X."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Slope in Y-direction (dz/dy)",
         "tr": "Y yönünde eğim (dz/dy)",
-        "de": "Slope in Y-direction (dz/dy)",
-        "fr": "Slope in Y-direction (dz/dy)",
+        "de": "Steigung in Y-Richtung (dz/dy)",
+        "fr": "Pente en Y (dz/dy)",
         "es": "Slope in Y-direction (dz/dy)",
         "ar": "Slope in Y-direction (dz/dy)"
       },
       "businessContext_i18n": {
         "en": "Partial derivative of surface height with respect to Y.",
-        "tr": "Yüzey yüksekliğinin Y'ye göre kısmi türevi."
+        "tr": "Yüzey yüksekliğinin Y'ye göre kısmi türevi.",
+        "de": "Partielle Ableitung der Oberflächenhöhe nach Y.",
+        "fr": "Dérivée partielle de la hauteur de surface par rapport à Y."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "X Start",
         "tr": "X Başlangıç",
         "de": "X Start",
-        "fr": "X Start",
+        "fr": "Début X",
         "es": "X Start",
         "ar": "X Start"
       },
       "businessContext_i18n": {
         "en": "Lower bound of X integration domain.",
-        "tr": "X entegrasyon bölgesinin alt sınırı."
+        "tr": "X entegrasyon bölgesinin alt sınırı.",
+        "de": "Untere Grenze des X-Integrationsbereichs.",
+        "fr": "Borne inférieure du domaine d'intégration en X."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "X End",
         "tr": "X Bitiş",
-        "de": "X End",
-        "fr": "X End",
+        "de": "X Ende",
+        "fr": "Fin X",
         "es": "X End",
         "ar": "X End"
       },
       "businessContext_i18n": {
         "en": "Upper bound of X integration domain.",
-        "tr": "X entegrasyon bölgesinin üst sınırı."
+        "tr": "X entegrasyon bölgesinin üst sınırı.",
+        "de": "Obere Grenze des X-Integrationsbereichs.",
+        "fr": "Borne supérieure du domaine d'intégration en X."
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Y Start",
         "tr": "Y Başlangıç",
         "de": "Y Start",
-        "fr": "Y Start",
+        "fr": "Début Y",
         "es": "Y Start",
         "ar": "Y Start"
       },
       "businessContext_i18n": {
         "en": "Lower bound of Y integration domain.",
-        "tr": "Y entegrasyon bölgesinin alt sınırı."
+        "tr": "Y entegrasyon bölgesinin alt sınırı.",
+        "de": "Untere Grenze des Y-Integrationsbereichs.",
+        "fr": "Borne inférieure du domaine d'intégration en Y."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Y End",
         "tr": "Y Bitiş",
-        "de": "Y End",
-        "fr": "Y End",
+        "de": "Y-Ende",
+        "fr": "Fin Y",
         "es": "Y End",
         "ar": "Y End"
       },
       "businessContext_i18n": {
         "en": "Upper bound of Y integration domain.",
-        "tr": "Y entegrasyon bölgesinin üst sınırı."
+        "tr": "Y entegrasyon bölgesinin üst sınırı.",
+        "de": "Obere Grenze des Y-Integrationsbereichs.",
+        "fr": "Borne supérieure du domaine d'intégration en Y."
       }
     }
   ],

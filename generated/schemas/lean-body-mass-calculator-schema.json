@@ -12,13 +12,16 @@
         "en": "Weight",
         "tr": "Ağırlık",
         "de": "Gewicht",
-        "fr": "Weight",
-        "es": "Weight",
+        "fr": "Poids",
+        "es": "Peso",
         "ar": "Weight"
       },
       "businessContext_i18n": {
         "en": "Total body weight in kilograms",
-        "tr": "Toplam vücut ağırlığı (kg)"
+        "tr": "Toplam vücut ağırlığı (kg)",
+        "de": "Gesamtkörpergewicht in Kilogramm",
+        "fr": "Poids corporel total en kilogrammes",
+        "es": "Peso corporal total en kilogramos"
       }
     },
     {
@@ -32,14 +35,16 @@
         "en": "Height",
         "tr": "Boy",
         "de": "Größe",
-        "fr": "Height",
-        "es": "Height",
+        "fr": "Taille",
+        "es": "Altura",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "Height in centimeters",
         "tr": "Santimetre cinsinden boy",
-        "de": "Größe in Zentimetern"
+        "de": "Größe in Zentimetern",
+        "fr": "Taille en centimètres",
+        "es": "Altura en centímetros"
       }
     },
     {
@@ -53,13 +58,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Age in full years",
-        "tr": "Tam yıl olarak yaş"
+        "tr": "Tam yıl olarak yaş",
+        "de": "Alter in vollendeten Jahren",
+        "fr": "Âge en années révolues",
+        "es": "Edad en años cumplidos"
       }
     },
     {
@@ -72,14 +80,17 @@
       "label_i18n": {
         "en": "Gender (0=Female, 1=Male)",
         "tr": "Cinsiyet (0=Kadın, 1=Erkek)",
-        "de": "Gender (0=Female, 1=Male)",
-        "fr": "Gender (0=Female, 1=Male)",
-        "es": "Gender (0=Female, 1=Male)",
+        "de": "Geschlecht (0 = Weiblich, 1 = Männlich)",
+        "fr": "Sexe (0=Féminin, 1=Masculin)",
+        "es": "Género (0=Femenino, 1=Masculino)",
         "ar": "Gender (0=Female, 1=Male)"
       },
       "businessContext_i18n": {
         "en": "Biological sex indicator: 0 for female, 1 for male",
-        "tr": "Biyolojik cinsiyet göstergesi: 0 kadın, 1 erkek"
+        "tr": "Biyolojik cinsiyet göstergesi: 0 kadın, 1 erkek",
+        "de": "Biologischer Geschlechtsindikator: 0 für weiblich, 1 für männlich",
+        "fr": "Indicateur de sexe biologique : 0 pour femme, 1 pour homme",
+        "es": "Indicador de sexo biológico: 0 para femenino, 1 para masculino"
       }
     }
   ],

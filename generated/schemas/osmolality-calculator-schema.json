@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Sodium (Na⁺)",
         "tr": "Sodyum (Na⁺)",
-        "de": "Sodium (Na⁺)",
+        "de": "Natrium (Na⁺)",
         "fr": "Sodium (Na⁺)",
-        "es": "Sodium (Na⁺)",
+        "es": "Sodio (Na⁺)",
         "ar": "Sodium (Na⁺)"
       },
       "businessContext_i18n": {
         "en": "Serum sodium concentration for osmolality calculation.",
-        "tr": "Osmolalite hesaplaması için serum sodyum konsantrasyonu"
+        "tr": "Osmolalite hesaplaması için serum sodyum konsantrasyonu",
+        "de": "Serum-Natriumkonzentration für Osmolalitätsberechnung.",
+        "fr": "Concentration sérique de sodium pour le calcul de l'osmolalité.",
+        "es": "Concentración sérica de sodio para el cálculo de osmolalidad."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Glucose",
         "tr": "Glukoz",
-        "de": "Glucose",
+        "de": "Glukose",
         "fr": "Glucose",
-        "es": "Glucose",
+        "es": "Glucosa",
         "ar": "Glucose"
       },
       "businessContext_i18n": {
         "en": "Blood glucose level contributing to osmolality.",
-        "tr": "Osmolaliteye katkıda bulunan kan glukoz seviyesi"
+        "tr": "Osmolaliteye katkıda bulunan kan glukoz seviyesi",
+        "de": "Blutzuckerspiegel, der zur Osmolalität beiträgt.",
+        "fr": "Taux de glucose sanguin contribuant à l'osmolalité.",
+        "es": "Nivel de glucosa en sangre que contribuye a la osmolalidad."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Blood Urea Nitrogen (BUN)",
         "tr": "Kan Üre Azotu (BUN)",
-        "de": "Blood Urea Nitrogen (BUN)",
-        "fr": "Blood Urea Nitrogen (BUN)",
-        "es": "Blood Urea Nitrogen (BUN)",
+        "de": "Blutharnstoffstickstoff (BUN)",
+        "fr": "Azote uréique sanguin (BUN)",
+        "es": "Nitrógeno ureico en sangre (BUN)",
         "ar": "Blood Urea Nitrogen (BUN)"
       },
       "businessContext_i18n": {
         "en": "BUN concentration affecting osmolality.",
-        "tr": "Osmolaliteyi etkileyen BUN konsantrasyonu"
+        "tr": "Osmolaliteyi etkileyen BUN konsantrasyonu",
+        "de": "BUN-Konzentration, die die Osmolalität beeinflusst.",
+        "fr": "Concentration de BUN affectant l'osmolalité.",
+        "es": "Concentración de BUN que afecta la osmolalidad."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Measured Osmolality (optional)",
         "tr": "Ölçülen Osmolarite (opsiyonel)",
-        "de": "Measured Osmolality (optional)",
-        "fr": "Measured Osmolality (optional)",
-        "es": "Measured Osmolality (optional)",
+        "de": "Gemessene Osmolalität (optional)",
+        "fr": "Osmolalité mesurée (optionnel)",
+        "es": "Osmolalidad medida (opcional)",
         "ar": "Measured Osmolality (optional)"
       },
       "businessContext_i18n": {
         "en": "Measured serum osmolality for osmolar gap calculation; leave 0 if not available.",
-        "tr": "Ozmolar açıklık hesaplaması için ölçülen serum ozmolaritesi; mevcut değilse 0 bırakın."
+        "tr": "Ozmolar açıklık hesaplaması için ölçülen serum ozmolaritesi; mevcut değilse 0 bırakın.",
+        "de": "Gemessene Serumosmolalität zur Berechnung der osmotischen Lücke; 0, falls nicht verfügbar.",
+        "fr": "Osmolalité sérique mesurée pour le calcul du trou osmolaire ; laisser 0 si non disponible.",
+        "es": "Osmolalidad sérica medida para el cálculo de la brecha osmolar; dejar 0 si no está disponible."
       }
     }
   ],

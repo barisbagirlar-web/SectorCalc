@@ -12,14 +12,16 @@
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Body Weight",
-        "es": "Body Weight",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "User's body weight in kilograms.",
         "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı.",
-        "de": "Körpergewicht des Benutzers in Kilogramm."
+        "de": "Körpergewicht des Benutzers in Kilogramm.",
+        "fr": "Poids corporel de l'utilisateur en kilogrammes.",
+        "es": "Peso corporal del usuario en kilogramos."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Height",
         "tr": "Boy",
         "de": "Größe",
-        "fr": "Height",
-        "es": "Height",
+        "fr": "Taille",
+        "es": "Altura",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "User's height in centimeters.",
         "tr": "Kullanıcının santimetre cinsinden boyu.",
-        "de": "Körpergröße des Benutzers in Zentimetern."
+        "de": "Körpergröße des Benutzers in Zentimetern.",
+        "fr": "Taille de l'utilisateur en centimètres.",
+        "es": "Altura del usuario en centímetros."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "User's age in years.",
         "tr": "Kullanıcının yıl cinsinden yaşı.",
-        "de": "Alter des Benutzers in Jahren."
+        "de": "Alter des Benutzers in Jahren.",
+        "fr": "Âge de l'utilisateur en années.",
+        "es": "Edad del usuario en años."
       }
     },
     {
@@ -75,13 +81,15 @@
         "en": "Gender",
         "tr": "Cinsiyet",
         "de": "Geschlecht",
-        "fr": "Gender",
-        "es": "Gender",
+        "fr": "Genre",
+        "es": "Género",
         "ar": "Gender"
       },
       "businessContext_i18n": {
         "en": "Biological gender (0 for female, 1 for male).",
-        "tr": "Biyolojik cinsiyet (0 kadın, 1 erkek)."
+        "tr": "Biyolojik cinsiyet (0 kadın, 1 erkek).",
+        "de": "Biologisches Geschlecht (0 für weiblich, 1 für männlich).",
+        "fr": "Sexe biologique (0 pour femme, 1 pour homme)."
       }
     },
     {
@@ -95,13 +103,15 @@
         "en": "Activity Level",
         "tr": "Aktivite Seviyesi",
         "de": "Aktivitätsniveau",
-        "fr": "Activity Level",
-        "es": "Activity Level",
+        "fr": "Niveau d'activité",
+        "es": "Nivel de actividad",
         "ar": "Activity Level"
       },
       "businessContext_i18n": {
         "en": "Physical activity multiplier. Sedentary=1.2, Light=1.375, Moderate=1.55, Active=1.725, Very Active=1.9.",
-        "tr": "Fiziksel aktivite çarpanı. Hareketsiz=1.2, Hafif=1.375, Orta=1.55, Aktif=1.725, Çok Aktif=1.9."
+        "tr": "Fiziksel aktivite çarpanı. Hareketsiz=1.2, Hafif=1.375, Orta=1.55, Aktif=1.725, Çok Aktif=1.9.",
+        "de": "Multiplikator für körperliche Aktivität. Sitzend=1,2, Leicht=1,375, Mäßig=1,55, Aktiv=1,725, Sehr aktiv=1,9.",
+        "fr": "Multiplicateur d'activité physique. Sédentaire=1.2, Léger=1.375, Modéré=1.55, Actif=1.725, Très actif=1.9."
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Property Price (£)",
         "tr": "Emlak Fiyatı (£)",
-        "de": "Property Price (£)",
-        "fr": "Property Price (£)",
+        "de": "Immobilienpreis (£)",
+        "fr": "Prix du bien (£)",
         "es": "Property Price (£)",
         "ar": "Property Price (£)"
       },
       "businessContext_i18n": {
         "en": "Purchase price of the residential property",
-        "tr": "Konut mülkünün satın alma fiyatı"
+        "tr": "Konut mülkünün satın alma fiyatı",
+        "de": "Kaufpreis der Wohnimmobilie",
+        "fr": "Prix d'achat du bien résidentiel"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "First-Time Buyer?",
         "tr": "İlk Kez Ev Sahibi mi?",
-        "de": "First-Time Buyer?",
-        "fr": "First-Time Buyer?",
-        "es": "First-Time Buyer?",
+        "de": "Erstkäufer?",
+        "fr": "Primo-accédant ?",
+        "es": "¿Comprador primerizo?",
         "ar": "First-Time Buyer?"
       },
       "businessContext_i18n": {
         "en": "1 if first-time buyer, else 0",
-        "tr": "İlk kez ev sahibi ise 1, değilse 0"
+        "tr": "İlk kez ev sahibi ise 1, değilse 0",
+        "de": "1 bei Erstkäufer, sonst 0",
+        "fr": "1 si primo-accédant, sinon 0"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Additional Property?",
         "tr": "Ek Mülk?",
-        "de": "Additional Property?",
-        "fr": "Additional Property?",
+        "de": "Zusätzliche Immobilie?",
+        "fr": "Propriété supplémentaire ?",
         "es": "Additional Property?",
         "ar": "Additional Property?"
       },
       "businessContext_i18n": {
         "en": "1 if buying an additional residential property, else 0",
-        "tr": "Ek bir konut mülkü satın alınıyorsa 1, değilse 0"
+        "tr": "Ek bir konut mülkü satın alınıyorsa 1, değilse 0",
+        "de": "1 beim Kauf einer zusätzlichen Wohnimmobilie, sonst 0",
+        "fr": "1 si achat d'une propriété résidentielle supplémentaire, sinon 0"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Non-UK Resident?",
         "tr": "Birleşik Krallık'ta İkamet Etmeyen?",
-        "de": "Non-UK Resident?",
-        "fr": "Non-UK Resident?",
+        "de": "Nicht-UK-Bewohner?",
+        "fr": "Non-résident du Royaume-Uni ?",
         "es": "Non-UK Resident?",
         "ar": "Non-UK Resident?"
       },
       "businessContext_i18n": {
         "en": "1 if buyer is not a UK resident, else 0",
-        "tr": "Alıcı Birleşik Krallık'ta ikamet etmiyorsa 1, değilse 0"
+        "tr": "Alıcı Birleşik Krallık'ta ikamet etmiyorsa 1, değilse 0",
+        "de": "1 wenn der Käufer kein UK-Bewohner ist, sonst 0",
+        "fr": "1 si l'acheteur n'est pas résident du Royaume-Uni, sinon 0"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Annual Gross Income ($)",
         "tr": "Yıllık Brüt Gelir ($)",
-        "de": "Annual Gross Income ($)",
-        "fr": "Annual Gross Income ($)",
-        "es": "Annual Gross Income ($)",
+        "de": "Jährliches Bruttoeinkommen ($)",
+        "fr": "Revenu brut annuel ($)",
+        "es": "Ingreso Bruto Anual ($)",
         "ar": "Annual Gross Income ($)"
       },
       "businessContext_i18n": {
         "en": "Total annual income before any deductions",
-        "tr": "Vergi öncesi toplam yıllık gelir"
+        "tr": "Vergi öncesi toplam yıllık gelir",
+        "de": "Gesamtes Jahreseinkommen vor Abzügen",
+        "fr": "Revenu annuel total avant déductions",
+        "es": "Ingreso anual total antes de cualquier deducción"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Filing Status (0=Single, 1=Married Joint, 2=Head of Household)",
         "tr": "Beyanname Durumu (0=Bekar, 1=Evli Ortak, 2=Hane Reisi)",
-        "de": "Filing Status (0=Single, 1=Married Joint, 2=Head of Household)",
-        "fr": "Filing Status (0=Single, 1=Married Joint, 2=Head of Household)",
-        "es": "Filing Status (0=Single, 1=Married Joint, 2=Head of Household)",
+        "de": "Steuerstatus (0=Single, 1=Verheiratet gemeinsam, 2=Haushaltsvorstand)",
+        "fr": "Statut de déclaration (0=Célibataire, 1=Marié conjoint, 2=Chef de famille)",
+        "es": "Estado civil (0=Soltero, 1=Casado en conjunto, 2=Jefe de hogar)",
         "ar": "Filing Status (0=Single, 1=Married Joint, 2=Head of Household)"
       },
       "businessContext_i18n": {
         "en": "Tax filing status affects tax brackets and standard deduction",
-        "tr": "Vergi beyanname durumu, vergi dilimlerini ve standart kesintiyi etkiler"
+        "tr": "Vergi beyanname durumu, vergi dilimlerini ve standart kesintiyi etkiler",
+        "de": "Der Steuerstatus beeinflusst Steuerklassen und Pauschalabzug",
+        "fr": "Le statut de déclaration affecte les tranches d'imposition et la déduction forfaitaire.",
+        "es": "El estado civil afecta los tramos impositivos y la deducción estándar"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Pre-tax Deductions ($)",
         "tr": "Vergi Öncesi Kesintiler ($)",
-        "de": "Pre-tax Deductions ($)",
-        "fr": "Pre-tax Deductions ($)",
-        "es": "Pre-tax Deductions ($)",
+        "de": "Vorsteuerliche Abzüge ($)",
+        "fr": "Déductions avant impôt ($)",
+        "es": "Deducciones antes de impuestos ($)",
         "ar": "Pre-tax Deductions ($)"
       },
       "businessContext_i18n": {
         "en": "401(k), HSA, FSA, etc. subtracted from gross income",
-        "tr": "401(k), HSA, FSA vb. brüt gelirden düşülür"
+        "tr": "401(k), HSA, FSA vb. brüt gelirden düşülür",
+        "de": "401(k), HSA, FSA usw., vom Bruttoeinkommen abgezogen",
+        "fr": "401(k), HSA, FSA, etc. soustraits du revenu brut.",
+        "es": "401(k), HSA, FSA, etc. restados del ingreso bruto"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Standard Deduction ($)",
         "tr": "Standart Kesinti ($)",
-        "de": "Standard Deduction ($)",
-        "fr": "Standard Deduction ($)",
-        "es": "Standard Deduction ($)",
+        "de": "Pauschalabzug ($)",
+        "fr": "Déduction forfaitaire ($)",
+        "es": "Deducción estándar ($)",
         "ar": "Standard Deduction ($)"
       },
       "businessContext_i18n": {
         "en": "Standard deduction amount for 2023 (single: 13850, married joint: 27700, head of household: 20800)",
-        "tr": "2023 yılı standart kesinti tutarı (bekar: 13850, evli ortak: 27700, hane reisi: 20800)"
+        "tr": "2023 yılı standart kesinti tutarı (bekar: 13850, evli ortak: 27700, hane reisi: 20800)",
+        "de": "Pauschalabzugsbetrag für 2023 (Single: 13850, Verheiratet gemeinsam: 27700, Haushaltsvorstand: 20800)",
+        "fr": "Montant de la déduction forfaitaire pour 2023 (célibataire : 13850, marié conjoint : 27700, chef de famille : 20800).",
+        "es": "Monto de deducción estándar para 2023 (soltero: 13850, casado en conjunto: 27700, jefe de hogar: 20800)"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Additional Taxable Income ($)",
         "tr": "Ek Vergiye Tabi Gelir ($)",
-        "de": "Additional Taxable Income ($)",
-        "fr": "Additional Taxable Income ($)",
-        "es": "Additional Taxable Income ($)",
+        "de": "Zusätzliches steuerpflichtiges Einkommen ($)",
+        "fr": "Revenu imposable supplémentaire ($)",
+        "es": "Ingreso adicional sujeto a impuestos ($)",
         "ar": "Additional Taxable Income ($)"
       },
       "businessContext_i18n": {
         "en": "Interest, dividends, capital gains, etc.",
-        "tr": "Faiz, temettü, sermaye kazancı vb."
+        "tr": "Faiz, temettü, sermaye kazancı vb.",
+        "de": "Zinsen, Dividenden, Kapitalgewinne usw.",
+        "fr": "Intérêts, dividendes, gains en capital, etc.",
+        "es": "Intereses, dividendos, ganancias de capital, etc."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Non-refundable Tax Credits ($)",
         "tr": "İade Edilmeyen Vergi Kredileri ($)",
-        "de": "Non-refundable Tax Credits ($)",
-        "fr": "Non-refundable Tax Credits ($)",
-        "es": "Non-refundable Tax Credits ($)",
+        "de": "Nicht erstattungsfähige Steuergutschriften ($)",
+        "fr": "Crédits d'impôt non remboursables ($)",
+        "es": "Créditos fiscales no reembolsables ($)",
         "ar": "Non-refundable Tax Credits ($)"
       },
       "businessContext_i18n": {
         "en": "Child tax credit, education credits, etc.",
-        "tr": "Çocuk vergi kredisi, eğitim kredileri vb."
+        "tr": "Çocuk vergi kredisi, eğitim kredileri vb.",
+        "de": "Kinderfreibetrag, Bildungsgutschriften usw.",
+        "fr": "Crédit d'impôt pour enfants, crédits d'études, etc.",
+        "es": "Crédito tributario por hijos, créditos educativos, etc."
       }
     }
   ],

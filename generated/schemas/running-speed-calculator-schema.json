@@ -13,12 +13,14 @@
         "tr": "Mesafe",
         "de": "Entfernung",
         "fr": "Distance",
-        "es": "Distance",
+        "es": "Distancia",
         "ar": "Distance"
       },
       "businessContext_i18n": {
         "en": "Distance run in kilometers",
-        "tr": "Kilometre cinsinden koşulan mesafe"
+        "tr": "Kilometre cinsinden koşulan mesafe",
+        "de": "Gelaufene Strecke in Kilometern",
+        "fr": "Distance parcourue en kilomètres"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Time (hours)",
         "tr": "Süre (saat)",
         "de": "Zeit (Stunden)",
-        "fr": "Time (hours)",
-        "es": "Time (hours)",
+        "fr": "Temps (heures)",
+        "es": "Tiempo (horas)",
         "ar": "Time (hours)"
       },
       "businessContext_i18n": {
         "en": "Hours component of time taken",
-        "tr": "Geçen sürenin saat bileşeni"
+        "tr": "Geçen sürenin saat bileşeni",
+        "de": "Stundenanteil der benötigten Zeit",
+        "fr": "Composante heures du temps écoulé"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Time (minutes)",
         "tr": "Süre (dakika)",
         "de": "Zeit (Minuten)",
-        "fr": "Time (minutes)",
-        "es": "Time (minutes)",
+        "fr": "Temps (minutes)",
+        "es": "Tiempo (minutos)",
         "ar": "Time (minutes)"
       },
       "businessContext_i18n": {
         "en": "Minutes component of time taken",
-        "tr": "Geçen sürenin dakika bileşeni"
+        "tr": "Geçen sürenin dakika bileşeni",
+        "de": "Minutenanteil der benötigten Zeit",
+        "fr": "Composante minutes du temps écoulé"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Time (seconds)",
         "tr": "Süre (saniye)",
         "de": "Zeit (Sekunden)",
-        "fr": "Time (seconds)",
-        "es": "Time (seconds)",
+        "fr": "Temps (secondes)",
+        "es": "Tiempo (segundos)",
         "ar": "Time (seconds)"
       },
       "businessContext_i18n": {
         "en": "Seconds component of time taken",
-        "tr": "Zamanın saniye bileşeni"
+        "tr": "Zamanın saniye bileşeni",
+        "de": "Sekundenanteil der benötigten Zeit",
+        "fr": "Secondes du temps écoulé"
       }
     }
   ],

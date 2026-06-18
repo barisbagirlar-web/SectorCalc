@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Compound Mass",
         "tr": "Bileşik Kütlesi",
-        "de": "Compound Mass",
-        "fr": "Compound Mass",
+        "de": "Masse der Verbindung",
+        "fr": "Masse du composé",
         "es": "Compound Mass",
         "ar": "Compound Mass"
       },
       "businessContext_i18n": {
         "en": "Total mass of the sodium-containing compound",
-        "tr": "Sodyum içeren bileşiğin toplam kütlesi"
+        "tr": "Sodyum içeren bileşiğin toplam kütlesi",
+        "de": "Gesamtmasse der natriumhaltigen Verbindung",
+        "fr": "Masse totale du composé contenant du sodium"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Purity",
         "tr": "Saflık",
         "de": "Reinheit",
-        "fr": "Purity",
-        "es": "Purity",
+        "fr": "Pureté",
+        "es": "Pureza",
         "ar": "Purity"
       },
       "businessContext_i18n": {
         "en": "Purity percentage of the compound (0-100)",
-        "tr": "Bileşiğin saflık yüzdesi (0-100)"
+        "tr": "Bileşiğin saflık yüzdesi (0-100)",
+        "de": "Reinheitsgrad der Verbindung (0-100)",
+        "fr": "Pourcentage de pureté du composé (0-100)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Sodium Atoms per Molecule",
         "tr": "Molekül Başına Sodyum Atomu",
-        "de": "Sodium Atoms per Molecule",
-        "fr": "Sodium Atoms per Molecule",
+        "de": "Natriumatome pro Molekül",
+        "fr": "Atomes de sodium par molécule",
         "es": "Sodium Atoms per Molecule",
         "ar": "Sodium Atoms per Molecule"
       },
       "businessContext_i18n": {
         "en": "Number of sodium atoms in one molecule of the compound",
-        "tr": "Bileşiğin bir molekülündeki sodyum atomu sayısı"
+        "tr": "Bileşiğin bir molekülündeki sodyum atomu sayısı",
+        "de": "Anzahl der Natriumatome in einem Molekül der Verbindung",
+        "fr": "Nombre d'atomes de sodium dans une molécule du composé"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Molar Mass of Compound",
         "tr": "Bileşiğin Molar Kütlesi",
-        "de": "Molar Mass of Compound",
-        "fr": "Molar Mass of Compound",
+        "de": "Molmasse der Verbindung",
+        "fr": "Masse molaire du composé",
         "es": "Molar Mass of Compound",
         "ar": "Molar Mass of Compound"
       },
       "businessContext_i18n": {
         "en": "Molar mass of the compound (e.g., NaCl: 58.44 g/mol)",
-        "tr": "Bileşiğin molar kütlesi (ör. NaCl: 58.44 g/mol)"
+        "tr": "Bileşiğin molar kütlesi (ör. NaCl: 58.44 g/mol)",
+        "de": "Molmasse der Verbindung (z. B. NaCl: 58,44 g/mol)",
+        "fr": "Masse molaire du composé (ex. NaCl : 58,44 g/mol)"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Molar Mass of Sodium",
         "tr": "Sodyumun Molar Kütlesi",
-        "de": "Molar Mass of Sodium",
-        "fr": "Molar Mass of Sodium",
+        "de": "Molmasse von Natrium",
+        "fr": "Masse molaire du sodium",
         "es": "Molar Mass of Sodium",
         "ar": "Molar Mass of Sodium"
       },
       "businessContext_i18n": {
         "en": "Standard atomic mass of sodium (22.99 g/mol)",
-        "tr": "Sodyumun standart atom kütlesi (22.99 g/mol)"
+        "tr": "Sodyumun standart atom kütlesi (22.99 g/mol)",
+        "de": "Standard-Atommasse von Natrium (22,99 g/mol)",
+        "fr": "Masse atomique standard du sodium (22,99 g/mol)"
       }
     }
   ],

@@ -22,11 +22,17 @@
       "businessContext": "Total sensible and latent heat load from building, equipment, and occupants (ISO 52000).",
       "label_i18n": {
         "en": "Cooling Load",
-        "tr": "Soğutma Yükü"
+        "tr": "Soğutma Yükü",
+        "de": "Kühllast",
+        "fr": "Charge de refroidissement",
+        "es": "Carga de refrigeración"
       },
       "businessContext_i18n": {
         "en": "Total sensible and latent heat load from building, equipment, and occupants (ISO 52000).",
-        "tr": "Bina, ekipman ve kullanıcılardan kaynaklanan toplam duyulur ve gizli ısı yükü (ISO 52000)."
+        "tr": "Bina, ekipman ve kullanıcılardan kaynaklanan toplam duyulur ve gizli ısı yükü (ISO 52000).",
+        "de": "Gesamte sensible und latente Wärmelast von Gebäude, Ausrüstung und Personen (ISO 52000).",
+        "fr": "Charge totale sensible et latente du bâtiment, des équipements et des occupants (ISO 52000).",
+        "es": "Carga total sensible y latente del edificio, equipo y ocupantes (ISO 52000)."
       }
     },
     {
@@ -40,11 +46,17 @@
       "businessContext": "Total heat loss from building envelope and ventilation (ASHRAE Handbook).",
       "label_i18n": {
         "en": "Heating Load",
-        "tr": "Isıtma Yükü"
+        "tr": "Isıtma Yükü",
+        "de": "Heizlast",
+        "fr": "Charge de chauffage",
+        "es": "Carga de calefacción"
       },
       "businessContext_i18n": {
         "en": "Total heat loss from building envelope and ventilation (ASHRAE Handbook).",
-        "tr": "Bina kabuğu ve havalandırmadan kaynaklanan toplam ısı kaybı (ASHRAE El Kitabı)."
+        "tr": "Bina kabuğu ve havalandırmadan kaynaklanan toplam ısı kaybı (ASHRAE El Kitabı).",
+        "de": "Gesamter Wärmeverlust durch Gebäudehülle und Lüftung (ASHRAE-Handbuch).",
+        "fr": "Perte de chaleur totale de l'enveloppe du bâtiment et de la ventilation (ASHRAE Handbook).",
+        "es": "Pérdida total de calor por envolvente y ventilación (Manual ASHRAE)."
       }
     },
     {
@@ -63,11 +75,17 @@
       "businessContext": "HVAC system configuration affecting capacity and efficiency curves.",
       "label_i18n": {
         "en": "System Type",
-        "tr": "Sistem Tipi"
+        "tr": "Sistem Tipi",
+        "de": "Systemtyp",
+        "fr": "Type de système",
+        "es": "Tipo de sistema"
       },
       "businessContext_i18n": {
         "en": "HVAC system configuration affecting capacity and efficiency curves.",
-        "tr": "Kapasite ve verim eğrilerini etkileyen HVAC sistem konfigürasyonu."
+        "tr": "Kapasite ve verim eğrilerini etkileyen HVAC sistem konfigürasyonu.",
+        "de": "HLK-Systemkonfiguration, die Kapazitäts- und Effizienzkurven beeinflusst.",
+        "fr": "Configuration du système CVC affectant les courbes de capacité et d'efficacité.",
+        "es": "Configuración del sistema HVAC que afecta las curvas de capacidad y eficiencia."
       }
     },
     {
@@ -82,11 +100,16 @@
       "label_i18n": {
         "en": "Ambient Temperature",
         "tr": "Ortam Sıcaklığı",
-        "de": "Umgebungstemperatur"
+        "de": "Umgebungstemperatur",
+        "fr": "Température ambiante",
+        "es": "Temperatura ambiente"
       },
       "businessContext_i18n": {
         "en": "Outdoor dry-bulb temperature for design conditions (ISO 15927).",
-        "tr": "Tasarım koşulları için dış hava kuru termometre sıcaklığı (ISO 15927)."
+        "tr": "Tasarım koşulları için dış hava kuru termometre sıcaklığı (ISO 15927).",
+        "de": "Außenluft-Trockenkugeltemperatur für Auslegungsbedingungen (ISO 15927).",
+        "fr": "Température sèche extérieure pour les conditions de conception (ISO 15927).",
+        "es": "Temperatura de bulbo seco exterior para condiciones de diseño (ISO 15927)."
       }
     },
     {
@@ -101,11 +124,16 @@
       "label_i18n": {
         "en": "Relative Humidity",
         "tr": "Bağıl Nem",
-        "de": "Relative Luftfeuchtigkeit"
+        "de": "Relative Luftfeuchtigkeit",
+        "fr": "Humidité relative",
+        "es": "Humedad relativa"
       },
       "businessContext_i18n": {
         "en": "Indoor relative humidity setpoint, impacts latent load and coil performance.",
-        "tr": "İç ortam bağıl nem set değeri, gizli yük ve serpantin performansını etkiler."
+        "tr": "İç ortam bağıl nem set değeri, gizli yük ve serpantin performansını etkiler.",
+        "de": "Relative Luftfeuchtigkeit im Innenraum, beeinflusst die latente Last und die Spulenleistung.",
+        "fr": "Consigne d'humidité relative intérieure, impacte la charge latente et la performance du serpentin.",
+        "es": "Humedad relativa interior de consigna, impacta la carga latente y el rendimiento de la batería."
       }
     },
     {
@@ -119,11 +147,17 @@
       "businessContext": "Current system efficiency; baseline for improvement (ANSI/AHRI 210/240).",
       "label_i18n": {
         "en": "Efficiency Ratio (EER/COP)",
-        "tr": "Verim Oranı (EER/COP)"
+        "tr": "Verim Oranı (EER/COP)",
+        "de": "Effizienzverhältnis (EER/COP)",
+        "fr": "Ratio d'efficacité (EER/COP)",
+        "es": "Relación de eficiencia (EER/COP)"
       },
       "businessContext_i18n": {
         "en": "Current system efficiency; baseline for improvement (ANSI/AHRI 210/240).",
-        "tr": "Mevcut sistem verimi; iyileştirme için temel (ANSI/AHRI 210/240)."
+        "tr": "Mevcut sistem verimi; iyileştirme için temel (ANSI/AHRI 210/240).",
+        "de": "Aktuelle Systemeffizienz; Basis für Verbesserungen (ANSI/AHRI 210/240).",
+        "fr": "Efficacité actuelle du système ; base de référence pour l'amélioration (ANSI/AHRI 210/240).",
+        "es": "Eficiencia actual del sistema; línea base para mejora (ANSI/AHRI 210/240)."
       }
     },
     {
@@ -137,11 +171,17 @@
       "businessContext": "Supply air volume, critical for capacity and distribution (WERC DC guidelines).",
       "label_i18n": {
         "en": "Airflow Rate",
-        "tr": "Hava akış hızı"
+        "tr": "Hava akış hızı",
+        "de": "Luftvolumenstrom",
+        "fr": "Débit d'air",
+        "es": "Caudal de aire"
       },
       "businessContext_i18n": {
         "en": "Supply air volume, critical for capacity and distribution (WERC DC guidelines).",
-        "tr": "Besleme havası hacmi, kapasite ve dağıtım için kritik (WERC DC yönergeleri)."
+        "tr": "Besleme havası hacmi, kapasite ve dağıtım için kritik (WERC DC yönergeleri).",
+        "de": "Zuluftvolumen, entscheidend für Kapazität und Verteilung (WERC DC-Richtlinien).",
+        "fr": "Volume d'air soufflé, critique pour la capacité et la distribution (directives WERC DC).",
+        "es": "Caudal de aire de impulsión, crítico para capacidad y distribución (directrices WERC DC)."
       }
     },
     {
@@ -155,11 +195,17 @@
       "businessContext": "Estimated leakage as percentage of total airflow; affects effective capacity.",
       "label_i18n": {
         "en": "Duct Leakage Factor",
-        "tr": "Kanal Kaçak Faktörü"
+        "tr": "Kanal Kaçak Faktörü",
+        "de": "Kanalleckagefaktor",
+        "fr": "Facteur de fuite des conduits",
+        "es": "Factor de fuga en conductos"
       },
       "businessContext_i18n": {
         "en": "Estimated leakage as percentage of total airflow; affects effective capacity.",
-        "tr": "Toplam hava akışının yüzdesi olarak tahmini kaçak; efektif kapasiteyi etkiler."
+        "tr": "Toplam hava akışının yüzdesi olarak tahmini kaçak; efektif kapasiteyi etkiler.",
+        "de": "Geschätzte Leckage als Prozentsatz des gesamten Luftstroms; beeinflusst die effektive Kapazität.",
+        "fr": "Fuite estimée en pourcentage du débit d'air total ; affecte la capacité effective.",
+        "es": "Fuga estimada como porcentaje del caudal total; afecta la capacidad efectiva."
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Value (x)",
         "tr": "Değer (x)",
-        "de": "Value (x)",
-        "fr": "Value (x)",
-        "es": "Value (x)",
+        "de": "Wert (x)",
+        "fr": "Valeur (x)",
+        "es": "Valor (x)",
         "ar": "Value (x)"
       },
       "businessContext_i18n": {
         "en": "The value to compute the inverse trigonometric function. For arcsin and arccos, must be between -1 and 1; for arctan, any real number.",
-        "tr": "Ters trigonometrik fonksiyonun hesaplanacağı değer. Arksinüs ve arkkosinüs için -1 ile 1 arasında olmalıdır; arktanjant için herhangi bir reel sayı."
+        "tr": "Ters trigonometrik fonksiyonun hesaplanacağı değer. Arksinüs ve arkkosinüs için -1 ile 1 arasında olmalıdır; arktanjant için herhangi bir reel sayı.",
+        "de": "Wert zur Berechnung der inversen trigonometrischen Funktion. Für arcsin und arccos muss der Wert zwischen -1 und 1 liegen; für arctan ist jede reelle Zahl zulässig.",
+        "fr": "La valeur pour calculer la fonction trigonométrique inverse. Pour arcsin et arccos, doit être entre -1 et 1 ; pour arctan, tout nombre réel.",
+        "es": "El valor para calcular la función trigonométrica inversa. Para arcsin y arccos, debe estar entre -1 y 1; para arctan, cualquier número real."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Function",
         "tr": "Fonksiyon",
         "de": "Funktion",
-        "fr": "Function",
-        "es": "Function",
+        "fr": "Fonction",
+        "es": "Función",
         "ar": "Function"
       },
       "businessContext_i18n": {
         "en": "1 = arcsin (sin⁻¹), 2 = arccos (cos⁻¹), 3 = arctan (tan⁻¹).",
-        "tr": "1 = arksinüs (sin⁻¹), 2 = arkkosinüs (cos⁻¹), 3 = arktanjant (tan⁻¹)."
+        "tr": "1 = arksinüs (sin⁻¹), 2 = arkkosinüs (cos⁻¹), 3 = arktanjant (tan⁻¹).",
+        "de": "1 = arcsin (sin⁻¹), 2 = arccos (cos⁻¹), 3 = arctan (tan⁻¹).",
+        "fr": "1 = arcsin (sin⁻¹), 2 = arccos (cos⁻¹), 3 = arctan (tan⁻¹).",
+        "es": "1 = arcoseno (sen⁻¹), 2 = arcocoseno (cos⁻¹), 3 = arcotangente (tan⁻¹)."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Output Unit",
         "tr": "Çıktı Birimi",
         "de": "Ausgabeeinheit",
-        "fr": "Output Unit",
-        "es": "Output Unit",
+        "fr": "Unité de sortie",
+        "es": "Unidad de salida",
         "ar": "Output Unit"
       },
       "businessContext_i18n": {
         "en": "0 = radians, 1 = degrees.",
-        "tr": "0 = radyan, 1 = derece."
+        "tr": "0 = radyan, 1 = derece.",
+        "de": "0 = Bogenmaß, 1 = Grad.",
+        "fr": "0 = radians, 1 = degrés.",
+        "es": "0 = radianes, 1 = grados."
       }
     },
     {
@@ -72,14 +81,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the result.",
         "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses."
+        "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses.",
+        "fr": "Nombre de décimales pour arrondir le résultat.",
+        "es": "Número de decimales para redondear el resultado."
       }
     }
   ],

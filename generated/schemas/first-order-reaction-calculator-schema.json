@@ -12,14 +12,16 @@
         "en": "Initial Concentration (C₀)",
         "tr": "Başlangıç Konsantrasyonu (C₀)",
         "de": "Anfangskonzentration (C₀)",
-        "fr": "Initial Concentration (C₀)",
-        "es": "Initial Concentration (C₀)",
+        "fr": "Concentration initiale (C₀)",
+        "es": "Concentración inicial (C₀)",
         "ar": "Initial Concentration (C₀)"
       },
       "businessContext_i18n": {
         "en": "Başlangıç konsantrasyonu (mol/L cinsinden)",
         "tr": "Başlangıç konsantrasyonu (mol/L cinsinden)",
-        "de": "Anfangskonzentration (in mol/L)"
+        "de": "Anfangskonzentration (in mol/L)",
+        "fr": "Concentration initiale (en mol/L)",
+        "es": "Concentración inicial (en mol/L)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Rate Constant (k)",
         "tr": "Hız Sabiti (k)",
         "de": "Geschwindigkeitskonstante (k)",
-        "fr": "Rate Constant (k)",
-        "es": "Rate Constant (k)",
+        "fr": "Constante de vitesse (k)",
+        "es": "Constante de velocidad (k)",
         "ar": "Rate Constant (k)"
       },
       "businessContext_i18n": {
         "en": "Birinci derece reaksiyon hız sabiti (s⁻¹ cinsinden)",
         "tr": "Birinci derece reaksiyon hız sabiti (s⁻¹ cinsinden)",
-        "de": "Geschwindigkeitskonstante erster Ordnung (in s⁻¹)"
+        "de": "Geschwindigkeitskonstante erster Ordnung (in s⁻¹)",
+        "fr": "Constante de vitesse de réaction du premier ordre (en s⁻¹)",
+        "es": "Constante de velocidad de reacción de primer orden (en s⁻¹)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Time (t)",
         "tr": "Zaman (t)",
         "de": "Zeit (t)",
-        "fr": "Time (t)",
-        "es": "Time (t)",
+        "fr": "Temps (t)",
+        "es": "Tiempo (t)",
         "ar": "Time (t)"
       },
       "businessContext_i18n": {
         "en": "Reaksiyon süresi (saniye cinsinden)",
         "tr": "Reaksiyon süresi (saniye cinsinden)",
-        "de": "Reaktionszeit (in Sekunden)"
+        "de": "Reaktionszeit (in Sekunden)",
+        "fr": "Temps de réaction (en secondes)",
+        "es": "Tiempo de reacción (en segundos)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Reaction Order",
         "tr": "Reaksiyon Mertebesi",
         "de": "Reaktionsordnung",
-        "fr": "Reaction Order",
-        "es": "Reaction Order",
+        "fr": "Ordre de réaction",
+        "es": "Orden de reacción",
         "ar": "Reaction Order"
       },
       "businessContext_i18n": {
         "en": "Reaksiyon mertebesi (birinci derece için sabit 1)",
         "tr": "Reaksiyon mertebesi (birinci derece için sabit 1)",
-        "de": "Reaktionsordnung (für erste Ordnung konstant 1)"
+        "de": "Reaktionsordnung (für erste Ordnung konstant 1)",
+        "fr": "Ordre de réaction (1 pour le premier ordre)",
+        "es": "Orden de reacción (constante 1 para primer orden)"
       }
     }
   ],

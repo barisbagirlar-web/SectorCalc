@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Mass of Component",
         "tr": "Bileşen Kütlesi",
-        "de": "Mass of Component",
-        "fr": "Mass of Component",
-        "es": "Mass of Component",
+        "de": "Masse der Komponente",
+        "fr": "Masse du composant",
+        "es": "Masa del componente",
         "ar": "Mass of Component"
       },
       "businessContext_i18n": {
         "en": "Mass of the component for which mass percent is calculated.",
-        "tr": "Kütle yüzdesi hesaplanan bileşenin kütlesi."
+        "tr": "Kütle yüzdesi hesaplanan bileşenin kütlesi.",
+        "de": "Masse der Komponente, für die der Massenanteil berechnet wird.",
+        "fr": "Masse du composant pour lequel le pourcentage massique est calculé.",
+        "es": "Masa del componente para el cual se calcula el porcentaje en masa."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Mass of Other Component",
         "tr": "Diğer Bileşenin Kütlesi",
-        "de": "Mass of Other Component",
-        "fr": "Mass of Other Component",
-        "es": "Mass of Other Component",
+        "de": "Masse der anderen Komponente",
+        "fr": "Masse de l'autre composant",
+        "es": "Masa del otro componente",
         "ar": "Mass of Other Component"
       },
       "businessContext_i18n": {
         "en": "Mass of the other component in the mixture. If total mass is not provided, this is used with component mass to compute total.",
-        "tr": "Karışımdaki diğer bileşenin kütlesi. Toplam kütle verilmezse, bileşen kütlesi ile birlikte toplamı hesaplamak için kullanılır."
+        "tr": "Karışımdaki diğer bileşenin kütlesi. Toplam kütle verilmezse, bileşen kütlesi ile birlikte toplamı hesaplamak için kullanılır.",
+        "de": "Masse der anderen Komponente im Gemisch. Wenn die Gesamtmasse nicht angegeben ist, wird diese zusammen mit der Komponentenmasse zur Berechnung der Gesamtmasse verwendet.",
+        "fr": "Masse de l'autre composant dans le mélange. Si la masse totale n'est pas fournie, elle est utilisée avec la masse du composant pour calculer le total.",
+        "es": "Masa del otro componente en la mezcla. Si no se proporciona la masa total, se usa junto con la masa del componente para calcular el total."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Total Mass of Mixture",
         "tr": "Karışımın Toplam Kütlesi",
-        "de": "Total Mass of Mixture",
-        "fr": "Total Mass of Mixture",
-        "es": "Total Mass of Mixture",
+        "de": "Gesamtmasse des Gemischs",
+        "fr": "Masse totale du mélange",
+        "es": "Masa total de la mezcla",
         "ar": "Total Mass of Mixture"
       },
       "businessContext_i18n": {
         "en": "Total mass of the mixture. If provided, it overrides the sum of component and other component.",
-        "tr": "Karışımın toplam kütlesi. Sağlanırsa, bileşen ve diğer bileşenin toplamını geçersiz kılar."
+        "tr": "Karışımın toplam kütlesi. Sağlanırsa, bileşen ve diğer bileşenin toplamını geçersiz kılar.",
+        "de": "Gesamtmasse des Gemischs. Falls angegeben, überschreibt sie die Summe aus Komponentenmasse und anderer Komponente.",
+        "fr": "Masse totale du mélange. Si fournie, elle remplace la somme du composant et de l'autre composant.",
+        "es": "Masa total de la mezcla. Si se proporciona, anula la suma del componente y el otro componente."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the mass percent output.",
-        "tr": "Kütle yüzdesi çıktısı için ondalık basamak sayısı."
+        "tr": "Kütle yüzdesi çıktısı için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für die Ausgabe des Massenanteils.",
+        "fr": "Nombre de décimales pour le pourcentage massique en sortie.",
+        "es": "Número de decimales para la salida del porcentaje en masa."
       }
     }
   ],

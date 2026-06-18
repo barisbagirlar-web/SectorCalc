@@ -12,14 +12,16 @@
         "en": "Foot-Pounds (ft·lb)",
         "tr": "Foot-Pound (ft·lb)",
         "de": "Foot-Pound (ft·lb)",
-        "fr": "Foot-Pounds (ft·lb)",
-        "es": "Foot-Pounds (ft·lb)",
+        "fr": "Pied-livre (ft·lb)",
+        "es": "Pie-Libra (ft·lb)",
         "ar": "Foot-Pounds (ft·lb)"
       },
       "businessContext_i18n": {
         "en": "The energy or torque value in foot-pounds to convert.",
         "tr": "Dönüştürülecek foot-pound cinsinden enerji veya tork değeri.",
-        "de": "Der Energie- oder Drehmomentwert in Foot-Pound, der umgerechnet werden soll."
+        "de": "Der Energie- oder Drehmomentwert in Foot-Pound, der umgerechnet werden soll.",
+        "fr": "Valeur d'énergie ou de couple en pieds-livres à convertir.",
+        "es": "Valor de energía o torque en libras-pie a convertir."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Conversion Factor (J/ft·lb)",
         "tr": "Dönüşüm Faktörü (J/ft·lb)",
         "de": "Umrechnungsfaktor (J/ft·lb)",
-        "fr": "Conversion Factor (J/ft·lb)",
-        "es": "Conversion Factor (J/ft·lb)",
+        "fr": "Facteur de conversion (J/ft·lb)",
+        "es": "Factor de conversión (J/ft·lb)",
         "ar": "Conversion Factor (J/ft·lb)"
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor. Modify only if using a different calibration.",
         "tr": "Standart dönüşüm faktörü. Yalnızca farklı bir kalibrasyon kullanıyorsanız değiştirin.",
-        "de": "Standard-Umrechnungsfaktor. Nur bei abweichender Kalibrierung ändern."
+        "de": "Standard-Umrechnungsfaktor. Nur bei abweichender Kalibrierung ändern.",
+        "fr": "Facteur de conversion standard. Modifiez-le uniquement si vous utilisez un étalonnage différent.",
+        "es": "Factor de conversión estándar. Modificar solo si se usa una calibración diferente."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output value.",
         "tr": "Çıktı değeri için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen für den Ausgabewert."
+        "de": "Anzahl der Dezimalstellen für den Ausgabewert.",
+        "fr": "Nombre de décimales pour la valeur de sortie.",
+        "es": "Número de decimales para el valor de salida."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Measurement Uncertainty (%)",
         "tr": "Ölçüm Belirsizliği (%)",
         "de": "Messunsicherheit (%)",
-        "fr": "Measurement Uncertainty (%)",
-        "es": "Measurement Uncertainty (%)",
+        "fr": "Incertitude de mesure (%)",
+        "es": "Incertidumbre de medición (%)",
         "ar": "Measurement Uncertainty (%)"
       },
       "businessContext_i18n": {
         "en": "Estimated measurement uncertainty as a percentage of the converted value.",
         "tr": "Dönüştürülen değerin yüzdesi olarak tahmini ölçüm belirsizliği.",
-        "de": "Geschätzte Messunsicherheit als Prozentsatz des umgerechneten Werts."
+        "de": "Geschätzte Messunsicherheit als Prozentsatz des umgerechneten Werts.",
+        "fr": "Incertitude de mesure estimée en pourcentage de la valeur convertie.",
+        "es": "Incertidumbre de medición estimada como porcentaje del valor convertido."
       }
     }
   ],

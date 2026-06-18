@@ -22,11 +22,17 @@
       "businessContext": "Typical range for healthy adult women; used as baseline for ovulation estimation.",
       "label_i18n": {
         "en": "Average cycle length (days)",
-        "tr": "Ortalama döngü uzunluğu (gün)"
+        "tr": "Ortalama döngü uzunluğu (gün)",
+        "de": "Durchschnittliche Zykluslänge (Tage)",
+        "fr": "Durée moyenne du cycle (jours)",
+        "es": "Duración media del ciclo (días)"
       },
       "businessContext_i18n": {
         "en": "Typical range for healthy adult women; used as baseline for ovulation estimation.",
-        "tr": "Sağlıklı yetişkin kadınlar için tipik aralık; yumurtlama tahmini için temel alınır."
+        "tr": "Sağlıklı yetişkin kadınlar için tipik aralık; yumurtlama tahmini için temel alınır.",
+        "de": "Typischer Bereich für gesunde erwachsene Frauen; als Basis für die Eisprungschätzung verwendet.",
+        "fr": "Plage typique pour les femmes adultes en bonne santé ; utilisée comme référence pour l'estimation de l'ovulation.",
+        "es": "Rango típico para mujeres adultas sanas; se usa como referencia para la estimación de ovulación."
       }
     },
     {
@@ -40,11 +46,17 @@
       "businessContext": "Fixed post-ovulation phase; variation indicates potential luteal phase defect.",
       "label_i18n": {
         "en": "Luteal phase length (days)",
-        "tr": "Luteal faz uzunluğu (gün)"
+        "tr": "Luteal faz uzunluğu (gün)",
+        "de": "Lutealphasenlänge (Tage)",
+        "fr": "Durée de la phase lutéale (jours)",
+        "es": "Duración de la fase lútea (días)"
       },
       "businessContext_i18n": {
         "en": "Fixed post-ovulation phase; variation indicates potential luteal phase defect.",
-        "tr": "Sabit yumurtlama sonrası faz; varyasyon olası luteal faz defektini gösterir."
+        "tr": "Sabit yumurtlama sonrası faz; varyasyon olası luteal faz defektini gösterir.",
+        "de": "Feste Phase nach dem Eisprung; Abweichung deutet auf möglichen Lutealphasendefekt hin.",
+        "fr": "Phase post-ovulation fixe ; une variation indique un possible défaut de phase lutéale.",
+        "es": "Fase post-ovulación fija; la variación indica posible defecto de fase lútea."
       }
     },
     {
@@ -58,11 +70,17 @@
       "businessContext": "Reference point for calculating next ovulation and fertile window.",
       "label_i18n": {
         "en": "Start date of last menstrual period",
-        "tr": "Son adet döneminin başlangıç tarihi"
+        "tr": "Son adet döneminin başlangıç tarihi",
+        "de": "Startdatum der letzten Menstruation",
+        "fr": "Date de début des dernières règles",
+        "es": "Fecha de inicio del último período menstrual"
       },
       "businessContext_i18n": {
         "en": "Reference point for calculating next ovulation and fertile window.",
-        "tr": "Bir sonraki yumurtlama ve doğurgan pencereyi hesaplamak için referans noktası."
+        "tr": "Bir sonraki yumurtlama ve doğurgan pencereyi hesaplamak için referans noktası.",
+        "de": "Referenzpunkt für die Berechnung des nächsten Eisprungs und des fruchtbaren Fensters.",
+        "fr": "Point de référence pour calculer la prochaine ovulation et la fenêtre fertile.",
+        "es": "Punto de referencia para calcular la próxima ovulación y ventana fértil."
       }
     },
     {
@@ -76,11 +94,17 @@
       "businessContext": "Used to compute confidence intervals and adjust fertile window width per SPC rules.",
       "label_i18n": {
         "en": "Cycle length variability (standard deviation, days)",
-        "tr": "Döngü uzunluğu değişkenliği (standart sapma, gün)"
+        "tr": "Döngü uzunluğu değişkenliği (standart sapma, gün)",
+        "de": "Variabilität der Zykluslänge (Standardabweichung, Tage)",
+        "fr": "Variabilité de la durée du cycle (écart-type, jours)",
+        "es": "Variabilidad de la duración del ciclo (desviación estándar, días)"
       },
       "businessContext_i18n": {
         "en": "Used to compute confidence intervals and adjust fertile window width per SPC rules.",
-        "tr": "SPC kurallarına göre güven aralıklarını hesaplamak ve doğurgan pencere genişliğini ayarlamak için kullanılır."
+        "tr": "SPC kurallarına göre güven aralıklarını hesaplamak ve doğurgan pencere genişliğini ayarlamak için kullanılır.",
+        "de": "Wird verwendet, um Konfidenzintervalle zu berechnen und die Breite des fruchtbaren Fensters gemäß SPC-Regeln anzupassen.",
+        "fr": "Utilisé pour calculer les intervalles de confiance et ajuster la largeur de la fenêtre fertile selon les règles du contrôle statistique des procédés.",
+        "es": "Se utiliza para calcular intervalos de confianza y ajustar el ancho de la ventana fértil según reglas de SPC."
       }
     },
     {
@@ -100,11 +124,17 @@
       "businessContext": "Age affects cycle regularity and fertility; used for risk adjustment.",
       "label_i18n": {
         "en": "Age group",
-        "tr": "Yaş grubu"
+        "tr": "Yaş grubu",
+        "de": "Altersgruppe",
+        "fr": "Groupe d'âge",
+        "es": "Grupo de edad"
       },
       "businessContext_i18n": {
         "en": "Age affects cycle regularity and fertility; used for risk adjustment.",
-        "tr": "Yaş, döngü düzenliliğini ve doğurganlığı etkiler; risk ayarlaması için kullanılır."
+        "tr": "Yaş, döngü düzenliliğini ve doğurganlığı etkiler; risk ayarlaması için kullanılır.",
+        "de": "Alter beeinflusst Zyklusregelmäßigkeit und Fruchtbarkeit; wird zur Risikoanpassung verwendet.",
+        "fr": "L'âge affecte la régularité du cycle et la fertilité ; utilisé pour l'ajustement du risque.",
+        "es": "La edad afecta la regularidad del ciclo y la fertilidad; se usa para ajuste de riesgo."
       }
     },
     {
@@ -118,11 +148,17 @@
       "businessContext": "Triggers alternative calculation method and alerts for medical consultation.",
       "label_i18n": {
         "en": "Irregular cycles (variation > 7 days)",
-        "tr": "Düzensiz döngüler (7 günden fazla varyasyon)"
+        "tr": "Düzensiz döngüler (7 günden fazla varyasyon)",
+        "de": "Unregelmäßige Zyklen (Abweichung > 7 Tage)",
+        "fr": "Cycles irréguliers (variation > 7 jours)",
+        "es": "Ciclos irregulares (variación > 7 días)"
       },
       "businessContext_i18n": {
         "en": "Triggers alternative calculation method and alerts for medical consultation.",
-        "tr": "Alternatif hesaplama yöntemini tetikler ve tıbbi danışma için uyarı verir."
+        "tr": "Alternatif hesaplama yöntemini tetikler ve tıbbi danışma için uyarı verir.",
+        "de": "Löst alternative Berechnungsmethode aus und warnt vor ärztlicher Konsultation.",
+        "fr": "Déclenche une méthode de calcul alternative et des alertes pour consultation médicale.",
+        "es": "Activa método de cálculo alternativo y alerta para consulta médica."
       }
     }
   ],

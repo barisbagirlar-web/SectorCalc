@@ -12,14 +12,16 @@
         "en": "Surface Area",
         "tr": "Yüzey Alanı",
         "de": "Oberfläche",
-        "fr": "Surface Area",
-        "es": "Surface Area",
+        "fr": "Surface",
+        "es": "Área superficial",
         "ar": "Surface Area"
       },
       "businessContext_i18n": {
         "en": "total area to be plated",
         "tr": "kaplanacak toplam alan",
-        "de": "Gesamte zu beschichtende Fläche"
+        "de": "Gesamte zu beschichtende Fläche",
+        "fr": "Surface totale à plaquer",
+        "es": "Área total a recubrir"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Plating Thickness",
         "tr": "Kaplama Kalınlığı",
         "de": "Beschichtungsdicke",
-        "fr": "Plating Thickness",
-        "es": "Plating Thickness",
+        "fr": "Épaisseur de placage",
+        "es": "Espesor del recubrimiento",
         "ar": "Plating Thickness"
       },
       "businessContext_i18n": {
         "en": "desired coating thickness",
         "tr": "istenen kaplama kalınlığı",
-        "de": "Gewünschte Schichtdicke"
+        "de": "Gewünschte Schichtdicke",
+        "fr": "Épaisseur de revêtement souhaitée",
+        "es": "Espesor de recubrimiento deseado"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Current Density",
         "tr": "Akım Yoğunluğu",
         "de": "Stromdichte",
-        "fr": "Current Density",
-        "es": "Current Density",
+        "fr": "Densité de courant",
+        "es": "Densidad de corriente",
         "ar": "Current Density"
       },
       "businessContext_i18n": {
         "en": "applied current per unit area",
         "tr": "birim alana uygulanan akım",
-        "de": "Angewandte Stromdichte"
+        "de": "Angewandte Stromdichte",
+        "fr": "Courant appliqué par unité de surface",
+        "es": "Corriente aplicada por unidad de área"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Cathode Efficiency",
         "tr": "Katot Verimliliği",
         "de": "Kathodenwirkungsgrad",
-        "fr": "Cathode Efficiency",
-        "es": "Cathode Efficiency",
+        "fr": "Rendement cathodique",
+        "es": "Eficiencia del cátodo",
         "ar": "Cathode Efficiency"
       },
       "businessContext_i18n": {
         "en": "percentage of current used for metal deposition",
         "tr": "metal biriktirme için kullanılan akım yüzdesi",
-        "de": "Prozentsatz des für die Metallabscheidung genutzten Stroms"
+        "de": "Prozentsatz des für die Metallabscheidung genutzten Stroms",
+        "fr": "Pourcentage du courant utilisé pour le dépôt de métal",
+        "es": "Porcentaje de corriente utilizado para la deposición del metal"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Metal Density",
         "tr": "Metal Yoğunluğu",
         "de": "Metalldichte",
-        "fr": "Metal Density",
-        "es": "Metal Density",
+        "fr": "Densité du métal",
+        "es": "Densidad del metal",
         "ar": "Metal Density"
       },
       "businessContext_i18n": {
         "en": "density of plating metal",
         "tr": "kaplama metalinin yoğunluğu",
-        "de": "Dichte des Plattierungsmetalls"
+        "de": "Dichte des Plattierungsmetalls",
+        "fr": "Densité du métal de placage",
+        "es": "Densidad del metal de recubrimiento"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Atomic Weight",
         "tr": "Atom Ağırlığı",
         "de": "Atomgewicht",
-        "fr": "Atomic Weight",
-        "es": "Atomic Weight",
+        "fr": "Masse atomique",
+        "es": "Peso atómico",
         "ar": "Atomic Weight"
       },
       "businessContext_i18n": {
         "en": "molar mass of metal",
         "tr": "metal mol kütlesi",
-        "de": "Molare Masse des Metalls"
+        "de": "Molare Masse des Metalls",
+        "fr": "Masse molaire du métal",
+        "es": "Masa molar del metal"
       }
     },
     {
@@ -139,13 +151,15 @@
         "tr": "Değerlik",
         "de": "Wertigkeit",
         "fr": "Valence",
-        "es": "Valence",
+        "es": "Valencia",
         "ar": "Valence"
       },
       "businessContext_i18n": {
         "en": "number of electrons transferred per ion",
         "tr": "iyon başına aktarılan elektron sayısı",
-        "de": "Anzahl der pro Ion übertragenen Elektronen"
+        "de": "Anzahl der pro Ion übertragenen Elektronen",
+        "fr": "nombre d'électrons transférés par ion",
+        "es": "Número de electrones transferidos por ion"
       }
     }
   ],

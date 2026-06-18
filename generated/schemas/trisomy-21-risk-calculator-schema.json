@@ -12,13 +12,15 @@
         "en": "Maternal Age",
         "tr": "Anne Yaşı",
         "de": "Mütterliches Alter",
-        "fr": "Maternal Age",
-        "es": "Maternal Age",
+        "fr": "Âge maternel",
+        "es": "Edad materna",
         "ar": "Maternal Age"
       },
       "businessContext_i18n": {
         "en": "Mother's age at expected delivery date",
-        "tr": "Annenin beklenen doğum tarihindeki yaşı"
+        "tr": "Annenin beklenen doğum tarihindeki yaşı",
+        "de": "Alter der Mutter zum voraussichtlichen Geburtstermin",
+        "fr": "Âge de la mère à la date prévue d'accouchement"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Gestational Age",
         "tr": "Gebelik Haftası",
-        "de": "Gestational Age",
-        "fr": "Gestational Age",
-        "es": "Gestational Age",
+        "de": "Gestationsalter",
+        "fr": "Âge gestationnel",
+        "es": "Edad gestacional",
         "ar": "Gestational Age"
       },
       "businessContext_i18n": {
         "en": "Weeks of pregnancy",
-        "tr": "Gebelik haftası"
+        "tr": "Gebelik haftası",
+        "de": "Schwangerschaftswochen",
+        "fr": "Semaines de grossesse"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Nuchal Translucency (NT)",
         "tr": "Ense Kalınlığı (NT)",
         "de": "Nackentransparenz (NT)",
-        "fr": "Nuchal Translucency (NT)",
-        "es": "Nuchal Translucency (NT)",
+        "fr": "Clarté nucale (CN)",
+        "es": "Translucencia nucal (TN)",
         "ar": "Nuchal Translucency (NT)"
       },
       "businessContext_i18n": {
         "en": "NT thickness measured via ultrasound",
-        "tr": "Ultrason ile ölçülen NT kalınlığı"
+        "tr": "Ultrason ile ölçülen NT kalınlığı",
+        "de": "NT-Dicke gemessen mittels Ultraschall",
+        "fr": "Épaisseur de la clarté nucale mesurée par échographie"
       }
     },
     {
@@ -78,7 +84,9 @@
       },
       "businessContext_i18n": {
         "en": "Pregnancy-associated plasma protein A in multiples of median",
-        "tr": "Medyan katları cinsinden gebelikle ilişkili plazma protein A"
+        "tr": "Medyan katları cinsinden gebelikle ilişkili plazma protein A",
+        "de": "Schwangerschafts-assoziiertes Plasmaprotein A in Vielfachen des Medians",
+        "fr": "Protéine plasmatique A associée à la grossesse en multiples de la médiane"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Free β-hCG",
         "tr": "Serbest β-hCG",
-        "de": "Free β-hCG",
-        "fr": "Free β-hCG",
+        "de": "Freies β-hCG",
+        "fr": "β-hCG libre",
         "es": "Free β-hCG",
         "ar": "Free β-hCG"
       },
       "businessContext_i18n": {
         "en": "Free beta human chorionic gonadotropin in multiples of median",
-        "tr": "Medyan katları cinsinden serbest beta insan koryonik gonadotropin"
+        "tr": "Medyan katları cinsinden serbest beta insan koryonik gonadotropin",
+        "de": "Freies Beta-humanes Choriongonadotropin in Vielfachen des Medians",
+        "fr": "Gonadotrophine chorionique humaine bêta libre en multiples de la médiane"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Previous Trisomy 21",
         "tr": "Önceki Trizomi 21",
-        "de": "Previous Trisomy 21",
-        "fr": "Previous Trisomy 21",
+        "de": "Vorherige Trisomie 21",
+        "fr": "Antécédent de trisomie 21",
         "es": "Previous Trisomy 21",
         "ar": "Previous Trisomy 21"
       },
       "businessContext_i18n": {
         "en": "Number of prior pregnancies affected by trisomy 21",
-        "tr": "Trizomi 21'den etkilenen önceki gebelik sayısı"
+        "tr": "Trizomi 21'den etkilenen önceki gebelik sayısı",
+        "de": "Anzahl früherer Schwangerschaften mit Trisomie 21",
+        "fr": "Nombre de grossesses antérieures affectées par la trisomie 21"
       }
     }
   ],

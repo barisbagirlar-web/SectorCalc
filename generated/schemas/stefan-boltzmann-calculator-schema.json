@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Yayma Oranı (ε)",
         "tr": "Yayma Oranı (ε)",
-        "de": "Yayma Oranı (ε)",
-        "fr": "Yayma Oranı (ε)",
+        "de": "Emissionsgrad (ε)",
+        "fr": "Émissivité (ε)",
         "es": "Yayma Oranı (ε)",
         "ar": "Yayma Oranı (ε)"
       },
       "businessContext_i18n": {
         "en": "Yüzeyin siyah cisim idealine göre yayma oranı",
-        "tr": "Yüzeyin siyah cisim idealine göre yayma oranı"
+        "tr": "Yüzeyin siyah cisim idealine göre yayma oranı",
+        "de": "Emissionsgrad der Oberfläche im Vergleich zum schwarzen Körper.",
+        "fr": "Rapport d'émission de la surface par rapport à l'idéal du corps noir."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Yüzey Alanı",
         "tr": "Yüzey Alanı",
-        "de": "Yüzey Alanı",
-        "fr": "Yüzey Alanı",
+        "de": "Oberfläche",
+        "fr": "Surface",
         "es": "Yüzey Alanı",
         "ar": "Yüzey Alanı"
       },
       "businessContext_i18n": {
         "en": "Işınım yapan yüzeyin alanı",
-        "tr": "Işınım yapan yüzeyin alanı"
+        "tr": "Işınım yapan yüzeyin alanı",
+        "de": "Fläche der strahlenden Oberfläche",
+        "fr": "Surface de la zone émettrice"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Sıcaklık",
         "tr": "Sıcaklık",
         "de": "Temperatur",
-        "fr": "Sıcaklık",
-        "es": "Sıcaklık",
+        "fr": "Température",
+        "es": "Temperatura",
         "ar": "Sıcaklık"
       },
       "businessContext_i18n": {
         "en": "Mutlak sıcaklık (Kelvin cinsinden)",
-        "tr": "Mutlak sıcaklık (Kelvin cinsinden)"
+        "tr": "Mutlak sıcaklık (Kelvin cinsinden)",
+        "de": "Absolute Temperatur (in Kelvin)",
+        "fr": "Température absolue (en Kelvin)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Stefan-Boltzmann Sabiti",
         "tr": "Stefan-Boltzmann Sabiti",
-        "de": "Stefan-Boltzmann Sabiti",
-        "fr": "Stefan-Boltzmann Sabiti",
+        "de": "Stefan-Boltzmann-Konstante",
+        "fr": "Constante de Stefan-Boltzmann",
         "es": "Stefan-Boltzmann Sabiti",
         "ar": "Stefan-Boltzmann Sabiti"
       },
       "businessContext_i18n": {
         "en": "Temel fizik sabiti, varsayılan değer TÜV onaylıdır",
-        "tr": "Temel fizik sabiti, varsayılan değer TÜV onaylıdır"
+        "tr": "Temel fizik sabiti, varsayılan değer TÜV onaylıdır",
+        "de": "Grundlegende physikalische Konstante, Standardwert TÜV-geprüft",
+        "fr": "Constante physique fondamentale, valeur par défaut approuvée par TÜV."
       }
     }
   ],

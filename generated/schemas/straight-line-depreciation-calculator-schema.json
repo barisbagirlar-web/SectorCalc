@@ -12,13 +12,15 @@
         "en": "Asset Cost",
         "tr": "Varlık Maliyeti",
         "de": "Vermögenswertkosten",
-        "fr": "Asset Cost",
-        "es": "Asset Cost",
+        "fr": "Coût de l'actif",
+        "es": "Costo del activo",
         "ar": "Asset Cost"
       },
       "businessContext_i18n": {
         "en": "Initial cost of the asset, including purchase price, installation, and delivery.",
-        "tr": "Varlığın satın alma fiyatı, kurulum ve nakliye dahil ilk maliyeti."
+        "tr": "Varlığın satın alma fiyatı, kurulum ve nakliye dahil ilk maliyeti.",
+        "de": "Anschaffungskosten des Vermögenswerts, einschließlich Kaufpreis, Installation und Lieferung.",
+        "fr": "Coût initial de l'actif, incluant prix d'achat, installation et livraison."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Salvage Value",
         "tr": "Hurda Değeri",
         "de": "Restwert",
-        "fr": "Salvage Value",
-        "es": "Salvage Value",
+        "fr": "Valeur de récupération",
+        "es": "Valor de rescate",
         "ar": "Salvage Value"
       },
       "businessContext_i18n": {
         "en": "Estimated residual value of the asset at the end of its useful life.",
-        "tr": "Varlığın faydalı ömrü sonunda tahmini kalıntı değeri."
+        "tr": "Varlığın faydalı ömrü sonunda tahmini kalıntı değeri.",
+        "de": "Geschätzter Restwert des Vermögenswerts am Ende seiner Nutzungsdauer.",
+        "fr": "Valeur résiduelle estimée de l'actif à la fin de sa durée de vie utile."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Useful Life",
         "tr": "Faydalı Ömür",
         "de": "Nutzungsdauer",
-        "fr": "Useful Life",
-        "es": "Useful Life",
+        "fr": "Durée de vie utile",
+        "es": "Vida útil",
         "ar": "Useful Life"
       },
       "businessContext_i18n": {
         "en": "Expected duration the asset will be productive, in years.",
-        "tr": "Varlığın üretken olması beklenen süre, yıl cinsinden."
+        "tr": "Varlığın üretken olması beklenen süre, yıl cinsinden.",
+        "de": "Erwartete Nutzungsdauer des Vermögenswerts in Jahren.",
+        "fr": "Durée prévue de productivité de l'actif, en années."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Years Elapsed",
         "tr": "Geçen Yıllar",
         "de": "Verstrichene Jahre",
-        "fr": "Years Elapsed",
-        "es": "Years Elapsed",
+        "fr": "Années écoulées",
+        "es": "Años transcurridos",
         "ar": "Years Elapsed"
       },
       "businessContext_i18n": {
         "en": "Number of years the asset has been in use, used to compute accumulated depreciation and book value.",
-        "tr": "Varlığın kullanımda olduğu yıl sayısı, birikmiş amortisman ve defter değerini hesaplamak için kullanılır."
+        "tr": "Varlığın kullanımda olduğu yıl sayısı, birikmiş amortisman ve defter değerini hesaplamak için kullanılır.",
+        "de": "Anzahl der Jahre, die der Vermögenswert genutzt wurde, zur Berechnung der kumulierten Abschreibung und des Buchwerts.",
+        "fr": "Nombre d'années d'utilisation de l'actif, utilisé pour calculer l'amortissement cumulé et la valeur comptable."
       }
     }
   ],

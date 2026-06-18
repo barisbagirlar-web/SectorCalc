@@ -12,13 +12,15 @@
         "en": "Principal Amount",
         "tr": "Anapara Tutarı",
         "de": "Kapitalbetrag",
-        "fr": "Principal Amount",
-        "es": "Principal Amount",
+        "fr": "Montant principal",
+        "es": "Monto principal",
         "ar": "Principal Amount"
       },
       "businessContext_i18n": {
         "en": "Initial lump sum invested",
-        "tr": "Yatırılan başlangıç toplu miktarı"
+        "tr": "Yatırılan başlangıç toplu miktarı",
+        "de": "Anfängliche Einmalanlage",
+        "fr": "Montant forfaitaire initial investi"
       }
     },
     {
@@ -32,14 +34,16 @@
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
         "de": "Jährlicher Zinssatz",
-        "fr": "Annual Interest Rate",
-        "es": "Annual Interest Rate",
+        "fr": "Taux d'intérêt annuel",
+        "es": "Tasa de Interés Anual",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Nominal annual interest rate",
         "tr": "Nominal yıllık faiz oranı",
-        "de": "Nominaler jährlicher Zinssatz"
+        "de": "Nominaler jährlicher Zinssatz",
+        "fr": "Taux d'intérêt annuel nominal",
+        "es": "Tasa de interés nominal anual"
       }
     },
     {
@@ -53,13 +57,15 @@
         "en": "Number of Years",
         "tr": "Yıl Sayısı",
         "de": "Anzahl der Jahre",
-        "fr": "Number of Years",
-        "es": "Number of Years",
+        "fr": "Nombre d'années",
+        "es": "Número de años",
         "ar": "Number of Years"
       },
       "businessContext_i18n": {
         "en": "Investment duration in years",
-        "tr": "Yatırım süresi (yıl)"
+        "tr": "Yatırım süresi (yıl)",
+        "de": "Anlagedauer in Jahren",
+        "fr": "Durée d'investissement en années"
       }
     },
     {
@@ -73,13 +79,15 @@
         "en": "Compounding Periods per Year",
         "tr": "Yıllık Bileşik Dönem Sayısı",
         "de": "Zinsperioden pro Jahr",
-        "fr": "Compounding Periods per Year",
-        "es": "Compounding Periods per Year",
+        "fr": "Périodes de capitalisation par an",
+        "es": "Períodos de capitalización por año",
         "ar": "Compounding Periods per Year"
       },
       "businessContext_i18n": {
         "en": "For semi-annual compounding, set to 2",
-        "tr": "Altı aylık bileşik faiz için 2 olarak ayarlayın"
+        "tr": "Altı aylık bileşik faiz için 2 olarak ayarlayın",
+        "de": "Für halbjährliche Aufzinsung auf 2 setzen",
+        "fr": "Pour une capitalisation semestrielle, définir sur 2"
       }
     }
   ],

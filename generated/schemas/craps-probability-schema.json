@@ -12,14 +12,16 @@
         "en": "Point Number",
         "tr": "Nokta Numarası",
         "de": "Punktnummer",
-        "fr": "Point Number",
-        "es": "Point Number",
+        "fr": "Numéro de point",
+        "es": "Número de punto",
         "ar": "Point Number"
       },
       "businessContext_i18n": {
         "en": "The point established on the come-out roll (4,5,6,8,9,10).",
         "tr": "Çıkış atışında belirlenen nokta (4,5,6,8,9,10).",
-        "de": "Der Punkt, der beim Come-out-Wurf festgelegt wird (4,5,6,8,9,10)."
+        "de": "Der Punkt, der beim Come-out-Wurf festgelegt wird (4,5,6,8,9,10).",
+        "fr": "Le point établi sur le premier lancer (4,5,6,8,9,10).",
+        "es": "Punto establecido en el tiro de salida (4,5,6,8,9,10)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Number of Rolls",
         "tr": "Atış Sayısı",
         "de": "Anzahl der Würfe",
-        "fr": "Number of Rolls",
-        "es": "Number of Rolls",
+        "fr": "Nombre de lancers",
+        "es": "Número de tiradas",
         "ar": "Number of Rolls"
       },
       "businessContext_i18n": {
         "en": "Number of dice rolls to simulate or calculate probability for.",
         "tr": "Simüle edilecek veya olasılığı hesaplanacak zar atışı sayısı.",
-        "de": "Anzahl der Würfelwürfe zur Simulation oder Wahrscheinlichkeitsberechnung."
+        "de": "Anzahl der Würfelwürfe zur Simulation oder Wahrscheinlichkeitsberechnung.",
+        "fr": "Nombre de lancers de dés à simuler ou pour lequel calculer la probabilité.",
+        "es": "Número de tiradas de dados a simular o para calcular la probabilidad."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Bet Amount",
         "tr": "Bahis Miktarı",
         "de": "Einsatzbetrag",
-        "fr": "Bet Amount",
-        "es": "Bet Amount",
+        "fr": "Montant de la mise",
+        "es": "Monto de la apuesta",
         "ar": "Bet Amount"
       },
       "businessContext_i18n": {
         "en": "Amount wagered on the pass line or point.",
         "tr": "Pass line veya noktaya yatırılan miktar.",
-        "de": "Betrag, der auf die Pass-Linie oder den Punkt gesetzt wird."
+        "de": "Betrag, der auf die Pass-Linie oder den Punkt gesetzt wird.",
+        "fr": "Montant misé sur la ligne de passe ou le point.",
+        "es": "Cantidad apostada en la línea de pase o punto."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Payout Odds (e.g., 2 for 2:1)",
         "tr": "Ödeme Oranı (örn. 2:1 için 2)",
         "de": "Auszahlungsquote (z.B. 2 für 2:1)",
-        "fr": "Payout Odds (e.g., 2 for 2:1)",
-        "es": "Payout Odds (e.g., 2 for 2:1)",
+        "fr": "Cotes de paiement (ex. 2 pour 2:1)",
+        "es": "Cuotas de pago (ej. 2 para 2:1)",
         "ar": "Payout Odds (e.g., 2 for 2:1)"
       },
       "businessContext_i18n": {
         "en": "Payout multiplier for winning bet (e.g., 1 for even money, 2 for 2:1).",
         "tr": "Kazanan bahis için ödeme çarpanı (örn. eşit para için 1, 2:1 için 2).",
-        "de": "Auszahlungsmultiplikator für einen Gewinn (z.B. 1 für gerade Quoten, 2 für 2:1)."
+        "de": "Auszahlungsmultiplikator für einen Gewinn (z.B. 1 für gerade Quoten, 2 für 2:1).",
+        "fr": "Multiplicateur de paiement pour un pari gagnant (ex. 1 pour une cote de 1:1, 2 pour 2:1).",
+        "es": "Multiplicador de pago para apuesta ganadora (ej. 1 para dinero par, 2 para 2:1)."
       }
     }
   ],

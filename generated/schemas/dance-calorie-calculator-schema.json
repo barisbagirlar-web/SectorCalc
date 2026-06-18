@@ -12,14 +12,16 @@
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Body Weight",
-        "es": "Body Weight",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "User body weight in kilograms for personalized calorie calculation based on metabolic energy expenditure.",
         "tr": "Metabolik enerji harcamasına dayalı kişiselleştirilmiş kalori hesaplaması için kullanıcının kilogram cinsinden vücut ağırlığı.",
-        "de": "Körpergewicht des Benutzers in Kilogramm für personalisierte Kalorienberechnung basierend auf metabolischem Energieverbrauch."
+        "de": "Körpergewicht des Benutzers in Kilogramm für personalisierte Kalorienberechnung basierend auf metabolischem Energieverbrauch.",
+        "fr": "Poids corporel de l'utilisateur en kilogrammes pour un calcul personnalisé des calories basé sur la dépense énergétique métabolique.",
+        "es": "Peso corporal del usuario en kilogramos para el cálculo personalizado de calorías basado en el gasto energético metabólico."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Dance Duration",
         "tr": "Dans Süresi",
         "de": "Tanzdauer",
-        "fr": "Dance Duration",
-        "es": "Dance Duration",
+        "fr": "Durée de la danse",
+        "es": "Duración del baile",
         "ar": "Dance Duration"
       },
       "businessContext_i18n": {
         "en": "Total time spent dancing in minutes, used to compute total calorie burn.",
         "tr": "Dakika cinsinden toplam dans süresi, toplam yakılan kaloriyi hesaplamak için kullanılır.",
-        "de": "Gesamte Tanzzeit in Minuten, verwendet zur Berechnung des gesamten Kalorienverbrauchs."
+        "de": "Gesamte Tanzzeit in Minuten, verwendet zur Berechnung des gesamten Kalorienverbrauchs.",
+        "fr": "Temps total passé à danser en minutes, utilisé pour calculer la dépense calorique totale.",
+        "es": "Tiempo total bailando en minutos, utilizado para calcular la quema total de calorías."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "MET Value",
         "tr": "MET Değeri",
         "de": "MET-Wert",
-        "fr": "MET Value",
-        "es": "MET Value",
+        "fr": "Valeur MET",
+        "es": "Valor MET",
         "ar": "MET Value"
       },
       "businessContext_i18n": {
         "en": "Metabolic Equivalent of Task representing intensity of dancing; typical values: 3-10 where 1 MET = 3.5 ml O2/kg/min.",
         "tr": "Dans yoğunluğunu temsil eden metabolik eşdeğer; tipik değerler: 3-10, 1 MET = 3.5 ml O2/kg/dk.",
-        "de": "Metabolisches Äquivalent der Aufgabe, das die Intensität des Tanzes darstellt; typische Werte: 3-10, wobei 1 MET = 3,5 ml O2/kg/min."
+        "de": "Metabolisches Äquivalent der Aufgabe, das die Intensität des Tanzes darstellt; typische Werte: 3-10, wobei 1 MET = 3,5 ml O2/kg/min.",
+        "fr": "Équivalent métabolique de la tâche représentant l'intensité de la danse ; valeurs typiques : 3-10 où 1 MET = 3,5 ml O2/kg/min.",
+        "es": "Equivalente metabólico de la tarea que representa la intensidad del baile; valores típicos: 3-10 donde 1 MET = 3.5 ml O2/kg/min."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Intensity Adjustment Factor",
         "tr": "Yoğunluk Ayarlama Faktörü",
         "de": "Intensitätsanpassungsfaktor",
-        "fr": "Intensity Adjustment Factor",
-        "es": "Intensity Adjustment Factor",
+        "fr": "Facteur d'ajustement de l'intensité",
+        "es": "Factor de ajuste de intensidad",
         "ar": "Intensity Adjustment Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier to adjust calculated calories for perceived effort (0.5 = half effort, 2.0 = twice effort).",
         "tr": "Algılanan efor için hesaplanan kalorileri ayarlayan çarpan (0.5 = yarım efor, 2.0 = iki kat efor).",
-        "de": "Multiplikator zur Anpassung der berechneten Kalorien an die wahrgenommene Anstrengung (0,5 = halbe Anstrengung, 2,0 = doppelte Anstrengung)."
+        "de": "Multiplikator zur Anpassung der berechneten Kalorien an die wahrgenommene Anstrengung (0,5 = halbe Anstrengung, 2,0 = doppelte Anstrengung).",
+        "fr": "Multiplicateur pour ajuster les calories calculées en fonction de l'effort perçu (0,5 = moitié de l'effort, 2,0 = double de l'effort).",
+        "es": "Multiplicador para ajustar las calorías calculadas según el esfuerzo percibido (0.5 = mitad del esfuerzo, 2.0 = doble del esfuerzo)."
       }
     }
   ],

@@ -12,13 +12,16 @@
         "en": "Supply Voltage",
         "tr": "Besleme Gerilimi",
         "de": "Versorgungsspannung",
-        "fr": "Supply Voltage",
-        "es": "Supply Voltage",
+        "fr": "Tension d'alimentation",
+        "es": "Tensión de alimentación",
         "ar": "Supply Voltage"
       },
       "businessContext_i18n": {
         "en": "Nominal line-to-line voltage (RMS) for AC motor supply",
-        "tr": "AC motor beslemesi için nominal hat-hat gerilimi (RMS)"
+        "tr": "AC motor beslemesi için nominal hat-hat gerilimi (RMS)",
+        "de": "Nennspannung (Leiter-Leiter, RMS) für AC-Motorversorgung",
+        "fr": "Tension nominale entre phases (RMS) pour l'alimentation du moteur CA",
+        "es": "Tensión nominal línea-línea (RMS) para alimentación de motor CA"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Line Current",
         "tr": "Hat Akımı",
-        "de": "Line Current",
-        "fr": "Line Current",
-        "es": "Line Current",
+        "de": "Leiterstrom",
+        "fr": "Courant de ligne",
+        "es": "Corriente de línea",
         "ar": "Line Current"
       },
       "businessContext_i18n": {
         "en": "Measured RMS current per phase",
-        "tr": "Faz başına ölçülen RMS akımı"
+        "tr": "Faz başına ölçülen RMS akımı",
+        "de": "Gemessener RMS-Strom pro Phase",
+        "fr": "Courant RMS mesuré par phase",
+        "es": "Corriente RMS medida por fase"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Power Factor",
         "tr": "Güç Faktörü",
         "de": "Leistungsfaktor",
-        "fr": "Power Factor",
-        "es": "Power Factor",
+        "fr": "Facteur de puissance",
+        "es": "Factor de potencia",
         "ar": "Power Factor"
       },
       "businessContext_i18n": {
         "en": "Motor operating power factor (cos φ), typical 0.8–0.95",
-        "tr": "Motor çalışma güç faktörü (cos φ), tipik 0,8–0,95"
+        "tr": "Motor çalışma güç faktörü (cos φ), tipik 0,8–0,95",
+        "de": "Motor-Betriebsleistungsfaktor (cos φ), typisch 0,8–0,95",
+        "fr": "Facteur de puissance de fonctionnement du moteur (cos φ), typique 0,8–0,95",
+        "es": "Factor de potencia operativo del motor (cos φ), típico 0.8–0.95"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Number of Phases",
         "tr": "Faz Sayısı",
         "de": "Anzahl der Phasen",
-        "fr": "Number of Phases",
-        "es": "Number of Phases",
+        "fr": "Nombre de phases",
+        "es": "Número de fases",
         "ar": "Number of Phases"
       },
       "businessContext_i18n": {
         "en": "1 for single-phase, 3 for three-phase motor",
-        "tr": "Tek fazlı için 1, üç fazlı motor için 3"
+        "tr": "Tek fazlı için 1, üç fazlı motor için 3",
+        "de": "1 für Einphasen-, 3 für Dreiphasenmotor",
+        "fr": "1 pour monophasé, 3 pour triphasé",
+        "es": "1 para motor monofásico, 3 para motor trifásico"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Output Torque",
         "tr": "Çıkış Torku",
-        "de": "Output Torque",
-        "fr": "Output Torque",
-        "es": "Output Torque",
+        "de": "Abgegebenes Drehmoment",
+        "fr": "Couple de sortie",
+        "es": "Par de salida",
         "ar": "Output Torque"
       },
       "businessContext_i18n": {
         "en": "Mechanical torque at motor shaft",
-        "tr": "Motor milindeki mekanik tork"
+        "tr": "Motor milindeki mekanik tork",
+        "de": "Mechanisches Drehmoment an der Motorwelle",
+        "fr": "Couple mécanique à l'arbre du moteur",
+        "es": "Par mecánico en el eje del motor"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Rotational Speed",
         "tr": "Dönüş Hızı",
-        "de": "Rotational Speed",
-        "fr": "Rotational Speed",
-        "es": "Rotational Speed",
+        "de": "Drehzahl",
+        "fr": "Vitesse de rotation",
+        "es": "Velocidad de rotación",
         "ar": "Rotational Speed"
       },
       "businessContext_i18n": {
         "en": "Shaft rotational speed in revolutions per minute",
-        "tr": "Mil dönüş hızı (dakikadaki devir sayısı)"
+        "tr": "Mil dönüş hızı (dakikadaki devir sayısı)",
+        "de": "Wellendrehzahl in Umdrehungen pro Minute",
+        "fr": "Vitesse de rotation de l'arbre en tours par minute",
+        "es": "Velocidad de rotación del eje en revoluciones por minuto"
       }
     }
   ],

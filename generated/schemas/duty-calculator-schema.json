@@ -12,14 +12,16 @@
         "en": "Mal Bedeli (FOB)",
         "tr": "Mal Bedeli (FOB)",
         "de": "Warenwert (FOB)",
-        "fr": "Mal Bedeli (FOB)",
-        "es": "Mal Bedeli (FOB)",
+        "fr": "Coût de la marchandise (FOB)",
+        "es": "Coste de mercancía (FOB)",
         "ar": "Mal Bedeli (FOB)"
       },
       "businessContext_i18n": {
         "en": "Free On Board value of the goods",
         "tr": "Malların FOB değeri.",
-        "de": "FOB-Wert der Waren"
+        "de": "FOB-Wert der Waren",
+        "fr": "Valeur FOB des marchandises",
+        "es": "Valor FOB de la mercancía"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Sigorta Bedeli",
         "tr": "Sigorta Bedeli",
         "de": "Versicherungskosten",
-        "fr": "Sigorta Bedeli",
-        "es": "Sigorta Bedeli",
+        "fr": "Coût d'assurance",
+        "es": "Prima de seguro",
         "ar": "Sigorta Bedeli"
       },
       "businessContext_i18n": {
         "en": "Insurance cost for the shipment",
         "tr": "Nakliye için sigorta maliyeti.",
-        "de": "Versicherungskosten für die Sendung"
+        "de": "Versicherungskosten für die Sendung",
+        "fr": "Coût d'assurance pour l'expédition",
+        "es": "Costo del seguro para el envío"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Nakliye Bedeli",
         "tr": "Nakliye Bedeli",
         "de": "Frachtkosten",
-        "fr": "Nakliye Bedeli",
-        "es": "Nakliye Bedeli",
+        "fr": "Coût de transport",
+        "es": "Flete",
         "ar": "Nakliye Bedeli"
       },
       "businessContext_i18n": {
         "en": "Freight cost of transportation",
         "tr": "Taşıma navlun maliyeti.",
-        "de": "Frachtkosten des Transports"
+        "de": "Frachtkosten des Transports",
+        "fr": "Frais de transport",
+        "es": "Costo de transporte"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Gümrük Vergisi Oranı",
         "tr": "Gümrük Vergisi Oranı",
         "de": "Zollsatz",
-        "fr": "Gümrük Vergisi Oranı",
-        "es": "Gümrük Vergisi Oranı",
+        "fr": "Taux de droit de douane",
+        "es": "Tasa de arancel aduanero",
         "ar": "Gümrük Vergisi Oranı"
       },
       "businessContext_i18n": {
         "en": "Customs duty rate applicable to the product category",
         "tr": "Ürün kategorisine uygulanan gümrük vergisi oranı.",
-        "de": "Zollsatz für die Produktkategorie"
+        "de": "Zollsatz für die Produktkategorie",
+        "fr": "Taux de droit de douane applicable à la catégorie de produit",
+        "es": "Tasa de arancel aplicable a la categoría del producto"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "KDV Oranı",
         "tr": "KDV Oranı",
         "de": "Mehrwertsteuersatz",
-        "fr": "KDV Oranı",
-        "es": "KDV Oranı",
+        "fr": "Taux de TVA",
+        "es": "Tasa de IVA",
         "ar": "KDV Oranı"
       },
       "businessContext_i18n": {
         "en": "Value Added Tax rate applied on duty-paid CIF value",
         "tr": "Vergilendirilmiş CIF değerine uygulanan Katma Değer Vergisi oranı.",
-        "de": "Mehrwertsteuersatz, angewendet auf den verzollten CIF-Wert"
+        "de": "Mehrwertsteuersatz, angewendet auf den verzollten CIF-Wert",
+        "fr": "Taux de taxe sur la valeur ajoutée appliqué sur la valeur CIF dédouanée",
+        "es": "Tasa de Impuesto al Valor Agregado aplicada sobre el valor CIF con arancel pagado"
       }
     }
   ],

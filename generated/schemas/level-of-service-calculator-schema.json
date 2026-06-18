@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Average Demand During Lead Time",
         "tr": "Teslim Süresi Boyunca Ortalama Talep",
-        "de": "Average Demand During Lead Time",
-        "fr": "Average Demand During Lead Time",
-        "es": "Average Demand During Lead Time",
+        "de": "Durchschnittliche Nachfrage während der Vorlaufzeit",
+        "fr": "Demande moyenne pendant le délai de livraison",
+        "es": "Demanda promedio durante el tiempo de entrega",
         "ar": "Average Demand During Lead Time"
       },
       "businessContext_i18n": {
         "en": "The average total demand expected during the replenishment lead time.",
-        "tr": "Yeniden sipariş verme süresi boyunca beklenen ortalama toplam talep."
+        "tr": "Yeniden sipariş verme süresi boyunca beklenen ortalama toplam talep.",
+        "de": "Die durchschnittliche Gesamtnachfrage, die während der Wiederbeschaffungsvorlaufzeit erwartet wird.",
+        "fr": "La demande totale moyenne attendue pendant le délai de réapprovisionnement.",
+        "es": "La demanda total promedio esperada durante el tiempo de entrega de reposición."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Standard Deviation of Demand During Lead Time",
         "tr": "Talep Süresi Boyunca Talebin Standart Sapması",
-        "de": "Standard Deviation of Demand During Lead Time",
-        "fr": "Standard Deviation of Demand During Lead Time",
-        "es": "Standard Deviation of Demand During Lead Time",
+        "de": "Standardabweichung der Nachfrage während der Vorlaufzeit",
+        "fr": "Écart type de la demande pendant le délai",
+        "es": "Desviación estándar de la demanda durante el tiempo de entrega",
         "ar": "Standard Deviation of Demand During Lead Time"
       },
       "businessContext_i18n": {
         "en": "The standard deviation of demand variability during the lead time.",
-        "tr": "Talep süresi boyunca talep değişkenliğinin standart sapması."
+        "tr": "Talep süresi boyunca talep değişkenliğinin standart sapması.",
+        "de": "Die Standardabweichung der Nachfrageschwankung während der Vorlaufzeit.",
+        "fr": "L'écart type de la variabilité de la demande pendant le délai.",
+        "es": "La desviación estándar de la variabilidad de la demanda durante el tiempo de entrega."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Reorder Point",
         "tr": "Yeniden Sipariş Noktası",
-        "de": "Reorder Point",
-        "fr": "Reorder Point",
-        "es": "Reorder Point",
+        "de": "Meldebestand",
+        "fr": "Point de commande",
+        "es": "Punto de reorden",
         "ar": "Reorder Point"
       },
       "businessContext_i18n": {
         "en": "Inventory level at which a new order is triggered.",
-        "tr": "Yeni bir siparişin tetiklendiği stok seviyesi."
+        "tr": "Yeni bir siparişin tetiklendiği stok seviyesi.",
+        "de": "Lagerbestand, bei dem eine neue Bestellung ausgelöst wird.",
+        "fr": "Niveau de stock déclenchant une nouvelle commande.",
+        "es": "Nivel de inventario en el que se activa un nuevo pedido."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Order Quantity",
         "tr": "Sipariş Miktarı",
         "de": "Bestellmenge",
-        "fr": "Order Quantity",
-        "es": "Order Quantity",
+        "fr": "Quantité commandée",
+        "es": "Cantidad del pedido",
         "ar": "Order Quantity"
       },
       "businessContext_i18n": {
         "en": "The fixed order quantity placed each time.",
-        "tr": "Her seferinde verilen sabit sipariş miktarı."
+        "tr": "Her seferinde verilen sabit sipariş miktarı.",
+        "de": "Die feste Bestellmenge, die jedes Mal aufgegeben wird.",
+        "fr": "La quantité fixe commandée à chaque fois.",
+        "es": "La cantidad fija de pedido que se realiza cada vez."
       }
     }
   ],

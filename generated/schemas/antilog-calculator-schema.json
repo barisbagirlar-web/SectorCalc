@@ -12,14 +12,16 @@
         "en": "Logarithm Value",
         "tr": "Logaritma Değeri",
         "de": "Logarithmuswert",
-        "fr": "Logarithm Value",
-        "es": "Logarithm Value",
+        "fr": "Valeur du logarithme",
+        "es": "Valor del logaritmo",
         "ar": "Logarithm Value"
       },
       "businessContext_i18n": {
         "en": "The logarithm value (exponent) to compute the antilogarithm for.",
         "tr": "Antilogaritma hesaplamak için logaritma değeri (üs).",
-        "de": "Der Logarithmuswert (Exponent) zur Berechnung des Antilogarithmus."
+        "de": "Der Logarithmuswert (Exponent) zur Berechnung des Antilogarithmus.",
+        "fr": "La valeur du logarithme (exposant) pour calculer l'antilogarithme.",
+        "es": "El valor del logaritmo (exponente) para calcular el antilogaritmo."
       }
     },
     {
@@ -40,7 +42,9 @@
       "businessContext_i18n": {
         "en": "The base of the logarithm for the primary antilogarithm calculation.",
         "tr": "Birincil antilogaritma hesaplaması için logaritmanın tabanı.",
-        "de": "Die Basis des Logarithmus für die primäre Antilogarithmus-Berechnung."
+        "de": "Die Basis des Logarithmus für die primäre Antilogarithmus-Berechnung.",
+        "fr": "La base du logarithme pour le calcul principal de l'antilogarithme.",
+        "es": "La base del logaritmo para el cálculo principal del antilogaritmo."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the computed results.",
         "tr": "Hesaplanan sonuçların yuvarlanacağı ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen zum Runden der berechneten Ergebnisse."
+        "de": "Anzahl der Dezimalstellen zum Runden der berechneten Ergebnisse.",
+        "fr": "Nombre de décimales pour arrondir les résultats calculés.",
+        "es": "Número de decimales para redondear los resultados calculados."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Scale Factor",
         "tr": "Ölçek Faktörü",
         "de": "Skalierungsfaktor",
-        "fr": "Scale Factor",
-        "es": "Scale Factor",
+        "fr": "Facteur d'échelle",
+        "es": "Factor de escala",
         "ar": "Scale Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier applied to the primary antilogarithm result for scaling purposes.",
         "tr": "Ölçekleme amacıyla birincil antilogaritma sonucuna uygulanan çarpan.",
-        "de": "Multiplikator, der auf das primäre Antilogarithmus-Ergebnis zur Skalierung angewendet wird."
+        "de": "Multiplikator, der auf das primäre Antilogarithmus-Ergebnis zur Skalierung angewendet wird.",
+        "fr": "Multiplicateur appliqué au résultat principal de l'antilogarithme à des fins de mise à l'échelle.",
+        "es": "Multiplicador aplicado al resultado principal del antilogaritmo para fines de escalado."
       }
     }
   ],

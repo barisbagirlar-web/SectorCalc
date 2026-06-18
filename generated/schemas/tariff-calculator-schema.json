@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Consumption",
         "tr": "Tüketim",
-        "de": "Consumption",
-        "fr": "Consumption",
+        "de": "Verbrauch",
+        "fr": "Consommation",
         "es": "Consumption",
         "ar": "Consumption"
       },
       "businessContext_i18n": {
         "en": "Total energy consumption in kilowatt-hours for the billing period",
-        "tr": "Fatura dönemi için toplam enerji tüketimi (kilowatt-saat cinsinden)"
+        "tr": "Fatura dönemi için toplam enerji tüketimi (kilowatt-saat cinsinden)",
+        "de": "Gesamtenergieverbrauch in Kilowattstunden für den Abrechnungszeitraum",
+        "fr": "Consommation totale d'énergie en kilowattheures pour la période de facturation"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Peak Rate",
         "tr": "Düşük Saatler",
-        "de": "Peak Rate",
-        "fr": "Peak Rate",
-        "es": "Peak Rate",
+        "de": "Spitzentarif",
+        "fr": "Tarif de pointe",
+        "es": "Tarifa punta",
         "ar": "Peak Rate"
       },
       "businessContext_i18n": {
         "en": "Price per kilowatt-hour during peak usage hours",
-        "tr": "Yoğun kullanım saatlerinde kilowatt-saat başına fiyat"
+        "tr": "Yoğun kullanım saatlerinde kilowatt-saat başına fiyat",
+        "de": "Preis pro Kilowattstunde während der Spitzenlastzeiten",
+        "fr": "Prix par kilowattheure en heures de pointe"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Off-Peak Rate",
         "tr": "En Yüksek Tarife",
-        "de": "Off-Peak Rate",
-        "fr": "Off-Peak Rate",
-        "es": "Off-Peak Rate",
+        "de": "Schwachlasttarif",
+        "fr": "Tarif hors pointe",
+        "es": "Tarifa valle",
         "ar": "Off-Peak Rate"
       },
       "businessContext_i18n": {
         "en": "Price per kilowatt-hour during off-peak usage hours",
-        "tr": "Yoğun olmayan kullanım saatlerinde kilowatt-saat başına fiyat"
+        "tr": "Yoğun olmayan kullanım saatlerinde kilowatt-saat başına fiyat",
+        "de": "Preis pro Kilowattstunde während der Schwachlastzeiten",
+        "fr": "Prix par kilowattheure en heures creuses"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Peak Usage Fraction",
         "tr": "Yoğun Kullanım Oranı",
-        "de": "Peak Usage Fraction",
-        "fr": "Peak Usage Fraction",
+        "de": "Spitzenlastanteil",
+        "fr": "Fraction d'utilisation en pointe",
         "es": "Peak Usage Fraction",
         "ar": "Peak Usage Fraction"
       },
       "businessContext_i18n": {
         "en": "Estimated percentage of total consumption that occurs during peak hours (0-100)",
-        "tr": "Toplam tüketimin yoğun saatlerde gerçekleşen tahmini yüzdesi (0-100)"
+        "tr": "Toplam tüketimin yoğun saatlerde gerçekleşen tahmini yüzdesi (0-100)",
+        "de": "Geschätzter Prozentsatz des Gesamtverbrauchs während der Spitzenlastzeiten (0-100)",
+        "fr": "Pourcentage estimé de la consommation totale en heures de pointe (0-100)"
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Standing Charge",
         "tr": "Sabit Ücret",
         "de": "Grundgebühr",
-        "fr": "Standing Charge",
-        "es": "Standing Charge",
+        "fr": "Abonnement fixe",
+        "es": "Cargo fijo",
         "ar": "Standing Charge"
       },
       "businessContext_i18n": {
         "en": "Fixed daily charge applied by the energy supplier regardless of consumption",
-        "tr": "Tüketimden bağımsız olarak enerji tedarikçisi tarafından uygulanan sabit günlük ücret"
+        "tr": "Tüketimden bağımsız olarak enerji tedarikçisi tarafından uygulanan sabit günlük ücret",
+        "de": "Tägliche Grundgebühr des Energieversorgers, unabhängig vom Verbrauch",
+        "fr": "Frais fixes quotidiens appliqués par le fournisseur d'énergie, quelle que soit la consommation"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Billing Days",
         "tr": "Fatura Gün Sayısı",
-        "de": "Billing Days",
-        "fr": "Billing Days",
+        "de": "Abrechnungstage",
+        "fr": "Jours de facturation",
         "es": "Billing Days",
         "ar": "Billing Days"
       },
       "businessContext_i18n": {
         "en": "Number of days in the billing period",
-        "tr": "Fatura dönemindeki gün sayısı"
+        "tr": "Fatura dönemindeki gün sayısı",
+        "de": "Anzahl der Tage im Abrechnungszeitraum",
+        "fr": "Nombre de jours dans la période de facturation"
       }
     },
     {
@@ -132,13 +144,15 @@
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
         "de": "Steuersatz",
-        "fr": "Tax Rate",
-        "es": "Tax Rate",
+        "fr": "Taux de taxe",
+        "es": "Tasa de impuesto",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Value-added tax (VAT) or similar tax percentage applied to the subtotal",
-        "tr": "Ara toplama uygulanan katma değer vergisi (KDV) veya benzeri vergi yüzdesi"
+        "tr": "Ara toplama uygulanan katma değer vergisi (KDV) veya benzeri vergi yüzdesi",
+        "de": "Mehrwertsteuer (MwSt.) oder ähnlicher Steuersatz in Prozent, angewendet auf die Zwischensumme",
+        "fr": "Taxe sur la valeur ajoutée (TVA) ou taxe similaire en pourcentage appliquée au sous-total"
       }
     }
   ],

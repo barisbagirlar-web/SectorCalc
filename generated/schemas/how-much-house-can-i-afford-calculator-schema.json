@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Annual Gross Income ($)",
         "tr": "Yıllık Brüt Gelir ($)",
-        "de": "Annual Gross Income ($)",
-        "fr": "Annual Gross Income ($)",
-        "es": "Annual Gross Income ($)",
+        "de": "Jährliches Bruttoeinkommen ($)",
+        "fr": "Revenu brut annuel ($)",
+        "es": "Ingreso Bruto Anual ($)",
         "ar": "Annual Gross Income ($)"
       },
       "businessContext_i18n": {
         "en": "Total yearly pre-tax income of the household.",
-        "tr": "Hanenin yıllık vergi öncesi toplam geliri."
+        "tr": "Hanenin yıllık vergi öncesi toplam geliri.",
+        "de": "Gesamtes jährliches Vorsteuereinkommen des Haushalts.",
+        "fr": "Revenu total annuel avant impôt du ménage.",
+        "es": "Ingreso total anual antes de impuestos del hogar."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Other Monthly Debts ($)",
         "tr": "Diğer Aylık Borçlar ($)",
-        "de": "Other Monthly Debts ($)",
-        "fr": "Other Monthly Debts ($)",
-        "es": "Other Monthly Debts ($)",
+        "de": "Sonstige monatliche Schulden ($)",
+        "fr": "Autres dettes mensuelles ($)",
+        "es": "Otras Deudas Mensuales ($)",
         "ar": "Other Monthly Debts ($)"
       },
       "businessContext_i18n": {
         "en": "Monthly payments for existing debts (auto loan, student loans, credit cards, etc.).",
-        "tr": "Mevcut borçlar (oto kredisi, öğrenci kredisi, kredi kartları vb.) için aylık ödemeler."
+        "tr": "Mevcut borçlar (oto kredisi, öğrenci kredisi, kredi kartları vb.) için aylık ödemeler.",
+        "de": "Monatliche Zahlungen für bestehende Schulden (Autokredit, Studienkredite, Kreditkarten usw.).",
+        "fr": "Paiements mensuels pour les dettes existantes (prêt auto, prêt étudiant, cartes de crédit, etc.).",
+        "es": "Pagos mensuales de deudas existentes (préstamo de auto, préstamos estudiantiles, tarjetas de crédito, etc.)."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Down Payment ($)",
         "tr": "Peşinat ($)",
-        "de": "Down Payment ($)",
-        "fr": "Down Payment ($)",
-        "es": "Down Payment ($)",
+        "de": "Anzahlung ($)",
+        "fr": "Acompte ($)",
+        "es": "Pago Inicial ($)",
         "ar": "Down Payment ($)"
       },
       "businessContext_i18n": {
         "en": "Available cash for down payment.",
-        "tr": "Peşinat için mevcut nakit."
+        "tr": "Peşinat için mevcut nakit.",
+        "de": "Verfügbares Bargeld für die Anzahlung.",
+        "fr": "Disponibilités pour l'acompte.",
+        "es": "Efectivo disponible para el pago inicial."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Mortgage Interest Rate (% APR)",
         "tr": "Mortgage Faiz Oranı (% Yıllık Faiz Oranı)",
-        "de": "Mortgage Interest Rate (% APR)",
-        "fr": "Mortgage Interest Rate (% APR)",
-        "es": "Mortgage Interest Rate (% APR)",
+        "de": "Hypothekenzinssatz (% APR)",
+        "fr": "Taux d'intérêt hypothécaire (% APR)",
+        "es": "Tasa de Interés Hipotecario (% TAE)",
         "ar": "Mortgage Interest Rate (% APR)"
       },
       "businessContext_i18n": {
         "en": "Annual interest rate (APR) for the mortgage.",
-        "tr": "Mortgage için yıllık faiz oranı (APR)."
+        "tr": "Mortgage için yıllık faiz oranı (APR).",
+        "de": "Jährlicher Zinssatz (APR) für die Hypothek.",
+        "fr": "Taux d'intérêt annuel (APR) pour l'hypothèque.",
+        "es": "Tasa de interés anual (TAE) para la hipoteca."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Loan Term (years)",
         "tr": "Kredi Vadesi (yıl)",
-        "de": "Loan Term (years)",
-        "fr": "Loan Term (years)",
-        "es": "Loan Term (years)",
+        "de": "Darlehenslaufzeit (Jahre)",
+        "fr": "Durée du prêt (années)",
+        "es": "Plazo del Préstamo (años)",
         "ar": "Loan Term (years)"
       },
       "businessContext_i18n": {
         "en": "Length of the mortgage in years.",
-        "tr": "Mortgage'ın yıl cinsinden süresi."
+        "tr": "Mortgage'ın yıl cinsinden süresi.",
+        "de": "Laufzeit der Hypothek in Jahren.",
+        "fr": "Durée de l'hypothèque en années.",
+        "es": "Duración de la hipoteca en años."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Property Tax Rate (% of home value)",
         "tr": "Emlak Vergisi Oranı (ev değerinin %'si)",
-        "de": "Property Tax Rate (% of home value)",
-        "fr": "Property Tax Rate (% of home value)",
-        "es": "Property Tax Rate (% of home value)",
+        "de": "Grundsteuersatz (% des Hauswerts)",
+        "fr": "Taux de taxe foncière (% de la valeur de la maison)",
+        "es": "Tasa de Impuesto a la Propiedad (% del valor de la vivienda)",
         "ar": "Property Tax Rate (% of home value)"
       },
       "businessContext_i18n": {
         "en": "Annual property tax rate as percentage of the home's assessed value.",
-        "tr": "Evin değerlendirilmiş değerinin yüzdesi olarak yıllık emlak vergisi oranı."
+        "tr": "Evin değerlendirilmiş değerinin yüzdesi olarak yıllık emlak vergisi oranı.",
+        "de": "Jährlicher Grundsteuersatz als Prozentsatz des geschätzten Hauswerts.",
+        "fr": "Taux annuel de taxe foncière en pourcentage de la valeur estimée de la maison.",
+        "es": "Tasa anual de impuesto a la propiedad como porcentaje del valor tasado de la vivienda."
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Homeowners Insurance Rate (% of home value)",
         "tr": "Ev Sahibi Sigorta Oranı (ev değerinin %'si)",
-        "de": "Homeowners Insurance Rate (% of home value)",
-        "fr": "Homeowners Insurance Rate (% of home value)",
-        "es": "Homeowners Insurance Rate (% of home value)",
+        "de": "Wohngebäudeversicherungssatz (% des Hauswerts)",
+        "fr": "Taux d'assurance habitation (% de la valeur de la maison)",
+        "es": "Tasa de Seguro de Vivienda (% del valor de la vivienda)",
         "ar": "Homeowners Insurance Rate (% of home value)"
       },
       "businessContext_i18n": {
         "en": "Annual insurance premium rate as percentage of home value.",
-        "tr": "Yıllık sigorta primi oranı, ev değerinin yüzdesi olarak."
+        "tr": "Yıllık sigorta primi oranı, ev değerinin yüzdesi olarak.",
+        "de": "Jährlicher Versicherungsprämiensatz als Prozentsatz des Hauswerts.",
+        "fr": "Taux de prime d'assurance annuel en pourcentage de la valeur du logement.",
+        "es": "Tasa anual de prima de seguro como porcentaje del valor de la vivienda."
       }
     },
     {
@@ -151,14 +172,17 @@
       "label_i18n": {
         "en": "Monthly HOA Fee ($)",
         "tr": "Aylık Aidat ($)",
-        "de": "Monthly HOA Fee ($)",
-        "fr": "Monthly HOA Fee ($)",
-        "es": "Monthly HOA Fee ($)",
+        "de": "Monatliche HOA-Gebühr ($)",
+        "fr": "Frais mensuels de l'association des propriétaires ($)",
+        "es": "Cuota Mensual de HOA ($)",
         "ar": "Monthly HOA Fee ($)"
       },
       "businessContext_i18n": {
         "en": "Monthly homeowners association fee.",
-        "tr": "Aylık ev sahipleri derneği aidatı."
+        "tr": "Aylık ev sahipleri derneği aidatı.",
+        "de": "Monatliche Gebühr der Hausbesitzervereinigung.",
+        "fr": "Frais mensuels de l'association des propriétaires.",
+        "es": "Cuota mensual de la asociación de propietarios."
       }
     }
   ],

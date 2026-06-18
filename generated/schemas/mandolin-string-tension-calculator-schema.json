@@ -12,13 +12,16 @@
         "en": "Scale Length",
         "tr": "Skala Uzunluğu",
         "de": "Mensurlänge",
-        "fr": "Scale Length",
-        "es": "Scale Length",
+        "fr": "Longueur de la corde vibrante",
+        "es": "Longitud de escala",
         "ar": "Scale Length"
       },
       "businessContext_i18n": {
         "en": "The distance from the nut to the bridge, representing the vibrating length of the string. Standard mandolin scale length is around 330 mm.",
-        "tr": "Somundan köprüye olan mesafe, telin titreşen uzunluğunu temsil eder. Standart mandolin skalası uzunluğu yaklaşık 330 mm'dir."
+        "tr": "Somundan köprüye olan mesafe, telin titreşen uzunluğunu temsil eder. Standart mandolin skalası uzunluğu yaklaşık 330 mm'dir.",
+        "de": "Der Abstand von Sattel zu Steg, der die schwingende Länge der Saite darstellt. Die Standard-Mandolinen-Mensur liegt bei etwa 330 mm.",
+        "fr": "Distance du sillet au chevalet, représentant la longueur vibrante de la corde. La longueur d'échelle standard d'une mandoline est d'environ 330 mm.",
+        "es": "La distancia desde la cejilla al puente, que representa la longitud vibrante de la cuerda. La longitud de escala estándar de la mandolina es de aproximadamente 330 mm."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "String Diameter",
         "tr": "Tel Çapı",
         "de": "Saitendurchmesser",
-        "fr": "String Diameter",
-        "es": "String Diameter",
+        "fr": "Diamètre de la corde",
+        "es": "Diámetro de la cuerda",
         "ar": "String Diameter"
       },
       "businessContext_i18n": {
         "en": "The diameter of the string in millimeters. Typical mandolin strings range from 0.2 mm to 0.4 mm.",
-        "tr": "Telin milimetre cinsinden çapı. Tipik mandolin telleri 0,2 mm ile 0,4 mm arasında değişir."
+        "tr": "Telin milimetre cinsinden çapı. Tipik mandolin telleri 0,2 mm ile 0,4 mm arasında değişir.",
+        "de": "Der Durchmesser der Saite in Millimetern. Typische Mandolinensaiten reichen von 0,2 mm bis 0,4 mm.",
+        "fr": "Diamètre de la corde en millimètres. Les cordes de mandoline typiques vont de 0,2 mm à 0,4 mm.",
+        "es": "El diámetro de la cuerda en milímetros. Las cuerdas típicas de mandolina van de 0,2 mm a 0,4 mm."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Material Density",
         "tr": "Malzeme Yoğunluğu",
         "de": "Materialdichte",
-        "fr": "Material Density",
-        "es": "Material Density",
+        "fr": "Densité du matériau",
+        "es": "Densidad del material",
         "ar": "Material Density"
       },
       "businessContext_i18n": {
         "en": "The density of the string material in kilograms per cubic meter. Common values are 7800 for steel, 6500 for titanium, 1840 for nylon.",
-        "tr": "Tel malzemesinin metreküp başına kilogram cinsinden yoğunluğu. Yaygın değerler çelik için 7800, titanyum için 6500, naylon için 1840'tır."
+        "tr": "Tel malzemesinin metreküp başına kilogram cinsinden yoğunluğu. Yaygın değerler çelik için 7800, titanyum için 6500, naylon için 1840'tır.",
+        "de": "Die Dichte des Saitenmaterials in Kilogramm pro Kubikmeter. Übliche Werte sind 7800 für Stahl, 6500 für Titan, 1840 für Nylon.",
+        "fr": "Densité du matériau de la corde en kilogrammes par mètre cube. Les valeurs courantes sont 7800 pour l'acier, 6500 pour le titane, 1840 pour le nylon.",
+        "es": "La densidad del material de la cuerda en kilogramos por metro cúbico. Los valores comunes son 7800 para acero, 6500 para titanio, 1840 para nailon."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Note Frequency",
         "tr": "Nota Frekansı",
-        "de": "Note Frequency",
-        "fr": "Note Frequency",
-        "es": "Note Frequency",
+        "de": "Tonfrequenz",
+        "fr": "Fréquence de la note",
+        "es": "Frecuencia de la nota",
         "ar": "Note Frequency"
       },
       "businessContext_i18n": {
         "en": "The desired fundamental frequency of the string in Hertz. G3 (the lowest standard mandolin string) is 196 Hz.",
-        "tr": "Telin Hertz cinsinden istenen temel frekansı. G3 (standart mandolinin en düşük teli) 196 Hz'dir."
+        "tr": "Telin Hertz cinsinden istenen temel frekansı. G3 (standart mandolinin en düşük teli) 196 Hz'dir.",
+        "de": "Die gewünschte Grundfrequenz der Saite in Hertz. G3 (die tiefste Standard-Mandolinensaite) beträgt 196 Hz.",
+        "fr": "Fréquence fondamentale souhaitée de la corde en Hertz. G3 (la corde de mandoline standard la plus grave) est 196 Hz.",
+        "es": "La frecuencia fundamental deseada de la cuerda en Hertz. G3 (la cuerda más grave estándar de mandolina) es 196 Hz."
       }
     }
   ],

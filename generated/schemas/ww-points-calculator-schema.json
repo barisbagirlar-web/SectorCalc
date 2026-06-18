@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Calories (kcal)",
         "tr": "Kalori (kcal)",
-        "de": "Calories (kcal)",
+        "de": "Kalorien (kcal)",
         "fr": "Calories (kcal)",
         "es": "Calories (kcal)",
         "ar": "Calories (kcal)"
       },
       "businessContext_i18n": {
         "en": "Energy content per serving",
-        "tr": "Porsiyon başına enerji içeriği"
+        "tr": "Porsiyon başına enerji içeriği",
+        "de": "Energiegehalt pro Portion",
+        "fr": "Contenu énergétique par portion"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Saturated Fat (g)",
         "tr": "Doymuş Yağ (g)",
-        "de": "Saturated Fat (g)",
-        "fr": "Saturated Fat (g)",
+        "de": "Gesättigte Fettsäuren (g)",
+        "fr": "Graisses saturées (g)",
         "es": "Saturated Fat (g)",
         "ar": "Saturated Fat (g)"
       },
       "businessContext_i18n": {
         "en": "Saturated fat content per serving",
-        "tr": "Porsiyon başına doymuş yağ içeriği"
+        "tr": "Porsiyon başına doymuş yağ içeriği",
+        "de": "Gehalt an gesättigten Fettsäuren pro Portion",
+        "fr": "Teneur en graisses saturées par portion"
       }
     },
     {
@@ -52,14 +56,16 @@
         "en": "Protein (g)",
         "tr": "Protein (g)",
         "de": "Protein (g)",
-        "fr": "Protein (g)",
-        "es": "Protein (g)",
+        "fr": "Protéines (g)",
+        "es": "Proteína (g)",
         "ar": "Protein (g)"
       },
       "businessContext_i18n": {
         "en": "Protein content per serving",
         "tr": "Porsiyon başına protein içeriği",
-        "de": "Proteingehalt pro Portion"
+        "de": "Proteingehalt pro Portion",
+        "fr": "Teneur en protéines par portion",
+        "es": "Contenido de proteína por porción"
       }
     },
     {
@@ -72,14 +78,16 @@
       "label_i18n": {
         "en": "Dietary Fiber (g)",
         "tr": "Diyet Lifi (g)",
-        "de": "Dietary Fiber (g)",
-        "fr": "Dietary Fiber (g)",
+        "de": "Ballaststoffe (g)",
+        "fr": "Fibres alimentaires (g)",
         "es": "Dietary Fiber (g)",
         "ar": "Dietary Fiber (g)"
       },
       "businessContext_i18n": {
         "en": "Dietary fiber content per serving (optional for adjustment)",
-        "tr": "Porsiyon başına diyet lifi içeriği (ayarlama için isteğe bağlı)"
+        "tr": "Porsiyon başına diyet lifi içeriği (ayarlama için isteğe bağlı)",
+        "de": "Ballaststoffgehalt pro Portion (optional zur Anpassung)",
+        "fr": "Teneur en fibres alimentaires par portion (optionnel pour ajustement)"
       }
     }
   ],

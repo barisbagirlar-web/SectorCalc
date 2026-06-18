@@ -12,14 +12,16 @@
         "en": "Decimal Number",
         "tr": "Ondalık Sayı",
         "de": "Dezimalzahl",
-        "fr": "Decimal Number",
-        "es": "Decimal Number",
+        "fr": "Nombre décimal",
+        "es": "Número decimal",
         "ar": "Decimal Number"
       },
       "businessContext_i18n": {
         "en": "The integer number to convert to binary, octal, and hexadecimal.",
         "tr": "İkili, sekizli ve onaltılıya dönüştürülecek tam sayı.",
-        "de": "Die ganze Zahl, die in Binär-, Oktal- und Hexadezimal umgewandelt werden soll."
+        "de": "Die ganze Zahl, die in Binär-, Oktal- und Hexadezimal umgewandelt werden soll.",
+        "fr": "Le nombre entier à convertir en binaire, octal et hexadécimal.",
+        "es": "El número entero a convertir a binario, octal y hexadecimal."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Binary Bits",
         "tr": "İkili Bitler",
         "de": "Binärbits",
-        "fr": "Binary Bits",
-        "es": "Binary Bits",
+        "fr": "Bits binaires",
+        "es": "Bits binarios",
         "ar": "Binary Bits"
       },
       "businessContext_i18n": {
         "en": "Number of bits for binary output (padded with leading zeros).",
         "tr": "İkili çıktı için bit sayısı (başa sıfır eklenir).",
-        "de": "Anzahl der Bits für die binäre Ausgabe (mit führenden Nullen aufgefüllt)."
+        "de": "Anzahl der Bits für die binäre Ausgabe (mit führenden Nullen aufgefüllt).",
+        "fr": "Nombre de bits pour la sortie binaire (complété par des zéros non significatifs).",
+        "es": "Número de bits para la salida binaria (rellenado con ceros a la izquierda)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Octal Digits",
         "tr": "Sekizli Basamaklar",
         "de": "Oktalstellen",
-        "fr": "Octal Digits",
-        "es": "Octal Digits",
+        "fr": "Chiffres octaux",
+        "es": "Dígitos octales",
         "ar": "Octal Digits"
       },
       "businessContext_i18n": {
         "en": "Number of digits for octal output.",
         "tr": "Sekizli çıktı için basamak sayısı.",
-        "de": "Anzahl der Stellen für die oktale Ausgabe."
+        "de": "Anzahl der Stellen für die oktale Ausgabe.",
+        "fr": "Nombre de chiffres pour la sortie octale.",
+        "es": "Número de dígitos para la salida octal."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Hexadecimal Digits",
         "tr": "Onaltılı Basamaklar",
         "de": "Hexadezimalstellen",
-        "fr": "Hexadecimal Digits",
-        "es": "Hexadecimal Digits",
+        "fr": "Chiffres hexadécimaux",
+        "es": "Dígitos hexadecimales",
         "ar": "Hexadecimal Digits"
       },
       "businessContext_i18n": {
         "en": "Number of digits for hexadecimal output.",
         "tr": "Onaltılı çıktı için basamak sayısı.",
-        "de": "Anzahl der Stellen für die hexadezimale Ausgabe."
+        "de": "Anzahl der Stellen für die hexadezimale Ausgabe.",
+        "fr": "Nombre de chiffres pour la sortie hexadécimale.",
+        "es": "Número de dígitos para la salida hexadecimal."
       }
     }
   ],

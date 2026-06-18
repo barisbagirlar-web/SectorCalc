@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Net Amount",
         "tr": "Net Tutar",
-        "de": "Net Amount",
-        "fr": "Net Amount",
-        "es": "Net Amount",
+        "de": "Nettobetrag",
+        "fr": "Montant net",
+        "es": "Importe neto",
         "ar": "Net Amount"
       },
       "businessContext_i18n": {
         "en": "The net amount after deductions",
-        "tr": "Kesintiler sonrası net tutar"
+        "tr": "Kesintiler sonrası net tutar",
+        "de": "Der Nettobetrag nach Abzügen.",
+        "fr": "Le montant net après déductions",
+        "es": "El importe neto después de deducciones"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
         "de": "Steuersatz",
-        "fr": "Tax Rate",
-        "es": "Tax Rate",
+        "fr": "Taux de taxe",
+        "es": "Tasa de impuesto",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Tax rate applied to gross amount",
-        "tr": "Brüt tutara uygulanan vergi oranı"
+        "tr": "Brüt tutara uygulanan vergi oranı",
+        "de": "Steuersatz, angewendet auf den Bruttobetrag.",
+        "fr": "Taux d'imposition appliqué au montant brut",
+        "es": "Tasa impositiva aplicada al importe bruto"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Social Insurance Rate",
         "tr": "Sosyal Sigorta Oranı",
-        "de": "Social Insurance Rate",
-        "fr": "Social Insurance Rate",
-        "es": "Social Insurance Rate",
+        "de": "Sozialversicherungssatz",
+        "fr": "Taux d'assurance sociale",
+        "es": "Tasa de seguro social",
         "ar": "Social Insurance Rate"
       },
       "businessContext_i18n": {
         "en": "Social insurance contribution rate on gross",
-        "tr": "Brüt üzerinden sosyal sigorta katkı oranı"
+        "tr": "Brüt üzerinden sosyal sigorta katkı oranı",
+        "de": "Sozialversicherungsbeitragssatz auf Brutto.",
+        "fr": "Taux de cotisation sociale sur le brut",
+        "es": "Tasa de contribución al seguro social sobre el bruto"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Additional Deduction Rate",
         "tr": "Ek Kesinti Oranı",
-        "de": "Additional Deduction Rate",
-        "fr": "Additional Deduction Rate",
-        "es": "Additional Deduction Rate",
+        "de": "Zusätzlicher Abzugssatz",
+        "fr": "Taux de déduction supplémentaire",
+        "es": "Tasa de deducción adicional",
         "ar": "Additional Deduction Rate"
       },
       "businessContext_i18n": {
         "en": "Other deduction rate (e.g., union fees) from gross",
-        "tr": "Brütten diğer kesinti oranı (örn. sendika aidatı)"
+        "tr": "Brütten diğer kesinti oranı (örn. sendika aidatı)",
+        "de": "Sonstiger Abzugssatz (z. B. Gewerkschaftsbeiträge) vom Brutto.",
+        "fr": "Autre taux de déduction (p. ex., cotisations syndicales) sur le brut",
+        "es": "Otra tasa de deducción (ej. cuotas sindicales) del bruto"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Other Fixed Deductions",
         "tr": "Diğer Sabit Kesintiler",
-        "de": "Other Fixed Deductions",
-        "fr": "Other Fixed Deductions",
-        "es": "Other Fixed Deductions",
+        "de": "Sonstige feste Abzüge",
+        "fr": "Autres déductions fixes",
+        "es": "Otras deducciones fijas",
         "ar": "Other Fixed Deductions"
       },
       "businessContext_i18n": {
         "en": "Fixed amount deductions before rate deduction",
-        "tr": "Oran kesintisinden önceki sabit tutar kesintileri"
+        "tr": "Oran kesintisinden önceki sabit tutar kesintileri",
+        "de": "Feste Abzüge vor prozentualem Abzug.",
+        "fr": "Déductions forfaitaires avant déduction du taux",
+        "es": "Deducciones de importe fijo antes de la dedución por tasa"
       }
     }
   ],

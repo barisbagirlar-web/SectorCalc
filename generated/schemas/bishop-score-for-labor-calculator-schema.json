@@ -12,14 +12,16 @@
         "en": "Dilatasyon Skoru (0-3)",
         "tr": "Dilatasyon Skoru (0-3)",
         "de": "Dilatations-Score (0-3)",
-        "fr": "Dilatasyon Skoru (0-3)",
-        "es": "Dilatasyon Skoru (0-3)",
+        "fr": "Score de dilatation (0-3)",
+        "es": "Puntuación de dilatación (0-3)",
         "ar": "Dilatasyon Skoru (0-3)"
       },
       "businessContext_i18n": {
         "en": "Servikal dilatasyon değerlendirmesi: 0=kapalı, 1=1-2 cm, 2=3-4 cm, 3=5+ cm",
         "tr": "Servikal dilatasyon değerlendirmesi: 0=kapalı, 1=1-2 cm, 2=3-4 cm, 3=5+ cm",
-        "de": "Beurteilung der Zervixdilatation: 0=geschlossen, 1=1-2 cm, 2=3-4 cm, 3=5+ cm"
+        "de": "Beurteilung der Zervixdilatation: 0=geschlossen, 1=1-2 cm, 2=3-4 cm, 3=5+ cm",
+        "fr": "Évaluation de la dilatation cervicale : 0=fermé, 1=1-2 cm, 2=3-4 cm, 3=5+ cm",
+        "es": "Evaluación de la dilatación cervical: 0=cerrado, 1=1-2 cm, 2=3-4 cm, 3=5+ cm"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Silinme Skoru (0-3)",
         "tr": "Silinme Skoru (0-3)",
         "de": "Verkürzungs-Score (0-3)",
-        "fr": "Silinme Skoru (0-3)",
-        "es": "Silinme Skoru (0-3)",
+        "fr": "Score d'effacement (0-3)",
+        "es": "Puntuación de borramiento (0-3)",
         "ar": "Silinme Skoru (0-3)"
       },
       "businessContext_i18n": {
         "en": "Servikal silinme yüzdesi: 0=%0-30, 1=%40-50, 2=%60-70, 3=%80+",
         "tr": "Servikal silinme yüzdesi: 0=%0-30, 1=%40-50, 2=%60-70, 3=%80+",
-        "de": "Prozentsatz der Zervixverkürzung: 0=0-30%, 1=40-50%, 2=60-70%, 3=80+%"
+        "de": "Prozentsatz der Zervixverkürzung: 0=0-30%, 1=40-50%, 2=60-70%, 3=80+%",
+        "fr": "Pourcentage d'effacement cervical : 0=%0-30, 1=%40-50, 2=%60-70, 3=%80+",
+        "es": "Porcentaje de borramiento cervical: 0=%0-30, 1=%40-50, 2=%60-70, 3=%80+"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "İstasyon Skoru (0-3)",
         "tr": "İstasyon Skoru (0-3)",
         "de": "Stand-Score (0-3)",
-        "fr": "İstasyon Skoru (0-3)",
-        "es": "İstasyon Skoru (0-3)",
+        "fr": "Score de station (0-3)",
+        "es": "Puntuación de estación (0-3)",
         "ar": "İstasyon Skoru (0-3)"
       },
       "businessContext_i18n": {
         "en": "Fetal başın pelvisteki seviyesi: 0=-3, 1=-2, 2=-1/0, 3=+1/+2",
         "tr": "Fetal başın pelvisteki seviyesi: 0=-3, 1=-2, 2=-1/0, 3=+1/+2",
-        "de": "Höhe des fetalen Kopfes im Becken: 0=-3, 1=-2, 2=-1/0, 3=+1/+2"
+        "de": "Höhe des fetalen Kopfes im Becken: 0=-3, 1=-2, 2=-1/0, 3=+1/+2",
+        "fr": "Niveau de la tête fœtale dans le pelvis : 0=-3, 1=-2, 2=-1/0, 3=+1/+2",
+        "es": "Nivel de la cabeza fetal en la pelvis: 0=-3, 1=-2, 2=-1/0, 3=+1/+2"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Kıvam Skoru (0-2)",
         "tr": "Kıvam Skoru (0-2)",
         "de": "Konsistenz-Score (0-2)",
-        "fr": "Kıvam Skoru (0-2)",
-        "es": "Kıvam Skoru (0-2)",
+        "fr": "Score de consistance (0-2)",
+        "es": "Puntuación de consistencia (0-2)",
         "ar": "Kıvam Skoru (0-2)"
       },
       "businessContext_i18n": {
         "en": "Servikal kıvam: 0=sert, 1=orta, 2=yumuşak",
         "tr": "Servikal kıvam: 0=sert, 1=orta, 2=yumuşak",
-        "de": "Zervixkonsistenz: 0=hart, 1=mittel, 2=weich"
+        "de": "Zervixkonsistenz: 0=hart, 1=mittel, 2=weich",
+        "fr": "Consistance cervicale : 0=dur, 1=moyen, 2=mou",
+        "es": "Consistencia cervical: 0=dura, 1=media, 2=blanda"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Pozisyon Skoru (0-2)",
         "tr": "Pozisyon Skoru (0-2)",
         "de": "Positions-Score (0-2)",
-        "fr": "Pozisyon Skoru (0-2)",
-        "es": "Pozisyon Skoru (0-2)",
+        "fr": "Score de position (0-2)",
+        "es": "Puntuación de posición (0-2)",
         "ar": "Pozisyon Skoru (0-2)"
       },
       "businessContext_i18n": {
         "en": "Servikal pozisyon: 0=posterior, 1=orta, 2=anterior",
         "tr": "Servikal pozisyon: 0=posterior, 1=orta, 2=anterior",
-        "de": "Zervixposition: 0=posterior, 1=mittel, 2=anterior"
+        "de": "Zervixposition: 0=posterior, 1=mittel, 2=anterior",
+        "fr": "Position cervicale : 0=postérieure, 1=moyenne, 2=antérieure",
+        "es": "Posición cervical: 0=posterior, 1=media, 2=anterior"
       }
     }
   ],

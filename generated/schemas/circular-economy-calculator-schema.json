@@ -11,15 +11,17 @@
       "label_i18n": {
         "en": "Toplam Hammadde Girişi",
         "tr": "Toplam Hammadde Girişi",
-        "de": "Toplam Hammadde Girişi",
-        "fr": "Toplam Hammadde Girişi",
-        "es": "Toplam Hammadde Girişi",
+        "de": "Gesamter Rohmaterialeinsatz",
+        "fr": "Entrée totale de matière première",
+        "es": "Entrada total de materia prima",
         "ar": "Toplam Hammadde Girişi"
       },
       "businessContext_i18n": {
         "en": "Üretim sürecine giren toplam hammadde miktarı",
         "tr": "Üretim sürecine giren toplam hammadde miktarı",
-        "de": "Üretim sürecine giren toplam hammadde miktarı"
+        "de": "Gesamte in den Produktionsprozess eingehende Rohstoffmenge",
+        "fr": "Quantité totale de matière première entrant dans le processus de production",
+        "es": "Cantidad total de materia prima que ingresa al proceso de producción"
       }
     },
     {
@@ -32,15 +34,17 @@
       "label_i18n": {
         "en": "Geri Dönüştürülmüş Girdi",
         "tr": "Geri Dönüştürülmüş Girdi",
-        "de": "Geri Dönüştürülmüş Girdi",
-        "fr": "Geri Dönüştürülmüş Girdi",
-        "es": "Geri Dönüştürülmüş Girdi",
+        "de": "Recycelter Input",
+        "fr": "Entrée recyclée",
+        "es": "Insumo reciclado",
         "ar": "Geri Dönüştürülmüş Girdi"
       },
       "businessContext_i18n": {
         "en": "Geri dönüştürülmüş malzemeden gelen girdi miktarı",
         "tr": "Geri dönüştürülmüş malzemeden gelen girdi miktarı",
-        "de": "Geri dönüştürülmüş malzemeden gelen girdi miktarı"
+        "de": "Menge des Inputs aus recyceltem Material",
+        "fr": "Quantité d'entrée provenant de matériaux recyclés",
+        "es": "Cantidad de insumo proveniente de material reciclado"
       }
     },
     {
@@ -53,15 +57,17 @@
       "label_i18n": {
         "en": "Yeniden Kullanılan Girdi",
         "tr": "Yeniden Kullanılan Girdi",
-        "de": "Yeniden Kullanılan Girdi",
-        "fr": "Yeniden Kullanılan Girdi",
-        "es": "Yeniden Kullanılan Girdi",
+        "de": "Wiederverwendeter Input",
+        "fr": "Entrée réutilisée",
+        "es": "Insumo reutilizado",
         "ar": "Yeniden Kullanılan Girdi"
       },
       "businessContext_i18n": {
         "en": "Yeniden kullanım yoluyla sağlanan girdi miktarı",
         "tr": "Yeniden kullanım yoluyla sağlanan girdi miktarı",
-        "de": "Yeniden kullanım yoluyla sağlanan girdi miktarı"
+        "de": "Menge des Inputs durch Wiederverwendung",
+        "fr": "Quantité d'entrée provenant de la réutilisation",
+        "es": "Cantidad de insumo obtenido mediante reutilización"
       }
     },
     {
@@ -74,15 +80,17 @@
       "label_i18n": {
         "en": "Toplam Atık Üretimi",
         "tr": "Toplam Atık Üretimi",
-        "de": "Toplam Atık Üretimi",
-        "fr": "Toplam Atık Üretimi",
-        "es": "Toplam Atık Üretimi",
+        "de": "Gesamte Abfallerzeugung",
+        "fr": "Production totale de déchets",
+        "es": "Producción total de residuos",
         "ar": "Toplam Atık Üretimi"
       },
       "businessContext_i18n": {
         "en": "Üretim sürecinde oluşan toplam atık miktarı",
         "tr": "Üretim sürecinde oluşan toplam atık miktarı",
-        "de": "Üretim sürecinde oluşan toplam atık miktarı"
+        "de": "Gesamte im Produktionsprozess anfallende Abfallmenge",
+        "fr": "Quantité totale de déchets générés dans le processus de production",
+        "es": "Cantidad total de residuos generados en el proceso de producción"
       }
     },
     {
@@ -95,15 +103,17 @@
       "label_i18n": {
         "en": "Geri Dönüştürülen Atık",
         "tr": "Geri Dönüştürülen Atık",
-        "de": "Geri Dönüştürülen Atık",
-        "fr": "Geri Dönüştürülen Atık",
-        "es": "Geri Dönüştürülen Atık",
+        "de": "Recycelter Abfall",
+        "fr": "Déchets recyclés",
+        "es": "Residuos reciclados",
         "ar": "Geri Dönüştürülen Atık"
       },
       "businessContext_i18n": {
         "en": "Atığın geri dönüştürülen kısmı",
         "tr": "Atığın geri dönüştürülen kısmı",
-        "de": "Atığın geri dönüştürülen kısmı"
+        "de": "Recycelter Anteil des Abfalls",
+        "fr": "Partie des déchets recyclée",
+        "es": "Parte de los residuos que se recicla"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Yeniden Kullanılan Atık",
         "tr": "Yeniden Kullanılan Atık",
         "de": "Wiederverwendeter Abfall",
-        "fr": "Yeniden Kullanılan Atık",
-        "es": "Yeniden Kullanılan Atık",
+        "fr": "Déchets réutilisés",
+        "es": "Residuos reutilizados",
         "ar": "Yeniden Kullanılan Atık"
       },
       "businessContext_i18n": {
         "en": "Atığın yeniden kullanılan kısmı",
         "tr": "Atığın yeniden kullanılan kısmı",
-        "de": "Anteil des Abfalls, der wiederverwendet wird"
+        "de": "Anteil des Abfalls, der wiederverwendet wird",
+        "fr": "Partie des déchets réutilisée",
+        "es": "Parte de los residuos que se reutiliza"
       }
     }
   ],

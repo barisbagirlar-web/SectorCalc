@@ -12,13 +12,15 @@
         "en": "Süre (dk)",
         "tr": "Süre (dk)",
         "de": "Dauer (Minuten)",
-        "fr": "Süre (dk)",
-        "es": "Süre (dk)",
+        "fr": "Durée (min)",
+        "es": "Duración (min)",
         "ar": "Süre (dk)"
       },
       "businessContext_i18n": {
         "en": "Spinning seansının dakika cinsinden süresi",
-        "tr": "Spinning seansının dakika cinsinden süresi"
+        "tr": "Spinning seansının dakika cinsinden süresi",
+        "de": "Dauer der Spinning-Sitzung in Minuten",
+        "fr": "Durée de la séance de spinning en minutes"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Ortalama Hız",
         "tr": "Ortalama Hız",
-        "de": "Ortalama Hız",
-        "fr": "Ortalama Hız",
-        "es": "Ortalama Hız",
+        "de": "Durchschnittsgeschwindigkeit",
+        "fr": "Vitesse moyenne",
+        "es": "Velocidad media",
         "ar": "Ortalama Hız"
       },
       "businessContext_i18n": {
         "en": "Seans boyunca ortalama pedal çevirme hızı",
-        "tr": "Seans boyunca ortalama pedal çevirme hızı"
+        "tr": "Seans boyunca ortalama pedal çevirme hızı",
+        "de": "Durchschnittliche Tretgeschwindigkeit während der Sitzung",
+        "fr": "Vitesse de pédalage moyenne pendant la séance"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Direnç Seviyesi",
         "tr": "Direnç Seviyesi",
-        "de": "Direnç Seviyesi",
-        "fr": "Direnç Seviyesi",
+        "de": "Widerstandsstufe",
+        "fr": "Niveau de résistance",
         "es": "Direnç Seviyesi",
         "ar": "Direnç Seviyesi"
       },
       "businessContext_i18n": {
         "en": "Bisiklet direncinin 1 ile 10 arasındaki seviyesi",
-        "tr": "Bisiklet direncinin 1 ile 10 arasındaki seviyesi"
+        "tr": "Bisiklet direncinin 1 ile 10 arasındaki seviyesi",
+        "de": "Widerstandsstufe des Fahrrads zwischen 1 und 10",
+        "fr": "Niveau de résistance du vélo entre 1 et 10"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Ağırlık",
         "tr": "Ağırlık",
         "de": "Gewicht",
-        "fr": "Ağırlık",
-        "es": "Ağırlık",
+        "fr": "Poids",
+        "es": "Peso",
         "ar": "Ağırlık"
       },
       "businessContext_i18n": {
         "en": "Kullanıcının vücut ağırlığı",
-        "tr": "Kullanıcının vücut ağırlığı"
+        "tr": "Kullanıcının vücut ağırlığı",
+        "de": "Kullanıcının vücut ağırlığı",
+        "fr": "Poids corporel de l'utilisateur"
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Yaş",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Yaş",
-        "es": "Yaş",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Yaş"
       },
       "businessContext_i18n": {
         "en": "Kullanıcının yaşı (opsiyonel, formülde doğrudan kullanılmaz)",
-        "tr": "Kullanıcının yaşı (opsiyonel, formülde doğrudan kullanılmaz)"
+        "tr": "Kullanıcının yaşı (opsiyonel, formülde doğrudan kullanılmaz)",
+        "de": "Kullanıcının yaşı (opsiyonel, formülde doğrudan kullanılmaz)",
+        "fr": "Âge de l'utilisateur (optionnel, non utilisé directement dans la formule)"
       }
     }
   ],

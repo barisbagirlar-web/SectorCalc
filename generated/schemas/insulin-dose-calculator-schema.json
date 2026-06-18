@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Carbohydrate Intake (g)",
         "tr": "Karbonhidrat Alımı (g)",
-        "de": "Carbohydrate Intake (g)",
-        "fr": "Carbohydrate Intake (g)",
-        "es": "Carbohydrate Intake (g)",
+        "de": "Kohlenhydrataufnahme (g)",
+        "fr": "Apport en glucides (g)",
+        "es": "Ingesta de carbohidratos (g)",
         "ar": "Carbohydrate Intake (g)"
       },
       "businessContext_i18n": {
         "en": "Total grams of carbohydrate in the meal to be covered by insulin",
-        "tr": "İnsülin ile karşılanacak öğündeki toplam karbonhidrat gramı"
+        "tr": "İnsülin ile karşılanacak öğündeki toplam karbonhidrat gramı",
+        "de": "Gesamtgramm Kohlenhydrate in der Mahlzeit, die durch Insulin abgedeckt werden sollen",
+        "fr": "Grammes totaux de glucides dans le repas à couvrir par l'insuline",
+        "es": "Gramos totales de carbohidratos en la comida a cubrir con insulina"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Current Blood Glucose (mg/dL)",
         "tr": "Mevcut Kan Şekeri (mg/dL)",
-        "de": "Current Blood Glucose (mg/dL)",
-        "fr": "Current Blood Glucose (mg/dL)",
-        "es": "Current Blood Glucose (mg/dL)",
+        "de": "Aktueller Blutzucker (mg/dL)",
+        "fr": "Glycémie actuelle (mg/dL)",
+        "es": "Glucosa sanguínea actual (mg/dL)",
         "ar": "Current Blood Glucose (mg/dL)"
       },
       "businessContext_i18n": {
         "en": "Measured blood glucose level before meal",
-        "tr": "Yemek öncesi ölçülen kan şekeri seviyesi"
+        "tr": "Yemek öncesi ölçülen kan şekeri seviyesi",
+        "de": "Gemessener Blutzuckerspiegel vor der Mahlzeit",
+        "fr": "Glycémie mesurée avant le repas",
+        "es": "Nivel de glucosa en sangre medido antes de la comida"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Target Blood Glucose (mg/dL)",
         "tr": "Hedef Kan Şekeri (mg/dL)",
-        "de": "Target Blood Glucose (mg/dL)",
-        "fr": "Target Blood Glucose (mg/dL)",
-        "es": "Target Blood Glucose (mg/dL)",
+        "de": "Zielblutzucker (mg/dL)",
+        "fr": "Glycémie cible (mg/dL)",
+        "es": "Glucosa sanguínea objetivo (mg/dL)",
         "ar": "Target Blood Glucose (mg/dL)"
       },
       "businessContext_i18n": {
         "en": "Desired blood glucose level after correction",
-        "tr": "Düzeltme sonrası istenen kan şekeri seviyesi"
+        "tr": "Düzeltme sonrası istenen kan şekeri seviyesi",
+        "de": "Gewünschter Blutzuckerspiegel nach Korrektur",
+        "fr": "Glycémie souhaitée après correction",
+        "es": "Nivel de glucosa en sangre deseado después de la corrección"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Carbohydrate Ratio (g/U)",
         "tr": "Karbonhidrat Oranı (g/U)",
-        "de": "Carbohydrate Ratio (g/U)",
-        "fr": "Carbohydrate Ratio (g/U)",
-        "es": "Carbohydrate Ratio (g/U)",
+        "de": "Kohlenhydratverhältnis (g/E)",
+        "fr": "Ratio glucides (g/U)",
+        "es": "Relación carbohidratos (g/U)",
         "ar": "Carbohydrate Ratio (g/U)"
       },
       "businessContext_i18n": {
         "en": "Grams of carbohydrate covered by one unit of rapid-acting insulin",
-        "tr": "Bir ünite hızlı etkili insülinin karşıladığı karbonhidrat gramı"
+        "tr": "Bir ünite hızlı etkili insülinin karşıladığı karbonhidrat gramı",
+        "de": "Gramm Kohlenhydrate, die von einer Einheit schnell wirkendem Insulin abgedeckt werden",
+        "fr": "Grammes de glucides couverts par une unité d'insuline rapide",
+        "es": "Gramos de carbohidratos cubiertos por una unidad de insulina de acción rápida"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Insulin Sensitivity Factor (mg/dL/U)",
         "tr": "İnsülin Duyarlılık Faktörü (mg/dL/U)",
-        "de": "Insulin Sensitivity Factor (mg/dL/U)",
-        "fr": "Insulin Sensitivity Factor (mg/dL/U)",
-        "es": "Insulin Sensitivity Factor (mg/dL/U)",
+        "de": "Insulinsensitivitätsfaktor (mg/dL/E)",
+        "fr": "Facteur de sensibilité à l'insuline (mg/dL/U)",
+        "es": "Factor de sensibilidad a la insulina (mg/dL/U)",
         "ar": "Insulin Sensitivity Factor (mg/dL/U)"
       },
       "businessContext_i18n": {
         "en": "Expected drop in blood glucose per unit of rapid-acting insulin",
-        "tr": "Bir ünite hızlı etkili insülin başına beklenen kan şekeri düşüşü"
+        "tr": "Bir ünite hızlı etkili insülin başına beklenen kan şekeri düşüşü",
+        "de": "Erwarteter Blutzuckerabfall pro Einheit schnell wirkendem Insulin",
+        "fr": "Baisse attendue de la glycémie par unité d'insuline rapide",
+        "es": "Caída esperada de glucosa en sangre por unidad de insulina de acción rápida"
       }
     }
   ],

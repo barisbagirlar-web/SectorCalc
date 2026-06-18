@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Speed in Mbps",
         "tr": "Hız (Mbps)",
-        "de": "Speed in Mbps",
-        "fr": "Speed in Mbps",
-        "es": "Speed in Mbps",
+        "de": "Geschwindigkeit in Mbps",
+        "fr": "Vitesse en Mbps",
+        "es": "Velocidad en Mbps",
         "ar": "Speed in Mbps"
       },
       "businessContext_i18n": {
         "en": "Measured or nominal data rate in megabits per second.",
-        "tr": "Megabit/saniye cinsinden ölçülen veya nominal veri hızı."
+        "tr": "Megabit/saniye cinsinden ölçülen veya nominal veri hızı.",
+        "de": "Gemessene oder nominale Datenrate in Megabit pro Sekunde.",
+        "fr": "Débit de données mesuré ou nominal en mégabits par seconde.",
+        "es": "Tasa de datos medida o nominal en megabits por segundo."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Standard conversion: 1 Gbps = 1000 Mbps. Adjust for non-standard units.",
-        "tr": "Standart dönüşüm: 1 Gbps = 1000 Mbps. Standart olmayan birimler için ayarlayın."
+        "tr": "Standart dönüşüm: 1 Gbps = 1000 Mbps. Standart olmayan birimler için ayarlayın.",
+        "de": "Standardumrechnung: 1 Gbit/s = 1000 Mbit/s. Bei nicht standardmäßigen Einheiten anpassen.",
+        "fr": "Conversion standard : 1 Gbps = 1000 Mbps. Ajuster pour les unités non standard.",
+        "es": "Conversión estándar: 1 Gbps = 1000 Mbps. Ajustar para unidades no estándar."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Output precision in decimal places for reporting consistency.",
-        "tr": "Raporlama tutarlılığı için ondalık basamak cinsinden çıktı hassasiyeti."
+        "tr": "Raporlama tutarlılığı için ondalık basamak cinsinden çıktı hassasiyeti.",
+        "de": "Ausgabegenauigkeit in Dezimalstellen für konsistente Berichterstattung.",
+        "fr": "Précision de sortie en décimales pour la cohérence des rapports.",
+        "es": "Precisión de salida en decimales para consistencia en informes."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Calibration Offset (Mbps)",
         "tr": "Kalibrasyon Ofseti (Mbps)",
-        "de": "Calibration Offset (Mbps)",
-        "fr": "Calibration Offset (Mbps)",
-        "es": "Calibration Offset (Mbps)",
+        "de": "Kalibrierungs-Offset (Mbit/s)",
+        "fr": "Décalage d'étalonnage (Mbps)",
+        "es": "Desplazamiento de calibración (Mbps)",
         "ar": "Calibration Offset (Mbps)"
       },
       "businessContext_i18n": {
         "en": "Calibration correction value added to the input. Typically 0 for uncalibrated readings.",
-        "tr": "Girişe eklenen kalibrasyon düzeltme değeri. Kalibre edilmemiş okumalar için genellikle 0."
+        "tr": "Girişe eklenen kalibrasyon düzeltme değeri. Kalibre edilmemiş okumalar için genellikle 0.",
+        "de": "Kalibrierungskorrekturwert, der zum Eingang addiert wird. Typischerweise 0 für unkalibrierte Messwerte.",
+        "fr": "Valeur de correction d'étalonnage ajoutée à l'entrée. Généralement 0 pour les lectures non étalonnées.",
+        "es": "Valor de corrección de calibración añadido a la entrada. Normalmente 0 para lecturas no calibradas."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Measurement ID",
         "tr": "Ölçüm Kimliği",
-        "de": "Measurement ID",
-        "fr": "Measurement ID",
-        "es": "Measurement ID",
+        "de": "Messungs-ID",
+        "fr": "ID de mesure",
+        "es": "ID de medición",
         "ar": "Measurement ID"
       },
       "businessContext_i18n": {
         "en": "For traceability to measurement records, set to 0 if not applicable.",
-        "tr": "Ölçüm kayıtlarına izlenebilirlik için, uygun değilse 0 olarak ayarlayın."
+        "tr": "Ölçüm kayıtlarına izlenebilirlik için, uygun değilse 0 olarak ayarlayın.",
+        "de": "Für Rückverfolgbarkeit zu Messaufzeichnungen, auf 0 setzen, falls nicht zutreffend.",
+        "fr": "Pour la traçabilité des enregistrements de mesure, mettre à 0 si non applicable.",
+        "es": "Para trazabilidad a registros de medición, establecer en 0 si no aplica."
       }
     }
   ],

@@ -12,13 +12,15 @@
         "en": "Target Value",
         "tr": "Hedef Değer",
         "de": "Zielwert",
-        "fr": "Target Value",
-        "es": "Target Value",
+        "fr": "Valeur cible",
+        "es": "Valor objetivo",
         "ar": "Target Value"
       },
       "businessContext_i18n": {
         "en": "Desired process target value (e.g., temperature)",
-        "tr": "İstenen proses hedef değeri (örn. sıcaklık)"
+        "tr": "İstenen proses hedef değeri (örn. sıcaklık)",
+        "de": "Gewünschter Prozess-Sollwert (z. B. Temperatur)",
+        "fr": "Valeur cible souhaitée du procédé (ex. température)"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Current Process Value",
         "tr": "Mevcut Proses Değeri",
-        "de": "Current Process Value",
-        "fr": "Current Process Value",
+        "de": "Aktueller Prozesswert",
+        "fr": "Valeur actuelle du procédé",
         "es": "Current Process Value",
         "ar": "Current Process Value"
       },
       "businessContext_i18n": {
         "en": "Measured actual process value",
-        "tr": "Ölçülen gerçek proses değeri"
+        "tr": "Ölçülen gerçek proses değeri",
+        "de": "Gemessener tatsächlicher Prozesswert",
+        "fr": "Valeur mesurée réelle du procédé"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Controller Gain",
         "tr": "Kontrolör Kazancı",
-        "de": "Controller Gain",
-        "fr": "Controller Gain",
+        "de": "Reglerverstärkung",
+        "fr": "Gain du contrôleur",
         "es": "Controller Gain",
         "ar": "Controller Gain"
       },
       "businessContext_i18n": {
         "en": "Proportional gain factor for control",
-        "tr": "Kontrol için oransal kazanç faktörü"
+        "tr": "Kontrol için oransal kazanç faktörü",
+        "de": "Proportionalverstärkungsfaktor für die Regelung",
+        "fr": "Facteur de gain proportionnel pour le contrôle"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Base Set Point",
         "tr": "Temel Ayarlanan Değer",
-        "de": "Base Set Point",
-        "fr": "Base Set Point",
+        "de": "Basis-Sollwert",
+        "fr": "Point de consigne de base",
         "es": "Base Set Point",
         "ar": "Base Set Point"
       },
       "businessContext_i18n": {
         "en": "Initial or bias set point value",
-        "tr": "Başlangıç veya referans ayar noktası değeri"
+        "tr": "Başlangıç veya referans ayar noktası değeri",
+        "de": "Anfangs- oder Offset-Sollwert",
+        "fr": "Valeur de point de consigne initiale ou de biais"
       }
     }
   ],

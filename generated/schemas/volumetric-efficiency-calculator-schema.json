@@ -11,15 +11,17 @@
       "label_i18n": {
         "en": "Bore (cylinder diameter)",
         "tr": "Delik çapı (silindir çapı)",
-        "de": "Bore (cylinder diameter)",
-        "fr": "Bore (cylinder diameter)",
+        "de": "Bohrung (Zylinderdurchmesser)",
+        "fr": "Alésage (diamètre du cylindre)",
         "es": "Bore (cylinder diameter)",
         "ar": "Bore (cylinder diameter)"
       },
       "businessContext_i18n": {
         "en": "Cylinder bore diameter in millimeters",
         "tr": "Silindir çapı (mm)",
-        "de": "Zylinderbohrungsdurchmesser in Millimetern"
+        "de": "Zylinderbohrungsdurchmesser in Millimetern",
+        "fr": "Alésage du cylindre en millimètres",
+        "es": "Diámetro del cilindro en milímetros"
       }
     },
     {
@@ -32,15 +34,17 @@
       "label_i18n": {
         "en": "Stroke length",
         "tr": "Strok uzunluğu",
-        "de": "Stroke length",
-        "fr": "Stroke length",
+        "de": "Hublänge",
+        "fr": "Longueur de course",
         "es": "Stroke length",
         "ar": "Stroke length"
       },
       "businessContext_i18n": {
         "en": "Piston stroke length in millimeters",
         "tr": "Piston strok uzunluğu (mm)",
-        "de": "Kolbenhublänge in Millimetern"
+        "de": "Kolbenhublänge in Millimetern",
+        "fr": "Longueur de la course du piston en millimètres",
+        "es": "Longitud de la carrera del pistón en milímetros"
       }
     },
     {
@@ -53,14 +57,16 @@
       "label_i18n": {
         "en": "Number of cylinders",
         "tr": "Silindir sayısı",
-        "de": "Number of cylinders",
-        "fr": "Number of cylinders",
+        "de": "Anzahl der Zylinder",
+        "fr": "Nombre de cylindres",
         "es": "Number of cylinders",
         "ar": "Number of cylinders"
       },
       "businessContext_i18n": {
         "en": "Number of cylinders in the pump/compressor",
-        "tr": "Pompa/kompresördeki silindir sayısı"
+        "tr": "Pompa/kompresördeki silindir sayısı",
+        "de": "Anzahl der Zylinder in der Pumpe/dem Kompressor",
+        "fr": "Nombre de cylindres dans la pompe/compresseur"
       }
     },
     {
@@ -73,14 +79,17 @@
       "label_i18n": {
         "en": "Rotational speed",
         "tr": "Dönüş hızı",
-        "de": "Rotational speed",
-        "fr": "Rotational speed",
+        "de": "Drehzahl",
+        "fr": "Vitesse de rotation",
         "es": "Rotational speed",
         "ar": "Rotational speed"
       },
       "businessContext_i18n": {
         "en": "Shaft rotational speed in revolutions per minute",
-        "tr": "Mil dönüş hızı (dakikadaki devir sayısı)"
+        "tr": "Mil dönüş hızı (dakikadaki devir sayısı)",
+        "de": "Wellendrehzahl in Umdrehungen pro Minute",
+        "fr": "Vitesse de rotation de l'arbre en tours par minute",
+        "es": "Velocidad de rotación del eje en revoluciones por minuto"
       }
     },
     {
@@ -93,14 +102,16 @@
       "label_i18n": {
         "en": "Actual flow rate",
         "tr": "Gerçek debi",
-        "de": "Actual flow rate",
-        "fr": "Actual flow rate",
+        "de": "Tatsächlicher Durchfluss",
+        "fr": "Débit réel",
         "es": "Actual flow rate",
         "ar": "Actual flow rate"
       },
       "businessContext_i18n": {
         "en": "Measured actual flow rate in liters per minute",
-        "tr": "Dakikada litre cinsinden ölçülen gerçek debi"
+        "tr": "Dakikada litre cinsinden ölçülen gerçek debi",
+        "de": "Gemessener tatsächlicher Durchfluss in Litern pro Minute",
+        "fr": "Débit réel mesuré en litres par minute"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Face Value",
         "tr": "Nominal Değer",
         "de": "Nennwert",
-        "fr": "Face Value",
-        "es": "Face Value",
+        "fr": "Valeur nominale",
+        "es": "Valor nominal",
         "ar": "Face Value"
       },
       "businessContext_i18n": {
         "en": "The par or principal amount of the bond",
         "tr": "Tahvilin nominal veya anapara tutarı",
-        "de": "Der Nennwert oder Kapitalbetrag der Anleihe"
+        "de": "Der Nennwert oder Kapitalbetrag der Anleihe",
+        "fr": "Le pair ou montant principal de l'obligation",
+        "es": "El valor nominal o principal del bono"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Coupon Rate (%)",
         "tr": "Kupon Oranı (%)",
         "de": "Kuponrate (%)",
-        "fr": "Coupon Rate (%)",
-        "es": "Coupon Rate (%)",
+        "fr": "Taux du coupon (%)",
+        "es": "Tasa de cupón (%)",
         "ar": "Coupon Rate (%)"
       },
       "businessContext_i18n": {
         "en": "Annual coupon rate as a percentage of face value",
         "tr": "Nominal değerin yüzdesi olarak yıllık kupon oranı",
-        "de": "Jährlicher Kupon als Prozentsatz des Nennwerts"
+        "de": "Jährlicher Kupon als Prozentsatz des Nennwerts",
+        "fr": "Taux du coupon annuel en pourcentage de la valeur nominale",
+        "es": "Tasa de cupón anual como porcentaje del valor nominal"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Payment Frequency",
         "tr": "Ödeme Sıklığı",
         "de": "Zahlungshäufigkeit",
-        "fr": "Payment Frequency",
-        "es": "Payment Frequency",
+        "fr": "Fréquence de paiement",
+        "es": "Frecuencia de pago",
         "ar": "Payment Frequency"
       },
       "businessContext_i18n": {
         "en": "Number of coupon payments per year (e.g., 2 for semi-annual)",
         "tr": "Yıllık kupon ödemesi sayısı (örn. altı aylık için 2)",
-        "de": "Anzahl der Kuponzahlungen pro Jahr (z. B. 2 für halbjährlich)"
+        "de": "Anzahl der Kuponzahlungen pro Jahr (z. B. 2 für halbjährlich)",
+        "fr": "Nombre de paiements de coupon par an (ex. : 2 pour semestriel)",
+        "es": "Número de pagos de cupón por año (ej., 2 para semestral)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Years to Maturity",
         "tr": "Vadeye Kalan Yıl",
         "de": "Jahre bis Fälligkeit",
-        "fr": "Years to Maturity",
-        "es": "Years to Maturity",
+        "fr": "Années jusqu'à l'échéance",
+        "es": "Años hasta el vencimiento",
         "ar": "Years to Maturity"
       },
       "businessContext_i18n": {
         "en": "Remaining time until bond matures",
         "tr": "Tahvilin vadesine kalan süre",
-        "de": "Verbleibende Zeit bis zur Fälligkeit der Anleihe"
+        "de": "Verbleibende Zeit bis zur Fälligkeit der Anleihe",
+        "fr": "Temps restant avant l'échéance de l'obligation",
+        "es": "Tiempo restante hasta el vencimiento del bono"
       }
     }
   ],

@@ -12,13 +12,16 @@
         "en": "Resistance (R)",
         "tr": "Direnç (R)",
         "de": "Widerstand (R)",
-        "fr": "Resistance (R)",
-        "es": "Resistance (R)",
+        "fr": "Résistance (R)",
+        "es": "Resistencia (R)",
         "ar": "Resistance (R)"
       },
       "businessContext_i18n": {
         "en": "Resistor value in ohms",
-        "tr": "Direnç değeri (ohm)"
+        "tr": "Direnç değeri (ohm)",
+        "de": "Widerstandswert in Ohm",
+        "fr": "Valeur de la résistance en ohms",
+        "es": "Valor de la resistencia en ohmios"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Resistance Tolerance",
         "tr": "Direnç Toleransı",
-        "de": "Resistance Tolerance",
-        "fr": "Resistance Tolerance",
-        "es": "Resistance Tolerance",
+        "de": "Widerstandstoleranz",
+        "fr": "Tolérance de la résistance",
+        "es": "Tolerancia de la resistencia",
         "ar": "Resistance Tolerance"
       },
       "businessContext_i18n": {
         "en": "Resistor tolerance (±%)",
-        "tr": "Direnç toleransı (±%)"
+        "tr": "Direnç toleransı (±%)",
+        "de": "Widerstandstoleranz (±%)",
+        "fr": "Tolérance de la résistance (±%)",
+        "es": "Tolerancia de la resistencia (±%)"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Capacitance (C)",
         "tr": "Kapasitans (C)",
         "de": "Kapazität (C)",
-        "fr": "Capacitance (C)",
-        "es": "Capacitance (C)",
+        "fr": "Capacité (C)",
+        "es": "Capacitancia (C)",
         "ar": "Capacitance (C)"
       },
       "businessContext_i18n": {
         "en": "Capacitor value in farads",
-        "tr": "Kondansatör değeri (farad)"
+        "tr": "Kondansatör değeri (farad)",
+        "de": "Kapazitätswert in Farad",
+        "fr": "Valeur du condensateur en farads",
+        "es": "Valor del capacitor en faradios"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Capacitance Tolerance",
         "tr": "Kapasitans Toleransı",
-        "de": "Capacitance Tolerance",
-        "fr": "Capacitance Tolerance",
-        "es": "Capacitance Tolerance",
+        "de": "Kapazitätstoleranz",
+        "fr": "Tolérance de capacité",
+        "es": "Tolerancia de la capacitancia",
         "ar": "Capacitance Tolerance"
       },
       "businessContext_i18n": {
         "en": "Capacitor tolerance (±%)",
-        "tr": "Kapasitör toleransı (±%)"
+        "tr": "Kapasitör toleransı (±%)",
+        "de": "Kapazitätstoleranz (±%)",
+        "fr": "Tolérance du condensateur (±%)",
+        "es": "Tolerancia del capacitor (±%)"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Input Signal Frequency",
         "tr": "Giriş Sinyali Frekansı",
-        "de": "Input Signal Frequency",
-        "fr": "Input Signal Frequency",
-        "es": "Input Signal Frequency",
+        "de": "Eingangssignalfrequenz",
+        "fr": "Fréquence du signal d'entrée",
+        "es": "Frecuencia de la señal de entrada",
         "ar": "Input Signal Frequency"
       },
       "businessContext_i18n": {
         "en": "Frequency of the input signal for attenuation calculation",
-        "tr": "Zayıflama hesaplaması için giriş sinyalinin frekansı"
+        "tr": "Zayıflama hesaplaması için giriş sinyalinin frekansı",
+        "de": "Frequenz des Eingangssignals für die Dämpfungsberechnung",
+        "fr": "Fréquence du signal d'entrée pour le calcul de l'atténuation",
+        "es": "Frecuencia de la señal de entrada para el cálculo de atenuación"
       }
     }
   ],

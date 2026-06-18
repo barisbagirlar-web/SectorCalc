@@ -20,11 +20,15 @@
       "businessContext": "Total planned production time per shift excluding breaks and planned downtime.",
       "label_i18n": {
         "en": "Available Work Time per Shift (seconds)",
-        "tr": "Vardiya Başına Kullanılabilir Çalışma Süresi (saniye)"
+        "tr": "Vardiya Başına Kullanılabilir Çalışma Süresi (saniye)",
+        "de": "Verfügbare Arbeitszeit pro Schicht (Sekunden)",
+        "fr": "Temps de travail disponible par équipe (secondes)"
       },
       "businessContext_i18n": {
         "en": "Total planned production time per shift excluding breaks and planned downtime.",
-        "tr": "Molalar ve planlı duruşlar hariç vardiya başına toplam planlı üretim süresi."
+        "tr": "Molalar ve planlı duruşlar hariç vardiya başına toplam planlı üretim süresi.",
+        "de": "Gesamte geplante Produktionszeit pro Schicht ohne Pausen und geplante Stillstände.",
+        "fr": "Temps de production planifié total par équipe hors pauses et arrêts planifiés."
       }
     },
     {
@@ -38,11 +42,15 @@
       "businessContext": "Number of units required by the customer per shift.",
       "label_i18n": {
         "en": "Customer Demand per Shift (units)",
-        "tr": "Vardiya Başına Müşteri Talebi (adet)"
+        "tr": "Vardiya Başına Müşteri Talebi (adet)",
+        "de": "Kundennachfrage pro Schicht (Einheiten)",
+        "fr": "Demande client par équipe (unités)"
       },
       "businessContext_i18n": {
         "en": "Number of units required by the customer per shift.",
-        "tr": "Müşterinin vardiya başına talep ettiği adet sayısı."
+        "tr": "Müşterinin vardiya başına talep ettiği adet sayısı.",
+        "de": "Vom Kunden pro Schicht geforderte Stückzahl.",
+        "fr": "Nombre d'unités requises par le client par équipe."
       }
     },
     {
@@ -56,11 +64,15 @@
       "businessContext": "Measured average time to complete one unit of product at the bottleneck operation.",
       "label_i18n": {
         "en": "Actual Cycle Time (seconds)",
-        "tr": "Gerçek Çevrim Süresi (saniye)"
+        "tr": "Gerçek Çevrim Süresi (saniye)",
+        "de": "Tatsächliche Taktzeit (Sekunden)",
+        "fr": "Temps de cycle réel (secondes)"
       },
       "businessContext_i18n": {
         "en": "Measured average time to complete one unit of product at the bottleneck operation.",
-        "tr": "Darboğaz operasyonunda bir birim ürünü tamamlamak için ölçülen ortalama süre."
+        "tr": "Darboğaz operasyonunda bir birim ürünü tamamlamak için ölçülen ortalama süre.",
+        "de": "Gemessene durchschnittliche Zeit zur Fertigstellung einer Produkteinheit am Engpass.",
+        "fr": "Temps moyen mesuré pour réaliser une unité de produit au goulot d'étranglement."
       }
     },
     {
@@ -74,11 +86,15 @@
       "businessContext": "Time required to switch from one product variant to another, including setup and adjustments.",
       "label_i18n": {
         "en": "Average Changeover Time (minutes)",
-        "tr": "Ortalama Kalıp Değiştirme Süresi (dakika)"
+        "tr": "Ortalama Kalıp Değiştirme Süresi (dakika)",
+        "de": "Durchschnittliche Rüstzeit (Minuten)",
+        "fr": "Temps moyen de changement de série (minutes)"
       },
       "businessContext_i18n": {
         "en": "Time required to switch from one product variant to another, including setup and adjustments.",
-        "tr": "Bir ürün çeşidinden diğerine geçiş için gereken süre (kurulum ve ayarlar dahil)."
+        "tr": "Bir ürün çeşidinden diğerine geçiş için gereken süre (kurulum ve ayarlar dahil).",
+        "de": "Zeit für den Wechsel von einer Produktvariante zur anderen, einschließlich Einrichtung und Anpassungen.",
+        "fr": "Temps nécessaire pour passer d'une variante de produit à une autre, incluant réglages et configuration."
       }
     },
     {
@@ -92,11 +108,15 @@
       "businessContext": "Number of units produced consecutively before a changeover.",
       "label_i18n": {
         "en": "Average Batch Size (units)",
-        "tr": "Ortalama Parti Büyüklüğü (adet)"
+        "tr": "Ortalama Parti Büyüklüğü (adet)",
+        "de": "Durchschnittliche Losgröße (Einheiten)",
+        "fr": "Taille moyenne de lot (unités)"
       },
       "businessContext_i18n": {
         "en": "Number of units produced consecutively before a changeover.",
-        "tr": "Bir kalıp değişiminden önce art arda üretilen adet sayısı."
+        "tr": "Bir kalıp değişiminden önce art arda üretilen adet sayısı.",
+        "de": "Anzahl der vor einem Rüstvorgang kontinuierlich produzierten Einheiten.",
+        "fr": "Nombre d'unités produites consécutivement avant un changement de série."
       }
     },
     {
@@ -110,11 +130,15 @@
       "businessContext": "Fully loaded hourly wage including benefits for direct production operators.",
       "label_i18n": {
         "en": "Direct Labor Cost per Hour ($)",
-        "tr": "Direkt İşçilik Saatlik Maliyeti ($)"
+        "tr": "Direkt İşçilik Saatlik Maliyeti ($)",
+        "de": "Direkte Arbeitskosten pro Stunde ($)",
+        "fr": "Coût direct de main-d'œuvre par heure ($)"
       },
       "businessContext_i18n": {
         "en": "Fully loaded hourly wage including benefits for direct production operators.",
-        "tr": "Direkt üretim operatörleri için yan haklar dahil tam yüklü saatlik ücret."
+        "tr": "Direkt üretim operatörleri için yan haklar dahil tam yüklü saatlik ücret.",
+        "de": "Voll belasteter Stundenlohn inklusive Zusatzleistungen für direkte Produktionsmitarbeiter.",
+        "fr": "Salaire horaire chargé incluant les avantages pour les opérateurs de production directs."
       }
     },
     {
@@ -128,11 +152,16 @@
       "businessContext": "Percentage of direct labor cost allocated to manufacturing overhead (e.g., supervision, utilities, maintenance).",
       "label_i18n": {
         "en": "Overhead Rate (%)",
-        "tr": "Genel Gider Oranı (%)"
+        "tr": "Genel Gider Oranı (%)",
+        "de": "Gemeinkostensatz (%)",
+        "fr": "Taux de frais généraux (%)",
+        "es": "Tasa de gastos generales (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of direct labor cost allocated to manufacturing overhead (e.g., supervision, utilities, maintenance).",
-        "tr": "Genel üretim giderlerine (ör. denetim, yardımcı tesisler, bakım) tahsis edilen direkt işçilik maliyeti yüzdesi."
+        "tr": "Genel üretim giderlerine (ör. denetim, yardımcı tesisler, bakım) tahsis edilen direkt işçilik maliyeti yüzdesi.",
+        "de": "Prozentsatz der direkten Arbeitskosten, der den Fertigungsgemeinkosten zugeordnet wird (z. B. Aufsicht, Betriebsstoffe, Instandhaltung).",
+        "fr": "Pourcentage du coût direct de main-d'œuvre alloué aux frais généraux de fabrication (ex. supervision, services publics, maintenance)."
       }
     },
     {
@@ -146,11 +175,16 @@
       "businessContext": "Coefficient of variation of daily customer demand; used to quantify demand uncertainty.",
       "label_i18n": {
         "en": "Demand Variability Coefficient (CV)",
-        "tr": "Talep Değişkenlik Katsayısı (CV)"
+        "tr": "Talep Değişkenlik Katsayısı (CV)",
+        "de": "Nachfragevariabilitätskoeffizient (CV)",
+        "fr": "Coefficient de variabilité de la demande (CV)",
+        "es": "Coeficiente de variabilidad de la demanda (CV)"
       },
       "businessContext_i18n": {
         "en": "Coefficient of variation of daily customer demand; used to quantify demand uncertainty.",
-        "tr": "Günlük müşteri talebinin varyasyon katsayısı; talep belirsizliğini ölçmek için kullanılır."
+        "tr": "Günlük müşteri talebinin varyasyon katsayısı; talep belirsizliğini ölçmek için kullanılır.",
+        "de": "Variationskoeffizient der täglichen Kundennachfrage; dient zur Quantifizierung der Nachfrageunsicherheit.",
+        "fr": "Coefficient de variation de la demande client quotidienne ; utilisé pour quantifier l'incertitude de la demande."
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Room Length (m)",
         "tr": "Oda Uzunluğu (m)",
-        "de": "Room Length (m)",
-        "fr": "Room Length (m)",
-        "es": "Room Length (m)",
+        "de": "Raumlänge (m)",
+        "fr": "Longueur de la pièce (m)",
+        "es": "Largo de la habitación (m)",
         "ar": "Room Length (m)"
       },
       "businessContext_i18n": {
         "en": "Uzunluk, odanın boyutlarını belirler ve boyanacak alan hesabında temel ölçüdür.",
-        "tr": "Uzunluk, odanın boyutlarını belirler ve boyanacak alan hesabında temel ölçüdür."
+        "tr": "Uzunluk, odanın boyutlarını belirler ve boyanacak alan hesabında temel ölçüdür.",
+        "de": "Länge, bestimmt die Raummaße und ist das Grundmaß für die Flächenberechnung.",
+        "fr": "Longueur, détermine les dimensions de la pièce et est la mesure de base pour le calcul de la surface à peindre.",
+        "es": "El largo determina las dimensiones de la habitación y es la medida base para calcular el área a pintar."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Room Width (m)",
         "tr": "Oda Genişliği (m)",
-        "de": "Room Width (m)",
-        "fr": "Room Width (m)",
-        "es": "Room Width (m)",
+        "de": "Raumbreite (m)",
+        "fr": "Largeur de la pièce (m)",
+        "es": "Ancho de la habitación (m)",
         "ar": "Room Width (m)"
       },
       "businessContext_i18n": {
         "en": "Genişlik, odanın boyutlarını belirler.",
-        "tr": "Genişlik, odanın boyutlarını belirler."
+        "tr": "Genişlik, odanın boyutlarını belirler.",
+        "de": "Breite, bestimmt die Raummaße.",
+        "fr": "Largeur, détermine les dimensions de la pièce.",
+        "es": "El ancho determina las dimensiones de la habitación."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Room Height (m)",
         "tr": "Oda Yüksekliği (m)",
-        "de": "Room Height (m)",
-        "fr": "Room Height (m)",
-        "es": "Room Height (m)",
+        "de": "Raumhöhe (m)",
+        "fr": "Hauteur de la pièce (m)",
+        "es": "Alto de la habitación (m)",
         "ar": "Room Height (m)"
       },
       "businessContext_i18n": {
         "en": "Yükseklik, duvar alanının hesaplanmasında kullanılır.",
-        "tr": "Yükseklik, duvar alanının hesaplanmasında kullanılır."
+        "tr": "Yükseklik, duvar alanının hesaplanmasında kullanılır.",
+        "de": "Höhe, wird zur Berechnung der Wandfläche verwendet.",
+        "fr": "Hauteur, utilisée pour le calcul de la surface des murs.",
+        "es": "La altura se utiliza para calcular el área de las paredes."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Number of Doors",
         "tr": "Kapı sayısı",
         "de": "Anzahl der Türen",
-        "fr": "Number of Doors",
-        "es": "Number of Doors",
+        "fr": "Nombre de portes",
+        "es": "Número de puertas",
         "ar": "Number of Doors"
       },
       "businessContext_i18n": {
         "en": "Kapı sayısı, boyanmayacak alanı hesaplamak için standart 2 m² indirim sağlar.",
-        "tr": "Kapı sayısı, boyanmayacak alanı hesaplamak için standart 2 m² indirim sağlar."
+        "tr": "Kapı sayısı, boyanmayacak alanı hesaplamak için standart 2 m² indirim sağlar.",
+        "de": "Anzahl der Türen, bietet einen Standardabzug von 2 m² für nicht zu streichende Flächen.",
+        "fr": "Nombre de portes, fournit une déduction standard de 2 m² pour le calcul de la surface non peinte.",
+        "es": "El número de puertas proporciona un descuento estándar de 2 m² para calcular el área no pintada."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Number of Windows",
         "tr": "Pencere Sayısı",
         "de": "Anzahl der Fenster",
-        "fr": "Number of Windows",
-        "es": "Number of Windows",
+        "fr": "Nombre de fenêtres",
+        "es": "Número de ventanas",
         "ar": "Number of Windows"
       },
       "businessContext_i18n": {
         "en": "Pencere sayısı, boyanmayacak alanı hesaplamak için standart 1.5 m² indirim sağlar.",
-        "tr": "Pencere sayısı, boyanmayacak alanı hesaplamak için standart 1.5 m² indirim sağlar."
+        "tr": "Pencere sayısı, boyanmayacak alanı hesaplamak için standart 1.5 m² indirim sağlar.",
+        "de": "Anzahl der Fenster, bietet einen Standardabzug von 1,5 m² für nicht zu streichende Flächen.",
+        "fr": "Nombre de fenêtres, fournit une déduction standard de 1,5 m² pour le calcul de la surface non peinte.",
+        "es": "El número de ventanas proporciona un descuento estándar de 1.5 m² para calcular el área no pintada."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Paint Coverage (m²/L)",
         "tr": "Boya Kaplama Alanı (m²/L)",
-        "de": "Paint Coverage (m²/L)",
-        "fr": "Paint Coverage (m²/L)",
-        "es": "Paint Coverage (m²/L)",
+        "de": "Farbdeckkraft (m²/L)",
+        "fr": "Rendement de la peinture (m²/L)",
+        "es": "Rendimiento de la pintura (m²/L)",
         "ar": "Paint Coverage (m²/L)"
       },
       "businessContext_i18n": {
         "en": "Boyanın litre başına kapladığı alan, üretici verisine dayanır.",
-        "tr": "Boyanın litre başına kapladığı alan, üretici verisine dayanır."
+        "tr": "Boyanın litre başına kapladığı alan, üretici verisine dayanır.",
+        "de": "Fläche pro Liter Farbe, basierend auf Herstellerangaben.",
+        "fr": "Surface couverte par litre de peinture, basée sur les données du fabricant.",
+        "es": "El área que cubre la pintura por litro, basado en datos del fabricante."
       }
     },
     {
@@ -132,13 +150,16 @@
         "en": "Number of Coats",
         "tr": "Kat Sayısı",
         "de": "Anzahl der Anstriche",
-        "fr": "Number of Coats",
-        "es": "Number of Coats",
+        "fr": "Nombre de couches",
+        "es": "Número de capas",
         "ar": "Number of Coats"
       },
       "businessContext_i18n": {
         "en": "Uygulanacak kat sayısı, toplam boya ihtiyacını doğrudan etkiler.",
-        "tr": "Uygulanacak kat sayısı, toplam boya ihtiyacını doğrudan etkiler."
+        "tr": "Uygulanacak kat sayısı, toplam boya ihtiyacını doğrudan etkiler.",
+        "de": "Anzahl der Anstriche, beeinflusst direkt den Gesamtfarbbedarf.",
+        "fr": "Le nombre de couches appliquées affecte directement le besoin total en peinture.",
+        "es": "Número de capas a aplicar, afecta directamente la cantidad total de pintura necesaria."
       }
     },
     {
@@ -151,14 +172,17 @@
       "label_i18n": {
         "en": "Include Ceiling (1=Yes, 0=No)",
         "tr": "Tavanı Dahil Et (1=Evet, 0=Hayır)",
-        "de": "Include Ceiling (1=Yes, 0=No)",
-        "fr": "Include Ceiling (1=Yes, 0=No)",
-        "es": "Include Ceiling (1=Yes, 0=No)",
+        "de": "Decke einschließen (1=Ja, 0=Nein)",
+        "fr": "Inclure le plafond (1=Oui, 0=Non)",
+        "es": "Incluir techo (1=Sí, 0=No)",
         "ar": "Include Ceiling (1=Yes, 0=No)"
       },
       "businessContext_i18n": {
         "en": "Tavanın boyanıp boyanmayacağını belirler, alan hesabına etki eder.",
-        "tr": "Tavanın boyanıp boyanmayacağını belirler, alan hesabına etki eder."
+        "tr": "Tavanın boyanıp boyanmayacağını belirler, alan hesabına etki eder.",
+        "de": "Bestimmt, ob die Decke gestrichen wird, wirkt sich auf die Flächenberechnung aus.",
+        "fr": "Détermine si le plafond est peint, influence le calcul de la surface.",
+        "es": "Determina si se pinta el techo, afecta el cálculo del área."
       }
     }
   ],

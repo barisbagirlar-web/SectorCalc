@@ -12,14 +12,16 @@
         "en": "Operatör Yetkinlik Seviyesi",
         "tr": "Operatör Yetkinlik Seviyesi",
         "de": "Operator-Kompetenzniveau",
-        "fr": "Operatör Yetkinlik Seviyesi",
-        "es": "Operatör Yetkinlik Seviyesi",
+        "fr": "Niveau de compétence de l'opérateur",
+        "es": "Nivel de competencia del operador",
         "ar": "Operatör Yetkinlik Seviyesi"
       },
       "businessContext_i18n": {
         "en": "Operatörün 1 ile 10 arasında puanlanan yetkinlik derecesi. Yüksek puan daha iyi performansı gösterir.",
         "tr": "Operatörün 1 ile 10 arasında puanlanan yetkinlik derecesi. Yüksek puan daha iyi performansı gösterir.",
-        "de": "Kompetenzgrad des Operators auf einer Skala von 1 bis 10. Höhere Punktzahl zeigt bessere Leistung an."
+        "de": "Kompetenzgrad des Operators auf einer Skala von 1 bis 10. Höhere Punktzahl zeigt bessere Leistung an.",
+        "fr": "Degré de compétence de l'opérateur noté de 1 à 10. Un score élevé indique une meilleure performance.",
+        "es": "Grado de competencia del operador puntuado del 1 al 10. Una puntuación más alta indica un mejor rendimiento."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Makine Yaşı",
         "tr": "Makine Yaşı",
         "de": "Maschinenalter",
-        "fr": "Makine Yaşı",
-        "es": "Makine Yaşı",
+        "fr": "Âge de la machine",
+        "es": "Edad de la máquina",
         "ar": "Makine Yaşı"
       },
       "businessContext_i18n": {
         "en": "Makinenin yıl cinsinden yaşı. Daha eski makineler düşük verimlilik gösterir.",
         "tr": "Makinenin yıl cinsinden yaşı. Daha eski makineler düşük verimlilik gösterir.",
-        "de": "Alter der Maschine in Jahren. Ältere Maschinen zeigen geringere Effizienz."
+        "de": "Alter der Maschine in Jahren. Ältere Maschinen zeigen geringere Effizienz.",
+        "fr": "Âge de la machine en années. Les machines plus anciennes montrent une efficacité réduite.",
+        "es": "Edad de la máquina en años. Las máquinas más antiguas muestran menor eficiencia."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Bakım Sıklığı",
         "tr": "Bakım Sıklığı",
         "de": "Wartungshäufigkeit",
-        "fr": "Bakım Sıklığı",
-        "es": "Bakım Sıklığı",
+        "fr": "Fréquence de maintenance",
+        "es": "Frecuencia de mantenimiento",
         "ar": "Bakım Sıklığı"
       },
       "businessContext_i18n": {
         "en": "Aylık ortalama bakım sayısı. Daha sık bakım daha yüksek güvenilirlik sağlar.",
         "tr": "Aylık ortalama bakım sayısı. Daha sık bakım daha yüksek güvenilirlik sağlar.",
-        "de": "Durchschnittliche Anzahl monatlicher Wartungen. Häufigere Wartung sorgt für höhere Zuverlässigkeit."
+        "de": "Durchschnittliche Anzahl monatlicher Wartungen. Häufigere Wartung sorgt für höhere Zuverlässigkeit.",
+        "fr": "Nombre moyen de maintenances par mois. Une maintenance plus fréquente assure une meilleure fiabilité.",
+        "es": "Número promedio de mantenimientos por mes. Un mantenimiento más frecuente proporciona mayor confiabilidad."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Ortam Sıcaklığı",
         "tr": "Ortam Sıcaklığı",
         "de": "Umgebungstemperatur",
-        "fr": "Ortam Sıcaklığı",
-        "es": "Ortam Sıcaklığı",
+        "fr": "Température ambiante",
+        "es": "Temperatura ambiente",
         "ar": "Ortam Sıcaklığı"
       },
       "businessContext_i18n": {
         "en": "Çalışma ortamının sıcaklığı. 25°C ideal kabul edilir, sapmalar verimliliği düşürür.",
         "tr": "Çalışma ortamının sıcaklığı. 25°C ideal kabul edilir, sapmalar verimliliği düşürür.",
-        "de": "Temperatur der Arbeitsumgebung. 25°C gelten als ideal, Abweichungen verringern die Effizienz."
+        "de": "Temperatur der Arbeitsumgebung. 25°C gelten als ideal, Abweichungen verringern die Effizienz.",
+        "fr": "Température de l'environnement de travail. 25°C est considéré comme idéal, les écarts réduisent l'efficacité.",
+        "es": "Temperatura del entorno de trabajo. 25°C se considera ideal; las desviaciones reducen la eficiencia."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Titreşim Seviyesi",
         "tr": "Titreşim Seviyesi",
         "de": "Vibrationsniveau",
-        "fr": "Titreşim Seviyesi",
-        "es": "Titreşim Seviyesi",
+        "fr": "Niveau de vibration",
+        "es": "Nivel de vibración",
         "ar": "Titreşim Seviyesi"
       },
       "businessContext_i18n": {
         "en": "Makine titreşim seviyesi. Daha yüksek titreşim arıza riskini artırır ve verimi düşürür.",
         "tr": "Makine titreşim seviyesi. Daha yüksek titreşim arıza riskini artırır ve verimi düşürür.",
-        "de": "Vibrationsniveau der Maschine. Höhere Vibration erhöht das Ausfallrisiko und verringert den Wirkungsgrad."
+        "de": "Vibrationsniveau der Maschine. Höhere Vibration erhöht das Ausfallrisiko und verringert den Wirkungsgrad.",
+        "fr": "Niveau de vibration de la machine. Des vibrations plus élevées augmentent le risque de panne et réduisent le rendement.",
+        "es": "Nivel de vibración de la máquina. Una vibración más alta aumenta el riesgo de falla y reduce el rendimiento."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Enerji Tüketimi",
         "tr": "Enerji Tüketimi",
         "de": "Energieverbrauch",
-        "fr": "Enerji Tüketimi",
-        "es": "Enerji Tüketimi",
+        "fr": "Consommation d'énergie",
+        "es": "Consumo de energía",
         "ar": "Enerji Tüketimi"
       },
       "businessContext_i18n": {
         "en": "Saatlik enerji tüketimi. Yüksek tüketim maliyetleri artırır ve verimlilik puanını düşürür.",
         "tr": "Saatlik enerji tüketimi. Yüksek tüketim maliyetleri artırır ve verimlilik puanını düşürür.",
-        "de": "Stündlicher Energieverbrauch. Hoher Verbrauch erhöht die Kosten und senkt die Effizienzbewertung."
+        "de": "Stündlicher Energieverbrauch. Hoher Verbrauch erhöht die Kosten und senkt die Effizienzbewertung.",
+        "fr": "Consommation d'énergie par heure. Une consommation élevée augmente les coûts et réduit le score d'efficacité.",
+        "es": "Consumo de energía por hora. Un consumo alto aumenta los costos y reduce la puntuación de eficiencia."
       }
     }
   ],

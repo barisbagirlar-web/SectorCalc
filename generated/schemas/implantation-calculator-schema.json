@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Reference X (Easting)",
         "tr": "Referans X (Doğu)",
-        "de": "Reference X (Easting)",
-        "fr": "Reference X (Easting)",
-        "es": "Reference X (Easting)",
+        "de": "Referenz X (Rechtswert)",
+        "fr": "Référence X (Est)",
+        "es": "Referencia X (Este)",
         "ar": "Reference X (Easting)"
       },
       "businessContext_i18n": {
         "en": "The easting coordinate of the known reference point.",
-        "tr": "Bilinen referans noktasının doğu koordinatı."
+        "tr": "Bilinen referans noktasının doğu koordinatı.",
+        "de": "Die Rechtswert-Koordinate des bekannten Referenzpunktes.",
+        "fr": "Coordonnée est du point de référence connu.",
+        "es": "La coordenada este del punto de referencia conocido."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Reference Y (Northing)",
         "tr": "Referans Y (Kuzey)",
-        "de": "Reference Y (Northing)",
-        "fr": "Reference Y (Northing)",
-        "es": "Reference Y (Northing)",
+        "de": "Referenz Y (Hochwert)",
+        "fr": "Référence Y (Nord)",
+        "es": "Referencia Y (Norte)",
         "ar": "Reference Y (Northing)"
       },
       "businessContext_i18n": {
         "en": "The northing coordinate of the known reference point.",
-        "tr": "Bilinen referans noktasının kuzey koordinatı."
+        "tr": "Bilinen referans noktasının kuzey koordinatı.",
+        "de": "Die Hochwert-Koordinate des bekannten Referenzpunktes.",
+        "fr": "Coordonnée nord du point de référence connu.",
+        "es": "La coordenada norte del punto de referencia conocido."
       }
     },
     {
@@ -53,12 +59,15 @@
         "tr": "Mesafe",
         "de": "Entfernung",
         "fr": "Distance",
-        "es": "Distance",
+        "es": "Distancia",
         "ar": "Distance"
       },
       "businessContext_i18n": {
         "en": "Horizontal distance from reference to target point.",
-        "tr": "Referanstan hedef noktaya yatay mesafe."
+        "tr": "Referanstan hedef noktaya yatay mesafe.",
+        "de": "Horizontaler Abstand vom Referenz- zum Zielpunkt.",
+        "fr": "Distance horizontale du point de référence au point cible.",
+        "es": "Distancia horizontal desde la referencia hasta el punto objetivo."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Azimuth Angle",
         "tr": "Azimut Açısı",
-        "de": "Azimuth Angle",
-        "fr": "Azimuth Angle",
-        "es": "Azimuth Angle",
+        "de": "Azimutwinkel",
+        "fr": "Angle d'azimut",
+        "es": "Ángulo de acimut",
         "ar": "Azimuth Angle"
       },
       "businessContext_i18n": {
         "en": "Clockwise angle from north direction to the target direction.",
-        "tr": "Kuzey yönünden hedef yönüne saat yönünde açı."
+        "tr": "Kuzey yönünden hedef yönüne saat yönünde açı.",
+        "de": "Im Uhrzeigersinn von Norden zur Zielrichtung gemessener Winkel.",
+        "fr": "Angle horaire du nord vers la direction cible.",
+        "es": "Ángulo en sentido horario desde la dirección norte hasta la dirección objetivo."
       }
     }
   ],

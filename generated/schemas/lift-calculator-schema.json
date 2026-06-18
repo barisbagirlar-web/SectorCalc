@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Load Mass",
         "tr": "Yük Kütlesi",
-        "de": "Load Mass",
-        "fr": "Load Mass",
-        "es": "Load Mass",
+        "de": "Lastmasse",
+        "fr": "Masse de la charge",
+        "es": "Masa de la carga",
         "ar": "Load Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the load to be lifted",
-        "tr": "Kaldırılacak yükün kütlesi"
+        "tr": "Kaldırılacak yükün kütlesi",
+        "de": "Masse der zu hebenden Last",
+        "fr": "Masse de la charge à soulever",
+        "es": "Masa de la carga a levantar"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Car Mass",
         "tr": "Araba Kütlesi",
-        "de": "Car Mass",
-        "fr": "Car Mass",
-        "es": "Car Mass",
+        "de": "Fahrzeugmasse",
+        "fr": "Masse de la cabine",
+        "es": "Masa del carro",
         "ar": "Car Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the elevator car or lifting platform",
-        "tr": "Asansör kabini veya kaldırma platformunun kütlesi"
+        "tr": "Asansör kabini veya kaldırma platformunun kütlesi",
+        "de": "Masse des Aufzugskorbs oder der Hebebühne",
+        "fr": "Masse de la cabine d'ascenseur ou de la plateforme de levage",
+        "es": "Masa del ascensor o plataforma elevadora"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Acceleration",
         "tr": "İvme",
-        "de": "Acceleration",
-        "fr": "Acceleration",
-        "es": "Acceleration",
+        "de": "Beschleunigung",
+        "fr": "Accélération",
+        "es": "Aceleración",
         "ar": "Acceleration"
       },
       "businessContext_i18n": {
         "en": "Acceleration of the lift",
-        "tr": "Asansörün ivmesi"
+        "tr": "Asansörün ivmesi",
+        "de": "Beschleunigung des Aufzugs",
+        "fr": "Accélération de l'ascenseur",
+        "es": "Aceleración del ascensor"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Counterweight Ratio",
         "tr": "Karşı Ağırlık Oranı",
-        "de": "Counterweight Ratio",
-        "fr": "Counterweight Ratio",
-        "es": "Counterweight Ratio",
+        "de": "Gegengewichtsverhältnis",
+        "fr": "Rapport de contrepoids",
+        "es": "Relación de contrapeso",
         "ar": "Counterweight Ratio"
       },
       "businessContext_i18n": {
         "en": "Ratio of counterweight mass to total mass (car + load)",
-        "tr": "Karşı ağırlık kütlesinin toplam kütleye (araba + yük) oranı"
+        "tr": "Karşı ağırlık kütlesinin toplam kütleye (araba + yük) oranı",
+        "de": "Verhältnis der Gegengewichtsmasse zur Gesamtmasse (Korb + Last)",
+        "fr": "Rapport de la masse du contrepoids à la masse totale (cabine + charge)",
+        "es": "Relación entre la masa del contrapeso y la masa total (cabina + carga)"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Friction Force",
         "tr": "Sürtünme Kuvveti",
-        "de": "Friction Force",
-        "fr": "Friction Force",
-        "es": "Friction Force",
+        "de": "Reibungskraft",
+        "fr": "Force de frottement",
+        "es": "Fuerza de fricción",
         "ar": "Friction Force"
       },
       "businessContext_i18n": {
         "en": "Estimated friction opposing motion",
-        "tr": "Harekete karşı tahmini sürtünme"
+        "tr": "Harekete karşı tahmini sürtünme",
+        "de": "Geschätzte Reibung, die der Bewegung entgegenwirkt",
+        "fr": "Frottement estimé s'opposant au mouvement",
+        "es": "Fricción estimada que se opone al movimiento"
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Safety factor for mechanical design",
-        "tr": "Mekanik tasarım için güvenlik faktörü"
+        "tr": "Mekanik tasarım için güvenlik faktörü",
+        "de": "Sicherheitsfaktor für die mechanische Auslegung",
+        "fr": "Coefficient de sécurité pour la conception mécanique",
+        "es": "Factor de seguridad para diseño mecánico"
       }
     }
   ],

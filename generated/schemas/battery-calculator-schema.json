@@ -12,14 +12,16 @@
         "en": "Battery Capacity (Ah)",
         "tr": "Akü Kapasitesi (Ah)",
         "de": "Batteriekapazität (Ah)",
-        "fr": "Battery Capacity (Ah)",
-        "es": "Battery Capacity (Ah)",
+        "fr": "Capacité de la batterie (Ah)",
+        "es": "Capacidad de la batería (Ah)",
         "ar": "Battery Capacity (Ah)"
       },
       "businessContext_i18n": {
         "en": "Rated ampere-hour capacity of a single battery",
         "tr": "Tek bir akünün anma amper-saat kapasitesi",
-        "de": "Nenn-Amperestunden-Kapazität einer einzelnen Batterie"
+        "de": "Nenn-Amperestunden-Kapazität einer einzelnen Batterie",
+        "fr": "Capacité nominale en ampères-heures d'une seule batterie",
+        "es": "Capacidad nominal en amperios-hora de una sola batería"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Nominal Voltage (V)",
         "tr": "Nominal Gerilim (V)",
         "de": "Nennspannung (V)",
-        "fr": "Nominal Voltage (V)",
-        "es": "Nominal Voltage (V)",
+        "fr": "Tension nominale (V)",
+        "es": "Tensión nominal (V)",
         "ar": "Nominal Voltage (V)"
       },
       "businessContext_i18n": {
         "en": "Nominal voltage of the battery",
         "tr": "Akünün nominal gerilimi",
-        "de": "Nennspannung der Batterie"
+        "de": "Nennspannung der Batterie",
+        "fr": "Tension nominale de la batterie",
+        "es": "Tensión nominal de la batería"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Load Power (W)",
         "tr": "Yük Gücü (W)",
         "de": "Lastleistung (W)",
-        "fr": "Load Power (W)",
-        "es": "Load Power (W)",
+        "fr": "Puissance de charge (W)",
+        "es": "Potencia de carga (W)",
         "ar": "Load Power (W)"
       },
       "businessContext_i18n": {
         "en": "Continuous power draw from the battery",
         "tr": "Aküden sürekli güç çekişi",
-        "de": "Dauerhafte Stromentnahme aus der Batterie"
+        "de": "Dauerhafte Stromentnahme aus der Batterie",
+        "fr": "Consommation électrique continue de la batterie",
+        "es": "Consumo continuo de energía de la batería"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Depth of Discharge (%)",
         "tr": "Deşarj Derinliği (%)",
         "de": "Entladetiefe (%)",
-        "fr": "Depth of Discharge (%)",
-        "es": "Depth of Discharge (%)",
+        "fr": "Profondeur de décharge (%)",
+        "es": "Profundidad de descarga (%)",
         "ar": "Depth of Discharge (%)"
       },
       "businessContext_i18n": {
         "en": "Maximum discharge depth to avoid battery damage",
         "tr": "Akü hasarını önlemek için maksimum deşarj derinliği",
-        "de": "Maximale Entladetiefe zur Vermeidung von Batterieschäden"
+        "de": "Maximale Entladetiefe zur Vermeidung von Batterieschäden",
+        "fr": "Profondeur de décharge maximale pour éviter d'endommager la batterie",
+        "es": "Profundidad máxima de descarga para evitar daños a la batería"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "System Efficiency (%)",
         "tr": "Sistem Verimliliği (%)",
         "de": "Systemwirkungsgrad (%)",
-        "fr": "System Efficiency (%)",
-        "es": "System Efficiency (%)",
+        "fr": "Rendement du système (%)",
+        "es": "Eficiencia del sistema (%)",
         "ar": "System Efficiency (%)"
       },
       "businessContext_i18n": {
         "en": "Combined inverter and wiring efficiency losses",
         "tr": "Kombine invertör ve kablo kayıpları",
-        "de": "Kombinierte Verluste durch Wechselrichter und Verkabelung"
+        "de": "Kombinierte Verluste durch Wechselrichter und Verkabelung",
+        "fr": "Pertes combinées de l'onduleur et du câblage",
+        "es": "Pérdidas combinadas del inversor y el cableado"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Number of Batteries",
         "tr": "Akü Sayısı",
         "de": "Anzahl der Batterien",
-        "fr": "Number of Batteries",
-        "es": "Number of Batteries",
+        "fr": "Nombre de batteries",
+        "es": "Número de baterías",
         "ar": "Number of Batteries"
       },
       "businessContext_i18n": {
         "en": "Total number of identical batteries in parallel (adds capacity)",
         "tr": "Paralel bağlı toplam özdeş akü sayısı (kapasite ekler)",
-        "de": "Gesamtzahl identischer parallel geschalteter Batterien (erhöht Kapazität)"
+        "de": "Gesamtzahl identischer parallel geschalteter Batterien (erhöht Kapazität)",
+        "fr": "Nombre total de batteries identiques en parallèle (ajoute de la capacité)",
+        "es": "Número total de baterías idénticas en paralelo (añade capacidad)"
       }
     }
   ],

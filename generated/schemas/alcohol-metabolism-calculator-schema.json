@@ -12,14 +12,16 @@
         "en": "Gender (Male=1, Female=0)",
         "tr": "Cinsiyet (Erkek=1, Kadın=0)",
         "de": "Geschlecht (Männlich=1, Weiblich=0)",
-        "fr": "Gender (Male=1, Female=0)",
-        "es": "Gender (Male=1, Female=0)",
+        "fr": "Sexe (Homme=1, Femme=0)",
+        "es": "Género (Hombre=1, Mujer=0)",
         "ar": "Gender (Male=1, Female=0)"
       },
       "businessContext_i18n": {
         "en": "Select gender: 1 for male, 0 for female",
         "tr": "Cinsiyet seçin: 1 erkek, 0 kadın",
-        "de": "Geschlecht auswählen: 1 für männlich, 0 für weiblich"
+        "de": "Geschlecht auswählen: 1 für männlich, 0 für weiblich",
+        "fr": "Sélectionnez le sexe : 1 pour homme, 0 pour femme",
+        "es": "Seleccione género: 1 para hombre, 0 para mujer"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Pure Alcohol Consumed",
         "tr": "Tüketilen Saf Alkol",
         "de": "Reiner Alkohol konsumiert",
-        "fr": "Pure Alcohol Consumed",
-        "es": "Pure Alcohol Consumed",
+        "fr": "Alcool pur consommé",
+        "es": "Alcohol puro consumido",
         "ar": "Pure Alcohol Consumed"
       },
       "businessContext_i18n": {
         "en": "Total pure alcohol in grams (typical drink: 14g)",
         "tr": "Toplam saf alkol miktarı (gram cinsinden; tipik bir içecek 14g).",
-        "de": "Gesamter reiner Alkohol in Gramm (typisches Getränk: 14g)"
+        "de": "Gesamter reiner Alkohol in Gramm (typisches Getränk: 14g)",
+        "fr": "Alcool pur total en grammes (verre standard : 14g)",
+        "es": "Alcohol puro total en gramos (bebida típica: 14g)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Body Weight",
-        "es": "Body Weight",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "Body weight in kilograms",
         "tr": "Vücut ağırlığı (kilogram cinsinden).",
-        "de": "Körpergewicht in Kilogramm"
+        "de": "Körpergewicht in Kilogramm",
+        "fr": "Poids corporel en kilogrammes",
+        "es": "Peso corporal en kilogramos"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Time Elapsed",
         "tr": "Geçen Süre",
         "de": "Verstrichene Zeit",
-        "fr": "Time Elapsed",
-        "es": "Time Elapsed",
+        "fr": "Temps écoulé",
+        "es": "Tiempo transcurrido",
         "ar": "Time Elapsed"
       },
       "businessContext_i18n": {
         "en": "Time since drinking began in hours",
         "tr": "İçmeye başladıktan sonra geçen süre (saat cinsinden).",
-        "de": "Zeit seit Beginn des Trinkens in Stunden"
+        "de": "Zeit seit Beginn des Trinkens in Stunden",
+        "fr": "Temps depuis le début de la consommation en heures",
+        "es": "Tiempo desde que comenzó a beber en horas"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Elimination Rate",
         "tr": "Eliminasyon Hızı",
         "de": "Eliminationsrate",
-        "fr": "Elimination Rate",
-        "es": "Elimination Rate",
+        "fr": "Taux d'élimination",
+        "es": "Tasa de eliminación",
         "ar": "Elimination Rate"
       },
       "businessContext_i18n": {
         "en": "Alcohol elimination rate (standard 0.015 g/dL per hour)",
         "tr": "Alkol eliminasyon hızı (standart 0.015 g/dL/saat).",
-        "de": "Alkohol-Eliminationsrate (Standard 0,015 g/dL pro Stunde)"
+        "de": "Alkohol-Eliminationsrate (Standard 0,015 g/dL pro Stunde)",
+        "fr": "Taux d'élimination de l'alcool (standard 0,015 g/dL par heure)",
+        "es": "Tasa de eliminación de alcohol (estándar 0.015 g/dL por hora)"
       }
     }
   ],

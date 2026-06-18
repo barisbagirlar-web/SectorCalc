@@ -12,13 +12,16 @@
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Body Weight",
-        "es": "Body Weight",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "Vücut ağırlığı (kg)",
-        "tr": "Vücut ağırlığı (kg)"
+        "tr": "Vücut ağırlığı (kg)",
+        "de": "Körpergewicht (kg)",
+        "fr": "Poids corporel (kg)",
+        "es": "Peso corporal (kg)"
       }
     },
     {
@@ -32,14 +35,16 @@
         "en": "Height",
         "tr": "Boy",
         "de": "Größe",
-        "fr": "Height",
-        "es": "Height",
+        "fr": "Taille",
+        "es": "Altura",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "Boy (cm)",
         "tr": "Boy (cm)",
-        "de": "Körpergröße (cm)"
+        "de": "Körpergröße (cm)",
+        "fr": "Taille (cm)",
+        "es": "Altura (cm)"
       }
     },
     {
@@ -53,13 +58,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Yaş (yıl)",
-        "tr": "Yaş (yıl)"
+        "tr": "Yaş (yıl)",
+        "de": "Alter (Jahre)",
+        "fr": "Âge (ans)",
+        "es": "Edad (años)"
       }
     },
     {
@@ -73,14 +81,16 @@
         "en": "Gender",
         "tr": "Cinsiyet",
         "de": "Geschlecht",
-        "fr": "Gender",
-        "es": "Gender",
+        "fr": "Genre",
+        "es": "Género",
         "ar": "Gender"
       },
       "businessContext_i18n": {
         "en": "Cinsiyet: 0 kadın, 1 erkek",
         "tr": "Cinsiyet: 0 kadın, 1 erkek",
-        "de": "Cinsiyet: 0 kadın, 1 erkek"
+        "de": "Geschlecht: 0 weiblich, 1 männlich",
+        "fr": "Sexe : 0 femme, 1 homme",
+        "es": "Sexo: 0 mujer, 1 hombre"
       }
     },
     {
@@ -94,13 +104,16 @@
         "en": "Activity Level",
         "tr": "Aktivite Seviyesi",
         "de": "Aktivitätsniveau",
-        "fr": "Activity Level",
-        "es": "Activity Level",
+        "fr": "Niveau d'activité",
+        "es": "Nivel de actividad",
         "ar": "Activity Level"
       },
       "businessContext_i18n": {
         "en": "Aktivite seviyesi çarpanı (1.2: sedanter, 1.55: orta, 1.9: çok aktif)",
-        "tr": "Aktivite seviyesi çarpanı (1.2: sedanter, 1.55: orta, 1.9: çok aktif)"
+        "tr": "Aktivite seviyesi çarpanı (1.2: sedanter, 1.55: orta, 1.9: çok aktif)",
+        "de": "Aktivitätsfaktor (1,2: sitzend, 1,55: mäßig, 1,9: sehr aktiv)",
+        "fr": "Multiplicateur du niveau d'activité (1,2 : sédentaire, 1,55 : modéré, 1,9 : très actif)",
+        "es": "Multiplicador del nivel de actividad (1.2: sedentario, 1.55: moderado, 1.9: muy activo)"
       }
     },
     {
@@ -113,14 +126,17 @@
       "label_i18n": {
         "en": "Daily Calorie Surplus",
         "tr": "Günlük Kalori Fazlası",
-        "de": "Daily Calorie Surplus",
-        "fr": "Daily Calorie Surplus",
-        "es": "Daily Calorie Surplus",
+        "de": "Täglicher Kalorienüberschuss",
+        "fr": "Excédent calorique quotidien",
+        "es": "Excedente calórico diario",
         "ar": "Daily Calorie Surplus"
       },
       "businessContext_i18n": {
         "en": "Günlük kalori fazlası (kcal/gün)",
-        "tr": "Günlük kalori fazlası (kcal/gün)"
+        "tr": "Günlük kalori fazlası (kcal/gün)",
+        "de": "Täglicher Kalorienüberschuss (kcal/Tag)",
+        "fr": "Excédent calorique quotidien (kcal/jour)",
+        "es": "Excedente calórico diario (kcal/día)"
       }
     },
     {
@@ -133,14 +149,17 @@
       "label_i18n": {
         "en": "Daily Protein Intake",
         "tr": "Günlük Protein Alımı",
-        "de": "Daily Protein Intake",
-        "fr": "Daily Protein Intake",
-        "es": "Daily Protein Intake",
+        "de": "Tägliche Proteinzufuhr",
+        "fr": "Apport protéique quotidien",
+        "es": "Ingesta diaria de proteínas",
         "ar": "Daily Protein Intake"
       },
       "businessContext_i18n": {
         "en": "Günlük protein alımı (g/gün)",
-        "tr": "Günlük protein alımı (g/gün)"
+        "tr": "Günlük protein alımı (g/gün)",
+        "de": "Tägliche Proteinzufuhr (g/Tag)",
+        "fr": "Apport protéique quotidien (g/jour)",
+        "es": "Ingesta diaria de proteínas (g/día)"
       }
     }
   ],

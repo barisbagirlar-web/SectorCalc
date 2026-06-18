@@ -12,14 +12,16 @@
         "en": "Yaş",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Yaş",
-        "es": "Yaş",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Yaş"
       },
       "businessContext_i18n": {
         "en": "Kullanıcının yaşı",
         "tr": "Kullanıcının yaşı",
-        "de": "Alter des Benutzers"
+        "de": "Alter des Benutzers",
+        "fr": "Âge de l'utilisateur",
+        "es": "Edad del usuario"
       }
     },
     {
@@ -33,13 +35,15 @@
         "en": "Ağırlık",
         "tr": "Ağırlık",
         "de": "Gewicht",
-        "fr": "Ağırlık",
-        "es": "Ağırlık",
+        "fr": "Poids",
+        "es": "Peso",
         "ar": "Ağırlık"
       },
       "businessContext_i18n": {
         "en": "Kullanıcının ağırlığı (kg)",
-        "tr": "Kullanıcının ağırlığı (kg)"
+        "tr": "Kullanıcının ağırlığı (kg)",
+        "de": "Gewicht des Benutzers (kg)",
+        "fr": "Poids de l'utilisateur (kg)"
       }
     },
     {
@@ -54,12 +58,14 @@
         "tr": "Boy",
         "de": "Junge",
         "fr": "Boy",
-        "es": "Boy",
+        "es": "Niño",
         "ar": "Boy"
       },
       "businessContext_i18n": {
         "en": "Kullanıcının boyu (cm)",
-        "tr": "Kullanıcının boyu (cm)"
+        "tr": "Kullanıcının boyu (cm)",
+        "de": "Größe des Benutzers (cm)",
+        "fr": "Taille de l'utilisateur (cm)"
       }
     },
     {
@@ -73,13 +79,15 @@
         "en": "Cinsiyet",
         "tr": "Cinsiyet",
         "de": "Geschlecht",
-        "fr": "Cinsiyet",
-        "es": "Cinsiyet",
+        "fr": "Sexe",
+        "es": "Sexo",
         "ar": "Cinsiyet"
       },
       "businessContext_i18n": {
         "en": "0: Kadın, 1: Erkek",
-        "tr": "0: Kadın, 1: Erkek"
+        "tr": "0: Kadın, 1: Erkek",
+        "de": "0: Weiblich, 1: Männlich",
+        "fr": "0: Femme, 1: Homme"
       }
     },
     {
@@ -92,14 +100,16 @@
       "label_i18n": {
         "en": "Aktivite Çarpanı",
         "tr": "Aktivite Çarpanı",
-        "de": "Aktivite Çarpanı",
-        "fr": "Aktivite Çarpanı",
+        "de": "Aktivitätsfaktor",
+        "fr": "Coefficient d'activité",
         "es": "Aktivite Çarpanı",
         "ar": "Aktivite Çarpanı"
       },
       "businessContext_i18n": {
         "en": "Sedanter=1.2, Hafif=1.375, Orta=1.55, Aktif=1.725, Çok Aktif=1.9",
-        "tr": "Sedanter=1.2, Hafif=1.375, Orta=1.55, Aktif=1.725, Çok Aktif=1.9"
+        "tr": "Sedanter=1.2, Hafif=1.375, Orta=1.55, Aktif=1.725, Çok Aktif=1.9",
+        "de": "Bewegungsarm=1,2, Leicht=1,375, Mittel=1,55, Aktiv=1,725, Sehr aktiv=1,9",
+        "fr": "Sédentaire=1.2, Léger=1.375, Modéré=1.55, Actif=1.725, Très actif=1.9"
       }
     }
   ],

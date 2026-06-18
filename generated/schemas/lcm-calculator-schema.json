@@ -22,11 +22,16 @@
       "label_i18n": {
         "en": "Acquisition Cost",
         "tr": "Edinme Maliyeti",
-        "de": "Anschaffungskosten"
+        "de": "Anschaffungskosten",
+        "fr": "Coût d'acquisition",
+        "es": "Costo de adquisición"
       },
       "businessContext_i18n": {
         "en": "Total initial cost of acquiring the asset (purchase, installation, commissioning).",
-        "tr": "Varlığın edinilmesi için toplam başlangıç maliyeti (satın alma, kurulum, devreye alma)."
+        "tr": "Varlığın edinilmesi için toplam başlangıç maliyeti (satın alma, kurulum, devreye alma).",
+        "de": "Gesamte Anschaffungskosten des Vermögenswerts (Kauf, Installation, Inbetriebnahme).",
+        "fr": "Coût initial total d'acquisition de l'actif (achat, installation, mise en service).",
+        "es": "Costo total inicial de adquisición del activo (compra, instalación, puesta en marcha)."
       }
     },
     {
@@ -40,11 +45,17 @@
       "businessContext": "Planned useful life of the asset per ISO 15686.",
       "label_i18n": {
         "en": "Expected Life (Years)",
-        "tr": "Beklenen Ömür (Yıl)"
+        "tr": "Beklenen Ömür (Yıl)",
+        "de": "Erwartete Lebensdauer (Jahre)",
+        "fr": "Durée de vie prévue (années)",
+        "es": "Vida Útil Esperada (Años)"
       },
       "businessContext_i18n": {
         "en": "Planned useful life of the asset per ISO 15686.",
-        "tr": "ISO 15686'ya göre varlığın planlanan faydalı ömrü."
+        "tr": "ISO 15686'ya göre varlığın planlanan faydalı ömrü.",
+        "de": "Geplante Nutzungsdauer des Vermögenswerts nach ISO 15686.",
+        "fr": "Durée de vie utile prévue de l'actif selon ISO 15686.",
+        "es": "Vida útil planificada del activo según ISO 15686."
       }
     },
     {
@@ -59,11 +70,16 @@
       "label_i18n": {
         "en": "Annual Operating Hours",
         "tr": "Yıllık Çalışma Saati",
-        "de": "Jährliche Betriebsstunden"
+        "de": "Jährliche Betriebsstunden",
+        "fr": "Heures de fonctionnement annuelles",
+        "es": "Horas de operación anuales"
       },
       "businessContext_i18n": {
         "en": "Expected annual usage hours.",
-        "tr": "Yıllık beklenen kullanım saati."
+        "tr": "Yıllık beklenen kullanım saati.",
+        "de": "Erwartete jährliche Nutzungsstunden.",
+        "fr": "Heures d'utilisation annuelles prévues.",
+        "es": "Horas de uso anuales esperadas."
       }
     },
     {
@@ -82,11 +98,17 @@
       ],
       "label_i18n": {
         "en": "Maintenance Strategy",
-        "tr": "Bakım Stratejisi"
+        "tr": "Bakım Stratejisi",
+        "de": "Instandhaltungsstrategie",
+        "fr": "Stratégie de maintenance",
+        "es": "Estrategia de Mantenimiento"
       },
       "businessContext_i18n": {
         "en": "Type of maintenance approach (preventive, predictive, reactive).",
-        "tr": "Bakım yaklaşımı türü (önleyici, kestirimci, reaktif)."
+        "tr": "Bakım yaklaşımı türü (önleyici, kestirimci, reaktif).",
+        "de": "Art des Instandhaltungsansatzes (vorbeugend, vorausschauend, reaktiv).",
+        "fr": "Type d'approche de maintenance (préventive, prédictive, réactive).",
+        "es": "Tipo de enfoque de mantenimiento (preventivo, predictivo, reactivo)."
       }
     },
     {
@@ -101,11 +123,16 @@
       "label_i18n": {
         "en": "Labor Rate",
         "tr": "İşçilik ücreti",
-        "de": "Stundensatz"
+        "de": "Stundensatz",
+        "fr": "Taux de main-d'œuvre",
+        "es": "Tarifa de mano de obra"
       },
       "businessContext_i18n": {
         "en": "Average hourly cost of maintenance labor.",
-        "tr": "Bakım işçiliğinin ortalama saatlik maliyeti."
+        "tr": "Bakım işçiliğinin ortalama saatlik maliyeti.",
+        "de": "Durchschnittliche stündliche Kosten der Instandhaltungsarbeit.",
+        "fr": "Coût horaire moyen de la main-d'œuvre de maintenance.",
+        "es": "Costo promedio por hora de mano de obra de mantenimiento."
       }
     },
     {
@@ -119,11 +146,17 @@
       "businessContext": "Average cost of spare parts per maintenance event.",
       "label_i18n": {
         "en": "Parts Cost per Incident",
-        "tr": "Olay Başına Parça Maliyeti"
+        "tr": "Olay Başına Parça Maliyeti",
+        "de": "Teilekosten pro Vorfall",
+        "fr": "Coût des pièces par incident",
+        "es": "Costo de piezas por incidente"
       },
       "businessContext_i18n": {
         "en": "Average cost of spare parts per maintenance event.",
-        "tr": "Bakım olayı başına ortalama yedek parça maliyeti."
+        "tr": "Bakım olayı başına ortalama yedek parça maliyeti.",
+        "de": "Durchschnittliche Kosten für Ersatzteile pro Wartungsereignis.",
+        "fr": "Coût moyen des pièces de rechange par événement de maintenance.",
+        "es": "Costo promedio de piezas de repuesto por evento de mantenimiento."
       }
     },
     {
@@ -137,11 +170,17 @@
       "businessContext": "Lost revenue or cost per hour of unplanned downtime.",
       "label_i18n": {
         "en": "Downtime Cost per Hour",
-        "tr": "Saat Başına Arıza Süresi Maliyeti"
+        "tr": "Saat Başına Arıza Süresi Maliyeti",
+        "de": "Stillstandskosten pro Stunde",
+        "fr": "Coût par heure d'arrêt",
+        "es": "Costo de inactividad por hora"
       },
       "businessContext_i18n": {
         "en": "Lost revenue or cost per hour of unplanned downtime.",
-        "tr": "Plansız duruş saati başına kaybedilen gelir veya maliyet."
+        "tr": "Plansız duruş saati başına kaybedilen gelir veya maliyet.",
+        "de": "Verlorener Umsatz oder Kosten pro Stunde ungeplanter Stillstandszeit.",
+        "fr": "Revenu perdu ou coût par heure d'arrêt non planifié.",
+        "es": "Ingresos perdidos o costo por hora de inactividad no planificada."
       }
     },
     {
@@ -156,12 +195,16 @@
       "label_i18n": {
         "en": "Energy Cost per kWh",
         "tr": "kWh başına Enerji Maliyeti",
-        "de": "Energiekosten pro kWh"
+        "de": "Energiekosten pro kWh",
+        "fr": "Coût énergétique par kWh",
+        "es": "Costo energético por kWh"
       },
       "businessContext_i18n": {
         "en": "Cost of electricity per kilowatt-hour.",
         "tr": "Kilovatsaat başına elektrik maliyeti.",
-        "de": "Stromkosten pro Kilowattstunde."
+        "de": "Stromkosten pro Kilowattstunde.",
+        "fr": "Coût de l'électricité par kilowattheure.",
+        "es": "Costo de la electricidad por kilovatio-hora."
       }
     }
   ],

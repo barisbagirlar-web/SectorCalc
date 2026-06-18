@@ -12,13 +12,16 @@
         "en": "One Rep Max (1RM)",
         "tr": "Bir Tekrar Maksimumu (1TM)",
         "de": "One Rep Max (1RM)",
-        "fr": "One Rep Max (1RM)",
-        "es": "One Rep Max (1RM)",
+        "fr": "Répétition maximale (1RM)",
+        "es": "Repetición máxima (1RM)",
         "ar": "One Rep Max (1RM)"
       },
       "businessContext_i18n": {
         "en": "Maximum weight you can lift for one repetition",
-        "tr": "Bir tekrarda kaldırabileceğiniz maksimum ağırlık"
+        "tr": "Bir tekrarda kaldırabileceğiniz maksimum ağırlık",
+        "de": "Maximales Gewicht, das Sie für eine Wiederholung heben können",
+        "fr": "Poids maximal que vous pouvez soulever pour une répétition",
+        "es": "Peso máximo que puedes levantar en una repetición"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Target Percentage",
         "tr": "Hedef Yüzde",
         "de": "Zielprozentsatz",
-        "fr": "Target Percentage",
-        "es": "Target Percentage",
+        "fr": "Pourcentage cible",
+        "es": "Porcentaje objetivo",
         "ar": "Target Percentage"
       },
       "businessContext_i18n": {
         "en": "Percentage of 1RM to calculate",
-        "tr": "Hesaplanacak 1TM yüzdesi"
+        "tr": "Hesaplanacak 1TM yüzdesi",
+        "de": "Prozentsatz des 1RM zur Berechnung",
+        "fr": "Pourcentage de la 1RM à calculer",
+        "es": "Porcentaje de 1RM a calcular"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Rounding Increment",
         "tr": "Yuvarlama Artışı",
-        "de": "Rounding Increment",
-        "fr": "Rounding Increment",
-        "es": "Rounding Increment",
+        "de": "Rundungsintervall",
+        "fr": "Incrément d'arrondi",
+        "es": "Incremento de redondeo",
         "ar": "Rounding Increment"
       },
       "businessContext_i18n": {
         "en": "Increment to round the result to (0 for no rounding)",
-        "tr": "Sonucun yuvarlanacağı artış (yuvarlama yok için 0)"
+        "tr": "Sonucun yuvarlanacağı artış (yuvarlama yok için 0)",
+        "de": "Intervall, auf das das Ergebnis gerundet wird (0 für keine Rundung)",
+        "fr": "Incrément pour arrondir le résultat (0 pour aucun arrondi)",
+        "es": "Incremento para redondear el resultado (0 para sin redondeo)"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Body Weight",
-        "es": "Body Weight",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "Your body weight for relative strength reference",
-        "tr": "Göreceli güç referansı için vücut ağırlığınız"
+        "tr": "Göreceli güç referansı için vücut ağırlığınız",
+        "de": "Ihr Körpergewicht als Referenz für die relative Kraft",
+        "fr": "Votre poids corporel pour référence de force relative",
+        "es": "Tu peso corporal para referencia de fuerza relativa"
       }
     }
   ],

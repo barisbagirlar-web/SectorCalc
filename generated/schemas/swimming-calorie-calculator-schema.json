@@ -12,13 +12,15 @@
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Body Weight",
-        "es": "Body Weight",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "The weight of the swimmer in kilograms",
-        "tr": "Yüzücünün kilogram cinsinden ağırlığı"
+        "tr": "Yüzücünün kilogram cinsinden ağırlığı",
+        "de": "Gewicht des Schwimmers in Kilogramm",
+        "fr": "Poids du nageur en kilogrammes"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Swimming Duration",
         "tr": "Yüzme Süresi",
-        "de": "Swimming Duration",
-        "fr": "Swimming Duration",
+        "de": "Schwimmdauer",
+        "fr": "Durée de la nage",
         "es": "Swimming Duration",
         "ar": "Swimming Duration"
       },
       "businessContext_i18n": {
         "en": "Total time spent swimming in minutes",
-        "tr": "Dakika cinsinden toplam yüzme süresi"
+        "tr": "Dakika cinsinden toplam yüzme süresi",
+        "de": "Gesamte Schwimmzeit in Minuten",
+        "fr": "Temps total passé à nager en minutes"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "MET Value",
         "tr": "MET Değeri",
         "de": "MET-Wert",
-        "fr": "MET Value",
-        "es": "MET Value",
+        "fr": "Valeur MET",
+        "es": "Valor MET",
         "ar": "MET Value"
       },
       "businessContext_i18n": {
         "en": "Metabolic Equivalent of Task for swimming stroke (e.g., 6-10)",
-        "tr": "Yüzme stili için metabolik eşdeğer (örn. 6-10)"
+        "tr": "Yüzme stili için metabolik eşdeğer (örn. 6-10)",
+        "de": "Metabolisches Äquivalent für Schwimmstil (z. B. 6-10)",
+        "fr": "Équivalent métabolique de la tâche pour la nage (ex. 6-10)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Calorie Burn Rate Factor",
         "tr": "Kalori Yakma Oranı Faktörü",
-        "de": "Calorie Burn Rate Factor",
-        "fr": "Calorie Burn Rate Factor",
+        "de": "Kalorienverbrauchsfaktor",
+        "fr": "Facteur de taux de brûlage calorique",
         "es": "Calorie Burn Rate Factor",
         "ar": "Calorie Burn Rate Factor"
       },
       "businessContext_i18n": {
         "en": "Individual metabolism factor to adjust calorie burn (0.8-1.2, default 1)",
-        "tr": "Kalori yakımını ayarlamak için bireysel metabolizma faktörü (0.8-1.2, varsayılan 1)"
+        "tr": "Kalori yakımını ayarlamak için bireysel metabolizma faktörü (0.8-1.2, varsayılan 1)",
+        "de": "Individueller Stoffwechselfaktor zur Anpassung des Kalorienverbrauchs (0,8-1,2, Standard 1)",
+        "fr": "Facteur métabolique individuel pour ajuster la dépense calorique (0,8-1,2, défaut 1)"
       }
     }
   ],

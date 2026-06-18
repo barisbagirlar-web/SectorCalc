@@ -13,12 +13,15 @@
         "tr": "Mesafe (km)",
         "de": "Strecke (km)",
         "fr": "Distance (km)",
-        "es": "Distance (km)",
+        "es": "Distancia (km)",
         "ar": "Distance (km)"
       },
       "businessContext_i18n": {
         "en": "Total horizontal distance of the hike",
-        "tr": "Yürüyüşün toplam yatay mesafesi"
+        "tr": "Yürüyüşün toplam yatay mesafesi",
+        "de": "Gesamte horizontale Distanz der Wanderung",
+        "fr": "Distance horizontale totale de la randonnée",
+        "es": "Distancia horizontal total de la caminata"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Total Ascent (m)",
         "tr": "Toplam Yükseliş (m)",
-        "de": "Total Ascent (m)",
-        "fr": "Total Ascent (m)",
-        "es": "Total Ascent (m)",
+        "de": "Gesamter Aufstieg (m)",
+        "fr": "Dénivelé total (m)",
+        "es": "Ascenso total (m)",
         "ar": "Total Ascent (m)"
       },
       "businessContext_i18n": {
         "en": "Total elevation gain during the hike",
-        "tr": "Yürüyüş sırasında toplam yükseklik kazanımı"
+        "tr": "Yürüyüş sırasında toplam yükseklik kazanımı",
+        "de": "Gesamter Höhengewinn während der Wanderung",
+        "fr": "Gain d'altitude total pendant la randonnée",
+        "es": "Ganancia total de elevación durante la caminata"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Total Descent (m)",
         "tr": "Toplam İniş (m)",
-        "de": "Total Descent (m)",
-        "fr": "Total Descent (m)",
-        "es": "Total Descent (m)",
+        "de": "Gesamter Abstieg (m)",
+        "fr": "Descente totale (m)",
+        "es": "Descenso total (m)",
         "ar": "Total Descent (m)"
       },
       "businessContext_i18n": {
         "en": "Total elevation loss during the hike",
-        "tr": "Yürüyüş sırasında toplam yükseklik kaybı"
+        "tr": "Yürüyüş sırasında toplam yükseklik kaybı",
+        "de": "Gesamter Höhenverlust während der Wanderung",
+        "fr": "Perte d'altitude totale pendant la randonnée",
+        "es": "Pérdida total de elevación durante la caminata"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Pace (min/km)",
         "tr": "Tempo (dak/km)",
-        "de": "Pace (min/km)",
-        "fr": "Pace (min/km)",
-        "es": "Pace (min/km)",
+        "de": "Tempo (min/km)",
+        "fr": "Allure (min/km)",
+        "es": "Ritmo (min/km)",
         "ar": "Pace (min/km)"
       },
       "businessContext_i18n": {
         "en": "Average walking pace on flat terrain",
-        "tr": "Düz arazide ortalama yürüme hızı"
+        "tr": "Düz arazide ortalama yürüme hızı",
+        "de": "Durchschnittliche Gehgeschwindigkeit auf flachem Gelände",
+        "fr": "Allure de marche moyenne sur terrain plat",
+        "es": "Ritmo de caminata promedio en terreno plano"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Ascent Time per 100m (min)",
         "tr": "100m Başına Çıkış Süresi (dak)",
-        "de": "Ascent Time per 100m (min)",
-        "fr": "Ascent Time per 100m (min)",
-        "es": "Ascent Time per 100m (min)",
+        "de": "Aufstiegszeit pro 100 m (min)",
+        "fr": "Temps de montée par 100 m (min)",
+        "es": "Tiempo de ascenso por 100 m (min)",
         "ar": "Ascent Time per 100m (min)"
       },
       "businessContext_i18n": {
         "en": "Additional time per 100m of ascent",
-        "tr": "100m çıkış başına ek süre"
+        "tr": "100m çıkış başına ek süre",
+        "de": "Zusätzliche Zeit pro 100 m Aufstieg",
+        "fr": "Temps supplémentaire par 100 m de montée",
+        "es": "Tiempo adicional por cada 100 m de ascenso"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Descent Time per 100m (min)",
         "tr": "100m Başına İniş Süresi (dak)",
-        "de": "Descent Time per 100m (min)",
-        "fr": "Descent Time per 100m (min)",
-        "es": "Descent Time per 100m (min)",
+        "de": "Abstiegszeit pro 100 m (min)",
+        "fr": "Temps de descente par 100 m (min)",
+        "es": "Tiempo de descenso por 100 m (min)",
         "ar": "Descent Time per 100m (min)"
       },
       "businessContext_i18n": {
         "en": "Additional time per 100m of descent",
-        "tr": "100m iniş başına ek süre"
+        "tr": "100m iniş başına ek süre",
+        "de": "Zusätzliche Zeit pro 100 m Abstieg",
+        "fr": "Temps supplémentaire par 100 m de descente",
+        "es": "Tiempo adicional por cada 100 m de descenso"
       }
     }
   ],

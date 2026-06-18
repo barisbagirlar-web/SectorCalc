@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Area (m²)",
         "tr": "Alan (m²)",
-        "de": "Area (m²)",
-        "fr": "Area (m²)",
+        "de": "Fläche (m²)",
+        "fr": "Superficie (m²)",
         "es": "Area (m²)",
         "ar": "Area (m²)"
       },
       "businessContext_i18n": {
         "en": "The area in square meters to convert.",
-        "tr": "Dönüştürülecek metrekare cinsinden alan."
+        "tr": "Dönüştürülecek metrekare cinsinden alan.",
+        "de": "Die Fläche in Quadratmetern, die umgerechnet werden soll.",
+        "fr": "La superficie en mètres carrés à convertir."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor from m² to ft². 1 m² = 10.7639104 ft².",
-        "tr": "m²'den ft²'ye standart dönüşüm faktörü. 1 m² = 10,7639104 ft²."
+        "tr": "m²'den ft²'ye standart dönüşüm faktörü. 1 m² = 10,7639104 ft².",
+        "de": "Standard-Umrechnungsfaktor von m² in ft². 1 m² = 10,7639104 ft².",
+        "fr": "Facteur de conversion standard de m² en ft². 1 m² = 10,7639104 ft²."
       }
     },
     {
@@ -52,14 +56,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the output.",
         "tr": "Çıktının yuvarlanması için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen für die Rundung des Ergebnisses."
+        "de": "Anzahl der Dezimalstellen für die Rundung des Ergebnisses.",
+        "fr": "Nombre de décimales pour l'arrondi du résultat.",
+        "es": "Número de decimales para redondear el resultado."
       }
     },
     {
@@ -73,13 +79,15 @@
         "en": "Unit Price",
         "tr": "Birim Fiyat",
         "de": "Stückpreis",
-        "fr": "Unit Price",
-        "es": "Unit Price",
+        "fr": "Prix unitaire",
+        "es": "Precio unitario",
         "ar": "Unit Price"
       },
       "businessContext_i18n": {
         "en": "Optional: price per square foot for cost estimation.",
-        "tr": "İsteğe bağlı: maliyet tahmini için fit kare başına fiyat."
+        "tr": "İsteğe bağlı: maliyet tahmini için fit kare başına fiyat.",
+        "de": "Optional: Preis pro Quadratfuß für die Kostenschätzung.",
+        "fr": "Optionnel : prix par pied carré pour l'estimation des coûts."
       }
     },
     {
@@ -93,13 +101,15 @@
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
         "de": "Abfallfaktor",
-        "fr": "Waste Factor",
-        "es": "Waste Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Optional: percentage of additional area for material waste.",
-        "tr": "İsteğe bağlı: malzeme israfı için ek alan yüzdesi."
+        "tr": "İsteğe bağlı: malzeme israfı için ek alan yüzdesi.",
+        "de": "Optional: Prozentsatz der zusätzlichen Fläche für Materialabfall.",
+        "fr": "Optionnel : pourcentage de surface supplémentaire pour les déchets de matériau."
       }
     },
     {
@@ -113,13 +123,15 @@
         "en": "Tolerance",
         "tr": "Tolerans",
         "de": "Toleranz",
-        "fr": "Tolerance",
-        "es": "Tolerance",
+        "fr": "Tolérance",
+        "es": "Tolerancia",
         "ar": "Tolerance"
       },
       "businessContext_i18n": {
         "en": "Measurement uncertainty percentage for tolerance band.",
-        "tr": "Tolerans bandı için ölçüm belirsizliği yüzdesi."
+        "tr": "Tolerans bandı için ölçüm belirsizliği yüzdesi.",
+        "de": "Prozentsatz der Messunsicherheit für das Toleranzband.",
+        "fr": "Pourcentage d'incertitude de mesure pour la bande de tolérance."
       }
     }
   ],

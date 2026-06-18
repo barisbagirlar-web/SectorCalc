@@ -26,11 +26,15 @@
       "label_i18n": {
         "en": "Initial Investment",
         "tr": "Başlangıç Yatırımı",
-        "de": "Anfangsinvestition"
+        "de": "Anfangsinvestition",
+        "fr": "Investissement initial",
+        "es": "Inversión inicial"
       },
       "businessContext_i18n": {
         "en": "Total upfront capital expenditure including equipment, installation, and training costs.",
-        "tr": "Ekipman, kurulum ve eğitim maliyetleri dahil toplam peşin sermaye harcaması."
+        "tr": "Ekipman, kurulum ve eğitim maliyetleri dahil toplam peşin sermaye harcaması.",
+        "de": "Gesamte anfängliche Kapitalausgaben einschließlich Ausrüstung, Installation und Schulungskosten.",
+        "fr": "Dépense d'investissement totale initiale incluant équipement, installation et formation."
       }
     },
     {
@@ -44,11 +48,16 @@
       "businessContext": "Expected annual net cash inflow from the investment (revenue increase or cost savings).",
       "label_i18n": {
         "en": "Annual Cash Inflow",
-        "tr": "Yıllık Nakit Girişi"
+        "tr": "Yıllık Nakit Girişi",
+        "de": "Jährlicher Mittelzufluss",
+        "fr": "Entrée de trésorerie annuelle",
+        "es": "Flujo de caja anual entrante"
       },
       "businessContext_i18n": {
         "en": "Expected annual net cash inflow from the investment (revenue increase or cost savings).",
-        "tr": "Yatırımdan beklenen yıllık net nakit girişi (gelir artışı veya maliyet tasarrufu)."
+        "tr": "Yatırımdan beklenen yıllık net nakit girişi (gelir artışı veya maliyet tasarrufu).",
+        "de": "Erwarteter jährlicher Netto-Cashflow aus der Investition (Umsatzsteigerung oder Kosteneinsparungen).",
+        "fr": "Entrée de trésorerie nette annuelle attendue de l'investissement (augmentation des revenus ou économies de coûts)."
       }
     },
     {
@@ -62,11 +71,16 @@
       "businessContext": "Annual operating and maintenance costs associated with the investment.",
       "label_i18n": {
         "en": "Annual Cash Outflow",
-        "tr": "Yıllık Nakit Çıkışı"
+        "tr": "Yıllık Nakit Çıkışı",
+        "de": "Jährlicher Mittelabfluss",
+        "fr": "Sortie de trésorerie annuelle",
+        "es": "Flujo de caja anual saliente"
       },
       "businessContext_i18n": {
         "en": "Annual operating and maintenance costs associated with the investment.",
-        "tr": "Yatırımla ilgili yıllık işletme ve bakım maliyetleri."
+        "tr": "Yatırımla ilgili yıllık işletme ve bakım maliyetleri.",
+        "de": "Jährliche Betriebs- und Wartungskosten im Zusammenhang mit der Investition.",
+        "fr": "Coûts annuels d'exploitation et de maintenance associés à l'investissement."
       }
     },
     {
@@ -80,11 +94,15 @@
       "businessContext": "Weighted average cost of capital (WACC) or required rate of return per ISO 15663.",
       "label_i18n": {
         "en": "Discount Rate (%)",
-        "tr": "İskonto Oranı (%)"
+        "tr": "İskonto Oranı (%)",
+        "de": "Diskontsatz (%)",
+        "fr": "Taux d'actualisation (%)"
       },
       "businessContext_i18n": {
         "en": "Weighted average cost of capital (WACC) or required rate of return per ISO 15663.",
-        "tr": "ISO 15663'e göre ağırlıklı ortalama sermaye maliyeti (WACC) veya gerekli getiri oranı."
+        "tr": "ISO 15663'e göre ağırlıklı ortalama sermaye maliyeti (WACC) veya gerekli getiri oranı.",
+        "de": "Gewichteter durchschnittlicher Kapitalkostensatz (WACC) oder erforderliche Rendite gemäß ISO 15663.",
+        "fr": "Coût moyen pondéré du capital (CMPC) ou taux de rendement requis selon l'ISO 15663."
       }
     },
     {
@@ -98,11 +116,16 @@
       "businessContext": "Expected useful life of the investment per ISO 15686.",
       "label_i18n": {
         "en": "Project Life (Years)",
-        "tr": "Proje Ömrü (Yıl)"
+        "tr": "Proje Ömrü (Yıl)",
+        "de": "Projektlaufzeit (Jahre)",
+        "fr": "Durée de vie du projet (années)",
+        "es": "Vida del proyecto (años)"
       },
       "businessContext_i18n": {
         "en": "Expected useful life of the investment per ISO 15686.",
-        "tr": "ISO 15686'ya göre yatırımın beklenen faydalı ömrü."
+        "tr": "ISO 15686'ya göre yatırımın beklenen faydalı ömrü.",
+        "de": "Erwartete Nutzungsdauer der Investition gemäß ISO 15686.",
+        "fr": "Durée de vie utile attendue de l'investissement selon l'ISO 15686."
       }
     },
     {
@@ -117,11 +140,15 @@
       "label_i18n": {
         "en": "Salvage Value",
         "tr": "Hurda Değeri",
-        "de": "Restwert"
+        "de": "Restwert",
+        "fr": "Valeur de récupération",
+        "es": "Valor de rescate"
       },
       "businessContext_i18n": {
         "en": "Estimated residual value at end of project life.",
-        "tr": "Proje ömrü sonunda tahmini kalıntı değer."
+        "tr": "Proje ömrü sonunda tahmini kalıntı değer.",
+        "de": "Geschätzter Restwert am Ende der Projektlaufzeit.",
+        "fr": "Valeur résiduelle estimée en fin de vie du projet."
       }
     },
     {
@@ -135,11 +162,16 @@
       "businessContext": "Expected annual inflation rate for adjusting future cash flows.",
       "label_i18n": {
         "en": "Inflation Rate (%)",
-        "tr": "Enflasyon Oranı (%)"
+        "tr": "Enflasyon Oranı (%)",
+        "de": "Inflationsrate (%)",
+        "fr": "Taux d'inflation (%)",
+        "es": "Tasa de inflación (%)"
       },
       "businessContext_i18n": {
         "en": "Expected annual inflation rate for adjusting future cash flows.",
-        "tr": "Gelecekteki nakit akışlarını düzeltmek için beklenen yıllık enflasyon oranı."
+        "tr": "Gelecekteki nakit akışlarını düzeltmek için beklenen yıllık enflasyon oranı.",
+        "de": "Erwartete jährliche Inflationsrate zur Anpassung zukünftiger Cashflows.",
+        "fr": "Taux d'inflation annuel attendu pour l'ajustement des flux de trésorerie futurs."
       }
     },
     {
@@ -153,11 +185,16 @@
       "businessContext": "Effective corporate tax rate for after-tax cash flow calculations.",
       "label_i18n": {
         "en": "Tax Rate (%)",
-        "tr": "Vergi Oranı (%)"
+        "tr": "Vergi Oranı (%)",
+        "de": "Steuersatz (%)",
+        "fr": "Taux d'imposition (%)",
+        "es": "Tasa impositiva (%)"
       },
       "businessContext_i18n": {
         "en": "Effective corporate tax rate for after-tax cash flow calculations.",
-        "tr": "Vergi sonrası nakit akışı hesaplamaları için efektif kurumlar vergisi oranı."
+        "tr": "Vergi sonrası nakit akışı hesaplamaları için efektif kurumlar vergisi oranı.",
+        "de": "Effektiver Körperschaftsteuersatz für die Berechnung der Cashflows nach Steuern.",
+        "fr": "Taux d'imposition effectif des sociétés pour les calculs de flux de trésorerie après impôt."
       }
     }
   ],

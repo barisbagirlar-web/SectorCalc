@@ -12,13 +12,15 @@
         "en": "Guest Count",
         "tr": "Misafir Sayısı",
         "de": "Gästeanzahl",
-        "fr": "Guest Count",
-        "es": "Guest Count",
+        "fr": "Nombre d'invités",
+        "es": "Número de invitados",
         "ar": "Guest Count"
       },
       "businessContext_i18n": {
         "en": "Number of guests attending the wedding.",
-        "tr": "Düğüne katılacak misafir sayısı."
+        "tr": "Düğüne katılacak misafir sayısı.",
+        "de": "Anzahl der Hochzeitsgäste.",
+        "fr": "Nombre d'invités assistant au mariage."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Cost Per Plate",
         "tr": "Tabak Başına Maliyet",
-        "de": "Cost Per Plate",
-        "fr": "Cost Per Plate",
+        "de": "Kosten pro Teller",
+        "fr": "Coût par assiette",
         "es": "Cost Per Plate",
         "ar": "Cost Per Plate"
       },
       "businessContext_i18n": {
         "en": "Cost of food per guest.",
-        "tr": "Misafir başına yiyecek maliyeti."
+        "tr": "Misafir başına yiyecek maliyeti.",
+        "de": "Lebensmittelkosten pro Gast.",
+        "fr": "Coût de la nourriture par invité."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Drinks Cost Per Guest",
         "tr": "Misafir Başına İçecek Maliyeti",
-        "de": "Drinks Cost Per Guest",
-        "fr": "Drinks Cost Per Guest",
+        "de": "Getränkekosten pro Gast",
+        "fr": "Coût des boissons par invité",
         "es": "Drinks Cost Per Guest",
         "ar": "Drinks Cost Per Guest"
       },
       "businessContext_i18n": {
         "en": "Cost of beverages per guest.",
-        "tr": "Misafir başına içecek maliyeti."
+        "tr": "Misafir başına içecek maliyeti.",
+        "de": "Kosten für Getränke pro Gast.",
+        "fr": "Coût des boissons par invité."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Service Charge",
         "tr": "Servis Ücreti",
-        "de": "Service Charge",
-        "fr": "Service Charge",
+        "de": "Servicegebühr",
+        "fr": "Frais de service",
         "es": "Service Charge",
         "ar": "Service Charge"
       },
       "businessContext_i18n": {
         "en": "Service charge percentage applied to food and drinks subtotal.",
-        "tr": "Yiyecek ve içecek ara toplamına uygulanan hizmet ücreti yüzdesi."
+        "tr": "Yiyecek ve içecek ara toplamına uygulanan hizmet ücreti yüzdesi.",
+        "de": "Prozentsatz der Servicegebühr auf die Zwischensumme von Speisen und Getränken.",
+        "fr": "Pourcentage de frais de service appliqué au sous-total des aliments et boissons."
       }
     }
   ],

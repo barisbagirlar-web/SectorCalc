@@ -12,13 +12,16 @@
         "en": "Annual Salary",
         "tr": "Yıllık Maaş",
         "de": "Jahresgehalt",
-        "fr": "Annual Salary",
-        "es": "Annual Salary",
+        "fr": "Salaire annuel",
+        "es": "Salario anual",
         "ar": "Annual Salary"
       },
       "businessContext_i18n": {
         "en": "Gross annual salary",
-        "tr": "Brüt yıllık maaş"
+        "tr": "Brüt yıllık maaş",
+        "de": "Bruttojahresgehalt",
+        "fr": "Salaire annuel brut",
+        "es": "Salario bruto anual"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Number of Pay Periods per Year",
         "tr": "Yıllık Ödeme Dönemi Sayısı",
-        "de": "Number of Pay Periods per Year",
-        "fr": "Number of Pay Periods per Year",
-        "es": "Number of Pay Periods per Year",
+        "de": "Anzahl der Abrechnungszeiträume pro Jahr",
+        "fr": "Nombre de périodes de paie par an",
+        "es": "Número de períodos de pago por año",
         "ar": "Number of Pay Periods per Year"
       },
       "businessContext_i18n": {
         "en": "Frequency of pay checks, e.g., 12 for monthly, 26 for bi-weekly, 52 for weekly",
-        "tr": "Maaş çeklerinin sıklığı, örn. aylık için 12, iki haftada bir için 26, haftalık için 52"
+        "tr": "Maaş çeklerinin sıklığı, örn. aylık için 12, iki haftada bir için 26, haftalık için 52",
+        "de": "Häufigkeit der Gehaltszahlungen, z. B. 12 für monatlich, 26 für zweiwöchentlich, 52 für wöchentlich",
+        "fr": "Fréquence des chèques de paie, ex. 12 pour mensuel, 26 pour bimensuel, 52 pour hebdomadaire",
+        "es": "Frecuencia de los cheques de pago, p. ej., 12 para mensual, 26 para quincenal, 52 para semanal"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Overtime Hours",
         "tr": "Fazla Mesai Saatleri",
         "de": "Überstunden",
-        "fr": "Overtime Hours",
-        "es": "Overtime Hours",
+        "fr": "Heures supplémentaires",
+        "es": "Horas extra",
         "ar": "Overtime Hours"
       },
       "businessContext_i18n": {
         "en": "Total overtime hours worked in the pay period",
-        "tr": "Ödeme döneminde çalışılan toplam fazla mesai saati"
+        "tr": "Ödeme döneminde çalışılan toplam fazla mesai saati",
+        "de": "Insgesamt geleistete Überstunden im Abrechnungszeitraum",
+        "fr": "Total des heures supplémentaires travaillées dans la période de paie",
+        "es": "Total de horas extra trabajadas en el período de pago"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Overtime Rate Multiplier",
         "tr": "Fazla Mesai Ücret Çarpanı",
-        "de": "Overtime Rate Multiplier",
-        "fr": "Overtime Rate Multiplier",
-        "es": "Overtime Rate Multiplier",
+        "de": "Überstundenzuschlag",
+        "fr": "Multiplicateur du taux des heures supplémentaires",
+        "es": "Multiplicador de tarifa de horas extra",
         "ar": "Overtime Rate Multiplier"
       },
       "businessContext_i18n": {
         "en": "Multiplier for overtime pay relative to regular hourly rate",
-        "tr": "Fazla mesai ücretinin normal saatlik ücrete göre çarpanı"
+        "tr": "Fazla mesai ücretinin normal saatlik ücrete göre çarpanı",
+        "de": "Multiplikator für Überstundenvergütung im Verhältnis zum regulären Stundenlohn",
+        "fr": "Multiplicateur pour la rémunération des heures supplémentaires par rapport au taux horaire normal",
+        "es": "Multiplicador para el pago de horas extra en relación con la tarifa horaria regular"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Hours per Pay Period",
         "tr": "Ödeme Dönemi Başına Saat",
-        "de": "Hours per Pay Period",
-        "fr": "Hours per Pay Period",
-        "es": "Hours per Pay Period",
+        "de": "Stunden pro Abrechnungszeitraum",
+        "fr": "Heures par période de paie",
+        "es": "Horas por período de pago",
         "ar": "Hours per Pay Period"
       },
       "businessContext_i18n": {
         "en": "Standard working hours in one pay period",
-        "tr": "Bir ödeme dönemindeki standart çalışma saatleri"
+        "tr": "Bir ödeme dönemindeki standart çalışma saatleri",
+        "de": "Reguläre Arbeitsstunden in einem Abrechnungszeitraum",
+        "fr": "Heures de travail standard dans une période de paie",
+        "es": "Horas estándar de trabajo en un período de pago"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Deductions",
         "tr": "Kesintiler",
-        "de": "Deductions",
-        "fr": "Deductions",
-        "es": "Deductions",
+        "de": "Abzüge",
+        "fr": "Déductions",
+        "es": "Deducciones",
         "ar": "Deductions"
       },
       "businessContext_i18n": {
         "en": "Total pre-tax deductions per period",
-        "tr": "Dönem başına toplam vergi öncesi kesinti"
+        "tr": "Dönem başına toplam vergi öncesi kesinti",
+        "de": "Gesamte Vorsteuerabzüge pro Zeitraum",
+        "fr": "Total des déductions avant impôt par période",
+        "es": "Total de deducciones antes de impuestos por período"
       }
     },
     {
@@ -132,13 +150,16 @@
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
         "de": "Steuersatz",
-        "fr": "Tax Rate",
-        "es": "Tax Rate",
+        "fr": "Taux de taxe",
+        "es": "Tasa de impuesto",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Income tax rate applied after deductions",
-        "tr": "Kesintiler sonrası uygulanan gelir vergisi oranı"
+        "tr": "Kesintiler sonrası uygulanan gelir vergisi oranı",
+        "de": "Einkommensteuersatz nach Abzügen",
+        "fr": "Taux d'imposition sur le revenu appliqué après déductions",
+        "es": "Tasa de impuesto sobre la renta aplicada después de las deducciones"
       }
     },
     {
@@ -151,14 +172,17 @@
       "label_i18n": {
         "en": "Other Withholdings",
         "tr": "Diğer Kesintiler",
-        "de": "Other Withholdings",
-        "fr": "Other Withholdings",
-        "es": "Other Withholdings",
+        "de": "Sonstige Einbehalte",
+        "fr": "Autres retenues",
+        "es": "Otras retenciones",
         "ar": "Other Withholdings"
       },
       "businessContext_i18n": {
         "en": "Additional withholdings like insurance, union dues",
-        "tr": "Sigorta, sendika aidatı gibi ek kesintiler"
+        "tr": "Sigorta, sendika aidatı gibi ek kesintiler",
+        "de": "Zusätzliche Einbehalte wie Versicherungen, Gewerkschaftsbeiträge",
+        "fr": "Retenues supplémentaires comme l'assurance, les cotisations syndicales",
+        "es": "Retenciones adicionales como seguros, cuotas sindicales"
       }
     }
   ],

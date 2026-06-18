@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Cinsiyet (Kadın=0, Erkek=1)",
         "tr": "Cinsiyet (Kadın=0, Erkek=1)",
-        "de": "Cinsiyet (Kadın=0, Erkek=1)",
-        "fr": "Cinsiyet (Kadın=0, Erkek=1)",
-        "es": "Cinsiyet (Kadın=0, Erkek=1)",
+        "de": "Geschlecht (weiblich=0, männlich=1)",
+        "fr": "Sexe (Femme=0, Homme=1)",
+        "es": "Género (Mujer=0, Hombre=1)",
         "ar": "Cinsiyet (Kadın=0, Erkek=1)"
       },
       "businessContext_i18n": {
         "en": "Kullanıcının cinsiyeti; 0 kadın, 1 erkek olarak alınır.",
-        "tr": "Kullanıcının cinsiyeti; 0 kadın, 1 erkek olarak alınır."
+        "tr": "Kullanıcının cinsiyeti; 0 kadın, 1 erkek olarak alınır.",
+        "de": "Geschlecht des Benutzers; 0 für weiblich, 1 für männlich.",
+        "fr": "Sexe de l'utilisateur ; 0 pour femme, 1 pour homme.",
+        "es": "Género del usuario; 0 para mujer, 1 para hombre."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Yaş (yıl)",
         "tr": "Yaş (yıl)",
-        "de": "Yaş (yıl)",
-        "fr": "Yaş (yıl)",
-        "es": "Yaş (yıl)",
+        "de": "Alter (Jahre)",
+        "fr": "Âge (ans)",
+        "es": "Edad (años)",
         "ar": "Yaş (yıl)"
       },
       "businessContext_i18n": {
         "en": "Kullanıcının yaşı, yıl cinsinden.",
-        "tr": "Kullanıcının yaşı, yıl cinsinden."
+        "tr": "Kullanıcının yaşı, yıl cinsinden.",
+        "de": "Alter des Benutzers in Jahren.",
+        "fr": "Âge de l'utilisateur, en années.",
+        "es": "Edad del usuario, en años."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Ağırlık (kg)",
         "tr": "Ağırlık (kg)",
         "de": "Gewicht (kg)",
-        "fr": "Ağırlık (kg)",
-        "es": "Ağırlık (kg)",
+        "fr": "Poids (kg)",
+        "es": "Peso (kg)",
         "ar": "Ağırlık (kg)"
       },
       "businessContext_i18n": {
         "en": "Kullanıcının vücut ağırlığı, kilogram.",
-        "tr": "Kullanıcının vücut ağırlığı, kilogram."
+        "tr": "Kullanıcının vücut ağırlığı, kilogram.",
+        "de": "Körpergewicht des Benutzers in Kilogramm.",
+        "fr": "Poids corporel de l'utilisateur, en kilogrammes.",
+        "es": "Peso corporal del usuario, en kilogramos."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Boy (cm)",
         "tr": "Boy (cm)",
         "de": "Körpergröße (cm)",
-        "fr": "Boy (cm)",
-        "es": "Boy (cm)",
+        "fr": "Taille (cm)",
+        "es": "Altura (cm)",
         "ar": "Boy (cm)"
       },
       "businessContext_i18n": {
         "en": "Kullanıcının boyu, santimetre.",
-        "tr": "Kullanıcının boyu, santimetre."
+        "tr": "Kullanıcının boyu, santimetre.",
+        "de": "Körpergröße des Benutzers in Zentimetern.",
+        "fr": "Taille de l'utilisateur, en centimètres.",
+        "es": "Altura del usuario, en centímetros."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Aktivite Seviyesi Çarpanı",
         "tr": "Aktivite Seviyesi Çarpanı",
-        "de": "Aktivite Seviyesi Çarpanı",
-        "fr": "Aktivite Seviyesi Çarpanı",
-        "es": "Aktivite Seviyesi Çarpanı",
+        "de": "Aktivitätsfaktor",
+        "fr": "Coefficient de niveau d'activité",
+        "es": "Factor de nivel de actividad",
         "ar": "Aktivite Seviyesi Çarpanı"
       },
       "businessContext_i18n": {
         "en": "Fiziksel aktivite düzeyi çarpanı (sedanter:1.2, hafif:1.375, orta:1.55, yüksek:1.725, çok yüksek:1.9).",
-        "tr": "Fiziksel aktivite düzeyi çarpanı (sedanter:1.2, hafif:1.375, orta:1.55, yüksek:1.725, çok yüksek:1.9)."
+        "tr": "Fiziksel aktivite düzeyi çarpanı (sedanter:1.2, hafif:1.375, orta:1.55, yüksek:1.725, çok yüksek:1.9).",
+        "de": "Multiplikator für körperliche Aktivität (sedentär:1,2, leicht:1,375, mittel:1,55, hoch:1,725, sehr hoch:1,9).",
+        "fr": "Coefficient du niveau d'activité physique (sédentaire:1.2, léger:1.375, modéré:1.55, élevé:1.725, très élevé:1.9).",
+        "es": "Factor de nivel de actividad física (sedentario:1.2, ligero:1.375, moderado:1.55, alto:1.725, muy alto:1.9)."
       }
     }
   ],

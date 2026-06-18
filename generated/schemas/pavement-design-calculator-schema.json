@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Axle Load",
         "tr": "Aks Yükü",
-        "de": "Axle Load",
-        "fr": "Axle Load",
-        "es": "Axle Load",
+        "de": "Achslast",
+        "fr": "Charge par essieu",
+        "es": "Carga por eje",
         "ar": "Axle Load"
       },
       "businessContext_i18n": {
         "en": "Standard axle load for design vehicle",
-        "tr": "Tasarım aracı için standart aks yükü"
+        "tr": "Tasarım aracı için standart aks yükü",
+        "de": "Standard-Achslast für das Bemessungsfahrzeug",
+        "fr": "Charge par essieu standard pour le véhicule de conception",
+        "es": "Carga estándar por eje para el vehículo de diseño"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Standard Axle Load",
         "tr": "Standart Aks Yükü",
-        "de": "Standard Axle Load",
-        "fr": "Standard Axle Load",
-        "es": "Standard Axle Load",
+        "de": "Standard-Achslast",
+        "fr": "Charge par essieu standard",
+        "es": "Carga estándar por eje",
         "ar": "Standard Axle Load"
       },
       "businessContext_i18n": {
         "en": "Reference standard axle load (commonly 80 kN)",
-        "tr": "Referans standart aks yükü (genellikle 80 kN)"
+        "tr": "Referans standart aks yükü (genellikle 80 kN)",
+        "de": "Referenz-Standard-Achslast (üblicherweise 80 kN)",
+        "fr": "Charge par essieu standard de référence (généralement 80 kN)",
+        "es": "Carga estándar de referencia (comúnmente 80 kN)"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Daily Commercial Vehicles",
         "tr": "Günlük Ticari Araç Sayısı",
-        "de": "Daily Commercial Vehicles",
-        "fr": "Daily Commercial Vehicles",
-        "es": "Daily Commercial Vehicles",
+        "de": "Tägliche Nutzfahrzeuge",
+        "fr": "Véhicules commerciaux quotidiens",
+        "es": "Vehículos comerciales diarios",
         "ar": "Daily Commercial Vehicles"
       },
       "businessContext_i18n": {
         "en": "Number of heavy vehicles per day in design lane",
-        "tr": "Tasarım şeridinde günlük ağır araç sayısı"
+        "tr": "Tasarım şeridinde günlük ağır araç sayısı",
+        "de": "Anzahl der Schwerfahrzeuge pro Tag auf dem Bemessungsfahrstreifen",
+        "fr": "Nombre de véhicules lourds par jour dans la voie de conception",
+        "es": "Número de vehículos pesados por día en el carril de diseño"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Design Life",
         "tr": "Tasarım Ömrü",
-        "de": "Design Life",
-        "fr": "Design Life",
-        "es": "Design Life",
+        "de": "Bemessungslebensdauer",
+        "fr": "Durée de vie de conception",
+        "es": "Vida útil de diseño",
         "ar": "Design Life"
       },
       "businessContext_i18n": {
         "en": "Pavement design period in years",
-        "tr": "Kaplama tasarım süresi (yıl)"
+        "tr": "Kaplama tasarım süresi (yıl)",
+        "de": "Bemessungszeitraum der Fahrbahndecke in Jahren",
+        "fr": "Période de conception de la chaussée en années",
+        "es": "Período de diseño del pavimento en años"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Subgrade CBR",
         "tr": "Alt Temel CBR",
-        "de": "Subgrade CBR",
-        "fr": "Subgrade CBR",
-        "es": "Subgrade CBR",
+        "de": "CBR-Wert des Untergrunds",
+        "fr": "CBR de la plate-forme",
+        "es": "CBR de la subrasante",
         "ar": "Subgrade CBR"
       },
       "businessContext_i18n": {
         "en": "California Bearing Ratio of subgrade soil",
-        "tr": "Alt temel zemininin Kaliforniya Taşıma Oranı"
+        "tr": "Alt temel zemininin Kaliforniya Taşıma Oranı",
+        "de": "California Bearing Ratio des Untergrundbodens",
+        "fr": "Indice portant californien du sol de la plate-forme",
+        "es": "Relación de soporte de California del suelo de subrasante"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Reliability Factor",
         "tr": "Güvenilirlik Faktörü",
-        "de": "Reliability Factor",
-        "fr": "Reliability Factor",
-        "es": "Reliability Factor",
+        "de": "Zuverlässigkeitsfaktor",
+        "fr": "Facteur de fiabilité",
+        "es": "Factor de confiabilidad",
         "ar": "Reliability Factor"
       },
       "businessContext_i18n": {
         "en": "Factor to adjust for desired reliability (>1 for higher reliability)",
-        "tr": "İstenen güvenilirliği ayarlamak için faktör (>1 daha yüksek güvenilirlik için)"
+        "tr": "İstenen güvenilirliği ayarlamak için faktör (>1 daha yüksek güvenilirlik için)",
+        "de": "Faktor zur Anpassung an die gewünschte Zuverlässigkeit (>1 für höhere Zuverlässigkeit)",
+        "fr": "Facteur d'ajustement pour la fiabilité souhaitée (>1 pour une fiabilité plus élevée)",
+        "es": "Factor para ajustar por la confiabilidad deseada (>1 para mayor confiabilidad)"
       }
     }
   ],

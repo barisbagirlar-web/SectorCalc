@@ -18,7 +18,9 @@
       },
       "businessContext_i18n": {
         "en": "Enter the number of shakes to convert.",
-        "tr": "Dönüştürülecek shake sayısını girin."
+        "tr": "Dönüştürülecek shake sayısını girin.",
+        "de": "Geben Sie die Anzahl der Shakes zur Umrechnung ein.",
+        "fr": "Entrez le nombre de shakes à convertir."
       }
     },
     {
@@ -32,13 +34,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the result.",
-        "tr": "Sonucu yuvarlamak için ondalık basamak sayısı."
+        "tr": "Sonucu yuvarlamak için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses.",
+        "fr": "Nombre de décimales pour arrondir le résultat.",
+        "es": "Número de decimales para redondear el resultado."
       }
     },
     {
@@ -51,14 +56,16 @@
       "label_i18n": {
         "en": "Conversion Factor (ns/shake)",
         "tr": "Dönüşüm Faktörü (ns/shake)",
-        "de": "Conversion Factor (ns/shake)",
-        "fr": "Conversion Factor (ns/shake)",
+        "de": "Umrechnungsfaktor (ns/Shake)",
+        "fr": "Facteur de conversion (ns/shake)",
         "es": "Conversion Factor (ns/shake)",
         "ar": "Conversion Factor (ns/shake)"
       },
       "businessContext_i18n": {
         "en": "Standard conversion: 1 shake = 10 nanoseconds. Change if needed.",
-        "tr": "Standart dönüşüm: 1 shake = 10 nanosaniye. Gerekirse değiştirin."
+        "tr": "Standart dönüşüm: 1 shake = 10 nanosaniye. Gerekirse değiştirin.",
+        "de": "Standardumrechnung: 1 Shake = 10 Nanosekunden. Bei Bedarf ändern.",
+        "fr": "Conversion standard : 1 shake = 10 nanosecondes. Modifiez si nécessaire."
       }
     },
     {
@@ -71,14 +78,16 @@
       "label_i18n": {
         "en": "Output Scale Factor",
         "tr": "Çıktı Ölçek Faktörü",
-        "de": "Output Scale Factor",
-        "fr": "Output Scale Factor",
+        "de": "Ausgabeskalierungsfaktor",
+        "fr": "Facteur d'échelle de sortie",
         "es": "Output Scale Factor",
         "ar": "Output Scale Factor"
       },
       "businessContext_i18n": {
         "en": "Multiply the resulting nanoseconds by this factor, e.g., 1e3 for picoseconds, 1e-3 for microseconds.",
-        "tr": "Ortaya çıkan nanosaniyeyi bu faktörle çarpın, örn. pikosaniye için 1e3, mikrosaniye için 1e-3."
+        "tr": "Ortaya çıkan nanosaniyeyi bu faktörle çarpın, örn. pikosaniye için 1e3, mikrosaniye için 1e-3.",
+        "de": "Multiplizieren Sie die resultierenden Nanosekunden mit diesem Faktor, z. B. 1e3 für Pikosekunden, 1e-3 für Mikrosekunden.",
+        "fr": "Multipliez les nanosecondes résultantes par ce facteur, par ex. 1e3 pour des picosecondes, 1e-3 pour des microsecondes."
       }
     }
   ],

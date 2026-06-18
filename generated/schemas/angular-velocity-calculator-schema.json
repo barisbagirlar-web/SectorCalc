@@ -12,14 +12,16 @@
         "en": "Rotational Speed (RPM)",
         "tr": "Dönüş Hızı (RPM)",
         "de": "Drehzahl (U/min)",
-        "fr": "Rotational Speed (RPM)",
-        "es": "Rotational Speed (RPM)",
+        "fr": "Vitesse de rotation (tr/min)",
+        "es": "Velocidad de rotación (RPM)",
         "ar": "Rotational Speed (RPM)"
       },
       "businessContext_i18n": {
         "en": "Typical motor speed for industrial applications",
         "tr": "Endüstriyel uygulamalar için tipik motor hızı",
-        "de": "Typische Motordrehzahl für industrielle Anwendungen"
+        "de": "Typische Motordrehzahl für industrielle Anwendungen",
+        "fr": "Vitesse moteur typique pour applications industrielles",
+        "es": "Velocidad típica del motor para aplicaciones industriales"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Radius",
         "tr": "Yarıçap",
         "de": "Radius",
-        "fr": "Radius",
-        "es": "Radius",
+        "fr": "Rayon",
+        "es": "Radio",
         "ar": "Radius"
       },
       "businessContext_i18n": {
         "en": "Distance from center of rotation to point of interest",
         "tr": "Dönme merkezinden ilgili noktaya olan mesafe",
-        "de": "Abstand vom Rotationszentrum zum interessierenden Punkt"
+        "de": "Abstand vom Rotationszentrum zum interessierenden Punkt",
+        "fr": "Distance du centre de rotation au point d'intérêt",
+        "es": "Distancia desde el centro de rotación al punto de interés"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Time",
         "tr": "Zaman",
         "de": "Zeit",
-        "fr": "Time",
-        "es": "Time",
+        "fr": "Temps",
+        "es": "Tiempo",
         "ar": "Time"
       },
       "businessContext_i18n": {
         "en": "Time interval for angular displacement calculation",
         "tr": "Açısal yer değiştirme hesaplaması için zaman aralığı",
-        "de": "Zeitintervall für die Berechnung der Winkelverschiebung"
+        "de": "Zeitintervall für die Berechnung der Winkelverschiebung",
+        "fr": "Intervalle de temps pour le calcul du déplacement angulaire",
+        "es": "Intervalo de tiempo para el cálculo del desplazamiento angular"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Gear Ratio (output/input)",
         "tr": "Dişli Oranı (çıkış/giriş)",
         "de": "Übersetzungsverhältnis (Ausgang/Eingang)",
-        "fr": "Gear Ratio (output/input)",
-        "es": "Gear Ratio (output/input)",
+        "fr": "Rapport de transmission (sortie/entrée)",
+        "es": "Relación de transmisión (salida/entrada)",
         "ar": "Gear Ratio (output/input)"
       },
       "businessContext_i18n": {
         "en": "Transmission ratio affecting final angular velocity",
         "tr": "Nihai açısal hızı etkileyen transmisyon oranı",
-        "de": "Übersetzungsverhältnis, das die endgültige Winkelgeschwindigkeit beeinflusst"
+        "de": "Übersetzungsverhältnis, das die endgültige Winkelgeschwindigkeit beeinflusst",
+        "fr": "Rapport de transmission affectant la vitesse angulaire finale",
+        "es": "Relación de transmisión que afecta la velocidad angular final"
       }
     }
   ],

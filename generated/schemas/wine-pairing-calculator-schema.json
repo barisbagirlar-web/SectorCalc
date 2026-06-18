@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Wine Acidity",
         "tr": "Şarap Asitliği",
-        "de": "Wine Acidity",
-        "fr": "Wine Acidity",
+        "de": "Weinsäure",
+        "fr": "Acidité du vin",
         "es": "Wine Acidity",
         "ar": "Wine Acidity"
       },
       "businessContext_i18n": {
         "en": "Perceived acidity of the wine, where 0 is flat and 10 is very tart.",
-        "tr": "Şarabın algılanan asitliği, 0 yavan, 10 çok ekşi"
+        "tr": "Şarabın algılanan asitliği, 0 yavan, 10 çok ekşi",
+        "de": "Wahrgenommene Säure des Weins, wobei 0 für flach und 10 für sehr herb steht.",
+        "fr": "Acidité perçue du vin, où 0 est plat et 10 est très acide."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Wine Sweetness",
         "tr": "Şarap Tatlılığı",
-        "de": "Wine Sweetness",
-        "fr": "Wine Sweetness",
+        "de": "Weinsüße",
+        "fr": "Sucrosité du vin",
         "es": "Wine Sweetness",
         "ar": "Wine Sweetness"
       },
       "businessContext_i18n": {
         "en": "Perceived sweetness of the wine, where 0 is bone-dry and 10 is very sweet.",
-        "tr": "Şarabın algılanan tatlılığı, 0 sek, 10 çok tatlı"
+        "tr": "Şarabın algılanan tatlılığı, 0 sek, 10 çok tatlı",
+        "de": "Wahrgenommene Süße des Weins, wobei 0 für trocken und 10 für sehr süß steht.",
+        "fr": "Sucrosité perçue du vin, où 0 est très sec et 10 est très sucré."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Wine Body",
         "tr": "Şarap Gövdesi",
-        "de": "Wine Body",
-        "fr": "Wine Body",
+        "de": "Weinkörper",
+        "fr": "Corps du vin",
         "es": "Wine Body",
         "ar": "Wine Body"
       },
       "businessContext_i18n": {
         "en": "Body or weight of the wine on the palate, where 0 is light and 10 is full-bodied.",
-        "tr": "Şarabın damakta hissedilen ağırlığı, 0 hafif, 10 dolgun"
+        "tr": "Şarabın damakta hissedilen ağırlığı, 0 hafif, 10 dolgun",
+        "de": "Körper oder Gewicht des Weins am Gaumen, wobei 0 für leicht und 10 für vollmundig steht.",
+        "fr": "Corps ou poids du vin en bouche, où 0 est léger et 10 est corsé."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Food Acidity",
         "tr": "Yiyecek Asitliği",
-        "de": "Food Acidity",
-        "fr": "Food Acidity",
+        "de": "Speisensäure",
+        "fr": "Acidité de l'aliment",
         "es": "Food Acidity",
         "ar": "Food Acidity"
       },
       "businessContext_i18n": {
         "en": "Perceived acidity of the food, where 0 is bland and 10 is sharply acidic.",
-        "tr": "Yiyeceğin algılanan asitliği, 0 yavan, 10 keskin asidik"
+        "tr": "Yiyeceğin algılanan asitliği, 0 yavan, 10 keskin asidik",
+        "de": "Wahrgenommene Säure des Essens, wobei 0 für mild und 10 für stark sauer steht.",
+        "fr": "Acidité perçue de l'aliment, où 0 est fade et 10 est très acide."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Food Sweetness",
         "tr": "Yiyecek Tatlılığı",
-        "de": "Food Sweetness",
-        "fr": "Food Sweetness",
+        "de": "Speisesüße",
+        "fr": "Sucrosité de l'aliment",
         "es": "Food Sweetness",
         "ar": "Food Sweetness"
       },
       "businessContext_i18n": {
         "en": "Perceived sweetness of the food, where 0 is savory and 10 is dessert-like.",
-        "tr": "Yiyeceğin algılanan tatlılığı, 0 tuzlu, 10 tatlı benzeri."
+        "tr": "Yiyeceğin algılanan tatlılığı, 0 tuzlu, 10 tatlı benzeri.",
+        "de": "Wahrgenommene Süße des Lebensmittels, wobei 0 herzhaft und 10 dessertartig ist.",
+        "fr": "Sucrosité perçue de l'aliment, où 0 est salé et 10 est comme un dessert."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Food Richness",
         "tr": "Yiyecek Zenginliği",
-        "de": "Food Richness",
-        "fr": "Food Richness",
+        "de": "Reichhaltigkeit des Lebensmittels",
+        "fr": "Richesse de l'aliment",
         "es": "Food Richness",
         "ar": "Food Richness"
       },
       "businessContext_i18n": {
         "en": "Richness or fattiness of the food, where 0 is lean and 10 is very heavy.",
-        "tr": "Yiyeceğin zenginliği veya yağlılığı, 0 yağsız, 10 çok ağır."
+        "tr": "Yiyeceğin zenginliği veya yağlılığı, 0 yağsız, 10 çok ağır.",
+        "de": "Reichhaltigkeit oder Fettigkeit des Lebensmittels, wobei 0 mager und 10 sehr schwer ist.",
+        "fr": "Richesse ou teneur en matières grasses de l'aliment, où 0 est maigre et 10 est très lourd."
       }
     }
   ],

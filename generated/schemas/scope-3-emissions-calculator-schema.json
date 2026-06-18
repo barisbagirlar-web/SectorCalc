@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Annual Spend on Purchased Goods & Services",
         "tr": "Satın Alınan Mal ve Hizmetlere Yıllık Harcama",
-        "de": "Annual Spend on Purchased Goods & Services",
-        "fr": "Annual Spend on Purchased Goods & Services",
+        "de": "Jährliche Ausgaben für zugekaufte Waren und Dienstleistungen",
+        "fr": "Dépenses annuelles en biens et services achetés",
         "es": "Annual Spend on Purchased Goods & Services",
         "ar": "Annual Spend on Purchased Goods & Services"
       },
       "businessContext_i18n": {
         "en": "Total annual expenditure on purchased goods and services (in USD)",
-        "tr": "Satın alınan mal ve hizmetlere toplam yıllık harcama (USD)"
+        "tr": "Satın alınan mal ve hizmetlere toplam yıllık harcama (USD)",
+        "de": "Gesamte jährliche Ausgaben für zugekaufte Waren und Dienstleistungen (in USD)",
+        "fr": "Dépenses annuelles totales en biens et services achetés (en USD)"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Emission Factor for Purchased Goods",
         "tr": "Satın Alınan Mallar için Emisyon Faktörü",
-        "de": "Emission Factor for Purchased Goods",
-        "fr": "Emission Factor for Purchased Goods",
+        "de": "Emissionsfaktor für zugekaufte Waren",
+        "fr": "Facteur d'émission pour les biens achetés",
         "es": "Emission Factor for Purchased Goods",
         "ar": "Emission Factor for Purchased Goods"
       },
       "businessContext_i18n": {
         "en": "Average emission factor for the purchased goods sector (kg CO2-equivalent per dollar spent)",
-        "tr": "Satın alınan mallar sektörü için ortalama emisyon faktörü (harcanan dolar başına kg CO2 eşdeğeri)"
+        "tr": "Satın alınan mallar sektörü için ortalama emisyon faktörü (harcanan dolar başına kg CO2 eşdeğeri)",
+        "de": "Durchschnittlicher Emissionsfaktor für den Sektor der zugekauften Waren (kg CO₂-Äquivalent pro ausgegebenem Dollar)",
+        "fr": "Facteur d'émission moyen pour le secteur des biens achetés (kg CO2-équivalent par dollar dépensé)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Total Business Travel Distance",
         "tr": "Toplam İş Seyahati Mesafesi",
-        "de": "Total Business Travel Distance",
-        "fr": "Total Business Travel Distance",
+        "de": "Gesamte Geschäftsreisedistanz",
+        "fr": "Distance totale des voyages d'affaires",
         "es": "Total Business Travel Distance",
         "ar": "Total Business Travel Distance"
       },
       "businessContext_i18n": {
         "en": "Total distance traveled for business purposes per year (sum over all employees and trips)",
-        "tr": "Yıllık toplam iş seyahati mesafesi (tüm çalışanlar ve seyahatler toplamı)"
+        "tr": "Yıllık toplam iş seyahati mesafesi (tüm çalışanlar ve seyahatler toplamı)",
+        "de": "Gesamte jährlich für Geschäftsreisen zurückgelegte Distanz (Summe über alle Mitarbeiter und Reisen)",
+        "fr": "Distance totale parcourue pour les voyages d'affaires par an (somme sur tous les employés et voyages)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Emission Factor for Business Travel",
         "tr": "İş Seyahati Emisyon Faktörü",
-        "de": "Emission Factor for Business Travel",
-        "fr": "Emission Factor for Business Travel",
+        "de": "Emissionsfaktor für Geschäftsreisen",
+        "fr": "Facteur d'émission pour les voyages d'affaires",
         "es": "Emission Factor for Business Travel",
         "ar": "Emission Factor for Business Travel"
       },
       "businessContext_i18n": {
         "en": "Average emission factor for business travel (e.g., air travel ~0.2 kg CO2e per km)",
-        "tr": "İş seyahati için ortalama emisyon faktörü (örneğin, hava yolculuğu ~0,2 kg CO2e/km)"
+        "tr": "İş seyahati için ortalama emisyon faktörü (örneğin, hava yolculuğu ~0,2 kg CO2e/km)",
+        "de": "Durchschnittlicher Emissionsfaktor für Geschäftsreisen (z. B. Flugreisen ~0,2 kg CO2e pro km)",
+        "fr": "Facteur d'émission moyen pour les voyages d'affaires (par exemple, voyage aérien ~0,2 kg CO2e par km)"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Total Employee Commuting Distance",
         "tr": "Toplam Çalışan İşe Gidiş-Geliş Mesafesi",
-        "de": "Total Employee Commuting Distance",
-        "fr": "Total Employee Commuting Distance",
+        "de": "Gesamte Pendelstrecke der Mitarbeiter",
+        "fr": "Distance totale des déplacements domicile-travail",
         "es": "Total Employee Commuting Distance",
         "ar": "Total Employee Commuting Distance"
       },
       "businessContext_i18n": {
         "en": "Total distance commuted by all employees per year (round-trip distance × working days × employees)",
-        "tr": "Tüm çalışanların yıllık toplam işe gidiş-geliş mesafesi (gidiş-dönüş mesafesi × çalışma günü × çalışan sayısı)"
+        "tr": "Tüm çalışanların yıllık toplam işe gidiş-geliş mesafesi (gidiş-dönüş mesafesi × çalışma günü × çalışan sayısı)",
+        "de": "Gesamte von allen Mitarbeitern pro Jahr zurückgelegte Pendelstrecke (Hin- und Rückweg × Arbeitstage × Mitarbeiter)",
+        "fr": "Distance totale parcourue par tous les employés pour leurs déplacements domicile-travail par an (distance aller-retour × jours travaillés × employés)"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Emission Factor for Commuting",
         "tr": "İşe Gidiş-Geliş Emisyon Faktörü",
-        "de": "Emission Factor for Commuting",
-        "fr": "Emission Factor for Commuting",
+        "de": "Emissionsfaktor für Pendeln",
+        "fr": "Facteur d'émission pour les déplacements domicile-travail",
         "es": "Emission Factor for Commuting",
         "ar": "Emission Factor for Commuting"
       },
       "businessContext_i18n": {
         "en": "Average emission factor for employee commuting (e.g., car ~0.15 kg CO2e per km)",
-        "tr": "Çalışan işe gidiş-gelişi için ortalama emisyon faktörü (örneğin, araba ~0,15 kg CO2e/km)"
+        "tr": "Çalışan işe gidiş-gelişi için ortalama emisyon faktörü (örneğin, araba ~0,15 kg CO2e/km)",
+        "de": "Durchschnittlicher Emissionsfaktor für das Pendeln der Mitarbeiter (z. B. Auto ~0,15 kg CO2e pro km)",
+        "fr": "Facteur d'émission moyen pour les déplacements domicile-travail (par exemple, voiture ~0,15 kg CO2e par km)"
       }
     },
     {
@@ -132,13 +144,15 @@
         "en": "Total Waste Generated",
         "tr": "Toplam Atık Üretimi",
         "de": "Gesamter Abfallaufkommen",
-        "fr": "Total Waste Generated",
-        "es": "Total Waste Generated",
+        "fr": "Déchets totaux générés",
+        "es": "Residuos totales generados",
         "ar": "Total Waste Generated"
       },
       "businessContext_i18n": {
         "en": "Total waste generated in operations per year (in metric tonnes)",
-        "tr": "Operasyonlarda yıllık toplam atık miktarı (metrik ton cinsinden)"
+        "tr": "Operasyonlarda yıllık toplam atık miktarı (metrik ton cinsinden)",
+        "de": "Gesamter Abfall aus dem Betrieb pro Jahr (in metrischen Tonnen)",
+        "fr": "Déchets totaux générés dans les opérations par an (en tonnes métriques)"
       }
     },
     {
@@ -151,14 +165,16 @@
       "label_i18n": {
         "en": "Emission Factor for Waste",
         "tr": "Atık Emisyon Faktörü",
-        "de": "Emission Factor for Waste",
-        "fr": "Emission Factor for Waste",
+        "de": "Emissionsfaktor für Abfall",
+        "fr": "Facteur d'émission pour les déchets",
         "es": "Emission Factor for Waste",
         "ar": "Emission Factor for Waste"
       },
       "businessContext_i18n": {
         "en": "Emission factor for waste disposal/treatment (kg CO2-equivalent per tonne of waste)",
-        "tr": "Atık bertaraf/arıtma emisyon faktörü (ton atık başına kg CO2 eşdeğeri)"
+        "tr": "Atık bertaraf/arıtma emisyon faktörü (ton atık başına kg CO2 eşdeğeri)",
+        "de": "Emissionsfaktor für Abfallentsorgung/-behandlung (kg CO2-Äquivalent pro Tonne Abfall)",
+        "fr": "Facteur d'émission pour l'élimination/traitement des déchets (kg CO2-équivalent par tonne de déchets)"
       }
     }
   ],

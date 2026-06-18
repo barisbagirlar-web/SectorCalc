@@ -12,14 +12,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Patient age in years",
         "tr": "Hasta yaşı (yıl)",
-        "de": "Patientenalter in Jahren"
+        "de": "Patientenalter in Jahren",
+        "fr": "Âge du patient en années",
+        "es": "Edad del paciente en años"
       }
     },
     {
@@ -34,13 +36,15 @@
         "tr": "Konfüzyon",
         "de": "Verwirrtheit",
         "fr": "Confusion",
-        "es": "Confusion",
+        "es": "Confusión",
         "ar": "Confusion"
       },
       "businessContext_i18n": {
         "en": "New onset confusion (1=Yes, 0=No)",
         "tr": "Yeni başlayan konfüzyon (1=Evet, 0=Hayır)",
-        "de": "Neu aufgetretene Verwirrtheit (1=Ja, 0=Nein)"
+        "de": "Neu aufgetretene Verwirrtheit (1=Ja, 0=Nein)",
+        "fr": "Confusion d'apparition récente (1=Oui, 0=Non)",
+        "es": "Confusión de inicio reciente (1=Sí, 0=No)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Blood Urea Nitrogen",
         "tr": "Kan Üre Azotu",
         "de": "Blutharnstoffstickstoff",
-        "fr": "Blood Urea Nitrogen",
-        "es": "Blood Urea Nitrogen",
+        "fr": "Azote uréique sanguin",
+        "es": "Nitrógeno ureico en sangre",
         "ar": "Blood Urea Nitrogen"
       },
       "businessContext_i18n": {
         "en": "Serum urea level in mmol/L",
         "tr": "Serum üre seviyesi (mmol/L)",
-        "de": "Serumharnstoffspiegel in mmol/L"
+        "de": "Serumharnstoffspiegel in mmol/L",
+        "fr": "Taux d'urée sérique en mmol/L",
+        "es": "Nivel de urea sérica en mmol/L"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Respiratory Rate",
         "tr": "Solunum Hızı",
         "de": "Atemfrequenz",
-        "fr": "Respiratory Rate",
-        "es": "Respiratory Rate",
+        "fr": "Fréquence respiratoire",
+        "es": "Frecuencia respiratoria",
         "ar": "Respiratory Rate"
       },
       "businessContext_i18n": {
         "en": "Respiratory rate in breaths per minute",
         "tr": "Dakikadaki solunum sayısı",
-        "de": "Atemfrequenz in Atemzügen pro Minute"
+        "de": "Atemfrequenz in Atemzügen pro Minute",
+        "fr": "Fréquence respiratoire en respirations par minute",
+        "es": "Frecuencia respiratoria en respiraciones por minuto"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Systolic Blood Pressure",
         "tr": "Sistolik Kan Basıncı",
         "de": "Systolischer Blutdruck",
-        "fr": "Systolic Blood Pressure",
-        "es": "Systolic Blood Pressure",
+        "fr": "Pression artérielle systolique",
+        "es": "Presión arterial sistólica",
         "ar": "Systolic Blood Pressure"
       },
       "businessContext_i18n": {
         "en": "Systolic blood pressure in mmHg",
         "tr": "Sistolik kan basıncı (mmHg)",
-        "de": "Systolischer Blutdruck in mmHg"
+        "de": "Systolischer Blutdruck in mmHg",
+        "fr": "Pression artérielle systolique en mmHg",
+        "es": "Presión arterial sistólica en mmHg"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Diastolic Blood Pressure",
         "tr": "Diyastolik Kan Basıncı",
         "de": "Diastolischer Blutdruck",
-        "fr": "Diastolic Blood Pressure",
-        "es": "Diastolic Blood Pressure",
+        "fr": "Pression artérielle diastolique",
+        "es": "Presión arterial diastólica",
         "ar": "Diastolic Blood Pressure"
       },
       "businessContext_i18n": {
         "en": "Diastolic blood pressure in mmHg",
         "tr": "Diyastolik kan basıncı (mmHg)",
-        "de": "Diastolischer Blutdruck in mmHg"
+        "de": "Diastolischer Blutdruck in mmHg",
+        "fr": "Pression artérielle diastolique en mmHg",
+        "es": "Presión arterial diastólica en mmHg"
       }
     }
   ],

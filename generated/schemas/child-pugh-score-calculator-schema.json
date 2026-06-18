@@ -12,14 +12,16 @@
         "en": "Total Bilirubin",
         "tr": "Toplam Bilirubin",
         "de": "Gesamtbilirubin",
-        "fr": "Total Bilirubin",
-        "es": "Total Bilirubin",
+        "fr": "Bilirubine totale",
+        "es": "Bilirrubina total",
         "ar": "Total Bilirubin"
       },
       "businessContext_i18n": {
         "en": "Enter total bilirubin in mg/dL",
         "tr": "Toplam bilirubini mg/dL cinsinden girin",
-        "de": "Gesamtbilirubin in mg/dL eingeben"
+        "de": "Gesamtbilirubin in mg/dL eingeben",
+        "fr": "Entrez la bilirubine totale en mg/dL",
+        "es": "Ingrese bilirrubina total en mg/dL"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Serum Albumin",
         "tr": "Serum Albümin",
         "de": "Serumalbumin",
-        "fr": "Serum Albumin",
-        "es": "Serum Albumin",
+        "fr": "Albumine sérique",
+        "es": "Albúmina sérica",
         "ar": "Serum Albumin"
       },
       "businessContext_i18n": {
         "en": "Enter serum albumin in g/dL",
         "tr": "Serum albümini g/dL cinsinden girin",
-        "de": "Serumalbumin in g/dL eingeben"
+        "de": "Serumalbumin in g/dL eingeben",
+        "fr": "Entrez l'albumine sérique en g/dL",
+        "es": "Ingrese albúmina sérica en g/dL"
       }
     },
     {
@@ -61,7 +65,9 @@
       "businessContext_i18n": {
         "en": "Enter international normalized ratio (INR)",
         "tr": "Uluslararası normalleştirilmiş oranı (INR) girin",
-        "de": "International Normalized Ratio (INR) eingeben"
+        "de": "International Normalized Ratio (INR) eingeben",
+        "fr": "Entrez le rapport international normalisé (INR)",
+        "es": "Ingrese el índice internacional normalizado (INR)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Ascites",
         "tr": "Asit",
         "de": "Aszites",
-        "fr": "Ascites",
-        "es": "Ascites",
+        "fr": "Ascite",
+        "es": "Ascitis",
         "ar": "Ascites"
       },
       "businessContext_i18n": {
         "en": "Enter ascites grade: 0=none, 1=slight, 2=moderate/severe",
         "tr": "Asit derecesini girin: 0=yok, 1=hafif, 2=orta/şiddetli",
-        "de": "Aszitesgrad eingeben: 0=kein, 1=leicht, 2=mäßig/schwer"
+        "de": "Aszitesgrad eingeben: 0=kein, 1=leicht, 2=mäßig/schwer",
+        "fr": "Entrez le grade d'ascite : 0=aucun, 1=léger, 2=modéré/sévère",
+        "es": "Ingrese grado de ascitis: 0=ninguno, 1=leve, 2=moderado/grave"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Hepatic Encephalopathy",
         "tr": "Hepatik Ensefalopati",
         "de": "Hepatische Enzephalopathie",
-        "fr": "Hepatic Encephalopathy",
-        "es": "Hepatic Encephalopathy",
+        "fr": "Encéphalopathie hépatique",
+        "es": "Encefalopatía hepática",
         "ar": "Hepatic Encephalopathy"
       },
       "businessContext_i18n": {
         "en": "Enter encephalopathy grade: 0=none, 1=grade I-II, 2=grade III-IV",
         "tr": "Ensefalopati derecesini girin: 0=yok, 1=derece I-II, 2=derece III-IV",
-        "de": "Enzephalopathiegrad eingeben: 0=kein, 1=Grad I-II, 2=Grad III-IV"
+        "de": "Enzephalopathiegrad eingeben: 0=kein, 1=Grad I-II, 2=Grad III-IV",
+        "fr": "Entrez le grade d'encéphalopathie : 0=aucun, 1=grade I-II, 2=grade III-IV",
+        "es": "Ingrese grado de encefalopatía: 0=ninguno, 1=grado I-II, 2=grado III-IV"
       }
     }
   ],

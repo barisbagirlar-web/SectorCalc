@@ -12,13 +12,16 @@
         "en": "Noise Level",
         "tr": "Gürültü Seviyesi",
         "de": "Lärmpegel",
-        "fr": "Noise Level",
-        "es": "Noise Level",
+        "fr": "Niveau sonore",
+        "es": "Nivel de ruido",
         "ar": "Noise Level"
       },
       "businessContext_i18n": {
         "en": "Measured continuous noise level in A-weighted decibels",
-        "tr": "A-ağırlıklı desibel cinsinden ölçülen sürekli gürültü seviyesi"
+        "tr": "A-ağırlıklı desibel cinsinden ölçülen sürekli gürültü seviyesi",
+        "de": "Gemessener kontinuierlicher Lärmpegel in A-bewerteten Dezibel",
+        "fr": "Niveau de bruit continu mesuré en décibels pondérés A",
+        "es": "Nivel de ruido continuo medido en decibelios ponderados A"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Exposure Time",
         "tr": "Maruziyet Süresi",
         "de": "Expositionszeit",
-        "fr": "Exposure Time",
-        "es": "Exposure Time",
+        "fr": "Temps d'exposition",
+        "es": "Tiempo de exposición",
         "ar": "Exposure Time"
       },
       "businessContext_i18n": {
         "en": "Total daily noise exposure duration",
-        "tr": "Toplam günlük gürültü maruziyet süresi"
+        "tr": "Toplam günlük gürültü maruziyet süresi",
+        "de": "Tägliche Lärmexpositionsdauer insgesamt",
+        "fr": "Durée totale d'exposition quotidienne au bruit",
+        "es": "Duración total diaria de exposición al ruido"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Exchange Rate",
         "tr": "Döviz Kuru",
         "de": "Wechselkurs",
-        "fr": "Exchange Rate",
-        "es": "Exchange Rate",
+        "fr": "Taux de change",
+        "es": "Tipo de cambio",
         "ar": "Exchange Rate"
       },
       "businessContext_i18n": {
         "en": "Decibel exchange rate (3 for equal energy, 5 for OSHA)",
-        "tr": "Desibel değişim oranı (eşit enerji için 3, OSHA için 5)"
+        "tr": "Desibel değişim oranı (eşit enerji için 3, OSHA için 5)",
+        "de": "Dezibel-Austauschrate (3 für gleiche Energie, 5 für OSHA)",
+        "fr": "Taux d'échange de décibels (3 pour énergie égale, 5 pour OSHA)",
+        "es": "Tasa de intercambio de decibelios (3 para energía igual, 5 para OSHA)"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Criterion Level",
         "tr": "Kriter Seviyesi",
         "de": "Kriterienpegel",
-        "fr": "Criterion Level",
-        "es": "Criterion Level",
+        "fr": "Niveau de critère",
+        "es": "Nivel de criterio",
         "ar": "Criterion Level"
       },
       "businessContext_i18n": {
         "en": "Permissible noise level for an 8-hour shift",
-        "tr": "8 saatlik vardiya için izin verilen gürültü seviyesi"
+        "tr": "8 saatlik vardiya için izin verilen gürültü seviyesi",
+        "de": "Zulässiger Lärmpegel für eine 8-Stunden-Schicht",
+        "fr": "Niveau de bruit permissible pour un quart de travail de 8 heures",
+        "es": "Nivel de ruido permisible para un turno de 8 horas"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Threshold Level",
         "tr": "Eşik Seviyesi",
-        "de": "Threshold Level",
-        "fr": "Threshold Level",
-        "es": "Threshold Level",
+        "de": "Schwellenwert",
+        "fr": "Seuil",
+        "es": "Nivel umbral",
         "ar": "Threshold Level"
       },
       "businessContext_i18n": {
         "en": "Level below which noise is ignored (0 = no threshold)",
-        "tr": "Altında gürültünün dikkate alınmadığı seviye (0 = eşik yok)"
+        "tr": "Altında gürültünün dikkate alınmadığı seviye (0 = eşik yok)",
+        "de": "Pegel, unterhalb dessen Lärm ignoriert wird (0 = kein Schwellenwert)",
+        "fr": "Niveau en dessous duquel le bruit est ignoré (0 = pas de seuil)",
+        "es": "Nivel por debajo del cual se ignora el ruido (0 = sin umbral)"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Percentile",
         "tr": "Yüzdelik",
-        "de": "Percentile",
+        "de": "Perzentil",
         "fr": "Percentile",
-        "es": "Percentile",
+        "es": "Percentil",
         "ar": "Percentile"
       },
       "businessContext_i18n": {
         "en": "Cumulative probability from a normal distribution (0–100).",
-        "tr": "Normal dağılımdan kümülatif olasılık (0–100)."
+        "tr": "Normal dağılımdan kümülatif olasılık (0–100).",
+        "de": "Kumulative Wahrscheinlichkeit einer Normalverteilung (0–100).",
+        "fr": "Probabilité cumulée d'une distribution normale (0–100).",
+        "es": "Probabilidad acumulada de una distribución normal (0–100)."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Mean",
         "tr": "Ortalama",
-        "de": "Mean",
-        "fr": "Mean",
-        "es": "Mean",
+        "de": "Mittelwert",
+        "fr": "Moyenne",
+        "es": "Media",
         "ar": "Mean"
       },
       "businessContext_i18n": {
         "en": "Mean of the underlying distribution (0 for standard Z).",
-        "tr": "Temel dağılımın ortalaması (standart Z için 0)."
+        "tr": "Temel dağılımın ortalaması (standart Z için 0).",
+        "de": "Mittelwert der zugrunde liegenden Verteilung (0 für Standard-Z).",
+        "fr": "Moyenne de la distribution sous-jacente (0 pour Z standard).",
+        "es": "Media de la distribución subyacente (0 para Z estándar)."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Standard Deviation",
         "tr": "Standart Sapma",
-        "de": "Standard Deviation",
-        "fr": "Standard Deviation",
-        "es": "Standard Deviation",
+        "de": "Standardabweichung",
+        "fr": "Écart type",
+        "es": "Desviación estándar",
         "ar": "Standard Deviation"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of the underlying distribution (1 for standard Z).",
-        "tr": "Temel dağılımın standart sapması (standart Z için 1)."
+        "tr": "Temel dağılımın standart sapması (standart Z için 1).",
+        "de": "Standardabweichung der zugrunde liegenden Verteilung (1 für Standard-Z).",
+        "fr": "Écart type de la distribution sous-jacente (1 pour Z standard).",
+        "es": "Desviación estándar de la distribución subyacente (1 para Z estándar)."
       }
     }
   ],

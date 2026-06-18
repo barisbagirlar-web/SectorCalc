@@ -24,12 +24,16 @@
       "label_i18n": {
         "en": "Total Repair Orders (monthly)",
         "tr": "Toplam Onarım Emri (aylık)",
-        "de": "Reparaturaufträge gesamt (monatlich)"
+        "de": "Reparaturaufträge gesamt (monatlich)",
+        "fr": "Total des ordres de réparation (mensuel)",
+        "es": "Órdenes de reparación totales (mensuales)"
       },
       "businessContext_i18n": {
         "en": "Total number of repair orders completed in the period (ISO 9001:2015 clause 8.5.1)",
         "tr": "Dönemde tamamlanan toplam onarım emri sayısı (ISO 9001:2015 madde 8.5.1).",
-        "de": "Gesamtzahl der im Zeitraum abgeschlossenen Reparaturaufträge (ISO 9001:2015 Klausel 8.5.1)."
+        "de": "Gesamtzahl der im Zeitraum abgeschlossenen Reparaturaufträge (ISO 9001:2015 Klausel 8.5.1).",
+        "fr": "Nombre total d'ordres de réparation terminés sur la période (ISO 9001:2015 clause 8.5.1)",
+        "es": "Número total de órdenes de reparación completadas en el período (ISO 9001:2015 cláusula 8.5.1)."
       }
     },
     {
@@ -44,12 +48,16 @@
       "label_i18n": {
         "en": "Comeback Count (monthly)",
         "tr": "Geri Dönüş Sayısı (aylık)",
-        "de": "Wiederholungsaufträge (monatlich)"
+        "de": "Wiederholungsaufträge (monatlich)",
+        "fr": "Nombre de retours (mensuel)",
+        "es": "Recuento de reingresos (mensual)"
       },
       "businessContext_i18n": {
         "en": "Number of repair orders that returned for rework within warranty or service period (Six Sigma DPMO metric)",
         "tr": "Garanti veya servis süresi içinde yeniden işlem için geri dönen onarım emri sayısı (Altı Sigma DPMO metriği).",
-        "de": "Anzahl der Reparaturaufträge, die innerhalb der Garantie- oder Servicefrist zur Nacharbeit zurückkamen (Six Sigma DPMO-Kennzahl)."
+        "de": "Anzahl der Reparaturaufträge, die innerhalb der Garantie- oder Servicefrist zur Nacharbeit zurückkamen (Six Sigma DPMO-Kennzahl).",
+        "fr": "Nombre d'ordres de réparation revenus pour reprise sous garantie ou période de service (métrique Six Sigma DPMO)",
+        "es": "Número de órdenes de reparación que regresaron para retrabajo dentro del período de garantía o servicio (métrica Seis Sigma DPMO)."
       }
     },
     {
@@ -64,12 +72,16 @@
       "label_i18n": {
         "en": "Average Labor Rate",
         "tr": "Ortalama İşçilik Ücreti",
-        "de": "Durchschnittlicher Stundensatz"
+        "de": "Durchschnittlicher Stundensatz",
+        "fr": "Taux de main-d'œuvre moyen",
+        "es": "Tarifa de mano de obra promedio"
       },
       "businessContext_i18n": {
         "en": "Fully burdened labor rate including overhead (WERC DC Measures)",
         "tr": "Genel giderler dahil tam yüklü işçilik ücreti (WERC DC Ölçütleri).",
-        "de": "Voll belasteter Stundensatz inklusive Gemeinkosten (WERC DC Measures)."
+        "de": "Voll belasteter Stundensatz inklusive Gemeinkosten (WERC DC Measures).",
+        "fr": "Taux de main-d'œuvre entièrement chargé incluant les frais généraux (WERC DC Measures)",
+        "es": "Tarifa de mano de obra totalmente cargada, incluyendo gastos generales (Medidas de centro de distribución WERC)."
       }
     },
     {
@@ -84,12 +96,16 @@
       "label_i18n": {
         "en": "Average Hours per Comeback",
         "tr": "Geri Dönüş Başına Ortalama Saat",
-        "de": "Durchschnittliche Stunden pro Wiederholungsauftrag"
+        "de": "Durchschnittliche Stunden pro Wiederholungsauftrag",
+        "fr": "Heures moyennes par retour",
+        "es": "Horas promedio por reingreso"
       },
       "businessContext_i18n": {
         "en": "Average technician hours spent diagnosing and re-repairing a comeback (Lean Takt time impact)",
         "tr": "Bir geri dönüşü teşhis ve yeniden onarım için harcanan ortalama teknisyen saati (Yalın Takt süresi etkisi).",
-        "de": "Durchschnittliche Technikerstunden für Diagnose und erneute Reparatur eines Wiederholungsauftrags (Lean Taktzeit-Auswirkung)."
+        "de": "Durchschnittliche Technikerstunden für Diagnose und erneute Reparatur eines Wiederholungsauftrags (Lean Taktzeit-Auswirkung).",
+        "fr": "Heures technicien moyennes consacrées au diagnostic et à la reprise d'un retour (impact Lean Temps de takt)",
+        "es": "Horas promedio de técnico dedicadas a diagnosticar y reparar un reingreso (impacto en tiempo de takt Lean)."
       }
     },
     {
@@ -104,12 +120,16 @@
       "label_i18n": {
         "en": "Average Parts Cost per Comeback",
         "tr": "Geri Dönüş Başına Ortalama Parça Maliyeti",
-        "de": "Durchschnittliche Teilekosten pro Wiederholungsauftrag"
+        "de": "Durchschnittliche Teilekosten pro Wiederholungsauftrag",
+        "fr": "Coût moyen des pièces par retour",
+        "es": "Costo promedio de piezas por reingreso"
       },
       "businessContext_i18n": {
         "en": "Replacement parts and materials consumed per comeback (ISO 14001 waste reduction)",
         "tr": "Geri dönüş başına tüketilen yedek parça ve malzemeler (ISO 14001 atık azaltımı).",
-        "de": "Verbrauchte Ersatzteile und Materialien pro Wiederholungsauftrag (ISO 14001 Abfallreduzierung)."
+        "de": "Verbrauchte Ersatzteile und Materialien pro Wiederholungsauftrag (ISO 14001 Abfallreduzierung).",
+        "fr": "Pièces de rechange et matériaux consommés par retour (réduction des déchets ISO 14001)",
+        "es": "Piezas de repuesto y materiales consumidos por reingreso (reducción de desperdicio ISO 14001)."
       }
     },
     {
@@ -124,12 +144,16 @@
       "label_i18n": {
         "en": "Customer Lifetime Value (CLV)",
         "tr": "Müşteri Yaşam Boyu Değeri (CLV)",
-        "de": "Kundenlebenszeitwert (CLV)"
+        "de": "Kundenlebenszeitwert (CLV)",
+        "fr": "Valeur vie client (CLV)",
+        "es": "Valor de vida del cliente (CLV)"
       },
       "businessContext_i18n": {
         "en": "Estimated net profit from a loyal customer over their relationship with the shop",
         "tr": "Sadık bir müşterinin atölye ile ilişkisi boyunca tahmini net karı.",
-        "de": "Geschätzter Nettogewinn eines treuen Kunden über die gesamte Geschäftsbeziehung zur Werkstatt."
+        "de": "Geschätzter Nettogewinn eines treuen Kunden über die gesamte Geschäftsbeziehung zur Werkstatt.",
+        "fr": "Bénéfice net estimé d'un client fidèle sur sa relation avec l'atelier",
+        "es": "Ganancia neta estimada de un cliente leal durante su relación con el taller."
       }
     },
     {
@@ -144,12 +168,16 @@
       "label_i18n": {
         "en": "Lost Customer Rate per Comeback",
         "tr": "Geri Dönüş Başına Kaybedilen Müşteri Oranı",
-        "de": "Verlustrate pro Wiederholungsauftrag"
+        "de": "Verlustrate pro Wiederholungsauftrag",
+        "fr": "Taux de clients perdus par retour",
+        "es": "Tasa de clientes perdidos por reingreso"
       },
       "businessContext_i18n": {
         "en": "Percentage of customers who never return after a comeback experience (Net Promoter Score correlation)",
         "tr": "Bir geri dönüş deneyiminden sonra bir daha asla gelmeyen müşterilerin yüzdesi (Net Tavsiye Skoru korelasyonu)",
-        "de": "Prozentsatz der Kunden, die nach einem Comeback-Erlebnis nie wiederkehren (Net Promoter Score-Korrelation)"
+        "de": "Prozentsatz der Kunden, die nach einem Comeback-Erlebnis nie wiederkehren (Net Promoter Score-Korrelation)",
+        "fr": "Pourcentage de clients qui ne reviennent jamais après une expérience de retour (corrélation Net Promoter Score)",
+        "es": "Porcentaje de clientes que nunca regresan después de una experiencia de recuperación (correlación con Net Promoter Score)"
       }
     },
     {
@@ -168,12 +196,16 @@
       "label_i18n": {
         "en": "Shop Type",
         "tr": "Atölye Türü",
-        "de": "Werkstatttyp"
+        "de": "Werkstatttyp",
+        "fr": "Type d'atelier",
+        "es": "Tipo de taller"
       },
       "businessContext_i18n": {
         "en": "Type of repair facility influences overhead multipliers (ASA industry standards)",
         "tr": "Onarım tesisi türü, genel gider çarpanlarını etkiler (ASA endüstri standartları)",
-        "de": "Der Werkstatttyp beeinflusst die Gemeinkostenmultiplikatoren (ASA-Branchenstandards)"
+        "de": "Der Werkstatttyp beeinflusst die Gemeinkostenmultiplikatoren (ASA-Branchenstandards)",
+        "fr": "Le type d'installation de réparation influence les multiplicateurs de frais généraux (normes ASA)",
+        "es": "El tipo de instalación de reparación influye en los multiplicadores de gastos generales (estándares de la industria ASA)"
       }
     }
   ],

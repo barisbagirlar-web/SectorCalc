@@ -12,13 +12,15 @@
         "en": "Guest Count",
         "tr": "Misafir Sayısı",
         "de": "Gästeanzahl",
-        "fr": "Guest Count",
-        "es": "Guest Count",
+        "fr": "Nombre d'invités",
+        "es": "Número de invitados",
         "ar": "Guest Count"
       },
       "businessContext_i18n": {
         "en": "The total number of wedding guests to be served cake, determines the total quantity needed and drives portion sizing to avoid shortage or excess.",
-        "tr": "Düğün misafirlerine servis edilecek toplam pasta sayısı, gereken toplam miktarı belirler ve eksiklik veya fazlalığı önlemek için porsiyon boyutlandırmasını yönlendirir."
+        "tr": "Düğün misafirlerine servis edilecek toplam pasta sayısı, gereken toplam miktarı belirler ve eksiklik veya fazlalığı önlemek için porsiyon boyutlandırmasını yönlendirir.",
+        "de": "Die Gesamtzahl der Hochzeitsgäste, die mit Kuchen versorgt werden sollen, bestimmt die benötigte Gesamtmenge und beeinflusst die Portionsgröße, um Mangel oder Überschuss zu vermeiden.",
+        "fr": "Le nombre total d'invités à servir détermine la quantité totale nécessaire et le dimensionnement des portions pour éviter le manque ou l'excès."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Portion Size",
         "tr": "Porsiyon Boyutu",
-        "de": "Portion Size",
-        "fr": "Portion Size",
+        "de": "Portionsgröße",
+        "fr": "Taille de portion",
         "es": "Portion Size",
         "ar": "Portion Size"
       },
       "businessContext_i18n": {
         "en": "Average weight of a single serving of cake in grams, based on typical dessert portions; affects total cake mass and ingredient requirements.",
-        "tr": "Tipik tatlı porsiyonlarına dayalı olarak gram cinsinden tek bir pasta diliminin ortalama ağırlığı; toplam pasta kütlesini ve içerik gereksinimlerini etkiler."
+        "tr": "Tipik tatlı porsiyonlarına dayalı olarak gram cinsinden tek bir pasta diliminin ortalama ağırlığı; toplam pasta kütlesini ve içerik gereksinimlerini etkiler.",
+        "de": "Durchschnittsgewicht einer einzelnen Kuchenportion in Gramm, basierend auf typischen Dessertportionen; beeinflusst die Gesamtkuchenmasse und den Zutatenbedarf.",
+        "fr": "Poids moyen d'une portion individuelle de gâteau en grammes, basé sur les portions de dessert typiques ; affecte la masse totale du gâteau et les besoins en ingrédients."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Ingredient Cost per kg",
         "tr": "İçerik Maliyeti (kg başına)",
-        "de": "Ingredient Cost per kg",
-        "fr": "Ingredient Cost per kg",
+        "de": "Inhaltsstoffkosten pro kg",
+        "fr": "Coût des ingrédients par kg",
         "es": "Ingredient Cost per kg",
         "ar": "Ingredient Cost per kg"
       },
       "businessContext_i18n": {
         "en": "Cost of raw materials (flour, sugar, eggs, etc.) per kilogram; fundamental for calculating the base food cost of the cake.",
-        "tr": "Kilogram başına hammadde (un, şeker, yumurta vb.) maliyeti; pastanın temel gıda maliyetini hesaplamak için temel oluşturur."
+        "tr": "Kilogram başına hammadde (un, şeker, yumurta vb.) maliyeti; pastanın temel gıda maliyetini hesaplamak için temel oluşturur.",
+        "de": "Kosten für Rohstoffe (Mehl, Zucker, Eier usw.) pro Kilogramm; grundlegend für die Berechnung der Lebensmittelkosten des Kuchens.",
+        "fr": "Coût des matières premières (farine, sucre, œufs, etc.) par kilogramme ; fondamental pour calculer le coût alimentaire de base du gâteau."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Labor Hours",
         "tr": "İşçilik Saati",
         "de": "Arbeitsstunden",
-        "fr": "Labor Hours",
-        "es": "Labor Hours",
+        "fr": "Heures de main-d'œuvre",
+        "es": "Horas de mano de obra",
         "ar": "Labor Hours"
       },
       "businessContext_i18n": {
         "en": "Total direct labor time spent on baking and decorating the cake; used to compute labor expense.",
-        "tr": "Pastanın pişirilmesi ve süslenmesi için harcanan toplam doğrudan işçilik süresi; işçilik giderini hesaplamak için kullanılır."
+        "tr": "Pastanın pişirilmesi ve süslenmesi için harcanan toplam doğrudan işçilik süresi; işçilik giderini hesaplamak için kullanılır.",
+        "de": "Gesamte direkte Arbeitszeit für das Backen und Dekorieren des Kuchens; wird zur Berechnung der Arbeitskosten verwendet.",
+        "fr": "Temps de travail direct total consacré à la cuisson et à la décoration du gâteau ; utilisé pour calculer les dépenses de main-d'œuvre."
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Labor Rate",
         "tr": "İşçilik ücreti",
         "de": "Stundensatz",
-        "fr": "Labor Rate",
-        "es": "Labor Rate",
+        "fr": "Taux de main-d'œuvre",
+        "es": "Tarifa de mano de obra",
         "ar": "Labor Rate"
       },
       "businessContext_i18n": {
         "en": "Hourly wage of the pastry chef or baker; multiplied by labor hours to get total labor cost.",
-        "tr": "Pastacı şefinin veya fırıncının saatlik ücreti; toplam işçilik maliyetini elde etmek için işçilik saatleriyle çarpılır."
+        "tr": "Pastacı şefinin veya fırıncının saatlik ücreti; toplam işçilik maliyetini elde etmek için işçilik saatleriyle çarpılır.",
+        "de": "Stundenlohn des Konditors oder Bäckers; multipliziert mit den Arbeitsstunden ergibt die gesamten Arbeitskosten.",
+        "fr": "Salaire horaire du pâtissier ou du boulanger ; multiplié par les heures de travail pour obtenir le coût total de la main-d'œuvre."
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Overhead Percentage",
         "tr": "Genel Gider Yüzdesi",
         "de": "Gemeinkostenprozentsatz",
-        "fr": "Overhead Percentage",
-        "es": "Overhead Percentage",
+        "fr": "Pourcentage de frais généraux",
+        "es": "Porcentaje de gastos generales",
         "ar": "Overhead Percentage"
       },
       "businessContext_i18n": {
         "en": "Indirect costs (utilities, rent, equipment amortization) expressed as a percentage of direct costs (ingredients + labor); ensures full cost recovery.",
-        "tr": "Doğrudan maliyetlerin (içerikler + işçilik) yüzdesi olarak ifade edilen dolaylı maliyetler (elektrik, kira, ekipman amortismanı); tam maliyet geri kazanımını sağlar."
+        "tr": "Doğrudan maliyetlerin (içerikler + işçilik) yüzdesi olarak ifade edilen dolaylı maliyetler (elektrik, kira, ekipman amortismanı); tam maliyet geri kazanımını sağlar.",
+        "de": "Indirekte Kosten (Betriebskosten, Miete, Geräteabschreibung) als Prozentsatz der direkten Kosten (Zutaten + Arbeit); stellt die vollständige Kostendeckung sicher.",
+        "fr": "Coûts indirects (services publics, loyer, amortissement de l'équipement) exprimés en pourcentage des coûts directs (ingrédients + main-d'œuvre) ; assure la récupération complète des coûts."
       }
     },
     {
@@ -132,13 +144,15 @@
         "en": "Profit Margin",
         "tr": "Kâr Marjı",
         "de": "Gewinnmarge",
-        "fr": "Profit Margin",
-        "es": "Profit Margin",
+        "fr": "Marge bénéficiaire",
+        "es": "Margen de beneficio",
         "ar": "Profit Margin"
       },
       "businessContext_i18n": {
         "en": "Desired net profit as a percentage of total cost; used to set the final selling price and ensure business sustainability.",
-        "tr": "Toplam maliyetin yüzdesi olarak istenen net kâr; nihai satış fiyatını belirlemek ve iş sürdürülebilirliğini sağlamak için kullanılır."
+        "tr": "Toplam maliyetin yüzdesi olarak istenen net kâr; nihai satış fiyatını belirlemek ve iş sürdürülebilirliğini sağlamak için kullanılır.",
+        "de": "Gewünschter Nettogewinn als Prozentsatz der Gesamtkosten; dient zur Festlegung des endgültigen Verkaufspreises und zur Sicherstellung der Nachhaltigkeit des Unternehmens.",
+        "fr": "Bénéfice net souhaité en pourcentage du coût total ; utilisé pour fixer le prix de vente final et assurer la durabilité de l'entreprise."
       }
     }
   ],

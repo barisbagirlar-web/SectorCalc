@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Quantum Number n",
         "tr": "Kuantum Sayısı n",
-        "de": "Quantum Number n",
-        "fr": "Quantum Number n",
+        "de": "Quantenzahl n",
+        "fr": "Nombre quantique n",
         "es": "Quantum Number n",
         "ar": "Quantum Number n"
       },
       "businessContext_i18n": {
         "en": "Principal quantum number (n = 1, 2, 3, ...) indicating the energy level of the particle.",
-        "tr": "Baş kuantum sayısı (n = 1, 2, 3, ...) parçacığın enerji seviyesini belirtir."
+        "tr": "Baş kuantum sayısı (n = 1, 2, 3, ...) parçacığın enerji seviyesini belirtir.",
+        "de": "Hauptquantenzahl (n = 1, 2, 3, ...), die das Energieniveau des Teilchens angibt.",
+        "fr": "Nombre quantique principal (n = 1, 2, 3, ...) indiquant le niveau d'énergie de la particule."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Particle Mass",
         "tr": "Parçacık Kütlesi",
-        "de": "Particle Mass",
-        "fr": "Particle Mass",
+        "de": "Teilchenmasse",
+        "fr": "Masse de la particule",
         "es": "Particle Mass",
         "ar": "Particle Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the particle confined in the infinite well (e.g., electron mass).",
-        "tr": "Sonsuz kuyuda hapsedilmiş parçacığın kütlesi (örneğin, elektron kütlesi)."
+        "tr": "Sonsuz kuyuda hapsedilmiş parçacığın kütlesi (örneğin, elektron kütlesi).",
+        "de": "Masse des im unendlichen Topf eingeschlossenen Teilchens (z. B. Elektronenmasse).",
+        "fr": "Masse de la particule confinée dans le puits infini (par exemple, masse de l'électron)."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Box Length",
         "tr": "Kutu Uzunluğu",
-        "de": "Box Length",
-        "fr": "Box Length",
+        "de": "Kastenlänge",
+        "fr": "Longueur de la boîte",
         "es": "Box Length",
         "ar": "Box Length"
       },
       "businessContext_i18n": {
         "en": "Width of the one-dimensional infinite potential well.",
-        "tr": "Tek boyutlu sonsuz potansiyel kuyusunun genişliği."
+        "tr": "Tek boyutlu sonsuz potansiyel kuyusunun genişliği.",
+        "de": "Breite des eindimensionalen unendlichen Potentialtopfs.",
+        "fr": "Largeur du puits de potentiel unidimensionnel infini."
       }
     },
     {
@@ -78,7 +84,9 @@
       },
       "businessContext_i18n": {
         "en": "Position inside the well (0 < x < L) at which the wavefunction is evaluated.",
-        "tr": "Dalga fonksiyonunun değerlendirildiği kuyu içindeki konum (0 < x < L)."
+        "tr": "Dalga fonksiyonunun değerlendirildiği kuyu içindeki konum (0 < x < L).",
+        "de": "Position innerhalb des Topfes (0 < x < L), an der die Wellenfunktion ausgewertet wird.",
+        "fr": "Position à l'intérieur du puits (0 < x < L) à laquelle la fonction d'onde est évaluée."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Reduced Planck Constant",
         "tr": "İndirgenmiş Planck Sabiti",
-        "de": "Reduced Planck Constant",
-        "fr": "Reduced Planck Constant",
+        "de": "Reduziertes Plancksches Wirkungsquantum",
+        "fr": "Constante de Planck réduite",
         "es": "Reduced Planck Constant",
         "ar": "Reduced Planck Constant"
       },
       "businessContext_i18n": {
         "en": "Reduced Planck constant (ħ = h/2π).",
-        "tr": "İndirgenmiş Planck sabiti (ħ = h/2π)."
+        "tr": "İndirgenmiş Planck sabiti (ħ = h/2π).",
+        "de": "Reduziertes Plancksches Wirkungsquantum (ħ = h/2π).",
+        "fr": "Constante de Planck réduite (ħ = h/2π)."
       }
     }
   ],

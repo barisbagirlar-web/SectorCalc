@@ -12,13 +12,15 @@
         "en": "Current Age",
         "tr": "Mevcut Yaş",
         "de": "Aktuelles Alter",
-        "fr": "Current Age",
-        "es": "Current Age",
+        "fr": "Âge actuel",
+        "es": "Edad actual",
         "ar": "Current Age"
       },
       "businessContext_i18n": {
         "en": "Age of the individual now.",
-        "tr": "Bireyin şu anki yaşı."
+        "tr": "Bireyin şu anki yaşı.",
+        "de": "Alter der Person jetzt.",
+        "fr": "Âge actuel de la personne."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Annual Contribution",
         "tr": "Yıllık Katkı",
         "de": "Jährlicher Beitrag",
-        "fr": "Annual Contribution",
-        "es": "Annual Contribution",
+        "fr": "Cotisation annuelle",
+        "es": "Contribución anual",
         "ar": "Annual Contribution"
       },
       "businessContext_i18n": {
         "en": "Amount contributed to IRA annually.",
-        "tr": "IRA'ya yıllık olarak katkıda bulunulan tutar."
+        "tr": "IRA'ya yıllık olarak katkıda bulunulan tutar.",
+        "de": "Jährlicher Beitrag zur IRA.",
+        "fr": "Montant contribué annuellement au compte IRA."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Current Tax Rate",
         "tr": "Mevcut Vergi Oranı",
-        "de": "Current Tax Rate",
-        "fr": "Current Tax Rate",
+        "de": "Aktueller Steuersatz",
+        "fr": "Taux d'imposition actuel",
         "es": "Current Tax Rate",
         "ar": "Current Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Marginal tax rate now.",
-        "tr": "Şimdiki marjinal vergi oranı."
+        "tr": "Şimdiki marjinal vergi oranı.",
+        "de": "Grenzsteuersatz jetzt.",
+        "fr": "Taux d'imposition marginal actuel."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Expected Retirement Tax Rate",
         "tr": "Beklenen Emeklilik Vergi Oranı",
-        "de": "Expected Retirement Tax Rate",
-        "fr": "Expected Retirement Tax Rate",
+        "de": "Erwarteter Steuersatz im Ruhestand",
+        "fr": "Taux d'imposition attendu à la retraite",
         "es": "Expected Retirement Tax Rate",
         "ar": "Expected Retirement Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Expected marginal tax rate in retirement.",
-        "tr": "Emeklilikte beklenen marjinal vergi oranı."
+        "tr": "Emeklilikte beklenen marjinal vergi oranı.",
+        "de": "Erwarteter Grenzsteuersatz im Ruhestand.",
+        "fr": "Taux d'imposition marginal attendu à la retraite."
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Expected Annual Return",
         "tr": "Beklenen Yıllık Getiri",
         "de": "Erwartete jährliche Rendite",
-        "fr": "Expected Annual Return",
-        "es": "Expected Annual Return",
+        "fr": "Rendement annuel attendu",
+        "es": "Rendimiento anual esperado",
         "ar": "Expected Annual Return"
       },
       "businessContext_i18n": {
         "en": "Average annual return on investments.",
-        "tr": "Yatırımların ortalama yıllık getirisi."
+        "tr": "Yatırımların ortalama yıllık getirisi.",
+        "de": "Durchschnittliche jährliche Kapitalrendite.",
+        "fr": "Rendement annuel moyen des investissements."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Years Until Retirement",
         "tr": "Emekliliğe kalan yıl",
-        "de": "Years Until Retirement",
-        "fr": "Years Until Retirement",
-        "es": "Years Until Retirement",
+        "de": "Jahre bis zur Rente",
+        "fr": "Années avant la retraite",
+        "es": "Años hasta la jubilación",
         "ar": "Years Until Retirement"
       },
       "businessContext_i18n": {
         "en": "Years until retirement.",
-        "tr": "Emekliliğe kalan yıl."
+        "tr": "Emekliliğe kalan yıl.",
+        "de": "Jahre bis zur Rente.",
+        "fr": "Années avant la retraite."
       }
     }
   ],

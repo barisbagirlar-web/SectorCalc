@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Wall Area (m²)",
         "tr": "Duvar Alanı (m²)",
-        "de": "Wall Area (m²)",
-        "fr": "Wall Area (m²)",
+        "de": "Wandfläche (m²)",
+        "fr": "Surface murale (m²)",
         "es": "Wall Area (m²)",
         "ar": "Wall Area (m²)"
       },
       "businessContext_i18n": {
         "en": "Total surface area that requires spackling",
-        "tr": "Macunlanması gereken toplam yüzey alanı"
+        "tr": "Macunlanması gereken toplam yüzey alanı",
+        "de": "Gesamte zu spachtelnde Oberfläche",
+        "fr": "Surface totale nécessitant un rebouchage"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Number of Holes",
         "tr": "Delik Sayısı",
         "de": "Anzahl der Löcher",
-        "fr": "Number of Holes",
-        "es": "Number of Holes",
+        "fr": "Nombre de trous",
+        "es": "Número de agujeros",
         "ar": "Number of Holes"
       },
       "businessContext_i18n": {
         "en": "Approximate count of holes to fill",
-        "tr": "Doldurulacak deliklerin yaklaşık sayısı"
+        "tr": "Doldurulacak deliklerin yaklaşık sayısı",
+        "de": "Ungefähre Anzahl zu füllender Löcher",
+        "fr": "Nombre approximatif de trous à reboucher"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Average Hole Diameter (mm)",
         "tr": "Ortalama Delik Çapı (mm)",
-        "de": "Average Hole Diameter (mm)",
-        "fr": "Average Hole Diameter (mm)",
+        "de": "Durchschnittlicher Lochdurchmesser (mm)",
+        "fr": "Diamètre moyen des trous (mm)",
         "es": "Average Hole Diameter (mm)",
         "ar": "Average Hole Diameter (mm)"
       },
       "businessContext_i18n": {
         "en": "Diameter of typical holes in millimeters",
-        "tr": "Tipik deliklerin milimetre cinsinden çapı"
+        "tr": "Tipik deliklerin milimetre cinsinden çapı",
+        "de": "Durchmesser typischer Löcher in Millimetern",
+        "fr": "Diamètre des trous typiques en millimètres"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Average Hole Depth (mm)",
         "tr": "Ortalama Delik Derinliği (mm)",
-        "de": "Average Hole Depth (mm)",
-        "fr": "Average Hole Depth (mm)",
+        "de": "Durchschnittliche Lochtiefe (mm)",
+        "fr": "Profondeur moyenne des trous (mm)",
         "es": "Average Hole Depth (mm)",
         "ar": "Average Hole Depth (mm)"
       },
       "businessContext_i18n": {
         "en": "Depth of typical holes in millimeters",
-        "tr": "Tipik deliklerin milimetre cinsinden derinliği"
+        "tr": "Tipik deliklerin milimetre cinsinden derinliği",
+        "de": "Tiefe typischer Löcher in Millimetern",
+        "fr": "Profondeur des trous typiques en millimètres"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Spackle Density",
         "tr": "Macun Yoğunluğu",
-        "de": "Spackle Density",
-        "fr": "Spackle Density",
+        "de": "Spachteldichte",
+        "fr": "Densité de l'enduit",
         "es": "Spackle Density",
         "ar": "Spackle Density"
       },
       "businessContext_i18n": {
         "en": "Density of the spackle compound used",
-        "tr": "Kullanılan macun bileşiğinin yoğunluğu"
+        "tr": "Kullanılan macun bileşiğinin yoğunluğu",
+        "de": "Dichte des verwendeten Spachtelmaterials",
+        "fr": "Densité du composé d'enduit utilisé"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Container Size (kg)",
         "tr": "Konteyner Boyutu (kg)",
-        "de": "Container Size (kg)",
-        "fr": "Container Size (kg)",
+        "de": "Behältergröße (kg)",
+        "fr": "Taille du contenant (kg)",
         "es": "Container Size (kg)",
         "ar": "Container Size (kg)"
       },
       "businessContext_i18n": {
         "en": "Net weight of a single spackle container",
-        "tr": "Tek bir macun konteynerinin net ağırlığı"
+        "tr": "Tek bir macun konteynerinin net ağırlığı",
+        "de": "Nettogewicht eines einzelnen Spachtelbehälters",
+        "fr": "Poids net d'un seul contenant d'enduit"
       }
     },
     {
@@ -132,13 +144,15 @@
         "en": "Waste Factor (%)",
         "tr": "Fire Faktörü (%)",
         "de": "Verschnittfaktor (%)",
-        "fr": "Waste Factor (%)",
-        "es": "Waste Factor (%)",
+        "fr": "Facteur de déchet (%)",
+        "es": "Factor de desperdicio (%)",
         "ar": "Waste Factor (%)"
       },
       "businessContext_i18n": {
         "en": "Extra material to account for waste and spillage",
-        "tr": "Atık ve dökülmeyi hesaba katmak için ekstra malzeme"
+        "tr": "Atık ve dökülmeyi hesaba katmak için ekstra malzeme",
+        "de": "Zusätzliches Material für Abfall und Verschütten",
+        "fr": "Matériau supplémentaire pour tenir compte des déchets et des débordements"
       }
     }
   ],

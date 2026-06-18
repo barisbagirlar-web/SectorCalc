@@ -23,11 +23,17 @@
       "businessContext": "Leading coefficient of the quadratic equation ax² + bx + c = 0. Must be non-zero for a valid quadratic.",
       "label_i18n": {
         "en": "Coefficient a (quadratic term)",
-        "tr": "Katsayı a (ikinci derece terimi)"
+        "tr": "Katsayı a (ikinci derece terimi)",
+        "de": "Koeffizient a (quadratischer Term)",
+        "fr": "Coefficient a (terme quadratique)",
+        "es": "Coeficiente a (término cuadrático)"
       },
       "businessContext_i18n": {
         "en": "Leading coefficient of the quadratic equation ax² + bx + c = 0. Must be non-zero for a valid quadratic.",
-        "tr": "ax² + bx + c = 0 ikinci derece denkleminin baş katsayısı. Geçerli bir ikinci derece için sıfırdan farklı olmalıdır."
+        "tr": "ax² + bx + c = 0 ikinci derece denkleminin baş katsayısı. Geçerli bir ikinci derece için sıfırdan farklı olmalıdır.",
+        "de": "Führender Koeffizient der quadratischen Gleichung ax² + bx + c = 0. Muss ungleich Null sein für eine gültige quadratische Gleichung.",
+        "fr": "Coefficient dominant de l'équation quadratique ax² + bx + c = 0. Doit être non nul pour une quadratique valide.",
+        "es": "Coeficiente principal de la ecuación cuadrática ax² + bx + c = 0. Debe ser distinto de cero para una cuadrática válida."
       }
     },
     {
@@ -41,11 +47,17 @@
       "businessContext": "Linear coefficient influencing the vertex position and root symmetry.",
       "label_i18n": {
         "en": "Coefficient b (linear term)",
-        "tr": "Katsayı b (doğrusal terim)"
+        "tr": "Katsayı b (doğrusal terim)",
+        "de": "Koeffizient b (linearer Term)",
+        "fr": "Coefficient b (terme linéaire)",
+        "es": "Coeficiente b (término lineal)"
       },
       "businessContext_i18n": {
         "en": "Linear coefficient influencing the vertex position and root symmetry.",
-        "tr": "Tepe noktası konumunu ve kök simetrisini etkileyen doğrusal katsayı."
+        "tr": "Tepe noktası konumunu ve kök simetrisini etkileyen doğrusal katsayı.",
+        "de": "Linearer Koeffizient, der die Scheitelpunktlage und die Symmetrie der Nullstellen beeinflusst.",
+        "fr": "Coefficient linéaire influençant la position du sommet et la symétrie des racines.",
+        "es": "Coeficiente lineal que influye en la posición del vértice y la simetría de las raíces."
       }
     },
     {
@@ -59,11 +71,17 @@
       "businessContext": "Constant term representing the y-intercept of the quadratic function.",
       "label_i18n": {
         "en": "Coefficient c (constant term)",
-        "tr": "Katsayı c (sabit terim)"
+        "tr": "Katsayı c (sabit terim)",
+        "de": "Koeffizient c (konstanter Term)",
+        "fr": "Coefficient c (terme constant)",
+        "es": "Coeficiente c (término constante)"
       },
       "businessContext_i18n": {
         "en": "Constant term representing the y-intercept of the quadratic function.",
-        "tr": "İkinci derece fonksiyonun y-kesişimini temsil eden sabit terim."
+        "tr": "İkinci derece fonksiyonun y-kesişimini temsil eden sabit terim.",
+        "de": "Konstanter Term, der den y-Achsenabschnitt der quadratischen Funktion darstellt.",
+        "fr": "Terme constant représentant l'ordonnée à l'origine de la fonction quadratique.",
+        "es": "Término constante que representa la intersección con el eje y de la función cuadrática."
       }
     },
     {
@@ -82,11 +100,17 @@
       "businessContext": "Selects rounding and display precision: standard (4 decimals), high (8 decimals), engineering (scientific notation).",
       "label_i18n": {
         "en": "Precision Mode",
-        "tr": "Hassasiyet Modu"
+        "tr": "Hassasiyet Modu",
+        "de": "Genauigkeitsmodus",
+        "fr": "Mode de précision",
+        "es": "Modo de precisión"
       },
       "businessContext_i18n": {
         "en": "Selects rounding and display precision: standard (4 decimals), high (8 decimals), engineering (scientific notation).",
-        "tr": "Yuvarlama ve görüntüleme hassasiyetini seçer: standart (4 ondalık), yüksek (8 ondalık), mühendislik (bilimsel gösterim)."
+        "tr": "Yuvarlama ve görüntüleme hassasiyetini seçer: standart (4 ondalık), yüksek (8 ondalık), mühendislik (bilimsel gösterim).",
+        "de": "Wählt Rundung und Anzeigegenauigkeit: Standard (4 Dezimalstellen), Hoch (8 Dezimalstellen), Technisch (wissenschaftliche Notation).",
+        "fr": "Sélectionne l'arrondi et l'affichage de la précision : standard (4 décimales), haute (8 décimales), ingénierie (notation scientifique).",
+        "es": "Selecciona el redondeo y la precisión de visualización: estándar (4 decimales), alta (8 decimales), ingeniería (notación científica)."
       }
     },
     {
@@ -100,11 +124,17 @@
       "businessContext": "When true, the calculator returns complex roots for negative discriminants. When false, it returns an error for non-real roots.",
       "label_i18n": {
         "en": "Allow Complex Roots",
-        "tr": "Karmaşık Köklere İzin Ver"
+        "tr": "Karmaşık Köklere İzin Ver",
+        "de": "Komplexe Nullstellen zulassen",
+        "fr": "Autoriser les racines complexes",
+        "es": "Permitir raíces complejas"
       },
       "businessContext_i18n": {
         "en": "When true, the calculator returns complex roots for negative discriminants. When false, it returns an error for non-real roots.",
-        "tr": "Doğru olduğunda, hesap makinesi negatif diskriminant için karmaşık kökler döndürür. Yanlış olduğunda, gerçek olmayan kökler için hata döndürür."
+        "tr": "Doğru olduğunda, hesap makinesi negatif diskriminant için karmaşık kökler döndürür. Yanlış olduğunda, gerçek olmayan kökler için hata döndürür.",
+        "de": "Wenn aktiviert, gibt der Rechner komplexe Nullstellen für negative Diskriminanten zurück. Wenn deaktiviert, wird ein Fehler für nicht-reelle Nullstellen ausgegeben.",
+        "fr": "Lorsque vrai, le calculateur retourne les racines complexes pour les discriminants négatifs. Lorsque faux, il retourne une erreur pour les racines non réelles.",
+        "es": "Cuando es verdadero, la calculadora devuelve raíces complejas para discriminantes negativos. Cuando es falso, devuelve un error para raíces no reales."
       }
     }
   ],

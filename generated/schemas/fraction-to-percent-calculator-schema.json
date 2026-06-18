@@ -12,14 +12,16 @@
         "en": "Numerator",
         "tr": "Pay",
         "de": "Zähler",
-        "fr": "Numerator",
-        "es": "Numerator",
+        "fr": "Numérateur",
+        "es": "Numerador",
         "ar": "Numerator"
       },
       "businessContext_i18n": {
         "en": "Top part of the fraction (dividend).",
         "tr": "Kesrin üst kısmı (bölünen).",
-        "de": "Oberer Teil des Bruchs (Dividend)."
+        "de": "Oberer Teil des Bruchs (Dividend).",
+        "fr": "Partie supérieure de la fraction (dividende).",
+        "es": "Parte superior de la fracción (dividendo)."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Denominator",
         "tr": "Payda",
         "de": "Nenner",
-        "fr": "Denominator",
-        "es": "Denominator",
+        "fr": "Dénominateur",
+        "es": "Denominador",
         "ar": "Denominator"
       },
       "businessContext_i18n": {
         "en": "Bottom part of the fraction (divisor). Must be non-zero.",
         "tr": "Kesrin alt kısmı (bölen). Sıfırdan farklı olmalıdır.",
-        "de": "Unterer Teil des Bruchs (Divisor). Muss ungleich Null sein."
+        "de": "Unterer Teil des Bruchs (Divisor). Muss ungleich Null sein.",
+        "fr": "Partie inférieure de la fraction (diviseur). Doit être non nul.",
+        "es": "Parte inferior de la fracción (divisor). Debe ser distinto de cero."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Whole Number",
         "tr": "Tam sayı",
         "de": "Ganze Zahl",
-        "fr": "Whole Number",
-        "es": "Whole Number",
+        "fr": "Nombre entier",
+        "es": "Número entero",
         "ar": "Whole Number"
       },
       "businessContext_i18n": {
         "en": "Whole number part for mixed fractions (optional).",
         "tr": "Karışık kesirler için tam sayı kısmı (isteğe bağlı).",
-        "de": "Ganzzahliger Teil für gemischte Brüche (optional)."
+        "de": "Ganzzahliger Teil für gemischte Brüche (optional).",
+        "fr": "Partie entière pour les fractions mixtes (optionnel).",
+        "es": "Parte entera para fracciones mixtas (opcional)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places in the final percentage.",
         "tr": "Nihai yüzdedeki ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen im endgültigen Prozentsatz."
+        "de": "Anzahl der Dezimalstellen im endgültigen Prozentsatz.",
+        "fr": "Nombre de décimales dans le pourcentage final.",
+        "es": "Número de decimales en el porcentaje final."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Rounding Mode",
         "tr": "Yuvarlama Modu",
         "de": "Rundungsmodus",
-        "fr": "Rounding Mode",
-        "es": "Rounding Mode",
+        "fr": "Mode d'arrondi",
+        "es": "Modo de redondeo",
         "ar": "Rounding Mode"
       },
       "businessContext_i18n": {
         "en": "0 = standard rounding (half up), 1 = floor, 2 = ceil, 3 = truncate.",
         "tr": "0 = standart yuvarlama (half up), 1 = taban, 2 = tavan, 3 = kesme.",
-        "de": "0 = Standardrundung (kaufmännisch), 1 = abrunden, 2 = aufrunden, 3 = abschneiden."
+        "de": "0 = Standardrundung (kaufmännisch), 1 = abrunden, 2 = aufrunden, 3 = abschneiden.",
+        "fr": "0 = arrondi standard (demi au supérieur), 1 = plancher, 2 = plafond, 3 = troncature.",
+        "es": "0 = redondeo estándar (half up), 1 = suelo, 2 = techo, 3 = truncar."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Face Value",
         "tr": "Nominal Değer",
         "de": "Nennwert",
-        "fr": "Face Value",
-        "es": "Face Value",
+        "fr": "Valeur nominale",
+        "es": "Valor nominal",
         "ar": "Face Value"
       },
       "businessContext_i18n": {
         "en": "Par value of the bond paid at maturity",
         "tr": "Vadede ödenen tahvilin itibari değeri",
-        "de": "Nennwert der Anleihe, der bei Fälligkeit gezahlt wird"
+        "de": "Nennwert der Anleihe, der bei Fälligkeit gezahlt wird",
+        "fr": "Valeur nominale de l'obligation remboursée à l'échéance",
+        "es": "Valor nominal del bono pagado al vencimiento"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Coupon Rate",
         "tr": "Kupon Oranı",
         "de": "Kuponrate",
-        "fr": "Coupon Rate",
-        "es": "Coupon Rate",
+        "fr": "Taux du coupon",
+        "es": "Tasa de cupón",
         "ar": "Coupon Rate"
       },
       "businessContext_i18n": {
         "en": "Annual coupon payment as a percentage of face value",
         "tr": "Nominal değerin yüzdesi olarak yıllık kupon ödemesi",
-        "de": "Jährliche Kuponzahlung als Prozentsatz des Nennwerts"
+        "de": "Jährliche Kuponzahlung als Prozentsatz des Nennwerts",
+        "fr": "Paiement annuel du coupon en pourcentage de la valeur nominale",
+        "es": "Pago anual del cupón como porcentaje del valor nominal"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Market Interest Rate (YTM)",
         "tr": "Piyasa Faiz Oranı (YTM)",
         "de": "Marktzinssatz (Rendite bis Fälligkeit)",
-        "fr": "Market Interest Rate (YTM)",
-        "es": "Market Interest Rate (YTM)",
+        "fr": "Taux d'intérêt du marché (YTM)",
+        "es": "Tasa de interés de mercado (YTM)",
         "ar": "Market Interest Rate (YTM)"
       },
       "businessContext_i18n": {
         "en": "Yield to maturity required by investors",
         "tr": "Yatırımcılar tarafından talep edilen vadeye kadar getiri",
-        "de": "Von Anlegern geforderte Rendite bis Fälligkeit"
+        "de": "Von Anlegern geforderte Rendite bis Fälligkeit",
+        "fr": "Rendement à l'échéance exigé par les investisseurs",
+        "es": "Rendimiento al vencimiento requerido por los inversores"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Years to Maturity",
         "tr": "Vadeye Kalan Yıl",
         "de": "Jahre bis Fälligkeit",
-        "fr": "Years to Maturity",
-        "es": "Years to Maturity",
+        "fr": "Années jusqu'à l'échéance",
+        "es": "Años hasta el vencimiento",
         "ar": "Years to Maturity"
       },
       "businessContext_i18n": {
         "en": "Time until bond matures",
         "tr": "Tahvilin vadesine kadar kalan süre",
-        "de": "Zeit bis zur Fälligkeit der Anleihe"
+        "de": "Zeit bis zur Fälligkeit der Anleihe",
+        "fr": "Temps restant avant l'échéance de l'obligation",
+        "es": "Tiempo hasta que el bono vence"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Coupon Frequency",
         "tr": "Kupon Sıklığı",
         "de": "Kuponhäufigkeit",
-        "fr": "Coupon Frequency",
-        "es": "Coupon Frequency",
+        "fr": "Fréquence du coupon",
+        "es": "Frecuencia de cupón",
         "ar": "Coupon Frequency"
       },
       "businessContext_i18n": {
         "en": "Number of coupon payments per year (e.g., 2 for semi-annual)",
         "tr": "Yıllık kupon ödemesi sayısı (örn. altı aylık için 2)",
-        "de": "Anzahl der Kuponzahlungen pro Jahr (z. B. 2 für halbjährlich)"
+        "de": "Anzahl der Kuponzahlungen pro Jahr (z. B. 2 für halbjährlich)",
+        "fr": "Nombre de paiements de coupon par an (ex. : 2 pour semestriel)",
+        "es": "Número de pagos de cupón por año (ej., 2 para semestral)"
       }
     }
   ],

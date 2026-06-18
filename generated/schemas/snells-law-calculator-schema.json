@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Refractive Index of Medium 1",
         "tr": "Ortam 1'in Kırılma İndisi",
-        "de": "Refractive Index of Medium 1",
-        "fr": "Refractive Index of Medium 1",
+        "de": "Brechungsindex von Medium 1",
+        "fr": "Indice de réfraction du milieu 1",
         "es": "Refractive Index of Medium 1",
         "ar": "Refractive Index of Medium 1"
       },
       "businessContext_i18n": {
         "en": "Refractive index of the first medium (e.g., air = 1.0003)",
-        "tr": "Birinci ortamın kırılma indisi (örneğin, hava = 1.0003)"
+        "tr": "Birinci ortamın kırılma indisi (örneğin, hava = 1.0003)",
+        "de": "Brechungsindex des ersten Mediums (z. B. Luft = 1,0003)",
+        "fr": "Indice de réfraction du premier milieu (ex. air = 1,0003)"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Angle of Incidence",
         "tr": "Geliş Açısı",
-        "de": "Angle of Incidence",
-        "fr": "Angle of Incidence",
+        "de": "Einfallswinkel",
+        "fr": "Angle d'incidence",
         "es": "Angle of Incidence",
         "ar": "Angle of Incidence"
       },
       "businessContext_i18n": {
         "en": "Angle between incident ray and normal in medium 1",
-        "tr": "Gelen ışın ile normal arasındaki açı (ortam 1)"
+        "tr": "Gelen ışın ile normal arasındaki açı (ortam 1)",
+        "de": "Winkel zwischen einfallendem Strahl und Lot in Medium 1",
+        "fr": "Angle entre le rayon incident et la normale dans le milieu 1"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Refractive Index of Medium 2",
         "tr": "Ortam 2'nin kırılma indisi",
-        "de": "Refractive Index of Medium 2",
-        "fr": "Refractive Index of Medium 2",
+        "de": "Brechungsindex von Medium 2",
+        "fr": "Indice de réfraction du milieu 2",
         "es": "Refractive Index of Medium 2",
         "ar": "Refractive Index of Medium 2"
       },
       "businessContext_i18n": {
         "en": "Refractive index of the second medium (e.g., glass = 1.5)",
-        "tr": "İkinci ortamın kırılma indisi (örneğin, cam = 1.5)"
+        "tr": "İkinci ortamın kırılma indisi (örneğin, cam = 1.5)",
+        "de": "Brechungsindex des zweiten Mediums (z. B. Glas = 1,5)",
+        "fr": "Indice de réfraction du second milieu (ex. verre = 1,5)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Angle of Refraction",
         "tr": "Kırılma açısı",
-        "de": "Angle of Refraction",
-        "fr": "Angle of Refraction",
+        "de": "Brechungswinkel",
+        "fr": "Angle de réfraction",
         "es": "Angle of Refraction",
         "ar": "Angle of Refraction"
       },
       "businessContext_i18n": {
         "en": "Angle between refracted ray and normal in medium 2 (calculated if unknown)",
-        "tr": "Kırılan ışın ile normal arasındaki açı (ortam 2) (bilinmiyorsa hesaplanır)"
+        "tr": "Kırılan ışın ile normal arasındaki açı (ortam 2) (bilinmiyorsa hesaplanır)",
+        "de": "Winkel zwischen gebrochenem Strahl und Lot im Medium 2 (wird berechnet, falls unbekannt)",
+        "fr": "Angle entre le rayon réfracté et la normale dans le milieu 2 (calculé si inconnu)"
       }
     }
   ],

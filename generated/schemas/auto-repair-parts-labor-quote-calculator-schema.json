@@ -24,12 +24,16 @@
       "label_i18n": {
         "en": "Parts Cost (USD)",
         "tr": "Parça Maliyeti (USD)",
-        "de": "Teilekosten (USD)"
+        "de": "Teilekosten (USD)",
+        "fr": "Coût des pièces (USD)",
+        "es": "Costo de piezas (USD)"
       },
       "businessContext_i18n": {
         "en": "Total cost of replacement parts from supplier invoice.",
         "tr": "Tedarikçi faturasından alınan yedek parçaların toplam maliyeti.",
-        "de": "Gesamtkosten der Ersatzteile laut Lieferantenrechnung."
+        "de": "Gesamtkosten der Ersatzteile laut Lieferantenrechnung.",
+        "fr": "Coût total des pièces de rechange selon la facture du fournisseur.",
+        "es": "Costo total de las piezas de repuesto según la factura del proveedor."
       }
     },
     {
@@ -44,12 +48,16 @@
       "label_i18n": {
         "en": "Labor Hours",
         "tr": "İşçilik Saati",
-        "de": "Arbeitsstunden"
+        "de": "Arbeitsstunden",
+        "fr": "Heures de main-d'œuvre",
+        "es": "Horas de mano de obra"
       },
       "businessContext_i18n": {
         "en": "Estimated technician hours based on standard repair times (e.g., Mitchell, ALLDATA).",
         "tr": "Standart onarım sürelerine (ör. Mitchell, ALLDATA) dayalı tahmini teknisyen saati.",
-        "de": "Geschätzte Technikerstunden basierend auf Standardreparaturzeiten (z. B. Mitchell, ALLDATA)."
+        "de": "Geschätzte Technikerstunden basierend auf Standardreparaturzeiten (z. B. Mitchell, ALLDATA).",
+        "fr": "Heures technicien estimées basées sur les temps de réparation standard (ex. Mitchell, ALLDATA).",
+        "es": "Horas estimadas de técnico basadas en tiempos de reparación estándar (ej. Mitchell, ALLDATA)."
       }
     },
     {
@@ -64,12 +72,16 @@
       "label_i18n": {
         "en": "Labor Rate (USD/hour)",
         "tr": "İşçilik Ücreti (USD/saat)",
-        "de": "Stundensatz (USD/Stunde)"
+        "de": "Stundensatz (USD/Stunde)",
+        "fr": "Taux de main-d'œuvre (USD/heure)",
+        "es": "Tarifa de mano de obra (USD/hora)"
       },
       "businessContext_i18n": {
         "en": "Shop's hourly labor charge, typically includes overhead and profit.",
         "tr": "Atölyenin saatlik işçilik ücreti, genellikle genel gider ve karı içerir.",
-        "de": "Stündlicher Arbeitslohn der Werkstatt, beinhaltet in der Regel Gemeinkosten und Gewinn."
+        "de": "Stündlicher Arbeitslohn der Werkstatt, beinhaltet in der Regel Gemeinkosten und Gewinn.",
+        "fr": "Taux horaire facturé par l'atelier, incluant généralement frais généraux et profit.",
+        "es": "Cargo por hora de mano de obra del taller, generalmente incluye gastos generales y ganancia."
       }
     },
     {
@@ -84,12 +96,16 @@
       "label_i18n": {
         "en": "Overhead Percentage (%)",
         "tr": "Genel Gider Yüzdesi (%)",
-        "de": "Gemeinkostenanteil (%)"
+        "de": "Gemeinkostenanteil (%)",
+        "fr": "Pourcentage de frais généraux (%)",
+        "es": "Porcentaje de gastos generales (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of direct costs allocated to shop overhead (rent, utilities, admin).",
         "tr": "Doğrudan maliyetlere tahsis edilen genel gider yüzdesi (kira, elektrik, idari).",
-        "de": "Prozentsatz der direkten Kosten, der auf Werkstattgemeinkosten entfällt (Miete, Nebenkosten, Verwaltung)."
+        "de": "Prozentsatz der direkten Kosten, der auf Werkstattgemeinkosten entfällt (Miete, Nebenkosten, Verwaltung).",
+        "fr": "Pourcentage des coûts directs alloué aux frais généraux de l'atelier (loyer, services publics, administration).",
+        "es": "Porcentaje de costos directos asignados a gastos generales del taller (alquiler, servicios públicos, administración)."
       }
     },
     {
@@ -104,12 +120,16 @@
       "label_i18n": {
         "en": "Target Profit Margin (%)",
         "tr": "Hedef Kar Marjı (%)",
-        "de": "Zielgewinnmarge (%)"
+        "de": "Zielgewinnmarge (%)",
+        "fr": "Marge bénéficiaire cible (%)",
+        "es": "Margen de beneficio objetivo (%)"
       },
       "businessContext_i18n": {
         "en": "Desired profit margin on total job cost.",
         "tr": "Toplam iş maliyeti üzerinde istenen kar marjı.",
-        "de": "Gewünschte Gewinnmarge auf die gesamten Auftragskosten."
+        "de": "Gewünschte Gewinnmarge auf die gesamten Auftragskosten.",
+        "fr": "Marge bénéficiaire souhaitée sur le coût total du travail.",
+        "es": "Margen de beneficio deseado sobre el costo total del trabajo."
       }
     },
     {
@@ -124,12 +144,16 @@
       "label_i18n": {
         "en": "Sales Tax Rate (%)",
         "tr": "Satış Vergisi Oranı (%)",
-        "de": "Umsatzsteuersatz (%)"
+        "de": "Umsatzsteuersatz (%)",
+        "fr": "Taux de taxe de vente (%)",
+        "es": "Tasa de impuesto a las ventas (%)"
       },
       "businessContext_i18n": {
         "en": "Applicable sales tax percentage for the region.",
         "tr": "Bölge için geçerli satış vergisi yüzdesi.",
-        "de": "Anwendbarer Umsatzsteuerprozentsatz für die Region."
+        "de": "Anwendbarer Umsatzsteuerprozentsatz für die Region.",
+        "fr": "Pourcentage de taxe de vente applicable dans la région.",
+        "es": "Porcentaje de impuesto a las ventas aplicable para la región."
       }
     },
     {
@@ -144,12 +168,16 @@
       "label_i18n": {
         "en": "Customer Discount (%)",
         "tr": "Müşteri İndirimi (%)",
-        "de": "Kundenrabatt (%)"
+        "de": "Kundenrabatt (%)",
+        "fr": "Remise client (%)",
+        "es": "Descuento al cliente (%)"
       },
       "businessContext_i18n": {
         "en": "Optional discount offered to customer (e.g., loyalty, promotion).",
         "tr": "Müşteriye sunulan isteğe bağlı indirim (ör. sadakat, promosyon).",
-        "de": "Optionaler Rabatt für den Kunden (z. B. Treue, Aktion)."
+        "de": "Optionaler Rabatt für den Kunden (z. B. Treue, Aktion).",
+        "fr": "Remise optionnelle offerte au client (ex. fidélité, promotion).",
+        "es": "Descuento opcional ofrecido al cliente (ej. fidelidad, promoción)."
       }
     },
     {
@@ -164,12 +192,16 @@
       "label_i18n": {
         "en": "Parts Markup (%)",
         "tr": "Parça Kâr Marjı (%)",
-        "de": "Teileaufschlag (%)"
+        "de": "Teileaufschlag (%)",
+        "fr": "Majoration des pièces (%)",
+        "es": "Margen de piezas (%)"
       },
       "businessContext_i18n": {
         "en": "Markup applied to parts cost to cover handling and profit.",
         "tr": "Parça maliyetine, taşıma ve karı karşılamak için uygulanan kâr marjı.",
-        "de": "Aufschlag auf die Teilekosten zur Deckung von Handhabung und Gewinn."
+        "de": "Aufschlag auf die Teilekosten zur Deckung von Handhabung und Gewinn.",
+        "fr": "Majoration appliquée au coût des pièces pour couvrir la manutention et le profit.",
+        "es": "Margen aplicado al costo de las piezas para cubrir manejo y ganancia."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Labor Cost",
         "tr": "İşçilik Maliyeti",
         "de": "Arbeitskosten",
-        "fr": "Labor Cost",
-        "es": "Labor Cost",
+        "fr": "Coût de main-d'œuvre",
+        "es": "Costo de mano de obra",
         "ar": "Labor Cost"
       },
       "businessContext_i18n": {
         "en": "Direct labor cost in EUR",
         "tr": "Doğrudan işçilik maliyeti (EUR)",
-        "de": "Direkte Arbeitskosten in EUR"
+        "de": "Direkte Arbeitskosten in EUR",
+        "fr": "Coût direct de la main-d'œuvre en EUR",
+        "es": "Coste de mano de obra directa en EUR"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Material Cost",
         "tr": "Malzeme Maliyeti",
         "de": "Materialkosten",
-        "fr": "Material Cost",
-        "es": "Material Cost",
+        "fr": "Coût des matières",
+        "es": "Coste de material",
         "ar": "Material Cost"
       },
       "businessContext_i18n": {
         "en": "Direct material cost in EUR",
         "tr": "Doğrudan malzeme maliyeti (EUR)",
-        "de": "Direkte Materialkosten in EUR"
+        "de": "Direkte Materialkosten in EUR",
+        "fr": "Coût direct des matières en EUR",
+        "es": "Coste de material directo en EUR"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Overhead Cost",
         "tr": "Genel Gider Maliyeti",
         "de": "Gemeinkosten",
-        "fr": "Overhead Cost",
-        "es": "Overhead Cost",
+        "fr": "Frais généraux",
+        "es": "Costo general",
         "ar": "Overhead Cost"
       },
       "businessContext_i18n": {
         "en": "Overhead cost allocated to the product",
         "tr": "Ürüne tahsis edilen genel gider maliyeti",
-        "de": "Dem Produkt zugeordnete Gemeinkosten"
+        "de": "Dem Produkt zugeordnete Gemeinkosten",
+        "fr": "Frais généraux alloués au produit",
+        "es": "Costes indirectos asignados al producto"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Discount Percentage",
         "tr": "İndirim Yüzdesi",
         "de": "Rabattprozentsatz",
-        "fr": "Discount Percentage",
-        "es": "Discount Percentage",
+        "fr": "Pourcentage de réduction",
+        "es": "Porcentaje de descuento",
         "ar": "Discount Percentage"
       },
       "businessContext_i18n": {
         "en": "Discount given on subtotal as percentage",
         "tr": "Ara toplam üzerinden yüzde olarak verilen indirim",
-        "de": "Rabatt auf den Zwischensummenbetrag in Prozent"
+        "de": "Rabatt auf den Zwischensummenbetrag in Prozent",
+        "fr": "Remise sur le sous-total en pourcentage",
+        "es": "Descuento sobre el subtotal como porcentaje"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Profit Margin",
         "tr": "Kâr Marjı",
         "de": "Gewinnmarge",
-        "fr": "Profit Margin",
-        "es": "Profit Margin",
+        "fr": "Marge bénéficiaire",
+        "es": "Margen de beneficio",
         "ar": "Profit Margin"
       },
       "businessContext_i18n": {
         "en": "Desired profit margin as percentage of cost after discount",
         "tr": "İndirim sonrası maliyetin yüzdesi olarak istenen kar marjı",
-        "de": "Gewünschte Gewinnspanne als Prozentsatz der Kosten nach Rabatt"
+        "de": "Gewünschte Gewinnspanne als Prozentsatz der Kosten nach Rabatt",
+        "fr": "Marge bénéficiaire souhaitée en pourcentage du coût après remise",
+        "es": "Margen de beneficio deseado como porcentaje del coste después del descuento"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
         "de": "Steuersatz",
-        "fr": "Tax Rate",
-        "es": "Tax Rate",
+        "fr": "Taux de taxe",
+        "es": "Tasa de impuesto",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Tax rate applied to taxable amount",
         "tr": "Vergiye tabi tutara uygulanan vergi oranı",
-        "de": "Steuersatz, der auf den steuerpflichtigen Betrag angewendet wird"
+        "de": "Steuersatz, der auf den steuerpflichtigen Betrag angewendet wird",
+        "fr": "Taux d'imposition appliqué au montant imposable",
+        "es": "Tasa impositiva aplicada al monto imponible"
       }
     }
   ],

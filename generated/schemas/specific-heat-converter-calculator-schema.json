@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Specific Heat Value",
         "tr": "Özgül Isı Değeri",
-        "de": "Specific Heat Value",
-        "fr": "Specific Heat Value",
+        "de": "Spezifischer Wärmewert",
+        "fr": "Valeur de la capacité thermique spécifique",
         "es": "Specific Heat Value",
         "ar": "Specific Heat Value"
       },
       "businessContext_i18n": {
         "en": "The specific heat capacity value in the unit selected by 'fromUnit'",
-        "tr": "'fromUnit' tarafından seçilen birimdeki özgül ısı kapasitesi değeri"
+        "tr": "'fromUnit' tarafından seçilen birimdeki özgül ısı kapasitesi değeri",
+        "de": "Der spezifische Wärmekapazitätswert in der durch 'fromUnit' gewählten Einheit",
+        "fr": "Valeur de la capacité thermique spécifique dans l'unité sélectionnée par 'fromUnit'"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "From Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
         "tr": "Birim Kodu (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
-        "de": "From Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
-        "fr": "From Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
+        "de": "Code der Ausgangseinheit (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
+        "fr": "Code de l'unité source (1 : J/kgK, 2 : kJ/kgK, 3 : cal/g°C, 4 : kcal/kg°C, 5 : Btu/lb°F)",
         "es": "From Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
         "ar": "From Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)"
       },
       "businessContext_i18n": {
         "en": "Numeric code representing the input unit of specific heat capacity",
-        "tr": "Özgül ısı kapasitesinin giriş birimini temsil eden sayısal kod"
+        "tr": "Özgül ısı kapasitesinin giriş birimini temsil eden sayısal kod",
+        "de": "Numerischer Code für die Eingabeeinheit der spezifischen Wärmekapazität",
+        "fr": "Code numérique représentant l'unité d'entrée de la capacité thermique spécifique"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "To Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
         "tr": "Hedef Birim Kodu (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
-        "de": "To Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
-        "fr": "To Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
+        "de": "Code der Zieleinheit (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
+        "fr": "Code de l'unité cible (1 : J/kgK, 2 : kJ/kgK, 3 : cal/g°C, 4 : kcal/kg°C, 5 : Btu/lb°F)",
         "es": "To Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
         "ar": "To Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)"
       },
       "businessContext_i18n": {
         "en": "Numeric code representing the desired output unit of specific heat capacity",
-        "tr": "Özgül ısı kapasitesinin istenen çıkış birimini temsil eden sayısal kod"
+        "tr": "Özgül ısı kapasitesinin istenen çıkış birimini temsil eden sayısal kod",
+        "de": "Numerischer Code für die gewünschte Ausgabeeinheit der spezifischen Wärmekapazität",
+        "fr": "Code numérique représentant l'unité de sortie souhaitée de la capacité thermique spécifique"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the converted result",
-        "tr": "Dönüştürülen sonucun yuvarlanacağı ondalık basamak sayısı"
+        "tr": "Dönüştürülen sonucun yuvarlanacağı ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen zum Runden des umgerechneten Ergebnisses",
+        "fr": "Nombre de décimales pour arrondir le résultat converti"
       }
     }
   ],

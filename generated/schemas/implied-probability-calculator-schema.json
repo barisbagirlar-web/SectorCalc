@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Odds Format",
         "tr": "Oran Formatı",
-        "de": "Odds Format",
-        "fr": "Odds Format",
-        "es": "Odds Format",
+        "de": "Quotenformat",
+        "fr": "Format des cotes",
+        "es": "Formato de cuotas",
         "ar": "Odds Format"
       },
       "businessContext_i18n": {
         "en": "1: Decimal, 2: Fractional, 3: American",
-        "tr": "1: Ondalık, 2: Kesirli, 3: Amerikan"
+        "tr": "1: Ondalık, 2: Kesirli, 3: Amerikan",
+        "de": "1: Dezimal, 2: Bruch, 3: Amerikanisch",
+        "fr": "1: Décimal, 2: Fractionnaire, 3: Américain",
+        "es": "1: Decimal, 2: Fraccionario, 3: Americano"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Decimal Odds",
         "tr": "Ondalık Oranlar",
         "de": "Dezimalquote",
-        "fr": "Decimal Odds",
-        "es": "Decimal Odds",
+        "fr": "Cotes décimales",
+        "es": "Cuotas decimales",
         "ar": "Decimal Odds"
       },
       "businessContext_i18n": {
         "en": "Enter decimal odds",
-        "tr": "Ondalık oranı girin"
+        "tr": "Ondalık oranı girin",
+        "de": "Dezimalquote eingeben",
+        "fr": "Saisir les cotes décimales",
+        "es": "Ingrese cuotas decimales"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Fractional Numerator",
         "tr": "Kesirli Pay",
-        "de": "Fractional Numerator",
-        "fr": "Fractional Numerator",
-        "es": "Fractional Numerator",
+        "de": "Bruch-Zähler",
+        "fr": "Numérateur fractionnaire",
+        "es": "Numerador fraccionario",
         "ar": "Fractional Numerator"
       },
       "businessContext_i18n": {
         "en": "Numerator of fractional odds",
-        "tr": "Kesirli oranın payı"
+        "tr": "Kesirli oranın payı",
+        "de": "Zähler der Bruchquote",
+        "fr": "Numérateur des cotes fractionnaires",
+        "es": "Numerador de las cuotas fraccionarias"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Fractional Denominator",
         "tr": "Kesirli Payda",
-        "de": "Fractional Denominator",
-        "fr": "Fractional Denominator",
-        "es": "Fractional Denominator",
+        "de": "Bruch-Nenner",
+        "fr": "Dénominateur fractionnaire",
+        "es": "Denominador fraccionario",
         "ar": "Fractional Denominator"
       },
       "businessContext_i18n": {
         "en": "Denominator of fractional odds",
-        "tr": "Kesirli oranın paydası"
+        "tr": "Kesirli oranın paydası",
+        "de": "Nenner der Bruchquote",
+        "fr": "Dénominateur des cotes fractionnaires",
+        "es": "Denominador de las cuotas fraccionarias"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "American Odds",
         "tr": "Amerikan Oranları",
         "de": "Amerikanische Quoten",
-        "fr": "American Odds",
-        "es": "American Odds",
+        "fr": "Cotes américaines",
+        "es": "Cuotas americanas",
         "ar": "American Odds"
       },
       "businessContext_i18n": {
         "en": "Positive for underdog, negative for favorite",
-        "tr": "Sürpriz için pozitif, favori için negatif"
+        "tr": "Sürpriz için pozitif, favori için negatif",
+        "de": "Positiv für Außenseiter, negativ für Favorit",
+        "fr": "Positif pour outsider, négatif pour favori",
+        "es": "Positivo para el no favorito, negativo para el favorito"
       }
     }
   ],

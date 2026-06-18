@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Modified Adjusted Gross Income (MAGI)",
         "tr": "Düzeltilmiş Brüt Gelir (MAGI)",
-        "de": "Modified Adjusted Gross Income (MAGI)",
-        "fr": "Modified Adjusted Gross Income (MAGI)",
-        "es": "Modified Adjusted Gross Income (MAGI)",
+        "de": "Modifiziertes bereinigtes Bruttoeinkommen (MAGI)",
+        "fr": "Revenu brut ajusté modifié (MAGI)",
+        "es": "Ingreso bruto ajustado modificado (MAGI)",
         "ar": "Modified Adjusted Gross Income (MAGI)"
       },
       "businessContext_i18n": {
         "en": "Annual income used to determine IRMAA brackets",
-        "tr": "IRMAA dilimlerini belirlemek için kullanılan yıllık gelir"
+        "tr": "IRMAA dilimlerini belirlemek için kullanılan yıllık gelir",
+        "de": "Jährliches Einkommen zur Bestimmung der IRMAA-Stufen",
+        "fr": "Revenu annuel utilisé pour déterminer les tranches IRMAA",
+        "es": "Ingreso anual utilizado para determinar los tramos de IRMAA"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Tax Filing Status",
         "tr": "Vergi Beyanname Durumu",
-        "de": "Tax Filing Status",
-        "fr": "Tax Filing Status",
-        "es": "Tax Filing Status",
+        "de": "Steuerstatus",
+        "fr": "Statut de déclaration fiscale",
+        "es": "Estado civil para efectos fiscales",
         "ar": "Tax Filing Status"
       },
       "businessContext_i18n": {
         "en": "1 = Single, 2 = Married Filing Jointly",
-        "tr": "1 = Bekar, 2 = Birlikte Başvuran Evli"
+        "tr": "1 = Bekar, 2 = Birlikte Başvuran Evli",
+        "de": "1 = ledig, 2 = gemeinsam veranlagt",
+        "fr": "1 = Célibataire, 2 = Marié déclarant conjointement",
+        "es": "1 = Soltero, 2 = Casado que presenta declaración conjunta"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Part B Standard Premium",
         "tr": "Bölüm B Standart Primi",
-        "de": "Part B Standard Premium",
-        "fr": "Part B Standard Premium",
-        "es": "Part B Standard Premium",
+        "de": "Teil B Standardprämie",
+        "fr": "Prime standard de la partie B",
+        "es": "Prima estándar de la Parte B",
         "ar": "Part B Standard Premium"
       },
       "businessContext_i18n": {
         "en": "Standard monthly Part B premium for current year",
-        "tr": "Cari yıl için standart aylık Bölüm B primi"
+        "tr": "Cari yıl için standart aylık Bölüm B primi",
+        "de": "Monatliche Standardprämie für Teil B des laufenden Jahres",
+        "fr": "Prime mensuelle standard de la partie B pour l'année en cours",
+        "es": "Prima mensual estándar de la Parte B para el año actual"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Part D Base Beneficiary Premium",
         "tr": "Bölüm D Temel Yararlanıcı Primi",
-        "de": "Part D Base Beneficiary Premium",
-        "fr": "Part D Base Beneficiary Premium",
-        "es": "Part D Base Beneficiary Premium",
+        "de": "Teil D Basisprämie für Begünstigte",
+        "fr": "Prime de base du bénéficiaire de la partie D",
+        "es": "Prima base del beneficiario de la Parte D",
         "ar": "Part D Base Beneficiary Premium"
       },
       "businessContext_i18n": {
         "en": "National base beneficiary premium for Part D",
-        "tr": "Bölüm D için ulusal temel yararlanıcı primi"
+        "tr": "Bölüm D için ulusal temel yararlanıcı primi",
+        "de": "Nationale Basisprämie für Teil D",
+        "fr": "Prime de base nationale du bénéficiaire pour la partie D",
+        "es": "Prima base nacional del beneficiario para la Parte D"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Medicare Advantage or Part D Plan Premium",
         "tr": "Medicare Advantage veya Bölüm D Plan Primi",
-        "de": "Medicare Advantage or Part D Plan Premium",
-        "fr": "Medicare Advantage or Part D Plan Premium",
-        "es": "Medicare Advantage or Part D Plan Premium",
+        "de": "Prämie für Medicare Advantage oder Teil D Plan",
+        "fr": "Prime du régime Medicare Advantage ou partie D",
+        "es": "Prima del plan Medicare Advantage o Parte D",
         "ar": "Medicare Advantage or Part D Plan Premium"
       },
       "businessContext_i18n": {
         "en": "Premium for chosen Part D or Medicare Advantage plan",
-        "tr": "Seçilen Bölüm D veya Medicare Advantage planı için prim"
+        "tr": "Seçilen Bölüm D veya Medicare Advantage planı için prim",
+        "de": "Prämie für den gewählten Teil D oder Medicare Advantage Plan",
+        "fr": "Prime du régime partie D ou Medicare Advantage choisi",
+        "es": "Prima del plan elegido de la Parte D o Medicare Advantage"
       }
     }
   ],

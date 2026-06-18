@@ -12,13 +12,15 @@
         "en": "Effective Length Factor (K)",
         "tr": "Etkili Uzunluk Faktörü (K)",
         "de": "Knicklängenbeiwert (K)",
-        "fr": "Effective Length Factor (K)",
-        "es": "Effective Length Factor (K)",
+        "fr": "Coefficient de longueur effective (K)",
+        "es": "Factor de longitud efectiva (K)",
         "ar": "Effective Length Factor (K)"
       },
       "businessContext_i18n": {
         "en": "End condition factor: 1.0 for pinned-pinned, 0.5 for fixed-fixed, 0.7 for fixed-pinned, 2.0 for fixed-free.",
-        "tr": "Uç durumu faktörü: 1.0 mafsallı-mafsallı, 0.5 ankastre-ankastre, 0.7 ankastre-mafsallı, 2.0 ankastre-serbest."
+        "tr": "Uç durumu faktörü: 1.0 mafsallı-mafsallı, 0.5 ankastre-ankastre, 0.7 ankastre-mafsallı, 2.0 ankastre-serbest.",
+        "de": "Endbedingungsfaktor: 1,0 für gelenkig-gelenkig, 0,5 für fest-fest, 0,7 für fest-gelenkig, 2,0 für fest-frei.",
+        "fr": "Facteur de condition d'extrémité : 1,0 pour articulé-articulé, 0,5 pour encastré-encastré, 0,7 pour encastré-articulé, 2,0 pour encastré-libre."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Unbraced Length (L)",
         "tr": "Desteklenmeyen Uzunluk (L)",
         "de": "Unverschiebliche Länge (L)",
-        "fr": "Unbraced Length (L)",
-        "es": "Unbraced Length (L)",
+        "fr": "Longueur non contreventée (L)",
+        "es": "Longitud no arriostrada (L)",
         "ar": "Unbraced Length (L)"
       },
       "businessContext_i18n": {
         "en": "Actual length between lateral supports.",
-        "tr": "Yanal destekler arasındaki gerçek uzunluk."
+        "tr": "Yanal destekler arasındaki gerçek uzunluk.",
+        "de": "Tatsächliche Länge zwischen seitlichen Abstützungen.",
+        "fr": "Longueur réelle entre les supports latéraux."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Cross-Section Width (b)",
         "tr": "Kesit Genişliği (b)",
-        "de": "Cross-Section Width (b)",
-        "fr": "Cross-Section Width (b)",
+        "de": "Querschnittsbreite (b)",
+        "fr": "Largeur de la section transversale (b)",
         "es": "Cross-Section Width (b)",
         "ar": "Cross-Section Width (b)"
       },
       "businessContext_i18n": {
         "en": "Width of rectangular solid section.",
-        "tr": "Dikdörtgen katı kesitin genişliği."
+        "tr": "Dikdörtgen katı kesitin genişliği.",
+        "de": "Breite des rechteckigen Vollquerschnitts.",
+        "fr": "Largeur de la section rectangulaire pleine."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Cross-Section Thickness (t)",
         "tr": "Kesit Kalınlığı (t)",
-        "de": "Cross-Section Thickness (t)",
-        "fr": "Cross-Section Thickness (t)",
+        "de": "Querschnittsdicke (t)",
+        "fr": "Épaisseur de la section transversale (t)",
         "es": "Cross-Section Thickness (t)",
         "ar": "Cross-Section Thickness (t)"
       },
       "businessContext_i18n": {
         "en": "Thickness of rectangular solid section.",
-        "tr": "Dikdörtgen katı kesitin kalınlığı."
+        "tr": "Dikdörtgen katı kesitin kalınlığı.",
+        "de": "Dicke des rechteckigen Vollquerschnitts.",
+        "fr": "Épaisseur de la section rectangulaire pleine."
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Modulus of Elasticity (E)",
         "tr": "Elastisite Modülü (E)",
         "de": "Elastizitätsmodul (E)",
-        "fr": "Modulus of Elasticity (E)",
-        "es": "Modulus of Elasticity (E)",
+        "fr": "Module d'élasticité (E)",
+        "es": "Módulo de elasticidad (E)",
         "ar": "Modulus of Elasticity (E)"
       },
       "businessContext_i18n": {
         "en": "Steel typically 200 GPa.",
-        "tr": "Çelik için tipik olarak 200 GPa."
+        "tr": "Çelik için tipik olarak 200 GPa.",
+        "de": "Stahl typischerweise 200 GPa.",
+        "fr": "L'acier fait généralement 200 GPa."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Yield Strength (Fy)",
         "tr": "Akma Dayanımı (Fy)",
-        "de": "Yield Strength (Fy)",
-        "fr": "Yield Strength (Fy)",
+        "de": "Streckgrenze (Fy)",
+        "fr": "Limite d'élasticité (Fy)",
         "es": "Yield Strength (Fy)",
         "ar": "Yield Strength (Fy)"
       },
       "businessContext_i18n": {
         "en": "Typical S235 steel yield strength.",
-        "tr": "Tipik S235 çeliği akma dayanımı."
+        "tr": "Tipik S235 çeliği akma dayanımı.",
+        "de": "Typische Streckgrenze von S235-Stahl.",
+        "fr": "Limite d'élasticité typique de l'acier S235."
       }
     },
     {
@@ -132,13 +144,15 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "AISC ASD typical factor of safety for compression.",
-        "tr": "AISC ASD tipik basınç güvenlik faktörü."
+        "tr": "AISC ASD tipik basınç güvenlik faktörü.",
+        "de": "AISC ASD typischer Sicherheitsfaktor für Druck.",
+        "fr": "Coefficient de sécurité typique de l'AISC ASD pour la compression."
       }
     }
   ],

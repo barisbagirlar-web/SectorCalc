@@ -12,14 +12,16 @@
         "en": "Curing Temperature",
         "tr": "Kür Sıcaklığı",
         "de": "Aushärtetemperatur",
-        "fr": "Curing Temperature",
-        "es": "Curing Temperature",
+        "fr": "Température de cure",
+        "es": "Temperatura de curado",
         "ar": "Curing Temperature"
       },
       "businessContext_i18n": {
         "en": "Average temperature during the curing period.",
         "tr": "Kür süresi boyunca ortalama sıcaklık.",
-        "de": "Durchschnittstemperatur während der Aushärtezeit."
+        "de": "Durchschnittstemperatur während der Aushärtezeit.",
+        "fr": "Température moyenne pendant la période de cure.",
+        "es": "Temperatura promedio durante el período de curado."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Curing Time",
         "tr": "Kür Süresi",
         "de": "Aushärtezeit",
-        "fr": "Curing Time",
-        "es": "Curing Time",
+        "fr": "Durée de cure",
+        "es": "Tiempo de curado",
         "ar": "Curing Time"
       },
       "businessContext_i18n": {
         "en": "Total duration of curing in hours.",
         "tr": "Kürün toplam süresi (saat).",
-        "de": "Gesamtdauer der Aushärtung in Stunden."
+        "de": "Gesamtdauer der Aushärtung in Stunden.",
+        "fr": "Durée totale de cure en heures.",
+        "es": "Duración total del curado en horas."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Datum Temperature",
         "tr": "Referans Sıcaklık",
         "de": "Datumstemperatur",
-        "fr": "Datum Temperature",
-        "es": "Datum Temperature",
+        "fr": "Température de référence",
+        "es": "Temperatura de referencia",
         "ar": "Datum Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature below which hydration ceases for the specific concrete mix.",
         "tr": "Belirli beton karışımı için hidratasyonun durduğu sıcaklık.",
-        "de": "Temperatur, unterhalb derer die Hydratation für die spezifische Betonmischung aufhört."
+        "de": "Temperatur, unterhalb derer die Hydratation für die spezifische Betonmischung aufhört.",
+        "fr": "Température en dessous de laquelle l'hydratation cesse pour le mélange de béton spécifique.",
+        "es": "Temperatura por debajo de la cual cesa la hidratación para la mezcla de concreto específica."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Strength Coefficient A",
         "tr": "Mukavemet Katsayısı A",
         "de": "Festigkeitskoeffizient A",
-        "fr": "Strength Coefficient A",
-        "es": "Strength Coefficient A",
+        "fr": "Coefficient de résistance A",
+        "es": "Coeficiente de resistencia A",
         "ar": "Strength Coefficient A"
       },
       "businessContext_i18n": {
         "en": "Intercept of the maturity-strength logarithmic relationship.",
         "tr": "Olgunluk-mukavemet logaritmik ilişkisinin kesişimi.",
-        "de": "Achsenabschnitt der logarithmischen Reife-Festigkeits-Beziehung."
+        "de": "Achsenabschnitt der logarithmischen Reife-Festigkeits-Beziehung.",
+        "fr": "Ordonnée à l'origine de la relation logarithmique maturité-résistance.",
+        "es": "Intersección de la relación logarítmica madurez-resistencia."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Strength Coefficient B",
         "tr": "Mukavemet Katsayısı B",
         "de": "Festigkeitskoeffizient B",
-        "fr": "Strength Coefficient B",
-        "es": "Strength Coefficient B",
+        "fr": "Coefficient de résistance B",
+        "es": "Coeficiente de resistencia B",
         "ar": "Strength Coefficient B"
       },
       "businessContext_i18n": {
         "en": "Slope of the maturity-strength logarithmic relationship.",
         "tr": "Olgunluk-mukavemet logaritmik ilişkisinin eğimi.",
-        "de": "Steigung der logarithmischen Reife-Festigkeits-Beziehung."
+        "de": "Steigung der logarithmischen Reife-Festigkeits-Beziehung.",
+        "fr": "Pente de la relation logarithmique maturité-résistance.",
+        "es": "Pendiente de la relación logarítmica madurez-resistencia."
       }
     }
   ],

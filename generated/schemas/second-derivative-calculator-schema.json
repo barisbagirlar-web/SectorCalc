@@ -12,13 +12,15 @@
         "en": "a (x³ coefficient)",
         "tr": "a (x³ katsayısı)",
         "de": "a (x³-Koeffizient)",
-        "fr": "a (x³ coefficient)",
-        "es": "a (x³ coefficient)",
+        "fr": "a (coefficient x³)",
+        "es": "a (coeficiente de x³)",
         "ar": "a (x³ coefficient)"
       },
       "businessContext_i18n": {
         "en": "Cubic term coefficient",
-        "tr": "Kübik terim katsayısı"
+        "tr": "Kübik terim katsayısı",
+        "de": "Koeffizient des kubischen Terms",
+        "fr": "Coefficient du terme cubique"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "b (x² coefficient)",
         "tr": "b (x² katsayısı)",
         "de": "b (x²-Koeffizient)",
-        "fr": "b (x² coefficient)",
-        "es": "b (x² coefficient)",
+        "fr": "b (coefficient x²)",
+        "es": "b (coeficiente de x²)",
         "ar": "b (x² coefficient)"
       },
       "businessContext_i18n": {
         "en": "Quadratic term coefficient",
-        "tr": "Kuadratik terim katsayısı"
+        "tr": "Kuadratik terim katsayısı",
+        "de": "Koeffizient des quadratischen Terms",
+        "fr": "Coefficient du terme quadratique"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "c (x coefficient)",
         "tr": "c (x katsayısı)",
         "de": "c (x-Koeffizient)",
-        "fr": "c (x coefficient)",
-        "es": "c (x coefficient)",
+        "fr": "c (coefficient x)",
+        "es": "c (coeficiente de x)",
         "ar": "c (x coefficient)"
       },
       "businessContext_i18n": {
         "en": "Linear term coefficient",
-        "tr": "Doğrusal terim katsayısı"
+        "tr": "Doğrusal terim katsayısı",
+        "de": "Koeffizient des linearen Terms",
+        "fr": "Coefficient du terme linéaire"
       }
     },
     {
@@ -71,15 +77,17 @@
       "label_i18n": {
         "en": "d (constant term)",
         "tr": "d (sabit terim)",
-        "de": "d (constant term)",
-        "fr": "d (constant term)",
+        "de": "d (konstanter Term)",
+        "fr": "d (terme constant)",
         "es": "d (constant term)",
         "ar": "d (constant term)"
       },
       "businessContext_i18n": {
         "en": "Constant term",
         "tr": "Sabit terim",
-        "de": "Konstanter Term"
+        "de": "Konstanter Term",
+        "fr": "Terme constant",
+        "es": "Término constante"
       }
     },
     {
@@ -92,14 +100,16 @@
       "label_i18n": {
         "en": "x (evaluation point)",
         "tr": "x (değerlendirme noktası)",
-        "de": "x (evaluation point)",
-        "fr": "x (evaluation point)",
-        "es": "x (evaluation point)",
+        "de": "x (Auswertungspunkt)",
+        "fr": "x (point d'évaluation)",
+        "es": "x (punto de evaluación)",
         "ar": "x (evaluation point)"
       },
       "businessContext_i18n": {
         "en": "Point at which derivatives are calculated",
-        "tr": "Türevlerin hesaplandığı nokta"
+        "tr": "Türevlerin hesaplandığı nokta",
+        "de": "Punkt, an dem die Ableitungen berechnet werden",
+        "fr": "Point où les dérivées sont calculées"
       }
     }
   ],

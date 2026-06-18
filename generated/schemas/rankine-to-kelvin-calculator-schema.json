@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Temperature (°R)",
         "tr": "Sıcaklık (°R)",
-        "de": "Temperature (°R)",
-        "fr": "Temperature (°R)",
-        "es": "Temperature (°R)",
+        "de": "Temperatur (°R)",
+        "fr": "Température (°R)",
+        "es": "Temperatura (°R)",
         "ar": "Temperature (°R)"
       },
       "businessContext_i18n": {
         "en": "Measured temperature in Rankine scale",
-        "tr": "Rankine ölçeğinde ölçülen sıcaklık"
+        "tr": "Rankine ölçeğinde ölçülen sıcaklık",
+        "de": "Gemessene Temperatur in Rankine-Skala",
+        "fr": "Température mesurée en degrés Rankine",
+        "es": "Temperatura medida en escala Rankine"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Measurement Uncertainty (±°R)",
         "tr": "Ölçüm Belirsizliği (±°R)",
-        "de": "Measurement Uncertainty (±°R)",
-        "fr": "Measurement Uncertainty (±°R)",
-        "es": "Measurement Uncertainty (±°R)",
+        "de": "Messunsicherheit (±°R)",
+        "fr": "Incertitude de mesure (±°R)",
+        "es": "Incertidumbre de medición (±°R)",
         "ar": "Measurement Uncertainty (±°R)"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of temperature measurement",
-        "tr": "Sıcaklık ölçümünün standart sapması"
+        "tr": "Sıcaklık ölçümünün standart sapması",
+        "de": "Standardabweichung der Temperaturmessung",
+        "fr": "Écart type de la mesure de température",
+        "es": "Desviación estándar de la medición de temperatura"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Confidence Factor (z)",
         "tr": "Güven Faktörü (z)",
-        "de": "Confidence Factor (z)",
-        "fr": "Confidence Factor (z)",
-        "es": "Confidence Factor (z)",
+        "de": "Konfidenzfaktor (z)",
+        "fr": "Facteur de confiance (z)",
+        "es": "Factor de confianza (z)",
         "ar": "Confidence Factor (z)"
       },
       "businessContext_i18n": {
         "en": "z-score for desired confidence interval (e.g., 1.96 for 95%)",
-        "tr": "İstenen güven aralığı için z-skoru (ör. %95 için 1,96)"
+        "tr": "İstenen güven aralığı için z-skoru (ör. %95 için 1,96)",
+        "de": "z-Wert für das gewünschte Konfidenzintervall (z. B. 1,96 für 95 %)",
+        "fr": "Score z pour l'intervalle de confiance souhaité (ex. 1,96 pour 95 %)",
+        "es": "Puntuación z para el intervalo de confianza deseado (ej. 1.96 para 95%)"
       }
     },
     {
@@ -72,14 +81,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output rounding",
         "tr": "Çıktı yuvarlama için ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen für die Ausgaberundung"
+        "de": "Anzahl der Dezimalstellen für die Ausgaberundung",
+        "fr": "Nombre de décimales pour l'arrondi du résultat",
+        "es": "Número de decimales para el redondeo de salida"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Annual Salary (USD)",
         "tr": "Yıllık Maaş (USD)",
-        "de": "Annual Salary (USD)",
-        "fr": "Annual Salary (USD)",
-        "es": "Annual Salary (USD)",
+        "de": "Jahresgehalt (USD)",
+        "fr": "Salaire annuel (USD)",
+        "es": "Salario anual (USD)",
         "ar": "Annual Salary (USD)"
       },
       "businessContext_i18n": {
         "en": "Gross annual income",
-        "tr": "Brüt yıllık gelir"
+        "tr": "Brüt yıllık gelir",
+        "de": "Bruttojahreseinkommen",
+        "fr": "Revenu annuel brut",
+        "es": "Ingreso anual bruto"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Pre-Tax 401(k) Deferral (USD)",
         "tr": "Vergi Öncesi 401(k) Kesintisi (USD)",
-        "de": "Pre-Tax 401(k) Deferral (USD)",
-        "fr": "Pre-Tax 401(k) Deferral (USD)",
-        "es": "Pre-Tax 401(k) Deferral (USD)",
+        "de": "Vorsteuer-401(k)-Beitrag (USD)",
+        "fr": "Report 401(k) avant impôt (USD)",
+        "es": "Aplazamiento 401(k) antes de impuestos (USD)",
         "ar": "Pre-Tax 401(k) Deferral (USD)"
       },
       "businessContext_i18n": {
         "en": "Employee pre-tax elective deferral",
-        "tr": "Çalışanın vergi öncesi ihtiyari ertelemesi"
+        "tr": "Çalışanın vergi öncesi ihtiyari ertelemesi",
+        "de": "Freiwilliger Vorsteuerbeitrag des Arbeitnehmers",
+        "fr": "Report électif avant impôt de l'employé",
+        "es": "Aplazamiento electivo antes de impuestos del empleado"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Employer Contribution (USD)",
         "tr": "İşveren Katkısı (USD)",
-        "de": "Employer Contribution (USD)",
-        "fr": "Employer Contribution (USD)",
-        "es": "Employer Contribution (USD)",
+        "de": "Arbeitgeberbeitrag (USD)",
+        "fr": "Cotisation employeur (USD)",
+        "es": "Contribución del empleador (USD)",
         "ar": "Employer Contribution (USD)"
       },
       "businessContext_i18n": {
         "en": "Total employer contributions (match + non-elective)",
-        "tr": "Toplam işveren katkıları (eşleme + ihtiyari olmayan)"
+        "tr": "Toplam işveren katkıları (eşleme + ihtiyari olmayan)",
+        "de": "Gesamte Arbeitgeberbeiträge (Match + nicht wahlberechtigt)",
+        "fr": "Total des cotisations employeur (abondement + non électif)",
+        "es": "Total de contribuciones del empleador (igualación + no electivas)"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Age of the participant",
-        "tr": "Katılımcının Yaşı"
+        "tr": "Katılımcının Yaşı",
+        "de": "Alter des Teilnehmers",
+        "fr": "Âge du participant",
+        "es": "Edad del participante"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Overall Contribution Limit (USD)",
         "tr": "Genel Katkı Limiti (USD)",
-        "de": "Overall Contribution Limit (USD)",
-        "fr": "Overall Contribution Limit (USD)",
-        "es": "Overall Contribution Limit (USD)",
+        "de": "Gesamtbeitragsgrenze (USD)",
+        "fr": "Limite globale de cotisation (USD)",
+        "es": "Límite de contribución total (USD)",
         "ar": "Overall Contribution Limit (USD)"
       },
       "businessContext_i18n": {
         "en": "IRS overall limit for total contributions (2024: $69,000 if under 50)",
-        "tr": "Toplam katkılar için IRS genel limiti (2024: 50 yaş altı için $69,000)"
+        "tr": "Toplam katkılar için IRS genel limiti (2024: 50 yaş altı için $69,000)",
+        "de": "IRS-Gesamtgrenze für Gesamtbeiträge (2024: 69.000 $, wenn unter 50)",
+        "fr": "Limite globale IRS pour les cotisations totales (2024 : 69 000 $ si moins de 50 ans)",
+        "es": "Límite total del IRS para contribuciones totales (2024: $69,000 si es menor de 50)"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Catch-Up Contribution Limit (USD)",
         "tr": "Telafi Katkı Limiti (USD)",
-        "de": "Catch-Up Contribution Limit (USD)",
-        "fr": "Catch-Up Contribution Limit (USD)",
-        "es": "Catch-Up Contribution Limit (USD)",
+        "de": "Nachholbeitragsgrenze (USD)",
+        "fr": "Limite de rattrapage (USD)",
+        "es": "Límite de contribución de recuperación (USD)",
         "ar": "Catch-Up Contribution Limit (USD)"
       },
       "businessContext_i18n": {
         "en": "Additional pre-tax deferral allowed for age 50+ (2024: $7,500)",
-        "tr": "50+ yaş için ek vergi öncesi erteleme izni (2024: $7.500)"
+        "tr": "50+ yaş için ek vergi öncesi erteleme izni (2024: $7.500)",
+        "de": "Zusätzlicher Vorsteuerbeitrag für 50+ (2024: 7.500 $)",
+        "fr": "Report différé supplémentaire autorisé pour les 50 ans et plus (2024 : 7 500 $)",
+        "es": "Aplazamiento adicional antes de impuestos permitido para mayores de 50 años (2024: $7,500)"
       }
     }
   ],

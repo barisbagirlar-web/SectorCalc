@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Static Water Level",
         "tr": "Statik Su Seviyesi",
-        "de": "Static Water Level",
-        "fr": "Static Water Level",
+        "de": "Statischer Wasserstand",
+        "fr": "Niveau d'eau statique",
         "es": "Static Water Level",
         "ar": "Static Water Level"
       },
       "businessContext_i18n": {
         "en": "Depth from ground surface to water level when not pumping.",
-        "tr": "Pompalama yapılmadığında zemin yüzeyinden su seviyesine kadar olan derinlik."
+        "tr": "Pompalama yapılmadığında zemin yüzeyinden su seviyesine kadar olan derinlik.",
+        "de": "Tiefe von der Geländeoberkante bis zum Wasserstand bei Nichtförderung.",
+        "fr": "Profondeur depuis la surface du sol jusqu'au niveau d'eau sans pompage."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Drawdown",
         "tr": "Düşüm",
-        "de": "Drawdown",
-        "fr": "Drawdown",
+        "de": "Absenkung",
+        "fr": "Rabattement",
         "es": "Drawdown",
         "ar": "Drawdown"
       },
       "businessContext_i18n": {
         "en": "Additional drop in water level during pumping.",
-        "tr": "Pompalama sırasında su seviyesindeki ek düşüş."
+        "tr": "Pompalama sırasında su seviyesindeki ek düşüş.",
+        "de": "Zusätzlicher Abfall des Wasserstands während des Pumpens.",
+        "fr": "Baisse supplémentaire du niveau d'eau pendant le pompage."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Discharge Head",
         "tr": "Basma Yüksekliği",
-        "de": "Discharge Head",
-        "fr": "Discharge Head",
+        "de": "Förderhöhe",
+        "fr": "Hauteur de refoulement",
         "es": "Discharge Head",
         "ar": "Discharge Head"
       },
       "businessContext_i18n": {
         "en": "Pressure head required at discharge point (1 bar ≈ 10.2 m).",
-        "tr": "Deşarj noktasında gereken basınç yüksekliği (1 bar ≈ 10.2 m)."
+        "tr": "Deşarj noktasında gereken basınç yüksekliği (1 bar ≈ 10.2 m).",
+        "de": "Erforderlicher Druck am Austrittspunkt (1 bar ≈ 10,2 m).",
+        "fr": "Hauteur de pression requise au point de refoulement (1 bar ≈ 10,2 m)."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Friction Loss",
         "tr": "Sürtünme Kaybı",
-        "de": "Friction Loss",
-        "fr": "Friction Loss",
+        "de": "Reibungsverlust",
+        "fr": "Perte de charge",
         "es": "Friction Loss",
         "ar": "Friction Loss"
       },
       "businessContext_i18n": {
         "en": "Estimated friction loss in piping and fittings.",
-        "tr": "Boru ve bağlantı elemanlarında tahmini sürtünme kaybı."
+        "tr": "Boru ve bağlantı elemanlarında tahmini sürtünme kaybı.",
+        "de": "Geschätzter Reibungsverlust in Rohrleitungen und Formstücken.",
+        "fr": "Perte de charge estimée dans les canalisations et raccords."
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Flow Rate",
         "tr": "Debi",
         "de": "Durchflussrate",
-        "fr": "Flow Rate",
-        "es": "Flow Rate",
+        "fr": "Débit",
+        "es": "Caudal",
         "ar": "Flow Rate"
       },
       "businessContext_i18n": {
         "en": "Desired volumetric flow rate.",
-        "tr": "İstenen hacimsel debi."
+        "tr": "İstenen hacimsel debi.",
+        "de": "Gewünschter Volumenstrom.",
+        "fr": "Débit volumétrique souhaité."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Pump Efficiency",
         "tr": "Pompa Verimliliği",
-        "de": "Pump Efficiency",
-        "fr": "Pump Efficiency",
-        "es": "Pump Efficiency",
+        "de": "Pumpenwirkungsgrad",
+        "fr": "Rendement de la pompe",
+        "es": "Eficiencia de la bomba",
         "ar": "Pump Efficiency"
       },
       "businessContext_i18n": {
         "en": "Pump efficiency (typically 50–85%).",
-        "tr": "Pompa verimliliği (tipik olarak %50–85)."
+        "tr": "Pompa verimliliği (tipik olarak %50–85).",
+        "de": "Pumpenwirkungsgrad (typischerweise 50–85 %).",
+        "fr": "Rendement de la pompe (généralement 50–85 %)."
       }
     }
   ],

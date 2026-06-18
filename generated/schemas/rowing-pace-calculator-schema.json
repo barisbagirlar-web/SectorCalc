@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Distance (m)",
         "tr": "Mesafe (m)",
-        "de": "Distance (m)",
+        "de": "Strecke (m)",
         "fr": "Distance (m)",
         "es": "Distance (m)",
         "ar": "Distance (m)"
       },
       "businessContext_i18n": {
         "en": "Distance rowed in meters",
-        "tr": "Metre cinsinden kürek çekme mesafesi"
+        "tr": "Metre cinsinden kürek çekme mesafesi",
+        "de": "Zurückgelegte Strecke in Metern",
+        "fr": "Distance parcourue en mètres"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Time (minutes)",
         "tr": "Süre (dakika)",
         "de": "Zeit (Minuten)",
-        "fr": "Time (minutes)",
-        "es": "Time (minutes)",
+        "fr": "Temps (minutes)",
+        "es": "Tiempo (minutos)",
         "ar": "Time (minutes)"
       },
       "businessContext_i18n": {
         "en": "Minutes part of total time",
-        "tr": "Toplam sürenin dakika kısmı"
+        "tr": "Toplam sürenin dakika kısmı",
+        "de": "Minutenanteil der Gesamtzeit",
+        "fr": "Partie minutes du temps total"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Time (seconds)",
         "tr": "Süre (saniye)",
         "de": "Zeit (Sekunden)",
-        "fr": "Time (seconds)",
-        "es": "Time (seconds)",
+        "fr": "Temps (secondes)",
+        "es": "Tiempo (segundos)",
         "ar": "Time (seconds)"
       },
       "businessContext_i18n": {
         "en": "Seconds part of total time",
-        "tr": "Toplam sürenin saniye kısmı"
+        "tr": "Toplam sürenin saniye kısmı",
+        "de": "Sekundenanteil der Gesamtzeit",
+        "fr": "Partie secondes du temps total"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Target Distance (m)",
         "tr": "Hedef Mesafe (m)",
-        "de": "Target Distance (m)",
-        "fr": "Target Distance (m)",
+        "de": "Zielstrecke (m)",
+        "fr": "Distance cible (m)",
         "es": "Target Distance (m)",
         "ar": "Target Distance (m)"
       },
       "businessContext_i18n": {
         "en": "Target distance for time projection",
-        "tr": "Süre tahmini için hedef mesafe"
+        "tr": "Süre tahmini için hedef mesafe",
+        "de": "Zielstrecke für die Zeitprojektion",
+        "fr": "Distance cible pour la projection temporelle"
       }
     }
   ],

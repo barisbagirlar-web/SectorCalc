@@ -18,7 +18,9 @@
       },
       "businessContext_i18n": {
         "en": "Length measured in yards to be converted to feet",
-        "tr": "Feete dönüştürülecek yarda cinsinden uzunluk"
+        "tr": "Feete dönüştürülecek yarda cinsinden uzunluk",
+        "de": "In Yards gemessene Länge, die in Fuß umgerechnet werden soll",
+        "fr": "Longueur mesurée en yards à convertir en pieds"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor from yards to feet; 3 feet per yard",
-        "tr": "Yarddan feete standart dönüşüm faktörü; yard başına 3 feet"
+        "tr": "Yarddan feete standart dönüşüm faktörü; yard başına 3 feet",
+        "de": "Standardumrechnungsfaktor von Yards in Fuß; 3 Fuß pro Yard",
+        "fr": "Facteur de conversion standard des yards en pieds ; 3 pieds par yard"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the result; must be integer ≥ 0",
-        "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı; ≥ 0 tam sayı olmalı"
+        "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı; ≥ 0 tam sayı olmalı",
+        "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses; muss ganze Zahl ≥ 0 sein",
+        "fr": "Nombre de décimales pour arrondir le résultat ; doit être un entier ≥ 0"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Rounding Method",
         "tr": "Yuvarlama yöntemi",
         "de": "Rundungsmethode",
-        "fr": "Rounding Method",
-        "es": "Rounding Method",
+        "fr": "Méthode d'arrondi",
+        "es": "Método de redondeo",
         "ar": "Rounding Method"
       },
       "businessContext_i18n": {
         "en": "0 = Standard round, 1 = Floor (round down), 2 = Ceil (round up)",
-        "tr": "0 = Standart yuvarlama, 1 = Taban (aşağı yuvarla), 2 = Tavan (yukarı yuvarla)"
+        "tr": "0 = Standart yuvarlama, 1 = Taban (aşağı yuvarla), 2 = Tavan (yukarı yuvarla)",
+        "de": "0 = Standardrundung, 1 = Abrunden, 2 = Aufrunden",
+        "fr": "0 = Arrondi standard, 1 = Plancher (arrondi inférieur), 2 = Plafond (arrondi supérieur)"
       }
     }
   ],

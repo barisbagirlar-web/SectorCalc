@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Daily Production Volume",
         "tr": "Günlük Üretim Hacmi",
-        "de": "Daily Production Volume",
-        "fr": "Daily Production Volume",
-        "es": "Daily Production Volume",
+        "de": "Tägliches Produktionsvolumen",
+        "fr": "Volume de production quotidien",
+        "es": "Volumen de Producción Diaria",
         "ar": "Daily Production Volume"
       },
       "businessContext_i18n": {
         "en": "Number of units produced per day",
-        "tr": "Günde üretilen birim sayısı"
+        "tr": "Günde üretilen birim sayısı",
+        "de": "Anzahl der pro Tag produzierten Einheiten",
+        "fr": "Nombre d'unités produites par jour",
+        "es": "Número de unidades producidas por día"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Material Per Unit",
         "tr": "Birim Başına Malzeme",
-        "de": "Material Per Unit",
-        "fr": "Material Per Unit",
-        "es": "Material Per Unit",
+        "de": "Material pro Einheit",
+        "fr": "Matière par unité",
+        "es": "Material por unidad",
         "ar": "Material Per Unit"
       },
       "businessContext_i18n": {
         "en": "Amount of raw material required per unit",
-        "tr": "Birim başına gereken hammadde miktarı"
+        "tr": "Birim başına gereken hammadde miktarı",
+        "de": "Menge an Rohmaterial, die pro Einheit benötigt wird",
+        "fr": "Quantité de matière première requise par unité",
+        "es": "Cantidad de materia prima requerida por unidad"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Container Capacity",
         "tr": "Konteyner Kapasitesi",
         "de": "Behälterkapazität",
-        "fr": "Container Capacity",
-        "es": "Container Capacity",
+        "fr": "Capacité du conteneur",
+        "es": "Capacidad del contenedor",
         "ar": "Container Capacity"
       },
       "businessContext_i18n": {
         "en": "Capacity of each bulk container",
-        "tr": "Her bir dökme konteynerin kapasitesi"
+        "tr": "Her bir dökme konteynerin kapasitesi",
+        "de": "Kapazität jedes Schüttgutbehälters",
+        "fr": "Capacité de chaque conteneur en vrac",
+        "es": "Capacidad de cada contenedor a granel"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Safety Stock Days",
         "tr": "Emniyet Stoku Günleri",
-        "de": "Safety Stock Days",
-        "fr": "Safety Stock Days",
-        "es": "Safety Stock Days",
+        "de": "Sicherheitsbestand in Tagen",
+        "fr": "Jours de stock de sécurité",
+        "es": "Días de stock de seguridad",
         "ar": "Safety Stock Days"
       },
       "businessContext_i18n": {
         "en": "Days of inventory kept as safety buffer",
-        "tr": "Güvenlik tamponu olarak tutulan envanter gün sayısı"
+        "tr": "Güvenlik tamponu olarak tutulan envanter gün sayısı",
+        "de": "Tage des Lagerbestands, der als Sicherheitspuffer gehalten wird",
+        "fr": "Jours de stock conservés comme tampon de sécurité",
+        "es": "Días de inventario mantenidos como colchón de seguridad"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Lead Time Days",
         "tr": "Teslim Süresi Günleri",
-        "de": "Lead Time Days",
-        "fr": "Lead Time Days",
-        "es": "Lead Time Days",
+        "de": "Vorlaufzeit in Tagen",
+        "fr": "Délai de livraison en jours",
+        "es": "Días de plazo de entrega",
         "ar": "Lead Time Days"
       },
       "businessContext_i18n": {
         "en": "Supplier lead time in days",
-        "tr": "Tedarikçi teslim süresi (gün)"
+        "tr": "Tedarikçi teslim süresi (gün)",
+        "de": "Lieferanten-Vorlaufzeit in Tagen",
+        "fr": "Délai de livraison du fournisseur en jours",
+        "es": "Plazo de entrega del proveedor en días"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Reorder Point Multiplier",
         "tr": "Yeniden Sipariş Noktası Çarpanı",
-        "de": "Reorder Point Multiplier",
-        "fr": "Reorder Point Multiplier",
-        "es": "Reorder Point Multiplier",
+        "de": "Multiplikator für den Bestellpunkt",
+        "fr": "Multiplicateur du point de commande",
+        "es": "Multiplicador de punto de reorden",
         "ar": "Reorder Point Multiplier"
       },
       "businessContext_i18n": {
         "en": "Multiplier to account for variability in demand during lead time",
-        "tr": "Teslim süresi boyunca talep değişkenliğini hesaba katan çarpan"
+        "tr": "Teslim süresi boyunca talep değişkenliğini hesaba katan çarpan",
+        "de": "Multiplikator zur Berücksichtigung der Variabilität der Nachfrage während der Vorlaufzeit",
+        "fr": "Multiplicateur pour tenir compte de la variabilité de la demande pendant le délai de livraison",
+        "es": "Multiplicador para tener en cuenta la variabilidad de la demanda durante el plazo de entrega"
       }
     }
   ],

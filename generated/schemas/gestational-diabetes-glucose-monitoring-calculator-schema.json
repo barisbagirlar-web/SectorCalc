@@ -12,14 +12,16 @@
         "en": "Blood Glucose",
         "tr": "Kan Şekeri",
         "de": "Blutzucker",
-        "fr": "Blood Glucose",
-        "es": "Blood Glucose",
+        "fr": "Glycémie",
+        "es": "Glucosa en sangre",
         "ar": "Blood Glucose"
       },
       "businessContext_i18n": {
         "en": "Measured blood glucose concentration for diabetes management",
         "tr": "Diyabet yönetimi için ölçülen kan şekeri konsantrasyonu",
-        "de": "Gemessene Blutzuckerkonzentration für das Diabetesmanagement"
+        "de": "Gemessene Blutzuckerkonzentration für das Diabetesmanagement",
+        "fr": "Concentration de glucose sanguin mesurée pour la gestion du diabète",
+        "es": "Concentración de glucosa en sangre medida para el manejo de la diabetes"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Conversion constant from mg/dL to mmol/L used in laboratory reporting",
         "tr": "Laboratuvar raporlamasında mg/dL'den mmol/L'ye dönüşüm sabiti",
-        "de": "Umrechnungskonstante von mg/dL in mmol/L, verwendet in der Laborberichterstattung"
+        "de": "Umrechnungskonstante von mg/dL in mmol/L, verwendet in der Laborberichterstattung",
+        "fr": "Constante de conversion de mg/dL en mmol/L utilisée dans les rapports de laboratoire",
+        "es": "Constante de conversión de mg/dL a mmol/L utilizada en informes de laboratorio"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Time Since Last Meal",
         "tr": "Son Yemekten Bu Yana Geçen Süre",
         "de": "Zeit seit letzter Mahlzeit",
-        "fr": "Time Since Last Meal",
-        "es": "Time Since Last Meal",
+        "fr": "Temps écoulé depuis le dernier repas",
+        "es": "Tiempo desde la última comida",
         "ar": "Time Since Last Meal"
       },
       "businessContext_i18n": {
         "en": "Time elapsed since last meal to adjust for postprandial variation",
         "tr": "Tokluk değişimini ayarlamak için son yemekten bu yana geçen süre",
-        "de": "Verstrichene Zeit seit letzter Mahlzeit zur Anpassung an postprandiale Schwankungen"
+        "de": "Verstrichene Zeit seit letzter Mahlzeit zur Anpassung an postprandiale Schwankungen",
+        "fr": "Temps écoulé depuis le dernier repas pour ajuster la variation postprandiale",
+        "es": "Tiempo transcurrido desde la última comida para ajustar la variación posprandial"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Target Low Glucose",
         "tr": "Hedef Düşük Glukoz",
         "de": "Zielwert niedriger Blutzucker",
-        "fr": "Target Low Glucose",
-        "es": "Target Low Glucose",
+        "fr": "Glycémie cible basse",
+        "es": "Objetivo bajo de glucosa",
         "ar": "Target Low Glucose"
       },
       "businessContext_i18n": {
         "en": "Lower therapeutic target for glucose level in gestational diabetes",
         "tr": "Gestasyonel diyabette glukoz seviyesi için alt terapötik hedef",
-        "de": "Unterer therapeutischer Zielwert für den Blutzuckerspiegel bei Schwangerschaftsdiabetes"
+        "de": "Unterer therapeutischer Zielwert für den Blutzuckerspiegel bei Schwangerschaftsdiabetes",
+        "fr": "Objectif thérapeutique inférieur pour le taux de glucose dans le diabète gestationnel",
+        "es": "Objetivo terapéutico inferior para el nivel de glucosa en diabetes gestacional"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Target High Glucose",
         "tr": "Hedef Yüksek Glukoz",
         "de": "Zielwert hoher Blutzucker",
-        "fr": "Target High Glucose",
-        "es": "Target High Glucose",
+        "fr": "Glycémie cible haute",
+        "es": "Objetivo alto de glucosa",
         "ar": "Target High Glucose"
       },
       "businessContext_i18n": {
         "en": "Upper therapeutic target for glucose level in gestational diabetes",
         "tr": "Gestasyonel diyabette glukoz seviyesi için üst terapötik hedef",
-        "de": "Oberer therapeutischer Zielwert für den Blutzuckerspiegel bei Schwangerschaftsdiabetes"
+        "de": "Oberer therapeutischer Zielwert für den Blutzuckerspiegel bei Schwangerschaftsdiabetes",
+        "fr": "Objectif thérapeutique supérieur pour le taux de glucose dans le diabète gestationnel",
+        "es": "Objetivo terapéutico superior para el nivel de glucosa en diabetes gestacional"
       }
     }
   ],

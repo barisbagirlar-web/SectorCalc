@@ -12,13 +12,16 @@
         "en": "Home Value",
         "tr": "Ev değeri",
         "de": "Hauswert",
-        "fr": "Home Value",
-        "es": "Home Value",
+        "fr": "Valeur du bien",
+        "es": "Valor de la vivienda",
         "ar": "Home Value"
       },
       "businessContext_i18n": {
         "en": "Current appraised market value of the property.",
-        "tr": "Mülkün güncel ekspertiz piyasa değeri."
+        "tr": "Mülkün güncel ekspertiz piyasa değeri.",
+        "de": "Aktueller geschätzter Marktwert der Immobilie.",
+        "fr": "Valeur marchande actuelle estimée de la propriété.",
+        "es": "Valor de mercado actual de la propiedad."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Mortgage Balance",
         "tr": "Mortgage bakiyesi",
         "de": "Hypothekensaldo",
-        "fr": "Mortgage Balance",
-        "es": "Mortgage Balance",
+        "fr": "Solde hypothécaire",
+        "es": "Saldo hipotecario",
         "ar": "Mortgage Balance"
       },
       "businessContext_i18n": {
         "en": "Outstanding principal on the first mortgage.",
-        "tr": "Birinci ipotekteki anapara bakiyesi."
+        "tr": "Birinci ipotekteki anapara bakiyesi.",
+        "de": "Ausstehender Kapitalbetrag der ersten Hypothek.",
+        "fr": "Capital restant dû sur la première hypothèque.",
+        "es": "Saldo pendiente de la primera hipoteca."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "LVR Limit",
         "tr": "LVR Limiti",
-        "de": "LVR Limit",
-        "fr": "LVR Limit",
-        "es": "LVR Limit",
+        "de": "LVR-Grenze",
+        "fr": "Limite LVR",
+        "es": "Límite LTV",
         "ar": "LVR Limit"
       },
       "businessContext_i18n": {
         "en": "Maximum loan-to-value ratio allowed by the lender.",
-        "tr": "Borç verenin izin verdiği maksimum kredi-değer oranı."
+        "tr": "Borç verenin izin verdiği maksimum kredi-değer oranı.",
+        "de": "Maximales Beleihungsverhältnis, das vom Kreditgeber erlaubt wird.",
+        "fr": "Ratio prêt-valeur maximal autorisé par le prêteur.",
+        "es": "Relación máxima préstamo-valor permitida por el prestamista."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Interest Rate",
         "tr": "Faiz Oranı",
         "de": "Zinssatz",
-        "fr": "Interest Rate",
-        "es": "Interest Rate",
+        "fr": "Taux d'intérêt",
+        "es": "Tasa de interés",
         "ar": "Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Annual interest rate on the HELOC.",
-        "tr": "HELOC'un yıllık faiz oranı."
+        "tr": "HELOC'un yıllık faiz oranı.",
+        "de": "Jährlicher Zinssatz für die HELOC.",
+        "fr": "Taux d'intérêt annuel sur la marge de crédit hypothécaire (HELOC).",
+        "es": "Tasa de interés anual de la línea de crédito sobre el valor líquido de la vivienda (HELOC)."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Draw Amount",
         "tr": "Çekim Tutarı",
         "de": "Abhebungsbetrag",
-        "fr": "Draw Amount",
-        "es": "Draw Amount",
+        "fr": "Montant du tirage",
+        "es": "Monto del retiro",
         "ar": "Draw Amount"
       },
       "businessContext_i18n": {
         "en": "Amount you plan to draw from the HELOC.",
-        "tr": "HELOC'tan çekmeyi planladığınız tutar."
+        "tr": "HELOC'tan çekmeyi planladığınız tutar.",
+        "de": "Betrag, den Sie von der HELOC abheben möchten.",
+        "fr": "Montant que vous prévoyez de retirer de la HELOC.",
+        "es": "Cantidad que planea retirar de la HELOC."
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Loan Term",
         "tr": "Kredi Vadesi",
         "de": "Darlehenslaufzeit",
-        "fr": "Loan Term",
-        "es": "Loan Term",
+        "fr": "Durée du prêt",
+        "es": "Plazo del préstamo",
         "ar": "Loan Term"
       },
       "businessContext_i18n": {
         "en": "Repayment period for the HELOC.",
-        "tr": "HELOC için geri ödeme süresi."
+        "tr": "HELOC için geri ödeme süresi.",
+        "de": "Rückzahlungszeitraum für die HELOC.",
+        "fr": "Période de remboursement de la HELOC.",
+        "es": "Período de amortización de la HELOC."
       }
     }
   ],

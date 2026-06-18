@@ -12,13 +12,15 @@
         "en": "UK MPG",
         "tr": "Birleşik Krallık MPG",
         "de": "UK MPG",
-        "fr": "UK MPG",
+        "fr": "MPG Royaume-Uni",
         "es": "UK MPG",
         "ar": "UK MPG"
       },
       "businessContext_i18n": {
         "en": "Fuel efficiency in miles per imperial gallon",
-        "tr": "Mil başına emperyal galon cinsinden yakıt verimliliği"
+        "tr": "Mil başına emperyal galon cinsinden yakıt verimliliği",
+        "de": "Kraftstoffeffizienz in Meilen pro imperialer Gallone",
+        "fr": "Consommation de carburant en miles par gallon impérial"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Imperial Gallon to Litres",
         "tr": "Emperyal Galon - Litre Dönüşümü",
-        "de": "Imperial Gallon to Litres",
-        "fr": "Imperial Gallon to Litres",
+        "de": "Imperiale Gallone in Liter",
+        "fr": "Gallon impérial en litres",
         "es": "Imperial Gallon to Litres",
         "ar": "Imperial Gallon to Litres"
       },
       "businessContext_i18n": {
         "en": "Conversion constant: 1 imperial gallon = 4.54609 litres",
-        "tr": "Dönüşüm sabiti: 1 emperyal galon = 4,54609 litre"
+        "tr": "Dönüşüm sabiti: 1 emperyal galon = 4,54609 litre",
+        "de": "Umrechnungskonstante: 1 imperiale Gallone = 4,54609 Liter",
+        "fr": "Constante de conversion : 1 gallon impérial = 4,54609 litres"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "US Gallon to Litres",
         "tr": "ABD Galonu - Litre Dönüşümü",
-        "de": "US Gallon to Litres",
-        "fr": "US Gallon to Litres",
+        "de": "US-Gallone in Liter",
+        "fr": "Gallon US en litres",
         "es": "US Gallon to Litres",
         "ar": "US Gallon to Litres"
       },
       "businessContext_i18n": {
         "en": "Conversion constant: 1 US gallon = 3.785411784 litres",
-        "tr": "Dönüşüm sabiti: 1 ABD galonu = 3,785411784 litre"
+        "tr": "Dönüşüm sabiti: 1 ABD galonu = 3,785411784 litre",
+        "de": "Umrechnungskonstante: 1 US-Gallone = 3,785411784 Liter",
+        "fr": "Constante de conversion : 1 gallon US = 3,785411784 litres"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "UK MPG Adjustment",
         "tr": "Birleşik Krallık MPG Ayarı",
-        "de": "UK MPG Adjustment",
-        "fr": "UK MPG Adjustment",
+        "de": "UK MPG-Anpassung",
+        "fr": "Ajustement MPG Royaume-Uni",
         "es": "UK MPG Adjustment",
         "ar": "UK MPG Adjustment"
       },
       "businessContext_i18n": {
         "en": "Optional offset to UK MPG for scenario testing",
-        "tr": "Senaryo testi için Birleşik Krallık MPG'sine isteğe bağlı ofset"
+        "tr": "Senaryo testi için Birleşik Krallık MPG'sine isteğe bağlı ofset",
+        "de": "Optionaler Offset zur UK MPG für Szenariotests",
+        "fr": "Décalage optionnel du MPG Royaume-Uni pour les tests de scénarios"
       }
     }
   ],

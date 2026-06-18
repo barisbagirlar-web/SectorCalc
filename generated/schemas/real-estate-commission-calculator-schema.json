@@ -12,13 +12,16 @@
         "en": "Sale Price",
         "tr": "Satış Fiyatı",
         "de": "Verkaufspreis",
-        "fr": "Sale Price",
-        "es": "Sale Price",
+        "fr": "Prix de vente",
+        "es": "Precio de venta",
         "ar": "Sale Price"
       },
       "businessContext_i18n": {
         "en": "The final agreed sale price of the property.",
-        "tr": "Mülkün nihai anlaşılan satış fiyatı."
+        "tr": "Mülkün nihai anlaşılan satış fiyatı.",
+        "de": "Endgültiger vereinbarter Verkaufspreis der Immobilie",
+        "fr": "Prix de vente final convenu du bien.",
+        "es": "Precio de venta final acordado de la propiedad."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Total Commission Rate",
         "tr": "Toplam Komisyon Oranı",
-        "de": "Total Commission Rate",
-        "fr": "Total Commission Rate",
-        "es": "Total Commission Rate",
+        "de": "Gesamtprovisionssatz",
+        "fr": "Taux de commission total",
+        "es": "Tasa de comisión total",
         "ar": "Total Commission Rate"
       },
       "businessContext_i18n": {
         "en": "The combined commission percentage for both buyer and seller agents.",
-        "tr": "Hem alıcı hem de satıcı acenteleri için birleşik komisyon yüzdesi."
+        "tr": "Hem alıcı hem de satıcı acenteleri için birleşik komisyon yüzdesi.",
+        "de": "Der kombinierte Provisionsprozentsatz für Makler von Käufer und Verkäufer",
+        "fr": "Pourcentage de commission combiné pour les agents acheteur et vendeur.",
+        "es": "El porcentaje de comisión combinado para los agentes del comprador y del vendedor."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Buyer Agent Split",
         "tr": "Alıcı Acente Payı",
-        "de": "Buyer Agent Split",
-        "fr": "Buyer Agent Split",
-        "es": "Buyer Agent Split",
+        "de": "Anteil des Käufermaklers",
+        "fr": "Part de l'agent acheteur",
+        "es": "División del agente del comprador",
         "ar": "Buyer Agent Split"
       },
       "businessContext_i18n": {
         "en": "The percentage of the total commission that goes to the buyer's agent.",
-        "tr": "Toplam komisyonun alıcı acentesine giden yüzdesi."
+        "tr": "Toplam komisyonun alıcı acentesine giden yüzdesi.",
+        "de": "Der Prozentsatz der Gesamtprovision, der an den Makler des Käufers geht",
+        "fr": "Pourcentage de la commission totale revenant à l'agent de l'acheteur.",
+        "es": "El porcentaje de la comisión total que corresponde al agente del comprador."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Additional Flat Fee",
         "tr": "Ek Sabit Ücret",
-        "de": "Additional Flat Fee",
-        "fr": "Additional Flat Fee",
-        "es": "Additional Flat Fee",
+        "de": "Zusätzliche Pauschalgebühr",
+        "fr": "Frais fixes supplémentaires",
+        "es": "Tarifa fija adicional",
         "ar": "Additional Flat Fee"
       },
       "businessContext_i18n": {
         "en": "Any additional fixed fees (e.g., administrative charges) beyond the commission.",
-        "tr": "Komisyon dışındaki ek sabit ücretler (ör. idari masraflar)."
+        "tr": "Komisyon dışındaki ek sabit ücretler (ör. idari masraflar).",
+        "de": "Zusätzliche feste Gebühren (z. B. Verwaltungskosten) über die Provision hinaus",
+        "fr": "Frais fixes supplémentaires éventuels (ex. frais administratifs) au-delà de la commission.",
+        "es": "Cualquier tarifa fija adicional (por ejemplo, cargos administrativos) más allá de la comisión."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "VAT Rate",
         "tr": "KDV Oranı",
         "de": "Mehrwertsteuersatz",
-        "fr": "VAT Rate",
-        "es": "VAT Rate",
+        "fr": "Taux de TVA",
+        "es": "Tasa de IVA",
         "ar": "VAT Rate"
       },
       "businessContext_i18n": {
         "en": "The Value Added Tax rate applied to the commission, if applicable.",
-        "tr": "Komisyona uygulanan Katma Değer Vergisi oranı (varsa)."
+        "tr": "Komisyona uygulanan Katma Değer Vergisi oranı (varsa).",
+        "de": "Mehrwertsteuersatz, der auf die Provision angewendet wird, falls zutreffend",
+        "fr": "Taux de taxe sur la valeur ajoutée appliqué à la commission, le cas échéant.",
+        "es": "Tasa de IVA aplicada a la comisión, si corresponde."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "VAT Applicable",
         "tr": "KDV Uygulanabilir",
-        "de": "VAT Applicable",
-        "fr": "VAT Applicable",
-        "es": "VAT Applicable",
+        "de": "MwSt. anwendbar",
+        "fr": "TVA applicable",
+        "es": "IVA aplicable",
         "ar": "VAT Applicable"
       },
       "businessContext_i18n": {
         "en": "Indicates whether VAT is applied (1 = yes, 0 = no).",
-        "tr": "KDV'nin uygulanıp uygulanmadığını belirtir (1 = evet, 0 = hayır)."
+        "tr": "KDV'nin uygulanıp uygulanmadığını belirtir (1 = evet, 0 = hayır).",
+        "de": "Gibt an, ob Mehrwertsteuer angewendet wird (1 = ja, 0 = nein)",
+        "fr": "Indique si la TVA est appliquée (1 = oui, 0 = non).",
+        "es": "Indica si se aplica IVA (1 = sí, 0 = no)."
       }
     }
   ],

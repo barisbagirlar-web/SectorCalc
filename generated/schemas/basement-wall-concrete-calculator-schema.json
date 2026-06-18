@@ -12,14 +12,16 @@
         "en": "Wall Height",
         "tr": "Duvar Yüksekliği",
         "de": "Wandhöhe",
-        "fr": "Wall Height",
-        "es": "Wall Height",
+        "fr": "Hauteur du mur",
+        "es": "Altura del muro",
         "ar": "Wall Height"
       },
       "businessContext_i18n": {
         "en": "The height of the basement wall from footing to top.",
         "tr": "Bodrum duvarının temelden tepeye kadar olan yüksekliği.",
-        "de": "Bodrum duvarının temelden üst noktaya kadar olan yüksekliği."
+        "de": "Bodrum duvarının temelden üst noktaya kadar olan yüksekliği.",
+        "fr": "Hauteur du mur de sous-sol de la semelle au sommet.",
+        "es": "Altura del muro del sótano desde la base hasta la parte superior."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Wall Length",
         "tr": "Duvar Uzunluğu (m)",
         "de": "Duvar Uzunluğu",
-        "fr": "Wall Length",
-        "es": "Wall Length",
+        "fr": "Longueur du mur",
+        "es": "Longitud del muro",
         "ar": "Wall Length"
       },
       "businessContext_i18n": {
         "en": "The length of the basement wall.",
         "tr": "Bodrum duvarının uzunluğu.",
-        "de": "Bodrum duvarının uzunluğu."
+        "de": "Bodrum duvarının uzunluğu.",
+        "fr": "Longueur du mur de sous-sol.",
+        "es": "Longitud del muro del sótano."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Wall Thickness",
         "tr": "Duvar Kalınlığı (cm)",
         "de": "Duvar Kalınlığı",
-        "fr": "Wall Thickness",
-        "es": "Wall Thickness",
+        "fr": "Épaisseur du mur",
+        "es": "Espesor del muro",
         "ar": "Wall Thickness"
       },
       "businessContext_i18n": {
         "en": "Thickness of the concrete wall.",
         "tr": "Beton duvarın kalınlığı.",
-        "de": "Dicke der Betonwand."
+        "de": "Dicke der Betonwand.",
+        "fr": "Épaisseur du mur en béton.",
+        "es": "Espesor del muro de hormigón."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Concrete Density",
         "tr": "Beton Yoğunluğu",
         "de": "Betondichte",
-        "fr": "Concrete Density",
-        "es": "Concrete Density",
+        "fr": "Densité du béton",
+        "es": "Densidad del hormigón",
         "ar": "Concrete Density"
       },
       "businessContext_i18n": {
         "en": "Density of concrete used for weight calculation.",
         "tr": "Ağırlık hesaplaması için kullanılan beton yoğunluğu.",
-        "de": "Dichte des Betons für die Gewichtsberechnung."
+        "de": "Dichte des Betons für die Gewichtsberechnung.",
+        "fr": "Densité du béton utilisée pour le calcul du poids.",
+        "es": "Densidad del hormigón utilizada para el cálculo del peso."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
         "de": "Abfallfaktor",
-        "fr": "Waste Factor",
-        "es": "Waste Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Percentage added for material waste during construction.",
         "tr": "İnşaat sırasında malzeme israfı için eklenen yüzde.",
-        "de": "Prozentsatz für Materialverschwendung während des Baus."
+        "de": "Prozentsatz für Materialverschwendung während des Baus.",
+        "fr": "Pourcentage ajouté pour les pertes de matériau lors de la construction.",
+        "es": "Porcentaje añadido por desperdicio de material durante la construcción."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Number of Walls",
         "tr": "Duvar Sayısı",
         "de": "Anzahl der Wände",
-        "fr": "Number of Walls",
-        "es": "Number of Walls",
+        "fr": "Nombre de murs",
+        "es": "Número de muros",
         "ar": "Number of Walls"
       },
       "businessContext_i18n": {
         "en": "Number of identical basement walls.",
         "tr": "Özdeş bodrum duvarlarının sayısı.",
-        "de": "Anzahl identischer Kellerwände."
+        "de": "Anzahl identischer Kellerwände.",
+        "fr": "Nombre de murs de sous-sol identiques.",
+        "es": "Número de muros de sótano idénticos."
       }
     }
   ],

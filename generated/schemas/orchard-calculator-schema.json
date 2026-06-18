@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Orchard Area",
         "tr": "Meyve Bahçesi Alanı",
-        "de": "Orchard Area",
-        "fr": "Orchard Area",
-        "es": "Orchard Area",
+        "de": "Obstgartenfläche",
+        "fr": "Superficie du verger",
+        "es": "Área del huerto",
         "ar": "Orchard Area"
       },
       "businessContext_i18n": {
         "en": "Total orchard area in hectares",
-        "tr": "Hektar cinsinden toplam meyve bahçesi alanı"
+        "tr": "Hektar cinsinden toplam meyve bahçesi alanı",
+        "de": "Gesamte Obstgartenfläche in Hektar",
+        "fr": "Superficie totale du verger en hectares",
+        "es": "Área total del huerto en hectáreas"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Row Spacing",
         "tr": "Sıra Aralığı",
         "de": "Reihenabstand",
-        "fr": "Row Spacing",
-        "es": "Row Spacing",
+        "fr": "Espacement entre les rangs",
+        "es": "Espaciado entre hileras",
         "ar": "Row Spacing"
       },
       "businessContext_i18n": {
         "en": "Distance between tree rows",
-        "tr": "Sıra arası mesafe"
+        "tr": "Sıra arası mesafe",
+        "de": "Abstand zwischen Baumreihen",
+        "fr": "Distance entre les rangées d'arbres",
+        "es": "Distancia entre hileras de árboles"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Tree Spacing",
         "tr": "Ağaç aralığı",
-        "de": "Tree Spacing",
-        "fr": "Tree Spacing",
-        "es": "Tree Spacing",
+        "de": "Baumabstand",
+        "fr": "Espacement des arbres",
+        "es": "Espaciado entre árboles",
         "ar": "Tree Spacing"
       },
       "businessContext_i18n": {
         "en": "Distance between trees within a row",
-        "tr": "Sıra içi ağaç mesafesi"
+        "tr": "Sıra içi ağaç mesafesi",
+        "de": "Abstand zwischen Bäumen innerhalb einer Reihe",
+        "fr": "Distance entre les arbres dans une rangée",
+        "es": "Distancia entre árboles dentro de una hilera"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Yield Per Tree",
         "tr": "Ağaç başına verim",
-        "de": "Yield Per Tree",
-        "fr": "Yield Per Tree",
-        "es": "Yield Per Tree",
+        "de": "Ertrag pro Baum",
+        "fr": "Rendement par arbre",
+        "es": "Rendimiento por árbol",
         "ar": "Yield Per Tree"
       },
       "businessContext_i18n": {
         "en": "Average fruit yield per mature tree per year",
-        "tr": "Olgun ağaç başına yıllık ortalama meyve verimi"
+        "tr": "Olgun ağaç başına yıllık ortalama meyve verimi",
+        "de": "Durchschnittlicher Fruchtertrag pro ausgewachsenem Baum pro Jahr",
+        "fr": "Rendement moyen en fruits par arbre mature par an",
+        "es": "Rendimiento promedio de fruta por árbol maduro por año"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Selling Price",
         "tr": "Satış fiyatı",
-        "de": "Selling Price",
-        "fr": "Selling Price",
-        "es": "Selling Price",
+        "de": "Verkaufspreis",
+        "fr": "Prix de vente",
+        "es": "Precio de venta",
         "ar": "Selling Price"
       },
       "businessContext_i18n": {
         "en": "Farmgate price per kilogram",
-        "tr": "Çiftlik kapısı kilogram fiyatı"
+        "tr": "Çiftlik kapısı kilogram fiyatı",
+        "de": "Ab-Hof-Preis pro Kilogramm",
+        "fr": "Prix à la ferme par kilogramme",
+        "es": "Precio en finca por kilogramo"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Maintenance Cost",
         "tr": "Bakım Maliyeti",
-        "de": "Maintenance Cost",
-        "fr": "Maintenance Cost",
-        "es": "Maintenance Cost",
+        "de": "Wartungskosten",
+        "fr": "Coût d'entretien",
+        "es": "Coste de mantenimiento",
         "ar": "Maintenance Cost"
       },
       "businessContext_i18n": {
         "en": "Annual cost for pruning, spraying, fertilizing per tree",
-        "tr": "Ağaç başına budama, ilaçlama, gübreleme yıllık maliyeti"
+        "tr": "Ağaç başına budama, ilaçlama, gübreleme yıllık maliyeti",
+        "de": "Jährliche Kosten für Schnitt, Spritzung, Düngung pro Baum",
+        "fr": "Coût annuel par arbre pour la taille, la pulvérisation, la fertilisation",
+        "es": "Costo anual por poda, fumigación y fertilización por árbol"
       }
     },
     {
@@ -132,13 +150,16 @@
         "en": "Initial Investment",
         "tr": "Başlangıç Yatırımı",
         "de": "Anfangsinvestition",
-        "fr": "Initial Investment",
-        "es": "Initial Investment",
+        "fr": "Investissement initial",
+        "es": "Inversión inicial",
         "ar": "Initial Investment"
       },
       "businessContext_i18n": {
         "en": "Total one-time cost for land prep, seedlings, infrastructure",
-        "tr": "Arazi hazırlığı, fidan, altyapı için toplam tek seferlik maliyet"
+        "tr": "Arazi hazırlığı, fidan, altyapı için toplam tek seferlik maliyet",
+        "de": "Einmalige Gesamtkosten für Bodenvorbereitung, Setzlinge, Infrastruktur",
+        "fr": "Coût unique total pour la préparation du terrain, les plants, l'infrastructure",
+        "es": "Costo único total para preparación del terreno, plántulas e infraestructura"
       }
     }
   ],

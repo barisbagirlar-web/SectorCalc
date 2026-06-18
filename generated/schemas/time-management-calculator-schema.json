@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Total number of tasks",
         "tr": "Toplam görev sayısı",
-        "de": "Total number of tasks",
-        "fr": "Total number of tasks",
+        "de": "Gesamtzahl der Aufgaben",
+        "fr": "Nombre total de tâches",
         "es": "Total number of tasks",
         "ar": "Total number of tasks"
       },
       "businessContext_i18n": {
         "en": "Total number of tasks to complete",
-        "tr": "Tamamlanacak toplam görev sayısı"
+        "tr": "Tamamlanacak toplam görev sayısı",
+        "de": "Gesamtzahl der zu erledigenden Aufgaben",
+        "fr": "Nombre total de tâches à accomplir"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Time per task",
         "tr": "Görev başına süre",
-        "de": "Time per task",
-        "fr": "Time per task",
+        "de": "Zeit pro Aufgabe",
+        "fr": "Temps par tâche",
         "es": "Time per task",
         "ar": "Time per task"
       },
       "businessContext_i18n": {
         "en": "Average time to complete one task (minutes)",
-        "tr": "Bir görevi tamamlamak için ortalama süre (dakika)"
+        "tr": "Bir görevi tamamlamak için ortalama süre (dakika)",
+        "de": "Durchschnittliche Zeit für eine Aufgabe (Minuten)",
+        "fr": "Temps moyen pour accomplir une tâche (minutes)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Number of workers",
         "tr": "İşçi sayısı",
-        "de": "Number of workers",
-        "fr": "Number of workers",
+        "de": "Anzahl der Mitarbeiter",
+        "fr": "Nombre de travailleurs",
         "es": "Number of workers",
         "ar": "Number of workers"
       },
       "businessContext_i18n": {
         "en": "Number of workers available",
-        "tr": "Mevcut işçi sayısı"
+        "tr": "Mevcut işçi sayısı",
+        "de": "Verfügbare Mitarbeiter",
+        "fr": "Nombre de travailleurs disponibles"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Efficiency",
         "tr": "Verim",
         "de": "Wirkungsgrad",
-        "fr": "Efficiency",
-        "es": "Efficiency",
+        "fr": "Rendement",
+        "es": "Eficiencia",
         "ar": "Efficiency"
       },
       "businessContext_i18n": {
         "en": "Worker efficiency as a percentage (100% = full efficiency)",
-        "tr": "İşçi verimliliği yüzde olarak (%100 = tam verim)"
+        "tr": "İşçi verimliliği yüzde olarak (%100 = tam verim)",
+        "de": "Mitarbeitereffizienz in Prozent (100% = volle Effizienz)",
+        "fr": "Efficacité du travailleur en pourcentage (100 % = pleine efficacité)"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Break time per day",
         "tr": "Günlük mola süresi",
-        "de": "Break time per day",
-        "fr": "Break time per day",
+        "de": "Pausenzeit pro Tag",
+        "fr": "Temps de pause par jour",
         "es": "Break time per day",
         "ar": "Break time per day"
       },
       "businessContext_i18n": {
         "en": "Total break time per worker per day (minutes)",
-        "tr": "İşçi başına günlük toplam mola süresi (dakika)"
+        "tr": "İşçi başına günlük toplam mola süresi (dakika)",
+        "de": "Gesamte Pausenzeit pro Mitarbeiter und Tag (Minuten)",
+        "fr": "Temps de pause total par travailleur par jour (minutes)"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Working hours per day",
         "tr": "Günlük çalışma saati",
-        "de": "Working hours per day",
-        "fr": "Working hours per day",
+        "de": "Arbeitsstunden pro Tag",
+        "fr": "Heures de travail par jour",
         "es": "Working hours per day",
         "ar": "Working hours per day"
       },
       "businessContext_i18n": {
         "en": "Standard working hours per day",
-        "tr": "Standart günlük çalışma saati"
+        "tr": "Standart günlük çalışma saati",
+        "de": "Standardarbeitsstunden pro Tag",
+        "fr": "Heures de travail standard par jour"
       }
     }
   ],

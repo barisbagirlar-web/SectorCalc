@@ -12,14 +12,16 @@
         "en": "Hypertension (SBP>160mmHg)",
         "tr": "Hipertansiyon (SBP>160mmHg)",
         "de": "Hypertonie (SBP>160mmHg)",
-        "fr": "Hypertension (SBP>160mmHg)",
-        "es": "Hypertension (SBP>160mmHg)",
+        "fr": "Hypertension (PAS > 160 mmHg)",
+        "es": "Hipertensión (PAS >160 mmHg)",
         "ar": "Hypertension (SBP>160mmHg)"
       },
       "businessContext_i18n": {
         "en": "Uncontrolled hypertension",
         "tr": "Kontrolsüz hipertansiyon",
-        "de": "Unkontrollierte Hypertonie"
+        "de": "Unkontrollierte Hypertonie",
+        "fr": "Hypertension non contrôlée",
+        "es": "Hipertensión no controlada"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Abnormal Renal Function (dialysis, transplant, Cr>2.26mg/dL or >200µmol/L)",
         "tr": "Anormal Böbrek Fonksiyonu (diyaliz, transplant, Cr>2.26mg/dL veya >200µmol/L)",
         "de": "Abnormale Nierenfunktion (Dialyse, Transplantation, Cr>2,26 mg/dL oder >200 µmol/L)",
-        "fr": "Abnormal Renal Function (dialysis, transplant, Cr>2.26mg/dL or >200µmol/L)",
-        "es": "Abnormal Renal Function (dialysis, transplant, Cr>2.26mg/dL or >200µmol/L)",
+        "fr": "Fonction rénale anormale (dialyse, transplantation, Cr > 2,26 mg/dL ou > 200 µmol/L)",
+        "es": "Función renal anormal (diálisis, trasplante, Cr >2.26 mg/dL o >200 µmol/L)",
         "ar": "Abnormal Renal Function (dialysis, transplant, Cr>2.26mg/dL or >200µmol/L)"
       },
       "businessContext_i18n": {
         "en": "Chronic dialysis, renal transplant, serum creatinine ≥2.26 mg/dL or ≥200 µmol/L",
         "tr": "Kronik diyaliz, böbrek nakli, serum kreatinin ≥2.26 mg/dL veya ≥200 µmol/L",
-        "de": "Chronische Dialyse, Nierentransplantation, Serumkreatinin ≥2,26 mg/dL oder ≥200 µmol/L"
+        "de": "Chronische Dialyse, Nierentransplantation, Serumkreatinin ≥2,26 mg/dL oder ≥200 µmol/L",
+        "fr": "Dialyse chronique, transplantation rénale, créatinine sérique ≥ 2,26 mg/dL ou ≥ 200 µmol/L",
+        "es": "Diálisis crónica, trasplante renal, creatinina sérica ≥2.26 mg/dL o ≥200 µmol/L"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Abnormal Liver Function (cirrhosis, bilirubin >2x ULN, AST/ALT/ALP >3x ULN)",
         "tr": "Anormal Karaciğer Fonksiyonu (siroz, bilirubin >2x ÜSN, AST/ALT/ALP >3x ÜSN)",
         "de": "Abnormale Leberfunktion (Zirrhose, Bilirubin >2x ULN, AST/ALT/ALP >3x ULN)",
-        "fr": "Abnormal Liver Function (cirrhosis, bilirubin >2x ULN, AST/ALT/ALP >3x ULN)",
-        "es": "Abnormal Liver Function (cirrhosis, bilirubin >2x ULN, AST/ALT/ALP >3x ULN)",
+        "fr": "Fonction hépatique anormale (cirrhose, bilirubine > 2x LSN, AST/ALT/ALP > 3x LSN)",
+        "es": "Función hepática anormal (cirrosis, bilirrubina >2x LSN, AST/ALT/ALP >3x LSN)",
         "ar": "Abnormal Liver Function (cirrhosis, bilirubin >2x ULN, AST/ALT/ALP >3x ULN)"
       },
       "businessContext_i18n": {
         "en": "Chronic hepatic disease (cirrhosis) or biochemical evidence of significant hepatic derangement",
         "tr": "Kronik karaciğer hastalığı (siroz) veya önemli karaciğer bozukluğunun biyokimyasal kanıtı",
-        "de": "Chronische Lebererkrankung (Zirrhose) oder biochemische Hinweise auf eine signifikante Leberschädigung"
+        "de": "Chronische Lebererkrankung (Zirrhose) oder biochemische Hinweise auf eine signifikante Leberschädigung",
+        "fr": "Maladie hépatique chronique (cirrhose) ou preuve biochimique d'une altération hépatique significative",
+        "es": "Enfermedad hepática crónica (cirrosis) o evidencia bioquímica de alteración hepática significativa"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Stroke History",
         "tr": "İnme Öyküsü",
         "de": "Schlaganfall in der Vorgeschichte",
-        "fr": "Stroke History",
-        "es": "Stroke History",
+        "fr": "Antécédent d'AVC",
+        "es": "Antecedentes de accidente cerebrovascular",
         "ar": "Stroke History"
       },
       "businessContext_i18n": {
         "en": "Previous stroke, transient ischemic attack, or thromboembolism",
         "tr": "Önceki inme, geçici iskemik atak veya tromboembolizm",
-        "de": "Früherer Schlaganfall, transitorische ischämische Attacke oder Thromboembolie"
+        "de": "Früherer Schlaganfall, transitorische ischämische Attacke oder Thromboembolie",
+        "fr": "AVC antérieur, accident ischémique transitoire ou thromboembolie",
+        "es": "Accidente cerebrovascular previo, ataque isquémico transitorio o tromboembolismo"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Bleeding History or Predisposition",
         "tr": "Kanama Öyküsü veya Yatkınlığı",
         "de": "Blutungsvorgeschichte oder Blutungsneigung",
-        "fr": "Bleeding History or Predisposition",
-        "es": "Bleeding History or Predisposition",
+        "fr": "Antécédent de saignement ou prédisposition",
+        "es": "Antecedentes de sangrado o predisposición",
         "ar": "Bleeding History or Predisposition"
       },
       "businessContext_i18n": {
         "en": "History of major bleeding or predisposition to bleeding (e.g., bleeding diathesis, anemia)",
         "tr": "Majör kanama öyküsü veya kanamaya yatkınlık (örn. kanama diyatezi, anemi)",
-        "de": "Vorgeschichte schwerer Blutungen oder Blutungsneigung (z. B. Blutungsdiathese, Anämie)"
+        "de": "Vorgeschichte schwerer Blutungen oder Blutungsneigung (z. B. Blutungsdiathese, Anämie)",
+        "fr": "Antécédent de saignement majeur ou prédisposition au saignement (par ex., diathèse hémorragique, anémie)",
+        "es": "Antecedentes de sangrado mayor o predisposición al sangrado (p. ej., diátesis hemorrágica, anemia)"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Labile INR (unstable/high, TTR <60%)",
         "tr": "Değişken INR (dengesiz/yüksek, TTR <%60)",
         "de": "Labiler INR (instabil/hoch, TTR <60%)",
-        "fr": "Labile INR (unstable/high, TTR <60%)",
-        "es": "Labile INR (unstable/high, TTR <60%)",
+        "fr": "INR labile (instable/élevé, TTR < 60 %)",
+        "es": "INR lábil (inestable/alto, TTR <60%)",
         "ar": "Labile INR (unstable/high, TTR <60%)"
       },
       "businessContext_i18n": {
         "en": "Labile international normalized ratio (INR), unstable or high INRs, or poor time in therapeutic range (<60%)",
         "tr": "Değişken uluslararası normalleştirilmiş oran (INR), dengesiz veya yüksek INR'ler veya terapötik aralıkta zayıf süre (<%60)",
-        "de": "Labiler INR-Wert (International Normalized Ratio), instabile oder hohe INR-Werte oder schlechte Zeit im therapeutischen Bereich (<60%)"
+        "de": "Labiler INR-Wert (International Normalized Ratio), instabile oder hohe INR-Werte oder schlechte Zeit im therapeutischen Bereich (<60%)",
+        "fr": "Rapport international normalisé (INR) labile, INR instables ou élevés, ou mauvais temps dans la plage thérapeutique (< 60 %)",
+        "es": "Índice internacional normalizado (INR) lábil, INR inestable o alto, o mal tiempo en rango terapéutico (<60%)"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Elderly (age >65 years)",
         "tr": "Yaşlı (yaş >65 yıl)",
         "de": "Ältere (Alter >65 Jahre)",
-        "fr": "Elderly (age >65 years)",
-        "es": "Elderly (age >65 years)",
+        "fr": "Âgé (> 65 ans)",
+        "es": "Edad avanzada (>65 años)",
         "ar": "Elderly (age >65 years)"
       },
       "businessContext_i18n": {
         "en": "Age >65 years",
         "tr": "Yaş >65 yıl",
-        "de": "Alter >65 Jahre"
+        "de": "Alter >65 Jahre",
+        "fr": "Âge > 65 ans",
+        "es": "Edad >65 años"
       }
     },
     {
@@ -159,14 +173,16 @@
         "en": "Drugs/Alcohol (antiplatelet agents, NSAIDs, alcohol abuse ≥8 drinks/week)",
         "tr": "İlaçlar/Alkol (antiplatelet ajanlar, NSAID'ler, alkol kötüye kullanımı ≥8 içki/hafta)",
         "de": "Medikamente/Alkohol (Thrombozytenaggregationshemmer, NSAR, Alkoholmissbrauch ≥8 Getränke/Woche)",
-        "fr": "Drugs/Alcohol (antiplatelet agents, NSAIDs, alcohol abuse ≥8 drinks/week)",
-        "es": "Drugs/Alcohol (antiplatelet agents, NSAIDs, alcohol abuse ≥8 drinks/week)",
+        "fr": "Médicaments/Alcool (antiplaquettaires, AINS, abus d'alcool ≥ 8 verres/semaine)",
+        "es": "Fármacos/alcohol (antiagregantes, AINEs, abuso de alcohol ≥8 bebidas/semana)",
         "ar": "Drugs/Alcohol (antiplatelet agents, NSAIDs, alcohol abuse ≥8 drinks/week)"
       },
       "businessContext_i18n": {
         "en": "Concomitant use of antiplatelet agents or non-steroidal anti-inflammatory drugs, or alcohol excess ≥8 drinks/week",
         "tr": "Antiplatelet ajanların veya non-steroid antiinflamatuar ilaçların eşzamanlı kullanımı veya aşırı alkol tüketimi ≥8 içki/hafta",
-        "de": "Gleichzeitige Einnahme von Thrombozytenaggregationshemmern oder nichtsteroidalen Antirheumatika (NSAR) oder übermäßiger Alkoholkonsum ≥8 Getränke/Woche"
+        "de": "Gleichzeitige Einnahme von Thrombozytenaggregationshemmern oder nichtsteroidalen Antirheumatika (NSAR) oder übermäßiger Alkoholkonsum ≥8 Getränke/Woche",
+        "fr": "Utilisation concomitante d'antiplaquettaires ou d'anti-inflammatoires non stéroïdiens, ou excès d'alcool ≥ 8 verres/semaine",
+        "es": "Uso concomitante de antiagregantes o antiinflamatorios no esteroideos, o exceso de alcohol ≥8 bebidas/semana"
       }
     }
   ],

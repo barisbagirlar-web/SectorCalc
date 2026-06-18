@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Initial Speed",
         "tr": "Başlangıç Hızı",
-        "de": "Initial Speed",
-        "fr": "Initial Speed",
-        "es": "Initial Speed",
+        "de": "Anfangsgeschwindigkeit",
+        "fr": "Vitesse initiale",
+        "es": "Velocidad inicial",
         "ar": "Initial Speed"
       },
       "businessContext_i18n": {
         "en": "Speed of the passing vehicle before maneuver",
-        "tr": "Manevra öncesi geçen aracın hızı"
+        "tr": "Manevra öncesi geçen aracın hızı",
+        "de": "Geschwindigkeit des vorbeifahrenden Fahrzeugs vor dem Manöver",
+        "fr": "Vitesse du véhicule qui dépasse avant la manœuvre",
+        "es": "Velocidad del vehículo que pasa antes de la maniobra"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Target Speed",
         "tr": "Hedef Hız",
         "de": "Zielgeschwindigkeit",
-        "fr": "Target Speed",
-        "es": "Target Speed",
+        "fr": "Vitesse cible",
+        "es": "Velocidad objetivo",
         "ar": "Target Speed"
       },
       "businessContext_i18n": {
         "en": "Speed after acceleration for passing",
-        "tr": "Geçiş için hızlanma sonrası hız"
+        "tr": "Geçiş için hızlanma sonrası hız",
+        "de": "Geschwindigkeit nach Beschleunigung für den Überholvorgang",
+        "fr": "Vitesse après accélération pour le dépassement",
+        "es": "Velocidad después de la aceleración para adelantar"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Acceleration",
         "tr": "İvme",
-        "de": "Acceleration",
-        "fr": "Acceleration",
-        "es": "Acceleration",
+        "de": "Beschleunigung",
+        "fr": "Accélération",
+        "es": "Aceleración",
         "ar": "Acceleration"
       },
       "businessContext_i18n": {
         "en": "Acceleration rate of vehicle",
-        "tr": "Aracın ivme oranı"
+        "tr": "Aracın ivme oranı",
+        "de": "Beschleunigungsrate des Fahrzeugs",
+        "fr": "Taux d'accélération du véhicule",
+        "es": "Tasa de aceleración del vehículo"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Constant Speed Duration",
         "tr": "Sabit Hız Süresi",
-        "de": "Constant Speed Duration",
-        "fr": "Constant Speed Duration",
-        "es": "Constant Speed Duration",
+        "de": "Dauer der konstanten Geschwindigkeit",
+        "fr": "Durée à vitesse constante",
+        "es": "Duración de velocidad constante",
         "ar": "Constant Speed Duration"
       },
       "businessContext_i18n": {
         "en": "Duration traveling at constant target speed in opposing lane",
-        "tr": "Karşı şeritte hedef hızda seyahat süresi"
+        "tr": "Karşı şeritte hedef hızda seyahat süresi",
+        "de": "Dauer der Fahrt mit konstanter Zielgeschwindigkeit auf der Gegenfahrbahn",
+        "fr": "Durée de déplacement à vitesse cible constante dans la voie opposée",
+        "es": "Duración viajando a velocidad objetivo constante en el carril opuesto"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Perception-Reaction Time",
         "tr": "Algılama-Tepki Süresi",
-        "de": "Perception-Reaction Time",
-        "fr": "Perception-Reaction Time",
-        "es": "Perception-Reaction Time",
+        "de": "Wahrnehmungs-Reaktionszeit",
+        "fr": "Temps de perception-réaction",
+        "es": "Tiempo de percepción-reacción",
         "ar": "Perception-Reaction Time"
       },
       "businessContext_i18n": {
         "en": "Time to perceive and react before starting acceleration",
-        "tr": "Hızlanmaya başlamadan önce algılama ve tepki süresi"
+        "tr": "Hızlanmaya başlamadan önce algılama ve tepki süresi",
+        "de": "Zeit zum Wahrnehmen und Reagieren vor Beginn der Beschleunigung",
+        "fr": "Temps pour percevoir et réagir avant de commencer l'accélération",
+        "es": "Tiempo para percibir y reaccionar antes de comenzar la aceleración"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Clearance Distance",
         "tr": "Güvenlik Mesafesi",
-        "de": "Clearance Distance",
-        "fr": "Clearance Distance",
-        "es": "Clearance Distance",
+        "de": "Sicherheitsabstand",
+        "fr": "Distance de dégagement",
+        "es": "Distancia de separación",
         "ar": "Clearance Distance"
       },
       "businessContext_i18n": {
         "en": "Safety clearance distance between passing and opposing vehicle",
-        "tr": "Geçen araç ile karşıdan gelen araç arasındaki güvenlik mesafesi"
+        "tr": "Geçen araç ile karşıdan gelen araç arasındaki güvenlik mesafesi",
+        "de": "Sicherheitsabstand zwischen überholendem und entgegenkommendem Fahrzeug",
+        "fr": "Distance de sécurité entre le véhicule qui dépasse et le véhicule opposé",
+        "es": "Distancia de seguridad entre el vehículo que adelanta y el vehículo opuesto"
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Opposing Vehicle Speed",
         "tr": "Karşıdan Gelen Araç Hızı",
-        "de": "Opposing Vehicle Speed",
-        "fr": "Opposing Vehicle Speed",
-        "es": "Opposing Vehicle Speed",
+        "de": "Geschwindigkeit des entgegenkommenden Fahrzeugs",
+        "fr": "Vitesse du véhicule opposé",
+        "es": "Velocidad del vehículo opuesto",
         "ar": "Opposing Vehicle Speed"
       },
       "businessContext_i18n": {
         "en": "Estimated speed of oncoming vehicle",
-        "tr": "Karşıdan gelen aracın tahmini hızı"
+        "tr": "Karşıdan gelen aracın tahmini hızı",
+        "de": "Geschätzte Geschwindigkeit des entgegenkommenden Fahrzeugs",
+        "fr": "Vitesse estimée du véhicule venant en sens inverse",
+        "es": "Velocidad estimada del vehículo que se aproxima"
       }
     }
   ],

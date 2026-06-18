@@ -12,14 +12,16 @@
         "en": "Bore Diameter (mm)",
         "tr": "Delik Çapı (mm)",
         "de": "Bohrungsdurchmesser (mm)",
-        "fr": "Bore Diameter (mm)",
-        "es": "Bore Diameter (mm)",
+        "fr": "Diamètre d'alésage (mm)",
+        "es": "Diámetro del cilindro (mm)",
         "ar": "Bore Diameter (mm)"
       },
       "businessContext_i18n": {
         "en": "Internal cylinder diameter",
         "tr": "Silindir iç çapı",
-        "de": "Innendurchmesser des Zylinders"
+        "de": "Innendurchmesser des Zylinders",
+        "fr": "Diamètre intérieur du cylindre",
+        "es": "Diámetro interior del cilindro"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Stroke Length (mm)",
         "tr": "Strok Uzunluğu (mm)",
         "de": "Hublänge (mm)",
-        "fr": "Stroke Length (mm)",
-        "es": "Stroke Length (mm)",
+        "fr": "Longueur de course (mm)",
+        "es": "Longitud de carrera (mm)",
         "ar": "Stroke Length (mm)"
       },
       "businessContext_i18n": {
         "en": "Cylinder stroke length",
         "tr": "Silindir strok uzunluğu",
-        "de": "Hublänge des Zylinders"
+        "de": "Hublänge des Zylinders",
+        "fr": "Longueur de course du vérin",
+        "es": "Longitud de carrera del cilindro"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Operating Pressure (bar)",
         "tr": "Çalışma Basıncı (bar)",
         "de": "Betriebsdruck (bar)",
-        "fr": "Operating Pressure (bar)",
-        "es": "Operating Pressure (bar)",
+        "fr": "Pression de service (bar)",
+        "es": "Presión de trabajo (bar)",
         "ar": "Operating Pressure (bar)"
       },
       "businessContext_i18n": {
         "en": "Gauge working pressure",
         "tr": "Manometre çalışma basıncı",
-        "de": "Manometer-Arbeitsdruck"
+        "de": "Manometer-Arbeitsdruck",
+        "fr": "Pression de travail manométrique",
+        "es": "Presión de trabajo manométrica"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Cycles per Minute",
         "tr": "Dakikadaki Çevrim Sayısı",
         "de": "Zyklen pro Minute",
-        "fr": "Cycles per Minute",
-        "es": "Cycles per Minute",
+        "fr": "Cycles par minute",
+        "es": "Ciclos por minuto",
         "ar": "Cycles per Minute"
       },
       "businessContext_i18n": {
         "en": "Complete extend-retract cycles per minute",
         "tr": "Dakikadaki tam uzatma-geri çekme çevrimi",
-        "de": "Komplette Aus- und Einfahrzyklen pro Minute"
+        "de": "Komplette Aus- und Einfahrzyklen pro Minute",
+        "fr": "Cycles complets d'extension-rétraction par minute",
+        "es": "Ciclos completos de extensión-retracción por minuto"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Atmospheric Pressure (bar)",
         "tr": "Atmosfer Basıncı (bar)",
         "de": "Atmosphärendruck (bar)",
-        "fr": "Atmospheric Pressure (bar)",
-        "es": "Atmospheric Pressure (bar)",
+        "fr": "Pression atmosphérique (bar)",
+        "es": "Presión atmosférica (bar)",
         "ar": "Atmospheric Pressure (bar)"
       },
       "businessContext_i18n": {
         "en": "Local atmospheric pressure, default 1.013 bar at sea level",
         "tr": "Yerel atmosfer basıncı, deniz seviyesinde varsayılan 1,013 bar",
-        "de": "Lokaler Atmosphärendruck, Standard 1,013 bar auf Meereshöhe"
+        "de": "Lokaler Atmosphärendruck, Standard 1,013 bar auf Meereshöhe",
+        "fr": "Pression atmosphérique locale, par défaut 1,013 bar au niveau de la mer",
+        "es": "Presión atmosférica local, por defecto 1.013 bar al nivel del mar"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Acting Factor",
         "tr": "Etki Faktörü",
         "de": "Wirkungsfaktor",
-        "fr": "Acting Factor",
-        "es": "Acting Factor",
+        "fr": "Facteur d'action",
+        "es": "Factor de actuación",
         "ar": "Acting Factor"
       },
       "businessContext_i18n": {
         "en": "1 for single-acting, 2 for double-acting cylinder",
         "tr": "Tek etkili silindir için 1, çift etkili silindir için 2",
-        "de": "1 für einfachwirkenden, 2 für doppeltwirkenden Zylinder"
+        "de": "1 für einfachwirkenden, 2 für doppeltwirkenden Zylinder",
+        "fr": "1 pour simple effet, 2 pour double effet",
+        "es": "1 para cilindro de simple efecto, 2 para cilindro de doble efecto"
       }
     }
   ],

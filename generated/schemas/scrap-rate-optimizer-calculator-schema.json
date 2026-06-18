@@ -23,11 +23,16 @@
       "businessContext": "Total number of units produced in the reporting period (e.g., shift, day, week).",
       "label_i18n": {
         "en": "Total Units Produced",
-        "tr": "Toplam Üretilen Birim"
+        "tr": "Toplam Üretilen Birim",
+        "de": "Gesamtproduzierte Einheiten",
+        "fr": "Nombre total d'unités produites",
+        "es": "Unidades totales producidas"
       },
       "businessContext_i18n": {
         "en": "Total number of units produced in the reporting period (e.g., shift, day, week).",
-        "tr": "Raporlama döneminde üretilen toplam birim sayısı (örneğin, vardiya, gün, hafta)."
+        "tr": "Raporlama döneminde üretilen toplam birim sayısı (örneğin, vardiya, gün, hafta).",
+        "de": "Gesamtzahl der im Berichtszeitraum produzierten Einheiten (z. B. Schicht, Tag, Woche).",
+        "fr": "Nombre total d'unités produites au cours de la période de reporting (par exemple, équipe, jour, semaine)."
       }
     },
     {
@@ -41,11 +46,16 @@
       "businessContext": "Number of units that failed quality inspection or are non-conforming.",
       "label_i18n": {
         "en": "Defective Units",
-        "tr": "Hatalı Birimler"
+        "tr": "Hatalı Birimler",
+        "de": "Fehlerhafte Einheiten",
+        "fr": "Unités défectueuses",
+        "es": "Unidades defectuosas"
       },
       "businessContext_i18n": {
         "en": "Number of units that failed quality inspection or are non-conforming.",
-        "tr": "Kalite kontrolünden geçemeyen veya uygunsuz olan birim sayısı."
+        "tr": "Kalite kontrolünden geçemeyen veya uygunsuz olan birim sayısı.",
+        "de": "Anzahl der Einheiten, die die Qualitätsprüfung nicht bestanden haben oder nicht konform sind.",
+        "fr": "Nombre d'unités ayant échoué au contrôle qualité ou non conformes."
       }
     },
     {
@@ -59,11 +69,16 @@
       "businessContext": "Units that were reworked to meet specifications (counted separately from scrap).",
       "label_i18n": {
         "en": "Rework Units",
-        "tr": "Yeniden İşleme Birimleri"
+        "tr": "Yeniden İşleme Birimleri",
+        "de": "Nacharbeits-Einheiten",
+        "fr": "Unités de reprise",
+        "es": "Unidades retrabajadas"
       },
       "businessContext_i18n": {
         "en": "Units that were reworked to meet specifications (counted separately from scrap).",
-        "tr": "Şartnameye uygun hale getirilmek üzere yeniden işlenen birimler (fireden ayrı olarak sayılır)."
+        "tr": "Şartnameye uygun hale getirilmek üzere yeniden işlenen birimler (fireden ayrı olarak sayılır).",
+        "de": "Einheiten, die nachbearbeitet wurden, um die Spezifikationen zu erfüllen (getrennt von Ausschuss gezählt).",
+        "fr": "Unités retravaillées pour répondre aux spécifications (comptées séparément du rebut)."
       }
     },
     {
@@ -77,11 +92,16 @@
       "businessContext": "Direct material cost per unit in USD.",
       "label_i18n": {
         "en": "Material Cost per Unit",
-        "tr": "Birim Başına Malzeme Maliyeti"
+        "tr": "Birim Başına Malzeme Maliyeti",
+        "de": "Materialkosten pro Einheit",
+        "fr": "Coût matière par unité",
+        "es": "Coste de material por unidad"
       },
       "businessContext_i18n": {
         "en": "Direct material cost per unit in USD.",
-        "tr": "Birim başına doğrudan malzeme maliyeti (USD)."
+        "tr": "Birim başına doğrudan malzeme maliyeti (USD).",
+        "de": "Direkte Materialkosten pro Einheit in USD.",
+        "fr": "Coût direct des matériaux par unité en USD."
       }
     },
     {
@@ -95,11 +115,16 @@
       "businessContext": "Direct labor cost per unit in USD.",
       "label_i18n": {
         "en": "Labor Cost per Unit",
-        "tr": "Birim başına işçilik maliyeti"
+        "tr": "Birim başına işçilik maliyeti",
+        "de": "Arbeitskosten pro Stück",
+        "fr": "Coût de main-d'œuvre par unité",
+        "es": "Coste de mano de obra por unidad"
       },
       "businessContext_i18n": {
         "en": "Direct labor cost per unit in USD.",
-        "tr": "Birim başına doğrudan işçilik maliyeti (USD)."
+        "tr": "Birim başına doğrudan işçilik maliyeti (USD).",
+        "de": "Direkte Arbeitskosten pro Einheit in USD.",
+        "fr": "Coût direct de la main-d'œuvre par unité en USD."
       }
     },
     {
@@ -113,11 +138,16 @@
       "businessContext": "Allocated overhead cost per unit in USD.",
       "label_i18n": {
         "en": "Overhead Cost per Unit",
-        "tr": "Birim Başına Genel Gider Maliyeti"
+        "tr": "Birim Başına Genel Gider Maliyeti",
+        "de": "Gemeinkosten pro Einheit",
+        "fr": "Coût des frais généraux par unité",
+        "es": "Coste general por unidad"
       },
       "businessContext_i18n": {
         "en": "Allocated overhead cost per unit in USD.",
-        "tr": "Birim başına dağıtılan genel gider maliyeti (USD)."
+        "tr": "Birim başına dağıtılan genel gider maliyeti (USD).",
+        "de": "Zugeordnete Gemeinkosten pro Einheit in USD.",
+        "fr": "Coût indirect alloué par unité en USD."
       }
     },
     {
@@ -138,11 +168,15 @@
       "businessContext": "Stage in the production process where scrap is measured.",
       "label_i18n": {
         "en": "Process Stage",
-        "tr": "Proses Aşaması"
+        "tr": "Proses Aşaması",
+        "de": "Prozessstufe",
+        "fr": "Étape du processus"
       },
       "businessContext_i18n": {
         "en": "Stage in the production process where scrap is measured.",
-        "tr": "Firenin ölçüldüğü üretim sürecindeki aşama."
+        "tr": "Firenin ölçüldüğü üretim sürecindeki aşama.",
+        "de": "Stufe im Produktionsprozess, in der der Ausschuss gemessen wird.",
+        "fr": "Étape du processus de production où le rebut est mesuré."
       }
     },
     {
@@ -164,11 +198,15 @@
       "businessContext": "Most common defect category observed.",
       "label_i18n": {
         "en": "Primary Defect Type",
-        "tr": "Birincil Kusur Türü"
+        "tr": "Birincil Kusur Türü",
+        "de": "Primärer Fehlertyp",
+        "fr": "Type de défaut principal"
       },
       "businessContext_i18n": {
         "en": "Most common defect category observed.",
-        "tr": "Gözlemlenen en yaygın kusur kategorisi."
+        "tr": "Gözlemlenen en yaygın kusur kategorisi.",
+        "de": "Häufigste beobachtete Fehlerkategorie.",
+        "fr": "Catégorie de défaut la plus courante observée."
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Tea Caffeine Content (mg/g)",
         "tr": "Çay Kafein İçeriği (mg/g)",
-        "de": "Tea Caffeine Content (mg/g)",
-        "fr": "Tea Caffeine Content (mg/g)",
+        "de": "Koffeingehalt im Tee (mg/g)",
+        "fr": "Teneur en caféine du thé (mg/g)",
         "es": "Tea Caffeine Content (mg/g)",
         "ar": "Tea Caffeine Content (mg/g)"
       },
       "businessContext_i18n": {
         "en": "Amount of caffeine in milligrams per gram of dry tea leaves.",
-        "tr": "Kuru çay yapraklarının gramı başına miligram cinsinden kafein miktarı."
+        "tr": "Kuru çay yapraklarının gramı başına miligram cinsinden kafein miktarı.",
+        "de": "Menge an Koffein in Milligramm pro Gramm trockener Teeblätter.",
+        "fr": "Quantité de caféine en milligrammes par gramme de feuilles de thé sèches."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Amount of Tea (g)",
         "tr": "Çay Miktarı (g)",
-        "de": "Amount of Tea (g)",
-        "fr": "Amount of Tea (g)",
+        "de": "Teemenge (g)",
+        "fr": "Quantité de thé (g)",
         "es": "Amount of Tea (g)",
         "ar": "Amount of Tea (g)"
       },
       "businessContext_i18n": {
         "en": "Grams of dry tea leaves used.",
-        "tr": "Kullanılan kuru çay yapraklarının gramı."
+        "tr": "Kullanılan kuru çay yapraklarının gramı.",
+        "de": "Gramm der verwendeten trockenen Teeblätter.",
+        "fr": "Grammes de feuilles de thé sèches utilisées."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Steeping Time (min)",
         "tr": "Demleme Süresi (dk)",
-        "de": "Steeping Time (min)",
-        "fr": "Steeping Time (min)",
+        "de": "Ziehzeit (min)",
+        "fr": "Temps d'infusion (min)",
         "es": "Steeping Time (min)",
         "ar": "Steeping Time (min)"
       },
       "businessContext_i18n": {
         "en": "Time the tea is steeped in minutes.",
-        "tr": "Çayın demlendiği süre (dakika)."
+        "tr": "Çayın demlendiği süre (dakika).",
+        "de": "Zeit, die der Tee in Minuten zieht.",
+        "fr": "Temps d'infusion du thé en minutes."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Water Temperature (°C)",
         "tr": "Su Sıcaklığı (°C)",
-        "de": "Water Temperature (°C)",
-        "fr": "Water Temperature (°C)",
+        "de": "Wassertemperatur (°C)",
+        "fr": "Température de l'eau (°C)",
         "es": "Water Temperature (°C)",
         "ar": "Water Temperature (°C)"
       },
       "businessContext_i18n": {
         "en": "Temperature of water used for steeping.",
-        "tr": "Demleme için kullanılan suyun sıcaklığı."
+        "tr": "Demleme için kullanılan suyun sıcaklığı.",
+        "de": "Temperatur des zum Ziehen verwendeten Wassers.",
+        "fr": "Température de l'eau utilisée pour l'infusion."
       }
     }
   ],

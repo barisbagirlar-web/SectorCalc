@@ -12,13 +12,15 @@
         "en": "Number",
         "tr": "Sayı",
         "de": "Anzahl",
-        "fr": "Number",
-        "es": "Number",
+        "fr": "Nombre",
+        "es": "Número",
         "ar": "Number"
       },
       "businessContext_i18n": {
         "en": "The number to convert to standard form.",
-        "tr": "Standart forma dönüştürülecek sayı."
+        "tr": "Standart forma dönüştürülecek sayı.",
+        "de": "Die Zahl, die in die Standardform umgewandelt werden soll.",
+        "fr": "Le nombre à convertir en forme standard."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Significant Figures",
         "tr": "Anlamlı Basamaklar",
-        "de": "Significant Figures",
-        "fr": "Significant Figures",
+        "de": "Signifikante Stellen",
+        "fr": "Chiffres significatifs",
         "es": "Significant Figures",
         "ar": "Significant Figures"
       },
       "businessContext_i18n": {
         "en": "Number of significant figures for the coefficient.",
-        "tr": "Katsayı için anlamlı basamak sayısı."
+        "tr": "Katsayı için anlamlı basamak sayısı.",
+        "de": "Anzahl signifikanter Stellen für den Koeffizienten.",
+        "fr": "Nombre de chiffres significatifs pour le coefficient."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Notation Mode",
         "tr": "Gösterim Modu",
-        "de": "Notation Mode",
-        "fr": "Notation Mode",
+        "de": "Notationsmodus",
+        "fr": "Mode de notation",
         "es": "Notation Mode",
         "ar": "Notation Mode"
       },
       "businessContext_i18n": {
         "en": "0: Scientific (A × 10^B, 1 ≤ A < 10), 1: Engineering (B multiple of 3).",
-        "tr": "0: Bilimsel (A × 10^B, 1 ≤ A < 10), 1: Mühendislik (B 3'ün katı)."
+        "tr": "0: Bilimsel (A × 10^B, 1 ≤ A < 10), 1: Mühendislik (B 3'ün katı).",
+        "de": "0: Wissenschaftlich (A × 10^B, 1 ≤ A < 10), 1: Technisch (B Vielfaches von 3).",
+        "fr": "0 : Scientifique (A × 10^B, 1 ≤ A < 10), 1 : Ingénierie (B multiple de 3)."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Rounding Mode",
         "tr": "Yuvarlama Modu",
         "de": "Rundungsmodus",
-        "fr": "Rounding Mode",
-        "es": "Rounding Mode",
+        "fr": "Mode d'arrondi",
+        "es": "Modo de redondeo",
         "ar": "Rounding Mode"
       },
       "businessContext_i18n": {
         "en": "0: Round half up, 1: Round half to even (for precise rounding).",
-        "tr": "0: Yarımı yukarı yuvarla, 1: Yarımı çifte yuvarla (hassas yuvarlama için)."
+        "tr": "0: Yarımı yukarı yuvarla, 1: Yarımı çifte yuvarla (hassas yuvarlama için).",
+        "de": "0: Kaufmännisches Runden, 1: Mathematisches Runden (für präzises Runden).",
+        "fr": "0 : Arrondi demi supérieur, 1 : Arrondi demi pair (pour un arrondi précis)."
       }
     }
   ],

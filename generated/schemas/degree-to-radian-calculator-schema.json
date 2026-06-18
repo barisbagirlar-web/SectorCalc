@@ -12,14 +12,16 @@
         "en": "Angle (degrees)",
         "tr": "Açı (derece)",
         "de": "Winkel (Grad)",
-        "fr": "Angle (degrees)",
-        "es": "Angle (degrees)",
+        "fr": "Angle (degrés)",
+        "es": "Ángulo (grados)",
         "ar": "Angle (degrees)"
       },
       "businessContext_i18n": {
         "en": "Angle to convert from degrees to radians",
         "tr": "Dereceden radyana dönüştürülecek açı",
-        "de": "Winkel zur Umrechnung von Grad in Bogenmaß"
+        "de": "Winkel zur Umrechnung von Grad in Bogenmaß",
+        "fr": "Angle à convertir de degrés en radians",
+        "es": "Ángulo a convertir de grados a radianes"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Offset",
         "tr": "Ofset",
         "de": "Offset",
-        "fr": "Offset",
-        "es": "Offset",
+        "fr": "Décalage",
+        "es": "Desplazamiento",
         "ar": "Offset"
       },
       "businessContext_i18n": {
         "en": "Constant offset added to angle before conversion (e.g., for calibration)",
         "tr": "Dönüşümden önce açıya eklenen sabit ofset (örneğin, kalibrasyon için)",
-        "de": "Konstanter Offset, der vor der Umrechnung zum Winkel addiert wird (z. B. für Kalibrierung)"
+        "de": "Konstanter Offset, der vor der Umrechnung zum Winkel addiert wird (z. B. für Kalibrierung)",
+        "fr": "Décalage constant ajouté à l'angle avant conversion (par exemple, pour étalonnage)",
+        "es": "Desplazamiento constante añadido al ángulo antes de la conversión (p. ej., para calibración)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the rounded output",
         "tr": "Yuvarlanmış çıktı için ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen für das gerundete Ergebnis"
+        "de": "Anzahl der Dezimalstellen für das gerundete Ergebnis",
+        "fr": "Nombre de décimales pour le résultat arrondi",
+        "es": "Número de decimales para la salida redondeada"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "π Value",
         "tr": "π Değeri",
         "de": "π-Wert",
-        "fr": "π Value",
-        "es": "π Value",
+        "fr": "Valeur de π",
+        "es": "Valor de π",
         "ar": "π Value"
       },
       "businessContext_i18n": {
         "en": "Value of π used in conversion factor",
         "tr": "Dönüşüm faktöründe kullanılan π değeri",
-        "de": "Wert von π, der im Umrechnungsfaktor verwendet wird"
+        "de": "Wert von π, der im Umrechnungsfaktor verwendet wird",
+        "fr": "Valeur de π utilisée dans le facteur de conversion",
+        "es": "Valor de π usado en el factor de conversión"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Value",
         "tr": "Değer",
         "de": "Wert",
-        "fr": "Value",
-        "es": "Value",
+        "fr": "Valeur",
+        "es": "Valor",
         "ar": "Value"
       },
       "businessContext_i18n": {
         "en": "The numerical value in circular mils (or kcmil if scale factor is 1000).",
         "tr": "Dairesel mil (veya ölçek faktörü 1000 ise kcmil) cinsinden sayısal değer.",
-        "de": "Der numerische Wert in circular mils (oder kcmil, wenn Skalierungsfaktor 1000)."
+        "de": "Der numerische Wert in circular mils (oder kcmil, wenn Skalierungsfaktor 1000).",
+        "fr": "La valeur numérique en mils circulaires (ou kcmil si le facteur d'échelle est 1000).",
+        "es": "El valor numérico en mils circulares (o kcmil si el factor de escala es 1000)."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Unit Scale",
         "tr": "Birim Ölçeği",
         "de": "Einheitsskalierung",
-        "fr": "Unit Scale",
-        "es": "Unit Scale",
+        "fr": "Échelle d'unité",
+        "es": "Escala de unidad",
         "ar": "Unit Scale"
       },
       "businessContext_i18n": {
         "en": "Set to 1 for cmil, 1000 for kcmil.",
         "tr": "cmil için 1, kcmil için 1000 olarak ayarlayın.",
-        "de": "Auf 1 für cmil, 1000 für kcmil setzen."
+        "de": "Auf 1 für cmil, 1000 für kcmil setzen.",
+        "fr": "Réglez sur 1 pour cmil, 1000 pour kcmil.",
+        "es": "Establecer en 1 para cmil, 1000 para kcmil."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Physical constant: 1 cmil = 0.000506707479 sqmm. Do not change unless for verification.",
         "tr": "Fiziksel sabit: 1 cmil = 0.000506707479 mm². Doğrulama dışında değiştirmeyin.",
-        "de": "Physikalische Konstante: 1 cmil = 0,000506707479 mm². Nur zur Überprüfung ändern."
+        "de": "Physikalische Konstante: 1 cmil = 0,000506707479 mm². Nur zur Überprüfung ändern.",
+        "fr": "Constante physique : 1 cmil = 0,000506707479 mm². Ne pas modifier sauf pour vérification.",
+        "es": "Constante física: 1 cmil = 0.000506707479 mm². No cambiar a menos que sea para verificación."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Precision (Decimals)",
         "tr": "Hassasiyet (Ondalık)",
         "de": "Genauigkeit (Dezimalstellen)",
-        "fr": "Precision (Decimals)",
-        "es": "Precision (Decimals)",
+        "fr": "Précision (Décimales)",
+        "es": "Precisión (decimales)",
         "ar": "Precision (Decimals)"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output.",
         "tr": "Çıktı için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen für die Ausgabe."
+        "de": "Anzahl der Dezimalstellen für die Ausgabe.",
+        "fr": "Nombre de décimales pour le résultat.",
+        "es": "Número de decimales para la salida."
       }
     }
   ],

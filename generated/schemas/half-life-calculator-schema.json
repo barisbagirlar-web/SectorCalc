@@ -12,14 +12,16 @@
         "en": "Initial Amount",
         "tr": "Başlangıç Miktarı",
         "de": "Anfangsmenge",
-        "fr": "Initial Amount",
-        "es": "Initial Amount",
+        "fr": "Quantité initiale",
+        "es": "Cantidad inicial",
         "ar": "Initial Amount"
       },
       "businessContext_i18n": {
         "en": "Initial quantity of substance before decay begins",
         "tr": "Bozunma başlamadan önceki madde miktarı",
-        "de": "Anfangsmenge des Stoffes vor Beginn des Zerfalls"
+        "de": "Anfangsmenge des Stoffes vor Beginn des Zerfalls",
+        "fr": "Quantité initiale de substance avant le début de la désintégration",
+        "es": "Cantidad inicial de la sustancia antes de que comience la desintegración"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Half-Life",
         "tr": "Yarılanma Süresi",
         "de": "Halbwertszeit",
-        "fr": "Half-Life",
-        "es": "Half-Life",
+        "fr": "Demi-vie",
+        "es": "Vida media",
         "ar": "Half-Life"
       },
       "businessContext_i18n": {
         "en": "Time required for half of the substance to decay",
         "tr": "Maddenin yarısının bozunması için gereken süre",
-        "de": "Zeit, die benötigt wird, damit die Hälfte des Stoffes zerfällt"
+        "de": "Zeit, die benötigt wird, damit die Hälfte des Stoffes zerfällt",
+        "fr": "Temps nécessaire pour que la moitié de la substance se désintègre",
+        "es": "Tiempo requerido para que la mitad de la sustancia se desintegre"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Elapsed Time",
         "tr": "Geçen Süre",
         "de": "Verstrichene Zeit",
-        "fr": "Elapsed Time",
-        "es": "Elapsed Time",
+        "fr": "Temps écoulé",
+        "es": "Tiempo transcurrido",
         "ar": "Elapsed Time"
       },
       "businessContext_i18n": {
         "en": "Time passed since initial measurement",
         "tr": "İlk ölçümden bu yana geçen süre",
-        "de": "Zeit seit der ersten Messung"
+        "de": "Zeit seit der ersten Messung",
+        "fr": "Temps écoulé depuis la mesure initiale",
+        "es": "Tiempo pasado desde la medición inicial"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Target Amount",
         "tr": "Hedef Miktar",
         "de": "Zielmenge",
-        "fr": "Target Amount",
-        "es": "Target Amount",
+        "fr": "Quantité cible",
+        "es": "Cantidad objetivo",
         "ar": "Target Amount"
       },
       "businessContext_i18n": {
         "en": "Desired remaining quantity to compute required time",
         "tr": "Gerekli süreyi hesaplamak için istenen kalan miktar",
-        "de": "Gewünschte Restmenge zur Berechnung der benötigten Zeit"
+        "de": "Gewünschte Restmenge zur Berechnung der benötigten Zeit",
+        "fr": "Quantité restante souhaitée pour calculer le temps nécessaire",
+        "es": "Cantidad restante deseada para calcular el tiempo requerido"
       }
     }
   ],

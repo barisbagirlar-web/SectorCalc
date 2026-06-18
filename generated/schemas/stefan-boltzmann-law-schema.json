@@ -12,13 +12,15 @@
         "en": "Temperature",
         "tr": "Sıcaklık",
         "de": "Temperatur",
-        "fr": "Temperature",
-        "es": "Temperature",
+        "fr": "Température",
+        "es": "Temperatura",
         "ar": "Temperature"
       },
       "businessContext_i18n": {
         "en": "Absolute temperature of the black body in Kelvin.",
-        "tr": "Siyah cismin Kelvin cinsinden mutlak sıcaklığı."
+        "tr": "Siyah cismin Kelvin cinsinden mutlak sıcaklığı.",
+        "de": "Absolute Temperatur des schwarzen Körpers in Kelvin.",
+        "fr": "Température absolue du corps noir en Kelvin."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Emissivity",
         "tr": "Yayma Katsayısı",
         "de": "Emissionsgrad",
-        "fr": "Emissivity",
-        "es": "Emissivity",
+        "fr": "Émissivité",
+        "es": "Emisividad",
         "ar": "Emissivity"
       },
       "businessContext_i18n": {
         "en": "Emissivity coefficient (0 to 1) of the surface.",
-        "tr": "Yüzeyin yayma katsayısı (0 ile 1 arası)."
+        "tr": "Yüzeyin yayma katsayısı (0 ile 1 arası).",
+        "de": "Emissionskoeffizient (0 bis 1) der Oberfläche.",
+        "fr": "Coefficient d'émissivité (0 à 1) de la surface."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Surface Area",
         "tr": "Yüzey Alanı",
         "de": "Oberfläche",
-        "fr": "Surface Area",
-        "es": "Surface Area",
+        "fr": "Surface",
+        "es": "Área superficial",
         "ar": "Surface Area"
       },
       "businessContext_i18n": {
         "en": "Surface area of the radiating body in square meters.",
-        "tr": "Işınım yapan cismin metrekare cinsinden yüzey alanı."
+        "tr": "Işınım yapan cismin metrekare cinsinden yüzey alanı.",
+        "de": "Oberfläche des strahlenden Körpers in Quadratmetern.",
+        "fr": "Surface du corps rayonnant en mètres carrés."
       }
     }
   ],

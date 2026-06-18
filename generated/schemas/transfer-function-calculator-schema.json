@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Gain (K)",
         "tr": "Kazanç (K)",
-        "de": "Gain (K)",
+        "de": "Verstärkung (K)",
         "fr": "Gain (K)",
         "es": "Gain (K)",
         "ar": "Gain (K)"
       },
       "businessContext_i18n": {
         "en": "Steady-state gain of the system.",
-        "tr": "Sistemin kararlı durum kazancı."
+        "tr": "Sistemin kararlı durum kazancı.",
+        "de": "Stationäre Verstärkung des Systems.",
+        "fr": "Gain statique du système."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Damping Ratio (ζ)",
         "tr": "Sönüm Oranı (ζ)",
-        "de": "Damping Ratio (ζ)",
-        "fr": "Damping Ratio (ζ)",
+        "de": "Dämpfungsverhältnis (ζ)",
+        "fr": "Coefficient d'amortissement (ζ)",
         "es": "Damping Ratio (ζ)",
         "ar": "Damping Ratio (ζ)"
       },
       "businessContext_i18n": {
         "en": "Damping ratio of the second-order system. Must be >0. For underdamped, 0<ζ<1.",
-        "tr": "İkinci derece sistemin sönüm oranı. >0 olmalıdır. Az sönümlü için 0<ζ<1."
+        "tr": "İkinci derece sistemin sönüm oranı. >0 olmalıdır. Az sönümlü için 0<ζ<1.",
+        "de": "Dämpfungsfaktor des Systems zweiter Ordnung. Muss >0 sein. Für unterkritische Dämpfung: 0<ζ<1.",
+        "fr": "Coefficient d'amortissement du système du second ordre. Doit être >0. Pour un système sous-amorti, 0<ζ<1."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Natural Frequency (ω_n)",
         "tr": "Doğal Frekans (ω_n)",
-        "de": "Natural Frequency (ω_n)",
-        "fr": "Natural Frequency (ω_n)",
+        "de": "Eigenfrequenz (ω_n)",
+        "fr": "Fréquence naturelle (ω_n)",
         "es": "Natural Frequency (ω_n)",
         "ar": "Natural Frequency (ω_n)"
       },
       "businessContext_i18n": {
         "en": "Natural frequency in radians per second.",
-        "tr": "Doğal frekans (rad/saniye cinsinden)."
+        "tr": "Doğal frekans (rad/saniye cinsinden).",
+        "de": "Eigenfrequenz in Radiant pro Sekunde.",
+        "fr": "Fréquence naturelle en radians par seconde."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Step Input Amplitude",
         "tr": "Adım Giriş Genliği",
-        "de": "Step Input Amplitude",
-        "fr": "Step Input Amplitude",
+        "de": "Amplitude des Sprungeingangs",
+        "fr": "Amplitude de l'échelon d'entrée",
         "es": "Step Input Amplitude",
         "ar": "Step Input Amplitude"
       },
       "businessContext_i18n": {
         "en": "Magnitude of the step input signal applied.",
-        "tr": "Uygulanan adım giriş sinyalinin büyüklüğü."
+        "tr": "Uygulanan adım giriş sinyalinin büyüklüğü.",
+        "de": "Größe des angelegten Sprungeingangssignals.",
+        "fr": "Amplitude du signal d'entrée en échelon appliqué."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Time Delay (τ)",
         "tr": "Zaman Gecikmesi (τ)",
-        "de": "Time Delay (τ)",
-        "fr": "Time Delay (τ)",
+        "de": "Totzeit (τ)",
+        "fr": "Temps mort (τ)",
         "es": "Time Delay (τ)",
         "ar": "Time Delay (τ)"
       },
       "businessContext_i18n": {
         "en": "Transport delay or dead time in seconds.",
-        "tr": "Taşıma gecikmesi veya ölü zaman (saniye cinsinden)."
+        "tr": "Taşıma gecikmesi veya ölü zaman (saniye cinsinden).",
+        "de": "Transportverzögerung oder Totzeit in Sekunden.",
+        "fr": "Retard de transport ou temps mort en secondes."
       }
     }
   ],

@@ -12,13 +12,15 @@
         "en": "Motor Gücü",
         "tr": "Motor Gücü",
         "de": "Motor Gücü",
-        "fr": "Motor Gücü",
+        "fr": "Puissance moteur",
         "es": "Motor Gücü",
         "ar": "Motor Gücü"
       },
       "businessContext_i18n": {
         "en": "Aracın maksimum motor gücü (kW cinsinden). Emisyon ve performans hesaplarında kritik parametre.",
-        "tr": "Aracın maksimum motor gücü (kW cinsinden). Emisyon ve performans hesaplarında kritik parametre."
+        "tr": "Aracın maksimum motor gücü (kW cinsinden). Emisyon ve performans hesaplarında kritik parametre.",
+        "de": "Aracın maksimum motor gücü (kW cinsinden). Emisyon ve performans hesaplarında kritik parametre.",
+        "fr": "Puissance maximale du moteur du véhicule (en kW). Paramètre critique pour les calculs d'émissions et de performances."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Sürtünme Katsayısı (Cd)",
         "tr": "Sürtünme Katsayısı (Cd)",
         "de": "Sürtünme Katsayısı (Cd)",
-        "fr": "Sürtünme Katsayısı (Cd)",
+        "fr": "Coefficient de traînée (Cd)",
         "es": "Sürtünme Katsayısı (Cd)",
         "ar": "Sürtünme Katsayısı (Cd)"
       },
       "businessContext_i18n": {
         "en": "Aracın aerodinamik sürtünme katsayısı. Rüzgar tüneli testleriyle doğrulanmalıdır.",
-        "tr": "Aracın aerodinamik sürtünme katsayısı. Rüzgar tüneli testleriyle doğrulanmalıdır."
+        "tr": "Aracın aerodinamik sürtünme katsayısı. Rüzgar tüneli testleriyle doğrulanmalıdır.",
+        "de": "Aracın aerodinamik sürtünme katsayısı. Rüzgar tüneli testleriyle doğrulanmalıdır.",
+        "fr": "Coefficient de traînée aérodynamique du véhicule. Doit être validé par des essais en soufflerie."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Ön Kesit Alanı",
         "tr": "Ön Kesit Alanı",
         "de": "Ön Kesit Alanı",
-        "fr": "Ön Kesit Alanı",
+        "fr": "Surface frontale",
         "es": "Ön Kesit Alanı",
         "ar": "Ön Kesit Alanı"
       },
       "businessContext_i18n": {
         "en": "Aracın hareket yönüne dik maksimum kesit alanı. CAD modelinden veya lazer ölçümle elde edilmelidir.",
-        "tr": "Aracın hareket yönüne dik maksimum kesit alanı. CAD modelinden veya lazer ölçümle elde edilmelidir."
+        "tr": "Aracın hareket yönüne dik maksimum kesit alanı. CAD modelinden veya lazer ölçümle elde edilmelidir.",
+        "de": "Aracın hareket yönüne dik maksimum kesit alanı. CAD modelinden veya lazer ölçümle elde edilmelidir.",
+        "fr": "Surface maximale de la section perpendiculaire à la direction du mouvement. Doit être obtenue à partir du modèle CAO ou par mesure laser."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Araç Kütlesi",
         "tr": "Araç Kütlesi",
         "de": "Araç Kütlesi",
-        "fr": "Araç Kütlesi",
+        "fr": "Masse du véhicule",
         "es": "Araç Kütlesi",
         "ar": "Araç Kütlesi"
       },
       "businessContext_i18n": {
         "en": "Sürücü ve yakıt dahil tam yüklü kütle. ISO 2416'ya göre tartılmalıdır.",
-        "tr": "Sürücü ve yakıt dahil tam yüklü kütle. ISO 2416'ya göre tartılmalıdır."
+        "tr": "Sürücü ve yakıt dahil tam yüklü kütle. ISO 2416'ya göre tartılmalıdır.",
+        "de": "Sürücü ve yakıt dahil tam yüklü kütle. ISO 2416'ya göre tartılmalıdır.",
+        "fr": "Masse en charge complète, conducteur et carburant inclus. Doit être pesée selon la norme ISO 2416."
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Yuvarlanma Direnci Katsayısı",
         "tr": "Yuvarlanma Direnci Katsayısı",
         "de": "Rollwiderstandskoeffizient",
-        "fr": "Yuvarlanma Direnci Katsayısı",
-        "es": "Yuvarlanma Direnci Katsayısı",
+        "fr": "Coefficient de résistance au roulement",
+        "es": "Coeficiente de resistencia a la rodadura",
         "ar": "Yuvarlanma Direnci Katsayısı"
       },
       "businessContext_i18n": {
         "en": "Lastik ve yol yüzeyi arasındaki yuvarlanma direnci katsayısı. SAE J2452'ye uygun test edilmiştir.",
-        "tr": "Lastik ve yol yüzeyi arasındaki yuvarlanma direnci katsayısı. SAE J2452'ye uygun test edilmiştir."
+        "tr": "Lastik ve yol yüzeyi arasındaki yuvarlanma direnci katsayısı. SAE J2452'ye uygun test edilmiştir.",
+        "de": "Lastik ve yol yüzeyi arasındaki yuvarlanma direnci katsayısı. SAE J2452'ye uygun test edilmiştir.",
+        "fr": "Coefficient de résistance au roulement entre le pneu et la surface de la route. Testé conformément à la norme SAE J2452."
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Hava Yoğunluğu",
         "tr": "Hava Yoğunluğu",
         "de": "Hava Yoğunluğu",
-        "fr": "Hava Yoğunluğu",
+        "fr": "Densité de l'air",
         "es": "Hava Yoğunluğu",
         "ar": "Hava Yoğunluğu"
       },
       "businessContext_i18n": {
         "en": "Deniz seviyesinde ve 15°C'de standart hava yoğunluğu. Rakıma göre düzeltme yapılabilir.",
-        "tr": "Deniz seviyesinde ve 15°C'de standart hava yoğunluğu. Rakıma göre düzeltme yapılabilir."
+        "tr": "Deniz seviyesinde ve 15°C'de standart hava yoğunluğu. Rakıma göre düzeltme yapılabilir.",
+        "de": "Deniz seviyesinde ve 15°C'de standart hava yoğunluğu. Rakıma göre düzeltme yapılabilir.",
+        "fr": "Densité de l'air standard au niveau de la mer et à 15°C. Une correction peut être appliquée en fonction de l'altitude."
       }
     },
     {
@@ -132,13 +144,15 @@
         "en": "Aktarma Organı Verimi",
         "tr": "Aktarma Organı Verimi",
         "de": "Aktarma Organı Verimi",
-        "fr": "Aktarma Organı Verimi",
+        "fr": "Rendement de la transmission",
         "es": "Aktarma Organı Verimi",
         "ar": "Aktarma Organı Verimi"
       },
       "businessContext_i18n": {
         "en": "Motor çıkışından tekerleklere kadar olan toplam verim. Güvenilir ölçümlerle belirlenmiş olmalıdır.",
-        "tr": "Motor çıkışından tekerleklere kadar olan toplam verim. Güvenilir ölçümlerle belirlenmiş olmalıdır."
+        "tr": "Motor çıkışından tekerleklere kadar olan toplam verim. Güvenilir ölçümlerle belirlenmiş olmalıdır.",
+        "de": "Motor çıkışından tekerleklere kadar olan toplam verim. Güvenilir ölçümlerle belirlenmiş olmalıdır.",
+        "fr": "Rendement total de la sortie moteur aux roues. Doit être déterminé par des mesures fiables."
       }
     }
   ],

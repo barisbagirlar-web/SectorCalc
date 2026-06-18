@@ -12,13 +12,15 @@
         "en": "Room Length",
         "tr": "Oda Uzunluğu",
         "de": "Raumlänge",
-        "fr": "Room Length",
-        "es": "Room Length",
+        "fr": "Longueur de la pièce",
+        "es": "Largo de la habitación",
         "ar": "Room Length"
       },
       "businessContext_i18n": {
         "en": "Length of the room in feet.",
-        "tr": "Odanın fit cinsinden uzunluğu."
+        "tr": "Odanın fit cinsinden uzunluğu.",
+        "de": "Länge des Raums in Fuß.",
+        "fr": "Longueur de la pièce en pieds."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Room Width",
         "tr": "Oda Genişliği",
         "de": "Raumbreite",
-        "fr": "Room Width",
-        "es": "Room Width",
+        "fr": "Largeur de la pièce",
+        "es": "Ancho de la habitación",
         "ar": "Room Width"
       },
       "businessContext_i18n": {
         "en": "Width of the room in feet.",
-        "tr": "Odanın fit cinsinden genişliği."
+        "tr": "Odanın fit cinsinden genişliği.",
+        "de": "Breite des Raums in Fuß.",
+        "fr": "Largeur de la pièce en pieds."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Room Height",
         "tr": "Oda Yüksekliği",
-        "de": "Room Height",
-        "fr": "Room Height",
-        "es": "Room Height",
+        "de": "Raumhöhe",
+        "fr": "Hauteur de la pièce",
+        "es": "Altura de la habitación",
         "ar": "Room Height"
       },
       "businessContext_i18n": {
         "en": "Height of the walls in feet.",
-        "tr": "Duvarların fit cinsinden yüksekliği."
+        "tr": "Duvarların fit cinsinden yüksekliği.",
+        "de": "Höhe der Wände in Fuß.",
+        "fr": "Hauteur des murs en pieds."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Sheet Length",
         "tr": "Levha uzunluğu",
-        "de": "Sheet Length",
-        "fr": "Sheet Length",
+        "de": "Plattenlänge",
+        "fr": "Longueur du panneau",
         "es": "Sheet Length",
         "ar": "Sheet Length"
       },
       "businessContext_i18n": {
         "en": "Length of a single sheetrock panel (commonly 8, 10, or 12 ft).",
-        "tr": "Tek bir alçıpan panelin uzunluğu (genellikle 8, 10 veya 12 ft)."
+        "tr": "Tek bir alçıpan panelin uzunluğu (genellikle 8, 10 veya 12 ft).",
+        "de": "Länge einer einzelnen Gipskartonplatte (üblich: 8, 10 oder 12 ft).",
+        "fr": "Longueur d'un panneau de placoplâtre (généralement 8, 10 ou 12 pi)."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Sheet Width",
         "tr": "Levha genişliği",
-        "de": "Sheet Width",
-        "fr": "Sheet Width",
+        "de": "Plattenbreite",
+        "fr": "Largeur du panneau",
         "es": "Sheet Width",
         "ar": "Sheet Width"
       },
       "businessContext_i18n": {
         "en": "Width of a single sheetrock panel (typically 4 ft).",
-        "tr": "Tek bir alçıpan panelin genişliği (genellikle 4 ft)."
+        "tr": "Tek bir alçıpan panelin genişliği (genellikle 4 ft).",
+        "de": "Breite einer einzelnen Gipskartonplatte (typischerweise 4 ft).",
+        "fr": "Largeur d'un panneau de placoplâtre (généralement 4 pi)."
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
         "de": "Abfallfaktor",
-        "fr": "Waste Factor",
-        "es": "Waste Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Additional material percentage to account for offcuts and damage.",
-        "tr": "Kesim artıkları ve hasarı hesaba katmak için ek malzeme yüzdesi."
+        "tr": "Kesim artıkları ve hasarı hesaba katmak için ek malzeme yüzdesi.",
+        "de": "Zusätzlicher Materialanteil für Verschnitt und Beschädigung.",
+        "fr": "Pourcentage de matériau supplémentaire pour tenir compte des chutes et des dommages."
       }
     },
     {
@@ -131,14 +143,16 @@
       "label_i18n": {
         "en": "Deduction Area",
         "tr": "Kesinti alanı",
-        "de": "Deduction Area",
-        "fr": "Deduction Area",
+        "de": "Abzugsfläche",
+        "fr": "Surface de déduction",
         "es": "Deduction Area",
         "ar": "Deduction Area"
       },
       "businessContext_i18n": {
         "en": "Total area of openings (doors, windows) to be subtracted from wall area.",
-        "tr": "Duvar alanından çıkarılacak toplam açıklık alanı (kapılar, pencereler)."
+        "tr": "Duvar alanından çıkarılacak toplam açıklık alanı (kapılar, pencereler).",
+        "de": "Gesamtfläche der Öffnungen (Türen, Fenster), die von der Wandfläche abgezogen wird.",
+        "fr": "Surface totale des ouvertures (portes, fenêtres) à soustraire de la surface murale."
       }
     }
   ],

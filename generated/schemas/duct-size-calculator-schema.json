@@ -12,14 +12,16 @@
         "en": "Hava Debisi",
         "tr": "Hava Debisi",
         "de": "Luftvolumenstrom",
-        "fr": "Hava Debisi",
-        "es": "Hava Debisi",
+        "fr": "Débit d'air",
+        "es": "Caudal de aire",
         "ar": "Hava Debisi"
       },
       "businessContext_i18n": {
         "en": "Sistemin taşıması gereken hava miktarı. Soğutma/ısıtma yüküne göre hesaplanır.",
         "tr": "Sistemin taşıması gereken hava miktarı. Soğutma/ısıtma yüküne göre hesaplanır.",
-        "de": "Luftmenge, die das System fördern muss. Berechnet aus Kühl-/Heizlast."
+        "de": "Luftmenge, die das System fördern muss. Berechnet aus Kühl-/Heizlast.",
+        "fr": "Quantité d'air que le système doit transporter. Calculée en fonction de la charge de refroidissement/chauffage.",
+        "es": "Cantidad de aire que debe transportar el sistema. Se calcula según la carga de refrigeración/calefacción."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Hava Hızı",
         "tr": "Hava Hızı",
         "de": "Luftgeschwindigkeit",
-        "fr": "Hava Hızı",
-        "es": "Hava Hızı",
+        "fr": "Vitesse de l'air",
+        "es": "Velocidad del aire",
         "ar": "Hava Hızı"
       },
       "businessContext_i18n": {
         "en": "Kanalda izin verilen maksimum hava hızı. Gürültü ve basınç kaybı limitlerine bağlıdır. Tipik konfor uygulamalarında 5-8 m/s.",
         "tr": "Kanalda izin verilen maksimum hava hızı. Gürültü ve basınç kaybı limitlerine bağlıdır. Tipik konfor uygulamalarında 5-8 m/s.",
-        "de": "Maximal zulässige Luftgeschwindigkeit im Kanal. Abhängig von Lärm- und Druckverlustgrenzen. Typisch 5-8 m/s bei Komfortanwendungen."
+        "de": "Maximal zulässige Luftgeschwindigkeit im Kanal. Abhängig von Lärm- und Druckverlustgrenzen. Typisch 5-8 m/s bei Komfortanwendungen.",
+        "fr": "Vitesse maximale de l'air autorisée dans le conduit. Dépend des limites de bruit et de perte de charge. Typiquement 5-8 m/s pour les applications de confort.",
+        "es": "Velocidad máxima del aire permitida en el conducto. Depende de los límites de ruido y pérdida de presión. Típicamente 5-8 m/s en aplicaciones de confort."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "En/Boy Oranı",
         "tr": "En/Boy Oranı",
         "de": "Seitenverhältnis",
-        "fr": "En/Boy Oranı",
-        "es": "En/Boy Oranı",
+        "fr": "Rapport largeur/hauteur",
+        "es": "Relación ancho/alto",
         "ar": "En/Boy Oranı"
       },
       "businessContext_i18n": {
         "en": "Dikdörtgen kanalda genişliğin yüksekliğe oranı. Alan kısıtı ve maliyet optimizasyonu için kullanılır. 1 kare kanalı verir.",
         "tr": "Dikdörtgen kanalda genişliğin yüksekliğe oranı. Alan kısıtı ve maliyet optimizasyonu için kullanılır. 1 kare kanalı verir.",
-        "de": "Verhältnis von Breite zu Höhe bei rechteckigen Kanälen. Wird für Platzoptimierung und Kostenoptimierung verwendet. 1 ergibt einen quadratischen Kanal."
+        "de": "Verhältnis von Breite zu Höhe bei rechteckigen Kanälen. Wird für Platzoptimierung und Kostenoptimierung verwendet. 1 ergibt einen quadratischen Kanal.",
+        "fr": "Rapport largeur/hauteur pour conduit rectangulaire. Utilisé pour les contraintes de surface et l'optimisation des coûts. 1 donne un conduit carré.",
+        "es": "Relación entre ancho y alto en conducto rectangular. Se usa para restricción de espacio y optimización de costes. 1 da un conducto cuadrado."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Emniyet Katsayısı",
         "tr": "Emniyet Katsayısı",
         "de": "Sicherheitsfaktor",
-        "fr": "Emniyet Katsayısı",
-        "es": "Emniyet Katsayısı",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Emniyet Katsayısı"
       },
       "businessContext_i18n": {
         "en": "Hesap belirsizlikleri, sızıntı veya ileride kapasite artışı için debiyi artıran faktör.",
         "tr": "Hesap belirsizlikleri, sızıntı veya ileride kapasite artışı için debiyi artıran faktör.",
-        "de": "Sicherheitsfaktor"
+        "de": "Sicherheitsfaktor",
+        "fr": "Facteur augmentant le débit pour les incertitudes de calcul, les fuites ou l'augmentation future de capacité.",
+        "es": "Factor de seguridad"
       }
     }
   ],

@@ -12,13 +12,15 @@
         "en": "Başlangıç Tarihi (Seri No)",
         "tr": "Başlangıç Tarihi (Seri No)",
         "de": "Startdatum (Seriennummer)",
-        "fr": "Başlangıç Tarihi (Seri No)",
-        "es": "Başlangıç Tarihi (Seri No)",
+        "fr": "Date de début (numéro de série)",
+        "es": "Fecha de inicio (Número de serie)",
         "ar": "Başlangıç Tarihi (Seri No)"
       },
       "businessContext_i18n": {
         "en": "Start date as serial day number (e.g., Excel)",
-        "tr": "Seri gün numarası olarak başlangıç tarihi (örn. Excel)"
+        "tr": "Seri gün numarası olarak başlangıç tarihi (örn. Excel)",
+        "de": "Startdatum als fortlaufende Tagesnummer (z. B. Excel)",
+        "fr": "Date de début sous forme de numéro de série (ex. Excel)"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Bitiş Tarihi (Seri No)",
         "tr": "Bitiş Tarihi (Seri No)",
         "de": "Enddatum (Seriennummer)",
-        "fr": "Bitiş Tarihi (Seri No)",
-        "es": "Bitiş Tarihi (Seri No)",
+        "fr": "Date de fin (numéro de série)",
+        "es": "Fecha de fin (Número de serie)",
         "ar": "Bitiş Tarihi (Seri No)"
       },
       "businessContext_i18n": {
         "en": "End date as serial day number",
-        "tr": "Seri gün numarası olarak bitiş tarihi"
+        "tr": "Seri gün numarası olarak bitiş tarihi",
+        "de": "Enddatum als fortlaufende Tagesnummer",
+        "fr": "Date de fin sous forme de numéro de série"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Başlangıç Günü Dahil",
         "tr": "Başlangıç Günü Dahil",
-        "de": "Başlangıç Günü Dahil",
-        "fr": "Başlangıç Günü Dahil",
+        "de": "Starttag eingeschlossen",
+        "fr": "Jour de début inclus",
         "es": "Başlangıç Günü Dahil",
         "ar": "Başlangıç Günü Dahil"
       },
       "businessContext_i18n": {
         "en": "1 if start day is included, 0 otherwise",
-        "tr": "Başlangıç günü dahil ise 1, değilse 0"
+        "tr": "Başlangıç günü dahil ise 1, değilse 0",
+        "de": "1 wenn Starttag eingeschlossen, sonst 0",
+        "fr": "1 si le jour de début est inclus, 0 sinon"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Bitiş Günü Dahil",
         "tr": "Bitiş Günü Dahil",
-        "de": "Bitiş Günü Dahil",
-        "fr": "Bitiş Günü Dahil",
+        "de": "Endtag eingeschlossen",
+        "fr": "Jour de fin inclus",
         "es": "Bitiş Günü Dahil",
         "ar": "Bitiş Günü Dahil"
       },
       "businessContext_i18n": {
         "en": "1 if end day is included, 0 otherwise",
-        "tr": "Bitiş günü dahil ise 1, değilse 0"
+        "tr": "Bitiş günü dahil ise 1, değilse 0",
+        "de": "1 wenn Endtag eingeschlossen, sonst 0",
+        "fr": "1 si le jour de fin est inclus, 0 sinon"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Haftalık Tatil Gün Sayısı",
         "tr": "Haftalık Tatil Gün Sayısı",
-        "de": "Haftalık Tatil Gün Sayısı",
-        "fr": "Haftalık Tatil Gün Sayısı",
+        "de": "Anzahl der Wochenendtage pro Woche",
+        "fr": "Nombre de jours de week-end par semaine",
         "es": "Haftalık Tatil Gün Sayısı",
         "ar": "Haftalık Tatil Gün Sayısı"
       },
       "businessContext_i18n": {
         "en": "Number of weekend days per week (e.g., 2 for Sat-Sun)",
-        "tr": "Haftalık hafta sonu gün sayısı (örn. Cumartesi-Pazar için 2)"
+        "tr": "Haftalık hafta sonu gün sayısı (örn. Cumartesi-Pazar için 2)",
+        "de": "Anzahl der Wochenendtage pro Woche (z. B. 2 für Sa-So)",
+        "fr": "Nombre de jours de week-end par semaine (ex. 2 pour samedi-dimanche)"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Resmi Tatiller",
         "tr": "Resmi Tatiller",
-        "de": "Resmi Tatiller",
-        "fr": "Resmi Tatiller",
+        "de": "Gesetzliche Feiertage",
+        "fr": "Jours fériés",
         "es": "Resmi Tatiller",
         "ar": "Resmi Tatiller"
       },
       "businessContext_i18n": {
         "en": "Number of public holidays falling on weekdays",
-        "tr": "Hafta içine düşen resmi tatil sayısı"
+        "tr": "Hafta içine düşen resmi tatil sayısı",
+        "de": "Anzahl der gesetzlichen Feiertage, die auf Werktage fallen",
+        "fr": "Nombre de jours fériés tombant en semaine"
       }
     }
   ],

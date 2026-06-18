@@ -12,14 +12,16 @@
         "en": "Defect Rate A (per unit)",
         "tr": "Kusur Oranı A (birim başına)",
         "de": "Fehlerrate A (pro Einheit)",
-        "fr": "Defect Rate A (per unit)",
-        "es": "Defect Rate A (per unit)",
+        "fr": "Taux de défauts A (par unité)",
+        "es": "Tasa de defectos A (por unidad)",
         "ar": "Defect Rate A (per unit)"
       },
       "businessContext_i18n": {
         "en": "Average number of Type A defects per unit (Poisson rate)",
         "tr": "Birim başına ortalama Tip A kusur sayısı (Poisson oranı)",
-        "de": "Durchschnittliche Anzahl Typ-A-Fehler pro Einheit (Poisson-Rate)"
+        "de": "Durchschnittliche Anzahl Typ-A-Fehler pro Einheit (Poisson-Rate)",
+        "fr": "Nombre moyen de défauts de type A par unité (taux de Poisson)",
+        "es": "Número promedio de defectos Tipo A por unidad (tasa de Poisson)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Defect Rate B (per unit)",
         "tr": "Kusur Oranı B (birim başına)",
         "de": "Fehlerrate B (pro Einheit)",
-        "fr": "Defect Rate B (per unit)",
-        "es": "Defect Rate B (per unit)",
+        "fr": "Taux de défauts B (par unité)",
+        "es": "Tasa de defectos B (por unidad)",
         "ar": "Defect Rate B (per unit)"
       },
       "businessContext_i18n": {
         "en": "Average number of Type B defects per unit (Poisson rate)",
         "tr": "Birim başına ortalama Tip B kusur sayısı (Poisson oranı)",
-        "de": "Durchschnittliche Anzahl Typ-B-Fehler pro Einheit (Poisson-Rate)"
+        "de": "Durchschnittliche Anzahl Typ-B-Fehler pro Einheit (Poisson-Rate)",
+        "fr": "Nombre moyen de défauts de type B par unité (taux de Poisson)",
+        "es": "Número promedio de defectos Tipo B por unidad (tasa de Poisson)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Lot Size",
         "tr": "Parti Büyüklüğü",
         "de": "Losgröße",
-        "fr": "Lot Size",
-        "es": "Lot Size",
+        "fr": "Taille du lot",
+        "es": "Tamaño del lote",
         "ar": "Lot Size"
       },
       "businessContext_i18n": {
         "en": "Number of units in the production lot",
         "tr": "Üretim partisindeki birim sayısı",
-        "de": "Anzahl der Einheiten im Produktionslos"
+        "de": "Anzahl der Einheiten im Produktionslos",
+        "fr": "Nombre d'unités dans le lot de production",
+        "es": "Número de unidades en el lote de producción"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Cost per Blackjack Event",
         "tr": "Blackjack Olayı Başına Maliyet",
         "de": "Kosten pro Blackjack-Ereignis",
-        "fr": "Cost per Blackjack Event",
-        "es": "Cost per Blackjack Event",
+        "fr": "Coût par événement Blackjack",
+        "es": "Costo por evento Blackjack",
         "ar": "Cost per Blackjack Event"
       },
       "businessContext_i18n": {
         "en": "Financial cost incurred when a unit has both defects",
         "tr": "Bir birimde her iki kusur bulunduğunda oluşan finansal maliyet",
-        "de": "Finanzielle Kosten, wenn eine Einheit beide Fehler aufweist"
+        "de": "Finanzielle Kosten, wenn eine Einheit beide Fehler aufweist",
+        "fr": "Coût financier encouru lorsqu'une unité présente les deux défauts",
+        "es": "Costo financiero incurrido cuando una unidad tiene ambos defectos"
       }
     }
   ],

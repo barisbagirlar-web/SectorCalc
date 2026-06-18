@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "n (set size)",
         "tr": "n (küme boyutu)",
-        "de": "n (set size)",
-        "fr": "n (set size)",
+        "de": "n (Menge)",
+        "fr": "n (taille de l'ensemble)",
         "es": "n (set size)",
         "ar": "n (set size)"
       },
       "businessContext_i18n": {
         "en": "Total number of elements in the set",
-        "tr": "Kümedeki toplam eleman sayısı"
+        "tr": "Kümedeki toplam eleman sayısı",
+        "de": "Gesamtzahl der Elemente in der Menge",
+        "fr": "Nombre total d'éléments dans l'ensemble"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "k (number of subsets)",
         "tr": "k (altküme sayısı)",
-        "de": "k (number of subsets)",
-        "fr": "k (number of subsets)",
+        "de": "k (Anzahl der Teilmengen)",
+        "fr": "k (nombre de sous-ensembles)",
         "es": "k (number of subsets)",
         "ar": "k (number of subsets)"
       },
       "businessContext_i18n": {
         "en": "Number of non-empty subsets to partition into",
-        "tr": "Bölünecek boş olmayan altküme sayısı"
+        "tr": "Bölünecek boş olmayan altküme sayısı",
+        "de": "Anzahl der nicht-leeren Teilmengen, in die partitioniert wird",
+        "fr": "Nombre de sous-ensembles non vides à partitionner"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Type (1=first kind, 2=second kind)",
         "tr": "Tür (1=birinci tür, 2=ikinci tür)",
-        "de": "Type (1=first kind, 2=second kind)",
-        "fr": "Type (1=first kind, 2=second kind)",
+        "de": "Typ (1=erste Art, 2=zweite Art)",
+        "fr": "Type (1=première espèce, 2=seconde espèce)",
         "es": "Type (1=first kind, 2=second kind)",
         "ar": "Type (1=first kind, 2=second kind)"
       },
       "businessContext_i18n": {
         "en": "Select 1 for Stirling numbers of the first kind, 2 for second kind",
-        "tr": "Birinci tür Stirling sayıları için 1, ikinci tür için 2 seçin"
+        "tr": "Birinci tür Stirling sayıları için 1, ikinci tür için 2 seçin",
+        "de": "Wählen Sie 1 für Stirling-Zahlen erster Art, 2 für zweiter Art",
+        "fr": "Sélectionnez 1 pour les nombres de Stirling de première espèce, 2 pour la seconde espèce"
       }
     }
   ],

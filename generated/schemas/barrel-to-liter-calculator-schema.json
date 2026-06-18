@@ -12,14 +12,16 @@
         "en": "Barrel Count",
         "tr": "Varil Sayısı",
         "de": "Fassanzahl",
-        "fr": "Barrel Count",
-        "es": "Barrel Count",
+        "fr": "Nombre de barils",
+        "es": "Número de barriles",
         "ar": "Barrel Count"
       },
       "businessContext_i18n": {
         "en": "Number of barrels to convert",
         "tr": "Dönüştürülecek varil sayısı",
-        "de": "Anzahl der umzurechnenden Fässer"
+        "de": "Anzahl der umzurechnenden Fässer",
+        "fr": "Nombre de barils à convertir",
+        "es": "Número de barriles a convertir"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Liter per Barrel",
         "tr": "Varil Başına Litre",
         "de": "Liter pro Fass",
-        "fr": "Liter per Barrel",
-        "es": "Liter per Barrel",
+        "fr": "Litres par baril",
+        "es": "Litros por barril",
         "ar": "Liter per Barrel"
       },
       "businessContext_i18n": {
         "en": "Default is for US oil barrel (42 US gallons). Adjust for other barrel types.",
         "tr": "Varsayılan ABD petrol varili (42 ABD galonu) içindir. Diğer varil türleri için ayarlayın.",
-        "de": "Standard ist US-Ölfass (42 US-Gallonen). Für andere Fasstypen anpassen."
+        "de": "Standard ist US-Ölfass (42 US-Gallonen). Für andere Fasstypen anpassen.",
+        "fr": "La valeur par défaut est pour le baril de pétrole US (42 gallons US). Ajustez pour les autres types de barils.",
+        "es": "El valor predeterminado es para barril de petróleo estadounidense (42 galones US). Ajuste para otros tipos de barril."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Temperature",
         "tr": "Sıcaklık",
         "de": "Temperatur",
-        "fr": "Temperature",
-        "es": "Temperature",
+        "fr": "Température",
+        "es": "Temperatura",
         "ar": "Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature for volume correction (optional)",
         "tr": "Hacim düzeltmesi için sıcaklık (isteğe bağlı)",
-        "de": "Temperatur für Volumenkorrektur (optional)"
+        "de": "Temperatur für Volumenkorrektur (optional)",
+        "fr": "Température pour correction volumique (optionnelle)",
+        "es": "Temperatura para corrección de volumen (opcional)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Volume Correction Factor",
         "tr": "Hacim Düzeltme Faktörü",
         "de": "Volumenkorrekturfaktor",
-        "fr": "Volume Correction Factor",
-        "es": "Volume Correction Factor",
+        "fr": "Facteur de correction volumique",
+        "es": "Factor de corrección de volumen",
         "ar": "Volume Correction Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier for temperature correction. Use 1 if no correction.",
         "tr": "Sıcaklık düzeltmesi için çarpan. Düzeltme yoksa 1 kullanın.",
-        "de": "Multiplikator für Temperaturkorrektur. 1 verwenden, wenn keine Korrektur."
+        "de": "Multiplikator für Temperaturkorrektur. 1 verwenden, wenn keine Korrektur.",
+        "fr": "Multiplicateur pour correction de température. Utilisez 1 si pas de correction.",
+        "es": "Multiplicador para corrección de temperatura. Use 1 si no hay corrección."
       }
     }
   ],

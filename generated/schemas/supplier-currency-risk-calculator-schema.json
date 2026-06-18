@@ -22,11 +22,15 @@
       "businessContext": "Total value of the supplier contract denominated in the base currency (e.g., USD).",
       "label_i18n": {
         "en": "Contract Value (in base currency)",
-        "tr": "Sözleşme Değeri (temel para birimi cinsinden)"
+        "tr": "Sözleşme Değeri (temel para birimi cinsinden)",
+        "de": "Vertragswert (in Basiswährung)",
+        "fr": "Valeur du contrat (en devise de base)"
       },
       "businessContext_i18n": {
         "en": "Total value of the supplier contract denominated in the base currency (e.g., USD).",
-        "tr": "Tedarikçi sözleşmesinin temel para birimi (ör. USD) cinsinden toplam değeri."
+        "tr": "Tedarikçi sözleşmesinin temel para birimi (ör. USD) cinsinden toplam değeri.",
+        "de": "Gesamtwert des Lieferantenvertrags, ausgedrückt in der Basiswährung (z. B. USD).",
+        "fr": "Valeur totale du contrat fournisseur libellée dans la devise de base (par exemple, USD)."
       }
     },
     {
@@ -40,11 +44,15 @@
       "businessContext": "Percentage of contract value exposed to foreign currency fluctuations.",
       "label_i18n": {
         "en": "Foreign Currency Exposure (%)",
-        "tr": "Yabancı Para Maruziyeti (%)"
+        "tr": "Yabancı Para Maruziyeti (%)",
+        "de": "Fremdwährungsexposition (%)",
+        "fr": "Exposition aux devises étrangères (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of contract value exposed to foreign currency fluctuations.",
-        "tr": "Sözleşme değerinin döviz kuru dalgalanmalarına maruz kalan yüzdesi."
+        "tr": "Sözleşme değerinin döviz kuru dalgalanmalarına maruz kalan yüzdesi.",
+        "de": "Prozentsatz des Vertragswerts, der Wechselkursschwankungen ausgesetzt ist.",
+        "fr": "Pourcentage de la valeur du contrat exposé aux fluctuations des devises étrangères."
       }
     },
     {
@@ -58,11 +66,15 @@
       "businessContext": "Expected annualized standard deviation of the foreign exchange rate, based on historical data or market consensus.",
       "label_i18n": {
         "en": "Annual FX Volatility",
-        "tr": "Yıllık Döviz Oynaklığı"
+        "tr": "Yıllık Döviz Oynaklığı",
+        "de": "Jährliche FX-Volatilität",
+        "fr": "Volatilité annuelle des changes"
       },
       "businessContext_i18n": {
         "en": "Expected annualized standard deviation of the foreign exchange rate, based on historical data or market consensus.",
-        "tr": "Tarihsel verilere veya piyasa konsensüsüne dayalı olarak döviz kurunun beklenen yıllık standart sapması."
+        "tr": "Tarihsel verilere veya piyasa konsensüsüne dayalı olarak döviz kurunun beklenen yıllık standart sapması.",
+        "de": "Erwartete annualisierte Standardabweichung des Wechselkurses, basierend auf historischen Daten oder Marktkonsens.",
+        "fr": "Écart-type annualisé attendu du taux de change, basé sur des données historiques ou le consensus du marché."
       }
     },
     {
@@ -76,11 +88,16 @@
       "businessContext": "Percentage of the foreign exposure that is hedged via forward contracts, options, or other instruments.",
       "label_i18n": {
         "en": "Hedge Ratio (%)",
-        "tr": "Korunma Oranı (%)"
+        "tr": "Korunma Oranı (%)",
+        "de": "Hedge-Quote (%)",
+        "fr": "Ratio de couverture (%)",
+        "es": "Ratio de cobertura (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of the foreign exposure that is hedged via forward contracts, options, or other instruments.",
-        "tr": "Vadeli işlemler, opsiyonlar veya diğer araçlarla korunan yabancı maruziyetin yüzdesi."
+        "tr": "Vadeli işlemler, opsiyonlar veya diğer araçlarla korunan yabancı maruziyetin yüzdesi.",
+        "de": "Prozentsatz der Fremdwährungsexposition, der durch Terminkontrakte, Optionen oder andere Instrumente abgesichert ist.",
+        "fr": "Pourcentage de l'exposition aux devises étrangères couvert par des contrats à terme, options ou autres instruments."
       }
     },
     {
@@ -94,11 +111,15 @@
       "businessContext": "Duration over which the currency risk is assessed, typically matching the contract payment schedule.",
       "label_i18n": {
         "en": "Time Horizon (months)",
-        "tr": "Zaman Ufku (ay)"
+        "tr": "Zaman Ufku (ay)",
+        "de": "Zeithorizont (Monate)",
+        "fr": "Horizon temporel (mois)"
       },
       "businessContext_i18n": {
         "en": "Duration over which the currency risk is assessed, typically matching the contract payment schedule.",
-        "tr": "Kur riskinin değerlendirildiği süre, genellikle sözleşme ödeme planına uygun."
+        "tr": "Kur riskinin değerlendirildiği süre, genellikle sözleşme ödeme planına uygun.",
+        "de": "Dauer, über die das Währungsrisiko bewertet wird, typischerweise entsprechend dem Zahlungsplan des Vertrags.",
+        "fr": "Durée sur laquelle le risque de change est évalué, correspondant généralement au calendrier de paiement du contrat."
       }
     },
     {
@@ -118,11 +139,15 @@
       "label_i18n": {
         "en": "Confidence Level",
         "tr": "Güven Düzeyi",
-        "de": "Konfidenzniveau"
+        "de": "Konfidenzniveau",
+        "fr": "Niveau de confiance",
+        "es": "Nivel de confianza"
       },
       "businessContext_i18n": {
         "en": "Statistical confidence level for Value-at-Risk (VaR) calculation. Higher levels indicate more conservative risk estimates.",
-        "tr": "Riske Maruz Değer (VaR) hesaplaması için istatistiksel güven düzeyi. Daha yüksek seviyeler daha muhafazakar risk tahminlerini gösterir."
+        "tr": "Riske Maruz Değer (VaR) hesaplaması için istatistiksel güven düzeyi. Daha yüksek seviyeler daha muhafazakar risk tahminlerini gösterir.",
+        "de": "Statistisches Konfidenzniveau für die Value-at-Risk (VaR)-Berechnung. Höhere Niveaus bedeuten konservativere Risikoschätzungen.",
+        "fr": "Niveau de confiance statistique pour le calcul de la valeur à risque (VaR). Des niveaux plus élevés indiquent des estimations de risque plus conservatrices."
       }
     },
     {
@@ -145,11 +170,15 @@
       "businessContext": "Credit rating of the supplier, used to adjust default probability and overall risk premium.",
       "label_i18n": {
         "en": "Supplier Credit Rating (S&P equivalent)",
-        "tr": "Tedarikçi Kredi Notu (S&P eşdeğeri)"
+        "tr": "Tedarikçi Kredi Notu (S&P eşdeğeri)",
+        "de": "Lieferanten-Kreditrating (S&P-Äquivalent)",
+        "fr": "Note de crédit du fournisseur (équivalent S&P)"
       },
       "businessContext_i18n": {
         "en": "Credit rating of the supplier, used to adjust default probability and overall risk premium.",
-        "tr": "Tedarikçinin kredi notu, temerrüt olasılığını ve genel risk primini ayarlamak için kullanılır."
+        "tr": "Tedarikçinin kredi notu, temerrüt olasılığını ve genel risk primini ayarlamak için kullanılır.",
+        "de": "Kreditrating des Lieferanten, verwendet zur Anpassung der Ausfallwahrscheinlichkeit und der gesamten Risikoprämie.",
+        "fr": "Note de crédit du fournisseur, utilisée pour ajuster la probabilité de défaut et la prime de risque globale."
       }
     },
     {
@@ -163,11 +192,15 @@
       "businessContext": "If enabled, the calculation incorporates ISO 31000 principles for risk identification, analysis, and evaluation.",
       "label_i18n": {
         "en": "Apply ISO 31000 Risk Management Framework",
-        "tr": "ISO 31000 Risk Yönetimi Çerçevesini Uygula"
+        "tr": "ISO 31000 Risk Yönetimi Çerçevesini Uygula",
+        "de": "ISO 31000 Risikomanagement-Rahmenwerk anwenden",
+        "fr": "Appliquer le cadre de gestion des risques ISO 31000"
       },
       "businessContext_i18n": {
         "en": "If enabled, the calculation incorporates ISO 31000 principles for risk identification, analysis, and evaluation.",
-        "tr": "Etkinleştirilirse, hesaplama risk tanımlama, analiz ve değerlendirme için ISO 31000 ilkelerini içerir."
+        "tr": "Etkinleştirilirse, hesaplama risk tanımlama, analiz ve değerlendirme için ISO 31000 ilkelerini içerir.",
+        "de": "Wenn aktiviert, berücksichtigt die Berechnung die Grundsätze der ISO 31000 für Risikoidentifikation, -analyse und -bewertung.",
+        "fr": "Si activé, le calcul intègre les principes ISO 31000 pour l'identification, l'analyse et l'évaluation des risques."
       }
     }
   ],

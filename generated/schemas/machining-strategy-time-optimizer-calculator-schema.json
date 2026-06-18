@@ -24,13 +24,16 @@
         "en": "Cutting Speed (Vc)",
         "tr": "Kesme Hızı (Vc)",
         "de": "Schnittgeschwindigkeit (Vc)",
-        "fr": "Cutting Speed (Vc)",
-        "es": "Cutting Speed (Vc)",
+        "fr": "Vitesse de coupe (Vc)",
+        "es": "Velocidad de corte (Vc)",
         "ar": "Cutting Speed (Vc)"
       },
       "businessContext_i18n": {
         "en": "ISO 3685 standard for tool life; affects surface finish and cycle time.",
-        "tr": "Takım ömrü için ISO 3685 standardı; yüzey kalitesini ve çevrim süresini etkiler."
+        "tr": "Takım ömrü için ISO 3685 standardı; yüzey kalitesini ve çevrim süresini etkiler.",
+        "de": "ISO 3685 Standard für Werkzeugstandzeit; beeinflusst Oberflächengüte und Zykluszeit.",
+        "fr": "Norme ISO 3685 pour la durée de vie de l'outil ; affecte l'état de surface et le temps de cycle.",
+        "es": "Norma ISO 3685 para vida útil de la herramienta; afecta el acabado superficial y el tiempo de ciclo."
       }
     },
     {
@@ -46,13 +49,16 @@
         "en": "Feed Rate (f)",
         "tr": "İlerleme Hızı (f)",
         "de": "Vorschub (f)",
-        "fr": "Feed Rate (f)",
-        "es": "Feed Rate (f)",
+        "fr": "Avance (f)",
+        "es": "Avance (f)",
         "ar": "Feed Rate (f)"
       },
       "businessContext_i18n": {
         "en": "ISO 3002/1 standard; influences chip load and tool wear.",
-        "tr": "ISO 3002/1 standardı; talaş yükünü ve takım aşınmasını etkiler."
+        "tr": "ISO 3002/1 standardı; talaş yükünü ve takım aşınmasını etkiler.",
+        "de": "ISO 3002/1 Standard; beeinflusst Spanbelastung und Werkzeugverschleiß.",
+        "fr": "Norme ISO 3002/1 ; influence la charge de copeaux et l'usure de l'outil.",
+        "es": "Norma ISO 3002/1; influye en la carga de viruta y el desgaste de la herramienta."
       }
     },
     {
@@ -68,13 +74,16 @@
         "en": "Depth of Cut (ap)",
         "tr": "Kesme Derinliği (ap)",
         "de": "Schnitttiefe (ap)",
-        "fr": "Depth of Cut (ap)",
-        "es": "Depth of Cut (ap)",
+        "fr": "Profondeur de passe (ap)",
+        "es": "Profundidad de corte (ap)",
         "ar": "Depth of Cut (ap)"
       },
       "businessContext_i18n": {
         "en": "ISO 3002/1; affects cutting forces and power consumption.",
-        "tr": "ISO 3002/1; kesme kuvvetlerini ve güç tüketimini etkiler."
+        "tr": "ISO 3002/1; kesme kuvvetlerini ve güç tüketimini etkiler.",
+        "de": "ISO 3002/1; beeinflusst Schnittkräfte und Leistungsaufnahme.",
+        "fr": "ISO 3002/1 ; affecte les forces de coupe et la consommation d'énergie.",
+        "es": "Norma ISO 3002/1; afecta las fuerzas de corte y el consumo de energía."
       }
     },
     {
@@ -89,14 +98,17 @@
       "label_i18n": {
         "en": "Part Length (L)",
         "tr": "Parça Uzunluğu (L)",
-        "de": "Part Length (L)",
-        "fr": "Part Length (L)",
-        "es": "Part Length (L)",
+        "de": "Teillänge (L)",
+        "fr": "Longueur de pièce (L)",
+        "es": "Longitud de la pieza (L)",
         "ar": "Part Length (L)"
       },
       "businessContext_i18n": {
         "en": "Workpiece geometry; defines total travel distance.",
-        "tr": "İş parçası geometrisi; toplam hareket mesafesini tanımlar."
+        "tr": "İş parçası geometrisi; toplam hareket mesafesini tanımlar.",
+        "de": "Werkstückgeometrie; definiert die gesamte Verfahrstrecke.",
+        "fr": "Géométrie de la pièce ; définit la distance totale de déplacement.",
+        "es": "Geometría de la pieza de trabajo; define la distancia total de recorrido."
       }
     },
     {
@@ -111,14 +123,17 @@
       "label_i18n": {
         "en": "Part Diameter (D)",
         "tr": "Parça Çapı (D)",
-        "de": "Part Diameter (D)",
-        "fr": "Part Diameter (D)",
-        "es": "Part Diameter (D)",
+        "de": "Teiledurchmesser (D)",
+        "fr": "Diamètre de pièce (D)",
+        "es": "Diámetro de la pieza (D)",
         "ar": "Part Diameter (D)"
       },
       "businessContext_i18n": {
         "en": "Workpiece diameter; used for rotational speed calculation.",
-        "tr": "İş parçası çapı; dönme hızı hesaplamasında kullanılır."
+        "tr": "İş parçası çapı; dönme hızı hesaplamasında kullanılır.",
+        "de": "Werkstückdurchmesser; wird für die Drehzahlberechnung verwendet.",
+        "fr": "Diamètre de la pièce ; utilisé pour le calcul de la vitesse de rotation.",
+        "es": "Diámetro de la pieza de trabajo; utilizado para el cálculo de la velocidad de rotación."
       }
     },
     {
@@ -133,14 +148,17 @@
       "label_i18n": {
         "en": "Tool Change Time (Tct)",
         "tr": "Takım Değiştirme Süresi (Tct)",
-        "de": "Tool Change Time (Tct)",
-        "fr": "Tool Change Time (Tct)",
-        "es": "Tool Change Time (Tct)",
+        "de": "Werkzeugwechselzeit (Tct)",
+        "fr": "Temps de changement d'outil (Tct)",
+        "es": "Tiempo de cambio de herramienta (Tct)",
         "ar": "Tool Change Time (Tct)"
       },
       "businessContext_i18n": {
         "en": "SMED (Single Minute Exchange of Die) metric; Lean manufacturing.",
-        "tr": "SMED (Single Minute Exchange of Die) metriği; Yalın üretim."
+        "tr": "SMED (Single Minute Exchange of Die) metriği; Yalın üretim.",
+        "de": "SMED (Single Minute Exchange of Die) Kennzahl; Lean Manufacturing.",
+        "fr": "Métrique SMED (Single Minute Exchange of Die) ; fabrication Lean.",
+        "es": "Métrica SMED (Single Minute Exchange of Die); fabricación Lean."
       }
     },
     {
@@ -155,14 +173,17 @@
       "label_i18n": {
         "en": "Tool Life (T)",
         "tr": "Takım Ömrü (T)",
-        "de": "Tool Life (T)",
-        "fr": "Tool Life (T)",
-        "es": "Tool Life (T)",
+        "de": "Werkzeugstandzeit (T)",
+        "fr": "Durée de vie d'outil (T)",
+        "es": "Vida de la herramienta (T)",
         "ar": "Tool Life (T)"
       },
       "businessContext_i18n": {
         "en": "ISO 3685 Taylor tool life equation; affects cost and downtime.",
-        "tr": "ISO 3685 Taylor takım ömrü denklemi; maliyet ve duruş süresini etkiler."
+        "tr": "ISO 3685 Taylor takım ömrü denklemi; maliyet ve duruş süresini etkiler.",
+        "de": "ISO 3685 Taylor-Standzeitgleichung; beeinflusst Kosten und Stillstand.",
+        "fr": "Équation de durée de vie d'outil ISO 3685 Taylor ; affecte le coût et les temps d'arrêt.",
+        "es": "Ecuación de vida de herramienta ISO 3685 de Taylor; afecta el coste y el tiempo de inactividad."
       }
     },
     {
@@ -177,14 +198,17 @@
       "label_i18n": {
         "en": "Number of Passes (n_passes)",
         "tr": "Pas Sayısı (n_passes)",
-        "de": "Number of Passes (n_passes)",
-        "fr": "Number of Passes (n_passes)",
-        "es": "Number of Passes (n_passes)",
+        "de": "Anzahl der Schnitte (n_passes)",
+        "fr": "Nombre de passes (n_passes)",
+        "es": "Número de pasadas (n_passes)",
         "ar": "Number of Passes (n_passes)"
       },
       "businessContext_i18n": {
         "en": "Roughing/finishing strategy; impacts total cycle time.",
-        "tr": "Kaba/ince işleme stratejisi; toplam çevrim süresini etkiler."
+        "tr": "Kaba/ince işleme stratejisi; toplam çevrim süresini etkiler.",
+        "de": "Schrupp-/Schlichtstrategie; beeinflusst Gesamtzykluszeit.",
+        "fr": "Stratégie d'ébauche/finition ; impacte le temps de cycle total.",
+        "es": "Estrategia de desbaste/acabado; impacta el tiempo total de ciclo."
       }
     }
   ],

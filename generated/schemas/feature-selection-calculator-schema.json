@@ -12,14 +12,16 @@
         "en": "Correlation Coefficient",
         "tr": "Korelasyon Katsayısı",
         "de": "Korrelationskoeffizient",
-        "fr": "Correlation Coefficient",
-        "es": "Correlation Coefficient",
+        "fr": "Coefficient de corrélation",
+        "es": "Coeficiente de correlación",
         "ar": "Correlation Coefficient"
       },
       "businessContext_i18n": {
         "en": "Pearson correlation between feature and target",
         "tr": "Özellik ve hedef arasındaki Pearson korelasyonu",
-        "de": "Pearson-Korrelation zwischen Merkmal und Ziel"
+        "de": "Pearson-Korrelation zwischen Merkmal und Ziel",
+        "fr": "Corrélation de Pearson entre la caractéristique et la cible",
+        "es": "Correlación de Pearson entre característica y objetivo"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Normalized Variance",
         "tr": "Normalleştirilmiş Varyans",
         "de": "Normalisierte Varianz",
-        "fr": "Normalized Variance",
-        "es": "Normalized Variance",
+        "fr": "Variance normalisée",
+        "es": "Varianza normalizada",
         "ar": "Normalized Variance"
       },
       "businessContext_i18n": {
         "en": "Measure of spread (0-1 scale)",
         "tr": "Yayılım ölçüsü (0-1 ölçeği)",
-        "de": "Streuungsmaß (Skala 0-1)"
+        "de": "Streuungsmaß (Skala 0-1)",
+        "fr": "Mesure de dispersion (échelle 0-1)",
+        "es": "Medida de dispersión (escala 0-1)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Measurement Cost",
         "tr": "Ölçüm Maliyeti",
         "de": "Messkosten",
-        "fr": "Measurement Cost",
-        "es": "Measurement Cost",
+        "fr": "Coût de mesure",
+        "es": "Costo de medición",
         "ar": "Measurement Cost"
       },
       "businessContext_i18n": {
         "en": "Cost to collect this feature data",
         "tr": "Bu özellik verisini toplama maliyeti",
-        "de": "Kosten für die Erfassung dieser Merkmalsdaten"
+        "de": "Kosten für die Erfassung dieser Merkmalsdaten",
+        "fr": "Coût de collecte des données de cette caractéristique",
+        "es": "Costo de recopilar estos datos de característica"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Accuracy Impact",
         "tr": "Doğruluk Etkisi",
         "de": "Genauigkeitsauswirkung",
-        "fr": "Accuracy Impact",
-        "es": "Accuracy Impact",
+        "fr": "Impact sur la précision",
+        "es": "Impacto en precisión",
         "ar": "Accuracy Impact"
       },
       "businessContext_i18n": {
         "en": "Expected accuracy gain from including this feature",
         "tr": "Bu özelliği dahil etmekten beklenen doğruluk kazancı",
-        "de": "Erwarteter Genauigkeitsgewinn durch Einbeziehung dieses Merkmals"
+        "de": "Erwarteter Genauigkeitsgewinn durch Einbeziehung dieses Merkmals",
+        "fr": "Gain de précision attendu en incluant cette caractéristique",
+        "es": "Ganancia esperada en precisión al incluir esta característica"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Stability Index",
         "tr": "Kararlılık Endeksi",
         "de": "Stabilitätsindex",
-        "fr": "Stability Index",
-        "es": "Stability Index",
+        "fr": "Indice de stabilité",
+        "es": "Índice de estabilidad",
         "ar": "Stability Index"
       },
       "businessContext_i18n": {
         "en": "Reliability of measurement over time (1 = stable)",
         "tr": "Zaman içinde ölçümün güvenilirliği (1 = kararlı)",
-        "de": "Zuverlässigkeit der Messung über die Zeit (1 = stabil)"
+        "de": "Zuverlässigkeit der Messung über die Zeit (1 = stabil)",
+        "fr": "Fiabilité de la mesure dans le temps (1 = stable)",
+        "es": "Fiabilidad de la medición a lo largo del tiempo (1 = estable)"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Compliance Score",
         "tr": "Uyum Puanı",
         "de": "Compliance-Score",
-        "fr": "Compliance Score",
-        "es": "Compliance Score",
+        "fr": "Score de conformité",
+        "es": "Puntuación de cumplimiento",
         "ar": "Compliance Score"
       },
       "businessContext_i18n": {
         "en": "Regulatory or compliance importance (1 = compliant)",
         "tr": "Düzenleyici veya uyum önemi (1 = uyumlu)",
-        "de": "Regulatorische oder Compliance-Bedeutung (1 = konform)"
+        "de": "Regulatorische oder Compliance-Bedeutung (1 = konform)",
+        "fr": "Importance réglementaire ou de conformité (1 = conforme)",
+        "es": "Importancia regulatoria o de cumplimiento (1 = conforme)"
       }
     }
   ],

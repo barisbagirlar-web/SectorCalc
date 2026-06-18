@@ -12,13 +12,16 @@
         "en": "Current Weight",
         "tr": "Mevcut Ağırlık",
         "de": "Aktuelles Gewicht",
-        "fr": "Current Weight",
-        "es": "Current Weight",
+        "fr": "Poids actuel",
+        "es": "Peso actual",
         "ar": "Current Weight"
       },
       "businessContext_i18n": {
         "en": "User's current body weight in kilograms.",
-        "tr": "Kullanıcının kilogram cinsinden mevcut vücut ağırlığı."
+        "tr": "Kullanıcının kilogram cinsinden mevcut vücut ağırlığı.",
+        "de": "Aktuelles Körpergewicht des Benutzers in Kilogramm.",
+        "fr": "Poids corporel actuel de l'utilisateur en kilogrammes.",
+        "es": "Peso corporal actual del usuario en kilogramos."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Goal Weight",
         "tr": "Hedef Ağırlık",
         "de": "Zielgewicht",
-        "fr": "Goal Weight",
-        "es": "Goal Weight",
+        "fr": "Poids cible",
+        "es": "Peso objetivo",
         "ar": "Goal Weight"
       },
       "businessContext_i18n": {
         "en": "Target body weight in kilograms.",
-        "tr": "Kilogram cinsinden hedef vücut ağırlığı."
+        "tr": "Kilogram cinsinden hedef vücut ağırlığı.",
+        "de": "Zielkörpergewicht in Kilogramm.",
+        "fr": "Poids corporel cible en kilogrammes.",
+        "es": "Peso corporal objetivo en kilogramos."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Height",
         "tr": "Boy",
         "de": "Größe",
-        "fr": "Height",
-        "es": "Height",
+        "fr": "Taille",
+        "es": "Altura",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "User's height in centimeters, used for BMR calculation.",
-        "tr": "BMR hesaplaması için kullanılan, santimetre cinsinden kullanıcının boyu."
+        "tr": "BMR hesaplaması için kullanılan, santimetre cinsinden kullanıcının boyu.",
+        "de": "Körpergröße des Benutzers in Zentimetern, verwendet für die BMR-Berechnung.",
+        "fr": "Taille de l'utilisateur en centimètres, utilisée pour le calcul du BMR.",
+        "es": "Altura del usuario en centímetros, utilizada para el cálculo de la TMB."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "User's age in years, used for BMR calculation.",
-        "tr": "BMR hesaplaması için kullanılan, yıl cinsinden kullanıcının yaşı."
+        "tr": "BMR hesaplaması için kullanılan, yıl cinsinden kullanıcının yaşı.",
+        "de": "Alter des Benutzers in Jahren, verwendet für die BMR-Berechnung.",
+        "fr": "Âge de l'utilisateur en années, utilisé pour le calcul du BMR.",
+        "es": "Edad del usuario en años, utilizada para el cálculo de la TMB."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Gender",
         "tr": "Cinsiyet",
         "de": "Geschlecht",
-        "fr": "Gender",
-        "es": "Gender",
+        "fr": "Genre",
+        "es": "Género",
         "ar": "Gender"
       },
       "businessContext_i18n": {
         "en": "1 for male, 0 for female. Used in BMR formula.",
-        "tr": "Erkek için 1, kadın için 0. BMR formülünde kullanılır."
+        "tr": "Erkek için 1, kadın için 0. BMR formülünde kullanılır.",
+        "de": "1 für männlich, 0 für weiblich. Wird in der BMR-Formel verwendet.",
+        "fr": "1 pour homme, 0 pour femme. Utilisé dans la formule du BMR.",
+        "es": "1 para hombre, 0 para mujer. Se utiliza en la fórmula de la TMB."
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Activity Level",
         "tr": "Aktivite Seviyesi",
         "de": "Aktivitätsniveau",
-        "fr": "Activity Level",
-        "es": "Activity Level",
+        "fr": "Niveau d'activité",
+        "es": "Nivel de actividad",
         "ar": "Activity Level"
       },
       "businessContext_i18n": {
         "en": "Physical activity factor: 1.2 sedentary, 1.375 lightly active, 1.55 moderately active, 1.725 very active, 1.9 extra active.",
-        "tr": "Fiziksel aktivite faktörü: 1.2 hareketsiz, 1.375 hafif aktif, 1.55 orta aktif, 1.725 çok aktif, 1.9 ekstra aktif."
+        "tr": "Fiziksel aktivite faktörü: 1.2 hareketsiz, 1.375 hafif aktif, 1.55 orta aktif, 1.725 çok aktif, 1.9 ekstra aktif.",
+        "de": "Faktor für körperliche Aktivität: 1,2 sitzend, 1,375 leicht aktiv, 1,55 mäßig aktiv, 1,725 sehr aktiv, 1,9 extra aktiv.",
+        "fr": "Facteur d'activité physique : 1,2 sédentaire, 1,375 légèrement actif, 1,55 modérément actif, 1,725 très actif, 1,9 extra actif.",
+        "es": "Factor de actividad física: 1.2 sedentario, 1.375 ligeramente activo, 1.55 moderadamente activo, 1.725 muy activo, 1.9 extra activo."
       }
     },
     {
@@ -132,13 +150,16 @@
         "en": "Daily Calorie Intake",
         "tr": "Günlük Kalori Alımı",
         "de": "Tägliche Kalorienaufnahme",
-        "fr": "Daily Calorie Intake",
-        "es": "Daily Calorie Intake",
+        "fr": "Apport calorique quotidien",
+        "es": "Ingesta calórica diaria",
         "ar": "Daily Calorie Intake"
       },
       "businessContext_i18n": {
         "en": "Average daily calorie consumption.",
-        "tr": "Ortalama günlük kalori tüketimi."
+        "tr": "Ortalama günlük kalori tüketimi.",
+        "de": "Durchschnittliche tägliche Kalorienaufnahme.",
+        "fr": "Consommation calorique quotidienne moyenne.",
+        "es": "Consumo calórico diario promedio."
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Current Value",
         "tr": "Mevcut Değer",
-        "de": "Current Value",
-        "fr": "Current Value",
+        "de": "Aktueller Wert",
+        "fr": "Valeur actuelle",
         "es": "Current Value",
         "ar": "Current Value"
       },
       "businessContext_i18n": {
         "en": "The current value of the metric to be improved.",
-        "tr": "İyileştirilecek metriğin mevcut değeri."
+        "tr": "İyileştirilecek metriğin mevcut değeri.",
+        "de": "Der aktuelle Wert der zu verbessernden Kennzahl.",
+        "fr": "Valeur actuelle de la métrique à améliorer."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Target Value",
         "tr": "Hedef Değer",
         "de": "Zielwert",
-        "fr": "Target Value",
-        "es": "Target Value",
+        "fr": "Valeur cible",
+        "es": "Valor objetivo",
         "ar": "Target Value"
       },
       "businessContext_i18n": {
         "en": "The desired target value for the metric.",
-        "tr": "Metrik için istenen hedef değer."
+        "tr": "Metrik için istenen hedef değer.",
+        "de": "Der angestrebte Zielwert für die Kennzahl.",
+        "fr": "Valeur cible souhaitée pour la métrique."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Timeframe",
         "tr": "Zaman Çerçevesi",
         "de": "Zeitraum",
-        "fr": "Timeframe",
-        "es": "Timeframe",
+        "fr": "Période",
+        "es": "Plazo",
         "ar": "Timeframe"
       },
       "businessContext_i18n": {
         "en": "Timeframe to achieve the goal in months.",
-        "tr": "Hedefe ulaşmak için ay cinsinden süre."
+        "tr": "Hedefe ulaşmak için ay cinsinden süre.",
+        "de": "Zeitraum zur Zielerreichung in Monaten.",
+        "fr": "Délai pour atteindre l'objectif en mois."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Weekly Resource Hours",
         "tr": "Haftalık Kaynak Saati",
-        "de": "Weekly Resource Hours",
-        "fr": "Weekly Resource Hours",
+        "de": "Wöchentliche Ressourcenstunden",
+        "fr": "Heures de ressources hebdomadaires",
         "es": "Weekly Resource Hours",
         "ar": "Weekly Resource Hours"
       },
       "businessContext_i18n": {
         "en": "Weekly resource hours allocated to the goal.",
-        "tr": "Hedefe ayrılan haftalık kaynak saati."
+        "tr": "Hedefe ayrılan haftalık kaynak saati.",
+        "de": "Wöchentliche Ressourcenstunden, die dem Ziel zugeordnet sind.",
+        "fr": "Heures de ressources hebdomadaires allouées à l'objectif."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Cost per Hour",
         "tr": "Saatlik Maliyet",
-        "de": "Cost per Hour",
-        "fr": "Cost per Hour",
+        "de": "Kosten pro Stunde",
+        "fr": "Coût horaire",
         "es": "Cost per Hour",
         "ar": "Cost per Hour"
       },
       "businessContext_i18n": {
         "en": "Cost per resource hour.",
-        "tr": "Kaynak saati başına maliyet."
+        "tr": "Kaynak saati başına maliyet.",
+        "de": "Kosten pro Ressourcenstunde.",
+        "fr": "Coût par heure de ressource."
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Initial Investment",
         "tr": "Başlangıç Yatırımı",
         "de": "Anfangsinvestition",
-        "fr": "Initial Investment",
-        "es": "Initial Investment",
+        "fr": "Investissement initial",
+        "es": "Inversión inicial",
         "ar": "Initial Investment"
       },
       "businessContext_i18n": {
         "en": "Initial investment required for the goal.",
-        "tr": "Hedef için gereken başlangıç yatırımı."
+        "tr": "Hedef için gereken başlangıç yatırımı.",
+        "de": "Erstinvestition, die für das Ziel erforderlich ist.",
+        "fr": "Investissement initial requis pour l'objectif."
       }
     },
     {
@@ -131,14 +143,16 @@
       "label_i18n": {
         "en": "Expected Improvement Rate",
         "tr": "Beklenen İyileşme Oranı",
-        "de": "Expected Improvement Rate",
-        "fr": "Expected Improvement Rate",
+        "de": "Erwartete Verbesserungsrate",
+        "fr": "Taux d'amélioration attendu",
         "es": "Expected Improvement Rate",
         "ar": "Expected Improvement Rate"
       },
       "businessContext_i18n": {
         "en": "Expected improvement rate per month (%).",
-        "tr": "Aylık beklenen iyileşme oranı (%)."
+        "tr": "Aylık beklenen iyileşme oranı (%).",
+        "de": "Erwartete Verbesserungsrate pro Monat (%).",
+        "fr": "Taux d'amélioration attendu par mois (%)."
       }
     }
   ],

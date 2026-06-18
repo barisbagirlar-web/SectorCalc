@@ -12,14 +12,16 @@
         "en": "Hot Fluid Mass Flow Rate",
         "tr": "Sıcak Akışkan Kütlesel Debisi",
         "de": "Massenstrom des Heißfluids",
-        "fr": "Hot Fluid Mass Flow Rate",
-        "es": "Hot Fluid Mass Flow Rate",
+        "fr": "Débit massique du fluide chaud",
+        "es": "Caudal másico del fluido caliente",
         "ar": "Hot Fluid Mass Flow Rate"
       },
       "businessContext_i18n": {
         "en": "Mass flow rate of the hot fluid entering the heat exchanger.",
         "tr": "Isı değiştiriciye giren sıcak akışkanın kütlesel debisi.",
-        "de": "Massenstrom des in den Wärmetauscher eintretenden Heißfluids"
+        "de": "Massenstrom des in den Wärmetauscher eintretenden Heißfluids",
+        "fr": "Débit massique du fluide chaud entrant dans l'échangeur.",
+        "es": "Caudal másico del fluido caliente que entra al intercambiador de calor."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Hot Fluid Specific Heat",
         "tr": "Sıcak Akışkan Özgül Isısı",
         "de": "Spezifische Wärmekapazität des Heißfluids",
-        "fr": "Hot Fluid Specific Heat",
-        "es": "Hot Fluid Specific Heat",
+        "fr": "Chaleur spécifique du fluide chaud",
+        "es": "Calor específico del fluido caliente",
         "ar": "Hot Fluid Specific Heat"
       },
       "businessContext_i18n": {
         "en": "Specific heat capacity of the hot fluid.",
         "tr": "Sıcak akışkanın özgül ısı kapasitesi.",
-        "de": "Spezifische Wärmekapazität des Heißfluids"
+        "de": "Spezifische Wärmekapazität des Heißfluids",
+        "fr": "Capacité thermique massique du fluide chaud.",
+        "es": "Capacidad calorífica específica del fluido caliente."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Hot Fluid Inlet Temperature",
         "tr": "Sıcak Akışkan Giriş Sıcaklığı",
         "de": "Heißfluid-Eintrittstemperatur",
-        "fr": "Hot Fluid Inlet Temperature",
-        "es": "Hot Fluid Inlet Temperature",
+        "fr": "Température d'entrée du fluide chaud",
+        "es": "Temperatura de entrada del fluido caliente",
         "ar": "Hot Fluid Inlet Temperature"
       },
       "businessContext_i18n": {
         "en": "Inlet temperature of the hot fluid.",
         "tr": "Sıcak akışkanın giriş sıcaklığı.",
-        "de": "Eintrittstemperatur des Heißfluids"
+        "de": "Eintrittstemperatur des Heißfluids",
+        "fr": "Température d'entrée du fluide chaud.",
+        "es": "Temperatura de entrada del fluido caliente."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Hot Fluid Outlet Temperature",
         "tr": "Sıcak Akışkan Çıkış Sıcaklığı",
         "de": "Heißfluid-Austrittstemperatur",
-        "fr": "Hot Fluid Outlet Temperature",
-        "es": "Hot Fluid Outlet Temperature",
+        "fr": "Température de sortie du fluide chaud",
+        "es": "Temperatura de salida del fluido caliente",
         "ar": "Hot Fluid Outlet Temperature"
       },
       "businessContext_i18n": {
         "en": "Desired outlet temperature of the hot fluid.",
         "tr": "Sıcak akışkan için istenen çıkış sıcaklığı.",
-        "de": "Gewünschte Austrittstemperatur des Heißfluids"
+        "de": "Gewünschte Austrittstemperatur des Heißfluids",
+        "fr": "Température de sortie souhaitée du fluide chaud.",
+        "es": "Temperatura de salida deseada del fluido caliente."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Cold Fluid Mass Flow Rate",
         "tr": "Soğuk Akışkan Kütlesel Debisi",
         "de": "Massenstrom des Kaltfluids",
-        "fr": "Cold Fluid Mass Flow Rate",
-        "es": "Cold Fluid Mass Flow Rate",
+        "fr": "Débit massique du fluide froid",
+        "es": "Caudal másico del fluido frío",
         "ar": "Cold Fluid Mass Flow Rate"
       },
       "businessContext_i18n": {
         "en": "Mass flow rate of the cold fluid.",
         "tr": "Soğuk akışkanın kütlesel debisi.",
-        "de": "Massenstrom des Kaltfluids"
+        "de": "Massenstrom des Kaltfluids",
+        "fr": "Débit massique du fluide froid.",
+        "es": "Caudal másico del fluido frío."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Cold Fluid Specific Heat",
         "tr": "Soğuk Akışkan Özgül Isısı",
         "de": "Spezifische Wärmekapazität des Kaltmediums",
-        "fr": "Cold Fluid Specific Heat",
-        "es": "Cold Fluid Specific Heat",
+        "fr": "Chaleur spécifique du fluide froid",
+        "es": "Calor específico del fluido frío",
         "ar": "Cold Fluid Specific Heat"
       },
       "businessContext_i18n": {
         "en": "Specific heat capacity of the cold fluid.",
         "tr": "Soğuk akışkanın özgül ısı kapasitesi.",
-        "de": "Spezifische Wärmekapazität des Kaltmediums."
+        "de": "Spezifische Wärmekapazität des Kaltmediums.",
+        "fr": "Capacité thermique massique du fluide froid.",
+        "es": "Capacidad calorífica específica del fluido frío."
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Cold Fluid Inlet Temperature",
         "tr": "Soğuk Akışkan Giriş Sıcaklığı",
         "de": "Kaltfluid-Eintrittstemperatur",
-        "fr": "Cold Fluid Inlet Temperature",
-        "es": "Cold Fluid Inlet Temperature",
+        "fr": "Température d'entrée du fluide froid",
+        "es": "Temperatura de entrada del fluido frío",
         "ar": "Cold Fluid Inlet Temperature"
       },
       "businessContext_i18n": {
         "en": "Inlet temperature of the cold fluid.",
         "tr": "Soğuk akışkanın giriş sıcaklığı.",
-        "de": "Eintrittstemperatur des Kaltmediums."
+        "de": "Eintrittstemperatur des Kaltmediums.",
+        "fr": "Température d'entrée du fluide froid.",
+        "es": "Temperatura de entrada del fluido frío."
       }
     },
     {
@@ -159,14 +173,16 @@
         "en": "Overall Heat Transfer Coefficient",
         "tr": "Toplam Isı Transfer Katsayısı",
         "de": "Gesamtwärmeübergangskoeffizient",
-        "fr": "Overall Heat Transfer Coefficient",
-        "es": "Overall Heat Transfer Coefficient",
+        "fr": "Coefficient global de transfert thermique",
+        "es": "Coeficiente global de transferencia de calor",
         "ar": "Overall Heat Transfer Coefficient"
       },
       "businessContext_i18n": {
         "en": "Overall heat transfer coefficient of the heat exchanger.",
         "tr": "Isı değiştiricinin toplam ısı transfer katsayısı.",
-        "de": "Wärmedurchgangskoeffizient des Wärmetauschers."
+        "de": "Wärmedurchgangskoeffizient des Wärmetauschers.",
+        "fr": "Coefficient global de transfert thermique de l'échangeur.",
+        "es": "Coeficiente global de transferencia de calor del intercambiador."
       }
     }
   ],

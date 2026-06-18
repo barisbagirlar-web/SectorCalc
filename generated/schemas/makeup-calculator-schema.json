@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Batch Size (g)",
         "tr": "Parti büyüklüğü (g)",
-        "de": "Batch Size (g)",
-        "fr": "Batch Size (g)",
-        "es": "Batch Size (g)",
+        "de": "Chargengröße (g)",
+        "fr": "Taille de lot (g)",
+        "es": "Tamaño de lote (g)",
         "ar": "Batch Size (g)"
       },
       "businessContext_i18n": {
         "en": "Production batch size in grams, typical lab scale is 1000g.",
-        "tr": "Gram cinsinden üretim parti büyüklüğü, tipik laboratuvar ölçeği 1000g'dir."
+        "tr": "Gram cinsinden üretim parti büyüklüğü, tipik laboratuvar ölçeği 1000g'dir.",
+        "de": "Produktionschargengröße in Gramm, typischer Labormaßstab 1000 g.",
+        "fr": "Taille de lot de production en grammes, l'échelle laboratoire typique est de 1000 g.",
+        "es": "Tamaño de lote de producción en gramos, escala típica de laboratorio es 1000 g."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Unit Weight (g)",
         "tr": "Birim ağırlık (g)",
-        "de": "Unit Weight (g)",
-        "fr": "Unit Weight (g)",
-        "es": "Unit Weight (g)",
+        "de": "Stückgewicht (g)",
+        "fr": "Poids unitaire (g)",
+        "es": "Peso unitario (g)",
         "ar": "Unit Weight (g)"
       },
       "businessContext_i18n": {
         "en": "Weight per finished product unit (e.g., a foundation is 30g, a lipstick 4g).",
-        "tr": "Bitmiş ürün birimi başına ağırlık (örneğin, bir fondöten 30g, bir ruj 4g)."
+        "tr": "Bitmiş ürün birimi başına ağırlık (örneğin, bir fondöten 30g, bir ruj 4g).",
+        "de": "Gewicht pro fertigem Produkt (z. B. eine Foundation 30 g, ein Lippenstift 4 g).",
+        "fr": "Poids par unité de produit fini (ex. un fond de teint fait 30 g, un rouge à lèvres 4 g).",
+        "es": "Peso por unidad de producto terminado (ej., una base es 30 g, un labial 4 g)."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Material Cost per Gram",
         "tr": "Gram başına malzeme maliyeti",
-        "de": "Material Cost per Gram",
-        "fr": "Material Cost per Gram",
-        "es": "Material Cost per Gram",
+        "de": "Materialkosten pro Gramm",
+        "fr": "Coût matière par gramme",
+        "es": "Coste de material por gramo",
         "ar": "Material Cost per Gram"
       },
       "businessContext_i18n": {
         "en": "Average bulk raw material cost per gram including all ingredients.",
-        "tr": "Tüm bileşenler dahil gram başına ortalama toplu hammadde maliyeti."
+        "tr": "Tüm bileşenler dahil gram başına ortalama toplu hammadde maliyeti.",
+        "de": "Durchschnittliche Rohmaterialkosten pro Gramm inklusive aller Inhaltsstoffe.",
+        "fr": "Coût moyen des matières premières en vrac par gramme, tous ingrédients compris.",
+        "es": "Coste medio de materia prima a granel por gramo, incluyendo todos los ingredientes."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Container Cost per Unit",
         "tr": "Birim başına kap maliyeti",
-        "de": "Container Cost per Unit",
-        "fr": "Container Cost per Unit",
-        "es": "Container Cost per Unit",
+        "de": "Behälterkosten pro Stück",
+        "fr": "Coût du contenant par unité",
+        "es": "Coste de envase por unidad",
         "ar": "Container Cost per Unit"
       },
       "businessContext_i18n": {
         "en": "Packaging and container cost per finished product unit.",
-        "tr": "Bitmiş ürün birimi başına ambalaj ve kap maliyeti."
+        "tr": "Bitmiş ürün birimi başına ambalaj ve kap maliyeti.",
+        "de": "Verpackungs- und Behälterkosten pro fertigem Produkt.",
+        "fr": "Coût de l'emballage et du contenant par unité de produit fini.",
+        "es": "Coste de embalaje y envase por unidad de producto terminado."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Labor Cost per Unit",
         "tr": "Birim başına işçilik maliyeti",
-        "de": "Labor Cost per Unit",
-        "fr": "Labor Cost per Unit",
-        "es": "Labor Cost per Unit",
+        "de": "Arbeitskosten pro Stück",
+        "fr": "Coût de main-d'œuvre par unité",
+        "es": "Coste de mano de obra por unidad",
         "ar": "Labor Cost per Unit"
       },
       "businessContext_i18n": {
         "en": "Direct labor cost allocated per finished product unit.",
-        "tr": "Bitmiş ürün birimi başına tahsis edilen doğrudan işçilik maliyeti."
+        "tr": "Bitmiş ürün birimi başına tahsis edilen doğrudan işçilik maliyeti.",
+        "de": "Direkte Arbeitskosten, die pro fertigem Produkt anfallen.",
+        "fr": "Coût direct de main-d'œuvre alloué par unité de produit fini.",
+        "es": "Coste de mano de obra directa asignado por unidad de producto terminado."
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Overhead (%)",
         "tr": "Genel Giderler (%)",
         "de": "Gemeinkosten (%)",
-        "fr": "Overhead (%)",
-        "es": "Overhead (%)",
+        "fr": "Frais généraux (%)",
+        "es": "Gastos generales (%)",
         "ar": "Overhead (%)"
       },
       "businessContext_i18n": {
         "en": "Manufacturing overhead as a percentage of total direct cost.",
-        "tr": "Toplam doğrudan maliyetin yüzdesi olarak üretim genel gideri."
+        "tr": "Toplam doğrudan maliyetin yüzdesi olarak üretim genel gideri.",
+        "de": "Fertigungsgemeinkosten als Prozentsatz der gesamten direkten Kosten.",
+        "fr": "Frais généraux de fabrication en pourcentage du coût direct total.",
+        "es": "Gastos generales de fabricación como porcentaje del coste directo total."
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Desired Margin (%)",
         "tr": "İstenen marj (%)",
-        "de": "Desired Margin (%)",
-        "fr": "Desired Margin (%)",
-        "es": "Desired Margin (%)",
+        "de": "Gewünschte Marge (%)",
+        "fr": "Marge souhaitée (%)",
+        "es": "Margen deseado (%)",
         "ar": "Desired Margin (%)"
       },
       "businessContext_i18n": {
         "en": "Profit margin markup on total cost per unit to determine selling price.",
-        "tr": "Satış fiyatını belirlemek için birim başına toplam maliyet üzerine kâr marjı."
+        "tr": "Satış fiyatını belirlemek için birim başına toplam maliyet üzerine kâr marjı.",
+        "de": "Gewinnmargenaufschlag auf die Gesamtkosten pro Stück zur Bestimmung des Verkaufspreises.",
+        "fr": "Majoration de marge bénéficiaire sur le coût total par unité pour déterminer le prix de vente.",
+        "es": "Margen de beneficio sobre el coste total por unidad para determinar el precio de venta."
       }
     }
   ],

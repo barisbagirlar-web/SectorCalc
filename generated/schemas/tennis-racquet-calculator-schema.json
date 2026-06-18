@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Racquet Mass (g)",
         "tr": "Raket Kütlesi (g)",
-        "de": "Racquet Mass (g)",
-        "fr": "Racquet Mass (g)",
+        "de": "Schlägermasse (g)",
+        "fr": "Masse de la raquette (g)",
         "es": "Racquet Mass (g)",
         "ar": "Racquet Mass (g)"
       },
       "businessContext_i18n": {
         "en": "Mevcut raket kütlesi",
-        "tr": "Mevcut raket kütlesi"
+        "tr": "Mevcut raket kütlesi",
+        "de": "Aktuelle Schlägermasse",
+        "fr": "Masse actuelle de la raquette"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Racquet Balance (cm from butt)",
         "tr": "Raket Dengesi (butt'tan cm)",
-        "de": "Racquet Balance (cm from butt)",
-        "fr": "Racquet Balance (cm from butt)",
+        "de": "Schlägerbalance (cm vom Griffende)",
+        "fr": "Équilibre de la raquette (cm du manche)",
         "es": "Racquet Balance (cm from butt)",
         "ar": "Racquet Balance (cm from butt)"
       },
       "businessContext_i18n": {
         "en": "Mevcut raket denge noktasının butt'a uzaklığı",
-        "tr": "Mevcut raket denge noktasının butt'a uzaklığı"
+        "tr": "Mevcut raket denge noktasının butt'a uzaklığı",
+        "de": "Aktueller Schwerpunktabstand vom Griffende",
+        "fr": "Distance actuelle du point d'équilibre par rapport au manche"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Racquet Swing Weight (kg·cm²)",
         "tr": "Raket Salınım Ağırlığı (kg·cm²)",
-        "de": "Racquet Swing Weight (kg·cm²)",
-        "fr": "Racquet Swing Weight (kg·cm²)",
+        "de": "Schwunggewicht (kg·cm²)",
+        "fr": "Inertie de la raquette (kg·cm²)",
         "es": "Racquet Swing Weight (kg·cm²)",
         "ar": "Racquet Swing Weight (kg·cm²)"
       },
       "businessContext_i18n": {
         "en": "Mevcut raket salınım ağırlığı",
-        "tr": "Mevcut raket salınım ağırlığı"
+        "tr": "Mevcut raket salınım ağırlığı",
+        "de": "Aktuelles Schwunggewicht",
+        "fr": "Inertie actuelle de la raquette"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Added Mass (g)",
         "tr": "Eklenen Kütle (g)",
-        "de": "Added Mass (g)",
-        "fr": "Added Mass (g)",
+        "de": "Zusatzgewicht (g)",
+        "fr": "Masse ajoutée (g)",
         "es": "Added Mass (g)",
         "ar": "Added Mass (g)"
       },
       "businessContext_i18n": {
         "en": "Eklenecek ağırlık",
-        "tr": "Eklenecek ağırlık"
+        "tr": "Eklenecek ağırlık",
+        "de": "Hinzuzufügendes Gewicht",
+        "fr": "Masse à ajouter"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Added Position (cm from butt)",
         "tr": "Eklenen Konum (butt'tan cm)",
-        "de": "Added Position (cm from butt)",
-        "fr": "Added Position (cm from butt)",
+        "de": "Position des Zusatzgewichts (cm vom Griffende)",
+        "fr": "Position d'ajout (cm du manche)",
         "es": "Added Position (cm from butt)",
         "ar": "Added Position (cm from butt)"
       },
       "businessContext_i18n": {
         "en": "Ağırlığın ekleneceği konum (butt'a uzaklık)",
-        "tr": "Ağırlığın ekleneceği konum (butt'a uzaklık)"
+        "tr": "Ağırlığın ekleneceği konum (butt'a uzaklık)",
+        "de": "Position, an der das Gewicht angebracht wird (Abstand vom Griffende)",
+        "fr": "Position où la masse est ajoutée (distance du manche)"
       }
     }
   ],

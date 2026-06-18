@@ -23,11 +23,17 @@
       "businessContext": "Total quantity of items in the quote. Higher volumes may reduce unit cost but increase risk exposure.",
       "label_i18n": {
         "en": "Order Volume (units)",
-        "tr": "Sipariş Hacmi (birim)"
+        "tr": "Sipariş Hacmi (birim)",
+        "de": "Bestellvolumen (Einheiten)",
+        "fr": "Volume de commande (unités)",
+        "es": "Volumen del pedido (unidades)"
       },
       "businessContext_i18n": {
         "en": "Total quantity of items in the quote. Higher volumes may reduce unit cost but increase risk exposure.",
-        "tr": "Teklifteki toplam ürün miktarı. Yüksek hacimler birim maliyeti düşürebilir ancak risk maruziyetini artırabilir."
+        "tr": "Teklifteki toplam ürün miktarı. Yüksek hacimler birim maliyeti düşürebilir ancak risk maruziyetini artırabilir.",
+        "de": "Gesamtmenge der Artikel im Angebot. Höhere Volumina können die Stückkosten senken, erhöhen aber das Risiko.",
+        "fr": "Quantité totale d'articles dans le devis. Des volumes plus élevés peuvent réduire le coût unitaire mais augmenter l'exposition au risque.",
+        "es": "Cantidad total de artículos en la cotización. Volúmenes más altos pueden reducir el costo unitario pero aumentan la exposición al riesgo."
       }
     },
     {
@@ -41,11 +47,17 @@
       "businessContext": "Price per unit quoted to the customer.",
       "label_i18n": {
         "en": "Unit Price ($)",
-        "tr": "Birim Fiyat ($)"
+        "tr": "Birim Fiyat ($)",
+        "de": "Stückpreis ($)",
+        "fr": "Prix unitaire ($)",
+        "es": "Precio unitario ($)"
       },
       "businessContext_i18n": {
         "en": "Price per unit quoted to the customer.",
-        "tr": "Müşteriye teklif edilen birim fiyat."
+        "tr": "Müşteriye teklif edilen birim fiyat.",
+        "de": "Preis pro Einheit, der dem Kunden angeboten wird.",
+        "fr": "Prix par unité proposé au client.",
+        "es": "Precio por unidad cotizado al cliente."
       }
     },
     {
@@ -59,11 +71,17 @@
       "businessContext": "Time from order placement to delivery. Longer lead times increase demand forecast risk.",
       "label_i18n": {
         "en": "Production Lead Time (days)",
-        "tr": "Üretim Teslim Süresi (gün)"
+        "tr": "Üretim Teslim Süresi (gün)",
+        "de": "Produktionsvorlaufzeit (Tage)",
+        "fr": "Délai de production (jours)",
+        "es": "Plazo de producción (días)"
       },
       "businessContext_i18n": {
         "en": "Time from order placement to delivery. Longer lead times increase demand forecast risk.",
-        "tr": "Siparişten teslimata kadar geçen süre. Uzun teslim süreleri talep tahmin riskini artırır."
+        "tr": "Siparişten teslimata kadar geçen süre. Uzun teslim süreleri talep tahmin riskini artırır.",
+        "de": "Zeit von der Bestellung bis zur Lieferung. Längere Vorlaufzeiten erhöhen das Nachfrageprognoserisiko.",
+        "fr": "Temps entre la commande et la livraison. Des délais plus longs augmentent le risque de prévision de la demande.",
+        "es": "Tiempo desde la colocación del pedido hasta la entrega. Plazos más largos aumentan el riesgo de pronóstico de demanda."
       }
     },
     {
@@ -77,11 +95,17 @@
       "businessContext": "Expected fluctuation in raw material costs during the lead time. Based on historical volatility.",
       "label_i18n": {
         "en": "Material Cost Variability (%)",
-        "tr": "Malzeme Maliyet Değişkenliği (%)"
+        "tr": "Malzeme Maliyet Değişkenliği (%)",
+        "de": "Materialkostenvariabilität (%)",
+        "fr": "Variabilité du coût des matières (%)",
+        "es": "Variabilidad del costo de materiales (%)"
       },
       "businessContext_i18n": {
         "en": "Expected fluctuation in raw material costs during the lead time. Based on historical volatility.",
-        "tr": "Teslim süresi boyunca hammadde maliyetlerinde beklenen dalgalanma. Geçmiş volatiliteye dayanır."
+        "tr": "Teslim süresi boyunca hammadde maliyetlerinde beklenen dalgalanma. Geçmiş volatiliteye dayanır.",
+        "de": "Erwartete Schwankung der Rohstoffkosten während der Vorlaufzeit. Basierend auf historischer Volatilität.",
+        "fr": "Fluctuation attendue des coûts des matières premières pendant le délai. Basée sur la volatilité historique.",
+        "es": "Fluctuación esperada en los costos de materias primas durante el plazo de entrega. Basado en la volatilidad histórica."
       }
     },
     {
@@ -100,11 +124,17 @@
       "businessContext": "Skill level of the workforce assigned to the project. Low skill increases defect risk.",
       "label_i18n": {
         "en": "Labor Skill Level",
-        "tr": "İşçilik Beceri Seviyesi"
+        "tr": "İşçilik Beceri Seviyesi",
+        "de": "Arbeitsfähigkeitsniveau",
+        "fr": "Niveau de compétence de la main-d'œuvre",
+        "es": "Nivel de habilidad laboral"
       },
       "businessContext_i18n": {
         "en": "Skill level of the workforce assigned to the project. Low skill increases defect risk.",
-        "tr": "Projeye atanan iş gücünün beceri seviyesi. Düşük beceri kusur riskini artırır."
+        "tr": "Projeye atanan iş gücünün beceri seviyesi. Düşük beceri kusur riskini artırır.",
+        "de": "Fähigkeitsniveau der dem Projekt zugewiesenen Arbeitskräfte. Niedrige Qualifikation erhöht das Fehlerrisiko.",
+        "fr": "Niveau de compétence de la main-d'œuvre affectée au projet. Un faible niveau augmente le risque de défauts.",
+        "es": "Nivel de habilidad de la fuerza laboral asignada al proyecto. Baja habilidad aumenta el riesgo de defectos."
       }
     },
     {
@@ -119,11 +149,16 @@
       "label_i18n": {
         "en": "Historical Defect Rate (%)",
         "tr": "Geçmiş Kusur Oranı (%)",
-        "de": "Historische Ausschussrate (%)"
+        "de": "Historische Ausschussrate (%)",
+        "fr": "Taux de défauts historiques (%)",
+        "es": "Tasa histórica de defectos (%)"
       },
       "businessContext_i18n": {
         "en": "Historical percentage of defective units from similar production runs. Used for Six Sigma DPMO calculation.",
-        "tr": "Benzer üretim serilerinden geçmiş kusurlu birim yüzdesi. Altı Sigma DPMO hesaplaması için kullanılır."
+        "tr": "Benzer üretim serilerinden geçmiş kusurlu birim yüzdesi. Altı Sigma DPMO hesaplaması için kullanılır.",
+        "de": "Historischer Prozentsatz fehlerhafter Einheiten aus ähnlichen Produktionsläufen. Wird für die Six Sigma DPMO-Berechnung verwendet.",
+        "fr": "Pourcentage historique d'unités défectueuses issues de séries de production similaires. Utilisé pour le calcul DPMO Six Sigma.",
+        "es": "Porcentaje histórico de unidades defectuosas de lotes de producción similares. Se utiliza para el cálculo de DPMO de Seis Sigma."
       }
     },
     {
@@ -137,11 +172,17 @@
       "businessContext": "Score based on number of shipping modes, customs requirements, and distance. Higher score increases risk.",
       "label_i18n": {
         "en": "Logistics Complexity Score",
-        "tr": "Lojistik Karmaşıklık Puanı"
+        "tr": "Lojistik Karmaşıklık Puanı",
+        "de": "Logistikkomplexitäts-Score",
+        "fr": "Score de complexité logistique",
+        "es": "Puntaje de complejidad logística"
       },
       "businessContext_i18n": {
         "en": "Score based on number of shipping modes, customs requirements, and distance. Higher score increases risk.",
-        "tr": "Nakliye modları, gümrük gereksinimleri ve mesafe sayısına dayalı puan. Yüksek puan riski artırır."
+        "tr": "Nakliye modları, gümrük gereksinimleri ve mesafe sayısına dayalı puan. Yüksek puan riski artırır.",
+        "de": "Punktzahl basierend auf Anzahl der Versandarten, Zollanforderungen und Entfernung. Höhere Punktzahl erhöht das Risiko.",
+        "fr": "Score basé sur le nombre de modes d'expédition, les exigences douanières et la distance. Un score plus élevé augmente le risque.",
+        "es": "Puntaje basado en el número de modos de envío, requisitos aduaneros y distancia. Un puntaje más alto aumenta el riesgo."
       }
     },
     {
@@ -165,11 +206,17 @@
       "businessContext": "Standard credit rating of the customer. Lower ratings increase payment default risk.",
       "label_i18n": {
         "en": "Customer Credit Rating",
-        "tr": "Müşteri Kredi Notu"
+        "tr": "Müşteri Kredi Notu",
+        "de": "Kundenbonität",
+        "fr": "Note de crédit du client",
+        "es": "Calificación crediticia del cliente"
       },
       "businessContext_i18n": {
         "en": "Standard credit rating of the customer. Lower ratings increase payment default risk.",
-        "tr": "Müşterinin standart kredi notu. Düşük notlar ödeme temerrüt riskini artırır."
+        "tr": "Müşterinin standart kredi notu. Düşük notlar ödeme temerrüt riskini artırır.",
+        "de": "Standard-Kreditbewertung des Kunden. Niedrigere Bewertungen erhöhen das Zahlungsausfallrisiko.",
+        "fr": "Note de crédit standard du client. Des notes plus faibles augmentent le risque de défaut de paiement.",
+        "es": "Calificación crediticia estándar del cliente. Calificaciones más bajas aumentan el riesgo de incumplimiento de pago."
       }
     }
   ],

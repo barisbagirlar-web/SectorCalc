@@ -12,14 +12,16 @@
         "en": "Original Price per Item",
         "tr": "Birim Fiyat",
         "de": "Originalpreis pro Artikel",
-        "fr": "Original Price per Item",
-        "es": "Original Price per Item",
+        "fr": "Prix unitaire d'origine",
+        "es": "Precio original por artículo",
         "ar": "Original Price per Item"
       },
       "businessContext_i18n": {
         "en": "The regular unit selling price of the item before any promotion.",
         "tr": "Herhangi bir promosyon öncesi ürünün normal birim satış fiyatı.",
-        "de": "Der reguläre Verkaufspreis pro Einheit vor jeglicher Aktion."
+        "de": "Der reguläre Verkaufspreis pro Einheit vor jeglicher Aktion.",
+        "fr": "Prix de vente unitaire habituel de l'article avant toute promotion.",
+        "es": "Precio de venta unitario habitual del artículo antes de cualquier promoción."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Buy Quantity",
         "tr": "Satın Alma Adedi",
         "de": "Kaufmenge",
-        "fr": "Buy Quantity",
-        "es": "Buy Quantity",
+        "fr": "Quantité à acheter",
+        "es": "Cantidad de compra",
         "ar": "Buy Quantity"
       },
       "businessContext_i18n": {
         "en": "Number of items the customer must purchase to qualify for the free items (the 'Buy' part).",
         "tr": "Müşterinin ücretsiz ürünleri almaya hak kazanması için satın alması gereken ürün sayısı ('Al' kısmı).",
-        "de": "Anzahl der Artikel, die der Kunde kaufen muss, um die kostenlosen Artikel zu erhalten (der 'Kauf'-Teil)."
+        "de": "Anzahl der Artikel, die der Kunde kaufen muss, um die kostenlosen Artikel zu erhalten (der 'Kauf'-Teil).",
+        "fr": "Nombre d'articles que le client doit acheter pour bénéficier des articles gratuits (la partie 'Achetez').",
+        "es": "Número de artículos que el cliente debe comprar para calificar para los artículos gratis (la parte 'Comprar')."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Get Quantity (Free)",
         "tr": "Ücretsiz Adet",
         "de": "Erhaltene Menge (kostenlos)",
-        "fr": "Get Quantity (Free)",
-        "es": "Get Quantity (Free)",
+        "fr": "Quantité gratuite (Obtenez)",
+        "es": "Cantidad gratis (Regalo)",
         "ar": "Get Quantity (Free)"
       },
       "businessContext_i18n": {
         "en": "Number of items the customer receives for free (the 'Get' part).",
         "tr": "Müşterinin ücretsiz aldığı ürün sayısı ('Ver' kısmı).",
-        "de": "Anzahl der Artikel, die der Kunde kostenlos erhält (der 'Erhalten'-Teil)."
+        "de": "Anzahl der Artikel, die der Kunde kostenlos erhält (der 'Erhalten'-Teil).",
+        "fr": "Nombre d'articles que le client reçoit gratuitement (la partie 'Obtenez').",
+        "es": "Número de artículos que el cliente recibe gratis (la parte 'Recibir')."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Number of Sets",
         "tr": "Set Sayısı",
         "de": "Anzahl der Sets",
-        "fr": "Number of Sets",
-        "es": "Number of Sets",
+        "fr": "Nombre de lots",
+        "es": "Número de conjuntos",
         "ar": "Number of Sets"
       },
       "businessContext_i18n": {
         "en": "How many times the BOGO deal is applied (e.g., buy 2 get 1 free repeated twice).",
         "tr": "BOGO anlaşmasının kaç kez uygulandığı (örneğin, 2 al 1 bedava iki kez tekrarlanırsa).",
-        "de": "Wie oft das BOGO-Angebot angewendet wird (z. B. 'Kaufe 2, erhalte 1 gratis' zweimal wiederholt)."
+        "de": "Wie oft das BOGO-Angebot angewendet wird (z. B. 'Kaufe 2, erhalte 1 gratis' zweimal wiederholt).",
+        "fr": "Combien de fois l'offre BOGO est appliquée (ex. : achetez 2 obtenez 1 gratuit répété deux fois).",
+        "es": "Cuántas veces se aplica la oferta BOGO (ej., compre 2 y llévese 1 gratis repetido dos veces)."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
         "de": "Steuersatz",
-        "fr": "Tax Rate",
-        "es": "Tax Rate",
+        "fr": "Taux de taxe",
+        "es": "Tasa de impuesto",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Applicable tax percentage on the purchase. Set to 0 if tax is not considered.",
         "tr": "Alışverişe uygulanan vergi yüzdesi. Vergi dikkate alınmıyorsa 0 olarak ayarlayın.",
-        "de": "Anwendbarer Steuerprozentsatz auf den Kauf. Auf 0 setzen, wenn Steuer nicht berücksichtigt wird."
+        "de": "Anwendbarer Steuerprozentsatz auf den Kauf. Auf 0 setzen, wenn Steuer nicht berücksichtigt wird.",
+        "fr": "Pourcentage de taxe applicable sur l'achat. Mettre 0 si la taxe n'est pas prise en compte.",
+        "es": "Porcentaje de impuesto aplicable a la compra. Establezca 0 si no se considera impuesto."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Additional Discount",
         "tr": "Ek İndirim",
         "de": "Zusätzlicher Rabatt",
-        "fr": "Additional Discount",
-        "es": "Additional Discount",
+        "fr": "Remise supplémentaire",
+        "es": "Descuento adicional",
         "ar": "Additional Discount"
       },
       "businessContext_i18n": {
         "en": "Any extra percentage discount applied to the total (e.g., store-wide sale).",
         "tr": "Toplam tutara uygulanan herhangi bir ek yüzde indirim (örneğin, mağaza genelinde indirim).",
-        "de": "Zusätzlicher prozentualer Rabatt auf die Gesamtsumme (z. B. Filialverkauf)."
+        "de": "Zusätzlicher prozentualer Rabatt auf die Gesamtsumme (z. B. Filialverkauf).",
+        "fr": "Tout pourcentage de remise supplémentaire appliqué au total (ex. : vente à l'échelle du magasin).",
+        "es": "Cualquier descuento porcentual extra aplicado al total (ej., oferta en toda la tienda)."
       }
     }
   ],

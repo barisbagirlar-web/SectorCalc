@@ -12,14 +12,16 @@
         "en": "Cubits",
         "tr": "Kübit",
         "de": "Cubits",
-        "fr": "Cubits",
-        "es": "Cubits",
+        "fr": "Coudées",
+        "es": "Codos",
         "ar": "Cubits"
       },
       "businessContext_i18n": {
         "en": "Enter the number of cubits to convert.",
         "tr": "Dönüştürülecek kübit sayısını girin.",
-        "de": "Geben Sie die Anzahl der Cubits zur Umrechnung ein."
+        "de": "Geben Sie die Anzahl der Cubits zur Umrechnung ein.",
+        "fr": "Saisissez le nombre de coudées à convertir.",
+        "es": "Ingrese el número de codos a convertir."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Conversion Factor (m per cubit)",
         "tr": "Dönüşüm Faktörü (kübit başına m)",
         "de": "Umrechnungsfaktor (m pro Cubit)",
-        "fr": "Conversion Factor (m per cubit)",
-        "es": "Conversion Factor (m per cubit)",
+        "fr": "Facteur de conversion (m par coudée)",
+        "es": "Factor de conversión (m por codo)",
         "ar": "Conversion Factor (m per cubit)"
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor: 1 cubit = 0.4572 m. Adjust if using a different definition.",
         "tr": "Standart dönüşüm faktörü: 1 kübit = 0,4572 m. Farklı bir tanım kullanıyorsanız ayarlayın.",
-        "de": "Standard-Umrechnungsfaktor: 1 Cubit = 0,4572 m. Bei abweichender Definition anpassen."
+        "de": "Standard-Umrechnungsfaktor: 1 Cubit = 0,4572 m. Bei abweichender Definition anpassen.",
+        "fr": "Facteur de conversion standard : 1 coudée = 0,4572 m. Ajustez si vous utilisez une définition différente.",
+        "es": "Factor de conversión estándar: 1 codo = 0,4572 m. Ajuste si usa una definición diferente."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for display (affects breakdown rounding).",
         "tr": "Görüntüleme için ondalık basamak sayısı (ara yuvarlamaları etkiler).",
-        "de": "Anzahl der Dezimalstellen für die Anzeige (beeinflusst die Rundung der Aufschlüsselung)."
+        "de": "Anzahl der Dezimalstellen für die Anzeige (beeinflusst die Rundung der Aufschlüsselung).",
+        "fr": "Nombre de décimales pour l'affichage (affecte l'arrondi de la décomposition).",
+        "es": "Número de decimales para la visualización (afecta el redondeo del desglose)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Rounding Method",
         "tr": "Yuvarlama yöntemi",
         "de": "Rundungsmethode",
-        "fr": "Rounding Method",
-        "es": "Rounding Method",
+        "fr": "Méthode d'arrondi",
+        "es": "Método de redondeo",
         "ar": "Rounding Method"
       },
       "businessContext_i18n": {
         "en": "0: standard (not implemented in formula; for future use), 1: floor, 2: ceil. Currently only raw value computed.",
         "tr": "0: standart (formülde uygulanmaz; gelecekte kullanım için), 1: taban, 2: tavan. Şu anda yalnızca ham değer hesaplanır.",
-        "de": "0: Standard (nicht in Formel implementiert; für zukünftige Verwendung), 1: Abrunden, 2: Aufrunden. Derzeit wird nur der Rohwert berechnet."
+        "de": "0: Standard (nicht in Formel implementiert; für zukünftige Verwendung), 1: Abrunden, 2: Aufrunden. Derzeit wird nur der Rohwert berechnet.",
+        "fr": "0 : standard (non implémenté dans la formule ; pour usage futur), 1 : plancher, 2 : plafond. Actuellement seule la valeur brute est calculée.",
+        "es": "0: estándar (no implementado en la fórmula; para uso futuro), 1: suelo, 2: techo. Actualmente solo se calcula el valor bruto."
       }
     }
   ],

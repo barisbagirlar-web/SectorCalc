@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Aircraft Weight",
         "tr": "Uçak Ağırlığı",
-        "de": "Aircraft Weight",
-        "fr": "Aircraft Weight",
+        "de": "Flugzeuggewicht",
+        "fr": "Poids de l'aéronef",
         "es": "Aircraft Weight",
         "ar": "Aircraft Weight"
       },
       "businessContext_i18n": {
         "en": "Total weight of the aircraft including payload and fuel",
-        "tr": "Yük ve yakıt dahil uçağın toplam ağırlığı"
+        "tr": "Yük ve yakıt dahil uçağın toplam ağırlığı",
+        "de": "Gesamtgewicht des Flugzeugs einschließlich Nutzlast und Treibstoff",
+        "fr": "Poids total de l'aéronef incluant la charge utile et le carburant"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Wing Area",
         "tr": "Kanat Alanı",
-        "de": "Wing Area",
-        "fr": "Wing Area",
+        "de": "Flügelfläche",
+        "fr": "Surface alaire",
         "es": "Wing Area",
         "ar": "Wing Area"
       },
       "businessContext_i18n": {
         "en": "Total planform wing area",
-        "tr": "Toplam planform kanat alanı"
+        "tr": "Toplam planform kanat alanı",
+        "de": "Gesamte Grundrissfläche der Tragflächen",
+        "fr": "Surface alaire totale en plan"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Air Density",
         "tr": "Hava Yoğunluğu",
         "de": "Luftdichte",
-        "fr": "Air Density",
-        "es": "Air Density",
+        "fr": "Densité de l'air",
+        "es": "Densidad del aire",
         "ar": "Air Density"
       },
       "businessContext_i18n": {
         "en": "Density of air at current altitude",
-        "tr": "Mevcut irtifadaki hava yoğunluğu"
+        "tr": "Mevcut irtifadaki hava yoğunluğu",
+        "de": "Luftdichte in der aktuellen Höhe",
+        "fr": "Densité de l'air à l'altitude actuelle"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Maximum Lift Coefficient (CL_max)",
         "tr": "Maksimum Kaldırma Katsayısı (CL_max)",
-        "de": "Maximum Lift Coefficient (CL_max)",
-        "fr": "Maximum Lift Coefficient (CL_max)",
+        "de": "Maximaler Auftriebsbeiwert (CL_max)",
+        "fr": "Coefficient de portance maximal (CL_max)",
         "es": "Maximum Lift Coefficient (CL_max)",
         "ar": "Maximum Lift Coefficient (CL_max)"
       },
       "businessContext_i18n": {
         "en": "Maximum lift coefficient of the airfoil",
-        "tr": "Kanat profilinin maksimum kaldırma katsayısı"
+        "tr": "Kanat profilinin maksimum kaldırma katsayısı",
+        "de": "Maximaler Auftriebsbeiwert des Tragflügelprofils",
+        "fr": "Coefficient de portance maximal du profil aérodynamique"
       }
     }
   ],

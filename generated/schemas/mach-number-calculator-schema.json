@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "True Airspeed",
         "tr": "Gerçek Hava Hızı",
-        "de": "True Airspeed",
-        "fr": "True Airspeed",
-        "es": "True Airspeed",
+        "de": "Wahre Fluggeschwindigkeit",
+        "fr": "Vitesse air vraie",
+        "es": "Velocidad aerodinámica real",
         "ar": "True Airspeed"
       },
       "businessContext_i18n": {
         "en": "True airspeed of the object relative to the air in meters per second.",
-        "tr": "Nesnenin havaya göre saniyede metre cinsinden gerçek hava hızı."
+        "tr": "Nesnenin havaya göre saniyede metre cinsinden gerçek hava hızı.",
+        "de": "Wahre Fluggeschwindigkeit des Objekts relativ zur Luft in Metern pro Sekunde.",
+        "fr": "Vitesse air vraie de l'objet par rapport à l'air en mètres par seconde.",
+        "es": "Velocidad aerodinámica real del objeto respecto al aire en metros por segundo."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Ambient Temperature",
         "tr": "Ortam Sıcaklığı",
         "de": "Umgebungstemperatur",
-        "fr": "Ambient Temperature",
-        "es": "Ambient Temperature",
+        "fr": "Température ambiante",
+        "es": "Temperatura ambiente",
         "ar": "Ambient Temperature"
       },
       "businessContext_i18n": {
         "en": "Ambient air temperature in degrees Celsius.",
-        "tr": "Santigrat derece cinsinden ortam hava sıcaklığı."
+        "tr": "Santigrat derece cinsinden ortam hava sıcaklığı.",
+        "de": "Umgebungslufttemperatur in Grad Celsius.",
+        "fr": "Température ambiante de l'air en degrés Celsius.",
+        "es": "Temperatura ambiente del aire en grados Celsius."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Specific Heat Ratio (γ)",
         "tr": "Özgül Isı Oranı (γ)",
         "de": "Isentropenexponent (γ)",
-        "fr": "Specific Heat Ratio (γ)",
-        "es": "Specific Heat Ratio (γ)",
+        "fr": "Rapport des chaleurs spécifiques (γ)",
+        "es": "Relación de calores específicos (γ)",
         "ar": "Specific Heat Ratio (γ)"
       },
       "businessContext_i18n": {
         "en": "Ratio of specific heats; for air, γ = 1.4.",
-        "tr": "Özgül ısı oranı; hava için γ = 1,4."
+        "tr": "Özgül ısı oranı; hava için γ = 1,4.",
+        "de": "Verhältnis der spezifischen Wärmen; für Luft γ = 1,4.",
+        "fr": "Rapport des chaleurs spécifiques ; pour l'air, γ = 1,4.",
+        "es": "Relación de calores específicos; para el aire, γ = 1.4."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Specific Gas Constant",
         "tr": "Özgül gaz sabiti",
         "de": "Spezifische Gaskonstante",
-        "fr": "Specific Gas Constant",
-        "es": "Specific Gas Constant",
+        "fr": "Constante spécifique du gaz",
+        "es": "Constante específica del gas",
         "ar": "Specific Gas Constant"
       },
       "businessContext_i18n": {
         "en": "Specific gas constant for the gas; for dry air, R ≈ 287 J/(kg·K).",
-        "tr": "Gaz için özgül gaz sabiti; kuru hava için R ≈ 287 J/(kg·K)."
+        "tr": "Gaz için özgül gaz sabiti; kuru hava için R ≈ 287 J/(kg·K).",
+        "de": "Spezifische Gaskonstante für das Gas; für trockene Luft R ≈ 287 J/(kg·K).",
+        "fr": "Constante spécifique des gaz pour le gaz ; pour l'air sec, R ≈ 287 J/(kg·K).",
+        "es": "Constante específica del gas; para aire seco, R ≈ 287 J/(kg·K)."
       }
     }
   ],

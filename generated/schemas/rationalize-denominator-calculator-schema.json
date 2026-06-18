@@ -12,13 +12,16 @@
         "en": "Numerator",
         "tr": "Pay",
         "de": "Zähler",
-        "fr": "Numerator",
-        "es": "Numerator",
+        "fr": "Numérateur",
+        "es": "Numerador",
         "ar": "Numerator"
       },
       "businessContext_i18n": {
         "en": "Value above the fraction line.",
-        "tr": "Kesir çizgisinin üzerindeki değer."
+        "tr": "Kesir çizgisinin üzerindeki değer.",
+        "de": "Wert über dem Bruchstrich.",
+        "fr": "Valeur au-dessus de la barre de fraction.",
+        "es": "Valor sobre la línea de fracción."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Constant (a)",
         "tr": "Sabit (a)",
-        "de": "Constant (a)",
-        "fr": "Constant (a)",
-        "es": "Constant (a)",
+        "de": "Konstante (a)",
+        "fr": "Constante (a)",
+        "es": "Constante (a)",
         "ar": "Constant (a)"
       },
       "businessContext_i18n": {
         "en": "Constant term in denominator (a + b√c).",
-        "tr": "Paydadaki sabit terim (a + b√c)."
+        "tr": "Paydadaki sabit terim (a + b√c).",
+        "de": "Konstanter Term im Nenner (a + b√c).",
+        "fr": "Terme constant au dénominateur (a + b√c).",
+        "es": "Término constante en el denominador (a + b√c)."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Radical Coefficient (b)",
         "tr": "Kök Katsayısı (b)",
-        "de": "Radical Coefficient (b)",
-        "fr": "Radical Coefficient (b)",
-        "es": "Radical Coefficient (b)",
+        "de": "Radikal-Koeffizient (b)",
+        "fr": "Coefficient radical (b)",
+        "es": "Coeficiente radical (b)",
         "ar": "Radical Coefficient (b)"
       },
       "businessContext_i18n": {
         "en": "Coefficient of the square root term in denominator.",
-        "tr": "Paydadaki kareköklü terimin katsayısı."
+        "tr": "Paydadaki kareköklü terimin katsayısı.",
+        "de": "Koeffizient des Quadratwurzelterms im Nenner.",
+        "fr": "Coefficient du terme racine carrée au dénominateur.",
+        "es": "Coeficiente del término de raíz cuadrada en el denominador."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Radicand (c)",
         "tr": "Kök içi (c)",
-        "de": "Radicand (c)",
-        "fr": "Radicand (c)",
-        "es": "Radicand (c)",
+        "de": "Radikand (c)",
+        "fr": "Radicande (c)",
+        "es": "Radicando (c)",
         "ar": "Radicand (c)"
       },
       "businessContext_i18n": {
         "en": "Value under the square root (c).",
-        "tr": "Karekök altındaki değer (c)."
+        "tr": "Karekök altındaki değer (c).",
+        "de": "Wert unter der Quadratwurzel (c).",
+        "fr": "Valeur sous la racine carrée (c).",
+        "es": "Valor bajo la raíz cuadrada (c)."
       }
     }
   ],

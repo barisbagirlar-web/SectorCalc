@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Full Power Consumption",
         "tr": "Tam Güç Tüketimi",
-        "de": "Full Power Consumption",
-        "fr": "Full Power Consumption",
+        "de": "Volle Leistungsaufnahme",
+        "fr": "Consommation électrique totale",
         "es": "Full Power Consumption",
         "ar": "Full Power Consumption"
       },
       "businessContext_i18n": {
         "en": "Nominal güç tüketimi (Watt)",
-        "tr": "Nominal güç tüketimi (Watt)"
+        "tr": "Nominal güç tüketimi (Watt)",
+        "de": "Nennleistungsaufnahme (Watt)",
+        "fr": "Consommation électrique nominale (Watt)"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Dimming Percentage",
         "tr": "Karartma Yüzdesi",
-        "de": "Dimming Percentage",
-        "fr": "Dimming Percentage",
+        "de": "Dimmprozentsatz",
+        "fr": "Pourcentage de gradation",
         "es": "Dimming Percentage",
         "ar": "Dimming Percentage"
       },
       "businessContext_i18n": {
         "en": "Karartma yüzdesi",
-        "tr": "Karartma yüzdesi"
+        "tr": "Karartma yüzdesi",
+        "de": "Dimmprozentsatz",
+        "fr": "Pourcentage de gradation"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Dimming Curve Exponent",
         "tr": "Karartma Eğrisi Üssü",
-        "de": "Dimming Curve Exponent",
-        "fr": "Dimming Curve Exponent",
+        "de": "Exponent der Dimmkurve",
+        "fr": "Exposant de la courbe de gradation",
         "es": "Dimming Curve Exponent",
         "ar": "Dimming Curve Exponent"
       },
       "businessContext_i18n": {
         "en": "LED sönümlendirme eğrisi üssü",
-        "tr": "LED sönümlendirme eğrisi üssü"
+        "tr": "LED sönümlendirme eğrisi üssü",
+        "de": "Exponent der LED-Dimmkurve",
+        "fr": "Exposant de la courbe de gradation LED"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Daily Operating Hours",
         "tr": "Günlük Çalışma Saati",
-        "de": "Daily Operating Hours",
-        "fr": "Daily Operating Hours",
+        "de": "Tägliche Betriebsstunden",
+        "fr": "Heures de fonctionnement quotidiennes",
         "es": "Daily Operating Hours",
         "ar": "Daily Operating Hours"
       },
       "businessContext_i18n": {
         "en": "Günlük çalışma saati",
-        "tr": "Günlük çalışma saati"
+        "tr": "Günlük çalışma saati",
+        "de": "Tägliche Betriebsstunden",
+        "fr": "Heures de fonctionnement quotidiennes"
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Electricity Cost",
         "tr": "Elektrik Maliyeti",
         "de": "Stromkosten",
-        "fr": "Electricity Cost",
-        "es": "Electricity Cost",
+        "fr": "Coût de l'électricité",
+        "es": "Coste de electricidad",
         "ar": "Electricity Cost"
       },
       "businessContext_i18n": {
         "en": "Elektrik birim fiyatı",
-        "tr": "Elektrik birim fiyatı"
+        "tr": "Elektrik birim fiyatı",
+        "de": "Strompreis pro Einheit",
+        "fr": "Prix unitaire de l'électricité"
       }
     }
   ],

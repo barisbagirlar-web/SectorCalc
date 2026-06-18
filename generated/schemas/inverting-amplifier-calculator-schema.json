@@ -12,13 +12,16 @@
         "en": "Input Voltage (Vin)",
         "tr": "Giriş voltajı (Vin)",
         "de": "Eingangsspannung (Vin)",
-        "fr": "Input Voltage (Vin)",
-        "es": "Input Voltage (Vin)",
+        "fr": "Tension d'entrée (Vin)",
+        "es": "Voltaje de Entrada (Vin)",
         "ar": "Input Voltage (Vin)"
       },
       "businessContext_i18n": {
         "en": "AC or DC signal voltage at input",
-        "tr": "Girişteki AC veya DC sinyal gerilimi"
+        "tr": "Girişteki AC veya DC sinyal gerilimi",
+        "de": "AC- oder DC-Signalspannung am Eingang",
+        "fr": "Tension du signal d'entrée CA ou CC",
+        "es": "Tensión de señal CA o CC en la entrada"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Input Resistor (Rin)",
         "tr": "Giriş Direnci (Rin)",
-        "de": "Input Resistor (Rin)",
-        "fr": "Input Resistor (Rin)",
-        "es": "Input Resistor (Rin)",
+        "de": "Eingangswiderstand (Rin)",
+        "fr": "Résistance d'entrée (Rin)",
+        "es": "Resistencia de entrada (Rin)",
         "ar": "Input Resistor (Rin)"
       },
       "businessContext_i18n": {
         "en": "Resistance between input and inverting terminal",
-        "tr": "Giriş ile eviren terminal arasındaki direnç"
+        "tr": "Giriş ile eviren terminal arasındaki direnç",
+        "de": "Widerstand zwischen Eingang und invertierendem Eingang",
+        "fr": "Résistance entre l'entrée et la borne inverseuse",
+        "es": "Resistencia entre la entrada y el terminal inversor"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Feedback Resistor (Rf)",
         "tr": "Geri Besleme Direnci (Rf)",
-        "de": "Feedback Resistor (Rf)",
-        "fr": "Feedback Resistor (Rf)",
-        "es": "Feedback Resistor (Rf)",
+        "de": "Rückkopplungswiderstand (Rf)",
+        "fr": "Résistance de contre-réaction (Rf)",
+        "es": "Resistencia de realimentación (Rf)",
         "ar": "Feedback Resistor (Rf)"
       },
       "businessContext_i18n": {
         "en": "Resistance between output and inverting terminal",
-        "tr": "Çıkış ile eviren terminal arasındaki direnç"
+        "tr": "Çıkış ile eviren terminal arasındaki direnç",
+        "de": "Widerstand zwischen Ausgang und invertierendem Eingang",
+        "fr": "Résistance entre la sortie et la borne inverseuse",
+        "es": "Resistencia entre la salida y el terminal inversor"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Positive Supply (Vcc+)",
         "tr": "Pozitif Besleme (Vcc+)",
-        "de": "Positive Supply (Vcc+)",
-        "fr": "Positive Supply (Vcc+)",
-        "es": "Positive Supply (Vcc+)",
+        "de": "Positive Versorgungsspannung (Vcc+)",
+        "fr": "Alimentation positive (Vcc+)",
+        "es": "Alimentación positiva (Vcc+)",
         "ar": "Positive Supply (Vcc+)"
       },
       "businessContext_i18n": {
         "en": "Op-amp positive power supply voltage",
-        "tr": "Op-amp pozitif güç kaynağı gerilimi"
+        "tr": "Op-amp pozitif güç kaynağı gerilimi",
+        "de": "Positive Betriebsspannung des Operationsverstärkers",
+        "fr": "Tension d'alimentation positive de l'ampli-op",
+        "es": "Tensión de alimentación positiva del amplificador operacional"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Negative Supply (Vcc-)",
         "tr": "Negatif Besleme (Vcc-)",
-        "de": "Negative Supply (Vcc-)",
-        "fr": "Negative Supply (Vcc-)",
-        "es": "Negative Supply (Vcc-)",
+        "de": "Negative Versorgungsspannung (Vcc-)",
+        "fr": "Alimentation négative (Vcc-)",
+        "es": "Alimentación negativa (Vcc-)",
         "ar": "Negative Supply (Vcc-)"
       },
       "businessContext_i18n": {
         "en": "Op-amp negative power supply voltage",
-        "tr": "Op-amp negatif güç kaynağı gerilimi"
+        "tr": "Op-amp negatif güç kaynağı gerilimi",
+        "de": "Negative Betriebsspannung des Operationsverstärkers",
+        "fr": "Tension d'alimentation négative de l'ampli-op",
+        "es": "Tensión de alimentación negativa del amplificador operacional"
       }
     }
   ],

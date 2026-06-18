@@ -12,13 +12,16 @@
         "en": "Loan Amount",
         "tr": "Kredi Tutarı",
         "de": "Darlehensbetrag",
-        "fr": "Loan Amount",
-        "es": "Loan Amount",
+        "fr": "Montant du prêt",
+        "es": "Monto del préstamo",
         "ar": "Loan Amount"
       },
       "businessContext_i18n": {
         "en": "Principal amount borrowed",
-        "tr": "Borç alınan anapara tutarı"
+        "tr": "Borç alınan anapara tutarı",
+        "de": "Aufgenommener Kapitalbetrag",
+        "fr": "Montant principal emprunté",
+        "es": "Monto principal prestado"
       }
     },
     {
@@ -32,14 +35,16 @@
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
         "de": "Jährlicher Zinssatz",
-        "fr": "Annual Interest Rate",
-        "es": "Annual Interest Rate",
+        "fr": "Taux d'intérêt annuel",
+        "es": "Tasa de Interés Anual",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Nominal annual interest rate",
         "tr": "Nominal yıllık faiz oranı",
-        "de": "Nominaler jährlicher Zinssatz"
+        "de": "Nominaler jährlicher Zinssatz",
+        "fr": "Taux d'intérêt annuel nominal",
+        "es": "Tasa de interés nominal anual"
       }
     },
     {
@@ -53,13 +58,16 @@
         "en": "Loan Term (Years)",
         "tr": "Kredi Vadesi (Yıl)",
         "de": "Kreditlaufzeit (Jahre)",
-        "fr": "Loan Term (Years)",
-        "es": "Loan Term (Years)",
+        "fr": "Durée du prêt (années)",
+        "es": "Plazo del préstamo (años)",
         "ar": "Loan Term (Years)"
       },
       "businessContext_i18n": {
         "en": "Total duration of the loan in years",
-        "tr": "Kredinin toplam süresi (yıl olarak)"
+        "tr": "Kredinin toplam süresi (yıl olarak)",
+        "de": "Gesamtlaufzeit des Darlehens in Jahren",
+        "fr": "Durée totale du prêt en années",
+        "es": "Duración total del préstamo en años"
       }
     },
     {
@@ -73,13 +81,16 @@
         "en": "Payments Per Year",
         "tr": "Yıllık Ödeme Sayısı",
         "de": "Zahlungen pro Jahr",
-        "fr": "Payments Per Year",
-        "es": "Payments Per Year",
+        "fr": "Paiements par an",
+        "es": "Pagos por año",
         "ar": "Payments Per Year"
       },
       "businessContext_i18n": {
         "en": "Number of payment periods per year (e.g., 12 for monthly, 4 for quarterly)",
-        "tr": "Yıllık ödeme dönemi sayısı (örneğin, aylık için 12, üç aylık için 4)"
+        "tr": "Yıllık ödeme dönemi sayısı (örneğin, aylık için 12, üç aylık için 4)",
+        "de": "Anzahl der Zahlungsperioden pro Jahr (z. B. 12 für monatlich, 4 für vierteljährlich)",
+        "fr": "Nombre de périodes de paiement par an (ex. : 12 pour mensuel, 4 pour trimestriel)",
+        "es": "Número de períodos de pago por año (ej., 12 para mensual, 4 para trimestral)"
       }
     }
   ],

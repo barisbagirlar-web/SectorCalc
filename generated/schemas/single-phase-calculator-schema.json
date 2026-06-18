@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Voltage (V)",
         "tr": "Gerilim (V)",
-        "de": "Voltage (V)",
-        "fr": "Voltage (V)",
-        "es": "Voltage (V)",
+        "de": "Spannung (V)",
+        "fr": "Tension (V)",
+        "es": "Voltaje (V)",
         "ar": "Voltage (V)"
       },
       "businessContext_i18n": {
         "en": "Supply voltage in volts",
-        "tr": "Besleme gerilimi (volt)"
+        "tr": "Besleme gerilimi (volt)",
+        "de": "Versorgungsspannung in Volt",
+        "fr": "Tension d'alimentation en volts"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Current (A)",
         "tr": "Akım (A)",
         "de": "Strom (A)",
-        "fr": "Current (A)",
-        "es": "Current (A)",
+        "fr": "Courant (A)",
+        "es": "Corriente (A)",
         "ar": "Current (A)"
       },
       "businessContext_i18n": {
         "en": "Load current in amperes",
-        "tr": "Yük akımı (amper)"
+        "tr": "Yük akımı (amper)",
+        "de": "Laststrom in Ampere",
+        "fr": "Courant de charge en ampères"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Power Factor",
         "tr": "Güç Faktörü",
         "de": "Leistungsfaktor",
-        "fr": "Power Factor",
-        "es": "Power Factor",
+        "fr": "Facteur de puissance",
+        "es": "Factor de potencia",
         "ar": "Power Factor"
       },
       "businessContext_i18n": {
         "en": "Power factor (cos φ) of the load, between 0 and 1",
-        "tr": "Yükün güç faktörü (cos φ), 0 ile 1 arasında"
+        "tr": "Yükün güç faktörü (cos φ), 0 ile 1 arasında",
+        "de": "Leistungsfaktor (cos φ) der Last, zwischen 0 und 1",
+        "fr": "Facteur de puissance (cos φ) de la charge, entre 0 et 1"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Time (h)",
         "tr": "Süre (saat)",
-        "de": "Time (h)",
-        "fr": "Time (h)",
+        "de": "Zeit (h)",
+        "fr": "Temps (h)",
         "es": "Time (h)",
         "ar": "Time (h)"
       },
       "businessContext_i18n": {
         "en": "Operating time in hours for energy calculation",
-        "tr": "Enerji hesaplaması için çalışma süresi (saat)"
+        "tr": "Enerji hesaplaması için çalışma süresi (saat)",
+        "de": "Betriebszeit in Stunden für die Energieberechnung",
+        "fr": "Temps de fonctionnement en heures pour le calcul de l'énergie"
       }
     }
   ],

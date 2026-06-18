@@ -12,14 +12,16 @@
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Body Weight",
-        "es": "Body Weight",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "Weight of the user in kilograms for accurate calorie expenditure estimation.",
         "tr": "Kullanıcının kilogram cinsinden ağırlığı, doğru kalori harcaması tahmini için.",
-        "de": "Gewicht des Benutzers in Kilogramm für eine genaue Schätzung des Kalorienverbrauchs."
+        "de": "Gewicht des Benutzers in Kilogramm für eine genaue Schätzung des Kalorienverbrauchs.",
+        "fr": "Poids de l'utilisateur en kilogrammes pour une estimation précise de la dépense calorique.",
+        "es": "Peso del usuario en kilogramos para una estimación precisa del gasto calórico."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Exercise Duration",
         "tr": "Egzersiz Süresi",
         "de": "Trainingsdauer",
-        "fr": "Exercise Duration",
-        "es": "Exercise Duration",
+        "fr": "Durée de l'exercice",
+        "es": "Duración del ejercicio",
         "ar": "Exercise Duration"
       },
       "businessContext_i18n": {
         "en": "Total time spent on the elliptical machine in minutes.",
         "tr": "Eliptik bisiklette geçirilen toplam süre (dakika).",
-        "de": "Gesamtzeit auf dem Ellipsentrainer in Minuten."
+        "de": "Gesamtzeit auf dem Ellipsentrainer in Minuten.",
+        "fr": "Temps total passé sur l'appareil elliptique en minutes.",
+        "es": "Tiempo total en la máquina elíptica en minutos."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "MET Value",
         "tr": "MET Değeri",
         "de": "MET-Wert",
-        "fr": "MET Value",
-        "es": "MET Value",
+        "fr": "Valeur MET",
+        "es": "Valor MET",
         "ar": "MET Value"
       },
       "businessContext_i18n": {
         "en": "Metabolic Equivalent of Task for elliptical exercise (typical range: 5–9, depending on intensity).",
         "tr": "Eliptik egzersiz için metabolik eşdeğer (tipik aralık: 5–9, yoğunluğa bağlı).",
-        "de": "Metabolisches Äquivalent für das Training auf dem Ellipsentrainer (typischer Bereich: 5–9, je nach Intensität)."
+        "de": "Metabolisches Äquivalent für das Training auf dem Ellipsentrainer (typischer Bereich: 5–9, je nach Intensität).",
+        "fr": "Équivalent métabolique de la tâche pour l'exercice elliptique (plage typique : 5–9, selon l'intensité).",
+        "es": "Equivalente metabólico de la tarea para ejercicio elíptico (rango típico: 5–9, según la intensidad)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Personal Correction Factor",
         "tr": "Kişisel Düzeltme Faktörü",
         "de": "Persönlicher Korrekturfaktor",
-        "fr": "Personal Correction Factor",
-        "es": "Personal Correction Factor",
+        "fr": "Facteur de correction personnel",
+        "es": "Factor de corrección personal",
         "ar": "Personal Correction Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier to adjust for individual physiological differences (e.g., efficiency, fitness level). Default 1.0 indicates standard estimation.",
         "tr": "Bireysel fizyolojik farklılıkları (örn. verimlilik, fitness seviyesi) ayarlamak için çarpan. Varsayılan 1.0 standart tahmini ifade eder.",
-        "de": "Multiplikator zur Anpassung an individuelle physiologische Unterschiede (z. B. Effizienz, Fitnessniveau). Standard 1,0 bedeutet Standard-Schätzung."
+        "de": "Multiplikator zur Anpassung an individuelle physiologische Unterschiede (z. B. Effizienz, Fitnessniveau). Standard 1,0 bedeutet Standard-Schätzung.",
+        "fr": "Multiplicateur pour ajuster les différences physiologiques individuelles (par exemple, efficacité, niveau de forme physique). Par défaut 1.0 indique une estimation standard.",
+        "es": "Multiplicador para ajustar diferencias fisiológicas individuales (p. ej., eficiencia, nivel de condición física). El valor predeterminado 1.0 indica una estimación estándar."
       }
     }
   ],

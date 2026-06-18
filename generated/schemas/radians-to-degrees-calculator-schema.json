@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Radian Değeri",
         "tr": "Radyan Değeri",
-        "de": "Radian Değeri",
-        "fr": "Radian Değeri",
-        "es": "Radian Değeri",
+        "de": "Radiantwert",
+        "fr": "Valeur en radians",
+        "es": "Valor en radianes",
         "ar": "Radian Değeri"
       },
       "businessContext_i18n": {
         "en": "Dönüştürülecek açının radyan cinsinden değeri.",
-        "tr": "Dönüştürülecek açının radyan cinsinden değeri."
+        "tr": "Dönüştürülecek açının radyan cinsinden değeri.",
+        "de": "Wert des umzurechnenden Winkels in Radiant.",
+        "fr": "Valeur de l'angle à convertir en radians.",
+        "es": "Valor del ángulo en radianes a convertir."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Özel Pi Değeri",
         "tr": "Özel Pi Değeri",
-        "de": "Özel Pi Değeri",
-        "fr": "Özel Pi Değeri",
-        "es": "Özel Pi Değeri",
+        "de": "Benutzerdefinierter Pi-Wert",
+        "fr": "Valeur personnalisée de Pi",
+        "es": "Valor personalizado de Pi",
         "ar": "Özel Pi Değeri"
       },
       "businessContext_i18n": {
         "en": "Hassasiyet veya test için özelleştirilmiş pi sayısı. Standart Math.PI kullanmak için varsayılan bırakın.",
-        "tr": "Hassasiyet veya test için özelleştirilmiş pi sayısı. Standart Math.PI kullanmak için varsayılan bırakın."
+        "tr": "Hassasiyet veya test için özelleştirilmiş pi sayısı. Standart Math.PI kullanmak için varsayılan bırakın.",
+        "de": "Angepasster Pi-Wert für Präzision oder Tests. Für Standard Math.PI leer lassen.",
+        "fr": "Valeur de Pi personnalisée pour la précision ou les tests. Laissez par défaut pour utiliser Math.PI standard.",
+        "es": "Número pi personalizado para precisión o pruebas. Dejar por defecto para usar Math.PI estándar."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Ölçek Çarpanı",
         "tr": "Ölçek Çarpanı",
-        "de": "Ölçek Çarpanı",
-        "fr": "Ölçek Çarpanı",
-        "es": "Ölçek Çarpanı",
+        "de": "Skalierungsfaktor",
+        "fr": "Facteur d'échelle",
+        "es": "Factor de escala",
         "ar": "Ölçek Çarpanı"
       },
       "businessContext_i18n": {
         "en": "Dönüşüm sonucuna uygulanacak çarpan katsayısı (örn. kalibrasyon).",
-        "tr": "Dönüşüm sonucuna uygulanacak çarpan katsayısı (örn. kalibrasyon)."
+        "tr": "Dönüşüm sonucuna uygulanacak çarpan katsayısı (örn. kalibrasyon).",
+        "de": "Multiplikationsfaktor, der auf das Umrechnungsergebnis angewendet wird (z. B. Kalibrierung).",
+        "fr": "Coefficient multiplicateur à appliquer au résultat de la conversion (ex. calibration).",
+        "es": "Factor multiplicador a aplicar al resultado de la conversión (ej. calibración)."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Ofset (Derece)",
         "tr": "Ofset (Derece)",
-        "de": "Ofset (Derece)",
-        "fr": "Ofset (Derece)",
-        "es": "Ofset (Derece)",
+        "de": "Offset (Grad)",
+        "fr": "Décalage (degrés)",
+        "es": "Desplazamiento (grados)",
         "ar": "Ofset (Derece)"
       },
       "businessContext_i18n": {
         "en": "Dönüşüm sonucuna eklenecek sabit derece ofseti.",
-        "tr": "Dönüşüm sonucuna eklenecek sabit derece ofseti."
+        "tr": "Dönüşüm sonucuna eklenecek sabit derece ofseti.",
+        "de": "Konstanter Grad-Offset, der zum Umrechnungsergebnis addiert wird.",
+        "fr": "Décalage fixe en degrés à ajouter au résultat de la conversion.",
+        "es": "Desplazamiento constante en grados a añadir al resultado de la conversión."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Ondalık Hassasiyet",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Ondalık Hassasiyet",
-        "es": "Ondalık Hassasiyet",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Ondalık Hassasiyet"
       },
       "businessContext_i18n": {
         "en": "Sonuçta gösterilecek ondalık basamak sayısı.",
-        "tr": "Sonuçta gösterilecek ondalık basamak sayısı."
+        "tr": "Sonuçta gösterilecek ondalık basamak sayısı.",
+        "de": "Anzahl der im Ergebnis anzuzeigenden Dezimalstellen.",
+        "fr": "Nombre de décimales à afficher dans le résultat.",
+        "es": "Número de decimales a mostrar en el resultado."
       }
     }
   ],

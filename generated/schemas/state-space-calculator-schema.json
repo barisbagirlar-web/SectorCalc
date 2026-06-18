@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Number of States",
         "tr": "Durum Sayısı",
-        "de": "Number of States",
-        "fr": "Number of States",
+        "de": "Anzahl der Zustände",
+        "fr": "Nombre d'états",
         "es": "Number of States",
         "ar": "Number of States"
       },
       "businessContext_i18n": {
         "en": "Number of discrete states in the system",
-        "tr": "Sistemdeki ayrık durum sayısı"
+        "tr": "Sistemdeki ayrık durum sayısı",
+        "de": "Anzahl der diskreten Zustände im System",
+        "fr": "Nombre d'états discrets dans le système"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Transition Probability",
         "tr": "Geçiş Olasılığı",
-        "de": "Transition Probability",
-        "fr": "Transition Probability",
+        "de": "Übergangswahrscheinlichkeit",
+        "fr": "Probabilité de transition",
         "es": "Transition Probability",
         "ar": "Transition Probability"
       },
       "businessContext_i18n": {
         "en": "Probability of transitioning from one state to another",
-        "tr": "Bir durumdan diğerine geçme olasılığı"
+        "tr": "Bir durumdan diğerine geçme olasılığı",
+        "de": "Wahrscheinlichkeit des Übergangs von einem Zustand in einen anderen",
+        "fr": "Probabilité de passer d'un état à un autre"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Initial State Index",
         "tr": "Başlangıç Durum İndeksi",
-        "de": "Initial State Index",
-        "fr": "Initial State Index",
+        "de": "Startzustandsindex",
+        "fr": "Indice d'état initial",
         "es": "Initial State Index",
         "ar": "Initial State Index"
       },
       "businessContext_i18n": {
         "en": "Starting state index (0-based)",
-        "tr": "Başlangıç durum indeksi (0 tabanlı)"
+        "tr": "Başlangıç durum indeksi (0 tabanlı)",
+        "de": "Startzustandsindex (0-basiert)",
+        "fr": "Indice d'état de départ (basé sur 0)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Time Steps",
         "tr": "Zaman Adımları",
-        "de": "Time Steps",
-        "fr": "Time Steps",
+        "de": "Zeitschritte",
+        "fr": "Pas de temps",
         "es": "Time Steps",
         "ar": "Time Steps"
       },
       "businessContext_i18n": {
         "en": "Number of time steps to simulate",
-        "tr": "Simüle edilecek zaman adımı sayısı"
+        "tr": "Simüle edilecek zaman adımı sayısı",
+        "de": "Anzahl der zu simulierenden Zeitschritte",
+        "fr": "Nombre de pas de temps à simuler"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Reward per State",
         "tr": "Durum Başına Ödül",
-        "de": "Reward per State",
-        "fr": "Reward per State",
+        "de": "Belohnung pro Zustand",
+        "fr": "Récompense par état",
         "es": "Reward per State",
         "ar": "Reward per State"
       },
       "businessContext_i18n": {
         "en": "Reward obtained when in a state",
-        "tr": "Bir durumdayken elde edilen ödül"
+        "tr": "Bir durumdayken elde edilen ödül",
+        "de": "Belohnung, die in einem Zustand erzielt wird",
+        "fr": "Récompense obtenue dans un état"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Discount Factor",
         "tr": "İndirim Faktörü",
-        "de": "Discount Factor",
-        "fr": "Discount Factor",
+        "de": "Diskontierungsfaktor",
+        "fr": "Facteur d'actualisation",
         "es": "Discount Factor",
         "ar": "Discount Factor"
       },
       "businessContext_i18n": {
         "en": "Discount factor for future rewards (0-1)",
-        "tr": "Gelecekteki ödüller için indirim faktörü (0-1)"
+        "tr": "Gelecekteki ödüller için indirim faktörü (0-1)",
+        "de": "Diskontierungsfaktor für zukünftige Belohnungen (0-1)",
+        "fr": "Facteur d'actualisation pour les récompenses futures (0-1)"
       }
     }
   ],

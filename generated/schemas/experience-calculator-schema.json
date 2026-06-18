@@ -12,14 +12,16 @@
         "en": "İlk Birim Zamanı",
         "tr": "İlk Birim Zamanı",
         "de": "Erststückzeit",
-        "fr": "İlk Birim Zamanı",
-        "es": "İlk Birim Zamanı",
+        "fr": "Temps de première unité",
+        "es": "Tiempo de la primera unidad",
         "ar": "İlk Birim Zamanı"
       },
       "businessContext_i18n": {
         "en": "İlk birimin üretim süresi. Öğrenme eğrisi hesaplamalarında temel değerdir.",
         "tr": "İlk birimin üretim süresi. Öğrenme eğrisi hesaplamalarında temel değerdir.",
-        "de": "Produktionszeit des ersten Stücks. Basiswert für Lernkurvenberechnungen."
+        "de": "Produktionszeit des ersten Stücks. Basiswert für Lernkurvenberechnungen.",
+        "fr": "Temps de production de la première unité. Valeur de base pour les calculs de courbe d'apprentissage.",
+        "es": "Tiempo de producción de la primera unidad. Es el valor base en los cálculos de la curva de aprendizaje."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Öğrenme Oranı",
         "tr": "Öğrenme Oranı",
         "de": "Lernrate",
-        "fr": "Öğrenme Oranı",
-        "es": "Öğrenme Oranı",
+        "fr": "Taux d'apprentissage",
+        "es": "Tasa de aprendizaje",
         "ar": "Öğrenme Oranı"
       },
       "businessContext_i18n": {
         "en": "Birikimli üretim iki katına çıktığında birim zamanındaki düşüş yüzdesi. Tipik değerler 70-90 arasındadır.",
         "tr": "Birikimli üretim iki katına çıktığında birim zamanındaki düşüş yüzdesi. Tipik değerler 70-90 arasındadır.",
-        "de": "Prozentuale Verringerung der Stückzeit bei Verdopplung der kumulierten Produktion. Typische Werte zwischen 70 und 90."
+        "de": "Prozentuale Verringerung der Stückzeit bei Verdopplung der kumulierten Produktion. Typische Werte zwischen 70 und 90.",
+        "fr": "Pourcentage de réduction du temps unitaire lorsque la production cumulée double. Valeurs typiques entre 70 et 90.",
+        "es": "Porcentaje de reducción en el tiempo unitario cuando la producción acumulada se duplica. Valores típicos entre 70 y 90."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Toplam Birim Sayısı",
         "tr": "Toplam Birim Sayısı",
         "de": "Gesamtstückzahl",
-        "fr": "Toplam Birim Sayısı",
-        "es": "Toplam Birim Sayısı",
+        "fr": "Nombre total d'unités",
+        "es": "Número total de unidades",
         "ar": "Toplam Birim Sayısı"
       },
       "businessContext_i18n": {
         "en": "Deneyim kazanımının hesaplanacağı kümülatif birim adedi.",
         "tr": "Deneyim kazanımının hesaplanacağı kümülatif birim adedi.",
-        "de": "Kumulierte Stückzahl, für die der Lerneffekt berechnet wird."
+        "de": "Kumulierte Stückzahl, für die der Lerneffekt berechnet wird.",
+        "fr": "Nombre cumulé d'unités pour lequel l'expérience est calculée.",
+        "es": "Cantidad acumulada de unidades para calcular la ganancia de experiencia."
       }
     }
   ],

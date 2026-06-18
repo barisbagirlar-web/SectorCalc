@@ -12,14 +12,16 @@
         "en": "Volumetric Flow Rate",
         "tr": "Hacimsel Akış Hızı",
         "de": "Volumenstrom",
-        "fr": "Volumetric Flow Rate",
-        "es": "Volumetric Flow Rate",
+        "fr": "Débit volumétrique",
+        "es": "Caudal volumétrico",
         "ar": "Volumetric Flow Rate"
       },
       "businessContext_i18n": {
         "en": "Inlet volumetric flow rate of the reactant stream.",
         "tr": "Reaktan akışının giriş hacimsel debisi.",
-        "de": "Eingangsvolumenstrom des Reaktantenstroms"
+        "de": "Eingangsvolumenstrom des Reaktantenstroms",
+        "fr": "Débit volumétrique d'entrée du flux de réactif.",
+        "es": "Caudal volumétrico de entrada de la corriente de reactivo."
       }
     },
     {
@@ -32,14 +34,17 @@
       "label_i18n": {
         "en": "Inlet Concentration",
         "tr": "Giriş Konsantrasyonu",
-        "de": "Inlet Concentration",
-        "fr": "Inlet Concentration",
-        "es": "Inlet Concentration",
+        "de": "Eingangskonzentration",
+        "fr": "Concentration à l'entrée",
+        "es": "Concentración de entrada",
         "ar": "Inlet Concentration"
       },
       "businessContext_i18n": {
         "en": "Concentration of reactant A at reactor inlet.",
-        "tr": "Reaktör girişinde A reaktantının konsantrasyonu."
+        "tr": "Reaktör girişinde A reaktantının konsantrasyonu.",
+        "de": "Konzentration von Reaktant A am Reaktoreingang",
+        "fr": "Concentration du réactif A à l'entrée du réacteur.",
+        "es": "Concentración del reactivo A en la entrada del reactor."
       }
     },
     {
@@ -52,14 +57,17 @@
       "label_i18n": {
         "en": "Desired Conversion",
         "tr": "İstenen Dönüşüm",
-        "de": "Desired Conversion",
-        "fr": "Desired Conversion",
-        "es": "Desired Conversion",
+        "de": "Gewünschter Umsatz",
+        "fr": "Conversion souhaitée",
+        "es": "Conversión deseada",
         "ar": "Desired Conversion"
       },
       "businessContext_i18n": {
         "en": "Fraction of reactant A to be converted to products.",
-        "tr": "A reaktantının ürünlere dönüştürülecek kesri."
+        "tr": "A reaktantının ürünlere dönüştürülecek kesri.",
+        "de": "Anteil des Reaktanten A, der in Produkte umgewandelt werden soll.",
+        "fr": "Fraction du réactif A à convertir en produits.",
+        "es": "Fracción del reactivo A que se convertirá en productos."
       }
     },
     {
@@ -72,14 +80,17 @@
       "label_i18n": {
         "en": "Rate Constant",
         "tr": "Hız Sabiti",
-        "de": "Rate Constant",
-        "fr": "Rate Constant",
-        "es": "Rate Constant",
+        "de": "Geschwindigkeitskonstante",
+        "fr": "Constante de vitesse",
+        "es": "Constante de velocidad",
         "ar": "Rate Constant"
       },
       "businessContext_i18n": {
         "en": "Reaction rate constant. For first-order, units are s⁻¹; for second-order, m³/(mol·s).",
-        "tr": "Reaksiyon hız sabiti. Birinci derece için birim s⁻¹; ikinci derece için m³/(mol·s)."
+        "tr": "Reaksiyon hız sabiti. Birinci derece için birim s⁻¹; ikinci derece için m³/(mol·s).",
+        "de": "Reaktionsgeschwindigkeitskonstante. Für erste Ordnung Einheit s⁻¹; für zweite Ordnung m³/(mol·s).",
+        "fr": "Constante de vitesse de réaction. Pour le premier ordre, unités en s⁻¹ ; pour le second ordre, m³/(mol·s).",
+        "es": "Constante de velocidad de reacción. Para primer orden, las unidades son s⁻¹; para segundo orden, m³/(mol·s)."
       }
     },
     {
@@ -93,13 +104,16 @@
         "en": "Reaction Order",
         "tr": "Reaksiyon Mertebesi",
         "de": "Reaktionsordnung",
-        "fr": "Reaction Order",
-        "es": "Reaction Order",
+        "fr": "Ordre de réaction",
+        "es": "Orden de reacción",
         "ar": "Reaction Order"
       },
       "businessContext_i18n": {
         "en": "Order of reaction with respect to reactant A.",
-        "tr": "A reaktantına göre reaksiyon derecesi."
+        "tr": "A reaktantına göre reaksiyon derecesi.",
+        "de": "Reaktionsordnung bezüglich Reaktant A.",
+        "fr": "Ordre de réaction par rapport au réactif A.",
+        "es": "Orden de reacción con respecto al reactivo A."
       }
     },
     {
@@ -113,13 +127,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Safety factor to account for uncertainties in kinetics and operation.",
-        "tr": "Kinetik ve operasyondaki belirsizlikleri hesaba katmak için güvenlik faktörü."
+        "tr": "Kinetik ve operasyondaki belirsizlikleri hesaba katmak için güvenlik faktörü.",
+        "de": "Sicherheitsfaktor zur Berücksichtigung von Unsicherheiten in Kinetik und Betrieb.",
+        "fr": "Facteur de sécurité pour tenir compte des incertitudes cinétiques et opérationnelles.",
+        "es": "Factor de seguridad para considerar incertidumbres en cinética y operación."
       }
     }
   ],

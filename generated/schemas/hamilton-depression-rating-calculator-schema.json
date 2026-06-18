@@ -12,14 +12,16 @@
         "en": "Maksimum Depresyon Derinliği (mm)",
         "tr": "Maksimum Depresyon Derinliği (mm)",
         "de": "Maximale Depressionstiefe (mm)",
-        "fr": "Maksimum Depresyon Derinliği (mm)",
-        "es": "Maksimum Depresyon Derinliği (mm)",
+        "fr": "Profondeur de dépression maximale (mm)",
+        "es": "Profundidad máxima de depresión (mm)",
         "ar": "Maksimum Depresyon Derinliği (mm)"
       },
       "businessContext_i18n": {
         "en": "Ölçülen en derin çukur derinliği",
         "tr": "Ölçülen en derin çukur derinliği",
-        "de": "Gemessene tiefste Muldenvertiefung"
+        "de": "Gemessene tiefste Muldenvertiefung",
+        "fr": "Profondeur de fosse la plus profonde mesurée",
+        "es": "Profundidad de la cavidad más profunda medida"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Depresyon Alanı (mm²)",
         "tr": "Depresyon Alanı (mm²)",
         "de": "Depressionsfläche (mm²)",
-        "fr": "Depresyon Alanı (mm²)",
-        "es": "Depresyon Alanı (mm²)",
+        "fr": "Surface de dépression (mm²)",
+        "es": "Área de depresión (mm²)",
         "ar": "Depresyon Alanı (mm²)"
       },
       "businessContext_i18n": {
         "en": "Depresyonun yüzey alanı",
         "tr": "Depresyonun yüzey alanı",
-        "de": "Oberfläche der Mulde"
+        "de": "Oberfläche der Mulde",
+        "fr": "Surface de la dépression",
+        "es": "Área superficial de la depresión"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Depresyon Sayısı",
         "tr": "Depresyon Sayısı",
         "de": "Anzahl der Mulden",
-        "fr": "Depresyon Sayısı",
-        "es": "Depresyon Sayısı",
+        "fr": "Nombre de dépressions",
+        "es": "Número de depresiones",
         "ar": "Depresyon Sayısı"
       },
       "businessContext_i18n": {
         "en": "Tespit edilen toplam depresyon adedi",
         "tr": "Tespit edilen toplam depresyon adedi",
-        "de": "Gesamtzahl der erkannten Mulden"
+        "de": "Gesamtzahl der erkannten Mulden",
+        "fr": "Nombre total de dépressions détectées",
+        "es": "Número total de depresiones detectadas"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Kenar Keskinliği (1-5)",
         "tr": "Kenar Keskinliği (1-5)",
         "de": "Kantenschärfe (1-5)",
-        "fr": "Kenar Keskinliği (1-5)",
-        "es": "Kenar Keskinliği (1-5)",
+        "fr": "Netteté des bords (1-5)",
+        "es": "Agudeza del borde (1-5)",
         "ar": "Kenar Keskinliği (1-5)"
       },
       "businessContext_i18n": {
         "en": "Depresyon kenarlarının keskinlik derecesi (1: yuvarlak, 5: keskin)",
         "tr": "Depresyon kenarlarının keskinlik derecesi (1: yuvarlak, 5: keskin)",
-        "de": "Schärfegrad der Muldenkanten (1: abgerundet, 5: scharf)"
+        "de": "Schärfegrad der Muldenkanten (1: abgerundet, 5: scharf)",
+        "fr": "Degré de netteté des bords de la dépression (1 : arrondi, 5 : net)",
+        "es": "Grado de agudeza de los bordes de la depresión (1: redondeado, 5: afilado)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Malzeme Direnç Faktörü",
         "tr": "Malzeme Direnç Faktörü",
         "de": "Materialwiderstandsfaktor",
-        "fr": "Malzeme Direnç Faktörü",
-        "es": "Malzeme Direnç Faktörü",
+        "fr": "Facteur de résistance du matériau",
+        "es": "Factor de resistencia del material",
         "ar": "Malzeme Direnç Faktörü"
       },
       "businessContext_i18n": {
         "en": "Malzemenin depresyona karşı direncini gösteren katsayı (0.5-2.0)",
         "tr": "Malzemenin depresyona karşı direncini gösteren katsayı (0.5-2.0)",
-        "de": "Koeffizient des Materialwiderstands gegen Muldenbildung (0,5-2,0)"
+        "de": "Koeffizient des Materialwiderstands gegen Muldenbildung (0,5-2,0)",
+        "fr": "Coefficient de résistance du matériau à la dépression (0,5-2,0)",
+        "es": "Coeficiente que indica la resistencia del material a la depresión (0.5-2.0)"
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Angle A",
         "tr": "Açı A",
-        "de": "Angle A",
+        "de": "Winkel A",
         "fr": "Angle A",
-        "es": "Angle A",
+        "es": "Ángulo A",
         "ar": "Angle A"
       },
       "businessContext_i18n": {
         "en": "First angle of the triangle in degrees",
-        "tr": "Üçgenin birinci açısı (derece)"
+        "tr": "Üçgenin birinci açısı (derece)",
+        "de": "Erster Winkel des Dreiecks in Grad",
+        "fr": "Premier angle du triangle en degrés"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Angle B",
         "tr": "Açı B",
-        "de": "Angle B",
+        "de": "Winkel B",
         "fr": "Angle B",
-        "es": "Angle B",
+        "es": "Ángulo B",
         "ar": "Angle B"
       },
       "businessContext_i18n": {
         "en": "Second angle of the triangle in degrees",
-        "tr": "Üçgenin ikinci açısı (derece)"
+        "tr": "Üçgenin ikinci açısı (derece)",
+        "de": "Zweiter Winkel des Dreiecks in Grad",
+        "fr": "Deuxième angle du triangle en degrés"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Angle C",
         "tr": "Açı C",
-        "de": "Angle C",
+        "de": "Winkel C",
         "fr": "Angle C",
-        "es": "Angle C",
+        "es": "Ángulo C",
         "ar": "Angle C"
       },
       "businessContext_i18n": {
         "en": "Third angle of the triangle in degrees",
-        "tr": "Üçgenin üçüncü açısı (derece)"
+        "tr": "Üçgenin üçüncü açısı (derece)",
+        "de": "Dritter Winkel des Dreiecks in Grad",
+        "fr": "Troisième angle du triangle en degrés"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Tolerance",
         "tr": "Tolerans",
         "de": "Toleranz",
-        "fr": "Tolerance",
-        "es": "Tolerance",
+        "fr": "Tolérance",
+        "es": "Tolerancia",
         "ar": "Tolerance"
       },
       "businessContext_i18n": {
         "en": "Allowed deviation from 180° for triangle validity check",
-        "tr": "Üçgen geçerlilik kontrolü için 180°'den izin verilen sapma"
+        "tr": "Üçgen geçerlilik kontrolü için 180°'den izin verilen sapma",
+        "de": "Zulässige Abweichung von 180° für die Dreiecksgültigkeitsprüfung",
+        "fr": "Écart autorisé par rapport à 180° pour la validation du triangle"
       }
     }
   ],

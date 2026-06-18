@@ -12,14 +12,16 @@
         "en": "Refractive Index (n1)",
         "tr": "Kırılma İndisi (n1)",
         "de": "Brechungsindex (n1)",
-        "fr": "Refractive Index (n1)",
-        "es": "Refractive Index (n1)",
+        "fr": "Indice de réfraction (n1)",
+        "es": "Índice de refracción (n1)",
         "ar": "Refractive Index (n1)"
       },
       "businessContext_i18n": {
         "en": "Incident medium refractive index (e.g., air = 1.0)",
         "tr": "Gelen ortamın kırılma indisi (ör. hava = 1.0)",
-        "de": "Brechungsindex des einfallenden Mediums (z. B. Luft = 1,0)"
+        "de": "Brechungsindex des einfallenden Mediums (z. B. Luft = 1,0)",
+        "fr": "Indice de réfraction du milieu incident (ex. air = 1,0)",
+        "es": "Índice de refracción del medio incidente (ej., aire = 1.0)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Refractive Index (n2)",
         "tr": "Kırılma İndisi (n2)",
         "de": "Brechungsindex (n2)",
-        "fr": "Refractive Index (n2)",
-        "es": "Refractive Index (n2)",
+        "fr": "Indice de réfraction (n2)",
+        "es": "Índice de refracción (n2)",
         "ar": "Refractive Index (n2)"
       },
       "businessContext_i18n": {
         "en": "Refracting medium refractive index (e.g., glass = 1.5)",
         "tr": "Kıran ortamın kırılma indisi (ör. cam = 1.5)",
-        "de": "Brechungsindex des brechenden Mediums (z. B. Glas = 1,5)"
+        "de": "Brechungsindex des brechenden Mediums (z. B. Glas = 1,5)",
+        "fr": "Indice de réfraction du milieu réfractant (ex. verre = 1,5)",
+        "es": "Índice de refracción del medio refractante (ej., vidrio = 1.5)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Temperature",
         "tr": "Sıcaklık",
         "de": "Temperatur",
-        "fr": "Temperature",
-        "es": "Temperature",
+        "fr": "Température",
+        "es": "Temperatura",
         "ar": "Temperature"
       },
       "businessContext_i18n": {
         "en": "Operating temperature of the medium",
         "tr": "Ortamın çalışma sıcaklığı",
-        "de": "Betriebstemperatur des Mediums"
+        "de": "Betriebstemperatur des Mediums",
+        "fr": "Température de fonctionnement du milieu",
+        "es": "Temperatura de operación del medio"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Temperature Coefficient of n2",
         "tr": "n2'nin sıcaklık katsayısı",
         "de": "Temperaturkoeffizient von n2",
-        "fr": "Temperature Coefficient of n2",
-        "es": "Temperature Coefficient of n2",
+        "fr": "Coefficient de température de n2",
+        "es": "Coeficiente de temperatura de n2",
         "ar": "Temperature Coefficient of n2"
       },
       "businessContext_i18n": {
         "en": "Linear temperature coefficient for n2",
         "tr": "n2 için lineer sıcaklık katsayısı",
-        "de": "Linearer Temperaturkoeffizient für n2"
+        "de": "Linearer Temperaturkoeffizient für n2",
+        "fr": "Coefficient de température linéaire pour n2",
+        "es": "Coeficiente de temperatura lineal para n2"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Reference Temperature",
         "tr": "Referans Sıcaklık",
         "de": "Referenztemperatur",
-        "fr": "Reference Temperature",
-        "es": "Reference Temperature",
+        "fr": "Température de référence",
+        "es": "Temperatura de referencia",
         "ar": "Reference Temperature"
       },
       "businessContext_i18n": {
         "en": "Reference temperature at which n2 is defined",
         "tr": "n2'nin tanımlandığı referans sıcaklık",
-        "de": "Referenztemperatur, bei der n2 definiert ist"
+        "de": "Referenztemperatur, bei der n2 definiert ist",
+        "fr": "Température de référence à laquelle n2 est défini",
+        "es": "Temperatura de referencia a la que se define n2"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Angle Unit",
         "tr": "Açı birimi",
         "de": "Winkeleinheit",
-        "fr": "Angle Unit",
-        "es": "Angle Unit",
+        "fr": "Unité d'angle",
+        "es": "Unidad de ángulo",
         "ar": "Angle Unit"
       },
       "businessContext_i18n": {
         "en": "Output angle unit: 0 for degrees, 1 for radians",
         "tr": "Çıktı açı birimi: 0 derece, 1 radyan",
-        "de": "Ausgabewinkeleinheit: 0 für Grad, 1 für Bogenmaß"
+        "de": "Ausgabewinkeleinheit: 0 für Grad, 1 für Bogenmaß",
+        "fr": "Unité d'angle de sortie : 0 pour degrés, 1 pour radians",
+        "es": "Unidad de ángulo de salida: 0 para grados, 1 para radianes"
       }
     }
   ],

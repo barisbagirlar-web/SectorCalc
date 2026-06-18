@@ -12,14 +12,16 @@
         "en": "Deneme Sayısı (n)",
         "tr": "Deneme Sayısı (n)",
         "de": "Anzahl der Versuche (n)",
-        "fr": "Deneme Sayısı (n)",
-        "es": "Deneme Sayısı (n)",
+        "fr": "Nombre d'essais (n)",
+        "es": "Número de ensayos (n)",
         "ar": "Deneme Sayısı (n)"
       },
       "businessContext_i18n": {
         "en": "Toplam bağımsız deneme sayısı. Pozitif tam sayı olmalıdır.",
         "tr": "Toplam bağımsız deneme sayısı. Pozitif tam sayı olmalıdır.",
-        "de": "Gesamtzahl der unabhängigen Versuche. Muss eine positive ganze Zahl sein."
+        "de": "Gesamtzahl der unabhängigen Versuche. Muss eine positive ganze Zahl sein.",
+        "fr": "Nombre total d'essais indépendants. Doit être un entier positif.",
+        "es": "Número total de ensayos independientes. Debe ser un entero positivo."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Başarı Sayısı (k)",
         "tr": "Başarı Sayısı (k)",
         "de": "Anzahl der Erfolge (k)",
-        "fr": "Başarı Sayısı (k)",
-        "es": "Başarı Sayısı (k)",
+        "fr": "Nombre de succès (k)",
+        "es": "Número de éxitos (k)",
         "ar": "Başarı Sayısı (k)"
       },
       "businessContext_i18n": {
         "en": "Elde edilmesi istenen başarı sayısı. 0 ile n arasında tam sayı olmalıdır.",
         "tr": "Elde edilmesi istenen başarı sayısı. 0 ile n arasında tam sayı olmalıdır.",
-        "de": "Gewünschte Anzahl von Erfolgen. Muss eine ganze Zahl zwischen 0 und n sein."
+        "de": "Gewünschte Anzahl von Erfolgen. Muss eine ganze Zahl zwischen 0 und n sein.",
+        "fr": "Nombre de succès souhaité. Doit être un entier entre 0 et n.",
+        "es": "Número de éxitos deseado. Debe ser un entero entre 0 y n."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Başarı Olasılığı (p)",
         "tr": "Başarı Olasılığı (p)",
         "de": "Erfolgswahrscheinlichkeit (p)",
-        "fr": "Başarı Olasılığı (p)",
-        "es": "Başarı Olasılığı (p)",
+        "fr": "Probabilité de succès (p)",
+        "es": "Probabilidad de éxito (p)",
         "ar": "Başarı Olasılığı (p)"
       },
       "businessContext_i18n": {
         "en": "Tek bir denemede başarı olasılığı. 0 ile 1 arasında olmalıdır.",
         "tr": "Tek bir denemede başarı olasılığı. 0 ile 1 arasında olmalıdır.",
-        "de": "Wahrscheinlichkeit eines Erfolgs in einem einzelnen Versuch. Muss zwischen 0 und 1 liegen."
+        "de": "Wahrscheinlichkeit eines Erfolgs in einem einzelnen Versuch. Muss zwischen 0 und 1 liegen.",
+        "fr": "Probabilité de succès pour un seul essai. Doit être comprise entre 0 et 1.",
+        "es": "Probabilidad de éxito en un solo ensayo. Debe estar entre 0 y 1."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Ondalık Basamak",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Ondalık Basamak",
-        "es": "Ondalık Basamak",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Ondalık Basamak"
       },
       "businessContext_i18n": {
         "en": "Sonuçta gösterilecek ondalık basamak sayısı. Varsayılan 4.",
         "tr": "Sonuçta gösterilecek ondalık basamak sayısı. Varsayılan 4.",
-        "de": "Anzahl der im Ergebnis anzuzeigenden Dezimalstellen. Standard: 4."
+        "de": "Anzahl der im Ergebnis anzuzeigenden Dezimalstellen. Standard: 4.",
+        "fr": "Nombre de décimales à afficher dans le résultat. Par défaut 4.",
+        "es": "Número de decimales a mostrar en el resultado. Valor predeterminado: 4."
       }
     }
   ],

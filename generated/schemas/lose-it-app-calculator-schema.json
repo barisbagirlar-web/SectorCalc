@@ -12,14 +12,16 @@
         "en": "Yaş",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Yaş",
-        "es": "Yaş",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Yaş"
       },
       "businessContext_i18n": {
         "en": "Kullanıcının yaşı",
         "tr": "Kullanıcının yaşı",
-        "de": "Alter des Benutzers"
+        "de": "Alter des Benutzers",
+        "fr": "Âge de l'utilisateur",
+        "es": "Edad del usuario"
       }
     },
     {
@@ -34,13 +36,15 @@
         "tr": "Boy",
         "de": "Junge",
         "fr": "Boy",
-        "es": "Boy",
+        "es": "Niño",
         "ar": "Boy"
       },
       "businessContext_i18n": {
         "en": "Boy uzunluğu",
         "tr": "Boy uzunluğu",
-        "de": "Körpergröße"
+        "de": "Körpergröße",
+        "fr": "Taille",
+        "es": "Altura"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Kilo",
         "tr": "Kilo",
         "de": "Gewicht",
-        "fr": "Kilo",
-        "es": "Kilo",
+        "fr": "Poids",
+        "es": "Peso",
         "ar": "Kilo"
       },
       "businessContext_i18n": {
         "en": "Vücut ağırlığı",
         "tr": "Vücut ağırlığı",
-        "de": "Körpergewicht"
+        "de": "Körpergewicht",
+        "fr": "Poids corporel",
+        "es": "Peso corporal"
       }
     },
     {
@@ -74,14 +80,17 @@
       "label_i18n": {
         "en": "Cinsiyet (0: Erkek, 1: Kadın)",
         "tr": "Cinsiyet (0: Erkek, 1: Kadın)",
-        "de": "Cinsiyet (0: Erkek, 1: Kadın)",
-        "fr": "Cinsiyet (0: Erkek, 1: Kadın)",
-        "es": "Cinsiyet (0: Erkek, 1: Kadın)",
+        "de": "Geschlecht (0: Männlich, 1: Weiblich)",
+        "fr": "Sexe (0 : Homme, 1 : Femme)",
+        "es": "Sexo (0: Hombre, 1: Mujer)",
         "ar": "Cinsiyet (0: Erkek, 1: Kadın)"
       },
       "businessContext_i18n": {
         "en": "0 erkek, 1 kadın",
-        "tr": "0 erkek, 1 kadın"
+        "tr": "0 erkek, 1 kadın",
+        "de": "0 männlich, 1 weiblich",
+        "fr": "0 homme, 1 femme",
+        "es": "0 hombre, 1 mujer"
       }
     },
     {
@@ -95,13 +104,16 @@
         "en": "Aktivite Seviyesi",
         "tr": "Aktivite Seviyesi",
         "de": "Aktivitätsniveau",
-        "fr": "Aktivite Seviyesi",
-        "es": "Aktivite Seviyesi",
+        "fr": "Niveau d'activité",
+        "es": "Nivel de actividad",
         "ar": "Aktivite Seviyesi"
       },
       "businessContext_i18n": {
         "en": "1.2: sedanter, 1.375: hafif aktif, 1.55: orta, 1.725: yüksek, 1.9: çok yüksek",
-        "tr": "1,2: sedanter, 1,375: hafif aktif, 1,55: orta, 1,725: yüksek, 1,9: çok yüksek"
+        "tr": "1,2: sedanter, 1,375: hafif aktif, 1,55: orta, 1,725: yüksek, 1,9: çok yüksek",
+        "de": "1,2: sitzend, 1,375: leicht aktiv, 1,55: mäßig, 1,725: hoch, 1,9: sehr hoch",
+        "fr": "1,2 : sédentaire, 1,375 : légèrement actif, 1,55 : modéré, 1,725 : élevé, 1,9 : très élevé",
+        "es": "1.2: sedentario, 1.375: ligeramente activo, 1.55: moderado, 1.725: muy activo, 1.9: extremadamente activo"
       }
     },
     {
@@ -114,14 +126,17 @@
       "label_i18n": {
         "en": "Hedef Kilo Değişimi (haftada kg)",
         "tr": "Hedef Kilo Değişimi (haftada kg)",
-        "de": "Hedef Kilo Değişimi (haftada kg)",
-        "fr": "Hedef Kilo Değişimi (haftada kg)",
-        "es": "Hedef Kilo Değişimi (haftada kg)",
+        "de": "Zielgewichtänderung (kg pro Woche)",
+        "fr": "Changement de poids cible (kg par semaine)",
+        "es": "Cambio de peso objetivo (kg por semana)",
         "ar": "Hedef Kilo Değişimi (haftada kg)"
       },
       "businessContext_i18n": {
         "en": "Negatif: kilo verme, pozitif: kilo alma",
-        "tr": "Negatif: kilo verme, pozitif: kilo alma"
+        "tr": "Negatif: kilo verme, pozitif: kilo alma",
+        "de": "Negativ: Gewichtsverlust, positiv: Gewichtszunahme",
+        "fr": "Négatif : perte de poids, positif : prise de poids",
+        "es": "Negativo: pérdida de peso, positivo: aumento de peso"
       }
     }
   ],

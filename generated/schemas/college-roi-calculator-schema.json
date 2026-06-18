@@ -12,14 +12,16 @@
         "en": "Annual Tuition & Fees",
         "tr": "Yıllık Harç ve Ücretler",
         "de": "Jährliche Studiengebühren & Gebühren",
-        "fr": "Annual Tuition & Fees",
-        "es": "Annual Tuition & Fees",
+        "fr": "Frais de scolarité et frais annexes annuels",
+        "es": "Matrícula y tarifas anuales",
         "ar": "Annual Tuition & Fees"
       },
       "businessContext_i18n": {
         "en": "Average annual cost of college including tuition, fees, and materials.",
         "tr": "Üniversitenin ortalama yıllık maliyeti (harç, ücret ve malzemeler dahil)",
-        "de": "Durchschnittliche jährliche College-Kosten einschließlich Studiengebühren, Gebühren und Materialien."
+        "de": "Durchschnittliche jährliche College-Kosten einschließlich Studiengebühren, Gebühren und Materialien.",
+        "fr": "Coût annuel moyen des études, incluant les frais de scolarité, les frais annexes et le matériel.",
+        "es": "Costo anual promedio de la universidad, incluyendo matrícula, tarifas y materiales."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Years in College",
         "tr": "Üniversite Yılı Sayısı",
         "de": "Jahre im College",
-        "fr": "Years in College",
-        "es": "Years in College",
+        "fr": "Années d'études",
+        "es": "Años en la universidad",
         "ar": "Years in College"
       },
       "businessContext_i18n": {
         "en": "Expected duration of college education.",
         "tr": "Beklenen üniversite eğitimi süresi",
-        "de": "Erwartete Dauer der College-Ausbildung."
+        "de": "Erwartete Dauer der College-Ausbildung.",
+        "fr": "Durée prévue des études supérieures.",
+        "es": "Duración esperada de la educación universitaria."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Alternative Salary Without College",
         "tr": "Üniversitesiz Alternatif Maaş",
         "de": "Alternativgehalt ohne College",
-        "fr": "Alternative Salary Without College",
-        "es": "Alternative Salary Without College",
+        "fr": "Salaire alternatif sans études supérieures",
+        "es": "Salario alternativo sin universidad",
         "ar": "Alternative Salary Without College"
       },
       "businessContext_i18n": {
         "en": "Estimated annual salary if not attending college, assumed constant over working years.",
         "tr": "Üniversiteye gitmemesi durumunda tahmini yıllık maaş (çalışma yılları boyunca sabit kabul edilir)",
-        "de": "Geschätztes Jahresgehalt ohne College-Besuch, angenommen konstant über die Arbeitsjahre."
+        "de": "Geschätztes Jahresgehalt ohne College-Besuch, angenommen konstant über die Arbeitsjahre.",
+        "fr": "Salaire annuel estimé si vous n'allez pas à l'université, supposé constant pendant les années de travail.",
+        "es": "Salario anual estimado si no asiste a la universidad, asumido constante durante los años laborales."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Starting Salary After College",
         "tr": "Üniversite Sonrası Başlangıç Maaşı",
         "de": "Startgehalt nach dem College",
-        "fr": "Starting Salary After College",
-        "es": "Starting Salary After College",
+        "fr": "Salaire de départ après les études",
+        "es": "Salario inicial después de la universidad",
         "ar": "Starting Salary After College"
       },
       "businessContext_i18n": {
         "en": "Expected annual salary in the first year after graduation.",
         "tr": "Mezuniyetten sonraki ilk yılda beklenen yıllık maaş",
-        "de": "Erwartetes Jahresgehalt im ersten Jahr nach dem Abschluss."
+        "de": "Erwartetes Jahresgehalt im ersten Jahr nach dem Abschluss.",
+        "fr": "Salaire annuel attendu la première année après l'obtention du diplôme.",
+        "es": "Salario anual esperado en el primer año después de la graduación."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Annual Salary Growth Rate",
         "tr": "Yıllık Maaş Artış Oranı",
         "de": "Jährliche Gehaltswachstumsrate",
-        "fr": "Annual Salary Growth Rate",
-        "es": "Annual Salary Growth Rate",
+        "fr": "Taux de croissance annuel du salaire",
+        "es": "Tasa de crecimiento salarial anual",
         "ar": "Annual Salary Growth Rate"
       },
       "businessContext_i18n": {
         "en": "Expected annual percentage increase in college graduate salary.",
         "tr": "Üniversite mezunu maaşında beklenen yıllık yüzde artış",
-        "de": "Erwarteter jährlicher prozentualer Anstieg des College-Absolventengehalts."
+        "de": "Erwarteter jährlicher prozentualer Anstieg des College-Absolventengehalts.",
+        "fr": "Pourcentage d'augmentation annuelle attendue du salaire des diplômés.",
+        "es": "Porcentaje de aumento anual esperado en el salario del graduado universitario."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Working Years After College",
         "tr": "Üniversite Sonrası Çalışma Yılı Sayısı",
         "de": "Arbeitsjahre nach dem College",
-        "fr": "Working Years After College",
-        "es": "Working Years After College",
+        "fr": "Années de travail après les études",
+        "es": "Años laborales después de la universidad",
         "ar": "Working Years After College"
       },
       "businessContext_i18n": {
         "en": "Expected number of years working after graduation until retirement.",
         "tr": "Mezuniyetten emekliliğe kadar beklenen çalışma yılı sayısı",
-        "de": "Erwartete Anzahl von Jahren nach dem Abschluss bis zur Rente."
+        "de": "Erwartete Anzahl von Jahren nach dem Abschluss bis zur Rente.",
+        "fr": "Nombre d'années de travail prévues après l'obtention du diplôme jusqu'à la retraite.",
+        "es": "Número esperado de años trabajando después de la graduación hasta la jubilación."
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Discount Rate",
         "tr": "İndirim Oranı",
         "de": "Rabattsatz",
-        "fr": "Discount Rate",
-        "es": "Discount Rate",
+        "fr": "Taux de remise",
+        "es": "Tasa de descuento",
         "ar": "Discount Rate"
       },
       "businessContext_i18n": {
         "en": "Annual rate used to discount future cash flows to present value (opportunity cost of capital).",
         "tr": "Gelecekteki nakit akışlarını bugünkü değere indirgemek için kullanılan yıllık oran (sermaye fırsat maliyeti)",
-        "de": "Jährlicher Diskontierungssatz zur Abzinsung zukünftiger Zahlungsströme auf den Barwert (Opportunitätskosten des Kapitals)."
+        "de": "Jährlicher Diskontierungssatz zur Abzinsung zukünftiger Zahlungsströme auf den Barwert (Opportunitätskosten des Kapitals).",
+        "fr": "Taux annuel utilisé pour actualiser les flux de trésorerie futurs à la valeur actuelle (coût d'opportunité du capital).",
+        "es": "Tasa anual utilizada para descontar flujos de efectivo futuros a valor presente (costo de oportunidad del capital)."
       }
     }
   ],

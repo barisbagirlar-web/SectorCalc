@@ -12,13 +12,16 @@
         "en": "Sample Size (n)",
         "tr": "Örneklem Büyüklüğü (n)",
         "de": "Stichprobengröße (n)",
-        "fr": "Sample Size (n)",
-        "es": "Sample Size (n)",
+        "fr": "Taille de l'échantillon (n)",
+        "es": "Tamaño de la muestra (n)",
         "ar": "Sample Size (n)"
       },
       "businessContext_i18n": {
         "en": "Number of observations in the sample",
-        "tr": "Örneklemdeki gözlem sayısı"
+        "tr": "Örneklemdeki gözlem sayısı",
+        "de": "Anzahl der Beobachtungen in der Stichprobe",
+        "fr": "Nombre d'observations dans l'échantillon",
+        "es": "Número de observaciones en la muestra"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Skewness",
         "tr": "Çarpıklık",
-        "de": "Skewness",
-        "fr": "Skewness",
-        "es": "Skewness",
+        "de": "Schiefe",
+        "fr": "Asymétrie",
+        "es": "Asimetría",
         "ar": "Skewness"
       },
       "businessContext_i18n": {
         "en": "Sample skewness coefficient",
-        "tr": "Örneklem çarpıklık katsayısı"
+        "tr": "Örneklem çarpıklık katsayısı",
+        "de": "Stichproben-Schiefekoeffizient",
+        "fr": "Coefficient d'asymétrie de l'échantillon",
+        "es": "Coeficiente de asimetría muestral"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Excess Kurtosis",
         "tr": "Fazla Basıklık",
-        "de": "Excess Kurtosis",
-        "fr": "Excess Kurtosis",
-        "es": "Excess Kurtosis",
+        "de": "Exzess-Kurtosis",
+        "fr": "Kurtosis excessif",
+        "es": "Curtosis excesiva",
         "ar": "Excess Kurtosis"
       },
       "businessContext_i18n": {
         "en": "Excess kurtosis (kurtosis - 3)",
-        "tr": "Fazla basıklık (basıklık - 3)"
+        "tr": "Fazla basıklık (basıklık - 3)",
+        "de": "Exzess-Kurtosis (Kurtosis - 3)",
+        "fr": "Kurtosis excessif (kurtosis - 3)",
+        "es": "Curtosis excesiva (curtosis - 3)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Critical Z-value",
         "tr": "Kritik Z-değeri",
-        "de": "Critical Z-value",
-        "fr": "Critical Z-value",
-        "es": "Critical Z-value",
+        "de": "Kritischer Z-Wert",
+        "fr": "Valeur Z critique",
+        "es": "Valor Z crítico",
         "ar": "Critical Z-value"
       },
       "businessContext_i18n": {
         "en": "Z-score threshold for normality rule of thumb",
-        "tr": "Normallik kuralı için Z-skor eşiği"
+        "tr": "Normallik kuralı için Z-skor eşiği",
+        "de": "Z-Score-Schwellenwert für die Normalitäts-Daumenregel",
+        "fr": "Seuil Z pour la règle empirique de normalité",
+        "es": "Umbral de puntuación Z para la regla de normalidad"
       }
     }
   ],

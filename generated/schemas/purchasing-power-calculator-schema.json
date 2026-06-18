@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Initial Income",
         "tr": "Başlangıç Geliri",
-        "de": "Initial Income",
-        "fr": "Initial Income",
-        "es": "Initial Income",
+        "de": "Anfangseinkommen",
+        "fr": "Revenu initial",
+        "es": "Ingreso inicial",
         "ar": "Initial Income"
       },
       "businessContext_i18n": {
         "en": "The nominal income or amount to evaluate.",
-        "tr": "Değerlendirilecek nominal gelir veya miktar."
+        "tr": "Değerlendirilecek nominal gelir veya miktar.",
+        "de": "Das nominale Einkommen oder der zu bewertende Betrag.",
+        "fr": "Revenu nominal ou montant à évaluer.",
+        "es": "El ingreso nominal o cantidad a evaluar."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Annual Inflation Rate",
         "tr": "Yıllık Enflasyon Oranı",
         "de": "Jährliche Inflationsrate",
-        "fr": "Annual Inflation Rate",
-        "es": "Annual Inflation Rate",
+        "fr": "Taux d'inflation annuel",
+        "es": "Tasa de inflación anual",
         "ar": "Annual Inflation Rate"
       },
       "businessContext_i18n": {
         "en": "Average annual inflation rate.",
-        "tr": "Ortalama yıllık enflasyon oranı."
+        "tr": "Ortalama yıllık enflasyon oranı.",
+        "de": "Durchschnittliche jährliche Inflationsrate.",
+        "fr": "Taux d'inflation annuel moyen.",
+        "es": "Tasa de inflación anual promedio."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "From Year",
         "tr": "Başlangıç Yılı",
-        "de": "From Year",
-        "fr": "From Year",
-        "es": "From Year",
+        "de": "Von Jahr",
+        "fr": "De l'année",
+        "es": "Desde el año",
         "ar": "From Year"
       },
       "businessContext_i18n": {
         "en": "Base year of the income.",
-        "tr": "Gelirin baz yılı."
+        "tr": "Gelirin baz yılı.",
+        "de": "Basisjahr des Einkommens.",
+        "fr": "Année de base du revenu.",
+        "es": "Año base del ingreso."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "To Year",
         "tr": "Bitiş Yılı",
-        "de": "To Year",
-        "fr": "To Year",
-        "es": "To Year",
+        "de": "Bis Jahr",
+        "fr": "À l'année",
+        "es": "Hasta el año",
         "ar": "To Year"
       },
       "businessContext_i18n": {
         "en": "Target year for purchasing power comparison.",
-        "tr": "Satın alma gücü karşılaştırması için hedef yıl."
+        "tr": "Satın alma gücü karşılaştırması için hedef yıl.",
+        "de": "Zieljahr für den Kaufkraftvergleich.",
+        "fr": "Année cible pour la comparaison du pouvoir d'achat.",
+        "es": "Año objetivo para la comparación del poder adquisitivo."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Compounding Frequency",
         "tr": "Bileşik Sıklığı",
         "de": "Zinseszinshäufigkeit",
-        "fr": "Compounding Frequency",
-        "es": "Compounding Frequency",
+        "fr": "Fréquence de capitalisation",
+        "es": "Frecuencia de capitalización",
         "ar": "Compounding Frequency"
       },
       "businessContext_i18n": {
         "en": "Number of times inflation compounds per year (1 for annual, 12 for monthly).",
-        "tr": "Enflasyonun yılda kaç kez bileşik hesaplandığı (yıllık için 1, aylık için 12)."
+        "tr": "Enflasyonun yılda kaç kez bileşik hesaplandığı (yıllık için 1, aylık için 12).",
+        "de": "Anzahl der Inflationsberechnungen pro Jahr (1 für jährlich, 12 für monatlich).",
+        "fr": "Nombre de capitalisations de l'inflation par an (1 pour annuel, 12 pour mensuel).",
+        "es": "Número de veces que la inflación se capitaliza por año (1 para anual, 12 para mensual)."
       }
     }
   ],

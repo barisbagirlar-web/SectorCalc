@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Nap Duration (min)",
         "tr": "Şekerleme Süresi (dakika)",
-        "de": "Nap Duration (min)",
-        "fr": "Nap Duration (min)",
+        "de": "Nickerchen-Dauer (min)",
+        "fr": "Durée de la sieste (min)",
         "es": "Nap Duration (min)",
         "ar": "Nap Duration (min)"
       },
       "businessContext_i18n": {
         "en": "Typical nap length in the Uberman cycle is 20 minutes. Adjust for personal adaptation.",
-        "tr": "Uberman döngüsünde tipik şekerleme süresi 20 dakikadır. Kişisel adaptasyon için ayarlayın."
+        "tr": "Uberman döngüsünde tipik şekerleme süresi 20 dakikadır. Kişisel adaptasyon için ayarlayın.",
+        "de": "Typische Nickerchenlänge im Uberman-Zyklus beträgt 20 Minuten. Für persönliche Anpassung ändern.",
+        "fr": "La durée typique d'une sieste dans le cycle Uberman est de 20 minutes. Ajustez selon votre adaptation personnelle."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Interval Between Naps (h)",
         "tr": "Şekerlemeler Arası Süre (saat)",
-        "de": "Interval Between Naps (h)",
-        "fr": "Interval Between Naps (h)",
+        "de": "Intervall zwischen Nickerchen (h)",
+        "fr": "Intervalle entre les siestes (h)",
         "es": "Interval Between Naps (h)",
         "ar": "Interval Between Naps (h)"
       },
       "businessContext_i18n": {
         "en": "The awake time between consecutive naps, in hours. Standard Uberman schedule uses 4-hour intervals.",
-        "tr": "Ardışık şekerlemeler arasındaki uyanık kalma süresi, saat cinsinden. Standart Uberman programı 4 saatlik aralıklar kullanır."
+        "tr": "Ardışık şekerlemeler arasındaki uyanık kalma süresi, saat cinsinden. Standart Uberman programı 4 saatlik aralıklar kullanır.",
+        "de": "Die Wachzeit zwischen aufeinanderfolgenden Nickerchen in Stunden. Der Standard-Uberman-Plan verwendet 4-Stunden-Intervalle.",
+        "fr": "Le temps d'éveil entre deux siestes consécutives, en heures. Le cycle Uberman standard utilise des intervalles de 4 heures."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Number of Naps per Day",
         "tr": "Günlük Şekerleme Sayısı",
-        "de": "Number of Naps per Day",
-        "fr": "Number of Naps per Day",
+        "de": "Anzahl der Nickerchen pro Tag",
+        "fr": "Nombre de siestes par jour",
         "es": "Number of Naps per Day",
         "ar": "Number of Naps per Day"
       },
       "businessContext_i18n": {
         "en": "Total number of naps taken in a 24-hour period. Standard Uberman schedule includes 6 naps per day.",
-        "tr": "24 saatlik bir dönemde yapılan toplam şekerleme sayısı. Standart Uberman programı günde 6 şekerleme içerir."
+        "tr": "24 saatlik bir dönemde yapılan toplam şekerleme sayısı. Standart Uberman programı günde 6 şekerleme içerir.",
+        "de": "Gesamtzahl der Nickerchen in einem 24-Stunden-Zeitraum. Der Standard-Uberman-Plan umfasst 6 Nickerchen pro Tag.",
+        "fr": "Nombre total de siestes sur une période de 24 heures. Le cycle Uberman standard comprend 6 siestes par jour."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Start Hour (24h)",
         "tr": "Başlangıç Saati (24s)",
-        "de": "Start Hour (24h)",
-        "fr": "Start Hour (24h)",
+        "de": "Startstunde (24h)",
+        "fr": "Heure de début (24h)",
         "es": "Start Hour (24h)",
         "ar": "Start Hour (24h)"
       },
       "businessContext_i18n": {
         "en": "The starting hour of the first nap in decimal format (e.g., 8.5 for 8:30 AM).",
-        "tr": "İlk şekerlemenin ondalık formatta başlangıç saati (ör. 8:30 için 8,5)."
+        "tr": "İlk şekerlemenin ondalık formatta başlangıç saati (ör. 8:30 için 8,5).",
+        "de": "Die Startstunde des ersten Nickerchens im Dezimalformat (z. B. 8,5 für 8:30 Uhr).",
+        "fr": "L'heure de début de la première sieste au format décimal (ex. 8,5 pour 8h30)."
       }
     }
   ],

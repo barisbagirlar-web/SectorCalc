@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Tablespoons",
         "tr": "Yemek Kaşığı",
-        "de": "Tablespoons",
-        "fr": "Tablespoons",
+        "de": "Esslöffel",
+        "fr": "Cuillères à soupe",
         "es": "Tablespoons",
         "ar": "Tablespoons"
       },
       "businessContext_i18n": {
         "en": "Amount of substance in tablespoons",
-        "tr": "Yemek kaşığı cinsinden madde miktarı"
+        "tr": "Yemek kaşığı cinsinden madde miktarı",
+        "de": "Stoffmenge in Esslöffeln",
+        "fr": "Quantité de substance en cuillères à soupe"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Conversion Rate",
         "tr": "Dönüşüm Oranı",
-        "de": "Conversion Rate",
-        "fr": "Conversion Rate",
-        "es": "Conversion Rate",
+        "de": "Konversionsrate",
+        "fr": "Taux de conversion",
+        "es": "Tasa de conversión",
         "ar": "Conversion Rate"
       },
       "businessContext_i18n": {
         "en": "Number of teaspoons per tablespoon (standard US: 3)",
-        "tr": "Bir yemek kaşığı başına düşen çay kaşığı sayısı (standart ABD: 3)"
+        "tr": "Bir yemek kaşığı başına düşen çay kaşığı sayısı (standart ABD: 3)",
+        "de": "Anzahl Teelöffel pro Esslöffel (Standard USA: 3)",
+        "fr": "Nombre de cuillères à café par cuillère à soupe (standard US : 3)"
       }
     },
     {
@@ -52,14 +56,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output",
         "tr": "Çıktı için ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen für die Ausgabe"
+        "de": "Anzahl der Dezimalstellen für die Ausgabe",
+        "fr": "Nombre de décimales pour le résultat",
+        "es": "Número de decimales para la salida"
       }
     },
     {
@@ -73,13 +79,15 @@
         "en": "Batch Multiplier",
         "tr": "Parti Çarpanı",
         "de": "Batch-Multiplikator",
-        "fr": "Batch Multiplier",
-        "es": "Batch Multiplier",
+        "fr": "Multiplicateur de lot",
+        "es": "Multiplicador de lote",
         "ar": "Batch Multiplier"
       },
       "businessContext_i18n": {
         "en": "Multiply by number of batches for total teaspoons",
-        "tr": "Toplam çay kaşığı için parti sayısı ile çarpın"
+        "tr": "Toplam çay kaşığı için parti sayısı ile çarpın",
+        "de": "Mit Anzahl Chargen multiplizieren für Gesamt-Teelöffel",
+        "fr": "Multiplier par le nombre de lots pour obtenir le total de cuillères à café"
       }
     }
   ],

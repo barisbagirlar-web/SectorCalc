@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Number of Users",
         "tr": "Kullanıcı Sayısı",
-        "de": "Number of Users",
-        "fr": "Number of Users",
+        "de": "Anzahl der Nutzer",
+        "fr": "Nombre d'utilisateurs",
         "es": "Number of Users",
         "ar": "Number of Users"
       },
       "businessContext_i18n": {
         "en": "The number of people using the septic system, typically based on number of bedrooms.",
-        "tr": "Fosseptik sistemini kullanan kişi sayısı, genellikle yatak odası sayısına göre belirlenir."
+        "tr": "Fosseptik sistemini kullanan kişi sayısı, genellikle yatak odası sayısına göre belirlenir.",
+        "de": "Die Anzahl der Personen, die das Klärsystem nutzen, typischerweise basierend auf der Anzahl der Schlafzimmer.",
+        "fr": "Le nombre de personnes utilisant le système septique, généralement basé sur le nombre de chambres."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Daily Flow per Person",
         "tr": "Kişi Başına Günlük Akış",
-        "de": "Daily Flow per Person",
-        "fr": "Daily Flow per Person",
+        "de": "Täglicher Durchfluss pro Person",
+        "fr": "Débit quotidien par personne",
         "es": "Daily Flow per Person",
         "ar": "Daily Flow per Person"
       },
       "businessContext_i18n": {
         "en": "Estimated wastewater generated per person per day, e.g., 150 L in typical households.",
-        "tr": "Kişi başına günde tahmini atık su üretimi, örn. tipik hanelerde 150 L."
+        "tr": "Kişi başına günde tahmini atık su üretimi, örn. tipik hanelerde 150 L.",
+        "de": "Geschätztes Abwasseraufkommen pro Person und Tag, z. B. 150 L in typischen Haushalten.",
+        "fr": "Volume estimé d'eaux usées généré par personne par jour, par exemple 150 L dans les ménages typiques."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Retention Time",
         "tr": "Bekleme Süresi",
-        "de": "Retention Time",
-        "fr": "Retention Time",
+        "de": "Verweilzeit",
+        "fr": "Temps de rétention",
         "es": "Retention Time",
         "ar": "Retention Time"
       },
       "businessContext_i18n": {
         "en": "Minimum hydraulic retention time for adequate settling and treatment, typically 1–3 days.",
-        "tr": "Yeterli çökelme ve arıtma için minimum hidrolik bekleme süresi, tipik olarak 1–3 gün."
+        "tr": "Yeterli çökelme ve arıtma için minimum hidrolik bekleme süresi, tipik olarak 1–3 gün.",
+        "de": "Minimale hydraulische Verweilzeit für ausreichende Sedimentation und Behandlung, typischerweise 1–3 Tage.",
+        "fr": "Temps de rétention hydraulique minimum pour une décantation et un traitement adéquats, généralement de 1 à 3 jours."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Sludge Accumulation Rate",
         "tr": "Çamur Birikme Oranı",
-        "de": "Sludge Accumulation Rate",
-        "fr": "Sludge Accumulation Rate",
+        "de": "Schlammakkumulationsrate",
+        "fr": "Taux d'accumulation des boues",
         "es": "Sludge Accumulation Rate",
         "ar": "Sludge Accumulation Rate"
       },
       "businessContext_i18n": {
         "en": "Annual sludge accumulation per person, recommended design value (e.g., 70 L for regions with high water usage).",
-        "tr": "Kişi başına yıllık çamur birikimi, önerilen tasarım değeri (örneğin, yüksek su kullanımı olan bölgeler için 70 L)."
+        "tr": "Kişi başına yıllık çamur birikimi, önerilen tasarım değeri (örneğin, yüksek su kullanımı olan bölgeler için 70 L).",
+        "de": "Jährliche Schlammakkumulation pro Person, empfohlener Auslegungswert (z. B. 70 L für Regionen mit hohem Wasserverbrauch).",
+        "fr": "Accumulation annuelle de boues par personne, valeur de conception recommandée (par exemple, 70 L pour les régions à forte consommation d'eau)."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Desludging Interval",
         "tr": "Çamur Çekme Aralığı",
-        "de": "Desludging Interval",
-        "fr": "Desludging Interval",
+        "de": "Entschlammungsintervall",
+        "fr": "Intervalle de vidange",
         "es": "Desludging Interval",
         "ar": "Desludging Interval"
       },
       "businessContext_i18n": {
         "en": "Frequency of sludge removal, e.g., every 3 years according to local regulations.",
-        "tr": "Çamur tahliye sıklığı, örn. yerel yönetmeliklere göre her 3 yılda bir."
+        "tr": "Çamur tahliye sıklığı, örn. yerel yönetmeliklere göre her 3 yılda bir.",
+        "de": "Häufigkeit der Schlammabfuhr, z. B. alle 3 Jahre gemäß lokalen Vorschriften.",
+        "fr": "Fréquence d'évacuation des boues, par exemple tous les 3 ans selon la réglementation locale."
       }
     }
   ],

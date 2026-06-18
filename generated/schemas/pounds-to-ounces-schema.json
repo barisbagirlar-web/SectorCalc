@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Pounds",
         "tr": "Pound",
-        "de": "Pounds",
-        "fr": "Pounds",
-        "es": "Pounds",
+        "de": "Pfund",
+        "fr": "Livres",
+        "es": "Libras",
         "ar": "Pounds"
       },
       "businessContext_i18n": {
         "en": "Weight in pounds to be converted to ounces.",
-        "tr": "Onsa dönüştürülecek pound cinsinden ağırlık."
+        "tr": "Onsa dönüştürülecek pound cinsinden ağırlık.",
+        "de": "Gewicht in Pfund zur Umrechnung in Unzen.",
+        "fr": "Poids en livres à convertir en onces.",
+        "es": "Peso en libras a convertir a onzas."
       }
     },
     {
@@ -32,14 +35,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the result.",
         "tr": "Sonuç için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen für das Ergebnis."
+        "de": "Anzahl der Dezimalstellen für das Ergebnis.",
+        "fr": "Nombre de décimales pour le résultat.",
+        "es": "Número de decimales para el resultado."
       }
     },
     {
@@ -49,8 +54,8 @@
         "en": "auto_input_3",
         "tr": "Otomatik girdi 3",
         "de": "auto_input_3",
-        "fr": "auto_input_3",
-        "es": "auto_input_3",
+        "fr": "Entrée automatique 3",
+        "es": "entrada_automática_3",
         "ar": "auto_input_3"
       },
       "type": "number",
@@ -61,8 +66,8 @@
         "en": "Auto-generated input 3.",
         "tr": "Otomatik oluşturulan girdi 3.",
         "de": "Automatisch generierte Eingabe 3.",
-        "fr": "Auto-generated input 3.",
-        "es": "Auto-generated input 3.",
+        "fr": "Entrée générée automatiquement 3.",
+        "es": "Entrada generada automáticamente 3.",
         "ar": "Auto-generated input 3."
       }
     }

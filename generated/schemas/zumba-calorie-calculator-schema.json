@@ -12,14 +12,16 @@
         "en": "Weight",
         "tr": "Ağırlık",
         "de": "Gewicht",
-        "fr": "Weight",
-        "es": "Weight",
+        "fr": "Poids",
+        "es": "Peso",
         "ar": "Weight"
       },
       "businessContext_i18n": {
         "en": "User's body weight in kilograms",
         "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı",
-        "de": "Körpergewicht des Benutzers in Kilogramm"
+        "de": "Körpergewicht des Benutzers in Kilogramm",
+        "fr": "Poids corporel de l'utilisateur en kilogrammes",
+        "es": "Peso corporal del usuario en kilogramos"
       }
     },
     {
@@ -33,13 +35,15 @@
         "en": "Duration",
         "tr": "Süre",
         "de": "Dauer",
-        "fr": "Duration",
-        "es": "Duration",
+        "fr": "Durée",
+        "es": "Duración",
         "ar": "Duration"
       },
       "businessContext_i18n": {
         "en": "Total duration of Zumba session in minutes",
-        "tr": "Zumba seansının toplam süresi (dakika)"
+        "tr": "Zumba seansının toplam süresi (dakika)",
+        "de": "Gesamtdauer der Zumba-Sitzung in Minuten",
+        "fr": "Durée totale de la séance de Zumba en minutes"
       }
     },
     {
@@ -53,13 +57,15 @@
         "en": "MET Value",
         "tr": "MET Değeri",
         "de": "MET-Wert",
-        "fr": "MET Value",
-        "es": "MET Value",
+        "fr": "Valeur MET",
+        "es": "Valor MET",
         "ar": "MET Value"
       },
       "businessContext_i18n": {
         "en": "Metabolic Equivalent of Task for Zumba, typically 6-8",
-        "tr": "Zumba için metabolik eşdeğer (MET), tipik olarak 6-8"
+        "tr": "Zumba için metabolik eşdeğer (MET), tipik olarak 6-8",
+        "de": "Metabolisches Äquivalent für Zumba, typischerweise 6-8",
+        "fr": "Équivalent métabolique de la tâche pour Zumba, généralement 6-8"
       }
     },
     {
@@ -73,13 +79,15 @@
         "en": "Intensity Factor",
         "tr": "Yoğunluk Faktörü",
         "de": "Intensitätsfaktor",
-        "fr": "Intensity Factor",
-        "es": "Intensity Factor",
+        "fr": "Facteur d'intensité",
+        "es": "Factor de Intensidad",
         "ar": "Intensity Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier to adjust for effort level (1.0 moderate, 1.2 high, 0.8 low)",
-        "tr": "Efor seviyesini ayarlamak için çarpan (1.0 orta, 1.2 yüksek, 0.8 düşük)"
+        "tr": "Efor seviyesini ayarlamak için çarpan (1.0 orta, 1.2 yüksek, 0.8 düşük)",
+        "de": "Multiplikator zur Anpassung des Anstrengungsniveaus (1,0 moderat, 1,2 hoch, 0,8 niedrig)",
+        "fr": "Multiplicateur pour ajuster le niveau d'effort (1,0 modéré, 1,2 élevé, 0,8 faible)"
       }
     }
   ],

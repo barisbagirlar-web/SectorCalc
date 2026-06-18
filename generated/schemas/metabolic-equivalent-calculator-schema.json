@@ -12,14 +12,16 @@
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Body Weight",
-        "es": "Body Weight",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "User's body weight in kilograms",
         "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı",
-        "de": "Körpergewicht des Benutzers in Kilogramm"
+        "de": "Körpergewicht des Benutzers in Kilogramm",
+        "fr": "Poids corporel de l'utilisateur en kilogrammes",
+        "es": "Peso corporal del usuario en kilogramos"
       }
     },
     {
@@ -32,14 +34,17 @@
       "label_i18n": {
         "en": "Duration (hours)",
         "tr": "Süre (saat)",
-        "de": "Duration (hours)",
-        "fr": "Duration (hours)",
-        "es": "Duration (hours)",
+        "de": "Dauer (Stunden)",
+        "fr": "Durée (heures)",
+        "es": "Duración (horas)",
         "ar": "Duration (hours)"
       },
       "businessContext_i18n": {
         "en": "Activity duration hours component",
-        "tr": "Aktivite süresi saat bileşeni"
+        "tr": "Aktivite süresi saat bileşeni",
+        "de": "Stundenanteil der Aktivitätsdauer",
+        "fr": "Composante heures de la durée de l'activité",
+        "es": "Componente de horas de duración de la actividad"
       }
     },
     {
@@ -52,14 +57,17 @@
       "label_i18n": {
         "en": "Duration (minutes)",
         "tr": "Süre (dakika)",
-        "de": "Duration (minutes)",
-        "fr": "Duration (minutes)",
-        "es": "Duration (minutes)",
+        "de": "Dauer (Minuten)",
+        "fr": "Durée (minutes)",
+        "es": "Duración (minutos)",
         "ar": "Duration (minutes)"
       },
       "businessContext_i18n": {
         "en": "Activity duration minutes component",
-        "tr": "Aktivite süresi dakika bileşeni"
+        "tr": "Aktivite süresi dakika bileşeni",
+        "de": "Minutenanteil der Aktivitätsdauer",
+        "fr": "Composante minutes de la durée de l'activité",
+        "es": "Componente de minutos de duración de la actividad"
       }
     },
     {
@@ -73,13 +81,16 @@
         "en": "MET Value",
         "tr": "MET Değeri",
         "de": "MET-Wert",
-        "fr": "MET Value",
-        "es": "MET Value",
+        "fr": "Valeur MET",
+        "es": "Valor MET",
         "ar": "MET Value"
       },
       "businessContext_i18n": {
         "en": "Metabolic equivalent for the activity",
-        "tr": "Aktivitenin metabolik eşdeğeri"
+        "tr": "Aktivitenin metabolik eşdeğeri",
+        "de": "Metabolisches Äquivalent der Aktivität",
+        "fr": "Équivalent métabolique de l'activité",
+        "es": "Equivalente metabólico de la actividad"
       }
     }
   ],

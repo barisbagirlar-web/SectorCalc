@@ -12,13 +12,16 @@
         "en": "Surface Area",
         "tr": "Yüzey Alanı",
         "de": "Oberfläche",
-        "fr": "Surface Area",
-        "es": "Surface Area",
+        "fr": "Surface",
+        "es": "Área superficial",
         "ar": "Surface Area"
       },
       "businessContext_i18n": {
         "en": "Total paintable surface area in square meters",
-        "tr": "Toplam boyanabilir yüzey alanı (metrekare)"
+        "tr": "Toplam boyanabilir yüzey alanı (metrekare)",
+        "de": "Gesamte lackierbare Fläche in Quadratmetern",
+        "fr": "Surface totale peignable en mètres carrés",
+        "es": "Superficie total pintable en metros cuadrados"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Coverage Rate",
         "tr": "Kaplama Oranı",
         "de": "Auftragsrate",
-        "fr": "Coverage Rate",
-        "es": "Coverage Rate",
+        "fr": "Taux de couverture",
+        "es": "Tasa de cobertura",
         "ar": "Coverage Rate"
       },
       "businessContext_i18n": {
         "en": "Paint coverage rate from manufacturer data sheet (m² per liter)",
-        "tr": "Üretici veri sayfasından boya kaplama oranı (m²/litre)"
+        "tr": "Üretici veri sayfasından boya kaplama oranı (m²/litre)",
+        "de": "Farbdeckungsrate aus dem Datenblatt des Herstellers (m² pro Liter)",
+        "fr": "Rendement de la peinture d'après la fiche technique (m² par litre)",
+        "es": "Rendimiento de pintura según ficha técnica del fabricante (m² por litro)"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Number of Coats",
         "tr": "Kat Sayısı",
         "de": "Anzahl der Anstriche",
-        "fr": "Number of Coats",
-        "es": "Number of Coats",
+        "fr": "Nombre de couches",
+        "es": "Número de capas",
         "ar": "Number of Coats"
       },
       "businessContext_i18n": {
         "en": "Number of paint coats to apply",
-        "tr": "Uygulanacak boya kat sayısı"
+        "tr": "Uygulanacak boya kat sayısı",
+        "de": "Anzahl der aufzutragenden Farbschichten",
+        "fr": "Nombre de couches de peinture à appliquer",
+        "es": "Número de capas de pintura a aplicar"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Wastage Factor",
         "tr": "İsraf faktörü",
         "de": "Verlustfaktor",
-        "fr": "Wastage Factor",
-        "es": "Wastage Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Wastage Factor"
       },
       "businessContext_i18n": {
         "en": "Percentage of extra paint needed for spillage, uneven surfaces, etc.",
-        "tr": "Dökülme, pürüzlü yüzeyler vb. için gereken ekstra boya yüzdesi"
+        "tr": "Dökülme, pürüzlü yüzeyler vb. için gereken ekstra boya yüzdesi",
+        "de": "Prozentsatz zusätzlicher Farbe für Verschütten, unebene Oberflächen usw.",
+        "fr": "Pourcentage de peinture supplémentaire pour les déversements, surfaces irrégulières, etc.",
+        "es": "Porcentaje de pintura extra necesaria por derrames, superficies irregulares, etc."
       }
     }
   ],

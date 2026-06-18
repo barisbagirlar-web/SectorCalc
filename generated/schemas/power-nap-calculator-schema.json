@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Current Time (minutes past midnight)",
         "tr": "Geçerli Saat (gece yarısından itibaren dakika)",
-        "de": "Current Time (minutes past midnight)",
-        "fr": "Current Time (minutes past midnight)",
-        "es": "Current Time (minutes past midnight)",
+        "de": "Aktuelle Zeit (Minuten nach Mitternacht)",
+        "fr": "Heure actuelle (minutes après minuit)",
+        "es": "Hora actual (minutos después de medianoche)",
         "ar": "Current Time (minutes past midnight)"
       },
       "businessContext_i18n": {
         "en": "Current time expressed in minutes since midnight (0-1439).",
-        "tr": "Gece yarısından itibaren dakika cinsinden geçerli saat (0-1439)."
+        "tr": "Gece yarısından itibaren dakika cinsinden geçerli saat (0-1439).",
+        "de": "Aktuelle Zeit in Minuten seit Mitternacht (0-1439).",
+        "fr": "Heure actuelle exprimée en minutes depuis minuit (0-1439).",
+        "es": "Hora actual expresada en minutos desde la medianoche (0-1439)."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Deadline Wake-Up Time (minutes past midnight)",
         "tr": "Son Uyanma Saati (gece yarısından itibaren dakika)",
-        "de": "Deadline Wake-Up Time (minutes past midnight)",
-        "fr": "Deadline Wake-Up Time (minutes past midnight)",
-        "es": "Deadline Wake-Up Time (minutes past midnight)",
+        "de": "Aufwachzeit (Minuten nach Mitternacht)",
+        "fr": "Heure limite de réveil (minutes après minuit)",
+        "es": "Hora límite de despertar (minutos después de medianoche)",
         "ar": "Deadline Wake-Up Time (minutes past midnight)"
       },
       "businessContext_i18n": {
         "en": "Latest time by which you must be awake, in minutes since midnight.",
-        "tr": "Uyanık olmanız gereken en son saat, gece yarısından itibaren dakika cinsinden."
+        "tr": "Uyanık olmanız gereken en son saat, gece yarısından itibaren dakika cinsinden.",
+        "de": "Späteste Zeit, zu der Sie wach sein müssen, in Minuten seit Mitternacht.",
+        "fr": "Dernière heure à laquelle vous devez être éveillé, en minutes depuis minuit.",
+        "es": "Última hora a la que debe estar despierto, en minutos desde la medianoche."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Time to Fall Asleep",
         "tr": "Uykuya Dalma Süresi",
-        "de": "Time to Fall Asleep",
-        "fr": "Time to Fall Asleep",
-        "es": "Time to Fall Asleep",
+        "de": "Einschlafzeit",
+        "fr": "Temps d'endormissement",
+        "es": "Tiempo para conciliar el sueño",
         "ar": "Time to Fall Asleep"
       },
       "businessContext_i18n": {
         "en": "Estimated minutes needed to fall asleep after lying down.",
-        "tr": "Yattıktan sonra uykuya dalmak için gereken tahmini dakika."
+        "tr": "Yattıktan sonra uykuya dalmak için gereken tahmini dakika.",
+        "de": "Geschätzte Minuten, die zum Einschlafen nach dem Hinlegen benötigt werden.",
+        "fr": "Minutes estimées nécessaires pour s'endormir après s'être allongé.",
+        "es": "Minutos estimados necesarios para dormirse después de acostarse."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Desired Nap Quality (1-10)",
         "tr": "İstenen Şekerleme Kalitesi (1-10)",
-        "de": "Desired Nap Quality (1-10)",
-        "fr": "Desired Nap Quality (1-10)",
-        "es": "Desired Nap Quality (1-10)",
+        "de": "Gewünschte Nickerchenqualität (1-10)",
+        "fr": "Qualité de sieste souhaitée (1-10)",
+        "es": "Calidad deseada de la siesta (1-10)",
         "ar": "Desired Nap Quality (1-10)"
       },
       "businessContext_i18n": {
         "en": "Subjective goal for post-nap alertness; 10 = maximum revitalization.",
-        "tr": "Şekerleme sonrası uyanıklık için subjektif hedef; 10 = maksimum canlanma."
+        "tr": "Şekerleme sonrası uyanıklık için subjektif hedef; 10 = maksimum canlanma.",
+        "de": "Subjektives Ziel für die Wachheit nach dem Nickerchen; 10 = maximale Erholung.",
+        "fr": "Objectif subjectif de vigilance post-sieste ; 10 = revitalisation maximale.",
+        "es": "Objetivo subjetivo de alerta después de la siesta; 10 = máxima revitalización."
       }
     }
   ],

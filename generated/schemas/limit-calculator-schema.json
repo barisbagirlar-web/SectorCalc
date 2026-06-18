@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Numerator constant term (a0)",
         "tr": "Pay sabit terimi (a0)",
-        "de": "Numerator constant term (a0)",
-        "fr": "Numerator constant term (a0)",
-        "es": "Numerator constant term (a0)",
+        "de": "Konstanter Term des Zählers (a0)",
+        "fr": "Terme constant du numérateur (a0)",
+        "es": "Término constante del numerador (a0)",
         "ar": "Numerator constant term (a0)"
       },
       "businessContext_i18n": {
         "en": "Coefficient a0 in numerator polynomial a0 + a1*x + a2*x^2",
-        "tr": "Pay polinomundaki a0 + a1*x + a2*x^2 katsayısı a0"
+        "tr": "Pay polinomundaki a0 + a1*x + a2*x^2 katsayısı a0",
+        "de": "Koeffizient a0 im Zählerpolynom a0 + a1*x + a2*x^2",
+        "fr": "Coefficient a0 du polynôme numérateur a0 + a1*x + a2*x^2",
+        "es": "Coeficiente a0 en el polinomio del numerador a0 + a1*x + a2*x^2"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Numerator linear coefficient (a1)",
         "tr": "Pay doğrusal katsayısı (a1)",
-        "de": "Numerator linear coefficient (a1)",
-        "fr": "Numerator linear coefficient (a1)",
-        "es": "Numerator linear coefficient (a1)",
+        "de": "Linearer Koeffizient des Zählers (a1)",
+        "fr": "Coefficient linéaire du numérateur (a1)",
+        "es": "Coeficiente lineal del numerador (a1)",
         "ar": "Numerator linear coefficient (a1)"
       },
       "businessContext_i18n": {
         "en": "Coefficient a1 in numerator polynomial a0 + a1*x + a2*x^2",
-        "tr": "Pay polinomundaki a0 + a1*x + a2*x^2 katsayısı a1"
+        "tr": "Pay polinomundaki a0 + a1*x + a2*x^2 katsayısı a1",
+        "de": "Koeffizient a1 im Zählerpolynom a0 + a1*x + a2*x^2",
+        "fr": "Coefficient a1 du polynôme numérateur a0 + a1*x + a2*x^2",
+        "es": "Coeficiente a1 en el polinomio del numerador a0 + a1*x + a2*x^2"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Numerator quadratic coefficient (a2)",
         "tr": "Pay ikinci derece katsayısı (a2)",
-        "de": "Numerator quadratic coefficient (a2)",
-        "fr": "Numerator quadratic coefficient (a2)",
-        "es": "Numerator quadratic coefficient (a2)",
+        "de": "Quadratischer Koeffizient des Zählers (a2)",
+        "fr": "Coefficient quadratique du numérateur (a2)",
+        "es": "Coeficiente cuadrático del numerador (a2)",
         "ar": "Numerator quadratic coefficient (a2)"
       },
       "businessContext_i18n": {
         "en": "Coefficient a2 in numerator polynomial a0 + a1*x + a2*x^2",
-        "tr": "Pay polinomundaki a0 + a1*x + a2*x^2 katsayısı a2"
+        "tr": "Pay polinomundaki a0 + a1*x + a2*x^2 katsayısı a2",
+        "de": "Koeffizient a2 im Zählerpolynom a0 + a1*x + a2*x^2",
+        "fr": "Coefficient a2 du polynôme numérateur a0 + a1*x + a2*x^2",
+        "es": "Coeficiente a2 en el polinomio del numerador a0 + a1*x + a2*x^2"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Denominator constant term (b0)",
         "tr": "Payda sabit terimi (b0)",
-        "de": "Denominator constant term (b0)",
-        "fr": "Denominator constant term (b0)",
-        "es": "Denominator constant term (b0)",
+        "de": "Konstanter Term des Nenners (b0)",
+        "fr": "Terme constant du dénominateur (b0)",
+        "es": "Término constante del denominador (b0)",
         "ar": "Denominator constant term (b0)"
       },
       "businessContext_i18n": {
         "en": "Coefficient b0 in denominator polynomial b0 + b1*x + b2*x^2",
-        "tr": "Payda polinomundaki b0 + b1*x + b2*x^2 katsayısı b0"
+        "tr": "Payda polinomundaki b0 + b1*x + b2*x^2 katsayısı b0",
+        "de": "Koeffizient b0 im Nennerpolynom b0 + b1*x + b2*x^2",
+        "fr": "Coefficient b0 du polynôme dénominateur b0 + b1*x + b2*x^2",
+        "es": "Coeficiente b0 en el polinomio del denominador b0 + b1*x + b2*x^2"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Denominator linear coefficient (b1)",
         "tr": "Payda doğrusal katsayısı (b1)",
-        "de": "Denominator linear coefficient (b1)",
-        "fr": "Denominator linear coefficient (b1)",
-        "es": "Denominator linear coefficient (b1)",
+        "de": "Linearer Koeffizient des Nenners (b1)",
+        "fr": "Coefficient linéaire du dénominateur (b1)",
+        "es": "Coeficiente lineal del denominador (b1)",
         "ar": "Denominator linear coefficient (b1)"
       },
       "businessContext_i18n": {
         "en": "Coefficient b1 in denominator polynomial b0 + b1*x + b2*x^2",
-        "tr": "Payda polinomundaki b0 + b1*x + b2*x^2 katsayısı b1"
+        "tr": "Payda polinomundaki b0 + b1*x + b2*x^2 katsayısı b1",
+        "de": "Koeffizient b1 im Nennerpolynom b0 + b1*x + b2*x^2",
+        "fr": "Coefficient b1 du polynôme dénominateur b0 + b1*x + b2*x^2",
+        "es": "Coeficiente b1 en el polinomio del denominador b0 + b1*x + b2*x^2"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Denominator quadratic coefficient (b2)",
         "tr": "Payda ikinci derece katsayısı (b2)",
-        "de": "Denominator quadratic coefficient (b2)",
-        "fr": "Denominator quadratic coefficient (b2)",
-        "es": "Denominator quadratic coefficient (b2)",
+        "de": "Quadratischer Koeffizient des Nenners (b2)",
+        "fr": "Coefficient quadratique du dénominateur (b2)",
+        "es": "Coeficiente cuadrático del denominador (b2)",
         "ar": "Denominator quadratic coefficient (b2)"
       },
       "businessContext_i18n": {
         "en": "Coefficient b2 in denominator polynomial b0 + b1*x + b2*x^2",
-        "tr": "Payda polinomundaki b0 + b1*x + b2*x^2 katsayısı b2"
+        "tr": "Payda polinomundaki b0 + b1*x + b2*x^2 katsayısı b2",
+        "de": "Koeffizient b2 im Nennerpolynom b0 + b1*x + b2*x^2",
+        "fr": "Coefficient b2 du polynôme dénominateur b0 + b1*x + b2*x^2",
+        "es": "Coeficiente b2 en el polinomio del denominador b0 + b1*x + b2*x^2"
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Approach point (x →)",
         "tr": "Yaklaşma noktası (x →)",
-        "de": "Approach point (x →)",
-        "fr": "Approach point (x →)",
-        "es": "Approach point (x →)",
+        "de": "Annäherungspunkt (x →)",
+        "fr": "Point d'approche (x →)",
+        "es": "Punto de aproximación (x →)",
         "ar": "Approach point (x →)"
       },
       "businessContext_i18n": {
         "en": "The value that x approaches to evaluate the limit",
-        "tr": "Limitin hesaplanması için x'in yaklaştığı değer"
+        "tr": "Limitin hesaplanması için x'in yaklaştığı değer",
+        "de": "Der Wert, dem sich x annähert, um den Grenzwert zu berechnen",
+        "fr": "Valeur que x approche pour évaluer la limite",
+        "es": "El valor al que se aproxima x para evaluar el límite"
       }
     },
     {
@@ -151,14 +172,17 @@
       "label_i18n": {
         "en": "Epsilon (small number)",
         "tr": "Epsilon (küçük sayı)",
-        "de": "Epsilon (small number)",
-        "fr": "Epsilon (small number)",
-        "es": "Epsilon (small number)",
+        "de": "Epsilon (kleine Zahl)",
+        "fr": "Epsilon (petit nombre)",
+        "es": "Épsilon (número pequeño)",
         "ar": "Epsilon (small number)"
       },
       "businessContext_i18n": {
         "en": "Small increment for numerical approximation of left- and right-hand limits; use e.g., 1e-4 or smaller",
-        "tr": "Sol ve sağ limitlerin sayısal yaklaşımı için küçük artış; örn. 1e-4 veya daha küçük kullanın"
+        "tr": "Sol ve sağ limitlerin sayısal yaklaşımı için küçük artış; örn. 1e-4 veya daha küçük kullanın",
+        "de": "Kleines Inkrement für numerische Approximation von links- und rechtsseitigen Grenzwerten; verwenden Sie z.B. 1e-4 oder kleiner",
+        "fr": "Petit incrément pour l'approximation numérique des limites à gauche et à droite ; utiliser par ex. 1e-4 ou plus petit",
+        "es": "Incremento pequeño para la aproximación numérica de límites por izquierda y derecha; use, por ejemplo, 1e-4 o menor"
       }
     }
   ],

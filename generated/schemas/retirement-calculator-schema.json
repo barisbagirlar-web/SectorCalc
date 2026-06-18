@@ -12,13 +12,16 @@
         "en": "Current Age",
         "tr": "Mevcut Yaş",
         "de": "Aktuelles Alter",
-        "fr": "Current Age",
-        "es": "Current Age",
+        "fr": "Âge actuel",
+        "es": "Edad actual",
         "ar": "Current Age"
       },
       "businessContext_i18n": {
         "en": "Current age of the individual.",
-        "tr": "Bireyin mevcut yaşı."
+        "tr": "Bireyin mevcut yaşı.",
+        "de": "Aktuelles Alter der Person.",
+        "fr": "Âge actuel de l'individu.",
+        "es": "Edad actual del individuo."
       }
     },
     {
@@ -32,13 +35,15 @@
         "en": "Retirement Age",
         "tr": "Emeklilik Yaşı",
         "de": "Rentenalter",
-        "fr": "Retirement Age",
-        "es": "Retirement Age",
+        "fr": "Âge de la retraite",
+        "es": "Edad de jubilación",
         "ar": "Retirement Age"
       },
       "businessContext_i18n": {
         "en": "Target retirement age.",
-        "tr": "Hedef emeklilik yaşı."
+        "tr": "Hedef emeklilik yaşı.",
+        "de": "Angestrebtes Renteneintrittsalter.",
+        "fr": "Âge de retraite cible."
       }
     },
     {
@@ -52,14 +57,16 @@
         "en": "Current Savings",
         "tr": "Mevcut Birikimler",
         "de": "Aktuelle Ersparnisse",
-        "fr": "Current Savings",
-        "es": "Current Savings",
+        "fr": "Épargne actuelle",
+        "es": "Ahorros actuales",
         "ar": "Current Savings"
       },
       "businessContext_i18n": {
         "en": "Total current retirement savings.",
         "tr": "Mevcut toplam emeklilik birikimleri.",
-        "de": "Gesamte aktuelle Altersvorsorge-Ersparnisse."
+        "de": "Gesamte aktuelle Altersvorsorge-Ersparnisse.",
+        "fr": "Épargne-retraite totale actuelle.",
+        "es": "Total de ahorros actuales para la jubilación."
       }
     },
     {
@@ -73,13 +80,15 @@
         "en": "Monthly Contribution",
         "tr": "Aylık Katkı",
         "de": "Monatlicher Beitrag",
-        "fr": "Monthly Contribution",
-        "es": "Monthly Contribution",
+        "fr": "Cotisation mensuelle",
+        "es": "Aporte mensual",
         "ar": "Monthly Contribution"
       },
       "businessContext_i18n": {
         "en": "Monthly contribution to retirement savings.",
-        "tr": "Emeklilik birikimlerine aylık katkı."
+        "tr": "Emeklilik birikimlerine aylık katkı.",
+        "de": "Monatlicher Beitrag zur Altersvorsorge.",
+        "fr": "Cotisation mensuelle à l'épargne retraite."
       }
     },
     {
@@ -93,13 +102,15 @@
         "en": "Annual Return",
         "tr": "Yıllık Getiri",
         "de": "Jährliche Rendite",
-        "fr": "Annual Return",
-        "es": "Annual Return",
+        "fr": "Rendement annuel",
+        "es": "Rendimiento anual",
         "ar": "Annual Return"
       },
       "businessContext_i18n": {
         "en": "Expected annual return on investments before retirement (e.g., 7 for 7%).",
-        "tr": "Emeklilik öncesi yatırımlardan beklenen yıllık getiri (örneğin, %7 için 7)."
+        "tr": "Emeklilik öncesi yatırımlardan beklenen yıllık getiri (örneğin, %7 için 7).",
+        "de": "Erwartete jährliche Rendite vor der Rente (z. B. 7 für 7 %).",
+        "fr": "Rendement annuel attendu des investissements avant la retraite (ex. 7 pour 7%)."
       }
     },
     {
@@ -113,13 +124,15 @@
         "en": "Inflation Rate",
         "tr": "Enflasyon Oranı",
         "de": "Inflationsrate",
-        "fr": "Inflation Rate",
-        "es": "Inflation Rate",
+        "fr": "Taux d'inflation",
+        "es": "Tasa de inflación",
         "ar": "Inflation Rate"
       },
       "businessContext_i18n": {
         "en": "Expected average inflation rate (e.g., 2 for 2%).",
-        "tr": "Beklenen ortalama yıllık enflasyon oranı (örneğin, %2 için 2)."
+        "tr": "Beklenen ortalama yıllık enflasyon oranı (örneğin, %2 için 2).",
+        "de": "Erwartete durchschnittliche Inflationsrate (z. B. 2 für 2 %).",
+        "fr": "Taux d'inflation annuel moyen attendu (ex. 2 pour 2%)."
       }
     },
     {
@@ -132,14 +145,16 @@
       "label_i18n": {
         "en": "Desired Monthly Income",
         "tr": "İstenen Aylık Gelir",
-        "de": "Desired Monthly Income",
-        "fr": "Desired Monthly Income",
+        "de": "Gewünschtes monatliches Einkommen",
+        "fr": "Revenu mensuel souhaité",
         "es": "Desired Monthly Income",
         "ar": "Desired Monthly Income"
       },
       "businessContext_i18n": {
         "en": "Desired monthly income in retirement (today's value).",
-        "tr": "Emeklilikte istenen aylık gelir (bugünkü değer)."
+        "tr": "Emeklilikte istenen aylık gelir (bugünkü değer).",
+        "de": "Gewünschtes monatliches Einkommen im Ruhestand (heutiger Wert).",
+        "fr": "Revenu mensuel souhaité à la retraite (valeur actuelle)."
       }
     }
   ],

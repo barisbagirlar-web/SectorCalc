@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Inertia Constant (H)",
         "tr": "Atalet Sabiti (H)",
-        "de": "Inertia Constant (H)",
-        "fr": "Inertia Constant (H)",
-        "es": "Inertia Constant (H)",
+        "de": "Trägheitskonstante (H)",
+        "fr": "Constante d'inertie (H)",
+        "es": "Constante de inercia (H)",
         "ar": "Inertia Constant (H)"
       },
       "businessContext_i18n": {
         "en": "Generator inertia constant in seconds (per unit).",
-        "tr": "Jeneratör atalet sabiti saniye cinsinden (birim başına)."
+        "tr": "Jeneratör atalet sabiti saniye cinsinden (birim başına).",
+        "de": "Generator-Trägheitskonstante in Sekunden (pro Einheit).",
+        "fr": "Constante d'inertie du générateur en secondes (par unité).",
+        "es": "Constante de inercia del generador en segundos (por unidad)."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Initial Load Angle (δ₀)",
         "tr": "Başlangıç Yük Açısı (δ₀)",
-        "de": "Initial Load Angle (δ₀)",
-        "fr": "Initial Load Angle (δ₀)",
-        "es": "Initial Load Angle (δ₀)",
+        "de": "Anfangslastwinkel (δ₀)",
+        "fr": "Angle de charge initial (δ₀)",
+        "es": "Ángulo de carga inicial (δ₀)",
         "ar": "Initial Load Angle (δ₀)"
       },
       "businessContext_i18n": {
         "en": "Pre-fault rotor angle with respect to infinite bus.",
-        "tr": "Arıza öncesi rotor açısı, sonsuz bara referans alınarak."
+        "tr": "Arıza öncesi rotor açısı, sonsuz bara referans alınarak.",
+        "de": "Rotorwinkel vor dem Fehler in Bezug auf die unendliche Sammelschiene.",
+        "fr": "Angle du rotor avant défaut par rapport au bus infini.",
+        "es": "Ángulo del rotor antes de la falla con respecto al bus infinito."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Mechanical Power Input (Pₘ)",
         "tr": "Mekanik Güç Girişi (Pₘ)",
-        "de": "Mechanical Power Input (Pₘ)",
-        "fr": "Mechanical Power Input (Pₘ)",
-        "es": "Mechanical Power Input (Pₘ)",
+        "de": "Mechanische Leistungsaufnahme (Pₘ)",
+        "fr": "Puissance mécanique d'entrée (Pₘ)",
+        "es": "Potencia mecánica de entrada (Pₘ)",
         "ar": "Mechanical Power Input (Pₘ)"
       },
       "businessContext_i18n": {
         "en": "Turbine mechanical power on system base.",
-        "tr": "Türbin mekanik gücü, sistem bazında."
+        "tr": "Türbin mekanik gücü, sistem bazında.",
+        "de": "Mechanische Turbinenleistung auf Systembasis.",
+        "fr": "Puissance mécanique de la turbine sur la base du système.",
+        "es": "Potencia mecánica de la turbina en base del sistema."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Maximum Electrical Power (Pₘₐₓ)",
         "tr": "Maksimum Elektrik Gücü (Pₘₐₓ)",
-        "de": "Maximum Electrical Power (Pₘₐₓ)",
-        "fr": "Maximum Electrical Power (Pₘₐₓ)",
-        "es": "Maximum Electrical Power (Pₘₐₓ)",
+        "de": "Maximale elektrische Leistung (Pₘₐₓ)",
+        "fr": "Puissance électrique maximale (Pₘₐₓ)",
+        "es": "Potencia eléctrica máxima (Pₘₐₓ)",
         "ar": "Maximum Electrical Power (Pₘₐₓ)"
       },
       "businessContext_i18n": {
         "en": "Post-fault maximum of the power-angle curve.",
-        "tr": "Arıza sonrası güç-açı eğrisinin maksimum değeri."
+        "tr": "Arıza sonrası güç-açı eğrisinin maksimum değeri.",
+        "de": "Nachfehler-Maximum der Leistungswinkelkurve.",
+        "fr": "Maximum post-défaut de la courbe puissance-angle.",
+        "es": "Máximo post-falla de la curva potencia-ángulo."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "System Frequency (f)",
         "tr": "Sistem Frekansı (f)",
-        "de": "System Frequency (f)",
-        "fr": "System Frequency (f)",
-        "es": "System Frequency (f)",
+        "de": "Systemfrequenz (f)",
+        "fr": "Fréquence du système (f)",
+        "es": "Frecuencia del sistema (f)",
         "ar": "System Frequency (f)"
       },
       "businessContext_i18n": {
         "en": "Nominal system frequency (50 or 60 Hz).",
-        "tr": "Nominal sistem frekansı (50 veya 60 Hz)."
+        "tr": "Nominal sistem frekansı (50 veya 60 Hz).",
+        "de": "Nennfrequenz des Systems (50 oder 60 Hz).",
+        "fr": "Fréquence nominale du système (50 ou 60 Hz).",
+        "es": "Frecuencia nominal del sistema (50 o 60 Hz)."
       }
     }
   ],

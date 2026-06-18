@@ -12,14 +12,16 @@
         "en": "Basic X (Nominal)",
         "tr": "Temel X (Nominal)",
         "de": "Grundmaß X (Nennmaß)",
-        "fr": "Basic X (Nominal)",
-        "es": "Basic X (Nominal)",
+        "fr": "X de base (nominal)",
+        "es": "X básica (Nominal)",
         "ar": "Basic X (Nominal)"
       },
       "businessContext_i18n": {
         "en": "Theoretical exact X coordinate from drawing",
         "tr": "Çizimden teorik tam X koordinatı",
-        "de": "Theoretisches exaktes X-Koordinate aus der Zeichnung"
+        "de": "Theoretisches exaktes X-Koordinate aus der Zeichnung",
+        "fr": "Coordonnée X théorique exacte du dessin",
+        "es": "Coordenada X teórica exacta del dibujo"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Basic Y (Nominal)",
         "tr": "Temel Y (Nominal)",
         "de": "Grundmaß Y (Nennmaß)",
-        "fr": "Basic Y (Nominal)",
-        "es": "Basic Y (Nominal)",
+        "fr": "Y de base (nominal)",
+        "es": "Y básica (Nominal)",
         "ar": "Basic Y (Nominal)"
       },
       "businessContext_i18n": {
         "en": "Theoretical exact Y coordinate from drawing",
         "tr": "Çizimden teorik tam Y koordinatı",
-        "de": "Theoretisches exaktes Y-Koordinate aus der Zeichnung"
+        "de": "Theoretisches exaktes Y-Koordinate aus der Zeichnung",
+        "fr": "Coordonnée Y théorique exacte du dessin",
+        "es": "Coordenada Y teórica exacta del dibujo"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Measured X",
         "tr": "Ölçülen X",
         "de": "Gemessenes X",
-        "fr": "Measured X",
-        "es": "Measured X",
+        "fr": "X mesuré",
+        "es": "X medida",
         "ar": "Measured X"
       },
       "businessContext_i18n": {
         "en": "Actual measured X coordinate",
         "tr": "Gerçek ölçülen X koordinatı",
-        "de": "Tatsächlich gemessene X-Koordinate"
+        "de": "Tatsächlich gemessene X-Koordinate",
+        "fr": "Coordonnée X mesurée réelle",
+        "es": "Coordenada X real medida"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Measured Y",
         "tr": "Ölçülen Y",
         "de": "Gemessenes Y",
-        "fr": "Measured Y",
-        "es": "Measured Y",
+        "fr": "Y mesuré",
+        "es": "Y medida",
         "ar": "Measured Y"
       },
       "businessContext_i18n": {
         "en": "Actual measured Y coordinate",
         "tr": "Gerçek ölçülen Y koordinatı",
-        "de": "Tatsächlich gemessene Y-Koordinate"
+        "de": "Tatsächlich gemessene Y-Koordinate",
+        "fr": "Coordonnée Y mesurée réelle",
+        "es": "Coordenada Y real medida"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Hole Diameter (Nominal)",
         "tr": "Delik Çapı (Nominal)",
         "de": "Lochdurchmesser (Nennmaß)",
-        "fr": "Hole Diameter (Nominal)",
-        "es": "Hole Diameter (Nominal)",
+        "fr": "Diamètre du trou (nominal)",
+        "es": "Diámetro del agujero (Nominal)",
         "ar": "Hole Diameter (Nominal)"
       },
       "businessContext_i18n": {
         "en": "Nominal diameter of the hole",
         "tr": "Deliğin nominal çapı",
-        "de": "Nenndurchmesser des Lochs"
+        "de": "Nenndurchmesser des Lochs",
+        "fr": "Diamètre nominal du trou",
+        "es": "Diámetro nominal del agujero"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Lower Tolerance (MMC)",
         "tr": "Alt Tolerans (MMC)",
         "de": "Untere Toleranz (MMC)",
-        "fr": "Lower Tolerance (MMC)",
-        "es": "Lower Tolerance (MMC)",
+        "fr": "Tolérance inférieure (MMC)",
+        "es": "Tolerancia inferior (MMC)",
         "ar": "Lower Tolerance (MMC)"
       },
       "businessContext_i18n": {
         "en": "Absolute deviation from nominal to smallest permissible size (e.g., 0.1 for hole at MMC = nominal - 0.1)",
         "tr": "Nominalden izin verilen en küçük boyuta mutlak sapma (örneğin, MMC'de delik için 0,1 = nominal - 0,1)",
-        "de": "Absolute Abweichung vom Nennmaß zur kleinsten zulässigen Größe (z. B. 0,1 für Loch bei MMC = Nennmaß - 0,1)"
+        "de": "Absolute Abweichung vom Nennmaß zur kleinsten zulässigen Größe (z. B. 0,1 für Loch bei MMC = Nennmaß - 0,1)",
+        "fr": "Écart absolu du nominal à la plus petite taille admissible (ex. 0,1 pour un trou à MMC = nominal - 0,1)",
+        "es": "Desviación absoluta del nominal al tamaño mínimo permitido (ej., 0.1 para agujero en MMC = nominal - 0.1)"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Actual Hole Diameter",
         "tr": "Gerçek Delik Çapı",
         "de": "Tatsächlicher Lochdurchmesser",
-        "fr": "Actual Hole Diameter",
-        "es": "Actual Hole Diameter",
+        "fr": "Diamètre réel du trou",
+        "es": "Diámetro real del agujero",
         "ar": "Actual Hole Diameter"
       },
       "businessContext_i18n": {
         "en": "Measured diameter of the produced hole",
         "tr": "Üretilen deliğin ölçülen çapı",
-        "de": "Gemessener Durchmesser des gefertigten Lochs"
+        "de": "Gemessener Durchmesser des gefertigten Lochs",
+        "fr": "Diamètre mesuré du trou produit",
+        "es": "Diámetro medido del agujero producido"
       }
     },
     {
@@ -159,14 +173,16 @@
         "en": "Specified Position Tolerance",
         "tr": "Belirtilen Konum Toleransı",
         "de": "Spezifizierte Positionstoleranz",
-        "fr": "Specified Position Tolerance",
-        "es": "Specified Position Tolerance",
+        "fr": "Tolérance de position spécifiée",
+        "es": "Tolerancia de posición especificada",
         "ar": "Specified Position Tolerance"
       },
       "businessContext_i18n": {
         "en": "Position tolerance value from the drawing feature control frame",
         "tr": "Çizim özellik kontrol çerçevesinden konum toleransı değeri",
-        "de": "Positionstoleranzwert aus dem Merkmalrahmen der Zeichnung"
+        "de": "Positionstoleranzwert aus dem Merkmalrahmen der Zeichnung",
+        "fr": "Valeur de tolérance de position issue du cadre de contrôle de caractéristique du dessin",
+        "es": "Valor de tolerancia de posición del recuadro de control de características del dibujo"
       }
     }
   ],

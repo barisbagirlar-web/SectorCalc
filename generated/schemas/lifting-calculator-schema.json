@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Yük Ağırlığı",
         "tr": "Yük Ağırlığı",
-        "de": "Yük Ağırlığı",
-        "fr": "Yük Ağırlığı",
-        "es": "Yük Ağırlığı",
+        "de": "Lastgewicht",
+        "fr": "Poids de la charge",
+        "es": "Peso de la carga",
         "ar": "Yük Ağırlığı"
       },
       "businessContext_i18n": {
         "en": "Kaldırılacak yükün ağırlığı (kg)",
-        "tr": "Kaldırılacak yükün ağırlığı (kg)"
+        "tr": "Kaldırılacak yükün ağırlığı (kg)",
+        "de": "Gewicht der zu hebenden Last (kg)",
+        "fr": "Poids de la charge à soulever (kg)",
+        "es": "Peso de la carga a levantar (kg)"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Sapan Ayağı Sayısı",
         "tr": "Sapan Ayağı Sayısı",
-        "de": "Sapan Ayağı Sayısı",
-        "fr": "Sapan Ayağı Sayısı",
-        "es": "Sapan Ayağı Sayısı",
+        "de": "Anzahl der Anschlagmittelstränge",
+        "fr": "Nombre de brins d'élingue",
+        "es": "Número de ramales de la eslinga",
         "ar": "Sapan Ayağı Sayısı"
       },
       "businessContext_i18n": {
         "en": "Kaldırma aparatındaki sapan ayak sayısı",
-        "tr": "Kaldırma aparatındaki sapan ayak sayısı"
+        "tr": "Kaldırma aparatındaki sapan ayak sayısı",
+        "de": "Anzahl der Anschlagmittelstränge im Hebezeug",
+        "fr": "Nombre de brins de l'élingue",
+        "es": "Número de ramales de la eslinga en el aparejo de elevación"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Sapan Açısı (düşeyle)",
         "tr": "Sapan Açısı (düşeyle)",
-        "de": "Sapan Açısı (düşeyle)",
-        "fr": "Sapan Açısı (düşeyle)",
-        "es": "Sapan Açısı (düşeyle)",
+        "de": "Anschlagwinkel (zur Vertikalen)",
+        "fr": "Angle de l'élingue (par rapport à la verticale)",
+        "es": "Ángulo de la eslinga (respecto a la vertical)",
         "ar": "Sapan Açısı (düşeyle)"
       },
       "businessContext_i18n": {
         "en": "Sapanın düşeyle yaptığı açı (0-90 arası)",
-        "tr": "Sapanın düşeyle yaptığı açı (0-90 arası)"
+        "tr": "Sapanın düşeyle yaptığı açı (0-90 arası)",
+        "de": "Winkel des Anschlagmittels zur Vertikalen (0-90)",
+        "fr": "Angle de l'élingue par rapport à la verticale (0-90)",
+        "es": "Ángulo de la eslinga con la vertical (0-90)"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Emniyet Katsayısı",
         "tr": "Emniyet Katsayısı",
         "de": "Sicherheitsfaktor",
-        "fr": "Emniyet Katsayısı",
-        "es": "Emniyet Katsayısı",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Emniyet Katsayısı"
       },
       "businessContext_i18n": {
         "en": "Kaldırma ekipmanı için emniyet katsayısı (genellikle 4-7)",
-        "tr": "Kaldırma ekipmanı için emniyet katsayısı (genellikle 4-7)"
+        "tr": "Kaldırma ekipmanı için emniyet katsayısı (genellikle 4-7)",
+        "de": "Sicherheitsfaktor für Hebezeuge (normalerweise 4-7)",
+        "fr": "Coefficient de sécurité pour l'équipement de levage (généralement 4-7)",
+        "es": "Factor de seguridad para equipos de elevación (generalmente 4-7)"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Darbe Faktörü",
         "tr": "Darbe Faktörü",
-        "de": "Darbe Faktörü",
-        "fr": "Darbe Faktörü",
-        "es": "Darbe Faktörü",
+        "de": "Stoßfaktor",
+        "fr": "Facteur de choc",
+        "es": "Factor de impacto",
         "ar": "Darbe Faktörü"
       },
       "businessContext_i18n": {
         "en": "Ani hareketlerden kaynaklanan ek yük faktörü (genellikle 1.1-1.3)",
-        "tr": "Ani hareketlerden kaynaklanan ek yük faktörü (genellikle 1.1-1.3)"
+        "tr": "Ani hareketlerden kaynaklanan ek yük faktörü (genellikle 1.1-1.3)",
+        "de": "Zusätzlicher Lastfaktor durch plötzliche Bewegungen (normalerweise 1,1-1,3)",
+        "fr": "Facteur de charge supplémentaire dû aux mouvements brusques (généralement 1.1-1.3)",
+        "es": "Factor de carga adicional por movimientos bruscos (generalmente 1.1-1.3)"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Yük Dağılım Faktörü",
         "tr": "Yük Dağılım Faktörü",
-        "de": "Yük Dağılım Faktörü",
-        "fr": "Yük Dağılım Faktörü",
-        "es": "Yük Dağılım Faktörü",
+        "de": "Lastverteilungsfaktor",
+        "fr": "Facteur de répartition de charge",
+        "es": "Factor de distribución de carga",
         "ar": "Yük Dağılım Faktörü"
       },
       "businessContext_i18n": {
         "en": "Asimetrik yük dağılımını hesaba katmak için faktör (1.0 simetrik dağılım)",
-        "tr": "Asimetrik yük dağılımını hesaba katmak için faktör (1.0 simetrik dağılım)"
+        "tr": "Asimetrik yük dağılımını hesaba katmak için faktör (1.0 simetrik dağılım)",
+        "de": "Faktor zur Berücksichtigung asymmetrischer Lastverteilung (1,0 bei symmetrischer Verteilung)",
+        "fr": "Facteur pour tenir compte d'une répartition asymétrique de la charge (1.0 pour répartition symétrique)",
+        "es": "Factor para tener en cuenta la distribución asimétrica de la carga (1.0 distribución simétrica)"
       }
     }
   ],

@@ -12,13 +12,15 @@
         "en": "Length",
         "tr": "Uzunluk",
         "de": "Länge",
-        "fr": "Length",
-        "es": "Length",
+        "fr": "Longueur",
+        "es": "Longitud",
         "ar": "Length"
       },
       "businessContext_i18n": {
         "en": "Board length in inches",
-        "tr": "Levha uzunluğu (inç)"
+        "tr": "Levha uzunluğu (inç)",
+        "de": "Brettlänge in Zoll",
+        "fr": "Longueur du panneau en pouces"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Width",
         "tr": "Genişlik",
         "de": "Breite",
-        "fr": "Width",
-        "es": "Width",
+        "fr": "Largeur",
+        "es": "Ancho",
         "ar": "Width"
       },
       "businessContext_i18n": {
         "en": "Board width in inches",
-        "tr": "Levha genişliği (inç)"
+        "tr": "Levha genişliği (inç)",
+        "de": "Brettbreite in Zoll",
+        "fr": "Largeur du panneau en pouces"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Thickness",
         "tr": "Kalınlık",
         "de": "Dicke",
-        "fr": "Thickness",
-        "es": "Thickness",
+        "fr": "Épaisseur",
+        "es": "Espesor",
         "ar": "Thickness"
       },
       "businessContext_i18n": {
         "en": "Board thickness in inches (nominal or actual)",
-        "tr": "Levha kalınlığı (inç, nominal veya gerçek)"
+        "tr": "Levha kalınlığı (inç, nominal veya gerçek)",
+        "de": "Brettdicke in Zoll (Nenn- oder Istmaß)",
+        "fr": "Épaisseur du panneau en pouces (nominale ou réelle)"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Quantity",
         "tr": "Miktar",
         "de": "Menge",
-        "fr": "Quantity",
-        "es": "Quantity",
+        "fr": "Quantité",
+        "es": "Cantidad",
         "ar": "Quantity"
       },
       "businessContext_i18n": {
         "en": "Number of identical boards",
-        "tr": "Aynı levhaların sayısı"
+        "tr": "Aynı levhaların sayısı",
+        "de": "Anzahl identischer Bretter",
+        "fr": "Nombre de panneaux identiques"
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
         "de": "Abfallfaktor",
-        "fr": "Waste Factor",
-        "es": "Waste Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Additional material percentage for cutting waste, defects, etc.",
-        "tr": "Kesim atığı, kusurlar vb. için ek malzeme yüzdesi."
+        "tr": "Kesim atığı, kusurlar vb. için ek malzeme yüzdesi.",
+        "de": "Zusätzlicher Materialanteil für Verschnitt, Fehler usw.",
+        "fr": "Pourcentage de matière supplémentaire pour les chutes de coupe, les défauts, etc."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Price per Board Foot",
         "tr": "Board Foot Başına Fiyat",
-        "de": "Price per Board Foot",
-        "fr": "Price per Board Foot",
+        "de": "Preis pro Board Foot",
+        "fr": "Prix par pied-planche",
         "es": "Price per Board Foot",
         "ar": "Price per Board Foot"
       },
       "businessContext_i18n": {
         "en": "Optional: cost per board foot (set to 0 if only board feet needed)",
-        "tr": "İsteğe bağlı: board foot başına maliyet (sadece board foot gerekiyorsa 0 ayarlayın)"
+        "tr": "İsteğe bağlı: board foot başına maliyet (sadece board foot gerekiyorsa 0 ayarlayın)",
+        "de": "Optional: Kosten pro Board Foot (auf 0 setzen, wenn nur Board Feet benötigt)",
+        "fr": "Optionnel : coût par pied-planche (mettre 0 si seul le pied-planche est nécessaire)"
       }
     }
   ],

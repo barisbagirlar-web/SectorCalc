@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Speed (m/s)",
         "tr": "Hız (m/s)",
-        "de": "Speed (m/s)",
-        "fr": "Speed (m/s)",
-        "es": "Speed (m/s)",
+        "de": "Geschwindigkeit (m/s)",
+        "fr": "Vitesse (m/s)",
+        "es": "Velocidad (m/s)",
         "ar": "Speed (m/s)"
       },
       "businessContext_i18n": {
         "en": "Input speed in meters per second",
-        "tr": "Saniyede metre cinsinden giriş hızı"
+        "tr": "Saniyede metre cinsinden giriş hızı",
+        "de": "Eingabegeschwindigkeit in Metern pro Sekunde",
+        "fr": "Saisir la vitesse en mètres par seconde",
+        "es": "Ingrese la velocidad en metros por segundo"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Meters to Miles Factor",
         "tr": "Metre-Mil Dönüşüm Faktörü",
-        "de": "Meters to Miles Factor",
-        "fr": "Meters to Miles Factor",
-        "es": "Meters to Miles Factor",
+        "de": "Umrechnungsfaktor Meter zu Meilen",
+        "fr": "Facteur mètres en miles",
+        "es": "Factor de metros a millas",
         "ar": "Meters to Miles Factor"
       },
       "businessContext_i18n": {
         "en": "Conversion factor from meters to miles",
-        "tr": "Metreden mile dönüşüm faktörü"
+        "tr": "Metreden mile dönüşüm faktörü",
+        "de": "Umrechnungsfaktor von Metern zu Meilen",
+        "fr": "Facteur de conversion des mètres en miles",
+        "es": "Factor de conversión de metros a millas"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Seconds to Hours Factor",
         "tr": "Saniye-Saat Dönüşüm Faktörü",
-        "de": "Seconds to Hours Factor",
-        "fr": "Seconds to Hours Factor",
-        "es": "Seconds to Hours Factor",
+        "de": "Umrechnungsfaktor Sekunden zu Stunden",
+        "fr": "Facteur secondes en heures",
+        "es": "Factor de segundos a horas",
         "ar": "Seconds to Hours Factor"
       },
       "businessContext_i18n": {
         "en": "Conversion factor from seconds to hours",
-        "tr": "Saniyeden saate dönüşüm faktörü"
+        "tr": "Saniyeden saate dönüşüm faktörü",
+        "de": "Umrechnungsfaktor von Sekunden zu Stunden",
+        "fr": "Facteur de conversion des secondes en heures",
+        "es": "Factor de conversión de segundos a horas"
       }
     },
     {
@@ -72,14 +81,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding output",
         "tr": "Yuvarlama için ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen für die Rundung der Ausgabe"
+        "de": "Anzahl der Dezimalstellen für die Rundung der Ausgabe",
+        "fr": "Nombre de décimales pour l'arrondi du résultat",
+        "es": "Número de decimales para redondear el resultado"
       }
     }
   ],

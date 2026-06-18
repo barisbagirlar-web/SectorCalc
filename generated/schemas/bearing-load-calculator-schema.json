@@ -12,14 +12,16 @@
         "en": "Radial Load (Fr)",
         "tr": "Radyal Yük (Fr)",
         "de": "Radiallast (Fr)",
-        "fr": "Radial Load (Fr)",
-        "es": "Radial Load (Fr)",
+        "fr": "Charge radiale (Fr)",
+        "es": "Carga radial (Fr)",
         "ar": "Radial Load (Fr)"
       },
       "businessContext_i18n": {
         "en": "The radial force acting on the bearing",
         "tr": "Rulmana etki eden radyal kuvvet",
-        "de": "Die auf das Lager wirkende Radialkraft"
+        "de": "Die auf das Lager wirkende Radialkraft",
+        "fr": "La force radiale agissant sur le roulement",
+        "es": "La fuerza radial que actúa sobre el rodamiento"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Axial Load (Fa)",
         "tr": "Eksenel Yük (Fa)",
         "de": "Axialbelastung (Fa)",
-        "fr": "Axial Load (Fa)",
-        "es": "Axial Load (Fa)",
+        "fr": "Charge axiale (Fa)",
+        "es": "Carga axial (Fa)",
         "ar": "Axial Load (Fa)"
       },
       "businessContext_i18n": {
         "en": "The axial force acting on the bearing",
         "tr": "Rulman üzerine etki eden eksenel kuvvet",
-        "de": "Die auf das Lager wirkende Axialkraft"
+        "de": "Die auf das Lager wirkende Axialkraft",
+        "fr": "Force axiale agissant sur le roulement",
+        "es": "Fuerza axial que actúa sobre el rodamiento"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Radial Factor (X)",
         "tr": "Radyal Faktör (X)",
         "de": "Radialfaktor (X)",
-        "fr": "Radial Factor (X)",
-        "es": "Radial Factor (X)",
+        "fr": "Facteur radial (X)",
+        "es": "Factor radial (X)",
         "ar": "Radial Factor (X)"
       },
       "businessContext_i18n": {
         "en": "Radial load factor from bearing tables",
         "tr": "Rulman tablolarından radyal yük faktörü",
-        "de": "Radiallastfaktor aus Lagertabellen"
+        "de": "Radiallastfaktor aus Lagertabellen",
+        "fr": "Facteur de charge radiale issu des tables de roulements",
+        "es": "Factor de carga radial de tablas de rodamientos"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Axial Factor (Y)",
         "tr": "Eksenel Faktör (Y)",
         "de": "Axialfaktor (Y)",
-        "fr": "Axial Factor (Y)",
-        "es": "Axial Factor (Y)",
+        "fr": "Facteur axial (Y)",
+        "es": "Factor axial (Y)",
         "ar": "Axial Factor (Y)"
       },
       "businessContext_i18n": {
         "en": "Axial load factor from bearing tables",
         "tr": "Rulman tablolarından eksenel yük faktörü",
-        "de": "Axiallastfaktor aus Lagertabellen"
+        "de": "Axiallastfaktor aus Lagertabellen",
+        "fr": "Facteur de charge axiale issu des tables de roulements",
+        "es": "Factor de carga axial de tablas de rodamientos"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Dynamic Load Rating (C)",
         "tr": "Dinamik Yük Değeri (C)",
         "de": "Dynamische Tragzahl (C)",
-        "fr": "Dynamic Load Rating (C)",
-        "es": "Dynamic Load Rating (C)",
+        "fr": "Capacité de charge dynamique (C)",
+        "es": "Capacidad de carga dinámica (C)",
         "ar": "Dynamic Load Rating (C)"
       },
       "businessContext_i18n": {
         "en": "Basic dynamic load rating of the bearing",
         "tr": "Rulmanın temel dinamik yük değeri",
-        "de": "Basis-dynamische Tragzahl des Lagers"
+        "de": "Basis-dynamische Tragzahl des Lagers",
+        "fr": "Capacité de charge dynamique de base du roulement",
+        "es": "Capacidad de carga dinámica básica del rodamiento"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Life Exponent (p)",
         "tr": "Ömür Üssü (p)",
         "de": "Lebensdauerexponent (p)",
-        "fr": "Life Exponent (p)",
-        "es": "Life Exponent (p)",
+        "fr": "Exposant de durée (p)",
+        "es": "Exponente de vida (p)",
         "ar": "Life Exponent (p)"
       },
       "businessContext_i18n": {
         "en": "Exponent for life formula: 3 for ball bearings, 10/3 for roller bearings",
         "tr": "Ömür formülü için üs: bilyalı rulmanlar için 3, makaralı rulmanlar için 10/3",
-        "de": "Exponent für Lebensdauerformel: 3 für Kugellager, 10/3 für Rollenlager"
+        "de": "Exponent für Lebensdauerformel: 3 für Kugellager, 10/3 für Rollenlager",
+        "fr": "Exposant pour la formule de durée : 3 pour les roulements à billes, 10/3 pour les roulements à rouleaux",
+        "es": "Exponente para la fórmula de vida: 3 para rodamientos de bolas, 10/3 para rodamientos de rodillos"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Rotational Speed (n)",
         "tr": "Dönüş Hızı (n)",
         "de": "Drehzahl (n)",
-        "fr": "Rotational Speed (n)",
-        "es": "Rotational Speed (n)",
+        "fr": "Vitesse de rotation (n)",
+        "es": "Velocidad de rotación (n)",
         "ar": "Rotational Speed (n)"
       },
       "businessContext_i18n": {
         "en": "Rotational speed of the bearing in revolutions per minute",
         "tr": "Rulmanın dakikadaki devir sayısı",
-        "de": "Drehzahl des Lagers in Umdrehungen pro Minute"
+        "de": "Drehzahl des Lagers in Umdrehungen pro Minute",
+        "fr": "Vitesse de rotation du roulement en tours par minute",
+        "es": "Velocidad de rotación del rodamiento en revoluciones por minuto"
       }
     }
   ],

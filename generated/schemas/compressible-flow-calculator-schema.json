@@ -12,14 +12,16 @@
         "en": "Upstream Pressure",
         "tr": "Yukarı Akış Basıncı",
         "de": "Vordruck",
-        "fr": "Upstream Pressure",
-        "es": "Upstream Pressure",
+        "fr": "Pression amont",
+        "es": "Presión aguas arriba",
         "ar": "Upstream Pressure"
       },
       "businessContext_i18n": {
         "en": "Absolute pressure before the restriction",
         "tr": "Kısıtlamadan önceki mutlak basınç",
-        "de": "Absoluter Druck vor der Drossel"
+        "de": "Absoluter Druck vor der Drossel",
+        "fr": "Pression absolue avant la restriction",
+        "es": "Presión absoluta antes de la restricción"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Downstream Pressure",
         "tr": "Aşağı Akış Basıncı",
         "de": "Gegendruck",
-        "fr": "Downstream Pressure",
-        "es": "Downstream Pressure",
+        "fr": "Pression aval",
+        "es": "Presión aguas abajo",
         "ar": "Downstream Pressure"
       },
       "businessContext_i18n": {
         "en": "Absolute pressure after the restriction",
         "tr": "Kısıtlamadan sonraki mutlak basınç",
-        "de": "Absoluter Druck nach der Drossel"
+        "de": "Absoluter Druck nach der Drossel",
+        "fr": "Pression absolue après la restriction",
+        "es": "Presión absoluta después de la restricción"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Temperature",
         "tr": "Sıcaklık",
         "de": "Temperatur",
-        "fr": "Temperature",
-        "es": "Temperature",
+        "fr": "Température",
+        "es": "Temperatura",
         "ar": "Temperature"
       },
       "businessContext_i18n": {
         "en": "Absolute temperature of the gas",
         "tr": "Gazın mutlak sıcaklığı",
-        "de": "Absolute Temperatur des Gases"
+        "de": "Absolute Temperatur des Gases",
+        "fr": "Température absolue du gaz",
+        "es": "Temperatura absoluta del gas"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Specific Gas Constant",
         "tr": "Özgül gaz sabiti",
         "de": "Spezifische Gaskonstante",
-        "fr": "Specific Gas Constant",
-        "es": "Specific Gas Constant",
+        "fr": "Constante spécifique du gaz",
+        "es": "Constante específica del gas",
         "ar": "Specific Gas Constant"
       },
       "businessContext_i18n": {
         "en": "Gas constant for the specific gas (e.g., air)",
         "tr": "Belirli bir gaz (örneğin hava) için gaz sabiti",
-        "de": "Gaskonstante für das spezifische Gas (z. B. Luft)"
+        "de": "Gaskonstante für das spezifische Gas (z. B. Luft)",
+        "fr": "Constante du gaz pour le gaz spécifique (ex. air)",
+        "es": "Constante del gas para el gas específico (ej., aire)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Specific Heat Ratio (γ)",
         "tr": "Özgül Isı Oranı (γ)",
         "de": "Isentropenexponent (γ)",
-        "fr": "Specific Heat Ratio (γ)",
-        "es": "Specific Heat Ratio (γ)",
+        "fr": "Rapport des chaleurs spécifiques (γ)",
+        "es": "Relación de calores específicos (γ)",
         "ar": "Specific Heat Ratio (γ)"
       },
       "businessContext_i18n": {
         "en": "Ratio of specific heats (Cp/Cv)",
         "tr": "Özgül ısı oranı (Cp/Cv)",
-        "de": "Isentropenexponent (Cp/Cv)"
+        "de": "Isentropenexponent (Cp/Cv)",
+        "fr": "Rapport des chaleurs spécifiques (Cp/Cv)",
+        "es": "Relación de calores específicos (Cp/Cv)"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Orifice Diameter",
         "tr": "Orifis çapı",
         "de": "Blendendurchmesser",
-        "fr": "Orifice Diameter",
-        "es": "Orifice Diameter",
+        "fr": "Diamètre de l'orifice",
+        "es": "Diámetro del orificio",
         "ar": "Orifice Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the orifice or restriction",
         "tr": "Orifis veya kısıtlamanın çapı",
-        "de": "Durchmesser der Blende oder Drossel"
+        "de": "Durchmesser der Blende oder Drossel",
+        "fr": "Diamètre de l'orifice ou de la restriction",
+        "es": "Diámetro del orificio o restricción"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Discharge Coefficient",
         "tr": "Debi Katsayısı",
         "de": "Ausflusskoeffizient",
-        "fr": "Discharge Coefficient",
-        "es": "Discharge Coefficient",
+        "fr": "Coefficient de décharge",
+        "es": "Coeficiente de descarga",
         "ar": "Discharge Coefficient"
       },
       "businessContext_i18n": {
         "en": "Empirical coefficient accounting for losses",
         "tr": "Kayıpları hesaba katan ampirik katsayı",
-        "de": "Empirischer Verlustbeiwert"
+        "de": "Empirischer Verlustbeiwert",
+        "fr": "Coefficient empirique tenant compte des pertes",
+        "es": "Coeficiente empírico que contabiliza pérdidas"
       }
     }
   ],

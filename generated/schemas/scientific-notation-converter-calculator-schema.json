@@ -12,13 +12,15 @@
         "en": "Decimal Number",
         "tr": "Ondalık Sayı",
         "de": "Dezimalzahl",
-        "fr": "Decimal Number",
-        "es": "Decimal Number",
+        "fr": "Nombre décimal",
+        "es": "Número decimal",
         "ar": "Decimal Number"
       },
       "businessContext_i18n": {
         "en": "Number to convert to scientific notation (when converting from decimal).",
-        "tr": "Bilimsel gösterime dönüştürülecek sayı (ondalıktan dönüştürürken)."
+        "tr": "Bilimsel gösterime dönüştürülecek sayı (ondalıktan dönüştürürken).",
+        "de": "Zahl zur Umwandlung in wissenschaftliche Notation (bei Umwandlung von Dezimalzahl).",
+        "fr": "Nombre à convertir en notation scientifique (lors de la conversion depuis le décimal)."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Scientific Coefficient",
         "tr": "Bilimsel Katsayı",
-        "de": "Scientific Coefficient",
-        "fr": "Scientific Coefficient",
+        "de": "Wissenschaftlicher Koeffizient",
+        "fr": "Coefficient scientifique",
         "es": "Scientific Coefficient",
         "ar": "Scientific Coefficient"
       },
       "businessContext_i18n": {
         "en": "Coefficient in scientific notation (when converting from scientific).",
-        "tr": "Bilimsel gösterimde katsayı (bilimselden dönüştürürken)."
+        "tr": "Bilimsel gösterimde katsayı (bilimselden dönüştürürken).",
+        "de": "Koeffizient in wissenschaftlicher Notation (bei Umwandlung von wissenschaftlicher Notation).",
+        "fr": "Coefficient en notation scientifique (lors de la conversion depuis le scientifique)."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Scientific Exponent",
         "tr": "Bilimsel Üs",
-        "de": "Scientific Exponent",
-        "fr": "Scientific Exponent",
+        "de": "Wissenschaftlicher Exponent",
+        "fr": "Exposant scientifique",
         "es": "Scientific Exponent",
         "ar": "Scientific Exponent"
       },
       "businessContext_i18n": {
         "en": "Exponent in scientific notation (when converting from scientific).",
-        "tr": "Bilimsel gösterimde üs (bilimselden dönüştürürken)."
+        "tr": "Bilimsel gösterimde üs (bilimselden dönüştürürken).",
+        "de": "Exponent in wissenschaftlicher Notation (bei Umwandlung von wissenschaftlicher Notation).",
+        "fr": "Exposant en notation scientifique (lors de la conversion depuis le scientifique)."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Conversion Mode",
         "tr": "Dönüştürme Modu",
-        "de": "Conversion Mode",
-        "fr": "Conversion Mode",
+        "de": "Umrechnungsmodus",
+        "fr": "Mode de conversion",
         "es": "Conversion Mode",
         "ar": "Conversion Mode"
       },
       "businessContext_i18n": {
         "en": "Select conversion direction.",
-        "tr": "Dönüştürme yönünü seçin."
+        "tr": "Dönüştürme yönünü seçin.",
+        "de": "Wählen Sie die Umrechnungsrichtung.",
+        "fr": "Sélectionnez la direction de conversion."
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places in output.",
-        "tr": "Çıktıdaki ondalık basamak sayısı."
+        "tr": "Çıktıdaki ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen in der Ausgabe.",
+        "fr": "Nombre de décimales dans le résultat."
       }
     }
   ],

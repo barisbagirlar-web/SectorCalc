@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Torque Coefficient (c)",
         "tr": "Tork Katsayısı (c)",
-        "de": "Torque Coefficient (c)",
-        "fr": "Torque Coefficient (c)",
+        "de": "Drehmomentkoeffizient (c)",
+        "fr": "Coefficient de couple (c)",
         "es": "Torque Coefficient (c)",
         "ar": "Torque Coefficient (c)"
       },
       "businessContext_i18n": {
         "en": "Nut factor or torque coefficient, typically 0.2 for dry threads",
-        "tr": "Somun faktörü veya tork katsayısı, kuru dişler için tipik olarak 0,2"
+        "tr": "Somun faktörü veya tork katsayısı, kuru dişler için tipik olarak 0,2",
+        "de": "Mutterfaktor oder Drehmomentkoeffizient, typischerweise 0,2 für trockene Gewinde",
+        "fr": "Coefficient de couple ou facteur d'écrou, typiquement 0,2 pour filets secs"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Bolt Diameter",
         "tr": "Cıvata Çapı",
-        "de": "Bolt Diameter",
-        "fr": "Bolt Diameter",
+        "de": "Bolzendurchmesser",
+        "fr": "Diamètre du boulon",
         "es": "Bolt Diameter",
         "ar": "Bolt Diameter"
       },
       "businessContext_i18n": {
         "en": "Nominal diameter of the bolt",
-        "tr": "Cıvatanın nominal çapı"
+        "tr": "Cıvatanın nominal çapı",
+        "de": "Nenndurchmesser der Schraube",
+        "fr": "Diamètre nominal du boulon"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Target Clamp Load",
         "tr": "Hedef Sıkma Kuvveti",
-        "de": "Target Clamp Load",
-        "fr": "Target Clamp Load",
+        "de": "Zielklemmkraft",
+        "fr": "Charge de serrage cible",
         "es": "Target Clamp Load",
         "ar": "Target Clamp Load"
       },
       "businessContext_i18n": {
         "en": "Desired tension force in the bolt",
-        "tr": "Cıvatada istenen gerilme kuvveti"
+        "tr": "Cıvatada istenen gerilme kuvveti",
+        "de": "Gewünschte Zugkraft in der Schraube",
+        "fr": "Force de tension souhaitée dans le boulon"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier to ensure clamping under uncertainty",
-        "tr": "Belirsizlik altında sıkmayı garanti eden çarpan"
+        "tr": "Belirsizlik altında sıkmayı garanti eden çarpan",
+        "de": "Multiplikator zur Sicherstellung der Klemmung unter Unsicherheit",
+        "fr": "Multiplicateur pour garantir le serrage en cas d'incertitude"
       }
     }
   ],

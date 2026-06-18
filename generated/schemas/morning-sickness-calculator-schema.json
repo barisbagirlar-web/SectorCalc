@@ -12,13 +12,16 @@
         "en": "Machine Age",
         "tr": "Makine Yaşı",
         "de": "Maschinenalter",
-        "fr": "Machine Age",
-        "es": "Machine Age",
+        "fr": "Âge de la machine",
+        "es": "Edad de la máquina",
         "ar": "Machine Age"
       },
       "businessContext_i18n": {
         "en": "Age of the equipment in years.",
-        "tr": "Ekipmanın yıl cinsinden yaşı."
+        "tr": "Ekipmanın yıl cinsinden yaşı.",
+        "de": "Alter der Anlage in Jahren.",
+        "fr": "Âge de l'équipement en années.",
+        "es": "Edad del equipo en años."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Downtime Duration",
         "tr": "Arıza Süresi",
         "de": "Geplante Produktionsrate",
-        "fr": "Downtime Duration",
-        "es": "Downtime Duration",
+        "fr": "Durée d'arrêt",
+        "es": "Duración de la parada",
         "ar": "Downtime Duration"
       },
       "businessContext_i18n": {
         "en": "Duration of the last shutdown/downtime in hours.",
-        "tr": "Son kapatma/arıza süresinin saat cinsinden süresi."
+        "tr": "Son kapatma/arıza süresinin saat cinsinden süresi.",
+        "de": "Dauer des letzten Stillstands/Ausfalls in Stunden.",
+        "fr": "Durée du dernier arrêt/temps d'arrêt en heures.",
+        "es": "Duración de la última parada/tiempo de inactividad en horas."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Ambient Temperature",
         "tr": "Ortam Sıcaklığı",
         "de": "Umgebungstemperatur",
-        "fr": "Ambient Temperature",
-        "es": "Ambient Temperature",
+        "fr": "Température ambiante",
+        "es": "Temperatura ambiente",
         "ar": "Ambient Temperature"
       },
       "businessContext_i18n": {
         "en": "Ambient temperature at restart time in degrees Celsius.",
-        "tr": "Yeniden başlatma sırasındaki ortam sıcaklığı (Santigrat derece)."
+        "tr": "Yeniden başlatma sırasındaki ortam sıcaklığı (Santigrat derece).",
+        "de": "Umgebungstemperatur zum Zeitpunkt des Neustarts in Grad Celsius.",
+        "fr": "Température ambiante au moment du redémarrage en degrés Celsius.",
+        "es": "Temperatura ambiente al momento del reinicio en grados Celsius."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Cold Starts per Day",
         "tr": "Günlük Soğuk Çalıştırma Sayısı",
-        "de": "Cold Starts per Day",
-        "fr": "Cold Starts per Day",
-        "es": "Cold Starts per Day",
+        "de": "Kaltstarts pro Tag",
+        "fr": "Démarrages à froid par jour",
+        "es": "Arranques en frío por día",
         "ar": "Cold Starts per Day"
       },
       "businessContext_i18n": {
         "en": "Average number of cold starts per day.",
-        "tr": "Günlük ortalama soğuk çalıştırma sayısı."
+        "tr": "Günlük ortalama soğuk çalıştırma sayısı.",
+        "de": "Durchschnittliche Anzahl Kaltstarts pro Tag.",
+        "fr": "Nombre moyen de démarrages à froid par jour.",
+        "es": "Número promedio de arranques en frío por día."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Severity Factor",
         "tr": "Şiddet Faktörü",
-        "de": "Severity Factor",
-        "fr": "Severity Factor",
-        "es": "Severity Factor",
+        "de": "Schweregradfaktor",
+        "fr": "Facteur de sévérité",
+        "es": "Factor de severidad",
         "ar": "Severity Factor"
       },
       "businessContext_i18n": {
         "en": "Company-specific multiplier to adjust severity (e.g., based on equipment criticality).",
-        "tr": "Şiddeti ayarlamak için şirkete özgü çarpan (ör. ekipman kritikliğine göre)."
+        "tr": "Şiddeti ayarlamak için şirkete özgü çarpan (ör. ekipman kritikliğine göre).",
+        "de": "Unternehmensspezifischer Multiplikator zur Anpassung des Schweregrads (z.B. basierend auf der Kritikalität der Anlage).",
+        "fr": "Multiplicateur spécifique à l'entreprise pour ajuster la sévérité (par exemple, basé sur la criticité de l'équipement).",
+        "es": "Multiplicador específico de la empresa para ajustar la severidad (ej., basado en la criticidad del equipo)."
       }
     }
   ],

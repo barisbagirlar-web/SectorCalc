@@ -12,14 +12,16 @@
         "en": "Tile Length",
         "tr": "Fayans Uzunluğu",
         "de": "Fliesenlänge",
-        "fr": "Tile Length",
-        "es": "Tile Length",
+        "fr": "Longueur du carreau",
+        "es": "Longitud de la baldosa",
         "ar": "Tile Length"
       },
       "businessContext_i18n": {
         "en": "Nominal tile length in mm",
         "tr": "Nominal fayans uzunluğu (mm)",
-        "de": "Nennlänge der Fliese in mm"
+        "de": "Nennlänge der Fliese in mm",
+        "fr": "Longueur nominale du carreau en mm",
+        "es": "Longitud nominal de la baldosa en mm"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Tile Width",
         "tr": "Fayans Genişliği",
         "de": "Fliesenbreite",
-        "fr": "Tile Width",
-        "es": "Tile Width",
+        "fr": "Largeur du carreau",
+        "es": "Ancho de la baldosa",
         "ar": "Tile Width"
       },
       "businessContext_i18n": {
         "en": "Nominal tile width in mm",
         "tr": "Nominal fayans genişliği (mm)",
-        "de": "Nennbreite der Fliese in mm"
+        "de": "Nennbreite der Fliese in mm",
+        "fr": "Largeur nominale du carreau en mm",
+        "es": "Ancho nominal de la baldosa en mm"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Joint Width",
         "tr": "Derz Genişliği",
         "de": "Fugenbreite",
-        "fr": "Joint Width",
-        "es": "Joint Width",
+        "fr": "Largeur du joint",
+        "es": "Ancho de la junta",
         "ar": "Joint Width"
       },
       "businessContext_i18n": {
         "en": "Grout joint width in mm",
         "tr": "Derz aralığı genişliği (mm)",
-        "de": "Fugenbreite in mm"
+        "de": "Fugenbreite in mm",
+        "fr": "Largeur du joint de mortier en mm",
+        "es": "Ancho de la junta de mortero en mm"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Tile Thickness",
         "tr": "Fayans Kalınlığı",
         "de": "Fliesendicke",
-        "fr": "Tile Thickness",
-        "es": "Tile Thickness",
+        "fr": "Épaisseur du carreau",
+        "es": "Espesor de la baldosa",
         "ar": "Tile Thickness"
       },
       "businessContext_i18n": {
         "en": "Tile thickness in mm",
         "tr": "Fayans kalınlığı (mm)",
-        "de": "Fliesendicke in mm"
+        "de": "Fliesendicke in mm",
+        "fr": "Épaisseur du carreau en mm",
+        "es": "Espesor de la baldosa en mm"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Area to Tile",
         "tr": "Fayans Döşenecek Alan",
         "de": "Zu fliesende Fläche",
-        "fr": "Area to Tile",
-        "es": "Area to Tile",
+        "fr": "Surface à carreler",
+        "es": "Área a embaldosar",
         "ar": "Area to Tile"
       },
       "businessContext_i18n": {
         "en": "Total floor/wall area to be tiled",
         "tr": "Fayans döşenecek toplam zemin/duvar alanı",
-        "de": "Gesamte Boden-/Wandfläche, die gefliest werden soll"
+        "de": "Gesamte Boden-/Wandfläche, die gefliest werden soll",
+        "fr": "Surface totale du sol/mur à carreler",
+        "es": "Área total del suelo/pared a embaldosar"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
         "de": "Abfallfaktor",
-        "fr": "Waste Factor",
-        "es": "Waste Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier for cuts, breakage (e.g., 20% = 1.2)",
         "tr": "Kesim, kırılma için çarpan (örn. %20 = 1,2)",
-        "de": "Multiplikator für Verschnitt, Bruch (z. B. 20 % = 1,2)"
+        "de": "Multiplikator für Verschnitt, Bruch (z. B. 20 % = 1,2)",
+        "fr": "Multiplicateur pour coupes, casse (ex. 20% = 1,2)",
+        "es": "Multiplicador por cortes, roturas (ej. 20% = 1.2)"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Grout Density",
         "tr": "Derz Yoğunluğu",
         "de": "Fugenmörteldichte",
-        "fr": "Grout Density",
-        "es": "Grout Density",
+        "fr": "Densité du mortier",
+        "es": "Densidad del mortero",
         "ar": "Grout Density"
       },
       "businessContext_i18n": {
         "en": "Density of grout mix (typically 1.6 - 2.0 kg/L)",
         "tr": "Harç karışımının yoğunluğu (genellikle 1,6 - 2,0 kg/L)",
-        "de": "Dichte der Fugenmörtelmischung (typischerweise 1,6–2,0 kg/L)"
+        "de": "Dichte der Fugenmörtelmischung (typischerweise 1,6–2,0 kg/L)",
+        "fr": "Densité du coulis (généralement 1,6 - 2,0 kg/L)",
+        "es": "Densidad de la mezcla de mortero (típicamente 1.6 - 2.0 kg/L)"
       }
     }
   ],

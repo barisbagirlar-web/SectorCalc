@@ -12,13 +12,16 @@
         "en": "Mass",
         "tr": "Kütle",
         "de": "Masse",
-        "fr": "Mass",
-        "es": "Mass",
+        "fr": "Masse",
+        "es": "Masa",
         "ar": "Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the object being pushed up",
-        "tr": "Yukarı itilen nesnenin kütlesi"
+        "tr": "Yukarı itilen nesnenin kütlesi",
+        "de": "Masse des zu schiebenden Objekts",
+        "fr": "Masse de l'objet poussé vers le haut",
+        "es": "Masa del objeto que se empuja hacia arriba"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Incline Angle",
         "tr": "Eğim Açısı",
-        "de": "Incline Angle",
-        "fr": "Incline Angle",
-        "es": "Incline Angle",
+        "de": "Neigungswinkel",
+        "fr": "Angle d'inclinaison",
+        "es": "Ángulo de inclinación",
         "ar": "Incline Angle"
       },
       "businessContext_i18n": {
         "en": "Angle of incline relative to horizontal",
-        "tr": "Yataya göre eğim açısı"
+        "tr": "Yataya göre eğim açısı",
+        "de": "Neigungswinkel zur Horizontalen",
+        "fr": "Angle d'inclinaison par rapport à l'horizontale",
+        "es": "Ángulo de inclinación respecto a la horizontal"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Coefficient of Friction",
         "tr": "Sürtünme Katsayısı",
-        "de": "Coefficient of Friction",
-        "fr": "Coefficient of Friction",
-        "es": "Coefficient of Friction",
+        "de": "Reibungskoeffizient",
+        "fr": "Coefficient de frottement",
+        "es": "Coeficiente de fricción",
         "ar": "Coefficient of Friction"
       },
       "businessContext_i18n": {
         "en": "Friction coefficient between object and surface",
-        "tr": "Nesne ile yüzey arasındaki sürtünme katsayısı"
+        "tr": "Nesne ile yüzey arasındaki sürtünme katsayısı",
+        "de": "Reibungskoeffizient zwischen Objekt und Oberfläche",
+        "fr": "Coefficient de frottement entre l'objet et la surface",
+        "es": "Coeficiente de fricción entre el objeto y la superficie"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Push Distance",
         "tr": "İtme Mesafesi",
-        "de": "Push Distance",
-        "fr": "Push Distance",
-        "es": "Push Distance",
+        "de": "Schubstrecke",
+        "fr": "Distance de poussée",
+        "es": "Distancia de empuje",
         "ar": "Push Distance"
       },
       "businessContext_i18n": {
         "en": "Distance the object is pushed along the incline",
-        "tr": "Nesnenin eğim boyunca itildiği mesafe"
+        "tr": "Nesnenin eğim boyunca itildiği mesafe",
+        "de": "Strecke, die das Objekt entlang der Neigung geschoben wird",
+        "fr": "Distance parcourue par l'objet le long de la pente",
+        "es": "Distancia que se empuja el objeto a lo largo del plano inclinado"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Time to Push",
         "tr": "İtme Süresi",
-        "de": "Time to Push",
-        "fr": "Time to Push",
-        "es": "Time to Push",
+        "de": "Zeit zum Schieben",
+        "fr": "Temps de poussée",
+        "es": "Tiempo de empuje",
         "ar": "Time to Push"
       },
       "businessContext_i18n": {
         "en": "Time taken to push the object over the distance, used for power calculation",
-        "tr": "Nesnenin mesafe boyunca itilmesi için geçen süre, güç hesaplaması için kullanılır"
+        "tr": "Nesnenin mesafe boyunca itilmesi için geçen süre, güç hesaplaması için kullanılır",
+        "de": "Zeit, die benötigt wird, um das Objekt über die Strecke zu schieben, wird für die Leistungsberechnung verwendet",
+        "fr": "Temps nécessaire pour pousser l'objet sur la distance, utilisé pour le calcul de puissance",
+        "es": "Tiempo necesario para empujar el objeto a lo largo de la distancia, utilizado para el cálculo de potencia"
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Gravitational Acceleration",
         "tr": "Yerçekimi İvmesi",
         "de": "Erdbeschleunigung",
-        "fr": "Gravitational Acceleration",
-        "es": "Gravitational Acceleration",
+        "fr": "Accélération gravitationnelle",
+        "es": "Aceleración gravitacional",
         "ar": "Gravitational Acceleration"
       },
       "businessContext_i18n": {
         "en": "Gravitational acceleration constant, default Earth gravity",
-        "tr": "Yerçekimi ivmesi sabiti, varsayılan Dünya yerçekimi"
+        "tr": "Yerçekimi ivmesi sabiti, varsayılan Dünya yerçekimi",
+        "de": "Gravitationsbeschleunigungskonstante, Standard-Erdschwerkraft",
+        "fr": "Accélération gravitationnelle, gravité terrestre par défaut",
+        "es": "Constante de aceleración gravitacional, gravedad terrestre por defecto"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Satın Alma Tutarı",
         "tr": "Satın Alma Tutarı",
         "de": "Kaufbetrag",
-        "fr": "Satın Alma Tutarı",
-        "es": "Satın Alma Tutarı",
+        "fr": "Montant d'achat",
+        "es": "Monto de compra",
         "ar": "Satın Alma Tutarı"
       },
       "businessContext_i18n": {
         "en": "Toplam satış faturası tutarı (TL)",
         "tr": "Toplam satış faturası tutarı (TL)",
-        "de": "Gesamter Rechnungsbetrag (TL)"
+        "de": "Gesamter Rechnungsbetrag (TL)",
+        "fr": "Montant total de la facture de vente (TL)",
+        "es": "Monto total de la factura de venta (TL)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Nakit İade Oranı",
         "tr": "Nakit İade Oranı",
         "de": "Barrückzahlungsrate",
-        "fr": "Nakit İade Oranı",
-        "es": "Nakit İade Oranı",
+        "fr": "Taux de remboursement en espèces",
+        "es": "Tasa de reembolso en efectivo",
         "ar": "Nakit İade Oranı"
       },
       "businessContext_i18n": {
         "en": "Nakit iade yüzdesi",
         "tr": "Nakit iade yüzdesi",
-        "de": "Prozentsatz der Barrückzahlung"
+        "de": "Prozentsatz der Barrückzahlung",
+        "fr": "Pourcentage de remboursement en espèces",
+        "es": "Porcentaje de reembolso en efectivo"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Minimum Harcama",
         "tr": "Minimum Harcama",
         "de": "Mindestausgabe",
-        "fr": "Minimum Harcama",
-        "es": "Minimum Harcama",
+        "fr": "Dépense minimale",
+        "es": "Gasto mínimo",
         "ar": "Minimum Harcama"
       },
       "businessContext_i18n": {
         "en": "Nakit iade kazanmak için gerekli minimum harcama limiti",
         "tr": "Nakit iade kazanmak için gerekli minimum harcama limiti",
-        "de": "Mindestausgabegrenze, um Barrückzahlung zu erhalten"
+        "de": "Mindestausgabegrenze, um Barrückzahlung zu erhalten",
+        "fr": "Seuil de dépense minimum pour bénéficier du remboursement",
+        "es": "Límite de gasto mínimo requerido para obtener reembolso en efectivo"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Maksimum İade Limiti",
         "tr": "Maksimum İade Limiti",
         "de": "Maximale Rückzahlungsgrenze",
-        "fr": "Maksimum İade Limiti",
-        "es": "Maksimum İade Limiti",
+        "fr": "Plafond de remboursement",
+        "es": "Límite máximo de reembolso",
         "ar": "Maksimum İade Limiti"
       },
       "businessContext_i18n": {
         "en": "Maksimum nakit iade miktarı (0 = limitsiz)",
         "tr": "Maksimum nakit iade miktarı (0 = limitsiz)",
-        "de": "Maximale Rückerstattung (0 = unbegrenzt)"
+        "de": "Maximale Rückerstattung (0 = unbegrenzt)",
+        "fr": "Montant maximum de remboursement (0 = illimité)",
+        "es": "Cantidad máxima de reembolso en efectivo (0 = sin límite)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Kampanya Çarpanı",
         "tr": "Kampanya Çarpanı",
         "de": "Kampagnenmultiplikator",
-        "fr": "Kampanya Çarpanı",
-        "es": "Kampanya Çarpanı",
+        "fr": "Multiplicateur de campagne",
+        "es": "Multiplicador de campaña",
         "ar": "Kampanya Çarpanı"
       },
       "businessContext_i18n": {
         "en": "Özel dönem kampanya katsayısı",
         "tr": "Özel dönem kampanya katsayısı",
-        "de": "Sonderperioden-Kampagnenkoeffizient"
+        "de": "Sonderperioden-Kampagnenkoeffizient",
+        "fr": "Coefficient de campagne pour période spéciale",
+        "es": "Coeficiente de campaña para período especial"
       }
     }
   ],

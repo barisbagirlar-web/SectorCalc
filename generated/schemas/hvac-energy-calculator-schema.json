@@ -11,15 +11,17 @@
       "label_i18n": {
         "en": "Building Area",
         "tr": "Bina Alanı",
-        "de": "Building Area",
-        "fr": "Building Area",
-        "es": "Building Area",
+        "de": "Gebäudefläche",
+        "fr": "Surface du bâtiment",
+        "es": "Área del edificio",
         "ar": "Building Area"
       },
       "businessContext_i18n": {
         "en": "Total floor area of the building",
         "tr": "Binanın toplam taban alanı",
-        "de": "Gesamte Grundfläche des Gebäudes"
+        "de": "Gesamte Grundfläche des Gebäudes",
+        "fr": "Surface au sol totale du bâtiment",
+        "es": "Superficie total del suelo del edificio"
       }
     },
     {
@@ -33,13 +35,16 @@
         "en": "Temperature Difference",
         "tr": "Sıcaklık Farkı",
         "de": "Temperaturdifferenz",
-        "fr": "Temperature Difference",
-        "es": "Temperature Difference",
+        "fr": "Différence de température",
+        "es": "Diferencia de temperatura",
         "ar": "Temperature Difference"
       },
       "businessContext_i18n": {
         "en": "Difference between outdoor and desired indoor temperature",
-        "tr": "Dış ortam ile istenen iç ortam sıcaklığı arasındaki fark"
+        "tr": "Dış ortam ile istenen iç ortam sıcaklığı arasındaki fark",
+        "de": "Differenz zwischen Außen- und gewünschter Innentemperatur",
+        "fr": "Différence entre la température extérieure et la température intérieure souhaitée",
+        "es": "Diferencia entre temperatura exterior y temperatura interior deseada"
       }
     },
     {
@@ -52,14 +57,17 @@
       "label_i18n": {
         "en": "Heat Loss Coefficient",
         "tr": "Isı Kaybı Katsayısı",
-        "de": "Heat Loss Coefficient",
-        "fr": "Heat Loss Coefficient",
-        "es": "Heat Loss Coefficient",
+        "de": "Wärmeverlustkoeffizient",
+        "fr": "Coefficient de perte de chaleur",
+        "es": "Coeficiente de pérdida de calor",
         "ar": "Heat Loss Coefficient"
       },
       "businessContext_i18n": {
         "en": "Overall heat transfer coefficient of building envelope",
-        "tr": "Bina kabuğunun toplam ısı transfer katsayısı"
+        "tr": "Bina kabuğunun toplam ısı transfer katsayısı",
+        "de": "Gesamtwärmedurchgangskoeffizient der Gebäudehülle",
+        "fr": "Coefficient de transfert thermique global de l'enveloppe du bâtiment",
+        "es": "Coeficiente global de transferencia de calor de la envolvente del edificio"
       }
     },
     {
@@ -72,14 +80,17 @@
       "label_i18n": {
         "en": "AC Coefficient of Performance",
         "tr": "AC Performans Katsayısı",
-        "de": "AC Coefficient of Performance",
-        "fr": "AC Coefficient of Performance",
-        "es": "AC Coefficient of Performance",
+        "de": "Leistungszahl der Klimaanlage",
+        "fr": "Coefficient de performance du climatiseur",
+        "es": "Coeficiente de rendimiento del aire acondicionado",
         "ar": "AC Coefficient of Performance"
       },
       "businessContext_i18n": {
         "en": "Efficiency of air conditioning unit (higher is better)",
-        "tr": "Klima ünitesinin verimliliği (yüksek daha iyidir)"
+        "tr": "Klima ünitesinin verimliliği (yüksek daha iyidir)",
+        "de": "Effizienz der Klimaanlage (höher ist besser)",
+        "fr": "Efficacité de l'unité de climatisation (plus élevé est meilleur)",
+        "es": "Eficiencia de la unidad de aire acondicionado (mayor es mejor)"
       }
     },
     {
@@ -93,13 +104,16 @@
         "en": "Operating Hours per Day",
         "tr": "Günlük Çalışma Saati",
         "de": "Betriebsstunden pro Tag",
-        "fr": "Operating Hours per Day",
-        "es": "Operating Hours per Day",
+        "fr": "Heures de fonctionnement par jour",
+        "es": "Horas de operación por día",
         "ar": "Operating Hours per Day"
       },
       "businessContext_i18n": {
         "en": "Average hours the HVAC system runs each day",
-        "tr": "HVAC sisteminin her gün çalıştığı ortalama saat"
+        "tr": "HVAC sisteminin her gün çalıştığı ortalama saat",
+        "de": "Durchschnittliche tägliche Betriebsstunden der HLK-Anlage",
+        "fr": "Heures moyennes de fonctionnement du système CVC par jour",
+        "es": "Horas promedio de funcionamiento diario del sistema HVAC"
       }
     },
     {
@@ -113,14 +127,16 @@
         "en": "Electricity Rate",
         "tr": "Elektrik Tarifesi",
         "de": "Stromtarif",
-        "fr": "Electricity Rate",
-        "es": "Electricity Rate",
+        "fr": "Tarif électrique",
+        "es": "Tarifa eléctrica",
         "ar": "Electricity Rate"
       },
       "businessContext_i18n": {
         "en": "Cost of electricity per kilowatt-hour",
         "tr": "Kilovatsaat başına elektrik maliyeti",
-        "de": "Stromkosten pro Kilowattstunde"
+        "de": "Stromkosten pro Kilowattstunde",
+        "fr": "Coût de l'électricité par kilowattheure",
+        "es": "Coste de la electricidad por kilovatio-hora"
       }
     }
   ],

@@ -12,13 +12,16 @@
         "en": "Building Width",
         "tr": "Bina Genişliği",
         "de": "Gebäudebreite",
-        "fr": "Building Width",
-        "es": "Building Width",
+        "fr": "Largeur du bâtiment",
+        "es": "Ancho del edificio",
         "ar": "Building Width"
       },
       "businessContext_i18n": {
         "en": "Total width of the building from outer wall to outer wall (center to center of wall plates)",
-        "tr": "Binanın dış duvardan dış duvara toplam genişliği (duvar levhalarının merkezleri arası)"
+        "tr": "Binanın dış duvardan dış duvara toplam genişliği (duvar levhalarının merkezleri arası)",
+        "de": "Gesamtbreite des Gebäudes von Außenwand zu Außenwand (Mitte zu Mitte der Mauerlatten).",
+        "fr": "Largeur totale du bâtiment d'un mur extérieur à l'autre (centre à centre des sablières)",
+        "es": "Ancho total del edificio de pared exterior a pared exterior (centro a centro de las placas de pared)"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Ridge Board Thickness",
         "tr": "Mahya Levhası Kalınlığı",
-        "de": "Ridge Board Thickness",
-        "fr": "Ridge Board Thickness",
-        "es": "Ridge Board Thickness",
+        "de": "Firstbohlenstärke",
+        "fr": "Épaisseur de la panne faîtière",
+        "es": "Espesor de la tabla cumbrera",
         "ar": "Ridge Board Thickness"
       },
       "businessContext_i18n": {
         "en": "Thickness of the ridge board at the apex",
-        "tr": "Tepedeki mahya levhasının kalınlığı"
+        "tr": "Tepedeki mahya levhasının kalınlığı",
+        "de": "Stärke der Firstbohle am Scheitelpunkt",
+        "fr": "Épaisseur de la panne faîtière au sommet",
+        "es": "Espesor de la tabla cumbrera en el vértice"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Eaves Overhang",
         "tr": "Saçak Çıkıntısı",
-        "de": "Eaves Overhang",
-        "fr": "Eaves Overhang",
-        "es": "Eaves Overhang",
+        "de": "Traufüberstand",
+        "fr": "Débord d'avant-toit",
+        "es": "Voladizo del alero",
         "ar": "Eaves Overhang"
       },
       "businessContext_i18n": {
         "en": "Horizontal projection of the rafter tail beyond the outer wall",
-        "tr": "Mertek kuyruğunun dış duvarın ötesindeki yatay izdüşümü"
+        "tr": "Mertek kuyruğunun dış duvarın ötesindeki yatay izdüşümü",
+        "de": "Horizontaler Überstand des Sparrenendes über die Außenwand hinaus",
+        "fr": "Projection horizontale du pied de chevron au-delà du mur extérieur",
+        "es": "Proyección horizontal de la cola de la viga más allá de la pared exterior"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Roof Pitch Angle",
         "tr": "Çatı Eğim Açısı",
-        "de": "Roof Pitch Angle",
-        "fr": "Roof Pitch Angle",
-        "es": "Roof Pitch Angle",
+        "de": "Dachneigungswinkel",
+        "fr": "Angle de pente du toit",
+        "es": "Ángulo de inclinación del techo",
         "ar": "Roof Pitch Angle"
       },
       "businessContext_i18n": {
         "en": "Angle of the roof slope from horizontal, in degrees",
-        "tr": "Çatı eğiminin yatayla yaptığı açı (derece cinsinden)"
+        "tr": "Çatı eğiminin yatayla yaptığı açı (derece cinsinden)",
+        "de": "Winkel der Dachneigung von der Horizontalen, in Grad",
+        "fr": "Angle de la pente du toit par rapport à l'horizontale, en degrés",
+        "es": "Ángulo de la pendiente del techo desde la horizontal, en grados"
       }
     }
   ],

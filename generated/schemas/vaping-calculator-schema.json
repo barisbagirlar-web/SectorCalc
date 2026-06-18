@@ -12,13 +12,15 @@
         "en": "Wire Diameter",
         "tr": "Tel Çapı",
         "de": "Drahtdurchmesser",
-        "fr": "Wire Diameter",
-        "es": "Wire Diameter",
+        "fr": "Diamètre du fil",
+        "es": "Diámetro del alambre",
         "ar": "Wire Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the resistance wire used in the coil.",
-        "tr": "Bobinde kullanılan direnç telinin çapı."
+        "tr": "Bobinde kullanılan direnç telinin çapı.",
+        "de": "Durchmesser des Widerstandsdrahtes der Spule",
+        "fr": "Diamètre du fil résistif utilisé dans la bobine."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Inner Coil Diameter",
         "tr": "İç Bobin Çapı",
-        "de": "Inner Coil Diameter",
-        "fr": "Inner Coil Diameter",
+        "de": "Innerer Spulendurchmesser",
+        "fr": "Diamètre intérieur de la bobine",
         "es": "Inner Coil Diameter",
         "ar": "Inner Coil Diameter"
       },
       "businessContext_i18n": {
         "en": "Inner diameter of the coil, typically the jig or drill bit size.",
-        "tr": "Bobinin iç çapı, genellikle mastar veya matkap ucu boyutu."
+        "tr": "Bobinin iç çapı, genellikle mastar veya matkap ucu boyutu.",
+        "de": "Innendurchmesser der Spule, typischerweise die Größe der Vorrichtung oder des Bohrers",
+        "fr": "Diamètre intérieur de la bobine, généralement la taille du gabarit ou du foret."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Number of Wraps",
         "tr": "Sarım Sayısı",
-        "de": "Number of Wraps",
-        "fr": "Number of Wraps",
+        "de": "Anzahl der Wicklungen",
+        "fr": "Nombre de spires",
         "es": "Number of Wraps",
         "ar": "Number of Wraps"
       },
       "businessContext_i18n": {
         "en": "Full wraps of the coil.",
-        "tr": "Bobinin tam sarımları."
+        "tr": "Bobinin tam sarımları.",
+        "de": "Vollständige Wicklungen der Spule",
+        "fr": "Spires complètes de la bobine."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Leg Length (per leg)",
         "tr": "Bacak Uzunluğu (bacak başına)",
-        "de": "Leg Length (per leg)",
-        "fr": "Leg Length (per leg)",
+        "de": "Schenkellänge (pro Schenkel)",
+        "fr": "Longueur de jambe (par jambe)",
         "es": "Leg Length (per leg)",
         "ar": "Leg Length (per leg)"
       },
       "businessContext_i18n": {
         "en": "Length of each leg from coil to attachment post.",
-        "tr": "Her bir bacağın bobinden bağlantı direğine kadar olan uzunluğu."
+        "tr": "Her bir bacağın bobinden bağlantı direğine kadar olan uzunluğu.",
+        "de": "Länge jedes Schenkels von der Spule bis zum Befestigungsposten.",
+        "fr": "Longueur de chaque jambe de la bobine au poteau de fixation."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Resistivity",
         "tr": "Özdirenç",
-        "de": "Resistivity",
-        "fr": "Resistivity",
+        "de": "Spezifischer Widerstand",
+        "fr": "Résistivité",
         "es": "Resistivity",
         "ar": "Resistivity"
       },
       "businessContext_i18n": {
         "en": "Electrical resistivity of the wire material (e.g., Kanthal A1: 1.45×10⁻⁶ Ω·m).",
-        "tr": "Tel malzemesinin elektriksel özdirenci (ör. Kanthal A1: 1,45×10⁻⁶ Ω·m)."
+        "tr": "Tel malzemesinin elektriksel özdirenci (ör. Kanthal A1: 1,45×10⁻⁶ Ω·m).",
+        "de": "Elektrischer Widerstand des Drahtmaterials (z. B. Kanthal A1: 1,45×10⁻⁶ Ω·m).",
+        "fr": "Résistivité électrique du matériau du fil (ex. Kanthal A1 : 1,45×10⁻⁶ Ω·m)."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Applied Voltage",
         "tr": "Uygulanan Voltaj",
-        "de": "Applied Voltage",
-        "fr": "Applied Voltage",
+        "de": "Angelegte Spannung",
+        "fr": "Tension appliquée",
         "es": "Applied Voltage",
         "ar": "Applied Voltage"
       },
       "businessContext_i18n": {
         "en": "Output voltage of the battery or regulated mod.",
-        "tr": "Pil veya regüleli modun çıkış voltajı."
+        "tr": "Pil veya regüleli modun çıkış voltajı.",
+        "de": "Ausgangsspannung des Akkus oder geregelten Mods.",
+        "fr": "Tension de sortie de la batterie ou du mod régulé."
       }
     }
   ],

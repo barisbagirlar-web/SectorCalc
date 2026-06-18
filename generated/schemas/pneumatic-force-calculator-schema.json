@@ -12,13 +12,16 @@
         "en": "System Pressure",
         "tr": "Sistem Basıncı",
         "de": "Systemdruck",
-        "fr": "System Pressure",
-        "es": "System Pressure",
+        "fr": "Pression du système",
+        "es": "Presión del sistema",
         "ar": "System Pressure"
       },
       "businessContext_i18n": {
         "en": "Working pressure supplied to the cylinder",
-        "tr": "Silindire sağlanan çalışma basıncı"
+        "tr": "Silindire sağlanan çalışma basıncı",
+        "de": "Arbeitsdruck, der dem Zylinder zugeführt wird",
+        "fr": "Pression de service fournie au vérin",
+        "es": "Presión de trabajo suministrada al cilindro"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Bore Diameter",
         "tr": "Delik Çapı",
         "de": "Bohrungsdurchmesser",
-        "fr": "Bore Diameter",
-        "es": "Bore Diameter",
+        "fr": "Diamètre d'alésage",
+        "es": "Diámetro del agujero",
         "ar": "Bore Diameter"
       },
       "businessContext_i18n": {
         "en": "Inner diameter of the cylinder barrel",
-        "tr": "Silindir gövdesinin iç çapı"
+        "tr": "Silindir gövdesinin iç çapı",
+        "de": "Innendurchmesser des Zylinderrohrs",
+        "fr": "Diamètre intérieur du cylindre du vérin",
+        "es": "Diámetro interior del cilindro"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Rod Diameter",
         "tr": "Piston çubuğu çapı",
         "de": "Kolbenstangendurchmesser",
-        "fr": "Rod Diameter",
-        "es": "Rod Diameter",
+        "fr": "Diamètre de la tige",
+        "es": "Diámetro del vástago",
         "ar": "Rod Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the piston rod (0 for rodless cylinder)",
-        "tr": "Piston çubuğunun çapı (çubuksuz silindir için 0)."
+        "tr": "Piston çubuğunun çapı (çubuksuz silindir için 0).",
+        "de": "Durchmesser der Kolbenstange (0 für kolbenstangenlosen Zylinder)",
+        "fr": "Diamètre de la tige de piston (0 pour vérin sans tige)",
+        "es": "Diámetro del vástago del pistón (0 para cilindro sin vástago)"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Number of Cylinders",
         "tr": "Silindir sayısı",
         "de": "Anzahl der Zylinder",
-        "fr": "Number of Cylinders",
-        "es": "Number of Cylinders",
+        "fr": "Nombre de cylindres",
+        "es": "Número de cilindros",
         "ar": "Number of Cylinders"
       },
       "businessContext_i18n": {
         "en": "Number of identical cylinders operating together",
-        "tr": "Birlikte çalışan özdeş silindir sayısı"
+        "tr": "Birlikte çalışan özdeş silindir sayısı",
+        "de": "Anzahl der gleichzeitig arbeitenden identischen Zylinder",
+        "fr": "Nombre de vérins identiques fonctionnant ensemble",
+        "es": "Número de cilindros idénticos operando juntos"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Design safety margin (≥1.5 per ISO 4414)",
-        "tr": "Tasarım güvenlik marjı (ISO 4414'e göre ≥1.5)"
+        "tr": "Tasarım güvenlik marjı (ISO 4414'e göre ≥1.5)",
+        "de": "Konstruktionssicherheitsfaktor (≥1,5 nach ISO 4414)",
+        "fr": "Marge de sécurité de conception (≥1,5 selon ISO 4414)",
+        "es": "Margen de seguridad de diseño (≥1.5 según ISO 4414)"
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Efficiency",
         "tr": "Verim",
         "de": "Wirkungsgrad",
-        "fr": "Efficiency",
-        "es": "Efficiency",
+        "fr": "Rendement",
+        "es": "Eficiencia",
         "ar": "Efficiency"
       },
       "businessContext_i18n": {
         "en": "Cylinder efficiency (0.85–0.95 typical)",
-        "tr": "Silindir verimliliği (tipik 0.85–0.95)"
+        "tr": "Silindir verimliliği (tipik 0.85–0.95)",
+        "de": "Zylinderwirkungsgrad (typisch 0,85–0,95)",
+        "fr": "Rendement du vérin (0,85–0,95 typique)",
+        "es": "Eficiencia del cilindro (0.85–0.95 típico)"
       }
     }
   ],

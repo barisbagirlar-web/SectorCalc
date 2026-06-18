@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Gross Annual Salary ($)",
         "tr": "Brüt Yıllık Maaş ($)",
-        "de": "Gross Annual Salary ($)",
-        "fr": "Gross Annual Salary ($)",
+        "de": "Bruttojahresgehalt ($)",
+        "fr": "Salaire annuel brut ($)",
         "es": "Gross Annual Salary ($)",
         "ar": "Gross Annual Salary ($)"
       },
       "businessContext_i18n": {
         "en": "Total annual salary before taxes and deductions",
-        "tr": "Vergi ve kesintiler öncesi toplam yıllık maaş"
+        "tr": "Vergi ve kesintiler öncesi toplam yıllık maaş",
+        "de": "Gesamtes Jahresgehalt vor Steuern und Abzügen",
+        "fr": "Salaire annuel total avant impôts et déductions"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Pre-Tax Deductions ($)",
         "tr": "Vergi Öncesi Kesintiler ($)",
-        "de": "Pre-Tax Deductions ($)",
-        "fr": "Pre-Tax Deductions ($)",
+        "de": "Vorsteuerabzüge ($)",
+        "fr": "Déductions avant impôt ($)",
         "es": "Pre-Tax Deductions ($)",
         "ar": "Pre-Tax Deductions ($)"
       },
       "businessContext_i18n": {
         "en": "Annual contributions to 401(k), HSA, etc.",
-        "tr": "401(k), HSA vb. yıllık katkılar"
+        "tr": "401(k), HSA vb. yıllık katkılar",
+        "de": "Jährliche Beiträge zu 401(k), HSA usw.",
+        "fr": "Cotisations annuelles au 401(k), HSA, etc."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Federal Tax Rate (%)",
         "tr": "Federal Vergi Oranı (%)",
         "de": "Bundessteuersatz (%)",
-        "fr": "Federal Tax Rate (%)",
-        "es": "Federal Tax Rate (%)",
+        "fr": "Taux d'imposition fédéral (%)",
+        "es": "Tasa impositiva federal (%)",
         "ar": "Federal Tax Rate (%)"
       },
       "businessContext_i18n": {
         "en": "Estimated marginal or effective federal income tax rate",
-        "tr": "Tahmini marjinal veya efektif federal gelir vergisi oranı"
+        "tr": "Tahmini marjinal veya efektif federal gelir vergisi oranı",
+        "de": "Geschätzter marginaler oder effektiver Bundessteuersatz",
+        "fr": "Taux d'imposition fédéral marginal ou effectif estimé"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "State Tax Rate (%)",
         "tr": "Eyalet Vergi Oranı (%)",
         "de": "Landessteuersatz (%)",
-        "fr": "State Tax Rate (%)",
-        "es": "State Tax Rate (%)",
+        "fr": "Taux d'imposition de l'État (%)",
+        "es": "Tasa impositiva estatal (%)",
         "ar": "State Tax Rate (%)"
       },
       "businessContext_i18n": {
         "en": "Estimated effective state income tax rate",
-        "tr": "Tahmini efektif eyalet gelir vergisi oranı"
+        "tr": "Tahmini efektif eyalet gelir vergisi oranı",
+        "de": "Geschätzter effektiver staatlicher Einkommensteuersatz",
+        "fr": "Taux d'imposition d'État effectif estimé"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Social Security Rate (%)",
         "tr": "Sosyal Güvenlik Oranı (%)",
-        "de": "Social Security Rate (%)",
-        "fr": "Social Security Rate (%)",
+        "de": "Sozialversicherungssatz (%)",
+        "fr": "Taux de cotisation à la Sécurité sociale (%)",
         "es": "Social Security Rate (%)",
         "ar": "Social Security Rate (%)"
       },
       "businessContext_i18n": {
         "en": "Employee share of Social Security tax",
-        "tr": "Sosyal Güvenlik vergisinin çalışan payı"
+        "tr": "Sosyal Güvenlik vergisinin çalışan payı",
+        "de": "Arbeitnehmeranteil der Sozialversicherungssteuer",
+        "fr": "Part salariale de la cotisation à la Sécurité sociale"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Medicare Rate (%)",
         "tr": "Medicare Oranı (%)",
-        "de": "Medicare Rate (%)",
-        "fr": "Medicare Rate (%)",
+        "de": "Medicare-Satz (%)",
+        "fr": "Taux de cotisation à l'assurance-maladie (%)",
         "es": "Medicare Rate (%)",
         "ar": "Medicare Rate (%)"
       },
       "businessContext_i18n": {
         "en": "Employee share of Medicare tax",
-        "tr": "Medicare vergisinin çalışan payı"
+        "tr": "Medicare vergisinin çalışan payı",
+        "de": "Arbeitnehmeranteil der Medicare-Steuer",
+        "fr": "Part salariale de la cotisation à l'assurance-maladie"
       }
     },
     {
@@ -131,14 +143,16 @@
       "label_i18n": {
         "en": "Other Deductions ($)",
         "tr": "Diğer Kesintiler ($)",
-        "de": "Other Deductions ($)",
-        "fr": "Other Deductions ($)",
+        "de": "Sonstige Abzüge ($)",
+        "fr": "Autres déductions ($)",
         "es": "Other Deductions ($)",
         "ar": "Other Deductions ($)"
       },
       "businessContext_i18n": {
         "en": "Other annual post-tax deductions (e.g., union dues, charitable)",
-        "tr": "Diğer yıllık vergi sonrası kesintiler (ör. sendika aidatı, bağış)"
+        "tr": "Diğer yıllık vergi sonrası kesintiler (ör. sendika aidatı, bağış)",
+        "de": "Sonstige jährliche Abzüge nach Steuern (z. B. Gewerkschaftsbeiträge, Spenden)",
+        "fr": "Autres déductions annuelles après impôt (ex. cotisations syndicales, dons caritatifs)"
       }
     }
   ],

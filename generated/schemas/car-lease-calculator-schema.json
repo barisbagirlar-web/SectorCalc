@@ -12,14 +12,16 @@
         "en": "Car Price",
         "tr": "Araba Fiyatı",
         "de": "Fahrzeugpreis",
-        "fr": "Car Price",
-        "es": "Car Price",
+        "fr": "Prix de la voiture",
+        "es": "Precio del auto",
         "ar": "Car Price"
       },
       "businessContext_i18n": {
         "en": "Net price of the vehicle",
         "tr": "Aracın net fiyatı",
-        "de": "Nettopreis des Fahrzeugs"
+        "de": "Nettopreis des Fahrzeugs",
+        "fr": "Prix net du véhicule",
+        "es": "Precio neto del vehículo"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Residual Value",
         "tr": "Kalıntı Değer",
         "de": "Restwert",
-        "fr": "Residual Value",
-        "es": "Residual Value",
+        "fr": "Valeur résiduelle",
+        "es": "Valor residual",
         "ar": "Residual Value"
       },
       "businessContext_i18n": {
         "en": "Estimated value at lease end",
         "tr": "Kira sonunda tahmini değer",
-        "de": "Geschätzter Restwert bei Leasingende"
+        "de": "Geschätzter Restwert bei Leasingende",
+        "fr": "Valeur estimée en fin de location",
+        "es": "Valor estimado al final del arrendamiento"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Money Factor",
         "tr": "Para Faktörü",
         "de": "Geldfaktor",
-        "fr": "Money Factor",
-        "es": "Money Factor",
+        "fr": "Coefficient monétaire",
+        "es": "Factor de dinero",
         "ar": "Money Factor"
       },
       "businessContext_i18n": {
         "en": "Interest rate factor (money factor = APR / 2400)",
         "tr": "Faiz oranı faktörü (para faktörü = APR / 2400)",
-        "de": "Zinsfaktor (Geldfaktor = effektiver Jahreszins / 2400)"
+        "de": "Zinsfaktor (Geldfaktor = effektiver Jahreszins / 2400)",
+        "fr": "Facteur de taux d'intérêt (coefficient monétaire = APR / 2400)",
+        "es": "Factor de tasa de interés (factor de dinero = TAE / 2400)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Lease Term",
         "tr": "Kira Süresi",
         "de": "Leasinglaufzeit",
-        "fr": "Lease Term",
-        "es": "Lease Term",
+        "fr": "Durée du bail",
+        "es": "Plazo de arrendamiento",
         "ar": "Lease Term"
       },
       "businessContext_i18n": {
         "en": "Duration of the lease",
         "tr": "Kira süresi",
-        "de": "Laufzeit des Leasings"
+        "de": "Laufzeit des Leasings",
+        "fr": "Durée de la location",
+        "es": "Duración del arrendamiento"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Down Payment",
         "tr": "Peşinat",
         "de": "Anzahlung",
-        "fr": "Down Payment",
-        "es": "Down Payment",
+        "fr": "Acompte",
+        "es": "Pago inicial",
         "ar": "Down Payment"
       },
       "businessContext_i18n": {
         "en": "Initial payment",
         "tr": "İlk ödeme",
-        "de": "Anzahlung"
+        "de": "Anzahlung",
+        "fr": "Paiement initial",
+        "es": "Pago inicial"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Sales Tax Rate",
         "tr": "Satış Vergisi Oranı",
         "de": "Umsatzsteuersatz",
-        "fr": "Sales Tax Rate",
-        "es": "Sales Tax Rate",
+        "fr": "Taux de taxe de vente",
+        "es": "Tasa de impuesto a las ventas",
         "ar": "Sales Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Tax rate applied to monthly payment",
         "tr": "Aylık ödemeye uygulanan vergi oranı",
-        "de": "Steuersatz auf die monatliche Zahlung"
+        "de": "Steuersatz auf die monatliche Zahlung",
+        "fr": "Taux d'imposition appliqué au paiement mensuel",
+        "es": "Tasa impositiva aplicada al pago mensual"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Acquisition Fee",
         "tr": "Edinim Ücreti",
         "de": "Bearbeitungsgebühr",
-        "fr": "Acquisition Fee",
-        "es": "Acquisition Fee",
+        "fr": "Frais d'acquisition",
+        "es": "Comisión de adquisición",
         "ar": "Acquisition Fee"
       },
       "businessContext_i18n": {
         "en": "One-time fee at lease start",
         "tr": "Kira başlangıcında tek seferlik ücret",
-        "de": "Einmalige Gebühr bei Leasingbeginn"
+        "de": "Einmalige Gebühr bei Leasingbeginn",
+        "fr": "Frais unique au début de la location",
+        "es": "Cargo único al inicio del arrendamiento"
       }
     }
   ],

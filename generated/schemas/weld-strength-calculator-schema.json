@@ -30,11 +30,15 @@
       "businessContext": "Determines the geometry factor and stress distribution model per AWS D1.1.",
       "label_i18n": {
         "en": "Weld Type",
-        "tr": "Kaynak Türü"
+        "tr": "Kaynak Türü",
+        "de": "Schweißnahttyp",
+        "fr": "Type de soudure"
       },
       "businessContext_i18n": {
         "en": "Determines the geometry factor and stress distribution model per AWS D1.1.",
-        "tr": "AWS D1.1'e göre geometri faktörünü ve gerilme dağılım modelini belirler."
+        "tr": "AWS D1.1'e göre geometri faktörünü ve gerilme dağılım modelini belirler.",
+        "de": "Bestimmt den Geometriefaktor und das Spannungsverteilungsmodell gemäß AWS D1.1.",
+        "fr": "Détermine le facteur géométrique et le modèle de distribution des contraintes selon AWS D1.1."
       }
     },
     {
@@ -48,11 +52,15 @@
       "businessContext": "Yield strength of the weaker base material (ISO 898 / ASTM A36).",
       "label_i18n": {
         "en": "Base Material Yield Strength",
-        "tr": "Temel Malzeme Akma Dayanımı"
+        "tr": "Temel Malzeme Akma Dayanımı",
+        "de": "Streckgrenze des Grundmaterials",
+        "fr": "Limite d'élasticité du matériau de base"
       },
       "businessContext_i18n": {
         "en": "Yield strength of the weaker base material (ISO 898 / ASTM A36).",
-        "tr": "Zayıf temel malzemenin akma dayanımı (ISO 898 / ASTM A36)."
+        "tr": "Zayıf temel malzemenin akma dayanımı (ISO 898 / ASTM A36).",
+        "de": "Streckgrenze des schwächeren Grundmaterials (ISO 898 / ASTM A36).",
+        "fr": "Limite d'élasticité du matériau de base le plus faible (ISO 898 / ASTM A36)."
       }
     },
     {
@@ -66,11 +74,15 @@
       "businessContext": "Tensile strength of filler metal (e.g., ER70S-6).",
       "label_i18n": {
         "en": "Weld Material Tensile Strength",
-        "tr": "Kaynak Malzemesi Çekme Dayanımı"
+        "tr": "Kaynak Malzemesi Çekme Dayanımı",
+        "de": "Zugfestigkeit des Schweißzusatzwerkstoffs",
+        "fr": "Résistance à la traction du métal d'apport"
       },
       "businessContext_i18n": {
         "en": "Tensile strength of filler metal (e.g., ER70S-6).",
-        "tr": "Dolgu metalinin çekme dayanımı (örn. ER70S-6)."
+        "tr": "Dolgu metalinin çekme dayanımı (örn. ER70S-6).",
+        "de": "Zugfestigkeit des Schweißzusatzes (z. B. ER70S-6).",
+        "fr": "Résistance à la traction du métal d'apport (ex. ER70S-6)."
       }
     },
     {
@@ -84,11 +96,15 @@
       "businessContext": "Minimum throat dimension per ISO 5817 quality level B.",
       "label_i18n": {
         "en": "Effective Throat Thickness",
-        "tr": "Etkili Boğaz Kalınlığı"
+        "tr": "Etkili Boğaz Kalınlığı",
+        "de": "Effektive Kehlnahtdicke",
+        "fr": "Épaisseur effective de la gorge"
       },
       "businessContext_i18n": {
         "en": "Minimum throat dimension per ISO 5817 quality level B.",
-        "tr": "ISO 5817 kalite seviyesi B'ye göre minimum boğaz boyutu."
+        "tr": "ISO 5817 kalite seviyesi B'ye göre minimum boğaz boyutu.",
+        "de": "Mindestkehlmaß gemäß ISO 5817 Qualitätsstufe B.",
+        "fr": "Dimension minimale de la gorge selon le niveau de qualité B de l'ISO 5817."
       }
     },
     {
@@ -103,11 +119,15 @@
       "label_i18n": {
         "en": "Weld Length",
         "tr": "Kaynak Uzunluğu",
-        "de": "Schweißnahtlänge"
+        "de": "Schweißnahtlänge",
+        "fr": "Longueur de la soudure",
+        "es": "Longitud de la soldadura"
       },
       "businessContext_i18n": {
         "en": "Total length of the weld seam.",
-        "tr": "Kaynak dikişinin toplam uzunluğu."
+        "tr": "Kaynak dikişinin toplam uzunluğu.",
+        "de": "Gesamtlänge der Schweißnaht.",
+        "fr": "Longueur totale du cordon de soudure."
       }
     },
     {
@@ -122,11 +142,15 @@
       "label_i18n": {
         "en": "Applied Load",
         "tr": "Uygulanan Yük",
-        "de": "Aufgebrachte Last"
+        "de": "Aufgebrachte Last",
+        "fr": "Charge appliquée",
+        "es": "Carga aplicada"
       },
       "businessContext_i18n": {
         "en": "Service load acting on the weld joint.",
-        "tr": "Kaynak bağlantısına etkiyen servis yükü."
+        "tr": "Kaynak bağlantısına etkiyen servis yükü.",
+        "de": "Betriebslast auf die Schweißverbindung.",
+        "fr": "Charge de service agissant sur le joint soudé."
       }
     },
     {
@@ -140,11 +164,15 @@
       "businessContext": "Angle between applied load and weld longitudinal axis. 90° = transverse, 0° = longitudinal.",
       "label_i18n": {
         "en": "Load Angle (from weld axis)",
-        "tr": "Yük Açısı (kaynak ekseninden)"
+        "tr": "Yük Açısı (kaynak ekseninden)",
+        "de": "Lastwinkel (von der Schweißnahtachse)",
+        "fr": "Angle de charge (par rapport à l'axe de la soudure)"
       },
       "businessContext_i18n": {
         "en": "Angle between applied load and weld longitudinal axis. 90° = transverse, 0° = longitudinal.",
-        "tr": "Uygulanan yük ile kaynak boyuna ekseni arasındaki açı. 90° = enine, 0° = boyuna."
+        "tr": "Uygulanan yük ile kaynak boyuna ekseni arasındaki açı. 90° = enine, 0° = boyuna.",
+        "de": "Winkel zwischen aufgebrachter Last und Schweißnahtlängsachse. 90° = quer, 0° = längs.",
+        "fr": "Angle entre la charge appliquée et l'axe longitudinal de la soudure. 90° = transversal, 0° = longitudinal."
       }
     },
     {
@@ -163,11 +191,15 @@
       "businessContext": "ISO 5817 weld quality level: B=stringent, C=moderate, D=basic.",
       "label_i18n": {
         "en": "Quality Level (ISO 5817)",
-        "tr": "Kalite Seviyesi (ISO 5817)"
+        "tr": "Kalite Seviyesi (ISO 5817)",
+        "de": "Qualitätsstufe (ISO 5817)",
+        "fr": "Niveau de qualité (ISO 5817)"
       },
       "businessContext_i18n": {
         "en": "ISO 5817 weld quality level: B=stringent, C=moderate, D=basic.",
-        "tr": "ISO 5817 kaynak kalite seviyesi: B=sıkı, C=orta, D=temel."
+        "tr": "ISO 5817 kaynak kalite seviyesi: B=sıkı, C=orta, D=temel.",
+        "de": "Schweißnahtqualitätsstufe nach ISO 5817: B=streng, C=mäßig, D=einfach.",
+        "fr": "Niveau de qualité de soudure ISO 5817 : B = strict, C = modéré, D = basique."
       }
     }
   ],

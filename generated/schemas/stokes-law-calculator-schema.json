@@ -11,15 +11,17 @@
       "label_i18n": {
         "en": "Particle Density",
         "tr": "Partikül yoğunluğu",
-        "de": "Particle Density",
-        "fr": "Particle Density",
-        "es": "Particle Density",
+        "de": "Partikeldichte",
+        "fr": "Densité des particules",
+        "es": "Densidad de partícula",
         "ar": "Particle Density"
       },
       "businessContext_i18n": {
         "en": "Density of the solid particles.",
         "tr": "Katı partiküllerin yoğunluğu.",
-        "de": "Dichte der festen Partikel."
+        "de": "Dichte der festen Partikel.",
+        "fr": "Masse volumique des particules solides.",
+        "es": "Densidad de las partículas sólidas."
       }
     },
     {
@@ -33,13 +35,15 @@
         "en": "Fluid Density",
         "tr": "Akışkan Yoğunluğu",
         "de": "Flüssigkeitsdichte",
-        "fr": "Fluid Density",
-        "es": "Fluid Density",
+        "fr": "Densité du fluide",
+        "es": "Densidad del fluido",
         "ar": "Fluid Density"
       },
       "businessContext_i18n": {
         "en": "Density of the fluid.",
-        "tr": "Akışkanın yoğunluğu."
+        "tr": "Akışkanın yoğunluğu.",
+        "de": "Dichte der Flüssigkeit.",
+        "fr": "Densité du fluide."
       }
     },
     {
@@ -53,14 +57,16 @@
         "en": "Dynamic Viscosity",
         "tr": "Dinamik viskozite",
         "de": "Dynamische Viskosität",
-        "fr": "Dynamic Viscosity",
-        "es": "Dynamic Viscosity",
+        "fr": "Viscosité dynamique",
+        "es": "Viscosidad dinámica",
         "ar": "Dynamic Viscosity"
       },
       "businessContext_i18n": {
         "en": "Dynamic viscosity of the fluid.",
         "tr": "Akışkanın dinamik viskozitesi.",
-        "de": "Dynamische Viskosität des Fluids"
+        "de": "Dynamische Viskosität des Fluids",
+        "fr": "Viscosité dynamique du fluide",
+        "es": "Viscosidad dinámica del fluido"
       }
     },
     {
@@ -74,13 +80,15 @@
         "en": "Particle Diameter",
         "tr": "Partikül çapı",
         "de": "Partikeldurchmesser",
-        "fr": "Particle Diameter",
-        "es": "Particle Diameter",
+        "fr": "Diamètre des particules",
+        "es": "Diámetro de partícula",
         "ar": "Particle Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the spherical particle.",
-        "tr": "Küresel parçacığın çapı."
+        "tr": "Küresel parçacığın çapı.",
+        "de": "Durchmesser des kugelförmigen Partikels.",
+        "fr": "Diamètre de la particule sphérique."
       }
     },
     {
@@ -94,13 +102,15 @@
         "en": "Gravitational Acceleration",
         "tr": "Yerçekimi İvmesi",
         "de": "Erdbeschleunigung",
-        "fr": "Gravitational Acceleration",
-        "es": "Gravitational Acceleration",
+        "fr": "Accélération gravitationnelle",
+        "es": "Aceleración gravitacional",
         "ar": "Gravitational Acceleration"
       },
       "businessContext_i18n": {
         "en": "Acceleration due to gravity.",
-        "tr": "Yerçekimi ivmesi."
+        "tr": "Yerçekimi ivmesi.",
+        "de": "Erdbeschleunigung.",
+        "fr": "Accélération due à la gravité."
       }
     }
   ],

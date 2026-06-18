@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Active cancer (treatment or palliation within 6 months)",
         "tr": "Aktif kanser (6 ay içinde tedavi veya palyasyon)",
-        "de": "Active cancer (treatment or palliation within 6 months)",
-        "fr": "Active cancer (treatment or palliation within 6 months)",
+        "de": "Aktive Krebserkrankung (Behandlung oder Palliation innerhalb von 6 Monaten)",
+        "fr": "Cancer actif (traitement ou soins palliatifs dans les 6 mois)",
         "es": "Active cancer (treatment or palliation within 6 months)",
         "ar": "Active cancer (treatment or palliation within 6 months)"
       },
       "businessContext_i18n": {
         "en": "1 point if active cancer (excluding skin cancers), else 0",
-        "tr": "Aktif kanser varsa (cilt kanserleri hariç) 1 puan, yoksa 0"
+        "tr": "Aktif kanser varsa (cilt kanserleri hariç) 1 puan, yoksa 0",
+        "de": "1 Punkt bei aktiver Krebserkrankung (außer Hautkrebs), sonst 0",
+        "fr": "1 point si cancer actif (sauf cancers cutanés), sinon 0"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Paralysis, paresis, or recent plaster immobilization of the lower extremity",
         "tr": "Alt ekstremitede felç, parezi veya yakın zamanda alçı immobilizasyonu",
-        "de": "Paralysis, paresis, or recent plaster immobilization of the lower extremity",
-        "fr": "Paralysis, paresis, or recent plaster immobilization of the lower extremity",
+        "de": "Lähmung, Parese oder kürzliche Gipsimmobilisierung der unteren Extremität",
+        "fr": "Paralysie, parésie ou immobilisation récente par plâtre d'un membre inférieur",
         "es": "Paralysis, paresis, or recent plaster immobilization of the lower extremity",
         "ar": "Paralysis, paresis, or recent plaster immobilization of the lower extremity"
       },
       "businessContext_i18n": {
         "en": "1 point if present, else 0",
-        "tr": "Mevcut ise 1 puan, değilse 0"
+        "tr": "Mevcut ise 1 puan, değilse 0",
+        "de": "1 Punkt wenn vorhanden, sonst 0",
+        "fr": "1 point si présent, sinon 0"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Recently bedridden >3 days or major surgery within 4 weeks",
         "tr": "Son 4 hafta içinde >3 gün yatak istirahati veya büyük cerrahi",
-        "de": "Recently bedridden >3 days or major surgery within 4 weeks",
-        "fr": "Recently bedridden >3 days or major surgery within 4 weeks",
+        "de": "Kürzlich bettlägerig >3 Tage oder größere Operation innerhalb von 4 Wochen",
+        "fr": "Alitement récent >3 jours ou chirurgie majeure dans les 4 semaines",
         "es": "Recently bedridden >3 days or major surgery within 4 weeks",
         "ar": "Recently bedridden >3 days or major surgery within 4 weeks"
       },
       "businessContext_i18n": {
         "en": "1 point if yes, else 0",
-        "tr": "Evet ise 1 puan, değilse 0"
+        "tr": "Evet ise 1 puan, değilse 0",
+        "de": "1 Punkt wenn ja, sonst 0",
+        "fr": "1 point si oui, sinon 0"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Localized tenderness along the distribution of the deep veins",
         "tr": "Derin venler boyunca lokalize hassasiyet",
-        "de": "Localized tenderness along the distribution of the deep veins",
-        "fr": "Localized tenderness along the distribution of the deep veins",
+        "de": "Lokalisierte Druckempfindlichkeit entlang der tiefen Venen",
+        "fr": "Sensibilité localisée le long du trajet des veines profondes",
         "es": "Localized tenderness along the distribution of the deep veins",
         "ar": "Localized tenderness along the distribution of the deep veins"
       },
       "businessContext_i18n": {
         "en": "1 point if present (e.g., calf, thigh, popliteal fossa), else 0",
-        "tr": "Mevcut ise (örn. baldır, uyluk, popliteal fossa) 1 puan, değilse 0"
+        "tr": "Mevcut ise (örn. baldır, uyluk, popliteal fossa) 1 puan, değilse 0",
+        "de": "1 Punkt wenn vorhanden (z.B. Wade, Oberschenkel, Kniekehle), sonst 0",
+        "fr": "1 point si présent (ex. mollet, cuisse, creux poplité), sinon 0"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Entire leg swollen",
         "tr": "Tüm bacak şişmiş",
-        "de": "Entire leg swollen",
-        "fr": "Entire leg swollen",
+        "de": "Geschwollenes gesamtes Bein",
+        "fr": "Jambe entière enflée",
         "es": "Entire leg swollen",
         "ar": "Entire leg swollen"
       },
       "businessContext_i18n": {
         "en": "1 point if the whole leg is swollen compared to the asymptomatic side, else 0",
-        "tr": "Asemptomatik tarafa kıyasla tüm bacak şişmişse 1 puan, değilse 0"
+        "tr": "Asemptomatik tarafa kıyasla tüm bacak şişmişse 1 puan, değilse 0",
+        "de": "1 Punkt wenn das gesamte Bein im Vergleich zur asymptomatischen Seite geschwollen ist, sonst 0",
+        "fr": "1 point si toute la jambe est enflée par rapport au côté asymptomatique, sinon 0"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Calf swelling >3 cm compared to asymptomatic leg",
         "tr": "Asemptomatik bacağa göre >3 cm baldır şişliği",
-        "de": "Calf swelling >3 cm compared to asymptomatic leg",
-        "fr": "Calf swelling >3 cm compared to asymptomatic leg",
+        "de": "Wadenschwellung >3 cm im Vergleich zum asymptomatischen Bein",
+        "fr": "Œdème du mollet >3 cm par rapport à la jambe asymptomatique",
         "es": "Calf swelling >3 cm compared to asymptomatic leg",
         "ar": "Calf swelling >3 cm compared to asymptomatic leg"
       },
       "businessContext_i18n": {
         "en": "1 point if measured difference is >3 cm at 10 cm below tibial tuberosity, else 0",
-        "tr": "Ölçülen fark tibial tüberkülün 10 cm altında >3 cm ise 1 puan, değilse 0"
+        "tr": "Ölçülen fark tibial tüberkülün 10 cm altında >3 cm ise 1 puan, değilse 0",
+        "de": "1 Punkt, wenn die gemessene Differenz >3 cm bei 10 cm unterhalb der Tuberositas tibiae beträgt, sonst 0",
+        "fr": "1 point si la différence mesurée est >3 cm à 10 cm sous la tubérosité tibiale, sinon 0"
       }
     },
     {
@@ -131,14 +143,16 @@
       "label_i18n": {
         "en": "Pitting edema confined to the symptomatic leg",
         "tr": "Semptomatik bacakla sınırlı pit ödemi",
-        "de": "Pitting edema confined to the symptomatic leg",
-        "fr": "Pitting edema confined to the symptomatic leg",
+        "de": "Pitting-Ödem, beschränkt auf das symptomatische Bein",
+        "fr": "Œdème prenant le godet limité à la jambe symptomatique",
         "es": "Pitting edema confined to the symptomatic leg",
         "ar": "Pitting edema confined to the symptomatic leg"
       },
       "businessContext_i18n": {
         "en": "1 point if edema is greater in the symptomatic leg, else 0",
-        "tr": "Ödem semptomatik bacakta daha fazla ise 1 puan, değilse 0"
+        "tr": "Ödem semptomatik bacakta daha fazla ise 1 puan, değilse 0",
+        "de": "1 Punkt, wenn das Ödem im symptomatischen Bein stärker ist, sonst 0",
+        "fr": "1 point si l'œdème est plus important dans la jambe symptomatique, sinon 0"
       }
     },
     {
@@ -151,14 +165,16 @@
       "label_i18n": {
         "en": "Alternative diagnosis as likely or more likely than DVT",
         "tr": "DVT'den daha olası veya eşit olasılıkta alternatif tanı",
-        "de": "Alternative diagnosis as likely or more likely than DVT",
-        "fr": "Alternative diagnosis as likely or more likely than DVT",
+        "de": "Alternative Diagnose als wahrscheinlich oder wahrscheinlicher als TVT",
+        "fr": "Diagnostic alternatif aussi probable ou plus probable que la TVP",
         "es": "Alternative diagnosis as likely or more likely than DVT",
         "ar": "Alternative diagnosis as likely or more likely than DVT"
       },
       "businessContext_i18n": {
         "en": "If alternative diagnosis is at least as plausible, subtract 2 points (enter -2); else 0",
-        "tr": "Alternatif tanı en az eşit olasılıkta ise 2 puan çıkarın (-2 girin); değilse 0"
+        "tr": "Alternatif tanı en az eşit olasılıkta ise 2 puan çıkarın (-2 girin); değilse 0",
+        "de": "Wenn eine alternative Diagnose mindestens so plausibel ist, 2 Punkte abziehen (geben Sie -2 ein); sonst 0",
+        "fr": "Si un diagnostic alternatif est au moins aussi plausible, soustrayez 2 points (entrez -2) ; sinon 0"
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Session Duration",
         "tr": "Seans Süresi",
-        "de": "Session Duration",
-        "fr": "Session Duration",
-        "es": "Session Duration",
+        "de": "Sitzungsdauer",
+        "fr": "Durée de la session",
+        "es": "Duración de la sesión",
         "ar": "Session Duration"
       },
       "businessContext_i18n": {
         "en": "Total time of training session in minutes.",
-        "tr": "Antrenman seansının toplam süresi (dakika)."
+        "tr": "Antrenman seansının toplam süresi (dakika).",
+        "de": "Gesamtdauer der Trainingseinheit in Minuten.",
+        "fr": "Durée totale de la séance d'entraînement en minutes."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Average Heart Rate",
         "tr": "Ortalama Kalp Atış Hızı",
-        "de": "Average Heart Rate",
-        "fr": "Average Heart Rate",
+        "de": "Durchschnittliche Herzfrequenz",
+        "fr": "Fréquence cardiaque moyenne",
         "es": "Average Heart Rate",
         "ar": "Average Heart Rate"
       },
       "businessContext_i18n": {
         "en": "Average heart rate during the session.",
-        "tr": "Seans sırasındaki ortalama kalp atış hızı."
+        "tr": "Seans sırasındaki ortalama kalp atış hızı.",
+        "de": "Durchschnittliche Herzfrequenz während der Einheit.",
+        "fr": "Fréquence cardiaque moyenne pendant la séance."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Resting Heart Rate",
         "tr": "Dinlenme Kalp Atış Hızı",
         "de": "Ruhepuls",
-        "fr": "Resting Heart Rate",
-        "es": "Resting Heart Rate",
+        "fr": "Fréquence cardiaque au repos",
+        "es": "Frecuencia cardíaca en reposo",
         "ar": "Resting Heart Rate"
       },
       "businessContext_i18n": {
         "en": "Resting heart rate measured in the morning.",
-        "tr": "Sabah ölçülen dinlenik kalp atış hızı."
+        "tr": "Sabah ölçülen dinlenik kalp atış hızı.",
+        "de": "Ruheherzfrequenz, gemessen am Morgen.",
+        "fr": "Fréquence cardiaque au repos mesurée le matin."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Maximum Heart Rate",
         "tr": "Maksimum Kalp Atış Hızı",
         "de": "Maximale Herzfrequenz",
-        "fr": "Maximum Heart Rate",
-        "es": "Maximum Heart Rate",
+        "fr": "Fréquence cardiaque maximale",
+        "es": "Frecuencia cardíaca máxima",
         "ar": "Maximum Heart Rate"
       },
       "businessContext_i18n": {
         "en": "Maximum heart rate from a stress test or age-predicted (220-age).",
-        "tr": "Stres testinden veya yaşa göre tahmin edilen (220-yaş) maksimum kalp atış hızı."
+        "tr": "Stres testinden veya yaşa göre tahmin edilen (220-yaş) maksimum kalp atış hızı.",
+        "de": "Maximale Herzfrequenz aus einem Belastungstest oder altersgeschätzt (220-Alter).",
+        "fr": "Fréquence cardiaque maximale issue d'un test d'effort ou estimée par l'âge (220-âge)."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Gender-Specific Factor",
         "tr": "Cinsiyete Özgü Faktör",
-        "de": "Gender-Specific Factor",
-        "fr": "Gender-Specific Factor",
+        "de": "Geschlechtsspezifischer Faktor",
+        "fr": "Facteur spécifique au sexe",
         "es": "Gender-Specific Factor",
         "ar": "Gender-Specific Factor"
       },
       "businessContext_i18n": {
         "en": "Exponential factor: 0.64 for males, 0.86 for females per Banister TRIMP.",
-        "tr": "Üstel faktör: Banister TRIMP'e göre erkekler için 0,64, kadınlar için 0,86."
+        "tr": "Üstel faktör: Banister TRIMP'e göre erkekler için 0,64, kadınlar için 0,86.",
+        "de": "Exponentialfaktor: 0,64 für Männer, 0,86 für Frauen nach Banister TRIMP.",
+        "fr": "Facteur exponentiel : 0,64 pour les hommes, 0,86 pour les femmes selon le TRIMP de Banister."
       }
     }
   ],

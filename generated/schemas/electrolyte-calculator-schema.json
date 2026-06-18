@@ -12,14 +12,16 @@
         "en": "Desired Molarity",
         "tr": "İstenen Molarite",
         "de": "Gewünschte Molarität",
-        "fr": "Desired Molarity",
-        "es": "Desired Molarity",
+        "fr": "Molarité souhaitée",
+        "es": "Molaridad deseada",
         "ar": "Desired Molarity"
       },
       "businessContext_i18n": {
         "en": "Target concentration of the electrolyte solution in moles per liter",
         "tr": "Elektrolit çözeltisinin litre başına mol cinsinden hedef konsantrasyonu.",
-        "de": "Zielkonzentration der Elektrolytlösung in Mol pro Liter"
+        "de": "Zielkonzentration der Elektrolytlösung in Mol pro Liter",
+        "fr": "Concentration cible de la solution électrolytique en moles par litre",
+        "es": "Concentración objetivo de la solución electrolítica en moles por litro."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Solution Volume",
         "tr": "Çözelti Hacmi",
         "de": "Lösungsvolumen",
-        "fr": "Solution Volume",
-        "es": "Solution Volume",
+        "fr": "Volume de solution",
+        "es": "Volumen de solución",
         "ar": "Solution Volume"
       },
       "businessContext_i18n": {
         "en": "Final volume of the solution to prepare",
         "tr": "Hazırlanacak çözeltinin nihai hacmi.",
-        "de": "Endvolumen der herzustellenden Lösung"
+        "de": "Endvolumen der herzustellenden Lösung",
+        "fr": "Volume final de la solution à préparer",
+        "es": "Volumen final de la solución a preparar."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Solute Purity",
         "tr": "Çözünen Saflığı",
         "de": "Reinheit des gelösten Stoffes",
-        "fr": "Solute Purity",
-        "es": "Solute Purity",
+        "fr": "Pureté du soluté",
+        "es": "Pureza del soluto",
         "ar": "Solute Purity"
       },
       "businessContext_i18n": {
         "en": "Purity percentage of the solid solute (e.g., 99.5 means 99.5% pure)",
         "tr": "Katı çözünenin saflık yüzdesi (örneğin, 99.5, %99.5 saf anlamına gelir).",
-        "de": "Reinheitsprozentsatz des festen gelösten Stoffes (z.B. 99,5 bedeutet 99,5% rein)"
+        "de": "Reinheitsprozentsatz des festen gelösten Stoffes (z.B. 99,5 bedeutet 99,5% rein)",
+        "fr": "Pourcentage de pureté du soluté solide (par exemple, 99,5 signifie 99,5 % pur)",
+        "es": "Porcentaje de pureza del soluto sólido (ej. 99.5 significa 99.5% puro)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Molecular Weight (Anhydrous)",
         "tr": "Moleküler Ağırlık (Susuz)",
         "de": "Molekulargewicht (wasserfrei)",
-        "fr": "Molecular Weight (Anhydrous)",
-        "es": "Molecular Weight (Anhydrous)",
+        "fr": "Masse molaire (anhydre)",
+        "es": "Peso molecular (anhidro)",
         "ar": "Molecular Weight (Anhydrous)"
       },
       "businessContext_i18n": {
         "en": "Molar mass of the anhydrous solute",
         "tr": "Susuz çözünenin molar kütlesi",
-        "de": "Molmasse des wasserfreien gelösten Stoffes"
+        "de": "Molmasse des wasserfreien gelösten Stoffes",
+        "fr": "Masse molaire du soluté anhydre",
+        "es": "Masa molar del soluto anhidro."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Water of Hydration",
         "tr": "Hidratasyon Suyu",
         "de": "Kristallwasser",
-        "fr": "Water of Hydration",
-        "es": "Water of Hydration",
+        "fr": "Eau d'hydratation",
+        "es": "Agua de hidratación",
         "ar": "Water of Hydration"
       },
       "businessContext_i18n": {
         "en": "Number of water molecules per formula unit (e.g., 5 for CuSO4·5H2O; 0 for anhydrous)",
         "tr": "Formül birimi başına su molekülü sayısı (ör. CuSO4·5H2O için 5; susuz için 0)",
-        "de": "Anzahl der Wassermoleküle pro Formeleinheit (z.B. 5 für CuSO4·5H2O; 0 für wasserfrei)"
+        "de": "Anzahl der Wassermoleküle pro Formeleinheit (z.B. 5 für CuSO4·5H2O; 0 für wasserfrei)",
+        "fr": "Nombre de molécules d'eau par unité formulaire (ex. 5 pour CuSO4·5H2O ; 0 pour anhydre)",
+        "es": "Número de moléculas de agua por unidad fórmula (ej., 5 para CuSO4·5H2O; 0 para anhidro)"
       }
     }
   ],

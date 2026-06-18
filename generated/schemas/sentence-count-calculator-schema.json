@@ -12,13 +12,15 @@
         "en": "Total Words",
         "tr": "Toplam Kelime",
         "de": "Gesamtwörter",
-        "fr": "Total Words",
-        "es": "Total Words",
+        "fr": "Total des mots",
+        "es": "Total de palabras",
         "ar": "Total Words"
       },
       "businessContext_i18n": {
         "en": "Total number of words in the text.",
-        "tr": "Metindeki toplam kelime sayısı."
+        "tr": "Metindeki toplam kelime sayısı.",
+        "de": "Gesamtzahl der Wörter im Text.",
+        "fr": "Nombre total de mots dans le texte."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Avg Words per Sentence",
         "tr": "Cümle Başına Ortalama Kelime",
-        "de": "Avg Words per Sentence",
-        "fr": "Avg Words per Sentence",
+        "de": "Durchschnittliche Wörter pro Satz",
+        "fr": "Moyenne de mots par phrase",
         "es": "Avg Words per Sentence",
         "ar": "Avg Words per Sentence"
       },
       "businessContext_i18n": {
         "en": "Average number of words per sentence (typically 15-20).",
-        "tr": "Cümle başına ortalama kelime sayısı (genellikle 15-20)."
+        "tr": "Cümle başına ortalama kelime sayısı (genellikle 15-20).",
+        "de": "Durchschnittliche Anzahl von Wörtern pro Satz (typischerweise 15-20).",
+        "fr": "Nombre moyen de mots par phrase (généralement 15-20)."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Total Characters",
         "tr": "Toplam Karakter",
-        "de": "Total Characters",
-        "fr": "Total Characters",
-        "es": "Total Characters",
+        "de": "Gesamtzeichen",
+        "fr": "Nombre total de caractères",
+        "es": "Total de caracteres",
         "ar": "Total Characters"
       },
       "businessContext_i18n": {
         "en": "Total number of characters including spaces.",
-        "tr": "Boşluklar dahil toplam karakter sayısı."
+        "tr": "Boşluklar dahil toplam karakter sayısı.",
+        "de": "Gesamtzahl der Zeichen inklusive Leerzeichen.",
+        "fr": "Nombre total de caractères espaces compris."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Avg Chars per Sentence",
         "tr": "Cümle Başına Ortalama Karakter",
-        "de": "Avg Chars per Sentence",
-        "fr": "Avg Chars per Sentence",
+        "de": "Durchschnittliche Zeichen pro Satz",
+        "fr": "Moyenne de caractères par phrase",
         "es": "Avg Chars per Sentence",
         "ar": "Avg Chars per Sentence"
       },
       "businessContext_i18n": {
         "en": "Average characters per sentence.",
-        "tr": "Cümle başına ortalama karakter sayısı."
+        "tr": "Cümle başına ortalama karakter sayısı.",
+        "de": "Durchschnittliche Zeichen pro Satz.",
+        "fr": "Nombre moyen de caractères par phrase."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Total Paragraphs",
         "tr": "Toplam Paragraf",
-        "de": "Total Paragraphs",
-        "fr": "Total Paragraphs",
+        "de": "Gesamtzahl der Absätze",
+        "fr": "Nombre total de paragraphes",
         "es": "Total Paragraphs",
         "ar": "Total Paragraphs"
       },
       "businessContext_i18n": {
         "en": "Total number of paragraphs.",
-        "tr": "Toplam paragraf sayısı."
+        "tr": "Toplam paragraf sayısı.",
+        "de": "Gesamtzahl der Absätze.",
+        "fr": "Nombre total de paragraphes."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Avg Sentences per Paragraph",
         "tr": "Paragraf Başına Ortalama Cümle",
-        "de": "Avg Sentences per Paragraph",
-        "fr": "Avg Sentences per Paragraph",
+        "de": "Durchschnittliche Sätze pro Absatz",
+        "fr": "Moyenne de phrases par paragraphe",
         "es": "Avg Sentences per Paragraph",
         "ar": "Avg Sentences per Paragraph"
       },
       "businessContext_i18n": {
         "en": "Average sentences per paragraph.",
-        "tr": "Paragraf başına ortalama cümle sayısı."
+        "tr": "Paragraf başına ortalama cümle sayısı.",
+        "de": "Durchschnittliche Anzahl von Sätzen pro Absatz.",
+        "fr": "Nombre moyen de phrases par paragraphe."
       }
     },
     {
@@ -131,14 +143,16 @@
       "label_i18n": {
         "en": "Line Count",
         "tr": "Satır Sayısı",
-        "de": "Line Count",
-        "fr": "Line Count",
+        "de": "Zeilenanzahl",
+        "fr": "Nombre de lignes",
         "es": "Line Count",
         "ar": "Line Count"
       },
       "businessContext_i18n": {
         "en": "Total number of lines (if line-based formatting).",
-        "tr": "Toplam satır sayısı (satır tabanlı biçimlendirme varsa)."
+        "tr": "Toplam satır sayısı (satır tabanlı biçimlendirme varsa).",
+        "de": "Gesamtzahl der Zeilen (bei zeilenbasierter Formatierung).",
+        "fr": "Nombre total de lignes (si formatage par lignes)."
       }
     },
     {
@@ -151,14 +165,16 @@
       "label_i18n": {
         "en": "Words per Line",
         "tr": "Satır Başına Kelime",
-        "de": "Words per Line",
-        "fr": "Words per Line",
-        "es": "Words per Line",
+        "de": "Wörter pro Zeile",
+        "fr": "Mots par ligne",
+        "es": "Palabras por línea",
         "ar": "Words per Line"
       },
       "businessContext_i18n": {
         "en": "Average words per line.",
-        "tr": "Satır başına ortalama kelime sayısı."
+        "tr": "Satır başına ortalama kelime sayısı.",
+        "de": "Durchschnittliche Wörter pro Zeile.",
+        "fr": "Nombre moyen de mots par ligne."
       }
     }
   ],

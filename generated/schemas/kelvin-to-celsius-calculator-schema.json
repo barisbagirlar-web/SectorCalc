@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Temperature (K)",
         "tr": "Sıcaklık (K)",
-        "de": "Temperature (K)",
-        "fr": "Temperature (K)",
-        "es": "Temperature (K)",
+        "de": "Temperatur (K)",
+        "fr": "Température (K)",
+        "es": "Temperatura (K)",
         "ar": "Temperature (K)"
       },
       "businessContext_i18n": {
         "en": "Raw temperature reading in Kelvin from sensor or process.",
-        "tr": "Sensör veya prosesten Kelvin cinsinden ham sıcaklık okuması."
+        "tr": "Sensör veya prosesten Kelvin cinsinden ham sıcaklık okuması.",
+        "de": "Roh-Temperaturmesswert in Kelvin vom Sensor oder Prozess.",
+        "fr": "Lecture brute de température en Kelvin provenant du capteur ou du processus.",
+        "es": "Lectura de temperatura bruta en Kelvin del sensor o proceso."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Calibration Offset (K)",
         "tr": "Kalibrasyon Ofseti (K)",
-        "de": "Calibration Offset (K)",
-        "fr": "Calibration Offset (K)",
-        "es": "Calibration Offset (K)",
+        "de": "Kalibrierungs-Offset (K)",
+        "fr": "Décalage d'étalonnage (K)",
+        "es": "Desviación de calibración (K)",
         "ar": "Calibration Offset (K)"
       },
       "businessContext_i18n": {
         "en": "Systematic error correction in Kelvin, added to the input before conversion.",
-        "tr": "Dönüşümden önce girişe eklenen Kelvin cinsinden sistematik hata düzeltmesi."
+        "tr": "Dönüşümden önce girişe eklenen Kelvin cinsinden sistematik hata düzeltmesi.",
+        "de": "Systematische Fehlerkorrektur in Kelvin, die vor der Umrechnung zum Eingang addiert wird.",
+        "fr": "Correction d'erreur systématique en Kelvin, ajoutée à l'entrée avant conversion.",
+        "es": "Corrección de error sistemático en Kelvin, añadida a la entrada antes de la conversión."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output rounding, as per quality control requirements.",
-        "tr": "Kalite kontrol gereksinimlerine göre çıktı yuvarlaması için ondalık basamak sayısı."
+        "tr": "Kalite kontrol gereksinimlerine göre çıktı yuvarlaması için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für die Ausgaberundung gemäß Qualitätskontrollanforderungen.",
+        "fr": "Nombre de décimales pour l'arrondi de sortie, selon les exigences de contrôle qualité.",
+        "es": "Número de decimales para redondeo de salida, según requisitos de control de calidad."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Measurement Time (Unix ms)",
         "tr": "Ölçüm Zamanı (Unix ms)",
-        "de": "Measurement Time (Unix ms)",
-        "fr": "Measurement Time (Unix ms)",
-        "es": "Measurement Time (Unix ms)",
+        "de": "Messzeit (Unix ms)",
+        "fr": "Temps de mesure (Unix ms)",
+        "es": "Tiempo de medición (Unix ms)",
         "ar": "Measurement Time (Unix ms)"
       },
       "businessContext_i18n": {
         "en": "Timestamp of the measurement for traceability (ISO 9001 7.5.2).",
-        "tr": "İzlenebilirlik için ölçümün zaman damgası (ISO 9001 7.5.2)."
+        "tr": "İzlenebilirlik için ölçümün zaman damgası (ISO 9001 7.5.2).",
+        "de": "Zeitstempel der Messung für Rückverfolgbarkeit (ISO 9001 7.5.2).",
+        "fr": "Horodatage de la mesure pour la traçabilité (ISO 9001 7.5.2).",
+        "es": "Marca de tiempo de la medición para trazabilidad (ISO 9001 7.5.2)."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Ambient Temperature (°C)",
         "tr": "Ortam Sıcaklığı (°C)",
         "de": "Umgebungstemperatur (°C)",
-        "fr": "Ambient Temperature (°C)",
-        "es": "Ambient Temperature (°C)",
+        "fr": "Température ambiante (°C)",
+        "es": "Temperatura ambiente (°C)",
         "ar": "Ambient Temperature (°C)"
       },
       "businessContext_i18n": {
         "en": "For reference, not used in primary conversion but logged.",
-        "tr": "Referans için, birincil dönüşümde kullanılmaz ancak kaydedilir."
+        "tr": "Referans için, birincil dönüşümde kullanılmaz ancak kaydedilir.",
+        "de": "Nur als Referenz, nicht in der primären Umrechnung verwendet, aber protokolliert.",
+        "fr": "Pour référence, non utilisé dans la conversion primaire mais enregistré.",
+        "es": "Para referencia, no se usa en la conversión principal pero se registra."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Relative Humidity (%)",
         "tr": "Bağıl Nem (%)",
-        "de": "Relative Humidity (%)",
-        "fr": "Relative Humidity (%)",
-        "es": "Relative Humidity (%)",
+        "de": "Relative Luftfeuchtigkeit (%)",
+        "fr": "Humidité relative (%)",
+        "es": "Humedad relativa (%)",
         "ar": "Relative Humidity (%)"
       },
       "businessContext_i18n": {
         "en": "Environmental condition for calibration context (not used in conversion).",
-        "tr": "Kalibrasyon bağlamı için çevresel koşul (dönüşümde kullanılmaz)."
+        "tr": "Kalibrasyon bağlamı için çevresel koşul (dönüşümde kullanılmaz).",
+        "de": "Umgebungsbedingung für Kalibrierungskontext (nicht in der Umrechnung verwendet).",
+        "fr": "Condition environnementale pour le contexte d'étalonnage (non utilisée dans la conversion).",
+        "es": "Condición ambiental para contexto de calibración (no se usa en la conversión)."
       }
     }
   ],

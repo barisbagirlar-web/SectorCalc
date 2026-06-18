@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Source Activity",
         "tr": "Kaynak Aktivitesi",
-        "de": "Source Activity",
-        "fr": "Source Activity",
-        "es": "Source Activity",
+        "de": "Quellaktivität",
+        "fr": "Activité de la source",
+        "es": "Actividad de la fuente",
         "ar": "Source Activity"
       },
       "businessContext_i18n": {
         "en": "Enter the activity of the radioactive source in curies.",
-        "tr": "Radyoaktif kaynağın aktivitesini curie cinsinden girin."
+        "tr": "Radyoaktif kaynağın aktivitesini curie cinsinden girin.",
+        "de": "Geben Sie die Aktivität der radioaktiven Quelle in Curie ein.",
+        "fr": "Entrez l'activité de la source radioactive en curies.",
+        "es": "Ingrese la actividad de la fuente radiactiva en curios."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Gamma Constant",
         "tr": "Gama Sabiti",
-        "de": "Gamma Constant",
-        "fr": "Gamma Constant",
-        "es": "Gamma Constant",
+        "de": "Gammakonstante",
+        "fr": "Constante gamma",
+        "es": "Constante gamma",
         "ar": "Gamma Constant"
       },
       "businessContext_i18n": {
         "en": "Specific gamma constant for the isotope in R*m²/(Ci*h).",
-        "tr": "İzotop için spesifik gama sabiti (R·m²/(Ci·saat))."
+        "tr": "İzotop için spesifik gama sabiti (R·m²/(Ci·saat)).",
+        "de": "Spezifische Gammakonstante des Isotops in R·m²/(Ci·h).",
+        "fr": "Constante gamma spécifique de l'isotope en R*m²/(Ci*h).",
+        "es": "Constante gamma específica para el isótopo en R*m²/(Ci*h)."
       }
     },
     {
@@ -53,12 +59,15 @@
         "tr": "Mesafe",
         "de": "Entfernung",
         "fr": "Distance",
-        "es": "Distance",
+        "es": "Distancia",
         "ar": "Distance"
       },
       "businessContext_i18n": {
         "en": "Distance from the source in meters.",
-        "tr": "Kaynaktan uzaklık (metre)."
+        "tr": "Kaynaktan uzaklık (metre).",
+        "de": "Entfernung von der Quelle in Metern.",
+        "fr": "Distance de la source en mètres.",
+        "es": "Distancia desde la fuente en metros."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Shield Thickness",
         "tr": "Zırh Kalınlığı",
-        "de": "Shield Thickness",
-        "fr": "Shield Thickness",
-        "es": "Shield Thickness",
+        "de": "Abschirmdicke",
+        "fr": "Épaisseur du blindage",
+        "es": "Espesor del blindaje",
         "ar": "Shield Thickness"
       },
       "businessContext_i18n": {
         "en": "Thickness of the shielding material in cm.",
-        "tr": "Zırh malzemesinin kalınlığı (cm)."
+        "tr": "Zırh malzemesinin kalınlığı (cm).",
+        "de": "Dicke des Abschirmmaterials in cm.",
+        "fr": "Épaisseur du matériau de blindage en cm.",
+        "es": "Espesor del material de blindaje en cm."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Half-Value Layer (HVL)",
         "tr": "Yarı Değer Kalınlığı (YDK)",
-        "de": "Half-Value Layer (HVL)",
-        "fr": "Half-Value Layer (HVL)",
-        "es": "Half-Value Layer (HVL)",
+        "de": "Halbwertsschicht (HWS)",
+        "fr": "Couche de demi-atténuation (CDA)",
+        "es": "Capa de valor medio (HVL)",
         "ar": "Half-Value Layer (HVL)"
       },
       "businessContext_i18n": {
         "en": "Half-value layer of the shielding material for the gamma energy.",
-        "tr": "Gama enerjisi için zırh malzemesinin yarı değer kalınlığı."
+        "tr": "Gama enerjisi için zırh malzemesinin yarı değer kalınlığı.",
+        "de": "Halbwertsschicht des Abschirmmaterials für die Gammaenergie.",
+        "fr": "Couche de demi-atténuation du matériau de blindage pour l'énergie gamma.",
+        "es": "Capa de valor medio del material de blindaje para la energía gamma."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Dose Conversion Factor",
         "tr": "Doz Dönüşüm Faktörü",
-        "de": "Dose Conversion Factor",
-        "fr": "Dose Conversion Factor",
-        "es": "Dose Conversion Factor",
+        "de": "Dosisumrechnungsfaktor",
+        "fr": "Facteur de conversion de dose",
+        "es": "Factor de conversión de dosis",
         "ar": "Dose Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Conversion factor from exposure (R) to dose (µSv), typically 8.77 for air.",
-        "tr": "Maruziyetten (R) doza (µSv) dönüşüm faktörü, tipik olarak hava için 8.77."
+        "tr": "Maruziyetten (R) doza (µSv) dönüşüm faktörü, tipik olarak hava için 8.77.",
+        "de": "Umrechnungsfaktor von Exposition (R) in Dosis (µSv), typischerweise 8,77 für Luft.",
+        "fr": "Facteur de conversion de l'exposition (R) en dose (µSv), typiquement 8,77 pour l'air.",
+        "es": "Factor de conversión de exposición (R) a dosis (µSv), típicamente 8.77 para aire."
       }
     }
   ],

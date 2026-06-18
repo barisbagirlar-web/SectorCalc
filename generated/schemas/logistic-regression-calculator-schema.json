@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Kesme Terimi (b0)",
         "tr": "Kesme Terimi (b0)",
-        "de": "Kesme Terimi (b0)",
-        "fr": "Kesme Terimi (b0)",
-        "es": "Kesme Terimi (b0)",
+        "de": "Achsenabschnitt (b0)",
+        "fr": "Terme d'intersection (b0)",
+        "es": "Término de intersección (b0)",
         "ar": "Kesme Terimi (b0)"
       },
       "businessContext_i18n": {
         "en": "Tüm tahmin değişkenleri sıfır olduğunda log-odds değeri.",
-        "tr": "Tüm tahmin değişkenleri sıfır olduğunda log-odds değeri."
+        "tr": "Tüm tahmin değişkenleri sıfır olduğunda log-odds değeri.",
+        "de": "Log-Odds-Wert, wenn alle Prädiktorvariablen null sind.",
+        "fr": "Valeur log-odds lorsque toutes les variables prédictives sont nulles.",
+        "es": "Valor de log-odds cuando todas las variables predictoras son cero."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Katsayı 1 (b1)",
         "tr": "Katsayı 1 (b1)",
-        "de": "Katsayı 1 (b1)",
-        "fr": "Katsayı 1 (b1)",
-        "es": "Katsayı 1 (b1)",
+        "de": "Koeffizient 1 (b1)",
+        "fr": "Coefficient 1 (b1)",
+        "es": "Coeficiente 1 (b1)",
         "ar": "Katsayı 1 (b1)"
       },
       "businessContext_i18n": {
         "en": "Birinci tahmin değişkenindeki bir birimlik artışın log-odds üzerindeki etkisi.",
-        "tr": "Birinci tahmin değişkenindeki bir birimlik artışın log-odds üzerindeki etkisi."
+        "tr": "Birinci tahmin değişkenindeki bir birimlik artışın log-odds üzerindeki etkisi.",
+        "de": "Effekt einer Einheit Erhöhung der ersten Prädiktorvariablen auf die Log-Odds.",
+        "fr": "Effet d'une augmentation d'une unité de la première variable prédictive sur le log-odds.",
+        "es": "Efecto de un aumento de una unidad en la primera variable predictora sobre el log-odds."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Değer 1 (x1)",
         "tr": "Değer 1 (x1)",
-        "de": "Değer 1 (x1)",
-        "fr": "Değer 1 (x1)",
-        "es": "Değer 1 (x1)",
+        "de": "Wert 1 (x1)",
+        "fr": "Valeur 1 (x1)",
+        "es": "Valor 1 (x1)",
         "ar": "Değer 1 (x1)"
       },
       "businessContext_i18n": {
         "en": "Birinci tahmin değişkeninin gerçek değeri.",
-        "tr": "Birinci tahmin değişkeninin gerçek değeri."
+        "tr": "Birinci tahmin değişkeninin gerçek değeri.",
+        "de": "Tatsächlicher Wert der ersten Prädiktorvariablen.",
+        "fr": "Valeur réelle de la première variable prédictive.",
+        "es": "Valor real de la primera variable predictora."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Katsayı 2 (b2)",
         "tr": "Katsayı 2 (b2)",
-        "de": "Katsayı 2 (b2)",
-        "fr": "Katsayı 2 (b2)",
-        "es": "Katsayı 2 (b2)",
+        "de": "Koeffizient 2 (b2)",
+        "fr": "Coefficient 2 (b2)",
+        "es": "Coeficiente 2 (b2)",
         "ar": "Katsayı 2 (b2)"
       },
       "businessContext_i18n": {
         "en": "İkinci tahmin değişkenindeki bir birimlik artışın log-odds üzerindeki etkisi.",
-        "tr": "İkinci tahmin değişkenindeki bir birimlik artışın log-odds üzerindeki etkisi."
+        "tr": "İkinci tahmin değişkenindeki bir birimlik artışın log-odds üzerindeki etkisi.",
+        "de": "Effekt einer Einheit Erhöhung der zweiten Prädiktorvariablen auf die Log-Odds.",
+        "fr": "Effet d'une augmentation d'une unité de la deuxième variable prédictive sur le log-odds.",
+        "es": "Efecto de un aumento de una unidad en la segunda variable predictora sobre el log-odds."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Değer 2 (x2)",
         "tr": "Değer 2 (x2)",
-        "de": "Değer 2 (x2)",
-        "fr": "Değer 2 (x2)",
-        "es": "Değer 2 (x2)",
+        "de": "Wert 2 (x2)",
+        "fr": "Valeur 2 (x2)",
+        "es": "Valor 2 (x2)",
         "ar": "Değer 2 (x2)"
       },
       "businessContext_i18n": {
         "en": "İkinci tahmin değişkeninin gerçek değeri.",
-        "tr": "İkinci tahmin değişkeninin gerçek değeri."
+        "tr": "İkinci tahmin değişkeninin gerçek değeri.",
+        "de": "Tatsächlicher Wert der zweiten Prädiktorvariablen.",
+        "fr": "Valeur réelle de la deuxième variable prédictive.",
+        "es": "Valor real de la segunda variable predictora."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Katsayı 3 (b3)",
         "tr": "Katsayı 3 (b3)",
-        "de": "Katsayı 3 (b3)",
-        "fr": "Katsayı 3 (b3)",
-        "es": "Katsayı 3 (b3)",
+        "de": "Koeffizient 3 (b3)",
+        "fr": "Coefficient 3 (b3)",
+        "es": "Coeficiente 3 (b3)",
         "ar": "Katsayı 3 (b3)"
       },
       "businessContext_i18n": {
         "en": "Üçüncü tahmin değişkenindeki bir birimlik artışın log-odds üzerindeki etkisi.",
-        "tr": "Üçüncü tahmin değişkenindeki bir birimlik artışın log-odds üzerindeki etkisi."
+        "tr": "Üçüncü tahmin değişkenindeki bir birimlik artışın log-odds üzerindeki etkisi.",
+        "de": "Effekt einer Einheit Erhöhung der dritten Prädiktorvariablen auf die Log-Odds.",
+        "fr": "Effet d'une augmentation d'une unité de la troisième variable prédictive sur le log-odds.",
+        "es": "Efecto de un aumento de una unidad en la tercera variable predictora sobre el log-odds."
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Değer 3 (x3)",
         "tr": "Değer 3 (x3)",
-        "de": "Değer 3 (x3)",
-        "fr": "Değer 3 (x3)",
-        "es": "Değer 3 (x3)",
+        "de": "Wert 3 (x3)",
+        "fr": "Valeur 3 (x3)",
+        "es": "Valor 3 (x3)",
         "ar": "Değer 3 (x3)"
       },
       "businessContext_i18n": {
         "en": "Üçüncü tahmin değişkeninin gerçek değeri.",
-        "tr": "Üçüncü tahmin değişkeninin gerçek değeri."
+        "tr": "Üçüncü tahmin değişkeninin gerçek değeri.",
+        "de": "Tatsächlicher Wert der dritten Prädiktorvariablen.",
+        "fr": "Valeur réelle de la troisième variable d'estimation.",
+        "es": "Valor real de la tercera variable predictora."
       }
     }
   ],

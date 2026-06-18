@@ -12,14 +12,16 @@
         "en": "Apparent Magnitude (m)",
         "tr": "Görünür Parlaklık (m)",
         "de": "Scheinbare Helligkeit (m)",
-        "fr": "Apparent Magnitude (m)",
-        "es": "Apparent Magnitude (m)",
+        "fr": "Magnitude apparente (m)",
+        "es": "Magnitud aparente (m)",
         "ar": "Apparent Magnitude (m)"
       },
       "businessContext_i18n": {
         "en": "The observed brightness of the celestial object",
         "tr": "Gök cisminin gözlemlenen parlaklığı",
-        "de": "Die beobachtete Helligkeit des Himmelsobjekts"
+        "de": "Die beobachtete Helligkeit des Himmelsobjekts",
+        "fr": "Luminosité observée de l'objet céleste",
+        "es": "Brillo observado del objeto celeste"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Apparent Magnitude Error",
         "tr": "Görünür Parlaklık Hatası",
         "de": "Scheinbare Helligkeit Fehler",
-        "fr": "Apparent Magnitude Error",
-        "es": "Apparent Magnitude Error",
+        "fr": "Erreur de magnitude apparente",
+        "es": "Error de magnitud aparente",
         "ar": "Apparent Magnitude Error"
       },
       "businessContext_i18n": {
         "en": "1-sigma uncertainty in m",
         "tr": "m'de 1-sigma belirsizlik",
-        "de": "1-Sigma Unsicherheit in m"
+        "de": "1-Sigma Unsicherheit in m",
+        "fr": "Incertitude à 1 sigma sur m",
+        "es": "Incertidumbre de 1 sigma en m"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Absolute Magnitude (M)",
         "tr": "Mutlak Parlaklık (M)",
         "de": "Absolute Helligkeit (M)",
-        "fr": "Absolute Magnitude (M)",
-        "es": "Absolute Magnitude (M)",
+        "fr": "Magnitude absolue (M)",
+        "es": "Magnitud absoluta (M)",
         "ar": "Absolute Magnitude (M)"
       },
       "businessContext_i18n": {
         "en": "The intrinsic brightness of the object",
         "tr": "Cismin içsel parlaklığı",
-        "de": "Die intrinsische Helligkeit des Objekts"
+        "de": "Die intrinsische Helligkeit des Objekts",
+        "fr": "Luminosité intrinsèque de l'objet",
+        "es": "Brillo intrínseco del objeto"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Absolute Magnitude Error",
         "tr": "Mutlak Parlaklık Hatası",
         "de": "Absolute Helligkeit Fehler",
-        "fr": "Absolute Magnitude Error",
-        "es": "Absolute Magnitude Error",
+        "fr": "Erreur de magnitude absolue",
+        "es": "Error de magnitud absoluta",
         "ar": "Absolute Magnitude Error"
       },
       "businessContext_i18n": {
         "en": "1-sigma uncertainty in M",
         "tr": "M'de 1-sigma belirsizlik",
-        "de": "1-Sigma Unsicherheit in M"
+        "de": "1-Sigma Unsicherheit in M",
+        "fr": "Incertitude à 1 sigma sur M",
+        "es": "Incertidumbre de 1 sigma en M"
       }
     },
     {
@@ -97,13 +105,15 @@
         "tr": "Sönümleme (A)",
         "de": "Extinktion (A)",
         "fr": "Extinction (A)",
-        "es": "Extinction (A)",
+        "es": "Extinción (A)",
         "ar": "Extinction (A)"
       },
       "businessContext_i18n": {
         "en": "Interstellar extinction in the observed band",
         "tr": "Gözlenen bantta yıldızlararası sönümleme",
-        "de": "Interstellare Extinktion im beobachteten Band"
+        "de": "Interstellare Extinktion im beobachteten Band",
+        "fr": "Extinction interstellaire dans la bande observée",
+        "es": "Extinción interestelar en la banda observada"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Extinction Error",
         "tr": "Sönümleme Hatası",
         "de": "Extinktion Fehler",
-        "fr": "Extinction Error",
-        "es": "Extinction Error",
+        "fr": "Erreur d'extinction",
+        "es": "Error de extinción",
         "ar": "Extinction Error"
       },
       "businessContext_i18n": {
         "en": "1-sigma uncertainty in A",
         "tr": "A'da 1-sigma belirsizlik",
-        "de": "1-Sigma Unsicherheit in A"
+        "de": "1-Sigma Unsicherheit in A",
+        "fr": "Incertitude à 1 sigma sur A",
+        "es": "Incertidumbre de 1 sigma en A"
       }
     }
   ],

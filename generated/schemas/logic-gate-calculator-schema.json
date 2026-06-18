@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Gate Type",
         "tr": "Kapı Türü",
-        "de": "Gate Type",
-        "fr": "Gate Type",
-        "es": "Gate Type",
+        "de": "Gattertyp",
+        "fr": "Type de porte",
+        "es": "Tipo de compuerta",
         "ar": "Gate Type"
       },
       "businessContext_i18n": {
         "en": "Select gate: 1=AND, 2=OR, 3=XOR, 4=NAND, 5=NOR, 6=XNOR",
-        "tr": "Kapı seçin: 1=VE, 2=VEYA, 3=ÖZELVEYA, 4=VE DEĞİL, 5=VEYA DEĞİL, 6=ÖZELVEYA DEĞİL"
+        "tr": "Kapı seçin: 1=VE, 2=VEYA, 3=ÖZELVEYA, 4=VE DEĞİL, 5=VEYA DEĞİL, 6=ÖZELVEYA DEĞİL",
+        "de": "Gatter auswählen: 1=UND, 2=ODER, 3=XOR, 4=NAND, 5=NOR, 6=XNOR",
+        "fr": "Sélectionnez la porte : 1=ET, 2=OU, 3=OU exclusif, 4=NON-ET, 5=NON-OU, 6=NON-OU exclusif",
+        "es": "Seleccione compuerta: 1=AND, 2=OR, 3=XOR, 4=NAND, 5=NOR, 6=XNOR"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Input A",
         "tr": "Giriş A",
-        "de": "Input A",
-        "fr": "Input A",
-        "es": "Input A",
+        "de": "Eingang A",
+        "fr": "Entrée A",
+        "es": "Entrada A",
         "ar": "Input A"
       },
       "businessContext_i18n": {
         "en": "Binary input (0 or 1)",
-        "tr": "İkili giriş (0 veya 1)"
+        "tr": "İkili giriş (0 veya 1)",
+        "de": "Binäreingang (0 oder 1)",
+        "fr": "Entrée binaire (0 ou 1)",
+        "es": "Entrada binaria (0 o 1)"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Input B",
         "tr": "Giriş B",
-        "de": "Input B",
-        "fr": "Input B",
-        "es": "Input B",
+        "de": "Eingang B",
+        "fr": "Entrée B",
+        "es": "Entrada B",
         "ar": "Input B"
       },
       "businessContext_i18n": {
         "en": "Binary input (0 or 1)",
-        "tr": "İkili giriş (0 veya 1)"
+        "tr": "İkili giriş (0 veya 1)",
+        "de": "Binäreingang (0 oder 1)",
+        "fr": "Entrée binaire (0 ou 1)",
+        "es": "Entrada binaria (0 o 1)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Input C",
         "tr": "Giriş C",
-        "de": "Input C",
-        "fr": "Input C",
-        "es": "Input C",
+        "de": "Eingang C",
+        "fr": "Entrée C",
+        "es": "Entrada C",
         "ar": "Input C"
       },
       "businessContext_i18n": {
         "en": "Binary input (0 or 1)",
-        "tr": "İkili giriş (0 veya 1)"
+        "tr": "İkili giriş (0 veya 1)",
+        "de": "Binäreingang (0 oder 1)",
+        "fr": "Entrée binaire (0 ou 1)",
+        "es": "Entrada binaria (0 o 1)"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Input D",
         "tr": "Giriş D",
-        "de": "Input D",
-        "fr": "Input D",
-        "es": "Input D",
+        "de": "Eingang D",
+        "fr": "Entrée D",
+        "es": "Entrada D",
         "ar": "Input D"
       },
       "businessContext_i18n": {
         "en": "Binary input (0 or 1)",
-        "tr": "İkili giriş (0 veya 1)"
+        "tr": "İkili giriş (0 veya 1)",
+        "de": "Binäreingang (0 oder 1)",
+        "fr": "Entrée binaire (0 ou 1)",
+        "es": "Entrada binaria (0 o 1)"
       }
     }
   ],

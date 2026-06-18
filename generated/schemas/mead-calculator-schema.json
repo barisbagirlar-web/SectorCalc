@@ -12,13 +12,16 @@
         "en": "Parti Hacmi (L)",
         "tr": "Parti Hacmi (L)",
         "de": "Parti Hacmi (L)",
-        "fr": "Parti Hacmi (L)",
-        "es": "Parti Hacmi (L)",
+        "fr": "Volume de moût (L)",
+        "es": "Volumen del lote (L)",
         "ar": "Parti Hacmi (L)"
       },
       "businessContext_i18n": {
         "en": "Üretilecek toplam şıra hacmi",
-        "tr": "Üretilecek toplam şıra hacmi"
+        "tr": "Üretilecek toplam şıra hacmi",
+        "de": "Zu produzierendes Gesamtmostvolumen",
+        "fr": "Volume total de moût à produire",
+        "es": "Volumen total de mosto a producir"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Hedef Alkol Oranı (% ABV)",
         "tr": "Hedef Alkol Oranı (% ABV)",
-        "de": "Hedef Alkol Oranı (% ABV)",
-        "fr": "Hedef Alkol Oranı (% ABV)",
-        "es": "Hedef Alkol Oranı (% ABV)",
+        "de": "Zielalkoholgehalt (% ABV)",
+        "fr": "Taux d'alcool cible (% ABV)",
+        "es": "Porcentaje de alcohol objetivo (% ABV)",
         "ar": "Hedef Alkol Oranı (% ABV)"
       },
       "businessContext_i18n": {
         "en": "Hedeflenen alkol derecesi",
-        "tr": "Hedeflenen alkol derecesi"
+        "tr": "Hedeflenen alkol derecesi",
+        "de": "Angestrebter Alkoholgehalt",
+        "fr": "Degré d'alcool visé",
+        "es": "Grado alcohólico objetivo"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Bal Şeker Oranı (%)",
         "tr": "Bal Şeker Oranı (%)",
-        "de": "Bal Şeker Oranı (%)",
-        "fr": "Bal Şeker Oranı (%)",
-        "es": "Bal Şeker Oranı (%)",
+        "de": "Honigzuckergehalt (%)",
+        "fr": "Taux de sucre du miel (%)",
+        "es": "Porcentaje de azúcar de la miel (%)",
         "ar": "Bal Şeker Oranı (%)"
       },
       "businessContext_i18n": {
         "en": "Balın içerdiği şeker yüzdesi, tipik %78-85",
-        "tr": "Balın içerdiği şeker yüzdesi, tipik %78-85"
+        "tr": "Balın içerdiği şeker yüzdesi, tipik %78-85",
+        "de": "Prozentsatz des Zuckers im Honig, typisch 78-85%",
+        "fr": "Pourcentage de sucre contenu dans le miel, typiquement 78-85%",
+        "es": "Porcentaje de azúcar contenido en la miel, típicamente 78-85%"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Fermantasyon Verimi (%)",
         "tr": "Fermantasyon Verimi (%)",
-        "de": "Fermantasyon Verimi (%)",
-        "fr": "Fermantasyon Verimi (%)",
-        "es": "Fermantasyon Verimi (%)",
+        "de": "Fermentationsausbeute (%)",
+        "fr": "Rendement de fermentation (%)",
+        "es": "Rendimiento de fermentación (%)",
         "ar": "Fermantasyon Verimi (%)"
       },
       "businessContext_i18n": {
         "en": "Mayanın şekeri alkole dönüştürme verimi, %100 teorik tam dönüşüm",
-        "tr": "Mayanın şekeri alkole dönüştürme verimi, %100 teorik tam dönüşüm"
+        "tr": "Mayanın şekeri alkole dönüştürme verimi, %100 teorik tam dönüşüm",
+        "de": "Effizienz der Hefe bei der Umwandlung von Zucker in Alkohol, 100% theoretische Vollumwandlung",
+        "fr": "Rendement de conversion du sucre en alcool par la levure, 100% pour conversion théorique complète",
+        "es": "Eficiencia de la levadura para convertir azúcar en alcohol, 100% es conversión teórica completa"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Bal Yoğunluğu",
         "tr": "Bal Yoğunluğu",
-        "de": "Bal Yoğunluğu",
-        "fr": "Bal Yoğunluğu",
-        "es": "Bal Yoğunluğu",
+        "de": "Honigdichte",
+        "fr": "Densité du miel",
+        "es": "Densidad de la miel",
         "ar": "Bal Yoğunluğu"
       },
       "businessContext_i18n": {
         "en": "Balın yoğunluğu, genelde 1.36 kg/L",
-        "tr": "Balın yoğunluğu, genelde 1.36 kg/L"
+        "tr": "Balın yoğunluğu, genelde 1.36 kg/L",
+        "de": "Dichte von Honig, normalerweise 1,36 kg/L",
+        "fr": "Densité du miel, généralement 1,36 kg/L",
+        "es": "Densidad de la miel, generalmente 1.36 kg/L"
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Su Yoğunluğu",
         "tr": "Su Yoğunluğu",
         "de": "Wasserdichte",
-        "fr": "Su Yoğunluğu",
-        "es": "Su Yoğunluğu",
+        "fr": "Densité de l'eau",
+        "es": "Densidad del agua",
         "ar": "Su Yoğunluğu"
       },
       "businessContext_i18n": {
         "en": "Suyun yoğunluğu, 1 kg/L",
-        "tr": "Suyun yoğunluğu, 1 kg/L"
+        "tr": "Suyun yoğunluğu, 1 kg/L",
+        "de": "Dichte von Wasser, 1 kg/L",
+        "fr": "Densité de l'eau, 1 kg/L",
+        "es": "Densidad del agua, 1 kg/L"
       }
     }
   ],

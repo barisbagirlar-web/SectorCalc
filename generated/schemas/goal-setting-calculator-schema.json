@@ -12,14 +12,16 @@
         "en": "Current OEE",
         "tr": "Mevcut OEE",
         "de": "Aktueller OEE",
-        "fr": "Current OEE",
-        "es": "Current OEE",
+        "fr": "OEE actuel",
+        "es": "OEE actual",
         "ar": "Current OEE"
       },
       "businessContext_i18n": {
         "en": "Current Overall Equipment Effectiveness percentage",
         "tr": "Mevcut Genel Ekipman Etkinliği yüzdesi",
-        "de": "Aktuelle Gesamtanlageneffektivität in Prozent"
+        "de": "Aktuelle Gesamtanlageneffektivität in Prozent",
+        "fr": "Pourcentage actuel d'efficacité globale des équipements",
+        "es": "Porcentaje actual de Eficiencia General del Equipo"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Target OEE",
         "tr": "Hedef OEE",
         "de": "Ziel-OEE",
-        "fr": "Target OEE",
-        "es": "Target OEE",
+        "fr": "OEE cible",
+        "es": "OEE objetivo",
         "ar": "Target OEE"
       },
       "businessContext_i18n": {
         "en": "Target OEE percentage to achieve",
         "tr": "Ulaşılacak hedef OEE yüzdesi",
-        "de": "Ziel-OEE-Prozentsatz, der erreicht werden soll"
+        "de": "Ziel-OEE-Prozentsatz, der erreicht werden soll",
+        "fr": "Pourcentage d'OEE cible à atteindre",
+        "es": "Porcentaje de OEE objetivo a alcanzar"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Timeframe",
         "tr": "Zaman Çerçevesi",
         "de": "Zeitraum",
-        "fr": "Timeframe",
-        "es": "Timeframe",
+        "fr": "Période",
+        "es": "Plazo",
         "ar": "Timeframe"
       },
       "businessContext_i18n": {
         "en": "Time period in months to achieve the target OEE",
         "tr": "Hedef OEE'ye ulaşmak için ay cinsinden süre",
-        "de": "Zeitraum in Monaten, um den Ziel-OEE zu erreichen"
+        "de": "Zeitraum in Monaten, um den Ziel-OEE zu erreichen",
+        "fr": "Période en mois pour atteindre l'OEE cible",
+        "es": "Período de tiempo en meses para alcanzar el OEE objetivo"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Current Availability",
         "tr": "Mevcut Kullanılabilirlik",
         "de": "Aktuelle Verfügbarkeit",
-        "fr": "Current Availability",
-        "es": "Current Availability",
+        "fr": "Disponibilité actuelle",
+        "es": "Disponibilidad actual",
         "ar": "Current Availability"
       },
       "businessContext_i18n": {
         "en": "Current availability proportion of planned production time",
         "tr": "Planlanan üretim zamanının mevcut kullanılabilirlik oranı",
-        "de": "Aktuelles Verfügbarkeitsverhältnis der geplanten Produktionszeit"
+        "de": "Aktuelles Verfügbarkeitsverhältnis der geplanten Produktionszeit",
+        "fr": "Proportion actuelle de disponibilité par rapport au temps de production prévu",
+        "es": "Proporción actual de disponibilidad sobre el tiempo de producción planificado"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Current Performance",
         "tr": "Mevcut Performans",
         "de": "Aktuelle Leistung",
-        "fr": "Current Performance",
-        "es": "Current Performance",
+        "fr": "Performance actuelle",
+        "es": "Rendimiento actual",
         "ar": "Current Performance"
       },
       "businessContext_i18n": {
         "en": "Current performance speed vs ideal cycle time",
         "tr": "İdeal çevrim süresine göre mevcut performans hızı",
-        "de": "Aktuelle Geschwindigkeit im Vergleich zur idealen Taktzeit"
+        "de": "Aktuelle Geschwindigkeit im Vergleich zur idealen Taktzeit",
+        "fr": "Vitesse de performance actuelle par rapport au temps de cycle idéal",
+        "es": "Velocidad de rendimiento actual frente al tiempo de ciclo ideal"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Current Quality",
         "tr": "Mevcut Kalite",
         "de": "Aktuelle Qualität",
-        "fr": "Current Quality",
-        "es": "Current Quality",
+        "fr": "Qualité actuelle",
+        "es": "Calidad actual",
         "ar": "Current Quality"
       },
       "businessContext_i18n": {
         "en": "Current quality rate (good units/total units)",
         "tr": "Mevcut kalite oranı (iyi birim/toplam birim)",
-        "de": "Aktuelle Qualitätsrate (gute Einheiten/Gesamteinheiten)"
+        "de": "Aktuelle Qualitätsrate (gute Einheiten/Gesamteinheiten)",
+        "fr": "Taux de qualité actuel (bonnes unités / unités totales)",
+        "es": "Tasa de calidad actual (unidades buenas / unidades totales)"
       }
     }
   ],

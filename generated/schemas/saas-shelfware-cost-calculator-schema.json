@@ -22,11 +22,15 @@
       "businessContext": "Total number of SaaS licenses paid for in the current period.",
       "label_i18n": {
         "en": "Total Licenses Purchased",
-        "tr": "Satın Alınan Toplam Lisans"
+        "tr": "Satın Alınan Toplam Lisans",
+        "de": "Gekaufte Gesamtlizenzen",
+        "fr": "Licences totales achetées"
       },
       "businessContext_i18n": {
         "en": "Total number of SaaS licenses paid for in the current period.",
-        "tr": "Cari dönemde ödenen SaaS lisanslarının toplam sayısı."
+        "tr": "Cari dönemde ödenen SaaS lisanslarının toplam sayısı.",
+        "de": "Gesamtzahl der im aktuellen Zeitraum bezahlten SaaS-Lizenzen.",
+        "fr": "Nombre total de licences SaaS payées pour la période en cours."
       }
     },
     {
@@ -40,11 +44,15 @@
       "businessContext": "Number of distinct users who logged in at least once in the last 30 days.",
       "label_i18n": {
         "en": "Active Users (Monthly)",
-        "tr": "Aylık Aktif Kullanıcı"
+        "tr": "Aylık Aktif Kullanıcı",
+        "de": "Aktive Benutzer (monatlich)",
+        "fr": "Utilisateurs actifs (mensuel)"
       },
       "businessContext_i18n": {
         "en": "Number of distinct users who logged in at least once in the last 30 days.",
-        "tr": "Son 30 günde en az bir kez giriş yapan farklı kullanıcı sayısı."
+        "tr": "Son 30 günde en az bir kez giriş yapan farklı kullanıcı sayısı.",
+        "de": "Anzahl der verschiedenen Nutzer, die sich in den letzten 30 Tagen mindestens einmal angemeldet haben.",
+        "fr": "Nombre d'utilisateurs distincts qui se sont connectés au moins une fois au cours des 30 derniers jours."
       }
     },
     {
@@ -58,11 +66,15 @@
       "businessContext": "Monthly recurring cost per license, including any fixed fees divided by license count.",
       "label_i18n": {
         "en": "License Cost per Month",
-        "tr": "Aylık Lisans Maliyeti"
+        "tr": "Aylık Lisans Maliyeti",
+        "de": "Lizenzkosten pro Monat",
+        "fr": "Coût de la licence par mois"
       },
       "businessContext_i18n": {
         "en": "Monthly recurring cost per license, including any fixed fees divided by license count.",
-        "tr": "Lisans başına aylık yinelenen maliyet (sabit ücretler lisans sayısına bölünür)."
+        "tr": "Lisans başına aylık yinelenen maliyet (sabit ücretler lisans sayısına bölünür).",
+        "de": "Monatlich wiederkehrende Kosten pro Lizenz, einschließlich aller Fixkosten geteilt durch die Anzahl der Lizenzen.",
+        "fr": "Coût mensuel récurrent par licence, y compris les frais fixes divisés par le nombre de licences."
       }
     },
     {
@@ -76,11 +88,15 @@
       "businessContext": "Total cost of onboarding, training, and integration for the SaaS tool.",
       "label_i18n": {
         "en": "One-Time Implementation Cost",
-        "tr": "Tek Seferlik Uygulama Maliyeti"
+        "tr": "Tek Seferlik Uygulama Maliyeti",
+        "de": "Einmalige Implementierungskosten",
+        "fr": "Coût d'implémentation unique"
       },
       "businessContext_i18n": {
         "en": "Total cost of onboarding, training, and integration for the SaaS tool.",
-        "tr": "SaaS aracının devreye alınması, eğitimi ve entegrasyonu için toplam maliyet."
+        "tr": "SaaS aracının devreye alınması, eğitimi ve entegrasyonu için toplam maliyet.",
+        "de": "Gesamtkosten für Onboarding, Schulung und Integration des SaaS-Tools.",
+        "fr": "Coût total d'intégration, de formation et d'onboarding pour l'outil SaaS."
       }
     },
     {
@@ -94,11 +110,15 @@
       "businessContext": "Recurring internal labor and third-party support costs to maintain the tool.",
       "label_i18n": {
         "en": "Monthly Support & Admin Cost",
-        "tr": "Aylık Destek ve Yönetim Maliyeti"
+        "tr": "Aylık Destek ve Yönetim Maliyeti",
+        "de": "Monatliche Support- und Verwaltungskosten",
+        "fr": "Coût mensuel de support et d'administration"
       },
       "businessContext_i18n": {
         "en": "Recurring internal labor and third-party support costs to maintain the tool.",
-        "tr": "Aracı sürdürmek için yinelenen iç iş gücü ve üçüncü taraf destek maliyetleri."
+        "tr": "Aracı sürdürmek için yinelenen iç iş gücü ve üçüncü taraf destek maliyetleri.",
+        "de": "Wiederkehrende interne Arbeits- und Drittanbieter-Supportkosten zur Wartung des Tools.",
+        "fr": "Coûts récurrents de main-d'œuvre interne et de support tiers pour maintenir l'outil."
       }
     },
     {
@@ -112,11 +132,15 @@
       "businessContext": "Number of months left in the current contract or commitment period.",
       "label_i18n": {
         "en": "Contract Months Remaining",
-        "tr": "Kalan Sözleşme Ayı"
+        "tr": "Kalan Sözleşme Ayı",
+        "de": "Verbleibende Vertragsmonate",
+        "fr": "Mois restants du contrat"
       },
       "businessContext_i18n": {
         "en": "Number of months left in the current contract or commitment period.",
-        "tr": "Mevcut sözleşme veya taahhüt döneminde kalan ay sayısı."
+        "tr": "Mevcut sözleşme veya taahhüt döneminde kalan ay sayısı.",
+        "de": "Anzahl der Monate, die im aktuellen Vertrag oder Verpflichtungszeitraum verbleiben.",
+        "fr": "Nombre de mois restants dans la période d'engagement ou de contrat actuel."
       }
     },
     {
@@ -130,11 +154,15 @@
       "businessContext": "Percentage of active users vs total licenses below which licenses are considered shelfware (Lean waste).",
       "label_i18n": {
         "en": "Utilization Threshold for Waste",
-        "tr": "Atık için Kullanım Eşiği"
+        "tr": "Atık için Kullanım Eşiği",
+        "de": "Nutzungsschwellenwert für Verschwendung",
+        "fr": "Seuil d'utilisation pour le gaspillage"
       },
       "businessContext_i18n": {
         "en": "Percentage of active users vs total licenses below which licenses are considered shelfware (Lean waste).",
-        "tr": "Aktif kullanıcıların toplam lisanslara oranının altında kalan lisansların raf malı (Yalın israf) olarak kabul edildiği yüzde."
+        "tr": "Aktif kullanıcıların toplam lisanslara oranının altında kalan lisansların raf malı (Yalın israf) olarak kabul edildiği yüzde.",
+        "de": "Prozentsatz der aktiven Nutzer im Verhältnis zu den Gesamtlizenzen, unter dem Lizenzen als Shelfware (Lean-Verschwendung) gelten.",
+        "fr": "Pourcentage d'utilisateurs actifs par rapport au total des licences en dessous duquel les licences sont considérées comme du shelfware (gaspillage Lean)."
       }
     }
   ],

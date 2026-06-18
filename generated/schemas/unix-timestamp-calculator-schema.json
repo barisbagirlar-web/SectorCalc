@@ -12,13 +12,15 @@
         "en": "Days",
         "tr": "Gün",
         "de": "Tage",
-        "fr": "Days",
-        "es": "Days",
+        "fr": "Jours",
+        "es": "Días",
         "ar": "Days"
       },
       "businessContext_i18n": {
         "en": "Number of whole days since Unix epoch (January 1, 1970).",
-        "tr": "Unix döneminden (1 Ocak 1970) bu yana geçen tam gün sayısı."
+        "tr": "Unix döneminden (1 Ocak 1970) bu yana geçen tam gün sayısı.",
+        "de": "Anzahl der ganzen Tage seit der Unix-Epoche (1. Januar 1970).",
+        "fr": "Nombre de jours entiers depuis l'époque Unix (1er janvier 1970)."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Hours",
         "tr": "Saat",
         "de": "Stunden",
-        "fr": "Hours",
-        "es": "Hours",
+        "fr": "Heures",
+        "es": "Horas",
         "ar": "Hours"
       },
       "businessContext_i18n": {
         "en": "Remaining hours of the day (0-23).",
-        "tr": "Günün kalan saatleri (0-23)."
+        "tr": "Günün kalan saatleri (0-23).",
+        "de": "Verbleibende Stunden des Tages (0-23).",
+        "fr": "Heures restantes de la journée (0-23)."
       }
     },
     {
@@ -53,12 +57,14 @@
         "tr": "Dakika",
         "de": "Minuten",
         "fr": "Minutes",
-        "es": "Minutes",
+        "es": "Minutos",
         "ar": "Minutes"
       },
       "businessContext_i18n": {
         "en": "Remaining minutes of the hour (0-59).",
-        "tr": "Saat içinde kalan dakikalar (0-59)."
+        "tr": "Saat içinde kalan dakikalar (0-59).",
+        "de": "Verbleibende Minuten der Stunde (0-59).",
+        "fr": "Minutes restantes de l'heure (0-59)."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Seconds",
         "tr": "Saniye",
         "de": "Sekunden",
-        "fr": "Seconds",
-        "es": "Seconds",
+        "fr": "Secondes",
+        "es": "Segundos",
         "ar": "Seconds"
       },
       "businessContext_i18n": {
         "en": "Remaining seconds of the minute (0-59).",
-        "tr": "Dakika içinde kalan saniyeler (0-59)."
+        "tr": "Dakika içinde kalan saniyeler (0-59).",
+        "de": "Verbleibende Sekunden der Minute (0-59).",
+        "fr": "Secondes restantes de la minute (0-59)."
       }
     }
   ],

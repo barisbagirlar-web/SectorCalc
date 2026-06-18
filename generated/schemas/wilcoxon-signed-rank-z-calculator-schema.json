@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Number of Non-Zero Differences (n)",
         "tr": "Sıfır Olmayan Fark Sayısı (n)",
-        "de": "Number of Non-Zero Differences (n)",
-        "fr": "Number of Non-Zero Differences (n)",
+        "de": "Anzahl der Nicht-Null-Differenzen (n)",
+        "fr": "Nombre de différences non nulles (n)",
         "es": "Number of Non-Zero Differences (n)",
         "ar": "Number of Non-Zero Differences (n)"
       },
       "businessContext_i18n": {
         "en": "Sample size after excluding zero differences",
-        "tr": "Sıfır farklar çıkarıldıktan sonraki örneklem büyüklüğü"
+        "tr": "Sıfır farklar çıkarıldıktan sonraki örneklem büyüklüğü",
+        "de": "Stichprobengröße nach Ausschluss von Null-Differenzen",
+        "fr": "Taille de l'échantillon après exclusion des différences nulles"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Sum of Positive Ranks (T+)",
         "tr": "Pozitif Sıraların Toplamı (T+)",
-        "de": "Sum of Positive Ranks (T+)",
-        "fr": "Sum of Positive Ranks (T+)",
+        "de": "Summe der positiven Ränge (T+)",
+        "fr": "Somme des rangs positifs (T+)",
         "es": "Sum of Positive Ranks (T+)",
         "ar": "Sum of Positive Ranks (T+)"
       },
       "businessContext_i18n": {
         "en": "Wilcoxon signed-rank test statistic",
-        "tr": "Wilcoxon işaretli sıra test istatistiği"
+        "tr": "Wilcoxon işaretli sıra test istatistiği",
+        "de": "Wilcoxon-Vorzeichen-Rang-Teststatistik",
+        "fr": "Statistique du test des rangs signés de Wilcoxon"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Continuity Correction (1 = Yes, 0 = No)",
         "tr": "Süreklilik Düzeltmesi (1 = Evet, 0 = Hayır)",
-        "de": "Continuity Correction (1 = Yes, 0 = No)",
-        "fr": "Continuity Correction (1 = Yes, 0 = No)",
+        "de": "Stetigkeitskorrektur (1 = Ja, 0 = Nein)",
+        "fr": "Correction de continuité (1 = Oui, 0 = Non)",
         "es": "Continuity Correction (1 = Yes, 0 = No)",
         "ar": "Continuity Correction (1 = Yes, 0 = No)"
       },
       "businessContext_i18n": {
         "en": "Apply Yates' continuity correction for normal approximation",
-        "tr": "Normal yaklaşım için Yates süreklilik düzeltmesini uygula"
+        "tr": "Normal yaklaşım için Yates süreklilik düzeltmesini uygula",
+        "de": "Yates-Stetigkeitskorrektur für Normalapproximation anwenden",
+        "fr": "Appliquer la correction de continuité de Yates pour l'approximation normale"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Decimal Places for Output",
         "tr": "Çıktı için Ondalık Basamak Sayısı",
-        "de": "Decimal Places for Output",
-        "fr": "Decimal Places for Output",
-        "es": "Decimal Places for Output",
+        "de": "Dezimalstellen für Ausgabe",
+        "fr": "Nombre de décimales pour le résultat",
+        "es": "Decimales para el resultado",
         "ar": "Decimal Places for Output"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the z-score",
-        "tr": "Z-skorunun yuvarlanacağı ondalık basamak sayısı"
+        "tr": "Z-skorunun yuvarlanacağı ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen für den z-Wert",
+        "fr": "Nombre de décimales pour arrondir le z-score"
       }
     }
   ],

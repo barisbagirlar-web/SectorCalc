@@ -12,13 +12,15 @@
         "en": "Span",
         "tr": "Açıklık",
         "de": "Spannweite",
-        "fr": "Span",
-        "es": "Span",
+        "fr": "Portée",
+        "es": "Luz",
         "ar": "Span"
       },
       "businessContext_i18n": {
         "en": "Clear span between supports of the ridge beam.",
-        "tr": "Mahya kirişinin destekleri arasındaki açık açıklık."
+        "tr": "Mahya kirişinin destekleri arasındaki açık açıklık.",
+        "de": "Freie Spannweite zwischen den Auflagern des Firstbalkens",
+        "fr": "Portée libre entre les supports de la poutre faîtière."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Uniform Load",
         "tr": "Düzgün yayılı yük",
-        "de": "Uniform Load",
-        "fr": "Uniform Load",
-        "es": "Uniform Load",
+        "de": "Gleichmäßige Last",
+        "fr": "Charge uniforme",
+        "es": "Carga uniforme",
         "ar": "Uniform Load"
       },
       "businessContext_i18n": {
         "en": "Total uniform load (dead + live) acting on the ridge beam per meter length.",
-        "tr": "Mahya kirişine metre başına etki eden toplam düzgün yayılı yük (ölü + hareketli)."
+        "tr": "Mahya kirişine metre başına etki eden toplam düzgün yayılı yük (ölü + hareketli).",
+        "de": "Gesamtgleichlast (Eigenlast + Nutzlast) pro Meter Länge auf den Firstbalken",
+        "fr": "Charge uniforme totale (permanente + d'exploitation) agissant sur la poutre faîtière par mètre de longueur."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Allowable Bending Stress",
         "tr": "İzin Verilen Eğilme Gerilmesi",
         "de": "Zulässige Biegespannung",
-        "fr": "Allowable Bending Stress",
-        "es": "Allowable Bending Stress",
+        "fr": "Contrainte de flexion admissible",
+        "es": "Esfuerzo de flexión admisible",
         "ar": "Allowable Bending Stress"
       },
       "businessContext_i18n": {
         "en": "Allowable bending stress for the selected wood species, adjusted for conditions.",
-        "tr": "Seçilen ahşap türü için koşullara göre ayarlanmış izin verilen eğilme gerilmesi."
+        "tr": "Seçilen ahşap türü için koşullara göre ayarlanmış izin verilen eğilme gerilmesi.",
+        "de": "Zulässige Biegespannung für die gewählte Holzart, angepasst an die Bedingungen",
+        "fr": "Contrainte de flexion admissible pour l'essence de bois sélectionnée, ajustée pour les conditions."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Beam Width",
         "tr": "Kiriş Genişliği",
         "de": "Balkenbreite",
-        "fr": "Beam Width",
-        "es": "Beam Width",
+        "fr": "Largeur de la poutre",
+        "es": "Ancho de la viga",
         "ar": "Beam Width"
       },
       "businessContext_i18n": {
         "en": "Nominal width of the ridge beam cross-section.",
-        "tr": "Mahya kirişi kesitinin nominal genişliği."
+        "tr": "Mahya kirişi kesitinin nominal genişliği.",
+        "de": "Nennbreite des Firstbalkenquerschnitts",
+        "fr": "Largeur nominale de la section transversale de la poutre faîtière."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Beam Depth",
         "tr": "Kiriş yüksekliği",
-        "de": "Beam Depth",
-        "fr": "Beam Depth",
-        "es": "Beam Depth",
+        "de": "Balkenhöhe",
+        "fr": "Hauteur de la poutre",
+        "es": "Profundidad de la viga",
         "ar": "Beam Depth"
       },
       "businessContext_i18n": {
         "en": "Nominal depth of the ridge beam cross-section.",
-        "tr": "Mahya kirişi kesitinin nominal derinliği."
+        "tr": "Mahya kirişi kesitinin nominal derinliği.",
+        "de": "Nenntiefe des Firstbalkenquerschnitts",
+        "fr": "Hauteur nominale de la section transversale de la poutre faîtière."
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Additional safety factor to account for uncertainties (≥1.0).",
-        "tr": "Belirsizlikleri hesaba katmak için ek güvenlik faktörü (≥1.0)."
+        "tr": "Belirsizlikleri hesaba katmak için ek güvenlik faktörü (≥1.0).",
+        "de": "Zusätzlicher Sicherheitsfaktor zur Berücksichtigung von Unsicherheiten (≥1,0)",
+        "fr": "Facteur de sécurité supplémentaire pour tenir compte des incertitudes (≥1,0)."
       }
     }
   ],

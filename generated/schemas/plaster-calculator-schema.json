@@ -12,13 +12,16 @@
         "en": "Duvar Uzunluğu",
         "tr": "Duvar Uzunluğu",
         "de": "Wandlänge",
-        "fr": "Duvar Uzunluğu",
-        "es": "Duvar Uzunluğu",
+        "fr": "Longueur du mur",
+        "es": "Longitud del Muro",
         "ar": "Duvar Uzunluğu"
       },
       "businessContext_i18n": {
         "en": "Sıvanacak duvarın yatay uzunluğu (metre). Tipik ev içi duvar: 3-6m.",
-        "tr": "Sıvanacak duvarın yatay uzunluğu (metre). Tipik ev içi duvar: 3-6m."
+        "tr": "Sıvanacak duvarın yatay uzunluğu (metre). Tipik ev içi duvar: 3-6m.",
+        "de": "Horizontale Länge der zu verputzenden Wand (Meter). Typische Innenwand: 3-6 m.",
+        "fr": "Longueur horizontale du mur à enduire (mètres). Mur domestique typique : 3-6 m.",
+        "es": "Longitud horizontal de la pared a enlucir (metros). Pared típica de hogar: 3-6 m."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Duvar Yüksekliği",
         "tr": "Duvar Yüksekliği",
         "de": "Wandhöhe",
-        "fr": "Duvar Yüksekliği",
-        "es": "Duvar Yüksekliği",
+        "fr": "Hauteur du mur",
+        "es": "Altura del Muro",
         "ar": "Duvar Yüksekliği"
       },
       "businessContext_i18n": {
         "en": "Sıvanacak duvarın dikey yüksekliği (metre). Standart tavan yüksekliği: 2.4-2.7m.",
-        "tr": "Sıvanacak duvarın dikey yüksekliği (metre). Standart tavan yüksekliği: 2.4-2.7m."
+        "tr": "Sıvanacak duvarın dikey yüksekliği (metre). Standart tavan yüksekliği: 2.4-2.7m.",
+        "de": "Vertikale Höhe der zu verputzenden Wand (Meter). Standard-Raumhöhe: 2,4-2,7 m.",
+        "fr": "Hauteur verticale du mur à enduire (mètres). Hauteur de plafond standard : 2,4-2,7 m.",
+        "es": "Altura vertical de la pared a enlucir (metros). Altura de techo estándar: 2.4-2.7 m."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Sıva Kalınlığı",
         "tr": "Sıva Kalınlığı",
-        "de": "Sıva Kalınlığı",
-        "fr": "Sıva Kalınlığı",
-        "es": "Sıva Kalınlığı",
+        "de": "Putzstärke",
+        "fr": "Épaisseur de l'enduit",
+        "es": "Espesor del enlucido",
         "ar": "Sıva Kalınlığı"
       },
       "businessContext_i18n": {
         "en": "Uygulanacak sıva kalınlığı (cm). Tipik iç sıva: 1-2cm, dış sıva: 2-3cm.",
-        "tr": "Uygulanacak sıva kalınlığı (cm). Tipik iç sıva: 1-2cm, dış sıva: 2-3cm."
+        "tr": "Uygulanacak sıva kalınlığı (cm). Tipik iç sıva: 1-2cm, dış sıva: 2-3cm.",
+        "de": "Aufzutragende Putzstärke (cm). Typischer Innenputz: 1-2 cm, Außenputz: 2-3 cm.",
+        "fr": "Épaisseur de l'enduit à appliquer (cm). Enduit intérieur typique : 1-2 cm, extérieur : 2-3 cm.",
+        "es": "Espesor del enlucido a aplicar (cm). Enlucido interior típico: 1-2 cm, exterior: 2-3 cm."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Çimento Oranı (Hacim)",
         "tr": "Çimento Oranı (Hacim)",
-        "de": "Çimento Oranı (Hacim)",
-        "fr": "Çimento Oranı (Hacim)",
-        "es": "Çimento Oranı (Hacim)",
+        "de": "Zementanteil (Volumen)",
+        "fr": "Proportion de ciment (volume)",
+        "es": "Proporción de cemento (volumen)",
         "ar": "Çimento Oranı (Hacim)"
       },
       "businessContext_i18n": {
         "en": "Harç karışımında çimento miktarı (hacimce). Örn: 1:4 karışımda çimento=1, kum=4.",
-        "tr": "Harç karışımında çimento miktarı (hacimce). Örn: 1:4 karışımda çimento=1, kum=4."
+        "tr": "Harç karışımında çimento miktarı (hacimce). Örn: 1:4 karışımda çimento=1, kum=4.",
+        "de": "Zementmenge im Mörtelgemisch (Volumen). Z.B. bei Mischung 1:4 ist Zement=1, Sand=4.",
+        "fr": "Quantité de ciment dans le mélange de mortier (en volume). Ex : mélange 1:4, ciment=1, sable=4.",
+        "es": "Cantidad de cemento en la mezcla de mortero (en volumen). Ej: mezcla 1:4, cemento=1, arena=4."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Kum Oranı (Hacim)",
         "tr": "Kum Oranı (Hacim)",
-        "de": "Kum Oranı (Hacim)",
-        "fr": "Kum Oranı (Hacim)",
-        "es": "Kum Oranı (Hacim)",
+        "de": "Sandanteil (Volumen)",
+        "fr": "Proportion de sable (volume)",
+        "es": "Proporción de arena (volumen)",
         "ar": "Kum Oranı (Hacim)"
       },
       "businessContext_i18n": {
         "en": "Harç karışımında kum miktarı (hacimce). Örn: 1:4 karışımda kum=4.",
-        "tr": "Harç karışımında kum miktarı (hacimce). Örn: 1:4 karışımda kum=4."
+        "tr": "Harç karışımında kum miktarı (hacimce). Örn: 1:4 karışımda kum=4.",
+        "de": "Sandmenge im Mörtelgemisch (Volumen). Z.B. bei Mischung 1:4 ist Sand=4.",
+        "fr": "Quantité de sable dans le mélange de mortier (en volume). Ex : mélange 1:4, sable=4.",
+        "es": "Cantidad de arena en la mezcla de mortero (en volumen). Ej: mezcla 1:4, arena=4."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Çimento Torba Ağırlığı",
         "tr": "Çimento Torba Ağırlığı",
-        "de": "Çimento Torba Ağırlığı",
-        "fr": "Çimento Torba Ağırlığı",
-        "es": "Çimento Torba Ağırlığı",
+        "de": "Zementsackgewicht",
+        "fr": "Poids du sac de ciment",
+        "es": "Peso del saco de cemento",
         "ar": "Çimento Torba Ağırlığı"
       },
       "businessContext_i18n": {
         "en": "Bir torba çimentonun ağırlığı (kg). Tipik: 50 kg.",
-        "tr": "Bir torba çimentonun ağırlığı (kg). Tipik: 50 kg."
+        "tr": "Bir torba çimentonun ağırlığı (kg). Tipik: 50 kg.",
+        "de": "Gewicht eines Zementsacks (kg). Typisch: 50 kg.",
+        "fr": "Poids d'un sac de ciment (kg). Typique : 50 kg.",
+        "es": "Peso de un saco de cemento (kg). Típico: 50 kg."
       }
     },
     {
@@ -132,13 +150,16 @@
         "en": "Fire Oranı",
         "tr": "Fire Oranı",
         "de": "Verschnittanteil",
-        "fr": "Fire Oranı",
-        "es": "Fire Oranı",
+        "fr": "Taux de perte",
+        "es": "Porcentaje de desperdicio",
         "ar": "Fire Oranı"
       },
       "businessContext_i18n": {
         "en": "Uygulama sırasında oluşan fire (yüzde). Genelde %5-15.",
-        "tr": "Uygulama sırasında oluşan fire (yüzde). Genelde %5-15."
+        "tr": "Uygulama sırasında oluşan fire (yüzde). Genelde %5-15.",
+        "de": "Verschnitt bei der Anwendung (Prozent). In der Regel 5-15 %.",
+        "fr": "Pertes lors de l'application (pourcentage). Généralement 5-15 %.",
+        "es": "Desperdicio durante la aplicación (porcentaje). Generalmente 5-15%."
       }
     }
   ],

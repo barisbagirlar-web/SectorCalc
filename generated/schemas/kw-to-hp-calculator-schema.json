@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Power (kW)",
         "tr": "Güç (kW)",
-        "de": "Power (kW)",
-        "fr": "Power (kW)",
-        "es": "Power (kW)",
+        "de": "Leistung (kW)",
+        "fr": "Puissance (kW)",
+        "es": "Potencia (kW)",
         "ar": "Power (kW)"
       },
       "businessContext_i18n": {
         "en": "Electrical input power measured in kilowatts",
-        "tr": "Kilovat cinsinden elektrik giriş gücü"
+        "tr": "Kilovat cinsinden elektrik giriş gücü",
+        "de": "Elektrische Eingangsleistung in Kilowatt gemessen",
+        "fr": "Puissance électrique d'entrée mesurée en kilowatts",
+        "es": "Potencia eléctrica de entrada medida en kilovatios"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Motor Efficiency (%)",
         "tr": "Motor Verimliliği (%)",
-        "de": "Motor Efficiency (%)",
-        "fr": "Motor Efficiency (%)",
-        "es": "Motor Efficiency (%)",
+        "de": "Motorwirkungsgrad (%)",
+        "fr": "Rendement du moteur (%)",
+        "es": "Eficiencia del motor (%)",
         "ar": "Motor Efficiency (%)"
       },
       "businessContext_i18n": {
         "en": "Motor efficiency as percentage (0-100)",
-        "tr": "Motor verimliliği yüzde olarak (0-100)"
+        "tr": "Motor verimliliği yüzde olarak (0-100)",
+        "de": "Motorwirkungsgrad in Prozent (0-100)",
+        "fr": "Rendement du moteur en pourcentage (0-100)",
+        "es": "Eficiencia del motor como porcentaje (0-100)"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Load Factor (%)",
         "tr": "Yük Faktörü (%)",
-        "de": "Load Factor (%)",
-        "fr": "Load Factor (%)",
-        "es": "Load Factor (%)",
+        "de": "Lastfaktor (%)",
+        "fr": "Facteur de charge (%)",
+        "es": "Factor de carga (%)",
         "ar": "Load Factor (%)"
       },
       "businessContext_i18n": {
         "en": "Load factor as percentage of full capacity (0-100)",
-        "tr": "Tam kapasiteye göre yük faktörü yüzdesi (0-100)"
+        "tr": "Tam kapasiteye göre yük faktörü yüzdesi (0-100)",
+        "de": "Lastfaktor als Prozentsatz der Volllast (0-100)",
+        "fr": "Facteur de charge en pourcentage de la capacité maximale (0-100)",
+        "es": "Factor de carga como porcentaje de la capacidad total (0-100)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Conversion Factor (hp/kW)",
         "tr": "Dönüşüm Faktörü (hp/kW)",
-        "de": "Conversion Factor (hp/kW)",
-        "fr": "Conversion Factor (hp/kW)",
-        "es": "Conversion Factor (hp/kW)",
+        "de": "Umrechnungsfaktor (hp/kW)",
+        "fr": "Facteur de conversion (hp/kW)",
+        "es": "Factor de conversión (hp/kW)",
         "ar": "Conversion Factor (hp/kW)"
       },
       "businessContext_i18n": {
         "en": "Conversion factor from kW to horsepower (default: mechanical hp)",
-        "tr": "kW'tan beygir gücüne dönüşüm faktörü (varsayılan: mekanik hp)"
+        "tr": "kW'tan beygir gücüne dönüşüm faktörü (varsayılan: mekanik hp)",
+        "de": "Umrechnungsfaktor von kW in PS (Standard: mechanische PS)",
+        "fr": "Facteur de conversion de kW en chevaux-vapeur (par défaut : hp mécanique)",
+        "es": "Factor de conversión de kW a caballos de fuerza (por defecto: hp mecánico)"
       }
     }
   ],

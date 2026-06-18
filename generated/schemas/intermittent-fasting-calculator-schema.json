@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Fasting Start Hour",
         "tr": "Oruç Başlangıç Saati",
-        "de": "Fasting Start Hour",
-        "fr": "Fasting Start Hour",
-        "es": "Fasting Start Hour",
+        "de": "Startstunde des Fastens",
+        "fr": "Heure de début du jeûne",
+        "es": "Hora de inicio del ayuno",
         "ar": "Fasting Start Hour"
       },
       "businessContext_i18n": {
         "en": "Time when the fasting period starts (24-hour format).",
-        "tr": "Oruç döneminin başladığı saat (24 saat formatında)."
+        "tr": "Oruç döneminin başladığı saat (24 saat formatında).",
+        "de": "Zeitpunkt, zu dem die Fastenperiode beginnt (24-Stunden-Format).",
+        "fr": "Heure de début de la période de jeûne (format 24h).",
+        "es": "Hora en que comienza el período de ayuno (formato 24 horas)."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Fasting Duration",
         "tr": "Oruç Süresi",
-        "de": "Fasting Duration",
-        "fr": "Fasting Duration",
-        "es": "Fasting Duration",
+        "de": "Fastendauer",
+        "fr": "Durée du jeûne",
+        "es": "Duración del ayuno",
         "ar": "Fasting Duration"
       },
       "businessContext_i18n": {
         "en": "Number of consecutive hours to fast.",
-        "tr": "Ardışık olarak oruç tutulacak saat sayısı."
+        "tr": "Ardışık olarak oruç tutulacak saat sayısı.",
+        "de": "Anzahl der aufeinanderfolgenden Stunden des Fastens.",
+        "fr": "Nombre d'heures consécutives de jeûne.",
+        "es": "Número de horas consecutivas de ayuno."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Eating Window Duration",
         "tr": "Yeme Penceresi Süresi",
-        "de": "Eating Window Duration",
-        "fr": "Eating Window Duration",
-        "es": "Eating Window Duration",
+        "de": "Essensfenster-Dauer",
+        "fr": "Durée de la fenêtre alimentaire",
+        "es": "Duración de la ventana de alimentación",
         "ar": "Eating Window Duration"
       },
       "businessContext_i18n": {
         "en": "Number of hours allowed for eating.",
-        "tr": "Yemek yemeye izin verilen saat sayısı."
+        "tr": "Yemek yemeye izin verilen saat sayısı.",
+        "de": "Anzahl der Stunden, die für das Essen erlaubt sind.",
+        "fr": "Nombre d'heures autorisées pour manger.",
+        "es": "Número de horas permitidas para comer."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Target Daily Calories",
         "tr": "Hedef Günlük Kalori",
-        "de": "Target Daily Calories",
-        "fr": "Target Daily Calories",
-        "es": "Target Daily Calories",
+        "de": "Tägliches Kalorienziel",
+        "fr": "Calories cibles par jour",
+        "es": "Calorías diarias objetivo",
         "ar": "Target Daily Calories"
       },
       "businessContext_i18n": {
         "en": "Total calories to consume during the eating window.",
-        "tr": "Yeme penceresi boyunca tüketilmesi gereken toplam kalori."
+        "tr": "Yeme penceresi boyunca tüketilmesi gereken toplam kalori.",
+        "de": "Gesamtkalorien, die während des Essensfensters aufgenommen werden sollen.",
+        "fr": "Total des calories à consommer pendant la fenêtre de repas.",
+        "es": "Total de calorías a consumir durante la ventana de alimentación."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Current Weight",
         "tr": "Mevcut Ağırlık",
         "de": "Aktuelles Gewicht",
-        "fr": "Current Weight",
-        "es": "Current Weight",
+        "fr": "Poids actuel",
+        "es": "Peso actual",
         "ar": "Current Weight"
       },
       "businessContext_i18n": {
         "en": "Current body weight for additional context.",
-        "tr": "Ek bağlam için mevcut vücut ağırlığı."
+        "tr": "Ek bağlam için mevcut vücut ağırlığı.",
+        "de": "Aktuelles Körpergewicht für zusätzlichen Kontext.",
+        "fr": "Poids corporel actuel pour contexte supplémentaire.",
+        "es": "Peso corporal actual para contexto adicional."
       }
     }
   ],

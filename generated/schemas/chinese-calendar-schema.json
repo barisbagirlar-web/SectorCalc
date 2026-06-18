@@ -12,14 +12,16 @@
         "en": "Gregorian Year",
         "tr": "Miladi Yıl",
         "de": "Gregorianisches Jahr",
-        "fr": "Gregorian Year",
-        "es": "Gregorian Year",
+        "fr": "Année grégorienne",
+        "es": "Año gregoriano",
         "ar": "Gregorian Year"
       },
       "businessContext_i18n": {
         "en": "The Gregorian calendar year to convert.",
         "tr": "Dönüştürülecek Gregoryen takvim yılı.",
-        "de": "Das umzurechnende gregorianische Kalenderjahr."
+        "de": "Das umzurechnende gregorianische Kalenderjahr.",
+        "fr": "L'année du calendrier grégorien à convertir.",
+        "es": "El año del calendario gregoriano a convertir."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Gregorian Month",
         "tr": "Miladi Ay",
         "de": "Gregorianischer Monat",
-        "fr": "Gregorian Month",
-        "es": "Gregorian Month",
+        "fr": "Mois grégorien",
+        "es": "Mes gregoriano",
         "ar": "Gregorian Month"
       },
       "businessContext_i18n": {
         "en": "The Gregorian calendar month (1-12).",
         "tr": "Gregoryen takvim ayı (1-12).",
-        "de": "Der gregorianische Kalendermonat (1-12)."
+        "de": "Der gregorianische Kalendermonat (1-12).",
+        "fr": "Le mois du calendrier grégorien (1-12).",
+        "es": "El mes del calendario gregoriano (1-12)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Gregorian Day",
         "tr": "Miladi Gün",
         "de": "Gregorianischer Tag",
-        "fr": "Gregorian Day",
-        "es": "Gregorian Day",
+        "fr": "Jour grégorien",
+        "es": "Día gregoriano",
         "ar": "Gregorian Day"
       },
       "businessContext_i18n": {
         "en": "The Gregorian calendar day (1-31).",
         "tr": "Gregoryen takvim günü (1-31).",
-        "de": "Der gregorianische Kalendertag (1-31)."
+        "de": "Der gregorianische Kalendertag (1-31).",
+        "fr": "Le jour du calendrier grégorien (1-31).",
+        "es": "El día del calendario gregoriano (1-31)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Leap Month Flag",
         "tr": "Artık Ay İşareti",
         "de": "Schaltmonat-Kennzeichen",
-        "fr": "Leap Month Flag",
-        "es": "Leap Month Flag",
+        "fr": "Indicateur de mois bissextile",
+        "es": "Indicador de mes bisiesto",
         "ar": "Leap Month Flag"
       },
       "businessContext_i18n": {
         "en": "Set to 1 if the month is a leap month in Chinese calendar, else 0.",
         "tr": "Çin takviminde ay artık ay ise 1, değilse 0 olarak ayarlayın.",
-        "de": "Auf 1 setzen, wenn der Monat im chinesischen Kalender ein Schaltmonat ist, sonst 0."
+        "de": "Auf 1 setzen, wenn der Monat im chinesischen Kalender ein Schaltmonat ist, sonst 0.",
+        "fr": "Définir sur 1 si le mois est un mois bissextile dans le calendrier chinois, sinon 0.",
+        "es": "Establecer en 1 si el mes es bisiesto en el calendario chino, si no 0."
       }
     }
   ],

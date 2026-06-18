@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Volume (V)",
         "tr": "Hacim (V)",
-        "de": "Volume (V)",
+        "de": "Volumen (V)",
         "fr": "Volume (V)",
-        "es": "Volume (V)",
+        "es": "Volumen (V)",
         "ar": "Volume (V)"
       },
       "businessContext_i18n": {
         "en": "The volume of the gas in liters.",
-        "tr": "Gazın litre cinsinden hacmi."
+        "tr": "Gazın litre cinsinden hacmi.",
+        "de": "Das Volumen des Gases in Litern.",
+        "fr": "Le volume du gaz en litres.",
+        "es": "El volumen del gas en litros."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Moles (n)",
         "tr": "Mol (n)",
-        "de": "Moles (n)",
+        "de": "Stoffmenge (n)",
         "fr": "Moles (n)",
         "es": "Moles (n)",
         "ar": "Moles (n)"
       },
       "businessContext_i18n": {
         "en": "Amount of substance in moles.",
-        "tr": "Mol cinsinden madde miktarı."
+        "tr": "Mol cinsinden madde miktarı.",
+        "de": "Stoffmenge in Mol.",
+        "fr": "Quantité de matière en moles.",
+        "es": "Cantidad de sustancia en moles."
       }
     },
     {
@@ -52,14 +58,16 @@
         "en": "Temperature (T)",
         "tr": "Sıcaklık (T)",
         "de": "Temperatur (T)",
-        "fr": "Temperature (T)",
-        "es": "Temperature (T)",
+        "fr": "Température (T)",
+        "es": "Temperatura (T)",
         "ar": "Temperature (T)"
       },
       "businessContext_i18n": {
         "en": "Absolute temperature in Kelvin.",
         "tr": "Kelvin cinsinden mutlak sıcaklık.",
-        "de": "Absolute Temperatur in Kelvin."
+        "de": "Absolute Temperatur in Kelvin.",
+        "fr": "Température absolue en Kelvin.",
+        "es": "Temperatura absoluta en Kelvin."
       }
     },
     {
@@ -73,13 +81,16 @@
         "en": "Gas Constant (R)",
         "tr": "Gaz Sabiti (R)",
         "de": "Gaskonstante (R)",
-        "fr": "Gas Constant (R)",
-        "es": "Gas Constant (R)",
+        "fr": "Constante des gaz (R)",
+        "es": "Constante de los gases (R)",
         "ar": "Gas Constant (R)"
       },
       "businessContext_i18n": {
         "en": "Ideal gas constant. Adjust based on pressure/volume units.",
-        "tr": "İdeal gaz sabiti. Basınç/hacim birimlerine göre ayarlayın."
+        "tr": "İdeal gaz sabiti. Basınç/hacim birimlerine göre ayarlayın.",
+        "de": "Ideale Gaskonstante. Anpassen basierend auf Druck-/Volumeneinheiten.",
+        "fr": "Constante des gaz parfaits. Ajuster en fonction des unités de pression/volume.",
+        "es": "Constante universal de los gases. Ajuste según unidades de presión/volumen."
       }
     }
   ],

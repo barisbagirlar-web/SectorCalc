@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Number of Recordable Cases",
         "tr": "Kaydedilebilir Vaka Sayısı",
-        "de": "Number of Recordable Cases",
-        "fr": "Number of Recordable Cases",
+        "de": "Anzahl der meldepflichtigen Fälle",
+        "fr": "Nombre de cas enregistrables",
         "es": "Number of Recordable Cases",
         "ar": "Number of Recordable Cases"
       },
       "businessContext_i18n": {
         "en": "OSHA recordable work-related injuries and illnesses in the period.",
-        "tr": "Dönemdeki OSHA kayıtlı işle ilgili yaralanma ve hastalıklar."
+        "tr": "Dönemdeki OSHA kayıtlı işle ilgili yaralanma ve hastalıklar.",
+        "de": "OSHA-meldepflichtige arbeitsbedingte Verletzungen und Erkrankungen im Zeitraum.",
+        "fr": "Blessures et maladies professionnelles enregistrables selon l'OSHA au cours de la période."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Number of Employees",
         "tr": "Çalışan Sayısı",
-        "de": "Number of Employees",
-        "fr": "Number of Employees",
+        "de": "Anzahl der Mitarbeiter",
+        "fr": "Nombre d'employés",
         "es": "Number of Employees",
         "ar": "Number of Employees"
       },
       "businessContext_i18n": {
         "en": "Full-time equivalent employees during the period.",
-        "tr": "Dönemdeki tam zamanlı eşdeğer çalışanlar."
+        "tr": "Dönemdeki tam zamanlı eşdeğer çalışanlar.",
+        "de": "Vollzeitäquivalente Mitarbeiter im Zeitraum.",
+        "fr": "Employés équivalents temps plein au cours de la période."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Hours Worked per Week",
         "tr": "Haftalık Çalışma Saati",
-        "de": "Hours Worked per Week",
-        "fr": "Hours Worked per Week",
-        "es": "Hours Worked per Week",
+        "de": "Arbeitsstunden pro Woche",
+        "fr": "Heures travaillées par semaine",
+        "es": "Horas trabajadas por semana",
         "ar": "Hours Worked per Week"
       },
       "businessContext_i18n": {
         "en": "Standard work hours per employee per week.",
-        "tr": "Çalışan başına haftalık standart çalışma saati."
+        "tr": "Çalışan başına haftalık standart çalışma saati.",
+        "de": "Standardarbeitsstunden pro Mitarbeiter pro Woche.",
+        "fr": "Heures de travail standard par employé par semaine."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Weeks Worked per Year",
         "tr": "Yılda Çalışılan Hafta Sayısı",
-        "de": "Weeks Worked per Year",
-        "fr": "Weeks Worked per Year",
-        "es": "Weeks Worked per Year",
+        "de": "Arbeitswochen pro Jahr",
+        "fr": "Semaines travaillées par an",
+        "es": "Semanas trabajadas por año",
         "ar": "Weeks Worked per Year"
       },
       "businessContext_i18n": {
         "en": "Weeks per year the employees actually work (excluding holidays, vacations).",
-        "tr": "Çalışanların fiilen çalıştığı yıllık hafta sayısı (tatiller, izinler hariç)."
+        "tr": "Çalışanların fiilen çalıştığı yıllık hafta sayısı (tatiller, izinler hariç).",
+        "de": "Wochen pro Jahr, die die Mitarbeiter tatsächlich arbeiten (ohne Feiertage, Urlaub).",
+        "fr": "Semaines par an où les employés travaillent réellement (hors jours fériés, vacances)."
       }
     }
   ],

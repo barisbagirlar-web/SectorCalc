@@ -12,14 +12,16 @@
         "en": "Cups of Flour",
         "tr": "Un Bardak Sayısı",
         "de": "Tassen Mehl",
-        "fr": "Cups of Flour",
-        "es": "Cups of Flour",
+        "fr": "Tasses de farine",
+        "es": "Tazas de harina",
         "ar": "Cups of Flour"
       },
       "businessContext_i18n": {
         "en": "Number of cups of flour to convert.",
         "tr": "Dönüştürülecek un miktarı (bardak cinsinden).",
-        "de": "Anzahl der umzurechnenden Tassen Mehl."
+        "de": "Anzahl der umzurechnenden Tassen Mehl.",
+        "fr": "Nombre de tasses de farine à convertir.",
+        "es": "Número de tazas de harina a convertir."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Standard Grams per Cup",
         "tr": "Standart Gram/Bardak",
         "de": "Standard Gramm pro Tasse",
-        "fr": "Standard Grams per Cup",
-        "es": "Standard Grams per Cup",
+        "fr": "Grammes standard par tasse",
+        "es": "Gramos estándar por taza",
         "ar": "Standard Grams per Cup"
       },
       "businessContext_i18n": {
         "en": "Baseline weight of 1 cup of flour (all-purpose: 125g, bread: 130g, cake: 115g).",
         "tr": "1 bardak unun temel ağırlığı (çok amaçlı: 125g, ekmek: 130g, kek: 115g).",
-        "de": "Basisgewicht von 1 Tasse Mehl (Weizenmehl: 125g, Brotmehl: 130g, Kuchenmehl: 115g)."
+        "de": "Basisgewicht von 1 Tasse Mehl (Weizenmehl: 125g, Brotmehl: 130g, Kuchenmehl: 115g).",
+        "fr": "Poids de base d'1 tasse de farine (tout usage: 125g, pain: 130g, gâteau: 115g).",
+        "es": "Peso base de 1 taza de harina (todo uso: 125g, pan: 130g, pastel: 115g)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Packing Density Factor",
         "tr": "Paketleme Yoğunluğu Faktörü",
         "de": "Packungsdichtefaktor",
-        "fr": "Packing Density Factor",
-        "es": "Packing Density Factor",
+        "fr": "Facteur de densité de tassement",
+        "es": "Factor de densidad de empaque",
         "ar": "Packing Density Factor"
       },
       "businessContext_i18n": {
         "en": "Adjustment for measuring method (sifted: 1.0, spooned: 1.1, scooped: 1.2).",
         "tr": "Ölçüm yöntemine göre ayarlama (elenmiş: 1.0, kaşıkla alınmış: 1.1, kepçeyle alınmış: 1.2).",
-        "de": "Anpassung für die Messmethode (gesiebt: 1,0, gelöffelt: 1,1, geschöpft: 1,2)."
+        "de": "Anpassung für die Messmethode (gesiebt: 1,0, gelöffelt: 1,1, geschöpft: 1,2).",
+        "fr": "Ajustement pour la méthode de mesure (tamisé: 1.0, à la cuillère: 1.1, prélevé: 1.2).",
+        "es": "Ajuste por método de medición (tamizada: 1.0, cucharada: 1.1, cucharón: 1.2)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Humidity Factor",
         "tr": "Nem Faktörü",
         "de": "Feuchtigkeitsfaktor",
-        "fr": "Humidity Factor",
-        "es": "Humidity Factor",
+        "fr": "Facteur d'humidité",
+        "es": "Factor de humedad",
         "ar": "Humidity Factor"
       },
       "businessContext_i18n": {
         "en": "Adjusts for moisture content (normal: 1.0, humid: >1).",
         "tr": "Nem içeriğine göre ayarlama (normal: 1.0, nemli: >1).",
-        "de": "Anpassung für Feuchtigkeitsgehalt (normal: 1,0, feucht: >1)."
+        "de": "Anpassung für Feuchtigkeitsgehalt (normal: 1,0, feucht: >1).",
+        "fr": "Ajuste pour la teneur en humidité (normal: 1.0, humide: >1).",
+        "es": "Ajusta por contenido de humedad (normal: 1.0, húmedo: >1)."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Scale Calibration Factor",
         "tr": "Terazi Kalibrasyon Faktörü",
         "de": "Waagenkalibrierungsfaktor",
-        "fr": "Scale Calibration Factor",
-        "es": "Scale Calibration Factor",
+        "fr": "Facteur d'étalonnage de la balance",
+        "es": "Factor de calibración de báscula",
         "ar": "Scale Calibration Factor"
       },
       "businessContext_i18n": {
         "en": "Correction if your scale is not perfectly calibrated (e.g., 1.05 means scale reads 5% high).",
         "tr": "Teraziniz tam olarak kalibre edilmemişse düzeltme (örneğin, 1.05 terazinin %5 yüksek okuduğu anlamına gelir).",
-        "de": "Korrektur, wenn Ihre Waage nicht perfekt kalibriert ist (z.B. 1,05 bedeutet Waage zeigt 5% zu hoch an)."
+        "de": "Korrektur, wenn Ihre Waage nicht perfekt kalibriert ist (z.B. 1,05 bedeutet Waage zeigt 5% zu hoch an).",
+        "fr": "Correction si votre balance n'est pas parfaitement étalonnée (ex: 1.05 signifie que la balance indique 5% de plus).",
+        "es": "Corrección si su báscula no está perfectamente calibrada (ej. 1.05 significa que la báscula lee 5% más alto)."
       }
     }
   ],

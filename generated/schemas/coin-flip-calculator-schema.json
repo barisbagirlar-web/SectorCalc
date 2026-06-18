@@ -12,14 +12,16 @@
         "en": "Number of Flips (n)",
         "tr": "Atış Sayısı (n)",
         "de": "Anzahl der Würfe (n)",
-        "fr": "Number of Flips (n)",
-        "es": "Number of Flips (n)",
+        "fr": "Nombre de lancers (n)",
+        "es": "Número de lanzamientos (n)",
         "ar": "Number of Flips (n)"
       },
       "businessContext_i18n": {
         "en": "Total number of independent coin flips",
         "tr": "Toplam bağımsız yazı tura atış sayısı",
-        "de": "Gesamtzahl der unabhängigen Münzwürfe"
+        "de": "Gesamtzahl der unabhängigen Münzwürfe",
+        "fr": "Nombre total de lancers de pièce indépendants",
+        "es": "Número total de lanzamientos independientes de la moneda"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Number of Heads (k)",
         "tr": "Tura Sayısı (k)",
         "de": "Anzahl der Köpfe (k)",
-        "fr": "Number of Heads (k)",
-        "es": "Number of Heads (k)",
+        "fr": "Nombre de faces (k)",
+        "es": "Número de caras (k)",
         "ar": "Number of Heads (k)"
       },
       "businessContext_i18n": {
         "en": "Number of heads observed or desired",
         "tr": "Gözlemlenen veya istenen tura sayısı",
-        "de": "Beobachtete oder gewünschte Anzahl von Köpfen"
+        "de": "Beobachtete oder gewünschte Anzahl von Köpfen",
+        "fr": "Nombre de faces observées ou souhaitées",
+        "es": "Número de caras observadas o deseadas"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Probability of Head (p)",
         "tr": "Tura Olasılığı (p)",
         "de": "Wahrscheinlichkeit für Kopf (p)",
-        "fr": "Probability of Head (p)",
-        "es": "Probability of Head (p)",
+        "fr": "Probabilité de face (p)",
+        "es": "Probabilidad de cara (p)",
         "ar": "Probability of Head (p)"
       },
       "businessContext_i18n": {
         "en": "Probability of getting a head in a single flip (0.5 for fair coin)",
         "tr": "Tek atışta tura gelme olasılığı (adil para için 0.5)",
-        "de": "Wahrscheinlichkeit für Kopf bei einem einzelnen Wurf (0,5 bei fairer Münze)"
+        "de": "Wahrscheinlichkeit für Kopf bei einem einzelnen Wurf (0,5 bei fairer Münze)",
+        "fr": "Probabilité d'obtenir face en un seul lancer (0,5 pour une pièce équilibrée)",
+        "es": "Probabilidad de obtener cara en un solo lanzamiento (0.5 para moneda justa)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding results",
         "tr": "Sonuçların yuvarlanması için ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen für Rundungsergebnisse"
+        "de": "Anzahl der Dezimalstellen für Rundungsergebnisse",
+        "fr": "Nombre de décimales pour l'arrondi des résultats",
+        "es": "Número de decimales para redondear resultados"
       }
     }
   ],

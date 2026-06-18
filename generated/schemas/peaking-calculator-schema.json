@@ -12,13 +12,16 @@
         "en": "Peak Demand",
         "tr": "Pik Talep",
         "de": "Spitzenlast",
-        "fr": "Peak Demand",
-        "es": "Peak Demand",
+        "fr": "Pic de demande",
+        "es": "Demanda máxima",
         "ar": "Peak Demand"
       },
       "businessContext_i18n": {
         "en": "Highest power demand during peak hours",
-        "tr": "Gelecekteki büyüme veya belirsizlik için eklenen yüzde marj"
+        "tr": "Gelecekteki büyüme veya belirsizlik için eklenen yüzde marj",
+        "de": "Höchster Leistungsbedarf während der Spitzenzeiten",
+        "fr": "Demande de pointe la plus élevée pendant les heures de pointe",
+        "es": "Demanda máxima en horas punta"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Off-Peak Demand",
         "tr": "En Yüksek Talep",
-        "de": "Off-Peak Demand",
-        "fr": "Off-Peak Demand",
-        "es": "Off-Peak Demand",
+        "de": "Nachfrage außerhalb der Spitzenzeiten",
+        "fr": "Demande hors pointe",
+        "es": "Demanda fuera de horas punta",
         "ar": "Off-Peak Demand"
       },
       "businessContext_i18n": {
         "en": "Power demand during off-peak hours",
-        "tr": "En yüksek saatlerdeki en yüksek güç talebi"
+        "tr": "En yüksek saatlerdeki en yüksek güç talebi",
+        "de": "Leistungsbedarf während der Schwachlastzeiten",
+        "fr": "Demande d'électricité pendant les heures creuses",
+        "es": "Demanda durante horas valle"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Peak Hours",
         "tr": "Düşük Talep",
-        "de": "Peak Hours",
-        "fr": "Peak Hours",
-        "es": "Peak Hours",
+        "de": "Spitzenzeiten",
+        "fr": "Heures de pointe",
+        "es": "Horas punta",
         "ar": "Peak Hours"
       },
       "businessContext_i18n": {
         "en": "Number of peak hours per day",
-        "tr": "Düşük talep saatlerindeki güç talebi"
+        "tr": "Düşük talep saatlerindeki güç talebi",
+        "de": "Anzahl der Spitzenstunden pro Tag",
+        "fr": "Nombre d'heures de pointe par jour",
+        "es": "Número de horas punta por día"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Off-Peak Hours",
         "tr": "En Yüksek Saatler",
-        "de": "Off-Peak Hours",
-        "fr": "Off-Peak Hours",
-        "es": "Off-Peak Hours",
+        "de": "Schwachlastzeiten",
+        "fr": "Heures creuses",
+        "es": "Horas valle",
         "ar": "Off-Peak Hours"
       },
       "businessContext_i18n": {
         "en": "Number of off-peak hours per day",
-        "tr": "Günlük en yüksek saat sayısı"
+        "tr": "Günlük en yüksek saat sayısı",
+        "de": "Anzahl der Schwachlaststunden pro Tag",
+        "fr": "Nombre d'heures creuses par jour",
+        "es": "Número de horas valle por día"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Peak Rate",
         "tr": "Düşük Saatler",
-        "de": "Peak Rate",
-        "fr": "Peak Rate",
-        "es": "Peak Rate",
+        "de": "Spitzentarif",
+        "fr": "Tarif de pointe",
+        "es": "Tarifa punta",
         "ar": "Peak Rate"
       },
       "businessContext_i18n": {
         "en": "Electricity rate during peak hours",
-        "tr": "Günlük düşük talep saat sayısı"
+        "tr": "Günlük düşük talep saat sayısı",
+        "de": "Stromtarif während der Spitzenzeiten",
+        "fr": "Tarif d'électricité pendant les heures de pointe",
+        "es": "Tarifa eléctrica durante horas punta"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Off-Peak Rate",
         "tr": "En Yüksek Tarife",
-        "de": "Off-Peak Rate",
-        "fr": "Off-Peak Rate",
-        "es": "Off-Peak Rate",
+        "de": "Schwachlasttarif",
+        "fr": "Tarif hors pointe",
+        "es": "Tarifa valle",
         "ar": "Off-Peak Rate"
       },
       "businessContext_i18n": {
         "en": "Electricity rate during off-peak hours",
-        "tr": "En yüksek saatlerdeki elektrik tarifesi"
+        "tr": "En yüksek saatlerdeki elektrik tarifesi",
+        "de": "Stromtarif während der Schwachlastzeiten",
+        "fr": "Tarif d'électricité pendant les heures creuses",
+        "es": "Tarifa eléctrica durante horas valle"
       }
     }
   ],

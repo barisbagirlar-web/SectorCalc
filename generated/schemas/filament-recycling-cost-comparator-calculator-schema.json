@@ -23,12 +23,16 @@
       "label_i18n": {
         "en": "Recycling Machine Purchase Cost",
         "tr": "Geri Dönüşüm Makinesi Satın Alma Maliyeti",
-        "de": "Anschaffungskosten Recyclingmaschine"
+        "de": "Anschaffungskosten Recyclingmaschine",
+        "fr": "Coût d'achat de la machine de recyclage",
+        "es": "Costo de compra de la máquina de reciclaje"
       },
       "businessContext_i18n": {
         "en": "Capital expenditure for the recycling extruder/pelletizer system.",
         "tr": "Geri dönüşüm ekstrüderi/peletleyici sistemi için sermaye harcaması.",
-        "de": "Investitionsausgaben für das Recycling-Extruder-/Pelletiersystem."
+        "de": "Investitionsausgaben für das Recycling-Extruder-/Pelletiersystem.",
+        "fr": "Dépense d'investissement pour le système d'extrusion/granulation de recyclage.",
+        "es": "Gasto de capital para el sistema extrusor/pelletizador de reciclaje."
       }
     },
     {
@@ -43,12 +47,16 @@
       "label_i18n": {
         "en": "Machine Useful Life",
         "tr": "Makine Kullanım Ömrü",
-        "de": "Nutzungsdauer der Maschine"
+        "de": "Nutzungsdauer der Maschine",
+        "fr": "Durée de vie utile de la machine",
+        "es": "Vida útil de la máquina"
       },
       "businessContext_i18n": {
         "en": "Expected operational life before major overhaul or replacement.",
         "tr": "Büyük revizyon veya değiştirme öncesi beklenen operasyonel ömür.",
-        "de": "Erwartete Betriebsdauer vor größerer Überholung oder Austausch."
+        "de": "Erwartete Betriebsdauer vor größerer Überholung oder Austausch.",
+        "fr": "Durée de vie opérationnelle prévue avant révision majeure ou remplacement.",
+        "es": "Vida operativa esperada antes de una revisión o reemplazo importante."
       }
     },
     {
@@ -63,12 +71,16 @@
       "label_i18n": {
         "en": "Annual Maintenance Cost",
         "tr": "Yıllık Bakım Maliyeti",
-        "de": "Jährliche Wartungskosten"
+        "de": "Jährliche Wartungskosten",
+        "fr": "Coût d'entretien annuel",
+        "es": "Costo de mantenimiento anual"
       },
       "businessContext_i18n": {
         "en": "Routine maintenance, spare parts, and service contracts.",
         "tr": "Rutin bakım, yedek parçalar ve servis sözleşmeleri.",
-        "de": "Regelmäßige Wartung, Ersatzteile und Serviceverträge."
+        "de": "Regelmäßige Wartung, Ersatzteile und Serviceverträge.",
+        "fr": "Maintenance de routine, pièces de rechange et contrats de service.",
+        "es": "Mantenimiento rutinario, repuestos y contratos de servicio."
       }
     },
     {
@@ -83,12 +95,16 @@
       "label_i18n": {
         "en": "Electricity Price",
         "tr": "Elektrik Fiyatı",
-        "de": "Strompreis"
+        "de": "Strompreis",
+        "fr": "Prix de l'électricité",
+        "es": "Precio de la electricidad"
       },
       "businessContext_i18n": {
         "en": "Average industrial electricity rate.",
         "tr": "Ortalama endüstriyel elektrik tarifesi.",
-        "de": "Durchschnittlicher Industriestrompreis."
+        "de": "Durchschnittlicher Industriestrompreis.",
+        "fr": "Tarif électrique industriel moyen.",
+        "es": "Tarifa eléctrica industrial promedio."
       }
     },
     {
@@ -103,12 +119,16 @@
       "label_i18n": {
         "en": "Recycling Energy Consumption",
         "tr": "Geri Dönüşüm Enerji Tüketimi",
-        "de": "Energieverbrauch Recycling"
+        "de": "Energieverbrauch Recycling",
+        "fr": "Consommation énergétique du recyclage",
+        "es": "Consumo energético de reciclaje"
       },
       "businessContext_i18n": {
         "en": "Energy required per kg of recycled filament produced.",
         "tr": "Üretilen kg başına geri dönüştürülmüş filament için gereken enerji.",
-        "de": "Benötigte Energie pro kg produziertem Recycling-Filament."
+        "de": "Benötigte Energie pro kg produziertem Recycling-Filament.",
+        "fr": "Énergie requise par kg de filament recyclé produit.",
+        "es": "Energía requerida por kg de filamento reciclado producido."
       }
     },
     {
@@ -123,12 +143,16 @@
       "label_i18n": {
         "en": "Labor Rate",
         "tr": "İşçilik ücreti",
-        "de": "Stundensatz"
+        "de": "Stundensatz",
+        "fr": "Taux de main-d'œuvre",
+        "es": "Tarifa de mano de obra"
       },
       "businessContext_i18n": {
         "en": "Hourly wage including benefits for operator.",
         "tr": "Yan haklar dahil operatör için saatlik ücret.",
-        "de": "Stundenlohn inkl. Nebenkosten für Bediener."
+        "de": "Stundenlohn inkl. Nebenkosten für Bediener.",
+        "fr": "Salaire horaire incluant les charges pour l'opérateur.",
+        "es": "Salario por hora incluyendo prestaciones para el operador."
       }
     },
     {
@@ -143,12 +167,16 @@
       "label_i18n": {
         "en": "Labor Hours per kg",
         "tr": "kg başına İşçilik Saati",
-        "de": "Arbeitsstunden pro kg"
+        "de": "Arbeitsstunden pro kg",
+        "fr": "Heures de main-d'œuvre par kg",
+        "es": "Horas de mano de obra por kg"
       },
       "businessContext_i18n": {
         "en": "Direct labor time to process one kg of recycled filament.",
         "tr": "Bir kg geri dönüştürülmüş filament işlemek için gereken doğrudan işçilik süresi.",
-        "de": "Direkte Arbeitszeit zur Verarbeitung von 1 kg Recycling-Filament."
+        "de": "Direkte Arbeitszeit zur Verarbeitung von 1 kg Recycling-Filament.",
+        "fr": "Temps de travail direct pour traiter un kg de filament recyclé.",
+        "es": "Tiempo de mano de obra directa para procesar un kg de filamento reciclado."
       }
     },
     {
@@ -163,12 +191,16 @@
       "label_i18n": {
         "en": "Waste Collection Cost",
         "tr": "Atık Toplama Maliyeti",
-        "de": "Abfallsammelkosten"
+        "de": "Abfallsammelkosten",
+        "fr": "Coût de collecte des déchets",
+        "es": "Costo de recolección de residuos"
       },
       "businessContext_i18n": {
         "en": "Cost to collect and transport scrap plastic to recycling facility.",
         "tr": "Atık plastiğin geri dönüşüm tesisine toplanması ve taşınması maliyeti.",
-        "de": "Kosten für Sammlung und Transport von Kunststoffabfall zur Recyclinganlage."
+        "de": "Kosten für Sammlung und Transport von Kunststoffabfall zur Recyclinganlage.",
+        "fr": "Coût de collecte et de transport des déchets plastiques vers l'installation de recyclage.",
+        "es": "Costo de recolectar y transportar plástico de desecho a la planta de reciclaje."
       }
     }
   ],

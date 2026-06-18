@@ -12,14 +12,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Current age of the dog in complete months.",
         "tr": "Köpeğin tam ay cinsinden mevcut yaşı.",
-        "de": "Aktuelles Alter des Hundes in vollendeten Monaten."
+        "de": "Aktuelles Alter des Hundes in vollendeten Monaten.",
+        "fr": "Âge actuel du chien en mois complets.",
+        "es": "Edad actual del perro en meses completos."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Current Weight",
         "tr": "Mevcut Ağırlık",
         "de": "Aktuelles Gewicht",
-        "fr": "Current Weight",
-        "es": "Current Weight",
+        "fr": "Poids actuel",
+        "es": "Peso actual",
         "ar": "Current Weight"
       },
       "businessContext_i18n": {
         "en": "Current body weight of the dog in kilograms.",
         "tr": "Köpeğin kilogram cinsinden mevcut vücut ağırlığı.",
-        "de": "Aktuelles Körpergewicht des Hundes in Kilogramm."
+        "de": "Aktuelles Körpergewicht des Hundes in Kilogramm.",
+        "fr": "Poids corporel actuel du chien en kilogrammes.",
+        "es": "Peso corporal actual del perro en kilogramos."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Growth Rate Factor",
         "tr": "Büyüme Hızı Faktörü",
         "de": "Wachstumsratenfaktor",
-        "fr": "Growth Rate Factor",
-        "es": "Growth Rate Factor",
+        "fr": "Facteur de taux de croissance",
+        "es": "Factor de tasa de crecimiento",
         "ar": "Growth Rate Factor"
       },
       "businessContext_i18n": {
         "en": "Breed-specific exponential growth rate (k). Small breeds ≈ 0.3, Medium ≈ 0.2, Large ≈ 0.15, Giant ≈ 0.1.",
         "tr": "Irka özgü üstel büyüme hızı (k). Küçük ırklar ≈ 0.3, Orta ≈ 0.2, Büyük ≈ 0.15, Dev ≈ 0.1.",
-        "de": "Rassenspezifische exponentielle Wachstumsrate (k). Kleine Rassen ≈ 0,3, Mittel ≈ 0,2, Groß ≈ 0,15, Riesen ≈ 0,1."
+        "de": "Rassenspezifische exponentielle Wachstumsrate (k). Kleine Rassen ≈ 0,3, Mittel ≈ 0,2, Groß ≈ 0,15, Riesen ≈ 0,1.",
+        "fr": "Taux de croissance exponentiel spécifique à la race (k). Petites races ≈ 0,3, Moyennes ≈ 0,2, Grandes ≈ 0,15, Géantes ≈ 0,1.",
+        "es": "Tasa de crecimiento exponencial específica de la raza (k). Razas pequeñas ≈ 0.3, Medianas ≈ 0.2, Grandes ≈ 0.15, Gigantes ≈ 0.1."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Body Condition Score",
         "tr": "Vücut Kondisyon Skoru",
         "de": "Body Condition Score",
-        "fr": "Body Condition Score",
-        "es": "Body Condition Score",
+        "fr": "Note d'état corporel",
+        "es": "Puntuación de condición corporal",
         "ar": "Body Condition Score"
       },
       "businessContext_i18n": {
         "en": "Veterinary body condition score on a 9-point scale (1 = emaciated, 5 = ideal, 9 = obese).",
         "tr": "Veteriner vücut kondisyon skoru 9 puanlık ölçekte (1 = zayıf, 5 = ideal, 9 = obez).",
-        "de": "Veterinärmedizinischer Body Condition Score auf einer 9-Punkte-Skala (1 = abgemagert, 5 = ideal, 9 = fettleibig)."
+        "de": "Veterinärmedizinischer Body Condition Score auf einer 9-Punkte-Skala (1 = abgemagert, 5 = ideal, 9 = fettleibig).",
+        "fr": "Note d'état corporel vétérinaire sur une échelle de 9 points (1 = émacié, 5 = idéal, 9 = obèse).",
+        "es": "Puntuación de condición corporal veterinaria en escala de 9 puntos (1 = emaciado, 5 = ideal, 9 = obeso)."
       }
     }
   ],

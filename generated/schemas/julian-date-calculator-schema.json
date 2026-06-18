@@ -12,13 +12,16 @@
         "en": "Year",
         "tr": "Yıl",
         "de": "Jahr",
-        "fr": "Year",
-        "es": "Year",
+        "fr": "Année",
+        "es": "Año",
         "ar": "Year"
       },
       "businessContext_i18n": {
         "en": "Gregorian year (e.g., 2023)",
-        "tr": "Miladi yıl (ör. 2023)"
+        "tr": "Miladi yıl (ör. 2023)",
+        "de": "Gregorianisches Jahr (z. B. 2023)",
+        "fr": "Année grégorienne (ex. 2023)",
+        "es": "Año gregoriano (ej., 2023)"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Month",
         "tr": "Ay",
         "de": "Monat",
-        "fr": "Month",
-        "es": "Month",
+        "fr": "Mois",
+        "es": "Mes",
         "ar": "Month"
       },
       "businessContext_i18n": {
         "en": "Month (1-12)",
-        "tr": "Ay (1-12)"
+        "tr": "Ay (1-12)",
+        "de": "Monat (1-12)",
+        "fr": "Mois (1-12)",
+        "es": "Mes (1-12)"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Day",
         "tr": "Gün",
         "de": "Tag",
-        "fr": "Day",
-        "es": "Day",
+        "fr": "Jour",
+        "es": "Día",
         "ar": "Day"
       },
       "businessContext_i18n": {
         "en": "Day of month (1-31)",
-        "tr": "Ayın günü (1-31)"
+        "tr": "Ayın günü (1-31)",
+        "de": "Tag des Monats (1-31)",
+        "fr": "Jour du mois (1-31)",
+        "es": "Día del mes (1-31)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Hour",
         "tr": "Saat",
-        "de": "Hour",
-        "fr": "Hour",
-        "es": "Hour",
+        "de": "Stunde",
+        "fr": "Heure",
+        "es": "Hora",
         "ar": "Hour"
       },
       "businessContext_i18n": {
         "en": "Hour in UT (0-23)",
-        "tr": "UT saati (0-23)"
+        "tr": "UT saati (0-23)",
+        "de": "Stunde in UT (0-23)",
+        "fr": "Heure en UT (0-23)",
+        "es": "Hora en TU (0-23)"
       }
     },
     {
@@ -93,12 +105,15 @@
         "tr": "Dakika",
         "de": "Minute",
         "fr": "Minute",
-        "es": "Minute",
+        "es": "Minuto",
         "ar": "Minute"
       },
       "businessContext_i18n": {
         "en": "Minute (0-59)",
-        "tr": "Dakika (0-59)"
+        "tr": "Dakika (0-59)",
+        "de": "Minute (0-59)",
+        "fr": "Minute (0-59)",
+        "es": "Minuto (0-59)"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Second",
         "tr": "Saniye",
-        "de": "Second",
-        "fr": "Second",
-        "es": "Second",
+        "de": "Sekunde",
+        "fr": "Seconde",
+        "es": "Segundo",
         "ar": "Second"
       },
       "businessContext_i18n": {
         "en": "Second (0-59, decimal allowed)",
-        "tr": "Saniye (0-59, ondalık kabul edilir)"
+        "tr": "Saniye (0-59, ondalık kabul edilir)",
+        "de": "Sekunde (0-59, Dezimalstellen erlaubt)",
+        "fr": "Seconde (0-59, décimale autorisée)",
+        "es": "Segundo (0-59, decimal permitido)"
       }
     }
   ],

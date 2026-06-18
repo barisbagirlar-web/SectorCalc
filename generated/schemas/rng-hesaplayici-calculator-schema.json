@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Başlangıç Değeri (Seed)",
         "tr": "Başlangıç Değeri (Seed)",
-        "de": "Başlangıç Değeri (Seed)",
-        "fr": "Başlangıç Değeri (Seed)",
+        "de": "Startwert (Seed)",
+        "fr": "Valeur de départ (Seed)",
         "es": "Başlangıç Değeri (Seed)",
         "ar": "Başlangıç Değeri (Seed)"
       },
       "businessContext_i18n": {
         "en": "LCG algoritması için başlangıç tohum değeri.",
-        "tr": "LCG algoritması için başlangıç tohum değeri."
+        "tr": "LCG algoritması için başlangıç tohum değeri.",
+        "de": "Startwert für den LCG-Algorithmus.",
+        "fr": "Valeur de départ pour l'algorithme LCG."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Çarpan (a)",
         "tr": "Çarpan (a)",
-        "de": "Çarpan (a)",
-        "fr": "Çarpan (a)",
+        "de": "Multiplikator (a)",
+        "fr": "Multiplicateur (a)",
         "es": "Çarpan (a)",
         "ar": "Çarpan (a)"
       },
       "businessContext_i18n": {
         "en": "Doğrusal eşleşik üretecin çarpan katsayısı.",
-        "tr": "Doğrusal eşleşik üretecin çarpan katsayısı."
+        "tr": "Doğrusal eşleşik üretecin çarpan katsayısı.",
+        "de": "Multiplikationskoeffizient des linearen Kongruenzgenerators.",
+        "fr": "Coefficient multiplicateur du générateur congruentiel linéaire."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Artış (c)",
         "tr": "Artış (c)",
-        "de": "Artış (c)",
-        "fr": "Artış (c)",
+        "de": "Inkrement (c)",
+        "fr": "Incrément (c)",
         "es": "Artış (c)",
         "ar": "Artış (c)"
       },
       "businessContext_i18n": {
         "en": "Doğrusal eşleşik üretecin artış sabiti.",
-        "tr": "Doğrusal eşleşik üretecin artış sabiti."
+        "tr": "Doğrusal eşleşik üretecin artış sabiti.",
+        "de": "Inkrementkonstante des linearen Kongruenzgenerators.",
+        "fr": "Constante d'incrément du générateur congruentiel linéaire."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Modül (m)",
         "tr": "Modül (m)",
         "de": "Modul (m)",
-        "fr": "Modül (m)",
-        "es": "Modül (m)",
+        "fr": "Module (m)",
+        "es": "Módulo (m)",
         "ar": "Modül (m)"
       },
       "businessContext_i18n": {
         "en": "Modül değeri, genellikle 2^32.",
-        "tr": "Modül değeri, genellikle 2^32."
+        "tr": "Modül değeri, genellikle 2^32.",
+        "de": "Modulwert, normalerweise 2^32.",
+        "fr": "Valeur du module, généralement 2^32."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Çıkış Alt Sınır",
         "tr": "Çıkış Alt Sınır",
-        "de": "Çıkış Alt Sınır",
-        "fr": "Çıkış Alt Sınır",
+        "de": "Ausgabe Untergrenze",
+        "fr": "Limite inférieure de sortie",
         "es": "Çıkış Alt Sınır",
         "ar": "Çıkış Alt Sınır"
       },
       "businessContext_i18n": {
         "en": "Ölçeklendirilmiş rastgele sayı için istenen aralığın alt sınırı.",
-        "tr": "Ölçeklendirilmiş rastgele sayı için istenen aralığın alt sınırı."
+        "tr": "Ölçeklendirilmiş rastgele sayı için istenen aralığın alt sınırı.",
+        "de": "Untere Grenze des gewünschten Bereichs für die skalierte Zufallszahl.",
+        "fr": "Limite inférieure de la plage souhaitée pour le nombre aléatoire mis à l'échelle."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Çıkış Üst Sınır",
         "tr": "Çıkış Üst Sınır",
-        "de": "Çıkış Üst Sınır",
-        "fr": "Çıkış Üst Sınır",
+        "de": "Ausgabe Obergrenze",
+        "fr": "Limite supérieure de sortie",
         "es": "Çıkış Üst Sınır",
         "ar": "Çıkış Üst Sınır"
       },
       "businessContext_i18n": {
         "en": "Ölçeklendirilmiş rastgele sayı için istenen aralığın üst sınırı.",
-        "tr": "Ölçeklendirilmiş rastgele sayı için istenen aralığın üst sınırı."
+        "tr": "Ölçeklendirilmiş rastgele sayı için istenen aralığın üst sınırı.",
+        "de": "Obere Grenze des gewünschten Bereichs für die skalierte Zufallszahl.",
+        "fr": "Limite supérieure de la plage souhaitée pour le nombre aléatoire mis à l'échelle."
       }
     }
   ],

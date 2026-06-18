@@ -12,13 +12,15 @@
         "en": "Gross Monthly Salary",
         "tr": "Brüt Aylık Maaş",
         "de": "Bruttomonatsgehalt",
-        "fr": "Gross Monthly Salary",
-        "es": "Gross Monthly Salary",
+        "fr": "Salaire Mensuel Brut",
+        "es": "Salario Bruto Mensual",
         "ar": "Gross Monthly Salary"
       },
       "businessContext_i18n": {
         "en": "The total monthly salary before any deductions.",
-        "tr": "Kesintiler öncesi toplam aylık maaş."
+        "tr": "Kesintiler öncesi toplam aylık maaş.",
+        "de": "Monatsbruttogehalt vor Abzügen",
+        "fr": "Salaire mensuel brut avant toute déduction."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Income Tax Rate",
         "tr": "Gelir Vergisi Oranı",
         "de": "Einkommensteuersatz",
-        "fr": "Income Tax Rate",
-        "es": "Income Tax Rate",
+        "fr": "Taux d'Impôt sur le Revenu",
+        "es": "Tasa del Impuesto sobre la Renta",
         "ar": "Income Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Effective income tax rate applied to gross salary.",
-        "tr": "Brüt maaşa uygulanan efektif gelir vergisi oranı."
+        "tr": "Brüt maaşa uygulanan efektif gelir vergisi oranı.",
+        "de": "Effektiver Einkommensteuersatz auf das Bruttogehalt",
+        "fr": "Taux d'imposition effectif appliqué au salaire brut."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Social Security Contribution Rate",
         "tr": "Sosyal Güvenlik Katkı Oranı",
-        "de": "Social Security Contribution Rate",
-        "fr": "Social Security Contribution Rate",
+        "de": "Sozialversicherungsbeitragssatz",
+        "fr": "Taux de cotisation de sécurité sociale",
         "es": "Social Security Contribution Rate",
         "ar": "Social Security Contribution Rate"
       },
       "businessContext_i18n": {
         "en": "Employee's social security contribution rate.",
-        "tr": "Çalışanın sosyal güvenlik katkı oranı."
+        "tr": "Çalışanın sosyal güvenlik katkı oranı.",
+        "de": "Beitragssatz des Arbeitnehmers zur Sozialversicherung.",
+        "fr": "Taux de cotisation sociale salariale."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Other Fixed Deductions",
         "tr": "Diğer Sabit Kesintiler",
-        "de": "Other Fixed Deductions",
-        "fr": "Other Fixed Deductions",
-        "es": "Other Fixed Deductions",
+        "de": "Sonstige feste Abzüge",
+        "fr": "Autres déductions fixes",
+        "es": "Otras deducciones fijas",
         "ar": "Other Fixed Deductions"
       },
       "businessContext_i18n": {
         "en": "Any other fixed monthly deductions (e.g., health insurance, union dues).",
-        "tr": "Diğer sabit aylık kesintiler (ör. sağlık sigortası, sendika aidatı)."
+        "tr": "Diğer sabit aylık kesintiler (ör. sağlık sigortası, sendika aidatı).",
+        "de": "Sonstige feste monatliche Abzüge (z. B. Krankenversicherung, Gewerkschaftsbeiträge).",
+        "fr": "Toute autre déduction mensuelle fixe (ex. assurance santé, cotisations syndicales)."
       }
     }
   ],

@@ -12,13 +12,16 @@
         "en": "Sample Size (n)",
         "tr": "Örneklem Büyüklüğü (n)",
         "de": "Stichprobengröße (n)",
-        "fr": "Sample Size (n)",
-        "es": "Sample Size (n)",
+        "fr": "Taille de l'échantillon (n)",
+        "es": "Tamaño de la muestra (n)",
         "ar": "Sample Size (n)"
       },
       "businessContext_i18n": {
         "en": "Number of data points in the sample or population",
-        "tr": "Örneklem veya popülasyondaki veri noktası sayısı"
+        "tr": "Örneklem veya popülasyondaki veri noktası sayısı",
+        "de": "Anzahl der Datenpunkte in der Stichprobe oder Grundgesamtheit",
+        "fr": "Nombre de points de données dans l'échantillon ou la population",
+        "es": "Número de puntos de datos en la muestra o población"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Sum of Squared Deviations",
         "tr": "Sapmaların Kareleri Toplamı",
-        "de": "Sum of Squared Deviations",
-        "fr": "Sum of Squared Deviations",
-        "es": "Sum of Squared Deviations",
+        "de": "Summe der quadrierten Abweichungen",
+        "fr": "Somme des écarts au carré",
+        "es": "Suma de desviaciones al cuadrado",
         "ar": "Sum of Squared Deviations"
       },
       "businessContext_i18n": {
         "en": "Sum of (xi - mean)²",
-        "tr": "Σ(xi - ortalama)²"
+        "tr": "Σ(xi - ortalama)²",
+        "de": "Summe von (xi - Mittelwert)²",
+        "fr": "Somme de (xi - moyenne)²",
+        "es": "Suma de (xi - media)²"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Sum of Fourth Power Deviations",
         "tr": "Dördüncü Kuvvet Sapmalarının Toplamı",
-        "de": "Sum of Fourth Power Deviations",
-        "fr": "Sum of Fourth Power Deviations",
-        "es": "Sum of Fourth Power Deviations",
+        "de": "Summe der Abweichungen zur vierten Potenz",
+        "fr": "Somme des écarts à la puissance quatre",
+        "es": "Suma de desviaciones a la cuarta potencia",
         "ar": "Sum of Fourth Power Deviations"
       },
       "businessContext_i18n": {
         "en": "Sum of (xi - mean)⁴",
-        "tr": "Σ(xi - ortalama)⁴"
+        "tr": "Σ(xi - ortalama)⁴",
+        "de": "Summe von (xi - Mittelwert)⁴",
+        "fr": "Somme de (xi - moyenne)⁴",
+        "es": "Suma de (xi - media)⁴"
       }
     },
     {
@@ -72,14 +81,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output rounding",
         "tr": "Çıktı yuvarlama için ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen für die Ausgaberundung"
+        "de": "Anzahl der Dezimalstellen für die Ausgaberundung",
+        "fr": "Nombre de décimales pour l'arrondi du résultat",
+        "es": "Número de decimales para el redondeo de salida"
       }
     }
   ],

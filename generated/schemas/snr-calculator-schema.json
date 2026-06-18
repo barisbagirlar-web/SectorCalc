@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Signal Voltage",
         "tr": "Sinyal voltajı",
-        "de": "Signal Voltage",
-        "fr": "Signal Voltage",
+        "de": "Signalspannung",
+        "fr": "Tension du signal",
         "es": "Signal Voltage",
         "ar": "Signal Voltage"
       },
       "businessContext_i18n": {
         "en": "RMS voltage of the desired signal",
-        "tr": "İstenen sinyalin RMS voltajı"
+        "tr": "İstenen sinyalin RMS voltajı",
+        "de": "Effektivspannung des gewünschten Signals",
+        "fr": "Tension RMS du signal désiré"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Load Resistance",
         "tr": "Yük direnci",
-        "de": "Load Resistance",
-        "fr": "Load Resistance",
+        "de": "Lastwiderstand",
+        "fr": "Résistance de charge",
         "es": "Load Resistance",
         "ar": "Load Resistance"
       },
       "businessContext_i18n": {
         "en": "System impedance",
-        "tr": "Sistem empedansı"
+        "tr": "Sistem empedansı",
+        "de": "Systemimpedanz",
+        "fr": "Impédance du système"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Bandwidth",
         "tr": "Bant Genişliği",
         "de": "Bandbreite",
-        "fr": "Bandwidth",
-        "es": "Bandwidth",
+        "fr": "Largeur de bande",
+        "es": "Ancho de banda",
         "ar": "Bandwidth"
       },
       "businessContext_i18n": {
         "en": "Noise bandwidth of the system",
-        "tr": "Sistemin gürültü bant genişliği"
+        "tr": "Sistemin gürültü bant genişliği",
+        "de": "Rauschbandbreite des Systems",
+        "fr": "Bande passante de bruit du système"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Temperature",
         "tr": "Sıcaklık",
         "de": "Temperatur",
-        "fr": "Temperature",
-        "es": "Temperature",
+        "fr": "Température",
+        "es": "Temperatura",
         "ar": "Temperature"
       },
       "businessContext_i18n": {
         "en": "Absolute temperature in Kelvin (290K ≈ 17°C)",
-        "tr": "Kelvin cinsinden mutlak sıcaklık (290K ≈ 17°C)"
+        "tr": "Kelvin cinsinden mutlak sıcaklık (290K ≈ 17°C)",
+        "de": "Absolute Temperatur in Kelvin (290 K ≈ 17 °C)",
+        "fr": "Température absolue en Kelvin (290 K ≈ 17°C)"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Noise Figure",
         "tr": "Gürültü faktörü",
-        "de": "Noise Figure",
-        "fr": "Noise Figure",
+        "de": "Rauschzahl",
+        "fr": "Facteur de bruit",
         "es": "Noise Figure",
         "ar": "Noise Figure"
       },
       "businessContext_i18n": {
         "en": "System noise figure, 0 dB for ideal noiseless",
-        "tr": "Sistem gürültü faktörü, ideal gürültüsüz için 0 dB"
+        "tr": "Sistem gürültü faktörü, ideal gürültüsüz için 0 dB",
+        "de": "Rauschzahl des Systems, 0 dB für ideal rauschfrei",
+        "fr": "Facteur de bruit du système, 0 dB pour un système idéal sans bruit"
       }
     }
   ],

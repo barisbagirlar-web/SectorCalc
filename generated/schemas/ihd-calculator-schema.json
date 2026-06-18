@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Planned Production",
         "tr": "Planlanan Üretim",
-        "de": "Planned Production",
-        "fr": "Planned Production",
-        "es": "Planned Production",
+        "de": "Geplante Produktion",
+        "fr": "Production planifiée",
+        "es": "Producción planificada",
         "ar": "Planned Production"
       },
       "businessContext_i18n": {
         "en": "The total planned production quantity for the period.",
-        "tr": "Dönem için planlanan toplam üretim miktarı."
+        "tr": "Dönem için planlanan toplam üretim miktarı.",
+        "de": "Die gesamte geplante Produktionsmenge für den Zeitraum.",
+        "fr": "La quantité totale de production planifiée pour la période.",
+        "es": "La cantidad total de producción planificada para el período."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Actual Production",
         "tr": "Gerçek Üretim",
-        "de": "Actual Production",
-        "fr": "Actual Production",
-        "es": "Actual Production",
+        "de": "Tatsächliche Produktion",
+        "fr": "Production réelle",
+        "es": "Producción real",
         "ar": "Actual Production"
       },
       "businessContext_i18n": {
         "en": "The actual quantity produced during the period.",
-        "tr": "Dönem boyunca üretilen gerçek miktar."
+        "tr": "Dönem boyunca üretilen gerçek miktar.",
+        "de": "Die tatsächlich produzierte Menge im Zeitraum.",
+        "fr": "La quantité réellement produite pendant la période.",
+        "es": "La cantidad real producida durante el período."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Good Parts",
         "tr": "İyi Parçalar",
-        "de": "Good Parts",
-        "fr": "Good Parts",
-        "es": "Good Parts",
+        "de": "Gute Teile",
+        "fr": "Pièces bonnes",
+        "es": "Piezas buenas",
         "ar": "Good Parts"
       },
       "businessContext_i18n": {
         "en": "The number of defect-free units produced.",
-        "tr": "Üretilen hatasız birim sayısı."
+        "tr": "Üretilen hatasız birim sayısı.",
+        "de": "Die Anzahl der fehlerfreien Einheiten.",
+        "fr": "Le nombre d'unités sans défaut produites.",
+        "es": "El número de unidades sin defectos producidas."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Total Parts",
         "tr": "Toplam Parçalar",
-        "de": "Total Parts",
-        "fr": "Total Parts",
-        "es": "Total Parts",
+        "de": "Gesamte Teile",
+        "fr": "Pièces totales",
+        "es": "Piezas totales",
         "ar": "Total Parts"
       },
       "businessContext_i18n": {
         "en": "The total number of units produced, including defects.",
-        "tr": "Üretilen toplam birim sayısı (hatalar dahil)."
+        "tr": "Üretilen toplam birim sayısı (hatalar dahil).",
+        "de": "Die Gesamtzahl der produzierten Einheiten, einschließlich Ausschuss.",
+        "fr": "Le nombre total d'unités produites, y compris les défauts.",
+        "es": "El número total de unidades producidas, incluyendo defectos."
       }
     }
   ],

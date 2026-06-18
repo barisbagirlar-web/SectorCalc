@@ -12,14 +12,16 @@
         "en": "Shaft Speed",
         "tr": "Mil Hızı",
         "de": "Wellendrehzahl",
-        "fr": "Shaft Speed",
-        "es": "Shaft Speed",
+        "fr": "Vitesse de l'arbre",
+        "es": "Velocidad del eje",
         "ar": "Shaft Speed"
       },
       "businessContext_i18n": {
         "en": "Rotational speed of the shaft in revolutions per minute",
         "tr": "Milinin dakikadaki devir sayısı cinsinden dönüş hızı",
-        "de": "Drehzahl der Welle in Umdrehungen pro Minute"
+        "de": "Drehzahl der Welle in Umdrehungen pro Minute",
+        "fr": "Vitesse de rotation de l'arbre en tours par minute",
+        "es": "Velocidad de rotación del eje en revoluciones por minuto"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Friction Coefficient",
         "tr": "Sürtünme Katsayısı",
         "de": "Reibungskoeffizient",
-        "fr": "Friction Coefficient",
-        "es": "Friction Coefficient",
+        "fr": "Coefficient de frottement",
+        "es": "Coeficiente de fricción",
         "ar": "Friction Coefficient"
       },
       "businessContext_i18n": {
         "en": "Coefficient of friction between bearing surfaces",
         "tr": "Rulman yüzeyleri arasındaki sürtünme katsayısı",
-        "de": "Reibungskoeffizient zwischen Lagerflächen"
+        "de": "Reibungskoeffizient zwischen Lagerflächen",
+        "fr": "Coefficient de frottement entre les surfaces de palier",
+        "es": "Coeficiente de fricción entre las superficies del cojinete"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Radial Load",
         "tr": "Radyal Yük",
         "de": "Radiallast",
-        "fr": "Radial Load",
-        "es": "Radial Load",
+        "fr": "Charge radiale",
+        "es": "Carga radial",
         "ar": "Radial Load"
       },
       "businessContext_i18n": {
         "en": "Radial load applied on the bearing",
         "tr": "Radyal yük (rulmana uygulanan)",
-        "de": "Radialbelastung auf das Lager"
+        "de": "Radialbelastung auf das Lager",
+        "fr": "Charge radiale appliquée sur le roulement",
+        "es": "Carga radial aplicada sobre el rodamiento"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Bore Diameter",
         "tr": "Delik Çapı",
         "de": "Bohrungsdurchmesser",
-        "fr": "Bore Diameter",
-        "es": "Bore Diameter",
+        "fr": "Diamètre d'alésage",
+        "es": "Diámetro del agujero",
         "ar": "Bore Diameter"
       },
       "businessContext_i18n": {
         "en": "Inner diameter of the bearing bore",
         "tr": "Rulman yatağının iç çapı",
-        "de": "Innendurchmesser der Lagerbohrung"
+        "de": "Innendurchmesser der Lagerbohrung",
+        "fr": "Diamètre intérieur de l'alésage du roulement",
+        "es": "Diámetro interior del agujero del rodamiento"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Ambient Temperature",
         "tr": "Ortam Sıcaklığı",
         "de": "Umgebungstemperatur",
-        "fr": "Ambient Temperature",
-        "es": "Ambient Temperature",
+        "fr": "Température ambiante",
+        "es": "Temperatura ambiente",
         "ar": "Ambient Temperature"
       },
       "businessContext_i18n": {
         "en": "Surrounding ambient temperature",
         "tr": "Ortam sıcaklığı",
-        "de": "Umgebungstemperatur"
+        "de": "Umgebungstemperatur",
+        "fr": "Température ambiante environnante",
+        "es": "Temperatura ambiente circundante"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Cooling Coefficient",
         "tr": "Soğutma Katsayısı",
         "de": "Kühlkoeffizient",
-        "fr": "Cooling Coefficient",
-        "es": "Cooling Coefficient",
+        "fr": "Coefficient de refroidissement",
+        "es": "Coeficiente de refrigeración",
         "ar": "Cooling Coefficient"
       },
       "businessContext_i18n": {
         "en": "Thermal dissipation capacity of the bearing housing",
         "tr": "Rulman yuvasının ısı dağıtma kapasitesi",
-        "de": "Wärmeableitfähigkeit des Lagergehäuses"
+        "de": "Wärmeableitfähigkeit des Lagergehäuses",
+        "fr": "Capacité de dissipation thermique du logement de roulement",
+        "es": "Capacidad de disipación térmica del soporte del rodamiento"
       }
     }
   ],

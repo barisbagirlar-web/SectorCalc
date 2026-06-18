@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Internal Pressure",
         "tr": "İç Basınç",
-        "de": "Internal Pressure",
-        "fr": "Internal Pressure",
-        "es": "Internal Pressure",
+        "de": "Innendruck",
+        "fr": "Pression interne",
+        "es": "Presión interna",
         "ar": "Internal Pressure"
       },
       "businessContext_i18n": {
         "en": "Design pressure inside the vessel",
-        "tr": "Kap içi tasarım basıncı"
+        "tr": "Kap içi tasarım basıncı",
+        "de": "Auslegungsdruck im Behälter",
+        "fr": "Pression de conception à l'intérieur du récipient"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Inner Radius",
         "tr": "İç yarıçap",
         "de": "Innenradius",
-        "fr": "Inner Radius",
-        "es": "Inner Radius",
+        "fr": "Rayon intérieur",
+        "es": "Radio interior",
         "ar": "Inner Radius"
       },
       "businessContext_i18n": {
         "en": "Inner radius of the cylindrical vessel",
-        "tr": "Silindirik kabın iç yarıçapı"
+        "tr": "Silindirik kabın iç yarıçapı",
+        "de": "Innenradius des zylindrischen Behälters",
+        "fr": "Rayon intérieur du récipient cylindrique"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Wall Thickness",
         "tr": "Duvar Kalınlığı (cm)",
         "de": "Duvar Kalınlığı",
-        "fr": "Wall Thickness",
-        "es": "Wall Thickness",
+        "fr": "Épaisseur du mur",
+        "es": "Espesor del muro",
         "ar": "Wall Thickness"
       },
       "businessContext_i18n": {
         "en": "Thickness of the vessel wall",
-        "tr": "Kap cidar kalınlığı"
+        "tr": "Kap cidar kalınlığı",
+        "de": "Wanddicke des Behälters",
+        "fr": "Épaisseur de la paroi du récipient"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Allowable Stress",
         "tr": "İzin Verilen Gerilme",
-        "de": "Allowable Stress",
-        "fr": "Allowable Stress",
-        "es": "Allowable Stress",
+        "de": "Zulässige Spannung",
+        "fr": "Contrainte admissible",
+        "es": "Esfuerzo admisible",
         "ar": "Allowable Stress"
       },
       "businessContext_i18n": {
         "en": "Maximum allowable stress of the material",
-        "tr": "Malzemenin izin verilen maksimum gerilmesi"
+        "tr": "Malzemenin izin verilen maksimum gerilmesi",
+        "de": "Maximal zulässige Spannung des Materials",
+        "fr": "Contrainte maximale admissible du matériau"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Joint Efficiency",
         "tr": "Birleştirme Verimi",
-        "de": "Joint Efficiency",
-        "fr": "Joint Efficiency",
-        "es": "Joint Efficiency",
+        "de": "Verbindungswirkungsgrad",
+        "fr": "Efficacité du joint",
+        "es": "Eficiencia de junta",
         "ar": "Joint Efficiency"
       },
       "businessContext_i18n": {
         "en": "Efficiency of welded joints (0-1)",
-        "tr": "Kaynaklı birleştirme verimliliği (0-1)"
+        "tr": "Kaynaklı birleştirme verimliliği (0-1)",
+        "de": "Wirkungsgrad von Schweißnähten (0-1)",
+        "fr": "Efficacité des joints soudés (0-1)"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Corrosion Allowance",
         "tr": "Korozyon Payı",
-        "de": "Corrosion Allowance",
-        "fr": "Corrosion Allowance",
-        "es": "Corrosion Allowance",
+        "de": "Korrosionszugabe",
+        "fr": "Surépaisseur de corrosion",
+        "es": "Margen de corrosión",
         "ar": "Corrosion Allowance"
       },
       "businessContext_i18n": {
         "en": "Additional thickness for corrosion",
-        "tr": "Korozyon için ek kalınlık"
+        "tr": "Korozyon için ek kalınlık",
+        "de": "Zusätzliche Dicke für Korrosion",
+        "fr": "Épaisseur supplémentaire pour la corrosion"
       }
     }
   ],

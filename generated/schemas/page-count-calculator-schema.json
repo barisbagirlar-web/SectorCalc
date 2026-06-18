@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Toplam Kelime Sayısı",
         "tr": "Toplam Kelime Sayısı",
-        "de": "Toplam Kelime Sayısı",
-        "fr": "Toplam Kelime Sayısı",
-        "es": "Toplam Kelime Sayısı",
+        "de": "Gesamtwortanzahl",
+        "fr": "Nombre total de mots",
+        "es": "Recuento total de palabras",
         "ar": "Toplam Kelime Sayısı"
       },
       "businessContext_i18n": {
         "en": "Belgedeki toplam kelime adedi",
-        "tr": "Belgedeki toplam kelime adedi"
+        "tr": "Belgedeki toplam kelime adedi",
+        "de": "Gesamtzahl der Wörter im Dokument",
+        "fr": "Nombre total de mots dans le document",
+        "es": "Número total de palabras en el documento"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Sayfa Başına Kelime",
         "tr": "Sayfa Başına Kelime",
-        "de": "Sayfa Başına Kelime",
-        "fr": "Sayfa Başına Kelime",
-        "es": "Sayfa Başına Kelime",
+        "de": "Wörter pro Seite",
+        "fr": "Mots par page",
+        "es": "Palabras por página",
         "ar": "Sayfa Başına Kelime"
       },
       "businessContext_i18n": {
         "en": "Bir sayfaya sığan ortalama kelime sayısı (yazı tipi, boyut, aralıklara göre değişir)",
-        "tr": "Bir sayfaya sığan ortalama kelime sayısı (yazı tipi, boyut, aralıklara göre değişir)"
+        "tr": "Bir sayfaya sığan ortalama kelime sayısı (yazı tipi, boyut, aralıklara göre değişir)",
+        "de": "Durchschnittliche Wortanzahl pro Seite (variiert je nach Schriftart, Größe, Abständen)",
+        "fr": "Nombre moyen de mots par page (varie selon la police, la taille, les espacements)",
+        "es": "Número promedio de palabras que caben en una página (varía según fuente, tamaño e interlineado)"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Tam Sayfa Görsel",
         "tr": "Tam Sayfa Görsel",
-        "de": "Tam Sayfa Görsel",
-        "fr": "Tam Sayfa Görsel",
-        "es": "Tam Sayfa Görsel",
+        "de": "Ganzseitiges Bild",
+        "fr": "Image pleine page",
+        "es": "Imagen de página completa",
         "ar": "Tam Sayfa Görsel"
       },
       "businessContext_i18n": {
         "en": "Tam sayfa kaplayan görsel sayısı",
-        "tr": "Tam sayfa kaplayan görsel sayısı"
+        "tr": "Tam sayfa kaplayan görsel sayısı",
+        "de": "Anzahl der Bilder, die eine ganze Seite einnehmen",
+        "fr": "Nombre d'images occupant une page entière",
+        "es": "Número de imágenes que ocupan una página completa"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Yarım Sayfa Görsel",
         "tr": "Yarım Sayfa Görsel",
-        "de": "Yarım Sayfa Görsel",
-        "fr": "Yarım Sayfa Görsel",
-        "es": "Yarım Sayfa Görsel",
+        "de": "Halbes Bild",
+        "fr": "Image demi-page",
+        "es": "Imagen de media página",
         "ar": "Yarım Sayfa Görsel"
       },
       "businessContext_i18n": {
         "en": "Yarım sayfa kaplayan görsel sayısı",
-        "tr": "Yarım sayfa kaplayan görsel sayısı"
+        "tr": "Yarım sayfa kaplayan görsel sayısı",
+        "de": "Anzahl der Bilder, die eine halbe Seite einnehmen",
+        "fr": "Nombre d'images occupant une demi-page",
+        "es": "Número de imágenes que ocupan media página"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Tam Sayfa Tablo",
         "tr": "Tam Sayfa Tablo",
-        "de": "Tam Sayfa Tablo",
-        "fr": "Tam Sayfa Tablo",
-        "es": "Tam Sayfa Tablo",
+        "de": "Ganzseitige Tabelle",
+        "fr": "Tableau pleine page",
+        "es": "Tabla de página completa",
         "ar": "Tam Sayfa Tablo"
       },
       "businessContext_i18n": {
         "en": "Tam sayfa kaplayan tablo sayısı",
-        "tr": "Tam sayfa kaplayan tablo sayısı"
+        "tr": "Tam sayfa kaplayan tablo sayısı",
+        "de": "Anzahl der Tabellen, die eine ganze Seite einnehmen",
+        "fr": "Nombre de tableaux occupant une page entière",
+        "es": "Número de tablas que ocupan una página completa"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Yarım Sayfa Tablo",
         "tr": "Yarım Sayfa Tablo",
-        "de": "Yarım Sayfa Tablo",
-        "fr": "Yarım Sayfa Tablo",
-        "es": "Yarım Sayfa Tablo",
+        "de": "Halbe Tabelle",
+        "fr": "Tableau demi-page",
+        "es": "Tabla de media página",
         "ar": "Yarım Sayfa Tablo"
       },
       "businessContext_i18n": {
         "en": "Yarım sayfa kaplayan tablo sayısı",
-        "tr": "Yarım sayfa kaplayan tablo sayısı"
+        "tr": "Yarım sayfa kaplayan tablo sayısı",
+        "de": "Anzahl der Tabellen, die eine halbe Seite einnehmen",
+        "fr": "Nombre de tableaux occupant une demi-page",
+        "es": "Número de tablas que ocupan media página"
       }
     }
   ],

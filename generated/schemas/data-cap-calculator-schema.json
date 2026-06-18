@@ -12,14 +12,16 @@
         "en": "Monthly Data Cap",
         "tr": "Aylık Veri Limiti",
         "de": "Monatliches Datenlimit",
-        "fr": "Monthly Data Cap",
-        "es": "Monthly Data Cap",
+        "fr": "Plafond mensuel de données",
+        "es": "Límite de datos mensual",
         "ar": "Monthly Data Cap"
       },
       "businessContext_i18n": {
         "en": "The total data allowance in gigabytes for the billing period.",
         "tr": "Fatura dönemi için toplam veri izni (gigabayt cinsinden).",
-        "de": "Das gesamte Datenvolumen in Gigabyte für den Abrechnungszeitraum."
+        "de": "Das gesamte Datenvolumen in Gigabyte für den Abrechnungszeitraum.",
+        "fr": "Volume total de données autorisé en gigaoctets pour la période de facturation.",
+        "es": "La cantidad total de datos en gigabytes para el período de facturación."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Data Used So Far",
         "tr": "Şu Ana Kadar Kullanılan Veri",
         "de": "Bisher verbrauchte Daten",
-        "fr": "Data Used So Far",
-        "es": "Data Used So Far",
+        "fr": "Données utilisées jusqu'à présent",
+        "es": "Datos utilizados hasta ahora",
         "ar": "Data Used So Far"
       },
       "businessContext_i18n": {
         "en": "Amount of data consumed so far in the current billing period.",
         "tr": "Mevcut fatura döneminde şu ana kadar tüketilen veri miktarı.",
-        "de": "Menge der im aktuellen Abrechnungszeitraum bisher verbrauchten Daten."
+        "de": "Menge der im aktuellen Abrechnungszeitraum bisher verbrauchten Daten.",
+        "fr": "Quantité de données consommées jusqu'à présent dans la période de facturation en cours.",
+        "es": "Cantidad de datos consumidos hasta ahora en el período de facturación actual."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Billing Cycle Days",
         "tr": "Fatura Döngüsü Günleri",
         "de": "Abrechnungszyklus-Tage",
-        "fr": "Billing Cycle Days",
-        "es": "Billing Cycle Days",
+        "fr": "Jours du cycle de facturation",
+        "es": "Días del ciclo de facturación",
         "ar": "Billing Cycle Days"
       },
       "businessContext_i18n": {
         "en": "Total days in the billing cycle.",
         "tr": "Fatura döngüsündeki toplam gün sayısı.",
-        "de": "Gesamtzahl der Tage im Abrechnungszyklus."
+        "de": "Gesamtzahl der Tage im Abrechnungszyklus.",
+        "fr": "Nombre total de jours dans le cycle de facturation.",
+        "es": "Total de días en el ciclo de facturación."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Days Elapsed",
         "tr": "Geçen Günler",
         "de": "Verstrichene Tage",
-        "fr": "Days Elapsed",
-        "es": "Days Elapsed",
+        "fr": "Jours écoulés",
+        "es": "Días transcurridos",
         "ar": "Days Elapsed"
       },
       "businessContext_i18n": {
         "en": "Number of days that have passed in the current billing cycle.",
         "tr": "Mevcut fatura döngüsünde geçen gün sayısı.",
-        "de": "Anzahl der im aktuellen Abrechnungszyklus vergangenen Tage."
+        "de": "Anzahl der im aktuellen Abrechnungszyklus vergangenen Tage.",
+        "fr": "Nombre de jours écoulés dans le cycle de facturation en cours.",
+        "es": "Número de días que han pasado en el ciclo de facturación actual."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Overage Fee per GB",
         "tr": "GB Başına Aşım Ücreti",
         "de": "Überschreitungsgebühr pro GB",
-        "fr": "Overage Fee per GB",
-        "es": "Overage Fee per GB",
+        "fr": "Frais de dépassement par Go",
+        "es": "Tarifa de exceso por GB",
         "ar": "Overage Fee per GB"
       },
       "businessContext_i18n": {
         "en": "Cost charged per gigabyte when exceeding the data cap.",
         "tr": "Veri limitini aştığınızda gigabayt başına uygulanan ücret.",
-        "de": "Kosten pro Gigabyte bei Überschreitung des Datenlimits."
+        "de": "Kosten pro Gigabyte bei Überschreitung des Datenlimits.",
+        "fr": "Coût facturé par gigaoctet en cas de dépassement du plafond de données.",
+        "es": "Coste cobrado por gigabyte al superar el límite de datos."
       }
     }
   ],

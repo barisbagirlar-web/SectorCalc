@@ -12,14 +12,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Patient age in years",
         "tr": "Hasta yaşı (yıl)",
-        "de": "Patientenalter in Jahren"
+        "de": "Patientenalter in Jahren",
+        "fr": "Âge du patient en années",
+        "es": "Edad del paciente en años"
       }
     },
     {
@@ -33,13 +35,16 @@
         "en": "Sex",
         "tr": "Cinsiyet",
         "de": "Geschlecht",
-        "fr": "Sex",
-        "es": "Sex",
+        "fr": "Sexe",
+        "es": "Sexo",
         "ar": "Sex"
       },
       "businessContext_i18n": {
         "en": "Sex assigned at birth",
-        "tr": "Doğumda atanan cinsiyet"
+        "tr": "Doğumda atanan cinsiyet",
+        "de": "Bei Geburt zugewiesenes Geschlecht",
+        "fr": "Sexe à la naissance",
+        "es": "Sexo asignado al nacer"
       }
     },
     {
@@ -53,13 +58,16 @@
         "en": "Total Cholesterol",
         "tr": "Toplam Kolesterol",
         "de": "Gesamtcholesterin",
-        "fr": "Total Cholesterol",
-        "es": "Total Cholesterol",
+        "fr": "Cholestérol total",
+        "es": "Colesterol total",
         "ar": "Total Cholesterol"
       },
       "businessContext_i18n": {
         "en": "Total cholesterol level",
-        "tr": "Toplam kolesterol seviyesi"
+        "tr": "Toplam kolesterol seviyesi",
+        "de": "Gesamtcholesterinspiegel",
+        "fr": "Taux de cholestérol total",
+        "es": "Nivel de colesterol total"
       }
     },
     {
@@ -73,13 +81,16 @@
         "en": "HDL Cholesterol",
         "tr": "HDL Kolesterol",
         "de": "HDL-Cholesterin",
-        "fr": "HDL Cholesterol",
-        "es": "HDL Cholesterol",
+        "fr": "Cholestérol HDL",
+        "es": "Colesterol HDL",
         "ar": "HDL Cholesterol"
       },
       "businessContext_i18n": {
         "en": "HDL cholesterol level",
-        "tr": "HDL kolesterol seviyesi"
+        "tr": "HDL kolesterol seviyesi",
+        "de": "HDL-Cholesterinspiegel",
+        "fr": "Taux de cholestérol HDL",
+        "es": "Nivel de colesterol HDL"
       }
     },
     {
@@ -93,13 +104,16 @@
         "en": "Systolic Blood Pressure",
         "tr": "Sistolik Kan Basıncı",
         "de": "Systolischer Blutdruck",
-        "fr": "Systolic Blood Pressure",
-        "es": "Systolic Blood Pressure",
+        "fr": "Pression artérielle systolique",
+        "es": "Presión arterial sistólica",
         "ar": "Systolic Blood Pressure"
       },
       "businessContext_i18n": {
         "en": "Systolic blood pressure",
-        "tr": "Sistolik kan basıncı"
+        "tr": "Sistolik kan basıncı",
+        "de": "Systolischer Blutdruck",
+        "fr": "Pression artérielle systolique",
+        "es": "Presión arterial sistólica"
       }
     },
     {
@@ -112,14 +126,17 @@
       "label_i18n": {
         "en": "Treated Hypertension",
         "tr": "Tedavi Edilen Hipertansiyon",
-        "de": "Treated Hypertension",
-        "fr": "Treated Hypertension",
-        "es": "Treated Hypertension",
+        "de": "Behandelter Bluthochdruck",
+        "fr": "Hypertension traitée",
+        "es": "Hipertensión tratada",
         "ar": "Treated Hypertension"
       },
       "businessContext_i18n": {
         "en": "Whether hypertension is treated",
-        "tr": "Hipertansiyonun tedavi edilip edilmediği"
+        "tr": "Hipertansiyonun tedavi edilip edilmediği",
+        "de": "Ob Bluthochdruck behandelt wird",
+        "fr": "Indique si l'hypertension est traitée",
+        "es": "Si la hipertensión está tratada"
       }
     },
     {
@@ -133,13 +150,16 @@
         "en": "Diabetes",
         "tr": "Diyabet",
         "de": "Diabetes",
-        "fr": "Diabetes",
+        "fr": "Diabète",
         "es": "Diabetes",
         "ar": "Diabetes"
       },
       "businessContext_i18n": {
         "en": "Diabetes status",
-        "tr": "Diyabet durumu"
+        "tr": "Diyabet durumu",
+        "de": "Diabetes-Status",
+        "fr": "Statut diabétique",
+        "es": "Estado de diabetes"
       }
     },
     {
@@ -152,14 +172,17 @@
       "label_i18n": {
         "en": "Smoker",
         "tr": "Sigara içen",
-        "de": "Smoker",
-        "fr": "Smoker",
-        "es": "Smoker",
+        "de": "Raucher",
+        "fr": "Fumeur",
+        "es": "Fumador",
         "ar": "Smoker"
       },
       "businessContext_i18n": {
         "en": "Current smoker status",
-        "tr": "Mevcut sigara içme durumu"
+        "tr": "Mevcut sigara içme durumu",
+        "de": "Aktueller Raucherstatus",
+        "fr": "Statut fumeur actuel",
+        "es": "Estado de fumador actual"
       }
     }
   ],

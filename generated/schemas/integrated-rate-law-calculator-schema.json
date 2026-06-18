@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Initial Concentration [A]₀",
         "tr": "Başlangıç Derişimi [A]₀",
-        "de": "Initial Concentration [A]₀",
-        "fr": "Initial Concentration [A]₀",
-        "es": "Initial Concentration [A]₀",
+        "de": "Anfangskonzentration [A]₀",
+        "fr": "Concentration initiale [A]₀",
+        "es": "Concentración inicial [A]₀",
         "ar": "Initial Concentration [A]₀"
       },
       "businessContext_i18n": {
         "en": "Initial concentration of reactant A",
-        "tr": "A reaktanının başlangıç derişimi"
+        "tr": "A reaktanının başlangıç derişimi",
+        "de": "Anfangskonzentration des Reaktanten A",
+        "fr": "Concentration initiale du réactif A",
+        "es": "Concentración inicial del reactivo A"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Rate Constant (k)",
         "tr": "Hız Sabiti (k)",
         "de": "Geschwindigkeitskonstante (k)",
-        "fr": "Rate Constant (k)",
-        "es": "Rate Constant (k)",
+        "fr": "Constante de vitesse (k)",
+        "es": "Constante de velocidad (k)",
         "ar": "Rate Constant (k)"
       },
       "businessContext_i18n": {
         "en": "Reaction rate constant, units depend on reaction order",
-        "tr": "Reaksiyon hız sabiti, birimler reaksiyon derecesine bağlıdır"
+        "tr": "Reaksiyon hız sabiti, birimler reaksiyon derecesine bağlıdır",
+        "de": "Reaktionsgeschwindigkeitskonstante, Einheiten abhängig von der Reaktionsordnung",
+        "fr": "Constante de vitesse de réaction, unités dépendant de l'ordre de réaction",
+        "es": "Constante de velocidad de reacción, unidades dependen del orden de reacción"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Time (t)",
         "tr": "Zaman (t)",
         "de": "Zeit (t)",
-        "fr": "Time (t)",
-        "es": "Time (t)",
+        "fr": "Temps (t)",
+        "es": "Tiempo (t)",
         "ar": "Time (t)"
       },
       "businessContext_i18n": {
         "en": "Elapsed time of reaction",
-        "tr": "Reaksiyonun geçen süresi"
+        "tr": "Reaksiyonun geçen süresi",
+        "de": "Verstrichene Reaktionszeit",
+        "fr": "Temps écoulé de la réaction",
+        "es": "Tiempo transcurrido de reacción"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Reaction Order (n)",
         "tr": "Reaksiyon Derecesi (n)",
-        "de": "Reaction Order (n)",
-        "fr": "Reaction Order (n)",
-        "es": "Reaction Order (n)",
+        "de": "Reaktionsordnung (n)",
+        "fr": "Ordre de réaction (n)",
+        "es": "Orden de reacción (n)",
         "ar": "Reaction Order (n)"
       },
       "businessContext_i18n": {
         "en": "Order of the reaction with respect to A (0, 1, or 2)",
-        "tr": "A'ya göre reaksiyon derecesi (0, 1 veya 2)"
+        "tr": "A'ya göre reaksiyon derecesi (0, 1 veya 2)",
+        "de": "Ordnung der Reaktion bezüglich A (0, 1 oder 2)",
+        "fr": "Ordre de la réaction par rapport à A (0, 1 ou 2)",
+        "es": "Orden de la reacción respecto a A (0, 1 o 2)"
       }
     }
   ],

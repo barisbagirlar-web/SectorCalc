@@ -12,14 +12,16 @@
         "en": "Wall Length",
         "tr": "Duvar Uzunluğu (m)",
         "de": "Duvar Uzunluğu",
-        "fr": "Wall Length",
-        "es": "Wall Length",
+        "fr": "Longueur du mur",
+        "es": "Longitud del muro",
         "ar": "Wall Length"
       },
       "businessContext_i18n": {
         "en": "Total length of the wall in meters",
         "tr": "Duvarın toplam uzunluğu (metre)",
-        "de": "Gesamtlänge der Wand in Metern"
+        "de": "Gesamtlänge der Wand in Metern",
+        "fr": "Longueur totale du mur en mètres",
+        "es": "Longitud total del muro en metros"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Wall Height",
         "tr": "Duvar Yüksekliği",
         "de": "Wandhöhe",
-        "fr": "Wall Height",
-        "es": "Wall Height",
+        "fr": "Hauteur du mur",
+        "es": "Altura del muro",
         "ar": "Wall Height"
       },
       "businessContext_i18n": {
         "en": "Total height of the wall in meters",
         "tr": "Duvarın toplam yüksekliği (metre)",
-        "de": "Gesamthöhe der Wand in Metern"
+        "de": "Gesamthöhe der Wand in Metern",
+        "fr": "Hauteur totale du mur en mètres",
+        "es": "Altura total del muro en metros"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Brick Length",
         "tr": "Tuğla uzunluğu",
         "de": "Ziegellänge",
-        "fr": "Brick Length",
-        "es": "Brick Length",
+        "fr": "Longueur de la brique",
+        "es": "Longitud del ladrillo",
         "ar": "Brick Length"
       },
       "businessContext_i18n": {
         "en": "Length of a single brick (excluding mortar)",
         "tr": "Tek bir tuğlanın uzunluğu (harç hariç)",
-        "de": "Länge eines einzelnen Ziegels (ohne Mörtel)"
+        "de": "Länge eines einzelnen Ziegels (ohne Mörtel)",
+        "fr": "Longueur d'une brique (hors mortier)",
+        "es": "Longitud de un ladrillo individual (excluyendo mortero)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Brick Height",
         "tr": "Tuğla yüksekliği",
         "de": "Ziegelhöhe",
-        "fr": "Brick Height",
-        "es": "Brick Height",
+        "fr": "Hauteur de la brique",
+        "es": "Altura del ladrillo",
         "ar": "Brick Height"
       },
       "businessContext_i18n": {
         "en": "Height of a single brick (excluding mortar)",
         "tr": "Tek bir tuğlanın yüksekliği (harç hariç)",
-        "de": "Höhe eines einzelnen Ziegels (ohne Mörtel)"
+        "de": "Höhe eines einzelnen Ziegels (ohne Mörtel)",
+        "fr": "Hauteur d'une brique (hors mortier)",
+        "es": "Altura de un ladrillo individual (excluyendo mortero)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Mortar Joint Thickness",
         "tr": "Harç Derz Kalınlığı",
         "de": "Mörtelfugendicke",
-        "fr": "Mortar Joint Thickness",
-        "es": "Mortar Joint Thickness",
+        "fr": "Épaisseur du joint de mortier",
+        "es": "Espesor de la junta de mortero",
         "ar": "Mortar Joint Thickness"
       },
       "businessContext_i18n": {
         "en": "Thickness of mortar between bricks",
         "tr": "Tuğlalar arasındaki harç kalınlığı",
-        "de": "Mörteldicke zwischen den Ziegeln"
+        "de": "Mörteldicke zwischen den Ziegeln",
+        "fr": "Épaisseur du joint de mortier entre les briques",
+        "es": "Espesor del mortero entre ladrillos"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Total Openings Area",
         "tr": "Toplam açıklık alanı",
         "de": "Gesamtfläche der Öffnungen",
-        "fr": "Total Openings Area",
-        "es": "Total Openings Area",
+        "fr": "Surface totale des ouvertures",
+        "es": "Área total de aberturas",
         "ar": "Total Openings Area"
       },
       "businessContext_i18n": {
         "en": "Total area of doors, windows, etc. to subtract",
         "tr": "Çıkarılacak kapı, pencere vb. toplam alanı",
-        "de": "Gesamtfläche von Türen, Fenstern usw. zum Abziehen"
+        "de": "Gesamtfläche von Türen, Fenstern usw. zum Abziehen",
+        "fr": "Surface totale des portes, fenêtres, etc. à soustraire",
+        "es": "Área total de puertas, ventanas, etc. a restar"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Wastage Percentage",
         "tr": "Fire yüzdesi",
         "de": "Verschnittprozentsatz",
-        "fr": "Wastage Percentage",
-        "es": "Wastage Percentage",
+        "fr": "Pourcentage de perte",
+        "es": "Porcentaje de desperdicio",
         "ar": "Wastage Percentage"
       },
       "businessContext_i18n": {
         "en": "Extra bricks for breakage and cuts",
         "tr": "Kırık ve kesimler için ek tuğlalar",
-        "de": "Zusätzliche Ziegel für Bruch und Schnitte"
+        "de": "Zusätzliche Ziegel für Bruch und Schnitte",
+        "fr": "Briques supplémentaires pour casse et coupes",
+        "es": "Ladrillos adicionales por roturas y cortes"
       }
     }
   ],

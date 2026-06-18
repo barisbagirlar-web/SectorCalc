@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Side a",
         "tr": "Kenar a",
-        "de": "Side a",
-        "fr": "Side a",
-        "es": "Side a",
+        "de": "Seite a",
+        "fr": "Côté a",
+        "es": "Lado a",
         "ar": "Side a"
       },
       "businessContext_i18n": {
         "en": "Length of first side",
-        "tr": "Birinci kenarın uzunluğu"
+        "tr": "Birinci kenarın uzunluğu",
+        "de": "Länge der ersten Seite",
+        "fr": "Longueur du premier côté",
+        "es": "Longitud del primer lado"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Side b",
         "tr": "Kenar b",
-        "de": "Side b",
-        "fr": "Side b",
-        "es": "Side b",
+        "de": "Seite b",
+        "fr": "Côté b",
+        "es": "Lado b",
         "ar": "Side b"
       },
       "businessContext_i18n": {
         "en": "Length of second side",
-        "tr": "İkinci kenarın uzunluğu"
+        "tr": "İkinci kenarın uzunluğu",
+        "de": "Länge der zweiten Seite",
+        "fr": "Longueur du deuxième côté",
+        "es": "Longitud del segundo lado"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Angle C",
         "tr": "Açı C",
-        "de": "Angle C",
+        "de": "Winkel C",
         "fr": "Angle C",
-        "es": "Angle C",
+        "es": "Ángulo C",
         "ar": "Angle C"
       },
       "businessContext_i18n": {
         "en": "Included angle between sides a and b",
-        "tr": "a ve b kenarları arasındaki dahil açı"
+        "tr": "a ve b kenarları arasındaki dahil açı",
+        "de": "Eingeschlossener Winkel zwischen den Seiten a und b",
+        "fr": "Angle inclus entre les côtés a et b",
+        "es": "Ángulo incluido entre los lados a y b"
       }
     },
     {
@@ -72,14 +81,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output rounding",
         "tr": "Çıktı yuvarlama için ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen für die Ausgaberundung"
+        "de": "Anzahl der Dezimalstellen für die Ausgaberundung",
+        "fr": "Nombre de décimales pour l'arrondi du résultat",
+        "es": "Número de decimales para el redondeo de salida"
       }
     }
   ],

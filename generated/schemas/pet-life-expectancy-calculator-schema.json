@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Base Lifespan",
         "tr": "Temel Yaşam Süresi",
-        "de": "Base Lifespan",
-        "fr": "Base Lifespan",
-        "es": "Base Lifespan",
+        "de": "Basislebenserwartung",
+        "fr": "Durée de vie de base",
+        "es": "Esperanza de vida base",
         "ar": "Base Lifespan"
       },
       "businessContext_i18n": {
         "en": "Average lifespan for species",
-        "tr": "Tür için ortalama yaşam süresi"
+        "tr": "Tür için ortalama yaşam süresi",
+        "de": "Durchschnittliche Lebenserwartung für die Art",
+        "fr": "Durée de vie moyenne pour l'espèce",
+        "es": "Esperanza de vida promedio para la especie"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Pet Weight",
         "tr": "Evcil Hayvan Ağırlığı",
-        "de": "Pet Weight",
-        "fr": "Pet Weight",
-        "es": "Pet Weight",
+        "de": "Haustiergewicht",
+        "fr": "Poids de l'animal",
+        "es": "Peso de la mascota",
         "ar": "Pet Weight"
       },
       "businessContext_i18n": {
         "en": "Current weight",
-        "tr": "Mevcut ağırlık"
+        "tr": "Mevcut ağırlık",
+        "de": "Aktuelles Gewicht",
+        "fr": "Poids actuel",
+        "es": "Peso actual"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Ideal Weight",
         "tr": "İdeal Ağırlık",
-        "de": "Ideal Weight",
-        "fr": "Ideal Weight",
-        "es": "Ideal Weight",
+        "de": "Idealgewicht",
+        "fr": "Poids idéal",
+        "es": "Peso ideal",
         "ar": "Ideal Weight"
       },
       "businessContext_i18n": {
         "en": "Ideal weight for breed/species",
-        "tr": "Cins/tür için ideal ağırlık"
+        "tr": "Cins/tür için ideal ağırlık",
+        "de": "Idealgewicht für Rasse/Spezies",
+        "fr": "Poids idéal pour la race/espèce",
+        "es": "Peso ideal para raza/especie"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Activity Level (0-10)",
         "tr": "Aktivite Seviyesi (0-10)",
-        "de": "Activity Level (0-10)",
-        "fr": "Activity Level (0-10)",
-        "es": "Activity Level (0-10)",
+        "de": "Aktivitätsniveau (0-10)",
+        "fr": "Niveau d'activité (0-10)",
+        "es": "Nivel de actividad (0-10)",
         "ar": "Activity Level (0-10)"
       },
       "businessContext_i18n": {
         "en": "Daily activity score",
-        "tr": "Günlük aktivite puanı"
+        "tr": "Günlük aktivite puanı",
+        "de": "Täglicher Aktivitätswert",
+        "fr": "Score d'activité quotidienne",
+        "es": "Puntuación de actividad diaria"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Diet Quality (0-10)",
         "tr": "Diyet Kalitesi (0-10)",
-        "de": "Diet Quality (0-10)",
-        "fr": "Diet Quality (0-10)",
-        "es": "Diet Quality (0-10)",
+        "de": "Ernährungsqualität (0-10)",
+        "fr": "Qualité de l'alimentation (0-10)",
+        "es": "Calidad de la dieta (0-10)",
         "ar": "Diet Quality (0-10)"
       },
       "businessContext_i18n": {
         "en": "Quality of nutrition",
-        "tr": "Beslenme kalitesi"
+        "tr": "Beslenme kalitesi",
+        "de": "Qualität der Ernährung",
+        "fr": "Qualité de la nutrition",
+        "es": "Calidad de la nutrición"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Vet Visits per Year",
         "tr": "Yıllık Veteriner Ziyareti",
-        "de": "Vet Visits per Year",
-        "fr": "Vet Visits per Year",
-        "es": "Vet Visits per Year",
+        "de": "Tierarztbesuche pro Jahr",
+        "fr": "Visites chez le vétérinaire par an",
+        "es": "Visitas al veterinario por año",
         "ar": "Vet Visits per Year"
       },
       "businessContext_i18n": {
         "en": "Annual veterinary check-ups",
-        "tr": "Yıllık veteriner kontrolleri"
+        "tr": "Yıllık veteriner kontrolleri",
+        "de": "Jährliche tierärztliche Untersuchungen",
+        "fr": "Contrôles vétérinaires annuels",
+        "es": "Revisiones veterinarias anuales"
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Sterilized (0/1)",
         "tr": "Kısırlaştırılmış (0/1)",
-        "de": "Sterilized (0/1)",
-        "fr": "Sterilized (0/1)",
-        "es": "Sterilized (0/1)",
+        "de": "Sterilisiert (0/1)",
+        "fr": "Stérilisé (0/1)",
+        "es": "Esterilizado (0/1)",
         "ar": "Sterilized (0/1)"
       },
       "businessContext_i18n": {
         "en": "1 if sterilized, 0 otherwise",
-        "tr": "Kısırlaştırılmışsa 1, değilse 0"
+        "tr": "Kısırlaştırılmışsa 1, değilse 0",
+        "de": "1 wenn sterilisiert, sonst 0",
+        "fr": "1 si stérilisé, 0 sinon",
+        "es": "1 si está esterilizado, 0 en caso contrario"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Guest Count",
         "tr": "Misafir Sayısı",
         "de": "Gästeanzahl",
-        "fr": "Guest Count",
-        "es": "Guest Count",
+        "fr": "Nombre d'invités",
+        "es": "Número de invitados",
         "ar": "Guest Count"
       },
       "businessContext_i18n": {
         "en": "Total number of invited guests",
         "tr": "Davet edilen toplam misafir sayısı",
-        "de": "Gesamtzahl der eingeladenen Gäste"
+        "de": "Gesamtzahl der eingeladenen Gäste",
+        "fr": "Nombre total d'invités invités",
+        "es": "Número total de invitados"
       }
     },
     {
@@ -33,13 +35,15 @@
         "en": "Cost per Plate",
         "tr": "Tabak Başına Maliyet",
         "de": "Kosten pro Teller",
-        "fr": "Cost per Plate",
-        "es": "Cost per Plate",
+        "fr": "Coût par assiette",
+        "es": "Costo por Plato",
         "ar": "Cost per Plate"
       },
       "businessContext_i18n": {
         "en": "Average cost of food and drinks per guest",
-        "tr": "Misafir başına ortalama yiyecek ve içecek maliyeti"
+        "tr": "Misafir başına ortalama yiyecek ve içecek maliyeti",
+        "de": "Durchschnittliche Kosten für Speisen und Getränke pro Gast",
+        "fr": "Coût moyen des aliments et boissons par invité"
       }
     },
     {
@@ -53,13 +57,15 @@
         "en": "Venue Rental Cost",
         "tr": "Mekan Kiralama Maliyeti",
         "de": "Mietkosten für den Veranstaltungsort",
-        "fr": "Venue Rental Cost",
-        "es": "Venue Rental Cost",
+        "fr": "Coût de location de la salle",
+        "es": "Costo de alquiler del local",
         "ar": "Venue Rental Cost"
       },
       "businessContext_i18n": {
         "en": "Fixed cost for venue rental",
-        "tr": "Mekan kiralama için sabit maliyet"
+        "tr": "Mekan kiralama için sabit maliyet",
+        "de": "Fixkosten für die Raummiete",
+        "fr": "Coût fixe pour la location de la salle"
       }
     },
     {
@@ -73,13 +79,15 @@
         "en": "Decoration Cost",
         "tr": "Dekorasyon Maliyeti",
         "de": "Dekorationskosten",
-        "fr": "Decoration Cost",
-        "es": "Decoration Cost",
+        "fr": "Coût de la décoration",
+        "es": "Costo de decoración",
         "ar": "Decoration Cost"
       },
       "businessContext_i18n": {
         "en": "Total expense for flowers and decor",
-        "tr": "Çiçek ve dekorasyon için toplam harcama"
+        "tr": "Çiçek ve dekorasyon için toplam harcama",
+        "de": "Gesamtkosten für Blumen und Dekoration",
+        "fr": "Dépense totale pour les fleurs et la décoration"
       }
     },
     {
@@ -93,13 +101,15 @@
         "en": "Entertainment Cost",
         "tr": "Eğlence Maliyeti",
         "de": "Unterhaltungskosten",
-        "fr": "Entertainment Cost",
-        "es": "Entertainment Cost",
+        "fr": "Coût du divertissement",
+        "es": "Costo de entretenimiento",
         "ar": "Entertainment Cost"
       },
       "businessContext_i18n": {
         "en": "Cost for music, photography, etc.",
-        "tr": "Müzik, fotoğrafçılık vb. için maliyet"
+        "tr": "Müzik, fotoğrafçılık vb. için maliyet",
+        "de": "Kosten für Musik, Fotografie usw.",
+        "fr": "Coût pour la musique, la photographie, etc."
       }
     },
     {
@@ -112,14 +122,16 @@
       "label_i18n": {
         "en": "Miscellaneous (%)",
         "tr": "Çeşitli (%)",
-        "de": "Miscellaneous (%)",
-        "fr": "Miscellaneous (%)",
+        "de": "Sonstiges (%)",
+        "fr": "Divers (%)",
         "es": "Miscellaneous (%)",
         "ar": "Miscellaneous (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of base cost reserved for unexpected expenses",
-        "tr": "Beklenmeyen giderler için ayrılan temel maliyet yüzdesi"
+        "tr": "Beklenmeyen giderler için ayrılan temel maliyet yüzdesi",
+        "de": "Prozentsatz der Basiskosten, der für unerwartete Ausgaben reserviert wird",
+        "fr": "Pourcentage du coût de base réservé aux dépenses imprévues"
       }
     }
   ],

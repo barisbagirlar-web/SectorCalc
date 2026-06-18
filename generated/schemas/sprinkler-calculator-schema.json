@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Design Area",
         "tr": "Kayma modülü (çelik için tipik)",
-        "de": "Design Area",
-        "fr": "Design Area",
+        "de": "Auslegungsfläche",
+        "fr": "Zone de conception",
         "es": "Design Area",
         "ar": "Design Area"
       },
       "businessContext_i18n": {
         "en": "The design area of sprinkler operation per NFPA 13.",
-        "tr": "Tasarım Alanı"
+        "tr": "Tasarım Alanı",
+        "de": "Die Auslegungsfläche des Sprinklerbetriebs gemäß NFPA 13.",
+        "fr": "Zone de conception de fonctionnement des sprinklers selon NFPA 13."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Discharge Density",
         "tr": "NFPA 13'e göre sprinkler işletim tasarım alanı.",
-        "de": "Discharge Density",
-        "fr": "Discharge Density",
+        "de": "Ausstoßdichte",
+        "fr": "Densité de décharge",
         "es": "Discharge Density",
         "ar": "Discharge Density"
       },
       "businessContext_i18n": {
         "en": "Water density required per square foot per minute.",
-        "tr": "Boşaltma Yoğunluğu"
+        "tr": "Boşaltma Yoğunluğu",
+        "de": "Erforderliche Wasserdichte pro Quadratfuß pro Minute.",
+        "fr": "Densité d'eau requise par pied carré par minute."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Sprinkler K-Factor",
         "tr": "Metrekare başına dakikada gerekli su yoğunluğu.",
-        "de": "Sprinkler K-Factor",
-        "fr": "Sprinkler K-Factor",
+        "de": "Sprinkler-K-Faktor",
+        "fr": "Facteur K du sprinkler",
         "es": "Sprinkler K-Factor",
         "ar": "Sprinkler K-Factor"
       },
       "businessContext_i18n": {
         "en": "Discharge coefficient of the sprinkler head.",
-        "tr": "Sprinkler K-Faktörü"
+        "tr": "Sprinkler K-Faktörü",
+        "de": "Ausstoßkoeffizient des Sprinklerkopfes.",
+        "fr": "Coefficient de décharge de la tête de sprinkler."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Number of Sprinklers",
         "tr": "Sprinkler başlığının boşaltma katsayısı.",
-        "de": "Number of Sprinklers",
-        "fr": "Number of Sprinklers",
+        "de": "Anzahl der Sprinkler",
+        "fr": "Nombre de sprinklers",
         "es": "Number of Sprinklers",
         "ar": "Number of Sprinklers"
       },
       "businessContext_i18n": {
         "en": "Number of sprinklers expected to operate in the design area.",
-        "tr": "Sprinkler Sayısı"
+        "tr": "Sprinkler Sayısı",
+        "de": "Anzahl der Sprinkler, die voraussichtlich im Auslegungsbereich auslösen.",
+        "fr": "Nombre de sprinklers censés fonctionner dans la zone de conception."
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Factor to account for system inefficiencies.",
-        "tr": "Sistem verimsizliklerini hesaba katan faktör."
+        "tr": "Sistem verimsizliklerini hesaba katan faktör.",
+        "de": "Faktor zur Berücksichtigung von Systemineffizienzen.",
+        "fr": "Facteur tenant compte des inefficacités du système."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Pipe Friction Loss",
         "tr": "Boru Sürtünme Kaybı",
-        "de": "Pipe Friction Loss",
-        "fr": "Pipe Friction Loss",
+        "de": "Rohrreibungsverlust",
+        "fr": "Perte de charge par frottement",
         "es": "Pipe Friction Loss",
         "ar": "Pipe Friction Loss"
       },
       "businessContext_i18n": {
         "en": "Estimated friction loss in piping.",
-        "tr": "Boru hattında tahmini sürtünme kaybı."
+        "tr": "Boru hattında tahmini sürtünme kaybı.",
+        "de": "Geschätzter Reibungsverlust in der Rohrleitung.",
+        "fr": "Perte de charge estimée dans la tuyauterie."
       }
     }
   ],

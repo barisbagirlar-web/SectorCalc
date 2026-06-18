@@ -23,12 +23,16 @@
       "label_i18n": {
         "en": "Labor Rate Charged to Customer",
         "tr": "Müşteriye Yansıtılan İşçilik Ücreti",
-        "de": "Berechneter Stundensatz für Kunden"
+        "de": "Berechneter Stundensatz für Kunden",
+        "fr": "Taux de main-d'œuvre facturé au client",
+        "es": "Tarifa de mano de obra cobrada al cliente"
       },
       "businessContext_i18n": {
         "en": "Standard hourly labor rate billed to customer. Typical range for auto shops.",
         "tr": "Müşteriye faturalanan standart saatlik işçilik ücreti. Oto atölyeleri için tipik aralık.",
-        "de": "Standardmäßiger Stundensatz, der dem Kunden in Rechnung gestellt wird. Typische Spanne für Autowerkstätten."
+        "de": "Standardmäßiger Stundensatz, der dem Kunden in Rechnung gestellt wird. Typische Spanne für Autowerkstätten.",
+        "fr": "Taux horaire standard facturé au client. Plage typique pour les ateliers automobiles.",
+        "es": "Tarifa de mano de obra por hora estándar facturada al cliente. Rango típico para talleres automotrices."
       }
     },
     {
@@ -43,12 +47,16 @@
       "label_i18n": {
         "en": "Effective Labor Rate (After Discounts/Write-offs)",
         "tr": "Efektif İşçilik Ücreti (İndirimler/İptaller Sonrası)",
-        "de": "Effektiver Stundensatz (nach Rabatten/Abschreibungen)"
+        "de": "Effektiver Stundensatz (nach Rabatten/Abschreibungen)",
+        "fr": "Taux de main-d'œuvre effectif (après remises/radiations)",
+        "es": "Tarifa de mano de obra efectiva (después de descuentos/ajustes)"
       },
       "businessContext_i18n": {
         "en": "Actual average labor rate realized after discounts, warranty adjustments, or internal write-offs.",
         "tr": "İndirimler, garanti ayarlamaları veya iç iptaller sonrası elde edilen gerçek ortalama işçilik ücreti.",
-        "de": "Tatsächlicher durchschnittlicher Stundensatz nach Rabatten, Garantieanpassungen oder internen Abschreibungen."
+        "de": "Tatsächlicher durchschnittlicher Stundensatz nach Rabatten, Garantieanpassungen oder internen Abschreibungen.",
+        "fr": "Taux de main-d'œuvre moyen réel réalisé après remises, ajustements de garantie ou radiations internes.",
+        "es": "Tarifa de mano de obra promedio real obtenida después de descuentos, ajustes de garantía o cancelaciones internas."
       }
     },
     {
@@ -63,12 +71,16 @@
       "label_i18n": {
         "en": "Total Labor Hours Sold",
         "tr": "Satılan Toplam İşçilik Saati",
-        "de": "Verkaufte Gesamtarbeitsstunden"
+        "de": "Verkaufte Gesamtarbeitsstunden",
+        "fr": "Total des heures de main-d'œuvre vendues",
+        "es": "Total de horas de mano de obra vendidas"
       },
       "businessContext_i18n": {
         "en": "Total billable labor hours sold in the period (monthly or annually).",
         "tr": "Dönemde (aylık veya yıllık) satılan toplam faturalanabilir işçilik saati.",
-        "de": "Gesamte abrechenbare Arbeitsstunden im Zeitraum (monatlich oder jährlich)."
+        "de": "Gesamte abrechenbare Arbeitsstunden im Zeitraum (monatlich oder jährlich).",
+        "fr": "Total des heures de main-d'œuvre facturables vendues sur la période (mensuelle ou annuelle).",
+        "es": "Total de horas de mano de obra facturables vendidas en el período (mensual o anual)."
       }
     },
     {
@@ -83,12 +95,16 @@
       "label_i18n": {
         "en": "Parts Markup Percentage",
         "tr": "Parça Kâr Marjı Yüzdesi",
-        "de": "Teileaufschlag in Prozent"
+        "de": "Teileaufschlag in Prozent",
+        "fr": "Pourcentage de majoration des pièces",
+        "es": "Porcentaje de margen de piezas"
       },
       "businessContext_i18n": {
         "en": "Standard markup on parts cost before any discounts.",
         "tr": "Herhangi bir indirim öncesi parça maliyetine uygulanan standart kâr marjı.",
-        "de": "Standardmäßiger Aufschlag auf Teilekosten vor Rabatten."
+        "de": "Standardmäßiger Aufschlag auf Teilekosten vor Rabatten.",
+        "fr": "Majoration standard sur le coût des pièces avant toute remise.",
+        "es": "Margen estándar sobre el costo de las piezas antes de cualquier descuento."
       }
     },
     {
@@ -103,12 +119,16 @@
       "label_i18n": {
         "en": "Realized Parts Markup Percentage",
         "tr": "Gerçekleşen Parça Kâr Marjı Yüzdesi",
-        "de": "Real erzielter Teileaufschlag in Prozent"
+        "de": "Real erzielter Teileaufschlag in Prozent",
+        "fr": "Pourcentage de majoration réalisé des pièces",
+        "es": "Porcentaje de margen de piezas realizado"
       },
       "businessContext_i18n": {
         "en": "Actual markup realized after discounts, promotions, or supplier constraints.",
         "tr": "İndirimler, promosyonlar veya tedarikçi kısıtlamaları sonrası elde edilen gerçek kâr marjı.",
-        "de": "Tatsächlicher Aufschlag nach Rabatten, Aktionen oder Lieferantenbeschränkungen."
+        "de": "Tatsächlicher Aufschlag nach Rabatten, Aktionen oder Lieferantenbeschränkungen.",
+        "fr": "Majoration réelle réalisée après remises, promotions ou contraintes fournisseurs.",
+        "es": "Margen real obtenido después de descuentos, promociones o restricciones del proveedor."
       }
     },
     {
@@ -123,12 +143,16 @@
       "label_i18n": {
         "en": "Total Parts Cost (COGS)",
         "tr": "Toplam Parça Maliyeti (COGS)",
-        "de": "Gesamtteilekosten (COGS)"
+        "de": "Gesamtteilekosten (COGS)",
+        "fr": "Coût total des pièces (COGS)",
+        "es": "Costo total de piezas (COGS)"
       },
       "businessContext_i18n": {
         "en": "Total cost of parts sold in the period.",
         "tr": "Dönemde satılan parçaların toplam maliyeti.",
-        "de": "Gesamtkosten der im Zeitraum verkauften Teile."
+        "de": "Gesamtkosten der im Zeitraum verkauften Teile.",
+        "fr": "Coût total des pièces vendues sur la période.",
+        "es": "Costo total de las piezas vendidas en el período."
       }
     },
     {
@@ -143,12 +167,16 @@
       "label_i18n": {
         "en": "Shop Supply Charge per Repair Order",
         "tr": "Tamir Emri Başına Atölye Sarf Malzemesi Ücreti",
-        "de": "Ladengebühr pro Reparaturauftrag"
+        "de": "Ladengebühr pro Reparaturauftrag",
+        "fr": "Frais de fournitures d'atelier par ordre de réparation",
+        "es": "Cargo por suministros del taller por orden de reparación"
       },
       "businessContext_i18n": {
         "en": "Standard shop supply fee charged per repair order.",
         "tr": "Tamir emri başına alınan standart atölye sarf malzemesi ücreti.",
-        "de": "Standardmäßige Ladengebühr pro Reparaturauftrag."
+        "de": "Standardmäßige Ladengebühr pro Reparaturauftrag.",
+        "fr": "Frais standard de fournitures d'atelier facturés par ordre de réparation.",
+        "es": "Tarifa estándar de suministros del taller cobrada por orden de reparación."
       }
     },
     {
@@ -163,12 +191,16 @@
       "label_i18n": {
         "en": "Actual Shop Supply Cost per Repair Order",
         "tr": "Tamir Emri Başına Gerçek Atölye Sarf Malzemesi Maliyeti",
-        "de": "Tatsächliche Ladengebührenkosten pro Reparaturauftrag"
+        "de": "Tatsächliche Ladengebührenkosten pro Reparaturauftrag",
+        "fr": "Coût réel des fournitures d'atelier par ordre de réparation",
+        "es": "Costo real de suministros del taller por orden de reparación"
       },
       "businessContext_i18n": {
         "en": "Actual cost incurred for shop supplies per repair order.",
         "tr": "Tamir emri başına atölye sarf malzemeleri için oluşan gerçek maliyet.",
-        "de": "Tatsächlich angefallene Kosten für Ladengebühren pro Reparaturauftrag."
+        "de": "Tatsächlich angefallene Kosten für Ladengebühren pro Reparaturauftrag.",
+        "fr": "Coût réel engagé pour les fournitures d'atelier par ordre de réparation.",
+        "es": "Costo real incurrido por suministros del taller por orden de reparación."
       }
     }
   ],

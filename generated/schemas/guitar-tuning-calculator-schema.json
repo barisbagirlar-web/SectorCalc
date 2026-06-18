@@ -12,14 +12,16 @@
         "en": "Number of Frets",
         "tr": "Perde Sayısı",
         "de": "Anzahl der Bünde",
-        "fr": "Number of Frets",
-        "es": "Number of Frets",
+        "fr": "Nombre de frettes",
+        "es": "Número de trastes",
         "ar": "Number of Frets"
       },
       "businessContext_i18n": {
         "en": "Total frets on the guitar neck",
         "tr": "Gitar sapındaki toplam perde sayısı",
-        "de": "Gesamtzahl der Bünde auf dem Gitarrenhals"
+        "de": "Gesamtzahl der Bünde auf dem Gitarrenhals",
+        "fr": "Nombre total de frettes sur le manche de la guitare",
+        "es": "Total de trastes en el mástil de la guitarra"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Scale Length",
         "tr": "Skala Uzunluğu",
         "de": "Mensurlänge",
-        "fr": "Scale Length",
-        "es": "Scale Length",
+        "fr": "Longueur de la corde vibrante",
+        "es": "Longitud de escala",
         "ar": "Scale Length"
       },
       "businessContext_i18n": {
         "en": "Distance from nut to bridge",
         "tr": "Somundan köprüye mesafe",
-        "de": "Abstand von Sattel zu Steg"
+        "de": "Abstand von Sattel zu Steg",
+        "fr": "Distance du sillet de tête au chevalet",
+        "es": "Distancia desde la cejilla al puente"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "String Tension",
         "tr": "Tel Gerilimi",
         "de": "Saitenspannung",
-        "fr": "String Tension",
-        "es": "String Tension",
+        "fr": "Tension de la corde",
+        "es": "Tensión de la cuerda",
         "ar": "String Tension"
       },
       "businessContext_i18n": {
         "en": "Tension of the string in Newtons",
         "tr": "Tel üzerindeki gerilim (Newton cinsinden)",
-        "de": "Spannung der Saite in Newton"
+        "de": "Spannung der Saite in Newton",
+        "fr": "Tension de la corde en Newtons",
+        "es": "Tensión de la cuerda en Newtons"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Linear Density",
         "tr": "Doğrusal Yoğunluk",
         "de": "Lineare Dichte",
-        "fr": "Linear Density",
-        "es": "Linear Density",
+        "fr": "Masse linéique",
+        "es": "Densidad lineal",
         "ar": "Linear Density"
       },
       "businessContext_i18n": {
         "en": "Mass per unit length of the string",
         "tr": "Tel birim uzunluk kütlesi",
-        "de": "Masse pro Längeneinheit der Saite"
+        "de": "Masse pro Längeneinheit der Saite",
+        "fr": "Masse linéique de la corde",
+        "es": "Masa por unidad de longitud de la cuerda"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Open Note Frequency",
         "tr": "Boş Tel Frekansı",
         "de": "Frequenz des offenen Tons",
-        "fr": "Open Note Frequency",
-        "es": "Open Note Frequency",
+        "fr": "Fréquence de la corde à vide",
+        "es": "Frecuencia de la nota al aire",
         "ar": "Open Note Frequency"
       },
       "businessContext_i18n": {
         "en": "Frequency of the open string (e.g., E2 = 82.41 Hz)",
         "tr": "Boş telin frekansı (örn. E2 = 82.41 Hz)",
-        "de": "Frequenz der leeren Saite (z. B. E2 = 82,41 Hz)"
+        "de": "Frequenz der leeren Saite (z. B. E2 = 82,41 Hz)",
+        "fr": "Fréquence de la corde à vide (ex. Mi2 = 82,41 Hz)",
+        "es": "Frecuencia de la cuerda al aire (ej., E2 = 82.41 Hz)"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Fret Number",
         "tr": "Perde Numarası",
         "de": "Bundnummer",
-        "fr": "Fret Number",
-        "es": "Fret Number",
+        "fr": "Numéro de frette",
+        "es": "Número de traste",
         "ar": "Fret Number"
       },
       "businessContext_i18n": {
         "en": "Fret position to calculate frequency",
         "tr": "Frekans hesaplanacak perde pozisyonu",
-        "de": "Bundposition zur Berechnung der Frequenz"
+        "de": "Bundposition zur Berechnung der Frequenz",
+        "fr": "Position de la frette pour calculer la fréquence",
+        "es": "Posición del traste para calcular la frecuencia"
       }
     }
   ],

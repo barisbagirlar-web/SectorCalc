@@ -12,13 +12,15 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Age of the individual in years",
-        "tr": "Bireyin yıl cinsinden yaşı"
+        "tr": "Bireyin yıl cinsinden yaşı",
+        "de": "Alter der Person in Jahren",
+        "fr": "Âge de l'individu en années"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Gender",
         "tr": "Cinsiyet",
         "de": "Geschlecht",
-        "fr": "Gender",
-        "es": "Gender",
+        "fr": "Genre",
+        "es": "Género",
         "ar": "Gender"
       },
       "businessContext_i18n": {
         "en": "Gender: 0 for female, 1 for male",
-        "tr": "Cinsiyet: 0 kadın, 1 erkek"
+        "tr": "Cinsiyet: 0 kadın, 1 erkek",
+        "de": "Geschlecht: 0 für weiblich, 1 für männlich",
+        "fr": "Genre : 0 pour femme, 1 pour homme"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Walking Time",
         "tr": "Yürüme Süresi",
-        "de": "Walking Time",
-        "fr": "Walking Time",
+        "de": "Gehzeit",
+        "fr": "Temps de marche",
         "es": "Walking Time",
         "ar": "Walking Time"
       },
       "businessContext_i18n": {
         "en": "Time to walk 1 mile in minutes",
-        "tr": "1 mil yürüme süresi (dakika)"
+        "tr": "1 mil yürüme süresi (dakika)",
+        "de": "Zeit zum Gehen von 1 Meile in Minuten",
+        "fr": "Temps pour parcourir 1 mile en minutes"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Heart Rate",
         "tr": "Kalp Atış Hızı",
         "de": "Herzfrequenz",
-        "fr": "Heart Rate",
-        "es": "Heart Rate",
+        "fr": "Fréquence cardiaque",
+        "es": "Frecuencia cardíaca",
         "ar": "Heart Rate"
       },
       "businessContext_i18n": {
         "en": "Heart rate immediately after completing the walk in beats per minute",
-        "tr": "Yürüyüşü tamamladıktan hemen sonra kalp atış hızı (atım/dakika)"
+        "tr": "Yürüyüşü tamamladıktan hemen sonra kalp atış hızı (atım/dakika)",
+        "de": "Herzfrequenz unmittelbar nach Abschluss des Gehens in Schlägen pro Minute",
+        "fr": "Fréquence cardiaque immédiatement après la marche en battements par minute"
       }
     },
     {
@@ -92,14 +100,16 @@
         "en": "Weight",
         "tr": "Ağırlık",
         "de": "Gewicht",
-        "fr": "Weight",
-        "es": "Weight",
+        "fr": "Poids",
+        "es": "Peso",
         "ar": "Weight"
       },
       "businessContext_i18n": {
         "en": "Body weight in kilograms",
         "tr": "Vücut ağırlığı (kilogram cinsinden).",
-        "de": "Körpergewicht in Kilogramm"
+        "de": "Körpergewicht in Kilogramm",
+        "fr": "Poids corporel en kilogrammes",
+        "es": "Peso corporal en kilogramos"
       }
     }
   ],

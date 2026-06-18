@@ -12,14 +12,16 @@
         "en": "Land Area",
         "tr": "Arsa Alanı",
         "de": "Grundstücksfläche",
-        "fr": "Land Area",
-        "es": "Land Area",
+        "fr": "Superficie du terrain",
+        "es": "Área del terreno",
         "ar": "Land Area"
       },
       "businessContext_i18n": {
         "en": "Total land area of the plot",
         "tr": "Arsanın toplam alanı",
-        "de": "Gesamtfläche des Grundstücks"
+        "de": "Gesamtfläche des Grundstücks",
+        "fr": "Superficie totale du terrain",
+        "es": "Área total del terreno de la parcela"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Total Floor Area",
         "tr": "Toplam Kat Alanı",
         "de": "Gesamte Geschossfläche",
-        "fr": "Total Floor Area",
-        "es": "Total Floor Area",
+        "fr": "Surface de plancher totale",
+        "es": "Área total construida",
         "ar": "Total Floor Area"
       },
       "businessContext_i18n": {
         "en": "Sum of floor areas of all floors",
         "tr": "Tüm katların kat alanlarının toplamı",
-        "de": "Summe der Geschossflächen aller Etagen"
+        "de": "Summe der Geschossflächen aller Etagen",
+        "fr": "Somme des surfaces de plancher de tous les étages",
+        "es": "Suma de las áreas de todos los pisos"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Built Area Footprint",
         "tr": "İnşaat Alanı Ayak İzi",
         "de": "Gebäudegrundfläche",
-        "fr": "Built Area Footprint",
-        "es": "Built Area Footprint",
+        "fr": "Emprise au sol bâtie",
+        "es": "Huella de edificación",
         "ar": "Built Area Footprint"
       },
       "businessContext_i18n": {
         "en": "Area covered by building footprint on the ground",
         "tr": "Binanın zeminde kapladığı alan",
-        "de": "Fläche des Gebäudegrundrisses auf dem Boden"
+        "de": "Fläche des Gebäudegrundrisses auf dem Boden",
+        "fr": "Surface couverte par l'empreinte du bâtiment au sol",
+        "es": "Área cubierta por la huella del edificio en el suelo"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Maximum Allowed FAR",
         "tr": "İzin Verilen Maksimum TAKS",
         "de": "Maximal zulässige GFZ",
-        "fr": "Maximum Allowed FAR",
-        "es": "Maximum Allowed FAR",
+        "fr": "COS maximum autorisé",
+        "es": "FAR máximo permitido",
         "ar": "Maximum Allowed FAR"
       },
       "businessContext_i18n": {
         "en": "Maximum allowable Floor Area Ratio per local regulations",
         "tr": "Yerel yönetmeliklere göre izin verilen maksimum TAKS değeri",
-        "de": "Maximal zulässige Geschossflächenzahl gemäß lokaler Vorschriften"
+        "de": "Maximal zulässige Geschossflächenzahl gemäß lokaler Vorschriften",
+        "fr": "Coefficient d'occupation des sols maximum autorisé selon la réglementation locale",
+        "es": "Índice de edificabilidad máximo permitido según normativa local"
       }
     }
   ],

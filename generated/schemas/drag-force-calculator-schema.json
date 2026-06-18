@@ -12,14 +12,16 @@
         "en": "Fluid Density (ρ)",
         "tr": "Akışkan Yoğunluğu (ρ)",
         "de": "Fluiddichte (ρ)",
-        "fr": "Fluid Density (ρ)",
-        "es": "Fluid Density (ρ)",
+        "fr": "Densité du fluide (ρ)",
+        "es": "Densidad del fluido (ρ)",
         "ar": "Fluid Density (ρ)"
       },
       "businessContext_i18n": {
         "en": "The density of the fluid through which the object moves. For air at sea level and 15°C, use 1.225 kg/m³.",
         "tr": "Nesnenin içinde hareket ettiği akışkanın yoğunluğu. Deniz seviyesinde ve 15°C'de hava için 1,225 kg/m³ kullanın.",
-        "de": "Die Dichte des Fluids, durch das sich das Objekt bewegt. Für Luft auf Meereshöhe und 15 °C verwenden Sie 1,225 kg/m³."
+        "de": "Die Dichte des Fluids, durch das sich das Objekt bewegt. Für Luft auf Meereshöhe und 15 °C verwenden Sie 1,225 kg/m³.",
+        "fr": "La densité du fluide dans lequel l'objet se déplace. Pour l'air au niveau de la mer et à 15°C, utiliser 1,225 kg/m³.",
+        "es": "La densidad del fluido a través del cual se mueve el objeto. Para aire a nivel del mar y 15°C, use 1.225 kg/m³."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Flow Velocity (v)",
         "tr": "Akış Hızı (v)",
         "de": "Strömungsgeschwindigkeit (v)",
-        "fr": "Flow Velocity (v)",
-        "es": "Flow Velocity (v)",
+        "fr": "Vitesse d'écoulement (v)",
+        "es": "Velocidad del flujo (v)",
         "ar": "Flow Velocity (v)"
       },
       "businessContext_i18n": {
         "en": "Relative velocity between the object and the fluid.",
         "tr": "Nesne ile akışkan arasındaki bağıl hız.",
-        "de": "Relativgeschwindigkeit zwischen Objekt und Fluid."
+        "de": "Relativgeschwindigkeit zwischen Objekt und Fluid.",
+        "fr": "Vitesse relative entre l'objet et le fluide.",
+        "es": "Velocidad relativa entre el objeto y el fluido."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Drag Coefficient (Cd)",
         "tr": "Sürükleme Katsayısı (Cd)",
         "de": "Widerstandsbeiwert (Cd)",
-        "fr": "Drag Coefficient (Cd)",
-        "es": "Drag Coefficient (Cd)",
+        "fr": "Coefficient de traînée (Cd)",
+        "es": "Coeficiente de arrastre (Cd)",
         "ar": "Drag Coefficient (Cd)"
       },
       "businessContext_i18n": {
         "en": "Empirical coefficient that depends on the shape of the object. Typical values: smooth sphere 0.47, streamlined body 0.04, cube 1.05.",
         "tr": "Nesnenin şekline bağlı ampirik katsayı. Tipik değerler: düzgün küre 0,47, aerodinamik gövde 0,04, küp 1,05.",
-        "de": "Empirischer Koeffizient, der von der Form des Objekts abhängt. Typische Werte: glatte Kugel 0,47, stromlinienförmiger Körper 0,04, Würfel 1,05."
+        "de": "Empirischer Koeffizient, der von der Form des Objekts abhängt. Typische Werte: glatte Kugel 0,47, stromlinienförmiger Körper 0,04, Würfel 1,05.",
+        "fr": "Coefficient empirique dépendant de la forme de l'objet. Valeurs typiques : sphère lisse 0,47, corps profilé 0,04, cube 1,05.",
+        "es": "Coeficiente empírico que depende de la forma del objeto. Valores típicos: esfera lisa 0.47, cuerpo aerodinámico 0.04, cubo 1.05."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Reference Area (A)",
         "tr": "Referans Alanı (A)",
         "de": "Bezugsfläche (A)",
-        "fr": "Reference Area (A)",
-        "es": "Reference Area (A)",
+        "fr": "Surface de référence (A)",
+        "es": "Área de referencia (A)",
         "ar": "Reference Area (A)"
       },
       "businessContext_i18n": {
         "en": "The frontal area of the object perpendicular to the flow, or other appropriate reference area.",
         "tr": "Nesnenin akışa dik ön alanı veya uygun başka bir referans alanı.",
-        "de": "Die Stirnfläche des Objekts senkrecht zur Strömung oder eine andere geeignete Bezugsfläche."
+        "de": "Die Stirnfläche des Objekts senkrecht zur Strömung oder eine andere geeignete Bezugsfläche.",
+        "fr": "La surface frontale de l'objet perpendiculaire à l'écoulement, ou autre surface de référence appropriée.",
+        "es": "El área frontal del objeto perpendicular al flujo, u otra área de referencia apropiada."
       }
     }
   ],

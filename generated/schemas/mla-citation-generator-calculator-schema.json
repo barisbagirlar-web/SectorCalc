@@ -12,13 +12,16 @@
         "en": "Word Count",
         "tr": "Kelime Sayısı",
         "de": "Wortanzahl",
-        "fr": "Word Count",
-        "es": "Word Count",
+        "fr": "Nombre de mots",
+        "es": "Recuento de palabras",
         "ar": "Word Count"
       },
       "businessContext_i18n": {
         "en": "Total word count of the document",
-        "tr": "Belgenin toplam kelime sayısı"
+        "tr": "Belgenin toplam kelime sayısı",
+        "de": "Gesamtwortanzahl des Dokuments",
+        "fr": "Nombre total de mots du document",
+        "es": "Recuento total de palabras del documento"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Number of Pages",
         "tr": "Sayfa Sayısı",
-        "de": "Number of Pages",
-        "fr": "Number of Pages",
-        "es": "Number of Pages",
+        "de": "Anzahl der Seiten",
+        "fr": "Nombre de pages",
+        "es": "Número de páginas",
         "ar": "Number of Pages"
       },
       "businessContext_i18n": {
         "en": "Total number of pages",
-        "tr": "Toplam sayfa sayısı"
+        "tr": "Toplam sayfa sayısı",
+        "de": "Gesamtseitenzahl",
+        "fr": "Nombre total de pages",
+        "es": "Número total de páginas"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Avg Authors per Citation",
         "tr": "Atıf Başına Ortalama Yazar Sayısı",
-        "de": "Avg Authors per Citation",
-        "fr": "Avg Authors per Citation",
-        "es": "Avg Authors per Citation",
+        "de": "Durchschnittliche Autoren pro Zitation",
+        "fr": "Moyenne d'auteurs par citation",
+        "es": "Promedio de autores por cita",
         "ar": "Avg Authors per Citation"
       },
       "businessContext_i18n": {
         "en": "Average number of authors per citation",
-        "tr": "Yazar başına ortalama atıf sayısı"
+        "tr": "Yazar başına ortalama atıf sayısı",
+        "de": "Durchschnittliche Anzahl der Autoren pro Zitation",
+        "fr": "Nombre moyen d'auteurs par citation",
+        "es": "Número promedio de autores por cita"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Sources per Page",
         "tr": "Sayfa başına kaynak",
-        "de": "Sources per Page",
-        "fr": "Sources per Page",
-        "es": "Sources per Page",
+        "de": "Quellen pro Seite",
+        "fr": "Sources par page",
+        "es": "Fuentes por página",
         "ar": "Sources per Page"
       },
       "businessContext_i18n": {
         "en": "Average number of distinct sources cited per page",
-        "tr": "Sayfa başına atıf yapılan farklı kaynakların ortalama sayısı"
+        "tr": "Sayfa başına atıf yapılan farklı kaynakların ortalama sayısı",
+        "de": "Durchschnittliche Anzahl unterschiedlicher Quellen pro Seite",
+        "fr": "Nombre moyen de sources distinctes citées par page",
+        "es": "Número promedio de fuentes distintas citadas por página"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "In-text Citation Frequency",
         "tr": "Metin içi atıf sıklığı",
-        "de": "In-text Citation Frequency",
-        "fr": "In-text Citation Frequency",
-        "es": "In-text Citation Frequency",
+        "de": "Zitierhäufigkeit im Text",
+        "fr": "Fréquence des citations dans le texte",
+        "es": "Frecuencia de citas en el texto",
         "ar": "In-text Citation Frequency"
       },
       "businessContext_i18n": {
         "en": "How many in-text citations appear per page",
-        "tr": "Sayfa başına kaç metin içi atıf görünüyor"
+        "tr": "Sayfa başına kaç metin içi atıf görünüyor",
+        "de": "Anzahl der In-Text-Zitate pro Seite",
+        "fr": "Nombre de citations dans le texte par page",
+        "es": "Número de citas en el texto que aparecen por página"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Bibliography Entries",
         "tr": "Kaynakça girişleri",
-        "de": "Bibliography Entries",
-        "fr": "Bibliography Entries",
-        "es": "Bibliography Entries",
+        "de": "Bibliografie-Einträge",
+        "fr": "Entrées bibliographiques",
+        "es": "Entradas bibliográficas",
         "ar": "Bibliography Entries"
       },
       "businessContext_i18n": {
         "en": "Total number of bibliography entries",
-        "tr": "Toplam kaynakça girişi sayısı"
+        "tr": "Toplam kaynakça girişi sayısı",
+        "de": "Gesamtzahl der Bibliografie-Einträge",
+        "fr": "Nombre total d'entrées bibliographiques",
+        "es": "Número total de entradas bibliográficas"
       }
     }
   ],

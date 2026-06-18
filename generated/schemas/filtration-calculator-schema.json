@@ -12,14 +12,16 @@
         "en": "Flow Rate",
         "tr": "Debi",
         "de": "Durchflussrate",
-        "fr": "Flow Rate",
-        "es": "Flow Rate",
+        "fr": "Débit",
+        "es": "Caudal",
         "ar": "Flow Rate"
       },
       "businessContext_i18n": {
         "en": "Target volumetric flow rate of the fluid to be filtered.",
         "tr": "Filtrelenecek akışkanın hedef hacimsel debisi.",
-        "de": "Zielvolumenstrom des zu filternden Fluids"
+        "de": "Zielvolumenstrom des zu filternden Fluids",
+        "fr": "Débit volumétrique cible du fluide à filtrer",
+        "es": "Caudal volumétrico objetivo del fluido a filtrar"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Dynamic Viscosity",
         "tr": "Dinamik viskozite",
         "de": "Dynamische Viskosität",
-        "fr": "Dynamic Viscosity",
-        "es": "Dynamic Viscosity",
+        "fr": "Viscosité dynamique",
+        "es": "Viscosidad dinámica",
         "ar": "Dynamic Viscosity"
       },
       "businessContext_i18n": {
         "en": "Dynamic viscosity of the fluid.",
         "tr": "Akışkanın dinamik viskozitesi.",
-        "de": "Dynamische Viskosität des Fluids"
+        "de": "Dynamische Viskosität des Fluids",
+        "fr": "Viscosité dynamique du fluide",
+        "es": "Viscosidad dinámica del fluido"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Pressure Drop",
         "tr": "Basınç düşüşü",
         "de": "Druckverlust",
-        "fr": "Pressure Drop",
-        "es": "Pressure Drop",
+        "fr": "Perte de charge",
+        "es": "Caída de presión",
         "ar": "Pressure Drop"
       },
       "businessContext_i18n": {
         "en": "Maximum allowable pressure drop across the filter.",
         "tr": "Filtre boyunca izin verilen maksimum basınç düşüşü.",
-        "de": "Maximal zulässiger Druckverlust über dem Filter"
+        "de": "Maximal zulässiger Druckverlust über dem Filter",
+        "fr": "Perte de charge maximale admissible à travers le filtre",
+        "es": "Caída de presión máxima permitida a través del filtro"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Membrane Resistance",
         "tr": "Membran direnci",
         "de": "Membranwiderstand",
-        "fr": "Membrane Resistance",
-        "es": "Membrane Resistance",
+        "fr": "Résistance de la membrane",
+        "es": "Resistencia de la membrana",
         "ar": "Membrane Resistance"
       },
       "businessContext_i18n": {
         "en": "Resistance of the clean filter medium.",
         "tr": "Temiz filtre ortamının direnci.",
-        "de": "Widerstand des sauberen Filtermediums"
+        "de": "Widerstand des sauberen Filtermediums",
+        "fr": "Résistance du milieu filtrant propre",
+        "es": "Resistencia del medio filtrante limpio"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Cake Resistance",
         "tr": "Kek direnci",
         "de": "Kuchenwiderstand",
-        "fr": "Cake Resistance",
-        "es": "Cake Resistance",
+        "fr": "Résistance du gâteau",
+        "es": "Resistencia de la torta",
         "ar": "Cake Resistance"
       },
       "businessContext_i18n": {
         "en": "Additional resistance from the filter cake (0 for clean filter).",
         "tr": "Filtre kekinden kaynaklanan ek direnç (temiz filtre için 0).",
-        "de": "Zusätzlicher Widerstand durch den Filterkuchen (0 für sauberen Filter)."
+        "de": "Zusätzlicher Widerstand durch den Filterkuchen (0 für sauberen Filter).",
+        "fr": "Résistance supplémentaire due au gâteau de filtration (0 pour un filtre propre)",
+        "es": "Resistencia adicional de la torta de filtración (0 para filtro limpio)"
       }
     }
   ],

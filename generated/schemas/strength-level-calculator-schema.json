@@ -12,13 +12,15 @@
         "en": "Uygulanan Kuvvet",
         "tr": "Uygulanan Kuvvet",
         "de": "Angewandte Kraft",
-        "fr": "Uygulanan Kuvvet",
-        "es": "Uygulanan Kuvvet",
+        "fr": "Force appliquée",
+        "es": "Fuerza aplicada",
         "ar": "Uygulanan Kuvvet"
       },
       "businessContext_i18n": {
         "en": "Parçaya uygulanan kuvvet",
-        "tr": "Parçaya uygulanan kuvvet"
+        "tr": "Parçaya uygulanan kuvvet",
+        "de": "Auf das Bauteil wirkende Kraft",
+        "fr": "Force appliquée à la pièce"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Kesit Alanı",
         "tr": "Kesit Alanı",
         "de": "Querschnittsfläche",
-        "fr": "Kesit Alanı",
-        "es": "Kesit Alanı",
+        "fr": "Section transversale",
+        "es": "Área de la sección transversal",
         "ar": "Kesit Alanı"
       },
       "businessContext_i18n": {
         "en": "Parçanın yükü taşıyan kesit alanı",
-        "tr": "Parçanın yükü taşıyan kesit alanı"
+        "tr": "Parçanın yükü taşıyan kesit alanı",
+        "de": "Lasttragende Querschnittsfläche des Bauteils",
+        "fr": "Section transversale de la pièce supportant la charge"
       }
     },
     {
@@ -51,14 +55,17 @@
       "label_i18n": {
         "en": "Akma Dayanımı",
         "tr": "Akma Dayanımı",
-        "de": "Akma Dayanımı",
-        "fr": "Akma Dayanımı",
-        "es": "Akma Dayanımı",
+        "de": "Streckgrenze",
+        "fr": "Limite d'élasticité",
+        "es": "Límite elástico",
         "ar": "Akma Dayanımı"
       },
       "businessContext_i18n": {
         "en": "Malzemenin akma dayanımı",
-        "tr": "Malzemenin akma dayanımı"
+        "tr": "Malzemenin akma dayanımı",
+        "de": "Streckgrenze des Materials",
+        "fr": "Limite d'élasticité du matériau",
+        "es": "Límite elástico del material"
       }
     },
     {
@@ -72,13 +79,15 @@
         "en": "Emniyet Katsayısı",
         "tr": "Emniyet Katsayısı",
         "de": "Sicherheitsfaktor",
-        "fr": "Emniyet Katsayısı",
-        "es": "Emniyet Katsayısı",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Emniyet Katsayısı"
       },
       "businessContext_i18n": {
         "en": "Tasarım emniyet katsayısı",
-        "tr": "Tasarım emniyet katsayısı"
+        "tr": "Tasarım emniyet katsayısı",
+        "de": "Auslegungssicherheitsfaktor",
+        "fr": "Coefficient de sécurité de conception"
       }
     }
   ],

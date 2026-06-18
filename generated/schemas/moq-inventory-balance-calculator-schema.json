@@ -23,11 +23,16 @@
       "label_i18n": {
         "en": "Annual Demand (units)",
         "tr": "Yıllık Talep (birim)",
-        "de": "Jahresbedarf (Einheiten)"
+        "de": "Jahresbedarf (Einheiten)",
+        "fr": "Demande annuelle (unités)",
+        "es": "Demanda anual (unidades)"
       },
       "businessContext_i18n": {
         "en": "Total forecasted demand for the SKU over one year. Used to calculate order frequency and cycle stock.",
-        "tr": "SKU için bir yıllık toplam tahmini talep. Sipariş sıklığı ve döngü stoku hesaplamak için kullanılır."
+        "tr": "SKU için bir yıllık toplam tahmini talep. Sipariş sıklığı ve döngü stoku hesaplamak için kullanılır.",
+        "de": "Gesamte prognostizierte Nachfrage für die SKU über ein Jahr. Wird zur Berechnung der Bestellhäufigkeit und des Zyklusbestands verwendet.",
+        "fr": "Demande totale prévue pour l'UGS sur un an. Utilisée pour calculer la fréquence de commande et le stock cyclique.",
+        "es": "Demanda total pronosticada para el SKU en un año. Se usa para calcular la frecuencia de pedido y el stock de ciclo."
       }
     },
     {
@@ -41,11 +46,17 @@
       "businessContext": "Fixed cost per purchase order (setup, administrative, freight). Influences EOQ and total logistics cost.",
       "label_i18n": {
         "en": "Ordering Cost per Order ($)",
-        "tr": "Sipariş Başına Sipariş Maliyeti ($)"
+        "tr": "Sipariş Başına Sipariş Maliyeti ($)",
+        "de": "Bestellkosten pro Bestellung ($)",
+        "fr": "Coût de passation de commande par commande ($)",
+        "es": "Costo de pedido por pedido ($)"
       },
       "businessContext_i18n": {
         "en": "Fixed cost per purchase order (setup, administrative, freight). Influences EOQ and total logistics cost.",
-        "tr": "Satın alma siparişi başına sabit maliyet (kurulum, idari, navlun). EOQ ve toplam lojistik maliyetini etkiler."
+        "tr": "Satın alma siparişi başına sabit maliyet (kurulum, idari, navlun). EOQ ve toplam lojistik maliyetini etkiler.",
+        "de": "Fixe Kosten pro Bestellung (Einrichtung, Verwaltung, Fracht). Beeinflusst die optimale Bestellmenge (EOQ) und die gesamten Logistikkosten.",
+        "fr": "Coût fixe par bon de commande (configuration, administratif, fret). Influence l'EOQ et le coût logistique total.",
+        "es": "Costo fijo por pedido de compra (preparación, administrativo, flete). Influye en el EOQ y el costo logístico total."
       }
     },
     {
@@ -59,11 +70,17 @@
       "businessContext": "Cost to hold one unit in inventory for one year (storage, insurance, obsolescence). Key for inventory carrying cost.",
       "label_i18n": {
         "en": "Holding Cost per Unit per Year ($)",
-        "tr": "Birim Başına Yıllık Elde Tutma Maliyeti ($)"
+        "tr": "Birim Başına Yıllık Elde Tutma Maliyeti ($)",
+        "de": "Lagerhaltungskosten pro Einheit pro Jahr ($)",
+        "fr": "Coût de possession par unité par an ($)",
+        "es": "Costo de mantenimiento por unidad por año ($)"
       },
       "businessContext_i18n": {
         "en": "Cost to hold one unit in inventory for one year (storage, insurance, obsolescence). Key for inventory carrying cost.",
-        "tr": "Bir birimi bir yıl boyunca stokta tutma maliyeti (depolama, sigorta, eskime). Stok taşıma maliyeti için anahtar."
+        "tr": "Bir birimi bir yıl boyunca stokta tutma maliyeti (depolama, sigorta, eskime). Stok taşıma maliyeti için anahtar.",
+        "de": "Kosten für die Lagerung einer Einheit für ein Jahr (Lagerung, Versicherung, Veralterung). Schlüsselgröße für die Bestandskosten.",
+        "fr": "Coût de détention d'une unité en stock pendant un an (stockage, assurance, obsolescence). Clé pour le coût de possession des stocks.",
+        "es": "Costo de mantener una unidad en inventario durante un año (almacenamiento, seguro, obsolescencia). Clave para el costo de posesión."
       }
     },
     {
@@ -78,11 +95,16 @@
       "label_i18n": {
         "en": "Unit Cost ($)",
         "tr": "Birim Maliyet ($)",
-        "de": "Stückkosten ($)"
+        "de": "Stückkosten ($)",
+        "fr": "Coût unitaire ($)",
+        "es": "Coste unitario ($)"
       },
       "businessContext_i18n": {
         "en": "Purchase cost per unit from supplier. Used in total cost calculations and MOQ financial impact.",
-        "tr": "Tedarikçiden birim başına satın alma maliyeti. Toplam maliyet hesaplamalarında ve MOQ finansal etkisinde kullanılır."
+        "tr": "Tedarikçiden birim başına satın alma maliyeti. Toplam maliyet hesaplamalarında ve MOQ finansal etkisinde kullanılır.",
+        "de": "Einkaufskosten pro Einheit vom Lieferanten. Wird in den Gesamtkostenberechnungen und der finanziellen Auswirkung der Mindestbestellmenge (MOQ) verwendet.",
+        "fr": "Coût d'achat unitaire auprès du fournisseur. Utilisé dans les calculs de coût total et l'impact financier de la QMC.",
+        "es": "Costo de compra por unidad del proveedor. Se usa en cálculos de costo total e impacto financiero del MOQ."
       }
     },
     {
@@ -96,11 +118,17 @@
       "businessContext": "Supplier-imposed minimum batch size. If EOQ < MOQ, order quantity must be adjusted upward, increasing holding cost.",
       "label_i18n": {
         "en": "Minimum Order Quantity (units)",
-        "tr": "Minimum Sipariş Miktarı (birim)"
+        "tr": "Minimum Sipariş Miktarı (birim)",
+        "de": "Mindestbestellmenge (Einheiten)",
+        "fr": "Quantité minimale de commande (unités)",
+        "es": "Cantidad mínima de pedido (unidades)"
       },
       "businessContext_i18n": {
         "en": "Supplier-imposed minimum batch size. If EOQ < MOQ, order quantity must be adjusted upward, increasing holding cost.",
-        "tr": "Tedarikçi tarafından uygulanan minimum parti büyüklüğü. EOQ < MOQ ise sipariş miktarı yukarı ayarlanmalı, elde tutma maliyeti artar."
+        "tr": "Tedarikçi tarafından uygulanan minimum parti büyüklüğü. EOQ < MOQ ise sipariş miktarı yukarı ayarlanmalı, elde tutma maliyeti artar.",
+        "de": "Vom Lieferanten vorgegebene Mindestlosgröße. Wenn EOQ < MOQ, muss die Bestellmenge nach oben angepasst werden, was die Lagerhaltungskosten erhöht.",
+        "fr": "Taille de lot minimale imposée par le fournisseur. Si l'EOQ < QMC, la quantité commandée doit être augmentée, ce qui augmente le coût de possession.",
+        "es": "Lote mínimo impuesto por el proveedor. Si EOQ < MOQ, la cantidad de pedido debe ajustarse al alza, aumentando el costo de mantenimiento."
       }
     },
     {
@@ -115,11 +143,16 @@
       "label_i18n": {
         "en": "Lead Time (days)",
         "tr": "Teslim Süresi (gün)",
-        "de": "Lieferzeit (Tage)"
+        "de": "Lieferzeit (Tage)",
+        "fr": "Délai de livraison (jours)",
+        "es": "Tiempo de entrega (días)"
       },
       "businessContext_i18n": {
         "en": "Time from order placement to receipt. Used for safety stock calculation and reorder point.",
-        "tr": "Sipariş verme ile teslim alma arasındaki süre. Emniyet stoğu hesaplaması ve yeniden sipariş noktası için kullanılır."
+        "tr": "Sipariş verme ile teslim alma arasındaki süre. Emniyet stoğu hesaplaması ve yeniden sipariş noktası için kullanılır.",
+        "de": "Zeit von der Bestellung bis zum Eingang. Wird für die Berechnung des Sicherheitsbestands und des Bestellpunkts verwendet.",
+        "fr": "Délai de livraison (jours)",
+        "es": "Tiempo desde la colocación del pedido hasta la recepción. Se usa para el cálculo del stock de seguridad y el punto de reorden."
       }
     },
     {
@@ -133,11 +166,17 @@
       "businessContext": "Daily demand variability. Critical for safety stock under Six Sigma service levels.",
       "label_i18n": {
         "en": "Demand Standard Deviation (units/day)",
-        "tr": "Talep Standart Sapması (birim/gün)"
+        "tr": "Talep Standart Sapması (birim/gün)",
+        "de": "Standardabweichung der Nachfrage (Einheiten/Tag)",
+        "fr": "Écart type de la demande (unités/jour)",
+        "es": "Desviación estándar de la demanda (unidades/día)"
       },
       "businessContext_i18n": {
         "en": "Daily demand variability. Critical for safety stock under Six Sigma service levels.",
-        "tr": "Günlük talep değişkenliği. Altı Sigma hizmet seviyelerinde emniyet stoğu için kritiktir."
+        "tr": "Günlük talep değişkenliği. Altı Sigma hizmet seviyelerinde emniyet stoğu için kritiktir.",
+        "de": "Tägliche Nachfrageschwankung. Kritisch für den Sicherheitsbestand bei Six Sigma-Servicegraden.",
+        "fr": "Variabilité quotidienne de la demande. Critique pour le stock de sécurité selon les niveaux de service Six Sigma.",
+        "es": "Variabilidad diaria de la demanda. Crítica para el stock de seguridad bajo niveles de servicio Seis Sigma."
       }
     },
     {
@@ -151,11 +190,17 @@
       "businessContext": "Desired probability of not stocking out during lead time. Used to derive z-score for safety stock.",
       "label_i18n": {
         "en": "Service Level (%)",
-        "tr": "Hizmet Seviyesi (%)"
+        "tr": "Hizmet Seviyesi (%)",
+        "de": "Servicegrad (%)",
+        "fr": "Niveau de service (%)",
+        "es": "Nivel de servicio (%)"
       },
       "businessContext_i18n": {
         "en": "Desired probability of not stocking out during lead time. Used to derive z-score for safety stock.",
-        "tr": "Teslim süresi boyunca stokta kalmama olasılığı. Emniyet stoğu için z-skoru türetmek için kullanılır."
+        "tr": "Teslim süresi boyunca stokta kalmama olasılığı. Emniyet stoğu için z-skoru türetmek için kullanılır.",
+        "de": "Gewünschte Wahrscheinlichkeit, während der Lieferzeit keinen Bestand zu haben. Wird verwendet, um den z-Wert für den Sicherheitsbestand abzuleiten.",
+        "fr": "Probabilité souhaitée de ne pas être en rupture pendant le délai de livraison. Utilisée pour dériver le score z du stock de sécurité.",
+        "es": "Probabilidad deseada de no tener ruptura de stock durante el plazo de entrega. Se usa para obtener el puntaje z del stock de seguridad."
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Current Loan Balance",
         "tr": "Mevcut Kredi Bakiyesi",
-        "de": "Current Loan Balance",
-        "fr": "Current Loan Balance",
-        "es": "Current Loan Balance",
+        "de": "Aktueller Darlehenssaldo",
+        "fr": "Solde actuel du prêt",
+        "es": "Saldo actual del préstamo",
         "ar": "Current Loan Balance"
       },
       "businessContext_i18n": {
         "en": "The outstanding principal balance of the mortgage.",
-        "tr": "Mortgage'nin ödenmemiş anapara bakiyesi."
+        "tr": "Mortgage'nin ödenmemiş anapara bakiyesi.",
+        "de": "Der ausstehende Kapitalbetrag der Hypothek.",
+        "fr": "Solde principal impayé du prêt hypothécaire.",
+        "es": "Saldo principal pendiente de la hipoteca."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
         "de": "Jährlicher Zinssatz",
-        "fr": "Annual Interest Rate",
-        "es": "Annual Interest Rate",
+        "fr": "Taux d'intérêt annuel",
+        "es": "Tasa de Interés Anual",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "The annual interest rate on the loan.",
-        "tr": "Kredinin yıllık faiz oranı."
+        "tr": "Kredinin yıllık faiz oranı.",
+        "de": "Der jährliche Zinssatz des Darlehens.",
+        "fr": "Taux d'intérêt annuel du prêt.",
+        "es": "Tasa de interés anual del préstamo."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Remaining Loan Term",
         "tr": "Kalan Kredi Vadesi",
-        "de": "Remaining Loan Term",
-        "fr": "Remaining Loan Term",
-        "es": "Remaining Loan Term",
+        "de": "Verbleibende Darlehenslaufzeit",
+        "fr": "Durée restante du prêt",
+        "es": "Plazo restante del préstamo",
         "ar": "Remaining Loan Term"
       },
       "businessContext_i18n": {
         "en": "The number of months remaining on the original loan schedule.",
-        "tr": "Orijinal kredi planında kalan ay sayısı."
+        "tr": "Orijinal kredi planında kalan ay sayısı.",
+        "de": "Die Anzahl der verbleibenden Monate des ursprünglichen Darlehensplans.",
+        "fr": "Nombre de mois restants sur l'échéancier initial du prêt.",
+        "es": "Número de meses restantes del calendario original del préstamo."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Lump Sum Payment",
         "tr": "Toplu Ödeme",
-        "de": "Lump Sum Payment",
-        "fr": "Lump Sum Payment",
-        "es": "Lump Sum Payment",
+        "de": "Einmalzahlung",
+        "fr": "Paiement forfaitaire",
+        "es": "Pago global",
         "ar": "Lump Sum Payment"
       },
       "businessContext_i18n": {
         "en": "The amount you plan to pay toward the principal to recast the mortgage.",
-        "tr": "Mortgage'i yeniden yapılandırmak için anaparaya ödemeyi planladığınız tutar."
+        "tr": "Mortgage'i yeniden yapılandırmak için anaparaya ödemeyi planladığınız tutar.",
+        "de": "Der Betrag, den Sie zur Tilgung des Kapitals zahlen möchten, um die Hypothek neu zu berechnen.",
+        "fr": "Montant que vous prévoyez payer sur le principal pour recalculer le prêt hypothécaire.",
+        "es": "Cantidad que planea pagar al capital para reestructurar la hipoteca."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Recast Fee",
         "tr": "Yeniden Yapılandırma Ücreti",
-        "de": "Recast Fee",
-        "fr": "Recast Fee",
-        "es": "Recast Fee",
+        "de": "Neuberechungsgebühr",
+        "fr": "Frais de recalcul",
+        "es": "Comisión de reestructuración",
         "ar": "Recast Fee"
       },
       "businessContext_i18n": {
         "en": "The fee charged by the lender for recasting the mortgage.",
-        "tr": "Borç verenin mortgage'i yeniden yapılandırmak için aldığı ücret."
+        "tr": "Borç verenin mortgage'i yeniden yapılandırmak için aldığı ücret.",
+        "de": "Die vom Kreditgeber für die Neuberechnung der Hypothek erhobene Gebühr.",
+        "fr": "Frais facturés par le prêteur pour le recalcul du prêt hypothécaire.",
+        "es": "Comisión que cobra el prestamista por reestructurar la hipoteca."
       }
     }
   ],

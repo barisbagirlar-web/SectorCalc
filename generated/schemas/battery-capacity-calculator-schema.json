@@ -12,14 +12,16 @@
         "en": "Load Power",
         "tr": "Yük Gücü",
         "de": "Lastleistung",
-        "fr": "Load Power",
-        "es": "Load Power",
+        "fr": "Puissance de charge",
+        "es": "Potencia de carga",
         "ar": "Load Power"
       },
       "businessContext_i18n": {
         "en": "Total power consumption of the load",
         "tr": "Yükün toplam güç tüketimi",
-        "de": "Gesamtstromverbrauch der Last"
+        "de": "Gesamtstromverbrauch der Last",
+        "fr": "Consommation électrique totale de la charge",
+        "es": "Consumo total de energía de la carga"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Backup Time",
         "tr": "Yedekleme Süresi",
         "de": "Überbrückungszeit",
-        "fr": "Backup Time",
-        "es": "Backup Time",
+        "fr": "Autonomie",
+        "es": "Tiempo de respaldo",
         "ar": "Backup Time"
       },
       "businessContext_i18n": {
         "en": "Desired backup time",
         "tr": "İstenen yedekleme süresi",
-        "de": "Gewünschte Überbrückungszeit"
+        "de": "Gewünschte Überbrückungszeit",
+        "fr": "Autonomie souhaitée",
+        "es": "Tiempo de respaldo deseado"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "System Voltage",
         "tr": "Sistem Gerilimi",
         "de": "Systemspannung",
-        "fr": "System Voltage",
-        "es": "System Voltage",
+        "fr": "Tension du système",
+        "es": "Tensión del sistema",
         "ar": "System Voltage"
       },
       "businessContext_i18n": {
         "en": "Nominal voltage of battery bank",
         "tr": "Akü bankasının nominal gerilimi",
-        "de": "Nennspannung des Batteriepuffers"
+        "de": "Nennspannung des Batteriepuffers",
+        "fr": "Tension nominale du parc de batteries",
+        "es": "Tensión nominal del banco de baterías"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "System Efficiency",
         "tr": "Sistem Verimliliği",
         "de": "Systemeffizienz",
-        "fr": "System Efficiency",
-        "es": "System Efficiency",
+        "fr": "Efficacité du système",
+        "es": "Eficiencia del sistema",
         "ar": "System Efficiency"
       },
       "businessContext_i18n": {
         "en": "Combined efficiency of inverter and cabling (0-1)",
         "tr": "İnvertör ve kablo kombinasyon verimliliği (0-1)",
-        "de": "Kombinierter Wirkungsgrad von Wechselrichter und Verkabelung (0-1)"
+        "de": "Kombinierter Wirkungsgrad von Wechselrichter und Verkabelung (0-1)",
+        "fr": "Rendement combiné de l'onduleur et du câblage (0-1)",
+        "es": "Eficiencia combinada del inversor y el cableado (0-1)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Depth of Discharge (DoD)",
         "tr": "Deşarj Derinliği (DoD)",
         "de": "Entladetiefe (DoD)",
-        "fr": "Depth of Discharge (DoD)",
-        "es": "Depth of Discharge (DoD)",
+        "fr": "Profondeur de décharge (DoD)",
+        "es": "Profundidad de descarga (DoD)",
         "ar": "Depth of Discharge (DoD)"
       },
       "businessContext_i18n": {
         "en": "Maximum discharge depth (e.g., 0.8 means 80% usable)",
         "tr": "Maksimum deşarj derinliği (örn. 0,8 %80 kullanılabilir anlamına gelir)",
-        "de": "Maximale Entladetiefe (z. B. 0,8 bedeutet 80 % nutzbar)"
+        "de": "Maximale Entladetiefe (z. B. 0,8 bedeutet 80 % nutzbar)",
+        "fr": "Profondeur de décharge maximale (ex. 0,8 signifie 80 % utilisable)",
+        "es": "Profundidad máxima de descarga (p. ej., 0.8 significa 80% utilizable)"
       }
     }
   ],

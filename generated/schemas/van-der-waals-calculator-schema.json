@@ -12,13 +12,15 @@
         "en": "Hacim (V)",
         "tr": "Hacim (V)",
         "de": "Hacim (V)",
-        "fr": "Hacim (V)",
+        "fr": "Volume (V)",
         "es": "Hacim (V)",
         "ar": "Hacim (V)"
       },
       "businessContext_i18n": {
         "en": "Gazın kapladığı hacim (litre)",
-        "tr": "Gazın kapladığı hacim (litre)"
+        "tr": "Gazın kapladığı hacim (litre)",
+        "de": "Gazın kapladığı hacim (litre)",
+        "fr": "Volume occupé par le gaz (litres)"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Sıcaklık (T)",
         "tr": "Sıcaklık (T)",
         "de": "Temperatur (T)",
-        "fr": "Sıcaklık (T)",
-        "es": "Sıcaklık (T)",
+        "fr": "Température (T)",
+        "es": "Temperatura (T)",
         "ar": "Sıcaklık (T)"
       },
       "businessContext_i18n": {
         "en": "Gazın mutlak sıcaklığı (Kelvin)",
-        "tr": "Gazın mutlak sıcaklığı (Kelvin)"
+        "tr": "Gazın mutlak sıcaklığı (Kelvin)",
+        "de": "Absolute Gastemperatur (Kelvin)",
+        "fr": "Température absolue du gaz (Kelvin)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Mol Sayısı (n)",
         "tr": "Mol Sayısı (n)",
-        "de": "Mol Sayısı (n)",
-        "fr": "Mol Sayısı (n)",
-        "es": "Mol Sayısı (n)",
+        "de": "Stoffmenge (n)",
+        "fr": "Nombre de moles (n)",
+        "es": "Número de moles (n)",
         "ar": "Mol Sayısı (n)"
       },
       "businessContext_i18n": {
         "en": "Gazın mol miktarı",
-        "tr": "Gazın mol miktarı"
+        "tr": "Gazın mol miktarı",
+        "de": "Stoffmenge des Gases (mol)",
+        "fr": "Quantité de gaz (moles)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Van der Waals Sabiti a",
         "tr": "Van der Waals Sabiti a",
-        "de": "Van der Waals Sabiti a",
-        "fr": "Van der Waals Sabiti a",
+        "de": "Van-der-Waals-Konstante a",
+        "fr": "Constante de Van der Waals a",
         "es": "Van der Waals Sabiti a",
         "ar": "Van der Waals Sabiti a"
       },
       "businessContext_i18n": {
         "en": "Çekim kuvveti sabiti (a)",
-        "tr": "Çekim kuvveti sabiti (a)"
+        "tr": "Çekim kuvveti sabiti (a)",
+        "de": "Anziehungskraftkonstante (a)",
+        "fr": "Constante de force d'attraction (a)"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Van der Waals Sabiti b",
         "tr": "Van der Waals Sabiti b",
-        "de": "Van der Waals Sabiti b",
-        "fr": "Van der Waals Sabiti b",
+        "de": "Van-der-Waals-Konstante b",
+        "fr": "Constante de Van der Waals b",
         "es": "Van der Waals Sabiti b",
         "ar": "Van der Waals Sabiti b"
       },
       "businessContext_i18n": {
         "en": "Molekül hacim sabiti (b)",
-        "tr": "Molekül hacim sabiti (b)"
+        "tr": "Molekül hacim sabiti (b)",
+        "de": "Molekülvolumenkonstante (b)",
+        "fr": "Constante de volume moléculaire (b)"
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Gaz Sabiti (R)",
         "tr": "Gaz Sabiti (R)",
         "de": "Gaskonstante (R)",
-        "fr": "Gaz Sabiti (R)",
-        "es": "Gaz Sabiti (R)",
+        "fr": "Constante des gaz (R)",
+        "es": "Constante de los gases (R)",
         "ar": "Gaz Sabiti (R)"
       },
       "businessContext_i18n": {
         "en": "İdeal gaz sabiti",
-        "tr": "İdeal gaz sabiti"
+        "tr": "İdeal gaz sabiti",
+        "de": "Ideale Gaskonstante",
+        "fr": "Constante des gaz parfaits"
       }
     }
   ],

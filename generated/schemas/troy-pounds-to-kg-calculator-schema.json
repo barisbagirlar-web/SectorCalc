@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Troy Pound Amount",
         "tr": "Troy Pound Miktarı",
-        "de": "Troy Pound Amount",
-        "fr": "Troy Pound Amount",
+        "de": "Troy-Pfund-Menge",
+        "fr": "Montant en livres troy",
         "es": "Troy Pound Amount",
         "ar": "Troy Pound Amount"
       },
       "businessContext_i18n": {
         "en": "Weight in troy pounds to be converted to kilograms",
-        "tr": "Kilograma dönüştürülecek troy pound cinsinden ağırlık"
+        "tr": "Kilograma dönüştürülecek troy pound cinsinden ağırlık",
+        "de": "Gewicht in Troy-Pfund, das in Kilogramm umgerechnet werden soll",
+        "fr": "Poids en livres troy à convertir en kilogrammes"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounded outputs",
-        "tr": "Yuvarlatılmış çıktılar için ondalık basamak sayısı"
+        "tr": "Yuvarlatılmış çıktılar için ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen für gerundete Ausgaben",
+        "fr": "Nombre de décimales pour les résultats arrondis"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Batch Size",
         "tr": "Parti Büyüklüğü",
         "de": "Losgröße",
-        "fr": "Batch Size",
-        "es": "Batch Size",
+        "fr": "Taille de lot",
+        "es": "Tamaño de lote",
         "ar": "Batch Size"
       },
       "businessContext_i18n": {
         "en": "Number of identical items to calculate total weight for",
-        "tr": "Toplam ağırlığı hesaplamak için özdeş öğe sayısı"
+        "tr": "Toplam ağırlığı hesaplamak için özdeş öğe sayısı",
+        "de": "Anzahl identischer Artikel zur Berechnung des Gesamtgewichts",
+        "fr": "Nombre d'articles identiques pour calculer le poids total"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Calibration Factor",
         "tr": "Kalibrasyon Faktörü",
         "de": "Kalibrierfaktor",
-        "fr": "Calibration Factor",
-        "es": "Calibration Factor",
+        "fr": "Facteur d'étalonnage",
+        "es": "Factor de calibración",
         "ar": "Calibration Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplicative calibration correction factor for the weighing scale",
-        "tr": "Tartım terazisi için çarpımsal kalibrasyon düzeltme faktörü"
+        "tr": "Tartım terazisi için çarpımsal kalibrasyon düzeltme faktörü",
+        "de": "Multiplikativer Kalibrierungskorrekturfaktor für die Waage",
+        "fr": "Facteur de correction d'étalonnage multiplicatif pour la balance"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Measurement Uncertainty (±%)",
         "tr": "Ölçüm Belirsizliği (±%)",
-        "de": "Measurement Uncertainty (±%)",
-        "fr": "Measurement Uncertainty (±%)",
+        "de": "Messunsicherheit (±%)",
+        "fr": "Incertitude de mesure (±%)",
         "es": "Measurement Uncertainty (±%)",
         "ar": "Measurement Uncertainty (±%)"
       },
       "businessContext_i18n": {
         "en": "Relative measurement uncertainty percentage for conformance bounds",
-        "tr": "Uygunluk sınırları için bağıl ölçüm belirsizliği yüzdesi"
+        "tr": "Uygunluk sınırları için bağıl ölçüm belirsizliği yüzdesi",
+        "de": "Relative Messunsicherheit in Prozent für Konformitätsgrenzen",
+        "fr": "Pourcentage d'incertitude relative de mesure pour les limites de conformité"
       }
     }
   ],

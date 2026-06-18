@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Material Waste Rate",
         "tr": "Malzeme Fire Oranı",
-        "de": "Material Waste Rate",
-        "fr": "Material Waste Rate",
-        "es": "Material Waste Rate",
+        "de": "Materialausschussrate",
+        "fr": "Taux de rebut matière",
+        "es": "Tasa de desperdicio de material",
         "ar": "Material Waste Rate"
       },
       "businessContext_i18n": {
         "en": "Percentage of material wasted in production",
-        "tr": "Üretimde israf edilen malzeme yüzdesi"
+        "tr": "Üretimde israf edilen malzeme yüzdesi",
+        "de": "Prozentsatz des in der Produktion verschwendeten Materials",
+        "fr": "Pourcentage de matière gaspillée en production",
+        "es": "Porcentaje de material desperdiciado en la producción"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Energy Consumption",
         "tr": "Enerji Tüketimi",
-        "de": "Energy Consumption",
-        "fr": "Energy Consumption",
-        "es": "Energy Consumption",
+        "de": "Energieverbrauch",
+        "fr": "Consommation énergétique",
+        "es": "Consumo energético",
         "ar": "Energy Consumption"
       },
       "businessContext_i18n": {
         "en": "Energy consumed per unit produced",
-        "tr": "Birim başına tüketilen enerji"
+        "tr": "Birim başına tüketilen enerji",
+        "de": "Energieverbrauch pro produzierter Einheit",
+        "fr": "Énergie consommée par unité produite",
+        "es": "Energía consumida por unidad producida"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Labor Productivity",
         "tr": "İşgücü Verimliliği",
-        "de": "Labor Productivity",
-        "fr": "Labor Productivity",
-        "es": "Labor Productivity",
+        "de": "Arbeitsproduktivität",
+        "fr": "Productivité du travail",
+        "es": "Productividad laboral",
         "ar": "Labor Productivity"
       },
       "businessContext_i18n": {
         "en": "Units produced per labor hour",
-        "tr": "İşgücü saati başına üretilen birim"
+        "tr": "İşgücü saati başına üretilen birim",
+        "de": "Produzierte Einheiten pro Arbeitsstunde",
+        "fr": "Unités produites par heure de travail",
+        "es": "Unidades producidas por hora de trabajo"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Defect Rate",
         "tr": "Fire Oranı",
-        "de": "Defect Rate",
-        "fr": "Defect Rate",
-        "es": "Defect Rate",
+        "de": "Fehlerrate",
+        "fr": "Taux de rebut",
+        "es": "Tasa de defectos",
         "ar": "Defect Rate"
       },
       "businessContext_i18n": {
         "en": "Percentage of defective products",
-        "tr": "Hatalı ürün yüzdesi"
+        "tr": "Hatalı ürün yüzdesi",
+        "de": "Prozentsatz fehlerhafter Produkte",
+        "fr": "Pourcentage de produits défectueux",
+        "es": "Porcentaje de productos defectuosos"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Machine Utilization",
         "tr": "Makine Kullanım Oranı",
-        "de": "Machine Utilization",
-        "fr": "Machine Utilization",
-        "es": "Machine Utilization",
+        "de": "Maschinenauslastung",
+        "fr": "Utilisation des machines",
+        "es": "Utilización de la máquina",
         "ar": "Machine Utilization"
       },
       "businessContext_i18n": {
         "en": "Percentage of available time machines are running",
-        "tr": "Makinelerin çalıştığı kullanılabilir zaman yüzdesi"
+        "tr": "Makinelerin çalıştığı kullanılabilir zaman yüzdesi",
+        "de": "Prozentsatz der verfügbaren Zeit, in der Maschinen laufen",
+        "fr": "Pourcentage du temps disponible où les machines fonctionnent",
+        "es": "Porcentaje de tiempo disponible que las máquinas están en funcionamiento"
       }
     }
   ],

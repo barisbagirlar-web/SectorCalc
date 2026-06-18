@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Kelvin Temperature",
         "tr": "Kelvin Sıcaklığı",
-        "de": "Kelvin Temperature",
-        "fr": "Kelvin Temperature",
-        "es": "Kelvin Temperature",
+        "de": "Kelvin-Temperatur",
+        "fr": "Température Kelvin",
+        "es": "Temperatura Kelvin",
         "ar": "Kelvin Temperature"
       },
       "businessContext_i18n": {
         "en": "The temperature in Kelvin to be converted to Fahrenheit.",
-        "tr": "Fahrenheit'a dönüştürülecek Kelvin cinsinden sıcaklık."
+        "tr": "Fahrenheit'a dönüştürülecek Kelvin cinsinden sıcaklık.",
+        "de": "Die in Kelvin vorliegende Temperatur, die in Fahrenheit umgerechnet werden soll.",
+        "fr": "La température en Kelvin à convertir en Fahrenheit.",
+        "es": "La temperatura en Kelvin a convertir a Fahrenheit."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output Fahrenheit value.",
-        "tr": "Çıktı Fahrenheit değeri için ondalık basamak sayısı."
+        "tr": "Çıktı Fahrenheit değeri için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für den Fahrenheit-Ausgabewert.",
+        "fr": "Nombre de décimales pour la valeur Fahrenheit de sortie.",
+        "es": "Número de decimales para el valor Fahrenheit de salida."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Calibration Offset",
         "tr": "Kalibrasyon Ofseti",
         "de": "Kalibrierungsversatz",
-        "fr": "Calibration Offset",
-        "es": "Calibration Offset",
+        "fr": "Décalage d'étalonnage",
+        "es": "Desviación de calibración",
         "ar": "Calibration Offset"
       },
       "businessContext_i18n": {
         "en": "An optional offset to apply to the Kelvin value for calibration purposes.",
-        "tr": "Kalibrasyon amacıyla Kelvin değerine uygulanacak isteğe bağlı bir ofset."
+        "tr": "Kalibrasyon amacıyla Kelvin değerine uygulanacak isteğe bağlı bir ofset.",
+        "de": "Ein optionaler Offset, der für Kalibrierungszwecke auf den Kelvin-Wert angewendet wird.",
+        "fr": "Un décalage optionnel à appliquer à la valeur Kelvin à des fins d'étalonnage.",
+        "es": "Un desvío opcional para aplicar al valor Kelvin con fines de calibración."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Expected Fahrenheit (Verification)",
         "tr": "Beklenen Fahrenheit (Doğrulama)",
-        "de": "Expected Fahrenheit (Verification)",
-        "fr": "Expected Fahrenheit (Verification)",
-        "es": "Expected Fahrenheit (Verification)",
+        "de": "Erwarteter Fahrenheit-Wert (Verifizierung)",
+        "fr": "Fahrenheit attendu (Vérification)",
+        "es": "Fahrenheit esperado (Verificación)",
         "ar": "Expected Fahrenheit (Verification)"
       },
       "businessContext_i18n": {
         "en": "A known Fahrenheit value for cross-checking the conversion (not used in calculation).",
-        "tr": "Dönüşümü çapraz kontrol için bilinen bir Fahrenheit değeri (hesaplamada kullanılmaz)."
+        "tr": "Dönüşümü çapraz kontrol için bilinen bir Fahrenheit değeri (hesaplamada kullanılmaz).",
+        "de": "Ein bekannter Fahrenheit-Wert zur Überprüfung der Umrechnung (nicht in der Berechnung verwendet).",
+        "fr": "Une valeur Fahrenheit connue pour recouper la conversion (non utilisée dans le calcul).",
+        "es": "Un valor Fahrenheit conocido para verificar la conversión (no se usa en el cálculo)."
       }
     }
   ],

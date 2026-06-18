@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Meat Weight",
         "tr": "Et Ağırlığı",
-        "de": "Meat Weight",
-        "fr": "Meat Weight",
-        "es": "Meat Weight",
+        "de": "Fleischgewicht",
+        "fr": "Poids de la viande",
+        "es": "Peso de la carne",
         "ar": "Meat Weight"
       },
       "businessContext_i18n": {
         "en": "Weight of the meat in kilograms.",
-        "tr": "Etin kilogram cinsinden ağırlığı."
+        "tr": "Etin kilogram cinsinden ağırlığı.",
+        "de": "Gewicht des Fleisches in Kilogramm.",
+        "fr": "Poids de la viande en kilogrammes.",
+        "es": "Peso de la carne en kilogramos."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Starting Temperature",
         "tr": "Başlangıç Sıcaklığı",
-        "de": "Starting Temperature",
-        "fr": "Starting Temperature",
-        "es": "Starting Temperature",
+        "de": "Starttemperatur",
+        "fr": "Température initiale",
+        "es": "Temperatura inicial",
         "ar": "Starting Temperature"
       },
       "businessContext_i18n": {
         "en": "Internal temperature of meat before cooking.",
-        "tr": "Pişirmeden önce etin iç sıcaklığı."
+        "tr": "Pişirmeden önce etin iç sıcaklığı.",
+        "de": "Kerntemperatur des Fleisches vor dem Garen.",
+        "fr": "Température interne de la viande avant cuisson.",
+        "es": "Temperatura interna de la carne antes de cocinar."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Target Internal Temperature",
         "tr": "Hedef İç Sıcaklık",
-        "de": "Target Internal Temperature",
-        "fr": "Target Internal Temperature",
-        "es": "Target Internal Temperature",
+        "de": "Ziel-Kerntemperatur",
+        "fr": "Température interne cible",
+        "es": "Temperatura interna objetivo",
         "ar": "Target Internal Temperature"
       },
       "businessContext_i18n": {
         "en": "Desired final internal temperature.",
-        "tr": "İstenen nihai iç sıcaklık."
+        "tr": "İstenen nihai iç sıcaklık.",
+        "de": "Gewünschte End-Kerntemperatur.",
+        "fr": "Température interne finale souhaitée.",
+        "es": "Temperatura interna final deseada."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Oven Temperature",
         "tr": "Fırın Sıcaklığı",
         "de": "Ofentemperatur",
-        "fr": "Oven Temperature",
-        "es": "Oven Temperature",
+        "fr": "Température du four",
+        "es": "Temperatura del horno",
         "ar": "Oven Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of the oven or cooking environment.",
-        "tr": "Fırın veya pişirme ortamının sıcaklığı."
+        "tr": "Fırın veya pişirme ortamının sıcaklığı.",
+        "de": "Temperatur des Ofens oder der Garumgebung.",
+        "fr": "Température du four ou de l'environnement de cuisson.",
+        "es": "Temperatura del horno o entorno de cocción."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Thermal Factor",
         "tr": "Termal Faktör",
-        "de": "Thermal Factor",
-        "fr": "Thermal Factor",
-        "es": "Thermal Factor",
+        "de": "Thermischer Faktor",
+        "fr": "Facteur thermique",
+        "es": "Factor térmico",
         "ar": "Thermal Factor"
       },
       "businessContext_i18n": {
         "en": "Empirical constant: ≈20 for beef, ≈25 for pork, ≈15 for poultry. Accounts for shape and thermal properties.",
-        "tr": "Ampirik sabit: sığır eti için ≈20, domuz eti için ≈25, kümes hayvanları için ≈15. Şekil ve termal özellikleri hesaba katar."
+        "tr": "Ampirik sabit: sığır eti için ≈20, domuz eti için ≈25, kümes hayvanları için ≈15. Şekil ve termal özellikleri hesaba katar.",
+        "de": "Empirische Konstante: ≈20 für Rind, ≈25 für Schwein, ≈15 für Geflügel. Berücksichtigt Form und thermische Eigenschaften.",
+        "fr": "Constante empirique : ≈20 pour le bœuf, ≈25 pour le porc, ≈15 pour la volaille. Tient compte de la forme et des propriétés thermiques.",
+        "es": "Constante empírica: ≈20 para res, ≈25 para cerdo, ≈15 para aves. Considera forma y propiedades térmicas."
       }
     }
   ],

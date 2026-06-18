@@ -12,13 +12,16 @@
         "en": "Engine Power",
         "tr": "Motor Gücü",
         "de": "Motorleistung",
-        "fr": "Engine Power",
-        "es": "Engine Power",
+        "fr": "Puissance moteur",
+        "es": "Potencia del motor",
         "ar": "Engine Power"
       },
       "businessContext_i18n": {
         "en": "Motor çıkış gücü (kW)",
-        "tr": "Motor çıkış gücü (kW)"
+        "tr": "Motor çıkış gücü (kW)",
+        "de": "Motorausgangsleistung (kW)",
+        "fr": "Puissance de sortie du moteur (kW)",
+        "es": "Potencia de salida del motor (kW)"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Vehicle Mass",
         "tr": "Araç Kütlesi",
         "de": "Fahrzeugmasse",
-        "fr": "Vehicle Mass",
-        "es": "Vehicle Mass",
+        "fr": "Masse du véhicule",
+        "es": "Masa del vehículo",
         "ar": "Vehicle Mass"
       },
       "businessContext_i18n": {
         "en": "Araç boş ağırlığı (kg)",
-        "tr": "Araç boş ağırlığı (kg)"
+        "tr": "Araç boş ağırlığı (kg)",
+        "de": "Fahrzeugleergewicht (kg)",
+        "fr": "Poids à vide du véhicule (kg)",
+        "es": "Peso en vacío del vehículo (kg)"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Drivetrain Efficiency",
         "tr": "Aktarma Organı Verimliliği",
         "de": "Antriebsstrang-Effizienz",
-        "fr": "Drivetrain Efficiency",
-        "es": "Drivetrain Efficiency",
+        "fr": "Rendement de la transmission",
+        "es": "Eficiencia del tren motriz",
         "ar": "Drivetrain Efficiency"
       },
       "businessContext_i18n": {
         "en": "Güç aktarım verimi (%)",
-        "tr": "Güç aktarım verimi (%)"
+        "tr": "Güç aktarım verimi (%)",
+        "de": "Antriebswirkungsgrad (%)",
+        "fr": "Rendement de la transmission (%)",
+        "es": "Eficiencia de la transmisión de potencia (%)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Payload",
         "tr": "Yük",
-        "de": "Payload",
-        "fr": "Payload",
-        "es": "Payload",
+        "de": "Nutzlast",
+        "fr": "Charge utile",
+        "es": "Carga útil",
         "ar": "Payload"
       },
       "businessContext_i18n": {
         "en": "Yük ve yolcu ağırlığı (kg)",
-        "tr": "Yük ve yolcu ağırlığı (kg)"
+        "tr": "Yük ve yolcu ağırlığı (kg)",
+        "de": "Last- und Passagiergewicht (kg)",
+        "fr": "Poids de la charge et des passagers (kg)",
+        "es": "Peso de carga y pasajeros (kg)"
       }
     }
   ],

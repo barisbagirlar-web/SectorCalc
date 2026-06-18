@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Average Return",
         "tr": "Ortalama Getiri",
-        "de": "Average Return",
-        "fr": "Average Return",
+        "de": "Durchschnittliche Rendite",
+        "fr": "Rendement moyen",
         "es": "Average Return",
         "ar": "Average Return"
       },
       "businessContext_i18n": {
         "en": "Portfolio's average return over the period.",
-        "tr": "Portföyün dönem boyunca ortalama getirisi."
+        "tr": "Portföyün dönem boyunca ortalama getirisi.",
+        "de": "Durchschnittliche Rendite des Portfolios über den Zeitraum.",
+        "fr": "Rendement moyen du portefeuille sur la période."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Risk-Free Rate",
         "tr": "Risksiz Faiz Oranı",
         "de": "Risikofreier Zinssatz",
-        "fr": "Risk-Free Rate",
-        "es": "Risk-Free Rate",
+        "fr": "Taux sans risque",
+        "es": "Tasa libre de riesgo",
         "ar": "Risk-Free Rate"
       },
       "businessContext_i18n": {
         "en": "Risk-free rate of return (e.g., government bond yield).",
-        "tr": "Risksiz getiri oranı (örneğin devlet tahvili getirisi)."
+        "tr": "Risksiz getiri oranı (örneğin devlet tahvili getirisi).",
+        "de": "Risikofreier Zinssatz (z. B. Staatsanleiherendite).",
+        "fr": "Taux de rendement sans risque (par exemple, rendement des obligations d'État)."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Target Return",
         "tr": "Hedef Getiri",
-        "de": "Target Return",
-        "fr": "Target Return",
+        "de": "Zielrendite",
+        "fr": "Rendement cible",
         "es": "Target Return",
         "ar": "Target Return"
       },
       "businessContext_i18n": {
         "en": "Minimum acceptable return (often equals risk-free rate).",
-        "tr": "Minimum kabul edilebilir getiri (genellikle risksiz orana eşittir)."
+        "tr": "Minimum kabul edilebilir getiri (genellikle risksiz orana eşittir).",
+        "de": "Mindestakzeptable Rendite (entspricht oft dem risikofreien Zinssatz).",
+        "fr": "Rendement minimum acceptable (souvent égal au taux sans risque)."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Downside Deviation",
         "tr": "Aşağı Yönlü Sapma",
-        "de": "Downside Deviation",
-        "fr": "Downside Deviation",
+        "de": "Abwärtsabweichung",
+        "fr": "Écart à la baisse",
         "es": "Downside Deviation",
         "ar": "Downside Deviation"
       },
       "businessContext_i18n": {
         "en": "Downside deviation (standard deviation of returns below target).",
-        "tr": "Aşağı yönlü sapma (hedefin altındaki getirilerin standart sapması)."
+        "tr": "Aşağı yönlü sapma (hedefin altındaki getirilerin standart sapması).",
+        "de": "Abwärtsabweichung (Standardabweichung der Renditen unter dem Zielwert).",
+        "fr": "Écart à la baisse (écart-type des rendements inférieurs à la cible)."
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Refractive Index n",
         "tr": "Kırılma İndisi n",
-        "de": "Refractive Index n",
-        "fr": "Refractive Index n",
+        "de": "Brechungsindex n",
+        "fr": "Indice de réfraction n",
         "es": "Refractive Index n",
         "ar": "Refractive Index n"
       },
       "businessContext_i18n": {
         "en": "Refractive index of the lens material (dimensionless).",
-        "tr": "Mercek malzemesinin kırılma indisi (boyutsuz)."
+        "tr": "Mercek malzemesinin kırılma indisi (boyutsuz).",
+        "de": "Brechungsindex des Linsenmaterials (dimensionslos).",
+        "fr": "Indice de réfraction du matériau de la lentille (sans dimension)."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Radius of Curvature R1",
         "tr": "Eğrilik Yarıçapı R1",
-        "de": "Radius of Curvature R1",
-        "fr": "Radius of Curvature R1",
+        "de": "Krümmungsradius R1",
+        "fr": "Rayon de courbure R1",
         "es": "Radius of Curvature R1",
         "ar": "Radius of Curvature R1"
       },
       "businessContext_i18n": {
         "en": "Radius of curvature of the first lens surface. Sign convention: positive if center of curvature is to the right of the vertex.",
-        "tr": "Birinci mercek yüzeyinin eğrilik yarıçapı. İşaret kuralı: eğrilik merkezi tepe noktasının sağında ise pozitif."
+        "tr": "Birinci mercek yüzeyinin eğrilik yarıçapı. İşaret kuralı: eğrilik merkezi tepe noktasının sağında ise pozitif.",
+        "de": "Krümmungsradius der ersten Linsenfläche. Vorzeichenkonvention: positiv, wenn der Krümmungsmittelpunkt rechts vom Scheitelpunkt liegt.",
+        "fr": "Rayon de courbure de la première surface de la lentille. Convention de signe : positif si le centre de courbure est à droite du sommet."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Radius of Curvature R2",
         "tr": "Eğrilik Yarıçapı R2",
-        "de": "Radius of Curvature R2",
-        "fr": "Radius of Curvature R2",
+        "de": "Krümmungsradius R2",
+        "fr": "Rayon de courbure R2",
         "es": "Radius of Curvature R2",
         "ar": "Radius of Curvature R2"
       },
       "businessContext_i18n": {
         "en": "Radius of curvature of the second lens surface. Sign convention: positive if center of curvature is to the right of the vertex.",
-        "tr": "İkinci mercek yüzeyinin eğrilik yarıçapı. İşaret kuralı: eğrilik merkezi tepe noktasının sağında ise pozitif."
+        "tr": "İkinci mercek yüzeyinin eğrilik yarıçapı. İşaret kuralı: eğrilik merkezi tepe noktasının sağında ise pozitif.",
+        "de": "Krümmungsradius der zweiten Linsenfläche. Vorzeichenkonvention: positiv, wenn der Krümmungsmittelpunkt rechts vom Scheitelpunkt liegt.",
+        "fr": "Rayon de courbure de la deuxième surface de la lentille. Convention de signe : positif si le centre de courbure est à droite du sommet."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Object Distance u",
         "tr": "Nesne Mesafesi u",
-        "de": "Object Distance u",
-        "fr": "Object Distance u",
+        "de": "Gegenstandsabstand u",
+        "fr": "Distance objet u",
         "es": "Object Distance u",
         "ar": "Object Distance u"
       },
       "businessContext_i18n": {
         "en": "Distance from the object to the lens, measured along the optical axis. Sign convention: positive if object is on the incident light side (real object).",
-        "tr": "Nesneden merceğe optik eksen boyunca mesafe. İşaret kuralı: nesne gelen ışık tarafında ise (gerçek nesne) pozitif."
+        "tr": "Nesneden merceğe optik eksen boyunca mesafe. İşaret kuralı: nesne gelen ışık tarafında ise (gerçek nesne) pozitif.",
+        "de": "Abstand vom Objekt zur Linse, gemessen entlang der optischen Achse. Vorzeichenkonvention: positiv, wenn das Objekt auf der Seite des einfallenden Lichts liegt (reales Objekt).",
+        "fr": "Distance de l'objet à la lentille, mesurée le long de l'axe optique. Convention de signe : positif si l'objet est du côté de la lumière incidente (objet réel)."
       }
     }
   ],

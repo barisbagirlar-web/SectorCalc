@@ -13,12 +13,15 @@
         "tr": "Katsayı a",
         "de": "Koeffizient a",
         "fr": "Coefficient a",
-        "es": "Coefficient a",
+        "es": "Coeficiente a",
         "ar": "Coefficient a"
       },
       "businessContext_i18n": {
         "en": "Quadratic coefficient (non-zero for quadratic)",
-        "tr": "İkinci derece katsayısı (ikinci derece için sıfırdan farklı)"
+        "tr": "İkinci derece katsayısı (ikinci derece için sıfırdan farklı)",
+        "de": "Quadratischer Koeffizient (ungleich Null für quadratisch)",
+        "fr": "Coefficient quadratique (non nul pour une quadratique)",
+        "es": "Coeficiente cuadrático (distinto de cero para cuadrática)"
       }
     },
     {
@@ -33,12 +36,15 @@
         "tr": "Katsayı b",
         "de": "Koeffizient b",
         "fr": "Coefficient b",
-        "es": "Coefficient b",
+        "es": "Coeficiente b",
         "ar": "Coefficient b"
       },
       "businessContext_i18n": {
         "en": "Linear coefficient",
-        "tr": "Doğrusal katsayı"
+        "tr": "Doğrusal katsayı",
+        "de": "Linearer Koeffizient",
+        "fr": "Coefficient linéaire",
+        "es": "Coeficiente lineal"
       }
     },
     {
@@ -52,14 +58,16 @@
         "en": "Constant c",
         "tr": "Sabit c",
         "de": "Konstante c",
-        "fr": "Constant c",
-        "es": "Constant c",
+        "fr": "Constante c",
+        "es": "Constante c",
         "ar": "Constant c"
       },
       "businessContext_i18n": {
         "en": "Constant term",
         "tr": "Sabit terim",
-        "de": "Konstanter Term"
+        "de": "Konstanter Term",
+        "fr": "Terme constant",
+        "es": "Término constante"
       }
     },
     {
@@ -72,14 +80,17 @@
       "label_i18n": {
         "en": "Evaluate at x",
         "tr": "x'te değerlendir",
-        "de": "Evaluate at x",
-        "fr": "Evaluate at x",
-        "es": "Evaluate at x",
+        "de": "Auswerten bei x",
+        "fr": "Évaluer à x",
+        "es": "Evaluar en x",
         "ar": "Evaluate at x"
       },
       "businessContext_i18n": {
         "en": "Optional: evaluate the quadratic at this x value",
-        "tr": "İsteğe bağlı: ikinci dereceyi bu x değerinde değerlendir"
+        "tr": "İsteğe bağlı: ikinci dereceyi bu x değerinde değerlendir",
+        "de": "Optional: werten Sie die quadratische Funktion an diesem x-Wert aus",
+        "fr": "Optionnel : évaluer la quadratique à cette valeur de x",
+        "es": "Opcional: evalúa la cuadrática en este valor de x"
       }
     }
   ],

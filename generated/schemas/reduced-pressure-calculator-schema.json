@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Giriş Basıncı",
         "tr": "Giriş Basıncı",
-        "de": "Giriş Basıncı",
-        "fr": "Giriş Basıncı",
+        "de": "Eingangsdruck",
+        "fr": "Pression d'entrée",
         "es": "Giriş Basıncı",
         "ar": "Giriş Basıncı"
       },
       "businessContext_i18n": {
         "en": "Vana girişindeki akışkan basıncı",
-        "tr": "Vana girişindeki akışkan basıncı"
+        "tr": "Vana girişindeki akışkan basıncı",
+        "de": "Fluiddruck am Ventileingang",
+        "fr": "Pression du fluide à l'entrée de la vanne",
+        "es": "Vana girişindeki akışkan basıncı"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Akış Debisi",
         "tr": "Akış Debisi",
-        "de": "Akış Debisi",
-        "fr": "Akış Debisi",
+        "de": "Durchflussrate",
+        "fr": "Débit",
         "es": "Akış Debisi",
         "ar": "Akış Debisi"
       },
       "businessContext_i18n": {
         "en": "Vana üzerinden geçen akışkan debisi",
-        "tr": "Vana üzerinden geçen akışkan debisi"
+        "tr": "Vana üzerinden geçen akışkan debisi",
+        "de": "Durchflussrate des Mediums durch das Ventil",
+        "fr": "Débit du fluide traversant la vanne",
+        "es": "Vana üzerinden geçen akışkan debisi"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Özgül Ağırlık",
         "tr": "Özgül Ağırlık",
-        "de": "Özgül Ağırlık",
-        "fr": "Özgül Ağırlık",
+        "de": "Spezifisches Gewicht",
+        "fr": "Densité relative",
         "es": "Özgül Ağırlık",
         "ar": "Özgül Ağırlık"
       },
       "businessContext_i18n": {
         "en": "Akışkanın suya göre özgül ağırlığı",
-        "tr": "Akışkanın suya göre özgül ağırlığı"
+        "tr": "Akışkanın suya göre özgül ağırlığı",
+        "de": "Spezifisches Gewicht des Mediums im Vergleich zu Wasser",
+        "fr": "Densité du fluide par rapport à l'eau",
+        "es": "Akışkanın suya göre özgül ağırlığı"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Kv Katsayısı",
         "tr": "Kv Katsayısı",
-        "de": "Kv Katsayısı",
-        "fr": "Kv Katsayısı",
+        "de": "Kv-Wert",
+        "fr": "Coefficient Kv",
         "es": "Kv Katsayısı",
         "ar": "Kv Katsayısı"
       },
       "businessContext_i18n": {
         "en": "Vana akış katsayısı (Kv)",
-        "tr": "Vana akış katsayısı (Kv)"
+        "tr": "Vana akış katsayısı (Kv)",
+        "de": "Durchflusskoeffizient des Ventils (Kv)",
+        "fr": "Coefficient de débit de la vanne (Kv)",
+        "es": "Vana akış katsayısı (Kv)"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Emniyet Faktörü",
         "tr": "Emniyet Faktörü",
-        "de": "Emniyet Faktörü",
-        "fr": "Emniyet Faktörü",
-        "es": "Emniyet Faktörü",
+        "de": "Sicherheitsfaktor",
+        "fr": "Facteur de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Emniyet Faktörü"
       },
       "businessContext_i18n": {
         "en": "Hesaplanan basınç düşümüne uygulanan emniyet çarpanı",
-        "tr": "Hesaplanan basınç düşümüne uygulanan emniyet çarpanı"
+        "tr": "Hesaplanan basınç düşümüne uygulanan emniyet çarpanı",
+        "de": "Sicherheitsfaktor für den berechneten Druckabfall",
+        "fr": "Facteur de sécurité appliqué à la perte de charge calculée",
+        "es": "Hesaplanan basınç düşümüne uygulanan emniyet çarpanı"
       }
     }
   ],

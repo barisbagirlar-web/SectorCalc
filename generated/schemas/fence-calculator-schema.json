@@ -12,14 +12,16 @@
         "en": "Toplam Çit Uzunluğu",
         "tr": "Toplam Çit Uzunluğu",
         "de": "Gesamte Zaunlänge",
-        "fr": "Toplam Çit Uzunluğu",
-        "es": "Toplam Çit Uzunluğu",
+        "fr": "Longueur totale de clôture",
+        "es": "Longitud total de la cerca",
         "ar": "Toplam Çit Uzunluğu"
       },
       "businessContext_i18n": {
         "en": "Çit hattının toplam uzunluğu (kapılar hariç)",
         "tr": "Çit hattının toplam uzunluğu (kapılar hariç)",
-        "de": "Gesamtlänge der Zaunlinie (ohne Tore)"
+        "de": "Gesamtlänge der Zaunlinie (ohne Tore)",
+        "fr": "Longueur totale de la ligne de clôture (hors portails)",
+        "es": "Longitud total de la línea de la cerca (excluyendo puertas)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Çit Yüksekliği",
         "tr": "Çit Yüksekliği",
         "de": "Zaunhöhe",
-        "fr": "Çit Yüksekliği",
-        "es": "Çit Yüksekliği",
+        "fr": "Hauteur de clôture",
+        "es": "Altura de la cerca",
         "ar": "Çit Yüksekliği"
       },
       "businessContext_i18n": {
         "en": "Panel yüksekliği",
         "tr": "Panel yüksekliği",
-        "de": "Paneelhöhe"
+        "de": "Paneelhöhe",
+        "fr": "Hauteur du panneau",
+        "es": "Altura del panel"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Direk Aralığı",
         "tr": "Direk Aralığı",
         "de": "Pfostenabstand",
-        "fr": "Direk Aralığı",
-        "es": "Direk Aralığı",
+        "fr": "Espacement des poteaux",
+        "es": "Espaciado de postes",
         "ar": "Direk Aralığı"
       },
       "businessContext_i18n": {
         "en": "Direkler arası mesafe",
         "tr": "Direkler arası mesafe",
-        "de": "Abstand zwischen den Pfosten"
+        "de": "Abstand zwischen den Pfosten",
+        "fr": "Distance entre les poteaux",
+        "es": "Distancia entre postes"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Direk Birim Fiyatı",
         "tr": "Direk Birim Fiyatı",
         "de": "Stückpreis Pfosten",
-        "fr": "Direk Birim Fiyatı",
-        "es": "Direk Birim Fiyatı",
+        "fr": "Prix unitaire du poteau",
+        "es": "Precio unitario del poste",
         "ar": "Direk Birim Fiyatı"
       },
       "businessContext_i18n": {
         "en": "Bir direk maliyeti",
         "tr": "Bir direk maliyeti",
-        "de": "Kosten pro Pfosten"
+        "de": "Kosten pro Pfosten",
+        "fr": "Coût d'un poteau",
+        "es": "Costo de un poste"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Panel Metrekare Fiyatı",
         "tr": "Panel Metrekare Fiyatı",
         "de": "Preis pro Quadratmeter Paneel",
-        "fr": "Panel Metrekare Fiyatı",
-        "es": "Panel Metrekare Fiyatı",
+        "fr": "Prix au mètre carré du panneau",
+        "es": "Precio por metro cuadrado del panel",
         "ar": "Panel Metrekare Fiyatı"
       },
       "businessContext_i18n": {
         "en": "Panel malzemesinin metrekare başına fiyatı",
         "tr": "Panel malzemesinin metrekare başına fiyatı",
-        "de": "Preis pro Quadratmeter des Paneelmaterials"
+        "de": "Preis pro Quadratmeter des Paneelmaterials",
+        "fr": "Prix au mètre carré du matériau du panneau",
+        "es": "Precio por metro cuadrado del material del panel"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Kapı Sayısı",
         "tr": "Kapı Sayısı",
         "de": "Anzahl Türen",
-        "fr": "Kapı Sayısı",
-        "es": "Kapı Sayısı",
+        "fr": "Nombre de portes",
+        "es": "Número de puertas",
         "ar": "Kapı Sayısı"
       },
       "businessContext_i18n": {
         "en": "Çite eklenecek kapı adedi",
         "tr": "Çite eklenecek kapı adedi",
-        "de": "Anzahl der zum Zaun hinzuzufügenden Tore"
+        "de": "Anzahl der zum Zaun hinzuzufügenden Tore",
+        "fr": "Nombre de portails à ajouter à la clôture",
+        "es": "Número de puertas a añadir a la cerca"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Kapı Birim Fiyatı",
         "tr": "Kapı Birim Fiyatı",
         "de": "Stückpreis Tor",
-        "fr": "Kapı Birim Fiyatı",
-        "es": "Kapı Birim Fiyatı",
+        "fr": "Prix unitaire du portail",
+        "es": "Precio unitario de la puerta",
         "ar": "Kapı Birim Fiyatı"
       },
       "businessContext_i18n": {
         "en": "Bir kapı maliyeti",
         "tr": "Bir kapı maliyeti",
-        "de": "Kosten pro Tor"
+        "de": "Kosten pro Tor",
+        "fr": "Coût d'un portail",
+        "es": "Costo de una puerta"
       }
     },
     {
@@ -159,14 +173,16 @@
         "en": "Direk Başı Beton Maliyeti",
         "tr": "Direk Başı Beton Maliyeti",
         "de": "Betonkosten pro Pfosten",
-        "fr": "Direk Başı Beton Maliyeti",
-        "es": "Direk Başı Beton Maliyeti",
+        "fr": "Coût du béton par poteau",
+        "es": "Costo de concreto por poste",
         "ar": "Direk Başı Beton Maliyeti"
       },
       "businessContext_i18n": {
         "en": "Bir direk için gerekli betonun toplam maliyeti",
         "tr": "Bir direk için gerekli betonun toplam maliyeti",
-        "de": "Gesamtkosten des für einen Pfosten benötigten Betons"
+        "de": "Gesamtkosten des für einen Pfosten benötigten Betons",
+        "fr": "Coût total du béton nécessaire pour un poteau",
+        "es": "Costo total del concreto necesario para un poste"
       }
     }
   ],

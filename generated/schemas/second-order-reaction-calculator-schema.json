@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Initial Concentration [A]₀",
         "tr": "Başlangıç Derişimi [A]₀",
-        "de": "Initial Concentration [A]₀",
-        "fr": "Initial Concentration [A]₀",
-        "es": "Initial Concentration [A]₀",
+        "de": "Anfangskonzentration [A]₀",
+        "fr": "Concentration initiale [A]₀",
+        "es": "Concentración inicial [A]₀",
         "ar": "Initial Concentration [A]₀"
       },
       "businessContext_i18n": {
         "en": "Starting molar concentration of reactant A in a second-order reaction (rate = k[A]² or k[A][B] with [A]₀ = [B]₀)",
-        "tr": "İkinci dereceden bir reaksiyonda A reaktanının başlangıç molar derişimi (hız = k[A]² veya k[A][B] ve [A]₀ = [B]₀)"
+        "tr": "İkinci dereceden bir reaksiyonda A reaktanının başlangıç molar derişimi (hız = k[A]² veya k[A][B] ve [A]₀ = [B]₀)",
+        "de": "Anfängliche molare Konzentration des Reaktanten A in einer Reaktion zweiter Ordnung (Geschwindigkeit = k[A]² oder k[A][B] mit [A]₀ = [B]₀)",
+        "fr": "Concentration molaire initiale du réactif A dans une réaction du second ordre (vitesse = k[A]² ou k[A][B] avec [A]₀ = [B]₀)"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Rate Constant (k)",
         "tr": "Hız Sabiti (k)",
         "de": "Geschwindigkeitskonstante (k)",
-        "fr": "Rate Constant (k)",
-        "es": "Rate Constant (k)",
+        "fr": "Constante de vitesse (k)",
+        "es": "Constante de velocidad (k)",
         "ar": "Rate Constant (k)"
       },
       "businessContext_i18n": {
         "en": "Second-order rate constant to quantify reaction speed",
-        "tr": "Reaksiyon hızını ölçmek için ikinci derece hız sabiti"
+        "tr": "Reaksiyon hızını ölçmek için ikinci derece hız sabiti",
+        "de": "Geschwindigkeitskonstante zweiter Ordnung zur Quantifizierung der Reaktionsgeschwindigkeit",
+        "fr": "Constante de vitesse du second ordre pour quantifier la vitesse de réaction"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Elapsed Time (t)",
         "tr": "Geçen Süre (t)",
-        "de": "Elapsed Time (t)",
-        "fr": "Elapsed Time (t)",
+        "de": "Verstrichene Zeit (t)",
+        "fr": "Temps écoulé (t)",
         "es": "Elapsed Time (t)",
         "ar": "Elapsed Time (t)"
       },
       "businessContext_i18n": {
         "en": "Time at which to calculate the concentration of A",
-        "tr": "A'nın derişiminin hesaplanacağı süre"
+        "tr": "A'nın derişiminin hesaplanacağı süre",
+        "de": "Zeitpunkt, zu dem die Konzentration von A berechnet werden soll",
+        "fr": "Temps auquel calculer la concentration de A"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Target Concentration [A]",
         "tr": "Hedef Derişim [A]",
-        "de": "Target Concentration [A]",
-        "fr": "Target Concentration [A]",
+        "de": "Zielkonzentration [A]",
+        "fr": "Concentration cible [A]",
         "es": "Target Concentration [A]",
         "ar": "Target Concentration [A]"
       },
       "businessContext_i18n": {
         "en": "Desired concentration of A used to calculate the required reaction time",
-        "tr": "Gerekli reaksiyon süresini hesaplamak için kullanılan istenen A derişimi"
+        "tr": "Gerekli reaksiyon süresini hesaplamak için kullanılan istenen A derişimi",
+        "de": "Gewünschte Konzentration von A zur Berechnung der erforderlichen Reaktionszeit",
+        "fr": "Concentration souhaitée de A utilisée pour calculer le temps de réaction requis"
       }
     }
   ],

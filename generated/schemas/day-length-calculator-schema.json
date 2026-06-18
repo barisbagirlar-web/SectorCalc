@@ -12,14 +12,16 @@
         "en": "Enlem",
         "tr": "Enlem",
         "de": "Breitengrad",
-        "fr": "Enlem",
-        "es": "Enlem",
+        "fr": "Latitude",
+        "es": "Latitud",
         "ar": "Enlem"
       },
       "businessContext_i18n": {
         "en": "Gözlem noktasının enlemi (-90 ile 90 arası)",
         "tr": "Gözlem noktasının enlemi (-90 ile 90 arası)",
-        "de": "Breitengrad des Beobachtungspunkts (-90 bis 90)"
+        "de": "Breitengrad des Beobachtungspunkts (-90 bis 90)",
+        "fr": "Latitude du point d'observation (entre -90 et 90)",
+        "es": "Latitud del punto de observación (-90 a 90)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Yıl",
         "tr": "Yıl",
         "de": "Jahr",
-        "fr": "Yıl",
-        "es": "Yıl",
+        "fr": "Année",
+        "es": "Año",
         "ar": "Yıl"
       },
       "businessContext_i18n": {
         "en": "Gözlem yılı",
         "tr": "Gözlem yılı",
-        "de": "Beobachtungsjahr"
+        "de": "Beobachtungsjahr",
+        "fr": "Année d'observation",
+        "es": "Año de observación"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Ay",
         "tr": "Ay",
         "de": "Monat",
-        "fr": "Ay",
-        "es": "Ay",
+        "fr": "Mois",
+        "es": "Mes",
         "ar": "Ay"
       },
       "businessContext_i18n": {
         "en": "Gözlem ayı (1–12)",
         "tr": "Gözlem ayı (1–12)",
-        "de": "Beobachtungsmonat (1–12)"
+        "de": "Beobachtungsmonat (1–12)",
+        "fr": "Mois d'observation (1–12)",
+        "es": "Mes de observación (1–12)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Gün",
         "tr": "Gün",
         "de": "Tag",
-        "fr": "Gün",
-        "es": "Gün",
+        "fr": "Jour",
+        "es": "Día",
         "ar": "Gün"
       },
       "businessContext_i18n": {
         "en": "Gözlem günü (1–31)",
         "tr": "Gözlem günü (1–31)",
-        "de": "Beobachtungstag (1–31)"
+        "de": "Beobachtungstag (1–31)",
+        "fr": "Jour d'observation (1–31)",
+        "es": "Día de observación (1–31)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "UTC Sapması",
         "tr": "UTC Sapması",
         "de": "UTC-Abweichung",
-        "fr": "UTC Sapması",
-        "es": "UTC Sapması",
+        "fr": "Décalage UTC",
+        "es": "Desviación UTC",
         "ar": "UTC Sapması"
       },
       "businessContext_i18n": {
         "en": "Zaman dilimi UTC farkı (Türkiye için +3)",
         "tr": "Zaman dilimi UTC farkı (Türkiye için +3)",
-        "de": "Zeitzonen-UTC-Differenz (für Türkei +3)"
+        "de": "Zeitzonen-UTC-Differenz (für Türkei +3)",
+        "fr": "Différence de fuseau horaire UTC (+3 pour la Turquie)",
+        "es": "Diferencia horaria UTC (para Turquía +3)"
       }
     }
   ],

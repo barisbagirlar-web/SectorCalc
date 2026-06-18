@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Standard Reduction Potential (E°)",
         "tr": "Standart İndirgenme Potansiyeli (E°)",
-        "de": "Standard Reduction Potential (E°)",
-        "fr": "Standard Reduction Potential (E°)",
+        "de": "Standard-Reduktionspotential (E°)",
+        "fr": "Potentiel standard de réduction (E°)",
         "es": "Standard Reduction Potential (E°)",
         "ar": "Standard Reduction Potential (E°)"
       },
       "businessContext_i18n": {
         "en": "The standard reduction potential of the half-reaction under standard conditions (1 M, 1 atm, 25°C).",
-        "tr": "Standart koşullar altında (1 M, 1 atm, 25°C) yarı reaksiyonun standart indirgenme potansiyeli."
+        "tr": "Standart koşullar altında (1 M, 1 atm, 25°C) yarı reaksiyonun standart indirgenme potansiyeli.",
+        "de": "Das Standard-Reduktionspotential der Halbreaktion unter Standardbedingungen (1 M, 1 atm, 25°C).",
+        "fr": "Le potentiel standard de réduction de la demi-réaction dans des conditions standard (1 M, 1 atm, 25°C)."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Temperature (T)",
         "tr": "Sıcaklık (T)",
         "de": "Temperatur (T)",
-        "fr": "Temperature (T)",
-        "es": "Temperature (T)",
+        "fr": "Température (T)",
+        "es": "Temperatura (T)",
         "ar": "Temperature (T)"
       },
       "businessContext_i18n": {
         "en": "Temperature in Kelvin.",
-        "tr": "Kelvin cinsinden sıcaklık."
+        "tr": "Kelvin cinsinden sıcaklık.",
+        "de": "Temperatur in Kelvin.",
+        "fr": "Température en Kelvin."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Number of Electrons Transferred (n)",
         "tr": "Transfer Edilen Elektron Sayısı (n)",
         "de": "Anzahl der übertragenen Elektronen (n)",
-        "fr": "Number of Electrons Transferred (n)",
-        "es": "Number of Electrons Transferred (n)",
+        "fr": "Nombre d'électrons transférés (n)",
+        "es": "Número de electrones transferidos (n)",
         "ar": "Number of Electrons Transferred (n)"
       },
       "businessContext_i18n": {
         "en": "Stoichiometric number of electrons in the half-reaction.",
-        "tr": "Yarı reaksiyondaki elektronların stokiyometrik sayısı."
+        "tr": "Yarı reaksiyondaki elektronların stokiyometrik sayısı.",
+        "de": "Stöchiometrische Anzahl der Elektronen in der Halbreaktion.",
+        "fr": "Nombre stœchiométrique d'électrons dans la demi-réaction."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Concentration of Oxidized Species [Ox]",
         "tr": "Yükseltgenmiş Türlerin Konsantrasyonu [Ox]",
-        "de": "Concentration of Oxidized Species [Ox]",
-        "fr": "Concentration of Oxidized Species [Ox]",
+        "de": "Konzentration der oxidierten Spezies [Ox]",
+        "fr": "Concentration de l'espèce oxydée [Ox]",
         "es": "Concentration of Oxidized Species [Ox]",
         "ar": "Concentration of Oxidized Species [Ox]"
       },
       "businessContext_i18n": {
         "en": "Molar concentration of the oxidized species (reactant).",
-        "tr": "Yükseltgenmiş türün (reaktan) molar konsantrasyonu."
+        "tr": "Yükseltgenmiş türün (reaktan) molar konsantrasyonu.",
+        "de": "Molare Konzentration der oxidierten Spezies (Reaktant).",
+        "fr": "Concentration molaire de l'espèce oxydée (réactif)."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Concentration of Reduced Species [Red]",
         "tr": "İndirgenmiş Tür Konsantrasyonu [Red]",
-        "de": "Concentration of Reduced Species [Red]",
-        "fr": "Concentration of Reduced Species [Red]",
+        "de": "Konzentration der reduzierten Spezies [Red]",
+        "fr": "Concentration de l'espèce réduite [Red]",
         "es": "Concentration of Reduced Species [Red]",
         "ar": "Concentration of Reduced Species [Red]"
       },
       "businessContext_i18n": {
         "en": "Molar concentration of the reduced species (product).",
-        "tr": "İndirgenmiş türün molar konsantrasyonu (ürün)."
+        "tr": "İndirgenmiş türün molar konsantrasyonu (ürün).",
+        "de": "Molare Konzentration der reduzierten Spezies (Produkt).",
+        "fr": "Concentration molaire de l'espèce réduite (produit)."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Stoichiometric Coefficient of Oxidized Species (a)",
         "tr": "Yükseltgenmiş Türün Stokiyometrik Katsayısı (a)",
-        "de": "Stoichiometric Coefficient of Oxidized Species (a)",
-        "fr": "Stoichiometric Coefficient of Oxidized Species (a)",
+        "de": "Stöchiometrischer Koeffizient der oxidierten Spezies (a)",
+        "fr": "Coefficient stœchiométrique de l'espèce oxydée (a)",
         "es": "Stoichiometric Coefficient of Oxidized Species (a)",
         "ar": "Stoichiometric Coefficient of Oxidized Species (a)"
       },
       "businessContext_i18n": {
         "en": "Coefficient for the oxidized species in the balanced half-reaction: aOx + ne- → bRed.",
-        "tr": "Dengeli yarı reaksiyondaki yükseltgenmiş türün katsayısı: aOx + ne- → bRed."
+        "tr": "Dengeli yarı reaksiyondaki yükseltgenmiş türün katsayısı: aOx + ne- → bRed.",
+        "de": "Koeffizient für die oxidierte Spezies in der ausgeglichenen Halbreaktion: aOx + ne- → bRed.",
+        "fr": "Coefficient pour l'espèce oxydée dans la demi-réaction équilibrée : aOx + ne- → bRed."
       }
     },
     {
@@ -131,14 +143,16 @@
       "label_i18n": {
         "en": "Stoichiometric Coefficient of Reduced Species (b)",
         "tr": "İndirgenmiş Türün Stokiyometrik Katsayısı (b)",
-        "de": "Stoichiometric Coefficient of Reduced Species (b)",
-        "fr": "Stoichiometric Coefficient of Reduced Species (b)",
+        "de": "Stöchiometrischer Koeffizient der reduzierten Spezies (b)",
+        "fr": "Coefficient stœchiométrique de l'espèce réduite (b)",
         "es": "Stoichiometric Coefficient of Reduced Species (b)",
         "ar": "Stoichiometric Coefficient of Reduced Species (b)"
       },
       "businessContext_i18n": {
         "en": "Coefficient for the reduced species in the balanced half-reaction.",
-        "tr": "Dengeli yarı reaksiyondaki indirgenmiş türün katsayısı."
+        "tr": "Dengeli yarı reaksiyondaki indirgenmiş türün katsayısı.",
+        "de": "Koeffizient für die reduzierte Spezies in der ausgeglichenen Halbreaktion.",
+        "fr": "Coefficient pour l'espèce réduite dans la demi-réaction équilibrée."
       }
     }
   ],

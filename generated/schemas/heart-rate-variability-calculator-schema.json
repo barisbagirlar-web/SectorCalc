@@ -12,14 +12,16 @@
         "en": "Number of RR intervals (N)",
         "tr": "RR aralığı sayısı (N)",
         "de": "Anzahl der RR-Intervalle (N)",
-        "fr": "Number of RR intervals (N)",
-        "es": "Number of RR intervals (N)",
+        "fr": "Nombre d'intervalles RR (N)",
+        "es": "Número de intervalos RR (N)",
         "ar": "Number of RR intervals (N)"
       },
       "businessContext_i18n": {
         "en": "Total number of consecutive RR intervals recorded",
         "tr": "Kaydedilen ardışık RR aralıklarının toplam sayısı",
-        "de": "Gesamtzahl der aufeinanderfolgenden RR-Intervalle"
+        "de": "Gesamtzahl der aufeinanderfolgenden RR-Intervalle",
+        "fr": "Nombre total d'intervalles RR consécutifs enregistrés",
+        "es": "Número total de intervalos RR consecutivos registrados"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Sum of RR intervals",
         "tr": "RR aralıklarının toplamı",
         "de": "Summe der RR-Intervalle",
-        "fr": "Sum of RR intervals",
-        "es": "Sum of RR intervals",
+        "fr": "Somme des intervalles RR",
+        "es": "Suma de intervalos RR",
         "ar": "Sum of RR intervals"
       },
       "businessContext_i18n": {
         "en": "Sum of all RR interval durations in milliseconds",
         "tr": "Tüm RR aralıklarının milisaniye cinsinden toplam süresi",
-        "de": "Summe aller RR-Intervalldauern in Millisekunden"
+        "de": "Summe aller RR-Intervalldauern in Millisekunden",
+        "fr": "Somme de toutes les durées des intervalles RR en millisecondes",
+        "es": "Suma de todas las duraciones de intervalos RR en milisegundos"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Sum of squared RR intervals",
         "tr": "Kareli RR aralıklarının toplamı",
         "de": "Summe der quadrierten RR-Intervalle",
-        "fr": "Sum of squared RR intervals",
-        "es": "Sum of squared RR intervals",
+        "fr": "Somme des carrés des intervalles RR",
+        "es": "Suma de intervalos RR al cuadrado",
         "ar": "Sum of squared RR intervals"
       },
       "businessContext_i18n": {
         "en": "Sum of the squares of each RR interval for variance calculation",
         "tr": "Varyans hesaplaması için her bir RR aralığının karelerinin toplamı",
-        "de": "Summe der Quadrate jedes RR-Intervalls für die Varianzberechnung"
+        "de": "Summe der Quadrate jedes RR-Intervalls für die Varianzberechnung",
+        "fr": "Somme des carrés de chaque intervalle RR pour le calcul de la variance",
+        "es": "Suma de los cuadrados de cada intervalo RR para el cálculo de la varianza"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Sum of squared successive differences",
         "tr": "Kareli ardışık farkların toplamı",
         "de": "Summe der quadrierten aufeinanderfolgenden Differenzen",
-        "fr": "Sum of squared successive differences",
-        "es": "Sum of squared successive differences",
+        "fr": "Somme des carrés des différences successives",
+        "es": "Suma de las diferencias sucesivas al cuadrado",
         "ar": "Sum of squared successive differences"
       },
       "businessContext_i18n": {
         "en": "Sum of squared differences between consecutive RR intervals",
         "tr": "Ardışık RR aralıkları arasındaki kareli farkların toplamı",
-        "de": "Summe der quadrierten Differenzen zwischen aufeinanderfolgenden RR-Intervallen"
+        "de": "Summe der quadrierten Differenzen zwischen aufeinanderfolgenden RR-Intervallen",
+        "fr": "Somme des carrés des différences entre intervalles RR consécutifs",
+        "es": "Suma de las diferencias al cuadrado entre intervalos RR consecutivos"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Count of NN50",
         "tr": "NN50 sayısı",
         "de": "Anzahl der NN50",
-        "fr": "Count of NN50",
-        "es": "Count of NN50",
+        "fr": "Nombre de NN50",
+        "es": "Recuento de NN50",
         "ar": "Count of NN50"
       },
       "businessContext_i18n": {
         "en": "Number of interval differences greater than 50 ms",
         "tr": "50 ms'den büyük aralık farklarının sayısı",
-        "de": "Anzahl der Intervallunterschiede größer als 50 ms"
+        "de": "Anzahl der Intervallunterschiede größer als 50 ms",
+        "fr": "Nombre de différences d'intervalles supérieures à 50 ms",
+        "es": "Número de diferencias de intervalo mayores a 50 ms"
       }
     }
   ],

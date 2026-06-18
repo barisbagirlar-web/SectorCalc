@@ -12,13 +12,15 @@
         "en": "Current Weight",
         "tr": "Mevcut Ağırlık",
         "de": "Aktuelles Gewicht",
-        "fr": "Current Weight",
-        "es": "Current Weight",
+        "fr": "Poids actuel",
+        "es": "Peso actual",
         "ar": "Current Weight"
       },
       "businessContext_i18n": {
         "en": "Current body weight of the individual in kilograms.",
-        "tr": "Bireyin kilogram cinsinden mevcut vücut ağırlığı."
+        "tr": "Bireyin kilogram cinsinden mevcut vücut ağırlığı.",
+        "de": "Aktuelles Körpergewicht der Person in Kilogramm.",
+        "fr": "Poids corporel actuel de l'individu en kilogrammes."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Goal Weight",
         "tr": "Hedef Ağırlık",
         "de": "Zielgewicht",
-        "fr": "Goal Weight",
-        "es": "Goal Weight",
+        "fr": "Poids cible",
+        "es": "Peso objetivo",
         "ar": "Goal Weight"
       },
       "businessContext_i18n": {
         "en": "Target weight to achieve in kilograms.",
-        "tr": "Hedeflenen kilogram cinsinden ağırlık."
+        "tr": "Hedeflenen kilogram cinsinden ağırlık.",
+        "de": "Zielgewicht in Kilogramm.",
+        "fr": "Poids cible à atteindre en kilogrammes."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Timeframe",
         "tr": "Zaman Çerçevesi",
         "de": "Zeitraum",
-        "fr": "Timeframe",
-        "es": "Timeframe",
+        "fr": "Période",
+        "es": "Plazo",
         "ar": "Timeframe"
       },
       "businessContext_i18n": {
         "en": "Number of weeks over which the weight change is planned.",
-        "tr": "Kilo değişiminin planlandığı hafta sayısı."
+        "tr": "Kilo değişiminin planlandığı hafta sayısı.",
+        "de": "Anzahl der Wochen, über die die Gewichtsänderung geplant ist.",
+        "fr": "Nombre de semaines sur lesquelles le changement de poids est planifié."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Activity Level",
         "tr": "Aktivite Seviyesi",
         "de": "Aktivitätsniveau",
-        "fr": "Activity Level",
-        "es": "Activity Level",
+        "fr": "Niveau d'activité",
+        "es": "Nivel de actividad",
         "ar": "Activity Level"
       },
       "businessContext_i18n": {
         "en": "Physical activity factor (1.2 = sedentary, 1.375 = light exercise, 1.55 = moderate, 1.725 = heavy, 1.9 = athlete).",
-        "tr": "Fiziksel aktivite faktörü (1.2 = hareketsiz, 1.375 = hafif egzersiz, 1.55 = orta, 1.725 = ağır, 1.9 = atlet)."
+        "tr": "Fiziksel aktivite faktörü (1.2 = hareketsiz, 1.375 = hafif egzersiz, 1.55 = orta, 1.725 = ağır, 1.9 = atlet).",
+        "de": "Faktor für körperliche Aktivität (1,2 = sitzend, 1,375 = leichte Bewegung, 1,55 = mäßig, 1,725 = schwer, 1,9 = Athlet).",
+        "fr": "Facteur d'activité physique (1,2 = sédentaire, 1,375 = exercice léger, 1,55 = modéré, 1,725 = intense, 1,9 = athlète)."
       }
     }
   ],

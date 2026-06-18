@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Weld Length (mm)",
         "tr": "Kaynak Uzunluğu (mm)",
-        "de": "Weld Length (mm)",
-        "fr": "Weld Length (mm)",
+        "de": "Schweißnahtlänge (mm)",
+        "fr": "Longueur de soudure (mm)",
         "es": "Weld Length (mm)",
         "ar": "Weld Length (mm)"
       },
       "businessContext_i18n": {
         "en": "Total length of the weld seam",
-        "tr": "Kaynak dikişinin toplam uzunluğu"
+        "tr": "Kaynak dikişinin toplam uzunluğu",
+        "de": "Gesamtlänge der Schweißnaht",
+        "fr": "Longueur totale du cordon de soudure"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Throat Thickness (mm)",
         "tr": "Boğaz Kalınlığı (mm)",
-        "de": "Throat Thickness (mm)",
-        "fr": "Throat Thickness (mm)",
+        "de": "Kehlnahtdicke (mm)",
+        "fr": "Épaisseur de gorge (mm)",
         "es": "Throat Thickness (mm)",
         "ar": "Throat Thickness (mm)"
       },
       "businessContext_i18n": {
         "en": "Effective throat thickness of the weld",
-        "tr": "Kaynağın etkin boğaz kalınlığı"
+        "tr": "Kaynağın etkin boğaz kalınlığı",
+        "de": "Effektive Kehlnahtdicke der Schweißnaht",
+        "fr": "Épaisseur effective de la gorge de la soudure"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Electrode Diameter (mm)",
         "tr": "Elektrot Çapı (mm)",
-        "de": "Electrode Diameter (mm)",
-        "fr": "Electrode Diameter (mm)",
+        "de": "Elektrodendurchmesser (mm)",
+        "fr": "Diamètre de l'électrode (mm)",
         "es": "Electrode Diameter (mm)",
         "ar": "Electrode Diameter (mm)"
       },
       "businessContext_i18n": {
         "en": "Diameter of the welding electrode",
-        "tr": "Kaynak elektrotunun çapı"
+        "tr": "Kaynak elektrotunun çapı",
+        "de": "Durchmesser der Schweißelektrode",
+        "fr": "Diamètre de l'électrode de soudage"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Deposition Efficiency (%)",
         "tr": "Biriktirme Verimliliği (%)",
-        "de": "Deposition Efficiency (%)",
-        "fr": "Deposition Efficiency (%)",
+        "de": "Abscheideeffizienz (%)",
+        "fr": "Efficacité de dépôt (%)",
         "es": "Deposition Efficiency (%)",
         "ar": "Deposition Efficiency (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of electrode material deposited as weld metal",
-        "tr": "Kaynak metali olarak biriktirilen elektrot malzemesi yüzdesi"
+        "tr": "Kaynak metali olarak biriktirilen elektrot malzemesi yüzdesi",
+        "de": "Prozentsatz des Elektrodenmaterials, das als Schweißgut abgeschieden wird",
+        "fr": "Pourcentage de métal d'électrode déposé comme métal de soudure"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Electrode Density (g/cm³)",
         "tr": "Elektrot Yoğunluğu (g/cm³)",
-        "de": "Electrode Density (g/cm³)",
-        "fr": "Electrode Density (g/cm³)",
+        "de": "Elektrodendichte (g/cm³)",
+        "fr": "Densité de l'électrode (g/cm³)",
         "es": "Electrode Density (g/cm³)",
         "ar": "Electrode Density (g/cm³)"
       },
       "businessContext_i18n": {
         "en": "Density of the electrode material",
-        "tr": "Elektrot malzemesinin yoğunluğu"
+        "tr": "Elektrot malzemesinin yoğunluğu",
+        "de": "Dichte des Elektrodenmaterials",
+        "fr": "Densité du matériau de l'électrode"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Labor Cost per Hour (€)",
         "tr": "Saatlik İşçilik Maliyeti (€)",
-        "de": "Labor Cost per Hour (€)",
-        "fr": "Labor Cost per Hour (€)",
+        "de": "Arbeitskosten pro Stunde (€)",
+        "fr": "Coût de main-d'œuvre par heure (€)",
         "es": "Labor Cost per Hour (€)",
         "ar": "Labor Cost per Hour (€)"
       },
       "businessContext_i18n": {
         "en": "Hourly labor cost including overhead",
-        "tr": "Genel giderler dahil saatlik işçilik maliyeti"
+        "tr": "Genel giderler dahil saatlik işçilik maliyeti",
+        "de": "Stündliche Arbeitskosten inkl. Gemeinkosten",
+        "fr": "Coût horaire de main-d'œuvre incluant les frais généraux"
       }
     },
     {
@@ -131,14 +143,16 @@
       "label_i18n": {
         "en": "Electrode Cost per kg (€)",
         "tr": "Elektrot kg Maliyeti (€)",
-        "de": "Electrode Cost per kg (€)",
-        "fr": "Electrode Cost per kg (€)",
+        "de": "Elektrodenkosten pro kg (€)",
+        "fr": "Coût de l'électrode par kg (€)",
         "es": "Electrode Cost per kg (€)",
         "ar": "Electrode Cost per kg (€)"
       },
       "businessContext_i18n": {
         "en": "Cost per kilogram of electrode",
-        "tr": "Kilogram elektrot başına maliyet"
+        "tr": "Kilogram elektrot başına maliyet",
+        "de": "Kosten pro Kilogramm Elektrode",
+        "fr": "Coût par kilogramme d'électrode"
       }
     },
     {
@@ -151,14 +165,16 @@
       "label_i18n": {
         "en": "Welding Speed (mm/min)",
         "tr": "Kaynak Hızı (mm/dk)",
-        "de": "Welding Speed (mm/min)",
-        "fr": "Welding Speed (mm/min)",
+        "de": "Schweißgeschwindigkeit (mm/min)",
+        "fr": "Vitesse de soudage (mm/min)",
         "es": "Welding Speed (mm/min)",
         "ar": "Welding Speed (mm/min)"
       },
       "businessContext_i18n": {
         "en": "Travel speed of the welding process",
-        "tr": "Kaynak prosesinin ilerleme hızı"
+        "tr": "Kaynak prosesinin ilerleme hızı",
+        "de": "Vorschubgeschwindigkeit des Schweißprozesses",
+        "fr": "Vitesse de déplacement du procédé de soudage"
       }
     }
   ],

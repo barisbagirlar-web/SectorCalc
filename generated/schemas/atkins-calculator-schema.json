@@ -12,14 +12,16 @@
         "en": "Güç Girişi",
         "tr": "Güç Girişi",
         "de": "Leistungseingang",
-        "fr": "Güç Girişi",
-        "es": "Güç Girişi",
+        "fr": "Puissance d'entrée",
+        "es": "Potencia de entrada",
         "ar": "Güç Girişi"
       },
       "businessContext_i18n": {
         "en": "Sisteme verilen anlık güç.",
         "tr": "Sisteme verilen anlık güç.",
-        "de": "Momentane Leistung, die dem System zugeführt wird."
+        "de": "Momentane Leistung, die dem System zugeführt wird.",
+        "fr": "Puissance instantanée fournie au système.",
+        "es": "Potencia instantánea suministrada al sistema."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Kütle Akışı",
         "tr": "Kütle Akışı",
         "de": "Massenstrom",
-        "fr": "Kütle Akışı",
-        "es": "Kütle Akışı",
+        "fr": "Débit massique",
+        "es": "Flujo másico",
         "ar": "Kütle Akışı"
       },
       "businessContext_i18n": {
         "en": "Isı transfer akışkanının kütlesel debisi.",
         "tr": "Isı transfer akışkanının kütlesel debisi.",
-        "de": "Massenstrom des Wärmeübertragungsfluids."
+        "de": "Massenstrom des Wärmeübertragungsfluids.",
+        "fr": "Débit massique du fluide caloporteur.",
+        "es": "Caudal másico del fluido de transferencia de calor."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Özgül Isı",
         "tr": "Özgül Isı",
         "de": "Spezifische Wärme",
-        "fr": "Özgül Isı",
-        "es": "Özgül Isı",
+        "fr": "Chaleur spécifique",
+        "es": "Calor específico",
         "ar": "Özgül Isı"
       },
       "businessContext_i18n": {
         "en": "Akışkanın özgül ısı kapasitesi.",
         "tr": "Akışkanın özgül ısı kapasitesi.",
-        "de": "Spezifische Wärmekapazität des Fluids."
+        "de": "Spezifische Wärmekapazität des Fluids.",
+        "fr": "Capacité thermique massique du fluide.",
+        "es": "Capacidad calorífica específica del fluido."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Sıcaklık Farkı",
         "tr": "Sıcaklık Farkı",
         "de": "Temperaturdifferenz",
-        "fr": "Sıcaklık Farkı",
-        "es": "Sıcaklık Farkı",
+        "fr": "Différence de température",
+        "es": "Diferencia de temperatura",
         "ar": "Sıcaklık Farkı"
       },
       "businessContext_i18n": {
         "en": "Giriş ve çıkış arasındaki sıcaklık farkı.",
         "tr": "Giriş ve çıkış arasındaki sıcaklık farkı.",
-        "de": "Temperaturdifferenz zwischen Einlass und Auslass."
+        "de": "Temperaturdifferenz zwischen Einlass und Auslass.",
+        "fr": "Différence de température entre l'entrée et la sortie.",
+        "es": "Diferencia de temperatura entre la entrada y la salida."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Verimlilik Faktörü",
         "tr": "Verimlilik Faktörü",
         "de": "Wirkungsgradfaktor",
-        "fr": "Verimlilik Faktörü",
-        "es": "Verimlilik Faktörü",
+        "fr": "Facteur d'efficacité",
+        "es": "Factor de eficiencia",
         "ar": "Verimlilik Faktörü"
       },
       "businessContext_i18n": {
         "en": "Sistem kayıplarını hesaba katan faktör.",
         "tr": "Sistem kayıplarını hesaba katan faktör.",
-        "de": "Faktor zur Berücksichtigung von Systemverlusten."
+        "de": "Faktor zur Berücksichtigung von Systemverlusten.",
+        "fr": "Facteur tenant compte des pertes du système.",
+        "es": "Factor que tiene en cuenta las pérdidas del sistema."
       }
     }
   ],

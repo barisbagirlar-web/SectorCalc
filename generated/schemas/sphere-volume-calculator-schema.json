@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Sphere 1 Radius",
         "tr": "Küre 1 Yarıçapı",
-        "de": "Sphere 1 Radius",
-        "fr": "Sphere 1 Radius",
+        "de": "Kugel 1 Radius",
+        "fr": "Rayon de la sphère 1",
         "es": "Sphere 1 Radius",
         "ar": "Sphere 1 Radius"
       },
       "businessContext_i18n": {
         "en": "Primary sphere radius in base units (if multiplier=1)",
-        "tr": "Birincil küre yarıçapı (temel birimlerde, çarpan=1 ise)"
+        "tr": "Birincil küre yarıçapı (temel birimlerde, çarpan=1 ise)",
+        "de": "Primärer Kugelradius in Basiseinheiten (wenn Multiplikator=1)",
+        "fr": "Rayon de la sphère primaire en unités de base (si multiplicateur=1)"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Sphere 2 Radius",
         "tr": "Küre 2 Yarıçapı",
-        "de": "Sphere 2 Radius",
-        "fr": "Sphere 2 Radius",
+        "de": "Kugel 2 Radius",
+        "fr": "Rayon de la sphère 2",
         "es": "Sphere 2 Radius",
         "ar": "Sphere 2 Radius"
       },
       "businessContext_i18n": {
         "en": "Optional secondary sphere radius",
-        "tr": "İsteğe bağlı ikincil küre yarıçapı"
+        "tr": "İsteğe bağlı ikincil küre yarıçapı",
+        "de": "Optionaler Radius der zweiten Kugel",
+        "fr": "Rayon de la sphère secondaire (optionnel)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Sphere 3 Radius",
         "tr": "Küre 3 Yarıçapı",
-        "de": "Sphere 3 Radius",
-        "fr": "Sphere 3 Radius",
+        "de": "Kugel 3 Radius",
+        "fr": "Rayon de la sphère 3",
         "es": "Sphere 3 Radius",
         "ar": "Sphere 3 Radius"
       },
       "businessContext_i18n": {
         "en": "Optional tertiary sphere radius",
-        "tr": "İsteğe bağlı üçüncül küre yarıçapı"
+        "tr": "İsteğe bağlı üçüncül küre yarıçapı",
+        "de": "Optionaler tertiärer Kugelradius",
+        "fr": "Rayon de la sphère tertiaire (optionnel)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Sphere 4 Radius",
         "tr": "Küre 4 Yarıçapı",
-        "de": "Sphere 4 Radius",
-        "fr": "Sphere 4 Radius",
+        "de": "Kugel 4 Radius",
+        "fr": "Rayon de la sphère 4",
         "es": "Sphere 4 Radius",
         "ar": "Sphere 4 Radius"
       },
       "businessContext_i18n": {
         "en": "Optional quaternary sphere radius",
-        "tr": "İsteğe bağlı dördüncül küre yarıçapı"
+        "tr": "İsteğe bağlı dördüncül küre yarıçapı",
+        "de": "Optionaler quartärer Kugelradius",
+        "fr": "Rayon de la sphère quaternaire (optionnel)"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Radius Unit Conversion to m",
         "tr": "Yarıçap Birim Dönüşümü (m'ye)",
-        "de": "Radius Unit Conversion to m",
-        "fr": "Radius Unit Conversion to m",
+        "de": "Radius-Einheitenumrechnung in m",
+        "fr": "Conversion de l'unité de rayon en m",
         "es": "Radius Unit Conversion to m",
         "ar": "Radius Unit Conversion to m"
       },
       "businessContext_i18n": {
         "en": "Conversion factor to convert input radii to meters (e.g., cm=0.01, mm=0.001)",
-        "tr": "Girilen yarıçapları metreye dönüştürme çarpanı (örn. cm=0.01, mm=0.001)"
+        "tr": "Girilen yarıçapları metreye dönüştürme çarpanı (örn. cm=0.01, mm=0.001)",
+        "de": "Umrechnungsfaktor zur Umrechnung der eingegebenen Radien in Meter (z. B. cm=0,01, mm=0,001)",
+        "fr": "Facteur de conversion pour convertir les rayons d'entrée en mètres (ex. cm=0,01, mm=0,001)"
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Material Density",
         "tr": "Malzeme Yoğunluğu",
         "de": "Materialdichte",
-        "fr": "Material Density",
-        "es": "Material Density",
+        "fr": "Densité du matériau",
+        "es": "Densidad del material",
         "ar": "Material Density"
       },
       "businessContext_i18n": {
         "en": "Density of the material for weight calculation",
-        "tr": "Ağırlık hesaplaması için malzeme yoğunluğu"
+        "tr": "Ağırlık hesaplaması için malzeme yoğunluğu",
+        "de": "Dichte des Materials für die Gewichtsberechnung",
+        "fr": "Densité du matériau pour le calcul du poids"
       }
     },
     {
@@ -131,14 +143,16 @@
       "label_i18n": {
         "en": "Material Waste Factor",
         "tr": "Malzeme Fire Faktörü",
-        "de": "Material Waste Factor",
-        "fr": "Material Waste Factor",
+        "de": "Material-Verschwendungsfaktor",
+        "fr": "Facteur de perte de matière",
         "es": "Material Waste Factor",
         "ar": "Material Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Percentage of material waste considered for procurement",
-        "tr": "Tedarik için dikkate alınan malzeme fire yüzdesi"
+        "tr": "Tedarik için dikkate alınan malzeme fire yüzdesi",
+        "de": "Prozentsatz des Materialabfalls, der für die Beschaffung berücksichtigt wird",
+        "fr": "Pourcentage de perte de matière pris en compte pour l'approvisionnement"
       }
     }
   ],

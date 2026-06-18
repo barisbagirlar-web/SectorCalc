@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Nominal Pressure",
         "tr": "Nominal Basınç",
-        "de": "Nominal Pressure",
-        "fr": "Nominal Pressure",
-        "es": "Nominal Pressure",
+        "de": "Nenndruck",
+        "fr": "Pression nominale",
+        "es": "Presión nominal",
         "ar": "Nominal Pressure"
       },
       "businessContext_i18n": {
         "en": "Design pressure in ksi from specification",
-        "tr": "Spesifikasyondan tasarım basıncı (ksi)"
+        "tr": "Spesifikasyondan tasarım basıncı (ksi)",
+        "de": "Auslegungsdruck in ksi gemäß Spezifikation",
+        "fr": "Pression de conception en ksi selon la spécification",
+        "es": "Presión de diseño en ksi según especificación"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "ASME/VdTÜV safety factor",
-        "tr": "ASME/VdTÜV güvenlik faktörü"
+        "tr": "ASME/VdTÜV güvenlik faktörü",
+        "de": "ASME/VdTÜV-Sicherheitsfaktor",
+        "fr": "Coefficient de sécurité ASME/VdTÜV",
+        "es": "Factor de seguridad ASME/VdTÜV"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Temperature Derating",
         "tr": "Sıcaklık Düzeltmesi",
-        "de": "Temperature Derating",
-        "fr": "Temperature Derating",
-        "es": "Temperature Derating",
+        "de": "Temperaturabnahme",
+        "fr": "Déclassement en température",
+        "es": "Derating por temperatura",
         "ar": "Temperature Derating"
       },
       "businessContext_i18n": {
         "en": "Derating due to elevated temperature",
-        "tr": "Yüksek sıcaklık nedeniyle düzeltme"
+        "tr": "Yüksek sıcaklık nedeniyle düzeltme",
+        "de": "Abnahme aufgrund erhöhter Temperatur",
+        "fr": "Déclassement dû à la température élevée",
+        "es": "Derating debido a temperatura elevada"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Ambient Pressure",
         "tr": "Ortam basıncı",
         "de": "Umgebungsdruck",
-        "fr": "Ambient Pressure",
-        "es": "Ambient Pressure",
+        "fr": "Pression ambiante",
+        "es": "Presión ambiente",
         "ar": "Ambient Pressure"
       },
       "businessContext_i18n": {
         "en": "Atmospheric or ambient pressure",
-        "tr": "Atmosferik veya ortam basıncı"
+        "tr": "Atmosferik veya ortam basıncı",
+        "de": "Atmosphärischer oder Umgebungsdruck",
+        "fr": "Pression atmosphérique ou ambiante",
+        "es": "Presión atmosférica o ambiente"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Allowable Stress",
         "tr": "İzin Verilen Gerilme",
-        "de": "Allowable Stress",
-        "fr": "Allowable Stress",
-        "es": "Allowable Stress",
+        "de": "Zulässige Spannung",
+        "fr": "Contrainte admissible",
+        "es": "Esfuerzo admisible",
         "ar": "Allowable Stress"
       },
       "businessContext_i18n": {
         "en": "Material allowable stress at temperature",
-        "tr": "Malzemenin sıcaklıktaki izin verilen gerilmesi"
+        "tr": "Malzemenin sıcaklıktaki izin verilen gerilmesi",
+        "de": "Zulässige Werkstoffspannung bei Temperatur",
+        "fr": "Contrainte admissible du matériau à la température",
+        "es": "Esfuerzo admisible del material a temperatura"
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Hide Weight",
         "tr": "Deri Ağırlığını Gizle",
-        "de": "Hide Weight",
-        "fr": "Hide Weight",
+        "de": "Gewicht verstecken",
+        "fr": "Poids de la peau",
         "es": "Hide Weight",
         "ar": "Hide Weight"
       },
       "businessContext_i18n": {
         "en": "Weight of raw hides to be tanned.",
-        "tr": "Tabaklanacak ham derilerin ağırlığı."
+        "tr": "Tabaklanacak ham derilerin ağırlığı.",
+        "de": "Gewicht der zu gerbenden Rohhäute",
+        "fr": "Poids des peaux brutes à tanner"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Desired Cr₂O₃ Offer",
         "tr": "İstenen Cr₂O₃ Oranı",
-        "de": "Desired Cr₂O₃ Offer",
-        "fr": "Desired Cr₂O₃ Offer",
+        "de": "Gewünschter Cr₂O₃-Anteil",
+        "fr": "Apport en Cr₂O₃ souhaité",
         "es": "Desired Cr₂O₃ Offer",
         "ar": "Desired Cr₂O₃ Offer"
       },
       "businessContext_i18n": {
         "en": "Percentage of Cr₂O₃ on hide weight, typically 6-8% for chrome tanning.",
-        "tr": "Deri ağırlığına göre Cr₂O₃ yüzdesi, krom tabaklama için tipik olarak %6-8."
+        "tr": "Deri ağırlığına göre Cr₂O₃ yüzdesi, krom tabaklama için tipik olarak %6-8.",
+        "de": "Prozentsatz von Cr₂O₃ bezogen auf das Hautgewicht, typischerweise 6-8% für Chromgerbung",
+        "fr": "Pourcentage de Cr₂O₃ sur le poids de la peau, généralement 6-8 % pour le tannage au chrome"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "BCS Cr₂O₃ Content",
         "tr": "BCS Cr₂O₃ İçeriği",
-        "de": "BCS Cr₂O₃ Content",
-        "fr": "BCS Cr₂O₃ Content",
+        "de": "BCS Cr₂O₃-Gehalt",
+        "fr": "Teneur en Cr₂O₃ du BCS",
         "es": "BCS Cr₂O₃ Content",
         "ar": "BCS Cr₂O₃ Content"
       },
       "businessContext_i18n": {
         "en": "Chromium oxide content in basic chromium sulfate powder, typically 25-26%.",
-        "tr": "Bazik krom sülfat tozundaki krom oksit içeriği, tipik olarak %25-26."
+        "tr": "Bazik krom sülfat tozundaki krom oksit içeriği, tipik olarak %25-26.",
+        "de": "Chromoxid-Gehalt in basischem Chromsulfat-Pulver, typischerweise 25-26%",
+        "fr": "Teneur en oxyde de chrome dans la poudre de sulfate basique de chrome, généralement 25-26 %"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Float Volume",
         "tr": "Flot Hacmi",
-        "de": "Float Volume",
-        "fr": "Float Volume",
+        "de": "Flottenvolumen",
+        "fr": "Volume de flotte",
         "es": "Float Volume",
         "ar": "Float Volume"
       },
       "businessContext_i18n": {
         "en": "Volume of float (water) used for tanning, often 200-300% on hide weight.",
-        "tr": "Tabaklama için kullanılan flot (su) hacmi, genellikle deri ağırlığının %200-300'ü."
+        "tr": "Tabaklama için kullanılan flot (su) hacmi, genellikle deri ağırlığının %200-300'ü.",
+        "de": "Volumen der Flotte (Wasser) für die Gerbung, oft 200-300% des Hautgewichts",
+        "fr": "Volume de flotte (eau) utilisé pour le tannage, souvent 200-300 % du poids de la peau"
       }
     }
   ],

@@ -12,13 +12,16 @@
         "en": "Boru Çapı",
         "tr": "Boru Çapı",
         "de": "Rohrdurchmesser",
-        "fr": "Boru Çapı",
-        "es": "Boru Çapı",
+        "fr": "Diamètre du tuyau",
+        "es": "Diámetro de la tubería",
         "ar": "Boru Çapı"
       },
       "businessContext_i18n": {
         "en": "Borunun iç çapı (metre)",
-        "tr": "Borunun iç çapı (metre)"
+        "tr": "Borunun iç çapı (metre)",
+        "de": "Innendurchmesser des Rohrs (Meter)",
+        "fr": "Diamètre intérieur du tuyau (mètres)",
+        "es": "Diámetro interior de la tubería (metros)"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Boru Uzunluğu",
         "tr": "Boru Uzunluğu",
-        "de": "Boru Uzunluğu",
-        "fr": "Boru Uzunluğu",
-        "es": "Boru Uzunluğu",
+        "de": "Rohrlänge",
+        "fr": "Longueur du tuyau",
+        "es": "Longitud de la tubería",
         "ar": "Boru Uzunluğu"
       },
       "businessContext_i18n": {
         "en": "Borunun toplam uzunluğu (metre)",
-        "tr": "Borunun toplam uzunluğu (metre)"
+        "tr": "Borunun toplam uzunluğu (metre)",
+        "de": "Gesamtlänge des Rohrs (Meter)",
+        "fr": "Longueur totale du tuyau (mètres)",
+        "es": "Longitud total de la tubería (metros)"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Debi",
         "tr": "Debi",
         "de": "Durchflussrate",
-        "fr": "Debi",
-        "es": "Debi",
+        "fr": "Débit",
+        "es": "Caudal",
         "ar": "Debi"
       },
       "businessContext_i18n": {
         "en": "Hacimsel akış debisi (metreküp/saniye)",
-        "tr": "Hacimsel akış debisi (metreküp/saniye)"
+        "tr": "Hacimsel akış debisi (metreküp/saniye)",
+        "de": "Volumenstrom (Kubikmeter/Sekunde)",
+        "fr": "Débit volumique (mètres cubes/seconde)",
+        "es": "Caudal volumétrico (metros cúbicos/segundo)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Akışkan Yoğunluğu",
         "tr": "Akışkan Yoğunluğu",
-        "de": "Akışkan Yoğunluğu",
-        "fr": "Akışkan Yoğunluğu",
-        "es": "Akışkan Yoğunluğu",
+        "de": "Fluiddichte",
+        "fr": "Masse volumique du fluide",
+        "es": "Densidad del fluido",
         "ar": "Akışkan Yoğunluğu"
       },
       "businessContext_i18n": {
         "en": "Akışkanın kütle yoğunluğu (kg/m³) [Su için ~998]",
-        "tr": "Akışkanın kütle yoğunluğu (kg/m³) [Su için ~998]"
+        "tr": "Akışkanın kütle yoğunluğu (kg/m³) [Su için ~998]",
+        "de": "Massendichte des Fluids (kg/m³) [für Wasser ~998]",
+        "fr": "Masse volumique du fluide (kg/m³) [Pour l'eau ~998]",
+        "es": "Densidad másica del fluido (kg/m³) [Para agua ~998]"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Dinamik Viskozite",
         "tr": "Dinamik Viskozite",
-        "de": "Dinamik Viskozite",
-        "fr": "Dinamik Viskozite",
-        "es": "Dinamik Viskozite",
+        "de": "Dynamische Viskosität",
+        "fr": "Viscosité dynamique",
+        "es": "Viscosidad dinámica",
         "ar": "Dinamik Viskozite"
       },
       "businessContext_i18n": {
         "en": "Akışkanın dinamik viskozitesi (Pa·s) [Su için ~0.001]",
-        "tr": "Akışkanın dinamik viskozitesi (Pa·s) [Su için ~0.001]"
+        "tr": "Akışkanın dinamik viskozitesi (Pa·s) [Su için ~0.001]",
+        "de": "Dynamische Viskosität des Fluids (Pa·s) [für Wasser ~0,001]",
+        "fr": "Viscosité dynamique du fluide (Pa·s) [Pour l'eau ~0,001]",
+        "es": "Viscosidad dinámica del fluido (Pa·s) [Para agua ~0.001]"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Yüzey Pürüzlülüğü",
         "tr": "Yüzey Pürüzlülüğü",
-        "de": "Yüzey Pürüzlülüğü",
-        "fr": "Yüzey Pürüzlülüğü",
-        "es": "Yüzey Pürüzlülüğü",
+        "de": "Oberflächenrauheit",
+        "fr": "Rugosité de surface",
+        "es": "Rugosidad superficial",
         "ar": "Yüzey Pürüzlülüğü"
       },
       "businessContext_i18n": {
         "en": "Boru iç yüzeyi mutlak pürüzlülüğü (m) [Çelik için ~4.6e-5]",
-        "tr": "Boru iç yüzeyi mutlak pürüzlülüğü (m) [Çelik için ~4.6e-5]"
+        "tr": "Boru iç yüzeyi mutlak pürüzlülüğü (m) [Çelik için ~4.6e-5]",
+        "de": "Absolute Rauheit der Rohrinnenfläche (m) [für Stahl ~4,6e-5]",
+        "fr": "Rugosité absolue de la paroi interne du tuyau (m) [Pour l'acier ~4,6e-5]",
+        "es": "Rugosidad absoluta de la superficie interior de la tubería (m) [Para acero ~4.6e-5]"
       }
     }
   ],

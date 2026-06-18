@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Rales Coverage (% of lung fields)",
         "tr": "Rallerin Akciğer Alanlarını Kaplama Yüzdesi",
-        "de": "Rales Coverage (% of lung fields)",
-        "fr": "Rales Coverage (% of lung fields)",
-        "es": "Rales Coverage (% of lung fields)",
+        "de": "Rasselgeräusch-Abdeckung (% der Lungenfelder)",
+        "fr": "Couverture des râles (% des champs pulmonaires)",
+        "es": "Cobertura de estertores (% de campos pulmonares)",
         "ar": "Rales Coverage (% of lung fields)"
       },
       "businessContext_i18n": {
         "en": "Percentage of lung fields with crackles/rales on auscultation.",
-        "tr": "Oskültasyonda ral/krepitasyon duyulan akciğer alanlarının yüzdesi."
+        "tr": "Oskültasyonda ral/krepitasyon duyulan akciğer alanlarının yüzdesi.",
+        "de": "Prozentsatz der Lungenfelder mit Rasselgeräuschen/Knistern bei Auskultation.",
+        "fr": "Pourcentage de champs pulmonaires avec des crépitants/râles à l'auscultation.",
+        "es": "Porcentaje de campos pulmonares con estertores/crepitaciones en la auscultación."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "S3 Gallop Present",
         "tr": "S3 Gallop Mevcut",
-        "de": "S3 Gallop Present",
-        "fr": "S3 Gallop Present",
-        "es": "S3 Gallop Present",
+        "de": "S3-Galopp vorhanden",
+        "fr": "Bruit de galop S3 présent",
+        "es": "Presencia de galope S3",
         "ar": "S3 Gallop Present"
       },
       "businessContext_i18n": {
         "en": "Presence of an S3 gallop (0 = No, 1 = Yes).",
-        "tr": "S3 galop varlığı (0 = Hayır, 1 = Evet)."
+        "tr": "S3 galop varlığı (0 = Hayır, 1 = Evet).",
+        "de": "Vorhandensein eines S3-Galopps (0 = Nein, 1 = Ja).",
+        "fr": "Présence d'un galop S3 (0 = Non, 1 = Oui).",
+        "es": "Presencia de un galope S3 (0 = No, 1 = Sí)."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Systolic Blood Pressure",
         "tr": "Sistolik Kan Basıncı",
         "de": "Systolischer Blutdruck",
-        "fr": "Systolic Blood Pressure",
-        "es": "Systolic Blood Pressure",
+        "fr": "Pression artérielle systolique",
+        "es": "Presión arterial sistólica",
         "ar": "Systolic Blood Pressure"
       },
       "businessContext_i18n": {
         "en": "Systolic blood pressure measurement.",
-        "tr": "Sistolik kan basıncı ölçümü."
+        "tr": "Sistolik kan basıncı ölçümü.",
+        "de": "Systolischer Blutdruckmesswert.",
+        "fr": "Mesure de la pression artérielle systolique.",
+        "es": "Medición de presión arterial sistólica."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Signs of Hypoperfusion",
         "tr": "Hipoperfüzyon Belirtileri",
-        "de": "Signs of Hypoperfusion",
-        "fr": "Signs of Hypoperfusion",
-        "es": "Signs of Hypoperfusion",
+        "de": "Anzeichen einer Minderdurchblutung",
+        "fr": "Signes d'hypoperfusion",
+        "es": "Signos de hipoperfusión",
         "ar": "Signs of Hypoperfusion"
       },
       "businessContext_i18n": {
         "en": "Clinical signs of peripheral hypoperfusion (0 = No, 1 = Yes).",
-        "tr": "Periferik hipoperfüzyonun klinik belirtileri (0 = Hayır, 1 = Evet)."
+        "tr": "Periferik hipoperfüzyonun klinik belirtileri (0 = Hayır, 1 = Evet).",
+        "de": "Klinische Anzeichen einer peripheren Minderdurchblutung (0 = Nein, 1 = Ja).",
+        "fr": "Signes cliniques d'hypoperfusion périphérique (0 = Non, 1 = Oui).",
+        "es": "Signos clínicos de hipoperfusión periférica (0 = No, 1 = Sí)."
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Number of Attempts",
         "tr": "Deneme Sayısı",
-        "de": "Number of Attempts",
-        "fr": "Number of Attempts",
-        "es": "Number of Attempts",
+        "de": "Anzahl der Versuche",
+        "fr": "Nombre de tentatives",
+        "es": "Número de intentos",
         "ar": "Number of Attempts"
       },
       "businessContext_i18n": {
         "en": "Number of pulls or trials.",
-        "tr": "Deneme veya çekme sayısı."
+        "tr": "Deneme veya çekme sayısı.",
+        "de": "Anzahl der Ziehungen oder Versuche.",
+        "fr": "Nombre d'essais ou de tentatives.",
+        "es": "Número de extracciones o ensayos."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Success Probability",
         "tr": "Başarı Olasılığı",
-        "de": "Success Probability",
-        "fr": "Success Probability",
-        "es": "Success Probability",
+        "de": "Erfolgswahrscheinlichkeit",
+        "fr": "Probabilité de succès",
+        "es": "Probabilidad de éxito",
         "ar": "Success Probability"
       },
       "businessContext_i18n": {
         "en": "Probability of success per attempt (0 to 1). Must be > 0.",
-        "tr": "Her denemede başarı olasılığı (0 ile 1 arası). > 0 olmalıdır."
+        "tr": "Her denemede başarı olasılığı (0 ile 1 arası). > 0 olmalıdır.",
+        "de": "Erfolgswahrscheinlichkeit pro Versuch (0 bis 1). Muss > 0 sein.",
+        "fr": "Probabilité de succès par tentative (0 à 1). Doit être > 0.",
+        "es": "Probabilidad de éxito por intento (0 a 1). Debe ser > 0."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Cost per Attempt",
         "tr": "Deneme Başına Maliyet",
-        "de": "Cost per Attempt",
-        "fr": "Cost per Attempt",
-        "es": "Cost per Attempt",
+        "de": "Kosten pro Versuch",
+        "fr": "Coût par tentative",
+        "es": "Coste por intento",
         "ar": "Cost per Attempt"
       },
       "businessContext_i18n": {
         "en": "Cost of each pull in in-game currency.",
-        "tr": "Oyun içi para biriminde her çekmenin maliyeti."
+        "tr": "Oyun içi para biriminde her çekmenin maliyeti.",
+        "de": "Kosten jedes Ziehvorgangs in der Spielwährung.",
+        "fr": "Coût de chaque tirage en monnaie du jeu.",
+        "es": "Coste de cada extracción en la moneda del juego."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Guarantee Threshold",
         "tr": "Garanti Eşiği",
-        "de": "Guarantee Threshold",
-        "fr": "Guarantee Threshold",
-        "es": "Guarantee Threshold",
+        "de": "Garantieschwellenwert",
+        "fr": "Seuil de garantie",
+        "es": "Umbral de garantía",
         "ar": "Guarantee Threshold"
       },
       "businessContext_i18n": {
         "en": "Number of consecutive failures after which next pull is guaranteed success. 0 means no guarantee.",
-        "tr": "Bir sonraki çekmenin garantili başarı olduğu ardışık başarısızlık sayısı. 0 garanti olmadığı anlamına gelir."
+        "tr": "Bir sonraki çekmenin garantili başarı olduğu ardışık başarısızlık sayısı. 0 garanti olmadığı anlamına gelir.",
+        "de": "Anzahl aufeinanderfolgender Fehlschläge, nach denen der nächste Zug garantiert erfolgreich ist. 0 bedeutet keine Garantie.",
+        "fr": "Nombre d'échecs consécutifs après lequel le prochain tirage est garanti réussi. 0 signifie aucune garantie.",
+        "es": "Número de fallos consecutivos tras los cuales la siguiente extracción es un éxito garantizado. 0 significa sin garantía."
       }
     }
   ],

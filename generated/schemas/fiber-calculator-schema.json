@@ -12,14 +12,16 @@
         "en": "Fiber Length",
         "tr": "Fiber Uzunluğu",
         "de": "Faserlänge",
-        "fr": "Fiber Length",
-        "es": "Fiber Length",
+        "fr": "Longueur de fibre",
+        "es": "Longitud de fibra",
         "ar": "Fiber Length"
       },
       "businessContext_i18n": {
         "en": "Total fiber cable length",
         "tr": "Toplam fiber kablo uzunluğu",
-        "de": "Gesamtlänge des Faserkabels"
+        "de": "Gesamtlänge des Faserkabels",
+        "fr": "Longueur totale du câble à fibre optique",
+        "es": "Longitud total del cable de fibra"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Attenuation Coefficient",
         "tr": "Zayıflama Katsayısı",
         "de": "Dämpfungskoeffizient",
-        "fr": "Attenuation Coefficient",
-        "es": "Attenuation Coefficient",
+        "fr": "Coefficient d'atténuation",
+        "es": "Coeficiente de atenuación",
         "ar": "Attenuation Coefficient"
       },
       "businessContext_i18n": {
         "en": "Typical for single-mode fiber at 1310nm",
         "tr": "1310nm'de tek modlu fiber için tipik",
-        "de": "Typisch für Singlemode-Faser bei 1310 nm"
+        "de": "Typisch für Singlemode-Faser bei 1310 nm",
+        "fr": "Typique pour une fibre monomode à 1310 nm",
+        "es": "Típico para fibra monomodo a 1310nm"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Number of Connectors",
         "tr": "Konnektör Sayısı",
         "de": "Anzahl der Steckverbinder",
-        "fr": "Number of Connectors",
-        "es": "Number of Connectors",
+        "fr": "Nombre de connecteurs",
+        "es": "Número de conectores",
         "ar": "Number of Connectors"
       },
       "businessContext_i18n": {
         "en": "Connector pairs in the link",
         "tr": "Bağlantıdaki konnektör çiftleri",
-        "de": "Steckverbinderpaare in der Verbindung"
+        "de": "Steckverbinderpaare in der Verbindung",
+        "fr": "Paires de connecteurs dans la liaison",
+        "es": "Pares de conectores en el enlace"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Connector Loss",
         "tr": "Konnektör Kaybı",
         "de": "Steckverbinderdämpfung",
-        "fr": "Connector Loss",
-        "es": "Connector Loss",
+        "fr": "Perte par connecteur",
+        "es": "Pérdida por conector",
         "ar": "Connector Loss"
       },
       "businessContext_i18n": {
         "en": "Loss per connector pair",
         "tr": "Konnektör çifti başına kayıp",
-        "de": "Dämpfung pro Steckverbinderpaar"
+        "de": "Dämpfung pro Steckverbinderpaar",
+        "fr": "Perte par paire de connecteurs",
+        "es": "Pérdida por par de conectores"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Number of Splices",
         "tr": "Ek Sayısı",
         "de": "Anzahl der Spleiße",
-        "fr": "Number of Splices",
-        "es": "Number of Splices",
+        "fr": "Nombre d'épissures",
+        "es": "Número de empalmes",
         "ar": "Number of Splices"
       },
       "businessContext_i18n": {
         "en": "Fusion splices in the link",
         "tr": "Füzyon eklemeleri",
-        "de": "Fusionsspleiße in der Verbindung"
+        "de": "Fusionsspleiße in der Verbindung",
+        "fr": "Fusion splices in the link",
+        "es": "Empalmes por fusión en el enlace"
       }
     },
     {
@@ -118,13 +128,15 @@
         "tr": "Eklem kaybı",
         "de": "Spleißdämpfung",
         "fr": "Splice Loss",
-        "es": "Splice Loss",
+        "es": "Pérdida por empalme",
         "ar": "Splice Loss"
       },
       "businessContext_i18n": {
         "en": "Loss per splice",
         "tr": "Eklem başına kayıp",
-        "de": "Dämpfung pro Spleiß"
+        "de": "Dämpfung pro Spleiß",
+        "fr": "Loss per splice",
+        "es": "Pérdida por empalme"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Safety Margin",
         "tr": "Güvenlik Marjı",
         "de": "Sicherheitsmarge",
-        "fr": "Safety Margin",
-        "es": "Safety Margin",
+        "fr": "Marge de sécurité",
+        "es": "Margen de seguridad",
         "ar": "Safety Margin"
       },
       "businessContext_i18n": {
         "en": "System margin for degradation",
         "tr": "Bozulma için sistem marjı",
-        "de": "Systemreserve für Degradation"
+        "de": "Systemreserve für Degradation",
+        "fr": "System margin for degradation",
+        "es": "Margen del sistema por degradación"
       }
     }
   ],

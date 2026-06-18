@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Total Bill",
         "tr": "Toplam Fatura",
-        "de": "Total Bill",
-        "fr": "Total Bill",
+        "de": "Gesamtrechnung",
+        "fr": "Facture totale",
         "es": "Total Bill",
         "ar": "Total Bill"
       },
       "businessContext_i18n": {
         "en": "The total bill amount before tax and tip.",
-        "tr": "Vergi ve bahşiş öncesi toplam fatura tutarı."
+        "tr": "Vergi ve bahşiş öncesi toplam fatura tutarı.",
+        "de": "Der gesamte Rechnungsbetrag vor Steuern und Trinkgeld.",
+        "fr": "Montant total de la facture avant taxes et pourboire."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Number of People",
         "tr": "Kişi Sayısı",
         "de": "Anzahl der Personen",
-        "fr": "Number of People",
-        "es": "Number of People",
+        "fr": "Nombre de personnes",
+        "es": "Número de personas",
         "ar": "Number of People"
       },
       "businessContext_i18n": {
         "en": "Number of individuals sharing the bill.",
-        "tr": "Faturayı paylaşan kişi sayısı."
+        "tr": "Faturayı paylaşan kişi sayısı.",
+        "de": "Anzahl der Personen, die die Rechnung teilen.",
+        "fr": "Nombre de personnes partageant la facture."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Tax Percentage",
         "tr": "Vergi Yüzdesi",
         "de": "Steuerprozentsatz",
-        "fr": "Tax Percentage",
-        "es": "Tax Percentage",
+        "fr": "Pourcentage de taxe",
+        "es": "Porcentaje de impuesto",
         "ar": "Tax Percentage"
       },
       "businessContext_i18n": {
         "en": "Tax rate applied to the bill.",
-        "tr": "Faturaya uygulanan vergi oranı."
+        "tr": "Faturaya uygulanan vergi oranı.",
+        "de": "Steuersatz, der auf die Rechnung angewendet wird.",
+        "fr": "Taux de taxe appliqué à la facture."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Tip Percentage",
         "tr": "Bahşiş Yüzdesi",
         "de": "Trinkgeldprozentsatz",
-        "fr": "Tip Percentage",
-        "es": "Tip Percentage",
+        "fr": "Pourcentage de pourboire",
+        "es": "Porcentaje de propina",
         "ar": "Tip Percentage"
       },
       "businessContext_i18n": {
         "en": "Tip percentage on the bill.",
-        "tr": "Faturaya eklenecek bahşiş yüzdesi."
+        "tr": "Faturaya eklenecek bahşiş yüzdesi.",
+        "de": "Trinkgeldprozentsatz auf die Rechnung.",
+        "fr": "Pourcentage de pourboire sur la facture."
       }
     }
   ],

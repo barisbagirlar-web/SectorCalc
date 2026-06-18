@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Total Cost",
         "tr": "Toplam Maliyet",
-        "de": "Total Cost",
-        "fr": "Total Cost",
+        "de": "Gesamtkosten",
+        "fr": "Coût total",
         "es": "Total Cost",
         "ar": "Total Cost"
       },
       "businessContext_i18n": {
         "en": "Total cost of goods or services before additional costs and discounts.",
-        "tr": "Ek maliyet ve indirimler öncesi mal veya hizmetlerin toplam maliyeti."
+        "tr": "Ek maliyet ve indirimler öncesi mal veya hizmetlerin toplam maliyeti.",
+        "de": "Gesamtkosten der Waren oder Dienstleistungen vor zusätzlichen Kosten und Rabatten.",
+        "fr": "Coût total des biens ou services avant frais supplémentaires et remises."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Quantity",
         "tr": "Miktar",
         "de": "Menge",
-        "fr": "Quantity",
-        "es": "Quantity",
+        "fr": "Quantité",
+        "es": "Cantidad",
         "ar": "Quantity"
       },
       "businessContext_i18n": {
         "en": "Number of units purchased.",
-        "tr": "Satın alınan birim sayısı."
+        "tr": "Satın alınan birim sayısı.",
+        "de": "Anzahl der gekauften Einheiten.",
+        "fr": "Nombre d'unités achetées."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Additional Costs",
         "tr": "Ek Maliyetler",
-        "de": "Additional Costs",
-        "fr": "Additional Costs",
+        "de": "Zusätzliche Kosten",
+        "fr": "Frais supplémentaires",
         "es": "Additional Costs",
         "ar": "Additional Costs"
       },
       "businessContext_i18n": {
         "en": "Extra costs such as shipping, handling, or setup fees.",
-        "tr": "Nakliye, taşıma veya kurulum ücretleri gibi ek maliyetler."
+        "tr": "Nakliye, taşıma veya kurulum ücretleri gibi ek maliyetler.",
+        "de": "Zusätzliche Kosten wie Versand, Bearbeitung oder Einrichtungsgebühren.",
+        "fr": "Frais supplémentaires tels que l'expédition, la manutention ou les frais d'installation."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Discount (%)",
         "tr": "İndirim (%)",
-        "de": "Discount (%)",
-        "fr": "Discount (%)",
-        "es": "Discount (%)",
+        "de": "Rabatt (%)",
+        "fr": "Remise (%)",
+        "es": "Descuento (%)",
         "ar": "Discount (%)"
       },
       "businessContext_i18n": {
         "en": "Discount percentage applied to the total cost.",
-        "tr": "Toplam maliyete uygulanan indirim yüzdesi."
+        "tr": "Toplam maliyete uygulanan indirim yüzdesi.",
+        "de": "Rabattprozentsatz, der auf die Gesamtkosten angewendet wird.",
+        "fr": "Pourcentage de remise appliqué au coût total."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Tax Rate (%)",
         "tr": "Vergi Oranı (%)",
-        "de": "Tax Rate (%)",
-        "fr": "Tax Rate (%)",
-        "es": "Tax Rate (%)",
+        "de": "Steuersatz (%)",
+        "fr": "Taux d'imposition (%)",
+        "es": "Tasa impositiva (%)",
         "ar": "Tax Rate (%)"
       },
       "businessContext_i18n": {
         "en": "Sales tax or VAT percentage applied after discount.",
-        "tr": "İndirim sonrası uygulanan satış vergisi veya KDV yüzdesi."
+        "tr": "İndirim sonrası uygulanan satış vergisi veya KDV yüzdesi.",
+        "de": "Umsatzsteuer- oder Mehrwertsteuerprozentsatz, der nach dem Rabatt angewendet wird.",
+        "fr": "Pourcentage de taxe de vente ou TVA appliqué après remise."
       }
     }
   ],

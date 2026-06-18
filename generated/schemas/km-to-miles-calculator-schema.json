@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Kilometers",
         "tr": "Kilometre",
-        "de": "Kilometers",
-        "fr": "Kilometers",
-        "es": "Kilometers",
+        "de": "Kilometer",
+        "fr": "Kilomètres",
+        "es": "Kilómetros",
         "ar": "Kilometers"
       },
       "businessContext_i18n": {
         "en": "Distance in kilometers to convert to miles.",
-        "tr": "Mile dönüştürülecek kilometre cinsinden mesafe."
+        "tr": "Mile dönüştürülecek kilometre cinsinden mesafe.",
+        "de": "Entfernung in Kilometern zur Umrechnung in Meilen.",
+        "fr": "Distance en kilomètres à convertir en miles.",
+        "es": "Distancia en kilómetros a convertir a millas."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Conversion factor from kilometers to miles. Standard is 0.621371. Customize if needed.",
-        "tr": "Kilometreden mile dönüşüm faktörü. Standart 0,621371'dir. Gerekirse özelleştirin."
+        "tr": "Kilometreden mile dönüşüm faktörü. Standart 0,621371'dir. Gerekirse özelleştirin.",
+        "de": "Umrechnungsfaktor von Kilometern in Meilen. Standard ist 0,621371. Bei Bedarf anpassen.",
+        "fr": "Facteur de conversion des kilomètres en miles. Standard : 0,621371. Personnalisez si nécessaire.",
+        "es": "Factor de conversión de kilómetros a millas. El estándar es 0.621371. Personalícelo si es necesario."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Rounding Decimals",
         "tr": "Yuvarlama Ondalık Basamakları",
         "de": "Rundungsdezimalstellen",
-        "fr": "Rounding Decimals",
-        "es": "Rounding Decimals",
+        "fr": "Arrondi décimales",
+        "es": "Redondeo de Decimales",
         "ar": "Rounding Decimals"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the result.",
-        "tr": "Sonucu yuvarlamak için ondalık basamak sayısı."
+        "tr": "Sonucu yuvarlamak için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses.",
+        "fr": "Nombre de décimales pour arrondir le résultat.",
+        "es": "Número de decimales para redondear el resultado."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Use Scientific Notation",
         "tr": "Bilimsel Gösterim Kullan",
-        "de": "Use Scientific Notation",
-        "fr": "Use Scientific Notation",
-        "es": "Use Scientific Notation",
+        "de": "Wissenschaftliche Notation verwenden",
+        "fr": "Utiliser la notation scientifique",
+        "es": "Usar notación científica",
         "ar": "Use Scientific Notation"
       },
       "businessContext_i18n": {
         "en": "Set to 1 to output result in scientific notation (e.g., 1.23e+2). 0 for standard decimal.",
-        "tr": "Sonucu bilimsel gösterimde (örn. 1,23e+2) çıkarmak için 1 ayarlayın. Standart ondalık için 0."
+        "tr": "Sonucu bilimsel gösterimde (örn. 1,23e+2) çıkarmak için 1 ayarlayın. Standart ondalık için 0.",
+        "de": "Auf 1 setzen, um das Ergebnis in wissenschaftlicher Notation auszugeben (z. B. 1,23e+2). 0 für Standard-Dezimaldarstellung.",
+        "fr": "Mettre à 1 pour afficher le résultat en notation scientifique (ex. 1,23e+2). 0 pour la décimale standard.",
+        "es": "Establecer en 1 para mostrar el resultado en notación científica (ej. 1.23e+2). 0 para decimal estándar."
       }
     }
   ],

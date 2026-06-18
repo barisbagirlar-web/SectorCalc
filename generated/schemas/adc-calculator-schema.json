@@ -12,14 +12,16 @@
         "en": "Çözünürlük (bit)",
         "tr": "Çözünürlük (bit)",
         "de": "Auflösung (Bit)",
-        "fr": "Çözünürlük (bit)",
-        "es": "Çözünürlük (bit)",
+        "fr": "Résolution (bits)",
+        "es": "Resolución (bits)",
         "ar": "Çözünürlük (bit)"
       },
       "businessContext_i18n": {
         "en": "ADC'nin bit çözünürlüğü",
         "tr": "ADC'nin bit çözünürlüğü",
-        "de": "Bit-Auflösung des ADC"
+        "de": "Bit-Auflösung des ADC",
+        "fr": "Résolution en bits du CAN",
+        "es": "Resolución en bits del ADC"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Referans Gerilimi",
         "tr": "Referans Gerilimi",
         "de": "Referenzspannung",
-        "fr": "Referans Gerilimi",
-        "es": "Referans Gerilimi",
+        "fr": "Tension de référence",
+        "es": "Tensión de referencia",
         "ar": "Referans Gerilimi"
       },
       "businessContext_i18n": {
         "en": "Tam ölçek referans gerilimi",
         "tr": "Tam ölçek referans gerilimi",
-        "de": "Vollausschlags-Referenzspannung"
+        "de": "Vollausschlags-Referenzspannung",
+        "fr": "Tension de référence pleine échelle",
+        "es": "Tensión de referencia a fondo de escala"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Giriş Gerilimi",
         "tr": "Giriş Gerilimi",
         "de": "Eingangsspannung",
-        "fr": "Giriş Gerilimi",
-        "es": "Giriş Gerilimi",
+        "fr": "Tension d'entrée",
+        "es": "Tensión de entrada",
         "ar": "Giriş Gerilimi"
       },
       "businessContext_i18n": {
         "en": "Dönüştürülecek analog giriş gerilimi",
         "tr": "Dönüştürülecek analog giriş gerilimi",
-        "de": "Analoge Eingangsspannung, die umgewandelt werden soll"
+        "de": "Analoge Eingangsspannung, die umgewandelt werden soll",
+        "fr": "Tension d'entrée analogique à convertir",
+        "es": "Tensión de entrada analógica a convertir"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Kazanç",
         "tr": "Kazanç",
         "de": "Verstärkung",
-        "fr": "Kazanç",
-        "es": "Kazanç",
+        "fr": "Gain",
+        "es": "Ganancia",
         "ar": "Kazanç"
       },
       "businessContext_i18n": {
         "en": "Sinyal kazancı",
         "tr": "Sinyal kazancı",
-        "de": "Signalverstärkung"
+        "de": "Signalverstärkung",
+        "fr": "Gain du signal",
+        "es": "Ganancia de la señal"
       }
     }
   ],

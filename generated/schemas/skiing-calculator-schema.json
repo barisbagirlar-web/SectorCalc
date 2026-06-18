@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Vertical Drop",
         "tr": "Dikey Düşüş",
-        "de": "Vertical Drop",
-        "fr": "Vertical Drop",
+        "de": "Vertikaler Höhenunterschied",
+        "fr": "Dénivelé vertical",
         "es": "Vertical Drop",
         "ar": "Vertical Drop"
       },
       "businessContext_i18n": {
         "en": "Height difference between start and end of ski slope in meters",
-        "tr": "Kayak pistinin başlangıcı ve bitişi arasındaki metre cinsinden yükseklik farkı"
+        "tr": "Kayak pistinin başlangıcı ve bitişi arasındaki metre cinsinden yükseklik farkı",
+        "de": "Höhenunterschied zwischen Start und Ende der Skipiste in Metern",
+        "fr": "Différence de hauteur entre le début et la fin de la piste de ski en mètres"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Horizontal Distance",
         "tr": "Yatay Mesafe",
         "de": "Horizontale Entfernung",
-        "fr": "Horizontal Distance",
-        "es": "Horizontal Distance",
+        "fr": "Distance horizontale",
+        "es": "Distancia horizontal",
         "ar": "Horizontal Distance"
       },
       "businessContext_i18n": {
         "en": "Horizontal length of the ski slope in meters",
-        "tr": "Kayak pistinin yatay uzunluğu (metre)"
+        "tr": "Kayak pistinin yatay uzunluğu (metre)",
+        "de": "Horizontale Länge der Skipiste in Metern",
+        "fr": "Longueur horizontale de la piste de ski en mètres"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Friction Coefficient",
         "tr": "Sürtünme Katsayısı",
         "de": "Reibungskoeffizient",
-        "fr": "Friction Coefficient",
-        "es": "Friction Coefficient",
+        "fr": "Coefficient de frottement",
+        "es": "Coeficiente de fricción",
         "ar": "Friction Coefficient"
       },
       "businessContext_i18n": {
         "en": "Snow friction coefficient (0.02-0.1), depending on snow conditions",
-        "tr": "Kar sürtünme katsayısı (0.02-0.1), kar koşullarına bağlıdır"
+        "tr": "Kar sürtünme katsayısı (0.02-0.1), kar koşullarına bağlıdır",
+        "de": "Schnee-Reibungskoeffizient (0,02-0,1), abhängig von den Schneebedingungen",
+        "fr": "Coefficient de friction de la neige (0,02-0,1), selon les conditions de neige"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Initial Speed",
         "tr": "Başlangıç Hızı",
-        "de": "Initial Speed",
-        "fr": "Initial Speed",
-        "es": "Initial Speed",
+        "de": "Anfangsgeschwindigkeit",
+        "fr": "Vitesse initiale",
+        "es": "Velocidad inicial",
         "ar": "Initial Speed"
       },
       "businessContext_i18n": {
         "en": "Initial speed at start of slope in meters per second",
-        "tr": "Pist başlangıcındaki ilk hız (metre/saniye)"
+        "tr": "Pist başlangıcındaki ilk hız (metre/saniye)",
+        "de": "Anfangsgeschwindigkeit am Start der Piste in Metern pro Sekunde",
+        "fr": "Vitesse initiale au départ de la piste en mètres par seconde"
       }
     }
   ],

@@ -12,13 +12,16 @@
         "en": "Atomic Number (Z)",
         "tr": "Atom Numarası (Z)",
         "de": "Ordnungszahl (Z)",
-        "fr": "Atomic Number (Z)",
-        "es": "Atomic Number (Z)",
+        "fr": "Numéro atomique (Z)",
+        "es": "Número atómico (Z)",
         "ar": "Atomic Number (Z)"
       },
       "businessContext_i18n": {
         "en": "Number of protons in the nucleus of the atom.",
-        "tr": "Atom çekirdeğindeki proton sayısı."
+        "tr": "Atom çekirdeğindeki proton sayısı.",
+        "de": "Anzahl der Protonen im Atomkern.",
+        "fr": "Nombre de protons dans le noyau de l'atome.",
+        "es": "Número de protones en el núcleo del átomo."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Shielding Constant (S)",
         "tr": "Ekranlama Sabiti (S)",
-        "de": "Shielding Constant (S)",
-        "fr": "Shielding Constant (S)",
-        "es": "Shielding Constant (S)",
+        "de": "Abschirmungskonstante (S)",
+        "fr": "Constante d'écran (S)",
+        "es": "Constante de Apantallamiento (S)",
         "ar": "Shielding Constant (S)"
       },
       "businessContext_i18n": {
         "en": "Screening constant due to inner electrons reducing the effective nuclear charge.",
-        "tr": "İç elektronların etkin çekirdek yükünü azaltması nedeniyle oluşan perdeleme sabiti."
+        "tr": "İç elektronların etkin çekirdek yükünü azaltması nedeniyle oluşan perdeleme sabiti.",
+        "de": "Abschirmungskonstante durch innere Elektronen, die die effektive Kernladung reduziert.",
+        "fr": "Constante d'écran due aux électrons internes réduisant la charge nucléaire effective.",
+        "es": "Constante de apantallamiento debida a electrones internos que reducen la carga nuclear efectiva."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Principal Quantum Number (n)",
         "tr": "Baş Kuantum Sayısı (n)",
-        "de": "Principal Quantum Number (n)",
-        "fr": "Principal Quantum Number (n)",
-        "es": "Principal Quantum Number (n)",
+        "de": "Hauptquantenzahl (n)",
+        "fr": "Nombre quantique principal (n)",
+        "es": "Número Cuántico Principal (n)",
         "ar": "Principal Quantum Number (n)"
       },
       "businessContext_i18n": {
         "en": "Principal quantum number of the outermost electron shell.",
-        "tr": "En dıştaki elektron kabuğunun baş kuantum sayısı."
+        "tr": "En dıştaki elektron kabuğunun baş kuantum sayısı.",
+        "de": "Hauptquantenzahl der äußersten Elektronenschale.",
+        "fr": "Nombre quantique principal de la couche électronique la plus externe.",
+        "es": "Número cuántico principal de la capa electrónica más externa."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Scaling Factor",
         "tr": "Ölçekleme Faktörü",
-        "de": "Scaling Factor",
-        "fr": "Scaling Factor",
-        "es": "Scaling Factor",
+        "de": "Skalierungsfaktor",
+        "fr": "Facteur d'échelle",
+        "es": "Factor de Escala",
         "ar": "Scaling Factor"
       },
       "businessContext_i18n": {
         "en": "Empirical adjustment factor to match experimental ionic radii.",
-        "tr": "Deneysel iyon yarıçaplarına uyacak şekilde ampirik ayarlama faktörü."
+        "tr": "Deneysel iyon yarıçaplarına uyacak şekilde ampirik ayarlama faktörü.",
+        "de": "Empirischer Anpassungsfaktor zur Übereinstimmung mit experimentellen Ionenradien.",
+        "fr": "Facteur d'ajustement empirique pour correspondre aux rayons ioniques expérimentaux.",
+        "es": "Factor de ajuste empírico para igualar radios iónicos experimentales."
       }
     }
   ],

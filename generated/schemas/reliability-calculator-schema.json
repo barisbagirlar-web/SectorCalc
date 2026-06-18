@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Component Failure Rate",
         "tr": "Bileşen Arıza Oranı",
-        "de": "Component Failure Rate",
-        "fr": "Component Failure Rate",
+        "de": "Komponentenausfallrate",
+        "fr": "Taux de défaillance des composants",
         "es": "Component Failure Rate",
         "ar": "Component Failure Rate"
       },
       "businessContext_i18n": {
         "en": "The constant failure rate per component (λ) assuming exponential distribution.",
-        "tr": "Üstel dağılım varsayımıyla bileşen başına sabit arıza oranı (λ)."
+        "tr": "Üstel dağılım varsayımıyla bileşen başına sabit arıza oranı (λ).",
+        "de": "Konstante Ausfallrate pro Komponente (λ) unter Annahme einer Exponentialverteilung.",
+        "fr": "Le taux de défaillance constant par composant (λ) supposant une distribution exponentielle."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Mission Time",
         "tr": "Görev Süresi",
-        "de": "Mission Time",
-        "fr": "Mission Time",
+        "de": "Einsatzzeit",
+        "fr": "Temps de mission",
         "es": "Mission Time",
         "ar": "Mission Time"
       },
       "businessContext_i18n": {
         "en": "The duration for which the system must operate without failure.",
-        "tr": "Sistemin arızasız çalışması gereken süre."
+        "tr": "Sistemin arızasız çalışması gereken süre.",
+        "de": "Die Dauer, in der das System ohne Ausfall arbeiten muss.",
+        "fr": "Durée pendant laquelle le système doit fonctionner sans panne."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Number of Components in Series",
         "tr": "Serideki Bileşen Sayısı",
-        "de": "Number of Components in Series",
-        "fr": "Number of Components in Series",
+        "de": "Anzahl der Komponenten in Reihe",
+        "fr": "Nombre de composants en série",
         "es": "Number of Components in Series",
         "ar": "Number of Components in Series"
       },
       "businessContext_i18n": {
         "en": "Number of identical components connected in series within each string.",
-        "tr": "Her bir dizede seri bağlı özdeş bileşen sayısı."
+        "tr": "Her bir dizede seri bağlı özdeş bileşen sayısı.",
+        "de": "Anzahl identischer Komponenten, die in jedem Strang in Reihe geschaltet sind.",
+        "fr": "Nombre de composants identiques connectés en série dans chaque chaîne."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Number of Parallel Strings",
         "tr": "Paralel Dize Sayısı",
-        "de": "Number of Parallel Strings",
-        "fr": "Number of Parallel Strings",
+        "de": "Anzahl paralleler Stränge",
+        "fr": "Nombre de chaînes parallèles",
         "es": "Number of Parallel Strings",
         "ar": "Number of Parallel Strings"
       },
       "businessContext_i18n": {
         "en": "Number of identical series strings operating in parallel (active redundancy).",
-        "tr": "Paralel çalışan (aktif yedekleme) özdeş seri dize sayısı."
+        "tr": "Paralel çalışan (aktif yedekleme) özdeş seri dize sayısı.",
+        "de": "Anzahl identischer in Reihe geschalteter Stränge, die parallel betrieben werden (aktive Redundanz).",
+        "fr": "Nombre de chaînes série identiques fonctionnant en parallèle (redondance active)."
       }
     }
   ],

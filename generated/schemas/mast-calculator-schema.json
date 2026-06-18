@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Mast Height",
         "tr": "Direk Yüksekliği",
-        "de": "Mast Height",
-        "fr": "Mast Height",
-        "es": "Mast Height",
+        "de": "Masthöhe",
+        "fr": "Hauteur du mât",
+        "es": "Altura del mástil",
         "ar": "Mast Height"
       },
       "businessContext_i18n": {
         "en": "Height of the mast from base to top.",
-        "tr": "Direğin tabandan tepeye kadar olan yüksekliği."
+        "tr": "Direğin tabandan tepeye kadar olan yüksekliği.",
+        "de": "Höhe des Masts von der Basis bis zur Spitze.",
+        "fr": "Hauteur du mât de la base au sommet.",
+        "es": "Altura del mástil desde la base hasta la parte superior."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Mast Diameter",
         "tr": "Direk Çapı",
-        "de": "Mast Diameter",
-        "fr": "Mast Diameter",
-        "es": "Mast Diameter",
+        "de": "Mastdurchmesser",
+        "fr": "Diamètre du mât",
+        "es": "Diámetro del mástil",
         "ar": "Mast Diameter"
       },
       "businessContext_i18n": {
         "en": "Outer diameter of the cylindrical mast.",
-        "tr": "Silindirik direğin dış çapı."
+        "tr": "Silindirik direğin dış çapı.",
+        "de": "Außendurchmesser des zylindrischen Masts.",
+        "fr": "Diamètre extérieur du mât cylindrique.",
+        "es": "Diámetro exterior del mástil cilíndrico."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Wind Speed",
         "tr": "Rüzgar Hızı",
         "de": "Windgeschwindigkeit",
-        "fr": "Wind Speed",
-        "es": "Wind Speed",
+        "fr": "Vitesse du vent",
+        "es": "Velocidad del viento",
         "ar": "Wind Speed"
       },
       "businessContext_i18n": {
         "en": "Design wind speed.",
-        "tr": "Tasarım rüzgar hızı."
+        "tr": "Tasarım rüzgar hızı.",
+        "de": "Auslegungswindgeschwindigkeit.",
+        "fr": "Vitesse de vent de conception.",
+        "es": "Velocidad de viento de diseño."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Material Yield Strength",
         "tr": "Malzeme Akma Dayanımı",
         "de": "Streckgrenze des Materials",
-        "fr": "Material Yield Strength",
-        "es": "Material Yield Strength",
+        "fr": "Limite d'élasticité du matériau",
+        "es": "Límite elástico del material",
         "ar": "Material Yield Strength"
       },
       "businessContext_i18n": {
         "en": "Yield strength of the mast material.",
-        "tr": "Direk malzemesinin akma dayanımı."
+        "tr": "Direk malzemesinin akma dayanımı.",
+        "de": "Streckgrenze des Mastmaterials.",
+        "fr": "Limite d'élasticité du matériau du mât.",
+        "es": "Límite elástico del material del mástil."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Design safety factor.",
-        "tr": "Tasarım güvenlik faktörü."
+        "tr": "Tasarım güvenlik faktörü.",
+        "de": "Auslegungssicherheitsfaktor.",
+        "fr": "Coefficient de sécurité de conception.",
+        "es": "Factor de seguridad de diseño."
       }
     }
   ],

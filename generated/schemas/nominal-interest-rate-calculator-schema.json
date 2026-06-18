@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Real Interest Rate",
         "tr": "Reel Faiz Oranı",
-        "de": "Real Interest Rate",
-        "fr": "Real Interest Rate",
-        "es": "Real Interest Rate",
+        "de": "Realzinssatz",
+        "fr": "Taux d'intérêt réel",
+        "es": "Tasa de interés real",
         "ar": "Real Interest Rate"
       },
       "businessContext_i18n": {
         "en": "The real interest rate adjusted for inflation.",
-        "tr": "Enflasyona göre düzeltilmiş reel faiz oranı."
+        "tr": "Enflasyona göre düzeltilmiş reel faiz oranı.",
+        "de": "Der um die Inflation bereinigte Realzinssatz.",
+        "fr": "Le taux d'intérêt réel ajusté de l'inflation.",
+        "es": "La tasa de interés real ajustada por inflación."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Inflation Rate",
         "tr": "Enflasyon Oranı",
         "de": "Inflationsrate",
-        "fr": "Inflation Rate",
-        "es": "Inflation Rate",
+        "fr": "Taux d'inflation",
+        "es": "Tasa de inflación",
         "ar": "Inflation Rate"
       },
       "businessContext_i18n": {
         "en": "The expected inflation rate.",
-        "tr": "Beklenen enflasyon oranı."
+        "tr": "Beklenen enflasyon oranı.",
+        "de": "Die erwartete Inflationsrate.",
+        "fr": "Le taux d'inflation attendu.",
+        "es": "La tasa de inflación esperada."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Tax Rate on Interest Income",
         "tr": "Faiz Geliri Vergi Oranı",
-        "de": "Tax Rate on Interest Income",
-        "fr": "Tax Rate on Interest Income",
-        "es": "Tax Rate on Interest Income",
+        "de": "Steuersatz auf Zinserträge",
+        "fr": "Taux d'imposition sur les revenus d'intérêts",
+        "es": "Tasa impositiva sobre ingresos por intereses",
         "ar": "Tax Rate on Interest Income"
       },
       "businessContext_i18n": {
         "en": "The tax rate applied to interest income.",
-        "tr": "Faiz gelirine uygulanan vergi oranı."
+        "tr": "Faiz gelirine uygulanan vergi oranı.",
+        "de": "Der auf Zinserträge angewandte Steuersatz.",
+        "fr": "Le taux d'imposition appliqué aux revenus d'intérêts.",
+        "es": "La tasa impositiva aplicada a los ingresos por intereses."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Annual Fee Percentage",
         "tr": "Yıllık Ücret Yüzdesi",
-        "de": "Annual Fee Percentage",
-        "fr": "Annual Fee Percentage",
-        "es": "Annual Fee Percentage",
+        "de": "Jährlicher Gebührenprozentsatz",
+        "fr": "Pourcentage de frais annuels",
+        "es": "Porcentaje de comisión anual",
         "ar": "Annual Fee Percentage"
       },
       "businessContext_i18n": {
         "en": "Annual fee as a percentage of the principal.",
-        "tr": "Anaparanın yüzdesi olarak yıllık ücret."
+        "tr": "Anaparanın yüzdesi olarak yıllık ücret.",
+        "de": "Jährliche Gebühr als Prozentsatz des Kapitals.",
+        "fr": "Frais annuels en pourcentage du principal.",
+        "es": "Comisión anual como porcentaje del principal."
       }
     }
   ],

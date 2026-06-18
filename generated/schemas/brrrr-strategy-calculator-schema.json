@@ -12,14 +12,16 @@
         "en": "Purchase Price",
         "tr": "Satın Alma Fiyatı",
         "de": "Kaufpreis",
-        "fr": "Purchase Price",
-        "es": "Purchase Price",
+        "fr": "Prix d'achat",
+        "es": "Precio de compra",
         "ar": "Purchase Price"
       },
       "businessContext_i18n": {
         "en": "The price at which the property is purchased.",
         "tr": "Mülkün satın alındığı fiyat.",
-        "de": "Preis, zu dem die Immobilie gekauft wird."
+        "de": "Preis, zu dem die Immobilie gekauft wird.",
+        "fr": "Prix d'achat du bien.",
+        "es": "Precio al que se compra la propiedad."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Rehab Cost",
         "tr": "Rehab Maliyeti",
         "de": "Sanierungskosten",
-        "fr": "Rehab Cost",
-        "es": "Rehab Cost",
+        "fr": "Coût de réhabilitation",
+        "es": "Costo de rehabilitación",
         "ar": "Rehab Cost"
       },
       "businessContext_i18n": {
         "en": "Total cost of renovations and repairs.",
         "tr": "Yenileme ve onarımların toplam maliyeti.",
-        "de": "Gesamtkosten für Renovierungen und Reparaturen."
+        "de": "Gesamtkosten für Renovierungen und Reparaturen.",
+        "fr": "Coût total des rénovations et réparations.",
+        "es": "Costo total de renovaciones y reparaciones."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "After Repair Value (ARV)",
         "tr": "Onarım Sonrası Değer (OSD)",
         "de": "Wert nach Sanierung (ARV)",
-        "fr": "After Repair Value (ARV)",
-        "es": "After Repair Value (ARV)",
+        "fr": "Valeur après réhabilitation (VAR)",
+        "es": "Valor después de la reparación (ARV)",
         "ar": "After Repair Value (ARV)"
       },
       "businessContext_i18n": {
         "en": "Estimated market value of the property after renovations.",
         "tr": "Yenileme sonrası mülkün tahmini piyasa değeri.",
-        "de": "Geschätzter Marktwert der Immobilie nach Renovierungen."
+        "de": "Geschätzter Marktwert der Immobilie nach Renovierungen.",
+        "fr": "Valeur marchande estimée du bien après rénovations.",
+        "es": "Valor de mercado estimado de la propiedad después de las renovaciones."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Monthly Rent",
         "tr": "Aylık Kira",
         "de": "Monatsmiete",
-        "fr": "Monthly Rent",
-        "es": "Monthly Rent",
+        "fr": "Loyer mensuel",
+        "es": "Alquiler mensual",
         "ar": "Monthly Rent"
       },
       "businessContext_i18n": {
         "en": "Expected monthly rental income.",
         "tr": "Beklenen aylık kira geliri.",
-        "de": "Erwartete monatliche Mieteinnahmen."
+        "de": "Erwartete monatliche Mieteinnahmen.",
+        "fr": "Revenu locatif mensuel attendu.",
+        "es": "Ingreso mensual por alquiler esperado."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Operating Expense Percentage",
         "tr": "İşletme Gideri Yüzdesi",
         "de": "Betriebskostenanteil (%)",
-        "fr": "Operating Expense Percentage",
-        "es": "Operating Expense Percentage",
+        "fr": "Pourcentage des dépenses d'exploitation",
+        "es": "Porcentaje de gastos operativos",
         "ar": "Operating Expense Percentage"
       },
       "businessContext_i18n": {
         "en": "Percentage of monthly rent reserved for operating expenses (taxes, insurance, maintenance, vacancy, management).",
         "tr": "İşletme giderleri (vergiler, sigorta, bakım, boşluk, yönetim) için ayrılan aylık kira yüzdesi.",
-        "de": "Prozentsatz der monatlichen Miete, der für Betriebskosten (Steuern, Versicherung, Instandhaltung, Leerstand, Verwaltung) reserviert ist."
+        "de": "Prozentsatz der monatlichen Miete, der für Betriebskosten (Steuern, Versicherung, Instandhaltung, Leerstand, Verwaltung) reserviert ist.",
+        "fr": "Pourcentage du loyer mensuel réservé aux dépenses d'exploitation (taxes, assurance, entretien, vacance, gestion).",
+        "es": "Porcentaje del alquiler mensual reservado para gastos operativos (impuestos, seguros, mantenimiento, desocupación, administración)."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Refinance LTV",
         "tr": "Yeniden Finansman Kredi-Değer Oranı",
         "de": "Refinanzierungs-Beleihungsquote (%)",
-        "fr": "Refinance LTV",
-        "es": "Refinance LTV",
+        "fr": "LTV de refinancement",
+        "es": "LTV de refinanciamiento",
         "ar": "Refinance LTV"
       },
       "businessContext_i18n": {
         "en": "Loan-to-value ratio for refinancing, expressed as a percentage of ARV.",
         "tr": "Yeniden finansman için kredi-değer oranı, ARV'nin yüzdesi olarak ifade edilir.",
-        "de": "Beleihungsquote für die Refinanzierung, ausgedrückt als Prozentsatz des ARV."
+        "de": "Beleihungsquote für die Refinanzierung, ausgedrückt als Prozentsatz des ARV.",
+        "fr": "Ratio prêt-valeur pour le refinancement, exprimé en pourcentage de l'ARV.",
+        "es": "Relación préstamo-valor para refinanciamiento, expresada como porcentaje del ARV."
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Refinance Interest Rate",
         "tr": "Yeniden Finansman Faiz Oranı",
         "de": "Refinanzierungszinssatz (%)",
-        "fr": "Refinance Interest Rate",
-        "es": "Refinance Interest Rate",
+        "fr": "Taux d'intérêt du refinancement",
+        "es": "Tasa de interés de refinanciamiento",
         "ar": "Refinance Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Annual interest rate for the refinance mortgage.",
         "tr": "Yeniden finansman ipoteği için yıllık faiz oranı.",
-        "de": "Jährlicher Zinssatz für die Refinanzierungshypothek."
+        "de": "Jährlicher Zinssatz für die Refinanzierungshypothek.",
+        "fr": "Taux d'intérêt annuel du prêt de refinancement.",
+        "es": "Tasa de interés anual para la hipoteca de refinanciamiento."
       }
     },
     {
@@ -159,14 +173,16 @@
         "en": "Loan Term",
         "tr": "Kredi Vadesi",
         "de": "Darlehenslaufzeit",
-        "fr": "Loan Term",
-        "es": "Loan Term",
+        "fr": "Durée du prêt",
+        "es": "Plazo del préstamo",
         "ar": "Loan Term"
       },
       "businessContext_i18n": {
         "en": "Duration of the refinance loan in years.",
         "tr": "Yeniden finansman kredisinin yıl cinsinden süresi.",
-        "de": "Laufzeit des Refinanzierungsdarlehens in Jahren."
+        "de": "Laufzeit des Refinanzierungsdarlehens in Jahren.",
+        "fr": "Durée du prêt de refinancement en années.",
+        "es": "Duración del préstamo de refinanciamiento en años."
       }
     }
   ],

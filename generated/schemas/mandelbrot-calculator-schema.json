@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Real part (cx)",
         "tr": "Gerçek kısım (cx)",
-        "de": "Real part (cx)",
-        "fr": "Real part (cx)",
-        "es": "Real part (cx)",
+        "de": "Realteil (cx)",
+        "fr": "Partie réelle (cx)",
+        "es": "Parte real (cx)",
         "ar": "Real part (cx)"
       },
       "businessContext_i18n": {
         "en": "The real component of the complex parameter c.",
-        "tr": "Karmaşık parametre c'nin gerçek bileşeni."
+        "tr": "Karmaşık parametre c'nin gerçek bileşeni.",
+        "de": "Die reelle Komponente des komplexen Parameters c.",
+        "fr": "La composante réelle du paramètre complexe c.",
+        "es": "Componente real del parámetro complejo c."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Imaginary part (cy)",
         "tr": "Sanal kısım (cy)",
-        "de": "Imaginary part (cy)",
-        "fr": "Imaginary part (cy)",
-        "es": "Imaginary part (cy)",
+        "de": "Imaginärteil (cy)",
+        "fr": "Partie imaginaire (cy)",
+        "es": "Parte imaginaria (cy)",
         "ar": "Imaginary part (cy)"
       },
       "businessContext_i18n": {
         "en": "The imaginary component of the complex parameter c.",
-        "tr": "Karmaşık parametre c'nin sanal bileşeni."
+        "tr": "Karmaşık parametre c'nin sanal bileşeni.",
+        "de": "Die imaginäre Komponente des komplexen Parameters c.",
+        "fr": "La composante imaginaire du paramètre complexe c.",
+        "es": "Componente imaginaria del parámetro complejo c."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Maximum Iterations",
         "tr": "Maksimum Yineleme",
-        "de": "Maximum Iterations",
-        "fr": "Maximum Iterations",
-        "es": "Maximum Iterations",
+        "de": "Maximale Iterationen",
+        "fr": "Itérations maximales",
+        "es": "Iteraciones máximas",
         "ar": "Maximum Iterations"
       },
       "businessContext_i18n": {
         "en": "Maximum number of iterations before considering the point as part of the Mandelbrot set.",
-        "tr": "Noktanın Mandelbrot kümesinin parçası olarak kabul edilmeden önceki maksimum yineleme sayısı."
+        "tr": "Noktanın Mandelbrot kümesinin parçası olarak kabul edilmeden önceki maksimum yineleme sayısı.",
+        "de": "Maximale Anzahl von Iterationen, bevor der Punkt als Teil der Mandelbrot-Menge betrachtet wird.",
+        "fr": "Nombre maximal d'itérations avant de considérer le point comme faisant partie de l'ensemble de Mandelbrot.",
+        "es": "Número máximo de iteraciones antes de considerar el punto como parte del conjunto de Mandelbrot."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Escape Radius",
         "tr": "Kaçış Yarıçapı",
-        "de": "Escape Radius",
-        "fr": "Escape Radius",
-        "es": "Escape Radius",
+        "de": "Fluchtradius",
+        "fr": "Rayon d'évasion",
+        "es": "Radio de escape",
         "ar": "Escape Radius"
       },
       "businessContext_i18n": {
         "en": "Radius threshold for escape condition; typically 2.",
-        "tr": "Kaçış koşulu için yarıçap eşiği; genellikle 2."
+        "tr": "Kaçış koşulu için yarıçap eşiği; genellikle 2.",
+        "de": "Radius-Schwellenwert für Fluchtbedingung; typischerweise 2.",
+        "fr": "Seuil de rayon pour la condition d'évasion ; généralement 2.",
+        "es": "Umbral de radio para condición de escape; típicamente 2."
       }
     }
   ],

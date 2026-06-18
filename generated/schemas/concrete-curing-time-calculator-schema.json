@@ -12,14 +12,16 @@
         "en": "Ortam Sıcaklığı",
         "tr": "Ortam Sıcaklığı",
         "de": "Umgebungstemperatur",
-        "fr": "Ortam Sıcaklığı",
-        "es": "Ortam Sıcaklığı",
+        "fr": "Température ambiante",
+        "es": "Temperatura ambiente",
         "ar": "Ortam Sıcaklığı"
       },
       "businessContext_i18n": {
         "en": "Beton kürleme ortamının ortalama sıcaklığı",
         "tr": "Beton kürleme ortamının ortalama sıcaklığı",
-        "de": "Durchschnittstemperatur der Betonnachbehandlungsumgebung"
+        "de": "Durchschnittstemperatur der Betonnachbehandlungsumgebung",
+        "fr": "Température moyenne du milieu de cure du béton",
+        "es": "Temperatura media del ambiente de curado del hormigón"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Bağıl Nem",
         "tr": "Bağıl Nem",
         "de": "Relative Luftfeuchtigkeit",
-        "fr": "Bağıl Nem",
-        "es": "Bağıl Nem",
+        "fr": "Humidité relative",
+        "es": "Humedad relativa",
         "ar": "Bağıl Nem"
       },
       "businessContext_i18n": {
         "en": "Ortam bağıl nemi",
         "tr": "Ortam bağıl nemi",
-        "de": "Relative Luftfeuchtigkeit der Umgebung"
+        "de": "Relative Luftfeuchtigkeit der Umgebung",
+        "fr": "Humidité relative ambiante",
+        "es": "Humedad relativa del ambiente"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Çimento Tipi Faktörü",
         "tr": "Çimento Tipi Faktörü",
         "de": "Zementtypfaktor",
-        "fr": "Çimento Tipi Faktörü",
-        "es": "Çimento Tipi Faktörü",
+        "fr": "Facteur de type de ciment",
+        "es": "Factor de tipo de cemento",
         "ar": "Çimento Tipi Faktörü"
       },
       "businessContext_i18n": {
         "en": "Çimento tipine bağlı kür süresi faktörü (Örn: Tip I: 1.0, Tip II: 1.1, Tip III: 0.8)",
         "tr": "Çimento tipine bağlı kür süresi faktörü (Örn: Tip I: 1.0, Tip II: 1.1, Tip III: 0.8)",
-        "de": "Nachbehandlungszeitfaktor abhängig vom Zementtyp (z. B. Typ I: 1,0, Typ II: 1,1, Typ III: 0,8)"
+        "de": "Nachbehandlungszeitfaktor abhängig vom Zementtyp (z. B. Typ I: 1,0, Typ II: 1,1, Typ III: 0,8)",
+        "fr": "Facteur de durée de cure selon le type de ciment (ex: Type I: 1.0, Type II: 1.1, Type III: 0.8)",
+        "es": "Factor de tiempo de curado según el tipo de cemento (Ej: Tipo I: 1.0, Tipo II: 1.1, Tipo III: 0.8)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Baz Kür Süresi",
         "tr": "Baz Kür Süresi",
         "de": "Baz Kür Süresi",
-        "fr": "Baz Kür Süresi",
-        "es": "Baz Kür Süresi",
+        "fr": "Durée de cure de base",
+        "es": "Tiempo base de curado",
         "ar": "Baz Kür Süresi"
       },
       "businessContext_i18n": {
         "en": "Standart koşullarda (23°C, %100 nem, Tip I çimento) gereken kür süresi",
         "tr": "Standart koşullarda (23°C, %100 nem, Tip I çimento) gereken kür süresi",
-        "de": "Standart koşullarda (23°C, %100 nem, Tip I çimento) gereken kür süresi"
+        "de": "Standart koşullarda (23°C, %100 nem, Tip I çimento) gereken kür süresi",
+        "fr": "Durée de cure requise dans des conditions standard (23°C, 100% d'humidité, ciment Type I)",
+        "es": "Tiempo de curado requerido en condiciones estándar (23°C, 100% humedad, cemento Tipo I)"
       }
     }
   ],

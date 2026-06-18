@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Lawn Area",
         "tr": "Çim Alanı",
-        "de": "Lawn Area",
-        "fr": "Lawn Area",
-        "es": "Lawn Area",
+        "de": "Rasenfläche",
+        "fr": "Surface de la pelouse",
+        "es": "Área del césped",
         "ar": "Lawn Area"
       },
       "businessContext_i18n": {
         "en": "Total area of the lawn to be fertilized",
-        "tr": "Gübrelenecek toplam çim alanı"
+        "tr": "Gübrelenecek toplam çim alanı",
+        "de": "Gesamte zu düngende Rasenfläche",
+        "fr": "Surface totale de la pelouse à fertiliser",
+        "es": "Área total del césped a fertilizar"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Nitrogen Content (N%)",
         "tr": "Azot İçeriği (N%)",
-        "de": "Nitrogen Content (N%)",
-        "fr": "Nitrogen Content (N%)",
-        "es": "Nitrogen Content (N%)",
+        "de": "Stickstoffgehalt (N%)",
+        "fr": "Teneur en azote (N%)",
+        "es": "Contenido de nitrógeno (N%)",
         "ar": "Nitrogen Content (N%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of nitrogen by weight in the fertilizer product (N-P-K first number)",
-        "tr": "Gübre ürünündeki ağırlıkça azot yüzdesi (N-P-K ilk sayı)"
+        "tr": "Gübre ürünündeki ağırlıkça azot yüzdesi (N-P-K ilk sayı)",
+        "de": "Gewichtsprozent Stickstoff im Düngerprodukt (N-P-K erste Zahl)",
+        "fr": "Pourcentage d'azote en poids dans le produit fertilisant (premier nombre N-P-K)",
+        "es": "Porcentaje de nitrógeno en peso en el producto fertilizante (primer número N-P-K)"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Desired Nitrogen Rate",
         "tr": "Hedef Azot Oranı",
-        "de": "Desired Nitrogen Rate",
-        "fr": "Desired Nitrogen Rate",
-        "es": "Desired Nitrogen Rate",
+        "de": "Gewünschte Stickstoffmenge",
+        "fr": "Taux d'azote souhaité",
+        "es": "Tasa de nitrógeno deseada",
         "ar": "Desired Nitrogen Rate"
       },
       "businessContext_i18n": {
         "en": "Target application rate of pure nitrogen per square meter per application",
-        "tr": "Uygulama başına metrekare başına hedeflenen saf azot miktarı"
+        "tr": "Uygulama başına metrekare başına hedeflenen saf azot miktarı",
+        "de": "Zielausbringungsmenge reinen Stickstoffs pro Quadratmeter pro Anwendung",
+        "fr": "Taux d'application cible d'azote pur par mètre carré par application",
+        "es": "Tasa de aplicación objetivo de nitrógeno puro por metro cuadrado por aplicación"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Applications per Year",
         "tr": "Yıllık Uygulama Sayısı",
-        "de": "Applications per Year",
-        "fr": "Applications per Year",
-        "es": "Applications per Year",
+        "de": "Anwendungen pro Jahr",
+        "fr": "Applications par an",
+        "es": "Aplicaciones por año",
         "ar": "Applications per Year"
       },
       "businessContext_i18n": {
         "en": "Number of fertilizer applications planned per year",
-        "tr": "Yılda planlanan gübre uygulaması sayısı"
+        "tr": "Yılda planlanan gübre uygulaması sayısı",
+        "de": "Anzahl der jährlich geplanten Düngeranwendungen",
+        "fr": "Nombre d'applications d'engrais prévues par an",
+        "es": "Número de aplicaciones de fertilizante planificadas por año"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Bag Weight",
         "tr": "Çanta Ağırlığı",
-        "de": "Bag Weight",
-        "fr": "Bag Weight",
-        "es": "Bag Weight",
+        "de": "Sackgewicht",
+        "fr": "Poids du sac",
+        "es": "Peso del saco",
         "ar": "Bag Weight"
       },
       "businessContext_i18n": {
         "en": "Weight of a single fertilizer bag",
-        "tr": "Tek bir gübre çantasının ağırlığı"
+        "tr": "Tek bir gübre çantasının ağırlığı",
+        "de": "Gewicht eines einzelnen Düngersacks",
+        "fr": "Poids d'un seul sac d'engrais",
+        "es": "Peso de un saco de fertilizante"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Cost per Bag",
         "tr": "Torba Başına Maliyet",
-        "de": "Cost per Bag",
-        "fr": "Cost per Bag",
-        "es": "Cost per Bag",
+        "de": "Kosten pro Sack",
+        "fr": "Coût par sac",
+        "es": "Coste por saco",
         "ar": "Cost per Bag"
       },
       "businessContext_i18n": {
         "en": "Purchase cost of one fertilizer bag (optional, set to 0 for no cost calculation)",
-        "tr": "Bir gübre torbasının satın alma maliyeti (isteğe bağlı, maliyet hesaplanmayacaksa 0 girin)"
+        "tr": "Bir gübre torbasının satın alma maliyeti (isteğe bağlı, maliyet hesaplanmayacaksa 0 girin)",
+        "de": "Kaufpreis eines Düngersacks (optional, auf 0 setzen für keine Kostenberechnung)",
+        "fr": "Coût d'achat d'un sac d'engrais (optionnel, mettre 0 pour ignorer le calcul de coût)",
+        "es": "Coste de compra de un saco de fertilizante (opcional, establecer en 0 si no se calcula el coste)"
       }
     }
   ],

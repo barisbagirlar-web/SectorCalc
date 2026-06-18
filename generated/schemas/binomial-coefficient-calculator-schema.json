@@ -19,7 +19,9 @@
       "businessContext_i18n": {
         "en": "Total number of items, n >= 0",
         "tr": "Toplam öğe sayısı, n >= 0",
-        "de": "Gesamtzahl der Elemente, n >= 0"
+        "de": "Gesamtzahl der Elemente, n >= 0",
+        "fr": "Nombre total d'éléments, n >= 0",
+        "es": "Número total de elementos, n >= 0"
       }
     },
     {
@@ -40,7 +42,9 @@
       "businessContext_i18n": {
         "en": "Number of items to choose, 0 <= k <= n",
         "tr": "Seçilecek öğe sayısı, 0 <= k <= n",
-        "de": "Anzahl der auszuwählenden Elemente, 0 <= k <= n"
+        "de": "Anzahl der auszuwählenden Elemente, 0 <= k <= n",
+        "fr": "Nombre d'éléments à choisir, 0 <= k <= n",
+        "es": "Número de elementos a elegir, 0 <= k <= n"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Use Symmetry",
         "tr": "Simetri Kullan",
         "de": "Symmetrie nutzen",
-        "fr": "Use Symmetry",
-        "es": "Use Symmetry",
+        "fr": "Utiliser la symétrie",
+        "es": "Usar simetría",
         "ar": "Use Symmetry"
       },
       "businessContext_i18n": {
         "en": "Set to 1 to use C(n,k)=C(n,n-k) when k > n/2 for efficiency",
         "tr": "Verimlilik için k > n/2 olduğunda C(n,k)=C(n,n-k) kullanmak için 1 olarak ayarlayın",
-        "de": "Auf 1 setzen, um C(n,k)=C(n,n-k) zu verwenden, wenn k > n/2, für Effizienz"
+        "de": "Auf 1 setzen, um C(n,k)=C(n,n-k) zu verwenden, wenn k > n/2, für Effizienz",
+        "fr": "Mettre à 1 pour utiliser C(n,k)=C(n,n-k) quand k > n/2 pour plus d'efficacité",
+        "es": "Establecer en 1 para usar C(n,k)=C(n,n-k) cuando k > n/2 para eficiencia"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the result. Default 0 for integer coefficient.",
         "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı. Tam sayı katsayısı için varsayılan 0.",
-        "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses. Standard 0 für ganzzahligen Koeffizienten."
+        "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses. Standard 0 für ganzzahligen Koeffizienten.",
+        "fr": "Nombre de décimales pour arrondir le résultat. Par défaut 0 pour un coefficient entier.",
+        "es": "Número de decimales para redondear el resultado. Por defecto 0 para coeficiente entero."
       }
     }
   ],

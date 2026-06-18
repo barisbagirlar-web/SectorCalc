@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Invoice Net Amount",
         "tr": "Fatura Net Tutarı",
-        "de": "Invoice Net Amount",
-        "fr": "Invoice Net Amount",
+        "de": "Rechnungsnettobetrag",
+        "fr": "Montant net de la facture",
         "es": "Invoice Net Amount",
         "ar": "Invoice Net Amount"
       },
       "businessContext_i18n": {
         "en": "Net amount on the supplier's invoice in foreign currency.",
-        "tr": "Tedarikçi faturasındaki yabancı para cinsinden net tutar."
+        "tr": "Tedarikçi faturasındaki yabancı para cinsinden net tutar.",
+        "de": "Nettobetrag auf der Lieferantenrechnung in Fremdwährung.",
+        "fr": "Montant net sur la facture du fournisseur en devise étrangère."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Exchange Rate",
         "tr": "Döviz Kuru",
         "de": "Wechselkurs",
-        "fr": "Exchange Rate",
-        "es": "Exchange Rate",
+        "fr": "Taux de change",
+        "es": "Tipo de cambio",
         "ar": "Exchange Rate"
       },
       "businessContext_i18n": {
         "en": "Exchange rate to convert foreign currency to local currency for VAT calculation.",
-        "tr": "KDV hesaplaması için yabancı parayı yerel paraya çeviren döviz kuru."
+        "tr": "KDV hesaplaması için yabancı parayı yerel paraya çeviren döviz kuru.",
+        "de": "Wechselkurs zur Umrechnung der Fremdwährung in Landeswährung für die Umsatzsteuerberechnung.",
+        "fr": "Taux de change pour convertir la devise étrangère en devise locale pour le calcul de la TVA."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Domestic VAT Rate",
         "tr": "Yerel KDV Oranı",
-        "de": "Domestic VAT Rate",
-        "fr": "Domestic VAT Rate",
+        "de": "Inländischer Umsatzsteuersatz",
+        "fr": "Taux de TVA nationale",
         "es": "Domestic VAT Rate",
         "ar": "Domestic VAT Rate"
       },
       "businessContext_i18n": {
         "en": "Your domestic VAT rate applicable to the received service.",
-        "tr": "Alınan hizmete uygulanan yerel KDV oranı."
+        "tr": "Alınan hizmete uygulanan yerel KDV oranı.",
+        "de": "Ihr inländischer Umsatzsteuersatz, der auf die empfangene Dienstleistung anwendbar ist.",
+        "fr": "Votre taux de TVA nationale applicable au service reçu."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Cross-Border Transaction",
         "tr": "Sınır Ötesi İşlem",
-        "de": "Cross-Border Transaction",
-        "fr": "Cross-Border Transaction",
+        "de": "Grenzüberschreitende Transaktion",
+        "fr": "Transaction transfrontalière",
         "es": "Cross-Border Transaction",
         "ar": "Cross-Border Transaction"
       },
       "businessContext_i18n": {
         "en": "1 if the service is from a foreign supplier, 0 if domestic reverse charge.",
-        "tr": "Hizmet yabancı bir tedarikçiden ise 1, yurt içi tersine KDV ise 0."
+        "tr": "Hizmet yabancı bir tedarikçiden ise 1, yurt içi tersine KDV ise 0.",
+        "de": "1, wenn die Dienstleistung von einem ausländischen Lieferanten stammt, 0 bei inländischem Reverse-Charge.",
+        "fr": "1 si le service provient d'un fournisseur étranger, 0 si autoliquidation nationale."
       }
     }
   ],

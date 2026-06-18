@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Basınç Farkı (ΔP)",
         "tr": "Basınç Farkı (ΔP)",
-        "de": "Basınç Farkı (ΔP)",
-        "fr": "Basınç Farkı (ΔP)",
-        "es": "Basınç Farkı (ΔP)",
+        "de": "Druckdifferenz (ΔP)",
+        "fr": "Différence de pression (ΔP)",
+        "es": "Diferencia de presión (ΔP)",
         "ar": "Basınç Farkı (ΔP)"
       },
       "businessContext_i18n": {
         "en": "Nozzle giriş ve çıkışı arasındaki basınç farkı",
-        "tr": "Nozzle giriş ve çıkışı arasındaki basınç farkı"
+        "tr": "Nozzle giriş ve çıkışı arasındaki basınç farkı",
+        "de": "Druckdifferenz zwischen Düseneinlass und -auslass",
+        "fr": "Différence de pression entre l'entrée et la sortie de la buse",
+        "es": "Diferencia de presión entre la entrada y salida de la boquilla"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Nozzle Çapı",
         "tr": "Nozzle Çapı",
-        "de": "Nozzle Çapı",
-        "fr": "Nozzle Çapı",
-        "es": "Nozzle Çapı",
+        "de": "Düsendurchmesser",
+        "fr": "Diamètre de la buse",
+        "es": "Diámetro de la boquilla",
         "ar": "Nozzle Çapı"
       },
       "businessContext_i18n": {
         "en": "Nozzle orifis çapı",
-        "tr": "Nozzle orifis çapı"
+        "tr": "Nozzle orifis çapı",
+        "de": "Düsenöffnungsdurchmesser",
+        "fr": "Diamètre de l'orifice de la buse",
+        "es": "Diámetro del orificio de la boquilla"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Deşarj Katsayısı (Cd)",
         "tr": "Deşarj Katsayısı (Cd)",
-        "de": "Deşarj Katsayısı (Cd)",
-        "fr": "Deşarj Katsayısı (Cd)",
-        "es": "Deşarj Katsayısı (Cd)",
+        "de": "Ausflusskoeffizient (Cd)",
+        "fr": "Coefficient de décharge (Cd)",
+        "es": "Coeficiente de descarga (Cd)",
         "ar": "Deşarj Katsayısı (Cd)"
       },
       "businessContext_i18n": {
         "en": "Nozzle geometrisine bağlı akış katsayısı",
-        "tr": "Nozzle geometrisine bağlı akış katsayısı"
+        "tr": "Nozzle geometrisine bağlı akış katsayısı",
+        "de": "Von der Düsengeometrie abhängiger Durchflusskoeffizient",
+        "fr": "Coefficient d'écoulement dépendant de la géométrie de la buse",
+        "es": "Coeficiente de flujo dependiente de la geometría de la boquilla"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Akışkan Yoğunluğu",
         "tr": "Akışkan Yoğunluğu",
-        "de": "Akışkan Yoğunluğu",
-        "fr": "Akışkan Yoğunluğu",
-        "es": "Akışkan Yoğunluğu",
+        "de": "Fluiddichte",
+        "fr": "Masse volumique du fluide",
+        "es": "Densidad del fluido",
         "ar": "Akışkan Yoğunluğu"
       },
       "businessContext_i18n": {
         "en": "Akışkan yoğunluğu (ör. su için 1000 kg/m³)",
-        "tr": "Akışkan yoğunluğu (ör. su için 1000 kg/m³)"
+        "tr": "Akışkan yoğunluğu (ör. su için 1000 kg/m³)",
+        "de": "Fluiddichte (z. B. für Wasser 1000 kg/m³)",
+        "fr": "Densité du fluide (ex. 1000 kg/m³ pour l'eau)",
+        "es": "Densidad del fluido (ej. 1000 kg/m³ para agua)"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Kinematik Viskozite",
         "tr": "Kinematik Viskozite",
-        "de": "Kinematik Viskozite",
-        "fr": "Kinematik Viskozite",
-        "es": "Kinematik Viskozite",
+        "de": "Kinematische Viskosität",
+        "fr": "Viscosité cinématique",
+        "es": "Viscosidad cinemática",
         "ar": "Kinematik Viskozite"
       },
       "businessContext_i18n": {
         "en": "Akışkanın kinematik viskozitesi (su için 1e-6 m²/s)",
-        "tr": "Akışkanın kinematik viskozitesi (su için 1e-6 m²/s)"
+        "tr": "Akışkanın kinematik viskozitesi (su için 1e-6 m²/s)",
+        "de": "Kinematische Viskosität des Fluids (für Wasser 1e-6 m²/s)",
+        "fr": "Viscosité cinématique du fluide (1e-6 m²/s pour l'eau)",
+        "es": "Viscosidad cinemática del fluido (1e-6 m²/s para agua)"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Heat Duty",
         "tr": "Isı Yükü",
         "de": "Wärmeleistung",
-        "fr": "Heat Duty",
-        "es": "Heat Duty",
+        "fr": "Charge thermique",
+        "es": "Carga térmica",
         "ar": "Heat Duty"
       },
       "businessContext_i18n": {
         "en": "Required thermal power to be transferred",
         "tr": "Aktarılması gereken gerekli termal güç",
-        "de": "Erforderliche thermische Leistung zur Übertragung"
+        "de": "Erforderliche thermische Leistung zur Übertragung",
+        "fr": "Puissance thermique requise à transférer",
+        "es": "Potencia térmica requerida a transferir"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Overall Heat Transfer Coefficient",
         "tr": "Toplam Isı Transfer Katsayısı",
         "de": "Gesamtwärmeübergangskoeffizient",
-        "fr": "Overall Heat Transfer Coefficient",
-        "es": "Overall Heat Transfer Coefficient",
+        "fr": "Coefficient global de transfert thermique",
+        "es": "Coeficiente global de transferencia de calor",
         "ar": "Overall Heat Transfer Coefficient"
       },
       "businessContext_i18n": {
         "en": "Combined conductive and convective heat transfer coefficient",
         "tr": "Birleşik iletim ve taşınım ısı transfer katsayısı",
-        "de": "Kombinierter Wärmeleitungs- und Konvektionskoeffizient"
+        "de": "Kombinierter Wärmeleitungs- und Konvektionskoeffizient",
+        "fr": "Coefficient de transfert thermique combiné conductif et convectif",
+        "es": "Coeficiente combinado de transferencia de calor por conducción y convección"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Hot Fluid Inlet Temperature",
         "tr": "Sıcak Akışkan Giriş Sıcaklığı",
         "de": "Heißfluid-Eintrittstemperatur",
-        "fr": "Hot Fluid Inlet Temperature",
-        "es": "Hot Fluid Inlet Temperature",
+        "fr": "Température d'entrée du fluide chaud",
+        "es": "Temperatura de entrada del fluido caliente",
         "ar": "Hot Fluid Inlet Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of hot fluid entering the exchanger",
         "tr": "Isı değiştiriciye giren sıcak akışkanın sıcaklığı",
-        "de": "Temperatur des in den Wärmetauscher eintretenden Heißfluids"
+        "de": "Temperatur des in den Wärmetauscher eintretenden Heißfluids",
+        "fr": "Température du fluide chaud entrant dans l'échangeur",
+        "es": "Temperatura del fluido caliente que entra al intercambiador"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Hot Fluid Outlet Temperature",
         "tr": "Sıcak Akışkan Çıkış Sıcaklığı",
         "de": "Heißfluid-Austrittstemperatur",
-        "fr": "Hot Fluid Outlet Temperature",
-        "es": "Hot Fluid Outlet Temperature",
+        "fr": "Température de sortie du fluide chaud",
+        "es": "Temperatura de salida del fluido caliente",
         "ar": "Hot Fluid Outlet Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of hot fluid leaving the exchanger",
         "tr": "Isı değiştiriciden çıkan sıcak akışkanın sıcaklığı",
-        "de": "Temperatur des den Wärmetauscher verlassenden Heißfluids"
+        "de": "Temperatur des den Wärmetauscher verlassenden Heißfluids",
+        "fr": "Température du fluide chaud quittant l'échangeur",
+        "es": "Temperatura del fluido caliente que sale del intercambiador"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Cold Fluid Inlet Temperature",
         "tr": "Soğuk Akışkan Giriş Sıcaklığı",
         "de": "Kaltfluid-Eintrittstemperatur",
-        "fr": "Cold Fluid Inlet Temperature",
-        "es": "Cold Fluid Inlet Temperature",
+        "fr": "Température d'entrée du fluide froid",
+        "es": "Temperatura de entrada del fluido frío",
         "ar": "Cold Fluid Inlet Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of cold fluid entering the exchanger",
         "tr": "Isı değiştiriciye giren soğuk akışkanın sıcaklığı",
-        "de": "Temperatur des in den Wärmetauscher eintretenden Kaltfluids"
+        "de": "Temperatur des in den Wärmetauscher eintretenden Kaltfluids",
+        "fr": "Température du fluide froid entrant dans l'échangeur",
+        "es": "Temperatura del fluido frío que entra al intercambiador"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Cold Fluid Outlet Temperature",
         "tr": "Soğuk Akışkan Çıkış Sıcaklığı",
         "de": "Kaltfluid-Austrittstemperatur",
-        "fr": "Cold Fluid Outlet Temperature",
-        "es": "Cold Fluid Outlet Temperature",
+        "fr": "Température de sortie du fluide froid",
+        "es": "Temperatura de salida del fluido frío",
         "ar": "Cold Fluid Outlet Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of cold fluid leaving the exchanger",
         "tr": "Isı değiştiriciden çıkan soğuk akışkanın sıcaklığı",
-        "de": "Temperatur des den Wärmetauscher verlassenden Kaltfluids"
+        "de": "Temperatur des den Wärmetauscher verlassenden Kaltfluids",
+        "fr": "Température du fluide froid quittant l'échangeur",
+        "es": "Temperatura del fluido frío que sale del intercambiador"
       }
     }
   ],

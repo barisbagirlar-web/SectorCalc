@@ -24,11 +24,15 @@
       "businessContext": "Annual gross salary before any deductions or benefits.",
       "label_i18n": {
         "en": "Base Annual Salary",
-        "tr": "Yıllık Brüt Maaş"
+        "tr": "Yıllık Brüt Maaş",
+        "de": "Jährliches Grundgehalt",
+        "fr": "Salaire annuel de base"
       },
       "businessContext_i18n": {
         "en": "Annual gross salary before any deductions or benefits.",
-        "tr": "Herhangi bir kesinti veya yan hak öncesi yıllık brüt maaş."
+        "tr": "Herhangi bir kesinti veya yan hak öncesi yıllık brüt maaş.",
+        "de": "Jährliches Bruttogehalt vor Abzügen oder Zusatzleistungen.",
+        "fr": "Salaire brut annuel avant déductions ou avantages."
       }
     },
     {
@@ -42,11 +46,15 @@
       "businessContext": "Typical annual bonus as a percentage of base salary.",
       "label_i18n": {
         "en": "Target Bonus (% of base salary)",
-        "tr": "Hedef Bonus (Maaşın Yüzdesi)"
+        "tr": "Hedef Bonus (Maaşın Yüzdesi)",
+        "de": "Zielbonus (% des Grundgehalts)",
+        "fr": "Bonus cible (% du salaire de base)"
       },
       "businessContext_i18n": {
         "en": "Typical annual bonus as a percentage of base salary.",
-        "tr": "Tipik yıllık bonus, maaşın yüzdesi olarak."
+        "tr": "Tipik yıllık bonus, maaşın yüzdesi olarak.",
+        "de": "Typischer jährlicher Bonus als Prozentsatz des Grundgehalts.",
+        "fr": "Bonus annuel typique en pourcentage du salaire de base."
       }
     },
     {
@@ -60,11 +68,15 @@
       "businessContext": "Includes health insurance, retirement contributions, paid leave, etc. Typical range 25-40%.",
       "label_i18n": {
         "en": "Benefits Cost (% of base salary)",
-        "tr": "Yan Hak Maliyeti (Maaşın Yüzdesi)"
+        "tr": "Yan Hak Maliyeti (Maaşın Yüzdesi)",
+        "de": "Nebenkosten (% des Grundgehalts)",
+        "fr": "Coût des avantages (% du salaire de base)"
       },
       "businessContext_i18n": {
         "en": "Includes health insurance, retirement contributions, paid leave, etc. Typical range 25-40%.",
-        "tr": "Sağlık sigortası, emeklilik katkıları, ücretli izin vb. içerir. Tipik aralık %25-40."
+        "tr": "Sağlık sigortası, emeklilik katkıları, ücretli izin vb. içerir. Tipik aralık %25-40.",
+        "de": "Umfasst Krankenversicherung, Rentenbeiträge, bezahlten Urlaub usw. Typischer Bereich 25-40%.",
+        "fr": "Inclut assurance santé, cotisations retraite, congés payés, etc. Plage typique 25-40%."
       }
     },
     {
@@ -78,11 +90,15 @@
       "businessContext": "Employer portion of Social Security and Medicare (FICA) in the US.",
       "label_i18n": {
         "en": "Payroll Tax (% of base salary)",
-        "tr": "Bordro Vergisi (Maaşın Yüzdesi)"
+        "tr": "Bordro Vergisi (Maaşın Yüzdesi)",
+        "de": "Lohnsteuer (% des Grundgehalts)",
+        "fr": "Taxe sur les salaires (% du salaire de base)"
       },
       "businessContext_i18n": {
         "en": "Employer portion of Social Security and Medicare (FICA) in the US.",
-        "tr": "ABD'de Sosyal Güvenlik ve Medicare (FICA) işveren payı."
+        "tr": "ABD'de Sosyal Güvenlik ve Medicare (FICA) işveren payı.",
+        "de": "Arbeitgeberanteil zur Sozialversicherung und Medicare (FICA) in den USA.",
+        "fr": "Part employeur de la Sécurité sociale et Medicare (FICA) aux États-Unis."
       }
     },
     {
@@ -96,11 +112,15 @@
       "businessContext": "Facilities, equipment, IT, admin support allocated per employee.",
       "label_i18n": {
         "en": "Overhead Allocation (% of direct cost)",
-        "tr": "Genel Gider Dağıtımı (Doğrudan Maliyetin Yüzdesi)"
+        "tr": "Genel Gider Dağıtımı (Doğrudan Maliyetin Yüzdesi)",
+        "de": "Gemeinkostenzuschlag (% der direkten Kosten)",
+        "fr": "Allocation de frais généraux (% du coût direct)"
       },
       "businessContext_i18n": {
         "en": "Facilities, equipment, IT, admin support allocated per employee.",
-        "tr": "Çalışan başına dağıtılan tesis, ekipman, BT, idari destek."
+        "tr": "Çalışan başına dağıtılan tesis, ekipman, BT, idari destek.",
+        "de": "Einrichtungen, Ausrüstung, IT, Verwaltungsunterstützung pro Mitarbeiter zugeordnet.",
+        "fr": "Installations, équipement, informatique, support administratif alloués par employé."
       }
     },
     {
@@ -114,11 +134,15 @@
       "businessContext": "Direct cost of training programs, certifications, and development.",
       "label_i18n": {
         "en": "Annual Training Cost per Employee",
-        "tr": "Çalışan Başına Yıllık Eğitim Maliyeti"
+        "tr": "Çalışan Başına Yıllık Eğitim Maliyeti",
+        "de": "Jährliche Schulungskosten pro Mitarbeiter",
+        "fr": "Coût annuel de formation par employé"
       },
       "businessContext_i18n": {
         "en": "Direct cost of training programs, certifications, and development.",
-        "tr": "Eğitim programları, sertifikalar ve gelişimin doğrudan maliyeti."
+        "tr": "Eğitim programları, sertifikalar ve gelişimin doğrudan maliyeti.",
+        "de": "Direkte Kosten für Schulungsprogramme, Zertifizierungen und Weiterbildung.",
+        "fr": "Coût direct des programmes de formation, certifications et développement."
       }
     },
     {
@@ -133,11 +157,15 @@
       "label_i18n": {
         "en": "Productivity Factor (0-1)",
         "tr": "Verimlilik Faktörü (0-1)",
-        "de": "Produktivitätsfaktor (0-1)"
+        "de": "Produktivitätsfaktor (0-1)",
+        "fr": "Facteur de productivité (0-1)",
+        "es": "Factor de productividad (0-1)"
       },
       "businessContext_i18n": {
         "en": "Lean metric: actual productive time vs. available time. 1 = full productivity.",
-        "tr": "Yalın metrik: fiili üretken zamanın mevcut zamana oranı. 1 = tam üretkenlik."
+        "tr": "Yalın metrik: fiili üretken zamanın mevcut zamana oranı. 1 = tam üretkenlik.",
+        "de": "Lean-Kennzahl: tatsächliche Produktivzeit vs. verfügbare Zeit. 1 = volle Produktivität.",
+        "fr": "Métrique Lean : temps productif réel vs temps disponible. 1 = pleine productivité."
       }
     },
     {
@@ -151,11 +179,15 @@
       "businessContext": "Percentage of employees leaving per year. Drives replacement and ramp-up costs.",
       "label_i18n": {
         "en": "Annual Turnover Rate (%)",
-        "tr": "Yıllık İş Gücü Devir Oranı (%)"
+        "tr": "Yıllık İş Gücü Devir Oranı (%)",
+        "de": "Jährliche Fluktuationsrate (%)",
+        "fr": "Taux de rotation annuel (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of employees leaving per year. Drives replacement and ramp-up costs.",
-        "tr": "Yılda ayrılan çalışan yüzdesi. Değiştirme ve alıştırma maliyetlerini doğurur."
+        "tr": "Yılda ayrılan çalışan yüzdesi. Değiştirme ve alıştırma maliyetlerini doğurur.",
+        "de": "Prozentsatz der Mitarbeiter, die pro Jahr ausscheiden. Treibt Ersatz- und Einarbeitungskosten.",
+        "fr": "Pourcentage d'employés quittant l'entreprise par an. Entraîne des coûts de remplacement et de montée en compétence."
       }
     }
   ],

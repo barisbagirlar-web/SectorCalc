@@ -13,12 +13,15 @@
         "tr": "Pennyweight",
         "de": "Pennyweight",
         "fr": "Pennyweight",
-        "es": "Pennyweight",
+        "es": "Penique de peso",
         "ar": "Pennyweight"
       },
       "businessContext_i18n": {
         "en": "Weight in pennyweight",
-        "tr": "Pennyweight cinsinden ağırlık"
+        "tr": "Pennyweight cinsinden ağırlık",
+        "de": "Gewicht in Pennyweight",
+        "fr": "Poids en pennyweight",
+        "es": "Peso en peniques"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Grams per pennyweight. Calibrated value.",
-        "tr": "Pennyweight başına gram. Kalibre edilmiş değer."
+        "tr": "Pennyweight başına gram. Kalibre edilmiş değer.",
+        "de": "Gramm pro Pennyweight. Kalibrierter Wert.",
+        "fr": "Grammes par pennyweight. Valeur calibrée.",
+        "es": "Gramos por penique de peso. Valor calibrado."
       }
     },
     {
@@ -52,14 +58,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output",
         "tr": "Çıktı için ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen für die Ausgabe"
+        "de": "Anzahl der Dezimalstellen für die Ausgabe",
+        "fr": "Nombre de décimales pour le résultat",
+        "es": "Número de decimales para la salida"
       }
     },
     {
@@ -72,14 +80,17 @@
       "label_i18n": {
         "en": "Sample Count",
         "tr": "Örnek Sayısı",
-        "de": "Sample Count",
-        "fr": "Sample Count",
-        "es": "Sample Count",
+        "de": "Probenanzahl",
+        "fr": "Nombre d'échantillons",
+        "es": "Número de muestras",
         "ar": "Sample Count"
       },
       "businessContext_i18n": {
         "en": "Number of items being weighed",
-        "tr": "Tartılan öğe sayısı"
+        "tr": "Tartılan öğe sayısı",
+        "de": "Anzahl der gewogenen Gegenstände",
+        "fr": "Nombre d'articles pesés",
+        "es": "Número de artículos que se pesan"
       }
     },
     {
@@ -93,13 +104,16 @@
         "en": "Tolerance",
         "tr": "Tolerans",
         "de": "Toleranz",
-        "fr": "Tolerance",
-        "es": "Tolerance",
+        "fr": "Tolérance",
+        "es": "Tolerancia",
         "ar": "Tolerance"
       },
       "businessContext_i18n": {
         "en": "Acceptable measurement uncertainty",
-        "tr": "Kabul edilebilir ölçüm belirsizliği"
+        "tr": "Kabul edilebilir ölçüm belirsizliği",
+        "de": "Akzeptable Messunsicherheit",
+        "fr": "Incertitude de mesure acceptable",
+        "es": "Incertidumbre de medición aceptable"
       }
     }
   ],

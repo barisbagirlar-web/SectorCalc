@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Byte Count",
         "tr": "Bayt Sayısı",
-        "de": "Byte Count",
-        "fr": "Byte Count",
+        "de": "Byte-Anzahl",
+        "fr": "Nombre d'octets",
         "es": "Byte Count",
         "ar": "Byte Count"
       },
       "businessContext_i18n": {
         "en": "Total number of bytes to be encoded",
-        "tr": "Kodlanacak toplam bayt sayısı"
+        "tr": "Kodlanacak toplam bayt sayısı",
+        "de": "Gesamtzahl der zu kodierenden Bytes",
+        "fr": "Nombre total d'octets à encoder"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "ASCII Character Ratio",
         "tr": "ASCII Karakter Oranı",
-        "de": "ASCII Character Ratio",
-        "fr": "ASCII Character Ratio",
+        "de": "ASCII-Zeichen-Anteil",
+        "fr": "Ratio de caractères ASCII",
         "es": "ASCII Character Ratio",
         "ar": "ASCII Character Ratio"
       },
       "businessContext_i18n": {
         "en": "Percentage of characters that are ASCII (1 byte each)",
-        "tr": "ASCII olan karakterlerin yüzdesi (her biri 1 bayt)"
+        "tr": "ASCII olan karakterlerin yüzdesi (her biri 1 bayt)",
+        "de": "Prozentsatz der Zeichen, die ASCII sind (1 Byte pro Zeichen)",
+        "fr": "Pourcentage de caractères ASCII (1 octet chacun)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "2-Byte Character Ratio",
         "tr": "2 Baytlı Karakter Oranı",
-        "de": "2-Byte Character Ratio",
-        "fr": "2-Byte Character Ratio",
+        "de": "2-Byte-Zeichen-Anteil",
+        "fr": "Ratio de caractères sur 2 octets",
         "es": "2-Byte Character Ratio",
         "ar": "2-Byte Character Ratio"
       },
       "businessContext_i18n": {
         "en": "Percentage of characters that require 2 bytes (e.g., Latin extended)",
-        "tr": "2 bayt gerektiren karakterlerin yüzdesi (örn. genişletilmiş Latin)"
+        "tr": "2 bayt gerektiren karakterlerin yüzdesi (örn. genişletilmiş Latin)",
+        "de": "Prozentsatz der Zeichen, die 2 Bytes benötigen (z. B. erweitertes Latein)",
+        "fr": "Pourcentage de caractères nécessitant 2 octets (ex. latin étendu)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "3-Byte Character Ratio",
         "tr": "3 Baytlı Karakter Oranı",
-        "de": "3-Byte Character Ratio",
-        "fr": "3-Byte Character Ratio",
+        "de": "3-Byte-Zeichen-Anteil",
+        "fr": "Ratio de caractères sur 3 octets",
         "es": "3-Byte Character Ratio",
         "ar": "3-Byte Character Ratio"
       },
       "businessContext_i18n": {
         "en": "Percentage of characters that require 3 bytes (e.g., CJK)",
-        "tr": "3 bayt gerektiren karakterlerin yüzdesi (örn. CJK)"
+        "tr": "3 bayt gerektiren karakterlerin yüzdesi (örn. CJK)",
+        "de": "Prozentsatz der Zeichen, die 3 Bytes benötigen (z. B. CJK)",
+        "fr": "Pourcentage de caractères nécessitant 3 octets (ex. CJK)"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "4-Byte Character Ratio",
         "tr": "4 Baytlı Karakter Oranı",
-        "de": "4-Byte Character Ratio",
-        "fr": "4-Byte Character Ratio",
+        "de": "4-Byte-Zeichen-Anteil",
+        "fr": "Ratio de caractères sur 4 octets",
         "es": "4-Byte Character Ratio",
         "ar": "4-Byte Character Ratio"
       },
       "businessContext_i18n": {
         "en": "Percentage of characters that require 4 bytes (e.g., emoji)",
-        "tr": "4 bayt gerektiren karakterlerin yüzdesi (örn. emoji)"
+        "tr": "4 bayt gerektiren karakterlerin yüzdesi (örn. emoji)",
+        "de": "Prozentsatz der Zeichen, die 4 Bytes benötigen (z. B. Emoji)",
+        "fr": "Pourcentage de caractères nécessitant 4 octets (ex. emoji)"
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Overhead Percentage",
         "tr": "Genel Gider Yüzdesi",
         "de": "Gemeinkostenprozentsatz",
-        "fr": "Overhead Percentage",
-        "es": "Overhead Percentage",
+        "fr": "Pourcentage de frais généraux",
+        "es": "Porcentaje de gastos generales",
         "ar": "Overhead Percentage"
       },
       "businessContext_i18n": {
         "en": "Additional overhead for BOM or metadata",
-        "tr": "BOM veya meta veri için ek yük"
+        "tr": "BOM veya meta veri için ek yük",
+        "de": "Zusätzlicher Overhead für BOM oder Metadaten",
+        "fr": "Surcharge supplémentaire pour BOM ou métadonnées"
       }
     }
   ],

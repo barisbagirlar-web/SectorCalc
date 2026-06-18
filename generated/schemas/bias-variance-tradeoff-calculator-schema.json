@@ -12,14 +12,16 @@
         "en": "Ortalama Tahmin",
         "tr": "Ortalama Tahmin",
         "de": "Mittlere Schätzung",
-        "fr": "Ortalama Tahmin",
-        "es": "Ortalama Tahmin",
+        "fr": "Estimation moyenne",
+        "es": "Estimación media",
         "ar": "Ortalama Tahmin"
       },
       "businessContext_i18n": {
         "en": "Modelin farklı eğitim setleri üzerindeki tahminlerinin ortalaması",
         "tr": "Modelin farklı eğitim setleri üzerindeki tahminlerinin ortalaması",
-        "de": "Mittelwert der Vorhersagen des Modells über verschiedene Trainingsdatensätze."
+        "de": "Mittelwert der Vorhersagen des Modells über verschiedene Trainingsdatensätze.",
+        "fr": "Moyenne des prédictions du modèle sur différents ensembles d'entraînement.",
+        "es": "Promedio de las predicciones del modelo en diferentes conjuntos de entrenamiento."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Gerçek Değer",
         "tr": "Gerçek Değer",
         "de": "Tatsächlicher Wert",
-        "fr": "Gerçek Değer",
-        "es": "Gerçek Değer",
+        "fr": "Valeur réelle",
+        "es": "Valor real",
         "ar": "Gerçek Değer"
       },
       "businessContext_i18n": {
         "en": "Hedef değişkenin gerçek değeri",
         "tr": "Hedef değişkenin gerçek değeri",
-        "de": "Tatsächlicher Wert der Zielvariablen."
+        "de": "Tatsächlicher Wert der Zielvariablen.",
+        "fr": "Valeur réelle de la variable cible.",
+        "es": "Valor real de la variable objetivo."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Varyans",
         "tr": "Varyans",
         "de": "Varianz",
-        "fr": "Varyans",
-        "es": "Varyans",
+        "fr": "Variance",
+        "es": "Varianza",
         "ar": "Varyans"
       },
       "businessContext_i18n": {
         "en": "Tahminlerin varyansı, modelin veriye duyarlılığını gösterir",
         "tr": "Tahminlerin varyansı, modelin veriye duyarlılığını gösterir",
-        "de": "Varianz der Vorhersagen, zeigt die Empfindlichkeit des Modells gegenüber den Daten."
+        "de": "Varianz der Vorhersagen, zeigt die Empfindlichkeit des Modells gegenüber den Daten.",
+        "fr": "Variance des prédictions, indiquant la sensibilité du modèle aux données.",
+        "es": "Varianza de las predicciones, indica la sensibilidad del modelo a los datos."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "İndirgenemez Hata",
         "tr": "İndirgenemez Hata",
         "de": "Unvermeidbarer Fehler",
-        "fr": "İndirgenemez Hata",
-        "es": "İndirgenemez Hata",
+        "fr": "Erreur irréductible",
+        "es": "Error irreducible",
         "ar": "İndirgenemez Hata"
       },
       "businessContext_i18n": {
         "en": "Verideki gürültüden kaynaklanan ve model tarafından yakalanamayan hata",
         "tr": "Verideki gürültüden kaynaklanan ve model tarafından yakalanamayan hata",
-        "de": "Fehler durch Rauschen in den Daten, der vom Modell nicht erfasst werden kann."
+        "de": "Fehler durch Rauschen in den Daten, der vom Modell nicht erfasst werden kann.",
+        "fr": "Erreur due au bruit dans les données, que le modèle ne peut pas capturer.",
+        "es": "Error debido al ruido en los datos que el modelo no puede capturar."
       }
     }
   ],

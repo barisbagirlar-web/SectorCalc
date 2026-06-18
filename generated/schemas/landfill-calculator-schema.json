@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Daily Waste Quantity",
         "tr": "Günlük Atık Miktarı",
-        "de": "Daily Waste Quantity",
-        "fr": "Daily Waste Quantity",
-        "es": "Daily Waste Quantity",
+        "de": "Tägliche Abfallmenge",
+        "fr": "Quantité quotidienne de déchets",
+        "es": "Cantidad diaria de residuos",
         "ar": "Daily Waste Quantity"
       },
       "businessContext_i18n": {
         "en": "Average daily waste received at the landfill",
-        "tr": "Depolama sahasına günlük ortalama atık kabulü"
+        "tr": "Depolama sahasına günlük ortalama atık kabulü",
+        "de": "Durchschnittliche tägliche Abfallmenge, die auf der Deponie ankommt",
+        "fr": "Quantité moyenne quotidienne de déchets reçus à la décharge",
+        "es": "Cantidad media diaria de residuos recibidos en el vertedero"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Compacted Density",
         "tr": "Sıkıştırılmış Yoğunluk",
-        "de": "Compacted Density",
-        "fr": "Compacted Density",
-        "es": "Compacted Density",
+        "de": "Verdichtungsdichte",
+        "fr": "Densité compactée",
+        "es": "Densidad compactada",
         "ar": "Compacted Density"
       },
       "businessContext_i18n": {
         "en": "In-place density of waste after compaction",
-        "tr": "Sıkıştırma sonrası atığın yerindeki yoğunluğu"
+        "tr": "Sıkıştırma sonrası atığın yerindeki yoğunluğu",
+        "de": "Dichte des Abfalls nach der Verdichtung vor Ort",
+        "fr": "Densité en place des déchets après compactage",
+        "es": "Densidad in situ de los residuos después de la compactación"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Cover to Waste Ratio",
         "tr": "Örtü/Atık Oranı",
-        "de": "Cover to Waste Ratio",
-        "fr": "Cover to Waste Ratio",
-        "es": "Cover to Waste Ratio",
+        "de": "Abdeckungs-zu-Abfall-Verhältnis",
+        "fr": "Ratio couverture/déchets",
+        "es": "Relación cobertura/residuos",
         "ar": "Cover to Waste Ratio"
       },
       "businessContext_i18n": {
         "en": "Additional volume for daily and intermediate cover as percentage of waste volume",
-        "tr": "Günlük ve ara örtü için atık hacmine eklenen yüzde"
+        "tr": "Günlük ve ara örtü için atık hacmine eklenen yüzde",
+        "de": "Zusätzliches Volumen für tägliche und Zwischenabdeckung als Prozentsatz des Abfallvolumens",
+        "fr": "Volume supplémentaire pour la couverture quotidienne et intermédiaire en pourcentage du volume de déchets",
+        "es": "Volumen adicional para cobertura diaria e intermedia como porcentaje del volumen de residuos"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Landfill Lifespan",
         "tr": "Depolama Sahası Ömrü",
-        "de": "Landfill Lifespan",
-        "fr": "Landfill Lifespan",
-        "es": "Landfill Lifespan",
+        "de": "Deponielebensdauer",
+        "fr": "Durée de vie de la décharge",
+        "es": "Vida útil del vertedero",
         "ar": "Landfill Lifespan"
       },
       "businessContext_i18n": {
         "en": "Design operational life of the landfill",
-        "tr": "Depolama sahasının tasarım işletme ömrü"
+        "tr": "Depolama sahasının tasarım işletme ömrü",
+        "de": "Geplante Betriebsdauer der Deponie",
+        "fr": "Durée de vie opérationnelle prévue de la décharge",
+        "es": "Vida operativa de diseño del vertedero"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Already Filled Volume",
         "tr": "Doldurulmuş Hacim",
-        "de": "Already Filled Volume",
-        "fr": "Already Filled Volume",
-        "es": "Already Filled Volume",
+        "de": "Bereits gefülltes Volumen",
+        "fr": "Volume déjà rempli",
+        "es": "Volumen ya llenado",
         "ar": "Already Filled Volume"
       },
       "businessContext_i18n": {
         "en": "Airspace already consumed by waste and cover",
-        "tr": "Atık ve örtü tarafından tüketilen hava sahası"
+        "tr": "Atık ve örtü tarafından tüketilen hava sahası",
+        "de": "Bereits durch Abfall und Abdeckung verbrauchter Luftraum",
+        "fr": "Espace déjà consommé par les déchets et la couverture",
+        "es": "Espacio aéreo ya consumido por residuos y cobertura"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Available Footprint Area",
         "tr": "Mevcut Ayak İzi Alanı",
-        "de": "Available Footprint Area",
-        "fr": "Available Footprint Area",
-        "es": "Available Footprint Area",
+        "de": "Verfügbare Grundfläche",
+        "fr": "Superficie disponible",
+        "es": "Área de huella disponible",
         "ar": "Available Footprint Area"
       },
       "businessContext_i18n": {
         "en": "Plan area available for landfilling",
-        "tr": "Depolama için kullanılabilir plan alanı"
+        "tr": "Depolama için kullanılabilir plan alanı",
+        "de": "Für die Deponierung verfügbare Planfläche",
+        "fr": "Superficie au sol disponible pour la mise en décharge",
+        "es": "Área en planta disponible para vertido"
       }
     }
   ],

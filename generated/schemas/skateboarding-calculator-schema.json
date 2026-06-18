@@ -12,13 +12,15 @@
         "en": "Deck Length",
         "tr": "Deck Uzunluğu",
         "de": "Terrassenlänge",
-        "fr": "Deck Length",
-        "es": "Deck Length",
+        "fr": "Longueur du pont",
+        "es": "Longitud de la plataforma",
         "ar": "Deck Length"
       },
       "businessContext_i18n": {
         "en": "Length of the skateboard deck in inches",
-        "tr": "Kaykay tahtasının inç cinsinden uzunluğu"
+        "tr": "Kaykay tahtasının inç cinsinden uzunluğu",
+        "de": "Länge des Skateboard-Decks in Zoll",
+        "fr": "Longueur du deck du skateboard en pouces"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Deck Width",
         "tr": "Güverte Genişliği",
         "de": "Terrassenbreite",
-        "fr": "Deck Width",
-        "es": "Deck Width",
+        "fr": "Largeur du pont",
+        "es": "Ancho de la plataforma",
         "ar": "Deck Width"
       },
       "businessContext_i18n": {
         "en": "Width of the skateboard deck in inches",
-        "tr": "Kaykay tahtasının inç cinsinden genişliği"
+        "tr": "Kaykay tahtasının inç cinsinden genişliği",
+        "de": "Breite des Skateboarddecks in Zoll",
+        "fr": "Largeur du deck du skateboard en pouces"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Wheel Diameter",
         "tr": "Tekerlek Çapı",
         "de": "Raddurchmesser",
-        "fr": "Wheel Diameter",
-        "es": "Wheel Diameter",
+        "fr": "Diamètre de la roue",
+        "es": "Diámetro de la rueda",
         "ar": "Wheel Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the wheels in millimeters",
-        "tr": "Tekerlek çapı (milimetre)"
+        "tr": "Tekerlek çapı (milimetre)",
+        "de": "Durchmesser der Rollen in Millimetern",
+        "fr": "Diamètre des roues en millimètres"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Wheel Hardness (Durometer A)",
         "tr": "Tekerlek Sertliği (Shore A)",
-        "de": "Wheel Hardness (Durometer A)",
-        "fr": "Wheel Hardness (Durometer A)",
+        "de": "Rollen-Härte (Durometer A)",
+        "fr": "Dureté des roues (Duromètre A)",
         "es": "Wheel Hardness (Durometer A)",
         "ar": "Wheel Hardness (Durometer A)"
       },
       "businessContext_i18n": {
         "en": "Hardness of the wheels on the Shore A scale",
-        "tr": "Tekerleklerin Shore A ölçeğinde sertliği"
+        "tr": "Tekerleklerin Shore A ölçeğinde sertliği",
+        "de": "Härte der Rollen auf der Shore-A-Skala",
+        "fr": "Dureté des roues sur l'échelle Shore A"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Bearing Rating (ABEC)",
         "tr": "Rulman Sınıfı (ABEC)",
-        "de": "Bearing Rating (ABEC)",
-        "fr": "Bearing Rating (ABEC)",
+        "de": "Lagerklasse (ABEC)",
+        "fr": "Indice de roulement (ABEC)",
         "es": "Bearing Rating (ABEC)",
         "ar": "Bearing Rating (ABEC)"
       },
       "businessContext_i18n": {
         "en": "ABEC rating of the bearings (1,3,5,7,9)",
-        "tr": "Rulmanların ABEC sınıfı (1,3,5,7,9)"
+        "tr": "Rulmanların ABEC sınıfı (1,3,5,7,9)",
+        "de": "ABEC-Klasse der Lager (1,3,5,7,9)",
+        "fr": "Indice ABEC des roulements (1,3,5,7,9)"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Truck Width",
         "tr": "Aks Genişliği",
-        "de": "Truck Width",
-        "fr": "Truck Width",
+        "de": "Achsenbreite",
+        "fr": "Largeur du truck",
         "es": "Truck Width",
         "ar": "Truck Width"
       },
       "businessContext_i18n": {
         "en": "Width of the truck axle in inches",
-        "tr": "Aks milinin inç cinsinden genişliği"
+        "tr": "Aks milinin inç cinsinden genişliği",
+        "de": "Breite der Achse in Zoll",
+        "fr": "Largeur de l'essieu du truck en pouces"
       }
     },
     {
@@ -132,13 +144,15 @@
         "en": "Rider Weight",
         "tr": "Sürücü Ağırlığı",
         "de": "Fahrergewicht",
-        "fr": "Rider Weight",
-        "es": "Rider Weight",
+        "fr": "Poids du cycliste",
+        "es": "Peso del ciclista",
         "ar": "Rider Weight"
       },
       "businessContext_i18n": {
         "en": "Weight of the rider in pounds",
-        "tr": "Sürücünün pound cinsinden ağırlığı"
+        "tr": "Sürücünün pound cinsinden ağırlığı",
+        "de": "Gewicht des Fahrers in Pfund",
+        "fr": "Poids du skateur en livres"
       }
     },
     {
@@ -151,14 +165,16 @@
       "label_i18n": {
         "en": "Skate Style (1=Street, 2=Park, 3=Cruise)",
         "tr": "Kaykay Stili (1=Street, 2=Park, 3=Cruise)",
-        "de": "Skate Style (1=Street, 2=Park, 3=Cruise)",
-        "fr": "Skate Style (1=Street, 2=Park, 3=Cruise)",
+        "de": "Skate-Stil (1=Straße, 2=Park, 3=Cruise)",
+        "fr": "Style de skate (1=Street, 2=Park, 3=Cruise)",
         "es": "Skate Style (1=Street, 2=Park, 3=Cruise)",
         "ar": "Skate Style (1=Street, 2=Park, 3=Cruise)"
       },
       "businessContext_i18n": {
         "en": "Type of skating: 1 for street, 2 for park, 3 for cruising",
-        "tr": "Kaykay türü: 1 sokak, 2 park, 3 gezi"
+        "tr": "Kaykay türü: 1 sokak, 2 park, 3 gezi",
+        "de": "Art des Skatens: 1 für Straße, 2 für Park, 3 für Cruisen",
+        "fr": "Type de skate : 1 pour street, 2 pour park, 3 pour cruising"
       }
     }
   ],

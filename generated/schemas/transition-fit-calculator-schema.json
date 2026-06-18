@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Nominal Size",
         "tr": "Nominal Boyut",
-        "de": "Nominal Size",
-        "fr": "Nominal Size",
+        "de": "Nennmaß",
+        "fr": "Taille nominale",
         "es": "Nominal Size",
         "ar": "Nominal Size"
       },
       "businessContext_i18n": {
         "en": "Nominal diameter of the cylindrical parts",
-        "tr": "Silindirik parçaların nominal çapı"
+        "tr": "Silindirik parçaların nominal çapı",
+        "de": "Nenndurchmesser der zylindrischen Teile",
+        "fr": "Diamètre nominal des pièces cylindriques"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Hole Upper Deviation",
         "tr": "Delik Üst Sapması",
-        "de": "Hole Upper Deviation",
-        "fr": "Hole Upper Deviation",
+        "de": "Oberes Abmaß der Bohrung",
+        "fr": "Écart supérieur du trou",
         "es": "Hole Upper Deviation",
         "ar": "Hole Upper Deviation"
       },
       "businessContext_i18n": {
         "en": "Upper deviation of the hole from nominal size (positive for larger hole)",
-        "tr": "Delik nominal boyutundan üst sapma (büyük delik için pozitif)"
+        "tr": "Delik nominal boyutundan üst sapma (büyük delik için pozitif)",
+        "de": "Oberes Abmaß der Bohrung vom Nennmaß (positiv für größere Bohrung)",
+        "fr": "Écart supérieur du trou par rapport à la taille nominale (positif pour un trou plus grand)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Hole Lower Deviation",
         "tr": "Delik Alt Sapması",
-        "de": "Hole Lower Deviation",
-        "fr": "Hole Lower Deviation",
+        "de": "Unteres Abmaß der Bohrung",
+        "fr": "Écart inférieur du trou",
         "es": "Hole Lower Deviation",
         "ar": "Hole Lower Deviation"
       },
       "businessContext_i18n": {
         "en": "Lower deviation of the hole from nominal size (negative for smaller hole)",
-        "tr": "Delik nominal boyutundan alt sapma (küçük delik için negatif)"
+        "tr": "Delik nominal boyutundan alt sapma (küçük delik için negatif)",
+        "de": "Unteres Abmaß der Bohrung vom Nennmaß (negativ für kleinere Bohrung)",
+        "fr": "Écart inférieur du trou par rapport à la taille nominale (négatif pour un trou plus petit)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Shaft Upper Deviation",
         "tr": "Mil Üst Sapması",
-        "de": "Shaft Upper Deviation",
-        "fr": "Shaft Upper Deviation",
+        "de": "Oberes Abmaß der Welle",
+        "fr": "Écart supérieur de l'arbre",
         "es": "Shaft Upper Deviation",
         "ar": "Shaft Upper Deviation"
       },
       "businessContext_i18n": {
         "en": "Upper deviation of the shaft from nominal size (positive for larger shaft)",
-        "tr": "Mil nominal boyutundan üst sapma (büyük mil için pozitif)"
+        "tr": "Mil nominal boyutundan üst sapma (büyük mil için pozitif)",
+        "de": "Oberes Abmaß der Welle vom Nennmaß (positiv für größere Welle)",
+        "fr": "Écart supérieur de l'arbre par rapport à la taille nominale (positif pour un arbre plus grand)"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Shaft Lower Deviation",
         "tr": "Mil Alt Sapması",
-        "de": "Shaft Lower Deviation",
-        "fr": "Shaft Lower Deviation",
+        "de": "Unteres Abmaß der Welle",
+        "fr": "Écart inférieur de l'arbre",
         "es": "Shaft Lower Deviation",
         "ar": "Shaft Lower Deviation"
       },
       "businessContext_i18n": {
         "en": "Lower deviation of the shaft from nominal size (negative for smaller shaft)",
-        "tr": "Mil nominal boyutundan alt sapma (küçük mil için negatif)"
+        "tr": "Mil nominal boyutundan alt sapma (küçük mil için negatif)",
+        "de": "Unteres Abmaß der Welle vom Nennmaß (negativ für kleinere Welle)",
+        "fr": "Écart inférieur de l'arbre par rapport à la taille nominale (négatif pour un arbre plus petit)"
       }
     }
   ],

@@ -12,13 +12,16 @@
         "en": "Compression Ratio (r)",
         "tr": "Sıkıştırma Oranı (r)",
         "de": "Verdichtungsverhältnis (r)",
-        "fr": "Compression Ratio (r)",
-        "es": "Compression Ratio (r)",
+        "fr": "Taux de compression (r)",
+        "es": "Relación de compresión (r)",
         "ar": "Compression Ratio (r)"
       },
       "businessContext_i18n": {
         "en": "Ratio of cylinder volume before compression (BDC) to volume after compression (TDC)",
-        "tr": "Sıkıştırma öncesi silindir hacminin (AÖN) sıkıştırma sonrası hacme (ÜÖN) oranı"
+        "tr": "Sıkıştırma öncesi silindir hacminin (AÖN) sıkıştırma sonrası hacme (ÜÖN) oranı",
+        "de": "Verhältnis des Zylindervolumens vor der Kompression (UT) zum Volumen nach der Kompression (OT)",
+        "fr": "Rapport du volume du cylindre avant compression (PMB) au volume après compression (PMH)",
+        "es": "Relación de volumen del cilindro antes de la compresión (PMI) respecto al volumen después de la compresión (PMS)"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Specific Heat Ratio (k)",
         "tr": "Özgül Isı Oranı (k)",
         "de": "Isentropenexponent (k)",
-        "fr": "Specific Heat Ratio (k)",
-        "es": "Specific Heat Ratio (k)",
+        "fr": "Rapport des chaleurs spécifiques (k)",
+        "es": "Relación de calores específicos (k)",
         "ar": "Specific Heat Ratio (k)"
       },
       "businessContext_i18n": {
         "en": "Adiabatic index (cp/cv) of the working fluid, typically 1.4 for air",
-        "tr": "Çalışma akışkanının adyabatik indeksi (cp/cv), hava için tipik olarak 1.4"
+        "tr": "Çalışma akışkanının adyabatik indeksi (cp/cv), hava için tipik olarak 1.4",
+        "de": "Adiabatenexponent (cp/cv) des Arbeitsmediums, typischerweise 1,4 für Luft",
+        "fr": "Indice adiabatique (cp/cv) du fluide de travail, typiquement 1,4 pour l'air",
+        "es": "Índice adiabático (cp/cv) del fluido de trabajo, típicamente 1.4 para el aire"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Initial Temperature (T1)",
         "tr": "Başlangıç Sıcaklığı (T1)",
         "de": "Anfangstemperatur (T1)",
-        "fr": "Initial Temperature (T1)",
-        "es": "Initial Temperature (T1)",
+        "fr": "Température initiale (T1)",
+        "es": "Temperatura inicial (T1)",
         "ar": "Initial Temperature (T1)"
       },
       "businessContext_i18n": {
         "en": "Temperature at the start of compression stroke",
-        "tr": "Sıkıştırma stroku başlangıcındaki sıcaklık"
+        "tr": "Sıkıştırma stroku başlangıcındaki sıcaklık",
+        "de": "Temperatur zu Beginn des Verdichtungstakts",
+        "fr": "Température au début de la course de compression",
+        "es": "Temperatura al inicio de la carrera de compresión"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Initial Pressure (P1)",
         "tr": "Başlangıç Basıncı (P1)",
         "de": "Anfangsdruck (P1)",
-        "fr": "Initial Pressure (P1)",
-        "es": "Initial Pressure (P1)",
+        "fr": "Pression initiale (P1)",
+        "es": "Presión inicial (P1)",
         "ar": "Initial Pressure (P1)"
       },
       "businessContext_i18n": {
         "en": "Pressure at the start of compression stroke (intake pressure)",
-        "tr": "Sıkıştırma stroku başlangıcındaki basınç (emme basıncı)"
+        "tr": "Sıkıştırma stroku başlangıcındaki basınç (emme basıncı)",
+        "de": "Druck zu Beginn des Verdichtungstakts (Einlassdruck)",
+        "fr": "Pression au début de la course de compression (pression d'admission)",
+        "es": "Presión al inicio de la carrera de compresión (presión de admisión)"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Maximum Temperature (T3)",
         "tr": "Maksimum Sıcaklık (T3)",
-        "de": "Maximum Temperature (T3)",
-        "fr": "Maximum Temperature (T3)",
-        "es": "Maximum Temperature (T3)",
+        "de": "Maximale Temperatur (T3)",
+        "fr": "Température maximale (T3)",
+        "es": "Temperatura máxima (T3)",
         "ar": "Maximum Temperature (T3)"
       },
       "businessContext_i18n": {
         "en": "Temperature after constant volume heat addition (combustion)",
-        "tr": "Sabit hacimde ısı ilavesi (yanma) sonrası sıcaklık"
+        "tr": "Sabit hacimde ısı ilavesi (yanma) sonrası sıcaklık",
+        "de": "Temperatur nach der Wärmezufuhr bei konstantem Volumen (Verbrennung)",
+        "fr": "Température après ajout de chaleur à volume constant (combustion)",
+        "es": "Temperatura después de la adición de calor a volumen constante (combustión)"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Specific Heat (Cv)",
         "tr": "Özgül Isı (Cv)",
-        "de": "Specific Heat (Cv)",
-        "fr": "Specific Heat (Cv)",
-        "es": "Specific Heat (Cv)",
+        "de": "Spezifische Wärme (Cv)",
+        "fr": "Chaleur spécifique (Cv)",
+        "es": "Calor específico (Cv)",
         "ar": "Specific Heat (Cv)"
       },
       "businessContext_i18n": {
         "en": "Specific heat at constant volume of the working fluid (air ≈ 0.718 kJ/kg·K)",
-        "tr": "Çalışma akışkanının sabit hacimdeki özgül ısısı (hava ≈ 0,718 kJ/kg·K)"
+        "tr": "Çalışma akışkanının sabit hacimdeki özgül ısısı (hava ≈ 0,718 kJ/kg·K)",
+        "de": "Spezifische Wärme bei konstantem Volumen des Arbeitsmediums (Luft ≈ 0,718 kJ/kg·K)",
+        "fr": "Chaleur spécifique à volume constant du fluide de travail (air ≈ 0,718 kJ/kg·K)",
+        "es": "Calor específico a volumen constante del fluido de trabajo (aire ≈ 0.718 kJ/kg·K)"
       }
     }
   ],

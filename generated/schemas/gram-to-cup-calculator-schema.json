@@ -12,14 +12,16 @@
         "en": "Ağırlık (g)",
         "tr": "Ağırlık (g)",
         "de": "Gewicht (g)",
-        "fr": "Ağırlık (g)",
-        "es": "Ağırlık (g)",
+        "fr": "Poids (g)",
+        "es": "Peso (g)",
         "ar": "Ağırlık (g)"
       },
       "businessContext_i18n": {
         "en": "Malzemenin gram cinsinden ağırlığı.",
         "tr": "Malzemenin gram cinsinden ağırlığı.",
-        "de": "Gewicht des Materials in Gramm."
+        "de": "Gewicht des Materials in Gramm.",
+        "fr": "Poids du matériau en grammes.",
+        "es": "Peso del material en gramos."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Yoğunluk (g/mL)",
         "tr": "Yoğunluk (g/mL)",
         "de": "Dichte (g/mL)",
-        "fr": "Yoğunluk (g/mL)",
-        "es": "Yoğunluk (g/mL)",
+        "fr": "Densité (g/mL)",
+        "es": "Densidad (g/mL)",
         "ar": "Yoğunluk (g/mL)"
       },
       "businessContext_i18n": {
         "en": "Malzemenin yoğunluğu (gram/mililitre). Un için yaklaşık 0.59, şeker için 0.85, su için 1.0.",
         "tr": "Malzemenin yoğunluğu (gram/mililitre). Un için yaklaşık 0.59, şeker için 0.85, su için 1.0.",
-        "de": "Dichte des Materials (Gramm/Milliliter). Für Mehl etwa 0,59, für Zucker 0,85, für Wasser 1,0."
+        "de": "Dichte des Materials (Gramm/Milliliter). Für Mehl etwa 0,59, für Zucker 0,85, für Wasser 1,0.",
+        "fr": "Densité du matériau (grammes/millilitre). Pour la farine environ 0,59, le sucre 0,85, l'eau 1,0.",
+        "es": "Densidad del material (gramos/mililitro). Para harina aproximadamente 0.59, azúcar 0.85, agua 1.0."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Bardak Hacmi (mL)",
         "tr": "Bardak Hacmi (mL)",
         "de": "Bechervolumen (mL)",
-        "fr": "Bardak Hacmi (mL)",
-        "es": "Bardak Hacmi (mL)",
+        "fr": "Volume du verre (mL)",
+        "es": "Volumen de taza (mL)",
         "ar": "Bardak Hacmi (mL)"
       },
       "businessContext_i18n": {
         "en": "Kullanılan standart bardağın mililitre cinsinden hacmi. ABD'de genellikle 240 mL, metrik sistemde 250 mL.",
         "tr": "Kullanılan standart bardağın mililitre cinsinden hacmi. ABD'de genellikle 240 mL, metrik sistemde 250 mL.",
-        "de": "Volumen des verwendeten Standardbechers in Millilitern. In den USA üblich 240 mL, im metrischen System 250 mL."
+        "de": "Volumen des verwendeten Standardbechers in Millilitern. In den USA üblich 240 mL, im metrischen System 250 mL.",
+        "fr": "Volume standard du verre utilisé en millilitres. Aux États-Unis généralement 240 mL, système métrique 250 mL.",
+        "es": "Volumen en mililitros de la taza estándar utilizada. En EE. UU. suele ser 240 mL, en sistema métrico 250 mL."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Sıkıştırma Faktörü",
         "tr": "Sıkıştırma Faktörü",
         "de": "Verdichtungsfaktor",
-        "fr": "Sıkıştırma Faktörü",
-        "es": "Sıkıştırma Faktörü",
+        "fr": "Facteur de compactage",
+        "es": "Factor de compactación",
         "ar": "Sıkıştırma Faktörü"
       },
       "businessContext_i18n": {
         "en": "Malzemenin ne kadar sıkıştırıldığını gösteren faktör (1 = normal, >1 daha yoğun).",
-        "tr": "Malzemenin ne kadar sıkıştırıldığını gösteren faktör (1 = normal, >1 daha yoğun).",
-        "de": "Faktor, der angibt, wie stark das Material verdichtet ist (1 = normal, >1 dichter)."
+        "tr": "Sıkıştırma Faktörü",
+        "de": "Faktor, der angibt, wie stark das Material verdichtet ist (1 = normal, >1 dichter).",
+        "fr": "Facteur de tassement du matériau (1 = normal, >1 plus dense).",
+        "es": "Factor que indica cuán compactado está el material (1 = normal, >1 más denso)."
       }
     }
   ],

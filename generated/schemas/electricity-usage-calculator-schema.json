@@ -12,14 +12,16 @@
         "en": "Power Consumption",
         "tr": "Güç Tüketimi",
         "de": "Stromverbrauch",
-        "fr": "Power Consumption",
-        "es": "Power Consumption",
+        "fr": "Consommation électrique",
+        "es": "Consumo de energía",
         "ar": "Power Consumption"
       },
       "businessContext_i18n": {
         "en": "Average power consumption of the device or system in kilowatts.",
         "tr": "Cihazın veya sistemin kilovat cinsinden ortalama güç tüketimi.",
-        "de": "Durchschnittliche Leistungsaufnahme des Geräts oder Systems in Kilowatt."
+        "de": "Durchschnittliche Leistungsaufnahme des Geräts oder Systems in Kilowatt.",
+        "fr": "Consommation électrique moyenne de l'appareil ou du système en kilowatts.",
+        "es": "Consumo promedio de energía del dispositivo o sistema en kilovatios."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Usage per Day",
         "tr": "Günlük Kullanım",
         "de": "Nutzung pro Tag",
-        "fr": "Usage per Day",
-        "es": "Usage per Day",
+        "fr": "Utilisation par jour",
+        "es": "Uso por día",
         "ar": "Usage per Day"
       },
       "businessContext_i18n": {
         "en": "Number of hours the device is used per day, on average.",
         "tr": "Cihazın günde ortalama kullanıldığı saat sayısı.",
-        "de": "Durchschnittliche Nutzungsdauer des Geräts pro Tag in Stunden."
+        "de": "Durchschnittliche Nutzungsdauer des Geräts pro Tag in Stunden.",
+        "fr": "Nombre d'heures d'utilisation de l'appareil par jour, en moyenne.",
+        "es": "Número de horas que el dispositivo se usa por día, en promedio."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Days per Month",
         "tr": "Aylık Gün Sayısı",
         "de": "Tage pro Monat",
-        "fr": "Days per Month",
-        "es": "Days per Month",
+        "fr": "Jours par mois",
+        "es": "Días por mes",
         "ar": "Days per Month"
       },
       "businessContext_i18n": {
         "en": "Number of days per month the device is operated.",
         "tr": "Cihazın ayda çalıştırıldığı gün sayısı.",
-        "de": "Anzahl der Tage pro Monat, an denen das Gerät betrieben wird."
+        "de": "Anzahl der Tage pro Monat, an denen das Gerät betrieben wird.",
+        "fr": "Nombre de jours par mois où l'appareil est utilisé.",
+        "es": "Número de días por mes que el dispositivo opera."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Number of Devices",
         "tr": "Cihaz Sayısı",
         "de": "Anzahl der Geräte",
-        "fr": "Number of Devices",
-        "es": "Number of Devices",
+        "fr": "Nombre de dispositifs",
+        "es": "Número de dispositivos",
         "ar": "Number of Devices"
       },
       "businessContext_i18n": {
         "en": "Number of identical devices operating under the same conditions.",
         "tr": "Aynı koşullar altında çalışan özdeş cihaz sayısı.",
-        "de": "Anzahl identischer Geräte, die unter gleichen Bedingungen betrieben werden."
+        "de": "Anzahl identischer Geräte, die unter gleichen Bedingungen betrieben werden.",
+        "fr": "Nombre d'appareils identiques fonctionnant dans les mêmes conditions.",
+        "es": "Número de dispositivos idénticos operando bajo las mismas condiciones."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Cost per kWh",
         "tr": "kWh Başına Maliyet",
         "de": "Kosten pro kWh",
-        "fr": "Cost per kWh",
-        "es": "Cost per kWh",
+        "fr": "Coût par kWh",
+        "es": "Costo por kWh",
         "ar": "Cost per kWh"
       },
       "businessContext_i18n": {
         "en": "Electricity tariff rate per kilowatt-hour (in the local currency).",
         "tr": "Kilovat-saat başına elektrik tarifesi (yerel para birimi cinsinden).",
-        "de": "Stromtarif pro Kilowattstunde (in lokaler Währung)."
+        "de": "Stromtarif pro Kilowattstunde (in lokaler Währung).",
+        "fr": "Tarif électrique par kilowattheure (dans la devise locale).",
+        "es": "Tarifa eléctrica por kilovatio-hora (en la moneda local)."
       }
     }
   ],

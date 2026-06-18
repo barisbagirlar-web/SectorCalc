@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Pile Length",
         "tr": "Kazık Uzunluğu",
-        "de": "Pile Length",
-        "fr": "Pile Length",
+        "de": "Spundwandlänge",
+        "fr": "Longueur du palplanche",
         "es": "Pile Length",
         "ar": "Pile Length"
       },
       "businessContext_i18n": {
         "en": "Total length of each sheet pile",
-        "tr": "Her bir sac kazığın toplam uzunluğu"
+        "tr": "Her bir sac kazığın toplam uzunluğu",
+        "de": "Gesamtlänge jeder Spundbohle",
+        "fr": "Longueur totale de chaque palplanche"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Pile Width",
         "tr": "Kazık Genişliği",
-        "de": "Pile Width",
-        "fr": "Pile Width",
+        "de": "Spundwandbreite",
+        "fr": "Largeur du palplanche",
         "es": "Pile Width",
         "ar": "Pile Width"
       },
       "businessContext_i18n": {
         "en": "Effective width of each sheet pile",
-        "tr": "Her bir sac kazığın etkili genişliği"
+        "tr": "Her bir sac kazığın etkili genişliği",
+        "de": "Effektive Breite jeder Spundbohle",
+        "fr": "Largeur effective de chaque palplanche"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Number of Piles",
         "tr": "Kazık Sayısı",
-        "de": "Number of Piles",
-        "fr": "Number of Piles",
+        "de": "Anzahl der Spundbohlen",
+        "fr": "Nombre de palplanches",
         "es": "Number of Piles",
         "ar": "Number of Piles"
       },
       "businessContext_i18n": {
         "en": "Total number of sheet piles required",
-        "tr": "Gerekli toplam sac kazık sayısı"
+        "tr": "Gerekli toplam sac kazık sayısı",
+        "de": "Gesamtzahl der benötigten Spundbohlen",
+        "fr": "Nombre total de palplanches requis"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Steel Density",
         "tr": "Çelik Yoğunluğu",
-        "de": "Steel Density",
-        "fr": "Steel Density",
-        "es": "Steel Density",
+        "de": "Stahldichte",
+        "fr": "Densité de l'acier",
+        "es": "Densidad del acero",
         "ar": "Steel Density"
       },
       "businessContext_i18n": {
         "en": "Density of steel used for piles",
-        "tr": "Kazıklar için kullanılan çeliğin yoğunluğu"
+        "tr": "Kazıklar için kullanılan çeliğin yoğunluğu",
+        "de": "Dichte des für die Spundbohlen verwendeten Stahls",
+        "fr": "Densité de l'acier utilisé pour les palplanches"
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Unit Cost",
         "tr": "Birim Maliyet",
         "de": "Stückkosten",
-        "fr": "Unit Cost",
-        "es": "Unit Cost",
+        "fr": "Coût unitaire",
+        "es": "Costo unitario",
         "ar": "Unit Cost"
       },
       "businessContext_i18n": {
         "en": "Cost per kilogram of steel",
-        "tr": "Kilogram başına çelik maliyeti"
+        "tr": "Kilogram başına çelik maliyeti",
+        "de": "Kosten pro Kilogramm Stahl",
+        "fr": "Coût par kilogramme d'acier"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Installation Cost per Pile",
         "tr": "Kazık Başına Montaj Maliyeti",
-        "de": "Installation Cost per Pile",
-        "fr": "Installation Cost per Pile",
+        "de": "Installationskosten pro Spundbohle",
+        "fr": "Coût d'installation par palplanche",
         "es": "Installation Cost per Pile",
         "ar": "Installation Cost per Pile"
       },
       "businessContext_i18n": {
         "en": "Cost to install one pile",
-        "tr": "Bir kazığı monte etme maliyeti"
+        "tr": "Bir kazığı monte etme maliyeti",
+        "de": "Kosten für die Installation einer Spundbohle",
+        "fr": "Coût pour installer une palplanche"
       }
     }
   ],

@@ -12,13 +12,15 @@
         "en": "Scale Length",
         "tr": "Skala Uzunluğu",
         "de": "Mensurlänge",
-        "fr": "Scale Length",
-        "es": "Scale Length",
+        "fr": "Longueur de la corde vibrante",
+        "es": "Longitud de escala",
         "ar": "Scale Length"
       },
       "businessContext_i18n": {
         "en": "The vibrating length of the string from nut to bridge, typically 0.33 m for a full-size violin.",
-        "tr": "Titreşen tel uzunluğu (somundan köprüye), tipik olarak tam boy bir keman için 0,33 m."
+        "tr": "Titreşen tel uzunluğu (somundan köprüye), tipik olarak tam boy bir keman için 0,33 m.",
+        "de": "Schwingungslänge der Saite von Sattel bis Steg, typischerweise 0,33 m bei einer Violine in voller Größe.",
+        "fr": "Longueur vibrante de la corde du sillet au chevalet, typiquement 0,33 m pour un violon taille réelle."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Desired Pitch Frequency",
         "tr": "İstenen Perde Frekansı",
-        "de": "Desired Pitch Frequency",
-        "fr": "Desired Pitch Frequency",
+        "de": "Gewünschte Tonfrequenz",
+        "fr": "Fréquence de hauteur souhaitée",
         "es": "Desired Pitch Frequency",
         "ar": "Desired Pitch Frequency"
       },
       "businessContext_i18n": {
         "en": "Frequency of the desired pitch, e.g., A4 = 440 Hz.",
-        "tr": "İstenen perdenin frekansı, örn. A4 = 440 Hz."
+        "tr": "İstenen perdenin frekansı, örn. A4 = 440 Hz.",
+        "de": "Frequenz des gewünschten Tons, z. B. A4 = 440 Hz.",
+        "fr": "Fréquence de la hauteur souhaitée, ex. La4 = 440 Hz."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "String Diameter",
         "tr": "Tel Çapı",
         "de": "Saitendurchmesser",
-        "fr": "String Diameter",
-        "es": "String Diameter",
+        "fr": "Diamètre de la corde",
+        "es": "Diámetro de la cuerda",
         "ar": "String Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the string, e.g., 0.5 mm = 0.0005 m.",
-        "tr": "Tel çapı, örn. 0,5 mm = 0,0005 m."
+        "tr": "Tel çapı, örn. 0,5 mm = 0,0005 m.",
+        "de": "Durchmesser der Saite, z. B. 0,5 mm = 0,0005 m.",
+        "fr": "Diamètre de la corde, ex. 0,5 mm = 0,0005 m."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Material Density",
         "tr": "Malzeme Yoğunluğu",
         "de": "Materialdichte",
-        "fr": "Material Density",
-        "es": "Material Density",
+        "fr": "Densité du matériau",
+        "es": "Densidad del material",
         "ar": "Material Density"
       },
       "businessContext_i18n": {
         "en": "Density of the string material, e.g., gut ~1000 kg/m³, steel ~7800 kg/m³.",
-        "tr": "Tel malzemesinin yoğunluğu, örn. bağırsak ~1000 kg/m³, çelik ~7800 kg/m³."
+        "tr": "Tel malzemesinin yoğunluğu, örn. bağırsak ~1000 kg/m³, çelik ~7800 kg/m³.",
+        "de": "Dichte des Saitenmaterials, z. B. Darm ~1000 kg/m³, Stahl ~7800 kg/m³.",
+        "fr": "Densité du matériau de la corde, ex. boyau ~1000 kg/m³, acier ~7800 kg/m³."
       }
     }
   ],

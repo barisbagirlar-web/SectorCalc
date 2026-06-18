@@ -12,14 +12,16 @@
         "en": "Fuel Volume Flow",
         "tr": "Yakıt Hacimsel Akışı",
         "de": "Kraftstoffvolumenstrom",
-        "fr": "Fuel Volume Flow",
-        "es": "Fuel Volume Flow",
+        "fr": "Débit volumique de carburant",
+        "es": "Caudal volumétrico de combustible",
         "ar": "Fuel Volume Flow"
       },
       "businessContext_i18n": {
         "en": "Volumetric fuel flow rate measured in liters per hour.",
         "tr": "Saatte litre cinsinden ölçülen hacimsel yakıt akış hızı.",
-        "de": "Volumetrischer Kraftstoffdurchfluss in Litern pro Stunde."
+        "de": "Volumetrischer Kraftstoffdurchfluss in Litern pro Stunde.",
+        "fr": "Débit volumique de carburant mesuré en litres par heure.",
+        "es": "Caudal volumétrico de combustible medido en litros por hora."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Fuel Temperature",
         "tr": "Yakıt Sıcaklığı",
         "de": "Kraftstofftemperatur",
-        "fr": "Fuel Temperature",
-        "es": "Fuel Temperature",
+        "fr": "Température du carburant",
+        "es": "Temperatura del combustible",
         "ar": "Fuel Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of fuel at measurement point for density correction.",
         "tr": "Yoğunluk düzeltmesi için ölçüm noktasındaki yakıt sıcaklığı.",
-        "de": "Temperatur des Kraftstoffs am Messpunkt für die Dichtekorrektur."
+        "de": "Temperatur des Kraftstoffs am Messpunkt für die Dichtekorrektur.",
+        "fr": "Température du carburant au point de mesure pour la correction de densité.",
+        "es": "Temperatura del combustible en el punto de medición para corrección de densidad."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Reference Fuel Density",
         "tr": "Referans Yakıt Yoğunluğu",
         "de": "Referenz-Kraftstoffdichte",
-        "fr": "Reference Fuel Density",
-        "es": "Reference Fuel Density",
+        "fr": "Densité de référence du carburant",
+        "es": "Densidad de referencia del combustible",
         "ar": "Reference Fuel Density"
       },
       "businessContext_i18n": {
         "en": "Fuel density at reference temperature (e.g., 15°C).",
         "tr": "Referans sıcaklıkta (ör. 15°C) yakıt yoğunluğu.",
-        "de": "Kraftstoffdichte bei Referenztemperatur (z. B. 15 °C)."
+        "de": "Kraftstoffdichte bei Referenztemperatur (z. B. 15 °C).",
+        "fr": "Densité du carburant à la température de référence (ex. 15°C).",
+        "es": "Densidad del combustible a temperatura de referencia (ej., 15°C)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Brake Power",
         "tr": "Fren Gücü",
         "de": "Bremsleistung",
-        "fr": "Brake Power",
-        "es": "Brake Power",
+        "fr": "Puissance au frein",
+        "es": "Potencia al freno",
         "ar": "Brake Power"
       },
       "businessContext_i18n": {
         "en": "Engine brake power output in kilowatts.",
         "tr": "Kilovat cinsinden motor fren gücü çıkışı.",
-        "de": "Motorbremsleistung in Kilowatt."
+        "de": "Motorbremsleistung in Kilowatt.",
+        "fr": "Puissance au frein du moteur en kilowatts.",
+        "es": "Potencia de freno del motor en kilovatios."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Fuel Thermal Expansion Coefficient",
         "tr": "Yakıt Termal Genleşme Katsayısı",
         "de": "Kraftstoff-Wärmeausdehnungskoeffizient",
-        "fr": "Fuel Thermal Expansion Coefficient",
-        "es": "Fuel Thermal Expansion Coefficient",
+        "fr": "Coefficient de dilatation thermique du carburant",
+        "es": "Coeficiente de expansión térmica del combustible",
         "ar": "Fuel Thermal Expansion Coefficient"
       },
       "businessContext_i18n": {
         "en": "Coefficient of thermal expansion for fuel (typically 0.00095/°C for diesel).",
         "tr": "Yakıt için termal genleşme katsayısı (dizel için tipik olarak 0,00095/°C).",
-        "de": "Wärmeausdehnungskoeffizient für Kraftstoff (typischerweise 0,00095/°C für Diesel)."
+        "de": "Wärmeausdehnungskoeffizient für Kraftstoff (typischerweise 0,00095/°C für Diesel).",
+        "fr": "Coefficient de dilatation thermique du carburant (généralement 0,00095/°C pour le diesel).",
+        "es": "Coeficiente de expansión térmica del combustible (típicamente 0.00095/°C para diésel)."
       }
     }
   ],

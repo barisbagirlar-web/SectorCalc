@@ -12,14 +12,16 @@
         "en": "Baud Rate",
         "tr": "Baud Hızı",
         "de": "Baudrate",
-        "fr": "Baud Rate",
-        "es": "Baud Rate",
+        "fr": "Débit en bauds",
+        "es": "Velocidad en baudios",
         "ar": "Baud Rate"
       },
       "businessContext_i18n": {
         "en": "Number of signal changes per second",
         "tr": "Saniyedeki sinyal değişimi sayısı",
-        "de": "Anzahl der Signalwechsel pro Sekunde"
+        "de": "Anzahl der Signalwechsel pro Sekunde",
+        "fr": "Nombre de changements de signal par seconde",
+        "es": "Número de cambios de señal por segundo"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Start Bits",
         "tr": "Başlangıç Bitleri",
         "de": "Startbits",
-        "fr": "Start Bits",
-        "es": "Start Bits",
+        "fr": "Bits de start",
+        "es": "Bits de inicio",
         "ar": "Start Bits"
       },
       "businessContext_i18n": {
         "en": "Number of start bits per frame (usually 1)",
         "tr": "Çerçeve başına başlangıç biti sayısı (genellikle 1)",
-        "de": "Anzahl der Startbits pro Rahmen (normalerweise 1)"
+        "de": "Anzahl der Startbits pro Rahmen (normalerweise 1)",
+        "fr": "Nombre de bits de start par trame (généralement 1)",
+        "es": "Número de bits de inicio por trama (generalmente 1)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Data Bits",
         "tr": "Veri Bitleri",
         "de": "Datenbits",
-        "fr": "Data Bits",
-        "es": "Data Bits",
+        "fr": "Bits de données",
+        "es": "Bits de datos",
         "ar": "Data Bits"
       },
       "businessContext_i18n": {
         "en": "Number of data bits per frame",
         "tr": "Çerçeve başına veri biti sayısı",
-        "de": "Anzahl der Datenbits pro Rahmen"
+        "de": "Anzahl der Datenbits pro Rahmen",
+        "fr": "Nombre de bits de données par trame",
+        "es": "Número de bits de datos por trama"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Parity Bits",
         "tr": "Eşlik Bitleri",
         "de": "Paritätsbits",
-        "fr": "Parity Bits",
-        "es": "Parity Bits",
+        "fr": "Bits de parité",
+        "es": "Bits de paridad",
         "ar": "Parity Bits"
       },
       "businessContext_i18n": {
         "en": "Number of parity bits (0 for none, 1 for even/odd)",
         "tr": "Eşlik biti sayısı (yoksa 0, tek/çift için 1)",
-        "de": "Anzahl der Paritätsbits (0 für keine, 1 für gerade/ungerade)"
+        "de": "Anzahl der Paritätsbits (0 für keine, 1 für gerade/ungerade)",
+        "fr": "Nombre de bits de parité (0 pour aucun, 1 pour pair/impair)",
+        "es": "Número de bits de paridad (0 para ninguno, 1 para par/impar)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Stop Bits",
         "tr": "Durdurma Bitleri",
         "de": "Stoppbits",
-        "fr": "Stop Bits",
-        "es": "Stop Bits",
+        "fr": "Bits de stop",
+        "es": "Bits de parada",
         "ar": "Stop Bits"
       },
       "businessContext_i18n": {
         "en": "Number of stop bits per frame",
         "tr": "Çerçeve başına durdurma biti sayısı",
-        "de": "Anzahl der Stoppbits pro Rahmen"
+        "de": "Anzahl der Stoppbits pro Rahmen",
+        "fr": "Nombre de bits de stop par trame",
+        "es": "Número de bits de parada por trama"
       }
     }
   ],

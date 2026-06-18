@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Yol Mesafesi (km)",
         "tr": "Yol Mesafesi (km)",
-        "de": "Yol Mesafesi (km)",
-        "fr": "Yol Mesafesi (km)",
+        "de": "Streckenentfernung (km)",
+        "fr": "Distance du trajet (km)",
         "es": "Yol Mesafesi (km)",
         "ar": "Yol Mesafesi (km)"
       },
       "businessContext_i18n": {
         "en": "Kat edilen mesafe",
-        "tr": "Kat edilen mesafe"
+        "tr": "Kat edilen mesafe",
+        "de": "Zurückgelegte Strecke",
+        "fr": "Distance parcourue"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Temel Geçiş Ücreti (TL/km)",
         "tr": "Temel Geçiş Ücreti (TL/km)",
-        "de": "Temel Geçiş Ücreti (TL/km)",
-        "fr": "Temel Geçiş Ücreti (TL/km)",
+        "de": "Grundmaut (TL/km)",
+        "fr": "Tarif de base du péage (TL/km)",
         "es": "Temel Geçiş Ücreti (TL/km)",
         "ar": "Temel Geçiş Ücreti (TL/km)"
       },
       "businessContext_i18n": {
         "en": "Araç sınıfına göre km başına temel ücret",
-        "tr": "Araç sınıfına göre km başına temel ücret"
+        "tr": "Araç sınıfına göre km başına temel ücret",
+        "de": "Grundgebühr pro km nach Fahrzeugklasse",
+        "fr": "Tarif de base par km selon la classe de véhicule"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Aks/Köprü Çarpanı",
         "tr": "Aks/Köprü Çarpanı",
-        "de": "Aks/Köprü Çarpanı",
-        "fr": "Aks/Köprü Çarpanı",
+        "de": "Achsen-/Brückenmultiplikator",
+        "fr": "Coefficient d'essieu/pont",
         "es": "Aks/Köprü Çarpanı",
         "ar": "Aks/Köprü Çarpanı"
       },
       "businessContext_i18n": {
         "en": "Aks sayısı veya sınıfına göre çarpan (örn. 2 aks:1.0, 3 aks:1.5, 4 aks:2.0)",
-        "tr": "Aks sayısı veya sınıfına göre çarpan (örn. 2 aks:1.0, 3 aks:1.5, 4 aks:2.0)"
+        "tr": "Aks sayısı veya sınıfına göre çarpan (örn. 2 aks:1.0, 3 aks:1.5, 4 aks:2.0)",
+        "de": "Multiplikator nach Achsenzahl oder -klasse (z. B. 2 Achsen: 1,0, 3 Achsen: 1,5, 4 Achsen: 2,0)",
+        "fr": "Coefficient selon le nombre d'essieux ou la classe (ex. 2 essieux:1.0, 3 essieux:1.5, 4 essieux:2.0)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Sabit Geçiş Ücreti (TL)",
         "tr": "Sabit Geçiş Ücreti (TL)",
-        "de": "Sabit Geçiş Ücreti (TL)",
-        "fr": "Sabit Geçiş Ücreti (TL)",
+        "de": "Feste Mautgebühr (TL)",
+        "fr": "Frais de péage fixes (TL)",
         "es": "Sabit Geçiş Ücreti (TL)",
         "ar": "Sabit Geçiş Ücreti (TL)"
       },
       "businessContext_i18n": {
         "en": "Varsa sabit köprü/otoyol giriş ücreti",
-        "tr": "Varsa sabit köprü/otoyol giriş ücreti"
+        "tr": "Varsa sabit köprü/otoyol giriş ücreti",
+        "de": "Feste Brücken-/Autobahneinfahrtsgebühr, falls vorhanden",
+        "fr": "Frais d'entrée fixes pour pont/autoroute, le cas échéant"
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Ağırlık Faktörü",
         "tr": "Ağırlık Faktörü",
         "de": "Gewichtungsfaktor",
-        "fr": "Ağırlık Faktörü",
-        "es": "Ağırlık Faktörü",
+        "fr": "Facteur de pondération",
+        "es": "Factor de peso",
         "ar": "Ağırlık Faktörü"
       },
       "businessContext_i18n": {
         "en": "Araç ağırlığına bağlı çevresel veya altyapı katkı çarpanı (örn. >10 ton)",
-        "tr": "Araç ağırlığına bağlı çevresel veya altyapı katkı çarpanı (örn. >10 ton)"
+        "tr": "Araç ağırlığına bağlı çevresel veya altyapı katkı çarpanı (örn. >10 ton)",
+        "de": "Umwelt- oder Infrastrukturbeitragsmultiplikator basierend auf Fahrzeuggewicht (z. B. >10 t)",
+        "fr": "Multiplicateur de contribution environnementale ou d'infrastructure lié au poids du véhicule (ex. >10 tonnes)"
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "KDV Oranı (%)",
         "tr": "KDV Oranı (%)",
         "de": "Mehrwertsteuersatz (%)",
-        "fr": "KDV Oranı (%)",
-        "es": "KDV Oranı (%)",
+        "fr": "Taux de TVA (%)",
+        "es": "Tasa de IVA (%)",
         "ar": "KDV Oranı (%)"
       },
       "businessContext_i18n": {
         "en": "Uygulanan katma değer vergisi oranı",
-        "tr": "Uygulanan katma değer vergisi oranı"
+        "tr": "Uygulanan katma değer vergisi oranı",
+        "de": "Angewandter Mehrwertsteuersatz",
+        "fr": "Taux de taxe sur la valeur ajoutée appliqué"
       }
     }
   ],

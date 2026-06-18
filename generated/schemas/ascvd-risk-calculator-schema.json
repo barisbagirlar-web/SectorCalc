@@ -12,14 +12,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Patient age in years",
         "tr": "Hasta yaşı (yıl)",
-        "de": "Patientenalter in Jahren"
+        "de": "Patientenalter in Jahren",
+        "fr": "Âge du patient en années",
+        "es": "Edad del paciente en años"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Total Cholesterol",
         "tr": "Toplam Kolesterol",
         "de": "Gesamtcholesterin",
-        "fr": "Total Cholesterol",
-        "es": "Total Cholesterol",
+        "fr": "Cholestérol total",
+        "es": "Colesterol total",
         "ar": "Total Cholesterol"
       },
       "businessContext_i18n": {
         "en": "Total serum cholesterol level",
         "tr": "Toplam serum kolesterol seviyesi",
-        "de": "Gesamtserumcholesterinspiegel"
+        "de": "Gesamtserumcholesterinspiegel",
+        "fr": "Niveau de cholestérol total sérique",
+        "es": "Nivel de colesterol total en suero"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "HDL Cholesterol",
         "tr": "HDL Kolesterol",
         "de": "HDL-Cholesterin",
-        "fr": "HDL Cholesterol",
-        "es": "HDL Cholesterol",
+        "fr": "Cholestérol HDL",
+        "es": "Colesterol HDL",
         "ar": "HDL Cholesterol"
       },
       "businessContext_i18n": {
         "en": "High-density lipoprotein cholesterol level",
         "tr": "Yüksek yoğunluklu lipoprotein kolesterol seviyesi",
-        "de": "High-Density-Lipoprotein-Cholesterinspiegel"
+        "de": "High-Density-Lipoprotein-Cholesterinspiegel",
+        "fr": "Niveau de cholestérol des lipoprotéines de haute densité",
+        "es": "Nivel de colesterol de lipoproteínas de alta densidad"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Systolic Blood Pressure",
         "tr": "Sistolik Kan Basıncı",
         "de": "Systolischer Blutdruck",
-        "fr": "Systolic Blood Pressure",
-        "es": "Systolic Blood Pressure",
+        "fr": "Pression artérielle systolique",
+        "es": "Presión arterial sistólica",
         "ar": "Systolic Blood Pressure"
       },
       "businessContext_i18n": {
         "en": "Systolic blood pressure reading",
         "tr": "Sistolik kan basıncı değeri",
-        "de": "Systolischer Blutdruckwert"
+        "de": "Systolischer Blutdruckwert",
+        "fr": "Lecture de la pression artérielle systolique",
+        "es": "Lectura de presión arterial sistólica"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Treated for Hypertension",
         "tr": "Hipertansiyon Tedavisi Görüyor",
         "de": "Behandelt wegen Bluthochdruck",
-        "fr": "Treated for Hypertension",
-        "es": "Treated for Hypertension",
+        "fr": "Traité pour hypertension",
+        "es": "Tratado por hipertensión",
         "ar": "Treated for Hypertension"
       },
       "businessContext_i18n": {
         "en": "1 if patient is on hypertension medication, else 0",
         "tr": "Hasta hipertansiyon ilacı kullanıyorsa 1, değilse 0",
-        "de": "1 wenn Patient blutdrucksenkende Medikamente einnimmt, sonst 0"
+        "de": "1 wenn Patient blutdrucksenkende Medikamente einnimmt, sonst 0",
+        "fr": "1 si le patient prend des médicaments contre l'hypertension, sinon 0",
+        "es": "1 si el paciente está bajo medicación para hipertensión, si no 0"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Diabetes",
         "tr": "Diyabet",
         "de": "Diabetes",
-        "fr": "Diabetes",
+        "fr": "Diabète",
         "es": "Diabetes",
         "ar": "Diabetes"
       },
       "businessContext_i18n": {
         "en": "1 if patient has diabetes, else 0",
         "tr": "Hastada diyabet varsa 1, yoksa 0",
-        "de": "1 wenn Patient Diabetes hat, sonst 0"
+        "de": "1 wenn Patient Diabetes hat, sonst 0",
+        "fr": "1 si le patient est diabétique, sinon 0",
+        "es": "1 si el paciente tiene diabetes, si no 0"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Current Smoker",
         "tr": "Sigara İçiyor",
         "de": "Aktueller Raucher",
-        "fr": "Current Smoker",
-        "es": "Current Smoker",
+        "fr": "Fumeur actuel",
+        "es": "Fumador actual",
         "ar": "Current Smoker"
       },
       "businessContext_i18n": {
         "en": "1 if patient is a current smoker, else 0",
         "tr": "Hasta şu anda sigara içiyorsa 1, içmiyorsa 0",
-        "de": "1 wenn Patient aktuell raucht, sonst 0"
+        "de": "1 wenn Patient aktuell raucht, sonst 0",
+        "fr": "1 si le patient fume actuellement, sinon 0",
+        "es": "1 si el paciente es fumador actual, si no 0"
       }
     },
     {
@@ -159,14 +173,16 @@
         "en": "Male Sex",
         "tr": "Erkek Cinsiyet",
         "de": "Männliches Geschlecht",
-        "fr": "Male Sex",
-        "es": "Male Sex",
+        "fr": "Sexe masculin",
+        "es": "Sexo masculino",
         "ar": "Male Sex"
       },
       "businessContext_i18n": {
         "en": "1 if male, 0 if female",
         "tr": "Erkekse 1, kadınsa 0",
-        "de": "1 wenn männlich, 0 wenn weiblich"
+        "de": "1 wenn männlich, 0 wenn weiblich",
+        "fr": "1 si homme, 0 si femme",
+        "es": "1 si es hombre, 0 si es mujer"
       }
     }
   ],

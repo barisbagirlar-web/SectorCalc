@@ -12,13 +12,16 @@
         "en": "Maternal Age",
         "tr": "Anne Yaşı",
         "de": "Mütterliches Alter",
-        "fr": "Maternal Age",
-        "es": "Maternal Age",
+        "fr": "Âge maternel",
+        "es": "Edad materna",
         "ar": "Maternal Age"
       },
       "businessContext_i18n": {
         "en": "Age of the pregnant woman at expected date of delivery.",
-        "tr": "Tahmini doğum tarihinde hamile kadının yaşı."
+        "tr": "Tahmini doğum tarihinde hamile kadının yaşı.",
+        "de": "Alter der Schwangeren zum voraussichtlichen Entbindungstermin.",
+        "fr": "Âge de la femme enceinte à la date prévue d'accouchement.",
+        "es": "Edad de la mujer embarazada en la fecha prevista de parto."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Pre-pregnancy BMI",
         "tr": "Gebelik Öncesi VKİ",
-        "de": "Pre-pregnancy BMI",
-        "fr": "Pre-pregnancy BMI",
-        "es": "Pre-pregnancy BMI",
+        "de": "BMI vor der Schwangerschaft",
+        "fr": "IMC avant grossesse",
+        "es": "IMC antes del embarazo",
         "ar": "Pre-pregnancy BMI"
       },
       "businessContext_i18n": {
         "en": "Body Mass Index before pregnancy.",
-        "tr": "Hamilelik öncesi Vücut Kitle İndeksi."
+        "tr": "Hamilelik öncesi Vücut Kitle İndeksi.",
+        "de": "Body-Mass-Index vor der Schwangerschaft.",
+        "fr": "Indice de masse corporelle avant la grossesse.",
+        "es": "Índice de masa corporal antes del embarazo."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Systolic Blood Pressure",
         "tr": "Sistolik Kan Basıncı",
         "de": "Systolischer Blutdruck",
-        "fr": "Systolic Blood Pressure",
-        "es": "Systolic Blood Pressure",
+        "fr": "Pression artérielle systolique",
+        "es": "Presión arterial sistólica",
         "ar": "Systolic Blood Pressure"
       },
       "businessContext_i18n": {
         "en": "Systolic blood pressure reading in early pregnancy.",
-        "tr": "Erken gebelikte sistolik kan basıncı değeri."
+        "tr": "Erken gebelikte sistolik kan basıncı değeri.",
+        "de": "Systolischer Blutdruck in der Frühschwangerschaft.",
+        "fr": "Lecture de la pression artérielle systolique en début de grossesse.",
+        "es": "Lectura de presión arterial sistólica al inicio del embarazo."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Diastolic Blood Pressure",
         "tr": "Diyastolik Kan Basıncı",
         "de": "Diastolischer Blutdruck",
-        "fr": "Diastolic Blood Pressure",
-        "es": "Diastolic Blood Pressure",
+        "fr": "Pression artérielle diastolique",
+        "es": "Presión arterial diastólica",
         "ar": "Diastolic Blood Pressure"
       },
       "businessContext_i18n": {
         "en": "Diastolic blood pressure reading in early pregnancy.",
-        "tr": "Erken gebelikte diyastolik kan basıncı değeri."
+        "tr": "Erken gebelikte diyastolik kan basıncı değeri.",
+        "de": "Diastolischer Blutdruck in der Frühschwangerschaft.",
+        "fr": "Lecture de la pression artérielle diastolique en début de grossesse.",
+        "es": "Lectura de presión arterial diastólica al inicio del embarazo."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Previous Preeclampsia",
         "tr": "Önceki Preeklampsi",
-        "de": "Previous Preeclampsia",
-        "fr": "Previous Preeclampsia",
-        "es": "Previous Preeclampsia",
+        "de": "Frühere Präeklampsie",
+        "fr": "Prééclampsie antérieure",
+        "es": "Preeclampsia previa",
         "ar": "Previous Preeclampsia"
       },
       "businessContext_i18n": {
         "en": "History of preeclampsia in a previous pregnancy (0 = No, 1 = Yes).",
-        "tr": "Önceki gebelikte preeklampsi öyküsü (0 = Hayır, 1 = Evet)."
+        "tr": "Önceki gebelikte preeklampsi öyküsü (0 = Hayır, 1 = Evet).",
+        "de": "Vorgeschichte einer Präeklampsie in einer früheren Schwangerschaft (0 = Nein, 1 = Ja).",
+        "fr": "Antécédent de prééclampsie lors d'une grossesse précédente (0 = Non, 1 = Oui).",
+        "es": "Antecedentes de preeclampsia en un embarazo anterior (0 = No, 1 = Sí)."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Family History of Preeclampsia",
         "tr": "Ailede Preeklampsi Öyküsü",
-        "de": "Family History of Preeclampsia",
-        "fr": "Family History of Preeclampsia",
-        "es": "Family History of Preeclampsia",
+        "de": "Familienanamnese Präeklampsie",
+        "fr": "Antécédents familiaux de prééclampsie",
+        "es": "Antecedentes familiares de preeclampsia",
         "ar": "Family History of Preeclampsia"
       },
       "businessContext_i18n": {
         "en": "Mother or sister had preeclampsia (0 = No, 1 = Yes).",
-        "tr": "Anne veya kız kardeşte preeklampsi (0 = Hayır, 1 = Evet)."
+        "tr": "Anne veya kız kardeşte preeklampsi (0 = Hayır, 1 = Evet).",
+        "de": "Mutter oder Schwester hatte Präeklampsie (0 = Nein, 1 = Ja).",
+        "fr": "La mère ou la sœur a eu une prééclampsie (0 = Non, 1 = Oui).",
+        "es": "La madre o hermana tuvo preeclampsia (0 = No, 1 = Sí)."
       }
     }
   ],

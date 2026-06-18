@@ -12,14 +12,16 @@
         "en": "File Size",
         "tr": "Dosya Boyutu",
         "de": "Dateigröße",
-        "fr": "File Size",
-        "es": "File Size",
+        "fr": "Taille du fichier",
+        "es": "Tamaño del archivo",
         "ar": "File Size"
       },
       "businessContext_i18n": {
         "en": "Size of the file to download, in gigabytes (GB).",
         "tr": "İndirilecek dosyanın gigabayt (GB) cinsinden boyutu.",
-        "de": "Größe der herunterzuladenden Datei in Gigabyte (GB)."
+        "de": "Größe der herunterzuladenden Datei in Gigabyte (GB).",
+        "fr": "Taille du fichier à télécharger, en gigaoctets (Go).",
+        "es": "Tamaño del archivo a descargar, en gigabytes (GB)."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Download Speed",
         "tr": "İndirme Hızı",
         "de": "Download-Geschwindigkeit",
-        "fr": "Download Speed",
-        "es": "Download Speed",
+        "fr": "Vitesse de téléchargement",
+        "es": "Velocidad de descarga",
         "ar": "Download Speed"
       },
       "businessContext_i18n": {
         "en": "Nominal download speed of the internet connection, in megabits per second (Mbps).",
         "tr": "İnternet bağlantısının megabit/saniye (Mbps) cinsinden nominal indirme hızı.",
-        "de": "Nominale Download-Geschwindigkeit der Internetverbindung in Megabit pro Sekunde (Mbps)."
+        "de": "Nominale Download-Geschwindigkeit der Internetverbindung in Megabit pro Sekunde (Mbps).",
+        "fr": "Vitesse de téléchargement nominale de la connexion internet, en mégabits par seconde (Mbps).",
+        "es": "Velocidad nominal de descarga de la conexión a internet, en megabits por segundo (Mbps)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Protocol Overhead",
         "tr": "Protokol Ek Yükü",
         "de": "Protokoll-Overhead",
-        "fr": "Protocol Overhead",
-        "es": "Protocol Overhead",
+        "fr": "Surcharge de protocole",
+        "es": "Sobrecarga de protocolo",
         "ar": "Protocol Overhead"
       },
       "businessContext_i18n": {
         "en": "Percentage of bandwidth lost due to network protocol overhead (e.g., TCP/IP).",
         "tr": "Ağ protokolü yükü (örn. TCP/IP) nedeniyle kaybedilen bant genişliği yüzdesi.",
-        "de": "Protokoll-Overhead"
+        "de": "Protokoll-Overhead",
+        "fr": "Pourcentage de bande passante perdue en raison de la surcharge du protocole réseau (ex. TCP/IP).",
+        "es": "Porcentaje de ancho de banda perdido debido a la sobrecarga del protocolo de red (p. ej., TCP/IP)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Parallel Connections",
         "tr": "Paralel Bağlantılar",
         "de": "Prozentsatz der Bandbreite, der durch Netzwerkprotokoll-Overhead (z. B. TCP/IP) verloren geht.",
-        "fr": "Parallel Connections",
-        "es": "Parallel Connections",
+        "fr": "Connexions parallèles",
+        "es": "Conexiones paralelas",
         "ar": "Parallel Connections"
       },
       "businessContext_i18n": {
         "en": "Number of simultaneous download connections (assumes linear speed scaling).",
         "tr": "Eşzamanlı indirme bağlantılarının sayısı (doğrusal hız ölçeklemesi varsayar).",
-        "de": "Parallele Verbindungen"
+        "de": "Parallele Verbindungen",
+        "fr": "Nombre de connexions de téléchargement simultanées (suppose une mise à l'échelle linéaire de la vitesse).",
+        "es": "Número de conexiones de descarga simultáneas (asume escalado lineal de velocidad)."
       }
     }
   ],

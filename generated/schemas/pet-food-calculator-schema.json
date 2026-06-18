@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Pet Weight",
         "tr": "Evcil Hayvan Ağırlığı",
-        "de": "Pet Weight",
-        "fr": "Pet Weight",
-        "es": "Pet Weight",
+        "de": "Haustiergewicht",
+        "fr": "Poids de l'animal",
+        "es": "Peso de la mascota",
         "ar": "Pet Weight"
       },
       "businessContext_i18n": {
         "en": "The weight of the pet in kilograms.",
-        "tr": "Evcil hayvanın kilogram cinsinden ağırlığı."
+        "tr": "Evcil hayvanın kilogram cinsinden ağırlığı.",
+        "de": "Das Gewicht des Haustiers in Kilogramm",
+        "fr": "Le poids de l'animal en kilogrammes.",
+        "es": "El peso de la mascota en kilogramos."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Activity Factor",
         "tr": "Aktivite Faktörü",
         "de": "Aktivitätsfaktor",
-        "fr": "Activity Factor",
-        "es": "Activity Factor",
+        "fr": "Facteur d'activité",
+        "es": "Factor de actividad",
         "ar": "Activity Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier for activity level (e.g., 1.2 for sedentary, 1.5 moderate, 1.8 active).",
-        "tr": "Aktivite seviyesi çarpanı (örn. hareketsiz için 1.2, orta için 1.5, aktif için 1.8)."
+        "tr": "Aktivite seviyesi çarpanı (örn. hareketsiz için 1.2, orta için 1.5, aktif için 1.8).",
+        "de": "Multiplikator für Aktivitätsniveau (z.B. 1,2 für sitzend, 1,5 moderat, 1,8 aktiv)",
+        "fr": "Multiplicateur pour le niveau d'activité (ex. : 1,2 pour sédentaire, 1,5 modéré, 1,8 actif).",
+        "es": "Multiplicador por nivel de actividad (ej. 1.2 sedentario, 1.5 moderado, 1.8 activo)."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Caloric Density",
         "tr": "Kalori Yoğunluğu",
-        "de": "Caloric Density",
-        "fr": "Caloric Density",
-        "es": "Caloric Density",
+        "de": "Kalorische Dichte",
+        "fr": "Densité calorique",
+        "es": "Densidad calórica",
         "ar": "Caloric Density"
       },
       "businessContext_i18n": {
         "en": "Energy density of the food in kilocalories per kilogram (common for dry food: 3000-4000 kcal/kg).",
-        "tr": "Mamanın kilogram başına kilokalori cinsinden enerji yoğunluğu (kuru mama için yaygın: 3000-4000 kcal/kg)."
+        "tr": "Mamanın kilogram başına kilokalori cinsinden enerji yoğunluğu (kuru mama için yaygın: 3000-4000 kcal/kg).",
+        "de": "Energiedichte des Futters in Kilokalorien pro Kilogramm (üblich für Trockenfutter: 3000-4000 kcal/kg).",
+        "fr": "Densité énergétique de l'aliment en kilocalories par kilogramme (courant pour les aliments secs : 3000-4000 kcal/kg).",
+        "es": "Densidad energética del alimento en kilocalorías por kilogramo (común en alimento seco: 3000-4000 kcal/kg)."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Meals Per Day",
         "tr": "Günlük Öğün Sayısı",
-        "de": "Meals Per Day",
-        "fr": "Meals Per Day",
-        "es": "Meals Per Day",
+        "de": "Mahlzeiten pro Tag",
+        "fr": "Repas par jour",
+        "es": "Comidas por día",
         "ar": "Meals Per Day"
       },
       "businessContext_i18n": {
         "en": "Number of meals the pet eats daily.",
-        "tr": "Evcil hayvanın günlük yediği öğün sayısı."
+        "tr": "Evcil hayvanın günlük yediği öğün sayısı.",
+        "de": "Anzahl der Mahlzeiten, die das Haustier täglich frisst.",
+        "fr": "Nombre de repas que l'animal mange par jour.",
+        "es": "Número de comidas que la mascota consume al día."
       }
     }
   ],

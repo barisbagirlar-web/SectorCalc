@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Outer Diameter",
         "tr": "Dış Çap",
-        "de": "Outer Diameter",
-        "fr": "Outer Diameter",
-        "es": "Outer Diameter",
+        "de": "Außendurchmesser",
+        "fr": "Diamètre extérieur",
+        "es": "Diámetro exterior",
         "ar": "Outer Diameter"
       },
       "businessContext_i18n": {
         "en": "Outer diameter of the pipe",
-        "tr": "Boru dış çapı"
+        "tr": "Boru dış çapı",
+        "de": "Außendurchmesser des Rohres",
+        "fr": "Diamètre extérieur du tuyau",
+        "es": "Diámetro exterior de la tubería"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Wall Thickness",
         "tr": "Duvar Kalınlığı (cm)",
         "de": "Duvar Kalınlığı",
-        "fr": "Wall Thickness",
-        "es": "Wall Thickness",
+        "fr": "Épaisseur du mur",
+        "es": "Espesor del muro",
         "ar": "Wall Thickness"
       },
       "businessContext_i18n": {
         "en": "Wall thickness of the pipe",
-        "tr": "Boru et kalınlığı"
+        "tr": "Boru et kalınlığı",
+        "de": "Wanddicke des Rohres",
+        "fr": "Épaisseur de paroi du tuyau",
+        "es": "Espesor de pared de la tubería"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Length",
         "tr": "Uzunluk",
         "de": "Länge",
-        "fr": "Length",
-        "es": "Length",
+        "fr": "Longueur",
+        "es": "Longitud",
         "ar": "Length"
       },
       "businessContext_i18n": {
         "en": "Length of each pipe",
-        "tr": "Her bir borunun uzunluğu"
+        "tr": "Her bir borunun uzunluğu",
+        "de": "Länge jedes Rohrs",
+        "fr": "Longueur de chaque tuyau",
+        "es": "Longitud de cada tubería"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Number of Pipes",
         "tr": "Boru sayısı",
-        "de": "Number of Pipes",
-        "fr": "Number of Pipes",
-        "es": "Number of Pipes",
+        "de": "Anzahl der Rohre",
+        "fr": "Nombre de tuyaux",
+        "es": "Número de tuberías",
         "ar": "Number of Pipes"
       },
       "businessContext_i18n": {
         "en": "Number of pipes to calculate total volume",
-        "tr": "Toplam hacmi hesaplamak için boru sayısı"
+        "tr": "Toplam hacmi hesaplamak için boru sayısı",
+        "de": "Anzahl der Rohre zur Berechnung des Gesamtvolumens",
+        "fr": "Nombre de tuyaux pour calculer le volume total",
+        "es": "Número de tuberías para calcular el volumen total"
       }
     }
   ],

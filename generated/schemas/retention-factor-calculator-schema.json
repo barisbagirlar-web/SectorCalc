@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Feed Concentration",
         "tr": "Besleme Konsantrasyonu",
-        "de": "Feed Concentration",
-        "fr": "Feed Concentration",
+        "de": "Zulaufkonzentration",
+        "fr": "Concentration d'alimentation",
         "es": "Feed Concentration",
         "ar": "Feed Concentration"
       },
       "businessContext_i18n": {
         "en": "Concentration of the solute in the incoming feed stream.",
-        "tr": "Gelen besleme akışındaki çözünen madde konsantrasyonu."
+        "tr": "Gelen besleme akışındaki çözünen madde konsantrasyonu.",
+        "de": "Konzentration des gelösten Stoffs im eingehenden Zulaufstrom.",
+        "fr": "Concentration du soluté dans le flux d'alimentation entrant."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Permeate Concentration",
         "tr": "Permeat Konsantrasyonu",
-        "de": "Permeate Concentration",
-        "fr": "Permeate Concentration",
+        "de": "Permeatkonzentration",
+        "fr": "Concentration du perméat",
         "es": "Permeate Concentration",
         "ar": "Permeate Concentration"
       },
       "businessContext_i18n": {
         "en": "Concentration of the solute in the permeate (filtered) stream.",
-        "tr": "Permeat (filtrelenmiş) akışındaki çözünen madde konsantrasyonu."
+        "tr": "Permeat (filtrelenmiş) akışındaki çözünen madde konsantrasyonu.",
+        "de": "Konzentration des gelösten Stoffes im Permeat (Filtrat).",
+        "fr": "Concentration du soluté dans le flux de perméat (filtré)."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Feed Flow Rate",
         "tr": "Besleme Akış Hızı",
         "de": "Feed-Durchflussrate",
-        "fr": "Feed Flow Rate",
-        "es": "Feed Flow Rate",
+        "fr": "Débit d'alimentation",
+        "es": "Caudal de alimentación",
         "ar": "Feed Flow Rate"
       },
       "businessContext_i18n": {
         "en": "Volumetric flow rate of the feed stream.",
-        "tr": "Besleme Akış Hızı"
+        "tr": "Besleme Akış Hızı",
+        "de": "Volumenstrom der Zulaufströmung.",
+        "fr": "Débit volumétrique du flux d'alimentation."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Permeate Flow Rate",
         "tr": "Permeat Akış Hızı",
-        "de": "Permeate Flow Rate",
-        "fr": "Permeate Flow Rate",
+        "de": "Permeat-Durchflussrate",
+        "fr": "Débit du perméat",
         "es": "Permeate Flow Rate",
         "ar": "Permeate Flow Rate"
       },
       "businessContext_i18n": {
         "en": "Volumetric flow rate of the permeate stream.",
-        "tr": "Permeat akışının hacimsel debisi."
+        "tr": "Permeat akışının hacimsel debisi.",
+        "de": "Volumenstrom der Permeatströmung.",
+        "fr": "Débit volumétrique du flux de perméat."
       }
     }
   ],

@@ -13,12 +13,15 @@
         "tr": "Minimum",
         "de": "Minimum",
         "fr": "Minimum",
-        "es": "Minimum",
+        "es": "Mínimo",
         "ar": "Minimum"
       },
       "businessContext_i18n": {
         "en": "Minimum value of the distribution (0th percentile)",
-        "tr": "Dağılımın minimum değeri (0. yüzdelik dilim)"
+        "tr": "Dağılımın minimum değeri (0. yüzdelik dilim)",
+        "de": "Minimalwert der Verteilung (0. Perzentil)",
+        "fr": "Valeur minimale de la distribution (0e percentile)",
+        "es": "Valor mínimo de la distribución (percentil 0)"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "20th Percentile",
         "tr": "20. Yüzdelik Dilim",
-        "de": "20th Percentile",
-        "fr": "20th Percentile",
-        "es": "20th Percentile",
+        "de": "20. Perzentil",
+        "fr": "20e percentile",
+        "es": "Percentil 20",
         "ar": "20th Percentile"
       },
       "businessContext_i18n": {
         "en": "Value at the 20th percentile (lower boundary of first quintile)",
-        "tr": "20. yüzdelik dilimdeki değer (ilk beşte birlik dilimin alt sınırı)"
+        "tr": "20. yüzdelik dilimdeki değer (ilk beşte birlik dilimin alt sınırı)",
+        "de": "Wert am 20. Perzentil (untere Grenze des ersten Quintils)",
+        "fr": "Valeur au 20e percentile (limite inférieure du premier quintile)",
+        "es": "Valor en el percentil 20 (límite inferior del primer quintil)"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "40th Percentile",
         "tr": "40. Yüzdelik Dilim",
-        "de": "40th Percentile",
-        "fr": "40th Percentile",
-        "es": "40th Percentile",
+        "de": "40. Perzentil",
+        "fr": "40e percentile",
+        "es": "Percentil 40",
         "ar": "40th Percentile"
       },
       "businessContext_i18n": {
         "en": "Value at the 40th percentile (boundary between second and third quintile)",
-        "tr": "40. yüzdelik dilimdeki değer (ikinci ve üçüncü beşte birlik dilim arasındaki sınır)"
+        "tr": "40. yüzdelik dilimdeki değer (ikinci ve üçüncü beşte birlik dilim arasındaki sınır)",
+        "de": "Wert am 40. Perzentil (Grenze zwischen zweitem und drittem Quintil)",
+        "fr": "Valeur au 40e percentile (limite entre le deuxième et le troisième quintile)",
+        "es": "Valor en el percentil 40 (límite entre el segundo y tercer quintil)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "60th Percentile",
         "tr": "60. Yüzdelik Dilim",
-        "de": "60th Percentile",
-        "fr": "60th Percentile",
-        "es": "60th Percentile",
+        "de": "60. Perzentil",
+        "fr": "60e percentile",
+        "es": "Percentil 60",
         "ar": "60th Percentile"
       },
       "businessContext_i18n": {
         "en": "Value at the 60th percentile",
-        "tr": "60. yüzdelik dilimdeki değer"
+        "tr": "60. yüzdelik dilimdeki değer",
+        "de": "Wert am 60. Perzentil",
+        "fr": "Valeur au 60e percentile",
+        "es": "Valor en el percentil 60"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "80th Percentile",
         "tr": "80. Yüzdelik Dilim",
-        "de": "80th Percentile",
-        "fr": "80th Percentile",
-        "es": "80th Percentile",
+        "de": "80. Perzentil",
+        "fr": "80e percentile",
+        "es": "Percentil 80",
         "ar": "80th Percentile"
       },
       "businessContext_i18n": {
         "en": "Value at the 80th percentile",
-        "tr": "80. yüzdelik dilimdeki değer"
+        "tr": "80. yüzdelik dilimdeki değer",
+        "de": "Wert am 80. Perzentil",
+        "fr": "Valeur au 80e percentile",
+        "es": "Valor en el percentil 80"
       }
     },
     {
@@ -113,12 +128,15 @@
         "tr": "Maksimum",
         "de": "Maximum",
         "fr": "Maximum",
-        "es": "Maximum",
+        "es": "Máximo",
         "ar": "Maximum"
       },
       "businessContext_i18n": {
         "en": "Maximum value of the distribution (100th percentile)",
-        "tr": "Dağılımın maksimum değeri (100. yüzdelik dilim)"
+        "tr": "Dağılımın maksimum değeri (100. yüzdelik dilim)",
+        "de": "Maximalwert der Verteilung (100. Perzentil)",
+        "fr": "Valeur maximale de la distribution (100e percentile)",
+        "es": "Valor máximo de la distribución (percentil 100)"
       }
     },
     {
@@ -132,13 +150,16 @@
         "en": "Target Value",
         "tr": "Hedef Değer",
         "de": "Zielwert",
-        "fr": "Target Value",
-        "es": "Target Value",
+        "fr": "Valeur cible",
+        "es": "Valor objetivo",
         "ar": "Target Value"
       },
       "businessContext_i18n": {
         "en": "The value to place within the distribution",
-        "tr": "Dağılım içine yerleştirilecek değer"
+        "tr": "Dağılım içine yerleştirilecek değer",
+        "de": "Der in die Verteilung einzuordnende Wert",
+        "fr": "La valeur à placer dans la distribution",
+        "es": "El valor a colocar dentro de la distribución"
       }
     }
   ],

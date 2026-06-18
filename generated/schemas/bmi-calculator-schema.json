@@ -24,12 +24,16 @@
       "label_i18n": {
         "en": "Weight (kg)",
         "tr": "Ağırlık (kg)",
-        "de": "Gewicht (kg)"
+        "de": "Gewicht (kg)",
+        "fr": "Poids (kg)",
+        "es": "Peso (kg)"
       },
       "businessContext_i18n": {
         "en": "Body weight measured in kilograms, per ISO 8996 anthropometric standards.",
         "tr": "ISO 8996 antropometrik standartlarına göre kilogram cinsinden vücut ağırlığı.",
-        "de": "Körpergewicht in Kilogramm, gemessen nach ISO 8996 anthropometrischen Standards."
+        "de": "Körpergewicht in Kilogramm, gemessen nach ISO 8996 anthropometrischen Standards.",
+        "fr": "Poids corporel mesuré en kilogrammes, selon les normes anthropométriques ISO 8996.",
+        "es": "Peso corporal medido en kilogramos, según normas antropométricas ISO 8996."
       }
     },
     {
@@ -44,12 +48,16 @@
       "label_i18n": {
         "en": "Height (cm)",
         "tr": "Boy (cm)",
-        "de": "Größe (cm)"
+        "de": "Größe (cm)",
+        "fr": "Taille (cm)",
+        "es": "Altura (cm)"
       },
       "businessContext_i18n": {
         "en": "Standing height in centimeters, measured per ISO 7250 ergonomic guidelines.",
         "tr": "ISO 7250 ergonomik yönergelerine göre santimetre cinsinden ayakta boy.",
-        "de": "Stehende Körpergröße in Zentimetern, gemessen nach ISO 7250 ergonomischen Richtlinien."
+        "de": "Stehende Körpergröße in Zentimetern, gemessen nach ISO 7250 ergonomischen Richtlinien.",
+        "fr": "Taille debout en centimètres, mesurée selon les directives ergonomiques ISO 7250.",
+        "es": "Altura de pie en centímetros, medida según pautas ergonómicas ISO 7250."
       }
     },
     {
@@ -64,12 +72,16 @@
       "label_i18n": {
         "en": "Age (years)",
         "tr": "Yaş (yıl)",
-        "de": "Alter (Jahre)"
+        "de": "Alter (Jahre)",
+        "fr": "Âge (années)",
+        "es": "Edad (años)"
       },
       "businessContext_i18n": {
         "en": "Chronological age used for metabolic risk adjustment, per Six Sigma health screening protocols.",
         "tr": "Altı Sigma sağlık tarama protokollerine göre metabolik risk ayarlaması için kullanılan kronolojik yaş.",
-        "de": "Chronologisches Alter für die metabolische Risikoanpassung, gemäß Six Sigma Gesundheits-Screening-Protokollen."
+        "de": "Chronologisches Alter für die metabolische Risikoanpassung, gemäß Six Sigma Gesundheits-Screening-Protokollen.",
+        "fr": "Âge chronologique utilisé pour l'ajustement du risque métabolique, selon les protocoles de dépistage Six Sigma.",
+        "es": "Edad cronológica utilizada para el ajuste de riesgo metabólico, según protocolos de detección de salud Seis Sigma."
       }
     },
     {
@@ -88,12 +100,16 @@
       "label_i18n": {
         "en": "Gender",
         "tr": "Cinsiyet",
-        "de": "Geschlecht"
+        "de": "Geschlecht",
+        "fr": "Genre",
+        "es": "Género"
       },
       "businessContext_i18n": {
         "en": "Biological sex for lean body mass and risk stratification, per WHO standards.",
         "tr": "WHO standartlarına göre yağsız vücut kütlesi ve risk sınıflandırması için biyolojik cinsiyet.",
-        "de": "Biologisches Geschlecht für die fettfreie Körpermasse und Risikostratifizierung, nach WHO-Standards."
+        "de": "Biologisches Geschlecht für die fettfreie Körpermasse und Risikostratifizierung, nach WHO-Standards.",
+        "fr": "Sexe biologique pour la masse maigre et la stratification du risque, selon les normes OMS.",
+        "es": "Sexo biológico para masa corporal magra y estratificación de riesgo, según estándares de la OMS."
       }
     },
     {
@@ -115,12 +131,16 @@
       "label_i18n": {
         "en": "Physical Activity Level",
         "tr": "Fiziksel Aktivite Düzeyi",
-        "de": "Körperliches Aktivitätsniveau"
+        "de": "Körperliches Aktivitätsniveau",
+        "fr": "Niveau d'activité physique",
+        "es": "Nivel de actividad física"
       },
       "businessContext_i18n": {
         "en": "Self-reported activity level for energy expenditure estimation, per ISO 8996 metabolic rate classification.",
         "tr": "ISO 8996 metabolik hız sınıflandırmasına göre enerji harcaması tahmini için kendinden bildirilen aktivite düzeyi.",
-        "de": "Selbstberichtetes Aktivitätsniveau zur Schätzung des Energieverbrauchs, nach ISO 8996 Klassifikation der Stoffwechselrate."
+        "de": "Selbstberichtetes Aktivitätsniveau zur Schätzung des Energieverbrauchs, nach ISO 8996 Klassifikation der Stoffwechselrate.",
+        "fr": "Niveau d'activité autodéclaré pour l'estimation de la dépense énergétique, selon la classification du taux métabolique ISO 8996.",
+        "es": "Nivel de actividad autoinformado para la estimación del gasto energético, según clasificación de tasa metabólica ISO 8996."
       }
     },
     {
@@ -135,12 +155,16 @@
       "label_i18n": {
         "en": "Waist Circumference (cm)",
         "tr": "Bel Çevresi (cm)",
-        "de": "Taillenumfang (cm)"
+        "de": "Taillenumfang (cm)",
+        "fr": "Tour de taille (cm)",
+        "es": "Circunferencia de cintura (cm)"
       },
       "businessContext_i18n": {
         "en": "Waist measurement for central obesity risk assessment, per IDF and Lean Six Sigma health metrics.",
         "tr": "IDF ve Yalın Altı Sigma sağlık metriklerine göre santral obezite risk değerlendirmesi için bel ölçümü.",
-        "de": "Taillenmaß für die Bewertung des Risikos zentraler Fettleibigkeit, nach IDF und Lean Six Sigma Gesundheitsmetriken."
+        "de": "Taillenmaß für die Bewertung des Risikos zentraler Fettleibigkeit, nach IDF und Lean Six Sigma Gesundheitsmetriken.",
+        "fr": "Mesure du tour de taille pour l'évaluation du risque d'obésité centrale, selon les métriques santé IDF et Lean Six Sigma.",
+        "es": "Medida de cintura para evaluación de riesgo de obesidad central, según métricas de salud IDF y Lean Seis Sigma."
       }
     }
   ],

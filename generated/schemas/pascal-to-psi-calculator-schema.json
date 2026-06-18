@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Pressure Reading (Pa)",
         "tr": "Basınç Okuması (Pa)",
-        "de": "Pressure Reading (Pa)",
-        "fr": "Pressure Reading (Pa)",
-        "es": "Pressure Reading (Pa)",
+        "de": "Druckmesswert (Pa)",
+        "fr": "Lecture de pression (Pa)",
+        "es": "Lectura de presión (Pa)",
         "ar": "Pressure Reading (Pa)"
       },
       "businessContext_i18n": {
         "en": "Actual pressure reading from sensor in pascals.",
-        "tr": "Sensörden paskal cinsinden gerçek basınç okuması."
+        "tr": "Sensörden paskal cinsinden gerçek basınç okuması.",
+        "de": "Tatsächlicher Druckmesswert vom Sensor in Pascal.",
+        "fr": "Lecture de pression réelle du capteur en pascals.",
+        "es": "Lectura de presión real del sensor en pascales."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Calibration Factor",
         "tr": "Kalibrasyon Faktörü",
         "de": "Kalibrierfaktor",
-        "fr": "Calibration Factor",
-        "es": "Calibration Factor",
+        "fr": "Facteur d'étalonnage",
+        "es": "Factor de calibración",
         "ar": "Calibration Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier for sensor calibration, typically 0.95-1.05.",
-        "tr": "Sensör kalibrasyonu için çarpan, tipik olarak 0,95-1,05."
+        "tr": "Sensör kalibrasyonu için çarpan, tipik olarak 0,95-1,05.",
+        "de": "Multiplikator für Sensorkalibrierung, typischerweise 0,95–1,05.",
+        "fr": "Multiplicateur d'étalonnage du capteur, généralement 0,95-1,05.",
+        "es": "Multiplicador para calibración del sensor, típicamente 0.95-1.05."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Sensor Full Scale (Pa)",
         "tr": "Sensör Tam Ölçek (Pa)",
-        "de": "Sensor Full Scale (Pa)",
-        "fr": "Sensor Full Scale (Pa)",
-        "es": "Sensor Full Scale (Pa)",
+        "de": "Sensor-Endwert (Pa)",
+        "fr": "Pleine échelle du capteur (Pa)",
+        "es": "Fondo de escala del sensor (Pa)",
         "ar": "Sensor Full Scale (Pa)"
       },
       "businessContext_i18n": {
         "en": "Maximum pressure rating of the sensor.",
-        "tr": "Sensörün maksimum basınç değeri."
+        "tr": "Sensörün maksimum basınç değeri.",
+        "de": "Maximale Druckbewertung des Sensors.",
+        "fr": "Pression maximale nominale du capteur.",
+        "es": "Clasificación máxima de presión del sensor."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Sensor Accuracy Class",
         "tr": "Sensör Doğruluk Sınıfı",
-        "de": "Sensor Accuracy Class",
-        "fr": "Sensor Accuracy Class",
-        "es": "Sensor Accuracy Class",
+        "de": "Sensor-Genauigkeitsklasse",
+        "fr": "Classe de précision du capteur",
+        "es": "Clase de precisión del sensor",
         "ar": "Sensor Accuracy Class"
       },
       "businessContext_i18n": {
         "en": "Accuracy as a percentage of full scale (e.g., 0.5 for 0.5% FS).",
-        "tr": "Tam ölçeğin yüzdesi olarak doğruluk (örn. %0,5 FS için 0,5)."
+        "tr": "Tam ölçeğin yüzdesi olarak doğruluk (örn. %0,5 FS için 0,5).",
+        "de": "Genauigkeit als Prozentsatz des Endwerts (z. B. 0,5 für 0,5 % FS).",
+        "fr": "Précision en pourcentage de la pleine échelle (ex. 0,5 pour 0,5 % FS).",
+        "es": "Precisión como porcentaje del fondo de escala (ej., 0.5 para 0.5% FS)."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Output Decimal Places",
         "tr": "Çıktı Ondalık Basamakları",
-        "de": "Output Decimal Places",
-        "fr": "Output Decimal Places",
-        "es": "Output Decimal Places",
+        "de": "Ausgabe Dezimalstellen",
+        "fr": "Décimales de sortie",
+        "es": "Decimales de salida",
         "ar": "Output Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal digits for psi output; must be integer >=0.",
-        "tr": "psi çıktısı için ondalık basamak sayısı; tamsayı >=0 olmalıdır."
+        "tr": "psi çıktısı için ondalık basamak sayısı; tamsayı >=0 olmalıdır.",
+        "de": "Anzahl der Dezimalstellen für psi-Ausgabe; muss ganze Zahl >=0 sein.",
+        "fr": "Nombre de décimales pour la sortie en psi ; doit être un entier >= 0.",
+        "es": "Número de dígitos decimales para la salida en psi; debe ser entero >=0."
       }
     }
   ],

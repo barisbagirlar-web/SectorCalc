@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "F(s) Numerator Coefficient",
         "tr": "F(s) Pay Katsayısı",
-        "de": "F(s) Numerator Coefficient",
-        "fr": "F(s) Numerator Coefficient",
-        "es": "F(s) Numerator Coefficient",
+        "de": "Zählerkoeffizient von F(s)",
+        "fr": "Coefficient du numérateur de F(s)",
+        "es": "Coeficiente del numerador de F(s)",
         "ar": "F(s) Numerator Coefficient"
       },
       "businessContext_i18n": {
         "en": "Coefficient of the numerator polynomial in F(s)",
-        "tr": "F(s)'deki pay polinomunun katsayısı"
+        "tr": "F(s)'deki pay polinomunun katsayısı",
+        "de": "Koeffizient des Zählerpolynoms in F(s)",
+        "fr": "Coefficient du polynôme du numérateur dans F(s)",
+        "es": "Coeficiente del polinomio del numerador en F(s)"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Numerator Order",
         "tr": "Pay Derecesi",
-        "de": "Numerator Order",
-        "fr": "Numerator Order",
-        "es": "Numerator Order",
+        "de": "Zählerordnung",
+        "fr": "Ordre du numérateur",
+        "es": "Orden del numerador",
         "ar": "Numerator Order"
       },
       "businessContext_i18n": {
         "en": "Order of the numerator polynomial (0 for constant)",
-        "tr": "Pay polinomunun derecesi (sabit için 0)"
+        "tr": "Pay polinomunun derecesi (sabit için 0)",
+        "de": "Ordnung des Zählerpolynoms (0 für Konstante)",
+        "fr": "Ordre du polynôme du numérateur (0 pour une constante)",
+        "es": "Orden del polinomio del numerador (0 para constante)"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Denominator Coefficients (comma-separated)",
         "tr": "Payda Katsayıları (virgülle ayrılmış)",
-        "de": "Denominator Coefficients (comma-separated)",
-        "fr": "Denominator Coefficients (comma-separated)",
-        "es": "Denominator Coefficients (comma-separated)",
+        "de": "Nennerkoeffizienten (kommagetrennt)",
+        "fr": "Coefficients du dénominateur (séparés par des virgules)",
+        "es": "Coeficientes del denominador (separados por comas)",
         "ar": "Denominator Coefficients (comma-separated)"
       },
       "businessContext_i18n": {
         "en": "Coefficients of denominator polynomial from highest to lowest order, e.g., 1,2,1 for s^2+2s+1",
-        "tr": "Payda polinomunun en yüksekten en düşük dereceye katsayıları, örn. s^2+2s+1 için 1,2,1"
+        "tr": "Payda polinomunun en yüksekten en düşük dereceye katsayıları, örn. s^2+2s+1 için 1,2,1",
+        "de": "Koeffizienten des Nennerpolynoms von höchster zu niedrigster Ordnung, z. B. 1,2,1 für s^2+2s+1",
+        "fr": "Coefficients du polynôme du dénominateur du plus haut au plus bas ordre, ex. 1,2,1 pour s^2+2s+1",
+        "es": "Coeficientes del polinomio del denominador de mayor a menor orden, ej., 1,2,1 para s^2+2s+1"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Denominator Order",
         "tr": "Payda Derecesi",
-        "de": "Denominator Order",
-        "fr": "Denominator Order",
-        "es": "Denominator Order",
+        "de": "Nennerordnung",
+        "fr": "Ordre du dénominateur",
+        "es": "Orden del denominador",
         "ar": "Denominator Order"
       },
       "businessContext_i18n": {
         "en": "Order of the denominator polynomial",
-        "tr": "Payda polinomunun derecesi"
+        "tr": "Payda polinomunun derecesi",
+        "de": "Ordnung des Nennerpolynoms",
+        "fr": "Ordre du polynôme du dénominateur",
+        "es": "Orden del polinomio del denominador"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Time t (s)",
         "tr": "Zaman t (s)",
-        "de": "Time t (s)",
-        "fr": "Time t (s)",
-        "es": "Time t (s)",
+        "de": "Zeit t (s)",
+        "fr": "Temps t (s)",
+        "es": "Tiempo t (s)",
         "ar": "Time t (s)"
       },
       "businessContext_i18n": {
         "en": "Time at which to evaluate the inverse Laplace transform",
-        "tr": "Ters Laplace dönüşümünün değerlendirileceği zaman"
+        "tr": "Ters Laplace dönüşümünün değerlendirileceği zaman",
+        "de": "Zeitpunkt, zu dem die inverse Laplace-Transformation ausgewertet wird",
+        "fr": "Temps auquel évaluer la transformée inverse de Laplace",
+        "es": "Tiempo en el que evaluar la transformada inversa de Laplace"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Damping Ratio ζ",
         "tr": "Sönüm Oranı ζ",
-        "de": "Damping Ratio ζ",
-        "fr": "Damping Ratio ζ",
-        "es": "Damping Ratio ζ",
+        "de": "Dämpfungsfaktor ζ",
+        "fr": "Rapport d'amortissement ζ",
+        "es": "Relación de amortiguamiento ζ",
         "ar": "Damping Ratio ζ"
       },
       "businessContext_i18n": {
         "en": "Damping ratio for second-order systems",
-        "tr": "İkinci dereceden sistemler için sönüm oranı"
+        "tr": "İkinci dereceden sistemler için sönüm oranı",
+        "de": "Dämpfungsfaktor für Systeme zweiter Ordnung",
+        "fr": "Rapport d'amortissement pour les systèmes du second ordre",
+        "es": "Relación de amortiguamiento para sistemas de segundo orden"
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Natural Frequency ωn (rad/s)",
         "tr": "Doğal Frekans ωn (rad/s)",
-        "de": "Natural Frequency ωn (rad/s)",
-        "fr": "Natural Frequency ωn (rad/s)",
-        "es": "Natural Frequency ωn (rad/s)",
+        "de": "Eigenfrequenz ωn (rad/s)",
+        "fr": "Fréquence naturelle ωn (rad/s)",
+        "es": "Frecuencia natural ωn (rad/s)",
         "ar": "Natural Frequency ωn (rad/s)"
       },
       "businessContext_i18n": {
         "en": "Undamped natural frequency for second-order systems",
-        "tr": "İkinci dereceden sistemler için sönümsüz doğal frekans"
+        "tr": "İkinci dereceden sistemler için sönümsüz doğal frekans",
+        "de": "Eigenfrequenz für Systeme zweiter Ordnung (ungedämpft)",
+        "fr": "Fréquence naturelle non amortie pour les systèmes du second ordre",
+        "es": "Frecuencia natural no amortiguada para sistemas de segundo orden"
       }
     }
   ],

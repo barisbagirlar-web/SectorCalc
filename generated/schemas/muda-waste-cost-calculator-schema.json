@@ -22,11 +22,17 @@
       "businessContext": "Direct material cost per unit of product, including raw materials and purchased components.",
       "label_i18n": {
         "en": "Material Cost per Unit",
-        "tr": "Birim Başına Malzeme Maliyeti"
+        "tr": "Birim Başına Malzeme Maliyeti",
+        "de": "Materialkosten pro Einheit",
+        "fr": "Coût matière par unité",
+        "es": "Coste de material por unidad"
       },
       "businessContext_i18n": {
         "en": "Direct material cost per unit of product, including raw materials and purchased components.",
-        "tr": "Ürün birimi başına doğrudan malzeme maliyeti (hammadde ve satın alınan parçalar dahil)."
+        "tr": "Ürün birimi başına doğrudan malzeme maliyeti (hammadde ve satın alınan parçalar dahil).",
+        "de": "Direkte Materialkosten pro Produkteinheit, einschließlich Rohstoffe und zugekaufte Komponenten",
+        "fr": "Coût matière direct par unité de produit, incluant matières premières et composants achetés.",
+        "es": "Coste directo de material por unidad de producto, incluyendo materias primas y componentes comprados."
       }
     },
     {
@@ -41,11 +47,16 @@
       "label_i18n": {
         "en": "Labor Cost per Hour",
         "tr": "Saatlik işçilik maliyeti",
-        "de": "Arbeitskosten pro Stunde"
+        "de": "Arbeitskosten pro Stunde",
+        "fr": "Coût de la main-d'œuvre par heure",
+        "es": "Costo de mano de obra por hora"
       },
       "businessContext_i18n": {
         "en": "Average fully burdened labor cost per hour for direct operators.",
-        "tr": "Doğrudan operatörler için saat başına ortalama tam yüklü işçilik maliyeti."
+        "tr": "Doğrudan operatörler için saat başına ortalama tam yüklü işçilik maliyeti.",
+        "de": "Durchschnittlicher voll belasteter Lohnsatz pro Stunde für direkte Mitarbeiter",
+        "fr": "Coût horaire moyen entièrement chargé de la main-d'œuvre directe.",
+        "es": "Coste medio de mano de obra directa por hora para operadores directos (incluyendo cargas sociales)."
       }
     },
     {
@@ -60,11 +71,16 @@
       "label_i18n": {
         "en": "Overhead Rate",
         "tr": "Genel gider oranı",
-        "de": "Gemeinkostensatz"
+        "de": "Gemeinkostensatz",
+        "fr": "Taux de frais généraux",
+        "es": "Tasa de gastos generales"
       },
       "businessContext_i18n": {
         "en": "Percentage of direct labor cost allocated to manufacturing overhead (ISO 9001 cost accounting).",
-        "tr": "Doğrudan işçilik maliyetinin üretim genel giderlerine ayrılan yüzdesi (ISO 9001 maliyet muhasebesi)."
+        "tr": "Doğrudan işçilik maliyetinin üretim genel giderlerine ayrılan yüzdesi (ISO 9001 maliyet muhasebesi).",
+        "de": "Prozentsatz der direkten Lohnkosten, der den Fertigungsgemeinkosten zugeordnet wird (ISO 9001 Kostenrechnung)",
+        "fr": "Pourcentage du coût de main-d'œuvre directe alloué aux frais généraux de fabrication (ISO 9001 comptabilité analytique).",
+        "es": "Porcentaje del coste de mano de obra directa asignado a gastos generales de fabricación (contabilidad de costes ISO 9001)."
       }
     },
     {
@@ -78,11 +94,17 @@
       "businessContext": "Percentage of units produced that are defective and require rework or scrap (Six Sigma DPMO metric).",
       "label_i18n": {
         "en": "Defect Rate",
-        "tr": "Fire Oranı"
+        "tr": "Fire Oranı",
+        "de": "Fehlerrate",
+        "fr": "Taux de rebut",
+        "es": "Tasa de defectos"
       },
       "businessContext_i18n": {
         "en": "Percentage of units produced that are defective and require rework or scrap (Six Sigma DPMO metric).",
-        "tr": "Üretilen birimlerin yeniden işlem veya fire gerektiren kusurlu yüzdesi (Altı Sigma DPMO metriği)."
+        "tr": "Üretilen birimlerin yeniden işlem veya fire gerektiren kusurlu yüzdesi (Altı Sigma DPMO metriği).",
+        "de": "Prozentsatz der produzierten Einheiten, die fehlerhaft sind und Nacharbeit oder Ausschuss erfordern (Six Sigma DPMO-Kennzahl)",
+        "fr": "Pourcentage d'unités produites défectueuses nécessitant reprise ou rebut (métrique Six Sigma DPMO).",
+        "es": "Porcentaje de unidades producidas que son defectuosas y requieren retrabajo o desperdicio (métrica DPMO de Seis Sigma)."
       }
     },
     {
@@ -96,11 +118,17 @@
       "businessContext": "Average time spent reworking a defective unit.",
       "label_i18n": {
         "en": "Rework Time per Unit",
-        "tr": "Birim Başına Yeniden İşlem Süresi"
+        "tr": "Birim Başına Yeniden İşlem Süresi",
+        "de": "Nacharbeitszeit pro Einheit",
+        "fr": "Temps de reprise par unité",
+        "es": "Tiempo de retrabajo por unidad"
       },
       "businessContext_i18n": {
         "en": "Average time spent reworking a defective unit.",
-        "tr": "Kusurlu bir birimi yeniden işlemek için harcanan ortalama süre."
+        "tr": "Kusurlu bir birimi yeniden işlemek için harcanan ortalama süre.",
+        "de": "Durchschnittliche Zeit für die Nacharbeit einer fehlerhaften Einheit",
+        "fr": "Temps moyen passé à reprendre une unité défectueuse.",
+        "es": "Tiempo medio dedicado a retrabajar una unidad defectuosa."
       }
     },
     {
@@ -115,11 +143,16 @@
       "label_i18n": {
         "en": "Scrap Rate",
         "tr": "Fire Oranı",
-        "de": "Ausschussrate"
+        "de": "Ausschussrate",
+        "fr": "Taux de rebut",
+        "es": "Tasa de desperdicio"
       },
       "businessContext_i18n": {
         "en": "Percentage of defective units that are scrapped (cannot be reworked).",
-        "tr": "Geri dönüştürülemeyen (fire) hatalı birimlerin yüzdesi."
+        "tr": "Geri dönüştürülemeyen (fire) hatalı birimlerin yüzdesi.",
+        "de": "Prozentsatz der fehlerhaften Einheiten, die ausgeschossen werden (nicht nacharbeitbar)",
+        "fr": "Pourcentage d'unités défectueuses mises au rebut (ne peuvent pas être retravaillées).",
+        "es": "Porcentaje de unidades defectuosas que se desechan (no se pueden retrabajar)."
       }
     },
     {
@@ -133,11 +166,17 @@
       "businessContext": "Average idle time per unit due to bottlenecks, material shortages, or equipment downtime (Lean Takt time analysis).",
       "label_i18n": {
         "en": "Waiting Time per Unit",
-        "tr": "Birim Başına Bekleme Süresi"
+        "tr": "Birim Başına Bekleme Süresi",
+        "de": "Wartezeit pro Einheit",
+        "fr": "Temps d'attente par unité",
+        "es": "Tiempo de espera por unidad"
       },
       "businessContext_i18n": {
         "en": "Average idle time per unit due to bottlenecks, material shortages, or equipment downtime (Lean Takt time analysis).",
-        "tr": "Darboğazlar, malzeme eksiklikleri veya ekipman duruşları nedeniyle birim başına ortalama boşta kalma süresi (Yalın Takt süresi analizi)."
+        "tr": "Darboğazlar, malzeme eksiklikleri veya ekipman duruşları nedeniyle birim başına ortalama boşta kalma süresi (Yalın Takt süresi analizi).",
+        "de": "Durchschnittliche Leerlaufzeit pro Einheit aufgrund von Engpässen, Materialmangel oder Maschinenstillstand (Lean Taktzeit-Analyse)",
+        "fr": "Temps d'inactivité moyen par unité dû aux goulots d'étranglement, pénuries de matériaux ou temps d'arrêt des équipements (analyse du temps de takt Lean).",
+        "es": "Tiempo medio de inactividad por unidad debido a cuellos de botella, escasez de material o paradas de equipo (análisis de tiempo takt Lean)."
       }
     },
     {
@@ -151,11 +190,17 @@
       "businessContext": "Cost of unnecessary worker movement (walking, reaching) per unit, based on time-motion studies.",
       "label_i18n": {
         "en": "Excess Motion Cost per Unit",
-        "tr": "Birim Başına Gereksiz Hareket Maliyeti"
+        "tr": "Birim Başına Gereksiz Hareket Maliyeti",
+        "de": "Kosten übermäßiger Bewegung pro Einheit",
+        "fr": "Coût de mouvement excessif par unité",
+        "es": "Coste de movimiento excesivo por unidad"
       },
       "businessContext_i18n": {
         "en": "Cost of unnecessary worker movement (walking, reaching) per unit, based on time-motion studies.",
-        "tr": "Zaman-hareket etüdlerine dayalı olarak, birim başına gereksiz işçi hareketinin (yürüme, uzanma) maliyeti."
+        "tr": "Zaman-hareket etüdlerine dayalı olarak, birim başına gereksiz işçi hareketinin (yürüme, uzanma) maliyeti.",
+        "de": "Kosten unnötiger Arbeiterbewegungen (Gehen, Greifen) pro Einheit, basierend auf Zeit- und Bewegungsstudien.",
+        "fr": "Coût des déplacements inutiles des travailleurs (marche, portée) par unité, basé sur des études de temps et de mouvement.",
+        "es": "Coste del movimiento innecesario del trabajador (caminar, alcanzar) por unidad, basado en estudios de tiempos y movimientos."
       }
     }
   ],

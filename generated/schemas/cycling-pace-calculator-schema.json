@@ -13,13 +13,15 @@
         "tr": "Mesafe",
         "de": "Entfernung",
         "fr": "Distance",
-        "es": "Distance",
+        "es": "Distancia",
         "ar": "Distance"
       },
       "businessContext_i18n": {
         "en": "Total distance cycled in kilometers.",
         "tr": "Kilometre cinsinden toplam bisiklet mesafesi.",
-        "de": "Gesamtstrecke"
+        "de": "Gesamtstrecke",
+        "fr": "Distance totale parcourue en kilomètres.",
+        "es": "Distancia total recorrida en kilómetros."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Hours",
         "tr": "Saat",
         "de": "Stunden",
-        "fr": "Hours",
-        "es": "Hours",
+        "fr": "Heures",
+        "es": "Horas",
         "ar": "Hours"
       },
       "businessContext_i18n": {
         "en": "Hours component of the elapsed time.",
         "tr": "Geçen sürenin saat bileşeni.",
-        "de": "Stundenanteil der verstrichenen Zeit."
+        "de": "Stundenanteil der verstrichenen Zeit.",
+        "fr": "Composante heures du temps écoulé.",
+        "es": "Componente de horas del tiempo transcurrido."
       }
     },
     {
@@ -55,13 +59,15 @@
         "tr": "Dakika",
         "de": "Minuten",
         "fr": "Minutes",
-        "es": "Minutes",
+        "es": "Minutos",
         "ar": "Minutes"
       },
       "businessContext_i18n": {
         "en": "Minutes component of the elapsed time.",
         "tr": "Geçen sürenin dakika bileşeni.",
-        "de": "Minutenanteil der verstrichenen Zeit."
+        "de": "Minutenanteil der verstrichenen Zeit.",
+        "fr": "Composante minutes du temps écoulé.",
+        "es": "Componente de minutos del tiempo transcurrido."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Seconds",
         "tr": "Saniye",
         "de": "Sekunden",
-        "fr": "Seconds",
-        "es": "Seconds",
+        "fr": "Secondes",
+        "es": "Segundos",
         "ar": "Seconds"
       },
       "businessContext_i18n": {
         "en": "Seconds component of the elapsed time.",
         "tr": "Geçen sürenin saniye bileşeni.",
-        "de": "Sekundenanteil der verstrichenen Zeit."
+        "de": "Sekundenanteil der verstrichenen Zeit.",
+        "fr": "Composante secondes du temps écoulé.",
+        "es": "Componente de segundos del tiempo transcurrido."
       }
     }
   ],

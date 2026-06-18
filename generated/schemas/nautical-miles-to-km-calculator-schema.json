@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Deniz Mili",
         "tr": "Deniz Mili",
-        "de": "Deniz Mili",
+        "de": "Seemeile",
         "fr": "Deniz Mili",
-        "es": "Deniz Mili",
+        "es": "Milla náutica",
         "ar": "Deniz Mili"
       },
       "businessContext_i18n": {
         "en": "Dönüştürülecek deniz mili miktarı",
-        "tr": "Dönüştürülecek deniz mili miktarı"
+        "tr": "Dönüştürülecek deniz mili miktarı",
+        "de": "Menge der umzurechnenden Seemeilen",
+        "fr": "Dönüştürülecek deniz mili miktarı",
+        "es": "Cantidad de millas náuticas a convertir"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Dönüşüm Faktörü",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Dönüşüm Faktörü",
-        "es": "Dönüşüm Faktörü",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Dönüşüm Faktörü"
       },
       "businessContext_i18n": {
         "en": "Uluslararası standart dönüşüm katsayısı (1 NM = 1.852 km). Müşteriye özel durumlar için değiştirilebilir.",
-        "tr": "Uluslararası standart dönüşüm katsayısı (1 NM = 1.852 km). Müşteriye özel durumlar için değiştirilebilir."
+        "tr": "Uluslararası standart dönüşüm katsayısı (1 NM = 1.852 km). Müşteriye özel durumlar için değiştirilebilir.",
+        "de": "Internationaler Standard-Umrechnungsfaktor (1 NM = 1,852 km). Kann für kundenspezifische Fälle geändert werden.",
+        "fr": "Uluslararası standart dönüşüm katsayısı (1 NM = 1.852 km). Müşteriye özel durumlar için değiştirilebilir.",
+        "es": "Factor de conversión estándar internacional (1 NM = 1.852 km). Se puede modificar para casos especiales del cliente."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Sefer Sayısı",
         "tr": "Sefer Sayısı",
-        "de": "Sefer Sayısı",
+        "de": "Anzahl der Fahrten",
         "fr": "Sefer Sayısı",
-        "es": "Sefer Sayısı",
+        "es": "Número de viajes",
         "ar": "Sefer Sayısı"
       },
       "businessContext_i18n": {
         "en": "Aynı mesafenin tekrar sayısı; toplu mesafe hesabı için kullanılır.",
-        "tr": "Aynı mesafenin tekrar sayısı; toplu mesafe hesabı için kullanılır."
+        "tr": "Aynı mesafenin tekrar sayısı; toplu mesafe hesabı için kullanılır.",
+        "de": "Wiederholungsanzahl derselben Strecke; wird für die Gesamtstreckenberechnung verwendet.",
+        "fr": "Aynı mesafenin tekrar sayısı; toplu mesafe hesabı için kullanılır.",
+        "es": "Número de repeticiones de la misma distancia; se utiliza para el cálculo de distancia total."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Ondalık Basamak",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Ondalık Basamak",
-        "es": "Ondalık Basamak",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Ondalık Basamak"
       },
       "businessContext_i18n": {
         "en": "Sonuçta gösterilecek ondalık basamak adedi (0–6)",
-        "tr": "Sonuçta gösterilecek ondalık basamak adedi (0–6)"
+        "tr": "Sonuçta gösterilecek ondalık basamak adedi (0–6)",
+        "de": "Anzahl der im Ergebnis anzuzeigenden Dezimalstellen (0–6)",
+        "fr": "Sonuçta gösterilecek ondalık basamak adedi (0–6)",
+        "es": "Número de decimales a mostrar en el resultado (0–6)"
       }
     }
   ],

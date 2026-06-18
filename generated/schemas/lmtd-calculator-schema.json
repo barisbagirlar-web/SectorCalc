@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Hot Inlet Temperature",
         "tr": "Sıcak Giriş Sıcaklığı",
-        "de": "Hot Inlet Temperature",
-        "fr": "Hot Inlet Temperature",
-        "es": "Hot Inlet Temperature",
+        "de": "Heiße Eintrittstemperatur",
+        "fr": "Température d'entrée chaude",
+        "es": "Temperatura de entrada caliente",
         "ar": "Hot Inlet Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of hot fluid entering the heat exchanger.",
-        "tr": "Isı değiştiriciye giren sıcak akışkanın sıcaklığı."
+        "tr": "Isı değiştiriciye giren sıcak akışkanın sıcaklığı.",
+        "de": "Temperatur des heißen Fluids beim Eintritt in den Wärmetauscher.",
+        "fr": "Température du fluide chaud entrant dans l'échangeur de chaleur.",
+        "es": "Temperatura del fluido caliente que entra al intercambiador de calor."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Hot Outlet Temperature",
         "tr": "Sıcak Çıkış Sıcaklığı",
-        "de": "Hot Outlet Temperature",
-        "fr": "Hot Outlet Temperature",
-        "es": "Hot Outlet Temperature",
+        "de": "Heiße Austrittstemperatur",
+        "fr": "Température de sortie chaude",
+        "es": "Temperatura de salida caliente",
         "ar": "Hot Outlet Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of hot fluid leaving the heat exchanger.",
-        "tr": "Isı değiştiriciden çıkan sıcak akışkanın sıcaklığı."
+        "tr": "Isı değiştiriciden çıkan sıcak akışkanın sıcaklığı.",
+        "de": "Temperatur des heißen Fluids beim Austritt aus dem Wärmetauscher.",
+        "fr": "Température du fluide chaud sortant de l'échangeur de chaleur.",
+        "es": "Temperatura del fluido caliente que sale del intercambiador de calor."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Cold Inlet Temperature",
         "tr": "Soğuk Giriş Sıcaklığı",
-        "de": "Cold Inlet Temperature",
-        "fr": "Cold Inlet Temperature",
-        "es": "Cold Inlet Temperature",
+        "de": "Kalt-Einlasstemperatur",
+        "fr": "Température d'entrée froide",
+        "es": "Temperatura de entrada del fluido frío",
         "ar": "Cold Inlet Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of cold fluid entering the heat exchanger.",
-        "tr": "Isı değiştiriciye giren soğuk akışkanın sıcaklığı."
+        "tr": "Isı değiştiriciye giren soğuk akışkanın sıcaklığı.",
+        "de": "Temperatur des kalten Fluids beim Eintritt in den Wärmetauscher.",
+        "fr": "Température du fluide froid entrant dans l'échangeur de chaleur.",
+        "es": "Temperatura del fluido frío que ingresa al intercambiador de calor."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Cold Outlet Temperature",
         "tr": "Soğuk Çıkış Sıcaklığı",
-        "de": "Cold Outlet Temperature",
-        "fr": "Cold Outlet Temperature",
-        "es": "Cold Outlet Temperature",
+        "de": "Kalt-Auslasstemperatur",
+        "fr": "Température de sortie froide",
+        "es": "Temperatura de salida del fluido frío",
         "ar": "Cold Outlet Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of cold fluid leaving the heat exchanger.",
-        "tr": "Isı değiştiriciden çıkan soğuk akışkanın sıcaklığı."
+        "tr": "Isı değiştiriciden çıkan soğuk akışkanın sıcaklığı.",
+        "de": "Temperatur des kalten Fluids beim Austritt aus dem Wärmetauscher.",
+        "fr": "Température du fluide froid sortant de l'échangeur de chaleur.",
+        "es": "Temperatura del fluido frío que sale del intercambiador de calor."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Flow Arrangement (1=Counterflow, 2=Parallel)",
         "tr": "Akış Düzeni (1=Ters Akış, 2=Paralel Akış)",
-        "de": "Flow Arrangement (1=Counterflow, 2=Parallel)",
-        "fr": "Flow Arrangement (1=Counterflow, 2=Parallel)",
-        "es": "Flow Arrangement (1=Counterflow, 2=Parallel)",
+        "de": "Strömungsanordnung (1=Gegenstrom, 2=Parallelstrom)",
+        "fr": "Disposition des flux (1=contre-courant, 2=parallèle)",
+        "es": "Disposición del flujo (1=contracorriente, 2=paralelo)",
         "ar": "Flow Arrangement (1=Counterflow, 2=Parallel)"
       },
       "businessContext_i18n": {
         "en": "Heat exchanger flow configuration. Use 1 for counterflow, 2 for parallel flow.",
-        "tr": "Isı değiştirici akış konfigürasyonu. Ters akış için 1, paralel akış için 2 kullanın."
+        "tr": "Isı değiştirici akış konfigürasyonu. Ters akış için 1, paralel akış için 2 kullanın.",
+        "de": "Strömungskonfiguration des Wärmetauschers. Verwenden Sie 1 für Gegenstrom, 2 für Parallelstrom.",
+        "fr": "Configuration du flux de l'échangeur de chaleur. Utilisez 1 pour contre-courant, 2 pour flux parallèle.",
+        "es": "Configuración del flujo del intercambiador de calor. Use 1 para contracorriente, 2 para flujo paralelo."
       }
     }
   ],

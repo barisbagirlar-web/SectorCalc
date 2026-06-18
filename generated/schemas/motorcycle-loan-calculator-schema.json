@@ -12,13 +12,16 @@
         "en": "Vehicle Price",
         "tr": "Araç Fiyatı",
         "de": "Fahrzeugpreis",
-        "fr": "Vehicle Price",
-        "es": "Vehicle Price",
+        "fr": "Prix du véhicule",
+        "es": "Precio del vehículo",
         "ar": "Vehicle Price"
       },
       "businessContext_i18n": {
         "en": "The total price of the motorcycle before any additional taxes, down payment, or trade-in.",
-        "tr": "Vergi, peşinat veya takas öncesi motosikletin toplam fiyatı."
+        "tr": "Vergi, peşinat veya takas öncesi motosikletin toplam fiyatı.",
+        "de": "Der Gesamtpreis des Motorrads vor zusätzlichen Steuern, Anzahlung oder Inzahlungnahme.",
+        "fr": "Prix total de la moto avant taxes, acompte ou reprise.",
+        "es": "Precio total de la motocicleta antes de impuestos adicionales, pago inicial o valor de permuta."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Down Payment",
         "tr": "Peşinat",
         "de": "Anzahlung",
-        "fr": "Down Payment",
-        "es": "Down Payment",
+        "fr": "Acompte",
+        "es": "Pago inicial",
         "ar": "Down Payment"
       },
       "businessContext_i18n": {
         "en": "Initial cash amount paid upfront to reduce the loan principal.",
-        "tr": "Kredi anaparasını azaltmak için peşin ödenen nakit miktarı."
+        "tr": "Kredi anaparasını azaltmak için peşin ödenen nakit miktarı.",
+        "de": "Anfänglicher Barzahlungsbetrag, der zur Reduzierung des Darlehensbetrags gezahlt wird.",
+        "fr": "Montant initial payé comptant pour réduire le capital du prêt.",
+        "es": "Cantidad inicial en efectivo pagada por adelantado para reducir el capital del préstamo."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Trade-in Value",
         "tr": "Takas Değeri",
-        "de": "Trade-in Value",
-        "fr": "Trade-in Value",
-        "es": "Trade-in Value",
+        "de": "Inzahlungnahmewert",
+        "fr": "Valeur de reprise",
+        "es": "Valor de permuta",
         "ar": "Trade-in Value"
       },
       "businessContext_i18n": {
         "en": "Value of a vehicle traded in as part of the purchase, reducing the amount to finance.",
-        "tr": "Satın alma sırasında takas edilen aracın değeri, finanse edilecek tutarı azaltır."
+        "tr": "Satın alma sırasında takas edilen aracın değeri, finanse edilecek tutarı azaltır.",
+        "de": "Wert des Fahrzeugs, das als Teil des Kaufs in Zahlung gegeben wird, wodurch der zu finanzierende Betrag reduziert wird.",
+        "fr": "Valeur d'un véhicule repris dans le cadre de l'achat, réduisant le montant à financer.",
+        "es": "Valor de un vehículo entregado como parte de la compra, reduciendo el monto a financiar."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
         "de": "Jährlicher Zinssatz",
-        "fr": "Annual Interest Rate",
-        "es": "Annual Interest Rate",
+        "fr": "Taux d'intérêt annuel",
+        "es": "Tasa de Interés Anual",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Yearly interest rate of the loan, expressed as a percentage.",
-        "tr": "Kredinin yıllık faiz oranı, yüzde olarak ifade edilir."
+        "tr": "Kredinin yıllık faiz oranı, yüzde olarak ifade edilir.",
+        "de": "Jährlicher Zinssatz des Darlehens, ausgedrückt in Prozent.",
+        "fr": "Taux d'intérêt annuel du prêt, exprimé en pourcentage.",
+        "es": "Tasa de interés anual del préstamo, expresada como porcentaje."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Loan Term",
         "tr": "Kredi Vadesi",
         "de": "Darlehenslaufzeit",
-        "fr": "Loan Term",
-        "es": "Loan Term",
+        "fr": "Durée du prêt",
+        "es": "Plazo del préstamo",
         "ar": "Loan Term"
       },
       "businessContext_i18n": {
         "en": "Duration of the loan repayment period in months.",
-        "tr": "Kredi geri ödeme süresinin ay cinsinden süresi."
+        "tr": "Kredi geri ödeme süresinin ay cinsinden süresi.",
+        "de": "Dauer der Darlehensrückzahlung in Monaten.",
+        "fr": "Durée de remboursement du prêt en mois.",
+        "es": "Duración del período de pago del préstamo en meses."
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Sales Tax Rate",
         "tr": "Satış Vergisi Oranı",
         "de": "Umsatzsteuersatz",
-        "fr": "Sales Tax Rate",
-        "es": "Sales Tax Rate",
+        "fr": "Taux de taxe de vente",
+        "es": "Tasa de impuesto a las ventas",
         "ar": "Sales Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Applicable sales tax percentage added to the vehicle price.",
-        "tr": "Araç fiyatına eklenen geçerli satış vergisi yüzdesi."
+        "tr": "Araç fiyatına eklenen geçerli satış vergisi yüzdesi.",
+        "de": "Anwendbarer Umsatzsteuersatz in Prozent, der zum Fahrzeugpreis hinzugefügt wird.",
+        "fr": "Pourcentage de taxe de vente applicable ajouté au prix du véhicule.",
+        "es": "Porcentaje de impuesto a las ventas aplicable añadido al precio del vehículo."
       }
     }
   ],

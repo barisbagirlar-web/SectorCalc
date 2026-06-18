@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Gözlem Sayısı",
         "tr": "Gözlem Sayısı",
-        "de": "Gözlem Sayısı",
-        "fr": "Gözlem Sayısı",
+        "de": "Anzahl der Beobachtungen",
+        "fr": "Nombre d'observations",
         "es": "Gözlem Sayısı",
         "ar": "Gözlem Sayısı"
       },
       "businessContext_i18n": {
         "en": "Veri setindeki gözlem sayısı (örn. 10)",
-        "tr": "Veri setindeki gözlem sayısı (örn. 10)"
+        "tr": "Veri setindeki gözlem sayısı (örn. 10)",
+        "de": "Anzahl der Beobachtungen im Datensatz (z. B. 10)",
+        "fr": "Nombre d'observations dans l'ensemble de données (ex. 10)"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Toplam (∑x)",
         "tr": "Toplam (∑x)",
-        "de": "Toplam (∑x)",
-        "fr": "Toplam (∑x)",
+        "de": "Summe (∑x)",
+        "fr": "Somme (∑x)",
         "es": "Toplam (∑x)",
         "ar": "Toplam (∑x)"
       },
       "businessContext_i18n": {
         "en": "Tüm gözlem değerlerinin toplamı",
-        "tr": "Tüm gözlem değerlerinin toplamı"
+        "tr": "Tüm gözlem değerlerinin toplamı",
+        "de": "Summe aller Beobachtungswerte",
+        "fr": "Somme de toutes les valeurs d'observation"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Kareler Toplamı (∑x²)",
         "tr": "Kareler Toplamı (∑x²)",
-        "de": "Kareler Toplamı (∑x²)",
-        "fr": "Kareler Toplamı (∑x²)",
+        "de": "Summe der Quadrate (∑x²)",
+        "fr": "Somme des carrés (∑x²)",
         "es": "Kareler Toplamı (∑x²)",
         "ar": "Kareler Toplamı (∑x²)"
       },
       "businessContext_i18n": {
         "en": "Her bir gözlem değerinin karesinin toplamı",
-        "tr": "Her bir gözlem değerinin karesinin toplamı"
+        "tr": "Her bir gözlem değerinin karesinin toplamı",
+        "de": "Summe der Quadrate jedes Beobachtungswertes",
+        "fr": "Somme des carrés de chaque valeur d'observation"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Popülasyon mu?",
         "tr": "Popülasyon mu?",
-        "de": "Popülasyon mu?",
-        "fr": "Popülasyon mu?",
+        "de": "Grundgesamtheit?",
+        "fr": "Population ?",
         "es": "Popülasyon mu?",
         "ar": "Popülasyon mu?"
       },
       "businessContext_i18n": {
         "en": "1: Popülasyon varyansı, 0: Örneklem varyansı",
-        "tr": "1: Popülasyon varyansı, 0: Örneklem varyansı"
+        "tr": "1: Popülasyon varyansı, 0: Örneklem varyansı",
+        "de": "1: Varianz der Grundgesamtheit, 0: Stichprobenvarianz",
+        "fr": "1 : Variance de population, 0 : Variance d'échantillon"
       }
     }
   ],

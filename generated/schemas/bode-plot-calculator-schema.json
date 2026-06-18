@@ -12,14 +12,16 @@
         "en": "DC Gain",
         "tr": "DC Kazanç",
         "de": "DC-Verstärkung",
-        "fr": "DC Gain",
-        "es": "DC Gain",
+        "fr": "Gain DC",
+        "es": "Ganancia DC",
         "ar": "DC Gain"
       },
       "businessContext_i18n": {
         "en": "System static gain (K)",
         "tr": "Sistem statik kazancı (K)",
-        "de": "Statische Verstärkung des Systems (K)"
+        "de": "Statische Verstärkung des Systems (K)",
+        "fr": "Gain statique du système (K)",
+        "es": "Ganancia estática del sistema (K)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Pole Frequency",
         "tr": "Kutup Frekansı",
         "de": "Polfrequenz",
-        "fr": "Pole Frequency",
-        "es": "Pole Frequency",
+        "fr": "Fréquence du pôle",
+        "es": "Frecuencia del polo",
         "ar": "Pole Frequency"
       },
       "businessContext_i18n": {
         "en": "Cut-off frequency of dominant pole (>0 Hz)",
         "tr": "Baskın kutbun kesme frekansı (>0 Hz)",
-        "de": "Grenzfrequenz des dominanten Pols (>0 Hz)"
+        "de": "Grenzfrequenz des dominanten Pols (>0 Hz)",
+        "fr": "Fréquence de coupure du pôle dominant (>0 Hz)",
+        "es": "Frecuencia de corte del polo dominante (>0 Hz)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Zero Frequency",
         "tr": "Sıfır Frekans",
         "de": "Nullfrequenz",
-        "fr": "Zero Frequency",
-        "es": "Zero Frequency",
+        "fr": "Fréquence zéro",
+        "es": "Frecuencia cero",
         "ar": "Zero Frequency"
       },
       "businessContext_i18n": {
         "en": "Frequency of zero (>0 Hz)",
         "tr": "Sıfır frekansı (>0 Hz)",
-        "de": "Frequenz von Null (>0 Hz)"
+        "de": "Frequenz von Null (>0 Hz)",
+        "fr": "Fréquence de zéro (>0 Hz)",
+        "es": "Frecuencia de cero (>0 Hz)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Test Frequency",
         "tr": "Test Frekansı",
         "de": "Testfrequenz",
-        "fr": "Test Frequency",
-        "es": "Test Frequency",
+        "fr": "Fréquence de test",
+        "es": "Frecuencia de prueba",
         "ar": "Test Frequency"
       },
       "businessContext_i18n": {
         "en": "Frequency at which to evaluate magnitude",
         "tr": "Genliğin değerlendirileceği frekans",
-        "de": "Frequenz, bei der die Amplitude bewertet wird"
+        "de": "Frequenz, bei der die Amplitude bewertet wird",
+        "fr": "Fréquence à laquelle évaluer l'amplitude",
+        "es": "Frecuencia a la que evaluar la magnitud"
       }
     }
   ],

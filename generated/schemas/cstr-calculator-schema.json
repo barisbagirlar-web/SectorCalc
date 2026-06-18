@@ -12,14 +12,16 @@
         "en": "Volumetric Flow Rate (v0)",
         "tr": "Hacimsel Akış Hızı (v0)",
         "de": "Volumenstrom (v0)",
-        "fr": "Volumetric Flow Rate (v0)",
-        "es": "Volumetric Flow Rate (v0)",
+        "fr": "Débit volumétrique (v0)",
+        "es": "Caudal volumétrico (v0)",
         "ar": "Volumetric Flow Rate (v0)"
       },
       "businessContext_i18n": {
         "en": "Inlet volumetric flow rate of the reactant stream.",
         "tr": "Reaktan akışının giriş hacimsel debisi.",
-        "de": "Eingangsvolumenstrom des Reaktantenstroms"
+        "de": "Eingangsvolumenstrom des Reaktantenstroms",
+        "fr": "Débit volumétrique d'entrée du flux de réactif.",
+        "es": "Caudal volumétrico de entrada de la corriente de reactivo."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Inlet Concentration (CA0)",
         "tr": "Giriş Konsantrasyonu (CA0)",
         "de": "Eingangskonzentration (CA0)",
-        "fr": "Inlet Concentration (CA0)",
-        "es": "Inlet Concentration (CA0)",
+        "fr": "Concentration d'entrée (CA0)",
+        "es": "Concentración de entrada (CA0)",
         "ar": "Inlet Concentration (CA0)"
       },
       "businessContext_i18n": {
         "en": "Concentration of reactant A in the feed.",
         "tr": "Beslemedeki A reaktanının konsantrasyonu.",
-        "de": "Konzentration des Reaktanten A im Zulauf"
+        "de": "Konzentration des Reaktanten A im Zulauf",
+        "fr": "Concentration du réactif A dans l'alimentation.",
+        "es": "Concentración del reactivo A en la alimentación."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Rate Constant (k)",
         "tr": "Hız Sabiti (k)",
         "de": "Geschwindigkeitskonstante (k)",
-        "fr": "Rate Constant (k)",
-        "es": "Rate Constant (k)",
+        "fr": "Constante de vitesse (k)",
+        "es": "Constante de velocidad (k)",
         "ar": "Rate Constant (k)"
       },
       "businessContext_i18n": {
         "en": "First-order reaction rate constant.",
         "tr": "Birinci derece reaksiyon hız sabiti.",
-        "de": "Geschwindigkeitskonstante erster Ordnung"
+        "de": "Geschwindigkeitskonstante erster Ordnung",
+        "fr": "Constante de vitesse de réaction du premier ordre.",
+        "es": "Constante de velocidad de reacción de primer orden."
       }
     },
     {
@@ -76,13 +82,15 @@
         "tr": "Dönüşüm (X)",
         "de": "Umsatz (X)",
         "fr": "Conversion (X)",
-        "es": "Conversion (X)",
+        "es": "Conversión (X)",
         "ar": "Conversion (X)"
       },
       "businessContext_i18n": {
         "en": "Required fractional conversion of reactant A.",
         "tr": "Gerekli kesirli dönüşüm oranı.",
-        "de": "Erforderlicher fraktioneller Umsatz von Reaktant A"
+        "de": "Erforderlicher fraktioneller Umsatz von Reaktant A",
+        "fr": "Conversion fractionnelle requise du réactif A.",
+        "es": "Fracción de conversión requerida del reactivo A."
       }
     }
   ],

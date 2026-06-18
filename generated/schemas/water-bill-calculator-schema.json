@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Previous Meter Reading (m³)",
         "tr": "Önceki Sayaç Okuması (m³)",
-        "de": "Previous Meter Reading (m³)",
-        "fr": "Previous Meter Reading (m³)",
+        "de": "Vorheriger Zählerstand (m³)",
+        "fr": "Relevé précédent du compteur (m³)",
         "es": "Previous Meter Reading (m³)",
         "ar": "Previous Meter Reading (m³)"
       },
       "businessContext_i18n": {
         "en": "The meter reading at the start of the billing period, in cubic meters.",
-        "tr": "Fatura dönemi başlangıcındaki sayaç okuması, metreküp cinsinden."
+        "tr": "Fatura dönemi başlangıcındaki sayaç okuması, metreküp cinsinden.",
+        "de": "Der Zählerstand zu Beginn des Abrechnungszeitraums in Kubikmetern.",
+        "fr": "Relevé du compteur au début de la période de facturation, en mètres cubes."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Current Meter Reading (m³)",
         "tr": "Mevcut Sayaç Okuması (m³)",
-        "de": "Current Meter Reading (m³)",
-        "fr": "Current Meter Reading (m³)",
+        "de": "Aktueller Zählerstand (m³)",
+        "fr": "Relevé actuel du compteur (m³)",
         "es": "Current Meter Reading (m³)",
         "ar": "Current Meter Reading (m³)"
       },
       "businessContext_i18n": {
         "en": "The meter reading at the end of the billing period, in cubic meters.",
-        "tr": "Fatura dönemi sonundaki sayaç okuması, metreküp cinsinden."
+        "tr": "Fatura dönemi sonundaki sayaç okuması, metreküp cinsinden.",
+        "de": "Der Zählerstand am Ende des Abrechnungszeitraums in Kubikmetern.",
+        "fr": "Relevé du compteur à la fin de la période de facturation, en mètres cubes."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Fixed Charge",
         "tr": "Sabit Ücret",
-        "de": "Fixed Charge",
-        "fr": "Fixed Charge",
+        "de": "Grundgebühr",
+        "fr": "Frais fixes",
         "es": "Fixed Charge",
         "ar": "Fixed Charge"
       },
       "businessContext_i18n": {
         "en": "Monthly fixed service charge regardless of consumption.",
-        "tr": "Tüketimden bağımsız aylık sabit hizmet ücreti."
+        "tr": "Tüketimden bağımsız aylık sabit hizmet ücreti.",
+        "de": "Monatliche Grundgebühr unabhängig vom Verbrauch.",
+        "fr": "Frais de service fixes mensuels, indépendants de la consommation."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Rate per Cubic Meter",
         "tr": "Metreküp Başına Ücret",
-        "de": "Rate per Cubic Meter",
-        "fr": "Rate per Cubic Meter",
+        "de": "Preis pro Kubikmeter",
+        "fr": "Tarif au mètre cube",
         "es": "Rate per Cubic Meter",
         "ar": "Rate per Cubic Meter"
       },
       "businessContext_i18n": {
         "en": "Variable charge per cubic meter of water consumed.",
-        "tr": "Tüketilen her metreküp su için değişken ücret."
+        "tr": "Tüketilen her metreküp su için değişken ücret.",
+        "de": "Variable Gebühr pro Kubikmeter verbrauchten Wassers.",
+        "fr": "Frais variables par mètre cube d'eau consommé."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Tax Rate (%)",
         "tr": "Vergi Oranı (%)",
-        "de": "Tax Rate (%)",
-        "fr": "Tax Rate (%)",
-        "es": "Tax Rate (%)",
+        "de": "Steuersatz (%)",
+        "fr": "Taux d'imposition (%)",
+        "es": "Tasa impositiva (%)",
         "ar": "Tax Rate (%)"
       },
       "businessContext_i18n": {
         "en": "Tax percentage applied to the subtotal (usage + fixed charge).",
-        "tr": "Ara toplama (kullanım + sabit ücret) uygulanan vergi yüzdesi."
+        "tr": "Ara toplama (kullanım + sabit ücret) uygulanan vergi yüzdesi.",
+        "de": "Steuerprozentsatz, der auf den Zwischensumme (Verbrauch + Grundgebühr) angewendet wird.",
+        "fr": "Pourcentage de taxe appliqué au sous-total (utilisation + frais fixes)."
       }
     }
   ],

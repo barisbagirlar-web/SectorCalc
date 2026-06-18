@@ -12,13 +12,15 @@
         "en": "Bill Amount",
         "tr": "Fatura Tutarı",
         "de": "Rechnungsbetrag",
-        "fr": "Bill Amount",
-        "es": "Bill Amount",
+        "fr": "Montant de la facture",
+        "es": "Monto de la cuenta",
         "ar": "Bill Amount"
       },
       "businessContext_i18n": {
         "en": "Total bill subtotal before tax and tip",
-        "tr": "Vergi ve bahşiş öncesi toplam fatura ara toplamı"
+        "tr": "Vergi ve bahşiş öncesi toplam fatura ara toplamı",
+        "de": "Zwischensumme der Rechnung vor Steuern und Trinkgeld",
+        "fr": "Sous-total de la facture avant taxes et pourboire"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Tip Percentage",
         "tr": "Bahşiş Yüzdesi",
         "de": "Trinkgeldprozentsatz",
-        "fr": "Tip Percentage",
-        "es": "Tip Percentage",
+        "fr": "Pourcentage de pourboire",
+        "es": "Porcentaje de propina",
         "ar": "Tip Percentage"
       },
       "businessContext_i18n": {
         "en": "Tip percentage to add, e.g., 15, 18, 20",
-        "tr": "Eklenecek bahşiş yüzdesi, örn. 15, 18, 20"
+        "tr": "Eklenecek bahşiş yüzdesi, örn. 15, 18, 20",
+        "de": "Trinkgeldprozentsatz, z.B. 15, 18, 20",
+        "fr": "Pourcentage de pourboire à ajouter, ex. 15, 18, 20"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Tax Percentage",
         "tr": "Vergi Yüzdesi",
         "de": "Steuerprozentsatz",
-        "fr": "Tax Percentage",
-        "es": "Tax Percentage",
+        "fr": "Pourcentage de taxe",
+        "es": "Porcentaje de impuesto",
         "ar": "Tax Percentage"
       },
       "businessContext_i18n": {
         "en": "Sales tax percentage applied to bill",
-        "tr": "Faturaya uygulanan satış vergisi yüzdesi"
+        "tr": "Faturaya uygulanan satış vergisi yüzdesi",
+        "de": "Umsatzsteuerprozentsatz, der auf die Rechnung angewendet wird",
+        "fr": "Pourcentage de taxe de vente appliqué à la facture"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Number of People",
         "tr": "Kişi Sayısı",
         "de": "Anzahl der Personen",
-        "fr": "Number of People",
-        "es": "Number of People",
+        "fr": "Nombre de personnes",
+        "es": "Número de personas",
         "ar": "Number of People"
       },
       "businessContext_i18n": {
         "en": "Number of people splitting the bill",
-        "tr": "Faturayı bölen kişi sayısı"
+        "tr": "Faturayı bölen kişi sayısı",
+        "de": "Anzahl der Personen, die die Rechnung teilen",
+        "fr": "Nombre de personnes divisant la facture"
       }
     }
   ],

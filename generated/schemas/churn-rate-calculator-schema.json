@@ -12,14 +12,16 @@
         "en": "Dönem Başı Müşteri Sayısı",
         "tr": "Dönem Başı Müşteri Sayısı",
         "de": "Kunden zu Periodenbeginn",
-        "fr": "Dönem Başı Müşteri Sayısı",
-        "es": "Dönem Başı Müşteri Sayısı",
+        "fr": "Nombre de clients en début de période",
+        "es": "Clientes al inicio del período",
         "ar": "Dönem Başı Müşteri Sayısı"
       },
       "businessContext_i18n": {
         "en": "Ölçüm döneminin başındaki aktif müşteri sayısı",
         "tr": "Ölçüm döneminin başındaki aktif müşteri sayısı",
-        "de": "Anzahl aktiver Kunden zu Beginn des Messzeitraums"
+        "de": "Anzahl aktiver Kunden zu Beginn des Messzeitraums",
+        "fr": "Nombre de clients actifs au début de la période de mesure",
+        "es": "Número de clientes activos al inicio del período de medición"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Kaybedilen Müşteri Sayısı",
         "tr": "Kaybedilen Müşteri Sayısı",
         "de": "Verlorene Kunden",
-        "fr": "Kaybedilen Müşteri Sayısı",
-        "es": "Kaybedilen Müşteri Sayısı",
+        "fr": "Nombre de clients perdus",
+        "es": "Clientes perdidos",
         "ar": "Kaybedilen Müşteri Sayısı"
       },
       "businessContext_i18n": {
         "en": "Dönem içinde kaybedilen (churn eden) müşteri sayısı",
         "tr": "Dönem içinde kaybedilen (churn eden) müşteri sayısı",
-        "de": "Anzahl der im Zeitraum verlorenen (abgewanderten) Kunden"
+        "de": "Anzahl der im Zeitraum verlorenen (abgewanderten) Kunden",
+        "fr": "Nombre de clients perdus (désabonnés) au cours de la période",
+        "es": "Número de clientes perdidos (churn) durante el período"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Dönem Başı Aylık Yinelenen Gelir (MRR)",
         "tr": "Dönem Başı Aylık Yinelenen Gelir (MRR)",
         "de": "Monatlich wiederkehrender Umsatz (MRR) zu Periodenbeginn",
-        "fr": "Dönem Başı Aylık Yinelenen Gelir (MRR)",
-        "es": "Dönem Başı Aylık Yinelenen Gelir (MRR)",
+        "fr": "Revenu mensuel récurrent (MRR) en début de période",
+        "es": "Ingresos recurrentes mensuales (MRR) al inicio del período",
         "ar": "Dönem Başı Aylık Yinelenen Gelir (MRR)"
       },
       "businessContext_i18n": {
         "en": "Dönem başındaki toplam aylık yinelenen gelir",
         "tr": "Dönem başındaki toplam aylık yinelenen gelir",
-        "de": "Gesamter monatlich wiederkehrender Umsatz zu Periodenbeginn"
+        "de": "Gesamter monatlich wiederkehrender Umsatz zu Periodenbeginn",
+        "fr": "Revenu mensuel récurrent total en début de période",
+        "es": "Total de ingresos recurrentes mensuales al inicio del período"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Kaybedilen MRR",
         "tr": "Kaybedilen MRR",
         "de": "Verlorener MRR",
-        "fr": "Kaybedilen MRR",
-        "es": "Kaybedilen MRR",
+        "fr": "MRR perdu",
+        "es": "MRR perdido",
         "ar": "Kaybedilen MRR"
       },
       "businessContext_i18n": {
         "en": "Kaybedilen müşterilerden gelen aylık yinelenen gelir kaybı",
         "tr": "Kaybedilen müşterilerden gelen aylık yinelenen gelir kaybı",
-        "de": "Verlust an monatlich wiederkehrendem Umsatz durch verlorene Kunden"
+        "de": "Verlust an monatlich wiederkehrendem Umsatz durch verlorene Kunden",
+        "fr": "Perte de revenu mensuel récurrent due aux clients perdus",
+        "es": "Pérdida de ingresos recurrentes mensuales de los clientes perdidos"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Ölçüm Dönemi (Ay)",
         "tr": "Ölçüm Dönemi (Ay)",
         "de": "Messzeitraum (Monate)",
-        "fr": "Ölçüm Dönemi (Ay)",
-        "es": "Ölçüm Dönemi (Ay)",
+        "fr": "Période de mesure (mois)",
+        "es": "Período de medición (meses)",
         "ar": "Ölçüm Dönemi (Ay)"
       },
       "businessContext_i18n": {
         "en": "Kayıp oranının hesaplandığı dönem (genellikle aylık)",
         "tr": "Kayıp oranının hesaplandığı dönem (genellikle aylık)",
-        "de": "Zeitraum, für den die Verlustrate berechnet wird (normalerweise monatlich)"
+        "de": "Zeitraum, für den die Verlustrate berechnet wird (normalerweise monatlich)",
+        "fr": "Période sur laquelle le taux de perte est calculé (généralement mensuelle)",
+        "es": "Período en el que se calcula la tasa de pérdida (generalmente mensual)"
       }
     }
   ],

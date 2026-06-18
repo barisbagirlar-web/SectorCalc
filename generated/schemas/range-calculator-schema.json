@@ -12,13 +12,16 @@
         "en": "Minimum Value",
         "tr": "Minimum Değer",
         "de": "Mindestwert",
-        "fr": "Minimum Value",
-        "es": "Minimum Value",
+        "fr": "Valeur minimale",
+        "es": "Valor mínimo",
         "ar": "Minimum Value"
       },
       "businessContext_i18n": {
         "en": "The lower bound of the measured data set.",
-        "tr": "Ölçülen veri setinin alt sınırı."
+        "tr": "Ölçülen veri setinin alt sınırı.",
+        "de": "Die untere Grenze des gemessenen Datensatzes.",
+        "fr": "La limite inférieure de l'ensemble de données mesurées.",
+        "es": "El límite inferior del conjunto de datos medidos."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Maximum Value",
         "tr": "Maksimum Değer",
         "de": "Höchstwert",
-        "fr": "Maximum Value",
-        "es": "Maximum Value",
+        "fr": "Valeur maximale",
+        "es": "Valor máximo",
         "ar": "Maximum Value"
       },
       "businessContext_i18n": {
         "en": "The upper bound of the measured data set.",
-        "tr": "Ölçülen veri setinin üst sınırı."
+        "tr": "Ölçülen veri setinin üst sınırı.",
+        "de": "Die obere Grenze des gemessenen Datensatzes.",
+        "fr": "La limite supérieure de l'ensemble de données mesurées.",
+        "es": "El límite superior del conjunto de datos medidos."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Nominal Value",
         "tr": "Nominal Değer",
-        "de": "Nominal Value",
-        "fr": "Nominal Value",
-        "es": "Nominal Value",
+        "de": "Nennwert",
+        "fr": "Valeur nominale",
+        "es": "Valor nominal",
         "ar": "Nominal Value"
       },
       "businessContext_i18n": {
         "en": "The target or expected value for the measurement.",
-        "tr": "Ölçüm için hedef veya beklenen değer."
+        "tr": "Ölçüm için hedef veya beklenen değer.",
+        "de": "Der Ziel- oder Erwartungswert für die Messung.",
+        "fr": "La valeur cible ou attendue pour la mesure.",
+        "es": "El valor objetivo o esperado para la medición."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Tolerance",
         "tr": "Tolerans",
         "de": "Toleranz",
-        "fr": "Tolerance",
-        "es": "Tolerance",
+        "fr": "Tolérance",
+        "es": "Tolerancia",
         "ar": "Tolerance"
       },
       "businessContext_i18n": {
         "en": "The permissible deviation from nominal; used to compute out-of-tolerance margins.",
-        "tr": "Nominalden izin verilen sapma; tolerans dışı marjları hesaplamak için kullanılır."
+        "tr": "Nominalden izin verilen sapma; tolerans dışı marjları hesaplamak için kullanılır.",
+        "de": "Die zulässige Abweichung vom Nennwert; zur Berechnung der Toleranzüberschreitungen.",
+        "fr": "L'écart admissible par rapport à la valeur nominale ; utilisé pour calculer les marges de hors tolérance.",
+        "es": "La desviación permitida del valor nominal; se utiliza para calcular los márgenes fuera de tolerancia."
       }
     }
   ],

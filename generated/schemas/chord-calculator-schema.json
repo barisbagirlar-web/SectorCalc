@@ -12,14 +12,16 @@
         "en": "Radius",
         "tr": "Yarıçap",
         "de": "Radius",
-        "fr": "Radius",
-        "es": "Radius",
+        "fr": "Rayon",
+        "es": "Radio",
         "ar": "Radius"
       },
       "businessContext_i18n": {
         "en": "Circle radius",
         "tr": "Daire yarıçapı",
-        "de": "Kreisradius"
+        "de": "Kreisradius",
+        "fr": "Rayon du cercle",
+        "es": "Radio del círculo"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Central Angle",
         "tr": "Merkez Açı",
         "de": "Zentriwinkel",
-        "fr": "Central Angle",
-        "es": "Central Angle",
+        "fr": "Angle central",
+        "es": "Ángulo central",
         "ar": "Central Angle"
       },
       "businessContext_i18n": {
         "en": "Angle in degrees (0 if using arc length or offset)",
         "tr": "Derece cinsinden açı (yay uzunluğu veya ofset kullanılıyorsa 0)",
-        "de": "Winkel in Grad (0 bei Verwendung von Bogenlänge oder Versatz)"
+        "de": "Winkel in Grad (0 bei Verwendung von Bogenlänge oder Versatz)",
+        "fr": "Angle en degrés (0 si utilisation de la longueur d'arc ou de la flèche)",
+        "es": "Ángulo en grados (0 si se usa longitud de arco o desplazamiento)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Arc Length",
         "tr": "Yay Uzunluğu",
         "de": "Bogenlänge",
-        "fr": "Arc Length",
-        "es": "Arc Length",
+        "fr": "Longueur d'arc",
+        "es": "Longitud de arco",
         "ar": "Arc Length"
       },
       "businessContext_i18n": {
         "en": "Arc length alternative to angle (0 to ignore)",
         "tr": "Açıya alternatif yay uzunluğu (yok saymak için 0)",
-        "de": "Bogenlänge als Alternative zum Winkel (0 zum Ignorieren)"
+        "de": "Bogenlänge als Alternative zum Winkel (0 zum Ignorieren)",
+        "fr": "Longueur d'arc alternative à l'angle (0 pour ignorer)",
+        "es": "Longitud de arco alternativa al ángulo (0 para ignorar)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Chord Offset",
         "tr": "Kiriş Ofseti",
         "de": "Sehnenversatz",
-        "fr": "Chord Offset",
-        "es": "Chord Offset",
+        "fr": "Flèche",
+        "es": "Desplazamiento de cuerda",
         "ar": "Chord Offset"
       },
       "businessContext_i18n": {
         "en": "Distance from center to chord (0 to ignore)",
         "tr": "Merkezden kirişe olan mesafe (yok saymak için 0)",
-        "de": "Abstand vom Mittelpunkt zur Sehne (0 zum Ignorieren)"
+        "de": "Abstand vom Mittelpunkt zur Sehne (0 zum Ignorieren)",
+        "fr": "Distance du centre à la corde (0 pour ignorer)",
+        "es": "Distancia del centro a la cuerda (0 para ignorar)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for outputs",
         "tr": "Çıktılar için ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen für Ausgaben"
+        "de": "Anzahl der Dezimalstellen für Ausgaben",
+        "fr": "Nombre de décimales pour les résultats",
+        "es": "Número de decimales para los resultados"
       }
     }
   ],

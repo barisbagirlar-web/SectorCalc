@@ -12,13 +12,16 @@
         "en": "Surface Area",
         "tr": "Yüzey Alanı",
         "de": "Oberfläche",
-        "fr": "Surface Area",
-        "es": "Surface Area",
+        "fr": "Surface",
+        "es": "Área superficial",
         "ar": "Surface Area"
       },
       "businessContext_i18n": {
         "en": "Total paintable surface area in square meters",
-        "tr": "Toplam boyanabilir yüzey alanı (metrekare)"
+        "tr": "Toplam boyanabilir yüzey alanı (metrekare)",
+        "de": "Gesamte lackierbare Fläche in Quadratmetern",
+        "fr": "Surface totale peignable en mètres carrés",
+        "es": "Superficie total pintable en metros cuadrados"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Paint Coverage",
         "tr": "Boya Kaplama",
-        "de": "Paint Coverage",
-        "fr": "Paint Coverage",
-        "es": "Paint Coverage",
+        "de": "Farbdeckung",
+        "fr": "Rendement de la peinture",
+        "es": "Rendimiento de pintura",
         "ar": "Paint Coverage"
       },
       "businessContext_i18n": {
         "en": "Area covered by one liter of paint",
-        "tr": "Bir litre boyanın kapladığı alan"
+        "tr": "Bir litre boyanın kapladığı alan",
+        "de": "Fläche, die von einem Liter Farbe abgedeckt wird",
+        "fr": "Surface couverte par un litre de peinture",
+        "es": "Área cubierta por un litro de pintura"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Paint Price per Liter",
         "tr": "Litre Başına Boya Fiyatı",
-        "de": "Paint Price per Liter",
-        "fr": "Paint Price per Liter",
-        "es": "Paint Price per Liter",
+        "de": "Farbpreis pro Liter",
+        "fr": "Prix de la peinture au litre",
+        "es": "Precio de la pintura por litro",
         "ar": "Paint Price per Liter"
       },
       "businessContext_i18n": {
         "en": "Cost of one liter of paint",
-        "tr": "Bir litre boyanın maliyeti"
+        "tr": "Bir litre boyanın maliyeti",
+        "de": "Kosten für einen Liter Farbe",
+        "fr": "Coût d'un litre de peinture",
+        "es": "Coste de un litro de pintura"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Number of Coats",
         "tr": "Kat Sayısı",
         "de": "Anzahl der Anstriche",
-        "fr": "Number of Coats",
-        "es": "Number of Coats",
+        "fr": "Nombre de couches",
+        "es": "Número de capas",
         "ar": "Number of Coats"
       },
       "businessContext_i18n": {
         "en": "How many layers of paint to apply",
-        "tr": "Kaç kat boya uygulanacak"
+        "tr": "Kaç kat boya uygulanacak",
+        "de": "Wie viele Farbschichten aufgetragen werden sollen",
+        "fr": "Nombre de couches de peinture à appliquer",
+        "es": "Cuántas capas de pintura aplicar"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Labor Hours",
         "tr": "İşçilik Saati",
         "de": "Arbeitsstunden",
-        "fr": "Labor Hours",
-        "es": "Labor Hours",
+        "fr": "Heures de main-d'œuvre",
+        "es": "Horas de mano de obra",
         "ar": "Labor Hours"
       },
       "businessContext_i18n": {
         "en": "Total labor hours required for the job",
-        "tr": "İş için gereken toplam işçilik saati"
+        "tr": "İş için gereken toplam işçilik saati",
+        "de": "Gesamte Arbeitsstunden für den Auftrag",
+        "fr": "Nombre total d'heures de main-d'œuvre nécessaires",
+        "es": "Total de horas de mano de obra requeridas para el trabajo"
       }
     },
     {
@@ -112,14 +127,16 @@
         "en": "Labor Rate",
         "tr": "İşçilik ücreti",
         "de": "Stundensatz",
-        "fr": "Labor Rate",
-        "es": "Labor Rate",
+        "fr": "Taux de main-d'œuvre",
+        "es": "Tarifa de mano de obra",
         "ar": "Labor Rate"
       },
       "businessContext_i18n": {
         "en": "Hourly labor cost",
         "tr": "Saatlik işçilik maliyeti",
-        "de": "Stündliche Arbeitskosten"
+        "de": "Stündliche Arbeitskosten",
+        "fr": "Coût horaire de la main-d'œuvre",
+        "es": "Costo de mano de obra por hora"
       }
     },
     {
@@ -133,13 +150,16 @@
         "en": "Waste Factor (%)",
         "tr": "Fire Faktörü (%)",
         "de": "Verschnittfaktor (%)",
-        "fr": "Waste Factor (%)",
-        "es": "Waste Factor (%)",
+        "fr": "Facteur de déchet (%)",
+        "es": "Factor de desperdicio (%)",
         "ar": "Waste Factor (%)"
       },
       "businessContext_i18n": {
         "en": "Extra paint needed due to spillage, overspray, etc.",
-        "tr": "Dökülme, fazla püskürtme vb. nedeniyle ihtiyaç duyulan ekstra boya"
+        "tr": "Dökülme, fazla püskürtme vb. nedeniyle ihtiyaç duyulan ekstra boya",
+        "de": "Zusätzliche Farbe durch Spritzer, Overspray usw.",
+        "fr": "Peinture supplémentaire due aux déversements, surpulvérisation, etc.",
+        "es": "Pintura extra necesaria por derrames, sobrepulverización, etc."
       }
     }
   ],

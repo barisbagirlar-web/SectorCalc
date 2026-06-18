@@ -12,14 +12,16 @@
         "en": "Nap Duration (minutes)",
         "tr": "Şekerleme Süresi (dakika)",
         "de": "Nickerchen-Dauer (Minuten)",
-        "fr": "Nap Duration (minutes)",
-        "es": "Nap Duration (minutes)",
+        "fr": "Durée de la sieste (minutes)",
+        "es": "Duración de la siesta (minutos)",
         "ar": "Nap Duration (minutes)"
       },
       "businessContext_i18n": {
         "en": "Duration of each nap in minutes. Dymaxion schedule typically uses 30-minute naps.",
         "tr": "Her şekerlemenin dakika cinsinden süresi. Dymaxion programı tipik olarak 30 dakikalık şekerlemeler kullanır.",
-        "de": "Dauer jedes Nickerchens in Minuten. Der Dymaxion-Zeitplan verwendet typischerweise 30-minütige Nickerchen."
+        "de": "Dauer jedes Nickerchens in Minuten. Der Dymaxion-Zeitplan verwendet typischerweise 30-minütige Nickerchen.",
+        "fr": "Durée de chaque sieste en minutes. Le cycle Dymaxion utilise généralement des siestes de 30 minutes.",
+        "es": "Duración de cada siesta en minutos. El horario Dymaxion normalmente utiliza siestas de 30 minutos."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Interval Between Naps (hours)",
         "tr": "Şekerlemeler Arası Aralık (saat)",
         "de": "Intervall zwischen Nickerchen (Stunden)",
-        "fr": "Interval Between Naps (hours)",
-        "es": "Interval Between Naps (hours)",
+        "fr": "Intervalle entre les siestes (heures)",
+        "es": "Intervalo entre siestas (horas)",
         "ar": "Interval Between Naps (hours)"
       },
       "businessContext_i18n": {
         "en": "Time between the start of each nap. Standard Dymaxion interval is 6 hours, resulting in 4 naps per day.",
         "tr": "Her şekerlemenin başlangıcı arasındaki süre. Standart Dymaxion aralığı 6 saattir, bu da günde 4 şekerleme ile sonuçlanır.",
-        "de": "Zeit zwischen dem Beginn jedes Nickerchens. Standard-Dymaxion-Intervall beträgt 6 Stunden, was 4 Nickerchen pro Tag ergibt."
+        "de": "Zeit zwischen dem Beginn jedes Nickerchens. Standard-Dymaxion-Intervall beträgt 6 Stunden, was 4 Nickerchen pro Tag ergibt.",
+        "fr": "Temps entre le début de chaque sieste. L'intervalle Dymaxion standard est de 6 heures, soit 4 siestes par jour.",
+        "es": "Tiempo entre el inicio de cada siesta. El intervalo Dymaxion estándar es de 6 horas, resultando en 4 siestas por día."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Total Days",
         "tr": "Toplam Gün",
         "de": "Gesamttage",
-        "fr": "Total Days",
-        "es": "Total Days",
+        "fr": "Total des jours",
+        "es": "Días totales",
         "ar": "Total Days"
       },
       "businessContext_i18n": {
         "en": "Number of consecutive days to calculate total sleep duration.",
         "tr": "Toplam uyku süresini hesaplamak için ardışık gün sayısı.",
-        "de": "Anzahl aufeinanderfolgender Tage zur Berechnung der Gesamtschlafdauer."
+        "de": "Anzahl aufeinanderfolgender Tage zur Berechnung der Gesamtschlafdauer.",
+        "fr": "Nombre de jours consécutifs pour calculer la durée totale de sommeil.",
+        "es": "Número de días consecutivos para calcular la duración total del sueño."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Baseline Monophasic Sleep (hours)",
         "tr": "Temel Tek Fazlı Uyku (saat)",
         "de": "Basis-Monophasischer Schlaf (Stunden)",
-        "fr": "Baseline Monophasic Sleep (hours)",
-        "es": "Baseline Monophasic Sleep (hours)",
+        "fr": "Sommeil monophasique de référence (heures)",
+        "es": "Sueño monofásico de referencia (horas)",
         "ar": "Baseline Monophasic Sleep (hours)"
       },
       "businessContext_i18n": {
         "en": "Recommended monophasic sleep duration used for efficiency comparison.",
         "tr": "Verimlilik karşılaştırması için kullanılan önerilen tek fazlı uyku süresi.",
-        "de": "Empfohlene monophasische Schlafdauer für Effizienzvergleich."
+        "de": "Empfohlene monophasische Schlafdauer für Effizienzvergleich.",
+        "fr": "Durée de sommeil monophasique recommandée utilisée pour la comparaison d'efficacité.",
+        "es": "Duración de sueño monofásico recomendada utilizada para comparación de eficiencia."
       }
     }
   ],

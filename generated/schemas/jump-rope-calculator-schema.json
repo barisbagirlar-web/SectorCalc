@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Kullanıcı Ağırlığı",
         "tr": "Kullanıcı Ağırlığı",
-        "de": "Kullanıcı Ağırlığı",
-        "fr": "Kullanıcı Ağırlığı",
-        "es": "Kullanıcı Ağırlığı",
+        "de": "Benutzergewicht",
+        "fr": "Poids de l'utilisateur",
+        "es": "Peso del usuario",
         "ar": "Kullanıcı Ağırlığı"
       },
       "businessContext_i18n": {
         "en": "Kullanıcının kilogram cinsinden vücut ağırlığı. Daha yüksek ağırlık, daha fazla kalori yakımına yol açar.",
-        "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı. Daha yüksek ağırlık, daha fazla kalori yakımına yol açar."
+        "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı. Daha yüksek ağırlık, daha fazla kalori yakımına yol açar.",
+        "de": "Körpergewicht des Benutzers in Kilogramm. Höheres Gewicht führt zu höherem Kalorienverbrauch.",
+        "fr": "Poids corporel de l'utilisateur en kilogrammes. Un poids plus élevé entraîne une dépense calorique plus importante.",
+        "es": "Peso corporal del usuario en kilogramos. Un mayor peso conduce a un mayor gasto calórico."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Zıplama Hızı",
         "tr": "Zıplama Hızı",
-        "de": "Zıplama Hızı",
-        "fr": "Zıplama Hızı",
-        "es": "Zıplama Hızı",
+        "de": "Sprunghäufigkeit",
+        "fr": "Vitesse de saut",
+        "es": "Velocidad de salto",
         "ar": "Zıplama Hızı"
       },
       "businessContext_i18n": {
         "en": "Dakika başına ortalama ip atlama sayısı. Daha yüksek hız, egzersiz yoğunluğunu artırır.",
-        "tr": "Dakika başına ortalama ip atlama sayısı. Daha yüksek hız, egzersiz yoğunluğunu artırır."
+        "tr": "Dakika başına ortalama ip atlama sayısı. Daha yüksek hız, egzersiz yoğunluğunu artırır.",
+        "de": "Durchschnittliche Anzahl von Seilsprüngen pro Minute. Höhere Geschwindigkeit erhöht die Trainingsintensität.",
+        "fr": "Nombre moyen de sauts à la corde par minute. Une vitesse plus élevée augmente l'intensité de l'exercice.",
+        "es": "Número promedio de saltos de cuerda por minuto. Una mayor velocidad aumenta la intensidad del ejercicio."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Egzersiz Süresi",
         "tr": "Egzersiz Süresi",
         "de": "Trainingsdauer",
-        "fr": "Egzersiz Süresi",
-        "es": "Egzersiz Süresi",
+        "fr": "Durée d'exercice",
+        "es": "Duración del ejercicio",
         "ar": "Egzersiz Süresi"
       },
       "businessContext_i18n": {
         "en": "Toplam ip atlama egzersizi süresi (dakika). Süre arttıkça toplam kalori ve zıplama sayısı artar.",
-        "tr": "Toplam ip atlama egzersizi süresi (dakika). Süre arttıkça toplam kalori ve zıplama sayısı artar."
+        "tr": "Toplam ip atlama egzersizi süresi (dakika). Süre arttıkça toplam kalori ve zıplama sayısı artar.",
+        "de": "Gesamtdauer des Seilsprungtrainings (Minuten). Mit zunehmender Dauer steigen Gesamtkalorien und Sprunganzahl.",
+        "fr": "Durée totale de l'exercice de saut à la corde (en minutes). Plus la durée est longue, plus le nombre total de calories et de sauts est élevé.",
+        "es": "Duración total del ejercicio de saltar la cuerda (minutos). A mayor duración, mayor número de calorías y saltos."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "MET Değeri",
         "tr": "MET Değeri",
-        "de": "MET Değeri",
-        "fr": "MET Değeri",
-        "es": "MET Değeri",
+        "de": "MET-Wert",
+        "fr": "Valeur MET",
+        "es": "Valor MET",
         "ar": "MET Değeri"
       },
       "businessContext_i18n": {
         "en": "Egzersizin metabolik eşdeğeri. İp atlama için tipik değer 11.8'dir. Yoğunluğa bağlı olarak değişebilir.",
-        "tr": "Egzersizin metabolik eşdeğeri. İp atlama için tipik değer 11.8'dir. Yoğunluğa bağlı olarak değişebilir."
+        "tr": "Egzersizin metabolik eşdeğeri. İp atlama için tipik değer 11.8'dir. Yoğunluğa bağlı olarak değişebilir.",
+        "de": "Metabolisches Äquivalent der Übung. Typischer Wert für Seilspringen ist 11,8. Kann je nach Intensität variieren.",
+        "fr": "Équivalent métabolique de l'exercice. La valeur typique pour le saut à la corde est de 11,8. Peut varier selon l'intensité.",
+        "es": "Equivalente metabólico del ejercicio. El valor típico para saltar la cuerda es 11.8. Puede variar según la intensidad."
       }
     }
   ],

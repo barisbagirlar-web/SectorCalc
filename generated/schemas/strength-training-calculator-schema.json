@@ -12,13 +12,15 @@
         "en": "Weight Lifted",
         "tr": "Kaldırılan Ağırlık",
         "de": "Gehobenes Gewicht",
-        "fr": "Weight Lifted",
-        "es": "Weight Lifted",
+        "fr": "Poids soulevé",
+        "es": "Peso levantado",
         "ar": "Weight Lifted"
       },
       "businessContext_i18n": {
         "en": "The load lifted during training, representing the external force applied.",
-        "tr": "Antrenman sırasında kaldırılan yük, uygulanan dış kuvveti temsil eder."
+        "tr": "Antrenman sırasında kaldırılan yük, uygulanan dış kuvveti temsil eder.",
+        "de": "Das im Training gehobene Lastgewicht, das die äußere Kraft darstellt.",
+        "fr": "Charge soulevée pendant l'entraînement, représentant la force externe appliquée."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Repetitions",
         "tr": "Tekrar Sayısı",
         "de": "Wiederholungen",
-        "fr": "Repetitions",
-        "es": "Repetitions",
+        "fr": "Répétitions",
+        "es": "Repeticiones",
         "ar": "Repetitions"
       },
       "businessContext_i18n": {
         "en": "Number of consecutive repetitions performed with the given weight, indicating muscular endurance.",
-        "tr": "Verilen ağırlıkla art arda yapılan tekrar sayısı, kas dayanıklılığını gösterir."
+        "tr": "Verilen ağırlıkla art arda yapılan tekrar sayısı, kas dayanıklılığını gösterir.",
+        "de": "Anzahl der aufeinanderfolgenden Wiederholungen mit dem gegebenen Gewicht, Indikator für Muskelausdauer.",
+        "fr": "Nombre de répétitions consécutives effectuées avec le poids donné, indiquant l'endurance musculaire."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Body Weight",
-        "es": "Body Weight",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "Lifter's body weight for relative strength calculations.",
-        "tr": "Göreceli kuvvet hesaplamaları için sporcunun vücut ağırlığı."
+        "tr": "Göreceli kuvvet hesaplamaları için sporcunun vücut ağırlığı.",
+        "de": "Körpergewicht des Sportlers für relative Kraftberechnungen.",
+        "fr": "Poids corporel du sportif pour les calculs de force relative."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Sets",
         "tr": "Setler",
-        "de": "Sets",
-        "fr": "Sets",
+        "de": "Sätze",
+        "fr": "Séries",
         "es": "Sets",
         "ar": "Sets"
       },
       "businessContext_i18n": {
         "en": "Number of sets performed, influencing total training volume.",
-        "tr": "Gerçekleştirilen set sayısı, toplam antrenman hacmini etkiler."
+        "tr": "Gerçekleştirilen set sayısı, toplam antrenman hacmini etkiler.",
+        "de": "Anzahl der durchgeführten Sätze, beeinflusst das gesamte Trainingsvolumen.",
+        "fr": "Nombre de séries effectuées, influençant le volume d'entraînement total."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Rest Period",
         "tr": "Dinlenme Süresi",
-        "de": "Rest Period",
-        "fr": "Rest Period",
+        "de": "Ruhezeit",
+        "fr": "Temps de repos",
         "es": "Rest Period",
         "ar": "Rest Period"
       },
       "businessContext_i18n": {
         "en": "Rest interval between sets, affecting recovery and subsequent performance.",
-        "tr": "Setler arası dinlenme aralığı, toparlanmayı ve sonraki performansı etkiler."
+        "tr": "Setler arası dinlenme aralığı, toparlanmayı ve sonraki performansı etkiler.",
+        "de": "Ruheintervall zwischen den Sätzen, beeinflusst Erholung und nachfolgende Leistung.",
+        "fr": "Intervalle de repos entre les séries, affectant la récupération et la performance ultérieure."
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Fatigue Factor",
         "tr": "Yorgunluk Faktörü",
         "de": "Ermüdungsfaktor",
-        "fr": "Fatigue Factor",
-        "es": "Fatigue Factor",
+        "fr": "Facteur de fatigue",
+        "es": "Factor de fatiga",
         "ar": "Fatigue Factor"
       },
       "businessContext_i18n": {
         "en": "Estimated fatigue accumulation per set, affecting effective load capacity.",
-        "tr": "Set başına tahmini yorgunluk birikimi, etkili yük kapasitesini etkiler."
+        "tr": "Set başına tahmini yorgunluk birikimi, etkili yük kapasitesini etkiler.",
+        "de": "Geschätzte Ermüdungsakkumulation pro Satz, beeinflusst die effektive Lastkapazität.",
+        "fr": "Fatigue estimée accumulée par série, affectant la capacité de charge effective."
       }
     }
   ],

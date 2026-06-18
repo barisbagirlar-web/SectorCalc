@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Malzeme Nihai Dayanımı",
         "tr": "Malzeme Nihai Dayanımı",
-        "de": "Malzeme Nihai Dayanımı",
-        "fr": "Malzeme Nihai Dayanımı",
-        "es": "Malzeme Nihai Dayanımı",
+        "de": "Material-Endfestigkeit",
+        "fr": "Résistance ultime du matériau",
+        "es": "Resistencia última del material",
         "ar": "Malzeme Nihai Dayanımı"
       },
       "businessContext_i18n": {
         "en": "Malzemenin çekme veya basma nihai dayanım değeri",
-        "tr": "Malzemenin çekme veya basma nihai dayanım değeri"
+        "tr": "Malzemenin çekme veya basma nihai dayanım değeri",
+        "de": "Zug- oder Druck-Endfestigkeit des Materials",
+        "fr": "Valeur de résistance ultime en traction ou compression du matériau",
+        "es": "Valor de resistencia última a tracción o compresión del material"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Kesit Alanı",
         "tr": "Kesit Alanı",
         "de": "Querschnittsfläche",
-        "fr": "Kesit Alanı",
-        "es": "Kesit Alanı",
+        "fr": "Section transversale",
+        "es": "Área de la sección transversal",
         "ar": "Kesit Alanı"
       },
       "businessContext_i18n": {
         "en": "Elemanın net kesit alanı",
-        "tr": "Elemanın net kesit alanı"
+        "tr": "Elemanın net kesit alanı",
+        "de": "Nettoquerschnittsfläche des Bauteils",
+        "fr": "Section nette de l'élément",
+        "es": "Área neta de la sección transversal del elemento"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Uygulanan Kuvvet",
         "tr": "Uygulanan Kuvvet",
         "de": "Angewandte Kraft",
-        "fr": "Uygulanan Kuvvet",
-        "es": "Uygulanan Kuvvet",
+        "fr": "Force appliquée",
+        "es": "Fuerza aplicada",
         "ar": "Uygulanan Kuvvet"
       },
       "businessContext_i18n": {
         "en": "Elemana etkiyen eksenel kuvvet",
-        "tr": "Elemana etkiyen eksenel kuvvet"
+        "tr": "Elemana etkiyen eksenel kuvvet",
+        "de": "Auf das Bauteil wirkende Axialkraft",
+        "fr": "Force axiale agissant sur l'élément",
+        "es": "Fuerza axial que actúa sobre el elemento"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Güvenlik Katsayısı",
         "tr": "Güvenlik Katsayısı",
         "de": "Sicherheitsfaktor",
-        "fr": "Güvenlik Katsayısı",
-        "es": "Güvenlik Katsayısı",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Güvenlik Katsayısı"
       },
       "businessContext_i18n": {
         "en": "Tasarımda kullanılan güvenlik faktörü",
-        "tr": "Tasarımda kullanılan güvenlik faktörü"
+        "tr": "Tasarımda kullanılan güvenlik faktörü",
+        "de": "Im Entwurf verwendeter Sicherheitsfaktor",
+        "fr": "Facteur de sécurité utilisé dans la conception",
+        "es": "Factor de seguridad utilizado en el diseño"
       }
     }
   ],

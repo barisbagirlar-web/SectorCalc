@@ -12,13 +12,15 @@
         "en": "Bill Amount",
         "tr": "Fatura Tutarı",
         "de": "Rechnungsbetrag",
-        "fr": "Bill Amount",
-        "es": "Bill Amount",
+        "fr": "Montant de la facture",
+        "es": "Monto de la cuenta",
         "ar": "Bill Amount"
       },
       "businessContext_i18n": {
         "en": "Total pre-tax bill amount",
-        "tr": "Vergi öncesi toplam fatura tutarı"
+        "tr": "Vergi öncesi toplam fatura tutarı",
+        "de": "Gesamtrechnungsbetrag vor Steuern",
+        "fr": "Montant total de la facture avant impôt"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Tip Percentage",
         "tr": "Bahşiş Yüzdesi",
         "de": "Trinkgeldprozentsatz",
-        "fr": "Tip Percentage",
-        "es": "Tip Percentage",
+        "fr": "Pourcentage de pourboire",
+        "es": "Porcentaje de propina",
         "ar": "Tip Percentage"
       },
       "businessContext_i18n": {
         "en": "Tip percentage on pre-tax amount",
-        "tr": "Vergi öncesi tutar üzerinden bahşiş yüzdesi"
+        "tr": "Vergi öncesi tutar üzerinden bahşiş yüzdesi",
+        "de": "Trinkgeldprozentsatz auf den Nettobetrag",
+        "fr": "Pourcentage de pourboire sur le montant avant impôt"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Number of People",
         "tr": "Kişi Sayısı",
         "de": "Anzahl der Personen",
-        "fr": "Number of People",
-        "es": "Number of People",
+        "fr": "Nombre de personnes",
+        "es": "Número de personas",
         "ar": "Number of People"
       },
       "businessContext_i18n": {
         "en": "Number of diners splitting the bill",
-        "tr": "Faturayı bölen kişi sayısı"
+        "tr": "Faturayı bölen kişi sayısı",
+        "de": "Anzahl der Personen, die die Rechnung teilen",
+        "fr": "Nombre de convives partageant la facture"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
         "de": "Steuersatz",
-        "fr": "Tax Rate",
-        "es": "Tax Rate",
+        "fr": "Taux de taxe",
+        "es": "Tasa de impuesto",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Sales tax rate applied to bill",
-        "tr": "Faturaya uygulanan satış vergisi oranı"
+        "tr": "Faturaya uygulanan satış vergisi oranı",
+        "de": "Umsatzsteuersatz auf die Rechnung",
+        "fr": "Taux de taxe de vente appliqué à la facture"
       }
     }
   ],

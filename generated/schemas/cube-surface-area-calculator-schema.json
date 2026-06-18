@@ -12,14 +12,16 @@
         "en": "Edge Length",
         "tr": "Kenar Uzunluğu",
         "de": "Kantenlänge",
-        "fr": "Edge Length",
-        "es": "Edge Length",
+        "fr": "Longueur d'arête",
+        "es": "Longitud del borde",
         "ar": "Edge Length"
       },
       "businessContext_i18n": {
         "en": "Length of one edge of the cube in meters.",
         "tr": "Küpün bir kenarının metre cinsinden uzunluğu.",
-        "de": "Länge einer Kante des Würfels in Metern."
+        "de": "Länge einer Kante des Würfels in Metern.",
+        "fr": "Longueur d'une arête du cube en mètres.",
+        "es": "Longitud de un borde del cubo en metros."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Number of Cubes",
         "tr": "Küp Sayısı",
         "de": "Anzahl der Würfel",
-        "fr": "Number of Cubes",
-        "es": "Number of Cubes",
+        "fr": "Nombre de cubes",
+        "es": "Número de cubos",
         "ar": "Number of Cubes"
       },
       "businessContext_i18n": {
         "en": "Number of identical cubes to calculate total surface area for.",
         "tr": "Toplam yüzey alanını hesaplamak için aynı küplerin sayısı.",
-        "de": "Anzahl identischer Würfel zur Berechnung der Gesamtoberfläche."
+        "de": "Anzahl identischer Würfel zur Berechnung der Gesamtoberfläche.",
+        "fr": "Nombre de cubes identiques pour calculer la surface totale.",
+        "es": "Número de cubos idénticos para calcular el área superficial total."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Exposed Faces per Cube",
         "tr": "Küp Başına Açık Yüzey",
         "de": "Freiliegende Flächen pro Würfel",
-        "fr": "Exposed Faces per Cube",
-        "es": "Exposed Faces per Cube",
+        "fr": "Faces exposées par cube",
+        "es": "Caras expuestas por cubo",
         "ar": "Exposed Faces per Cube"
       },
       "businessContext_i18n": {
         "en": "Number of faces exposed per cube (default 6 for full cube; e.g., 5 if one face is on the ground).",
         "tr": "Küp başına açık yüzey sayısı (varsayılan 6 tam küp; örn. bir yüzü yerdeyse 5).",
-        "de": "Anzahl der freiliegenden Flächen pro Würfel (Standard 6 für vollen Würfel; z.B. 5, wenn eine Fläche auf dem Boden liegt)."
+        "de": "Anzahl der freiliegenden Flächen pro Würfel (Standard 6 für vollen Würfel; z.B. 5, wenn eine Fläche auf dem Boden liegt).",
+        "fr": "Nombre de faces exposées par cube (par défaut 6 pour un cube complet ; par exemple 5 si une face est au sol).",
+        "es": "Número de caras expuestas por cubo (por defecto 6 para un cubo completo; p. ej., 5 si una cara está en el suelo)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Unit Conversion Factor",
         "tr": "Birim Dönüşüm Faktörü",
         "de": "Einheitenumrechnungsfaktor",
-        "fr": "Unit Conversion Factor",
-        "es": "Unit Conversion Factor",
+        "fr": "Facteur de conversion d'unité",
+        "es": "Factor de conversión de unidad",
         "ar": "Unit Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier to convert m² to desired area unit (e.g., 1 for m², 10000 for cm², 10.7639 for ft²).",
         "tr": "m²'yi istenen alan birimine dönüştürmek için çarpan (örn. m² için 1, cm² için 10000, ft² için 10.7639).",
-        "de": "Multiplikator zur Umrechnung von m² in die gewünschte Flächeneinheit (z.B. 1 für m², 10000 für cm², 10,7639 für ft²)."
+        "de": "Multiplikator zur Umrechnung von m² in die gewünschte Flächeneinheit (z.B. 1 für m², 10000 für cm², 10,7639 für ft²).",
+        "fr": "Multiplicateur pour convertir m² en unité de surface souhaitée (ex. 1 pour m², 10000 pour cm², 10,7639 pour ft²).",
+        "es": "Multiplicador para convertir m² a la unidad de área deseada (p. ej., 1 para m², 10000 para cm², 10.7639 para ft²)."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Safety Margin",
         "tr": "Güvenlik Marjı",
         "de": "Sicherheitsmarge",
-        "fr": "Safety Margin",
-        "es": "Safety Margin",
+        "fr": "Marge de sécurité",
+        "es": "Margen de seguridad",
         "ar": "Safety Margin"
       },
       "businessContext_i18n": {
         "en": "Percentage added to total area to account for waste, errors, or overage.",
         "tr": "Fire, hata veya fazlalık için toplam alana eklenen yüzde.",
-        "de": "Prozentsatz, der zur Gesamtfläche hinzugefügt wird, um Ausschuss, Fehler oder Überschuss zu berücksichtigen."
+        "de": "Prozentsatz, der zur Gesamtfläche hinzugefügt wird, um Ausschuss, Fehler oder Überschuss zu berücksichtigen.",
+        "fr": "Pourcentage ajouté à la surface totale pour tenir compte des pertes, erreurs ou surplus.",
+        "es": "Porcentaje añadido al área total para tener en cuenta desperdicios, errores o excedente."
       }
     }
   ],

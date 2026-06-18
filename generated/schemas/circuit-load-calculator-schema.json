@@ -12,14 +12,16 @@
         "en": "Gerilim (V)",
         "tr": "Gerilim (V)",
         "de": "Spannung (V)",
-        "fr": "Gerilim (V)",
-        "es": "Gerilim (V)",
+        "fr": "Tension (V)",
+        "es": "Voltaje (V)",
         "ar": "Gerilim (V)"
       },
       "businessContext_i18n": {
         "en": "Devre gerilimi",
         "tr": "Devre gerilimi",
-        "de": "Devre gerilimi"
+        "de": "Kreisspannung",
+        "fr": "Tension du circuit",
+        "es": "Tensión del circuito"
       }
     },
     {
@@ -32,15 +34,17 @@
       "label_i18n": {
         "en": "Cihaz Başına Akım (A)",
         "tr": "Cihaz Başına Akım (A)",
-        "de": "Cihaz Başına Akım (A)",
-        "fr": "Cihaz Başına Akım (A)",
-        "es": "Cihaz Başına Akım (A)",
+        "de": "Strom pro Gerät (A)",
+        "fr": "Courant par appareil (A)",
+        "es": "Corriente por dispositivo (A)",
         "ar": "Cihaz Başına Akım (A)"
       },
       "businessContext_i18n": {
         "en": "Her bir cihazın çektiği akım",
         "tr": "Her bir cihazın çektiği akım",
-        "de": "Her bir cihazın çektiği akım"
+        "de": "Stromaufnahme jedes Geräts",
+        "fr": "Courant consommé par chaque appareil",
+        "es": "Corriente consumida por cada dispositivo"
       }
     },
     {
@@ -53,15 +57,17 @@
       "label_i18n": {
         "en": "Güç Faktörü",
         "tr": "Güç Faktörü",
-        "de": "Güç Faktörü",
-        "fr": "Güç Faktörü",
-        "es": "Güç Faktörü",
+        "de": "Leistungsfaktor",
+        "fr": "Facteur de puissance",
+        "es": "Factor de potencia",
         "ar": "Güç Faktörü"
       },
       "businessContext_i18n": {
         "en": "Yükün güç faktörü (0-1 arası)",
         "tr": "Yükün güç faktörü (0-1 arası)",
-        "de": "Yükün güç faktörü (0-1 arası)"
+        "de": "Leistungsfaktor der Last (0-1)",
+        "fr": "Facteur de puissance de la charge (entre 0 et 1)",
+        "es": "Factor de potencia de la carga (0-1)"
       }
     },
     {
@@ -74,15 +80,17 @@
       "label_i18n": {
         "en": "Cihaz Sayısı",
         "tr": "Cihaz Sayısı",
-        "de": "Cihaz Sayısı",
-        "fr": "Cihaz Sayısı",
-        "es": "Cihaz Sayısı",
+        "de": "Anzahl der Geräte",
+        "fr": "Nombre d'appareils",
+        "es": "Número de dispositivos",
         "ar": "Cihaz Sayısı"
       },
       "businessContext_i18n": {
         "en": "Paralel bağlı cihaz sayısı",
         "tr": "Paralel bağlı cihaz sayısı",
-        "de": "Paralel bağlı cihaz sayısı"
+        "de": "Anzahl parallel geschalteter Geräte",
+        "fr": "Nombre d'appareils connectés en parallèle",
+        "es": "Número de dispositivos en paralelo"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Emniyet Katsayısı",
         "tr": "Emniyet Katsayısı",
         "de": "Sicherheitsfaktor",
-        "fr": "Emniyet Katsayısı",
-        "es": "Emniyet Katsayısı",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Emniyet Katsayısı"
       },
       "businessContext_i18n": {
         "en": "Sürekli yük için NEC %125 kuralı",
         "tr": "Sürekli yük için NEC %125 kuralı",
-        "de": "Sürekli yük için NEC %125 kuralı"
+        "de": "NEC 125%-Regel für Dauerlast",
+        "fr": "Règle NEC 125% pour charge continue",
+        "es": "Regla NEC 125% para carga continua"
       }
     },
     {
@@ -116,15 +126,17 @@
       "label_i18n": {
         "en": "Sigorta Akımı (A)",
         "tr": "Sigorta Akımı (A)",
-        "de": "Sigorta Akımı (A)",
-        "fr": "Sigorta Akımı (A)",
-        "es": "Sigorta Akımı (A)",
+        "de": "Sicherungsstrom (A)",
+        "fr": "Courant du fusible (A)",
+        "es": "Corriente del fusible (A)",
         "ar": "Sigorta Akımı (A)"
       },
       "businessContext_i18n": {
         "en": "Devre kesici nominal akımı",
         "tr": "Devre kesici nominal akımı",
-        "de": "Devre kesici nominal akımı"
+        "de": "Nennstrom des Leistungsschalters",
+        "fr": "Courant nominal du disjoncteur",
+        "es": "Corriente nominal del interruptor"
       }
     }
   ],

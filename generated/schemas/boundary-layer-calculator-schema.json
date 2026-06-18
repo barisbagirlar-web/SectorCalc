@@ -12,14 +12,16 @@
         "en": "Free-stream Velocity",
         "tr": "Serbest Akış Hızı",
         "de": "Freistromgeschwindigkeit",
-        "fr": "Free-stream Velocity",
-        "es": "Free-stream Velocity",
+        "fr": "Vitesse du courant libre",
+        "es": "Velocidad de corriente libre",
         "ar": "Free-stream Velocity"
       },
       "businessContext_i18n": {
         "en": "The velocity of the fluid far from the boundary.",
         "tr": "Sınırdan uzaktaki akışkan hızı.",
-        "de": "Geschwindigkeit des Fluids fern der Grenzschicht."
+        "de": "Geschwindigkeit des Fluids fern der Grenzschicht.",
+        "fr": "Vitesse du fluide loin de la frontière.",
+        "es": "Velocidad del fluido lejos de la capa límite."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Kinematic Viscosity",
         "tr": "Kinematik Viskozite",
         "de": "Kinematische Viskosität",
-        "fr": "Kinematic Viscosity",
-        "es": "Kinematic Viscosity",
+        "fr": "Viscosité cinématique",
+        "es": "Viscosidad cinemática",
         "ar": "Kinematic Viscosity"
       },
       "businessContext_i18n": {
         "en": "Kinematic viscosity of the fluid (ν = μ/ρ).",
         "tr": "Akışkanın kinematik viskozitesi (ν = μ/ρ).",
-        "de": "Kinematische Viskosität des Fluids (ν = μ/ρ)."
+        "de": "Kinematische Viskosität des Fluids (ν = μ/ρ).",
+        "fr": "Viscosité cinématique du fluide (ν = μ/ρ).",
+        "es": "Viscosidad cinemática del fluido (ν = μ/ρ)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Distance from Leading Edge",
         "tr": "Ön Kenardan Uzaklık",
         "de": "Abstand von der Anströmkante",
-        "fr": "Distance from Leading Edge",
-        "es": "Distance from Leading Edge",
+        "fr": "Distance du bord d'attaque",
+        "es": "Distancia desde el borde de ataque",
         "ar": "Distance from Leading Edge"
       },
       "businessContext_i18n": {
         "en": "Distance along the surface from the leading edge.",
         "tr": "Ön kenardan yüzey boyunca olan mesafe.",
-        "de": "Abstand entlang der Oberfläche von der Anströmkante."
+        "de": "Abstand entlang der Oberfläche von der Anströmkante.",
+        "fr": "Distance le long de la surface depuis le bord d'attaque.",
+        "es": "Distancia a lo largo de la superficie desde el borde de ataque."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Flow Regime (0=Laminar, 1=Turbulent)",
         "tr": "Akış Rejimi (0=Laminer, 1=Türbülanslı)",
         "de": "Strömungsregime (0=Laminar, 1=Turbulent)",
-        "fr": "Flow Regime (0=Laminar, 1=Turbulent)",
-        "es": "Flow Regime (0=Laminar, 1=Turbulent)",
+        "fr": "Régime d'écoulement (0=Laminaire, 1=Turbulent)",
+        "es": "Régimen de flujo (0=Laminar, 1=Turbulento)",
         "ar": "Flow Regime (0=Laminar, 1=Turbulent)"
       },
       "businessContext_i18n": {
         "en": "Select 0 for laminar boundary layer, 1 for turbulent (using 1/7th power law).",
         "tr": "Laminer sınır tabakası için 0, türbülanslı (1/7 kuvvet yasası) için 1 seçin.",
-        "de": "Wählen Sie 0 für laminare Grenzschicht, 1 für turbulent (mit 1/7-Potenzgesetz)."
+        "de": "Wählen Sie 0 für laminare Grenzschicht, 1 für turbulent (mit 1/7-Potenzgesetz).",
+        "fr": "Sélectionnez 0 pour une couche limite laminaire, 1 pour turbulent (loi de puissance 1/7).",
+        "es": "Seleccione 0 para capa límite laminar, 1 para turbulenta (usando la ley de potencia 1/7)."
       }
     }
   ],

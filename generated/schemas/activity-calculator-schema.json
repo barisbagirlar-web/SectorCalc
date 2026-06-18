@@ -12,14 +12,16 @@
         "en": "Actual Output",
         "tr": "Gerçek Çıktı",
         "de": "Tatsächlicher Output",
-        "fr": "Actual Output",
-        "es": "Actual Output",
+        "fr": "Production réelle",
+        "es": "Producción real",
         "ar": "Actual Output"
       },
       "businessContext_i18n": {
         "en": "The actual number of units produced.",
         "tr": "Üretilen gerçek birim sayısı.",
-        "de": "Die tatsächliche Anzahl produzierter Einheiten."
+        "de": "Die tatsächliche Anzahl produzierter Einheiten.",
+        "fr": "Le nombre réel d'unités produites.",
+        "es": "El número real de unidades producidas."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Planned Output",
         "tr": "Planlanan Çıktı",
         "de": "Geplanter Output",
-        "fr": "Planned Output",
-        "es": "Planned Output",
+        "fr": "Production planifiée",
+        "es": "Producción planificada",
         "ar": "Planned Output"
       },
       "businessContext_i18n": {
         "en": "The target number of units to be produced.",
         "tr": "Üretilmesi hedeflenen birim sayısı.",
-        "de": "Die Zielanzahl der zu produzierenden Einheiten."
+        "de": "Die Zielanzahl der zu produzierenden Einheiten.",
+        "fr": "Le nombre cible d'unités à produire.",
+        "es": "El número objetivo de unidades a producir."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Available Time",
         "tr": "Kullanılabilir Süre",
         "de": "Verfügbare Zeit",
-        "fr": "Available Time",
-        "es": "Available Time",
+        "fr": "Temps disponible",
+        "es": "Tiempo disponible",
         "ar": "Available Time"
       },
       "businessContext_i18n": {
         "en": "Total time available for production.",
         "tr": "Üretim için toplam kullanılabilir süre.",
-        "de": "Gesamte für die Produktion verfügbare Zeit."
+        "de": "Gesamte für die Produktion verfügbare Zeit.",
+        "fr": "Temps total disponible pour la production.",
+        "es": "Tiempo total disponible para la producción."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Downtime",
         "tr": "Durma Süresi",
         "de": "Stillstandszeit",
-        "fr": "Downtime",
-        "es": "Downtime",
+        "fr": "Temps d'arrêt",
+        "es": "Tiempo de inactividad",
         "ar": "Downtime"
       },
       "businessContext_i18n": {
         "en": "Unplanned stoppages or idle time.",
         "tr": "Plansız duruşlar veya boşta geçen süre.",
-        "de": "Ungeplante Unterbrechungen oder Leerlaufzeit."
+        "de": "Ungeplante Unterbrechungen oder Leerlaufzeit.",
+        "fr": "Arrêts non planifiés ou temps d'inactivité.",
+        "es": "Paradas no planificadas o tiempo muerto."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Cycle Time per Unit",
         "tr": "Birim Başına Çevrim Süresi",
         "de": "Zykluszeit pro Einheit",
-        "fr": "Cycle Time per Unit",
-        "es": "Cycle Time per Unit",
+        "fr": "Temps de cycle par unité",
+        "es": "Tiempo de ciclo por unidad",
         "ar": "Cycle Time per Unit"
       },
       "businessContext_i18n": {
         "en": "Time required to produce one unit.",
         "tr": "Bir birimi üretmek için gereken süre.",
-        "de": "Zeit zur Herstellung einer Einheit."
+        "de": "Zeit zur Herstellung einer Einheit.",
+        "fr": "Temps nécessaire pour produire une unité.",
+        "es": "Tiempo requerido para producir una unidad."
       }
     }
   ],

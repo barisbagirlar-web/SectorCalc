@@ -12,14 +12,16 @@
         "en": "Joist Span",
         "tr": "Kiriş Açıklığı",
         "de": "Balkenspannweite",
-        "fr": "Joist Span",
-        "es": "Joist Span",
+        "fr": "Portée de la solive",
+        "es": "Luz de vigueta",
         "ar": "Joist Span"
       },
       "businessContext_i18n": {
         "en": "Distance between supports in feet",
         "tr": "Destekler arasındaki fit cinsinden mesafe.",
-        "de": "Abstand zwischen den Stützen in Fuß"
+        "de": "Abstand zwischen den Stützen in Fuß",
+        "fr": "Distance entre les supports en pieds",
+        "es": "Distancia entre apoyos en pies"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Joist Spacing",
         "tr": "Kiriş Aralığı",
         "de": "Balkenabstand",
-        "fr": "Joist Spacing",
-        "es": "Joist Spacing",
+        "fr": "Espacement des solives",
+        "es": "Separación de viguetas",
         "ar": "Joist Spacing"
       },
       "businessContext_i18n": {
         "en": "Center-to-center distance between joists in inches",
         "tr": "Kirişler arasındaki inç cinsinden merkezden merkeze mesafe.",
-        "de": "Mittenabstand zwischen den Balken in Zoll"
+        "de": "Mittenabstand zwischen den Balken in Zoll",
+        "fr": "Distance centre à centre entre les solives en pouces",
+        "es": "Distancia centro a centro entre viguetas en pulgadas"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Live Load",
         "tr": "Hareketli Yük",
         "de": "Nutzlast",
-        "fr": "Live Load",
-        "es": "Live Load",
+        "fr": "Charge vive",
+        "es": "Carga viva",
         "ar": "Live Load"
       },
       "businessContext_i18n": {
         "en": "Design live load (e.g., 40 psf for residential)",
         "tr": "Tasarım hareketli yükü (örneğin, konut için 40 psf).",
-        "de": "Bemessungsnutzlast (z. B. 40 psf für Wohngebäude)"
+        "de": "Bemessungsnutzlast (z. B. 40 psf für Wohngebäude)",
+        "fr": "Charge vive de conception (ex. : 40 psf pour résidentiel)",
+        "es": "Carga viva de diseño (ej., 40 psf para residencial)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Dead Load",
         "tr": "Sabit Yük",
         "de": "Eigenlast",
-        "fr": "Dead Load",
-        "es": "Dead Load",
+        "fr": "Charge morte",
+        "es": "Carga muerta",
         "ar": "Dead Load"
       },
       "businessContext_i18n": {
         "en": "Dead load including joist weight, ceiling, etc.",
         "tr": "Kiriş ağırlığı, tavan vb. dahil sabit yük.",
-        "de": "Eigenlast inklusive Balkengewicht, Decke usw."
+        "de": "Eigenlast inklusive Balkengewicht, Decke usw.",
+        "fr": "Charge morte incluant le poids de la solive, du plafond, etc.",
+        "es": "Carga muerta que incluye peso de vigueta, cielo raso, etc."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Modulus of Elasticity",
         "tr": "Elastisite Modülü",
         "de": "Elastizitätsmodul",
-        "fr": "Modulus of Elasticity",
-        "es": "Modulus of Elasticity",
+        "fr": "Module d'élasticité",
+        "es": "Módulo de elasticidad",
         "ar": "Modulus of Elasticity"
       },
       "businessContext_i18n": {
         "en": "E value for joist material (e.g., 1,600,000 psi for SPF)",
         "tr": "Kiriş malzemesi için E değeri (örneğin, SPF için 1.600.000 psi).",
-        "de": "E-Modul des Balkenmaterials (z. B. 1.600.000 psi für SPF)"
+        "de": "E-Modul des Balkenmaterials (z. B. 1.600.000 psi für SPF)",
+        "fr": "Valeur E pour le matériau de la solive (ex. : 1 600 000 psi pour SPF)",
+        "es": "Valor E del material de la vigueta (ej., 1,600,000 psi para SPF)"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Moment of Inertia",
         "tr": "Eylemsizlik Momenti",
         "de": "Trägheitsmoment",
-        "fr": "Moment of Inertia",
-        "es": "Moment of Inertia",
+        "fr": "Moment d'inertie",
+        "es": "Momento de inercia",
         "ar": "Moment of Inertia"
       },
       "businessContext_i18n": {
         "en": "I value for joist cross-section (e.g., 47.6 in^4 for a 2x10)",
         "tr": "Kiriş kesiti için I değeri (örneğin, 2x10 için 47,6 in^4).",
-        "de": "Flächenträgheitsmoment des Balkenquerschnitts (z. B. 47,6 in^4 für 2x10)"
+        "de": "Flächenträgheitsmoment des Balkenquerschnitts (z. B. 47,6 in^4 für 2x10)",
+        "fr": "Valeur I pour la section transversale de la solive (ex. : 47,6 in^4 pour un 2x10)",
+        "es": "Valor I de la sección transversal de la vigueta (ej., 47.6 in^4 para un 2x10)"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Length (cm)",
         "tr": "Boy (cm)",
         "de": "Länge (cm)",
-        "fr": "Length (cm)",
-        "es": "Length (cm)",
+        "fr": "Longueur (cm)",
+        "es": "Longitud (cm)",
         "ar": "Length (cm)"
       },
       "businessContext_i18n": {
         "en": "Measured length at reference temperature (20°C) in centimeters.",
         "tr": "Referans sıcaklıkta (20°C) santimetre cinsinden ölçülen uzunluk.",
-        "de": "Gemessene Länge bei Referenztemperatur (20°C) in Zentimetern."
+        "de": "Gemessene Länge bei Referenztemperatur (20°C) in Zentimetern.",
+        "fr": "Longueur mesurée à température de référence (20°C) en centimètres.",
+        "es": "Longitud medida a temperatura de referencia (20°C) en centímetros."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Correction Factor",
         "tr": "Düzeltme Faktörü",
         "de": "Korrekturfaktor",
-        "fr": "Correction Factor",
-        "es": "Correction Factor",
+        "fr": "Facteur de correction",
+        "es": "Factor de corrección",
         "ar": "Correction Factor"
       },
       "businessContext_i18n": {
         "en": "Systematic measurement correction factor (dimensionless).",
         "tr": "Sistematik ölçüm düzeltme faktörü (boyutsuz).",
-        "de": "Systematischer Messkorrekturfaktor (dimensionslos)."
+        "de": "Systematischer Messkorrekturfaktor (dimensionslos).",
+        "fr": "Facteur de correction systématique de mesure (sans dimension).",
+        "es": "Factor de corrección de medición sistemática (adimensional)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Temperature (°C)",
         "tr": "Sıcaklık (°C)",
         "de": "Temperatur (°C)",
-        "fr": "Temperature (°C)",
-        "es": "Temperature (°C)",
+        "fr": "Température (°C)",
+        "es": "Temperatura (°C)",
         "ar": "Temperature (°C)"
       },
       "businessContext_i18n": {
         "en": "Ambient temperature in degrees Celsius.",
         "tr": "Santigrat derece cinsinden ortam sıcaklığı.",
-        "de": "Umgebungstemperatur in Grad Celsius."
+        "de": "Umgebungstemperatur in Grad Celsius.",
+        "fr": "Température ambiante en degrés Celsius.",
+        "es": "Temperatura ambiente en grados Celsius."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Expansion Coefficient",
         "tr": "Genleşme Katsayısı",
         "de": "Ausdehnungskoeffizient",
-        "fr": "Expansion Coefficient",
-        "es": "Expansion Coefficient",
+        "fr": "Coefficient de dilatation",
+        "es": "Coeficiente de expansión",
         "ar": "Expansion Coefficient"
       },
       "businessContext_i18n": {
         "en": "Linear thermal expansion coefficient of material in per degree Celsius.",
         "tr": "Malzemenin santigrat derece başına doğrusal termal genleşme katsayısı.",
-        "de": "Linearer thermischer Ausdehnungskoeffizient des Materials in pro Grad Celsius."
+        "de": "Linearer thermischer Ausdehnungskoeffizient des Materials in pro Grad Celsius.",
+        "fr": "Coefficient de dilatation thermique linéaire du matériau en par degré Celsius.",
+        "es": "Coeficiente de expansión térmica lineal del material en por grado Celsius."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Tolerance (cm)",
         "tr": "Tolerans (cm)",
         "de": "Toleranz (cm)",
-        "fr": "Tolerance (cm)",
-        "es": "Tolerance (cm)",
+        "fr": "Tolérance (cm)",
+        "es": "Tolerancia (cm)",
         "ar": "Tolerance (cm)"
       },
       "businessContext_i18n": {
         "en": "Manufacturing tolerance limit in centimeters.",
         "tr": "Santimetre cinsinden üretim tolerans sınırı.",
-        "de": "Fertigungstoleranzgrenze in Zentimetern."
+        "de": "Fertigungstoleranzgrenze in Zentimetern.",
+        "fr": "Limite de tolérance de fabrication en centimètres.",
+        "es": "Límite de tolerancia de fabricación en centímetros."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Batch Quantity",
         "tr": "Parti Miktarı",
         "de": "Chargenmenge",
-        "fr": "Batch Quantity",
-        "es": "Batch Quantity",
+        "fr": "Quantité de lot",
+        "es": "Cantidad del lote",
         "ar": "Batch Quantity"
       },
       "businessContext_i18n": {
         "en": "Number of identical pieces.",
         "tr": "Özdeş parça sayısı.",
-        "de": "Anzahl identischer Teile."
+        "de": "Anzahl identischer Teile.",
+        "fr": "Nombre de pièces identiques.",
+        "es": "Número de piezas idénticas."
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output formatting.",
         "tr": "Çıktı biçimlendirmesi için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen für die Ausgabeformatierung."
+        "de": "Anzahl der Dezimalstellen für die Ausgabeformatierung.",
+        "fr": "Nombre de décimales pour le formatage de la sortie.",
+        "es": "Número de decimales para el formato de salida."
       }
     }
   ],

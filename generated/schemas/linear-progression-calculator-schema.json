@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "First Term (a)",
         "tr": "İlk Terim (a)",
-        "de": "First Term (a)",
-        "fr": "First Term (a)",
-        "es": "First Term (a)",
+        "de": "Erster Term (a)",
+        "fr": "Premier terme (a)",
+        "es": "Primer término (a)",
         "ar": "First Term (a)"
       },
       "businessContext_i18n": {
         "en": "The initial value of the arithmetic progression.",
-        "tr": "Aritmetik dizinin başlangıç değeri."
+        "tr": "Aritmetik dizinin başlangıç değeri.",
+        "de": "Der Anfangswert der arithmetischen Folge.",
+        "fr": "Valeur initiale de la progression arithmétique.",
+        "es": "Valor inicial de la progresión aritmética."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Common Difference (d)",
         "tr": "Ortak Fark (d)",
-        "de": "Common Difference (d)",
-        "fr": "Common Difference (d)",
-        "es": "Common Difference (d)",
+        "de": "Gemeinsame Differenz (d)",
+        "fr": "Différence commune (d)",
+        "es": "Diferencia común (d)",
         "ar": "Common Difference (d)"
       },
       "businessContext_i18n": {
         "en": "The constant increment between consecutive terms.",
-        "tr": "Ardışık terimler arasındaki sabit artış."
+        "tr": "Ardışık terimler arasındaki sabit artış.",
+        "de": "Der konstante Zuwachs zwischen aufeinanderfolgenden Gliedern.",
+        "fr": "Incrément constant entre les termes consécutifs.",
+        "es": "El incremento constante entre términos consecutivos."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Number of Terms (n)",
         "tr": "Terim Sayısı (n)",
-        "de": "Number of Terms (n)",
-        "fr": "Number of Terms (n)",
-        "es": "Number of Terms (n)",
+        "de": "Anzahl der Glieder (n)",
+        "fr": "Nombre de termes (n)",
+        "es": "Número de términos (n)",
         "ar": "Number of Terms (n)"
       },
       "businessContext_i18n": {
         "en": "The total count of terms in the sequence.",
-        "tr": "Dizideki toplam terim sayısı."
+        "tr": "Dizideki toplam terim sayısı.",
+        "de": "Die Gesamtzahl der Glieder in der Folge.",
+        "fr": "Nombre total de termes dans la séquence.",
+        "es": "El número total de términos en la secuencia."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Term Position (k)",
         "tr": "Terim Sırası (k)",
-        "de": "Term Position (k)",
-        "fr": "Term Position (k)",
-        "es": "Term Position (k)",
+        "de": "Gliedposition (k)",
+        "fr": "Position du terme (k)",
+        "es": "Posición del término (k)",
         "ar": "Term Position (k)"
       },
       "businessContext_i18n": {
         "en": "The position of the term to find (1-indexed).",
-        "tr": "Bulunacak terimin sırası (1'den başlayarak)."
+        "tr": "Bulunacak terimin sırası (1'den başlayarak).",
+        "de": "Die Position des zu findenden Glieds (1-basiert).",
+        "fr": "Position du terme à trouver (indexé à partir de 1).",
+        "es": "La posición del término a encontrar (indexado desde 1)."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the results.",
-        "tr": "Sonuçlar için ondalık basamak sayısı."
+        "tr": "Sonuçlar için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für die Ergebnisse.",
+        "fr": "Nombre de décimales pour les résultats.",
+        "es": "Número de decimales para los resultados."
       }
     }
   ],

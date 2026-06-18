@@ -12,13 +12,16 @@
         "en": "Age (years)",
         "tr": "Yaş (yıl)",
         "de": "Alter (Jahre)",
-        "fr": "Age (years)",
-        "es": "Age (years)",
+        "fr": "Âge (années)",
+        "es": "Edad (años)",
         "ar": "Age (years)"
       },
       "businessContext_i18n": {
         "en": "Patient's age at admission",
-        "tr": "Hastanın başvuru anındaki yaşı"
+        "tr": "Hastanın başvuru anındaki yaşı",
+        "de": "Alter des Patienten bei Aufnahme",
+        "fr": "Âge du patient à l'admission",
+        "es": "Edad del paciente al ingreso"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "WBC count",
         "tr": "WBC sayısı",
-        "de": "WBC count",
-        "fr": "WBC count",
-        "es": "WBC count",
+        "de": "Leukozytenzahl",
+        "fr": "Numération des globules blancs",
+        "es": "Recuento de leucocitos",
         "ar": "WBC count"
       },
       "businessContext_i18n": {
         "en": "White blood cell count at admission",
-        "tr": "Başvuru anındaki beyaz kan hücresi sayısı"
+        "tr": "Başvuru anındaki beyaz kan hücresi sayısı",
+        "de": "Leukozytenzahl bei Aufnahme",
+        "fr": "Numération des globules blancs à l'admission",
+        "es": "Recuento de glóbulos blancos al ingreso"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Blood Glucose",
         "tr": "Kan Şekeri",
         "de": "Blutzucker",
-        "fr": "Blood Glucose",
-        "es": "Blood Glucose",
+        "fr": "Glycémie",
+        "es": "Glucosa en sangre",
         "ar": "Blood Glucose"
       },
       "businessContext_i18n": {
         "en": "Blood glucose level at admission",
-        "tr": "Başvuru anındaki kan glukoz seviyesi"
+        "tr": "Başvuru anındaki kan glukoz seviyesi",
+        "de": "Blutzuckerspiegel bei Aufnahme",
+        "fr": "Glycémie à l'admission",
+        "es": "Nivel de glucosa en sangre al ingreso"
       }
     },
     {
@@ -78,7 +87,10 @@
       },
       "businessContext_i18n": {
         "en": "Lactate dehydrogenase level at admission",
-        "tr": "Başvuru anındaki laktat dehidrogenaz seviyesi"
+        "tr": "Başvuru anındaki laktat dehidrogenaz seviyesi",
+        "de": "Laktatdehydrogenase-Spiegel bei Aufnahme",
+        "fr": "Taux de lactate déshydrogénase à l'admission",
+        "es": "Nivel de lactato deshidrogenasa al ingreso"
       }
     },
     {
@@ -98,7 +110,10 @@
       },
       "businessContext_i18n": {
         "en": "Aspartate aminotransferase level at admission",
-        "tr": "Başvuru anındaki aspartat aminotransferaz seviyesi"
+        "tr": "Başvuru anındaki aspartat aminotransferaz seviyesi",
+        "de": "Aspartat-Aminotransferase-Spiegel bei Aufnahme",
+        "fr": "Taux d'aspartate aminotransférase à l'admission",
+        "es": "Nivel de aspartato aminotransferasa al ingreso"
       }
     }
   ],

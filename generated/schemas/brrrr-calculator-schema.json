@@ -12,14 +12,16 @@
         "en": "Purchase Price",
         "tr": "Satın Alma Fiyatı",
         "de": "Kaufpreis",
-        "fr": "Purchase Price",
-        "es": "Purchase Price",
+        "fr": "Prix d'achat",
+        "es": "Precio de compra",
         "ar": "Purchase Price"
       },
       "businessContext_i18n": {
         "en": "The acquisition cost of the property before any rehabilitation.",
         "tr": "Herhangi bir rehabilitasyon öncesi mülkün edinme maliyeti.",
-        "de": "Anschaffungskosten der Immobilie vor Sanierung"
+        "de": "Anschaffungskosten der Immobilie vor Sanierung",
+        "fr": "Coût d'acquisition du bien avant toute réhabilitation.",
+        "es": "El costo de adquisición de la propiedad antes de cualquier rehabilitación."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Rehab Cost",
         "tr": "Rehab Maliyeti",
         "de": "Sanierungskosten",
-        "fr": "Rehab Cost",
-        "es": "Rehab Cost",
+        "fr": "Coût de réhabilitation",
+        "es": "Costo de rehabilitación",
         "ar": "Rehab Cost"
       },
       "businessContext_i18n": {
         "en": "Total budget for renovating the property to increase its value and rentability.",
         "tr": "Mülkün değerini ve kiralanabilirliğini artırmak için yenileme bütçesi.",
-        "de": "Gesamtbudget für die Renovierung der Immobilie zur Steigerung von Wert und Mietrendite"
+        "de": "Gesamtbudget für die Renovierung der Immobilie zur Steigerung von Wert und Mietrendite",
+        "fr": "Budget total pour rénover le bien afin d'augmenter sa valeur et sa rentabilité.",
+        "es": "Presupuesto total para renovar la propiedad para aumentar su valor y rentabilidad."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "After Repair Value (ARV)",
         "tr": "Onarım Sonrası Değer (OSD)",
         "de": "Wert nach Sanierung (ARV)",
-        "fr": "After Repair Value (ARV)",
-        "es": "After Repair Value (ARV)",
+        "fr": "Valeur après réhabilitation (VAR)",
+        "es": "Valor después de la reparación (ARV)",
         "ar": "After Repair Value (ARV)"
       },
       "businessContext_i18n": {
         "en": "Estimated market value of the property after rehabilitation is complete.",
         "tr": "Rehabilitasyon tamamlandıktan sonra mülkün tahmini piyasa değeri.",
-        "de": "Geschätzter Marktwert der Immobilie nach Abschluss der Sanierung"
+        "de": "Geschätzter Marktwert der Immobilie nach Abschluss der Sanierung",
+        "fr": "Valeur marchande estimée du bien après réhabilitation.",
+        "es": "Valor de mercado estimado de la propiedad después de completar la rehabilitación."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Monthly Rent",
         "tr": "Aylık Kira",
         "de": "Monatsmiete",
-        "fr": "Monthly Rent",
-        "es": "Monthly Rent",
+        "fr": "Loyer mensuel",
+        "es": "Alquiler mensual",
         "ar": "Monthly Rent"
       },
       "businessContext_i18n": {
         "en": "Gross monthly rental income expected from the property after rehab.",
         "tr": "Rehabilitasyon sonrası mülkten beklenen brüt aylık kira geliri.",
-        "de": "Bruttomonatsmieteinnahmen, die nach der Sanierung von der Immobilie erwartet werden."
+        "de": "Bruttomonatsmieteinnahmen, die nach der Sanierung von der Immobilie erwartet werden.",
+        "fr": "Revenu locatif mensuel brut attendu du bien après réhabilitation.",
+        "es": "Ingreso bruto mensual por alquiler esperado de la propiedad después de la rehabilitación."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Down Payment (%)",
         "tr": "Peşinat (%)",
         "de": "Anzahlung (%)",
-        "fr": "Down Payment (%)",
-        "es": "Down Payment (%)",
+        "fr": "Acompte (%)",
+        "es": "Pago inicial (%)",
         "ar": "Down Payment (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of purchase price paid upfront as down payment.",
         "tr": "Peşinat olarak ödenen satın alma fiyatı yüzdesi.",
-        "de": "Prozentsatz des Kaufpreises, der als Anzahlung gezahlt wird."
+        "de": "Prozentsatz des Kaufpreises, der als Anzahlung gezahlt wird.",
+        "fr": "Pourcentage du prix d'achat payé d'avance comme acompte.",
+        "es": "Porcentaje del precio de compra pagado por adelantado como pago inicial."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Interest Rate (%)",
         "tr": "Faiz Oranı (%)",
         "de": "Zinssatz (%)",
-        "fr": "Interest Rate (%)",
-        "es": "Interest Rate (%)",
+        "fr": "Taux d'intérêt (%)",
+        "es": "Tasa de interés (%)",
         "ar": "Interest Rate (%)"
       },
       "businessContext_i18n": {
         "en": "Annual interest rate on the mortgage used for purchase.",
         "tr": "Satın alma için kullanılan ipotek üzerindeki yıllık faiz oranı.",
-        "de": "Jährlicher Zinssatz der Hypothek für den Kauf."
+        "de": "Jährlicher Zinssatz der Hypothek für den Kauf.",
+        "fr": "Taux d'intérêt annuel sur le prêt hypothécaire utilisé pour l'achat.",
+        "es": "Tasa de interés anual de la hipoteca utilizada para la compra."
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Loan Term (Years)",
         "tr": "Kredi Vadesi (Yıl)",
         "de": "Kreditlaufzeit (Jahre)",
-        "fr": "Loan Term (Years)",
-        "es": "Loan Term (Years)",
+        "fr": "Durée du prêt (années)",
+        "es": "Plazo del préstamo (años)",
         "ar": "Loan Term (Years)"
       },
       "businessContext_i18n": {
         "en": "Duration of the mortgage loan in years.",
         "tr": "İpotek kredisinin yıl cinsinden süresi.",
-        "de": "Laufzeit des Hypothekendarlehens in Jahren."
+        "de": "Laufzeit des Hypothekendarlehens in Jahren.",
+        "fr": "Durée du prêt hypothécaire en années.",
+        "es": "Duración del préstamo hipotecario en años."
       }
     },
     {
@@ -159,14 +173,16 @@
         "en": "Monthly Expenses",
         "tr": "Aylık Giderler",
         "de": "Monatliche Ausgaben",
-        "fr": "Monthly Expenses",
-        "es": "Monthly Expenses",
+        "fr": "Dépenses mensuelles",
+        "es": "Gastos mensuales",
         "ar": "Monthly Expenses"
       },
       "businessContext_i18n": {
         "en": "Total monthly operating expenses including taxes, insurance, management, maintenance, and vacancy allowance.",
         "tr": "Vergiler, sigorta, yönetim, bakım ve boşluk payı dahil toplam aylık işletme giderleri.",
-        "de": "Monatliche Betriebskosten einschließlich Steuern, Versicherung, Verwaltung, Instandhaltung und Leerstandsreserve."
+        "de": "Monatliche Betriebskosten einschließlich Steuern, Versicherung, Verwaltung, Instandhaltung und Leerstandsreserve.",
+        "fr": "Total des charges d'exploitation mensuelles incluant taxes, assurance, gestion, entretien et provision pour vacance.",
+        "es": "Gastos operativos mensuales totales, incluidos impuestos, seguros, administración, mantenimiento y asignación por desocupación."
       }
     }
   ],

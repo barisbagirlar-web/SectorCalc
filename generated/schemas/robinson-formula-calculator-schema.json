@@ -12,13 +12,15 @@
         "en": "Toplam Malzeme (kg)",
         "tr": "Toplam Malzeme (kg)",
         "de": "Gesamtmaterial (kg)",
-        "fr": "Toplam Malzeme (kg)",
-        "es": "Toplam Malzeme (kg)",
+        "fr": "Total Matière (kg)",
+        "es": "Material total (kg)",
         "ar": "Toplam Malzeme (kg)"
       },
       "businessContext_i18n": {
         "en": "Toplam kullanılan hammadde miktarı",
-        "tr": "Toplam kullanılan hammadde miktarı"
+        "tr": "Toplam kullanılan hammadde miktarı",
+        "de": "Gesamte eingesetzte Rohstoffmenge",
+        "fr": "Quantité totale de matière première utilisée"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Sağlam Parça Sayısı",
         "tr": "Sağlam Parça Sayısı",
-        "de": "Sağlam Parça Sayısı",
-        "fr": "Sağlam Parça Sayısı",
+        "de": "Anzahl einwandfreier Teile",
+        "fr": "Nombre de pièces bonnes",
         "es": "Sağlam Parça Sayısı",
         "ar": "Sağlam Parça Sayısı"
       },
       "businessContext_i18n": {
         "en": "Üretilen hatasız parça sayısı",
-        "tr": "Üretilen hatasız parça sayısı"
+        "tr": "Üretilen hatasız parça sayısı",
+        "de": "Anzahl fehlerfrei produzierter Teile",
+        "fr": "Nombre de pièces sans défaut produites"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Parça Başı Net Ağırlık (kg)",
         "tr": "Parça Başı Net Ağırlık (kg)",
-        "de": "Parça Başı Net Ağırlık (kg)",
-        "fr": "Parça Başı Net Ağırlık (kg)",
+        "de": "Nettogewicht pro Teil (kg)",
+        "fr": "Poids net par pièce (kg)",
         "es": "Parça Başı Net Ağırlık (kg)",
         "ar": "Parça Başı Net Ağırlık (kg)"
       },
       "businessContext_i18n": {
         "en": "Her bir parçanın net ağırlığı",
-        "tr": "Her bir parçanın net ağırlığı"
+        "tr": "Her bir parçanın net ağırlığı",
+        "de": "Nettogewicht jedes Teils",
+        "fr": "Poids net de chaque pièce"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Hurda Miktarı (kg)",
         "tr": "Hurda Miktarı (kg)",
-        "de": "Hurda Miktarı (kg)",
-        "fr": "Hurda Miktarı (kg)",
+        "de": "Ausschussmenge (kg)",
+        "fr": "Quantité de rebut (kg)",
         "es": "Hurda Miktarı (kg)",
         "ar": "Hurda Miktarı (kg)"
       },
       "businessContext_i18n": {
         "en": "Üretimde oluşan hurda ağırlığı",
-        "tr": "Üretimde oluşan hurda ağırlığı"
+        "tr": "Üretimde oluşan hurda ağırlığı",
+        "de": "Gewicht des in der Produktion anfallenden Ausschusses",
+        "fr": "Poids des rebuts générés en production"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Yeniden İşlenen Parça Sayısı",
         "tr": "Yeniden İşlenen Parça Sayısı",
-        "de": "Yeniden İşlenen Parça Sayısı",
-        "fr": "Yeniden İşlenen Parça Sayısı",
+        "de": "Anzahl nachbearbeiteter Teile",
+        "fr": "Nombre de pièces retravaillées",
         "es": "Yeniden İşlenen Parça Sayısı",
         "ar": "Yeniden İşlenen Parça Sayısı"
       },
       "businessContext_i18n": {
         "en": "Düzeltme gerektiren parça sayısı",
-        "tr": "Düzeltme gerektiren parça sayısı"
+        "tr": "Düzeltme gerektiren parça sayısı",
+        "de": "Anzahl korrekturbedürftiger Teile",
+        "fr": "Nombre de pièces nécessitant une correction"
       }
     }
   ],

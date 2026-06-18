@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Lower Bound (a)",
         "tr": "Alt Sınır (a)",
-        "de": "Lower Bound (a)",
-        "fr": "Lower Bound (a)",
+        "de": "Untere Grenze (a)",
+        "fr": "Limite inférieure (a)",
         "es": "Lower Bound (a)",
         "ar": "Lower Bound (a)"
       },
       "businessContext_i18n": {
         "en": "Start of interval for x-axis revolution",
-        "tr": "X ekseni dönüşü için aralığın başlangıcı"
+        "tr": "X ekseni dönüşü için aralığın başlangıcı",
+        "de": "Start des Intervalls für die x-Achsen-Revolution",
+        "fr": "Début de l'intervalle pour la révolution de l'axe x"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Upper Bound (b)",
         "tr": "Üst Sınır (b)",
-        "de": "Upper Bound (b)",
-        "fr": "Upper Bound (b)",
+        "de": "Obere Grenze (b)",
+        "fr": "Limite supérieure (b)",
         "es": "Upper Bound (b)",
         "ar": "Upper Bound (b)"
       },
       "businessContext_i18n": {
         "en": "End of interval for x-axis revolution",
-        "tr": "X ekseni dönüşü için aralığın sonu"
+        "tr": "X ekseni dönüşü için aralığın sonu",
+        "de": "Ende des Intervalls für die x-Achsen-Revolution",
+        "fr": "Fin de l'intervalle pour la révolution de l'axe x"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Slope (m)",
         "tr": "Eğim (m)",
-        "de": "Slope (m)",
-        "fr": "Slope (m)",
+        "de": "Steigung (m)",
+        "fr": "Pente (m)",
         "es": "Slope (m)",
         "ar": "Slope (m)"
       },
       "businessContext_i18n": {
         "en": "Slope of linear generating function f(x)=mx+c",
-        "tr": "Doğrusal üretim fonksiyonu f(x)=mx+c'nin eğimi"
+        "tr": "Doğrusal üretim fonksiyonu f(x)=mx+c'nin eğimi",
+        "de": "Steigung der linearen Erzeugungsfunktion f(x)=mx+c",
+        "fr": "Pente de la fonction génératrice linéaire f(x)=mx+c"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Intercept (c)",
         "tr": "Kesişim (c)",
-        "de": "Intercept (c)",
-        "fr": "Intercept (c)",
+        "de": "Achsenabschnitt (c)",
+        "fr": "Ordonnée à l'origine (c)",
         "es": "Intercept (c)",
         "ar": "Intercept (c)"
       },
       "businessContext_i18n": {
         "en": "Intercept of linear generating function",
-        "tr": "Doğrusal üretim fonksiyonunun kesişimi"
+        "tr": "Doğrusal üretim fonksiyonunun kesişimi",
+        "de": "Achsenabschnitt der linearen Erzeugungsfunktion",
+        "fr": "Ordonnée à l'origine de la fonction génératrice linéaire"
       }
     }
   ],

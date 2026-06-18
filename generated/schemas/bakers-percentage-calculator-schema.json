@@ -12,14 +12,16 @@
         "en": "Flour Weight",
         "tr": "Un Ağırlığı",
         "de": "Mehlgewicht",
-        "fr": "Flour Weight",
-        "es": "Flour Weight",
+        "fr": "Poids de la farine",
+        "es": "Peso de la harina",
         "ar": "Flour Weight"
       },
       "businessContext_i18n": {
         "en": "The weight of flour used as the base (100%)",
         "tr": "Temel olarak kullanılan un ağırlığı (%100)",
-        "de": "Das Gewicht des Mehls als Basis (100%)"
+        "de": "Das Gewicht des Mehls als Basis (100%)",
+        "fr": "Le poids de farine utilisé comme base (100%)",
+        "es": "El peso de la harina utilizado como base (100%)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Water %",
         "tr": "Su %",
         "de": "Wasser %",
-        "fr": "Water %",
-        "es": "Water %",
+        "fr": "% d'eau",
+        "es": "% de agua",
         "ar": "Water %"
       },
       "businessContext_i18n": {
         "en": "Hydration percentage relative to flour weight",
         "tr": "Una göre hidrasyon yüzdesi",
-        "de": "Hydratationsprozentsatz bezogen auf das Mehlgewicht"
+        "de": "Hydratationsprozentsatz bezogen auf das Mehlgewicht",
+        "fr": "Pourcentage d'hydratation par rapport au poids de farine",
+        "es": "Porcentaje de hidratación relativo al peso de la harina"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Yeast %",
         "tr": "Maya %",
         "de": "Hefe %",
-        "fr": "Yeast %",
-        "es": "Yeast %",
+        "fr": "% de levure",
+        "es": "% de levadura",
         "ar": "Yeast %"
       },
       "businessContext_i18n": {
         "en": "Instant dry yeast percentage (usually 0.5–2%)",
         "tr": "Instant kuru maya yüzdesi (genellikle %0.5–2)",
-        "de": "Prozentsatz der Trockenhefe (normalerweise 0,5–2%)"
+        "de": "Prozentsatz der Trockenhefe (normalerweise 0,5–2%)",
+        "fr": "Pourcentage de levure sèche instantanée (généralement 0,5–2%)",
+        "es": "Porcentaje de levadura seca instantánea (generalmente 0.5–2%)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Salt %",
         "tr": "Tuz %",
         "de": "Salz %",
-        "fr": "Salt %",
-        "es": "Salt %",
+        "fr": "% de sel",
+        "es": "% de sal",
         "ar": "Salt %"
       },
       "businessContext_i18n": {
         "en": "Salt percentage (typically 1.5–2.5%)",
         "tr": "Tuz yüzdesi (genellikle %1.5–2.5)",
-        "de": "Salzprozentsatz (typischerweise 1,5–2,5%)"
+        "de": "Salzprozentsatz (typischerweise 1,5–2,5%)",
+        "fr": "Pourcentage de sel (généralement 1,5–2,5%)",
+        "es": "Porcentaje de sal (típicamente 1.5–2.5%)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Sugar %",
         "tr": "Şeker %",
         "de": "Zucker %",
-        "fr": "Sugar %",
-        "es": "Sugar %",
+        "fr": "% de sucre",
+        "es": "% de azúcar",
         "ar": "Sugar %"
       },
       "businessContext_i18n": {
         "en": "Optional sugar percentage",
         "tr": "İsteğe bağlı şeker yüzdesi",
-        "de": "Optionaler Zuckerprozentsatz"
+        "de": "Optionaler Zuckerprozentsatz",
+        "fr": "Pourcentage de sucre facultatif",
+        "es": "Porcentaje opcional de azúcar"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Fat %",
         "tr": "Yağ %",
         "de": "Fett %",
-        "fr": "Fat %",
-        "es": "Fat %",
+        "fr": "% de matière grasse",
+        "es": "% de grasa",
         "ar": "Fat %"
       },
       "businessContext_i18n": {
         "en": "Optional fat (butter, oil) percentage",
         "tr": "İsteğe bağlı yağ (tereyağı, sıvı yağ) yüzdesi",
-        "de": "Optionaler Fettprozentsatz (Butter, Öl)"
+        "de": "Optionaler Fettprozentsatz (Butter, Öl)",
+        "fr": "Pourcentage de matière grasse facultative (beurre, huile)",
+        "es": "Porcentaje opcional de grasa (mantequilla, aceite)"
       }
     }
   ],

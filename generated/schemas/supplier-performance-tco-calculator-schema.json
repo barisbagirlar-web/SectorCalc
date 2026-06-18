@@ -23,11 +23,15 @@
       "businessContext": "Negotiated unit price from supplier contract.",
       "label_i18n": {
         "en": "Purchase Price per Unit",
-        "tr": "Birim Başına Satın Alma Fiyatı"
+        "tr": "Birim Başına Satın Alma Fiyatı",
+        "de": "Kaufpreis pro Einheit",
+        "fr": "Prix d'achat unitaire"
       },
       "businessContext_i18n": {
         "en": "Negotiated unit price from supplier contract.",
-        "tr": "Tedarikçi sözleşmesinden müzakere edilen birim fiyat."
+        "tr": "Tedarikçi sözleşmesinden müzakere edilen birim fiyat.",
+        "de": "Ausgehandelter Stückpreis aus dem Lieferantenvertrag.",
+        "fr": "Prix unitaire négocié dans le contrat fournisseur."
       }
     },
     {
@@ -41,11 +45,15 @@
       "businessContext": "Total units purchased per year.",
       "label_i18n": {
         "en": "Annual Order Quantity",
-        "tr": "Yıllık Sipariş Miktarı"
+        "tr": "Yıllık Sipariş Miktarı",
+        "de": "Jährliche Bestellmenge",
+        "fr": "Quantité annuelle commandée"
       },
       "businessContext_i18n": {
         "en": "Total units purchased per year.",
-        "tr": "Yılda satın alınan toplam birim."
+        "tr": "Yılda satın alınan toplam birim.",
+        "de": "Gesamte jährlich gekaufte Einheiten.",
+        "fr": "Nombre total d'unités achetées par an."
       }
     },
     {
@@ -60,11 +68,15 @@
       "label_i18n": {
         "en": "Defect Rate (ppm)",
         "tr": "Hata Oranı (ppm)",
-        "de": "Fehlerrate (ppm)"
+        "de": "Fehlerrate (ppm)",
+        "fr": "Taux de défauts (ppm)",
+        "es": "Tasa de defectos (ppm)"
       },
       "businessContext_i18n": {
         "en": "Parts per million defective, Six Sigma metric.",
-        "tr": "Milyonda hatalı parça sayısı, Altı Sigma metriği."
+        "tr": "Milyonda hatalı parça sayısı, Altı Sigma metriği.",
+        "de": "Teile pro Million fehlerhaft, Six Sigma-Kennzahl.",
+        "fr": "Pièces par million défectueuses, métrique Six Sigma."
       }
     },
     {
@@ -79,11 +91,15 @@
       "label_i18n": {
         "en": "Inspection Cost per Unit",
         "tr": "Birim Muayene Maliyeti",
-        "de": "Prüfkosten pro Einheit"
+        "de": "Prüfkosten pro Einheit",
+        "fr": "Coût d'inspection par unité",
+        "es": "Costo de inspección por unidad"
       },
       "businessContext_i18n": {
         "en": "Cost of incoming quality inspection per unit.",
-        "tr": "Birim başına gelen kalite muayene maliyeti."
+        "tr": "Birim başına gelen kalite muayene maliyeti.",
+        "de": "Kosten der Eingangsqualitätsprüfung pro Einheit.",
+        "fr": "Coût de l'inspection qualité à l'arrivée par unité."
       }
     },
     {
@@ -97,11 +113,15 @@
       "businessContext": "Average shipping cost per unit from supplier.",
       "label_i18n": {
         "en": "Freight Cost per Unit",
-        "tr": "Birim Başına Navlun Maliyeti"
+        "tr": "Birim Başına Navlun Maliyeti",
+        "de": "Frachtkosten pro Einheit",
+        "fr": "Coût de fret par unité"
       },
       "businessContext_i18n": {
         "en": "Average shipping cost per unit from supplier.",
-        "tr": "Tedarikçiden birim başına ortalama nakliye maliyeti."
+        "tr": "Tedarikçiden birim başına ortalama nakliye maliyeti.",
+        "de": "Durchschnittliche Versandkosten pro Einheit vom Lieferanten.",
+        "fr": "Coût d'expédition moyen par unité depuis le fournisseur."
       }
     },
     {
@@ -116,11 +136,15 @@
       "label_i18n": {
         "en": "Lead Time (days)",
         "tr": "Teslim Süresi (gün)",
-        "de": "Lieferzeit (Tage)"
+        "de": "Lieferzeit (Tage)",
+        "fr": "Délai de livraison (jours)",
+        "es": "Tiempo de entrega (días)"
       },
       "businessContext_i18n": {
         "en": "Supplier lead time from order to delivery.",
-        "tr": "Tedarikçinin siparişten teslimata kadar geçen süresi."
+        "tr": "Tedarikçinin siparişten teslimata kadar geçen süresi.",
+        "de": "Lieferzeit vom Lieferanten von Bestellung bis Lieferung.",
+        "fr": "Délai de livraison du fournisseur de la commande à la livraison."
       }
     },
     {
@@ -134,11 +158,15 @@
       "businessContext": "Annual inventory holding cost as percentage of unit cost (Lean metric).",
       "label_i18n": {
         "en": "Inventory Carrying Cost Rate",
-        "tr": "Stok Taşıma Maliyeti Oranı"
+        "tr": "Stok Taşıma Maliyeti Oranı",
+        "de": "Lagerhaltungskostensatz",
+        "fr": "Taux de coût de possession des stocks"
       },
       "businessContext_i18n": {
         "en": "Annual inventory holding cost as percentage of unit cost (Lean metric).",
-        "tr": "Birim maliyetin yüzdesi olarak yıllık stok bulundurma maliyeti (Yalın metrik)."
+        "tr": "Birim maliyetin yüzdesi olarak yıllık stok bulundurma maliyeti (Yalın metrik).",
+        "de": "Jährliche Lagerhaltungskosten als Prozentsatz der Stückkosten (Lean-Kennzahl).",
+        "fr": "Coût annuel de détention des stocks en pourcentage du coût unitaire (métrique Lean)."
       }
     },
     {
@@ -152,11 +180,15 @@
       "businessContext": "Percentage of units that result in warranty claims.",
       "label_i18n": {
         "en": "Warranty Claim Rate",
-        "tr": "Garanti Talep Oranı"
+        "tr": "Garanti Talep Oranı",
+        "de": "Garantieanspruchsrate",
+        "fr": "Taux de réclamation sous garantie"
       },
       "businessContext_i18n": {
         "en": "Percentage of units that result in warranty claims.",
-        "tr": "Garanti talebiyle sonuçlanan birimlerin yüzdesi."
+        "tr": "Garanti talebiyle sonuçlanan birimlerin yüzdesi.",
+        "de": "Prozentsatz der Einheiten, die zu Garantieansprüchen führen.",
+        "fr": "Pourcentage d'unités donnant lieu à des réclamations sous garantie."
       }
     }
   ],

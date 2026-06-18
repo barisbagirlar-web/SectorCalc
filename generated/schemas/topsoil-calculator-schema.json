@@ -12,13 +12,15 @@
         "en": "Length",
         "tr": "Uzunluk",
         "de": "Länge",
-        "fr": "Length",
-        "es": "Length",
+        "fr": "Longueur",
+        "es": "Longitud",
         "ar": "Length"
       },
       "businessContext_i18n": {
         "en": "Length of the area to cover with topsoil",
-        "tr": "Üst toprakla kaplanacak alanın uzunluğu"
+        "tr": "Üst toprakla kaplanacak alanın uzunluğu",
+        "de": "Länge der mit Oberboden zu bedeckenden Fläche",
+        "fr": "Longueur de la zone à recouvrir de terre végétale"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Width",
         "tr": "Genişlik",
         "de": "Breite",
-        "fr": "Width",
-        "es": "Width",
+        "fr": "Largeur",
+        "es": "Ancho",
         "ar": "Width"
       },
       "businessContext_i18n": {
         "en": "Width of the area",
-        "tr": "Alanın genişliği"
+        "tr": "Alanın genişliği",
+        "de": "Breite der Fläche",
+        "fr": "Largeur de la zone"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Depth",
         "tr": "Derinlik",
         "de": "Tiefe",
-        "fr": "Depth",
-        "es": "Depth",
+        "fr": "Profondeur",
+        "es": "Profundidad",
         "ar": "Depth"
       },
       "businessContext_i18n": {
         "en": "Desired topsoil depth",
-        "tr": "İstenen üst toprak derinliği"
+        "tr": "İstenen üst toprak derinliği",
+        "de": "Gewünschte Oberbodentiefe",
+        "fr": "Profondeur souhaitée de terre végétale"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Bulk Density",
         "tr": "Yığın yoğunluğu",
-        "de": "Bulk Density",
-        "fr": "Bulk Density",
-        "es": "Bulk Density",
+        "de": "Schüttdichte",
+        "fr": "Densité apparente",
+        "es": "Densidad aparente",
         "ar": "Bulk Density"
       },
       "businessContext_i18n": {
         "en": "Bulk density of topsoil for weight estimation",
-        "tr": "Ağırlık tahmini için üst toprağın yığın yoğunluğu"
+        "tr": "Ağırlık tahmini için üst toprağın yığın yoğunluğu",
+        "de": "Schüttdichte des Oberbodens für die Gewichtsschätzung",
+        "fr": "Densité apparente de la terre végétale pour l'estimation du poids"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Cost per Unit Volume",
         "tr": "Birim Hacim Başına Maliyet",
-        "de": "Cost per Unit Volume",
-        "fr": "Cost per Unit Volume",
+        "de": "Kosten pro Volumeneinheit",
+        "fr": "Coût par unité de volume",
         "es": "Cost per Unit Volume",
         "ar": "Cost per Unit Volume"
       },
       "businessContext_i18n": {
         "en": "Purchase price of topsoil per cubic meter",
-        "tr": "Metreküp başına üst toprak satın alma fiyatı"
+        "tr": "Metreküp başına üst toprak satın alma fiyatı",
+        "de": "Kaufpreis des Oberbodens pro Kubikmeter",
+        "fr": "Prix d'achat de la terre végétale par mètre cube"
       }
     }
   ],

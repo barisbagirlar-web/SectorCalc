@@ -12,14 +12,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Patient age in years",
         "tr": "Hasta yaşı (yıl)",
-        "de": "Patientenalter in Jahren"
+        "de": "Patientenalter in Jahren",
+        "fr": "Âge du patient en années",
+        "es": "Edad del paciente en años"
       }
     },
     {
@@ -33,13 +35,16 @@
         "en": "Respiratory Rate",
         "tr": "Solunum Hızı",
         "de": "Atemfrequenz",
-        "fr": "Respiratory Rate",
-        "es": "Respiratory Rate",
+        "fr": "Fréquence respiratoire",
+        "es": "Frecuencia respiratoria",
         "ar": "Respiratory Rate"
       },
       "businessContext_i18n": {
         "en": "Patient respiratory rate in breaths per minute",
-        "tr": "Hastanın dakikadaki solunum sayısı"
+        "tr": "Hastanın dakikadaki solunum sayısı",
+        "de": "Atemfrequenz des Patienten in Atemzügen pro Minute",
+        "fr": "Fréquence respiratoire du patient en respirations par minute",
+        "es": "Frecuencia respiratoria del paciente en respiraciones por minuto"
       }
     },
     {
@@ -53,13 +58,16 @@
         "en": "Systolic Blood Pressure",
         "tr": "Sistolik Kan Basıncı",
         "de": "Systolischer Blutdruck",
-        "fr": "Systolic Blood Pressure",
-        "es": "Systolic Blood Pressure",
+        "fr": "Pression artérielle systolique",
+        "es": "Presión arterial sistólica",
         "ar": "Systolic Blood Pressure"
       },
       "businessContext_i18n": {
         "en": "Patient systolic blood pressure in mmHg",
-        "tr": "Hastanın sistolik kan basıncı (mmHg)"
+        "tr": "Hastanın sistolik kan basıncı (mmHg)",
+        "de": "Systolischer Blutdruck des Patienten in mmHg",
+        "fr": "Pression artérielle systolique du patient en mmHg",
+        "es": "Presión arterial sistólica del paciente en mmHg"
       }
     },
     {
@@ -73,13 +81,16 @@
         "en": "BUN",
         "tr": "BUN",
         "de": "BUN",
-        "fr": "BUN",
+        "fr": "Urée sanguine",
         "es": "BUN",
         "ar": "BUN"
       },
       "businessContext_i18n": {
         "en": "Blood urea nitrogen level in mg/dL",
-        "tr": "Kan üre azotu seviyesi (mg/dL)"
+        "tr": "Kan üre azotu seviyesi (mg/dL)",
+        "de": "Blutharnstoffstickstoffspiegel in mg/dL",
+        "fr": "Taux d'urée sanguine en mg/dL",
+        "es": "Nivel de nitrógeno ureico en sangre en mg/dL"
       }
     },
     {
@@ -92,14 +103,17 @@
       "label_i18n": {
         "en": "Sodium",
         "tr": "Sodyum",
-        "de": "Sodium",
+        "de": "Natrium",
         "fr": "Sodium",
-        "es": "Sodium",
+        "es": "Sodio",
         "ar": "Sodium"
       },
       "businessContext_i18n": {
         "en": "Serum sodium level in mmol/L",
-        "tr": "Serum sodyum seviyesi (mmol/L)"
+        "tr": "Serum sodyum seviyesi (mmol/L)",
+        "de": "Serumnatriumspiegel in mmol/L",
+        "fr": "Taux de sodium sérique en mmol/L",
+        "es": "Nivel de sodio sérico en mmol/L"
       }
     },
     {
@@ -112,14 +126,17 @@
       "label_i18n": {
         "en": "Glucose",
         "tr": "Glukoz",
-        "de": "Glucose",
+        "de": "Glukose",
         "fr": "Glucose",
-        "es": "Glucose",
+        "es": "Glucosa",
         "ar": "Glucose"
       },
       "businessContext_i18n": {
         "en": "Blood glucose level in mg/dL",
-        "tr": "Kan glukoz seviyesi (mg/dL)"
+        "tr": "Kan glukoz seviyesi (mg/dL)",
+        "de": "Blutzuckerspiegel in mg/dL",
+        "fr": "Taux de glucose sanguin en mg/dL",
+        "es": "Nivel de glucosa en sangre en mg/dL"
       }
     },
     {
@@ -132,14 +149,17 @@
       "label_i18n": {
         "en": "Hematocrit",
         "tr": "Hematokrit",
-        "de": "Hematocrit",
-        "fr": "Hematocrit",
-        "es": "Hematocrit",
+        "de": "Hämatokrit",
+        "fr": "Hématocrite",
+        "es": "Hematocrito",
         "ar": "Hematocrit"
       },
       "businessContext_i18n": {
         "en": "Hematocrit percentage",
-        "tr": "Hematokrit yüzdesi"
+        "tr": "Hematokrit yüzdesi",
+        "de": "Hämatokrit in Prozent",
+        "fr": "Pourcentage d'hématocrite",
+        "es": "Porcentaje de hematocrito"
       }
     },
     {
@@ -159,7 +179,10 @@
       },
       "businessContext_i18n": {
         "en": "Arterial partial pressure of oxygen in mmHg",
-        "tr": "Arteriyel kısmi oksijen basıncı (mmHg)"
+        "tr": "Arteriyel kısmi oksijen basıncı (mmHg)",
+        "de": "Arterieller Sauerstoffpartialdruck in mmHg",
+        "fr": "Pression partielle artérielle en oxygène en mmHg",
+        "es": "Presión parcial arterial de oxígeno en mmHg"
       }
     }
   ],

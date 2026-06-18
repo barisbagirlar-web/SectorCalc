@@ -12,14 +12,16 @@
         "en": "Span",
         "tr": "Açıklık",
         "de": "Spannweite",
-        "fr": "Span",
-        "es": "Span",
+        "fr": "Portée",
+        "es": "Luz",
         "ar": "Span"
       },
       "businessContext_i18n": {
         "en": "Clear span of the opening in feet",
         "tr": "Açıklığın net genişliği (fit)",
-        "de": "Lichte Spannweite der Öffnung in Fuß"
+        "de": "Lichte Spannweite der Öffnung in Fuß",
+        "fr": "Portée libre de l'ouverture en pieds",
+        "es": "Luz libre de la abertura en pies"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Total Uniform Load",
         "tr": "Toplam Düzgün Yayılı Yük",
         "de": "Gesamte gleichmäßige Last",
-        "fr": "Total Uniform Load",
-        "es": "Total Uniform Load",
+        "fr": "Charge uniforme totale",
+        "es": "Carga uniforme total",
         "ar": "Total Uniform Load"
       },
       "businessContext_i18n": {
         "en": "Sum of live and dead loads per linear foot on the header",
         "tr": "Kiriş üzerinde fit başına hareketli ve sabit yüklerin toplamı",
-        "de": "Summe aus Nutz- und Eigenlast pro laufendem Fuß auf dem Träger"
+        "de": "Summe aus Nutz- und Eigenlast pro laufendem Fuß auf dem Träger",
+        "fr": "Somme des charges vives et mortes par pied linéaire sur la poutre",
+        "es": "Suma de cargas vivas y muertas por pie lineal sobre la viga"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Allowable Bending Stress",
         "tr": "İzin Verilen Eğilme Gerilmesi",
         "de": "Zulässige Biegespannung",
-        "fr": "Allowable Bending Stress",
-        "es": "Allowable Bending Stress",
+        "fr": "Contrainte de flexion admissible",
+        "es": "Esfuerzo de flexión admisible",
         "ar": "Allowable Bending Stress"
       },
       "businessContext_i18n": {
         "en": "Design bending stress (Fb) of the header material",
         "tr": "Kiriş malzemesinin tasarım eğilme gerilmesi (Fb)",
-        "de": "Bemessungsbiegespannung (Fb) des Trägermaterials"
+        "de": "Bemessungsbiegespannung (Fb) des Trägermaterials",
+        "fr": "Contrainte de flexion de calcul (Fb) du matériau de la poutre",
+        "es": "Esfuerzo de flexión de diseño (Fb) del material de la viga"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Number of Plies",
         "tr": "Katman Sayısı",
         "de": "Anzahl der Lagen",
-        "fr": "Number of Plies",
-        "es": "Number of Plies",
+        "fr": "Nombre de plis",
+        "es": "Número de capas",
         "ar": "Number of Plies"
       },
       "businessContext_i18n": {
         "en": "Number of laminated 2x members (e.g., 2 for double 2x)",
         "tr": "Lamine 2x eleman sayısı (örneğin, çift 2x için 2)",
-        "de": "Anzahl der laminierten 2x-Elemente (z. B. 2 für Doppel-2x)"
+        "de": "Anzahl der laminierten 2x-Elemente (z. B. 2 für Doppel-2x)",
+        "fr": "Nombre d'éléments 2x laminés (ex. : 2 pour un double 2x)",
+        "es": "Número de miembros 2x laminados (ej., 2 para doble 2x)"
       }
     }
   ],

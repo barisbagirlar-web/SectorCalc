@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Purchase Amount",
         "tr": "Satın Alma Tutarı",
-        "de": "Purchase Amount",
-        "fr": "Purchase Amount",
-        "es": "Purchase Amount",
+        "de": "Kaufbetrag",
+        "fr": "Montant de l'achat",
+        "es": "Monto de compra",
         "ar": "Purchase Amount"
       },
       "businessContext_i18n": {
         "en": "The total amount spent in the transaction.",
-        "tr": "İşlemde harcanan toplam tutar."
+        "tr": "İşlemde harcanan toplam tutar.",
+        "de": "Der gesamte im Vorgang ausgegebene Betrag.",
+        "fr": "Montant total dépensé dans la transaction.",
+        "es": "El monto total gastado en la transacción."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Base Points Rate",
         "tr": "Temel Puan Oranı",
-        "de": "Base Points Rate",
-        "fr": "Base Points Rate",
-        "es": "Base Points Rate",
+        "de": "Basis-Punkte-Satz",
+        "fr": "Taux de points de base",
+        "es": "Tasa base de puntos",
         "ar": "Base Points Rate"
       },
       "businessContext_i18n": {
         "en": "Points earned per unit of currency spent before multipliers.",
-        "tr": "Çarpanlar öncesinde birim para başına kazanılan puan."
+        "tr": "Çarpanlar öncesinde birim para başına kazanılan puan.",
+        "de": "Punkte pro ausgegebener Geldeinheit vor Multiplikatoren.",
+        "fr": "Points gagnés par unité de monnaie dépensée avant multiplicateurs.",
+        "es": "Puntos ganados por unidad de moneda gastada antes de multiplicadores."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Tier Multiplier",
         "tr": "Seviye Çarpanı",
-        "de": "Tier Multiplier",
-        "fr": "Tier Multiplier",
-        "es": "Tier Multiplier",
+        "de": "Stufen-Multiplikator",
+        "fr": "Multiplicateur de niveau",
+        "es": "Multiplicador de nivel",
         "ar": "Tier Multiplier"
       },
       "businessContext_i18n": {
         "en": "Multiplier based on customer loyalty tier (e.g., 1 for base, 1.5 for silver, 2 for gold).",
-        "tr": "Müşteri sadakat seviyesine göre çarpan (ör. 1 taban, 1.5 gümüş, 2 altın)."
+        "tr": "Müşteri sadakat seviyesine göre çarpan (ör. 1 taban, 1.5 gümüş, 2 altın).",
+        "de": "Multiplikator basierend auf der Kundenloyalitätsstufe (z. B. 1 für Basis, 1,5 für Silber, 2 für Gold).",
+        "fr": "Multiplicateur basé sur le niveau de fidélité du client (ex. 1 pour base, 1,5 pour argent, 2 pour or).",
+        "es": "Multiplicador basado en el nivel de fidelidad del cliente (ej. 1 para base, 1.5 para plata, 2 para oro)."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Bonus Points",
         "tr": "Bonus Puanlar",
-        "de": "Bonus Points",
-        "fr": "Bonus Points",
-        "es": "Bonus Points",
+        "de": "Bonuspunkte",
+        "fr": "Points bonus",
+        "es": "Puntos extra",
         "ar": "Bonus Points"
       },
       "businessContext_i18n": {
         "en": "Additional flat bonus points from promotions or campaigns.",
-        "tr": "Promosyon veya kampanyalardan gelen ek sabit puanlar."
+        "tr": "Promosyon veya kampanyalardan gelen ek sabit puanlar.",
+        "de": "Zusätzliche Pauschalpunkte aus Aktionen oder Kampagnen.",
+        "fr": "Points bonus supplémentaires fixes provenant de promotions ou campagnes.",
+        "es": "Puntos fijos adicionales de promociones o campañas."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Points Cap",
         "tr": "Puan Sınırı",
-        "de": "Points Cap",
-        "fr": "Points Cap",
-        "es": "Points Cap",
+        "de": "Punkte-Obergrenze",
+        "fr": "Plafond de points",
+        "es": "Límite de puntos",
         "ar": "Points Cap"
       },
       "businessContext_i18n": {
         "en": "Maximum points that can be earned in this transaction; 0 for no cap.",
-        "tr": "Bu işlemde kazanılabilecek maksimum puan; sınır yoksa 0."
+        "tr": "Bu işlemde kazanılabilecek maksimum puan; sınır yoksa 0.",
+        "de": "Maximale Punkte, die in diesem Vorgang verdient werden können; 0 für keine Obergrenze.",
+        "fr": "Nombre maximum de points pouvant être gagnés dans cette transaction ; 0 pour aucun plafond.",
+        "es": "Máximo de puntos que se pueden ganar en esta transacción; 0 para sin límite."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Points to Currency Conversion",
         "tr": "Puan-Para Dönüşümü",
-        "de": "Points to Currency Conversion",
-        "fr": "Points to Currency Conversion",
-        "es": "Points to Currency Conversion",
+        "de": "Punkte-zu-Währung-Umrechnung",
+        "fr": "Conversion points en monnaie",
+        "es": "Conversión de puntos a moneda",
         "ar": "Points to Currency Conversion"
       },
       "businessContext_i18n": {
         "en": "Value of one point when redeemed (e.g., 0.01 means 1 point = 0.01 currency).",
-        "tr": "Bir puanın kullanıldığındaki değeri (ör. 0.01, 1 puan = 0.01 para birimi)."
+        "tr": "Bir puanın kullanıldığındaki değeri (ör. 0.01, 1 puan = 0.01 para birimi).",
+        "de": "Wert eines Punktes bei Einlösung (z. B. 0,01 bedeutet 1 Punkt = 0,01 Währung).",
+        "fr": "Valeur d'un point lors du remboursement (ex. 0,01 signifie 1 point = 0,01 unité monétaire).",
+        "es": "Valor de un punto al canjear (ej. 0.01 significa 1 punto = 0.01 de moneda)."
       }
     }
   ],

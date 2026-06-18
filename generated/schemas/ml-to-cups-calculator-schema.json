@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Volume in Milliliters",
         "tr": "Mililitre Cinsinden Hacim",
-        "de": "Volume in Milliliters",
-        "fr": "Volume in Milliliters",
-        "es": "Volume in Milliliters",
+        "de": "Volumen in Millilitern",
+        "fr": "Volume en millilitres",
+        "es": "Volumen en mililitros",
         "ar": "Volume in Milliliters"
       },
       "businessContext_i18n": {
         "en": "The volume of liquid to convert, in milliliters.",
-        "tr": "Dönüştürülecek sıvının mililitre cinsinden hacmi."
+        "tr": "Dönüştürülecek sıvının mililitre cinsinden hacmi.",
+        "de": "Das Volumen der Flüssigkeit zur Umrechnung in Millilitern.",
+        "fr": "Le volume de liquide à convertir, en millilitres.",
+        "es": "El volumen de líquido a convertir, en mililitros."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Cup Size",
         "tr": "Bardak Boyutu",
-        "de": "Cup Size",
-        "fr": "Cup Size",
-        "es": "Cup Size",
+        "de": "Bechergröße",
+        "fr": "Taille de tasse",
+        "es": "Tamaño de taza",
         "ar": "Cup Size"
       },
       "businessContext_i18n": {
         "en": "Standard cup size in milliliters. Defaults to US customary cup.",
-        "tr": "Mililitre cinsinden standart bardak boyutu. Varsayılan ABD geleneksel bardağıdır."
+        "tr": "Mililitre cinsinden standart bardak boyutu. Varsayılan ABD geleneksel bardağıdır.",
+        "de": "Standard-Bechergröße in Millilitern. Standardmäßig US-amerikanischer Becher.",
+        "fr": "Taille standard de tasse en millilitres. Par défaut, la tasse US.",
+        "es": "Tamaño de taza estándar en mililitros. Por defecto, taza estadounidense."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output. Must be an integer between 0 and 10.",
-        "tr": "Çıktı için ondalık basamak sayısı. 0 ile 10 arasında bir tam sayı olmalıdır."
+        "tr": "Çıktı için ondalık basamak sayısı. 0 ile 10 arasında bir tam sayı olmalıdır.",
+        "de": "Anzahl der Dezimalstellen für die Ausgabe. Muss eine ganze Zahl zwischen 0 und 10 sein.",
+        "fr": "Nombre de décimales pour le résultat. Doit être un entier entre 0 et 10.",
+        "es": "Número de decimales para la salida. Debe ser un entero entre 0 y 10."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Number of Items",
         "tr": "Öğe Sayısı",
-        "de": "Number of Items",
-        "fr": "Number of Items",
-        "es": "Number of Items",
+        "de": "Anzahl der Artikel",
+        "fr": "Nombre d'articles",
+        "es": "Número de artículos",
         "ar": "Number of Items"
       },
       "businessContext_i18n": {
         "en": "Number of identical volumes to convert (e.g., bottles, batches).",
-        "tr": "Dönüştürülecek özdeş hacim sayısı (örn. şişe, parti)."
+        "tr": "Dönüştürülecek özdeş hacim sayısı (örn. şişe, parti).",
+        "de": "Anzahl identischer Volumina zur Umrechnung (z.B. Flaschen, Chargen).",
+        "fr": "Nombre de volumes identiques à convertir (ex. bouteilles, lots).",
+        "es": "Número de volúmenes idénticos a convertir (p. ej., botellas, lotes)."
       }
     }
   ],

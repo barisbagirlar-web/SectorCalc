@@ -12,13 +12,16 @@
         "en": "Semi-Major Axis (a)",
         "tr": "Yarı-Büyük Eksen (a)",
         "de": "Große Halbachse (a)",
-        "fr": "Semi-Major Axis (a)",
-        "es": "Semi-Major Axis (a)",
+        "fr": "Demi-grand axe (a)",
+        "es": "Semieje mayor (a)",
         "ar": "Semi-Major Axis (a)"
       },
       "businessContext_i18n": {
         "en": "Average distance from the Sun in astronomical units.",
-        "tr": "Güneş'e astronomik birim cinsinden ortalama uzaklık."
+        "tr": "Güneş'e astronomik birim cinsinden ortalama uzaklık.",
+        "de": "Durchschnittliche Entfernung von der Sonne in astronomischen Einheiten.",
+        "fr": "Distance moyenne du Soleil en unités astronomiques.",
+        "es": "Distancia media al Sol en unidades astronómicas."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Orbital Period (T)",
         "tr": "Yörünge Periyodu (T)",
-        "de": "Orbital Period (T)",
-        "fr": "Orbital Period (T)",
-        "es": "Orbital Period (T)",
+        "de": "Umlaufzeit (T)",
+        "fr": "Période orbitale (T)",
+        "es": "Período orbital (T)",
         "ar": "Orbital Period (T)"
       },
       "businessContext_i18n": {
         "en": "Time to complete one orbit in Earth years.",
-        "tr": "Bir yörüngeyi tamamlama süresi (Dünya yılı cinsinden)."
+        "tr": "Bir yörüngeyi tamamlama süresi (Dünya yılı cinsinden).",
+        "de": "Zeit für einen vollständigen Umlauf in Erdjahren.",
+        "fr": "Temps pour effectuer une orbite en années terrestres.",
+        "es": "Tiempo para completar una órbita en años terrestres."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Eccentricity (e)",
         "tr": "Dışmerkezlik (e)",
-        "de": "Eccentricity (e)",
-        "fr": "Eccentricity (e)",
-        "es": "Eccentricity (e)",
+        "de": "Exzentrizität (e)",
+        "fr": "Excentricité (e)",
+        "es": "Excentricidad (e)",
         "ar": "Eccentricity (e)"
       },
       "businessContext_i18n": {
         "en": "Orbital shape parameter (0=circle, <1=ellipse).",
-        "tr": "Yörünge şekil parametresi (0=daire, <1=elips)."
+        "tr": "Yörünge şekil parametresi (0=daire, <1=elips).",
+        "de": "Parameter der Bahnform (0=Kreis, <1=Ellipse).",
+        "fr": "Paramètre de forme orbitale (0=cercle, <1=ellipse).",
+        "es": "Parámetro de forma orbital (0=círculo, <1=elipse)."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Mass of Central Body (M)",
         "tr": "Merkezi Cismin Kütlesi (M)",
-        "de": "Mass of Central Body (M)",
-        "fr": "Mass of Central Body (M)",
-        "es": "Mass of Central Body (M)",
+        "de": "Masse des Zentralkörpers (M)",
+        "fr": "Masse du corps central (M)",
+        "es": "Masa del cuerpo central (M)",
         "ar": "Mass of Central Body (M)"
       },
       "businessContext_i18n": {
         "en": "Mass of the central object in solar masses.",
-        "tr": "Merkezi cismin güneş kütlesi cinsinden kütlesi."
+        "tr": "Merkezi cismin güneş kütlesi cinsinden kütlesi.",
+        "de": "Masse des Zentralobjekts in Sonnenmassen.",
+        "fr": "Masse de l'objet central en masses solaires.",
+        "es": "Masa del objeto central en masas solares."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Distance at Perihelion (r_p)",
         "tr": "Günberi Uzaklığı (r_p)",
-        "de": "Distance at Perihelion (r_p)",
-        "fr": "Distance at Perihelion (r_p)",
-        "es": "Distance at Perihelion (r_p)",
+        "de": "Entfernung im Perihel (r_p)",
+        "fr": "Distance au périhélie (r_p)",
+        "es": "Distancia en el perihelio (r_p)",
         "ar": "Distance at Perihelion (r_p)"
       },
       "businessContext_i18n": {
         "en": "Closest approach distance to the Sun.",
-        "tr": "Güneş'e en yakın yaklaşma mesafesi."
+        "tr": "Güneş'e en yakın yaklaşma mesafesi.",
+        "de": "Nächster Annäherungsabstand zur Sonne.",
+        "fr": "Distance d'approche la plus proche du Soleil.",
+        "es": "Distancia de máximo acercamiento al Sol."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Distance at Aphelion (r_a)",
         "tr": "Günöte Uzaklığı (r_a)",
-        "de": "Distance at Aphelion (r_a)",
-        "fr": "Distance at Aphelion (r_a)",
-        "es": "Distance at Aphelion (r_a)",
+        "de": "Entfernung im Aphel (r_a)",
+        "fr": "Distance à l'aphélie (r_a)",
+        "es": "Distancia en el afelio (r_a)",
         "ar": "Distance at Aphelion (r_a)"
       },
       "businessContext_i18n": {
         "en": "Farthest distance from the Sun.",
-        "tr": "Güneş'e en uzak mesafe."
+        "tr": "Güneş'e en uzak mesafe.",
+        "de": "Größte Entfernung von der Sonne.",
+        "fr": "Distance la plus éloignée du Soleil.",
+        "es": "Distancia máxima al Sol."
       }
     }
   ],

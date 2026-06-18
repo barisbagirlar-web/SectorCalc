@@ -12,13 +12,15 @@
         "en": "Length",
         "tr": "Uzunluk",
         "de": "Länge",
-        "fr": "Length",
-        "es": "Length",
+        "fr": "Longueur",
+        "es": "Longitud",
         "ar": "Length"
       },
       "businessContext_i18n": {
         "en": "Length of the excavation or fill area (meters)",
-        "tr": "Kazı veya dolgu alanının uzunluğu (metre)"
+        "tr": "Kazı veya dolgu alanının uzunluğu (metre)",
+        "de": "Länge des Aushub- oder Verfüllbereichs (Meter)",
+        "fr": "Longueur de la zone d'excavation ou de remblai (mètres)"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Width",
         "tr": "Genişlik",
         "de": "Breite",
-        "fr": "Width",
-        "es": "Width",
+        "fr": "Largeur",
+        "es": "Ancho",
         "ar": "Width"
       },
       "businessContext_i18n": {
         "en": "Width of the excavation or fill area (meters)",
-        "tr": "Kazı veya dolgu alanının genişliği (metre)"
+        "tr": "Kazı veya dolgu alanının genişliği (metre)",
+        "de": "Breite des Aushub- oder Verfüllbereichs (Meter)",
+        "fr": "Largeur de la zone d'excavation ou de remblai (mètres)"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Depth",
         "tr": "Derinlik",
         "de": "Tiefe",
-        "fr": "Depth",
-        "es": "Depth",
+        "fr": "Profondeur",
+        "es": "Profundidad",
         "ar": "Depth"
       },
       "businessContext_i18n": {
         "en": "Depth of soil to be moved (meters)",
-        "tr": "Taşınacak toprağın derinliği (metre)"
+        "tr": "Taşınacak toprağın derinliği (metre)",
+        "de": "Tiefe des zu bewegenden Bodens (Meter)",
+        "fr": "Profondeur du sol à déplacer (mètres)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Soil Density",
         "tr": "Toprak yoğunluğu",
-        "de": "Soil Density",
-        "fr": "Soil Density",
+        "de": "Bodendichte",
+        "fr": "Densité du sol",
         "es": "Soil Density",
         "ar": "Soil Density"
       },
       "businessContext_i18n": {
         "en": "Average bulk density of the soil (tonnes per cubic meter, typically 1.2-2.0)",
-        "tr": "Toprağın ortalama yığın yoğunluğu (ton/metreküp, tipik olarak 1.2-2.0)"
+        "tr": "Toprağın ortalama yığın yoğunluğu (ton/metreküp, tipik olarak 1.2-2.0)",
+        "de": "Durchschnittliche Schüttdichte des Bodens (Tonnen pro Kubikmeter, typischerweise 1,2–2,0)",
+        "fr": "Densité apparente moyenne du sol (tonnes par mètre cube, généralement 1,2-2,0)"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Swell / Compaction Factor",
         "tr": "Kabarma / Sıkıştırma Faktörü",
-        "de": "Swell / Compaction Factor",
-        "fr": "Swell / Compaction Factor",
+        "de": "Auflockerungs-/Verdichtungsfaktor",
+        "fr": "Facteur de foisonnement / compactage",
         "es": "Swell / Compaction Factor",
         "ar": "Swell / Compaction Factor"
       },
       "businessContext_i18n": {
         "en": "Factor accounting for soil swell after excavation or compaction requirement (1.0 = no change, >1 for extra volume needed)",
-        "tr": "Kazı sonrası toprak kabarması veya sıkıştırma gereksinimini hesaba katan faktör (1.0 = değişiklik yok, >1 ek hacim gerektiğinde)"
+        "tr": "Kazı sonrası toprak kabarması veya sıkıştırma gereksinimini hesaba katan faktör (1.0 = değişiklik yok, >1 ek hacim gerektiğinde)",
+        "de": "Faktor, der die Bodenauflockerung nach Aushub oder Verdichtungsanforderung berücksichtigt (1,0 = keine Änderung, >1 für zusätzliches Volumen erforderlich)",
+        "fr": "Facteur tenant compte du foisonnement du sol après excavation ou de l'exigence de compactage (1,0 = aucun changement, >1 pour un volume supplémentaire nécessaire)"
       }
     }
   ],

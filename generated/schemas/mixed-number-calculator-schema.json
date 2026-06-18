@@ -12,13 +12,16 @@
         "en": "Operation",
         "tr": "İşlem",
         "de": "Operation",
-        "fr": "Operation",
-        "es": "Operation",
+        "fr": "Opération",
+        "es": "Operación",
         "ar": "Operation"
       },
       "businessContext_i18n": {
         "en": "1: Add, 2: Subtract, 3: Multiply, 4: Divide",
-        "tr": "1: Topla, 2: Çıkar, 3: Çarp, 4: Böl"
+        "tr": "1: Topla, 2: Çıkar, 3: Çarp, 4: Böl",
+        "de": "1: Addieren, 2: Subtrahieren, 3: Multiplizieren, 4: Dividieren",
+        "fr": "1: Addition, 2: Soustraction, 3: Multiplication, 4: Division",
+        "es": "1: Sumar, 2: Restar, 3: Multiplicar, 4: Dividir"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "First Whole Number",
         "tr": "Birinci Tam Sayı",
-        "de": "First Whole Number",
-        "fr": "First Whole Number",
-        "es": "First Whole Number",
+        "de": "Erste ganze Zahl",
+        "fr": "Premier nombre entier",
+        "es": "Primer número entero",
         "ar": "First Whole Number"
       },
       "businessContext_i18n": {
         "en": "Whole part of first mixed number",
-        "tr": "Birinci tam sayılı kesrin tam kısmı"
+        "tr": "Birinci tam sayılı kesrin tam kısmı",
+        "de": "Ganzer Teil der ersten gemischten Zahl",
+        "fr": "Partie entière du premier nombre fractionnaire",
+        "es": "Parte entera del primer número mixto"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "First Numerator",
         "tr": "Birinci Pay",
-        "de": "First Numerator",
-        "fr": "First Numerator",
-        "es": "First Numerator",
+        "de": "Erster Zähler",
+        "fr": "Premier numérateur",
+        "es": "Primer numerador",
         "ar": "First Numerator"
       },
       "businessContext_i18n": {
         "en": "Numerator of first fraction",
-        "tr": "Birinci kesrin payı"
+        "tr": "Birinci kesrin payı",
+        "de": "Zähler des ersten Bruchs",
+        "fr": "Numérateur de la première fraction",
+        "es": "Numerador de la primera fracción"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "First Denominator",
         "tr": "Birinci Payda",
-        "de": "First Denominator",
-        "fr": "First Denominator",
-        "es": "First Denominator",
+        "de": "Erster Nenner",
+        "fr": "Premier dénominateur",
+        "es": "Primer denominador",
         "ar": "First Denominator"
       },
       "businessContext_i18n": {
         "en": "Denominator of first fraction",
-        "tr": "Birinci kesrin paydası"
+        "tr": "Birinci kesrin paydası",
+        "de": "Nenner des ersten Bruchs",
+        "fr": "Dénominateur de la première fraction",
+        "es": "Denominador de la primera fracción"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Second Whole Number",
         "tr": "İkinci Tam Sayı",
-        "de": "Second Whole Number",
-        "fr": "Second Whole Number",
-        "es": "Second Whole Number",
+        "de": "Zweite ganze Zahl",
+        "fr": "Deuxième nombre entier",
+        "es": "Segundo número entero",
         "ar": "Second Whole Number"
       },
       "businessContext_i18n": {
         "en": "Whole part of second mixed number",
-        "tr": "İkinci tam sayılı kesrin tam kısmı"
+        "tr": "İkinci tam sayılı kesrin tam kısmı",
+        "de": "Ganzer Teil der zweiten gemischten Zahl",
+        "fr": "Partie entière du deuxième nombre fractionnaire",
+        "es": "Parte entera del segundo número mixto"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Second Numerator",
         "tr": "İkinci Pay",
-        "de": "Second Numerator",
-        "fr": "Second Numerator",
-        "es": "Second Numerator",
+        "de": "Zweiter Zähler",
+        "fr": "Deuxième numérateur",
+        "es": "Segundo numerador",
         "ar": "Second Numerator"
       },
       "businessContext_i18n": {
         "en": "Numerator of second fraction",
-        "tr": "İkinci kesrin payı"
+        "tr": "İkinci kesrin payı",
+        "de": "Zähler des zweiten Bruchs",
+        "fr": "Numérateur de la deuxième fraction",
+        "es": "Numerador de la segunda fracción"
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Second Denominator",
         "tr": "İkinci Payda",
-        "de": "Second Denominator",
-        "fr": "Second Denominator",
-        "es": "Second Denominator",
+        "de": "Zweiter Nenner",
+        "fr": "Deuxième dénominateur",
+        "es": "Segundo denominador",
         "ar": "Second Denominator"
       },
       "businessContext_i18n": {
         "en": "Denominator of second fraction",
-        "tr": "İkinci kesrin paydası"
+        "tr": "İkinci kesrin paydası",
+        "de": "Nenner des zweiten Bruchs",
+        "fr": "Dénominateur de la deuxième fraction",
+        "es": "Denominador de la segunda fracción"
       }
     }
   ],

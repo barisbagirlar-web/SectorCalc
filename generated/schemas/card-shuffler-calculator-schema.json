@@ -12,14 +12,16 @@
         "en": "Cards per Deck",
         "tr": "Deste Başına Kart",
         "de": "Karten pro Deck",
-        "fr": "Cards per Deck",
-        "es": "Cards per Deck",
+        "fr": "Cartes par jeu",
+        "es": "Cartas por mazo",
         "ar": "Cards per Deck"
       },
       "businessContext_i18n": {
         "en": "Number of cards in a standard deck.",
         "tr": "Standart bir destedeki kart sayısı.",
-        "de": "Anzahl der Karten in einem Standarddeck."
+        "de": "Anzahl der Karten in einem Standarddeck.",
+        "fr": "Nombre de cartes dans un jeu standard.",
+        "es": "Número de cartas en un mazo estándar."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Shuffle Cycles per Deck",
         "tr": "Deste Başına Karıştırma Döngüsü",
         "de": "Mischzyklen pro Deck",
-        "fr": "Shuffle Cycles per Deck",
-        "es": "Shuffle Cycles per Deck",
+        "fr": "Cycles de mélange par jeu",
+        "es": "Ciclos de barajado por mazo",
         "ar": "Shuffle Cycles per Deck"
       },
       "businessContext_i18n": {
         "en": "Number of shuffles needed for adequate randomness.",
         "tr": "Yeterli rastgelelik için gereken karıştırma sayısı.",
-        "de": "Anzahl der Mischvorgänge, die für ausreichende Zufälligkeit erforderlich sind."
+        "de": "Anzahl der Mischvorgänge, die für ausreichende Zufälligkeit erforderlich sind.",
+        "fr": "Nombre de mélanges nécessaires pour un caractère aléatoire adéquat.",
+        "es": "Número de barajados necesarios para una aleatoriedad adecuada."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Machine Speed",
         "tr": "Makine Hızı",
         "de": "Maschinengeschwindigkeit",
-        "fr": "Machine Speed",
-        "es": "Machine Speed",
+        "fr": "Vitesse de la machine",
+        "es": "Velocidad de la máquina",
         "ar": "Machine Speed"
       },
       "businessContext_i18n": {
         "en": "Processing rate of the card shuffler.",
         "tr": "Kart karıştırıcının işleme hızı.",
-        "de": "Verarbeitungsrate des Kartenmischers."
+        "de": "Verarbeitungsrate des Kartenmischers.",
+        "fr": "Taux de traitement du mélangeur de cartes.",
+        "es": "Tasa de procesamiento del barajador de cartas."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Power Rating",
         "tr": "Güç Değeri",
         "de": "Leistungsaufnahme",
-        "fr": "Power Rating",
-        "es": "Power Rating",
+        "fr": "Puissance nominale",
+        "es": "Potencia nominal",
         "ar": "Power Rating"
       },
       "businessContext_i18n": {
         "en": "Electrical power consumed during operation.",
         "tr": "Çalışma sırasında tüketilen elektrik gücü.",
-        "de": "Während des Betriebs verbrauchte elektrische Leistung."
+        "de": "Während des Betriebs verbrauchte elektrische Leistung.",
+        "fr": "Puissance électrique consommée pendant le fonctionnement.",
+        "es": "Potencia eléctrica consumida durante la operación."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Operating Hours per Day",
         "tr": "Günlük Çalışma Saati",
         "de": "Betriebsstunden pro Tag",
-        "fr": "Operating Hours per Day",
-        "es": "Operating Hours per Day",
+        "fr": "Heures de fonctionnement par jour",
+        "es": "Horas de operación por día",
         "ar": "Operating Hours per Day"
       },
       "businessContext_i18n": {
         "en": "Scheduled active time including maintenance.",
         "tr": "Bakım dahil planlanan aktif süre.",
-        "de": "Geplante aktive Zeit inklusive Wartung."
+        "de": "Geplante aktive Zeit inklusive Wartung.",
+        "fr": "Temps actif programmé incluant la maintenance.",
+        "es": "Tiempo activo programado incluyendo mantenimiento."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Maintenance Hours per Day",
         "tr": "Günlük Bakım Saati",
         "de": "Wartungsstunden pro Tag",
-        "fr": "Maintenance Hours per Day",
-        "es": "Maintenance Hours per Day",
+        "fr": "Heures de maintenance par jour",
+        "es": "Horas de mantenimiento por día",
         "ar": "Maintenance Hours per Day"
       },
       "businessContext_i18n": {
         "en": "Downtime for cleaning and maintenance.",
         "tr": "Temizlik ve bakım için duruş süresi.",
-        "de": "Stillstandszeit für Reinigung und Wartung."
+        "de": "Stillstandszeit für Reinigung und Wartung.",
+        "fr": "Temps d'arrêt pour nettoyage et maintenance.",
+        "es": "Tiempo de inactividad para limpieza y mantenimiento."
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Labor Cost",
         "tr": "İşçilik Maliyeti",
         "de": "Arbeitskosten",
-        "fr": "Labor Cost",
-        "es": "Labor Cost",
+        "fr": "Coût de main-d'œuvre",
+        "es": "Costo de mano de obra",
         "ar": "Labor Cost"
       },
       "businessContext_i18n": {
         "en": "Operator wage per hour.",
         "tr": "Operatör saatlik ücreti.",
-        "de": "Stundenlohn des Bedieners."
+        "de": "Stundenlohn des Bedieners.",
+        "fr": "Salaire de l'opérateur par heure.",
+        "es": "Salario del operador por hora."
       }
     },
     {
@@ -159,14 +173,16 @@
         "en": "Electricity Cost",
         "tr": "Elektrik Maliyeti",
         "de": "Stromkosten",
-        "fr": "Electricity Cost",
-        "es": "Electricity Cost",
+        "fr": "Coût de l'électricité",
+        "es": "Coste de electricidad",
         "ar": "Electricity Cost"
       },
       "businessContext_i18n": {
         "en": "Utility rate per kilowatt-hour.",
         "tr": "Kilovat-saat başına elektrik tarifesi.",
-        "de": "Stromtarif pro Kilowattstunde."
+        "de": "Stromtarif pro Kilowattstunde.",
+        "fr": "Tarif des services publics par kilowattheure.",
+        "es": "Tarifa de servicios públicos por kilovatio-hora."
       }
     }
   ],

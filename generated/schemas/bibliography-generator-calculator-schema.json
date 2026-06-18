@@ -12,14 +12,16 @@
         "en": "Document Page Count",
         "tr": "Belge Sayfa Sayısı",
         "de": "Seitenanzahl des Dokuments",
-        "fr": "Document Page Count",
-        "es": "Document Page Count",
+        "fr": "Nombre de pages du document",
+        "es": "Número de páginas del documento",
         "ar": "Document Page Count"
       },
       "businessContext_i18n": {
         "en": "Total number of pages in the document.",
         "tr": "Belgedeki toplam sayfa sayısı.",
-        "de": "Gesamtanzahl der Seiten im Dokument."
+        "de": "Gesamtanzahl der Seiten im Dokument.",
+        "fr": "Nombre total de pages dans le document.",
+        "es": "Número total de páginas en el documento."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Average References per Page",
         "tr": "Sayfa Başına Ortalama Referans",
         "de": "Durchschnittliche Referenzen pro Seite",
-        "fr": "Average References per Page",
-        "es": "Average References per Page",
+        "fr": "Références moyennes par page",
+        "es": "Promedio de referencias por página",
         "ar": "Average References per Page"
       },
       "businessContext_i18n": {
         "en": "Typical number of citations per page.",
         "tr": "Sayfa başına tipik alıntı sayısı.",
-        "de": "Typische Anzahl von Zitaten pro Seite."
+        "de": "Typische Anzahl von Zitaten pro Seite.",
+        "fr": "Nombre typique de citations par page.",
+        "es": "Número típico de citas por página."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Citation Density",
         "tr": "Alıntı Yoğunluğu",
         "de": "Zitationsdichte",
-        "fr": "Citation Density",
-        "es": "Citation Density",
+        "fr": "Densité de citations",
+        "es": "Densidad de citas",
         "ar": "Citation Density"
       },
       "businessContext_i18n": {
         "en": "Percentage of pages that have citations.",
         "tr": "Alıntı içeren sayfaların yüzdesi.",
-        "de": "Prozentsatz der Seiten mit Zitaten."
+        "de": "Prozentsatz der Seiten mit Zitaten.",
+        "fr": "Pourcentage de pages contenant des citations.",
+        "es": "Porcentaje de páginas que tienen citas."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Formatting Time per Reference",
         "tr": "Referans Başına Biçimlendirme Süresi",
         "de": "Formatierungszeit pro Referenz",
-        "fr": "Formatting Time per Reference",
-        "es": "Formatting Time per Reference",
+        "fr": "Temps de formatage par référence",
+        "es": "Tiempo de formateo por referencia",
         "ar": "Formatting Time per Reference"
       },
       "businessContext_i18n": {
         "en": "Time to format one reference according to style.",
         "tr": "Stile göre bir referansı biçimlendirme süresi.",
-        "de": "Zeit, eine Referenz gemäß Stil zu formatieren."
+        "de": "Zeit, eine Referenz gemäß Stil zu formatieren.",
+        "fr": "Temps pour formater une référence selon le style.",
+        "es": "Tiempo para formatear una referencia según el estilo."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Style Complexity Factor",
         "tr": "Stil Karmaşıklık Faktörü",
         "de": "Stil-Komplexitätsfaktor",
-        "fr": "Style Complexity Factor",
-        "es": "Style Complexity Factor",
+        "fr": "Facteur de complexité du style",
+        "es": "Factor de complejidad del estilo",
         "ar": "Style Complexity Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier for bibliography style complexity (e.g., APA = 1.0, Chicago = 1.2).",
         "tr": "Kaynakça stili karmaşıklığı için çarpan (örn. APA = 1.0, Chicago = 1.2).",
-        "de": "Multiplikator für die Komplexität des Bibliografiestils (z. B. APA = 1,0, Chicago = 1,2)."
+        "de": "Multiplikator für die Komplexität des Bibliografiestils (z. B. APA = 1,0, Chicago = 1,2).",
+        "fr": "Multiplicateur pour la complexité du style bibliographique (ex. APA = 1,0, Chicago = 1,2).",
+        "es": "Multiplicador por la complejidad del estilo bibliográfico (p. ej., APA = 1.0, Chicago = 1.2)."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Overhead Time",
         "tr": "Genel Gider Süresi",
         "de": "Overhead-Zeit",
-        "fr": "Overhead Time",
-        "es": "Overhead Time",
+        "fr": "Temps de préparation",
+        "es": "Tiempo de overhead",
         "ar": "Overhead Time"
       },
       "businessContext_i18n": {
         "en": "Fixed time for setting up bibliography tools.",
         "tr": "Kaynakça araçlarını kurmak için sabit süre.",
-        "de": "Feste Zeit für die Einrichtung von Bibliografiewerkzeugen."
+        "de": "Feste Zeit für die Einrichtung von Bibliografiewerkzeugen.",
+        "fr": "Temps fixe pour configurer les outils bibliographiques.",
+        "es": "Tiempo fijo para configurar las herramientas bibliográficas."
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "External References Count",
         "tr": "Harici Referans Sayısı",
         "de": "Anzahl externer Referenzen",
-        "fr": "External References Count",
-        "es": "External References Count",
+        "fr": "Nombre de références externes",
+        "es": "Número de referencias externas",
         "ar": "External References Count"
       },
       "businessContext_i18n": {
         "en": "Number of references imported from external databases.",
         "tr": "Harici veritabanlarından içe aktarılan referans sayısı.",
-        "de": "Anzahl der aus externen Datenbanken importierten Referenzen."
+        "de": "Anzahl der aus externen Datenbanken importierten Referenzen.",
+        "fr": "Nombre de références importées depuis des bases de données externes.",
+        "es": "Número de referencias importadas de bases de datos externas."
       }
     },
     {
@@ -159,14 +173,16 @@
         "en": "Auto-Generation Time per Reference",
         "tr": "Referans Başına Otomatik Oluşturma Süresi",
         "de": "Auto-Generierungszeit pro Referenz",
-        "fr": "Auto-Generation Time per Reference",
-        "es": "Auto-Generation Time per Reference",
+        "fr": "Temps de génération automatique par référence",
+        "es": "Tiempo de generación automática por referencia",
         "ar": "Auto-Generation Time per Reference"
       },
       "businessContext_i18n": {
         "en": "Time to automatically generate a reference from a database.",
         "tr": "Bir veritabanından referansı otomatik olarak oluşturma süresi.",
-        "de": "Zeit, eine Referenz automatisch aus einer Datenbank zu generieren."
+        "de": "Zeit, eine Referenz automatisch aus einer Datenbank zu generieren.",
+        "fr": "Temps pour générer automatiquement une référence à partir d'une base de données.",
+        "es": "Tiempo para generar automáticamente una referencia desde una base de datos."
       }
     }
   ],

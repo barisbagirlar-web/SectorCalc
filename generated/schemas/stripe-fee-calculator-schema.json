@@ -12,13 +12,15 @@
         "en": "Transaction Amount",
         "tr": "İşlem Tutarı",
         "de": "Transaktionsbetrag",
-        "fr": "Transaction Amount",
-        "es": "Transaction Amount",
+        "fr": "Montant de la transaction",
+        "es": "Monto de la transacción",
         "ar": "Transaction Amount"
       },
       "businessContext_i18n": {
         "en": "Total amount of the transaction including taxes.",
-        "tr": "Vergiler dahil işlemin toplam tutarı."
+        "tr": "Vergiler dahil işlemin toplam tutarı.",
+        "de": "Gesamtbetrag der Transaktion inklusive Steuern.",
+        "fr": "Montant total de la transaction, taxes comprises."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Processing Fee Percentage",
         "tr": "İşlem Ücreti Yüzdesi",
-        "de": "Processing Fee Percentage",
-        "fr": "Processing Fee Percentage",
+        "de": "Bearbeitungsgebühr in Prozent",
+        "fr": "Pourcentage des frais de traitement",
         "es": "Processing Fee Percentage",
         "ar": "Processing Fee Percentage"
       },
       "businessContext_i18n": {
         "en": "The percentage fee for domestic card processing (e.g., 2.9% for Stripe).",
-        "tr": "Yerel kart işleme için yüzde ücreti (örn., Stripe için %2,9)."
+        "tr": "Yerel kart işleme için yüzde ücreti (örn., Stripe için %2,9).",
+        "de": "Der prozentuale Satz für die Bearbeitung von Inlandskarten (z.B. 2,9% bei Stripe).",
+        "fr": "Pourcentage des frais pour le traitement des cartes nationales (ex. : 2,9 % pour Stripe)."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Fixed Fee",
         "tr": "Sabit Ücret",
         "de": "Feste Gebühr",
-        "fr": "Fixed Fee",
-        "es": "Fixed Fee",
+        "fr": "Frais fixes",
+        "es": "Tarifa fija",
         "ar": "Fixed Fee"
       },
       "businessContext_i18n": {
         "en": "The fixed fee per transaction (e.g., $0.30 for Stripe).",
-        "tr": "İşlem başına sabit ücret (örn., Stripe için $0,30)."
+        "tr": "İşlem başına sabit ücret (örn., Stripe için $0,30).",
+        "de": "Die feste Gebühr pro Transaktion (z.B. 0,30 $ bei Stripe).",
+        "fr": "Frais fixes par transaction (ex. : 0,30 $ pour Stripe)."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Additional Fee Percentage",
         "tr": "Ek Ücret Yüzdesi",
-        "de": "Additional Fee Percentage",
-        "fr": "Additional Fee Percentage",
+        "de": "Zusätzlicher Gebührensatz in Prozent",
+        "fr": "Pourcentage des frais supplémentaires",
         "es": "Additional Fee Percentage",
         "ar": "Additional Fee Percentage"
       },
       "businessContext_i18n": {
         "en": "Additional percentage for international cards or currency conversion (Stripe adds 1% for international, another 1% for conversion if needed).",
-        "tr": "Uluslararası kartlar veya para birimi dönüşümü için ek yüzde (Stripe uluslararası için %1, gerekirse dönüşüm için ek %1 ekler)."
+        "tr": "Uluslararası kartlar veya para birimi dönüşümü için ek yüzde (Stripe uluslararası için %1, gerekirse dönüşüm için ek %1 ekler).",
+        "de": "Zusätzlicher Prozentsatz für internationale Karten oder Währungsumrechnung (Stripe fügt 1% für international, weitere 1% für Umrechnung hinzu, falls erforderlich).",
+        "fr": "Pourcentage supplémentaire pour les cartes internationales ou la conversion de devises (Stripe ajoute 1 % pour l'international, 1 % supplémentaire pour la conversion si nécessaire)."
       }
     }
   ],

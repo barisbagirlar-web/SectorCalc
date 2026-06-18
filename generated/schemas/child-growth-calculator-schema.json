@@ -12,14 +12,16 @@
         "en": "Parent Item Quantity",
         "tr": "Ana Ürün Miktarı",
         "de": "Menge des übergeordneten Artikels",
-        "fr": "Parent Item Quantity",
-        "es": "Parent Item Quantity",
+        "fr": "Quantité de l'article parent",
+        "es": "Cantidad del artículo padre",
         "ar": "Parent Item Quantity"
       },
       "businessContext_i18n": {
         "en": "Production order quantity for the parent item.",
         "tr": "Ana ürün için üretim emri miktarı.",
-        "de": "Produktionsauftragsmenge für den übergeordneten Artikel."
+        "de": "Produktionsauftragsmenge für den übergeordneten Artikel.",
+        "fr": "Quantité de l'ordre de fabrication pour l'article parent.",
+        "es": "Cantidad de orden de producción para el artículo padre."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "BOM Multiplier",
         "tr": "Ürün Ağacı Çarpanı",
         "de": "Stücklistenmultiplikator",
-        "fr": "BOM Multiplier",
-        "es": "BOM Multiplier",
+        "fr": "Multiplicateur de nomenclature",
+        "es": "Multiplicador de lista de materiales",
         "ar": "BOM Multiplier"
       },
       "businessContext_i18n": {
         "en": "Number of child items required per one parent item.",
         "tr": "Bir ana ürün başına gereken alt ürün sayısı.",
-        "de": "Anzahl der benötigten untergeordneten Artikel pro übergeordnetem Artikel."
+        "de": "Anzahl der benötigten untergeordneten Artikel pro übergeordnetem Artikel.",
+        "fr": "Nombre d'articles enfants requis par article parent.",
+        "es": "Número de artículos hijos requeridos por cada artículo padre."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Scrap Rate",
         "tr": "Fire Oranı",
         "de": "Ausschussrate",
-        "fr": "Scrap Rate",
-        "es": "Scrap Rate",
+        "fr": "Taux de rebut",
+        "es": "Tasa de desperdicio",
         "ar": "Scrap Rate"
       },
       "businessContext_i18n": {
         "en": "Expected percentage of child items scrapped during production.",
         "tr": "Üretim sırasında hurdaya çıkması beklenen alt ürünlerin yüzdesi.",
-        "de": "Erwarteter Prozentsatz der untergeordneten Artikel, die während der Produktion ausgeschossen werden."
+        "de": "Erwarteter Prozentsatz der untergeordneten Artikel, die während der Produktion ausgeschossen werden.",
+        "fr": "Pourcentage attendu d'articles enfants mis au rebut pendant la production.",
+        "es": "Porcentaje esperado de artículos hijos desechados durante la producción."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Safety Stock Factor",
         "tr": "Emniyet Stoku Faktörü",
         "de": "Sicherheitsbestandsfaktor",
-        "fr": "Safety Stock Factor",
-        "es": "Safety Stock Factor",
+        "fr": "Facteur de stock de sécurité",
+        "es": "Factor de stock de seguridad",
         "ar": "Safety Stock Factor"
       },
       "businessContext_i18n": {
         "en": "Additional percentage for safety stock to cover uncertainties.",
         "tr": "Belirsizlikleri karşılamak için emniyet stoku olarak eklenen yüzde.",
-        "de": "Zusätzlicher Prozentsatz für Sicherheitsbestand zur Abdeckung von Unsicherheiten."
+        "de": "Zusätzlicher Prozentsatz für Sicherheitsbestand zur Abdeckung von Unsicherheiten.",
+        "fr": "Pourcentage supplémentaire pour le stock de sécurité afin de couvrir les incertitudes.",
+        "es": "Porcentaje adicional para stock de seguridad para cubrir incertidumbres."
       }
     }
   ],

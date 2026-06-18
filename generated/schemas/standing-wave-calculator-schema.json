@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Length (L)",
         "tr": "Uzunluk (L)",
-        "de": "Length (L)",
-        "fr": "Length (L)",
-        "es": "Length (L)",
+        "de": "Länge (L)",
+        "fr": "Longueur (L)",
+        "es": "Longitud (L)",
         "ar": "Length (L)"
       },
       "businessContext_i18n": {
         "en": "Length of the vibrating string",
-        "tr": "Titreşen telin uzunluğu"
+        "tr": "Titreşen telin uzunluğu",
+        "de": "Länge der schwingenden Saite",
+        "fr": "Longueur de la corde vibrante"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Tension (T)",
         "tr": "Gerilim (T)",
-        "de": "Tension (T)",
+        "de": "Spannung (T)",
         "fr": "Tension (T)",
         "es": "Tension (T)",
         "ar": "Tension (T)"
       },
       "businessContext_i18n": {
         "en": "Tension applied to the string",
-        "tr": "Telin üzerine uygulanan gerilim"
+        "tr": "Telin üzerine uygulanan gerilim",
+        "de": "Auf die Saite ausgeübte Spannung",
+        "fr": "Tension appliquée à la corde"
       }
     },
     {
@@ -51,15 +55,17 @@
       "label_i18n": {
         "en": "Linear Density (μ)",
         "tr": "Doğrusal Yoğunluk (μ)",
-        "de": "Linear Density (μ)",
-        "fr": "Linear Density (μ)",
+        "de": "Lineare Dichte (μ)",
+        "fr": "Densité linéaire (μ)",
         "es": "Linear Density (μ)",
         "ar": "Linear Density (μ)"
       },
       "businessContext_i18n": {
         "en": "Mass per unit length of the string",
         "tr": "Tel birim uzunluk kütlesi",
-        "de": "Masse pro Längeneinheit der Saite"
+        "de": "Masse pro Längeneinheit der Saite",
+        "fr": "Masse linéique de la corde",
+        "es": "Masa por unidad de longitud de la cuerda"
       }
     },
     {
@@ -72,14 +78,16 @@
       "label_i18n": {
         "en": "Harmonic Number (n)",
         "tr": "Harmonik Sayısı (n)",
-        "de": "Harmonic Number (n)",
-        "fr": "Harmonic Number (n)",
+        "de": "Harmonische Ordnung (n)",
+        "fr": "Numéro d'harmonique (n)",
         "es": "Harmonic Number (n)",
         "ar": "Harmonic Number (n)"
       },
       "businessContext_i18n": {
         "en": "Harmonic mode: 1=fundamental, 2=2nd harmonic, etc.",
-        "tr": "Harmonik mod: 1=temel, 2=2. harmonik, vb."
+        "tr": "Harmonik mod: 1=temel, 2=2. harmonik, vb.",
+        "de": "Harmonischer Modus: 1 = Grundschwingung, 2 = 2. Oberwelle usw.",
+        "fr": "Mode harmonique : 1 = fondamental, 2 = 2e harmonique, etc."
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Sum of Squares Between (SSB)",
         "tr": "Gruplar Arası Kareler Toplamı (SSB)",
-        "de": "Sum of Squares Between (SSB)",
-        "fr": "Sum of Squares Between (SSB)",
-        "es": "Sum of Squares Between (SSB)",
+        "de": "Quadratsumme zwischen den Gruppen (SSB)",
+        "fr": "Somme des carrés inter-groupes (SSB)",
+        "es": "Suma de cuadrados entre grupos (SCE)",
         "ar": "Sum of Squares Between (SSB)"
       },
       "businessContext_i18n": {
         "en": "Variation attributable to the differences between group means.",
-        "tr": "Grup ortalamaları arasındaki farklılıklardan kaynaklanan varyasyon."
+        "tr": "Grup ortalamaları arasındaki farklılıklardan kaynaklanan varyasyon.",
+        "de": "Variation, die auf die Unterschiede zwischen den Gruppenmittelwerten zurückzuführen ist.",
+        "fr": "Variation attribuable aux différences entre les moyennes des groupes.",
+        "es": "Variación atribuible a las diferencias entre las medias de los grupos."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Sum of Squares Within (SSW)",
         "tr": "Grup İçi Kareler Toplamı (SSW)",
-        "de": "Sum of Squares Within (SSW)",
-        "fr": "Sum of Squares Within (SSW)",
-        "es": "Sum of Squares Within (SSW)",
+        "de": "Summe der Quadrate innerhalb (SSW)",
+        "fr": "Somme des carrés intra-groupes (SSW)",
+        "es": "Suma de cuadrados dentro (SCD)",
         "ar": "Sum of Squares Within (SSW)"
       },
       "businessContext_i18n": {
         "en": "Variation within groups, due to random error or individual differences.",
-        "tr": "Gruplar içindeki rastgele hata veya bireysel farklılıklardan kaynaklanan varyasyon."
+        "tr": "Gruplar içindeki rastgele hata veya bireysel farklılıklardan kaynaklanan varyasyon.",
+        "de": "Variation innerhalb der Gruppen, bedingt durch zufällige Fehler oder individuelle Unterschiede.",
+        "fr": "Variation au sein des groupes, due à l'erreur aléatoire ou aux différences individuelles.",
+        "es": "Variación dentro de los grupos, debida a error aleatorio o diferencias individuales."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Degrees of Freedom Between (dfB)",
         "tr": "Gruplar Arası Serbestlik Derecesi (dfB)",
-        "de": "Degrees of Freedom Between (dfB)",
-        "fr": "Degrees of Freedom Between (dfB)",
-        "es": "Degrees of Freedom Between (dfB)",
+        "de": "Freiheitsgrade zwischen (dfB)",
+        "fr": "Degrés de liberté inter-groupes (ddlB)",
+        "es": "Grados de libertad entre (glB)",
         "ar": "Degrees of Freedom Between (dfB)"
       },
       "businessContext_i18n": {
         "en": "Number of groups minus 1 (k-1).",
-        "tr": "Grup sayısı eksi 1 (k-1)."
+        "tr": "Grup sayısı eksi 1 (k-1).",
+        "de": "Anzahl der Gruppen minus 1 (k-1).",
+        "fr": "Nombre de groupes moins 1 (k-1).",
+        "es": "Número de grupos menos 1 (k-1)."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Degrees of Freedom Within (dfW)",
         "tr": "Grup İçi Serbestlik Derecesi (dfW)",
-        "de": "Degrees of Freedom Within (dfW)",
-        "fr": "Degrees of Freedom Within (dfW)",
-        "es": "Degrees of Freedom Within (dfW)",
+        "de": "Freiheitsgrade innerhalb (dfW)",
+        "fr": "Degrés de liberté intra-groupes (ddlW)",
+        "es": "Grados de libertad dentro (glD)",
         "ar": "Degrees of Freedom Within (dfW)"
       },
       "businessContext_i18n": {
         "en": "Total number of observations minus number of groups (N-k).",
-        "tr": "Toplam gözlem sayısı eksi grup sayısı (N-k)."
+        "tr": "Toplam gözlem sayısı eksi grup sayısı (N-k).",
+        "de": "Gesamtzahl der Beobachtungen minus Anzahl der Gruppen (N-k).",
+        "fr": "Nombre total d'observations moins le nombre de groupes (N-k).",
+        "es": "Número total de observaciones menos el número de grupos (N-k)."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Significance Level (α)",
         "tr": "Anlamlılık Düzeyi (α)",
-        "de": "Significance Level (α)",
-        "fr": "Significance Level (α)",
-        "es": "Significance Level (α)",
+        "de": "Signifikanzniveau (α)",
+        "fr": "Niveau de signification (α)",
+        "es": "Nivel de significancia (α)",
         "ar": "Significance Level (α)"
       },
       "businessContext_i18n": {
         "en": "Threshold for statistical significance, probability of Type I error.",
-        "tr": "İstatistiksel anlamlılık için eşik, Tip I hata olasılığı."
+        "tr": "İstatistiksel anlamlılık için eşik, Tip I hata olasılığı.",
+        "de": "Schwellenwert für statistische Signifikanz, Wahrscheinlichkeit eines Fehlers 1. Art.",
+        "fr": "Seuil de signification statistique, probabilité d'erreur de type I.",
+        "es": "Umbral de significación estadística, probabilidad de error tipo I."
       }
     }
   ],

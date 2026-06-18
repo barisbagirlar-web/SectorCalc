@@ -12,14 +12,16 @@
         "en": "Air Flow Rate",
         "tr": "Hava Akış Hızı",
         "de": "Luftdurchsatz",
-        "fr": "Air Flow Rate",
-        "es": "Air Flow Rate",
+        "fr": "Débit d'air",
+        "es": "Caudal de aire",
         "ar": "Air Flow Rate"
       },
       "businessContext_i18n": {
         "en": "The volumetric flow rate of air processed by the DAC system per hour.",
         "tr": "DAC sistemi tarafından saatte işlenen havanın hacimsel debisi",
-        "de": "Der volumetrische Luftdurchsatz, der pro Stunde vom DAC-System verarbeitet wird."
+        "de": "Der volumetrische Luftdurchsatz, der pro Stunde vom DAC-System verarbeitet wird.",
+        "fr": "Le débit volumétrique d'air traité par le système DAC par heure.",
+        "es": "El caudal volumétrico de aire procesado por el sistema DAC por hora."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "CO₂ Concentration",
         "tr": "CO₂ Konsantrasyonu",
         "de": "CO₂-Konzentration",
-        "fr": "CO₂ Concentration",
-        "es": "CO₂ Concentration",
+        "fr": "Concentration en CO₂",
+        "es": "Concentración de CO₂",
         "ar": "CO₂ Concentration"
       },
       "businessContext_i18n": {
         "en": "The atmospheric CO₂ concentration at the intake, typically around 415 ppm.",
         "tr": "Girişteki atmosferik CO₂ konsantrasyonu, tipik olarak 415 ppm civarında",
-        "de": "Die atmosphärische CO₂-Konzentration am Einlass, typischerweise etwa 415 ppm."
+        "de": "Die atmosphärische CO₂-Konzentration am Einlass, typischerweise etwa 415 ppm.",
+        "fr": "La concentration atmosphérique en CO₂ à l'admission, généralement autour de 415 ppm.",
+        "es": "La concentración atmosférica de CO₂ en la entrada, típicamente alrededor de 415 ppm."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Capture Efficiency",
         "tr": "Yakalama Verimliliği",
         "de": "Abscheideeffizienz",
-        "fr": "Capture Efficiency",
-        "es": "Capture Efficiency",
+        "fr": "Efficacité de capture",
+        "es": "Eficiencia de captura",
         "ar": "Capture Efficiency"
       },
       "businessContext_i18n": {
         "en": "The percentage of CO₂ removed from the processed air stream.",
         "tr": "İşlenen hava akımından uzaklaştırılan CO₂ yüzdesi",
-        "de": "Der Prozentsatz des CO₂, der aus dem verarbeiteten Luftstrom entfernt wird."
+        "de": "Der Prozentsatz des CO₂, der aus dem verarbeiteten Luftstrom entfernt wird.",
+        "fr": "Le pourcentage de CO₂ retiré du flux d'air traité.",
+        "es": "El porcentaje de CO₂ eliminado de la corriente de aire procesada."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Operating Hours per Year",
         "tr": "Yıllık Çalışma Saati",
         "de": "Betriebsstunden pro Jahr",
-        "fr": "Operating Hours per Year",
-        "es": "Operating Hours per Year",
+        "fr": "Heures de fonctionnement par an",
+        "es": "Horas de operación por año",
         "ar": "Operating Hours per Year"
       },
       "businessContext_i18n": {
         "en": "The total number of hours the DAC plant operates annually.",
         "tr": "DAC tesisinin yıllık toplam çalışma saati",
-        "de": "Die Gesamtbetriebsstunden der DAC-Anlage pro Jahr."
+        "de": "Die Gesamtbetriebsstunden der DAC-Anlage pro Jahr.",
+        "fr": "Le nombre total d'heures de fonctionnement annuel de l'installation DAC.",
+        "es": "El número total de horas que la planta DAC opera anualmente."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Energy Consumption per Ton CO₂",
         "tr": "Ton CO₂ Başına Enerji Tüketimi",
         "de": "Energieverbrauch pro Tonne CO₂",
-        "fr": "Energy Consumption per Ton CO₂",
-        "es": "Energy Consumption per Ton CO₂",
+        "fr": "Consommation d'énergie par tonne de CO₂",
+        "es": "Consumo energético por tonelada de CO₂",
         "ar": "Energy Consumption per Ton CO₂"
       },
       "businessContext_i18n": {
         "en": "The electrical energy required to capture one metric ton of CO₂.",
         "tr": "Bir metrik ton CO₂ yakalamak için gereken elektrik enerjisi",
-        "de": "Die elektrische Energie, die benötigt wird, um eine metrische Tonne CO₂ abzuscheiden."
+        "de": "Die elektrische Energie, die benötigt wird, um eine metrische Tonne CO₂ abzuscheiden.",
+        "fr": "L'énergie électrique nécessaire pour capturer une tonne métrique de CO₂.",
+        "es": "La energía eléctrica requerida para capturar una tonelada métrica de CO₂."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Electricity Price",
         "tr": "Elektrik Fiyatı",
         "de": "Strompreis",
-        "fr": "Electricity Price",
-        "es": "Electricity Price",
+        "fr": "Prix de l'électricité",
+        "es": "Precio de la electricidad",
         "ar": "Electricity Price"
       },
       "businessContext_i18n": {
         "en": "The cost of electricity per kilowatt-hour.",
         "tr": "Kilovatsaat başına elektrik maliyeti",
-        "de": "Stromkosten pro Kilowattstunde."
+        "de": "Stromkosten pro Kilowattstunde.",
+        "fr": "Le coût de l'électricité par kilowattheure.",
+        "es": "El costo de la electricidad por kilovatio-hora."
       }
     }
   ],

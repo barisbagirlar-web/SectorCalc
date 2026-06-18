@@ -12,14 +12,16 @@
         "en": "Player A Rating",
         "tr": "Oyuncu A Derecesi",
         "de": "Spieler-A-Wertung",
-        "fr": "Player A Rating",
-        "es": "Player A Rating",
+        "fr": "Classement du joueur A",
+        "es": "Puntuación del jugador A",
         "ar": "Player A Rating"
       },
       "businessContext_i18n": {
         "en": "Current Elo rating of player A.",
         "tr": "Oyuncu A'nın mevcut Elo derecesi.",
-        "de": "Aktuelle Elo-Zahl von Spieler A."
+        "de": "Aktuelle Elo-Zahl von Spieler A.",
+        "fr": "Classement Elo actuel du joueur A.",
+        "es": "Puntuación Elo actual del jugador A."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Player B Rating",
         "tr": "Oyuncu B Derecesi",
         "de": "Spieler-B-Wertung",
-        "fr": "Player B Rating",
-        "es": "Player B Rating",
+        "fr": "Classement du joueur B",
+        "es": "Puntuación del jugador B",
         "ar": "Player B Rating"
       },
       "businessContext_i18n": {
         "en": "Current Elo rating of player B.",
         "tr": "Oyuncu B'nin mevcut Elo derecesi.",
-        "de": "Aktuelle Elo-Zahl von Spieler B."
+        "de": "Aktuelle Elo-Zahl von Spieler B.",
+        "fr": "Classement Elo actuel du joueur B.",
+        "es": "Puntuación Elo actual del jugador B."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Score for Player A",
         "tr": "Oyuncu A Skoru",
         "de": "Punktzahl für Spieler A",
-        "fr": "Score for Player A",
-        "es": "Score for Player A",
+        "fr": "Score du joueur A",
+        "es": "Puntuación del jugador A",
         "ar": "Score for Player A"
       },
       "businessContext_i18n": {
         "en": "Match score for player A: 1 = win, 0.5 = draw, 0 = loss.",
         "tr": "Oyuncu A için maç skoru: 1 = galibiyet, 0.5 = beraberlik, 0 = mağlubiyet.",
-        "de": "Spielergebnis für Spieler A: 1 = Sieg, 0,5 = Unentschieden, 0 = Niederlage."
+        "de": "Spielergebnis für Spieler A: 1 = Sieg, 0,5 = Unentschieden, 0 = Niederlage.",
+        "fr": "Score du match pour le joueur A : 1 = victoire, 0,5 = match nul, 0 = défaite.",
+        "es": "Puntuación del partido para el jugador A: 1 = victoria, 0.5 = empate, 0 = derrota."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "K-factor",
         "tr": "K-faktörü",
         "de": "K-Faktor",
-        "fr": "K-factor",
-        "es": "K-factor",
+        "fr": "Coefficient K",
+        "es": "Factor K",
         "ar": "K-factor"
       },
       "businessContext_i18n": {
         "en": "Development coefficient (e.g., 32 for amateurs, 16 for professionals).",
         "tr": "Gelişim katsayısı (örn. amatörler için 32, profesyoneller için 16).",
-        "de": "Entwicklungskoeffizient (z. B. 32 für Amateure, 16 für Profis)."
+        "de": "Entwicklungskoeffizient (z. B. 32 für Amateure, 16 für Profis).",
+        "fr": "Coefficient de développement (par exemple, 32 pour les amateurs, 16 pour les professionnels).",
+        "es": "Coeficiente de desarrollo (p. ej., 32 para aficionados, 16 para profesionales)."
       }
     }
   ],

@@ -12,13 +12,16 @@
         "en": "Load Weight",
         "tr": "Yük Ağırlığı",
         "de": "Lastgewicht",
-        "fr": "Load Weight",
-        "es": "Load Weight",
+        "fr": "Poids de la charge",
+        "es": "Peso de la carga",
         "ar": "Load Weight"
       },
       "businessContext_i18n": {
         "en": "Weight of the load to be pulled up.",
-        "tr": "Yukarı çekilecek yükün ağırlığı."
+        "tr": "Yukarı çekilecek yükün ağırlığı.",
+        "de": "Gewicht der zu ziehenden Last.",
+        "fr": "Poids de la charge à tirer vers le haut.",
+        "es": "Peso de la carga a levantar."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Incline Angle",
         "tr": "Eğim Açısı",
-        "de": "Incline Angle",
-        "fr": "Incline Angle",
-        "es": "Incline Angle",
+        "de": "Neigungswinkel",
+        "fr": "Angle d'inclinaison",
+        "es": "Ángulo de inclinación",
         "ar": "Incline Angle"
       },
       "businessContext_i18n": {
         "en": "Angle of the incline from horizontal.",
-        "tr": "Eğimin yataydan açısı."
+        "tr": "Eğimin yataydan açısı.",
+        "de": "Winkel der Neigung zur Horizontalen.",
+        "fr": "Angle de l'inclinaison par rapport à l'horizontale.",
+        "es": "Ángulo de la inclinación desde la horizontal."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Friction Coefficient",
         "tr": "Sürtünme Katsayısı",
         "de": "Reibungskoeffizient",
-        "fr": "Friction Coefficient",
-        "es": "Friction Coefficient",
+        "fr": "Coefficient de frottement",
+        "es": "Coeficiente de fricción",
         "ar": "Friction Coefficient"
       },
       "businessContext_i18n": {
         "en": "Coefficient of friction between load and surface.",
-        "tr": "Yük ile yüzey arasındaki sürtünme katsayısı."
+        "tr": "Yük ile yüzey arasındaki sürtünme katsayısı.",
+        "de": "Reibungskoeffizient zwischen Last und Oberfläche.",
+        "fr": "Coefficient de frottement entre la charge et la surface.",
+        "es": "Coeficiente de fricción entre la carga y la superficie."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Mechanical Advantage",
         "tr": "Mekanik Avantaj",
-        "de": "Mechanical Advantage",
-        "fr": "Mechanical Advantage",
-        "es": "Mechanical Advantage",
+        "de": "Mechanischer Vorteil",
+        "fr": "Avantage mécanique",
+        "es": "Ventaja mecánica",
         "ar": "Mechanical Advantage"
       },
       "businessContext_i18n": {
         "en": "Mechanical advantage from pulley systems (1 for direct pull).",
-        "tr": "Makara sistemlerinden mekanik avantaj (doğrudan çekme için 1)."
+        "tr": "Makara sistemlerinden mekanik avantaj (doğrudan çekme için 1).",
+        "de": "Mechanischer Vorteil durch Flaschenzüge (1 für direkten Zug).",
+        "fr": "Avantage mécanique des systèmes de poulies (1 pour traction directe).",
+        "es": "Ventaja mecánica de los sistemas de poleas (1 para tracción directa)."
       }
     }
   ],

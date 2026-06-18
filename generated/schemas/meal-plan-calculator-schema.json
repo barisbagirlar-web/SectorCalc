@@ -12,13 +12,16 @@
         "en": "Meals per Day",
         "tr": "Günde Öğün Sayısı",
         "de": "Mahlzeiten pro Tag",
-        "fr": "Meals per Day",
-        "es": "Meals per Day",
+        "fr": "Repas par jour",
+        "es": "Comidas por día",
         "ar": "Meals per Day"
       },
       "businessContext_i18n": {
         "en": "Number of meals served daily",
-        "tr": "Günlük servis edilen öğün sayısı"
+        "tr": "Günlük servis edilen öğün sayısı",
+        "de": "Anzahl der täglich servierten Mahlzeiten",
+        "fr": "Nombre de repas servis par jour",
+        "es": "Número de comidas servidas al día"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Ingredient Cost per Meal",
         "tr": "Öğün Başına Malzeme Maliyeti",
-        "de": "Ingredient Cost per Meal",
-        "fr": "Ingredient Cost per Meal",
-        "es": "Ingredient Cost per Meal",
+        "de": "Zutatenkosten pro Mahlzeit",
+        "fr": "Coût des ingrédients par repas",
+        "es": "Costo de ingredientes por comida",
         "ar": "Ingredient Cost per Meal"
       },
       "businessContext_i18n": {
         "en": "Average ingredient cost per meal",
-        "tr": "Öğün başına ortalama malzeme maliyeti"
+        "tr": "Öğün başına ortalama malzeme maliyeti",
+        "de": "Durchschnittliche Zutatenkosten pro Mahlzeit",
+        "fr": "Coût moyen des ingrédients par repas",
+        "es": "Costo promedio de ingredientes por comida"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Labor Cost per Hour",
         "tr": "Saatlik işçilik maliyeti",
         "de": "Arbeitskosten pro Stunde",
-        "fr": "Labor Cost per Hour",
-        "es": "Labor Cost per Hour",
+        "fr": "Coût de la main-d'œuvre par heure",
+        "es": "Costo de mano de obra por hora",
         "ar": "Labor Cost per Hour"
       },
       "businessContext_i18n": {
         "en": "Hourly rate for kitchen staff",
-        "tr": "Mutfak personeli için saatlik ücret"
+        "tr": "Mutfak personeli için saatlik ücret",
+        "de": "Stundensatz für Küchenpersonal",
+        "fr": "Taux horaire du personnel de cuisine",
+        "es": "Tarifa por hora del personal de cocina"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Preparation Time per Meal",
         "tr": "Öğün Başına Hazırlık Süresi",
-        "de": "Preparation Time per Meal",
-        "fr": "Preparation Time per Meal",
-        "es": "Preparation Time per Meal",
+        "de": "Zubereitungszeit pro Mahlzeit",
+        "fr": "Temps de préparation par repas",
+        "es": "Tiempo de preparación por comida",
         "ar": "Preparation Time per Meal"
       },
       "businessContext_i18n": {
         "en": "Average time to prepare one meal",
-        "tr": "Bir öğünü hazırlamak için ortalama süre"
+        "tr": "Bir öğünü hazırlamak için ortalama süre",
+        "de": "Durchschnittliche Zeit zur Zubereitung einer Mahlzeit",
+        "fr": "Temps moyen pour préparer un repas",
+        "es": "Tiempo promedio para preparar una comida"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Overhead Percentage",
         "tr": "Genel Gider Yüzdesi",
         "de": "Gemeinkostenprozentsatz",
-        "fr": "Overhead Percentage",
-        "es": "Overhead Percentage",
+        "fr": "Pourcentage de frais généraux",
+        "es": "Porcentaje de gastos generales",
         "ar": "Overhead Percentage"
       },
       "businessContext_i18n": {
         "en": "Overhead costs as percentage of direct costs",
-        "tr": "Doğrudan maliyetlerin yüzdesi olarak genel giderler"
+        "tr": "Doğrudan maliyetlerin yüzdesi olarak genel giderler",
+        "de": "Gemeinkosten als Prozentsatz der direkten Kosten",
+        "fr": "Frais généraux en pourcentage des coûts directs",
+        "es": "Costos indirectos como porcentaje de los costos directos"
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Waste Percentage",
         "tr": "Fire Yüzdesi",
         "de": "Abfallprozentsatz",
-        "fr": "Waste Percentage",
-        "es": "Waste Percentage",
+        "fr": "Pourcentage de déchets",
+        "es": "Porcentaje de desperdicio",
         "ar": "Waste Percentage"
       },
       "businessContext_i18n": {
         "en": "Expected food waste percentage",
-        "tr": "Beklenen gıda israfı yüzdesi"
+        "tr": "Beklenen gıda israfı yüzdesi",
+        "de": "Erwarteter Lebensmittelabfall in Prozent",
+        "fr": "Pourcentage attendu de gaspillage alimentaire",
+        "es": "Porcentaje esperado de desperdicio de alimentos"
       }
     }
   ],

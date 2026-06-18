@@ -23,11 +23,16 @@
       "label_i18n": {
         "en": "Total Energy Consumption",
         "tr": "Toplam Enerji Tüketimi",
-        "de": "Gesamtenergieverbrauch"
+        "de": "Gesamtenergieverbrauch",
+        "fr": "Consommation totale d'énergie",
+        "es": "Consumo total de energía"
       },
       "businessContext_i18n": {
         "en": "Total energy consumed by the organization in the baseline period (e.g., one year).",
-        "tr": "Kuruluşun baz dönemde (örneğin bir yıl) tükettiği toplam enerji."
+        "tr": "Kuruluşun baz dönemde (örneğin bir yıl) tükettiği toplam enerji.",
+        "de": "Gesamte vom Unternehmen im Basiszeitraum (z. B. ein Jahr) verbrauchte Energie.",
+        "fr": "Énergie totale consommée par l'organisation pendant la période de référence (ex. : un an).",
+        "es": "Energía total consumida por la organización en el período base (ej., un año)."
       }
     },
     {
@@ -41,11 +46,17 @@
       "businessContext": "Total production output in the baseline period (e.g., number of products, tons, or other relevant unit).",
       "label_i18n": {
         "en": "Production Volume",
-        "tr": "Üretim Hacmi"
+        "tr": "Üretim Hacmi",
+        "de": "Produktionsvolumen",
+        "fr": "Volume de production",
+        "es": "Volumen de producción"
       },
       "businessContext_i18n": {
         "en": "Total production output in the baseline period (e.g., number of products, tons, or other relevant unit).",
-        "tr": "Baz dönemdeki toplam üretim çıktısı (örneğin ürün sayısı, ton veya diğer ilgili birim)."
+        "tr": "Baz dönemdeki toplam üretim çıktısı (örneğin ürün sayısı, ton veya diğer ilgili birim).",
+        "de": "Gesamte Produktionsleistung im Basiszeitraum (z. B. Anzahl Produkte, Tonnen oder andere relevante Einheit).",
+        "fr": "Production totale pendant la période de référence (ex. : nombre de produits, tonnes ou autre unité pertinente).",
+        "es": "Producción total en el período base (ej., número de productos, toneladas u otra unidad relevante)."
       }
     },
     {
@@ -59,11 +70,17 @@
       "businessContext": "Annual heating degree days for the facility location, used to normalize weather-related energy use.",
       "label_i18n": {
         "en": "Heating Degree Days (HDD)",
-        "tr": "Isıtma Derece Günleri (HDD)"
+        "tr": "Isıtma Derece Günleri (HDD)",
+        "de": "Heizgradtage (HDD)",
+        "fr": "Degrés-jours de chauffage (DJC)",
+        "es": "Grados Día de Calefacción (HDD)"
       },
       "businessContext_i18n": {
         "en": "Annual heating degree days for the facility location, used to normalize weather-related energy use.",
-        "tr": "Tesis konumu için yıllık ısıtma derece günleri, hava durumuna bağlı enerji kullanımını normalleştirmek için kullanılır."
+        "tr": "Tesis konumu için yıllık ısıtma derece günleri, hava durumuna bağlı enerji kullanımını normalleştirmek için kullanılır.",
+        "de": "Jährliche Heizgradtage für den Standort der Anlage, verwendet zur Normalisierung des witterungsbedingten Energieverbrauchs.",
+        "fr": "Degrés-jours de chauffage annuels pour l'emplacement de l'installation, utilisés pour normaliser la consommation d'énergie liée aux conditions météorologiques.",
+        "es": "Grados día de calefacción anuales para la ubicación de la instalación, utilizados para normalizar el uso de energía relacionado con el clima."
       }
     },
     {
@@ -77,11 +94,17 @@
       "businessContext": "Annual cooling degree days for the facility location, used to normalize weather-related energy use.",
       "label_i18n": {
         "en": "Cooling Degree Days (CDD)",
-        "tr": "Soğutma Derece Günleri (CDD)"
+        "tr": "Soğutma Derece Günleri (CDD)",
+        "de": "Kühlgradtage (CDD)",
+        "fr": "Degrés-jours de refroidissement (DJR)",
+        "es": "Grados Día de Refrigeración (CDD)"
       },
       "businessContext_i18n": {
         "en": "Annual cooling degree days for the facility location, used to normalize weather-related energy use.",
-        "tr": "Tesis konumu için yıllık soğutma derece günleri, hava durumuna bağlı enerji kullanımını normalleştirmek için kullanılır."
+        "tr": "Tesis konumu için yıllık soğutma derece günleri, hava durumuna bağlı enerji kullanımını normalleştirmek için kullanılır.",
+        "de": "Jährliche Kühlgradtage für den Standort der Anlage, verwendet zur Normalisierung des witterungsbedingten Energieverbrauchs.",
+        "fr": "Degrés-jours de refroidissement annuels pour l'emplacement de l'installation, utilisés pour normaliser la consommation d'énergie liée aux conditions météorologiques.",
+        "es": "Grados día de refrigeración anuales para la ubicación de la instalación, utilizados para normalizar el uso de energía relacionado con el clima."
       }
     },
     {
@@ -96,11 +119,16 @@
       "label_i18n": {
         "en": "Operating Hours",
         "tr": "Çalışma Saatleri",
-        "de": "Betriebsstunden"
+        "de": "Betriebsstunden",
+        "fr": "Heures de fonctionnement",
+        "es": "Horas de operación"
       },
       "businessContext_i18n": {
         "en": "Total hours the facility operated during the baseline period.",
-        "tr": "Baz dönemde tesisin çalıştığı toplam saat."
+        "tr": "Baz dönemde tesisin çalıştığı toplam saat.",
+        "de": "Gesamtbetriebsstunden der Anlage im Basiszeitraum.",
+        "fr": "Nombre total d'heures de fonctionnement de l'installation pendant la période de référence.",
+        "es": "Horas totales de operación de la instalación durante el período de referencia."
       }
     },
     {
@@ -118,11 +146,17 @@
       "businessContext": "Primary energy sources used, affecting emission factors and normalization.",
       "label_i18n": {
         "en": "Energy Source Mix",
-        "tr": "Enerji Kaynağı Karışımı"
+        "tr": "Enerji Kaynağı Karışımı",
+        "de": "Energiequellenmix",
+        "fr": "Mix énergétique",
+        "es": "Composición de Fuentes de Energía"
       },
       "businessContext_i18n": {
         "en": "Primary energy sources used, affecting emission factors and normalization.",
-        "tr": "Kullanılan birincil enerji kaynakları, emisyon faktörlerini ve normalleştirmeyi etkiler."
+        "tr": "Kullanılan birincil enerji kaynakları, emisyon faktörlerini ve normalleştirmeyi etkiler.",
+        "de": "Primäre Energiequellen, die Emissionsfaktoren und Normalisierung beeinflussen.",
+        "fr": "Sources d'énergie principales utilisées, affectant les facteurs d'émission et la normalisation.",
+        "es": "Fuentes de energía primaria utilizadas, que afectan los factores de emisión y la normalización."
       },
       "unit": "unit"
     },
@@ -139,11 +173,17 @@
       "businessContext": "Type of baseline per ISO 50001:2018 clause 6.3.",
       "label_i18n": {
         "en": "Baseline Type",
-        "tr": "Baz Tipi"
+        "tr": "Baz Tipi",
+        "de": "Basislinientyp",
+        "fr": "Type de référence",
+        "es": "Tipo de Línea Base"
       },
       "businessContext_i18n": {
         "en": "Type of baseline per ISO 50001:2018 clause 6.3.",
-        "tr": "ISO 50001:2018 madde 6.3'e göre baz tipi."
+        "tr": "ISO 50001:2018 madde 6.3'e göre baz tipi.",
+        "de": "Art der Basislinie gemäß ISO 50001:2018 Klausel 6.3.",
+        "fr": "Type de référence selon la clause 6.3 de l'ISO 50001:2018.",
+        "es": "Tipo de línea base según ISO 50001:2018 cláusula 6.3."
       },
       "unit": "unit"
     },
@@ -155,11 +195,17 @@
       "businessContext": "If true, adjusts energy consumption for heating and cooling degree days.",
       "label_i18n": {
         "en": "Apply Weather Normalization",
-        "tr": "Hava Durumu Normalleştirmesi Uygula"
+        "tr": "Hava Durumu Normalleştirmesi Uygula",
+        "de": "Witterungsbereinigung anwenden",
+        "fr": "Appliquer la normalisation météorologique",
+        "es": "Aplicar Normalización Climática"
       },
       "businessContext_i18n": {
         "en": "If true, adjusts energy consumption for heating and cooling degree days.",
-        "tr": "Doğruysa, enerji tüketimini ısıtma ve soğutma derece günlerine göre ayarlar."
+        "tr": "Doğruysa, enerji tüketimini ısıtma ve soğutma derece günlerine göre ayarlar.",
+        "de": "Wenn wahr, wird der Energieverbrauch um Heiz- und Kühlgradtage bereinigt.",
+        "fr": "Si vrai, ajuste la consommation d'énergie en fonction des degrés-jours de chauffage et de refroidissement.",
+        "es": "Si es verdadero, ajusta el consumo de energía según los grados día de calefacción y refrigeración."
       },
       "unit": "unit"
     }

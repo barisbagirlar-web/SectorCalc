@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Loan Amount (Principal)",
         "tr": "Kredi Tutarı (Anapara)",
-        "de": "Loan Amount (Principal)",
-        "fr": "Loan Amount (Principal)",
-        "es": "Loan Amount (Principal)",
+        "de": "Darlehensbetrag (Kapital)",
+        "fr": "Montant du prêt (principal)",
+        "es": "Monto del préstamo (principal)",
         "ar": "Loan Amount (Principal)"
       },
       "businessContext_i18n": {
         "en": "The amount borrowed.",
-        "tr": "Borç alınan miktar."
+        "tr": "Borç alınan miktar.",
+        "de": "Der geliehene Betrag.",
+        "fr": "Le montant emprunté.",
+        "es": "El monto prestado."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
         "de": "Jährlicher Zinssatz",
-        "fr": "Annual Interest Rate",
-        "es": "Annual Interest Rate",
+        "fr": "Taux d'intérêt annuel",
+        "es": "Tasa de Interés Anual",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Annual nominal interest rate on loan.",
-        "tr": "Kredi üzerindeki yıllık nominal faiz oranı."
+        "tr": "Kredi üzerindeki yıllık nominal faiz oranı.",
+        "de": "Jährlicher Nominalzinssatz des Darlehens.",
+        "fr": "Taux d'intérêt nominal annuel du prêt.",
+        "es": "Tasa de interés nominal anual del préstamo."
       }
     },
     {
@@ -52,14 +58,16 @@
         "en": "Loan Term",
         "tr": "Kredi Vadesi",
         "de": "Darlehenslaufzeit",
-        "fr": "Loan Term",
-        "es": "Loan Term",
+        "fr": "Durée du prêt",
+        "es": "Plazo del préstamo",
         "ar": "Loan Term"
       },
       "businessContext_i18n": {
         "en": "Total duration of the loan in years.",
         "tr": "Kredinin toplam vadesi (yıl cinsinden).",
-        "de": "Gesamtlaufzeit des Darlehens in Jahren."
+        "de": "Gesamtlaufzeit des Darlehens in Jahren.",
+        "fr": "Durée totale du prêt en années.",
+        "es": "Duración total del préstamo en años."
       }
     },
     {
@@ -73,13 +81,16 @@
         "en": "Payments Per Year",
         "tr": "Yıllık Ödeme Sayısı",
         "de": "Zahlungen pro Jahr",
-        "fr": "Payments Per Year",
-        "es": "Payments Per Year",
+        "fr": "Paiements par an",
+        "es": "Pagos por año",
         "ar": "Payments Per Year"
       },
       "businessContext_i18n": {
         "en": "Number of interest payments made per year (e.g., 12 for monthly).",
-        "tr": "Yıllık faiz ödeme sayısı (örneğin, aylık için 12)."
+        "tr": "Yıllık faiz ödeme sayısı (örneğin, aylık için 12).",
+        "de": "Anzahl der Zinszahlungen pro Jahr (z. B. 12 bei monatlicher Zahlung).",
+        "fr": "Nombre de paiements d'intérêts par an (ex. 12 pour mensuel).",
+        "es": "Número de pagos de intereses realizados por año (ej., 12 para mensual)."
       }
     }
   ],

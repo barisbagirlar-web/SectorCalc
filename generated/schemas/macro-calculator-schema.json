@@ -12,13 +12,16 @@
         "en": "Daily Calorie Intake",
         "tr": "Günlük Kalori Alımı",
         "de": "Tägliche Kalorienaufnahme",
-        "fr": "Daily Calorie Intake",
-        "es": "Daily Calorie Intake",
+        "fr": "Apport calorique quotidien",
+        "es": "Ingesta calórica diaria",
         "ar": "Daily Calorie Intake"
       },
       "businessContext_i18n": {
         "en": "Total daily energy intake target in kilocalories.",
-        "tr": "Günlük toplam enerji alımı hedefi (kilokalori)."
+        "tr": "Günlük toplam enerji alımı hedefi (kilokalori).",
+        "de": "Tägliches Gesamtenergieziel in Kilokalorien.",
+        "fr": "Objectif d'apport énergétique quotidien total en kilocalories.",
+        "es": "Objetivo de ingesta energética diaria total en kilocalorías."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Protein %",
         "tr": "Protein %",
         "de": "Protein %",
-        "fr": "Protein %",
-        "es": "Protein %",
+        "fr": "Protéines %",
+        "es": "Proteína %",
         "ar": "Protein %"
       },
       "businessContext_i18n": {
         "en": "Percentage of calories from protein. Must sum to 100 with other macros.",
-        "tr": "Proteinden gelen kalori yüzdesi. Diğer makrolarla toplamı 100 olmalıdır."
+        "tr": "Proteinden gelen kalori yüzdesi. Diğer makrolarla toplamı 100 olmalıdır.",
+        "de": "Prozentsatz der Kalorien aus Protein. Muss mit anderen Makros 100 ergeben.",
+        "fr": "Pourcentage de calories provenant des protéines. Doit totaliser 100 avec les autres macronutriments.",
+        "es": "Porcentaje de calorías provenientes de proteínas. Debe sumar 100 con los otros macronutrientes."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Carbohydrates %",
         "tr": "Karbonhidrat %",
-        "de": "Carbohydrates %",
-        "fr": "Carbohydrates %",
-        "es": "Carbohydrates %",
+        "de": "Kohlenhydrate %",
+        "fr": "Glucides %",
+        "es": "Carbohidratos %",
         "ar": "Carbohydrates %"
       },
       "businessContext_i18n": {
         "en": "Percentage of calories from carbohydrates. Must sum to 100 with other macros.",
-        "tr": "Karbonhidratlardan gelen kalori yüzdesi. Diğer makrolarla toplamı 100 olmalıdır."
+        "tr": "Karbonhidratlardan gelen kalori yüzdesi. Diğer makrolarla toplamı 100 olmalıdır.",
+        "de": "Prozentsatz der Kalorien aus Kohlenhydraten. Muss mit anderen Makros 100 ergeben.",
+        "fr": "Pourcentage de calories provenant des glucides. Doit totaliser 100 avec les autres macronutriments.",
+        "es": "Porcentaje de calorías provenientes de carbohidratos. Debe sumar 100 con los otros macronutrientes."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Fat %",
         "tr": "Yağ %",
         "de": "Fett %",
-        "fr": "Fat %",
-        "es": "Fat %",
+        "fr": "% de matière grasse",
+        "es": "% de grasa",
         "ar": "Fat %"
       },
       "businessContext_i18n": {
         "en": "Percentage of calories from fat. Must sum to 100 with other macros.",
-        "tr": "Yağ %"
+        "tr": "Yağ %",
+        "de": "Fett %",
+        "fr": "Pourcentage de calories provenant des lipides. Doit totaliser 100 avec les autres macronutriments.",
+        "es": "Grasa %"
       }
     }
   ],

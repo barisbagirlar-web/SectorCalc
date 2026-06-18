@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Speed (mph)",
         "tr": "Hız (mph)",
-        "de": "Speed (mph)",
-        "fr": "Speed (mph)",
-        "es": "Speed (mph)",
+        "de": "Geschwindigkeit (mph)",
+        "fr": "Vitesse (mph)",
+        "es": "Velocidad (mph)",
         "ar": "Speed (mph)"
       },
       "businessContext_i18n": {
         "en": "The speed in miles per hour to be converted.",
-        "tr": "Dönüştürülecek mil/saat cinsinden hız."
+        "tr": "Dönüştürülecek mil/saat cinsinden hız.",
+        "de": "Die Geschwindigkeit in Meilen pro Stunde, die umgerechnet werden soll.",
+        "fr": "La vitesse en miles par heure à convertir.",
+        "es": "La velocidad en millas por hora a convertir."
       }
     },
     {
@@ -32,14 +35,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the result.",
         "tr": "Sonuç için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen für das Ergebnis."
+        "de": "Anzahl der Dezimalstellen für das Ergebnis.",
+        "fr": "Nombre de décimales pour le résultat.",
+        "es": "Número de decimales para el resultado."
       }
     },
     {
@@ -53,13 +58,16 @@
         "en": "Target Unit",
         "tr": "Hedef Birim",
         "de": "Zieleinheit",
-        "fr": "Target Unit",
-        "es": "Target Unit",
+        "fr": "Unité cible",
+        "es": "Unidad objetivo",
         "ar": "Target Unit"
       },
       "businessContext_i18n": {
         "en": "0: km/h, 1: m/s, 2: knots",
-        "tr": "0: km/s, 1: m/s, 2: knot"
+        "tr": "0: km/s, 1: m/s, 2: knot",
+        "de": "0: km/h, 1: m/s, 2: Knoten",
+        "fr": "0 : km/h, 1 : m/s, 2 : nœuds",
+        "es": "0: km/h, 1: m/s, 2: nudos"
       }
     },
     {
@@ -73,13 +81,16 @@
         "en": "Rounding Mode",
         "tr": "Yuvarlama Modu",
         "de": "Rundungsmodus",
-        "fr": "Rounding Mode",
-        "es": "Rounding Mode",
+        "fr": "Mode d'arrondi",
+        "es": "Modo de redondeo",
         "ar": "Rounding Mode"
       },
       "businessContext_i18n": {
         "en": "0: standard rounding, 1: floor, 2: ceil",
-        "tr": "0: standart yuvarlama, 1: taban, 2: tavan"
+        "tr": "0: standart yuvarlama, 1: taban, 2: tavan",
+        "de": "0: Standardrundung, 1: Abrunden, 2: Aufrunden",
+        "fr": "0 : arrondi standard, 1 : plancher, 2 : plafond",
+        "es": "0: redondeo estándar, 1: suelo, 2: techo"
       }
     }
   ],

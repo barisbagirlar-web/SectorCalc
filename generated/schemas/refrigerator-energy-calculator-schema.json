@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Compressor Power",
         "tr": "Kompresör Gücü",
-        "de": "Compressor Power",
-        "fr": "Compressor Power",
+        "de": "Kompressorleistung",
+        "fr": "Puissance du compresseur",
         "es": "Compressor Power",
         "ar": "Compressor Power"
       },
       "businessContext_i18n": {
         "en": "Rated power consumption of the refrigerator compressor when active",
-        "tr": "Soğutucu kompresörün aktifken anma güç tüketimi"
+        "tr": "Soğutucu kompresörün aktifken anma güç tüketimi",
+        "de": "Nennleistungsaufnahme des Kühlschrankkompressors im aktiven Zustand",
+        "fr": "Consommation électrique nominale du compresseur du réfrigérateur lorsqu'il est actif"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Duty Cycle",
         "tr": "Görev Çevrimi",
         "de": "Einschaltdauer",
-        "fr": "Duty Cycle",
-        "es": "Duty Cycle",
+        "fr": "Cycle de service",
+        "es": "Ciclo de trabajo",
         "ar": "Duty Cycle"
       },
       "businessContext_i18n": {
         "en": "Percentage of time the compressor runs",
-        "tr": "Kompresörün çalışma süresi yüzdesi"
+        "tr": "Kompresörün çalışma süresi yüzdesi",
+        "de": "Prozentsatz der Zeit, in der der Kompressor läuft",
+        "fr": "Pourcentage de temps pendant lequel le compresseur fonctionne"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Operating Days per Year",
         "tr": "Yıllık Çalışma Günü Sayısı",
-        "de": "Operating Days per Year",
-        "fr": "Operating Days per Year",
-        "es": "Operating Days per Year",
+        "de": "Betriebstage pro Jahr",
+        "fr": "Jours d'exploitation par an",
+        "es": "Días operativos por año",
         "ar": "Operating Days per Year"
       },
       "businessContext_i18n": {
         "en": "Number of days the refrigerator is in operation annually",
-        "tr": "Soğutucunun yıllık çalışma günü sayısı"
+        "tr": "Soğutucunun yıllık çalışma günü sayısı",
+        "de": "Anzahl der Tage, an denen der Kühlschrank jährlich in Betrieb ist",
+        "fr": "Nombre de jours de fonctionnement du réfrigérateur par an"
       }
     },
     {
@@ -72,14 +78,16 @@
         "en": "Electricity Cost",
         "tr": "Elektrik Maliyeti",
         "de": "Stromkosten",
-        "fr": "Electricity Cost",
-        "es": "Electricity Cost",
+        "fr": "Coût de l'électricité",
+        "es": "Coste de electricidad",
         "ar": "Electricity Cost"
       },
       "businessContext_i18n": {
         "en": "Cost of electricity per kilowatt-hour",
         "tr": "Kilovatsaat başına elektrik maliyeti",
-        "de": "Stromkosten pro Kilowattstunde"
+        "de": "Stromkosten pro Kilowattstunde",
+        "fr": "Coût de l'électricité par kilowattheure",
+        "es": "Coste de la electricidad por kilovatio-hora"
       }
     }
   ],

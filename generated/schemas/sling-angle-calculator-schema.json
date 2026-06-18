@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Yük Ağırlığı",
         "tr": "Yük Ağırlığı",
-        "de": "Yük Ağırlığı",
-        "fr": "Yük Ağırlığı",
-        "es": "Yük Ağırlığı",
+        "de": "Lastgewicht",
+        "fr": "Poids de la charge",
+        "es": "Peso de la carga",
         "ar": "Yük Ağırlığı"
       },
       "businessContext_i18n": {
         "en": "Kaldırılacak toplam yük ağırlığı",
-        "tr": "Kaldırılacak toplam yük ağırlığı"
+        "tr": "Kaldırılacak toplam yük ağırlığı",
+        "de": "Zu hebendes Gesamtlastgewicht",
+        "fr": "Poids total de la charge à soulever"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Sapan Kol Sayısı",
         "tr": "Sapan Kol Sayısı",
-        "de": "Sapan Kol Sayısı",
-        "fr": "Sapan Kol Sayısı",
+        "de": "Anzahl der Anschlagmittelstränge",
+        "fr": "Nombre de brins d'élingue",
         "es": "Sapan Kol Sayısı",
         "ar": "Sapan Kol Sayısı"
       },
       "businessContext_i18n": {
         "en": "Yükü taşıyan sapan kollarının sayısı (genellikle 1,2,3 veya 4)",
-        "tr": "Yükü taşıyan sapan kollarının sayısı (genellikle 1, 2, 3 veya 4)"
+        "tr": "Yükü taşıyan sapan kollarının sayısı (genellikle 1, 2, 3 veya 4)",
+        "de": "Anzahl der Anschlagmittelstränge, die die Last tragen (normalerweise 1, 2, 3 oder 4)",
+        "fr": "Nombre de brins d'élingue supportant la charge (généralement 1, 2, 3 ou 4)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Sapan Açısı (Dikeyden)",
         "tr": "Sapan Açısı (Dikeyden)",
-        "de": "Sapan Açısı (Dikeyden)",
-        "fr": "Sapan Açısı (Dikeyden)",
+        "de": "Anschlagwinkel (von der Senkrechten)",
+        "fr": "Angle d'élingue (par rapport à la verticale)",
         "es": "Sapan Açısı (Dikeyden)",
         "ar": "Sapan Açısı (Dikeyden)"
       },
       "businessContext_i18n": {
         "en": "Dikey eksenle sapan kolu arasındaki açı (0° dikey sapan, 90° yatay sapan)",
-        "tr": "Dikey eksenle sapan kolu arasındaki açı (0° dikey sapan, 90° yatay sapan)"
+        "tr": "Dikey eksenle sapan kolu arasındaki açı (0° dikey sapan, 90° yatay sapan)",
+        "de": "Winkel zwischen der Senkrechten und dem Anschlagmittelstrang (0° senkrechter Strang, 90° waagerechter Strang)",
+        "fr": "Angle entre l'axe vertical et le brin d'élingue (0° élingue verticale, 90° élingue horizontale)"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Emniyet Katsayısı",
         "tr": "Emniyet Katsayısı",
         "de": "Sicherheitsfaktor",
-        "fr": "Emniyet Katsayısı",
-        "es": "Emniyet Katsayısı",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Emniyet Katsayısı"
       },
       "businessContext_i18n": {
         "en": "Uygulanacak emniyet faktörü (örn. 5:1)",
-        "tr": "Uygulanacak emniyet faktörü (örn. 5:1)"
+        "tr": "Uygulanacak emniyet faktörü (örn. 5:1)",
+        "de": "Anzuwendender Sicherheitsfaktor (z. B. 5:1)",
+        "fr": "Facteur de sécurité à appliquer (ex. 5:1)"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Dinamik Katsayı",
         "tr": "Dinamik Katsayı",
-        "de": "Dinamik Katsayı",
-        "fr": "Dinamik Katsayı",
+        "de": "Dynamikfaktor",
+        "fr": "Coefficient dynamique",
         "es": "Dinamik Katsayı",
         "ar": "Dinamik Katsayı"
       },
       "businessContext_i18n": {
         "en": "Dinamik yükleme etkisi (statik yükün çarpılacağı faktör)",
-        "tr": "Dinamik yükleme etkisi (statik yükün çarpılacağı faktör)"
+        "tr": "Dinamik yükleme etkisi (statik yükün çarpılacağı faktör)",
+        "de": "Dynamischer Belastungseffekt (Faktor, mit dem die statische Last multipliziert wird)",
+        "fr": "Effet de charge dynamique (facteur multipliant la charge statique)"
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Verimlilik Faktörü",
         "tr": "Verimlilik Faktörü",
         "de": "Wirkungsgradfaktor",
-        "fr": "Verimlilik Faktörü",
-        "es": "Verimlilik Faktörü",
+        "fr": "Facteur d'efficacité",
+        "es": "Factor de eficiencia",
         "ar": "Verimlilik Faktörü"
       },
       "businessContext_i18n": {
         "en": "Sapanların ideal olmayan yük dağılımı için düzeltme faktörü (0-1 arası, 1 mükemmel dağılım)",
-        "tr": "Sapanların ideal olmayan yük dağılımı için düzeltme faktörü (0-1 arası, 1 mükemmel dağılım)"
+        "tr": "Sapanların ideal olmayan yük dağılımı için düzeltme faktörü (0-1 arası, 1 mükemmel dağılım)",
+        "de": "Korrekturfaktor für ungleichmäßige Lastverteilung auf die Stränge (0-1, 1 = perfekte Verteilung)",
+        "fr": "Facteur de correction pour la répartition non idéale de la charge (0-1, 1 étant une répartition parfaite)"
       }
     }
   ],

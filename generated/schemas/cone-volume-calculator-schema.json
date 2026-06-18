@@ -12,14 +12,16 @@
         "en": "Base Radius",
         "tr": "Taban Yarıçapı",
         "de": "Basisradius",
-        "fr": "Base Radius",
-        "es": "Base Radius",
+        "fr": "Rayon de base",
+        "es": "Radio de la base",
         "ar": "Base Radius"
       },
       "businessContext_i18n": {
         "en": "Radius of the circular base of the cone.",
         "tr": "Koninin dairesel tabanının yarıçapı.",
-        "de": "Radius der kreisförmigen Basis des Kegels."
+        "de": "Radius der kreisförmigen Basis des Kegels.",
+        "fr": "Rayon de la base circulaire du cône.",
+        "es": "Radio de la base circular del cono."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Height",
         "tr": "Boy",
         "de": "Größe",
-        "fr": "Height",
-        "es": "Height",
+        "fr": "Taille",
+        "es": "Altura",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "Perpendicular height from base to apex.",
         "tr": "Tabandan tepeye dik yükseklik.",
-        "de": "Senkrechte Höhe von der Basis zur Spitze."
+        "de": "Senkrechte Höhe von der Basis zur Spitze.",
+        "fr": "Hauteur perpendiculaire de la base au sommet.",
+        "es": "Altura perpendicular desde la base hasta el vértice."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Slant Height (optional, 0 to auto-calc)",
         "tr": "Eğik Yükseklik (isteğe bağlı, otomatik hesaplama için 0)",
         "de": "Mantellinie (optional, 0 für automatische Berechnung)",
-        "fr": "Slant Height (optional, 0 to auto-calc)",
-        "es": "Slant Height (optional, 0 to auto-calc)",
+        "fr": "Hauteur inclinée (optionnelle, 0 pour auto-calcul)",
+        "es": "Altura inclinada (opcional, 0 para cálculo automático)",
         "ar": "Slant Height (optional, 0 to auto-calc)"
       },
       "businessContext_i18n": {
         "en": "Slant height along lateral surface; if 0, it will be computed as sqrt(radius^2 + height^2).",
         "tr": "Yanal yüzey boyunca eğik yükseklik; 0 ise sqrt(yarıçap^2 + yükseklik^2) olarak hesaplanır.",
-        "de": "Mantellinie entlang der Seitenfläche; bei 0 wird sie als sqrt(Radius^2 + Höhe^2) berechnet."
+        "de": "Mantellinie entlang der Seitenfläche; bei 0 wird sie als sqrt(Radius^2 + Höhe^2) berechnet.",
+        "fr": "Hauteur inclinée le long de la surface latérale ; si 0, calculée comme sqrt(rayon^2 + hauteur^2).",
+        "es": "Altura inclinada a lo largo de la superficie lateral; si es 0, se calculará como sqrt(radio^2 + altura^2)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Base Diameter (alternative to radius)",
         "tr": "Taban çapı (yarıçap alternatifi)",
         "de": "Basisdurchmesser (Alternative zum Radius)",
-        "fr": "Base Diameter (alternative to radius)",
-        "es": "Base Diameter (alternative to radius)",
+        "fr": "Diamètre de base (alternative au rayon)",
+        "es": "Diámetro de la base (alternativa al radio)",
         "ar": "Base Diameter (alternative to radius)"
       },
       "businessContext_i18n": {
         "en": "Diameter of base; if >0, radius is overridden as diameter/2.",
         "tr": "Taban çapı; >0 ise yarıçap, çap/2 olarak geçersiz kılınır.",
-        "de": "Durchmesser der Basis; falls >0, wird der Radius als Durchmesser/2 überschrieben."
+        "de": "Durchmesser der Basis; falls >0, wird der Radius als Durchmesser/2 überschrieben.",
+        "fr": "Diamètre de la base ; si >0, le rayon est remplacé par diamètre/2.",
+        "es": "Diámetro de la base; si >0, el radio se anula como diámetro/2."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding outputs.",
         "tr": "Çıktıları yuvarlamak için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen zum Runden der Ausgaben."
+        "de": "Anzahl der Dezimalstellen zum Runden der Ausgaben.",
+        "fr": "Nombre de décimales pour l'arrondi des résultats.",
+        "es": "Número de decimales para redondear los resultados."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Include Surface Area (1=yes, 0=no)",
         "tr": "Yüzey alanını dahil et (1=evet, 0=hayır)",
         "de": "Oberfläche einschließen (1=ja, 0=nein)",
-        "fr": "Include Surface Area (1=yes, 0=no)",
-        "es": "Include Surface Area (1=yes, 0=no)",
+        "fr": "Inclure la surface (1=oui, 0=non)",
+        "es": "Incluir área superficial (1=sí, 0=no)",
         "ar": "Include Surface Area (1=yes, 0=no)"
       },
       "businessContext_i18n": {
         "en": "If 1, outputs also include lateral surface area and total surface area.",
         "tr": "1 ise, çıktılar yanal yüzey alanı ve toplam yüzey alanını da içerir.",
-        "de": "Bei 1 werden auch Mantelfläche und Gesamtoberfläche ausgegeben."
+        "de": "Bei 1 werden auch Mantelfläche und Gesamtoberfläche ausgegeben.",
+        "fr": "Si 1, les résultats incluent également la surface latérale et la surface totale.",
+        "es": "Si es 1, los resultados también incluyen el área de la superficie lateral y el área de la superficie total."
       }
     }
   ],

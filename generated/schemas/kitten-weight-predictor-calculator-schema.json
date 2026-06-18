@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Age (weeks)",
         "tr": "Yaş (hafta)",
-        "de": "Age (weeks)",
-        "fr": "Age (weeks)",
-        "es": "Age (weeks)",
+        "de": "Alter (Wochen)",
+        "fr": "Âge (semaines)",
+        "es": "Edad (semanas)",
         "ar": "Age (weeks)"
       },
       "businessContext_i18n": {
         "en": "Current age of kitten in weeks",
-        "tr": "Yavru kedinin hafta cinsinden mevcut yaşı"
+        "tr": "Yavru kedinin hafta cinsinden mevcut yaşı",
+        "de": "Aktuelles Alter des Kätzchens in Wochen",
+        "fr": "Âge actuel du chaton en semaines",
+        "es": "Edad actual del gatito en semanas"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Current Weight",
         "tr": "Mevcut Ağırlık",
         "de": "Aktuelles Gewicht",
-        "fr": "Current Weight",
-        "es": "Current Weight",
+        "fr": "Poids actuel",
+        "es": "Peso actual",
         "ar": "Current Weight"
       },
       "businessContext_i18n": {
         "en": "Current weight of kitten in grams",
-        "tr": "Yavru kedinin gram cinsinden mevcut ağırlığı"
+        "tr": "Yavru kedinin gram cinsinden mevcut ağırlığı",
+        "de": "Aktuelles Gewicht des Kätzchens in Gramm",
+        "fr": "Poids actuel du chaton en grammes",
+        "es": "Peso actual del gatito en gramos"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Birth Weight",
         "tr": "Doğum Ağırlığı",
-        "de": "Birth Weight",
-        "fr": "Birth Weight",
-        "es": "Birth Weight",
+        "de": "Geburtsgewicht",
+        "fr": "Poids à la naissance",
+        "es": "Peso al nacer",
         "ar": "Birth Weight"
       },
       "businessContext_i18n": {
         "en": "Weight at birth in grams",
-        "tr": "Gram cinsinden doğum ağırlığı"
+        "tr": "Gram cinsinden doğum ağırlığı",
+        "de": "Gewicht bei der Geburt in Gramm",
+        "fr": "Poids à la naissance en grammes",
+        "es": "Peso al nacer en gramos"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Breed Size Factor",
         "tr": "Irk Boyut Faktörü",
-        "de": "Breed Size Factor",
-        "fr": "Breed Size Factor",
-        "es": "Breed Size Factor",
+        "de": "Rassengrößenfaktor",
+        "fr": "Facteur de taille de race",
+        "es": "Factor de tamaño de raza",
         "ar": "Breed Size Factor"
       },
       "businessContext_i18n": {
         "en": "Breed size multiplier (e.g., 0.8 small, 1.0 medium, 1.2 large)",
-        "tr": "Irk boyut çarpanı (ör. küçük 0.8, orta 1.0, büyük 1.2)"
+        "tr": "Irk boyut çarpanı (ör. küçük 0.8, orta 1.0, büyük 1.2)",
+        "de": "Rassengrößen-Multiplikator (z. B. 0,8 klein, 1,0 mittel, 1,2 groß)",
+        "fr": "Multiplicateur de taille de race (ex. 0,8 petit, 1,0 moyen, 1,2 grand)",
+        "es": "Multiplicador de tamaño de raza (p. ej., 0.8 pequeño, 1.0 mediano, 1.2 grande)"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Sex Factor",
         "tr": "Cinsiyet Faktörü",
-        "de": "Sex Factor",
-        "fr": "Sex Factor",
-        "es": "Sex Factor",
+        "de": "Geschlechtsfaktor",
+        "fr": "Facteur de sexe",
+        "es": "Factor de sexo",
         "ar": "Sex Factor"
       },
       "businessContext_i18n": {
         "en": "Sex multiplier (1.0 female, 1.1 male)",
-        "tr": "Cinsiyet çarpanı (dişi 1.0, erkek 1.1)"
+        "tr": "Cinsiyet çarpanı (dişi 1.0, erkek 1.1)",
+        "de": "Geschlechts-Multiplikator (1,0 weiblich, 1,1 männlich)",
+        "fr": "Multiplicateur de sexe (1,0 femelle, 1,1 mâle)",
+        "es": "Multiplicador de sexo (1.0 hembra, 1.1 macho)"
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Daily Calorie Intake",
         "tr": "Günlük Kalori Alımı",
         "de": "Tägliche Kalorienaufnahme",
-        "fr": "Daily Calorie Intake",
-        "es": "Daily Calorie Intake",
+        "fr": "Apport calorique quotidien",
+        "es": "Ingesta calórica diaria",
         "ar": "Daily Calorie Intake"
       },
       "businessContext_i18n": {
         "en": "Average daily calorie intake affecting growth rate",
-        "tr": "Büyüme hızını etkileyen ortalama günlük kalori alımı"
+        "tr": "Büyüme hızını etkileyen ortalama günlük kalori alımı",
+        "de": "Durchschnittliche tägliche Kalorienaufnahme, die die Wachstumsrate beeinflusst",
+        "fr": "Apport calorique quotidien moyen affectant le taux de croissance",
+        "es": "Ingesta calórica diaria promedio que afecta la tasa de crecimiento"
       }
     }
   ],

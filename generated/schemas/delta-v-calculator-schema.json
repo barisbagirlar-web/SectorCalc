@@ -12,14 +12,16 @@
         "en": "Initial Mass (m0)",
         "tr": "Başlangıç Kütlesi (m0)",
         "de": "Anfangsmasse (m0)",
-        "fr": "Initial Mass (m0)",
-        "es": "Initial Mass (m0)",
+        "fr": "Masse initiale (m0)",
+        "es": "Masa inicial (m0)",
         "ar": "Initial Mass (m0)"
       },
       "businessContext_i18n": {
         "en": "Total mass of the vehicle including propellant before burn.",
         "tr": "Yanma öncesi aracın yakıt dahil toplam kütlesi.",
-        "de": "Gesamtmasse des Fahrzeugs einschließlich Treibstoff vor dem Brennschluss."
+        "de": "Gesamtmasse des Fahrzeugs einschließlich Treibstoff vor dem Brennschluss.",
+        "fr": "Masse totale du véhicule, y compris le propergol, avant la combustion.",
+        "es": "Masa total del vehículo incluyendo propelente antes de la combustión."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Final Mass (mf)",
         "tr": "Son Kütle (mf)",
         "de": "Endmasse (mf)",
-        "fr": "Final Mass (mf)",
-        "es": "Final Mass (mf)",
+        "fr": "Masse finale (mf)",
+        "es": "Masa final (mf)",
         "ar": "Final Mass (mf)"
       },
       "businessContext_i18n": {
         "en": "Mass of the vehicle after propellant is expended.",
         "tr": "Yakıt tükendikten sonra aracın kütlesi.",
-        "de": "Masse des Fahrzeugs nach Verbrauch des Treibstoffs."
+        "de": "Masse des Fahrzeugs nach Verbrauch des Treibstoffs.",
+        "fr": "Masse du véhicule après consommation du propergol.",
+        "es": "Masa del vehículo después de consumir el propelente."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Specific Impulse (Isp)",
         "tr": "Özgül İtki (Isp)",
         "de": "Spezifischer Impuls (Isp)",
-        "fr": "Specific Impulse (Isp)",
-        "es": "Specific Impulse (Isp)",
+        "fr": "Impulsion spécifique (Isp)",
+        "es": "Impulso específico (Isp)",
         "ar": "Specific Impulse (Isp)"
       },
       "businessContext_i18n": {
         "en": "Measure of engine efficiency, thrust per weight flow rate.",
         "tr": "Motor verimliliğinin ölçüsü, birim ağırlık debisi başına itki.",
-        "de": "Maß für die Triebwerkseffizienz, Schub pro Gewichtsstrom."
+        "de": "Maß für die Triebwerkseffizienz, Schub pro Gewichtsstrom.",
+        "fr": "Mesure de l'efficacité du moteur, poussée par débit massique.",
+        "es": "Medida de eficiencia del motor, empuje por tasa de flujo de peso."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Standard Gravity (g0)",
         "tr": "Standart Yerçekimi (g0)",
         "de": "Standardgravitation (g0)",
-        "fr": "Standard Gravity (g0)",
-        "es": "Standard Gravity (g0)",
+        "fr": "Gravité standard (g0)",
+        "es": "Gravedad estándar (g0)",
         "ar": "Standard Gravity (g0)"
       },
       "businessContext_i18n": {
         "en": "Acceleration due to gravity at sea level, used to convert specific impulse to exhaust velocity.",
         "tr": "Deniz seviyesinde yerçekimi ivmesi, özgül itkiyi egzoz hızına dönüştürmek için kullanılır.",
-        "de": "Erdbeschleunigung auf Meereshöhe, zur Umrechnung von spezifischem Impuls in Ausströmgeschwindigkeit."
+        "de": "Erdbeschleunigung auf Meereshöhe, zur Umrechnung von spezifischem Impuls in Ausströmgeschwindigkeit.",
+        "fr": "Accélération due à la gravité au niveau de la mer, utilisée pour convertir l'impulsion spécifique en vitesse d'éjection.",
+        "es": "Aceleración debida a la gravedad a nivel del mar, utilizada para convertir impulso específico en velocidad de escape."
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Number of Users",
         "tr": "Kullanıcı Sayısı",
-        "de": "Number of Users",
-        "fr": "Number of Users",
+        "de": "Anzahl der Nutzer",
+        "fr": "Nombre d'utilisateurs",
         "es": "Number of Users",
         "ar": "Number of Users"
       },
       "businessContext_i18n": {
         "en": "Total number of users or licenses under subscription",
-        "tr": "Abonelik altındaki toplam kullanıcı veya lisans sayısı"
+        "tr": "Abonelik altındaki toplam kullanıcı veya lisans sayısı",
+        "de": "Gesamtzahl der Benutzer oder Lizenzen im Abonnement",
+        "fr": "Nombre total d'utilisateurs ou de licences sous abonnement"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Price per User (Monthly)",
         "tr": "Kullanıcı Başına Fiyat (Aylık)",
-        "de": "Price per User (Monthly)",
-        "fr": "Price per User (Monthly)",
+        "de": "Preis pro Benutzer (monatlich)",
+        "fr": "Prix par utilisateur (mensuel)",
         "es": "Price per User (Monthly)",
         "ar": "Price per User (Monthly)"
       },
       "businessContext_i18n": {
         "en": "Monthly subscription cost per user",
-        "tr": "Kullanıcı başına aylık abonelik maliyeti"
+        "tr": "Kullanıcı başına aylık abonelik maliyeti",
+        "de": "Monatliche Abonnementkosten pro Benutzer",
+        "fr": "Coût d'abonnement mensuel par utilisateur"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Subscription Duration (Months)",
         "tr": "Abonelik Süresi (Ay)",
-        "de": "Subscription Duration (Months)",
-        "fr": "Subscription Duration (Months)",
+        "de": "Abonnementdauer (Monate)",
+        "fr": "Durée de l'abonnement (mois)",
         "es": "Subscription Duration (Months)",
         "ar": "Subscription Duration (Months)"
       },
       "businessContext_i18n": {
         "en": "Number of months for the subscription period",
-        "tr": "Abonelik dönemi için ay sayısı"
+        "tr": "Abonelik dönemi için ay sayısı",
+        "de": "Anzahl der Monate für den Abonnementzeitraum",
+        "fr": "Nombre de mois pour la période d'abonnement"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Discount Percentage",
         "tr": "İndirim Yüzdesi",
         "de": "Rabattprozentsatz",
-        "fr": "Discount Percentage",
-        "es": "Discount Percentage",
+        "fr": "Pourcentage de réduction",
+        "es": "Porcentaje de descuento",
         "ar": "Discount Percentage"
       },
       "businessContext_i18n": {
         "en": "Overall discount percentage applied to subtotal",
-        "tr": "Ara toplama uygulanan genel indirim yüzdesi"
+        "tr": "Ara toplama uygulanan genel indirim yüzdesi",
+        "de": "Gesamtrabattprozentsatz auf die Zwischensumme",
+        "fr": "Pourcentage de remise global appliqué au sous-total"
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
         "de": "Steuersatz",
-        "fr": "Tax Rate",
-        "es": "Tax Rate",
+        "fr": "Taux de taxe",
+        "es": "Tasa de impuesto",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Tax rate (e.g., VAT) applied after discount",
-        "tr": "İndirimden sonra uygulanan vergi oranı (örn. KDV)"
+        "tr": "İndirimden sonra uygulanan vergi oranı (örn. KDV)",
+        "de": "Steuersatz (z. B. MwSt.) nach Rabatt",
+        "fr": "Taux de taxe (ex. TVA) appliqué après remise"
       }
     }
   ],

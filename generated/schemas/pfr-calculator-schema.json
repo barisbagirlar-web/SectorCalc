@@ -12,13 +12,16 @@
         "en": "Rate Constant (k)",
         "tr": "Hız Sabiti (k)",
         "de": "Geschwindigkeitskonstante (k)",
-        "fr": "Rate Constant (k)",
-        "es": "Rate Constant (k)",
+        "fr": "Constante de vitesse (k)",
+        "es": "Constante de velocidad (k)",
         "ar": "Rate Constant (k)"
       },
       "businessContext_i18n": {
         "en": "First-order reaction rate constant",
-        "tr": "Birinci dereceden reaksiyon hız sabiti"
+        "tr": "Birinci dereceden reaksiyon hız sabiti",
+        "de": "Geschwindigkeitskonstante erster Ordnung",
+        "fr": "Constante de vitesse de réaction du premier ordre",
+        "es": "Constante de velocidad de reacción de primer orden"
       }
     },
     {
@@ -33,12 +36,15 @@
         "tr": "Dönüşüm (X)",
         "de": "Umsatz (X)",
         "fr": "Conversion (X)",
-        "es": "Conversion (X)",
+        "es": "Conversión (X)",
         "ar": "Conversion (X)"
       },
       "businessContext_i18n": {
         "en": "Desired fractional conversion of reactant A",
-        "tr": "A reaktanının istenen dönüşüm kesri"
+        "tr": "A reaktanının istenen dönüşüm kesri",
+        "de": "Gewünschter Umsatz von Reaktant A",
+        "fr": "Conversion fractionnaire souhaitée du réactif A",
+        "es": "Conversión fraccional deseada del reactivo A"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Inlet Concentration (Cₐ₀)",
         "tr": "Giriş Derişimi (Cₐ₀)",
-        "de": "Inlet Concentration (Cₐ₀)",
-        "fr": "Inlet Concentration (Cₐ₀)",
-        "es": "Inlet Concentration (Cₐ₀)",
+        "de": "Eingangskonzentration (Cₐ₀)",
+        "fr": "Concentration d'entrée (Cₐ₀)",
+        "es": "Concentración de entrada (Cₐ₀)",
         "ar": "Inlet Concentration (Cₐ₀)"
       },
       "businessContext_i18n": {
         "en": "Molar concentration of A in feed",
-        "tr": "A'nın beslemedeki molar derişimi"
+        "tr": "A'nın beslemedeki molar derişimi",
+        "de": "Molare Konzentration von A im Zulauf",
+        "fr": "Concentration molaire de A dans l'alimentation",
+        "es": "Concentración molar de A en la alimentación"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Volumetric Flow Rate (v₀)",
         "tr": "Hacimsel Akış Hızı (v₀)",
-        "de": "Volumetric Flow Rate (v₀)",
-        "fr": "Volumetric Flow Rate (v₀)",
-        "es": "Volumetric Flow Rate (v₀)",
+        "de": "Volumenstrom (v₀)",
+        "fr": "Débit volumétrique (v₀)",
+        "es": "Caudal volumétrico (v₀)",
         "ar": "Volumetric Flow Rate (v₀)"
       },
       "businessContext_i18n": {
         "en": "Inlet volumetric flow rate",
-        "tr": "Giriş hacimsel akış hızı"
+        "tr": "Giriş hacimsel akış hızı",
+        "de": "Volumenstrom am Eingang",
+        "fr": "Débit volumétrique d'entrée",
+        "es": "Caudal volumétrico de entrada"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Safety Factor (SF)",
         "tr": "Güvenlik Faktörü (SF)",
-        "de": "Safety Factor (SF)",
-        "fr": "Safety Factor (SF)",
-        "es": "Safety Factor (SF)",
+        "de": "Sicherheitsfaktor (SF)",
+        "fr": "Facteur de sécurité (SF)",
+        "es": "Factor de seguridad (SF)",
         "ar": "Safety Factor (SF)"
       },
       "businessContext_i18n": {
         "en": "Design margin to account for uncertainties",
-        "tr": "Belirsizlikleri hesaba katmak için tasarım marjı"
+        "tr": "Belirsizlikleri hesaba katmak için tasarım marjı",
+        "de": "Auslegungsreserve zur Berücksichtigung von Unsicherheiten",
+        "fr": "Marge de conception pour tenir compte des incertitudes",
+        "es": "Margen de diseño para tener en cuenta incertidumbres"
       }
     }
   ],

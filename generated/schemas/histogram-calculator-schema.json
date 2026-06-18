@@ -11,15 +11,17 @@
       "label_i18n": {
         "en": "Number of data points",
         "tr": "Veri noktası sayısı",
-        "de": "Number of data points",
-        "fr": "Number of data points",
-        "es": "Number of data points",
+        "de": "Anzahl der Datenpunkte",
+        "fr": "Nombre de points de données",
+        "es": "Número de puntos de datos",
         "ar": "Number of data points"
       },
       "businessContext_i18n": {
         "en": "Total number of observations in the dataset.",
         "tr": "Veri setindeki toplam gözlem sayısı.",
-        "de": "Gesamtzahl der Beobachtungen im Datensatz."
+        "de": "Gesamtzahl der Beobachtungen im Datensatz.",
+        "fr": "Nombre total d'observations dans l'ensemble de données.",
+        "es": "Número total de observaciones en el conjunto de datos."
       }
     },
     {
@@ -32,14 +34,17 @@
       "label_i18n": {
         "en": "Minimum value",
         "tr": "Minimum değer",
-        "de": "Minimum value",
-        "fr": "Minimum value",
-        "es": "Minimum value",
+        "de": "Minimalwert",
+        "fr": "Valeur minimale",
+        "es": "Valor mínimo",
         "ar": "Minimum value"
       },
       "businessContext_i18n": {
         "en": "Smallest data value.",
-        "tr": "En küçük veri değeri."
+        "tr": "En küçük veri değeri.",
+        "de": "Kleinster Datenwert.",
+        "fr": "Plus petite valeur des données.",
+        "es": "Valor de datos más pequeño."
       }
     },
     {
@@ -52,14 +57,17 @@
       "label_i18n": {
         "en": "Maximum value",
         "tr": "Maksimum değer",
-        "de": "Maximum value",
-        "fr": "Maximum value",
-        "es": "Maximum value",
+        "de": "Maximalwert",
+        "fr": "Valeur maximale",
+        "es": "Valor máximo",
         "ar": "Maximum value"
       },
       "businessContext_i18n": {
         "en": "Largest data value.",
-        "tr": "En büyük veri değeri."
+        "tr": "En büyük veri değeri.",
+        "de": "Größter Datenwert.",
+        "fr": "Plus grande valeur des données.",
+        "es": "Valor de datos más grande."
       }
     },
     {
@@ -72,14 +80,17 @@
       "label_i18n": {
         "en": "Standard deviation",
         "tr": "Standart sapma",
-        "de": "Standard deviation",
-        "fr": "Standard deviation",
-        "es": "Standard deviation",
+        "de": "Standardabweichung",
+        "fr": "Écart type",
+        "es": "Desviación estándar",
         "ar": "Standard deviation"
       },
       "businessContext_i18n": {
         "en": "Estimated or known standard deviation of the data.",
-        "tr": "Verilerin tahmini veya bilinen standart sapması."
+        "tr": "Verilerin tahmini veya bilinen standart sapması.",
+        "de": "Geschätzte oder bekannte Standardabweichung der Daten.",
+        "fr": "Écart type estimé ou connu des données.",
+        "es": "Desviación estándar estimada o conocida de los datos."
       }
     },
     {
@@ -92,14 +103,17 @@
       "label_i18n": {
         "en": "Interquartile range (IQR)",
         "tr": "Çeyrekler arası açıklık (IQR)",
-        "de": "Interquartile range (IQR)",
-        "fr": "Interquartile range (IQR)",
-        "es": "Interquartile range (IQR)",
+        "de": "Interquartilsabstand (IQR)",
+        "fr": "Écart interquartile (IQR)",
+        "es": "Rango intercuartil (IQR)",
         "ar": "Interquartile range (IQR)"
       },
       "businessContext_i18n": {
         "en": "Difference between 75th and 25th percentiles.",
-        "tr": "75. ve 25. yüzdelikler arasındaki fark."
+        "tr": "75. ve 25. yüzdelikler arasındaki fark.",
+        "de": "Differenz zwischen 75. und 25. Perzentil.",
+        "fr": "Différence entre les 75e et 25e percentiles.",
+        "es": "Diferencia entre los percentiles 75 y 25."
       }
     }
   ],

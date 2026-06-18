@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Approach Distance",
         "tr": "Yaklaşma mesafesi",
-        "de": "Approach Distance",
-        "fr": "Approach Distance",
+        "de": "Anfahrtsdistanz",
+        "fr": "Distance d'approche",
         "es": "Approach Distance",
         "ar": "Approach Distance"
       },
       "businessContext_i18n": {
         "en": "Distance from wall where the swimmer initiates the turn",
-        "tr": "Yüzücünün dönüşe başladığı duvara olan mesafe"
+        "tr": "Yüzücünün dönüşe başladığı duvara olan mesafe",
+        "de": "Distanz zur Wand, bei der der Schwimmer die Wende einleitet",
+        "fr": "Distance du mur à laquelle le nageur initie le virage"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Approach Velocity",
         "tr": "Yaklaşma hızı",
-        "de": "Approach Velocity",
-        "fr": "Approach Velocity",
+        "de": "Anfahrtsgeschwindigkeit",
+        "fr": "Vitesse d'approche",
         "es": "Approach Velocity",
         "ar": "Approach Velocity"
       },
       "businessContext_i18n": {
         "en": "Velocity of the swimmer during the approach",
-        "tr": "Yaklaşma sırasında yüzücünün hızı"
+        "tr": "Yaklaşma sırasında yüzücünün hızı",
+        "de": "Geschwindigkeit des Schwimmers während der Anfahrt",
+        "fr": "Vitesse du nageur pendant l'approche"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Turn Execution Time",
         "tr": "Dönüş uygulama süresi",
-        "de": "Turn Execution Time",
-        "fr": "Turn Execution Time",
+        "de": "Wendendurchführungszeit",
+        "fr": "Temps d'exécution du virage",
         "es": "Turn Execution Time",
         "ar": "Turn Execution Time"
       },
       "businessContext_i18n": {
         "en": "Time taken to execute the turn on the wall",
-        "tr": "Duvarda dönüşü gerçekleştirme süresi"
+        "tr": "Duvarda dönüşü gerçekleştirme süresi",
+        "de": "Zeit, die für die Ausführung der Wende an der Wand benötigt wird",
+        "fr": "Temps nécessaire pour exécuter le virage au mur"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Push-off Velocity",
         "tr": "İtme hızı",
-        "de": "Push-off Velocity",
-        "fr": "Push-off Velocity",
+        "de": "Abstoßgeschwindigkeit",
+        "fr": "Vitesse de poussée",
         "es": "Push-off Velocity",
         "ar": "Push-off Velocity"
       },
       "businessContext_i18n": {
         "en": "Velocity of the swimmer after push-off from the wall",
-        "tr": "Duvardan itme sonrası yüzücünün hızı"
+        "tr": "Duvardan itme sonrası yüzücünün hızı",
+        "de": "Geschwindigkeit des Schwimmers nach dem Abstoß von der Wand",
+        "fr": "Vitesse du nageur après la poussée du mur"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Breakout Distance",
         "tr": "Çıkış mesafesi",
-        "de": "Breakout Distance",
-        "fr": "Breakout Distance",
+        "de": "Auftauchdistanz",
+        "fr": "Distance de sortie",
         "es": "Breakout Distance",
         "ar": "Breakout Distance"
       },
       "businessContext_i18n": {
         "en": "Distance from wall to the point of breakout (first stroke)",
-        "tr": "Duvardan çıkış (ilk kol çekme) noktasına olan mesafe"
+        "tr": "Duvardan çıkış (ilk kol çekme) noktasına olan mesafe",
+        "de": "Distanz von der Wand bis zum Punkt des Auftauchens (erster Zug)",
+        "fr": "Distance du mur au point de sortie (premier coup de bras)"
       }
     }
   ],

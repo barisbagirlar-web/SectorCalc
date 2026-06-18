@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Serving Size",
         "tr": "Porsiyon Boyutu",
-        "de": "Serving Size",
-        "fr": "Serving Size",
-        "es": "Serving Size",
+        "de": "Portionsgröße",
+        "fr": "Taille de portion",
+        "es": "Tamaño de la porción",
         "ar": "Serving Size"
       },
       "businessContext_i18n": {
         "en": "Standard serving size in grams as indicated on the product label.",
-        "tr": "Ürün etiketinde belirtilen standart porsiyon boyutu (gram cinsinden)."
+        "tr": "Ürün etiketinde belirtilen standart porsiyon boyutu (gram cinsinden).",
+        "de": "Standard-Portionsgröße in Gramm gemäß Produktetikett",
+        "fr": "Taille de portion standard en grammes telle qu'indiquée sur l'étiquette du produit.",
+        "es": "Tamaño de porción estándar en gramos según la etiqueta del producto."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Protein per Serving",
         "tr": "Porsiyon Başına Protein",
-        "de": "Protein per Serving",
-        "fr": "Protein per Serving",
-        "es": "Protein per Serving",
+        "de": "Protein pro Portion",
+        "fr": "Protéines par portion",
+        "es": "Proteína por porción",
         "ar": "Protein per Serving"
       },
       "businessContext_i18n": {
         "en": "Amount of protein in grams per serving according to nutrition facts.",
-        "tr": "Besin değerlerine göre porsiyon başına protein miktarı (gram cinsinden)."
+        "tr": "Besin değerlerine göre porsiyon başına protein miktarı (gram cinsinden).",
+        "de": "Menge an Protein in Gramm pro Portion gemäß Nährwerttabelle.",
+        "fr": "Quantité de protéines en grammes par portion selon les informations nutritionnelles.",
+        "es": "Cantidad de proteína en gramos por porción según la información nutricional."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Scoops Used",
         "tr": "Kullanılan Kepçe Sayısı",
-        "de": "Scoops Used",
-        "fr": "Scoops Used",
-        "es": "Scoops Used",
+        "de": "Verwendete Messlöffel",
+        "fr": "Cuillères utilisées",
+        "es": "Cucharadas usadas",
         "ar": "Scoops Used"
       },
       "businessContext_i18n": {
         "en": "Number of scoops typically consumed per serving.",
-        "tr": "Porsiyon başına tipik olarak tüketilen kepçe sayısı."
+        "tr": "Porsiyon başına tipik olarak tüketilen kepçe sayısı.",
+        "de": "Anzahl der Messlöffel, die typischerweise pro Portion verwendet werden.",
+        "fr": "Nombre de cuillères généralement consommées par portion.",
+        "es": "Número de cucharadas consumidas típicamente por porción."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Container Size",
         "tr": "Konteyner Boyutu",
-        "de": "Container Size",
-        "fr": "Container Size",
-        "es": "Container Size",
+        "de": "Gebindegröße",
+        "fr": "Taille du contenant",
+        "es": "Tamaño del envase",
         "ar": "Container Size"
       },
       "businessContext_i18n": {
         "en": "Net weight of protein powder in the container.",
-        "tr": "Kaptaki protein tozunun net ağırlığı."
+        "tr": "Kaptaki protein tozunun net ağırlığı.",
+        "de": "Nettogewicht des Proteinpulvers im Behälter.",
+        "fr": "Poids net de la poudre de protéines dans le contenant.",
+        "es": "Peso neto del polvo de proteína en el envase."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Container Price",
         "tr": "Kap Fiyatı",
-        "de": "Container Price",
-        "fr": "Container Price",
-        "es": "Container Price",
+        "de": "Behälterpreis",
+        "fr": "Prix du contenant",
+        "es": "Precio del envase",
         "ar": "Container Price"
       },
       "businessContext_i18n": {
         "en": "Total price paid for the container.",
-        "tr": "Kap için ödenen toplam fiyat."
+        "tr": "Kap için ödenen toplam fiyat.",
+        "de": "Gesamtpreis für den Behälter.",
+        "fr": "Prix total payé pour le contenant.",
+        "es": "Precio total pagado por el envase."
       }
     }
   ],

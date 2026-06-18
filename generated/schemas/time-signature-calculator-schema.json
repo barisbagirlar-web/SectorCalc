@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Beats per Measure",
         "tr": "Ölçü Başına Vuruş",
-        "de": "Beats per Measure",
-        "fr": "Beats per Measure",
+        "de": "Schläge pro Takt",
+        "fr": "Temps par mesure",
         "es": "Beats per Measure",
         "ar": "Beats per Measure"
       },
       "businessContext_i18n": {
         "en": "Top number of time signature (number of beats per measure)",
-        "tr": "Zaman işaretinin üst sayısı (ölçü başına vuruş sayısı)"
+        "tr": "Zaman işaretinin üst sayısı (ölçü başına vuruş sayısı)",
+        "de": "Obere Zahl der Taktart (Anzahl der Schläge pro Takt)",
+        "fr": "Chiffre supérieur de la signature rythmique (nombre de temps par mesure)"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Note Value",
         "tr": "Nota Değeri",
-        "de": "Note Value",
-        "fr": "Note Value",
+        "de": "Notenwert",
+        "fr": "Valeur de note",
         "es": "Note Value",
         "ar": "Note Value"
       },
       "businessContext_i18n": {
         "en": "Bottom number of time signature (which note value gets one beat, e.g., 4=quarter, 8=eighth)",
-        "tr": "Zaman işaretinin alt sayısı (hangi nota değerinin bir vuruş aldığı, örn. 4=dörtlük, 8=sekizlik)"
+        "tr": "Zaman işaretinin alt sayısı (hangi nota değerinin bir vuruş aldığı, örn. 4=dörtlük, 8=sekizlik)",
+        "de": "Untere Zahl der Taktart (welcher Notenwert einen Schlag erhält, z.B. 4=Viertel, 8=Achtel)",
+        "fr": "Chiffre inférieur de la signature rythmique (quelle note vaut un temps, ex. 4=noire, 8=croche)"
       }
     },
     {
@@ -58,7 +62,9 @@
       },
       "businessContext_i18n": {
         "en": "Beats per minute (typically the beat unit equals the denominator note value)",
-        "tr": "Dakikadaki vuruş sayısı (genellikle vuruş birimi payda nota değerine eşittir)"
+        "tr": "Dakikadaki vuruş sayısı (genellikle vuruş birimi payda nota değerine eşittir)",
+        "de": "Schläge pro Minute (typischerweise entspricht die Schlageinheit dem Nenner-Notenwert)",
+        "fr": "Temps par minute (généralement l'unité de temps correspond à la note du dénominateur)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Number of Measures",
         "tr": "Ölçü Sayısı",
-        "de": "Number of Measures",
-        "fr": "Number of Measures",
+        "de": "Anzahl der Takte",
+        "fr": "Nombre de mesures",
         "es": "Number of Measures",
         "ar": "Number of Measures"
       },
       "businessContext_i18n": {
         "en": "Number of measures to calculate total duration",
-        "tr": "Toplam süreyi hesaplamak için ölçü sayısı"
+        "tr": "Toplam süreyi hesaplamak için ölçü sayısı",
+        "de": "Anzahl der Takte zur Berechnung der Gesamtdauer",
+        "fr": "Nombre de mesures pour calculer la durée totale"
       }
     }
   ],

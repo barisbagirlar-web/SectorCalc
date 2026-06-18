@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Design Pressure",
         "tr": "Tasarım Basıncı",
-        "de": "Design Pressure",
-        "fr": "Design Pressure",
-        "es": "Design Pressure",
+        "de": "Auslegungsdruck",
+        "fr": "Pression de conception",
+        "es": "Presión de diseño",
         "ar": "Design Pressure"
       },
       "businessContext_i18n": {
         "en": "Internal design pressure of the pipe.",
-        "tr": "Boru iç tasarım basıncı."
+        "tr": "Boru iç tasarım basıncı.",
+        "de": "Innendruck des Rohres",
+        "fr": "Pression interne de conception du tuyau.",
+        "es": "Presión interna de diseño de la tubería."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Outside Diameter",
         "tr": "Dış Çap",
-        "de": "Outside Diameter",
-        "fr": "Outside Diameter",
-        "es": "Outside Diameter",
+        "de": "Außendurchmesser",
+        "fr": "Diamètre extérieur",
+        "es": "Diámetro exterior",
         "ar": "Outside Diameter"
       },
       "businessContext_i18n": {
         "en": "Outside diameter of the pipe.",
-        "tr": "Borunun dış çapı."
+        "tr": "Borunun dış çapı.",
+        "de": "Außendurchmesser des Rohres",
+        "fr": "Diamètre extérieur du tuyau.",
+        "es": "Diámetro exterior de la tubería."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Allowable Stress",
         "tr": "İzin Verilen Gerilme",
-        "de": "Allowable Stress",
-        "fr": "Allowable Stress",
-        "es": "Allowable Stress",
+        "de": "Zulässige Spannung",
+        "fr": "Contrainte admissible",
+        "es": "Esfuerzo admisible",
         "ar": "Allowable Stress"
       },
       "businessContext_i18n": {
         "en": "Allowable stress of the pipe material at design temperature.",
-        "tr": "Boru malzemesinin tasarım sıcaklığındaki izin verilen gerilmesi."
+        "tr": "Boru malzemesinin tasarım sıcaklığındaki izin verilen gerilmesi.",
+        "de": "Zulässige Spannung des Rohrmaterials bei Auslegungstemperatur",
+        "fr": "Contrainte admissible du matériau du tuyau à la température de conception.",
+        "es": "Esfuerzo admisible del material de la tubería a la temperatura de diseño."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Joint Efficiency",
         "tr": "Birleştirme Verimi",
-        "de": "Joint Efficiency",
-        "fr": "Joint Efficiency",
-        "es": "Joint Efficiency",
+        "de": "Verbindungswirkungsgrad",
+        "fr": "Efficacité du joint",
+        "es": "Eficiencia de junta",
         "ar": "Joint Efficiency"
       },
       "businessContext_i18n": {
         "en": "Longitudinal joint efficiency factor (between 0 and 1).",
-        "tr": "Boyuna birleştirme verim faktörü (0 ile 1 arasında)."
+        "tr": "Boyuna birleştirme verim faktörü (0 ile 1 arasında).",
+        "de": "Längsnahtwirkungsgrad (zwischen 0 und 1)",
+        "fr": "Facteur d'efficacité du joint longitudinal (entre 0 et 1).",
+        "es": "Factor de eficiencia de junta longitudinal (entre 0 y 1)."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Corrosion Allowance",
         "tr": "Korozyon Payı",
-        "de": "Corrosion Allowance",
-        "fr": "Corrosion Allowance",
-        "es": "Corrosion Allowance",
+        "de": "Korrosionszugabe",
+        "fr": "Surépaisseur de corrosion",
+        "es": "Margen de corrosión",
         "ar": "Corrosion Allowance"
       },
       "businessContext_i18n": {
         "en": "Additional thickness to compensate for corrosion or erosion.",
-        "tr": "Korozyon veya erozyonu telafi etmek için ek kalınlık."
+        "tr": "Korozyon veya erozyonu telafi etmek için ek kalınlık.",
+        "de": "Zusätzliche Dicke zum Ausgleich von Korrosion oder Erosion",
+        "fr": "Épaisseur supplémentaire pour compenser la corrosion ou l'érosion.",
+        "es": "Espesor adicional para compensar corrosión o erosión."
       }
     }
   ],

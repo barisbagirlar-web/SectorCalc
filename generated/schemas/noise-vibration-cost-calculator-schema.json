@@ -22,11 +22,17 @@
       "businessContext": "Total headcount in the noise/vibration zone (e.g., assembly line, press shop).",
       "label_i18n": {
         "en": "Number of workers exposed",
-        "tr": "Maruz kalan işçi sayısı"
+        "tr": "Maruz kalan işçi sayısı",
+        "de": "Anzahl der exponierten Arbeiter",
+        "fr": "Nombre de travailleurs exposés",
+        "es": "Número de trabajadores expuestos"
       },
       "businessContext_i18n": {
         "en": "Total headcount in the noise/vibration zone (e.g., assembly line, press shop).",
-        "tr": "Gürültü/titreşim bölgesindeki (ör. montaj hattı, pres atölyesi) toplam personel sayısı."
+        "tr": "Gürültü/titreşim bölgesindeki (ör. montaj hattı, pres atölyesi) toplam personel sayısı.",
+        "de": "Gesamtpersonalbestand in der Lärm-/Vibrationszone (z. B. Montagelinie, Presswerk).",
+        "fr": "Effectif total dans la zone de bruit/vibration (ex. chaîne de montage, atelier de presse).",
+        "es": "Plantilla total en la zona de ruido/vibración (ej., línea de montaje, taller de prensas)."
       }
     },
     {
@@ -40,11 +46,17 @@
       "businessContext": "Per worker, typical shift duration in the affected area.",
       "label_i18n": {
         "en": "Average daily exposure hours",
-        "tr": "Ortalama günlük maruziyet saati"
+        "tr": "Ortalama günlük maruziyet saati",
+        "de": "Durchschnittliche tägliche Expositionsstunden",
+        "fr": "Heures d'exposition quotidiennes moyennes",
+        "es": "Horas de exposición diaria promedio"
       },
       "businessContext_i18n": {
         "en": "Per worker, typical shift duration in the affected area.",
-        "tr": "İşçi başına, etkilenen alandaki tipik vardiya süresi."
+        "tr": "İşçi başına, etkilenen alandaki tipik vardiya süresi.",
+        "de": "Pro Arbeiter, typische Schichtdauer im betroffenen Bereich.",
+        "fr": "Par travailleur, durée typique du quart de travail dans la zone concernée.",
+        "es": "Por trabajador, duración típica del turno en el área afectada."
       }
     },
     {
@@ -58,11 +70,17 @@
       "businessContext": "Measured at operator position per ISO 9612. 85 dB(A) is typical action level.",
       "label_i18n": {
         "en": "Noise level (A-weighted)",
-        "tr": "Gürültü seviyesi (A-ağırlıklı)"
+        "tr": "Gürültü seviyesi (A-ağırlıklı)",
+        "de": "Lärmpegel (A-bewertet)",
+        "fr": "Niveau de bruit (pondéré A)",
+        "es": "Nivel de ruido (ponderado A)"
       },
       "businessContext_i18n": {
         "en": "Measured at operator position per ISO 9612. 85 dB(A) is typical action level.",
-        "tr": "ISO 9612'ye göre operatör pozisyonunda ölçülür. 85 dB(A) tipik eylem seviyesidir."
+        "tr": "ISO 9612'ye göre operatör pozisyonunda ölçülür. 85 dB(A) tipik eylem seviyesidir.",
+        "de": "Gemessen am Bedienerplatz nach ISO 9612. 85 dB(A) ist typischer Auslösewert.",
+        "fr": "Mesuré à la position de l'opérateur selon ISO 9612. 85 dB(A) est le niveau d'action typique.",
+        "es": "Medido en la posición del operador según ISO 9612. 85 dB(A) es el nivel de acción típico."
       }
     },
     {
@@ -76,11 +94,17 @@
       "businessContext": "Weighted acceleration per ISO 2631-1. Hand-arm or whole-body.",
       "label_i18n": {
         "en": "Vibration level (RMS acceleration)",
-        "tr": "Titreşim seviyesi (RMS ivme)"
+        "tr": "Titreşim seviyesi (RMS ivme)",
+        "de": "Vibrationspegel (RMS-Beschleunigung)",
+        "fr": "Niveau de vibration (accélération RMS)",
+        "es": "Nivel de vibración (aceleración RMS)"
       },
       "businessContext_i18n": {
         "en": "Weighted acceleration per ISO 2631-1. Hand-arm or whole-body.",
-        "tr": "ISO 2631-1'e göre ağırlıklı ivme. El-kol veya tüm vücut."
+        "tr": "ISO 2631-1'e göre ağırlıklı ivme. El-kol veya tüm vücut.",
+        "de": "Bewertete Beschleunigung nach ISO 2631-1. Hand-Arm oder Ganzkörper.",
+        "fr": "Accélération pondérée selon ISO 2631-1. Main-bras ou corps entier.",
+        "es": "Aceleración ponderada según ISO 2631-1. Mano-brazo o cuerpo completo."
       }
     },
     {
@@ -94,11 +118,17 @@
       "businessContext": "Total operating hours of the primary noise/vibration source.",
       "label_i18n": {
         "en": "Machine runtime per day",
-        "tr": "Makine günlük çalışma süresi"
+        "tr": "Makine günlük çalışma süresi",
+        "de": "Tägliche Maschinenlaufzeit",
+        "fr": "Temps de fonctionnement de la machine par jour",
+        "es": "Tiempo de funcionamiento de la máquina por día"
       },
       "businessContext_i18n": {
         "en": "Total operating hours of the primary noise/vibration source.",
-        "tr": "Birincil gürültü/titreşim kaynağının toplam çalışma saatleri."
+        "tr": "Birincil gürültü/titreşim kaynağının toplam çalışma saatleri.",
+        "de": "Gesamtbetriebsstunden der primären Lärm-/Vibrationsquelle.",
+        "fr": "Heures totales de fonctionnement de la source principale de bruit/vibration.",
+        "es": "Horas totales de funcionamiento de la fuente principal de ruido/vibración."
       }
     },
     {
@@ -112,11 +142,17 @@
       "businessContext": "Current average spend on repairs and parts for each affected machine.",
       "label_i18n": {
         "en": "Annual maintenance cost per machine",
-        "tr": "Makine başına yıllık bakım maliyeti"
+        "tr": "Makine başına yıllık bakım maliyeti",
+        "de": "Jährliche Wartungskosten pro Maschine",
+        "fr": "Coût annuel de maintenance par machine",
+        "es": "Costo anual de mantenimiento por máquina"
       },
       "businessContext_i18n": {
         "en": "Current average spend on repairs and parts for each affected machine.",
-        "tr": "Etkilenen her makine için onarım ve yedek parçalara yapılan mevcut ortalama harcama."
+        "tr": "Etkilenen her makine için onarım ve yedek parçalara yapılan mevcut ortalama harcama.",
+        "de": "Aktuelle durchschnittliche Ausgaben für Reparaturen und Ersatzteile pro betroffener Maschine.",
+        "fr": "Dépenses actuelles moyennes en réparations et pièces pour chaque machine affectée.",
+        "es": "Gasto promedio actual en reparaciones y piezas para cada máquina afectada."
       }
     },
     {
@@ -130,11 +166,17 @@
       "businessContext": "Count of equipment generating noise/vibration in the assessed area.",
       "label_i18n": {
         "en": "Number of machines in zone",
-        "tr": "Bölgedeki makine sayısı"
+        "tr": "Bölgedeki makine sayısı",
+        "de": "Anzahl der Maschinen im Bereich",
+        "fr": "Nombre de machines dans la zone",
+        "es": "Número de máquinas en la zona"
       },
       "businessContext_i18n": {
         "en": "Count of equipment generating noise/vibration in the assessed area.",
-        "tr": "Değerlendirilen alanda gürültü/titreşim üreten ekipman sayısı."
+        "tr": "Değerlendirilen alanda gürültü/titreşim üreten ekipman sayısı.",
+        "de": "Anzahl der Geräte, die im bewerteten Bereich Lärm/Vibration erzeugen.",
+        "fr": "Nombre d'équipements générant du bruit/vibration dans la zone évaluée.",
+        "es": "Cantidad de equipos que generan ruido/vibración en el área evaluada."
       }
     },
     {
@@ -148,11 +190,17 @@
       "businessContext": "Includes wages, benefits, overhead. Used to estimate productivity loss.",
       "label_i18n": {
         "en": "Average worker annual salary (fully loaded)",
-        "tr": "Ortalama işçi yıllık maaşı (tam yüklü)"
+        "tr": "Ortalama işçi yıllık maaşı (tam yüklü)",
+        "de": "Durchschnittliches Jahresgehalt eines Arbeitnehmers (inkl. Nebenkosten)",
+        "fr": "Salaire annuel moyen d'un travailleur (charges incluses)",
+        "es": "Salario anual promedio del trabajador (costo total)"
       },
       "businessContext_i18n": {
         "en": "Includes wages, benefits, overhead. Used to estimate productivity loss.",
-        "tr": "Maaş, yan haklar, genel giderleri içerir. Verimlilik kaybını tahmin etmek için kullanılır."
+        "tr": "Maaş, yan haklar, genel giderleri içerir. Verimlilik kaybını tahmin etmek için kullanılır.",
+        "de": "Umfasst Löhne, Sozialleistungen, Gemeinkosten. Wird zur Schätzung von Produktivitätsverlusten verwendet.",
+        "fr": "Inclut salaires, avantages, frais généraux. Utilisé pour estimer la perte de productivité.",
+        "es": "Incluye salarios, beneficios, gastos generales. Se utiliza para estimar la pérdida de productividad."
       }
     }
   ],

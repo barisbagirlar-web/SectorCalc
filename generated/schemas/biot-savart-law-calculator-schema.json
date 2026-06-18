@@ -12,14 +12,16 @@
         "en": "Current",
         "tr": "Akım",
         "de": "Strom",
-        "fr": "Current",
-        "es": "Current",
+        "fr": "Courant",
+        "es": "Corriente",
         "ar": "Current"
       },
       "businessContext_i18n": {
         "en": "Electric current flowing through the wire segment",
         "tr": "Tel segmentinden geçen elektrik akımı",
-        "de": "Elektrischer Strom, der durch das Leitersegment fließt"
+        "de": "Elektrischer Strom, der durch das Leitersegment fließt",
+        "fr": "Courant électrique traversant le segment de fil",
+        "es": "Corriente eléctrica que fluye a través del segmento de cable"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Perpendicular Distance",
         "tr": "Dik Mesafe",
         "de": "Senkrechter Abstand",
-        "fr": "Perpendicular Distance",
-        "es": "Perpendicular Distance",
+        "fr": "Distance perpendiculaire",
+        "es": "Distancia perpendicular",
         "ar": "Perpendicular Distance"
       },
       "businessContext_i18n": {
         "en": "Shortest distance from the point to the infinite line containing the wire segment",
         "tr": "Noktadan teli içeren sonsuz doğruya olan en kısa mesafe",
-        "de": "Kürzester Abstand vom Punkt zur unendlichen Linie, die das Leitersegment enthält"
+        "de": "Kürzester Abstand vom Punkt zur unendlichen Linie, die das Leitersegment enthält",
+        "fr": "Distance la plus courte du point à la ligne infinie contenant le segment de fil",
+        "es": "Distancia más corta desde el punto hasta la línea infinita que contiene el segmento de cable"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Observation Point Z",
         "tr": "Gözlem Noktası Z",
         "de": "Beobachtungspunkt Z",
-        "fr": "Observation Point Z",
-        "es": "Observation Point Z",
+        "fr": "Point d'observation Z",
+        "es": "Z del punto de observación",
         "ar": "Observation Point Z"
       },
       "businessContext_i18n": {
         "en": "Z-coordinate of the observation point relative to the wire segment (wire along Z-axis)",
         "tr": "Gözlem noktasının tel segmentine göre Z koordinatı (tel Z ekseni boyunca)",
-        "de": "Z-Koordinate des Beobachtungspunkts relativ zum Leitersegment (Leiter entlang der Z-Achse)"
+        "de": "Z-Koordinate des Beobachtungspunkts relativ zum Leitersegment (Leiter entlang der Z-Achse)",
+        "fr": "Coordonnée Z du point d'observation par rapport au segment de fil (fil le long de l'axe Z)",
+        "es": "Coordenada Z del punto de observación relativa al segmento de cable (cable a lo largo del eje Z)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Segment Start Z",
         "tr": "Segment Başlangıç Z",
         "de": "Segment Start Z",
-        "fr": "Segment Start Z",
-        "es": "Segment Start Z",
+        "fr": "Début du segment Z",
+        "es": "Z de inicio del segmento",
         "ar": "Segment Start Z"
       },
       "businessContext_i18n": {
         "en": "Z-coordinate of the wire segment start",
         "tr": "Tel segmentinin başlangıç Z koordinatı",
-        "de": "Z-Koordinate des Leitersegmentstarts"
+        "de": "Z-Koordinate des Leitersegmentstarts",
+        "fr": "Coordonnée Z du début du segment de fil",
+        "es": "Coordenada Z del inicio del segmento de cable"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Segment End Z",
         "tr": "Segment Bitiş Z",
         "de": "Segment Ende Z",
-        "fr": "Segment End Z",
-        "es": "Segment End Z",
+        "fr": "Fin du segment Z",
+        "es": "Z de fin del segmento",
         "ar": "Segment End Z"
       },
       "businessContext_i18n": {
         "en": "Z-coordinate of the wire segment end",
         "tr": "Tel segmentinin bitiş Z koordinatı",
-        "de": "Z-Koordinate des Leitersegmentendes"
+        "de": "Z-Koordinate des Leitersegmentendes",
+        "fr": "Coordonnée Z de la fin du segment de fil",
+        "es": "Coordenada Z del final del segmento de cable"
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Yıllık Faiz Oranı (%)",
         "tr": "Yıllık Faiz Oranı (%)",
-        "de": "Yıllık Faiz Oranı (%)",
-        "fr": "Yıllık Faiz Oranı (%)",
+        "de": "Jährlicher Zinssatz (%)",
+        "fr": "Taux d'intérêt annuel (%)",
         "es": "Yıllık Faiz Oranı (%)",
         "ar": "Yıllık Faiz Oranı (%)"
       },
       "businessContext_i18n": {
         "en": "Yatırımın yıllık getiri oranı",
-        "tr": "Yatırımın yıllık getiri oranı"
+        "tr": "Yatırımın yıllık getiri oranı",
+        "de": "Jährliche Rendite der Anlage",
+        "fr": "Taux de rendement annuel de l'investissement"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Başlangıç Yatırımı",
         "tr": "Başlangıç Yatırımı",
         "de": "Anfangsinvestition",
-        "fr": "Başlangıç Yatırımı",
-        "es": "Başlangıç Yatırımı",
+        "fr": "Investissement initial",
+        "es": "Inversión inicial",
         "ar": "Başlangıç Yatırımı"
       },
       "businessContext_i18n": {
         "en": "Yatırımın başlangıç değeri",
-        "tr": "Yatırımın başlangıç değeri"
+        "tr": "Yatırımın başlangıç değeri",
+        "de": "Anfangswert der Anlage",
+        "fr": "Valeur initiale de l'investissement"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Hedef Katlama",
         "tr": "Hedef Katlama",
-        "de": "Hedef Katlama",
-        "fr": "Hedef Katlama",
+        "de": "Zielvervielfachung",
+        "fr": "Doublement cible",
         "es": "Hedef Katlama",
         "ar": "Hedef Katlama"
       },
       "businessContext_i18n": {
         "en": "Kaç katına çıkma hedefi (genelde 3)",
-        "tr": "Kaç katına çıkma hedefi (genelde 3)"
+        "tr": "Kaç katına çıkma hedefi (genelde 3)",
+        "de": "Ziel, um wie viel vervielfacht werden soll (normalerweise 3)",
+        "fr": "Objectif de multiplication (généralement 3)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Yıllık Bileşik Faiz Sıklığı",
         "tr": "Yıllık Bileşik Faiz Sıklığı",
-        "de": "Yıllık Bileşik Faiz Sıklığı",
-        "fr": "Yıllık Bileşik Faiz Sıklığı",
+        "de": "Jährliche Zinseszinshäufigkeit",
+        "fr": "Fréquence de composition annuelle",
         "es": "Yıllık Bileşik Faiz Sıklığı",
         "ar": "Yıllık Bileşik Faiz Sıklığı"
       },
       "businessContext_i18n": {
         "en": "Faizin yılda kaç kez bileşiklendiği",
-        "tr": "Faizin yılda kaç kez bileşiklendiği"
+        "tr": "Faizin yılda kaç kez bileşiklendiği",
+        "de": "Wie oft pro Jahr der Zinseszins berechnet wird",
+        "fr": "Nombre de fois par an où les intérêts sont composés"
       }
     }
   ],

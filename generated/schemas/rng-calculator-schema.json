@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Minimum Değer",
         "tr": "Minimum Değer",
-        "de": "Minimum Değer",
-        "fr": "Minimum Değer",
-        "es": "Minimum Değer",
+        "de": "Mindestwert",
+        "fr": "Valeur minimale",
+        "es": "Valor mínimo",
         "ar": "Minimum Değer"
       },
       "businessContext_i18n": {
         "en": "Rastgele sayı aralığının alt sınırı",
-        "tr": "Rastgele sayı aralığının alt sınırı"
+        "tr": "Rastgele sayı aralığının alt sınırı",
+        "de": "Untere Grenze des Zufallszahlenbereichs",
+        "fr": "Limite inférieure de la plage de nombres aléatoires"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Maksimum Değer",
         "tr": "Maksimum Değer",
-        "de": "Maksimum Değer",
-        "fr": "Maksimum Değer",
-        "es": "Maksimum Değer",
+        "de": "Maximalwert",
+        "fr": "Valeur maximale",
+        "es": "Valor máximo",
         "ar": "Maksimum Değer"
       },
       "businessContext_i18n": {
         "en": "Rastgele sayı aralığının üst sınırı",
-        "tr": "Rastgele sayı aralığının üst sınırı"
+        "tr": "Rastgele sayı aralığının üst sınırı",
+        "de": "Obere Grenze des Zufallszahlenbereichs",
+        "fr": "Limite supérieure de la plage de nombres aléatoires"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Adet",
         "tr": "Adet",
         "de": "Adet",
-        "fr": "Adet",
-        "es": "Adet",
+        "fr": "Quantité",
+        "es": "Cantidad",
         "ar": "Adet"
       },
       "businessContext_i18n": {
         "en": "Üretilecek rastgele sayı adedi",
-        "tr": "Üretilecek rastgele sayı adedi"
+        "tr": "Üretilecek rastgele sayı adedi",
+        "de": "Anzahl der zu generierenden Zufallszahlen",
+        "fr": "Nombre de nombres aléatoires à générer"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Tohum (Seed)",
         "tr": "Tohum (Seed)",
-        "de": "Tohum (Seed)",
-        "fr": "Tohum (Seed)",
-        "es": "Tohum (Seed)",
+        "de": "Saat (Seed)",
+        "fr": "Graine (Seed)",
+        "es": "Semilla",
         "ar": "Tohum (Seed)"
       },
       "businessContext_i18n": {
         "en": "Rastgele sayı üretimi için başlangıç değeri",
-        "tr": "Rastgele sayı üretimi için başlangıç değeri"
+        "tr": "Rastgele sayı üretimi için başlangıç değeri",
+        "de": "Startwert für die Zufallszahlengenerierung",
+        "fr": "Valeur de départ pour la génération de nombres aléatoires"
       }
     }
   ],

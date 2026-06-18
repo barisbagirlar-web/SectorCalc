@@ -23,11 +23,17 @@
       "businessContext": "Average fully loaded labor cost per operator hour, including wages, benefits, and overhead. Based on industry benchmarks (BLS, ISO 9001:2015 clause 7.1.6).",
       "label_i18n": {
         "en": "Labor Rate (per hour)",
-        "tr": "İşçilik Ücreti (saat başına)"
+        "tr": "İşçilik Ücreti (saat başına)",
+        "de": "Stundensatz (pro Stunde)",
+        "fr": "Taux horaire de main-d'œuvre",
+        "es": "Tarifa de mano de obra (por hora)"
       },
       "businessContext_i18n": {
         "en": "Average fully loaded labor cost per operator hour, including wages, benefits, and overhead. Based on industry benchmarks (BLS, ISO 9001:2015 clause 7.1.6).",
-        "tr": "Yan haklar ve genel giderler dahil, operatör başına saatlik ortalama tam yüklü işçilik maliyeti. Sektör kıyaslamalarına dayanır (BLS, ISO 9001:2015 madde 7.1.6)."
+        "tr": "Yan haklar ve genel giderler dahil, operatör başına saatlik ortalama tam yüklü işçilik maliyeti. Sektör kıyaslamalarına dayanır (BLS, ISO 9001:2015 madde 7.1.6).",
+        "de": "Durchschnittliche voll belastete Arbeitskosten pro Bedienerstunde, einschließlich Löhne, Sozialleistungen und Gemeinkosten. Basierend auf Branchenbenchmarks (BLS, ISO 9001:2015 Klausel 7.1.6).",
+        "fr": "Coût moyen chargé de la main-d'œuvre par heure d'opérateur, incluant salaires, avantages et frais généraux. Basé sur des références sectorielles (BLS, ISO 9001:2015 clause 7.1.6).",
+        "es": "Costo laboral total promedio por hora operador, incluyendo salarios, beneficios y gastos generales. Basado en referencias industriales (BLS, ISO 9001:2015 cláusula 7.1.6)."
       }
     },
     {
@@ -41,11 +47,17 @@
       "businessContext": "Number of direct operators whose work is impacted by the Kaizen event. Used to calculate labor savings.",
       "label_i18n": {
         "en": "Number of Operators Affected",
-        "tr": "Etkilenen Operatör Sayısı"
+        "tr": "Etkilenen Operatör Sayısı",
+        "de": "Anzahl der betroffenen Bediener",
+        "fr": "Nombre d'opérateurs concernés",
+        "es": "Número de operadores afectados"
       },
       "businessContext_i18n": {
         "en": "Number of direct operators whose work is impacted by the Kaizen event. Used to calculate labor savings.",
-        "tr": "Kaizen etkinliğinden etkilenen doğrudan operatör sayısı. İşçilik tasarrufunu hesaplamak için kullanılır."
+        "tr": "Kaizen etkinliğinden etkilenen doğrudan operatör sayısı. İşçilik tasarrufunu hesaplamak için kullanılır.",
+        "de": "Anzahl der direkten Bediener, deren Arbeit durch das Kaizen-Ereignis beeinflusst wird. Wird zur Berechnung der Arbeitseinsparungen verwendet.",
+        "fr": "Nombre d'opérateurs directs dont le travail est impacté par l'événement Kaizen. Utilisé pour calculer les économies de main-d'œuvre.",
+        "es": "Número de operadores directos cuyo trabajo se ve impactado por el evento Kaizen. Se utiliza para calcular ahorros de mano de obra."
       }
     },
     {
@@ -59,11 +71,17 @@
       "businessContext": "Reduction in cycle time or non-value-added time per operator per shift, measured via time studies (Lean standard work, ISO 22400).",
       "label_i18n": {
         "en": "Time Saved per Operator per Shift",
-        "tr": "Operatör Başına Vardiya Başına Kazanılan Süre"
+        "tr": "Operatör Başına Vardiya Başına Kazanılan Süre",
+        "de": "Zeitersparnis pro Bediener pro Schicht",
+        "fr": "Temps gagné par opérateur par quart de travail",
+        "es": "Tiempo ahorrado por operador por turno"
       },
       "businessContext_i18n": {
         "en": "Reduction in cycle time or non-value-added time per operator per shift, measured via time studies (Lean standard work, ISO 22400).",
-        "tr": "Zaman etütleri ile ölçülen, operatör başına vardiya başına çevrim süresi veya katma değersiz süredeki azalma (Yalın standart iş, ISO 22400)."
+        "tr": "Zaman etütleri ile ölçülen, operatör başına vardiya başına çevrim süresi veya katma değersiz süredeki azalma (Yalın standart iş, ISO 22400).",
+        "de": "Reduzierung der Zykluszeit oder der nicht wertschöpfenden Zeit pro Bediener pro Schicht, gemessen durch Zeitstudien (Lean Standardarbeit, ISO 22400).",
+        "fr": "Réduction du temps de cycle ou du temps sans valeur ajoutée par opérateur par quart, mesurée via des études de temps (travail standard Lean, ISO 22400).",
+        "es": "Reducción del tiempo de ciclo o tiempo sin valor agregado por operador por turno, medida mediante estudios de tiempos (trabajo estándar Lean, ISO 22400)."
       }
     },
     {
@@ -77,11 +95,17 @@
       "businessContext": "Number of production shifts per day. Typical in manufacturing (WERC DC Measures).",
       "label_i18n": {
         "en": "Shifts per Day",
-        "tr": "Günlük Vardiya Sayısı"
+        "tr": "Günlük Vardiya Sayısı",
+        "de": "Schichten pro Tag",
+        "fr": "Postes par jour",
+        "es": "Turnos por día"
       },
       "businessContext_i18n": {
         "en": "Number of production shifts per day. Typical in manufacturing (WERC DC Measures).",
-        "tr": "Günlük üretim vardiyası sayısı. Üretimde tipiktir (WERC DC Ölçütleri)."
+        "tr": "Günlük üretim vardiyası sayısı. Üretimde tipiktir (WERC DC Ölçütleri).",
+        "de": "Anzahl der Produktionsschichten pro Tag. Üblich in der Fertigung (WERC DC Measures).",
+        "fr": "Nombre de quarts de production par jour. Typique dans la fabrication (WERC DC Measures).",
+        "es": "Número de turnos de producción por día. Típico en manufactura (WERC DC Measures)."
       }
     },
     {
@@ -95,11 +119,17 @@
       "businessContext": "Annual operating days, excluding weekends and holidays. Standard for industrial planning (ISO 9001).",
       "label_i18n": {
         "en": "Operating Days per Year",
-        "tr": "Yıllık Çalışma Günü Sayısı"
+        "tr": "Yıllık Çalışma Günü Sayısı",
+        "de": "Betriebstage pro Jahr",
+        "fr": "Jours d'exploitation par an",
+        "es": "Días operativos por año"
       },
       "businessContext_i18n": {
         "en": "Annual operating days, excluding weekends and holidays. Standard for industrial planning (ISO 9001).",
-        "tr": "Yıllık çalışma günü, hafta sonları ve tatiller hariç. Endüstriyel planlama için standart (ISO 9001)."
+        "tr": "Yıllık çalışma günü, hafta sonları ve tatiller hariç. Endüstriyel planlama için standart (ISO 9001).",
+        "de": "Jährliche Betriebstage, ohne Wochenenden und Feiertage. Standard für die industrielle Planung (ISO 9001).",
+        "fr": "Jours ouvrables annuels, hors week-ends et jours fériés. Standard pour la planification industrielle (ISO 9001).",
+        "es": "Días operativos anuales, excluyendo fines de semana y festivos. Estándar para planificación industrial (ISO 9001)."
       }
     },
     {
@@ -113,11 +143,17 @@
       "businessContext": "Percentage of defective units before improvement. Six Sigma DMAIC baseline (DPMO conversion).",
       "label_i18n": {
         "en": "Defect Rate Before Kaizen",
-        "tr": "Kaizen Öncesi Hata Oranı"
+        "tr": "Kaizen Öncesi Hata Oranı",
+        "de": "Fehlerrate vor Kaizen",
+        "fr": "Taux de défauts avant Kaizen",
+        "es": "Tasa de defectos antes del Kaizen"
       },
       "businessContext_i18n": {
         "en": "Percentage of defective units before improvement. Six Sigma DMAIC baseline (DPMO conversion).",
-        "tr": "İyileştirme öncesi hatalı birim yüzdesi. Altı Sigma DMAIC temel çizgisi (DPMO dönüşümü)."
+        "tr": "İyileştirme öncesi hatalı birim yüzdesi. Altı Sigma DMAIC temel çizgisi (DPMO dönüşümü).",
+        "de": "Prozentsatz der fehlerhaften Einheiten vor der Verbesserung. Six Sigma DMAIC-Ausgangsbasis (DPMO-Umrechnung).",
+        "fr": "Pourcentage d'unités défectueuses avant amélioration. Référence Six Sigma DMAIC (conversion DPMO).",
+        "es": "Porcentaje de unidades defectuosas antes de la mejora. Línea base DMAIC de Seis Sigma (conversión DPMO)."
       }
     },
     {
@@ -131,11 +167,17 @@
       "businessContext": "Percentage of defective units after improvement. Must be <= defect_rate_before for valid savings.",
       "label_i18n": {
         "en": "Defect Rate After Kaizen",
-        "tr": "Kaizen Sonrası Hata Oranı"
+        "tr": "Kaizen Sonrası Hata Oranı",
+        "de": "Ausschussrate nach Kaizen",
+        "fr": "Taux de défauts après Kaizen",
+        "es": "Tasa de defectos después de Kaizen"
       },
       "businessContext_i18n": {
         "en": "Percentage of defective units after improvement. Must be <= defect_rate_before for valid savings.",
-        "tr": "İyileştirme sonrası hatalı birim yüzdesi. Geçerli tasarruf için hata_oranı_oncesi'nden küçük veya eşit olmalıdır."
+        "tr": "İyileştirme sonrası hatalı birim yüzdesi. Geçerli tasarruf için hata_oranı_oncesi'nden küçük veya eşit olmalıdır.",
+        "de": "Prozentsatz der fehlerhaften Einheiten nach der Verbesserung. Muss <= Ausschussrate vorher sein, um gültige Einsparungen zu erzielen.",
+        "fr": "Pourcentage d'unités défectueuses après amélioration. Doit être <= taux_defauts_avant pour des économies valides.",
+        "es": "Porcentaje de unidades defectuosas después de la mejora. Debe ser <= tasa_de_defectos_anterior para ahorros válidos."
       }
     },
     {
@@ -150,11 +192,16 @@
       "label_i18n": {
         "en": "Annual Production Volume",
         "tr": "Yıllık Üretim Hacmi",
-        "de": "Jährliches Produktionsvolumen"
+        "de": "Jährliches Produktionsvolumen",
+        "fr": "Volume de production annuel",
+        "es": "Volumen de producción anual"
       },
       "businessContext_i18n": {
         "en": "Total units produced per year. Used to scale defect savings.",
-        "tr": "Yıllık üretilen toplam birim. Hata tasarruflarını ölçeklendirmek için kullanılır."
+        "tr": "Yıllık üretilen toplam birim. Hata tasarruflarını ölçeklendirmek için kullanılır.",
+        "de": "Gesamtproduktion pro Jahr. Wird verwendet, um Ausschusseinsparungen zu skalieren.",
+        "fr": "Nombre total d'unités produites par an. Utilisé pour dimensionner les économies sur les défauts.",
+        "es": "Unidades totales producidas por año. Se utiliza para escalar los ahorros por defectos."
       }
     }
   ],

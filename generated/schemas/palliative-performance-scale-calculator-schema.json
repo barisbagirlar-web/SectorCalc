@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Ambulation",
         "tr": "Yürüme",
-        "de": "Ambulation",
-        "fr": "Ambulation",
-        "es": "Ambulation",
+        "de": "Gehfähigkeit",
+        "fr": "Déambulation",
+        "es": "Deambulación",
         "ar": "Ambulation"
       },
       "businessContext_i18n": {
         "en": "Ambulation capability as a percentage (0-100)",
-        "tr": "Yüzde olarak yürüme yeteneği (0-100)"
+        "tr": "Yüzde olarak yürüme yeteneği (0-100)",
+        "de": "Gehfähigkeit als Prozentsatz (0-100)",
+        "fr": "Capacité de déambulation en pourcentage (0-100)",
+        "es": "Capacidad de deambulación como porcentaje (0-100)"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Activity & Extent of Disease",
         "tr": "Aktivite ve Hastalık Yaygınlığı",
-        "de": "Activity & Extent of Disease",
-        "fr": "Activity & Extent of Disease",
-        "es": "Activity & Extent of Disease",
+        "de": "Aktivität & Krankheitsausmaß",
+        "fr": "Activité et étendue de la maladie",
+        "es": "Actividad y extensión de la enfermedad",
         "ar": "Activity & Extent of Disease"
       },
       "businessContext_i18n": {
         "en": "Activity level and disease burden (0-100)",
-        "tr": "Aktivite düzeyi ve hastalık yükü (0-100)"
+        "tr": "Aktivite düzeyi ve hastalık yükü (0-100)",
+        "de": "Aktivitätsniveau und Krankheitslast (0-100)",
+        "fr": "Niveau d'activité et charge de la maladie (0-100)",
+        "es": "Nivel de actividad y carga de la enfermedad (0-100)"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Self-Care",
         "tr": "Öz Bakım",
-        "de": "Self-Care",
-        "fr": "Self-Care",
-        "es": "Self-Care",
+        "de": "Selbstversorgung",
+        "fr": "Soins personnels",
+        "es": "Autocuidado",
         "ar": "Self-Care"
       },
       "businessContext_i18n": {
         "en": "Self-care ability (0-100)",
-        "tr": "Öz bakım yeteneği (0-100)"
+        "tr": "Öz bakım yeteneği (0-100)",
+        "de": "Selbstversorgungsfähigkeit (0-100)",
+        "fr": "Capacité à prendre soin de soi (0-100)",
+        "es": "Capacidad de autocuidado (0-100)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Intake",
         "tr": "Beslenme",
-        "de": "Intake",
-        "fr": "Intake",
-        "es": "Intake",
+        "de": "Nahrungsaufnahme",
+        "fr": "Alimentation",
+        "es": "Ingesta",
         "ar": "Intake"
       },
       "businessContext_i18n": {
         "en": "Nutritional intake status (0-100)",
-        "tr": "Beslenme durumu (0-100)"
+        "tr": "Beslenme durumu (0-100)",
+        "de": "Ernährungszustand (0-100)",
+        "fr": "État nutritionnel (0-100)",
+        "es": "Estado de ingesta nutricional (0-100)"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Consciousness",
         "tr": "Bilinç",
-        "de": "Consciousness",
-        "fr": "Consciousness",
-        "es": "Consciousness",
+        "de": "Bewusstsein",
+        "fr": "Conscience",
+        "es": "Conciencia",
         "ar": "Consciousness"
       },
       "businessContext_i18n": {
         "en": "Level of consciousness (0-100)",
-        "tr": "Bilinç düzeyi (0-100)"
+        "tr": "Bilinç düzeyi (0-100)",
+        "de": "Bewusstseinsgrad (0-100)",
+        "fr": "Niveau de conscience (0-100)",
+        "es": "Nivel de conciencia (0-100)"
       }
     }
   ],

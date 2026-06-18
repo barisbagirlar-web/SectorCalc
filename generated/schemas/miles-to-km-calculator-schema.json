@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Distance (miles)",
         "tr": "Mesafe (mil)",
-        "de": "Distance (miles)",
+        "de": "Entfernung (Meilen)",
         "fr": "Distance (miles)",
-        "es": "Distance (miles)",
+        "es": "Distancia (millas)",
         "ar": "Distance (miles)"
       },
       "businessContext_i18n": {
         "en": "The distance in miles to be converted to kilometers",
-        "tr": "Mil cinsinden kilometreye dönüştürülecek mesafe"
+        "tr": "Mil cinsinden kilometreye dönüştürülecek mesafe",
+        "de": "Die Entfernung in Meilen, die in Kilometer umgerechnet werden soll",
+        "fr": "La distance en miles à convertir en kilomètres",
+        "es": "La distancia en millas a convertir a kilómetros"
       }
     },
     {
@@ -32,14 +35,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output",
         "tr": "Çıktı için ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen für die Ausgabe"
+        "de": "Anzahl der Dezimalstellen für die Ausgabe",
+        "fr": "Nombre de décimales pour le résultat",
+        "es": "Número de decimales para la salida"
       }
     },
     {
@@ -52,14 +57,17 @@
       "label_i18n": {
         "en": "Nautical Mile Flag",
         "tr": "Deniz Mili İşareti",
-        "de": "Nautical Mile Flag",
-        "fr": "Nautical Mile Flag",
-        "es": "Nautical Mile Flag",
+        "de": "Seemeilen-Kennzeichen",
+        "fr": "Indicateur de mille nautique",
+        "es": "Indicador de milla náutica",
         "ar": "Nautical Mile Flag"
       },
       "businessContext_i18n": {
         "en": "Set to 1 if the input is in nautical miles, 0 for statute miles",
-        "tr": "Giriş deniz mili ise 1, kara mili ise 0 olarak ayarlayın"
+        "tr": "Giriş deniz mili ise 1, kara mili ise 0 olarak ayarlayın",
+        "de": "Auf 1 setzen, wenn die Eingabe in Seemeilen erfolgt, 0 für Landmeilen",
+        "fr": "Mettre à 1 si l'entrée est en milles nautiques, 0 pour les milles terrestres",
+        "es": "Establecer en 1 si la entrada está en millas náuticas, 0 para millas terrestres"
       }
     },
     {
@@ -72,14 +80,17 @@
       "label_i18n": {
         "en": "Statute Mile Factor",
         "tr": "Kara Mili Faktörü",
-        "de": "Statute Mile Factor",
-        "fr": "Statute Mile Factor",
-        "es": "Statute Mile Factor",
+        "de": "Landmeilen-Faktor",
+        "fr": "Facteur de mille terrestre",
+        "es": "Factor de milla terrestre",
         "ar": "Statute Mile Factor"
       },
       "businessContext_i18n": {
         "en": "Conversion factor for statute miles to kilometers",
-        "tr": "Kara milinin kilometreye dönüşüm faktörü"
+        "tr": "Kara milinin kilometreye dönüşüm faktörü",
+        "de": "Umrechnungsfaktor von Landmeilen in Kilometer",
+        "fr": "Facteur de conversion des milles terrestres en kilomètres",
+        "es": "Factor de conversión de millas terrestres a kilómetros"
       }
     },
     {
@@ -92,14 +103,17 @@
       "label_i18n": {
         "en": "Nautical Mile Factor",
         "tr": "Deniz Mili Faktörü",
-        "de": "Nautical Mile Factor",
-        "fr": "Nautical Mile Factor",
-        "es": "Nautical Mile Factor",
+        "de": "Seemeilen-Faktor",
+        "fr": "Facteur de mille nautique",
+        "es": "Factor de milla náutica",
         "ar": "Nautical Mile Factor"
       },
       "businessContext_i18n": {
         "en": "Conversion factor for nautical miles to kilometers",
-        "tr": "Deniz milinin kilometreye dönüşüm faktörü"
+        "tr": "Deniz milinin kilometreye dönüşüm faktörü",
+        "de": "Umrechnungsfaktor von Seemeilen in Kilometer",
+        "fr": "Facteur de conversion des milles nautiques en kilomètres",
+        "es": "Factor de conversión de millas náuticas a kilómetros"
       }
     }
   ],

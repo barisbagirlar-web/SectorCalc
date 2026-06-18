@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "House Area",
         "tr": "Ev Alanı",
-        "de": "House Area",
-        "fr": "House Area",
-        "es": "House Area",
+        "de": "Wohnfläche",
+        "fr": "Surface de la maison",
+        "es": "Área de la vivienda",
         "ar": "House Area"
       },
       "businessContext_i18n": {
         "en": "Total livable area in square feet.",
-        "tr": "Toplam yaşanabilir alan (ft²)."
+        "tr": "Toplam yaşanabilir alan (ft²).",
+        "de": "Gesamte Wohnfläche in Quadratmetern.",
+        "fr": "Surface habitable totale en pieds carrés.",
+        "es": "Superficie habitable total en pies cuadrados."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "House Age",
         "tr": "Ev Yaşı",
-        "de": "House Age",
-        "fr": "House Age",
-        "es": "House Age",
+        "de": "Alter des Hauses",
+        "fr": "Âge de la maison",
+        "es": "Antigüedad de la vivienda",
         "ar": "House Age"
       },
       "businessContext_i18n": {
         "en": "Years since construction.",
-        "tr": "İnşa yılından bu yana geçen yıl sayısı."
+        "tr": "İnşa yılından bu yana geçen yıl sayısı.",
+        "de": "Jahre seit Bau.",
+        "fr": "Années depuis la construction.",
+        "es": "Años desde la construcción."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Base Maintenance Cost",
         "tr": "Temel Bakım Maliyeti",
-        "de": "Base Maintenance Cost",
-        "fr": "Base Maintenance Cost",
-        "es": "Base Maintenance Cost",
+        "de": "Basis-Instandhaltungskosten",
+        "fr": "Coût d'entretien de base",
+        "es": "Costo base de mantenimiento",
         "ar": "Base Maintenance Cost"
       },
       "businessContext_i18n": {
         "en": "Average annual maintenance cost per square foot for a new house.",
-        "tr": "Yeni bir ev için ft² başına yıllık ortalama bakım maliyeti."
+        "tr": "Yeni bir ev için ft² başına yıllık ortalama bakım maliyeti.",
+        "de": "Durchschnittliche jährliche Instandhaltungskosten pro Quadratmeter für ein Neubauhaus.",
+        "fr": "Coût d'entretien annuel moyen par pied carré pour une maison neuve.",
+        "es": "Costo anual promedio de mantenimiento por pie cuadrado para una vivienda nueva."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Age Factor",
         "tr": "Yaş Faktörü",
-        "de": "Age Factor",
-        "fr": "Age Factor",
-        "es": "Age Factor",
+        "de": "Altersfaktor",
+        "fr": "Facteur d'âge",
+        "es": "Factor de antigüedad",
         "ar": "Age Factor"
       },
       "businessContext_i18n": {
         "en": "Additional cost factor per year of age (e.g., 0.02 for 2% per year).",
-        "tr": "Her yaş yılı başına ek maliyet faktörü (örn. 0,02 = %2/yıl)."
+        "tr": "Her yaş yılı başına ek maliyet faktörü (örn. 0,02 = %2/yıl).",
+        "de": "Zusätzlicher Kostenfaktor pro Altersjahr (z.B. 0,02 für 2% pro Jahr).",
+        "fr": "Facteur de coût supplémentaire par année d'âge (par exemple, 0,02 pour 2 % par an).",
+        "es": "Factor de costo adicional por año de antigüedad (ej. 0.02 para 2% anual)."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Inflation Rate",
         "tr": "Enflasyon Oranı",
         "de": "Inflationsrate",
-        "fr": "Inflation Rate",
-        "es": "Inflation Rate",
+        "fr": "Taux d'inflation",
+        "es": "Tasa de inflación",
         "ar": "Inflation Rate"
       },
       "businessContext_i18n": {
         "en": "Annual inflation rate as a decimal (e.g., 0.03 for 3%).",
-        "tr": "Yıllık enflasyon oranı (ondalık, örn. 0,03 = %3)."
+        "tr": "Yıllık enflasyon oranı (ondalık, örn. 0,03 = %3).",
+        "de": "Jährliche Inflationsrate als Dezimalzahl (z.B. 0,03 für 3%).",
+        "fr": "Taux d'inflation annuel sous forme décimale (par exemple, 0,03 pour 3 %).",
+        "es": "Tasa de inflación anual como decimal (ej. 0.03 para 3%)."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Projection Years",
         "tr": "Projeksiyon Yılları",
-        "de": "Projection Years",
-        "fr": "Projection Years",
-        "es": "Projection Years",
+        "de": "Prognosejahre",
+        "fr": "Années de projection",
+        "es": "Años de proyección",
         "ar": "Projection Years"
       },
       "businessContext_i18n": {
         "en": "Number of years to project total maintenance cost.",
-        "tr": "Toplam bakım maliyetinin hesaplanacağı yıl sayısı."
+        "tr": "Toplam bakım maliyetinin hesaplanacağı yıl sayısı.",
+        "de": "Anzahl der Jahre für die Prognose der Gesamtinstandhaltungskosten.",
+        "fr": "Nombre d'années pour projeter le coût d'entretien total.",
+        "es": "Número de años para proyectar el costo total de mantenimiento."
       }
     }
   ],

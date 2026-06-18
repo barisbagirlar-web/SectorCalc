@@ -13,12 +13,15 @@
         "tr": "Genlik 1",
         "de": "Amplitude 1",
         "fr": "Amplitude 1",
-        "es": "Amplitude 1",
+        "es": "Amplitud 1",
         "ar": "Amplitude 1"
       },
       "businessContext_i18n": {
         "en": "Amplitude of wave from source 1",
-        "tr": "Kaynak 1'den gelen dalganın genliği"
+        "tr": "Kaynak 1'den gelen dalganın genliği",
+        "de": "Amplitude der Welle von Quelle 1",
+        "fr": "Amplitude de l'onde de la source 1",
+        "es": "Amplitud de la onda de la fuente 1"
       }
     },
     {
@@ -33,12 +36,15 @@
         "tr": "Genlik 2",
         "de": "Amplitude 2",
         "fr": "Amplitude 2",
-        "es": "Amplitude 2",
+        "es": "Amplitud 2",
         "ar": "Amplitude 2"
       },
       "businessContext_i18n": {
         "en": "Amplitude of wave from source 2",
-        "tr": "Kaynak 2'den gelen dalganın genliği"
+        "tr": "Kaynak 2'den gelen dalganın genliği",
+        "de": "Amplitude der Welle von Quelle 2",
+        "fr": "Amplitude de l'onde de la source 2",
+        "es": "Amplitud de la onda de la fuente 2"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Wavelength",
         "tr": "Dalgaboyu",
         "de": "Wellenlänge",
-        "fr": "Wavelength",
-        "es": "Wavelength",
+        "fr": "Longueur d'onde",
+        "es": "Longitud de onda",
         "ar": "Wavelength"
       },
       "businessContext_i18n": {
         "en": "Wavelength of the waves (assumed identical for both sources)",
-        "tr": "Dalgaların dalga boyu (her iki kaynak için de aynı olduğu varsayılır)"
+        "tr": "Dalgaların dalga boyu (her iki kaynak için de aynı olduğu varsayılır)",
+        "de": "Wellenlänge der Wellen (für beide Quellen als identisch angenommen)",
+        "fr": "Longueur d'onde des ondes (supposée identique pour les deux sources)",
+        "es": "Longitud de onda de las ondas (se asume idéntica para ambas fuentes)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Path Difference",
         "tr": "Yol Farkı",
-        "de": "Path Difference",
-        "fr": "Path Difference",
-        "es": "Path Difference",
+        "de": "Wegunterschied",
+        "fr": "Différence de chemin",
+        "es": "Diferencia de camino",
         "ar": "Path Difference"
       },
       "businessContext_i18n": {
         "en": "Difference in path lengths from the two sources to the point of interest",
-        "tr": "İki kaynaktan ilgilenilen noktaya olan yol uzunlukları farkı"
+        "tr": "İki kaynaktan ilgilenilen noktaya olan yol uzunlukları farkı",
+        "de": "Differenz der Weglängen von den beiden Quellen zum betrachteten Punkt",
+        "fr": "Différence des longueurs de chemin entre les deux sources et le point d'intérêt",
+        "es": "Diferencia en las longitudes de trayectoria desde las dos fuentes hasta el punto de interés"
       }
     }
   ],

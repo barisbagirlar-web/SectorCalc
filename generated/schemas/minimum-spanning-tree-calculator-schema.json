@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Number of Nodes",
         "tr": "Düğüm Sayısı",
-        "de": "Number of Nodes",
-        "fr": "Number of Nodes",
-        "es": "Number of Nodes",
+        "de": "Anzahl der Knoten",
+        "fr": "Nombre de nœuds",
+        "es": "Número de Nodos",
         "ar": "Number of Nodes"
       },
       "businessContext_i18n": {
         "en": "The number of nodes in the network. This version supports 3-node MST calculation.",
-        "tr": "Ağdaki düğüm sayısı. Bu sürüm 3 düğümlü MST hesaplamasını destekler."
+        "tr": "Ağdaki düğüm sayısı. Bu sürüm 3 düğümlü MST hesaplamasını destekler.",
+        "de": "Die Anzahl der Knoten im Netzwerk. Diese Version unterstützt die Berechnung des MST mit 3 Knoten.",
+        "fr": "Nombre de nœuds dans le réseau. Cette version prend en charge le calcul MST à 3 nœuds.",
+        "es": "El número de nodos en la red. Esta versión admite cálculo de MST de 3 nodos."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Edge A-B Length",
         "tr": "A-B Kenar Uzunluğu",
-        "de": "Edge A-B Length",
-        "fr": "Edge A-B Length",
-        "es": "Edge A-B Length",
+        "de": "Kante A-B Länge",
+        "fr": "Longueur Arête A-B",
+        "es": "Longitud del Borde A-B",
         "ar": "Edge A-B Length"
       },
       "businessContext_i18n": {
         "en": "Distance between node A and node B.",
-        "tr": "A düğümü ile B düğümü arasındaki mesafe."
+        "tr": "A düğümü ile B düğümü arasındaki mesafe.",
+        "de": "Abstand zwischen Knoten A und Knoten B.",
+        "fr": "Distance entre le nœud A et le nœud B.",
+        "es": "Distancia entre el nodo A y el nodo B."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Edge B-C Length",
         "tr": "B-C Kenar Uzunluğu",
-        "de": "Edge B-C Length",
-        "fr": "Edge B-C Length",
-        "es": "Edge B-C Length",
+        "de": "Kantenlänge B-C",
+        "fr": "Longueur Arête B-C",
+        "es": "Longitud del borde B-C",
         "ar": "Edge B-C Length"
       },
       "businessContext_i18n": {
         "en": "Distance between node B and node C.",
-        "tr": "B düğümü ile C düğümü arasındaki mesafe."
+        "tr": "B düğümü ile C düğümü arasındaki mesafe.",
+        "de": "Abstand zwischen Knoten B und Knoten C.",
+        "fr": "Distance entre le nœud B et le nœud C.",
+        "es": "Distancia entre el nodo B y el nodo C."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Edge C-A Length",
         "tr": "C-A Kenar Uzunluğu",
-        "de": "Edge C-A Length",
-        "fr": "Edge C-A Length",
-        "es": "Edge C-A Length",
+        "de": "Kantenlänge C-A",
+        "fr": "Longueur Arête C-A",
+        "es": "Longitud del borde C-A",
         "ar": "Edge C-A Length"
       },
       "businessContext_i18n": {
         "en": "Distance between node C and node A.",
-        "tr": "C düğümü ile A düğümü arasındaki mesafe."
+        "tr": "C düğümü ile A düğümü arasındaki mesafe.",
+        "de": "Abstand zwischen Knoten C und Knoten A.",
+        "fr": "Distance entre le nœud C et le nœud A.",
+        "es": "Distancia entre el nodo C y el nodo A."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Cost per Meter",
         "tr": "Metre Başına Maliyet",
-        "de": "Cost per Meter",
-        "fr": "Cost per Meter",
-        "es": "Cost per Meter",
+        "de": "Kosten pro Meter",
+        "fr": "Coût par mètre",
+        "es": "Coste por metro",
         "ar": "Cost per Meter"
       },
       "businessContext_i18n": {
         "en": "Cost per meter of cabling or piping for the network.",
-        "tr": "Ağ için kablo veya boru döşemenin metre başına maliyeti."
+        "tr": "Ağ için kablo veya boru döşemenin metre başına maliyeti.",
+        "de": "Kosten pro Meter Verkabelung oder Verrohrung für das Netzwerk.",
+        "fr": "Coût par mètre de câblage ou de tuyauterie pour le réseau.",
+        "es": "Coste por metro de cableado o tubería para la red."
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplicative safety factor to account for contingencies.",
-        "tr": "Öngörülemeyen durumlar için çarpımsal güvenlik faktörü."
+        "tr": "Öngörülemeyen durumlar için çarpımsal güvenlik faktörü.",
+        "de": "Multiplikativer Sicherheitsfaktor für Unvorhergesehenes.",
+        "fr": "Facteur de sécurité multiplicatif pour tenir compte des imprévus.",
+        "es": "Factor de seguridad multiplicativo para contingencias."
       }
     }
   ],

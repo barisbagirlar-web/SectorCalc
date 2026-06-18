@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Distance (meters)",
         "tr": "Mesafe (metre)",
-        "de": "Distance (meters)",
-        "fr": "Distance (meters)",
+        "de": "Strecke (Meter)",
+        "fr": "Distance (mètres)",
         "es": "Distance (meters)",
         "ar": "Distance (meters)"
       },
       "businessContext_i18n": {
         "en": "Total walking distance in meters, e.g., from one workstation to another in a factory layout.",
-        "tr": "Metre cinsinden toplam yürüme mesafesi, örn. bir fabrika düzeninde bir iş istasyonundan diğerine."
+        "tr": "Metre cinsinden toplam yürüme mesafesi, örn. bir fabrika düzeninde bir iş istasyonundan diğerine.",
+        "de": "Gesamtgehstrecke in Metern, z. B. von einem Arbeitsplatz zu einem anderen in einer Fabrikanordnung.",
+        "fr": "Distance totale de marche en mètres, par exemple d'un poste de travail à un autre dans un aménagement d'usine."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Time (hours)",
         "tr": "Süre (saat)",
         "de": "Zeit (Stunden)",
-        "fr": "Time (hours)",
-        "es": "Time (hours)",
+        "fr": "Temps (heures)",
+        "es": "Tiempo (horas)",
         "ar": "Time (hours)"
       },
       "businessContext_i18n": {
         "en": "Hours part of the walking time.",
-        "tr": "Yürüme süresinin saat kısmı."
+        "tr": "Yürüme süresinin saat kısmı.",
+        "de": "Stundenanteil der Gehzeit.",
+        "fr": "Partie heures du temps de marche."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Time (minutes)",
         "tr": "Süre (dakika)",
         "de": "Zeit (Minuten)",
-        "fr": "Time (minutes)",
-        "es": "Time (minutes)",
+        "fr": "Temps (minutes)",
+        "es": "Tiempo (minutos)",
         "ar": "Time (minutes)"
       },
       "businessContext_i18n": {
         "en": "Minutes part of the walking time.",
-        "tr": "Yürüme süresinin dakika kısmı."
+        "tr": "Yürüme süresinin dakika kısmı.",
+        "de": "Minutenanteil der Gehzeit.",
+        "fr": "Partie minutes du temps de marche."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Time (seconds)",
         "tr": "Süre (saniye)",
         "de": "Zeit (Sekunden)",
-        "fr": "Time (seconds)",
-        "es": "Time (seconds)",
+        "fr": "Temps (secondes)",
+        "es": "Tiempo (segundos)",
         "ar": "Time (seconds)"
       },
       "businessContext_i18n": {
         "en": "Seconds part of the walking time.",
-        "tr": "Yürüme süresinin saniye kısmı."
+        "tr": "Yürüme süresinin saniye kısmı.",
+        "de": "Sekundenanteil der Gehzeit.",
+        "fr": "Partie secondes du temps de marche."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Stride Length (cm)",
         "tr": "Adım Uzunluğu (cm)",
-        "de": "Stride Length (cm)",
-        "fr": "Stride Length (cm)",
+        "de": "Schrittlänge (cm)",
+        "fr": "Longueur de foulée (cm)",
         "es": "Stride Length (cm)",
         "ar": "Stride Length (cm)"
       },
       "businessContext_i18n": {
         "en": "Optional: average stride length in centimeters for step-based distance calculation.",
-        "tr": "İsteğe bağlı: adım tabanlı mesafe hesaplaması için santimetre cinsinden ortalama adım uzunluğu."
+        "tr": "İsteğe bağlı: adım tabanlı mesafe hesaplaması için santimetre cinsinden ortalama adım uzunluğu.",
+        "de": "Optional: durchschnittliche Schrittlänge in Zentimetern für schrittbasierte Distanzberechnung.",
+        "fr": "Optionnel : longueur moyenne de foulée en centimètres pour le calcul de distance basé sur les pas."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Steps",
         "tr": "Adımlar",
-        "de": "Steps",
-        "fr": "Steps",
+        "de": "Schritte",
+        "fr": "Pas",
         "es": "Steps",
         "ar": "Steps"
       },
       "businessContext_i18n": {
         "en": "Optional: number of steps taken. Used with stride length to estimate distance if distance is not directly entered.",
-        "tr": "İsteğe bağlı: atılan adım sayısı. Mesafe doğrudan girilmezse adım uzunluğu ile mesafe tahmini için kullanılır."
+        "tr": "İsteğe bağlı: atılan adım sayısı. Mesafe doğrudan girilmezse adım uzunluğu ile mesafe tahmini için kullanılır.",
+        "de": "Optional: Anzahl der zurückgelegten Schritte. Wird mit Schrittlänge verwendet, um die Distanz zu schätzen, falls die Distanz nicht direkt eingegeben wird.",
+        "fr": "Optionnel : nombre de pas effectués. Utilisé avec la longueur de foulée pour estimer la distance si la distance n'est pas saisie directement."
       }
     }
   ],

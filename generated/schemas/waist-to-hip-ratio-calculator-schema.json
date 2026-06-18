@@ -12,13 +12,15 @@
         "en": "Waist Circumference",
         "tr": "Bel Çevresi",
         "de": "Taillenumfang",
-        "fr": "Waist Circumference",
-        "es": "Waist Circumference",
+        "fr": "Tour de taille",
+        "es": "Circunferencia de cintura",
         "ar": "Waist Circumference"
       },
       "businessContext_i18n": {
         "en": "Measured at the midpoint between the lower margin of the last palpable rib and the top of the iliac crest, according to WHO protocol",
-        "tr": "WHO protokolüne göre son palpe edilebilir kaburganın alt kenarı ile iliak krestin üstü arasındaki orta noktadan ölçülür"
+        "tr": "WHO protokolüne göre son palpe edilebilir kaburganın alt kenarı ile iliak krestin üstü arasındaki orta noktadan ölçülür",
+        "de": "Gemessen am Mittelpunkt zwischen dem unteren Rand der letzten tastbaren Rippe und dem oberen Rand des Beckenkamms, gemäß WHO-Protokoll",
+        "fr": "Mesuré au point médian entre le bord inférieur de la dernière côte palpable et le sommet de la crête iliaque, selon le protocole de l'OMS"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Hip Circumference",
         "tr": "Kalça Çevresi",
         "de": "Hüftumfang",
-        "fr": "Hip Circumference",
-        "es": "Hip Circumference",
+        "fr": "Tour de hanches",
+        "es": "Circunferencia de cadera",
         "ar": "Hip Circumference"
       },
       "businessContext_i18n": {
         "en": "Measured at the greatest circumference around the buttocks",
-        "tr": "Kalçaların etrafındaki en geniş çevreden ölçülür"
+        "tr": "Kalçaların etrafındaki en geniş çevreden ölçülür",
+        "de": "Gemessen am größten Umfang um das Gesäß",
+        "fr": "Mesuré à la plus grande circonférence autour des fesses"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Height",
         "tr": "Boy",
         "de": "Größe",
-        "fr": "Height",
-        "es": "Height",
+        "fr": "Taille",
+        "es": "Altura",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "Standing height without shoes, used for waist-to-height ratio and BMI",
-        "tr": "Ayakta, ayakkabısız boy; bel-boy oranı ve BMI için kullanılır"
+        "tr": "Ayakta, ayakkabısız boy; bel-boy oranı ve BMI için kullanılır",
+        "de": "Stehende Körpergröße ohne Schuhe, verwendet für Taille-zu-Größe-Verhältnis und BMI",
+        "fr": "Taille debout sans chaussures, utilisée pour le rapport taille-hanches et l'IMC"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Weight",
         "tr": "Ağırlık",
         "de": "Gewicht",
-        "fr": "Weight",
-        "es": "Weight",
+        "fr": "Poids",
+        "es": "Peso",
         "ar": "Weight"
       },
       "businessContext_i18n": {
         "en": "Body weight in kilograms, used for BMI calculation",
-        "tr": "Kilogram cinsinden vücut ağırlığı, BMI hesaplaması için kullanılır"
+        "tr": "Kilogram cinsinden vücut ağırlığı, BMI hesaplaması için kullanılır",
+        "de": "Körpergewicht in Kilogramm, verwendet für BMI-Berechnung",
+        "fr": "Poids corporel en kilogrammes, utilisé pour le calcul de l'IMC"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Gender (0=Female, 1=Male)",
         "tr": "Cinsiyet (0=Kadın, 1=Erkek)",
-        "de": "Gender (0=Female, 1=Male)",
-        "fr": "Gender (0=Female, 1=Male)",
-        "es": "Gender (0=Female, 1=Male)",
+        "de": "Geschlecht (0 = Weiblich, 1 = Männlich)",
+        "fr": "Sexe (0=Féminin, 1=Masculin)",
+        "es": "Género (0=Femenino, 1=Masculino)",
         "ar": "Gender (0=Female, 1=Male)"
       },
       "businessContext_i18n": {
         "en": "Biological sex for WHR risk threshold interpretation (0: female, 1: male)",
-        "tr": "Biyolojik cinsiyet, WHR risk eşiği yorumlaması için (0: kadın, 1: erkek)"
+        "tr": "Biyolojik cinsiyet, WHR risk eşiği yorumlaması için (0: kadın, 1: erkek)",
+        "de": "Biologisches Geschlecht für WHR-Risikoschwelleninterpretation (0: weiblich, 1: männlich)",
+        "fr": "Sexe biologique pour l'interprétation du seuil de risque du rapport taille-hanches (0 : femme, 1 : homme)"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Mass",
         "tr": "Kütle",
         "de": "Masse",
-        "fr": "Mass",
-        "es": "Mass",
+        "fr": "Masse",
+        "es": "Masa",
         "ar": "Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the celestial body (e.g., Earth = 5.972 × 10^24 kg)",
         "tr": "Gök cisminin kütlesi (örneğin, Dünya = 5,972 × 10^24 kg)",
-        "de": "Masse des Himmelskörpers (z. B. Erde = 5,972 × 10^24 kg)"
+        "de": "Masse des Himmelskörpers (z. B. Erde = 5,972 × 10^24 kg)",
+        "fr": "Masse du corps céleste (ex. : Terre = 5,972 × 10^24 kg)",
+        "es": "Masa del cuerpo celeste (ej. Tierra = 5.972 × 10^24 kg)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Radius",
         "tr": "Yarıçap",
         "de": "Radius",
-        "fr": "Radius",
-        "es": "Radius",
+        "fr": "Rayon",
+        "es": "Radio",
         "ar": "Radius"
       },
       "businessContext_i18n": {
         "en": "Radius of the celestial body (e.g., Earth = 6,371 km)",
         "tr": "Gök cisminin yarıçapı (örneğin, Dünya = 6.371 km)",
-        "de": "Radius des Himmelskörpers (z. B. Erde = 6.371 km)"
+        "de": "Radius des Himmelskörpers (z. B. Erde = 6.371 km)",
+        "fr": "Rayon du corps céleste (ex. : Terre = 6 371 km)",
+        "es": "Radio del cuerpo celeste (ej. Tierra = 6,371 km)"
       }
     },
     {
@@ -55,13 +59,15 @@
         "tr": "Rakım",
         "de": "Höhe",
         "fr": "Altitude",
-        "es": "Altitude",
+        "es": "Altitud",
         "ar": "Altitude"
       },
       "businessContext_i18n": {
         "en": "Altitude above the surface (0 for surface launch)",
         "tr": "Yüzeyin üzerindeki yükseklik (yüzey fırlatması için 0)",
-        "de": "Höhe über der Oberfläche (0 für Start von der Oberfläche)"
+        "de": "Höhe über der Oberfläche (0 für Start von der Oberfläche)",
+        "fr": "Altitude au-dessus de la surface (0 pour un lancement en surface)",
+        "es": "Altitud sobre la superficie (0 para lanzamiento desde superficie)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Gravitational Constant",
         "tr": "Yerçekimi Sabiti",
         "de": "Gravitationskonstante",
-        "fr": "Gravitational Constant",
-        "es": "Gravitational Constant",
+        "fr": "Constante gravitationnelle",
+        "es": "Constante gravitacional",
         "ar": "Gravitational Constant"
       },
       "businessContext_i18n": {
         "en": "Universal gravitational constant (default 6.67430×10^-11 m^3 kg^-1 s^-2)",
         "tr": "Evrensel yerçekimi sabiti (varsayılan 6,67430×10^-11 m^3 kg^-1 s^-2)",
-        "de": "Universelle Gravitationskonstante (Standard 6,67430×10^-11 m^3 kg^-1 s^-2)"
+        "de": "Universelle Gravitationskonstante (Standard 6,67430×10^-11 m^3 kg^-1 s^-2)",
+        "fr": "Constante gravitationnelle universelle (par défaut 6,67430×10^-11 m^3 kg^-1 s^-2)",
+        "es": "Constante gravitacional universal (por defecto 6.67430×10^-11 m^3 kg^-1 s^-2)"
       }
     }
   ],

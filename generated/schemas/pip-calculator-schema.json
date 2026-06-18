@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Lot Büyüklüğü",
         "tr": "Lot Büyüklüğü",
-        "de": "Lot Büyüklüğü",
-        "fr": "Lot Büyüklüğü",
-        "es": "Lot Büyüklüğü",
+        "de": "Losgröße",
+        "fr": "Taille du lot",
+        "es": "Tamaño del Lote",
         "ar": "Lot Büyüklüğü"
       },
       "businessContext_i18n": {
         "en": "Standart lot, genellikle 100,000 birim olarak kabul edilir.",
-        "tr": "Standart lot, genellikle 100.000 birim olarak kabul edilir."
+        "tr": "Standart lot, genellikle 100.000 birim olarak kabul edilir.",
+        "de": "Standardlos, normalerweise 100.000 Einheiten.",
+        "fr": "Lot standard, généralement considéré comme 100 000 unités.",
+        "es": "Lote estándar, generalmente considerado como 100,000 unidades."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "İşlem Lot Sayısı",
         "tr": "İşlem Lot Sayısı",
-        "de": "İşlem Lot Sayısı",
-        "fr": "İşlem Lot Sayısı",
-        "es": "İşlem Lot Sayısı",
+        "de": "Anzahl der Handelslose",
+        "fr": "Nombre de lots négociés",
+        "es": "Número de Lotes Negociados",
         "ar": "İşlem Lot Sayısı"
       },
       "businessContext_i18n": {
         "en": "Alım satım yapılan lot miktarı.",
-        "tr": "Alım satım yapılan lot miktarı."
+        "tr": "Alım satım yapılan lot miktarı.",
+        "de": "Menge der gehandelten Lose.",
+        "fr": "Quantité de lots achetés ou vendus.",
+        "es": "Cantidad de lotes comprados o vendidos."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Pip Değeri",
         "tr": "Pip Değeri",
-        "de": "Pip Değeri",
-        "fr": "Pip Değeri",
-        "es": "Pip Değeri",
+        "de": "Pip-Wert",
+        "fr": "Valeur du pip",
+        "es": "Valor del Pip",
         "ar": "Pip Değeri"
       },
       "businessContext_i18n": {
         "en": "Çoğu döviz çiftinde 0.0001, JPY çiftlerinde 0.01.",
-        "tr": "Çoğu döviz çiftinde 0,0001, JPY çiftlerinde 0,01."
+        "tr": "Çoğu döviz çiftinde 0,0001, JPY çiftlerinde 0,01.",
+        "de": "Bei den meisten Währungspaaren 0,0001, bei JPY-Paaren 0,01.",
+        "fr": "0,0001 pour la plupart des paires de devises, 0,01 pour les paires JPY.",
+        "es": "0.0001 para la mayoría de los pares de divisas, 0.01 para pares JPY."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Dönüşüm Kuru",
         "tr": "Dönüşüm Kuru",
-        "de": "Dönüşüm Kuru",
-        "fr": "Dönüşüm Kuru",
-        "es": "Dönüşüm Kuru",
+        "de": "Umrechnungskurs",
+        "fr": "Taux de conversion",
+        "es": "Tasa de Conversión",
         "ar": "Dönüşüm Kuru"
       },
       "businessContext_i18n": {
         "en": "Karşıt dövizden hesap dövizine dönüşüm oranı.",
-        "tr": "Karşıt dövizden hesap dövizine dönüşüm oranı."
+        "tr": "Karşıt dövizden hesap dövizine dönüşüm oranı.",
+        "de": "Umrechnungskurs von der Gegenwährung in die Kontowährung.",
+        "fr": "Taux de conversion de la devise de contrepartie à la devise du compte.",
+        "es": "Tasa de conversión de la divisa contraparte a la divisa de la cuenta."
       }
     }
   ],

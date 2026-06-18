@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Velocity (km/s)",
         "tr": "Hız (km/s)",
-        "de": "Velocity (km/s)",
-        "fr": "Velocity (km/s)",
+        "de": "Geschwindigkeit (km/s)",
+        "fr": "Vitesse (km/s)",
         "es": "Velocity (km/s)",
         "ar": "Velocity (km/s)"
       },
       "businessContext_i18n": {
         "en": "Enter the velocity of the moving object in kilometers per second.",
-        "tr": "Hareket eden nesnenin saniyede kilometre cinsinden hızını girin."
+        "tr": "Hareket eden nesnenin saniyede kilometre cinsinden hızını girin.",
+        "de": "Geben Sie die Geschwindigkeit des sich bewegenden Objekts in Kilometern pro Sekunde ein.",
+        "fr": "Saisissez la vitesse de l'objet en mouvement en kilomètres par seconde."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Proper Time (s)",
         "tr": "Öz Zaman (s)",
-        "de": "Proper Time (s)",
-        "fr": "Proper Time (s)",
+        "de": "Eigenzeit (s)",
+        "fr": "Temps propre (s)",
         "es": "Proper Time (s)",
         "ar": "Proper Time (s)"
       },
       "businessContext_i18n": {
         "en": "Enter the proper time interval in seconds, i.e., the time experienced by the moving observer.",
-        "tr": "Hareket eden gözlemci tarafından deneyimlenen saniye cinsinden öz zaman aralığını girin."
+        "tr": "Hareket eden gözlemci tarafından deneyimlenen saniye cinsinden öz zaman aralığını girin.",
+        "de": "Geben Sie das Eigenzeitintervall in Sekunden ein, d. h. die vom bewegten Beobachter gemessene Zeit.",
+        "fr": "Saisissez l'intervalle de temps propre en secondes, c'est-à-dire le temps vécu par l'observateur en mouvement."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Speed of Light (m/s)",
         "tr": "Işık Hızı (m/s)",
         "de": "Lichtgeschwindigkeit (m/s)",
-        "fr": "Speed of Light (m/s)",
-        "es": "Speed of Light (m/s)",
+        "fr": "Vitesse de la lumière (m/s)",
+        "es": "Velocidad de la luz (m/s)",
         "ar": "Speed of Light (m/s)"
       },
       "businessContext_i18n": {
         "en": "Enter the speed of light in meters per second (default is vacuum speed).",
-        "tr": "Işık hızını saniyede metre cinsinden girin (varsayılan vakum hızıdır)."
+        "tr": "Işık hızını saniyede metre cinsinden girin (varsayılan vakum hızıdır).",
+        "de": "Geben Sie die Lichtgeschwindigkeit in Metern pro Sekunde ein (Standard ist Vakuumgeschwindigkeit).",
+        "fr": "Saisissez la vitesse de la lumière en mètres par seconde (par défaut, vitesse dans le vide)."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Output Time Unit Factor",
         "tr": "Çıktı Zaman Birimi Faktörü",
-        "de": "Output Time Unit Factor",
-        "fr": "Output Time Unit Factor",
+        "de": "Faktor für die Ausgabezeiteinheit",
+        "fr": "Facteur d'unité de temps de sortie",
         "es": "Output Time Unit Factor",
         "ar": "Output Time Unit Factor"
       },
       "businessContext_i18n": {
         "en": "Enter the conversion factor to convert the dilated time from seconds to desired unit (e.g., 1 for seconds, 1/60 for minutes, 1/3600 for hours).",
-        "tr": "Genişlemiş zamanı saniyeden istenen birime dönüştürmek için dönüşüm faktörünü girin (örneğin, saniye için 1, dakika için 1/60, saat için 1/3600)."
+        "tr": "Genişlemiş zamanı saniyeden istenen birime dönüştürmek için dönüşüm faktörünü girin (örneğin, saniye için 1, dakika için 1/60, saat için 1/3600).",
+        "de": "Geben Sie den Umrechnungsfaktor ein, um die dilatierte Zeit von Sekunden in die gewünschte Einheit umzurechnen (z. B. 1 für Sekunden, 1/60 für Minuten, 1/3600 für Stunden).",
+        "fr": "Saisissez le facteur de conversion pour convertir le temps dilaté des secondes vers l'unité souhaitée (ex. : 1 pour les secondes, 1/60 pour les minutes, 1/3600 pour les heures)."
       }
     }
   ],

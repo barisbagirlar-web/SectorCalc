@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Total Grant Amount",
         "tr": "Toplam Hibe Miktarı",
-        "de": "Total Grant Amount",
-        "fr": "Total Grant Amount",
+        "de": "Gesamtfördersumme",
+        "fr": "Montant total de la subvention",
         "es": "Total Grant Amount",
         "ar": "Total Grant Amount"
       },
       "businessContext_i18n": {
         "en": "Total number of stock options or shares granted under the vesting plan.",
-        "tr": "Hak ediş planı kapsamında verilen toplam hisse senedi opsiyonu veya hisse sayısı."
+        "tr": "Hak ediş planı kapsamında verilen toplam hisse senedi opsiyonu veya hisse sayısı.",
+        "de": "Gesamtzahl der im Rahmen des Vesting-Plans gewährten Aktienoptionen oder Aktien.",
+        "fr": "Nombre total d'options d'achat d'actions ou d'actions attribuées dans le cadre du plan d'acquisition."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Vesting Start Month",
         "tr": "Hak Ediş Başlangıç Ayı",
-        "de": "Vesting Start Month",
-        "fr": "Vesting Start Month",
+        "de": "Startmonat des Vesting",
+        "fr": "Mois de début d'acquisition",
         "es": "Vesting Start Month",
         "ar": "Vesting Start Month"
       },
       "businessContext_i18n": {
         "en": "The month (relative to a reference) when the vesting period begins. Typically 0 means grant date.",
-        "tr": "Hak ediş döneminin başladığı ay (bir referansa göre). Genellikle 0, hibe tarihini ifade eder."
+        "tr": "Hak ediş döneminin başladığı ay (bir referansa göre). Genellikle 0, hibe tarihini ifade eder.",
+        "de": "Der Monat (relativ zu einem Referenzpunkt), in dem der Vesting-Zeitraum beginnt. Typischerweise 0 bedeutet Gewährungsdatum.",
+        "fr": "Le mois (par rapport à une référence) où commence la période d'acquisition. Généralement 0 signifie date d'attribution."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Current Month",
         "tr": "Geçerli Ay",
         "de": "Aktueller Monat",
-        "fr": "Current Month",
-        "es": "Current Month",
+        "fr": "Mois actuel",
+        "es": "Mes actual",
         "ar": "Current Month"
       },
       "businessContext_i18n": {
         "en": "The current month number from the vesting start to calculate vested shares.",
-        "tr": "Hak edilen hisseleri hesaplamak için hak ediş başlangıcından itibaren geçerli ay numarası."
+        "tr": "Hak edilen hisseleri hesaplamak için hak ediş başlangıcından itibaren geçerli ay numarası.",
+        "de": "Die aktuelle Monatsnummer ab Vesting-Beginn zur Berechnung der unverfallbaren Aktien.",
+        "fr": "Le numéro du mois en cours depuis le début de l'acquisition pour calculer les actions acquises."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Vesting Period (Full Term)",
         "tr": "Hak Ediş Süresi (Tam Vade)",
-        "de": "Vesting Period (Full Term)",
-        "fr": "Vesting Period (Full Term)",
+        "de": "Vesting-Zeitraum (Gesamtlaufzeit)",
+        "fr": "Période d'acquisition (durée totale)",
         "es": "Vesting Period (Full Term)",
         "ar": "Vesting Period (Full Term)"
       },
       "businessContext_i18n": {
         "en": "Total duration in months over which the grant fully vests.",
-        "tr": "Hibenin tamamen hak edildiği toplam süre (ay olarak)."
+        "tr": "Hibenin tamamen hak edildiği toplam süre (ay olarak).",
+        "de": "Gesamtdauer in Monaten, über die die Zuteilung vollständig unverfallbar wird.",
+        "fr": "Durée totale en mois sur laquelle l'attribution est entièrement acquise."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Cliff Period",
         "tr": "Uçurum Süresi",
-        "de": "Cliff Period",
-        "fr": "Cliff Period",
+        "de": "Sperrfrist",
+        "fr": "Période de cliff",
         "es": "Cliff Period",
         "ar": "Cliff Period"
       },
       "businessContext_i18n": {
         "en": "Initial period where no vesting occurs. After cliff, vesting may be accelerated or linear.",
-        "tr": "Hiçbir hak edişin olmadığı başlangıç dönemi. Uçurumdan sonra hak ediş hızlandırılabilir veya doğrusal olabilir."
+        "tr": "Hiçbir hak edişin olmadığı başlangıç dönemi. Uçurumdan sonra hak ediş hızlandırılabilir veya doğrusal olabilir.",
+        "de": "Anfangszeitraum ohne Vesting. Nach der Sperrfrist kann das Vesting beschleunigt oder linear erfolgen.",
+        "fr": "Période initiale sans acquisition. Après le cliff, l'acquisition peut être accélérée ou linéaire."
       }
     }
   ],

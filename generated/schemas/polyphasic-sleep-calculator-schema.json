@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Core Sleep Duration (hours)",
         "tr": "Çekirdek Uyku Süresi (saat)",
-        "de": "Core Sleep Duration (hours)",
-        "fr": "Core Sleep Duration (hours)",
-        "es": "Core Sleep Duration (hours)",
+        "de": "Kernschlafdauer (Stunden)",
+        "fr": "Durée du sommeil principal (heures)",
+        "es": "Duración del sueño central (horas)",
         "ar": "Core Sleep Duration (hours)"
       },
       "businessContext_i18n": {
         "en": "The main sleep block duration in hours, usually 2-4 hours in polyphasic schedules.",
-        "tr": "Polifazik programlarda genellikle 2-4 saat olan ana uyku bloğu süresi (saat)."
+        "tr": "Polifazik programlarda genellikle 2-4 saat olan ana uyku bloğu süresi (saat).",
+        "de": "Dauer des Hauptschlafblocks in Stunden, normalerweise 2-4 Stunden bei polyphasischen Schlafplänen.",
+        "fr": "Durée du bloc de sommeil principal en heures, généralement 2 à 4 heures dans les horaires polyphasiques.",
+        "es": "Duración del bloque principal de sueño en horas, normalmente 2-4 horas en horarios polifásicos."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Number of Naps",
         "tr": "Şekerleme Sayısı",
-        "de": "Number of Naps",
-        "fr": "Number of Naps",
-        "es": "Number of Naps",
+        "de": "Anzahl der Nickerchen",
+        "fr": "Nombre de siestes",
+        "es": "Número de siestas",
         "ar": "Number of Naps"
       },
       "businessContext_i18n": {
         "en": "Total number of short nap periods per day (typically 1-6).",
-        "tr": "Günlük toplam kısa şekerleme periyodu sayısı (genellikle 1-6)."
+        "tr": "Günlük toplam kısa şekerleme periyodu sayısı (genellikle 1-6).",
+        "de": "Gesamtzahl der kurzen Nickerchen pro Tag (normalerweise 1-6).",
+        "fr": "Nombre total de courtes siestes par jour (généralement 1 à 6).",
+        "es": "Número total de siestas cortas por día (normalmente 1-6)."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Nap Duration (minutes)",
         "tr": "Şekerleme Süresi (dakika)",
         "de": "Nickerchen-Dauer (Minuten)",
-        "fr": "Nap Duration (minutes)",
-        "es": "Nap Duration (minutes)",
+        "fr": "Durée de la sieste (minutes)",
+        "es": "Duración de la siesta (minutos)",
         "ar": "Nap Duration (minutes)"
       },
       "businessContext_i18n": {
         "en": "Length of each nap in minutes (common ranges: 15-25 min).",
-        "tr": "Her şekerlemenin dakika cinsinden süresi (yaygın aralık: 15-25 dk)."
+        "tr": "Her şekerlemenin dakika cinsinden süresi (yaygın aralık: 15-25 dk).",
+        "de": "Länge jedes Nickerchens in Minuten (übliche Bereiche: 15-25 Min.).",
+        "fr": "Durée de chaque sieste en minutes (plage courante : 15-25 min).",
+        "es": "Duración de cada siesta en minutos (rangos comunes: 15-25 min)."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Sleep Goal (hours)",
         "tr": "Uyku Hedefi (saat)",
-        "de": "Sleep Goal (hours)",
-        "fr": "Sleep Goal (hours)",
-        "es": "Sleep Goal (hours)",
+        "de": "Schlafziel (Stunden)",
+        "fr": "Objectif de sommeil (heures)",
+        "es": "Objetivo de sueño (horas)",
         "ar": "Sleep Goal (hours)"
       },
       "businessContext_i18n": {
         "en": "Your desired total sleep target for comparison (standard is 7-9 hours).",
-        "tr": "Karşılaştırma için istediğiniz toplam uyku hedefi (standart 7-9 saat)."
+        "tr": "Karşılaştırma için istediğiniz toplam uyku hedefi (standart 7-9 saat).",
+        "de": "Ihr gewünschtes Gesamtschlafziel zum Vergleich (Standard ist 7-9 Stunden).",
+        "fr": "Votre cible de sommeil total souhaitée pour comparaison (standard : 7 à 9 heures).",
+        "es": "Su objetivo de sueño total deseado para comparación (estándar es 7-9 horas)."
       }
     }
   ],

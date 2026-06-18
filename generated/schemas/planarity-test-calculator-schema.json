@@ -12,13 +12,16 @@
         "en": "Number of Vertices (V)",
         "tr": "Köşe Sayısı (V)",
         "de": "Anzahl der Knoten (V)",
-        "fr": "Number of Vertices (V)",
-        "es": "Number of Vertices (V)",
+        "fr": "Nombre de sommets (V)",
+        "es": "Número de Vértices (V)",
         "ar": "Number of Vertices (V)"
       },
       "businessContext_i18n": {
         "en": "Total number of nodes in the graph.",
-        "tr": "Graftaki toplam düğüm sayısı."
+        "tr": "Graftaki toplam düğüm sayısı.",
+        "de": "Gesamtzahl der Knoten im Graphen.",
+        "fr": "Nombre total de nœuds dans le graphe.",
+        "es": "Número total de nodos en el grafo."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Number of Edges (E)",
         "tr": "Kenar Sayısı (E)",
         "de": "Anzahl der Kanten (E)",
-        "fr": "Number of Edges (E)",
-        "es": "Number of Edges (E)",
+        "fr": "Nombre d'arêtes (E)",
+        "es": "Número de Aristas (E)",
         "ar": "Number of Edges (E)"
       },
       "businessContext_i18n": {
         "en": "Total number of connections between nodes.",
-        "tr": "Düğümler arasındaki toplam bağlantı sayısı."
+        "tr": "Düğümler arasındaki toplam bağlantı sayısı.",
+        "de": "Gesamtzahl der Verbindungen zwischen Knoten.",
+        "fr": "Nombre total de connexions entre les nœuds.",
+        "es": "Número total de conexiones entre nodos."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Is Bipartite? (0=No, 1=Yes)",
         "tr": "İki Parçalı mı? (0=Hayır, 1=Evet)",
-        "de": "Is Bipartite? (0=No, 1=Yes)",
-        "fr": "Is Bipartite? (0=No, 1=Yes)",
-        "es": "Is Bipartite? (0=No, 1=Yes)",
+        "de": "Bipartit? (0=Nein, 1=Ja)",
+        "fr": "Est bipartite ? (0=Non, 1=Oui)",
+        "es": "¿Es bipartito? (0=No, 1=Sí)",
         "ar": "Is Bipartite? (0=No, 1=Yes)"
       },
       "businessContext_i18n": {
         "en": "Indicates whether the graph is bipartite. 1 if yes, 0 otherwise.",
-        "tr": "Grafın iki parçalı olup olmadığını belirtir. 1 evet, 0 hayır."
+        "tr": "Grafın iki parçalı olup olmadığını belirtir. 1 evet, 0 hayır.",
+        "de": "Gibt an, ob der Graph bipartit ist. 1 für ja, 0 für nein.",
+        "fr": "Indique si le graphe est bipartite. 1 si oui, 0 sinon.",
+        "es": "Indica si el grafo es bipartito. 1 si es así, 0 en caso contrario."
       }
     }
   ],

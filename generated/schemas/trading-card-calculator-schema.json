@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Card Market Price (Ungraded)",
         "tr": "Kart Piyasa Fiyatı (Derecelendirilmemiş)",
-        "de": "Card Market Price (Ungraded)",
-        "fr": "Card Market Price (Ungraded)",
+        "de": "Karten-Marktpreis (ungraded)",
+        "fr": "Prix du marché de la carte (non gradée)",
         "es": "Card Market Price (Ungraded)",
         "ar": "Card Market Price (Ungraded)"
       },
       "businessContext_i18n": {
         "en": "Current market value of the ungraded card",
-        "tr": "Derecelendirilmemiş kartın güncel piyasa değeri"
+        "tr": "Derecelendirilmemiş kartın güncel piyasa değeri",
+        "de": "Aktueller Marktwert der ungraded Karte",
+        "fr": "Valeur marchande actuelle de la carte non gradée"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Grading Cost",
         "tr": "Derecelendirme Maliyeti",
-        "de": "Grading Cost",
-        "fr": "Grading Cost",
-        "es": "Grading Cost",
+        "de": "Gradierungskosten",
+        "fr": "Coût de certification",
+        "es": "Coste de clasificación",
         "ar": "Grading Cost"
       },
       "businessContext_i18n": {
         "en": "Total cost to submit card for professional grading",
-        "tr": "Profesyonel derecelendirme için kart gönderme toplam maliyeti"
+        "tr": "Profesyonel derecelendirme için kart gönderme toplam maliyeti",
+        "de": "Gesamtkosten für die Einreichung der Karte zur professionellen Bewertung",
+        "fr": "Coût total de soumission de la carte pour gradation professionnelle"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Expected Grade Multiplier",
         "tr": "Beklenen Derece Çarpanı",
-        "de": "Expected Grade Multiplier",
-        "fr": "Expected Grade Multiplier",
+        "de": "Erwarteter Notenmultiplikator",
+        "fr": "Multiplicateur de note attendue",
         "es": "Expected Grade Multiplier",
         "ar": "Expected Grade Multiplier"
       },
       "businessContext_i18n": {
         "en": "Factor by which card value multiplies upon achieving the expected grade",
-        "tr": "Beklenen dereceye ulaşıldığında kart değerinin çarpıldığı faktör"
+        "tr": "Beklenen dereceye ulaşıldığında kart değerinin çarpıldığı faktör",
+        "de": "Faktor, mit dem sich der Kartenwert bei Erreichen der erwarteten Note multipliziert",
+        "fr": "Facteur par lequel la valeur de la carte est multipliée en atteignant la note attendue"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Shipping & Insurance",
         "tr": "Nakliye ve Sigorta",
-        "de": "Shipping & Insurance",
-        "fr": "Shipping & Insurance",
+        "de": "Versand & Versicherung",
+        "fr": "Expédition et assurance",
         "es": "Shipping & Insurance",
         "ar": "Shipping & Insurance"
       },
       "businessContext_i18n": {
         "en": "Combined shipping and insurance cost for round-trip",
-        "tr": "Gidiş-dönüş için birleşik nakliye ve sigorta maliyeti"
+        "tr": "Gidiş-dönüş için birleşik nakliye ve sigorta maliyeti",
+        "de": "Kombinierte Versand- und Versicherungskosten für Hin- und Rückweg",
+        "fr": "Coût combiné d'expédition et d'assurance pour l'aller-retour"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Selling Fee (%)",
         "tr": "Satış Ücreti (%)",
-        "de": "Selling Fee (%)",
-        "fr": "Selling Fee (%)",
-        "es": "Selling Fee (%)",
+        "de": "Verkaufsgebühr (%)",
+        "fr": "Frais de vente (%)",
+        "es": "Comisión de venta (%)",
         "ar": "Selling Fee (%)"
       },
       "businessContext_i18n": {
         "en": "Platform or auction house fee as a percentage of the final sale price",
-        "tr": "Platform veya müzayede evi ücreti, nihai satış fiyatının yüzdesi olarak"
+        "tr": "Platform veya müzayede evi ücreti, nihai satış fiyatının yüzdesi olarak",
+        "de": "Plattform- oder Auktionshausgebühr als Prozentsatz des endgültigen Verkaufspreises",
+        "fr": "Frais de plateforme ou de maison de vente aux enchères en pourcentage du prix de vente final"
       }
     }
   ],

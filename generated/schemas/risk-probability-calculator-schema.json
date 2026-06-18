@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Failure Rate (λ)",
         "tr": "Arıza Oranı (λ)",
-        "de": "Failure Rate (λ)",
-        "fr": "Failure Rate (λ)",
+        "de": "Ausfallrate (λ)",
+        "fr": "Taux de défaillance (λ)",
         "es": "Failure Rate (λ)",
         "ar": "Failure Rate (λ)"
       },
       "businessContext_i18n": {
         "en": "Base failure rate of the component or system",
-        "tr": "Bileşenin veya sistemin temel arıza oranı"
+        "tr": "Bileşenin veya sistemin temel arıza oranı",
+        "de": "Basisausfallrate der Komponente oder des Systems",
+        "fr": "Taux de défaillance de base du composant ou du système"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Mission Time",
         "tr": "Görev Süresi",
-        "de": "Mission Time",
-        "fr": "Mission Time",
+        "de": "Einsatzzeit",
+        "fr": "Temps de mission",
         "es": "Mission Time",
         "ar": "Mission Time"
       },
       "businessContext_i18n": {
         "en": "Duration of operation or mission",
-        "tr": "Operasyon veya görev süresi"
+        "tr": "Operasyon veya görev süresi",
+        "de": "Betriebsdauer oder Missionsdauer",
+        "fr": "Durée de fonctionnement ou de mission"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Environmental Stress Factor",
         "tr": "Çevresel Stres Faktörü",
         "de": "Umgebungsstressfaktor",
-        "fr": "Environmental Stress Factor",
-        "es": "Environmental Stress Factor",
+        "fr": "Facteur de stress environnemental",
+        "es": "Factor de estrés ambiental",
         "ar": "Environmental Stress Factor"
       },
       "businessContext_i18n": {
         "en": "Factor increasing failure rate due to harsh conditions",
-        "tr": "Zorlu koşullar nedeniyle arıza oranını artıran faktör"
+        "tr": "Zorlu koşullar nedeniyle arıza oranını artıran faktör",
+        "de": "Faktor, der die Ausfallrate aufgrund rauer Bedingungen erhöht",
+        "fr": "Facteur augmentant le taux de défaillance dû à des conditions difficiles"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Maintenance Quality Factor",
         "tr": "Bakım Kalite Faktörü",
-        "de": "Maintenance Quality Factor",
-        "fr": "Maintenance Quality Factor",
+        "de": "Wartungsqualitätsfaktor",
+        "fr": "Facteur de qualité de maintenance",
         "es": "Maintenance Quality Factor",
         "ar": "Maintenance Quality Factor"
       },
       "businessContext_i18n": {
         "en": "Factor representing maintenance effectiveness; higher reduces failure rate",
-        "tr": "Bakım etkinliğini temsil eden faktör; yüksek değer arıza oranını azaltır"
+        "tr": "Bakım etkinliğini temsil eden faktör; yüksek değer arıza oranını azaltır",
+        "de": "Faktor, der die Wartungseffektivität darstellt; höher reduziert die Ausfallrate",
+        "fr": "Facteur représentant l'efficacité de la maintenance ; plus élevé réduit le taux de défaillance"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Fault Detection Probability",
         "tr": "Arıza Tespit Olasılığı",
-        "de": "Fault Detection Probability",
-        "fr": "Fault Detection Probability",
+        "de": "Fehlererkennungswahrscheinlichkeit",
+        "fr": "Probabilité de détection de défaut",
         "es": "Fault Detection Probability",
         "ar": "Fault Detection Probability"
       },
       "businessContext_i18n": {
         "en": "Probability that a fault is detected before it leads to failure",
-        "tr": "Bir arızanın hataya yol açmadan önce tespit edilme olasılığı"
+        "tr": "Bir arızanın hataya yol açmadan önce tespit edilme olasılığı",
+        "de": "Wahrscheinlichkeit, dass ein Fehler erkannt wird, bevor er zu einem Ausfall führt",
+        "fr": "Probabilité qu'un défaut soit détecté avant qu'il n'entraîne une défaillance"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Redundancy Level",
         "tr": "Yedeklilik Seviyesi",
-        "de": "Redundancy Level",
-        "fr": "Redundancy Level",
+        "de": "Redundanzgrad",
+        "fr": "Niveau de redondance",
         "es": "Redundancy Level",
         "ar": "Redundancy Level"
       },
       "businessContext_i18n": {
         "en": "Number of independent redundant components in parallel (1 means no redundancy)",
-        "tr": "Paralel bağlı bağımsız yedekli bileşen sayısı (1, yedeklilik olmadığı anlamına gelir)"
+        "tr": "Paralel bağlı bağımsız yedekli bileşen sayısı (1, yedeklilik olmadığı anlamına gelir)",
+        "de": "Anzahl der unabhängigen redundanten Komponenten parallel (1 bedeutet keine Redundanz)",
+        "fr": "Nombre de composants redondants indépendants en parallèle (1 signifie aucune redondance)"
       }
     }
   ],

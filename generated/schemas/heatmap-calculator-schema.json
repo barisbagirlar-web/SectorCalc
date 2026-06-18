@@ -12,14 +12,16 @@
         "en": "Likelihood Rating",
         "tr": "Olasılık Derecesi",
         "de": "Eintrittswahrscheinlichkeit",
-        "fr": "Likelihood Rating",
-        "es": "Likelihood Rating",
+        "fr": "Indice de vraisemblance",
+        "es": "Clasificación de probabilidad",
         "ar": "Likelihood Rating"
       },
       "businessContext_i18n": {
         "en": "Probability of risk event occurring, rated 1-5",
         "tr": "Risk olayının gerçekleşme olasılığı, 1-5 arası derecelendirilir",
-        "de": "Wahrscheinlichkeit des Risikoereignisses, bewertet von 1-5"
+        "de": "Wahrscheinlichkeit des Risikoereignisses, bewertet von 1-5",
+        "fr": "Probabilité de survenance du risque, notée de 1 à 5",
+        "es": "Probabilidad de que ocurra el evento de riesgo, clasificada 1-5"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Impact Rating",
         "tr": "Etki Derecesi",
         "de": "Auswirkungsbewertung",
-        "fr": "Impact Rating",
-        "es": "Impact Rating",
+        "fr": "Indice d'impact",
+        "es": "Clasificación de impacto",
         "ar": "Impact Rating"
       },
       "businessContext_i18n": {
         "en": "Severity of consequences if risk occurs, rated 1-5",
         "tr": "Risk gerçekleşirse sonuçların şiddeti, 1-5 arası derecelendirilir",
-        "de": "Schwere der Konsequenzen bei Eintritt des Risikos, bewertet von 1-5"
+        "de": "Schwere der Konsequenzen bei Eintritt des Risikos, bewertet von 1-5",
+        "fr": "Gravité des conséquences si le risque se produit, notée de 1 à 5",
+        "es": "Severidad de las consecuencias si ocurre el riesgo, clasificada 1-5"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Control Effectiveness",
         "tr": "Kontrol Etkinliği",
         "de": "Kontrollwirksamkeit",
-        "fr": "Control Effectiveness",
-        "es": "Control Effectiveness",
+        "fr": "Efficacité des contrôles",
+        "es": "Efectividad del control",
         "ar": "Control Effectiveness"
       },
       "businessContext_i18n": {
         "en": "How effectively existing controls reduce risk, 0-100%",
         "tr": "Mevcut kontrollerin riski ne kadar etkili azalttığı, %0-100",
-        "de": "Wie effektiv bestehende Kontrollen das Risiko reduzieren, 0-100%"
+        "de": "Wie effektiv bestehende Kontrollen das Risiko reduzieren, 0-100%",
+        "fr": "Efficacité des contrôles existants à réduire le risque, 0-100%",
+        "es": "Qué tan efectivamente los controles existentes reducen el riesgo, 0-100%"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Residual Likelihood",
         "tr": "Kalan Olasılık",
         "de": "Restwahrscheinlichkeit",
-        "fr": "Residual Likelihood",
-        "es": "Residual Likelihood",
+        "fr": "Vraisemblance résiduelle",
+        "es": "Probabilidad residual",
         "ar": "Residual Likelihood"
       },
       "businessContext_i18n": {
         "en": "Probability after controls, rated 1-5",
         "tr": "Kontrollerden sonra olasılık, 1-5 arası derecelendirilir",
-        "de": "Wahrscheinlichkeit nach Kontrollen, bewertet 1-5"
+        "de": "Wahrscheinlichkeit nach Kontrollen, bewertet 1-5",
+        "fr": "Probabilité après contrôles, notée de 1 à 5",
+        "es": "Probabilidad después de los controles, clasificada 1-5"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Residual Impact",
         "tr": "Kalan Etki",
         "de": "Restauswirkung",
-        "fr": "Residual Impact",
-        "es": "Residual Impact",
+        "fr": "Impact résiduel",
+        "es": "Impacto residual",
         "ar": "Residual Impact"
       },
       "businessContext_i18n": {
         "en": "Severity after controls, rated 1-5",
         "tr": "Kontrollerden sonra şiddet, 1-5 arası derecelendirilir",
-        "de": "Schweregrad nach Kontrollen, bewertet 1-5"
+        "de": "Schweregrad nach Kontrollen, bewertet 1-5",
+        "fr": "Gravité après contrôles, notée de 1 à 5",
+        "es": "Severidad después de los controles, clasificada 1-5"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Inherent Weight",
         "tr": "Doğal Ağırlık",
         "de": "Inhärentes Gewicht",
-        "fr": "Inherent Weight",
-        "es": "Inherent Weight",
+        "fr": "Poids inhérent",
+        "es": "Peso inherente",
         "ar": "Inherent Weight"
       },
       "businessContext_i18n": {
         "en": "Weight of inherent risk in overall score, 0-1",
         "tr": "Genel puanda içsel riskin ağırlığı, 0-1",
-        "de": "Gewicht des inhärenten Risikos im Gesamtscore, 0-1"
+        "de": "Gewicht des inhärenten Risikos im Gesamtscore, 0-1",
+        "fr": "Poids du risque inhérent dans le score global, 0-1",
+        "es": "Peso del riesgo inherente en la puntuación total, 0-1"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Residual Weight",
         "tr": "Artık Ağırlık",
         "de": "Restgewicht",
-        "fr": "Residual Weight",
-        "es": "Residual Weight",
+        "fr": "Poids résiduel",
+        "es": "Peso residual",
         "ar": "Residual Weight"
       },
       "businessContext_i18n": {
         "en": "Weight of residual risk in overall score, 0-1",
         "tr": "Genel puanda artık riskin ağırlığı, 0-1",
-        "de": "Gewicht des Restrisikos im Gesamtscore, 0-1"
+        "de": "Gewicht des Restrisikos im Gesamtscore, 0-1",
+        "fr": "Poids du risque résiduel dans le score global, 0-1",
+        "es": "Peso del riesgo residual en la puntuación total, 0-1"
       }
     }
   ],

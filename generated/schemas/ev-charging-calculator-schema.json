@@ -12,14 +12,16 @@
         "en": "Battery Capacity",
         "tr": "Pil Kapasitesi",
         "de": "Batteriekapazität",
-        "fr": "Battery Capacity",
-        "es": "Battery Capacity",
+        "fr": "Capacité de la batterie",
+        "es": "Capacidad de la batería",
         "ar": "Battery Capacity"
       },
       "businessContext_i18n": {
         "en": "The total usable battery capacity of the electric vehicle.",
         "tr": "Elektrikli aracın toplam kullanılabilir batarya kapasitesi.",
-        "de": "Die gesamte nutzbare Batteriekapazität des Elektrofahrzeugs."
+        "de": "Die gesamte nutzbare Batteriekapazität des Elektrofahrzeugs.",
+        "fr": "La capacité totale utilisable de la batterie du véhicule électrique.",
+        "es": "Capacidad total utilizable de la batería del vehículo eléctrico."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Current Charge",
         "tr": "Mevcut Şarj",
         "de": "Aktueller Ladezustand",
-        "fr": "Current Charge",
-        "es": "Current Charge",
+        "fr": "Charge actuelle",
+        "es": "Carga Actual",
         "ar": "Current Charge"
       },
       "businessContext_i18n": {
         "en": "The current state of charge as a percentage of battery capacity.",
         "tr": "Batarya kapasitesinin yüzdesi olarak mevcut şarj durumu.",
-        "de": "Der aktuelle Ladezustand in Prozent der Batteriekapazität."
+        "de": "Der aktuelle Ladezustand in Prozent der Batteriekapazität.",
+        "fr": "L'état de charge actuel en pourcentage de la capacité de la batterie.",
+        "es": "Estado de carga actual como porcentaje de la capacidad de la batería."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Desired Charge",
         "tr": "Hedef Şarj",
         "de": "Gewünschter Ladezustand",
-        "fr": "Desired Charge",
-        "es": "Desired Charge",
+        "fr": "Charge souhaitée",
+        "es": "Carga Deseada",
         "ar": "Desired Charge"
       },
       "businessContext_i18n": {
         "en": "The target state of charge after charging session.",
         "tr": "Şarj seansı sonrası hedeflenen şarj durumu.",
-        "de": "Der angestrebte Ladezustand nach dem Ladevorgang."
+        "de": "Der angestrebte Ladezustand nach dem Ladevorgang.",
+        "fr": "L'état de charge cible après la session de charge.",
+        "es": "Estado de carga objetivo después de la sesión de carga."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Charging Power",
         "tr": "Şarj Gücü",
         "de": "Ladeleistung",
-        "fr": "Charging Power",
-        "es": "Charging Power",
+        "fr": "Puissance de charge",
+        "es": "Potencia de Carga",
         "ar": "Charging Power"
       },
       "businessContext_i18n": {
         "en": "The charging power of the charging station.",
         "tr": "Şarj istasyonunun şarj gücü.",
-        "de": "Die Ladeleistung der Ladestation."
+        "de": "Die Ladeleistung der Ladestation.",
+        "fr": "La puissance de charge de la borne de recharge.",
+        "es": "Potencia de carga del punto de recarga."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Electricity Cost",
         "tr": "Elektrik Maliyeti",
         "de": "Stromkosten",
-        "fr": "Electricity Cost",
-        "es": "Electricity Cost",
+        "fr": "Coût de l'électricité",
+        "es": "Coste de electricidad",
         "ar": "Electricity Cost"
       },
       "businessContext_i18n": {
         "en": "Cost of electricity per kWh.",
         "tr": "kWh başına elektrik maliyeti.",
-        "de": "Stromkosten pro kWh."
+        "de": "Stromkosten pro kWh.",
+        "fr": "Coût de l'électricité par kWh.",
+        "es": "Coste de la electricidad por kWh."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Charging Efficiency",
         "tr": "Şarj Verimliliği",
         "de": "Ladeeffizienz",
-        "fr": "Charging Efficiency",
-        "es": "Charging Efficiency",
+        "fr": "Efficacité de charge",
+        "es": "Eficiencia de Carga",
         "ar": "Charging Efficiency"
       },
       "businessContext_i18n": {
         "en": "Charging efficiency, including conversion losses.",
         "tr": "Dönüşüm kayıpları dahil şarj verimliliği.",
-        "de": "Ladeeffizienz inklusive Umwandlungsverluste."
+        "de": "Ladeeffizienz inklusive Umwandlungsverluste.",
+        "fr": "Efficacité de charge, y compris les pertes de conversion.",
+        "es": "Eficiencia de carga, incluyendo pérdidas por conversión."
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "PIN Length",
         "tr": "PIN Uzunluğu",
-        "de": "PIN Length",
-        "fr": "PIN Length",
-        "es": "PIN Length",
+        "de": "PIN-Länge",
+        "fr": "Longueur du code PIN",
+        "es": "Longitud del PIN",
         "ar": "PIN Length"
       },
       "businessContext_i18n": {
         "en": "Number of digits in the generated PIN",
-        "tr": "Oluşturulan PIN'deki basamak sayısı"
+        "tr": "Oluşturulan PIN'deki basamak sayısı",
+        "de": "Anzahl der Ziffern der generierten PIN",
+        "fr": "Nombre de chiffres dans le code PIN généré",
+        "es": "Número de dígitos del PIN generado"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Seed Number",
         "tr": "Tohum Numarası",
-        "de": "Seed Number",
-        "fr": "Seed Number",
-        "es": "Seed Number",
+        "de": "Seed-Nummer",
+        "fr": "Nombre de départ",
+        "es": "Número semilla",
         "ar": "Seed Number"
       },
       "businessContext_i18n": {
         "en": "Unique numeric seed for PIN derivation",
-        "tr": "PIN türetimi için benzersiz sayısal tohum"
+        "tr": "PIN türetimi için benzersiz sayısal tohum",
+        "de": "Eindeutiger numerischer Seed für die PIN-Ableitung",
+        "fr": "Nombre de départ unique pour la dérivation du code PIN",
+        "es": "Semilla numérica única para la derivación del PIN"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Multiplier",
         "tr": "Çarpan",
         "de": "Multiplikator",
-        "fr": "Multiplier",
-        "es": "Multiplier",
+        "fr": "Multiplicateur",
+        "es": "Multiplicador",
         "ar": "Multiplier"
       },
       "businessContext_i18n": {
         "en": "Prime multiplier for pseudo-random extraction",
-        "tr": "Sözde rastgele çekim için asal çarpan"
+        "tr": "Sözde rastgele çekim için asal çarpan",
+        "de": "Primzahl-Multiplikator für pseudo-zufällige Extraktion",
+        "fr": "Multiplicateur premier pour l'extraction pseudo-aléatoire",
+        "es": "Multiplicador primo para extracción pseudoaleatoria"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Shift Factor",
         "tr": "Kaydırma Faktörü",
-        "de": "Shift Factor",
-        "fr": "Shift Factor",
-        "es": "Shift Factor",
+        "de": "Verschiebungsfaktor",
+        "fr": "Facteur de décalage",
+        "es": "Factor de desplazamiento",
         "ar": "Shift Factor"
       },
       "businessContext_i18n": {
         "en": "Offset to create different PINs from same seed",
-        "tr": "Aynı tohumdan farklı PIN'ler oluşturmak için ofset"
+        "tr": "Aynı tohumdan farklı PIN'ler oluşturmak için ofset",
+        "de": "Offset zur Erzeugung unterschiedlicher PINs aus demselben Seed",
+        "fr": "Décalage pour créer différents codes PIN à partir du même nombre de départ",
+        "es": "Desplazamiento para crear diferentes PINs a partir de la misma semilla"
       }
     }
   ],

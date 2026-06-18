@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Length (yards)",
         "tr": "Uzunluk (yarda)",
-        "de": "Length (yards)",
-        "fr": "Length (yards)",
+        "de": "Länge (Yards)",
+        "fr": "Longueur (yards)",
         "es": "Length (yards)",
         "ar": "Length (yards)"
       },
       "businessContext_i18n": {
         "en": "Length of the area in yards",
-        "tr": "Alanın yarda cinsinden uzunluğu"
+        "tr": "Alanın yarda cinsinden uzunluğu",
+        "de": "Länge der Fläche in Yards",
+        "fr": "Longueur de la zone en yards"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Width (yards)",
         "tr": "Genişlik (yarda)",
-        "de": "Width (yards)",
-        "fr": "Width (yards)",
+        "de": "Breite (Yards)",
+        "fr": "Largeur (yards)",
         "es": "Width (yards)",
         "ar": "Width (yards)"
       },
       "businessContext_i18n": {
         "en": "Width of the area in yards",
-        "tr": "Alanın yarda cinsinden genişliği"
+        "tr": "Alanın yarda cinsinden genişliği",
+        "de": "Breite der Fläche in Yards",
+        "fr": "Largeur de la zone en yards"
       }
     },
     {
@@ -52,14 +56,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output",
         "tr": "Çıktı için ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen für die Ausgabe"
+        "de": "Anzahl der Dezimalstellen für die Ausgabe",
+        "fr": "Nombre de décimales pour le résultat",
+        "es": "Número de decimales para la salida"
       }
     },
     {
@@ -73,13 +79,15 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Conversion factor from square yards to square meters. ISO standard: 1 yd² = 0.83612736 m²",
-        "tr": "Yardakareden metrekareye dönüşüm faktörü. ISO standardı: 1 yd² = 0,83612736 m²"
+        "tr": "Yardakareden metrekareye dönüşüm faktörü. ISO standardı: 1 yd² = 0,83612736 m²",
+        "de": "Umrechnungsfaktor von Quadratyards in Quadratmeter. ISO-Standard: 1 yd² = 0,83612736 m²",
+        "fr": "Facteur de conversion des yards carrés en mètres carrés. Norme ISO : 1 yd² = 0,83612736 m²"
       }
     }
   ],

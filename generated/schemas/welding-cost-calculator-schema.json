@@ -23,11 +23,15 @@
       "businessContext": "Total length of the weld joint to be deposited.",
       "label_i18n": {
         "en": "Weld Length (mm)",
-        "tr": "Kaynak Uzunluğu (mm)"
+        "tr": "Kaynak Uzunluğu (mm)",
+        "de": "Schweißnahtlänge (mm)",
+        "fr": "Longueur de soudure (mm)"
       },
       "businessContext_i18n": {
         "en": "Total length of the weld joint to be deposited.",
-        "tr": "Biriktirilecek kaynak bağlantısının toplam uzunluğu."
+        "tr": "Biriktirilecek kaynak bağlantısının toplam uzunluğu.",
+        "de": "Gesamtlänge der zu schweißenden Naht.",
+        "fr": "Longueur totale du joint de soudure à déposer."
       }
     },
     {
@@ -41,11 +45,15 @@
       "businessContext": "Effective throat thickness of the fillet or groove weld.",
       "label_i18n": {
         "en": "Weld Throat Thickness (mm)",
-        "tr": "Kaynak Boğaz Kalınlığı (mm)"
+        "tr": "Kaynak Boğaz Kalınlığı (mm)",
+        "de": "Schweißnahtdicke (mm)",
+        "fr": "Épaisseur de gorge de soudure (mm)"
       },
       "businessContext_i18n": {
         "en": "Effective throat thickness of the fillet or groove weld.",
-        "tr": "Köşe veya oluk kaynağının etkin boğaz kalınlığı."
+        "tr": "Köşe veya oluk kaynağının etkin boğaz kalınlığı.",
+        "de": "Effektive Kehlnahtdicke der Kehl- oder Stumpfnaht.",
+        "fr": "Épaisseur effective de la gorge de la soudure d'angle ou en chanfrein."
       }
     },
     {
@@ -59,11 +67,15 @@
       "businessContext": "Density of the base and filler material (typical steel ~7.85).",
       "label_i18n": {
         "en": "Material Density (g/cm³)",
-        "tr": "Malzeme Yoğunluğu (g/cm³)"
+        "tr": "Malzeme Yoğunluğu (g/cm³)",
+        "de": "Materialdichte (g/cm³)",
+        "fr": "Densité du matériau (g/cm³)"
       },
       "businessContext_i18n": {
         "en": "Density of the base and filler material (typical steel ~7.85).",
-        "tr": "Taban ve dolgu malzemesinin yoğunluğu (tipik çelik ~7.85)."
+        "tr": "Taban ve dolgu malzemesinin yoğunluğu (tipik çelik ~7.85).",
+        "de": "Dichte des Grund- und Zusatzmaterials (typischer Stahl ~7,85).",
+        "fr": "Densité du métal de base et d'apport (acier typique ~7,85)."
       }
     },
     {
@@ -77,11 +89,15 @@
       "businessContext": "Ratio of deposited weld metal to total filler metal consumed (includes spatter and losses).",
       "label_i18n": {
         "en": "Deposition Efficiency (%)",
-        "tr": "Biriktirme Verimliliği (%)"
+        "tr": "Biriktirme Verimliliği (%)",
+        "de": "Abscheideeffizienz (%)",
+        "fr": "Efficacité de dépôt (%)"
       },
       "businessContext_i18n": {
         "en": "Ratio of deposited weld metal to total filler metal consumed (includes spatter and losses).",
-        "tr": "Biriktirilen kaynak metalinin tüketilen toplam dolgu metaline oranı (sıçrama ve kayıplar dahil)."
+        "tr": "Biriktirilen kaynak metalinin tüketilen toplam dolgu metaline oranı (sıçrama ve kayıplar dahil).",
+        "de": "Verhältnis von abgeschiedenem Schweißgut zu verbrauchtem Zusatzwerkstoff (inkl. Spritzer und Verluste).",
+        "fr": "Rapport entre le métal déposé et le métal d'apport total consommé (inclut projections et pertes)."
       }
     },
     {
@@ -96,11 +112,15 @@
       "label_i18n": {
         "en": "Labor Rate (USD/hour)",
         "tr": "İşçilik Ücreti (USD/saat)",
-        "de": "Stundensatz (USD/Stunde)"
+        "de": "Stundensatz (USD/Stunde)",
+        "fr": "Taux de main-d'œuvre (USD/heure)",
+        "es": "Tarifa de mano de obra (USD/hora)"
       },
       "businessContext_i18n": {
         "en": "Fully burdened hourly labor cost for welder.",
-        "tr": "Kaynakçı için tam yüklü saatlik işçilik maliyeti."
+        "tr": "Kaynakçı için tam yüklü saatlik işçilik maliyeti.",
+        "de": "Voll belastete stündliche Arbeitskosten für Schweißer.",
+        "fr": "Coût horaire complet de la main-d'œuvre du soudeur."
       }
     },
     {
@@ -114,11 +134,15 @@
       "businessContext": "Travel speed of the welding torch along the joint.",
       "label_i18n": {
         "en": "Welding Speed (mm/min)",
-        "tr": "Kaynak Hızı (mm/dk)"
+        "tr": "Kaynak Hızı (mm/dk)",
+        "de": "Schweißgeschwindigkeit (mm/min)",
+        "fr": "Vitesse de soudage (mm/min)"
       },
       "businessContext_i18n": {
         "en": "Travel speed of the welding torch along the joint.",
-        "tr": "Kaynak torcunun birleşme hattı boyunca ilerleme hızı."
+        "tr": "Kaynak torcunun birleşme hattı boyunca ilerleme hızı.",
+        "de": "Vorschubgeschwindigkeit des Schweißbrenners entlang der Naht.",
+        "fr": "Vitesse de déplacement de la torche le long du joint."
       }
     },
     {
@@ -132,11 +156,15 @@
       "businessContext": "Cost per kilogram of filler wire or electrode.",
       "label_i18n": {
         "en": "Filler Wire Cost (USD/kg)",
-        "tr": "Dolgu Teli Maliyeti (USD/kg)"
+        "tr": "Dolgu Teli Maliyeti (USD/kg)",
+        "de": "Kosten für Schweißdraht (USD/kg)",
+        "fr": "Coût du fil d'apport (USD/kg)"
       },
       "businessContext_i18n": {
         "en": "Cost per kilogram of filler wire or electrode.",
-        "tr": "Dolgu teli veya elektrotun kilogram başına maliyeti."
+        "tr": "Dolgu teli veya elektrotun kilogram başına maliyeti.",
+        "de": "Kosten pro Kilogramm Schweißdraht oder Elektrode.",
+        "fr": "Coût par kilogramme de fil d'apport ou d'électrode."
       }
     },
     {
@@ -150,11 +178,15 @@
       "businessContext": "Cost per liter of shielding gas (e.g., Argon/CO2 mix).",
       "label_i18n": {
         "en": "Shielding Gas Cost (USD/L)",
-        "tr": "Koruyucu Gaz Maliyeti (USD/L)"
+        "tr": "Koruyucu Gaz Maliyeti (USD/L)",
+        "de": "Kosten für Schutzgas (USD/L)",
+        "fr": "Coût du gaz de protection (USD/L)"
       },
       "businessContext_i18n": {
         "en": "Cost per liter of shielding gas (e.g., Argon/CO2 mix).",
-        "tr": "Litre başına koruyucu gaz maliyeti (örn. Argon/CO2 karışımı)."
+        "tr": "Litre başına koruyucu gaz maliyeti (örn. Argon/CO2 karışımı).",
+        "de": "Kosten pro Liter Schutzgas (z. B. Argon/CO2-Gemisch).",
+        "fr": "Coût par litre de gaz de protection (ex. mélange Argon/CO2)."
       }
     }
   ],

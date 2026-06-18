@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Roof Footprint Area",
         "tr": "Çatı Taban Alanı",
-        "de": "Roof Footprint Area",
-        "fr": "Roof Footprint Area",
+        "de": "Dachgrundfläche",
+        "fr": "Surface d'empreinte du toit",
         "es": "Roof Footprint Area",
         "ar": "Roof Footprint Area"
       },
       "businessContext_i18n": {
         "en": "Total horizontal area covered by the roof (length × width) in square meters.",
-        "tr": "Çatının kapladığı toplam yatay alan (uzunluk × genişlik) metrekare cinsinden."
+        "tr": "Çatının kapladığı toplam yatay alan (uzunluk × genişlik) metrekare cinsinden.",
+        "de": "Gesamte horizontale Fläche des Daches (Länge × Breite) in Quadratmetern.",
+        "fr": "Surface horizontale totale couverte par le toit (longueur × largeur) en mètres carrés."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Roof Pitch Angle",
         "tr": "Çatı Eğim Açısı",
-        "de": "Roof Pitch Angle",
-        "fr": "Roof Pitch Angle",
-        "es": "Roof Pitch Angle",
+        "de": "Dachneigungswinkel",
+        "fr": "Angle de pente du toit",
+        "es": "Ángulo de inclinación del techo",
         "ar": "Roof Pitch Angle"
       },
       "businessContext_i18n": {
         "en": "Inclination angle of the roof from horizontal, in degrees.",
-        "tr": "Çatının yataydan eğim açısı, derece cinsinden."
+        "tr": "Çatının yataydan eğim açısı, derece cinsinden.",
+        "de": "Neigungswinkel des Daches zur Horizontalen in Grad.",
+        "fr": "Angle d'inclinaison du toit par rapport à l'horizontale, en degrés."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
         "de": "Abfallfaktor",
-        "fr": "Waste Factor",
-        "es": "Waste Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Additional material percentage for cutting, overlap, and handling losses.",
-        "tr": "Kesim, bindirme ve taşıma kayıpları için ek malzeme yüzdesi."
+        "tr": "Kesim, bindirme ve taşıma kayıpları için ek malzeme yüzdesi.",
+        "de": "Zusätzlicher Materialprozentsatz für Verschnitt, Überlappung und Handhabungsverluste.",
+        "fr": "Pourcentage de matériau supplémentaire pour les pertes de coupe, de chevauchement et de manutention."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Shingle Coverage per Bundle",
         "tr": "Paket Başına Shingle Kapsama Alanı",
-        "de": "Shingle Coverage per Bundle",
-        "fr": "Shingle Coverage per Bundle",
+        "de": "Schindelabdeckung pro Bündel",
+        "fr": "Couverture par paquet de bardeaux",
         "es": "Shingle Coverage per Bundle",
         "ar": "Shingle Coverage per Bundle"
       },
       "businessContext_i18n": {
         "en": "Area covered by one bundle of field shingles, typically 3.1 m² for standard 3-tab.",
-        "tr": "Bir paket düz shingle'ın kapladığı alan, standart 3-tab için tipik olarak 3,1 m²."
+        "tr": "Bir paket düz shingle'ın kapladığı alan, standart 3-tab için tipik olarak 3,1 m².",
+        "de": "Fläche, die von einem Bündel Feldschindeln abgedeckt wird, typischerweise 3,1 m² für Standard-3-Tab.",
+        "fr": "Surface couverte par un paquet de bardeaux de champ, typiquement 3,1 m² pour les bardeaux standard à 3 pattes."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Ridge Length",
         "tr": "Mahya Uzunluğu",
-        "de": "Ridge Length",
-        "fr": "Ridge Length",
+        "de": "Firstlänge",
+        "fr": "Longueur de faîtage",
         "es": "Ridge Length",
         "ar": "Ridge Length"
       },
       "businessContext_i18n": {
         "en": "Total length of ridges and hips requiring cap shingles, in meters.",
-        "tr": "Kapak shingle'ı gerektiren mahya ve çatı kırım hatlarının toplam uzunluğu, metre cinsinden."
+        "tr": "Kapak shingle'ı gerektiren mahya ve çatı kırım hatlarının toplam uzunluğu, metre cinsinden.",
+        "de": "Gesamtlänge von Firsten und Graten, die Abschlussschindeln erfordern, in Metern.",
+        "fr": "Longueur totale des faîtes et arêtiers nécessitant des bardeaux de faîtage, en mètres."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Cap Coverage per Bundle",
         "tr": "Paket Başına Kapak Kapsama Alanı",
-        "de": "Cap Coverage per Bundle",
-        "fr": "Cap Coverage per Bundle",
+        "de": "Abschlussabdeckung pro Bündel",
+        "fr": "Couverture par paquet de bardeaux de faîtage",
         "es": "Cap Coverage per Bundle",
         "ar": "Cap Coverage per Bundle"
       },
       "businessContext_i18n": {
         "en": "Linear ridge coverage provided by one bundle of cap shingles, typically 10 m for 3-tab caps.",
-        "tr": "Bir paket kapak shingle'ının sağladığı doğrusal mahya kapsama alanı, 3-tab kapaklar için tipik olarak 10 m."
+        "tr": "Bir paket kapak shingle'ının sağladığı doğrusal mahya kapsama alanı, 3-tab kapaklar için tipik olarak 10 m.",
+        "de": "Lineare Firstabdeckung, die von einem Bündel Abschlussschindeln bereitgestellt wird, typischerweise 10 m für 3-Tab-Abschlüsse.",
+        "fr": "Couverture linéaire de faîtage fournie par un paquet de bardeaux de faîtage, typiquement 10 m pour les bardeaux à 3 pattes."
       }
     }
   ],

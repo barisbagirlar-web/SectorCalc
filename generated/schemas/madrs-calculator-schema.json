@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Axle Diameter",
         "tr": "Aks Çapı",
-        "de": "Axle Diameter",
-        "fr": "Axle Diameter",
-        "es": "Axle Diameter",
+        "de": "Achsendurchmesser",
+        "fr": "Diamètre de l'essieu",
+        "es": "Diámetro del eje",
         "ar": "Axle Diameter"
       },
       "businessContext_i18n": {
         "en": "The diameter of the machine axle under analysis.",
-        "tr": "Analiz edilen makine aksının çapı."
+        "tr": "Analiz edilen makine aksının çapı.",
+        "de": "Der Durchmesser der zu analysierenden Maschinenachse.",
+        "fr": "Le diamètre de l'essieu de la machine analysé.",
+        "es": "El diámetro del eje de la máquina bajo análisis."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Axle Length",
         "tr": "Aks Uzunluğu",
-        "de": "Axle Length",
-        "fr": "Axle Length",
-        "es": "Axle Length",
+        "de": "Achsenlänge",
+        "fr": "Longueur de l'essieu",
+        "es": "Longitud del eje",
         "ar": "Axle Length"
       },
       "businessContext_i18n": {
         "en": "The unsupported length of the axle between bearings.",
-        "tr": "Rulmanlar arasındaki desteklenmeyen aks uzunluğu."
+        "tr": "Rulmanlar arasındaki desteklenmeyen aks uzunluğu.",
+        "de": "Die ungestützte Länge der Achse zwischen den Lagern.",
+        "fr": "La longueur non supportée de l'essieu entre les paliers.",
+        "es": "La longitud no soportada del eje entre los cojinetes."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Applied Load",
         "tr": "Uygulanan Yük",
         "de": "Aufgebrachte Last",
-        "fr": "Applied Load",
-        "es": "Applied Load",
+        "fr": "Charge appliquée",
+        "es": "Carga aplicada",
         "ar": "Applied Load"
       },
       "businessContext_i18n": {
         "en": "Central point load acting on the axle.",
-        "tr": "Aksa etki eden merkezi nokta yükü."
+        "tr": "Aksa etki eden merkezi nokta yükü.",
+        "de": "Mittige Punktlast auf die Achse.",
+        "fr": "Charge ponctuelle centrale agissant sur l'essieu.",
+        "es": "Carga puntual central que actúa sobre el eje."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Elastic Modulus",
         "tr": "Elastisite Modülü",
         "de": "Elastizitätsmodul",
-        "fr": "Elastic Modulus",
-        "es": "Elastic Modulus",
+        "fr": "Module d'élasticité",
+        "es": "Módulo de elasticidad",
         "ar": "Elastic Modulus"
       },
       "businessContext_i18n": {
         "en": "Material's modulus of elasticity (e.g., steel ≈ 210 GPa).",
-        "tr": "Malzemenin elastisite modülü (örneğin çelik ≈ 210 GPa)."
+        "tr": "Malzemenin elastisite modülü (örneğin çelik ≈ 210 GPa).",
+        "de": "Elastizitätsmodul des Materials (z. B. Stahl ≈ 210 GPa).",
+        "fr": "Module d'élasticité du matériau (ex. acier ≈ 210 GPa).",
+        "es": "Módulo de elasticidad del material (ej., acero ≈ 210 GPa)."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Design safety factor for allowable stress comparison.",
-        "tr": "İzin verilen gerilme karşılaştırması için tasarım güvenlik faktörü."
+        "tr": "İzin verilen gerilme karşılaştırması için tasarım güvenlik faktörü.",
+        "de": "Auslegungssicherheitsfaktor für den Vergleich der zulässigen Spannung.",
+        "fr": "Coefficient de sécurité de conception pour la comparaison des contraintes admissibles.",
+        "es": "Factor de seguridad de diseño para comparación de tensiones admisibles."
       }
     }
   ],

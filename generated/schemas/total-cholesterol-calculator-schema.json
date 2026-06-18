@@ -12,13 +12,15 @@
         "en": "HDL Cholesterol",
         "tr": "HDL Kolesterol",
         "de": "HDL-Cholesterin",
-        "fr": "HDL Cholesterol",
-        "es": "HDL Cholesterol",
+        "fr": "Cholestérol HDL",
+        "es": "Colesterol HDL",
         "ar": "HDL Cholesterol"
       },
       "businessContext_i18n": {
         "en": "High-density lipoprotein, 'good' cholesterol",
-        "tr": "Yüksek yoğunluklu lipoprotein, 'iyi' kolesterol"
+        "tr": "Yüksek yoğunluklu lipoprotein, 'iyi' kolesterol",
+        "de": "High-Density-Lipoprotein, „gutes“ Cholesterin",
+        "fr": "Lipoprotéines de haute densité, « bon » cholestérol"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "LDL Cholesterol",
         "tr": "LDL Kolesterol",
-        "de": "LDL Cholesterol",
-        "fr": "LDL Cholesterol",
+        "de": "LDL-Cholesterin",
+        "fr": "Cholestérol LDL",
         "es": "LDL Cholesterol",
         "ar": "LDL Cholesterol"
       },
       "businessContext_i18n": {
         "en": "Low-density lipoprotein, 'bad' cholesterol",
-        "tr": "Düşük yoğunluklu lipoprotein, 'kötü' kolesterol"
+        "tr": "Düşük yoğunluklu lipoprotein, 'kötü' kolesterol",
+        "de": "Low-Density-Lipoprotein, „schlechtes“ Cholesterin",
+        "fr": "Lipoprotéines de basse densité, « mauvais » cholestérol"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Triglycerides",
         "tr": "Trigliserit",
         "de": "Triglyceride",
-        "fr": "Triglycerides",
-        "es": "Triglycerides",
+        "fr": "Triglycérides",
+        "es": "Triglicéridos",
         "ar": "Triglycerides"
       },
       "businessContext_i18n": {
         "en": "Fats in blood; converted to VLDL for total cholesterol",
-        "tr": "Kandaki yağlar; toplam kolesterol için VLDL'ye dönüştürülür"
+        "tr": "Kandaki yağlar; toplam kolesterol için VLDL'ye dönüştürülür",
+        "de": "Fette im Blut; für Gesamtcholesterin in VLDL umgerechnet",
+        "fr": "Graisses dans le sang ; converties en VLDL pour le cholestérol total"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Triglycerides to VLDL Conversion Factor",
         "tr": "Trigliseritlerden VLDL'ye Dönüşüm Faktörü",
-        "de": "Triglycerides to VLDL Conversion Factor",
-        "fr": "Triglycerides to VLDL Conversion Factor",
+        "de": "Umrechnungsfaktor von Triglyceriden zu VLDL",
+        "fr": "Facteur de conversion des triglycérides en VLDL",
         "es": "Triglycerides to VLDL Conversion Factor",
         "ar": "Triglycerides to VLDL Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Factor 5 for mg/dL; 2.2 for mmol/L. Adjust based on units.",
-        "tr": "mg/dL için faktör 5; mmol/L için 2.2. Birimlere göre ayarlayın."
+        "tr": "mg/dL için faktör 5; mmol/L için 2.2. Birimlere göre ayarlayın.",
+        "de": "Faktor 5 für mg/dL; 2,2 für mmol/L. Je nach Einheiten anpassen.",
+        "fr": "Facteur 5 pour mg/dL ; 2,2 pour mmol/L. Ajuster selon les unités."
       }
     }
   ],

@@ -12,13 +12,15 @@
         "en": "Wire Diameter",
         "tr": "Tel Çapı",
         "de": "Drahtdurchmesser",
-        "fr": "Wire Diameter",
-        "es": "Wire Diameter",
+        "fr": "Diamètre du fil",
+        "es": "Diámetro del alambre",
         "ar": "Wire Diameter"
       },
       "businessContext_i18n": {
         "en": "Çelik tel çapı",
-        "tr": "Saniyede metre cinsinden başlangıç hızı."
+        "tr": "Saniyede metre cinsinden başlangıç hızı.",
+        "de": "Stahldrahtdurchmesser",
+        "fr": "Diamètre du fil en acier"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Mean Coil Diameter",
         "tr": "Ortalama bobin çapı",
         "de": "Mittlerer Windungsdurchmesser",
-        "fr": "Mean Coil Diameter",
-        "es": "Mean Coil Diameter",
+        "fr": "Diamètre moyen de la spire",
+        "es": "Diámetro medio de la bobina",
         "ar": "Mean Coil Diameter"
       },
       "businessContext_i18n": {
         "en": "Ortalama bobin çapı",
-        "tr": "Çelik tel çapı"
+        "tr": "Çelik tel çapı",
+        "de": "Mittlerer Spulendurchmesser",
+        "fr": "Diamètre moyen de la bobine"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Number of Active Coils",
         "tr": "Aktif bobin sayısı",
         "de": "Anzahl der aktiven Windungen",
-        "fr": "Number of Active Coils",
-        "es": "Number of Active Coils",
+        "fr": "Nombre de spires actives",
+        "es": "Número de bobinas activas",
         "ar": "Number of Active Coils"
       },
       "businessContext_i18n": {
         "en": "Aktif sarım sayısı",
-        "tr": "Ortalama bobin çapı"
+        "tr": "Ortalama bobin çapı",
+        "de": "Anzahl aktiver Windungen",
+        "fr": "Nombre de spires actives"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Shear Modulus (G)",
         "tr": "Kayma Modülü (G)",
         "de": "Schubmodul (G)",
-        "fr": "Shear Modulus (G)",
-        "es": "Shear Modulus (G)",
+        "fr": "Module de cisaillement (G)",
+        "es": "Módulo de corte (G)",
         "ar": "Shear Modulus (G)"
       },
       "businessContext_i18n": {
         "en": "Kayma modülü (çelik için tipik)",
-        "tr": "Aktif sarım sayısı"
+        "tr": "Aktif sarım sayısı",
+        "de": "Schubmodul (typisch für Stahl)",
+        "fr": "Module de cisaillement (typique pour l'acier)"
       }
     }
   ],

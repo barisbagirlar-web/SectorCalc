@@ -12,13 +12,16 @@
         "en": "Gregorian Year",
         "tr": "Miladi Yıl",
         "de": "Gregorianisches Jahr",
-        "fr": "Gregorian Year",
-        "es": "Gregorian Year",
+        "fr": "Année grégorienne",
+        "es": "Año gregoriano",
         "ar": "Gregorian Year"
       },
       "businessContext_i18n": {
         "en": "The Gregorian calendar year to convert to Islamic calendar year.",
-        "tr": "İslami takvim yılına dönüştürülecek Miladi takvim yılı."
+        "tr": "İslami takvim yılına dönüştürülecek Miladi takvim yılı.",
+        "de": "Das gregorianische Kalenderjahr für die Umrechnung in das islamische Kalenderjahr.",
+        "fr": "Année du calendrier grégorien à convertir en année du calendrier islamique.",
+        "es": "El año del calendario gregoriano a convertir al calendario islámico."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Gregorian Month",
         "tr": "Miladi Ay",
         "de": "Gregorianischer Monat",
-        "fr": "Gregorian Month",
-        "es": "Gregorian Month",
+        "fr": "Mois grégorien",
+        "es": "Mes gregoriano",
         "ar": "Gregorian Month"
       },
       "businessContext_i18n": {
         "en": "The Gregorian month (1-12) to convert.",
-        "tr": "Dönüştürülecek Miladi ay (1-12)."
+        "tr": "Dönüştürülecek Miladi ay (1-12).",
+        "de": "Der gregorianische Monat (1-12) für die Umrechnung.",
+        "fr": "Mois grégorien (1-12) à convertir.",
+        "es": "El mes gregoriano (1-12) a convertir."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Gregorian Day",
         "tr": "Miladi Gün",
         "de": "Gregorianischer Tag",
-        "fr": "Gregorian Day",
-        "es": "Gregorian Day",
+        "fr": "Jour grégorien",
+        "es": "Día gregoriano",
         "ar": "Gregorian Day"
       },
       "businessContext_i18n": {
         "en": "The Gregorian day of the month to convert.",
-        "tr": "Dönüştürülecek Miladi gün."
+        "tr": "Dönüştürülecek Miladi gün.",
+        "de": "Der gregorianische Tag des Monats für die Umrechnung.",
+        "fr": "Jour grégorien du mois à convertir.",
+        "es": "El día del mes gregoriano a convertir."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Adjustment Days",
         "tr": "Ayar Günleri",
-        "de": "Adjustment Days",
-        "fr": "Adjustment Days",
-        "es": "Adjustment Days",
+        "de": "Anpassungstage",
+        "fr": "Jours d'ajustement",
+        "es": "Días de ajuste",
         "ar": "Adjustment Days"
       },
       "businessContext_i18n": {
         "en": "Optional adjustment to account for local sighting differences, typically -1 to 1.",
-        "tr": "Yerel hilal görüş farklılıklarını hesaba katmak için isteğe bağlı ayar, genellikle -1 ile 1 arası."
+        "tr": "Yerel hilal görüş farklılıklarını hesaba katmak için isteğe bağlı ayar, genellikle -1 ile 1 arası.",
+        "de": "Optionale Anpassung für lokale Sichtungsunterschiede, typischerweise -1 bis 1.",
+        "fr": "Ajustement optionnel pour tenir compte des différences locales d'observation, généralement -1 à 1.",
+        "es": "Ajuste opcional para tener en cuenta diferencias locales de avistamiento, típicamente -1 a 1."
       }
     }
   ],

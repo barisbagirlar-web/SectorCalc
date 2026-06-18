@@ -12,13 +12,15 @@
         "en": "Number",
         "tr": "Sayı",
         "de": "Anzahl",
-        "fr": "Number",
-        "es": "Number",
+        "fr": "Nombre",
+        "es": "Número",
         "ar": "Number"
       },
       "businessContext_i18n": {
         "en": "The number to be rounded to the specified significant figures.",
-        "tr": "Belirtilen anlamlı basamaklara yuvarlanacak sayı."
+        "tr": "Belirtilen anlamlı basamaklara yuvarlanacak sayı.",
+        "de": "Die Zahl, die auf die angegebenen signifikanten Stellen gerundet werden soll.",
+        "fr": "Le nombre à arrondir au nombre de chiffres significatifs spécifié."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Significant Figures",
         "tr": "Anlamlı Basamaklar",
-        "de": "Significant Figures",
-        "fr": "Significant Figures",
+        "de": "Signifikante Stellen",
+        "fr": "Chiffres significatifs",
         "es": "Significant Figures",
         "ar": "Significant Figures"
       },
       "businessContext_i18n": {
         "en": "Number of significant digits desired in the result.",
-        "tr": "Sonuçta istenen anlamlı basamak sayısı."
+        "tr": "Sonuçta istenen anlamlı basamak sayısı.",
+        "de": "Anzahl der gewünschten signifikanten Stellen im Ergebnis.",
+        "fr": "Nombre de chiffres significatifs souhaité dans le résultat."
       }
     },
     {
@@ -48,8 +52,8 @@
         "en": "auto_input_3",
         "tr": "Otomatik girdi 3",
         "de": "auto_input_3",
-        "fr": "auto_input_3",
-        "es": "auto_input_3",
+        "fr": "Entrée automatique 3",
+        "es": "entrada_automática_3",
         "ar": "auto_input_3"
       },
       "type": "number",
@@ -60,8 +64,8 @@
         "en": "Auto-generated input 3.",
         "tr": "Otomatik oluşturulan girdi 3.",
         "de": "Automatisch generierte Eingabe 3.",
-        "fr": "Auto-generated input 3.",
-        "es": "Auto-generated input 3.",
+        "fr": "Entrée générée automatiquement 3.",
+        "es": "Entrada generada automáticamente 3.",
         "ar": "Auto-generated input 3."
       }
     }

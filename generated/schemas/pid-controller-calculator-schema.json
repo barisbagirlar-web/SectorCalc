@@ -12,13 +12,16 @@
         "en": "Setpoint (SP)",
         "tr": "Set Noktası (SP)",
         "de": "Sollwert (SP)",
-        "fr": "Setpoint (SP)",
-        "es": "Setpoint (SP)",
+        "fr": "Consigne (SP)",
+        "es": "Punto de Consigna (SP)",
         "ar": "Setpoint (SP)"
       },
       "businessContext_i18n": {
         "en": "Desired target value for the controlled variable.",
-        "tr": "m² metal yüzey başına gereken durulama suyu hacmi."
+        "tr": "m² metal yüzey başına gereken durulama suyu hacmi.",
+        "de": "Gewünschter Sollwert der Regelgröße.",
+        "fr": "Valeur cible souhaitée pour la variable contrôlée.",
+        "es": "Valor objetivo deseado para la variable controlada."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Process Variable (PV)",
         "tr": "Proses Değişkeni (PV)",
         "de": "Prozessgröße (PV)",
-        "fr": "Process Variable (PV)",
-        "es": "Process Variable (PV)",
+        "fr": "Variable de procédé (PV)",
+        "es": "Variable de Proceso (PV)",
         "ar": "Process Variable (PV)"
       },
       "businessContext_i18n": {
         "en": "Current measured value of the controlled variable.",
-        "tr": "Kontrol edilen değişken için istenen hedef değer."
+        "tr": "Kontrol edilen değişken için istenen hedef değer.",
+        "de": "Aktueller Messwert der Regelgröße.",
+        "fr": "Valeur mesurée actuelle de la variable contrôlée.",
+        "es": "Valor medido actual de la variable controlada."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Proportional Gain (Kp)",
         "tr": "Oransal Kazanç (Kp)",
         "de": "Proportionalverstärkung (Kp)",
-        "fr": "Proportional Gain (Kp)",
-        "es": "Proportional Gain (Kp)",
+        "fr": "Gain proportionnel (Kp)",
+        "es": "Ganancia Proporcional (Kp)",
         "ar": "Proportional Gain (Kp)"
       },
       "businessContext_i18n": {
         "en": "Proportional tuning parameter; higher Kp increases control action proportional to error.",
-        "tr": "Kontrol edilen değişkenin mevcut ölçülen değeri."
+        "tr": "Kontrol edilen değişkenin mevcut ölçülen değeri.",
+        "de": "Proportionaler Verstärkungsfaktor; höheres Kp verstärkt die Stellgröße proportional zum Fehler.",
+        "fr": "Gain proportionnel (Kp)",
+        "es": "Parámetro de sintonía proporcional; un Kp mayor aumenta la acción de control proporcional al error."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Integral Gain (Ki)",
         "tr": "Oransal Kazanç (Kp)",
-        "de": "Integral Gain (Ki)",
-        "fr": "Integral Gain (Ki)",
-        "es": "Integral Gain (Ki)",
+        "de": "Integralverstärkung (Ki)",
+        "fr": "Gain intégral (Ki)",
+        "es": "Ganancia integral (Ki)",
         "ar": "Integral Gain (Ki)"
       },
       "businessContext_i18n": {
         "en": "Integral tuning parameter; corrects steady‑state error by accumulating past errors.",
-        "tr": "Oransal ayar parametresi; yüksek Kp, hatayla orantılı kontrol eylemini artırır."
+        "tr": "Oransal ayar parametresi; yüksek Kp, hatayla orantılı kontrol eylemini artırır.",
+        "de": "Integraler Verstärkungsfaktor; korrigiert stationäre Fehler durch Aufsummieren vergangener Fehler.",
+        "fr": "Paramètre d'action intégrale ; corrige l'erreur résiduelle en accumulant les erreurs passées.",
+        "es": "Parámetro de sintonía integral; corrige el error en estado estacionario acumulando errores pasados."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Derivative Gain (Kd)",
         "tr": "İntegral Kazancı (Ki)",
-        "de": "Derivative Gain (Kd)",
-        "fr": "Derivative Gain (Kd)",
-        "es": "Derivative Gain (Kd)",
+        "de": "Differenzialverstärkung (Kd)",
+        "fr": "Gain dérivé (Kd)",
+        "es": "Ganancia derivativa (Kd)",
         "ar": "Derivative Gain (Kd)"
       },
       "businessContext_i18n": {
         "en": "Derivative tuning parameter; anticipates future error based on rate of change.",
-        "tr": "İntegral ayar parametresi; geçmiş hataları biriktirerek kalıcı hatayı düzeltir."
+        "tr": "İntegral ayar parametresi; geçmiş hataları biriktirerek kalıcı hatayı düzeltir.",
+        "de": "Differenzialer Verstärkungsfaktor; antizipiert zukünftige Fehler basierend auf der Änderungsrate.",
+        "fr": "Paramètre d'action dérivée ; anticipe l'erreur future en fonction du taux de variation.",
+        "es": "Parámetro de sintonía derivativa; anticipa el error futuro basado en la tasa de cambio."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Time Step (Δt)",
         "tr": "Türev Kazancı (Kd)",
-        "de": "Time Step (Δt)",
-        "fr": "Time Step (Δt)",
-        "es": "Time Step (Δt)",
+        "de": "Zeitschritt (Δt)",
+        "fr": "Pas de temps (Δt)",
+        "es": "Paso de tiempo (Δt)",
         "ar": "Time Step (Δt)"
       },
       "businessContext_i18n": {
         "en": "Sampling interval or control loop period.",
-        "tr": "Türev ayar parametresi; değişim hızına dayanarak gelecekteki hatayı tahmin eder."
+        "tr": "Türev ayar parametresi; değişim hızına dayanarak gelecekteki hatayı tahmin eder.",
+        "de": "Abtastintervall oder Regelkreisperiode.",
+        "fr": "Intervalle d'échantillonnage ou période de boucle de régulation.",
+        "es": "Intervalo de muestreo o período del bucle de control."
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Previous Error",
         "tr": "Zaman Adımı (Δt)",
-        "de": "Previous Error",
-        "fr": "Previous Error",
-        "es": "Previous Error",
+        "de": "Vorheriger Fehler",
+        "fr": "Erreur précédente",
+        "es": "Error anterior",
         "ar": "Previous Error"
       },
       "businessContext_i18n": {
         "en": "Error from the previous sampling instant (e(k-1)).",
-        "tr": "Bir önceki örnekleme anındaki hata (e(k-1))."
+        "tr": "Bir önceki örnekleme anındaki hata (e(k-1)).",
+        "de": "Fehler des vorherigen Abtastzeitpunkts (e(k-1)).",
+        "fr": "Erreur de l'instant d'échantillonnage précédent (e(k-1)).",
+        "es": "Error del instante de muestreo anterior (e(k-1))."
       }
     },
     {
@@ -151,14 +172,17 @@
       "label_i18n": {
         "en": "Integral Accumulator",
         "tr": "İntegral Akümülatörü",
-        "de": "Integral Accumulator",
-        "fr": "Integral Accumulator",
-        "es": "Integral Accumulator",
+        "de": "Integralakkumulator",
+        "fr": "Accumulateur intégral",
+        "es": "Acumulador integral",
         "ar": "Integral Accumulator"
       },
       "businessContext_i18n": {
         "en": "Accumulated integral term up to the previous step (Σ e·Δt).",
-        "tr": "Bir önceki adıma kadar birikmiş integral terimi (Σ e·Δt)."
+        "tr": "Bir önceki adıma kadar birikmiş integral terimi (Σ e·Δt).",
+        "de": "Aufsummierter Integralterm bis zum vorherigen Schritt (Σ e·Δt).",
+        "fr": "Terme intégral accumulé jusqu'à l'étape précédente (Σ e·Δt).",
+        "es": "Término integral acumulado hasta el paso anterior (Σ e·Δt)."
       }
     }
   ],

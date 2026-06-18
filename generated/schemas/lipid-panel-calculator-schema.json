@@ -12,13 +12,16 @@
         "en": "Total Cholesterol",
         "tr": "Toplam Kolesterol",
         "de": "Gesamtcholesterin",
-        "fr": "Total Cholesterol",
-        "es": "Total Cholesterol",
+        "fr": "Cholestérol total",
+        "es": "Colesterol total",
         "ar": "Total Cholesterol"
       },
       "businessContext_i18n": {
         "en": "Total cholesterol level measured in mg/dL.",
-        "tr": "mg/dL cinsinden ölçülen toplam kolesterol seviyesi."
+        "tr": "mg/dL cinsinden ölçülen toplam kolesterol seviyesi.",
+        "de": "Gesamtcholesterinspiegel in mg/dL.",
+        "fr": "Taux de cholestérol total mesuré en mg/dL.",
+        "es": "Nivel de colesterol total medido en mg/dL."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "HDL Cholesterol",
         "tr": "HDL Kolesterol",
         "de": "HDL-Cholesterin",
-        "fr": "HDL Cholesterol",
-        "es": "HDL Cholesterol",
+        "fr": "Cholestérol HDL",
+        "es": "Colesterol HDL",
         "ar": "HDL Cholesterol"
       },
       "businessContext_i18n": {
         "en": "High-density lipoprotein cholesterol.",
-        "tr": "Yüksek yoğunluklu lipoprotein kolesterol."
+        "tr": "Yüksek yoğunluklu lipoprotein kolesterol.",
+        "de": "High-Density-Lipoprotein-Cholesterin.",
+        "fr": "Cholestérol à lipoprotéines de haute densité.",
+        "es": "Colesterol de lipoproteínas de alta densidad."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Triglycerides",
         "tr": "Trigliserit",
         "de": "Triglyceride",
-        "fr": "Triglycerides",
-        "es": "Triglycerides",
+        "fr": "Triglycérides",
+        "es": "Triglicéridos",
         "ar": "Triglycerides"
       },
       "businessContext_i18n": {
         "en": "Triglyceride level; Friedewald formula valid if <400 mg/dL.",
-        "tr": "Trigliserit seviyesi; Friedewald formülü <400 mg/dL ise geçerlidir."
+        "tr": "Trigliserit seviyesi; Friedewald formülü <400 mg/dL ise geçerlidir.",
+        "de": "Triglyceridspiegel; Friedewald-Formel gültig, wenn <400 mg/dL.",
+        "fr": "Taux de triglycérides ; la formule de Friedewald est valide si < 400 mg/dL.",
+        "es": "Nivel de triglicéridos; la fórmula de Friedewald es válida si <400 mg/dL."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Patient age in years (used for reference, not in calculation).",
-        "tr": "Yıl cinsinden hasta yaşı (hesaplamada değil, referans için kullanılır)."
+        "tr": "Yıl cinsinden hasta yaşı (hesaplamada değil, referans için kullanılır).",
+        "de": "Patientenalter in Jahren (dient als Referenz, nicht in der Berechnung).",
+        "fr": "Âge du patient en années (utilisé comme référence, pas dans le calcul).",
+        "es": "Edad del paciente en años (usada como referencia, no en el cálculo)."
       }
     }
   ],

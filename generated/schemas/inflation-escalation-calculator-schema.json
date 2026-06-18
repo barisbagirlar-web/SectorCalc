@@ -22,11 +22,17 @@
       "businessContext": "Total cost of goods or services at the start of the analysis period.",
       "label_i18n": {
         "en": "Base Cost (Current Period)",
-        "tr": "Temel Maliyet (Cari Dönem)"
+        "tr": "Temel Maliyet (Cari Dönem)",
+        "de": "Base Cost (Current Period)",
+        "fr": "Coût de base (période actuelle)",
+        "es": "Coste base (período actual)"
       },
       "businessContext_i18n": {
         "en": "Total cost of goods or services at the start of the analysis period.",
-        "tr": "Analiz dönemi başlangıcındaki toplam mal veya hizmet maliyeti."
+        "tr": "Analiz dönemi başlangıcındaki toplam mal veya hizmet maliyeti.",
+        "de": "Gesamtkosten der Waren oder Dienstleistungen zu Beginn des Analysezeitraums.",
+        "fr": "Coût total des biens ou services au début de la période d'analyse.",
+        "es": "Costo total de bienes o servicios al inicio del período de análisis."
       }
     },
     {
@@ -41,11 +47,16 @@
       "label_i18n": {
         "en": "Annual Inflation Rate",
         "tr": "Yıllık Enflasyon Oranı",
-        "de": "Jährliche Inflationsrate"
+        "de": "Jährliche Inflationsrate",
+        "fr": "Taux d'inflation annuel",
+        "es": "Tasa de inflación anual"
       },
       "businessContext_i18n": {
         "en": "Expected annual inflation rate for the cost category (e.g., CPI, PPI).",
-        "tr": "Maliyet kategorisi için beklenen yıllık enflasyon oranı (örn. TÜFE, ÜFE)."
+        "tr": "Maliyet kategorisi için beklenen yıllık enflasyon oranı (örn. TÜFE, ÜFE).",
+        "de": "Erwartete jährliche Inflationsrate für die Kostenkategorie (z. B. VPI, ERI).",
+        "fr": "Taux d'inflation annuel attendu pour la catégorie de coût (ex. IPC, IPP).",
+        "es": "Tasa de inflación anual esperada para la categoría de costo (ej. IPC, IPP)."
       }
     },
     {
@@ -59,11 +70,17 @@
       "businessContext": "Number of years over which inflation escalation is calculated.",
       "label_i18n": {
         "en": "Analysis Period (Years)",
-        "tr": "Analiz Süresi (Yıl)"
+        "tr": "Analiz Süresi (Yıl)",
+        "de": "Analysezeitraum (Jahre)",
+        "fr": "Période d'analyse (années)",
+        "es": "Período de análisis (años)"
       },
       "businessContext_i18n": {
         "en": "Number of years over which inflation escalation is calculated.",
-        "tr": "Enflasyon artışının hesaplandığı yıl sayısı."
+        "tr": "Enflasyon artışının hesaplandığı yıl sayısı.",
+        "de": "Anzahl der Jahre, über die die Inflationssteigerung berechnet wird.",
+        "fr": "Nombre d'années sur lequel l'escalade de l'inflation est calculée.",
+        "es": "Número de años durante los cuales se calcula la escalada por inflación."
       }
     },
     {
@@ -79,11 +96,17 @@
       "businessContext": "Method to apply inflation: compound (annual compounding), simple (linear), or stepwise (discrete annual steps).",
       "label_i18n": {
         "en": "Escalation Method",
-        "tr": "Artış Yöntemi"
+        "tr": "Artış Yöntemi",
+        "de": "Steigerungsmethode",
+        "fr": "Méthode d'escalade",
+        "es": "Método de escalada"
       },
       "businessContext_i18n": {
         "en": "Method to apply inflation: compound (annual compounding), simple (linear), or stepwise (discrete annual steps).",
-        "tr": "Enflasyonu uygulama yöntemi: bileşik (yıllık bileşik), basit (doğrusal) veya adımlı (ayrık yıllık adımlar)."
+        "tr": "Enflasyonu uygulama yöntemi: bileşik (yıllık bileşik), basit (doğrusal) veya adımlı (ayrık yıllık adımlar).",
+        "de": "Methode zur Anwendung der Inflation: zusammengesetzt (jährliche Aufzinsung), einfach (linear) oder schrittweise (diskrete jährliche Schritte).",
+        "fr": "Méthode d'application de l'inflation : composée (composition annuelle), simple (linéaire) ou par paliers (paliers annuels discrets).",
+        "es": "Método para aplicar la inflación: compuesto (capitalización anual), simple (lineal) o escalonado (pasos anuales discretos)."
       },
       "unit": "unit"
     },
@@ -95,11 +118,17 @@
       "businessContext": "If true, applies a separate energy escalation factor (typically higher than general inflation).",
       "label_i18n": {
         "en": "Include Energy Cost Escalation",
-        "tr": "Enerji Maliyeti Artışını Dahil Et"
+        "tr": "Enerji Maliyeti Artışını Dahil Et",
+        "de": "Energiekostensteigerung einbeziehen",
+        "fr": "Inclure l'escalade du coût énergétique",
+        "es": "Incluir escalada de coste energético"
       },
       "businessContext_i18n": {
         "en": "If true, applies a separate energy escalation factor (typically higher than general inflation).",
-        "tr": "Doğruysa, ayrı bir enerji artış faktörü uygular (genellikle genel enflasyondan yüksektir)."
+        "tr": "Doğruysa, ayrı bir enerji artış faktörü uygular (genellikle genel enflasyondan yüksektir).",
+        "de": "Wenn wahr, wird ein separater Energie-Steigerungsfaktor angewendet (typischerweise höher als die allgemeine Inflation).",
+        "fr": "Si vrai, applique un facteur d'escalade énergétique distinct (généralement plus élevé que l'inflation générale).",
+        "es": "Si es verdadero, aplica un factor de escalada energética separado (generalmente más alto que la inflación general)."
       },
       "unit": "unit"
     },
@@ -114,11 +143,17 @@
       "businessContext": "Annual escalation rate for energy costs, often based on EIA forecasts.",
       "label_i18n": {
         "en": "Energy Escalation Rate",
-        "tr": "Enerji Artış Oranı"
+        "tr": "Enerji Artış Oranı",
+        "de": "Energie-Steigerungsrate",
+        "fr": "Taux d'escalade énergétique",
+        "es": "Tasa de escalada energética"
       },
       "businessContext_i18n": {
         "en": "Annual escalation rate for energy costs, often based on EIA forecasts.",
-        "tr": "Enerji maliyetleri için yıllık artış oranı, genellikle EIA tahminlerine dayanır."
+        "tr": "Enerji maliyetleri için yıllık artış oranı, genellikle EIA tahminlerine dayanır.",
+        "de": "Jährliche Steigerungsrate für Energiekosten, oft basierend auf EIA-Prognosen.",
+        "fr": "Taux d'escalade annuel pour les coûts énergétiques, souvent basé sur les prévisions de l'EIA.",
+        "es": "Tasa de escalada anual para costes energéticos, a menudo basada en pronósticos de la EIA."
       }
     },
     {
@@ -132,11 +167,17 @@
       "businessContext": "Annual productivity improvement that offsets labor cost inflation (Lean / Six Sigma metric).",
       "label_i18n": {
         "en": "Labor Productivity Gain",
-        "tr": "İşgücü Verimlilik Kazancı"
+        "tr": "İşgücü Verimlilik Kazancı",
+        "de": "Arbeitsproduktivitätsgewinn",
+        "fr": "Gain de productivité du travail",
+        "es": "Ganancia de productividad laboral"
       },
       "businessContext_i18n": {
         "en": "Annual productivity improvement that offsets labor cost inflation (Lean / Six Sigma metric).",
-        "tr": "İşgücü maliyeti enflasyonunu dengeleyen yıllık verimlilik iyileştirmesi (Yalın / Altı Sigma metriği)."
+        "tr": "İşgücü maliyeti enflasyonunu dengeleyen yıllık verimlilik iyileştirmesi (Yalın / Altı Sigma metriği).",
+        "de": "Jährliche Produktivitätsverbesserung, die die Arbeitskosteninflation ausgleicht (Lean / Six Sigma-Kennzahl).",
+        "fr": "Amélioration annuelle de la productivité qui compense l'inflation des coûts de main-d'œuvre (métrique Lean / Six Sigma).",
+        "es": "Mejora anual de productividad que compensa la inflación de costes laborales (métrica Lean / Seis Sigma)."
       }
     },
     {
@@ -150,11 +191,17 @@
       "businessContext": "Multiplier to adjust material inflation based on commodity volatility (e.g., copper, steel).",
       "label_i18n": {
         "en": "Material Volatility Index",
-        "tr": "Malzeme Volatilite Endeksi"
+        "tr": "Malzeme Volatilite Endeksi",
+        "de": "Materialvolatilitätsindex",
+        "fr": "Indice de volatilité des matériaux",
+        "es": "Índice de volatilidad de materiales"
       },
       "businessContext_i18n": {
         "en": "Multiplier to adjust material inflation based on commodity volatility (e.g., copper, steel).",
-        "tr": "Emtia oynaklığına (örn. bakır, çelik) dayalı malzeme enflasyonunu ayarlamak için çarpan."
+        "tr": "Emtia oynaklığına (örn. bakır, çelik) dayalı malzeme enflasyonunu ayarlamak için çarpan.",
+        "de": "Multiplikator zur Anpassung der Materialinflation basierend auf der Rohstoffvolatilität (z. B. Kupfer, Stahl).",
+        "fr": "Multiplicateur pour ajuster l'inflation des matériaux en fonction de la volatilité des matières premières (ex. cuivre, acier).",
+        "es": "Multiplicador para ajustar la inflación de materiales según la volatilidad de materias primas (ej. cobre, acero)."
       }
     }
   ],

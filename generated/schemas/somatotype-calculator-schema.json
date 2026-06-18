@@ -12,14 +12,16 @@
         "en": "Height",
         "tr": "Boy",
         "de": "Größe",
-        "fr": "Height",
-        "es": "Height",
+        "fr": "Taille",
+        "es": "Altura",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "User's height in centimeters",
         "tr": "Kullanıcının santimetre cinsinden boyu",
-        "de": "Körpergröße des Benutzers in Zentimetern"
+        "de": "Körpergröße des Benutzers in Zentimetern",
+        "fr": "Taille de l'utilisateur en centimètres",
+        "es": "Altura del usuario en centímetros"
       }
     },
     {
@@ -33,13 +35,15 @@
         "en": "Weight",
         "tr": "Ağırlık",
         "de": "Gewicht",
-        "fr": "Weight",
-        "es": "Weight",
+        "fr": "Poids",
+        "es": "Peso",
         "ar": "Weight"
       },
       "businessContext_i18n": {
         "en": "User's weight in kilograms",
-        "tr": "Kullanıcının kilogram cinsinden ağırlığı"
+        "tr": "Kullanıcının kilogram cinsinden ağırlığı",
+        "de": "Gewicht des Benutzers in Kilogramm",
+        "fr": "Poids de l'utilisateur en kilogrammes"
       }
     },
     {
@@ -52,14 +56,16 @@
       "label_i18n": {
         "en": "Triceps Skinfold",
         "tr": "Triceps Deri Kıvrımı",
-        "de": "Triceps Skinfold",
-        "fr": "Triceps Skinfold",
+        "de": "Trizeps-Hautfalte",
+        "fr": "Pli cutané tricipital",
         "es": "Triceps Skinfold",
         "ar": "Triceps Skinfold"
       },
       "businessContext_i18n": {
         "en": "Triceps skinfold thickness measurement",
-        "tr": "Triceps deri kıvrım kalınlığı ölçümü"
+        "tr": "Triceps deri kıvrım kalınlığı ölçümü",
+        "de": "Messung der Trizeps-Hautfaltendicke",
+        "fr": "Mesure de l'épaisseur du pli cutané tricipital"
       }
     },
     {
@@ -72,14 +78,16 @@
       "label_i18n": {
         "en": "Subscapular Skinfold",
         "tr": "Subskapular Deri Kıvrımı",
-        "de": "Subscapular Skinfold",
-        "fr": "Subscapular Skinfold",
+        "de": "Subskapuläre Hautfalte",
+        "fr": "Pli cutané sous-scapulaire",
         "es": "Subscapular Skinfold",
         "ar": "Subscapular Skinfold"
       },
       "businessContext_i18n": {
         "en": "Subscapular skinfold thickness measurement",
-        "tr": "Subskapular deri kıvrım kalınlığı ölçümü"
+        "tr": "Subskapular deri kıvrım kalınlığı ölçümü",
+        "de": "Messung der subskapulären Hautfaltendicke",
+        "fr": "Mesure de l'épaisseur du pli cutané sous-scapulaire"
       }
     },
     {
@@ -92,14 +100,16 @@
       "label_i18n": {
         "en": "Suprailiac Skinfold",
         "tr": "Suprailiak Deri Kıvrımı",
-        "de": "Suprailiac Skinfold",
-        "fr": "Suprailiac Skinfold",
+        "de": "Suprailiakale Hautfalte",
+        "fr": "Pli cutané supra-iliaque",
         "es": "Suprailiac Skinfold",
         "ar": "Suprailiac Skinfold"
       },
       "businessContext_i18n": {
         "en": "Suprailiac skinfold thickness measurement",
-        "tr": "Suprailiak deri kıvrım kalınlığı ölçümü"
+        "tr": "Suprailiak deri kıvrım kalınlığı ölçümü",
+        "de": "Messung der suprailiakalen Hautfaltendicke",
+        "fr": "Mesure de l'épaisseur du pli cutané supra-iliaque"
       }
     },
     {
@@ -112,14 +122,16 @@
       "label_i18n": {
         "en": "Calf Skinfold",
         "tr": "Baldır Deri Kıvrımı",
-        "de": "Calf Skinfold",
-        "fr": "Calf Skinfold",
+        "de": "Waden-Hautfalte",
+        "fr": "Pli cutané du mollet",
         "es": "Calf Skinfold",
         "ar": "Calf Skinfold"
       },
       "businessContext_i18n": {
         "en": "Calf skinfold thickness measurement",
-        "tr": "Baldır deri kıvrım kalınlığı ölçümü"
+        "tr": "Baldır deri kıvrım kalınlığı ölçümü",
+        "de": "Messung der Waden-Hautfaltendicke",
+        "fr": "Mesure de l'épaisseur du pli cutané du mollet"
       }
     },
     {
@@ -132,14 +144,16 @@
       "label_i18n": {
         "en": "Humerus Breadth",
         "tr": "Humerus Genişliği",
-        "de": "Humerus Breadth",
-        "fr": "Humerus Breadth",
+        "de": "Humerusbreite",
+        "fr": "Largeur de l'humérus",
         "es": "Humerus Breadth",
         "ar": "Humerus Breadth"
       },
       "businessContext_i18n": {
         "en": "Breadth of the humerus bone",
-        "tr": "Humerus kemiğinin genişliği"
+        "tr": "Humerus kemiğinin genişliği",
+        "de": "Breite des Humerusknochens",
+        "fr": "Largeur de l'os de l'humérus"
       }
     },
     {
@@ -152,14 +166,16 @@
       "label_i18n": {
         "en": "Femur Breadth",
         "tr": "Femur Genişliği",
-        "de": "Femur Breadth",
-        "fr": "Femur Breadth",
+        "de": "Femurbreite",
+        "fr": "Largeur du fémur",
         "es": "Femur Breadth",
         "ar": "Femur Breadth"
       },
       "businessContext_i18n": {
         "en": "Breadth of the femur bone",
-        "tr": "Femur kemiğinin genişliği"
+        "tr": "Femur kemiğinin genişliği",
+        "de": "Breite des Femurknochens",
+        "fr": "Largeur de l'os du fémur"
       }
     }
   ],

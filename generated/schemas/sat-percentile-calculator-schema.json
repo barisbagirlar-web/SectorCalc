@@ -12,13 +12,15 @@
         "en": "Math Score",
         "tr": "Matematik Puanı",
         "de": "Mathe-Punktzahl",
-        "fr": "Math Score",
-        "es": "Math Score",
+        "fr": "Score en mathématiques",
+        "es": "Puntaje de Matemáticas",
         "ar": "Math Score"
       },
       "businessContext_i18n": {
         "en": "SAT Math section score (200-800).",
-        "tr": "SAT Matematik bölüm puanı (200-800)."
+        "tr": "SAT Matematik bölüm puanı (200-800).",
+        "de": "SAT-Mathematik-Abschnittspunktzahl (200-800)",
+        "fr": "Score de la section Mathématiques du SAT (200-800)."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Evidence-Based Reading and Writing Score",
         "tr": "Kanıta Dayalı Okuma ve Yazma Puanı",
-        "de": "Evidence-Based Reading and Writing Score",
-        "fr": "Evidence-Based Reading and Writing Score",
+        "de": "Evidenzbasiertes Lesen und Schreiben Punktzahl",
+        "fr": "Score de lecture et d'écriture fondé sur des preuves",
         "es": "Evidence-Based Reading and Writing Score",
         "ar": "Evidence-Based Reading and Writing Score"
       },
       "businessContext_i18n": {
         "en": "SAT Evidence-Based Reading and Writing section score (200-800).",
-        "tr": "SAT Kanıta Dayalı Okuma ve Yazma bölüm puanı (200-800)."
+        "tr": "SAT Kanıta Dayalı Okuma ve Yazma bölüm puanı (200-800).",
+        "de": "SAT-Evidenzbasiertes Lesen und Schreiben Abschnittspunktzahl (200-800)",
+        "fr": "Score de la section Lecture et Écriture fondé sur des preuves du SAT (200-800)."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Mean Total Score",
         "tr": "Ortalama Toplam Puan",
-        "de": "Mean Total Score",
-        "fr": "Mean Total Score",
+        "de": "Mittlere Gesamtpunktzahl",
+        "fr": "Score total moyen",
         "es": "Mean Total Score",
         "ar": "Mean Total Score"
       },
       "businessContext_i18n": {
         "en": "Mean of total SAT score for the population.",
-        "tr": "Popülasyon için ortalama toplam SAT puanı."
+        "tr": "Popülasyon için ortalama toplam SAT puanı.",
+        "de": "Mittelwert der gesamten SAT-Punktzahl für die Population",
+        "fr": "Moyenne du score total SAT pour la population."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Standard Deviation",
         "tr": "Standart Sapma",
-        "de": "Standard Deviation",
-        "fr": "Standard Deviation",
-        "es": "Standard Deviation",
+        "de": "Standardabweichung",
+        "fr": "Écart type",
+        "es": "Desviación estándar",
         "ar": "Standard Deviation"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of total SAT score.",
-        "tr": "Toplam SAT puanının standart sapması."
+        "tr": "Toplam SAT puanının standart sapması.",
+        "de": "Standardabweichung der gesamten SAT-Punktzahl",
+        "fr": "Écart-type du score total SAT."
       }
     }
   ],

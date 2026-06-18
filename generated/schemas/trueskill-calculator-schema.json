@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Winner Mean (μ)",
         "tr": "Kazanan Ortalama (μ)",
-        "de": "Winner Mean (μ)",
-        "fr": "Winner Mean (μ)",
+        "de": "Gewinner Mittelwert (μ)",
+        "fr": "Moyenne du gagnant (μ)",
         "es": "Winner Mean (μ)",
         "ar": "Winner Mean (μ)"
       },
       "businessContext_i18n": {
         "en": "Initial skill estimate of the winning player/team",
-        "tr": "Kazanan oyuncu/takımın başlangıç beceri tahmini"
+        "tr": "Kazanan oyuncu/takımın başlangıç beceri tahmini",
+        "de": "Anfängliche Fähigkeitsschätzung des Gewinners/Teams",
+        "fr": "Estimation initiale du niveau de compétence du joueur/équipe gagnant"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Winner Std Dev (σ)",
         "tr": "Kazanan Standart Sapma (σ)",
-        "de": "Winner Std Dev (σ)",
-        "fr": "Winner Std Dev (σ)",
+        "de": "Gewinner Standardabweichung (σ)",
+        "fr": "Écart-type du gagnant (σ)",
         "es": "Winner Std Dev (σ)",
         "ar": "Winner Std Dev (σ)"
       },
       "businessContext_i18n": {
         "en": "Uncertainty in winner's skill",
-        "tr": "Kazananın becerisindeki belirsizlik"
+        "tr": "Kazananın becerisindeki belirsizlik",
+        "de": "Unsicherheit in der Fähigkeit des Gewinners",
+        "fr": "Incertitude sur le niveau de compétence du gagnant"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Loser Mean (μ)",
         "tr": "Kaybeden Ortalama (μ)",
-        "de": "Loser Mean (μ)",
-        "fr": "Loser Mean (μ)",
+        "de": "Verlierer Mittelwert (μ)",
+        "fr": "Moyenne du perdant (μ)",
         "es": "Loser Mean (μ)",
         "ar": "Loser Mean (μ)"
       },
       "businessContext_i18n": {
         "en": "Initial skill estimate of the losing player/team",
-        "tr": "Kaybeden oyuncu/takımın başlangıç beceri tahmini"
+        "tr": "Kaybeden oyuncu/takımın başlangıç beceri tahmini",
+        "de": "Anfängliche Fähigkeitsschätzung des Verlierers/Teams",
+        "fr": "Estimation initiale du niveau de compétence du joueur/équipe perdant"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Loser Std Dev (σ)",
         "tr": "Kaybeden Standart Sapma (σ)",
-        "de": "Loser Std Dev (σ)",
-        "fr": "Loser Std Dev (σ)",
+        "de": "Verlierer Standardabweichung (σ)",
+        "fr": "Écart-type du perdant (σ)",
         "es": "Loser Std Dev (σ)",
         "ar": "Loser Std Dev (σ)"
       },
       "businessContext_i18n": {
         "en": "Uncertainty in loser's skill",
-        "tr": "Kaybedenin becerisindeki belirsizlik"
+        "tr": "Kaybedenin becerisindeki belirsizlik",
+        "de": "Unsicherheit in der Fähigkeit des Verlierers",
+        "fr": "Incertitude sur le niveau de compétence du perdant"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Beta (game randomness)",
         "tr": "Beta (oyun rastgeleliği)",
-        "de": "Beta (game randomness)",
-        "fr": "Beta (game randomness)",
+        "de": "Beta (Spielzufälligkeit)",
+        "fr": "Bêta (aléatoire du jeu)",
         "es": "Beta (game randomness)",
         "ar": "Beta (game randomness)"
       },
       "businessContext_i18n": {
         "en": "Amount of randomness in the game; typical value is σ/2",
-        "tr": "Oyundaki rastgelelik miktarı; tipik değer σ/2"
+        "tr": "Oyundaki rastgelelik miktarı; tipik değer σ/2",
+        "de": "Ausmaß der Zufälligkeit im Spiel; typischer Wert ist σ/2",
+        "fr": "Quantité d'aléatoire dans le jeu ; valeur typique σ/2"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Tau (dynamics factor)",
         "tr": "Tau (dinamik faktörü)",
-        "de": "Tau (dynamics factor)",
-        "fr": "Tau (dynamics factor)",
+        "de": "Tau (Dynamikfaktor)",
+        "fr": "Tau (facteur de dynamique)",
         "es": "Tau (dynamics factor)",
         "ar": "Tau (dynamics factor)"
       },
       "businessContext_i18n": {
         "en": "Factor to increase uncertainty over time; typical value is σ/100",
-        "tr": "Zamanla belirsizliği artıran faktör; tipik değer σ/100"
+        "tr": "Zamanla belirsizliği artıran faktör; tipik değer σ/100",
+        "de": "Faktor zur Erhöhung der Unsicherheit über die Zeit; typischer Wert ist σ/100",
+        "fr": "Facteur pour augmenter l'incertitude dans le temps ; valeur typique σ/100"
       }
     },
     {
@@ -131,14 +143,16 @@
       "label_i18n": {
         "en": "Draw Probability",
         "tr": "Beraberlik Olasılığı",
-        "de": "Draw Probability",
-        "fr": "Draw Probability",
-        "es": "Draw Probability",
+        "de": "Unentschieden-Wahrscheinlichkeit",
+        "fr": "Probabilité de match nul",
+        "es": "Probabilidad de empate",
         "ar": "Draw Probability"
       },
       "businessContext_i18n": {
         "en": "Assumed probability of a draw outcome",
-        "tr": "Beraberlik sonucu varsayılan olasılık"
+        "tr": "Beraberlik sonucu varsayılan olasılık",
+        "de": "Angenommene Wahrscheinlichkeit eines Unentschiedens",
+        "fr": "Probabilité supposée d'un résultat de match nul"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Modified Adjusted Gross Income (MAGI)",
         "tr": "Düzeltilmiş Brüt Gelir (MAGI)",
-        "de": "Modified Adjusted Gross Income (MAGI)",
-        "fr": "Modified Adjusted Gross Income (MAGI)",
-        "es": "Modified Adjusted Gross Income (MAGI)",
+        "de": "Modifiziertes bereinigtes Bruttoeinkommen (MAGI)",
+        "fr": "Revenu brut ajusté modifié (MAGI)",
+        "es": "Ingreso bruto ajustado modificado (MAGI)",
         "ar": "Modified Adjusted Gross Income (MAGI)"
       },
       "businessContext_i18n": {
         "en": "Your MAGI from 2 years ago",
-        "tr": "2 yıl önceki MAGI'nız"
+        "tr": "2 yıl önceki MAGI'nız",
+        "de": "Ihr MAGI von vor 2 Jahren",
+        "fr": "Votre MAGI d'il y a 2 ans",
+        "es": "Su MAGI de hace 2 años"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Filing Status",
         "tr": "Dosyalama Durumu",
-        "de": "Filing Status",
-        "fr": "Filing Status",
-        "es": "Filing Status",
+        "de": "Steuerstatus",
+        "fr": "Statut de déclaration",
+        "es": "Estado civil para efectos fiscales",
         "ar": "Filing Status"
       },
       "businessContext_i18n": {
         "en": "1=Single/HoH/QW, 2=Married Joint, 3=Married Separate",
-        "tr": "1=Bekar/HoH/QW, 2=Evli Ortak, 3=Evli Ayrı"
+        "tr": "1=Bekar/HoH/QW, 2=Evli Ortak, 3=Evli Ayrı",
+        "de": "1=ledig/Haushaltsvorstand/Witwer, 2=gemeinsam veranlagt, 3=getrennt veranlagt",
+        "fr": "1=Célibataire/Chef de famille/Veuf(ve) qualifié(e), 2=Marié conjoint, 3=Marié séparé",
+        "es": "1=Soltero/Jefe de hogar/Viudo(a) calificado, 2=Casado conjunto, 3=Casado por separado"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Monthly Part B Base Premium",
         "tr": "Aylık Bölüm B Temel Primi",
-        "de": "Monthly Part B Base Premium",
-        "fr": "Monthly Part B Base Premium",
-        "es": "Monthly Part B Base Premium",
+        "de": "Monatlicher Basisbeitrag Teil B",
+        "fr": "Prime de base mensuelle de la Partie B",
+        "es": "Prima base mensual de la Parte B",
         "ar": "Monthly Part B Base Premium"
       },
       "businessContext_i18n": {
         "en": "Standard Part B premium (2024: $174.70)",
-        "tr": "Standart Bölüm B primi (2024: $174.70)"
+        "tr": "Standart Bölüm B primi (2024: $174.70)",
+        "de": "Standardbeitrag Teil B (2024: 174,70 $)",
+        "fr": "Prime standard de la Partie B (2024 : 174,70 $)",
+        "es": "Prima estándar de la Parte B (2024: $174.70)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Monthly Part D Base Premium",
         "tr": "Aylık Bölüm D Temel Primi",
-        "de": "Monthly Part D Base Premium",
-        "fr": "Monthly Part D Base Premium",
-        "es": "Monthly Part D Base Premium",
+        "de": "Monatlicher Basisbeitrag Teil D",
+        "fr": "Prime de base mensuelle de la Partie D",
+        "es": "Prima base mensual de la Parte D",
         "ar": "Monthly Part D Base Premium"
       },
       "businessContext_i18n": {
         "en": "Your Part D plan premium before IRMAA",
-        "tr": "IRMAA öncesi Bölüm D plan priminiz"
+        "tr": "IRMAA öncesi Bölüm D plan priminiz",
+        "de": "Ihr Teil-D-Planbeitrag vor IRMAA",
+        "fr": "Prime de votre régime Partie D avant IRMAA",
+        "es": "Prima de su plan de la Parte D antes de IRMAA"
       }
     }
   ],

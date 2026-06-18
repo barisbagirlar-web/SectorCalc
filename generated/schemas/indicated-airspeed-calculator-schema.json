@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Pitot Basıncı (Pa)",
         "tr": "Pitot Basıncı (Pa)",
-        "de": "Pitot Basıncı (Pa)",
-        "fr": "Pitot Basıncı (Pa)",
-        "es": "Pitot Basıncı (Pa)",
+        "de": "Pitot-Druck (Pa)",
+        "fr": "Pression Pitot (Pa)",
+        "es": "Presión de Pitot (Pa)",
         "ar": "Pitot Basıncı (Pa)"
       },
       "businessContext_i18n": {
         "en": "Pitot tüpünden okunan toplam basınç değeri",
-        "tr": "Pitot tüpünden okunan toplam basınç değeri"
+        "tr": "Pitot tüpünden okunan toplam basınç değeri",
+        "de": "Gesamtdruckwert aus dem Pitot-Rohr",
+        "fr": "Valeur de pression totale lue sur le tube de Pitot",
+        "es": "Valor de presión total leído en el tubo de Pitot"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Statik Basınç (Pa)",
         "tr": "Statik Basınç (Pa)",
-        "de": "Statik Basınç (Pa)",
-        "fr": "Statik Basınç (Pa)",
-        "es": "Statik Basınç (Pa)",
+        "de": "Statischer Druck (Pa)",
+        "fr": "Pression statique (Pa)",
+        "es": "Presión estática (Pa)",
         "ar": "Statik Basınç (Pa)"
       },
       "businessContext_i18n": {
         "en": "Statik porttan alınan atmosfer basıncı",
-        "tr": "Statik porttan alınan atmosfer basıncı"
+        "tr": "Statik porttan alınan atmosfer basıncı",
+        "de": "Atmosphärendruck vom statischen Port",
+        "fr": "Pression atmosphérique prélevée sur la prise statique",
+        "es": "Presión atmosférica tomada del puerto estático"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Hava Yoğunluğu (kg/m³)",
         "tr": "Hava Yoğunluğu (kg/m³)",
-        "de": "Hava Yoğunluğu (kg/m³)",
-        "fr": "Hava Yoğunluğu (kg/m³)",
-        "es": "Hava Yoğunluğu (kg/m³)",
+        "de": "Luftdichte (kg/m³)",
+        "fr": "Densité de l'air (kg/m³)",
+        "es": "Densidad del aire (kg/m³)",
         "ar": "Hava Yoğunluğu (kg/m³)"
       },
       "businessContext_i18n": {
         "en": "Uluslararası standart atmosfer (ISA) deniz seviyesi hava yoğunluğu",
-        "tr": "Uluslararası standart atmosfer (ISA) deniz seviyesi hava yoğunluğu"
+        "tr": "Uluslararası standart atmosfer (ISA) deniz seviyesi hava yoğunluğu",
+        "de": "Internationale Standardatmosphäre (ISA) Luftdichte auf Meereshöhe",
+        "fr": "Densité de l'air au niveau de la mer selon l'atmosphère standard internationale (ISA)",
+        "es": "Densidad del aire a nivel del mar según la atmósfera estándar internacional (ISA)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Pozisyon Hatası Düzeltme Faktörü",
         "tr": "Pozisyon Hatası Düzeltme Faktörü",
-        "de": "Pozisyon Hatası Düzeltme Faktörü",
-        "fr": "Pozisyon Hatası Düzeltme Faktörü",
-        "es": "Pozisyon Hatası Düzeltme Faktörü",
+        "de": "Positionsfehler-Korrekturfaktor",
+        "fr": "Facteur de correction d'erreur de position",
+        "es": "Factor de corrección de error de posición",
         "ar": "Pozisyon Hatası Düzeltme Faktörü"
       },
       "businessContext_i18n": {
         "en": "Pitot-statik sistem pozisyon hatası için düzeltme katsayısı, genellikle 1.0 alınır",
-        "tr": "Pitot-statik sistem pozisyon hatası için düzeltme katsayısı, genellikle 1.0 alınır"
+        "tr": "Pitot-statik sistem pozisyon hatası için düzeltme katsayısı, genellikle 1.0 alınır",
+        "de": "Korrekturkoeffizient für den Positionsfehler des Pitot-Statik-Systems, normalerweise 1,0",
+        "fr": "Coefficient de correction pour l'erreur de position du système Pitot-statique, généralement pris égal à 1,0",
+        "es": "Coeficiente de corrección para el error de posición del sistema Pitot-estático, generalmente se toma como 1.0"
       }
     }
   ],

@@ -22,11 +22,15 @@
       "businessContext": "Purchase price of a single cutting tool or insert.",
       "label_i18n": {
         "en": "Tool Cost per Unit",
-        "tr": "Takım Birim Maliyeti"
+        "tr": "Takım Birim Maliyeti",
+        "de": "Werkzeugkosten pro Einheit",
+        "fr": "Coût d'outil par pièce"
       },
       "businessContext_i18n": {
         "en": "Purchase price of a single cutting tool or insert.",
-        "tr": "Tek bir kesici takımın veya insertin satın alma fiyatı."
+        "tr": "Tek bir kesici takımın veya insertin satın alma fiyatı.",
+        "de": "Kaufpreis eines einzelnen Schneidwerkzeugs oder Wendeschneidplatte.",
+        "fr": "Prix d'achat d'un seul outil de coupe ou plaquette."
       }
     },
     {
@@ -40,11 +44,15 @@
       "businessContext": "Average number of parts produced before tool replacement is required.",
       "label_i18n": {
         "en": "Tool Life (Parts per Tool)",
-        "tr": "Takım Ömrü (Takım Başına Parça)"
+        "tr": "Takım Ömrü (Takım Başına Parça)",
+        "de": "Werkzeugstandzeit (Teile pro Werkzeug)",
+        "fr": "Durée de vie de l'outil (pièces par outil)"
       },
       "businessContext_i18n": {
         "en": "Average number of parts produced before tool replacement is required.",
-        "tr": "Takım değişimi gerekmeden önce üretilen ortalama parça sayısı."
+        "tr": "Takım değişimi gerekmeden önce üretilen ortalama parça sayısı.",
+        "de": "Durchschnittliche Anzahl gefertigter Teile vor erforderlichem Werkzeugwechsel.",
+        "fr": "Nombre moyen de pièces produites avant remplacement de l'outil."
       }
     },
     {
@@ -58,11 +66,15 @@
       "businessContext": "Time required to replace or index the tool.",
       "label_i18n": {
         "en": "Replacement Time",
-        "tr": "Değiştirme Süresi"
+        "tr": "Değiştirme Süresi",
+        "de": "Wechselzeit",
+        "fr": "Temps de remplacement"
       },
       "businessContext_i18n": {
         "en": "Time required to replace or index the tool.",
-        "tr": "Takımı değiştirmek veya indekslemek için gereken süre."
+        "tr": "Takımı değiştirmek veya indekslemek için gereken süre.",
+        "de": "Zeit für Werkzeugwechsel oder -indexierung.",
+        "fr": "Temps nécessaire pour remplacer ou indexer l'outil."
       }
     },
     {
@@ -76,11 +88,15 @@
       "businessContext": "Fully burdened cost per hour of machine operation (including labor, overhead, depreciation).",
       "label_i18n": {
         "en": "Machine Hourly Rate",
-        "tr": "Makine Saatlik Ücreti"
+        "tr": "Makine Saatlik Ücreti",
+        "de": "Maschinenstundensatz",
+        "fr": "Taux horaire machine"
       },
       "businessContext_i18n": {
         "en": "Fully burdened cost per hour of machine operation (including labor, overhead, depreciation).",
-        "tr": "Makine çalışmasının saat başına tam yüklenmiş maliyeti (işçilik, genel giderler, amortisman dahil)."
+        "tr": "Makine çalışmasının saat başına tam yüklenmiş maliyeti (işçilik, genel giderler, amortisman dahil).",
+        "de": "Voll belasteter Stundensatz des Maschinenbetriebs (inkl. Lohn, Gemeinkosten, Abschreibung).",
+        "fr": "Coût complet par heure de fonctionnement machine (incluant main-d'œuvre, frais généraux, amortissement)."
       }
     },
     {
@@ -94,11 +110,15 @@
       "businessContext": "Percentage of parts requiring rework due to tool wear, based on Six Sigma defect tracking.",
       "label_i18n": {
         "en": "Rework Rate due to Wear",
-        "tr": "Aşınma Nedeniyle Yeniden İşleme Oranı"
+        "tr": "Aşınma Nedeniyle Yeniden İşleme Oranı",
+        "de": "Nacharbeitsrate durch Verschleiß",
+        "fr": "Taux de reprise dû à l'usure"
       },
       "businessContext_i18n": {
         "en": "Percentage of parts requiring rework due to tool wear, based on Six Sigma defect tracking.",
-        "tr": "Altı Sigma kusur takibine dayalı olarak takım aşınması nedeniyle yeniden işleme gerektiren parçaların yüzdesi."
+        "tr": "Altı Sigma kusur takibine dayalı olarak takım aşınması nedeniyle yeniden işleme gerektiren parçaların yüzdesi.",
+        "de": "Prozentsatz der Teile, die aufgrund von Werkzeugverschleiß nachbearbeitet werden müssen, basierend auf Six Sigma Fehlerverfolgung.",
+        "fr": "Pourcentage de pièces nécessitant une reprise en raison de l'usure de l'outil, basé sur le suivi des défauts Six Sigma."
       }
     },
     {
@@ -112,11 +132,15 @@
       "businessContext": "Average cost to rework a defective part (material, labor, overhead).",
       "label_i18n": {
         "en": "Rework Cost per Part",
-        "tr": "Parça Başına Yeniden İşleme Maliyeti"
+        "tr": "Parça Başına Yeniden İşleme Maliyeti",
+        "de": "Nacharbeitskosten pro Teil",
+        "fr": "Coût de reprise par pièce"
       },
       "businessContext_i18n": {
         "en": "Average cost to rework a defective part (material, labor, overhead).",
-        "tr": "Hatalı bir parçayı yeniden işlemenin ortalama maliyeti (malzeme, işçilik, genel giderler)."
+        "tr": "Hatalı bir parçayı yeniden işlemenin ortalama maliyeti (malzeme, işçilik, genel giderler).",
+        "de": "Durchschnittliche Kosten zur Nacharbeit eines fehlerhaften Teils (Material, Lohn, Gemeinkosten).",
+        "fr": "Coût moyen pour reprendre une pièce défectueuse (matière, main-d'œuvre, frais généraux)."
       }
     },
     {
@@ -130,11 +154,15 @@
       "businessContext": "Percentage of parts scrapped due to tool wear beyond tolerance.",
       "label_i18n": {
         "en": "Scrap Rate due to Wear",
-        "tr": "Aşınma Nedeniyle Fire Oranı"
+        "tr": "Aşınma Nedeniyle Fire Oranı",
+        "de": "Ausschussrate durch Verschleiß",
+        "fr": "Taux de rebut dû à l'usure"
       },
       "businessContext_i18n": {
         "en": "Percentage of parts scrapped due to tool wear beyond tolerance.",
-        "tr": "Tolerans dışı takım aşınması nedeniyle hurdaya ayrılan parçaların yüzdesi."
+        "tr": "Tolerans dışı takım aşınması nedeniyle hurdaya ayrılan parçaların yüzdesi.",
+        "de": "Prozentsatz der Teile, die aufgrund von Werkzeugverschleiß außerhalb der Toleranz verschrottet werden.",
+        "fr": "Pourcentage de pièces mises au rebut en raison d'une usure de l'outil hors tolérance."
       }
     },
     {
@@ -148,11 +176,15 @@
       "businessContext": "Cost of raw material lost per scrapped part.",
       "label_i18n": {
         "en": "Scrap Material Cost per Part",
-        "tr": "Parça Başına Fire Malzeme Maliyeti"
+        "tr": "Parça Başına Fire Malzeme Maliyeti",
+        "de": "Ausschuss-Materialkosten pro Teil",
+        "fr": "Coût matière du rebut par pièce"
       },
       "businessContext_i18n": {
         "en": "Cost of raw material lost per scrapped part.",
-        "tr": "Hurdaya ayrılan parça başına kaybedilen hammadde maliyeti."
+        "tr": "Hurdaya ayrılan parça başına kaybedilen hammadde maliyeti.",
+        "de": "Kosten des verlorenen Rohmaterials pro verschrottetem Teil.",
+        "fr": "Coût de la matière première perdue par pièce mise au rebut."
       }
     }
   ],

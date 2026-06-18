@@ -12,14 +12,16 @@
         "en": "Decimal Degrees",
         "tr": "Ondalık Derece",
         "de": "Dezimalgrad",
-        "fr": "Decimal Degrees",
-        "es": "Decimal Degrees",
+        "fr": "Degrés décimaux",
+        "es": "Grados decimales",
         "ar": "Decimal Degrees"
       },
       "businessContext_i18n": {
         "en": "Enter the angle in decimal degrees if known. Leave 0 to use degrees, minutes, seconds.",
         "tr": "Biliniyorsa açıyı ondalık derece cinsinden girin. Derece, dakika, saniye kullanmak için 0 bırakın.",
-        "de": "Geben Sie den Winkel in Dezimalgrad ein, falls bekannt. Lassen Sie 0, um Grad, Minuten, Sekunden zu verwenden."
+        "de": "Geben Sie den Winkel in Dezimalgrad ein, falls bekannt. Lassen Sie 0, um Grad, Minuten, Sekunden zu verwenden.",
+        "fr": "Entrez l'angle en degrés décimaux si connu. Laissez 0 pour utiliser degrés, minutes, secondes.",
+        "es": "Ingrese el ángulo en grados decimales si se conoce. Deje 0 para usar grados, minutos, segundos."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Degrees",
         "tr": "Derece",
         "de": "Grad",
-        "fr": "Degrees",
-        "es": "Degrees",
+        "fr": "Degrés",
+        "es": "Grados",
         "ar": "Degrees"
       },
       "businessContext_i18n": {
         "en": "Whole degrees part.",
         "tr": "Tam derece kısmı.",
-        "de": "Ganze Gradzahl."
+        "de": "Ganze Gradzahl.",
+        "fr": "Partie entière des degrés.",
+        "es": "Parte de grados enteros."
       }
     },
     {
@@ -55,13 +59,15 @@
         "tr": "Dakika",
         "de": "Minuten",
         "fr": "Minutes",
-        "es": "Minutes",
+        "es": "Minutos",
         "ar": "Minutes"
       },
       "businessContext_i18n": {
         "en": "Arcminutes. 1 arcminute = 1/60 degree.",
         "tr": "Dakika. 1 dakika = 1/60 derece.",
-        "de": "Bogenminuten. 1 Bogenminute = 1/60 Grad."
+        "de": "Bogenminuten. 1 Bogenminute = 1/60 Grad.",
+        "fr": "Minutes d'arc. 1 minute d'arc = 1/60 degré.",
+        "es": "Minutos de arco. 1 minuto de arco = 1/60 grado."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Seconds",
         "tr": "Saniye",
         "de": "Sekunden",
-        "fr": "Seconds",
-        "es": "Seconds",
+        "fr": "Secondes",
+        "es": "Segundos",
         "ar": "Seconds"
       },
       "businessContext_i18n": {
         "en": "Arcseconds. 1 arcsecond = 1/60 arcminute.",
         "tr": "Saniye. 1 saniye = 1/60 dakika.",
-        "de": "Bogensekunden. 1 Bogensekunde = 1/60 Bogenminute."
+        "de": "Bogensekunden. 1 Bogensekunde = 1/60 Bogenminute.",
+        "fr": "Secondes d'arc. 1 seconde d'arc = 1/60 minute d'arc.",
+        "es": "Segundos de arco. 1 segundo de arco = 1/60 minuto de arco."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Output Precision",
         "tr": "Çıktı Hassasiyeti",
         "de": "Ausgabegenauigkeit",
-        "fr": "Output Precision",
-        "es": "Output Precision",
+        "fr": "Précision de sortie",
+        "es": "Precisión de salida",
         "ar": "Output Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places in the output.",
         "tr": "Çıktıdaki ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen in der Ausgabe."
+        "de": "Anzahl der Dezimalstellen in der Ausgabe.",
+        "fr": "Nombre de décimales dans le résultat.",
+        "es": "Número de decimales en la salida."
       }
     }
   ],

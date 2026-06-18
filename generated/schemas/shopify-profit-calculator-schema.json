@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Average Order Value",
         "tr": "Ortalama Sipariş Değeri",
-        "de": "Average Order Value",
-        "fr": "Average Order Value",
+        "de": "Durchschnittlicher Auftragswert",
+        "fr": "Valeur moyenne de commande",
         "es": "Average Order Value",
         "ar": "Average Order Value"
       },
       "businessContext_i18n": {
         "en": "Average revenue per order",
-        "tr": "Sipariş başına ortalama gelir"
+        "tr": "Sipariş başına ortalama gelir",
+        "de": "Durchschnittlicher Umsatz pro Auftrag",
+        "fr": "Revenu moyen par commande"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Cost of Goods per Order",
         "tr": "Sipariş Başına Satılan Malın Maliyeti",
-        "de": "Cost of Goods per Order",
-        "fr": "Cost of Goods per Order",
+        "de": "Herstellkosten pro Auftrag",
+        "fr": "Coût des marchandises par commande",
         "es": "Cost of Goods per Order",
         "ar": "Cost of Goods per Order"
       },
       "businessContext_i18n": {
         "en": "Direct cost of goods sold per order",
-        "tr": "Sipariş başına doğrudan satılan malın maliyeti"
+        "tr": "Sipariş başına doğrudan satılan malın maliyeti",
+        "de": "Direkte Herstellkosten der verkauften Waren pro Auftrag",
+        "fr": "Coût direct des marchandises vendues par commande"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Monthly Number of Orders",
         "tr": "Aylık Sipariş Sayısı",
-        "de": "Monthly Number of Orders",
-        "fr": "Monthly Number of Orders",
+        "de": "Monatliche Bestellanzahl",
+        "fr": "Nombre mensuel de commandes",
         "es": "Monthly Number of Orders",
         "ar": "Monthly Number of Orders"
       },
       "businessContext_i18n": {
         "en": "Number of orders per month",
-        "tr": "Aylık sipariş sayısı"
+        "tr": "Aylık sipariş sayısı",
+        "de": "Bestellungen pro Monat",
+        "fr": "Nombre de commandes par mois"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Shipping Cost per Order",
         "tr": "Sipariş Başına Nakliye Maliyeti",
-        "de": "Shipping Cost per Order",
-        "fr": "Shipping Cost per Order",
+        "de": "Versandkosten pro Bestellung",
+        "fr": "Frais d'expédition par commande",
         "es": "Shipping Cost per Order",
         "ar": "Shipping Cost per Order"
       },
       "businessContext_i18n": {
         "en": "Average shipping cost paid by seller per order",
-        "tr": "Satıcı tarafından sipariş başına ödenen ortalama nakliye maliyeti"
+        "tr": "Satıcı tarafından sipariş başına ödenen ortalama nakliye maliyeti",
+        "de": "Durchschnittliche Versandkosten, die der Verkäufer pro Bestellung zahlt",
+        "fr": "Frais d'expédition moyens payés par le vendeur par commande"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Transaction Fee Rate",
         "tr": "İşlem Ücreti Oranı",
-        "de": "Transaction Fee Rate",
-        "fr": "Transaction Fee Rate",
+        "de": "Transaktionsgebührensatz",
+        "fr": "Taux de frais de transaction",
         "es": "Transaction Fee Rate",
         "ar": "Transaction Fee Rate"
       },
       "businessContext_i18n": {
         "en": "Shopify transaction fee + payment processing fee percentage",
-        "tr": "Shopify işlem ücreti + ödeme işleme ücreti yüzdesi"
+        "tr": "Shopify işlem ücreti + ödeme işleme ücreti yüzdesi",
+        "de": "Shopify-Transaktionsgebühr + Zahlungsabwicklungsgebühr in Prozent",
+        "fr": "Frais de transaction Shopify + pourcentage des frais de traitement des paiements"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Monthly Marketing Spend",
         "tr": "Aylık Pazarlama Harcaması",
-        "de": "Monthly Marketing Spend",
-        "fr": "Monthly Marketing Spend",
+        "de": "Monatliche Marketingausgaben",
+        "fr": "Dépenses marketing mensuelles",
         "es": "Monthly Marketing Spend",
         "ar": "Monthly Marketing Spend"
       },
       "businessContext_i18n": {
         "en": "Monthly cost for ads and promotions",
-        "tr": "Reklam ve promosyonlar için aylık maliyet"
+        "tr": "Reklam ve promosyonlar için aylık maliyet",
+        "de": "Monatliche Kosten für Anzeigen und Werbeaktionen",
+        "fr": "Coût mensuel des publicités et promotions"
       }
     },
     {
@@ -132,13 +144,15 @@
         "en": "Monthly Fixed Costs",
         "tr": "Aylık Sabit Maliyetler",
         "de": "Monatliche Fixkosten",
-        "fr": "Monthly Fixed Costs",
-        "es": "Monthly Fixed Costs",
+        "fr": "Coûts fixes mensuels",
+        "es": "Costos fijos mensuales",
         "ar": "Monthly Fixed Costs"
       },
       "businessContext_i18n": {
         "en": "Other monthly overheads (apps, subscriptions, etc.)",
-        "tr": "Diğer aylık genel giderler (uygulamalar, abonelikler vb.)"
+        "tr": "Diğer aylık genel giderler (uygulamalar, abonelikler vb.)",
+        "de": "Sonstige monatliche Gemeinkosten (Apps, Abonnements usw.)",
+        "fr": "Autres frais généraux mensuels (applications, abonnements, etc.)"
       }
     }
   ],

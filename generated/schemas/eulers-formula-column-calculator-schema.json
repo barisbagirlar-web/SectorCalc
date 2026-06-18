@@ -12,14 +12,16 @@
         "en": "Young's Modulus (E)",
         "tr": "Elastisite Modülü (E)",
         "de": "Elastizitätsmodul (E)",
-        "fr": "Young's Modulus (E)",
-        "es": "Young's Modulus (E)",
+        "fr": "Module d'Young (E)",
+        "es": "Módulo de Young (E)",
         "ar": "Young's Modulus (E)"
       },
       "businessContext_i18n": {
         "en": "Material modulus of elasticity, e.g., 200000 MPa for steel.",
         "tr": "Malzeme elastisite modülü, örn. çelik için 200000 MPa.",
-        "de": "Elastizitätsmodul des Materials, z.B. 200000 MPa für Stahl."
+        "de": "Elastizitätsmodul des Materials, z.B. 200000 MPa für Stahl.",
+        "fr": "Module d'élasticité du matériau, ex. 200000 MPa pour l'acier.",
+        "es": "Módulo de elasticidad del material, ej. 200000 MPa para acero."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Area Moment of Inertia (I)",
         "tr": "Alan Atalet Momenti (I)",
         "de": "Flächenträgheitsmoment (I)",
-        "fr": "Area Moment of Inertia (I)",
-        "es": "Area Moment of Inertia (I)",
+        "fr": "Moment d'inertie de la section (I)",
+        "es": "Momento de inercia del área (I)",
         "ar": "Area Moment of Inertia (I)"
       },
       "businessContext_i18n": {
         "en": "Second moment of area of the column cross-section.",
         "tr": "Kolon kesitinin ikinci alan momenti.",
-        "de": "Zweites Flächenmoment des Stützenquerschnitts."
+        "de": "Zweites Flächenmoment des Stützenquerschnitts.",
+        "fr": "Moment d'inertie de la section transversale de la colonne.",
+        "es": "Segundo momento de área de la sección transversal de la columna."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Effective Length Factor (K)",
         "tr": "Etkili Uzunluk Faktörü (K)",
         "de": "Knicklängenbeiwert (K)",
-        "fr": "Effective Length Factor (K)",
-        "es": "Effective Length Factor (K)",
+        "fr": "Coefficient de longueur effective (K)",
+        "es": "Factor de longitud efectiva (K)",
         "ar": "Effective Length Factor (K)"
       },
       "businessContext_i18n": {
         "en": "Depends on end conditions: 1.0 for pinned-pinned, 0.5 for fixed-fixed, etc.",
         "tr": "Uç koşullarına bağlıdır: mafsallı-mafsallı için 1.0, ankastre-ankastre için 0.5, vb.",
-        "de": "Abhängig von den Endbedingungen: 1,0 für gelenkig-gelenkig, 0,5 für eingespannt-eingespannt, usw."
+        "de": "Abhängig von den Endbedingungen: 1,0 für gelenkig-gelenkig, 0,5 für eingespannt-eingespannt, usw.",
+        "fr": "Dépend des conditions d'extrémité : 1,0 pour articulé-articulé, 0,5 pour encastré-encastré, etc.",
+        "es": "Depende de las condiciones de extremo: 1.0 para articulado-articulado, 0.5 para fijo-fijo, etc."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Column Length (L)",
         "tr": "Kolon Uzunluğu (L)",
         "de": "Säulenlänge (L)",
-        "fr": "Column Length (L)",
-        "es": "Column Length (L)",
+        "fr": "Longueur de la colonne (L)",
+        "es": "Longitud de la columna (L)",
         "ar": "Column Length (L)"
       },
       "businessContext_i18n": {
         "en": "Unsupported length of the column.",
         "tr": "Kolonun desteklenmeyen uzunluğu.",
-        "de": "Freie Knicklänge der Säule."
+        "de": "Freie Knicklänge der Säule.",
+        "fr": "Longueur non supportée de la colonne.",
+        "es": "Longitud no soportada de la columna."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Cross-sectional Area (A)",
         "tr": "Kesit Alanı (A)",
         "de": "Querschnittsfläche (A)",
-        "fr": "Cross-sectional Area (A)",
-        "es": "Cross-sectional Area (A)",
+        "fr": "Section transversale (A)",
+        "es": "Área de sección transversal (A)",
         "ar": "Cross-sectional Area (A)"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional area of the column for stress calculation.",
         "tr": "Gerilme hesabı için kolon kesit alanı.",
-        "de": "Querschnittsfläche der Säule für die Spannungsberechnung."
+        "de": "Querschnittsfläche der Säule für die Spannungsberechnung.",
+        "fr": "Aire de la section transversale de la colonne pour le calcul des contraintes.",
+        "es": "Área de la sección transversal de la columna para el cálculo de tensión."
       }
     }
   ],

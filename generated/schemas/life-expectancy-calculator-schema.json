@@ -12,14 +12,16 @@
         "en": "Current Age",
         "tr": "Mevcut Yaş",
         "de": "Aktuelles Alter",
-        "fr": "Current Age",
-        "es": "Current Age",
+        "fr": "Âge actuel",
+        "es": "Edad actual",
         "ar": "Current Age"
       },
       "businessContext_i18n": {
         "en": "User's age in years",
         "tr": "Kullanıcının yıl cinsinden yaşı",
-        "de": "Alter des Benutzers in Jahren"
+        "de": "Alter des Benutzers in Jahren",
+        "fr": "Âge de l'utilisateur en années",
+        "es": "Edad del usuario en años"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Gender",
         "tr": "Cinsiyet",
         "de": "Geschlecht",
-        "fr": "Gender",
-        "es": "Gender",
+        "fr": "Genre",
+        "es": "Género",
         "ar": "Gender"
       },
       "businessContext_i18n": {
         "en": "0 for male, 1 for female",
         "tr": "0 erkek, 1 kadın",
-        "de": "0 für männlich, 1 für weiblich"
+        "de": "0 für männlich, 1 für weiblich",
+        "fr": "0 pour masculin, 1 pour féminin",
+        "es": "0 para masculino, 1 para femenino"
       }
     },
     {
@@ -53,14 +57,17 @@
       "label_i18n": {
         "en": "Smoking Status",
         "tr": "Sigara İçme Durumu",
-        "de": "Smoking Status",
-        "fr": "Smoking Status",
-        "es": "Smoking Status",
+        "de": "Raucherstatus",
+        "fr": "Statut tabagique",
+        "es": "Estado de tabaquismo",
         "ar": "Smoking Status"
       },
       "businessContext_i18n": {
         "en": "Smoking pack-years (0 for non-smoker)",
-        "tr": "Sigara paket-yılı (0 sigara içmeyen için)"
+        "tr": "Sigara paket-yılı (0 sigara içmeyen için)",
+        "de": "Raucher-Packungsjahre (0 für Nichtraucher)",
+        "fr": "Paquets-années de tabagisme (0 pour non-fumeur)",
+        "es": "Paquetes-año de tabaco (0 para no fumador)"
       }
     },
     {
@@ -73,14 +80,17 @@
       "label_i18n": {
         "en": "Alcohol Consumption",
         "tr": "Alkol Tüketimi",
-        "de": "Alcohol Consumption",
-        "fr": "Alcohol Consumption",
-        "es": "Alcohol Consumption",
+        "de": "Alkoholkonsum",
+        "fr": "Consommation d'alcool",
+        "es": "Consumo de alcohol",
         "ar": "Alcohol Consumption"
       },
       "businessContext_i18n": {
         "en": "Average number of alcoholic drinks per week",
-        "tr": "Haftalık ortalama alkollü içecek sayısı"
+        "tr": "Haftalık ortalama alkollü içecek sayısı",
+        "de": "Durchschnittliche Anzahl alkoholischer Getränke pro Woche",
+        "fr": "Nombre moyen de boissons alcoolisées par semaine",
+        "es": "Número promedio de bebidas alcohólicas por semana"
       }
     },
     {
@@ -94,14 +104,16 @@
         "en": "BMI",
         "tr": "VKİ",
         "de": "BMI",
-        "fr": "BMI",
-        "es": "BMI",
+        "fr": "IMC",
+        "es": "IMC",
         "ar": "BMI"
       },
       "businessContext_i18n": {
         "en": "Body Mass Index",
         "tr": "Vücut Kitle İndeksi",
-        "de": "Body-Mass-Index"
+        "de": "Body-Mass-Index",
+        "fr": "Indice de masse corporelle",
+        "es": "Índice de masa corporal"
       }
     },
     {
@@ -115,13 +127,16 @@
         "en": "Weekly Exercise",
         "tr": "Haftalık Egzersiz",
         "de": "Wöchentliche Bewegung",
-        "fr": "Weekly Exercise",
-        "es": "Weekly Exercise",
+        "fr": "Exercice hebdomadaire",
+        "es": "Ejercicio semanal",
         "ar": "Weekly Exercise"
       },
       "businessContext_i18n": {
         "en": "Hours of moderate exercise per week",
-        "tr": "Haftalık orta düzey egzersiz saati"
+        "tr": "Haftalık orta düzey egzersiz saati",
+        "de": "Stunden moderater Bewegung pro Woche",
+        "fr": "Heures d'exercice modéré par semaine",
+        "es": "Horas de ejercicio moderado por semana"
       }
     }
   ],

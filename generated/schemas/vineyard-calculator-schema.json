@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Vineyard Area",
         "tr": "Bağ Alanı",
-        "de": "Vineyard Area",
-        "fr": "Vineyard Area",
+        "de": "Weinbergsfläche",
+        "fr": "Superficie du vignoble",
         "es": "Vineyard Area",
         "ar": "Vineyard Area"
       },
       "businessContext_i18n": {
         "en": "Total vineyard area in hectares.",
-        "tr": "Hektar cinsinden toplam bağ alanı."
+        "tr": "Hektar cinsinden toplam bağ alanı.",
+        "de": "Gesamte Weinbergsfläche in Hektar.",
+        "fr": "Superficie totale du vignoble en hectares."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Vine Density",
         "tr": "Asma Yoğunluğu",
-        "de": "Vine Density",
-        "fr": "Vine Density",
+        "de": "Rebdichte",
+        "fr": "Densité de plantation",
         "es": "Vine Density",
         "ar": "Vine Density"
       },
       "businessContext_i18n": {
         "en": "Number of vines per hectare.",
-        "tr": "Hektar başına asma sayısı."
+        "tr": "Hektar başına asma sayısı.",
+        "de": "Anzahl der Rebstöcke pro Hektar.",
+        "fr": "Nombre de pieds de vigne par hectare."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Grape Yield per Vine",
         "tr": "Asma Başına Üzüm Verimi",
-        "de": "Grape Yield per Vine",
-        "fr": "Grape Yield per Vine",
+        "de": "Traubenertrag pro Rebstock",
+        "fr": "Rendement en raisin par pied",
         "es": "Grape Yield per Vine",
         "ar": "Grape Yield per Vine"
       },
       "businessContext_i18n": {
         "en": "Average grape yield per vine in kilograms.",
-        "tr": "Asma başına kilogram cinsinden ortalama üzüm verimi."
+        "tr": "Asma başına kilogram cinsinden ortalama üzüm verimi.",
+        "de": "Durchschnittlicher Traubenertrag pro Rebstock in Kilogramm.",
+        "fr": "Rendement moyen en raisin par pied en kilogrammes."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Grape Price",
         "tr": "Üzüm Fiyatı",
-        "de": "Grape Price",
-        "fr": "Grape Price",
+        "de": "Traubenpreis",
+        "fr": "Prix du raisin",
         "es": "Grape Price",
         "ar": "Grape Price"
       },
       "businessContext_i18n": {
         "en": "Selling price per kilogram of grapes.",
-        "tr": "Kilogram başına üzüm satış fiyatı."
+        "tr": "Kilogram başına üzüm satış fiyatı.",
+        "de": "Verkaufspreis pro Kilogramm Trauben.",
+        "fr": "Prix de vente au kilogramme de raisin."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Annual Cost per Hectare",
         "tr": "Yıllık Hektar Başına Maliyet",
-        "de": "Annual Cost per Hectare",
-        "fr": "Annual Cost per Hectare",
+        "de": "Jährliche Kosten pro Hektar",
+        "fr": "Coût annuel par hectare",
         "es": "Annual Cost per Hectare",
         "ar": "Annual Cost per Hectare"
       },
       "businessContext_i18n": {
         "en": "Total annual maintenance cost per hectare including labor, water, and other expenses.",
-        "tr": "İşçilik, su ve diğer giderler dahil olmak üzere hektar başına toplam yıllık bakım maliyeti."
+        "tr": "İşçilik, su ve diğer giderler dahil olmak üzere hektar başına toplam yıllık bakım maliyeti.",
+        "de": "Gesamte jährliche Wartungskosten pro Hektar inklusive Arbeit, Wasser und sonstiger Ausgaben.",
+        "fr": "Coût total d'entretien annuel par hectare incluant main-d'œuvre, eau et autres dépenses."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Waste Rate",
         "tr": "Fire Oranı",
-        "de": "Waste Rate",
-        "fr": "Waste Rate",
+        "de": "Ausschussrate",
+        "fr": "Taux de perte",
         "es": "Waste Rate",
         "ar": "Waste Rate"
       },
       "businessContext_i18n": {
         "en": "Percentage of grapes lost to waste or spoilage.",
-        "tr": "Atık veya bozulma nedeniyle kaybedilen üzüm yüzdesi."
+        "tr": "Atık veya bozulma nedeniyle kaybedilen üzüm yüzdesi.",
+        "de": "Prozentsatz der Trauben, die durch Abfall oder Verderb verloren gehen.",
+        "fr": "Pourcentage de raisins perdus par déchet ou détérioration."
       }
     }
   ],

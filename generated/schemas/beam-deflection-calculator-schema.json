@@ -24,12 +24,16 @@
       "label_i18n": {
         "en": "Beam Length (L)",
         "tr": "Kiriş Uzunluğu (L)",
-        "de": "Trägerlänge (L)"
+        "de": "Trägerlänge (L)",
+        "fr": "Longueur de la poutre (L)",
+        "es": "Longitud de la viga (L)"
       },
       "businessContext_i18n": {
         "en": "Span length between supports, typical for structural steel beams in industrial racks (WERC standard).",
         "tr": "Mesnetler arasındaki açıklık uzunluğu, endüstriyel raflardaki yapısal çelik kirişler için tipiktir (WERC standardı).",
-        "de": "Stützweite zwischen den Auflagern, typisch für Baustahlträger in Industrieregalen (WERC-Standard)."
+        "de": "Stützweite zwischen den Auflagern, typisch für Baustahlträger in Industrieregalen (WERC-Standard).",
+        "fr": "Longueur de portée entre supports, typique pour les poutres en acier de structure dans les rayonnages industriels (norme WERC).",
+        "es": "Longitud del vano entre apoyos, típica para vigas de acero estructural en racks industriales (norma WERC)."
       }
     },
     {
@@ -48,12 +52,16 @@
       "label_i18n": {
         "en": "Load Type",
         "tr": "Yük Türü",
-        "de": "Lasttyp"
+        "de": "Lasttyp",
+        "fr": "Type de charge",
+        "es": "Tipo de carga"
       },
       "businessContext_i18n": {
         "en": "Common load configurations in material handling and structural analysis per ISO 9001 design control.",
         "tr": "Malzeme taşıma ve yapısal analizde yaygın yük konfigürasyonları, ISO 9001 tasarım kontrolüne uygun.",
-        "de": "Übliche Lastkonfigurationen in der Materialhandhabung und Strukturanalyse gemäß ISO 9001 Designkontrolle."
+        "de": "Übliche Lastkonfigurationen in der Materialhandhabung und Strukturanalyse gemäß ISO 9001 Designkontrolle.",
+        "fr": "Configurations de charge courantes dans la manutention et l'analyse structurelle selon le contrôle de conception ISO 9001.",
+        "es": "Configuraciones de carga comunes en manejo de materiales y análisis estructural según control de diseño ISO 9001."
       }
     },
     {
@@ -68,12 +76,16 @@
       "label_i18n": {
         "en": "Point Load (P)",
         "tr": "Noktasal Yük (P)",
-        "de": "Punktlast (P)"
+        "de": "Punktlast (P)",
+        "fr": "Charge ponctuelle (P)",
+        "es": "Carga puntual (P)"
       },
       "businessContext_i18n": {
         "en": "Concentrated force applied at a specific point, typical for forklift impact or equipment loads.",
         "tr": "Belirli bir noktaya uygulanan yoğun kuvvet, forklift darbesi veya ekipman yükleri için tipiktir.",
-        "de": "Konzentrierte Kraft an einem bestimmten Punkt, typisch für Gabelstapleraufprall oder Ausrüstungslasten."
+        "de": "Konzentrierte Kraft an einem bestimmten Punkt, typisch für Gabelstapleraufprall oder Ausrüstungslasten.",
+        "fr": "Force concentrée appliquée en un point spécifique, typique pour l'impact de chariot élévateur ou les charges d'équipement.",
+        "es": "Fuerza concentrada aplicada en un punto específico, típica para impacto de montacargas o cargas de equipo."
       }
     },
     {
@@ -88,12 +100,16 @@
       "label_i18n": {
         "en": "Uniformly Distributed Load (w)",
         "tr": "Düzgün Yayılı Yük (w)",
-        "de": "Gleichmäßig verteilte Last (w)"
+        "de": "Gleichmäßig verteilte Last (w)",
+        "fr": "Charge uniformément répartie (w)",
+        "es": "Carga uniformemente distribuida (w)"
       },
       "businessContext_i18n": {
         "en": "Load per unit length, e.g., conveyor belt or storage rack loading per linear meter.",
         "tr": "Birim uzunluk başına yük, örn. konveyör bandı veya depolama rafı yüklemesi (metre başına).",
-        "de": "Last pro Längeneinheit, z. B. Förderband- oder Regallast pro laufendem Meter."
+        "de": "Last pro Längeneinheit, z. B. Förderband- oder Regallast pro laufendem Meter.",
+        "fr": "Charge par unité de longueur, par exemple, charge de convoyeur ou de rayonnage de stockage par mètre linéaire.",
+        "es": "Carga por unidad de longitud, ej.: carga de cinta transportadora o estantería por metro lineal."
       }
     },
     {
@@ -108,12 +124,16 @@
       "label_i18n": {
         "en": "Load Position from Left Support (a)",
         "tr": "Yükün Sol Mesnetten Uzaklığı (a)",
-        "de": "Lastposition vom linken Auflager (a)"
+        "de": "Lastposition vom linken Auflager (a)",
+        "fr": "Position de la charge depuis l'appui gauche (a)",
+        "es": "Posición de la carga desde el apoyo izquierdo (a)"
       },
       "businessContext_i18n": {
         "en": "Distance from left support to point load application, used for asymmetric loading analysis.",
         "tr": "Sol mesnetten noktasal yük uygulama noktasına olan mesafe, asimetrik yükleme analizinde kullanılır.",
-        "de": "Abstand vom linken Auflager zum Angriffspunkt der Punktlast, verwendet für asymmetrische Lastanalyse."
+        "de": "Abstand vom linken Auflager zum Angriffspunkt der Punktlast, verwendet für asymmetrische Lastanalyse.",
+        "fr": "Distance de l'appui gauche au point d'application de la charge, utilisée pour l'analyse de charge asymétrique.",
+        "es": "Distancia desde el apoyo izquierdo hasta la aplicación de la carga puntual, utilizada para análisis de carga asimétrica."
       }
     },
     {
@@ -128,12 +148,16 @@
       "label_i18n": {
         "en": "Young's Modulus (E)",
         "tr": "Elastisite Modülü (E)",
-        "de": "Elastizitätsmodul (E)"
+        "de": "Elastizitätsmodul (E)",
+        "fr": "Module d'Young (E)",
+        "es": "Módulo de Young (E)"
       },
       "businessContext_i18n": {
         "en": "Material stiffness property, typical for steel (200 GPa) or aluminum (70 GPa) per ISO 6892-1.",
         "tr": "Malzeme sertlik özelliği, çelik için tipik (200 GPa) veya alüminyum (70 GPa) ISO 6892-1'e göre.",
-        "de": "Materialsteifigkeitseigenschaft, typisch für Stahl (200 GPa) oder Aluminium (70 GPa) gemäß ISO 6892-1."
+        "de": "Materialsteifigkeitseigenschaft, typisch für Stahl (200 GPa) oder Aluminium (70 GPa) gemäß ISO 6892-1.",
+        "fr": "Propriété de rigidité du matériau, typique pour l'acier (200 GPa) ou l'aluminium (70 GPa) selon ISO 6892-1.",
+        "es": "Propiedad de rigidez del material, típica para acero (200 GPa) o aluminio (70 GPa) según ISO 6892-1."
       }
     },
     {
@@ -148,12 +172,16 @@
       "label_i18n": {
         "en": "Moment of Inertia (I)",
         "tr": "Atalet Momenti (I)",
-        "de": "Flächenträgheitsmoment (I)"
+        "de": "Flächenträgheitsmoment (I)",
+        "fr": "Moment d'inertie (I)",
+        "es": "Momento de inercia (I)"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional property resisting bending, calculated from beam profile (e.g., I-beam, rectangular).",
         "tr": "Eğilmeye karşı koyan kesit özelliği, kiriş profiline göre hesaplanır (örn. I-kiriş, dikdörtgen).",
-        "de": "Querschnittseigenschaft, die der Biegung widersteht, berechnet aus dem Trägerprofil (z. B. I-Träger, Rechteck)."
+        "de": "Querschnittseigenschaft, die der Biegung widersteht, berechnet aus dem Trägerprofil (z. B. I-Träger, Rechteck).",
+        "fr": "Propriété de section transversale résistant à la flexion, calculée à partir du profil de la poutre (par exemple, poutre en I, rectangulaire).",
+        "es": "Propiedad de la sección transversal que resiste la flexión, calculada a partir del perfil de la viga (ej.: viga I, rectangular)."
       }
     },
     {
@@ -168,12 +196,16 @@
       "label_i18n": {
         "en": "Yield Strength (σ_y)",
         "tr": "Akma Dayanımı (σ_y)",
-        "de": "Streckgrenze (σ_y)"
+        "de": "Streckgrenze (σ_y)",
+        "fr": "Limite d'élasticité (σ_y)",
+        "es": "Límite elástico (σ_y)"
       },
       "businessContext_i18n": {
         "en": "Material yield stress, typical for structural steel S235 (235 MPa) or S355 (355 MPa) per EN 10025.",
         "tr": "Malzeme akma gerilmesi, yapısal çelik S235 (235 MPa) veya S355 (355 MPa) için tipik EN 10025'e göre.",
-        "de": "Materialfließspannung, typisch für Baustahl S235 (235 MPa) oder S355 (355 MPa) gemäß EN 10025."
+        "de": "Materialfließspannung, typisch für Baustahl S235 (235 MPa) oder S355 (355 MPa) gemäß EN 10025.",
+        "fr": "Contrainte d'élasticité du matériau, typique pour l'acier de construction S235 (235 MPa) ou S355 (355 MPa) selon EN 10025.",
+        "es": "Tensión de fluencia del material, típica para acero estructural S235 (235 MPa) o S355 (355 MPa) según EN 10025."
       }
     }
   ],

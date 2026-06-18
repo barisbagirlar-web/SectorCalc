@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Thermal Diffusivity (α)",
         "tr": "Termal Yayınım (α)",
-        "de": "Thermal Diffusivity (α)",
-        "fr": "Thermal Diffusivity (α)",
-        "es": "Thermal Diffusivity (α)",
+        "de": "Temperaturleitfähigkeit (α)",
+        "fr": "Diffusivité thermique (α)",
+        "es": "Difusividad térmica (α)",
         "ar": "Thermal Diffusivity (α)"
       },
       "businessContext_i18n": {
         "en": "Material property",
-        "tr": "Malzeme özelliği"
+        "tr": "Malzeme özelliği",
+        "de": "Materialeigenschaft",
+        "fr": "Propriété du matériau",
+        "es": "Propiedad del material"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Rod Length (L)",
         "tr": "Çubuk Uzunluğu (L)",
-        "de": "Rod Length (L)",
-        "fr": "Rod Length (L)",
-        "es": "Rod Length (L)",
+        "de": "Stablänge (L)",
+        "fr": "Longueur de la tige (L)",
+        "es": "Longitud de la barra (L)",
         "ar": "Rod Length (L)"
       },
       "businessContext_i18n": {
         "en": "Domain size",
-        "tr": "Alan boyutu"
+        "tr": "Alan boyutu",
+        "de": "Domänengröße",
+        "fr": "Taille du domaine",
+        "es": "Tamaño del dominio"
       }
     },
     {
@@ -53,12 +59,15 @@
         "tr": "Konum (x)",
         "de": "Position (x)",
         "fr": "Position (x)",
-        "es": "Position (x)",
+        "es": "Posición (x)",
         "ar": "Position (x)"
       },
       "businessContext_i18n": {
         "en": "Measurement point",
-        "tr": "Ölçüm noktası"
+        "tr": "Ölçüm noktası",
+        "de": "Messpunkt",
+        "fr": "Point de mesure",
+        "es": "Punto de medición"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Time (t)",
         "tr": "Zaman (t)",
         "de": "Zeit (t)",
-        "fr": "Time (t)",
-        "es": "Time (t)",
+        "fr": "Temps (t)",
+        "es": "Tiempo (t)",
         "ar": "Time (t)"
       },
       "businessContext_i18n": {
         "en": "Elapsed time",
-        "tr": "Geçen süre"
+        "tr": "Geçen süre",
+        "de": "Verstrichene Zeit",
+        "fr": "Temps écoulé",
+        "es": "Tiempo transcurrido"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Coefficient A1",
         "tr": "Katsayı A1",
-        "de": "Coefficient A1",
+        "de": "Koeffizient A1",
         "fr": "Coefficient A1",
-        "es": "Coefficient A1",
+        "es": "Coeficiente A1",
         "ar": "Coefficient A1"
       },
       "businessContext_i18n": {
         "en": "First harmonic amplitude",
-        "tr": "Birinci harmonik genlik"
+        "tr": "Birinci harmonik genlik",
+        "de": "Erste harmonische Amplitude",
+        "fr": "Amplitude de la première harmonique",
+        "es": "Amplitud del primer armónico"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Coefficient A2",
         "tr": "Katsayı A2",
-        "de": "Coefficient A2",
+        "de": "Koeffizient A2",
         "fr": "Coefficient A2",
-        "es": "Coefficient A2",
+        "es": "Coeficiente A2",
         "ar": "Coefficient A2"
       },
       "businessContext_i18n": {
         "en": "Second harmonic amplitude",
-        "tr": "İkinci harmonik genlik"
+        "tr": "İkinci harmonik genlik",
+        "de": "Zweite harmonische Amplitude",
+        "fr": "Amplitude de la deuxième harmonique",
+        "es": "Amplitud del segundo armónico"
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Coefficient A3",
         "tr": "Katsayı A3",
-        "de": "Coefficient A3",
+        "de": "Koeffizient A3",
         "fr": "Coefficient A3",
-        "es": "Coefficient A3",
+        "es": "Coeficiente A3",
         "ar": "Coefficient A3"
       },
       "businessContext_i18n": {
         "en": "Third harmonic amplitude",
-        "tr": "Üçüncü harmonik genlik"
+        "tr": "Üçüncü harmonik genlik",
+        "de": "Dritte harmonische Amplitude",
+        "fr": "Amplitude de la troisième harmonique",
+        "es": "Amplitud del tercer armónico"
       }
     }
   ],

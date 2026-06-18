@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Number of Aligners",
         "tr": "Aligner Sayısı",
-        "de": "Number of Aligners",
-        "fr": "Number of Aligners",
-        "es": "Number of Aligners",
+        "de": "Anzahl der Aligner",
+        "fr": "Nombre d'aligneurs",
+        "es": "Número de alineadores",
         "ar": "Number of Aligners"
       },
       "businessContext_i18n": {
         "en": "Total number of aligners in the treatment plan.",
-        "tr": "Tedavi planındaki toplam aligner sayısı."
+        "tr": "Tedavi planındaki toplam aligner sayısı.",
+        "de": "Gesamtzahl der Aligner im Behandlungsplan.",
+        "fr": "Nombre total d'aligneurs dans le plan de traitement.",
+        "es": "Número total de alineadores en el plan de tratamiento."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Material Cost per Aligner",
         "tr": "Aligner Başına Malzeme Maliyeti",
-        "de": "Material Cost per Aligner",
-        "fr": "Material Cost per Aligner",
-        "es": "Material Cost per Aligner",
+        "de": "Materialkosten pro Aligner",
+        "fr": "Coût matière par aligneur",
+        "es": "Costo de Material por Alineador",
         "ar": "Material Cost per Aligner"
       },
       "businessContext_i18n": {
         "en": "Cost of raw material for one aligner.",
-        "tr": "Bir aligner için hammadde maliyeti."
+        "tr": "Bir aligner için hammadde maliyeti.",
+        "de": "Kosten des Rohmaterials für einen Aligner.",
+        "fr": "Coût de la matière première pour un aligneur.",
+        "es": "Costo de materia prima para un alineador."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Labor Cost per Aligner",
         "tr": "Aligner Başına İşçilik Maliyeti",
-        "de": "Labor Cost per Aligner",
-        "fr": "Labor Cost per Aligner",
-        "es": "Labor Cost per Aligner",
+        "de": "Arbeitskosten pro Aligner",
+        "fr": "Coût de main-d'œuvre par aligneur",
+        "es": "Costo de Mano de Obra por Alineador",
         "ar": "Labor Cost per Aligner"
       },
       "businessContext_i18n": {
         "en": "Direct labor cost to produce one aligner.",
-        "tr": "Bir aligner üretmek için doğrudan işçilik maliyeti."
+        "tr": "Bir aligner üretmek için doğrudan işçilik maliyeti.",
+        "de": "Direkte Arbeitskosten zur Herstellung eines Aligners.",
+        "fr": "Coût direct de main-d'œuvre pour produire un aligneur.",
+        "es": "Costo directo de mano de obra para producir un alineador."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Overhead Rate",
         "tr": "Genel gider oranı",
         "de": "Gemeinkostensatz",
-        "fr": "Overhead Rate",
-        "es": "Overhead Rate",
+        "fr": "Taux de frais généraux",
+        "es": "Tasa de gastos generales",
         "ar": "Overhead Rate"
       },
       "businessContext_i18n": {
         "en": "Overhead percentage applied to direct costs (e.g., utilities, admin).",
-        "tr": "Doğrudan maliyetlere uygulanan genel gider yüzdesi (örneğin elektrik, idari)."
+        "tr": "Doğrudan maliyetlere uygulanan genel gider yüzdesi (örneğin elektrik, idari).",
+        "de": "Gemeinkostenprozentsatz auf direkte Kosten (z. B. Betriebskosten, Verwaltung).",
+        "fr": "Pourcentage de frais généraux appliqué aux coûts directs (ex. : services publics, administration).",
+        "es": "Porcentaje de gastos generales aplicado a los costos directos (ej. servicios públicos, administración)."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Selling Price per Aligner",
         "tr": "Aligner Başına Satış Fiyatı",
-        "de": "Selling Price per Aligner",
-        "fr": "Selling Price per Aligner",
-        "es": "Selling Price per Aligner",
+        "de": "Verkaufspreis pro Aligner",
+        "fr": "Prix de vente par aligneur",
+        "es": "Precio de Venta por Alineador",
         "ar": "Selling Price per Aligner"
       },
       "businessContext_i18n": {
         "en": "Price charged to the customer per aligner.",
-        "tr": "Müşteriye aligner başına uygulanan fiyat."
+        "tr": "Müşteriye aligner başına uygulanan fiyat.",
+        "de": "Dem Kunden pro Aligner berechneter Preis.",
+        "fr": "Prix facturé au client par aligneur.",
+        "es": "Precio cobrado al cliente por alineador."
       }
     }
   ],

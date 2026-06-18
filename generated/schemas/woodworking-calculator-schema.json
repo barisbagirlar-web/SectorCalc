@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Parça Uzunluğu (mm)",
         "tr": "Parça Uzunluğu (mm)",
-        "de": "Parça Uzunluğu (mm)",
-        "fr": "Parça Uzunluğu (mm)",
+        "de": "Teillänge (mm)",
+        "fr": "Longueur de la pièce (mm)",
         "es": "Parça Uzunluğu (mm)",
         "ar": "Parça Uzunluğu (mm)"
       },
       "businessContext_i18n": {
         "en": "İşlenecek ahşap parçanın uzunluğu",
-        "tr": "İşlenecek ahşap parçanın uzunluğu"
+        "tr": "İşlenecek ahşap parçanın uzunluğu",
+        "de": "Länge des zu bearbeitenden Holzstücks",
+        "fr": "Longueur de la pièce en bois à usiner"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Parça Genişliği (mm)",
         "tr": "Parça Genişliği (mm)",
-        "de": "Parça Genişliği (mm)",
-        "fr": "Parça Genişliği (mm)",
+        "de": "Teilbreite (mm)",
+        "fr": "Largeur de la pièce (mm)",
         "es": "Parça Genişliği (mm)",
         "ar": "Parça Genişliği (mm)"
       },
       "businessContext_i18n": {
         "en": "İşlenecek ahşap parçanın genişliği",
-        "tr": "İşlenecek ahşap parçanın genişliği"
+        "tr": "İşlenecek ahşap parçanın genişliği",
+        "de": "Breite des zu bearbeitenden Holzstücks",
+        "fr": "Largeur de la pièce en bois à usiner"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Parça Kalınlığı (mm)",
         "tr": "Parça Kalınlığı (mm)",
-        "de": "Parça Kalınlığı (mm)",
-        "fr": "Parça Kalınlığı (mm)",
+        "de": "Teildicke (mm)",
+        "fr": "Épaisseur de la pièce (mm)",
         "es": "Parça Kalınlığı (mm)",
         "ar": "Parça Kalınlığı (mm)"
       },
       "businessContext_i18n": {
         "en": "Ahşap malzemenin kalınlığı",
-        "tr": "Ahşap malzemenin kalınlığı"
+        "tr": "Ahşap malzemenin kalınlığı",
+        "de": "Dicke des Holzmaterials",
+        "fr": "Épaisseur du matériau en bois"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Parça Adedi",
         "tr": "Parça Adedi",
-        "de": "Parça Adedi",
-        "fr": "Parça Adedi",
+        "de": "Stückzahl",
+        "fr": "Nombre de pièces",
         "es": "Parça Adedi",
         "ar": "Parça Adedi"
       },
       "businessContext_i18n": {
         "en": "Üretilecek parça sayısı",
-        "tr": "Üretilecek parça sayısı"
+        "tr": "Üretilecek parça sayısı",
+        "de": "Anzahl der herzustellenden Teile",
+        "fr": "Nombre de pièces à produire"
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Fire Oranı (%)",
         "tr": "Fire Oranı (%)",
         "de": "Ausschussrate (%)",
-        "fr": "Fire Oranı (%)",
-        "es": "Fire Oranı (%)",
+        "fr": "Taux de perte (%)",
+        "es": "Tasa de desperdicio (%)",
         "ar": "Fire Oranı (%)"
       },
       "businessContext_i18n": {
         "en": "Kesim ve işleme sırasında oluşan fire yüzdesi",
-        "tr": "Kesim ve işleme sırasında oluşan fire yüzdesi"
+        "tr": "Kesim ve işleme sırasında oluşan fire yüzdesi",
+        "de": "Verschnittprozentsatz beim Schneiden und Bearbeiten",
+        "fr": "Pourcentage de rebut lors de la coupe et de l'usinage"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Yoğunluk (kg/m³)",
         "tr": "Yoğunluk (kg/m³)",
-        "de": "Yoğunluk (kg/m³)",
-        "fr": "Yoğunluk (kg/m³)",
+        "de": "Dichte (kg/m³)",
+        "fr": "Densité (kg/m³)",
         "es": "Yoğunluk (kg/m³)",
         "ar": "Yoğunluk (kg/m³)"
       },
       "businessContext_i18n": {
         "en": "Ahşap malzemenin yoğunluğu (ör: çam ~500, meşe ~700)",
-        "tr": "Ahşap malzemenin yoğunluğu (ör: çam ~500, meşe ~700)"
+        "tr": "Ahşap malzemenin yoğunluğu (ör: çam ~500, meşe ~700)",
+        "de": "Dichte des Holzmaterials (z. B. Kiefer ~500, Eiche ~700)",
+        "fr": "Densité du matériau en bois (ex : pin ~500, chêne ~700)"
       }
     },
     {
@@ -131,14 +143,16 @@
       "label_i18n": {
         "en": "Birim Maliyet (TL/m³)",
         "tr": "Birim Maliyet (TL/m³)",
-        "de": "Birim Maliyet (TL/m³)",
-        "fr": "Birim Maliyet (TL/m³)",
+        "de": "Stückkosten (TL/m³)",
+        "fr": "Coût unitaire (TL/m³)",
         "es": "Birim Maliyet (TL/m³)",
         "ar": "Birim Maliyet (TL/m³)"
       },
       "businessContext_i18n": {
         "en": "Ahşap malzemenin metreküp başına maliyeti",
-        "tr": "Ahşap malzemenin metreküp başına maliyeti"
+        "tr": "Ahşap malzemenin metreküp başına maliyeti",
+        "de": "Kosten des Holzmaterials pro Kubikmeter",
+        "fr": "Coût du matériau en bois par mètre cube"
       }
     }
   ],

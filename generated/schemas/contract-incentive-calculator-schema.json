@@ -23,12 +23,16 @@
       "label_i18n": {
         "en": "Actual Throughput (units)",
         "tr": "Gerçek Çıktı (birim)",
-        "de": "Tatsächlicher Durchsatz (Einheiten)"
+        "de": "Tatsächlicher Durchsatz (Einheiten)",
+        "fr": "Débit réel (unités)",
+        "es": "Rendimiento real (unidades)"
       },
       "businessContext_i18n": {
         "en": "Total units produced or delivered in the measurement period.",
         "tr": "Ölçüm döneminde üretilen veya teslim edilen toplam birim sayısı.",
-        "de": "Gesamtzahl der im Messzeitraum produzierten oder gelieferten Einheiten."
+        "de": "Gesamtzahl der im Messzeitraum produzierten oder gelieferten Einheiten.",
+        "fr": "Nombre total d'unités produites ou livrées pendant la période de mesure.",
+        "es": "Unidades totales producidas o entregadas en el período de medición."
       }
     },
     {
@@ -43,12 +47,16 @@
       "label_i18n": {
         "en": "Target Throughput (units)",
         "tr": "Hedef Çıktı (birim)",
-        "de": "Zieldurchsatz (Einheiten)"
+        "de": "Zieldurchsatz (Einheiten)",
+        "fr": "Débit cible (unités)",
+        "es": "Rendimiento objetivo (unidades)"
       },
       "businessContext_i18n": {
         "en": "Contractually agreed throughput target.",
         "tr": "Sözleşmeyle belirlenen üretim hedefi.",
-        "de": "Vertraglich vereinbarter Durchsatz-Zielwert."
+        "de": "Vertraglich vereinbarter Durchsatz-Zielwert.",
+        "fr": "Objectif de débit contractuel.",
+        "es": "Objetivo de rendimiento acordado contractualmente."
       }
     },
     {
@@ -63,12 +71,16 @@
       "label_i18n": {
         "en": "Defect Rate (ppm)",
         "tr": "Hata Oranı (ppm)",
-        "de": "Fehlerrate (ppm)"
+        "de": "Fehlerrate (ppm)",
+        "fr": "Taux de défauts (ppm)",
+        "es": "Tasa de defectos (ppm)"
       },
       "businessContext_i18n": {
         "en": "Parts per million defective, measured per Six Sigma standards.",
         "tr": "Altı Sigma standartlarına göre ölçülen milyonda hatalı parça sayısı.",
-        "de": "Teile pro Million fehlerhaft, gemessen nach Six Sigma-Standards."
+        "de": "Teile pro Million fehlerhaft, gemessen nach Six Sigma-Standards.",
+        "fr": "Pièces par million défectueuses, mesurées selon les normes Six Sigma.",
+        "es": "Partes por millón defectuosas, medidas según estándares Seis Sigma."
       }
     },
     {
@@ -83,12 +95,16 @@
       "label_i18n": {
         "en": "On-Time Delivery (%)",
         "tr": "Zamanında Teslimat (%)",
-        "de": "Termintreue (%)"
+        "de": "Termintreue (%)",
+        "fr": "Livraison à temps (%)",
+        "es": "Entrega a tiempo (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of orders delivered on or before the promised date.",
         "tr": "Vaat edilen tarihte veya öncesinde teslim edilen siparişlerin yüzdesi.",
-        "de": "Prozentsatz der Bestellungen, die am oder vor dem versprochenen Datum geliefert wurden."
+        "de": "Prozentsatz der Bestellungen, die am oder vor dem versprochenen Datum geliefert wurden.",
+        "fr": "Pourcentage de commandes livrées à la date promise ou avant.",
+        "es": "Porcentaje de pedidos entregados en la fecha prometida o antes."
       }
     },
     {
@@ -103,12 +119,16 @@
       "label_i18n": {
         "en": "Cost per Unit ($)",
         "tr": "Birim Başına Maliyet ($)",
-        "de": "Kosten pro Einheit ($)"
+        "de": "Kosten pro Einheit ($)",
+        "fr": "Coût unitaire ($)",
+        "es": "Costo por Unidad ($)"
       },
       "businessContext_i18n": {
         "en": "Total manufacturing cost per unit, including materials, labor, overhead.",
         "tr": "Malzeme, işçilik ve genel giderler dahil birim başına toplam üretim maliyeti.",
-        "de": "Gesamte Herstellkosten pro Einheit, einschließlich Material, Arbeit, Gemeinkosten."
+        "de": "Gesamte Herstellkosten pro Einheit, einschließlich Material, Arbeit, Gemeinkosten.",
+        "fr": "Coût de fabrication total par unité, incluant matériaux, main-d'œuvre, frais généraux.",
+        "es": "Costo total de fabricación por unidad, incluyendo materiales, mano de obra y gastos generales."
       }
     },
     {
@@ -123,12 +143,16 @@
       "label_i18n": {
         "en": "Target Cost per Unit ($)",
         "tr": "Hedef Birim Maliyet ($)",
-        "de": "Zielkosten pro Einheit ($)"
+        "de": "Zielkosten pro Einheit ($)",
+        "fr": "Coût unitaire cible ($)",
+        "es": "Costo Objetivo por Unidad ($)"
       },
       "businessContext_i18n": {
         "en": "Contractually agreed cost target per unit.",
         "tr": "Sözleşmeyle belirlenen birim başına hedef maliyet.",
-        "de": "Vertraglich vereinbarter Kosten-Zielwert pro Einheit."
+        "de": "Vertraglich vereinbarter Kosten-Zielwert pro Einheit.",
+        "fr": "Objectif de coût unitaire contractuel.",
+        "es": "Objetivo de costo por unidad acordado contractualmente."
       }
     },
     {
@@ -143,12 +167,16 @@
       "label_i18n": {
         "en": "Incentive Base Rate ($/unit)",
         "tr": "Teşvik Taban Oranı ($/birim)",
-        "de": "Basisanreizsatz ($/Einheit)"
+        "de": "Basisanreizsatz ($/Einheit)",
+        "fr": "Taux de base incitatif ($/unité)",
+        "es": "Tasa Base de Incentivo ($/unidad)"
       },
       "businessContext_i18n": {
         "en": "Base incentive amount per unit, subject to performance multipliers.",
         "tr": "Performans çarpanlarına tabi olan birim başına temel teşvik tutarı.",
-        "de": "Basisanreizbetrag pro Einheit, vorbehaltlich Leistungsmultiplikatoren."
+        "de": "Basisanreizbetrag pro Einheit, vorbehaltlich Leistungsmultiplikatoren.",
+        "fr": "Montant incitatif de base par unité, soumis aux multiplicateurs de performance.",
+        "es": "Monto base de incentivo por unidad, sujeto a multiplicadores de rendimiento."
       }
     },
     {
@@ -163,12 +191,16 @@
       "label_i18n": {
         "en": "Quality Threshold (ppm)",
         "tr": "Kalite Eşiği (ppm)",
-        "de": "Qualitätsschwellenwert (ppm)"
+        "de": "Qualitätsschwellenwert (ppm)",
+        "fr": "Seuil de qualité (ppm)",
+        "es": "Umbral de Calidad (ppm)"
       },
       "businessContext_i18n": {
         "en": "Maximum defect rate to qualify for any incentive.",
         "tr": "Herhangi bir teşvik için gereken maksimum hata oranı.",
-        "de": "Maximale Fehlerrate, um für einen Anreiz in Frage zu kommen."
+        "de": "Maximale Fehlerrate, um für einen Anreiz in Frage zu kommen.",
+        "fr": "Taux de défauts maximum pour être éligible à une incitation.",
+        "es": "Tasa máxima de defectos para calificar para cualquier incentivo."
       }
     }
   ],

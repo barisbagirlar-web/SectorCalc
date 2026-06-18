@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Dough Cost per Pizza",
         "tr": "Hamur Maliyeti (pizza başına)",
-        "de": "Dough Cost per Pizza",
-        "fr": "Dough Cost per Pizza",
-        "es": "Dough Cost per Pizza",
+        "de": "Teigkosten pro Pizza",
+        "fr": "Coût de la pâte par pizza",
+        "es": "Costo de masa por pizza",
         "ar": "Dough Cost per Pizza"
       },
       "businessContext_i18n": {
         "en": "Cost of dough used per pizza",
-        "tr": "Pizza başına kullanılan hamur maliyeti"
+        "tr": "Pizza başına kullanılan hamur maliyeti",
+        "de": "Kosten des pro Pizza verwendeten Teigs",
+        "fr": "Coût de la pâte utilisée par pizza",
+        "es": "Costo de la masa utilizada por pizza"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Sauce Cost per Pizza",
         "tr": "Sos Maliyeti (pizza başına)",
-        "de": "Sauce Cost per Pizza",
-        "fr": "Sauce Cost per Pizza",
-        "es": "Sauce Cost per Pizza",
+        "de": "Soßenkosten pro Pizza",
+        "fr": "Coût de la sauce par pizza",
+        "es": "Costo de salsa por pizza",
         "ar": "Sauce Cost per Pizza"
       },
       "businessContext_i18n": {
         "en": "Cost of sauce used per pizza",
-        "tr": "Pizza başına kullanılan sos maliyeti"
+        "tr": "Pizza başına kullanılan sos maliyeti",
+        "de": "Kosten der pro Pizza verwendeten Soße",
+        "fr": "Coût de la sauce utilisée par pizza",
+        "es": "Costo de la salsa utilizada por pizza"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Cheese Cost per Pizza",
         "tr": "Peynir Maliyeti (pizza başına)",
-        "de": "Cheese Cost per Pizza",
-        "fr": "Cheese Cost per Pizza",
-        "es": "Cheese Cost per Pizza",
+        "de": "Käsekosten pro Pizza",
+        "fr": "Coût du fromage par pizza",
+        "es": "Costo de queso por pizza",
         "ar": "Cheese Cost per Pizza"
       },
       "businessContext_i18n": {
         "en": "Cost of cheese used per pizza",
-        "tr": "Pizza başına kullanılan peynir maliyeti"
+        "tr": "Pizza başına kullanılan peynir maliyeti",
+        "de": "Kosten des pro Pizza verwendeten Käses",
+        "fr": "Coût du fromage utilisé par pizza",
+        "es": "Costo del queso utilizado por pizza"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Toppings Cost per Pizza",
         "tr": "Malzeme Maliyeti (pizza başına)",
-        "de": "Toppings Cost per Pizza",
-        "fr": "Toppings Cost per Pizza",
-        "es": "Toppings Cost per Pizza",
+        "de": "Belagkosten pro Pizza",
+        "fr": "Coût des garnitures par pizza",
+        "es": "Costo de ingredientes por pizza",
         "ar": "Toppings Cost per Pizza"
       },
       "businessContext_i18n": {
         "en": "Cost of additional toppings per pizza",
-        "tr": "Pizza başına eklenen malzeme maliyeti"
+        "tr": "Pizza başına eklenen malzeme maliyeti",
+        "de": "Kosten zusätzlicher Beläge pro Pizza",
+        "fr": "Coût des garnitures supplémentaires par pizza",
+        "es": "Costo de ingredientes adicionales por pizza"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Labor Cost per Pizza",
         "tr": "İşçilik Maliyeti (pizza başına)",
-        "de": "Labor Cost per Pizza",
-        "fr": "Labor Cost per Pizza",
-        "es": "Labor Cost per Pizza",
+        "de": "Arbeitskosten pro Pizza",
+        "fr": "Coût de la main-d'œuvre par pizza",
+        "es": "Costo de mano de obra por pizza",
         "ar": "Labor Cost per Pizza"
       },
       "businessContext_i18n": {
         "en": "Labor cost allocated per pizza",
-        "tr": "Pizza başına ayrılan işçilik maliyeti"
+        "tr": "Pizza başına ayrılan işçilik maliyeti",
+        "de": "Pro Pizza zugeordnete Arbeitskosten",
+        "fr": "Coût de main-d'œuvre alloué par pizza",
+        "es": "Costo de mano de obra asignado por pizza"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Overhead Cost per Pizza",
         "tr": "Genel Gider Maliyeti (pizza başına)",
-        "de": "Overhead Cost per Pizza",
-        "fr": "Overhead Cost per Pizza",
-        "es": "Overhead Cost per Pizza",
+        "de": "Gemeinkosten pro Pizza",
+        "fr": "Coût des frais généraux par pizza",
+        "es": "Costo general por pizza",
         "ar": "Overhead Cost per Pizza"
       },
       "businessContext_i18n": {
         "en": "Fixed overhead allocated per pizza",
-        "tr": "Pizza başına ayrılan sabit genel gider"
+        "tr": "Pizza başına ayrılan sabit genel gider",
+        "de": "Pro Pizza zugeordnete Fixkosten",
+        "fr": "Frais généraux fixes alloués par pizza",
+        "es": "Costo general fijo asignado por pizza"
       }
     },
     {
@@ -132,13 +150,16 @@
         "en": "Desired Profit Margin",
         "tr": "Hedef Kar Marjı",
         "de": "Gewünschte Gewinnspanne",
-        "fr": "Desired Profit Margin",
-        "es": "Desired Profit Margin",
+        "fr": "Marge bénéficiaire souhaitée",
+        "es": "Margen de beneficio deseado",
         "ar": "Desired Profit Margin"
       },
       "businessContext_i18n": {
         "en": "Target profit margin percentage",
-        "tr": "Hedef kar marjı yüzdesi"
+        "tr": "Hedef kar marjı yüzdesi",
+        "de": "Zielgewinnmarge in Prozent",
+        "fr": "Pourcentage de marge bénéficiaire cible",
+        "es": "Porcentaje de margen de beneficio objetivo"
       }
     }
   ],

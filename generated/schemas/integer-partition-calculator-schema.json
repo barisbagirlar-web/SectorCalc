@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Integer to Partition",
         "tr": "Bölünecek Tam Sayı",
-        "de": "Integer to Partition",
-        "fr": "Integer to Partition",
-        "es": "Integer to Partition",
+        "de": "Zu partitionierende Ganzzahl",
+        "fr": "Entier à partitionner",
+        "es": "Entero a particionar",
         "ar": "Integer to Partition"
       },
       "businessContext_i18n": {
         "en": "Positive integer n (n ≥ 1) for which the number of integer partitions is approximated. Used in combinatorics, inventory partitioning, and resource distribution modeling.",
-        "tr": "Pozitif tam sayı n (n ≥ 1) için tamsayı bölümlerinin sayısı yaklaşık olarak hesaplanır. Kombinatorik, envanter bölümleme ve kaynak dağıtım modellemesinde kullanılır."
+        "tr": "Pozitif tam sayı n (n ≥ 1) için tamsayı bölümlerinin sayısı yaklaşık olarak hesaplanır. Kombinatorik, envanter bölümleme ve kaynak dağıtım modellemesinde kullanılır.",
+        "de": "Positive ganze Zahl n (n ≥ 1), für die die Anzahl der ganzzahligen Partitionen approximiert wird. Verwendet in Kombinatorik, Bestandspartitionierung und Ressourcenverteilungsmodellierung.",
+        "fr": "Entier positif n (n ≥ 1) pour lequel le nombre de partitions entières est approximé. Utilisé en combinatoire, partitionnement d'inventaire et modélisation de distribution de ressources.",
+        "es": "Entero positivo n (n ≥ 1) para el cual se aproxima el número de particiones enteras. Se usa en combinatoria, partición de inventarios y modelado de distribución de recursos."
       }
     },
     {
@@ -28,8 +31,8 @@
         "en": "auto_input_2",
         "tr": "otomatik_giriş_2",
         "de": "auto_input_2",
-        "fr": "auto_input_2",
-        "es": "auto_input_2",
+        "fr": "entrée_auto_2",
+        "es": "entrada_auto_2",
         "ar": "auto_input_2"
       },
       "type": "number",
@@ -40,8 +43,8 @@
         "en": "Auto-generated input 2.",
         "tr": "Otomatik oluşturulan giriş 2.",
         "de": "Automatisch generierte Eingabe 2.",
-        "fr": "Auto-generated input 2.",
-        "es": "Auto-generated input 2.",
+        "fr": "Entrée générée automatiquement 2.",
+        "es": "Entrada generada automáticamente 2.",
         "ar": "Auto-generated input 2."
       }
     },
@@ -52,8 +55,8 @@
         "en": "auto_input_3",
         "tr": "Otomatik girdi 3",
         "de": "auto_input_3",
-        "fr": "auto_input_3",
-        "es": "auto_input_3",
+        "fr": "Entrée automatique 3",
+        "es": "entrada_automática_3",
         "ar": "auto_input_3"
       },
       "type": "number",
@@ -64,8 +67,8 @@
         "en": "Auto-generated input 3.",
         "tr": "Otomatik oluşturulan girdi 3.",
         "de": "Automatisch generierte Eingabe 3.",
-        "fr": "Auto-generated input 3.",
-        "es": "Auto-generated input 3.",
+        "fr": "Entrée générée automatiquement 3.",
+        "es": "Entrada generada automáticamente 3.",
         "ar": "Auto-generated input 3."
       }
     }

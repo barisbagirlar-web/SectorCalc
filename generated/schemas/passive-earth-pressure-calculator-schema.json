@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Soil Unit Weight (γ)",
         "tr": "Zemin Birim Hacim Ağırlığı (γ)",
-        "de": "Soil Unit Weight (γ)",
-        "fr": "Soil Unit Weight (γ)",
-        "es": "Soil Unit Weight (γ)",
+        "de": "Bodenwichte (γ)",
+        "fr": "Poids volumique du sol (γ)",
+        "es": "Peso unitario del suelo (γ)",
         "ar": "Soil Unit Weight (γ)"
       },
       "businessContext_i18n": {
         "en": "Weight of soil per unit volume",
-        "tr": "Birim hacim başına zemin ağırlığı"
+        "tr": "Birim hacim başına zemin ağırlığı",
+        "de": "Gewicht des Bodens pro Volumeneinheit",
+        "fr": "Poids du sol par unité de volume",
+        "es": "Peso del suelo por unidad de volumen"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Height of Retaining Wall (H)",
         "tr": "İstinat Duvarı Yüksekliği (H)",
-        "de": "Height of Retaining Wall (H)",
-        "fr": "Height of Retaining Wall (H)",
-        "es": "Height of Retaining Wall (H)",
+        "de": "Höhe der Stützmauer (H)",
+        "fr": "Hauteur du mur de soutènement (H)",
+        "es": "Altura del muro de contención (H)",
         "ar": "Height of Retaining Wall (H)"
       },
       "businessContext_i18n": {
         "en": "Vertical height of the retaining wall",
-        "tr": "İstinat duvarının dikey yüksekliği"
+        "tr": "İstinat duvarının dikey yüksekliği",
+        "de": "Vertikale Höhe der Stützmauer",
+        "fr": "Hauteur verticale du mur de soutènement",
+        "es": "Altura vertical del muro de contención"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Internal Friction Angle (φ)",
         "tr": "İçsel Sürtünme Açısı (φ)",
-        "de": "Internal Friction Angle (φ)",
-        "fr": "Internal Friction Angle (φ)",
-        "es": "Internal Friction Angle (φ)",
+        "de": "Innerer Reibungswinkel (φ)",
+        "fr": "Angle de frottement interne (φ)",
+        "es": "Ángulo de fricción interna (φ)",
         "ar": "Internal Friction Angle (φ)"
       },
       "businessContext_i18n": {
         "en": "Angle of internal friction of the backfill soil",
-        "tr": "Dolgu zeminin içsel sürtünme açısı"
+        "tr": "Dolgu zeminin içsel sürtünme açısı",
+        "de": "Winkel der inneren Reibung des Hinterfüllbodens",
+        "fr": "Angle de frottement interne du sol de remblai",
+        "es": "Ángulo de fricción interna del suelo de relleno"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Cohesion (c)",
         "tr": "Kohezyon (c)",
-        "de": "Cohesion (c)",
-        "fr": "Cohesion (c)",
-        "es": "Cohesion (c)",
+        "de": "Kohäsion (c)",
+        "fr": "Cohésion (c)",
+        "es": "Cohesión (c)",
         "ar": "Cohesion (c)"
       },
       "businessContext_i18n": {
         "en": "Cohesion intercept of the soil",
-        "tr": "Zeminin kohezyon kesişimi"
+        "tr": "Zeminin kohezyon kesişimi",
+        "de": "Kohäsionsintercept des Bodens",
+        "fr": "Cohésion du sol",
+        "es": "Intersección de cohesión del suelo"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Surcharge Pressure (q)",
         "tr": "Sürşarj Basıncı (q)",
-        "de": "Surcharge Pressure (q)",
-        "fr": "Surcharge Pressure (q)",
-        "es": "Surcharge Pressure (q)",
+        "de": "Auflastdruck (q)",
+        "fr": "Pression de surcharge (q)",
+        "es": "Presión de sobrecarga (q)",
         "ar": "Surcharge Pressure (q)"
       },
       "businessContext_i18n": {
         "en": "Uniform surcharge load on the backfill surface",
-        "tr": "Dolgu yüzeyindeki düzgün yayılı sürşarj yükü"
+        "tr": "Dolgu yüzeyindeki düzgün yayılı sürşarj yükü",
+        "de": "Gleichmäßige Auflast auf der Hinterfüllungsoberfläche",
+        "fr": "Charge de surcharge uniforme sur la surface du remblai",
+        "es": "Carga de sobrecarga uniforme sobre la superficie del relleno"
       }
     }
   ],

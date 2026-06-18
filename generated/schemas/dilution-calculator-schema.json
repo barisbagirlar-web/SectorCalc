@@ -12,14 +12,16 @@
         "en": "Stock Concentration",
         "tr": "Stok Yoğunluğu",
         "de": "Konzentration der Stammlösung",
-        "fr": "Stock Concentration",
-        "es": "Stock Concentration",
+        "fr": "Concentration du stock",
+        "es": "Concentración del stock",
         "ar": "Stock Concentration"
       },
       "businessContext_i18n": {
         "en": "Concentration of the stock solution",
         "tr": "Stok çözeltinin konsantrasyonu",
-        "de": "Konzentration der Stammlösung"
+        "de": "Konzentration der Stammlösung",
+        "fr": "Concentration de la solution mère",
+        "es": "Concentración de la solución madre"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Desired Concentration",
         "tr": "İstenen konsantrasyon",
         "de": "Gewünschte Konzentration",
-        "fr": "Desired Concentration",
-        "es": "Desired Concentration",
+        "fr": "Concentration souhaitée",
+        "es": "Concentración deseada",
         "ar": "Desired Concentration"
       },
       "businessContext_i18n": {
         "en": "Target concentration after dilution",
         "tr": "Seyreltme sonrası hedef konsantrasyon",
-        "de": "Zielkonzentration nach Verdünnung"
+        "de": "Zielkonzentration nach Verdünnung",
+        "fr": "Concentration cible après dilution",
+        "es": "Concentración objetivo después de la dilución"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Final Volume",
         "tr": "Son Hacim",
         "de": "Endvolumen",
-        "fr": "Final Volume",
-        "es": "Final Volume",
+        "fr": "Volume final",
+        "es": "Volumen final",
         "ar": "Final Volume"
       },
       "businessContext_i18n": {
         "en": "Required total volume of the diluted solution",
         "tr": "Seyreltilmiş çözeltinin gerekli toplam hacmi",
-        "de": "Benötigtes Gesamtvolumen der verdünnten Lösung"
+        "de": "Benötigtes Gesamtvolumen der verdünnten Lösung",
+        "fr": "Volume total requis de la solution diluée",
+        "es": "Volumen total requerido de la solución diluida"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Overage Percentage",
         "tr": "Fazlalık yüzdesi",
         "de": "Überlaufprozentsatz",
-        "fr": "Overage Percentage",
-        "es": "Overage Percentage",
+        "fr": "Pourcentage de survolume",
+        "es": "Porcentaje de sobredosificación",
         "ar": "Overage Percentage"
       },
       "businessContext_i18n": {
         "en": "Extra volume percentage to account for handling losses (0-100)",
         "tr": "Taşıma kayıplarını karşılamak için ekstra hacim yüzdesi (0-100)",
-        "de": "Zusätzlicher Volumenprozentsatz zur Berücksichtigung von Handhabungsverlusten (0-100)"
+        "de": "Zusätzlicher Volumenprozentsatz zur Berücksichtigung von Handhabungsverlusten (0-100)",
+        "fr": "Pourcentage de volume supplémentaire pour tenir compte des pertes de manipulation (0-100)",
+        "es": "Porcentaje de volumen extra para compensar pérdidas de manejo (0-100)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Unit Conversion Factor",
         "tr": "Birim Dönüşüm Faktörü",
         "de": "Einheitenumrechnungsfaktor",
-        "fr": "Unit Conversion Factor",
-        "es": "Unit Conversion Factor",
+        "fr": "Facteur de conversion d'unité",
+        "es": "Factor de conversión de unidad",
         "ar": "Unit Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Factor to convert stock concentration units to desired concentration units (e.g., if stock is in g/L and desired in mg/mL, use 1)",
         "tr": "Stok konsantrasyon birimlerini istenen konsantrasyon birimlerine dönüştürmek için faktör (örneğin, stok g/L ve istenen mg/mL ise 1 kullanın)",
-        "de": "Faktor zur Umrechnung der Einheiten der Stammlösungskonzentration in die gewünschte Konzentration (z.B. wenn Stammlösung in g/L und gewünscht in mg/mL, verwenden Sie 1)"
+        "de": "Faktor zur Umrechnung der Einheiten der Stammlösungskonzentration in die gewünschte Konzentration (z.B. wenn Stammlösung in g/L und gewünscht in mg/mL, verwenden Sie 1)",
+        "fr": "Facteur de conversion des unités de concentration de la solution mère vers les unités de concentration souhaitée (par exemple, si la solution mère est en g/L et la concentration souhaitée en mg/mL, utiliser 1)",
+        "es": "Factor para convertir unidades de concentración del stock a unidades de concentración deseada (ej., si el stock está en g/L y lo deseado en mg/mL, usar 1)"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Initial Pressure",
         "tr": "Başlangıç Basıncı",
         "de": "Anfangsdruck",
-        "fr": "Initial Pressure",
-        "es": "Initial Pressure",
+        "fr": "Pression initiale",
+        "es": "Presión inicial",
         "ar": "Initial Pressure"
       },
       "businessContext_i18n": {
         "en": "Vessel pressure before decompression",
         "tr": "Dekompresyon öncesi kap basıncı",
-        "de": "Behälterdruck vor der Dekompression"
+        "de": "Behälterdruck vor der Dekompression",
+        "fr": "Pression du récipient avant décompression",
+        "es": "Presión del recipiente antes de la descompresión"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Final Pressure",
         "tr": "Nihai Basınç",
         "de": "Enddruck",
-        "fr": "Final Pressure",
-        "es": "Final Pressure",
+        "fr": "Pression finale",
+        "es": "Presión final",
         "ar": "Final Pressure"
       },
       "businessContext_i18n": {
         "en": "Target pressure after decompression",
         "tr": "Dekompresyon sonrası hedef basınç",
-        "de": "Zieldruck nach der Dekompression"
+        "de": "Zieldruck nach der Dekompression",
+        "fr": "Pression cible après décompression",
+        "es": "Presión objetivo después de la descompresión"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Vessel Volume",
         "tr": "Kap Hacmi",
         "de": "Behältervolumen",
-        "fr": "Vessel Volume",
-        "es": "Vessel Volume",
+        "fr": "Volume du récipient",
+        "es": "Volumen del recipiente",
         "ar": "Vessel Volume"
       },
       "businessContext_i18n": {
         "en": "Internal volume of the pressure vessel",
         "tr": "Basınçlı kabın iç hacmi",
-        "de": "Innenvolumen des Druckbehälters"
+        "de": "Innenvolumen des Druckbehälters",
+        "fr": "Volume interne du récipient sous pression",
+        "es": "Volumen interno del recipiente a presión"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Flow Rate (Std)",
         "tr": "Debi (Std)",
         "de": "Durchflussrate (Norm)",
-        "fr": "Flow Rate (Std)",
-        "es": "Flow Rate (Std)",
+        "fr": "Débit (standard)",
+        "es": "Caudal (estándar)",
         "ar": "Flow Rate (Std)"
       },
       "businessContext_i18n": {
         "en": "Standard flow rate (1 atm, 20°C) of gas release",
         "tr": "Standart debi (1 atm, 20°C) gaz çıkışı",
-        "de": "Normdurchflussrate (1 atm, 20°C) der Gasfreisetzung"
+        "de": "Normdurchflussrate (1 atm, 20°C) der Gasfreisetzung",
+        "fr": "Débit standard (1 atm, 20°C) du gaz libéré",
+        "es": "Caudal estándar (1 atm, 20°C) de liberación de gas"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Gas Temperature",
         "tr": "Gaz Sıcaklığı",
         "de": "Gastemperatur",
-        "fr": "Gas Temperature",
-        "es": "Gas Temperature",
+        "fr": "Température du gaz",
+        "es": "Temperatura del gas",
         "ar": "Gas Temperature"
       },
       "businessContext_i18n": {
         "en": "Operating temperature of the gas, used for correction",
         "tr": "Gazın çalışma sıcaklığı, düzeltme için kullanılır",
-        "de": "Betriebstemperatur des Gases, für Korrektur verwendet"
+        "de": "Betriebstemperatur des Gases, für Korrektur verwendet",
+        "fr": "Température de fonctionnement du gaz, utilisée pour la correction",
+        "es": "Temperatura de operación del gas, utilizada para corrección"
       }
     }
   ],

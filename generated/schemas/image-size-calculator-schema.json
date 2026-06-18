@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Width (px)",
         "tr": "Genişlik (px)",
-        "de": "Width (px)",
-        "fr": "Width (px)",
-        "es": "Width (px)",
+        "de": "Breite (px)",
+        "fr": "Largeur (px)",
+        "es": "Ancho (px)",
         "ar": "Width (px)"
       },
       "businessContext_i18n": {
         "en": "Image width in pixels",
-        "tr": "Piksel cinsinden görüntü genişliği"
+        "tr": "Piksel cinsinden görüntü genişliği",
+        "de": "Bildbreite in Pixeln",
+        "fr": "Largeur de l'image en pixels",
+        "es": "Ancho de la imagen en píxeles"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Height (px)",
         "tr": "Yükseklik (px)",
-        "de": "Height (px)",
-        "fr": "Height (px)",
-        "es": "Height (px)",
+        "de": "Höhe (px)",
+        "fr": "Hauteur (px)",
+        "es": "Alto (px)",
         "ar": "Height (px)"
       },
       "businessContext_i18n": {
         "en": "Image height in pixels",
-        "tr": "Piksel cinsinden görüntü yüksekliği"
+        "tr": "Piksel cinsinden görüntü yüksekliği",
+        "de": "Bildhöhe in Pixeln",
+        "fr": "Hauteur de l'image en pixels",
+        "es": "Alto de la imagen en píxeles"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Bit Depth",
         "tr": "Bit Derinliği",
         "de": "Bittiefe",
-        "fr": "Bit Depth",
-        "es": "Bit Depth",
+        "fr": "Profondeur de bits",
+        "es": "Profundidad de bits",
         "ar": "Bit Depth"
       },
       "businessContext_i18n": {
         "en": "Color depth per channel (e.g., 8, 16, 32)",
-        "tr": "Kanal başına renk derinliği (örn. 8, 16, 32)"
+        "tr": "Kanal başına renk derinliği (örn. 8, 16, 32)",
+        "de": "Farbtiefe pro Kanal (z. B. 8, 16, 32)",
+        "fr": "Profondeur de couleur par canal (ex. : 8, 16, 32)",
+        "es": "Profundidad de color por canal (ej. 8, 16, 32)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Color Channels",
         "tr": "Renk Kanalları",
-        "de": "Color Channels",
-        "fr": "Color Channels",
-        "es": "Color Channels",
+        "de": "Farbkanäle",
+        "fr": "Canaux de couleur",
+        "es": "Canales de color",
         "ar": "Color Channels"
       },
       "businessContext_i18n": {
         "en": "Number of color channels (1 for grayscale, 3 for RGB, 4 for CMYK)",
-        "tr": "Renk kanalı sayısı (gri tonlama için 1, RGB için 3, CMYK için 4)"
+        "tr": "Renk kanalı sayısı (gri tonlama için 1, RGB için 3, CMYK için 4)",
+        "de": "Anzahl der Farbkanäle (1 für Graustufen, 3 für RGB, 4 für CMYK)",
+        "fr": "Nombre de canaux de couleur (1 pour niveaux de gris, 3 pour RVB, 4 pour CMJN)",
+        "es": "Número de canales de color (1 para escala de grises, 3 para RGB, 4 para CMYK)"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "DPI",
         "tr": "DPI",
         "de": "DPI",
-        "fr": "DPI",
-        "es": "DPI",
+        "fr": "PPP",
+        "es": "PPP",
         "ar": "DPI"
       },
       "businessContext_i18n": {
         "en": "Dots per inch for print size calculation",
-        "tr": "Baskı boyutu hesaplaması için inç başına nokta sayısı"
+        "tr": "Baskı boyutu hesaplaması için inç başına nokta sayısı",
+        "de": "Punkte pro Zoll für die Berechnung der Druckgröße",
+        "fr": "Points par pouce pour le calcul de la taille d'impression",
+        "es": "Puntos por pulgada para el cálculo del tamaño de impresión"
       }
     }
   ],

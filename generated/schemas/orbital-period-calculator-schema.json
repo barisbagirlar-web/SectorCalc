@@ -13,12 +13,15 @@
         "tr": "Rakım",
         "de": "Höhe",
         "fr": "Altitude",
-        "es": "Altitude",
+        "es": "Altitud",
         "ar": "Altitude"
       },
       "businessContext_i18n": {
         "en": "Altitude of the satellite above the central body's surface.",
-        "tr": "Uydunun merkezi cismin yüzeyinden yüksekliği."
+        "tr": "Uydunun merkezi cismin yüzeyinden yüksekliği.",
+        "de": "Höhe des Satelliten über der Oberfläche des Zentralkörpers.",
+        "fr": "Altitude du satellite au-dessus de la surface du corps central.",
+        "es": "Altitud del satélite sobre la superficie del cuerpo central."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Central Body Radius",
         "tr": "Merkezi Cisim Yarıçapı",
-        "de": "Central Body Radius",
-        "fr": "Central Body Radius",
-        "es": "Central Body Radius",
+        "de": "Radius des Zentralkörpers",
+        "fr": "Rayon du corps central",
+        "es": "Radio del cuerpo central",
         "ar": "Central Body Radius"
       },
       "businessContext_i18n": {
         "en": "Radius of the central body (planet or star).",
-        "tr": "Merkezi cismin yarıçapı (gezegen veya yıldız)."
+        "tr": "Merkezi cismin yarıçapı (gezegen veya yıldız).",
+        "de": "Radius des Zentralkörpers (Planet oder Stern).",
+        "fr": "Rayon du corps central (planète ou étoile).",
+        "es": "Radio del cuerpo central (planeta o estrella)."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Central Body Mass",
         "tr": "Merkezi Cisim Kütlesi",
-        "de": "Central Body Mass",
-        "fr": "Central Body Mass",
-        "es": "Central Body Mass",
+        "de": "Masse des Zentralkörpers",
+        "fr": "Masse du corps central",
+        "es": "Masa del cuerpo central",
         "ar": "Central Body Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the central body.",
-        "tr": "Merkezi cismin kütlesi."
+        "tr": "Merkezi cismin kütlesi.",
+        "de": "Masse des Zentralkörpers.",
+        "fr": "Masse du corps central.",
+        "es": "Masa del cuerpo central."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Gravitational Constant (G)",
         "tr": "Yerçekimi Sabiti (G)",
         "de": "Gravitationskonstante (G)",
-        "fr": "Gravitational Constant (G)",
-        "es": "Gravitational Constant (G)",
+        "fr": "Constante gravitationnelle (G)",
+        "es": "Constante gravitacional (G)",
         "ar": "Gravitational Constant (G)"
       },
       "businessContext_i18n": {
         "en": "Universal gravitational constant. Default is SI value.",
-        "tr": "Evrensel çekim sabiti. Varsayılan SI değeridir."
+        "tr": "Evrensel çekim sabiti. Varsayılan SI değeridir.",
+        "de": "Universelle Gravitationskonstante. Standard ist SI-Wert.",
+        "fr": "Constante gravitationnelle universelle. La valeur par défaut est en unités SI.",
+        "es": "Constante gravitacional universal. Valor por defecto en SI."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Base Surface Color",
         "tr": "Temel Yüzey Rengi",
         "de": "Grundflächenfarbe",
-        "fr": "Base Surface Color",
-        "es": "Base Surface Color",
+        "fr": "Couleur de surface de base",
+        "es": "Color base de la superficie",
         "ar": "Base Surface Color"
       },
       "businessContext_i18n": {
         "en": "Natural color of the material surface (1: very light, 4: very dark)",
         "tr": "Malzeme yüzeyinin doğal rengi (1: çok açık, 4: çok koyu)",
-        "de": "Natürliche Farbe der Materialoberfläche (1: sehr hell, 4: sehr dunkel)"
+        "de": "Natürliche Farbe der Materialoberfläche (1: sehr hell, 4: sehr dunkel)",
+        "fr": "Couleur naturelle de la surface du matériau (1 : très clair, 4 : très foncé)",
+        "es": "Color natural de la superficie del material (1: muy claro, 4: muy oscuro)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Tan Response",
         "tr": "Bronzlaşma Tepkisi",
         "de": "Bräunungsreaktion",
-        "fr": "Tan Response",
-        "es": "Tan Response",
+        "fr": "Réponse au bronzage",
+        "es": "Respuesta al bronceado",
         "ar": "Tan Response"
       },
       "businessContext_i18n": {
         "en": "Ability to develop a tan or color change under UV exposure (0: no change, 10: maximum darkening)",
         "tr": "UV maruziyeti altında bronzlaşma veya renk değiştirme yeteneği (0: değişim yok, 10: maksimum kararma)",
-        "de": "Fähigkeit, unter UV-Exposition eine Bräune oder Farbveränderung zu entwickeln (0: keine Veränderung, 10: maximale Verdunkelung)"
+        "de": "Fähigkeit, unter UV-Exposition eine Bräune oder Farbveränderung zu entwickeln (0: keine Veränderung, 10: maximale Verdunkelung)",
+        "fr": "Capacité à développer un bronzage ou un changement de couleur sous exposition UV (0 : aucun changement, 10 : assombrissement maximal)",
+        "es": "Capacidad de broncearse o cambiar de color bajo exposición UV (0: sin cambio, 10: máximo oscurecimiento)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Burn Tendency",
         "tr": "Yanma Eğilimi",
         "de": "Verbrennungstendenz",
-        "fr": "Burn Tendency",
-        "es": "Burn Tendency",
+        "fr": "Tendance à brûler",
+        "es": "Tendencia a quemarse",
         "ar": "Burn Tendency"
       },
       "businessContext_i18n": {
         "en": "Tendency to burn or degrade under UV exposure (0: no burn, 10: severe burn)",
         "tr": "UV maruziyeti altında yanma veya bozulma eğilimi (0: yanma yok, 10: şiddetli yanma)",
-        "de": "Tendenz, unter UV-Exposition zu verbrennen oder sich zu zersetzen (0: keine Verbrennung, 10: starke Verbrennung)"
+        "de": "Tendenz, unter UV-Exposition zu verbrennen oder sich zu zersetzen (0: keine Verbrennung, 10: starke Verbrennung)",
+        "fr": "Tendance à brûler ou à se dégrader sous exposition UV (0 : aucune brûlure, 10 : brûlure sévère)",
+        "es": "Tendencia a quemarse o degradarse bajo exposición UV (0: sin quemadura, 10: quemadura severa)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "UV Resistance Factor",
         "tr": "UV Direnç Faktörü",
         "de": "UV-Beständigkeitsfaktor",
-        "fr": "UV Resistance Factor",
-        "es": "UV Resistance Factor",
+        "fr": "Facteur de résistance aux UV",
+        "es": "Factor de resistencia UV",
         "ar": "UV Resistance Factor"
       },
       "businessContext_i18n": {
         "en": "Inherent UV resistance factor based on material composition (0: least resistant, 1: most resistant)",
         "tr": "Malzeme bileşimine bağlı doğal UV direnç faktörü (0: en az dirençli, 1: en çok dirençli)",
-        "de": "Inhärenter UV-Beständigkeitsfaktor basierend auf der Materialzusammensetzung (0: am wenigsten beständig, 1: am beständigsten)"
+        "de": "Inhärenter UV-Beständigkeitsfaktor basierend auf der Materialzusammensetzung (0: am wenigsten beständig, 1: am beständigsten)",
+        "fr": "Facteur de résistance aux UV inhérent basé sur la composition du matériau (0 : le moins résistant, 1 : le plus résistant)",
+        "es": "Factor de resistencia UV inherente basado en la composición del material (0: menos resistente, 1: más resistente)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Surface Texture Color",
         "tr": "Yüzey Dokusu Rengi",
         "de": "Oberflächentexturfarbe",
-        "fr": "Surface Texture Color",
-        "es": "Surface Texture Color",
+        "fr": "Couleur de la texture de surface",
+        "es": "Color de la textura superficial",
         "ar": "Surface Texture Color"
       },
       "businessContext_i18n": {
         "en": "Color of surface texture (1: very light, 5: very dark)",
         "tr": "Yüzey dokusunun rengi (1: çok açık, 5: çok koyu)",
-        "de": "Farbe der Oberflächentextur (1: sehr hell, 5: sehr dunkel)"
+        "de": "Farbe der Oberflächentextur (1: sehr hell, 5: sehr dunkel)",
+        "fr": "Couleur de la texture de surface (1 : très clair, 5 : très foncé)",
+        "es": "Color de la textura superficial (1: muy claro, 5: muy oscuro)"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Microstructure Color",
         "tr": "Mikroyapı Rengi",
         "de": "Mikrostrukturfarbe",
-        "fr": "Microstructure Color",
-        "es": "Microstructure Color",
+        "fr": "Couleur de la microstructure",
+        "es": "Color de la microestructura",
         "ar": "Microstructure Color"
       },
       "businessContext_i18n": {
         "en": "Color of microstructural features (1: very light, 5: very dark)",
         "tr": "Mikroyapısal özelliklerin rengi (1: çok açık, 5: çok koyu)",
-        "de": "Farbe der mikrostrukturellen Merkmale (1: sehr hell, 5: sehr dunkel)"
+        "de": "Farbe der mikrostrukturellen Merkmale (1: sehr hell, 5: sehr dunkel)",
+        "fr": "Couleur des caractéristiques microstructurales (1 : très clair, 5 : très foncé)",
+        "es": "Color de las características microestructurales (1: muy claro, 5: muy oscuro)"
       }
     }
   ],

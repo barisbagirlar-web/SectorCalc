@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Input Voltage",
         "tr": "Giriş Voltajı",
-        "de": "Input Voltage",
-        "fr": "Input Voltage",
-        "es": "Input Voltage",
+        "de": "Eingangsspannung",
+        "fr": "Tension d'entrée",
+        "es": "Tensión de entrada",
         "ar": "Input Voltage"
       },
       "businessContext_i18n": {
         "en": "The input voltage supplied to the divider.",
-        "tr": "Bölücüye sağlanan giriş voltajı."
+        "tr": "Bölücüye sağlanan giriş voltajı.",
+        "de": "Die dem Spannungsteiler zugeführte Eingangsspannung.",
+        "fr": "Tension d'entrée fournie au diviseur."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Resistance R1",
         "tr": "Direnç R1",
         "de": "Direnç R1",
-        "fr": "Resistance R1",
-        "es": "Resistance R1",
+        "fr": "Résistance R1",
+        "es": "Resistencia R1",
         "ar": "Resistance R1"
       },
       "businessContext_i18n": {
         "en": "Resistance of the first resistor (connected to Vin).",
-        "tr": "Birinci direncin direnci (Vin'e bağlı)."
+        "tr": "Birinci direncin direnci (Vin'e bağlı).",
+        "de": "Widerstand des ersten Widerstands (verbunden mit Vin).",
+        "fr": "Résistance de la première résistance (connectée à Vin)."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Resistance R2",
         "tr": "Direnç R2",
         "de": "Direnç R2",
-        "fr": "Resistance R2",
-        "es": "Resistance R2",
+        "fr": "Résistance R2",
+        "es": "Resistencia R2",
         "ar": "Resistance R2"
       },
       "businessContext_i18n": {
         "en": "Resistance of the second resistor (connected to ground).",
-        "tr": "İkinci direncin direnci (toprağa bağlı)."
+        "tr": "İkinci direncin direnci (toprağa bağlı).",
+        "de": "Widerstand des zweiten Widerstands (verbunden mit Masse).",
+        "fr": "Résistance de la deuxième résistance (connectée à la masse)."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Resistor Tolerance",
         "tr": "Direnç Toleransı",
-        "de": "Resistor Tolerance",
-        "fr": "Resistor Tolerance",
+        "de": "Widerstandstoleranz",
+        "fr": "Tolérance de la résistance",
         "es": "Resistor Tolerance",
         "ar": "Resistor Tolerance"
       },
       "businessContext_i18n": {
         "en": "Resistor tolerance in percentage (e.g., ±1%, ±5%). Used to calculate worst-case output voltages.",
-        "tr": "Direnç toleransı yüzde olarak (örn. ±%1, ±%5). En kötü durum çıkış voltajlarını hesaplamak için kullanılır."
+        "tr": "Direnç toleransı yüzde olarak (örn. ±%1, ±%5). En kötü durum çıkış voltajlarını hesaplamak için kullanılır.",
+        "de": "Widerstandstoleranz in Prozent (z. B. ±1 %, ±5 %). Wird zur Berechnung der Worst-Case-Ausgangsspannungen verwendet.",
+        "fr": "Tolérance de la résistance en pourcentage (ex. ±1 %, ±5 %). Utilisée pour calculer les tensions de sortie dans le pire cas."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Temperature",
         "tr": "Sıcaklık",
         "de": "Temperatur",
-        "fr": "Temperature",
-        "es": "Temperature",
+        "fr": "Température",
+        "es": "Temperatura",
         "ar": "Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of the blackbody radiator in Kelvin",
         "tr": "Kara cisim ışıyıcısının Kelvin cinsinden sıcaklığı",
-        "de": "Temperatur des Schwarzkörperstrahlers in Kelvin"
+        "de": "Temperatur des Schwarzkörperstrahlers in Kelvin",
+        "fr": "Température du radiateur à corps noir en Kelvin",
+        "es": "Temperatura del radiador de cuerpo negro en Kelvin"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Wavelength",
         "tr": "Dalgaboyu",
         "de": "Wellenlänge",
-        "fr": "Wavelength",
-        "es": "Wavelength",
+        "fr": "Longueur d'onde",
+        "es": "Longitud de onda",
         "ar": "Wavelength"
       },
       "businessContext_i18n": {
         "en": "Wavelength for spectral radiance calculation in nanometers",
         "tr": "Spektral ışıma hesaplaması için nanometre cinsinden dalgaboyu",
-        "de": "Wellenlänge für die spektrale Strahldichteberechnung in Nanometern"
+        "de": "Wellenlänge für die spektrale Strahldichteberechnung in Nanometern",
+        "fr": "Longueur d'onde pour le calcul de la radiance spectrale en nanomètres",
+        "es": "Longitud de onda para el cálculo de radiancia espectral en nanómetros"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Emissivity",
         "tr": "Yayma Katsayısı",
         "de": "Emissionsgrad",
-        "fr": "Emissivity",
-        "es": "Emissivity",
+        "fr": "Émissivité",
+        "es": "Emisividad",
         "ar": "Emissivity"
       },
       "businessContext_i18n": {
         "en": "Surface emissivity (1 for perfect blackbody, 0-1 for graybody)",
         "tr": "Yüzey yayma katsayısı (mükemmel kara cisim için 1, gri cisim için 0-1)",
-        "de": "Oberflächenemissionsgrad (1 für perfekten Schwarzkörper, 0-1 für Graukörper)"
+        "de": "Oberflächenemissionsgrad (1 für perfekten Schwarzkörper, 0-1 für Graukörper)",
+        "fr": "Émissivité de surface (1 pour un corps noir parfait, 0-1 pour un corps gris)",
+        "es": "Emisividad superficial (1 para cuerpo negro perfecto, 0-1 para cuerpo gris)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Surface Area",
         "tr": "Yüzey Alanı",
         "de": "Oberfläche",
-        "fr": "Surface Area",
-        "es": "Surface Area",
+        "fr": "Surface",
+        "es": "Área superficial",
         "ar": "Surface Area"
       },
       "businessContext_i18n": {
         "en": "Emitting surface area",
         "tr": "Işıma yapan yüzey alanı",
-        "de": "Emittierende Oberfläche"
+        "de": "Emittierende Oberfläche",
+        "fr": "Surface émettrice",
+        "es": "Área de la superficie emisora"
       }
     },
     {
@@ -97,13 +105,15 @@
         "tr": "Mesafe",
         "de": "Entfernung",
         "fr": "Distance",
-        "es": "Distance",
+        "es": "Distancia",
         "ar": "Distance"
       },
       "businessContext_i18n": {
         "en": "Distance from the radiator for irradiance calculation",
         "tr": "Işınım hesaplaması için ışıyıcıya olan mesafe",
-        "de": "Abstand vom Strahler für die Bestrahlungsstärkeberechnung"
+        "de": "Abstand vom Strahler für die Bestrahlungsstärkeberechnung",
+        "fr": "Distance du radiateur pour le calcul de l'éclairement",
+        "es": "Distancia desde el radiador para el cálculo de irradiancia"
       }
     }
   ],

@@ -20,11 +20,15 @@
       "businessContext": "Initial acquisition cost of the vehicle, including taxes and fees.",
       "label_i18n": {
         "en": "Purchase Price (USD)",
-        "tr": "Satın Alma Fiyatı (USD)"
+        "tr": "Satın Alma Fiyatı (USD)",
+        "de": "Kaufpreis (USD)",
+        "fr": "Prix d'achat (USD)"
       },
       "businessContext_i18n": {
         "en": "Initial acquisition cost of the vehicle, including taxes and fees.",
-        "tr": "Vergi ve harçlar dahil aracın ilk edinim maliyeti."
+        "tr": "Vergi ve harçlar dahil aracın ilk edinim maliyeti.",
+        "de": "Anschaffungskosten des Fahrzeugs inklusive Steuern und Gebühren.",
+        "fr": "Coût d'acquisition initial du véhicule, taxes et frais inclus."
       }
     },
     {
@@ -38,11 +42,15 @@
       "businessContext": "Estimated market value of the vehicle at the end of the holding period.",
       "label_i18n": {
         "en": "Residual Value (USD)",
-        "tr": "Kalıntı Değer (USD)"
+        "tr": "Kalıntı Değer (USD)",
+        "de": "Restwert (USD)",
+        "fr": "Valeur résiduelle (USD)"
       },
       "businessContext_i18n": {
         "en": "Estimated market value of the vehicle at the end of the holding period.",
-        "tr": "Aracın elde tutma süresi sonunda tahmini piyasa değeri."
+        "tr": "Aracın elde tutma süresi sonunda tahmini piyasa değeri.",
+        "de": "Geschätzter Marktwert des Fahrzeugs am Ende der Haltedauer.",
+        "fr": "Valeur marchande estimée du véhicule à la fin de la période de détention."
       }
     },
     {
@@ -56,11 +64,15 @@
       "businessContext": "Expected number of years the vehicle will be owned and used.",
       "label_i18n": {
         "en": "Holding Period (Years)",
-        "tr": "Elde Tutma Süresi (Yıl)"
+        "tr": "Elde Tutma Süresi (Yıl)",
+        "de": "Haltedauer (Jahre)",
+        "fr": "Période de détention (années)"
       },
       "businessContext_i18n": {
         "en": "Expected number of years the vehicle will be owned and used.",
-        "tr": "Aracın sahip olunup kullanılması beklenen yıl sayısı."
+        "tr": "Aracın sahip olunup kullanılması beklenen yıl sayısı.",
+        "de": "Erwartete Anzahl der Jahre, in denen das Fahrzeug besessen und genutzt wird.",
+        "fr": "Nombre d'années prévu pendant lequel le véhicule sera possédé et utilisé."
       }
     },
     {
@@ -74,11 +86,15 @@
       "businessContext": "Average miles driven per year, directly impacts wear and depreciation.",
       "label_i18n": {
         "en": "Annual Mileage (miles)",
-        "tr": "Yıllık Kilometre (mil)"
+        "tr": "Yıllık Kilometre (mil)",
+        "de": "Jährliche Fahrleistung (Meilen)",
+        "fr": "Kilométrage annuel (miles)"
       },
       "businessContext_i18n": {
         "en": "Average miles driven per year, directly impacts wear and depreciation.",
-        "tr": "Yılda sürülen ortalama mil; aşınma ve amortismanı doğrudan etkiler."
+        "tr": "Yılda sürülen ortalama mil; aşınma ve amortismanı doğrudan etkiler.",
+        "de": "Durchschnittlich pro Jahr gefahrene Meilen, wirkt sich direkt auf Verschleiß und Wertminderung aus.",
+        "fr": "Miles moyens parcourus par an, impacte directement l'usure et la dépréciation."
       }
     },
     {
@@ -97,11 +113,15 @@
       ],
       "label_i18n": {
         "en": "Depreciation Method",
-        "tr": "Amortisman Yöntemi"
+        "tr": "Amortisman Yöntemi",
+        "de": "Abschreibungsmethode",
+        "fr": "Méthode d'amortissement"
       },
       "businessContext_i18n": {
         "en": "Accounting method used to allocate depreciation expense over the holding period.",
-        "tr": "Amortisman giderini elde tutma süresi boyunca dağıtmak için kullanılan muhasebe yöntemi."
+        "tr": "Amortisman giderini elde tutma süresi boyunca dağıtmak için kullanılan muhasebe yöntemi.",
+        "de": "Buchhalterische Methode zur Verteilung der Abschreibung über die Haltedauer.",
+        "fr": "Méthode comptable utilisée pour répartir la charge d'amortissement sur la période de détention."
       }
     },
     {
@@ -115,11 +135,15 @@
       "businessContext": "Average yearly expenditure on repairs, tires, and routine servicing.",
       "label_i18n": {
         "en": "Annual Maintenance Cost (USD)",
-        "tr": "Yıllık Bakım Maliyeti (USD)"
+        "tr": "Yıllık Bakım Maliyeti (USD)",
+        "de": "Jährliche Wartungskosten (USD)",
+        "fr": "Coût d'entretien annuel (USD)"
       },
       "businessContext_i18n": {
         "en": "Average yearly expenditure on repairs, tires, and routine servicing.",
-        "tr": "Onarım, lastik ve rutin bakım için ortalama yıllık harcama."
+        "tr": "Onarım, lastik ve rutin bakım için ortalama yıllık harcama.",
+        "de": "Durchschnittliche jährliche Ausgaben für Reparaturen, Reifen und Routinewartung.",
+        "fr": "Dépense annuelle moyenne en réparations, pneus et entretien courant."
       }
     },
     {
@@ -133,11 +157,15 @@
       "businessContext": "Miles per gallon, used to estimate fuel cost and total cost of ownership.",
       "label_i18n": {
         "en": "Fuel Efficiency (MPG)",
-        "tr": "Yakıt Verimliliği (MPG)"
+        "tr": "Yakıt Verimliliği (MPG)",
+        "de": "Kraftstoffeffizienz (MPG)",
+        "fr": "Efficacité énergétique (MPG)"
       },
       "businessContext_i18n": {
         "en": "Miles per gallon, used to estimate fuel cost and total cost of ownership.",
-        "tr": "Galon başına mil; yakıt maliyeti ve toplam sahip olma maliyetini tahmin etmek için kullanılır."
+        "tr": "Galon başına mil; yakıt maliyeti ve toplam sahip olma maliyetini tahmin etmek için kullanılır.",
+        "de": "Meilen pro Gallone, zur Schätzung der Kraftstoffkosten und Gesamtbetriebskosten.",
+        "fr": "Miles par gallon, utilisé pour estimer le coût du carburant et le coût total de possession."
       }
     },
     {
@@ -151,11 +179,15 @@
       "businessContext": "Current or projected average fuel price for the vehicle's fuel type.",
       "label_i18n": {
         "en": "Fuel Price per Gallon (USD)",
-        "tr": "Galon Başına Yakıt Fiyatı (USD)"
+        "tr": "Galon Başına Yakıt Fiyatı (USD)",
+        "de": "Kraftstoffpreis pro Gallone (USD)",
+        "fr": "Prix du carburant par gallon (USD)"
       },
       "businessContext_i18n": {
         "en": "Current or projected average fuel price for the vehicle's fuel type.",
-        "tr": "Aracın yakıt türü için cari veya tahmini ortalama yakıt fiyatı."
+        "tr": "Aracın yakıt türü için cari veya tahmini ortalama yakıt fiyatı.",
+        "de": "Aktueller oder prognostizierter durchschnittlicher Kraftstoffpreis für den Kraftstofftyp des Fahrzeugs.",
+        "fr": "Prix moyen actuel ou projeté du carburant pour le type de carburant du véhicule."
       }
     }
   ],

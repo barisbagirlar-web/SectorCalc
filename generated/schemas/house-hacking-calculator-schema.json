@@ -12,13 +12,16 @@
         "en": "Property Price",
         "tr": "Mülk Fiyatı",
         "de": "Immobilienpreis",
-        "fr": "Property Price",
-        "es": "Property Price",
+        "fr": "Prix du bien",
+        "es": "Precio de la propiedad",
         "ar": "Property Price"
       },
       "businessContext_i18n": {
         "en": "Total purchase price of the multi-unit property.",
-        "tr": "Çok birimli mülkün toplam satın alma fiyatı."
+        "tr": "Çok birimli mülkün toplam satın alma fiyatı.",
+        "de": "Gesamtkaufpreis der Mehrfamilienimmobilie.",
+        "fr": "Prix d'achat total de la propriété multi-logements.",
+        "es": "Precio total de compra de la propiedad de múltiples unidades."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Down Payment",
         "tr": "Peşinat",
         "de": "Anzahlung",
-        "fr": "Down Payment",
-        "es": "Down Payment",
+        "fr": "Acompte",
+        "es": "Pago inicial",
         "ar": "Down Payment"
       },
       "businessContext_i18n": {
         "en": "Cash amount paid upfront (typically 20% of property price).",
-        "tr": "Peşin ödenen nakit miktarı (genellikle mülk fiyatının %20'si)."
+        "tr": "Peşin ödenen nakit miktarı (genellikle mülk fiyatının %20'si).",
+        "de": "Anzahlung in bar (in der Regel 20 % des Immobilienpreises).",
+        "fr": "Montant en espèces versé initialement (généralement 20% du prix de la propriété).",
+        "es": "Cantidad de efectivo pagada por adelantado (típicamente 20% del precio de la propiedad)."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Interest Rate",
         "tr": "Faiz Oranı",
         "de": "Zinssatz",
-        "fr": "Interest Rate",
-        "es": "Interest Rate",
+        "fr": "Taux d'intérêt",
+        "es": "Tasa de interés",
         "ar": "Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Annual mortgage interest rate.",
-        "tr": "Yıllık ipotek faiz oranı."
+        "tr": "Yıllık ipotek faiz oranı.",
+        "de": "Jährlicher Hypothekenzinssatz.",
+        "fr": "Taux d'intérêt hypothécaire annuel.",
+        "es": "Tasa de interés hipotecaria anual."
       }
     },
     {
@@ -72,14 +81,16 @@
         "en": "Loan Term",
         "tr": "Kredi Vadesi",
         "de": "Darlehenslaufzeit",
-        "fr": "Loan Term",
-        "es": "Loan Term",
+        "fr": "Durée du prêt",
+        "es": "Plazo del préstamo",
         "ar": "Loan Term"
       },
       "businessContext_i18n": {
         "en": "Duration of the mortgage loan in years.",
         "tr": "İpotek kredisinin yıl cinsinden süresi.",
-        "de": "Laufzeit des Hypothekendarlehens in Jahren."
+        "de": "Laufzeit des Hypothekendarlehens in Jahren.",
+        "fr": "Durée du prêt hypothécaire en années.",
+        "es": "Duración del préstamo hipotecario en años."
       }
     },
     {
@@ -92,14 +103,17 @@
       "label_i18n": {
         "en": "Monthly Rental Income",
         "tr": "Aylık Kira Geliri",
-        "de": "Monthly Rental Income",
-        "fr": "Monthly Rental Income",
-        "es": "Monthly Rental Income",
+        "de": "Monatliches Mieteinkommen",
+        "fr": "Revenu locatif mensuel",
+        "es": "Ingreso mensual por alquiler",
         "ar": "Monthly Rental Income"
       },
       "businessContext_i18n": {
         "en": "Gross monthly rental income from all rented units before vacancy and expenses.",
-        "tr": "Tüm kiralanan birimlerden boşluk ve giderler öncesi brüt aylık kira geliri."
+        "tr": "Tüm kiralanan birimlerden boşluk ve giderler öncesi brüt aylık kira geliri.",
+        "de": "Bruttomonatsmieteinnahmen aller vermieteten Einheiten vor Leerstand und Ausgaben.",
+        "fr": "Revenu locatif brut mensuel de toutes les unités louées avant vacance et dépenses.",
+        "es": "Ingreso mensual bruto por alquiler de todas las unidades alquiladas antes de desocupación y gastos."
       }
     },
     {
@@ -112,14 +126,17 @@
       "label_i18n": {
         "en": "Monthly Operating Expenses",
         "tr": "Aylık İşletme Giderleri",
-        "de": "Monthly Operating Expenses",
-        "fr": "Monthly Operating Expenses",
-        "es": "Monthly Operating Expenses",
+        "de": "Monatliche Betriebsausgaben",
+        "fr": "Dépenses d'exploitation mensuelles",
+        "es": "Gastos operativos mensuales",
         "ar": "Monthly Operating Expenses"
       },
       "businessContext_i18n": {
         "en": "Total monthly costs including property taxes, insurance, maintenance, property management, and other expenses.",
-        "tr": "Emlak vergisi, sigorta, bakım, mülk yönetimi ve diğer giderler dahil toplam aylık maliyetler."
+        "tr": "Emlak vergisi, sigorta, bakım, mülk yönetimi ve diğer giderler dahil toplam aylık maliyetler.",
+        "de": "Monatliche Gesamtkosten inklusive Grundsteuern, Versicherung, Instandhaltung, Immobilienverwaltung und sonstiger Ausgaben.",
+        "fr": "Coûts mensuels totaux incluant taxes foncières, assurance, entretien, gestion immobilière et autres dépenses.",
+        "es": "Costos mensuales totales que incluyen impuestos a la propiedad, seguros, mantenimiento, administración de la propiedad y otros gastos."
       }
     },
     {
@@ -133,13 +150,16 @@
         "en": "Vacancy Rate",
         "tr": "Boşluk Oranı",
         "de": "Leerstandsrate",
-        "fr": "Vacancy Rate",
-        "es": "Vacancy Rate",
+        "fr": "Taux d'inoccupation",
+        "es": "Tasa de desocupación",
         "ar": "Vacancy Rate"
       },
       "businessContext_i18n": {
         "en": "Expected percentage of time the rental units are vacant.",
-        "tr": "Kiralık birimlerin boş olması beklenen yüzde oranı."
+        "tr": "Kiralık birimlerin boş olması beklenen yüzde oranı.",
+        "de": "Erwarteter Prozentsatz der Zeit, in der die Mieteinheiten leer stehen.",
+        "fr": "Pourcentage attendu de temps où les unités locatives sont vacantes.",
+        "es": "Porcentaje esperado de tiempo que las unidades de alquiler están desocupadas."
       }
     }
   ],

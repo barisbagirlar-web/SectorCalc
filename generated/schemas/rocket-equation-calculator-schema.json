@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Initial Mass",
         "tr": "Başlangıç Kütlesi",
-        "de": "Initial Mass",
-        "fr": "Initial Mass",
-        "es": "Initial Mass",
+        "de": "Anfangsmasse",
+        "fr": "Masse initiale",
+        "es": "Masa inicial",
         "ar": "Initial Mass"
       },
       "businessContext_i18n": {
         "en": "Total mass of the rocket at launch, including propellant (wet mass).",
-        "tr": "Fırlatma anında roketin toplam kütlesi (yakıt dahil, ıslak kütle)."
+        "tr": "Fırlatma anında roketin toplam kütlesi (yakıt dahil, ıslak kütle).",
+        "de": "Gesamtmasse der Rakete beim Start, einschließlich Treibstoff (Nassmasse).",
+        "fr": "Masse totale de la fusée au lancement, incluant le propergol (masse humide)."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Final Mass",
         "tr": "Son Kütle",
-        "de": "Final Mass",
-        "fr": "Final Mass",
+        "de": "Endmasse",
+        "fr": "Masse finale",
         "es": "Final Mass",
         "ar": "Final Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the rocket after propellant is expended (dry mass).",
-        "tr": "Yakıt tükendikten sonra roketin kütlesi (kuru kütle)."
+        "tr": "Yakıt tükendikten sonra roketin kütlesi (kuru kütle).",
+        "de": "Masse der Rakete nach Treibstoffverbrauch (Trockenmasse).",
+        "fr": "Masse de la fusée après épuisement du propergol (masse sèche)."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Specific Impulse",
         "tr": "Özgül İtki",
-        "de": "Specific Impulse",
-        "fr": "Specific Impulse",
+        "de": "Spezifischer Impuls",
+        "fr": "Impulsion spécifique",
         "es": "Specific Impulse",
         "ar": "Specific Impulse"
       },
       "businessContext_i18n": {
         "en": "Engine efficiency: thrust per weight flow rate of propellant at Earth's surface.",
-        "tr": "Motor verimliliği: Dünya yüzeyinde itme kuvvetinin yakıt ağırlık debisine oranı."
+        "tr": "Motor verimliliği: Dünya yüzeyinde itme kuvvetinin yakıt ağırlık debisine oranı.",
+        "de": "Triebwerkseffizienz: Schub pro Gewichtsstrom des Treibstoffs an der Erdoberfläche.",
+        "fr": "Efficacité du moteur : poussée par débit massique de propergol à la surface terrestre."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Standard Gravity",
         "tr": "Standart Yerçekimi",
-        "de": "Standard Gravity",
-        "fr": "Standard Gravity",
+        "de": "Standard-Erdbeschleunigung",
+        "fr": "Gravité standard",
         "es": "Standard Gravity",
         "ar": "Standard Gravity"
       },
       "businessContext_i18n": {
         "en": "Acceleration due to gravity, used to convert specific impulse to exhaust velocity.",
-        "tr": "Yerçekimi ivmesi, özgül itkiyi egzoz hızına dönüştürmek için kullanılır."
+        "tr": "Yerçekimi ivmesi, özgül itkiyi egzoz hızına dönüştürmek için kullanılır.",
+        "de": "Erdbeschleunigung, verwendet zur Umrechnung des spezifischen Impulses in Ausströmgeschwindigkeit.",
+        "fr": "Accélération due à la gravité, utilisée pour convertir l'impulsion spécifique en vitesse d'éjection."
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Process Mean",
         "tr": "Proses Ortalaması",
-        "de": "Process Mean",
-        "fr": "Process Mean",
-        "es": "Process Mean",
+        "de": "Prozessmittelwert",
+        "fr": "Moyenne du processus",
+        "es": "Media del proceso",
         "ar": "Process Mean"
       },
       "businessContext_i18n": {
         "en": "The arithmetic mean of the process measurements from the capability study.",
-        "tr": "Yetenek çalışmasından alınan proses ölçümlerinin aritmetik ortalaması."
+        "tr": "Yetenek çalışmasından alınan proses ölçümlerinin aritmetik ortalaması.",
+        "de": "Das arithmetische Mittel der Prozessmessungen aus der Fähigkeitsstudie.",
+        "fr": "Moyenne arithmétique des mesures du processus issues de l'étude de capabilité.",
+        "es": "Media aritmética de las mediciones del proceso del estudio de capacidad."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Standard Deviation",
         "tr": "Standart Sapma",
-        "de": "Standard Deviation",
-        "fr": "Standard Deviation",
-        "es": "Standard Deviation",
+        "de": "Standardabweichung",
+        "fr": "Écart type",
+        "es": "Desviación estándar",
         "ar": "Standard Deviation"
       },
       "businessContext_i18n": {
         "en": "The standard deviation (overall or within) of the process. Use long-term for Pp/Ppk; short-term for Cp/Cpk.",
-        "tr": "Prosesin (genel veya grup içi) standart sapması. Pp/Ppk için uzun vadeli; Cp/Cpk için kısa vadeli kullanın."
+        "tr": "Prosesin (genel veya grup içi) standart sapması. Pp/Ppk için uzun vadeli; Cp/Cpk için kısa vadeli kullanın.",
+        "de": "Die Standardabweichung (gesamt oder innerhalb) des Prozesses. Für Pp/Ppk langfristig, für Cp/Cpk kurzfristig verwenden.",
+        "fr": "L'écart type (global ou intra-série) du processus. Utilisez le long terme pour Pp/Ppk ; le court terme pour Cp/Cpk.",
+        "es": "Desviación estándar (general o dentro) del proceso. Use a largo plazo para Pp/Ppk; a corto plazo para Cp/Cpk."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Upper Specification Limit (USL)",
         "tr": "Üst Spesifikasyon Limiti (USL)",
-        "de": "Upper Specification Limit (USL)",
-        "fr": "Upper Specification Limit (USL)",
-        "es": "Upper Specification Limit (USL)",
+        "de": "Obere Spezifikationsgrenze (OSG)",
+        "fr": "Limite de spécification supérieure (USL)",
+        "es": "Límite superior de especificación (LSE)",
         "ar": "Upper Specification Limit (USL)"
       },
       "businessContext_i18n": {
         "en": "The upper tolerance boundary; parts above this are defective.",
-        "tr": "Üst tolerans sınırı; bunun üzerindeki parçalar hatalıdır."
+        "tr": "Üst tolerans sınırı; bunun üzerindeki parçalar hatalıdır.",
+        "de": "Die obere Toleranzgrenze; Teile darüber sind fehlerhaft.",
+        "fr": "La limite de tolérance supérieure ; les pièces au-dessus sont défectueuses.",
+        "es": "El límite de tolerancia superior; las piezas por encima de este son defectuosas."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Lower Specification Limit (LSL)",
         "tr": "Alt Spesifikasyon Limiti (LSL)",
-        "de": "Lower Specification Limit (LSL)",
-        "fr": "Lower Specification Limit (LSL)",
-        "es": "Lower Specification Limit (LSL)",
+        "de": "Untere Spezifikationsgrenze (USG)",
+        "fr": "Limite de spécification inférieure (LSL)",
+        "es": "Límite de especificación inferior (LSL)",
         "ar": "Lower Specification Limit (LSL)"
       },
       "businessContext_i18n": {
         "en": "The lower tolerance boundary; parts below this are defective.",
-        "tr": "Alt tolerans sınırı; bunun altındaki parçalar hatalıdır."
+        "tr": "Alt tolerans sınırı; bunun altındaki parçalar hatalıdır.",
+        "de": "Die untere Toleranzgrenze; Teile darunter sind fehlerhaft.",
+        "fr": "La limite de tolérance inférieure ; les pièces en dessous sont défectueuses.",
+        "es": "El límite de tolerancia inferior; las piezas por debajo de este son defectuosas."
       }
     }
   ],

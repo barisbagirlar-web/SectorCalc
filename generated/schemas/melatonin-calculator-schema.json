@@ -12,13 +12,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "User age for base dose adjustment",
-        "tr": "Temel doz ayarlaması için kullanıcı yaşı"
+        "tr": "Temel doz ayarlaması için kullanıcı yaşı",
+        "de": "Alter des Benutzers für die Basisdosisanpassung",
+        "fr": "Âge de l'utilisateur pour l'ajustement de la dose de base",
+        "es": "Edad del usuario para ajuste de dosis base"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Body Weight",
-        "es": "Body Weight",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "Weight used to increase dose if over 90 kg",
-        "tr": "Dozu artırmak için kullanılan ağırlık (90 kg üzeri)"
+        "tr": "Dozu artırmak için kullanılan ağırlık (90 kg üzeri)",
+        "de": "Gewicht zur Erhöhung der Dosis, wenn über 90 kg",
+        "fr": "Poids utilisé pour augmenter la dose si plus de 90 kg",
+        "es": "Peso usado para aumentar la dosis si supera los 90 kg"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Night Shift",
         "tr": "Gece Vardiyası",
-        "de": "Night Shift",
-        "fr": "Night Shift",
-        "es": "Night Shift",
+        "de": "Nachtschicht",
+        "fr": "Quart de nuit",
+        "es": "Turno nocturno",
         "ar": "Night Shift"
       },
       "businessContext_i18n": {
         "en": "Indicates whether user works night shift",
-        "tr": "Kullanıcının gece vardiyasında çalışıp çalışmadığını belirtir"
+        "tr": "Kullanıcının gece vardiyasında çalışıp çalışmadığını belirtir",
+        "de": "Gibt an, ob der Benutzer Nachtschicht arbeitet",
+        "fr": "Indique si l'utilisateur travaille de nuit",
+        "es": "Indica si el usuario trabaja en turno nocturno"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Jet Lag Severity",
         "tr": "Jet Lag Şiddeti",
-        "de": "Jet Lag Severity",
-        "fr": "Jet Lag Severity",
-        "es": "Jet Lag Severity",
+        "de": "Schweregrad des Jetlags",
+        "fr": "Gravité du décalage horaire",
+        "es": "Gravedad del desfase horario",
         "ar": "Jet Lag Severity"
       },
       "businessContext_i18n": {
         "en": "Severity of jet lag; adds up to 0.5 mg",
-        "tr": "Jet lag şiddeti; 0,5 mg'a kadar ekler"
+        "tr": "Jet lag şiddeti; 0,5 mg'a kadar ekler",
+        "de": "Schweregrad des Jetlags; summiert sich auf bis zu 0,5 mg",
+        "fr": "Gravité du décalage horaire ; ajoute jusqu'à 0,5 mg",
+        "es": "Gravedad del desfase horario; suma hasta 0.5 mg"
       }
     }
   ],

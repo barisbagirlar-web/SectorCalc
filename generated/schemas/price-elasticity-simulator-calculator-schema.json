@@ -22,11 +22,17 @@
       "businessContext": "The current selling price of the product in USD.",
       "label_i18n": {
         "en": "Current Price per Unit",
-        "tr": "Mevcut Birim Fiyat"
+        "tr": "Mevcut Birim Fiyat",
+        "de": "Aktueller Preis pro Einheit",
+        "fr": "Prix actuel par unité",
+        "es": "Precio actual por unidad"
       },
       "businessContext_i18n": {
         "en": "The current selling price of the product in USD.",
-        "tr": "Ürünün USD cinsinden mevcut satış fiyatı."
+        "tr": "Ürünün USD cinsinden mevcut satış fiyatı.",
+        "de": "Der aktuelle Verkaufspreis des Produkts in USD.",
+        "fr": "Prix de vente actuel du produit en USD.",
+        "es": "El precio de venta actual del producto en USD."
       }
     },
     {
@@ -40,11 +46,17 @@
       "businessContext": "Monthly sales volume at current price.",
       "label_i18n": {
         "en": "Current Quantity Sold (units/month)",
-        "tr": "Mevcut Satılan Miktar (adet/ay)"
+        "tr": "Mevcut Satılan Miktar (adet/ay)",
+        "de": "Aktuelle verkaufte Menge (Einheiten/Monat)",
+        "fr": "Quantité vendue actuelle (unités/mois)",
+        "es": "Cantidad actual vendida (unidades/mes)"
       },
       "businessContext_i18n": {
         "en": "Monthly sales volume at current price.",
-        "tr": "Mevcut fiyattaki aylık satış hacmi."
+        "tr": "Mevcut fiyattaki aylık satış hacmi.",
+        "de": "Monatliches Verkaufsvolumen zum aktuellen Preis.",
+        "fr": "Volume de ventes mensuel au prix actuel.",
+        "es": "Volumen de ventas mensual al precio actual."
       }
     },
     {
@@ -58,11 +70,17 @@
       "businessContext": "Percentage change in price (negative for decrease, positive for increase).",
       "label_i18n": {
         "en": "Proposed Price Change (%)",
-        "tr": "Önerilen Fiyat Değişimi (%)"
+        "tr": "Önerilen Fiyat Değişimi (%)",
+        "de": "Vorgeschlagene Preisänderung (%)",
+        "fr": "Variation de prix proposée (%)",
+        "es": "Cambio de precio propuesto (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage change in price (negative for decrease, positive for increase).",
-        "tr": "Fiyattaki yüzde değişim (düşüş için negatif, artış için pozitif)."
+        "tr": "Fiyattaki yüzde değişim (düşüş için negatif, artış için pozitif).",
+        "de": "Prozentuale Preisänderung (negativ für Senkung, positiv für Erhöhung).",
+        "fr": "Pourcentage de variation du prix (négatif pour une baisse, positif pour une hausse).",
+        "es": "Cambio porcentual en el precio (negativo para disminución, positivo para aumento)."
       }
     },
     {
@@ -76,11 +94,17 @@
       "businessContext": "Estimated elasticity coefficient (typically negative). Absolute value >1 indicates elastic demand.",
       "label_i18n": {
         "en": "Price Elasticity of Demand (PED)",
-        "tr": "Fiyat Esnekliği (PED)"
+        "tr": "Fiyat Esnekliği (PED)",
+        "de": "Preiselastizität der Nachfrage (PED)",
+        "fr": "Élasticité-prix de la demande (PED)",
+        "es": "Elasticidad precio de la demanda (PED)"
       },
       "businessContext_i18n": {
         "en": "Estimated elasticity coefficient (typically negative). Absolute value >1 indicates elastic demand.",
-        "tr": "Tahmini esneklik katsayısı (genellikle negatif). Mutlak değer >1 ise esnek talep."
+        "tr": "Tahmini esneklik katsayısı (genellikle negatif). Mutlak değer >1 ise esnek talep.",
+        "de": "Geschätzter Elastizitätskoeffizient (typischerweise negativ). Absolutwert >1 zeigt elastische Nachfrage an.",
+        "fr": "Coefficient d'élasticité estimé (généralement négatif). Une valeur absolue >1 indique une demande élastique.",
+        "es": "Coeficiente de elasticidad estimado (típicamente negativo). Valor absoluto >1 indica demanda elástica."
       }
     },
     {
@@ -95,11 +119,16 @@
       "label_i18n": {
         "en": "Variable Cost per Unit",
         "tr": "Birim Başına Değişken Maliyet",
-        "de": "Variable Kosten pro Einheit"
+        "de": "Variable Kosten pro Einheit",
+        "fr": "Coût variable par unité",
+        "es": "Coste variable por unidad"
       },
       "businessContext_i18n": {
         "en": "Direct variable cost per unit (materials, labor, etc.).",
-        "tr": "Birim başına doğrudan değişken maliyet (malzeme, işçilik vb.)."
+        "tr": "Birim başına doğrudan değişken maliyet (malzeme, işçilik vb.).",
+        "de": "Direkte variable Kosten pro Einheit (Material, Arbeit usw.).",
+        "fr": "Coût variable direct par unité (matériaux, main-d'œuvre, etc.).",
+        "es": "Costo variable directo por unidad (materiales, mano de obra, etc.)."
       }
     },
     {
@@ -113,11 +142,17 @@
       "businessContext": "Total fixed costs allocated per month.",
       "label_i18n": {
         "en": "Fixed Cost per Month",
-        "tr": "Aylık Sabit Maliyet"
+        "tr": "Aylık Sabit Maliyet",
+        "de": "Fixkosten pro Monat",
+        "fr": "Coût fixe par mois",
+        "es": "Costo fijo por mes"
       },
       "businessContext_i18n": {
         "en": "Total fixed costs allocated per month.",
-        "tr": "Aylık tahsis edilen toplam sabit maliyetler."
+        "tr": "Aylık tahsis edilen toplam sabit maliyetler.",
+        "de": "Gesamte fixe Kosten pro Monat.",
+        "fr": "Total des coûts fixes alloués par mois.",
+        "es": "Costos fijos totales asignados por mes."
       }
     },
     {
@@ -131,11 +166,17 @@
       "businessContext": "Multiplier to adjust baseline demand (e.g., 1.2 for 20% market growth).",
       "label_i18n": {
         "en": "Demand Shift Factor (seasonality/market)",
-        "tr": "Talep Kaydırma Faktörü (mevsimsellik/piyasa)"
+        "tr": "Talep Kaydırma Faktörü (mevsimsellik/piyasa)",
+        "de": "Nachfrageverschiebungsfaktor (Saisonalität/Markt)",
+        "fr": "Facteur de déplacement de la demande (saisonnalité/marché)",
+        "es": "Factor de cambio de demanda (estacionalidad/mercado)"
       },
       "businessContext_i18n": {
         "en": "Multiplier to adjust baseline demand (e.g., 1.2 for 20% market growth).",
-        "tr": "Temel talebi ayarlamak için çarpan (ör. %20 pazar büyümesi için 1.2)."
+        "tr": "Temel talebi ayarlamak için çarpan (ör. %20 pazar büyümesi için 1.2).",
+        "de": "Multiplikator zur Anpassung der Basismachfrage (z. B. 1,2 für 20 % Marktwachstum).",
+        "fr": "Multiplicateur pour ajuster la demande de base (ex. : 1,2 pour une croissance de 20 % du marché).",
+        "es": "Multiplicador para ajustar la demanda base (ej. 1.2 para un crecimiento del 20% del mercado)."
       }
     },
     {
@@ -153,11 +194,16 @@
       "label_i18n": {
         "en": "Data Confidence Level",
         "tr": "Veri Güven Düzeyi",
-        "de": "Datenvertrauensniveau"
+        "de": "Datenvertrauensniveau",
+        "fr": "Niveau de confiance des données",
+        "es": "Nivel de confianza de los datos"
       },
       "businessContext_i18n": {
         "en": "Quality of input data: low = ±20% error, medium = ±10%, high = ±5%.",
-        "tr": "Girdi verisinin kalitesi: düşük = ±%20 hata, orta = ±%10, yüksek = ±%5."
+        "tr": "Girdi verisinin kalitesi: düşük = ±%20 hata, orta = ±%10, yüksek = ±%5.",
+        "de": "Qualität der Eingabedaten: niedrig = ±20 % Fehler, mittel = ±10 %, hoch = ±5 %.",
+        "fr": "Qualité des données d'entrée : faible = ±20 % d'erreur, moyenne = ±10 %, élevée = ±5 %.",
+        "es": "Calidad de los datos de entrada: baja = error ±20%, media = ±10%, alta = ±5%."
       }
     }
   ],

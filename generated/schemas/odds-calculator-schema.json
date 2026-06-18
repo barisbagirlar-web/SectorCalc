@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Home Win Probability",
         "tr": "Ev Sahibi Galibiyet Olasılığı",
-        "de": "Home Win Probability",
-        "fr": "Home Win Probability",
-        "es": "Home Win Probability",
+        "de": "Heimsieg-Wahrscheinlichkeit",
+        "fr": "Probabilité de victoire à domicile",
+        "es": "Probabilidad de victoria local",
         "ar": "Home Win Probability"
       },
       "businessContext_i18n": {
         "en": "Estimated probability of home team winning, as percentage.",
-        "tr": "Ev sahibi takımın kazanma olasılığı tahmini, yüzde olarak."
+        "tr": "Ev sahibi takımın kazanma olasılığı tahmini, yüzde olarak.",
+        "de": "Geschätzte Wahrscheinlichkeit eines Heimsiegs in Prozent.",
+        "fr": "Probabilité estimée de victoire de l'équipe à domicile, en pourcentage.",
+        "es": "Probabilidad estimada de que el equipo local gane, en porcentaje."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Draw Probability",
         "tr": "Beraberlik Olasılığı",
-        "de": "Draw Probability",
-        "fr": "Draw Probability",
-        "es": "Draw Probability",
+        "de": "Unentschieden-Wahrscheinlichkeit",
+        "fr": "Probabilité de match nul",
+        "es": "Probabilidad de empate",
         "ar": "Draw Probability"
       },
       "businessContext_i18n": {
         "en": "Estimated probability of a draw, as percentage.",
-        "tr": "Beraberlik olasılığı tahmini, yüzde olarak."
+        "tr": "Beraberlik olasılığı tahmini, yüzde olarak.",
+        "de": "Geschätzte Wahrscheinlichkeit eines Unentschiedens in Prozent.",
+        "fr": "Probabilité estimée d'un match nul, en pourcentage.",
+        "es": "Probabilidad estimada de empate, en porcentaje."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Away Win Probability",
         "tr": "Deplasman Galibiyet Olasılığı",
-        "de": "Away Win Probability",
-        "fr": "Away Win Probability",
-        "es": "Away Win Probability",
+        "de": "Wahrscheinlichkeit Auswärtssieg",
+        "fr": "Probabilité de victoire à l'extérieur",
+        "es": "Probabilidad de victoria visitante",
         "ar": "Away Win Probability"
       },
       "businessContext_i18n": {
         "en": "Estimated probability of away team winning, as percentage.",
-        "tr": "Deplasman takımının kazanma olasılığı tahmini, yüzde olarak."
+        "tr": "Deplasman takımının kazanma olasılığı tahmini, yüzde olarak.",
+        "de": "Geschätzte Wahrscheinlichkeit eines Auswärtssiegs in Prozent.",
+        "fr": "Probabilité estimée de victoire de l'équipe à l'extérieur, en pourcentage.",
+        "es": "Probabilidad estimada de que el equipo visitante gane, en porcentaje."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Margin (Overround)",
         "tr": "Marj (Overround)",
-        "de": "Margin (Overround)",
-        "fr": "Margin (Overround)",
-        "es": "Margin (Overround)",
+        "de": "Marge (Overround)",
+        "fr": "Marge (surestimation)",
+        "es": "Margen (Overround)",
         "ar": "Margin (Overround)"
       },
       "businessContext_i18n": {
         "en": "Bookmaker margin as percentage over fair odds (e.g., 5% overround).",
-        "tr": "Bahis şirketinin adil oranlar üzerindeki yüzde marjı (ör. %5 overround)."
+        "tr": "Bahis şirketinin adil oranlar üzerindeki yüzde marjı (ör. %5 overround).",
+        "de": "Buchmachermarge in Prozent über fairen Quoten (z. B. 5 % Overround).",
+        "fr": "Marge du bookmaker en pourcentage au-dessus des cotes équitables (ex. : 5 % de surestimation).",
+        "es": "Margen de la casa de apuestas como porcentaje sobre las probabilidades justas (ej. 5% de overround)."
       }
     }
   ],

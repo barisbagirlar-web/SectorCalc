@@ -12,13 +12,16 @@
         "en": "Kilo",
         "tr": "Kilo",
         "de": "Gewicht",
-        "fr": "Kilo",
-        "es": "Kilo",
+        "fr": "Poids",
+        "es": "Peso",
         "ar": "Kilo"
       },
       "businessContext_i18n": {
         "en": "Kullanıcının vücut ağırlığı (kg)",
-        "tr": "Kullanıcının vücut ağırlığı (kg)"
+        "tr": "Kullanıcının vücut ağırlığı (kg)",
+        "de": "Körpergewicht des Benutzers (kg)",
+        "fr": "Poids corporel de l'utilisateur (kg)",
+        "es": "Peso corporal del usuario (kg)"
       }
     },
     {
@@ -33,12 +36,15 @@
         "tr": "Boy",
         "de": "Junge",
         "fr": "Boy",
-        "es": "Boy",
+        "es": "Niño",
         "ar": "Boy"
       },
       "businessContext_i18n": {
         "en": "Kullanıcının boy uzunluğu (cm)",
-        "tr": "Kullanıcının boy uzunluğu (cm)"
+        "tr": "Kullanıcının boy uzunluğu (cm)",
+        "de": "Körpergröße des Benutzers (cm)",
+        "fr": "Taille de l'utilisateur (cm)",
+        "es": "Altura del usuario (cm)"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Yaş",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Yaş",
-        "es": "Yaş",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Yaş"
       },
       "businessContext_i18n": {
         "en": "Kullanıcının yaşı (yıl)",
-        "tr": "Kullanıcının yaşı (yıl)"
+        "tr": "Kullanıcının yaşı (yıl)",
+        "de": "Alter des Benutzers (Jahre)",
+        "fr": "Âge de l'utilisateur (années)",
+        "es": "Edad del usuario (años)"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Cinsiyet",
         "tr": "Cinsiyet",
         "de": "Geschlecht",
-        "fr": "Cinsiyet",
-        "es": "Cinsiyet",
+        "fr": "Sexe",
+        "es": "Sexo",
         "ar": "Cinsiyet"
       },
       "businessContext_i18n": {
         "en": "Cinsiyet seçimi: 0 = Erkek, 1 = Kadın",
-        "tr": "Cinsiyet seçimi: 0 = Erkek, 1 = Kadın"
+        "tr": "Cinsiyet seçimi: 0 = Erkek, 1 = Kadın",
+        "de": "Geschlechtsauswahl: 0 = Männlich, 1 = Weiblich",
+        "fr": "Sélection du sexe : 0 = Homme, 1 = Femme",
+        "es": "Selección de sexo: 0 = Hombre, 1 = Mujer"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Aktivite Seviyesi",
         "tr": "Aktivite Seviyesi",
         "de": "Aktivitätsniveau",
-        "fr": "Aktivite Seviyesi",
-        "es": "Aktivite Seviyesi",
+        "fr": "Niveau d'activité",
+        "es": "Nivel de actividad",
         "ar": "Aktivite Seviyesi"
       },
       "businessContext_i18n": {
         "en": "Fiziksel aktivite çarpanı: 1.2 (sedanter), 1.375 (hafif), 1.55 (orta), 1.725 (yoğun), 1.9 (çok yoğun)",
-        "tr": "Fiziksel aktivite çarpanı: 1.2 (sedanter), 1.375 (hafif), 1.55 (orta), 1.725 (yoğun), 1.9 (çok yoğun)"
+        "tr": "Fiziksel aktivite çarpanı: 1.2 (sedanter), 1.375 (hafif), 1.55 (orta), 1.725 (yoğun), 1.9 (çok yoğun)",
+        "de": "Faktor für körperliche Aktivität: 1,2 (sitzend), 1,375 (leicht), 1,55 (mittel), 1,725 (intensiv), 1,9 (sehr intensiv)",
+        "fr": "Coefficient d'activité physique : 1,2 (sédentaire), 1,375 (léger), 1,55 (modéré), 1,725 (intense), 1,9 (très intense)",
+        "es": "Factor de actividad física: 1.2 (sedentario), 1.375 (ligero), 1.55 (moderado), 1.725 (intenso), 1.9 (muy intenso)"
       }
     }
   ],

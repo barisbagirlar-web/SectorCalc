@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Dry Bulb Temperature",
         "tr": "Kuru Termometre Sıcaklığı",
-        "de": "Dry Bulb Temperature",
-        "fr": "Dry Bulb Temperature",
-        "es": "Dry Bulb Temperature",
+        "de": "Trockentemperatur",
+        "fr": "Température sèche",
+        "es": "Temperatura de bulbo seco",
         "ar": "Dry Bulb Temperature"
       },
       "businessContext_i18n": {
         "en": "Ambient air temperature measured by a standard thermometer.",
-        "tr": "Standart bir termometre ile ölçülen ortam hava sıcaklığı."
+        "tr": "Standart bir termometre ile ölçülen ortam hava sıcaklığı.",
+        "de": "Umgebungslufttemperatur, gemessen mit einem Standardthermometer.",
+        "fr": "Température ambiante mesurée par un thermomètre standard.",
+        "es": "Temperatura del aire ambiente medida con un termómetro estándar."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Relative Humidity",
         "tr": "Bağıl Nem",
         "de": "Relative Luftfeuchtigkeit",
-        "fr": "Relative Humidity",
-        "es": "Relative Humidity",
+        "fr": "Humidité relative",
+        "es": "Humedad relativa",
         "ar": "Relative Humidity"
       },
       "businessContext_i18n": {
         "en": "Percentage of water vapor in the air relative to saturation.",
-        "tr": "Havadaki su buharının doygunluğa göre yüzdesi."
+        "tr": "Havadaki su buharının doygunluğa göre yüzdesi.",
+        "de": "Prozentsatz des Wasserdampfs in der Luft relativ zur Sättigung.",
+        "fr": "Pourcentage de vapeur d'eau dans l'air par rapport à la saturation.",
+        "es": "Porcentaje de vapor de agua en el aire relativo a la saturación."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Atmospheric Pressure",
         "tr": "Atmosfer Basıncı",
         "de": "Atmosphärendruck",
-        "fr": "Atmospheric Pressure",
-        "es": "Atmospheric Pressure",
+        "fr": "Pression atmosphérique",
+        "es": "Presión atmosférica",
         "ar": "Atmospheric Pressure"
       },
       "businessContext_i18n": {
         "en": "Standard sea-level atmospheric pressure.",
-        "tr": "Standart deniz seviyesi atmosfer basıncı."
+        "tr": "Standart deniz seviyesi atmosfer basıncı.",
+        "de": "Standard-Atmosphärendruck auf Meereshöhe.",
+        "fr": "Pression atmosphérique standard au niveau de la mer.",
+        "es": "Presión atmosférica estándar a nivel del mar."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Uçuş Mesafesi",
         "tr": "Uçuş Mesafesi",
         "de": "Flugdistanz",
-        "fr": "Uçuş Mesafesi",
-        "es": "Uçuş Mesafesi",
+        "fr": "Distance de vol",
+        "es": "Distancia de vuelo",
         "ar": "Uçuş Mesafesi"
       },
       "businessContext_i18n": {
         "en": "Kalkış ve varış noktaları arasındaki büyük daire mesafesi",
         "tr": "Kalkış ve varış noktaları arasındaki büyük daire mesafesi",
-        "de": "Großkreisentfernung zwischen Abflug- und Zielort"
+        "de": "Großkreisentfernung zwischen Abflug- und Zielort",
+        "fr": "Distance orthodromique entre les points de départ et d'arrivée",
+        "es": "Distancia de círculo máximo entre los puntos de salida y llegada"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Yakıt Tüketimi",
         "tr": "Yakıt Tüketimi",
         "de": "Kraftstoffverbrauch",
-        "fr": "Yakıt Tüketimi",
-        "es": "Yakıt Tüketimi",
+        "fr": "Consommation de carburant",
+        "es": "Consumo de combustible",
         "ar": "Yakıt Tüketimi"
       },
       "businessContext_i18n": {
         "en": "100 yolcu-kilometre başına litre cinsinden ortalama yakıt tüketimi (uçak tipine göre değişir)",
         "tr": "100 yolcu-kilometre başına litre cinsinden ortalama yakıt tüketimi (uçak tipine göre değişir)",
-        "de": "Durchschnittlicher Kraftstoffverbrauch in Litern pro 100 Personenkilometer (variiert je nach Flugzeugtyp)"
+        "de": "Durchschnittlicher Kraftstoffverbrauch in Litern pro 100 Personenkilometer (variiert je nach Flugzeugtyp)",
+        "fr": "Consommation moyenne de carburant en litres par 100 passagers-kilomètres (varie selon le type d'avion)",
+        "es": "Consumo medio de combustible en litros por cada 100 pasajeros-kilómetro (varía según el tipo de aeronave)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Emisyon Faktörü",
         "tr": "Emisyon Faktörü",
         "de": "Emissionsfaktor",
-        "fr": "Emisyon Faktörü",
-        "es": "Emisyon Faktörü",
+        "fr": "Facteur d'émission",
+        "es": "Factor de emisión",
         "ar": "Emisyon Faktörü"
       },
       "businessContext_i18n": {
         "en": "Jet yakıtının yanması sonucu litre başına salınan CO₂ miktarı",
         "tr": "Jet yakıtının yanması sonucu litre başına salınan CO₂ miktarı",
-        "de": "CO₂-Ausstoß pro Liter verbranntem Kerosin"
+        "de": "CO₂-Ausstoß pro Liter verbranntem Kerosin",
+        "fr": "Quantité de CO₂ émise par litre de carburéacteur brûlé",
+        "es": "Cantidad de CO₂ emitida por litro de combustible de aviación quemado"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Sınıf Çarpanı",
         "tr": "Sınıf Çarpanı",
         "de": "Klassenmultiplikator",
-        "fr": "Sınıf Çarpanı",
-        "es": "Sınıf Çarpanı",
+        "fr": "Multiplicateur de classe",
+        "es": "Multiplicador de clase",
         "ar": "Sınıf Çarpanı"
       },
       "businessContext_i18n": {
         "en": "Ekonomi=1, Business=2, First=3 gibi koltuk sınıfının kapladığı alan oranına göre düzeltme faktörü",
         "tr": "Ekonomi=1, Business=2, First=3 gibi koltuk sınıfının kapladığı alan oranına göre düzeltme faktörü",
-        "de": "Korrekturfaktor für den Platzbedarf der Sitzklasse (Economy=1, Business=2, First=3)"
+        "de": "Korrekturfaktor für den Platzbedarf der Sitzklasse (Economy=1, Business=2, First=3)",
+        "fr": "Facteur de correction basé sur le rapport d'espace occupé par la classe de siège (Économie=1, Affaires=2, Première=3)",
+        "es": "Factor de corrección según la proporción de espacio ocupado por la clase de asiento: Económica=1, Business=2, Primera=3"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Işınımsal Zorlama İndisi",
         "tr": "Işınımsal Zorlama İndisi",
         "de": "Strahlungsantriebsindex",
-        "fr": "Işınımsal Zorlama İndisi",
-        "es": "Işınımsal Zorlama İndisi",
+        "fr": "Indice de forçage radiatif",
+        "es": "Índice de forzamiento radiativo",
         "ar": "Işınımsal Zorlama İndisi"
       },
       "businessContext_i18n": {
         "en": "Yüksek irtifada salınan emisyonların ek iklim etkisini hesaba katan çarpan (IPCC önerisi: 1.9)",
         "tr": "Yüksek irtifada salınan emisyonların ek iklim etkisini hesaba katan çarpan (IPCC önerisi: 1.9)",
-        "de": "Multiplikator für den zusätzlichen Klimaeffekt von Emissionen in großer Höhe (IPCC-Empfehlung: 1,9)"
+        "de": "Multiplikator für den zusätzlichen Klimaeffekt von Emissionen in großer Höhe (IPCC-Empfehlung: 1,9)",
+        "fr": "Multiplicateur tenant compte de l'effet climatique supplémentaire des émissions à haute altitude (recommandation GIEC : 1,9)",
+        "es": "Multiplicador que tiene en cuenta el efecto climático adicional de las emisiones a gran altitud (recomendación IPCC: 1.9)"
       }
     }
   ],

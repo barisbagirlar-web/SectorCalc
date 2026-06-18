@@ -12,14 +12,16 @@
         "en": "Operating Hours",
         "tr": "Çalışma Saatleri",
         "de": "Betriebsstunden",
-        "fr": "Operating Hours",
-        "es": "Operating Hours",
+        "fr": "Heures de fonctionnement",
+        "es": "Horas de operación",
         "ar": "Operating Hours"
       },
       "businessContext_i18n": {
         "en": "Total hours machine has been operating",
         "tr": "Makinenin çalıştığı toplam saat",
-        "de": "Gesamtstunden, die die Maschine in Betrieb war"
+        "de": "Gesamtstunden, die die Maschine in Betrieb war",
+        "fr": "Nombre total d'heures de fonctionnement de la machine",
+        "es": "Horas totales que la máquina ha estado operando"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Temperature",
         "tr": "Sıcaklık",
         "de": "Temperatur",
-        "fr": "Temperature",
-        "es": "Temperature",
+        "fr": "Température",
+        "es": "Temperatura",
         "ar": "Temperature"
       },
       "businessContext_i18n": {
         "en": "Average operating temperature",
         "tr": "Ortalama çalışma sıcaklığı",
-        "de": "Durchschnittliche Betriebstemperatur"
+        "de": "Durchschnittliche Betriebstemperatur",
+        "fr": "Température de fonctionnement moyenne",
+        "es": "Temperatura media de operación"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Vibration Level",
         "tr": "Titreşim Seviyesi",
         "de": "Vibrationspegel",
-        "fr": "Vibration Level",
-        "es": "Vibration Level",
+        "fr": "Niveau de vibration",
+        "es": "Nivel de vibración",
         "ar": "Vibration Level"
       },
       "businessContext_i18n": {
         "en": "RMS vibration velocity",
         "tr": "RMS titreşim hızı",
-        "de": "RMS-Schwinggeschwindigkeit"
+        "de": "RMS-Schwinggeschwindigkeit",
+        "fr": "Vitesse vibratoire RMS",
+        "es": "Velocidad de vibración RMS"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Maintenance Score",
         "tr": "Bakım Puanı",
         "de": "Wartungspunktzahl",
-        "fr": "Maintenance Score",
-        "es": "Maintenance Score",
+        "fr": "Score de maintenance",
+        "es": "Puntuación de mantenimiento",
         "ar": "Maintenance Score"
       },
       "businessContext_i18n": {
         "en": "Preventive maintenance compliance (0-1, 1=fully compliant)",
         "tr": "Önleyici bakım uyumu (0-1, 1=tam uyumlu)",
-        "de": "Einhaltung der vorbeugenden Wartung (0-1, 1 = vollständig eingehalten)"
+        "de": "Einhaltung der vorbeugenden Wartung (0-1, 1 = vollständig eingehalten)",
+        "fr": "Conformité de la maintenance préventive (0-1, 1 = totalement conforme)",
+        "es": "Cumplimiento del mantenimiento preventivo (0-1, 1 = totalmente conforme)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Coefficient: Operating Hours",
         "tr": "Katsayı: Çalışma Saatleri",
         "de": "Koeffizient: Betriebsstunden",
-        "fr": "Coefficient: Operating Hours",
-        "es": "Coefficient: Operating Hours",
+        "fr": "Coefficient : Heures de fonctionnement",
+        "es": "Coeficiente: Horas de operación",
         "ar": "Coefficient: Operating Hours"
       },
       "businessContext_i18n": {
         "en": "Effect of operating hours on log hazard",
         "tr": "Çalışma saatlerinin log tehlike üzerindeki etkisi",
-        "de": "Einfluss der Betriebsstunden auf das Log-Hazard"
+        "de": "Einfluss der Betriebsstunden auf das Log-Hazard",
+        "fr": "Effet des heures de fonctionnement sur le log du risque",
+        "es": "Efecto de las horas de operación sobre el log-hazard"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Coefficient: Temperature",
         "tr": "Katsayı: Sıcaklık",
         "de": "Koeffizient: Temperatur",
-        "fr": "Coefficient: Temperature",
-        "es": "Coefficient: Temperature",
+        "fr": "Coefficient : Température",
+        "es": "Coeficiente: Temperatura",
         "ar": "Coefficient: Temperature"
       },
       "businessContext_i18n": {
         "en": "Effect of temperature on log hazard",
         "tr": "Sıcaklığın log tehlike üzerindeki etkisi",
-        "de": "Einfluss der Temperatur auf das Log-Hazard"
+        "de": "Einfluss der Temperatur auf das Log-Hazard",
+        "fr": "Effet de la température sur le log du risque",
+        "es": "Efecto de la temperatura sobre el log-hazard"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Coefficient: Vibration",
         "tr": "Katsayı: Titreşim",
         "de": "Koeffizient: Vibration",
-        "fr": "Coefficient: Vibration",
-        "es": "Coefficient: Vibration",
+        "fr": "Coefficient : Vibration",
+        "es": "Coeficiente: Vibración",
         "ar": "Coefficient: Vibration"
       },
       "businessContext_i18n": {
         "en": "Effect of vibration on log hazard",
         "tr": "Titreşimin log tehlike üzerindeki etkisi",
-        "de": "Einfluss der Vibration auf das Log-Hazard"
+        "de": "Einfluss der Vibration auf das Log-Hazard",
+        "fr": "Effet de la vibration sur le log du risque",
+        "es": "Efecto de la vibración sobre el log-hazard"
       }
     },
     {
@@ -159,14 +173,16 @@
         "en": "Coefficient: Maintenance Score",
         "tr": "Katsayı: Bakım Puanı",
         "de": "Koeffizient: Wartungspunktzahl",
-        "fr": "Coefficient: Maintenance Score",
-        "es": "Coefficient: Maintenance Score",
+        "fr": "Coefficient : Score de maintenance",
+        "es": "Coeficiente: Puntaje de mantenimiento",
         "ar": "Coefficient: Maintenance Score"
       },
       "businessContext_i18n": {
         "en": "Effect of maintenance compliance on log hazard (negative reduces hazard)",
         "tr": "Bakım uyumunun log tehlike üzerindeki etkisi (negatif, tehlikeyi azaltır)",
-        "de": "Einfluss der Wartungseinhaltung auf das Log-Hazard (negativ verringert das Hazard)"
+        "de": "Einfluss der Wartungseinhaltung auf das Log-Hazard (negativ verringert das Hazard)",
+        "fr": "Effet de la conformité de maintenance sur le log du risque (négatif réduit le risque)",
+        "es": "Efecto del cumplimiento de mantenimiento sobre el log-hazard (negativo reduce el riesgo)"
       }
     }
   ],

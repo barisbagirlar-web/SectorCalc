@@ -12,14 +12,16 @@
         "en": "Transmitted Frequency",
         "tr": "İletilen Frekans",
         "de": "Gesendete Frequenz",
-        "fr": "Transmitted Frequency",
-        "es": "Transmitted Frequency",
+        "fr": "Fréquence transmise",
+        "es": "Frecuencia transmitida",
         "ar": "Transmitted Frequency"
       },
       "businessContext_i18n": {
         "en": "Base frequency of emitted sound wave",
         "tr": "Yayılan ses dalgasının temel frekansı",
-        "de": "Basis-Frequenz der ausgesendeten Schallwelle"
+        "de": "Basis-Frequenz der ausgesendeten Schallwelle",
+        "fr": "Fréquence de base de l'onde sonore émise",
+        "es": "Frecuencia base de la onda sonora emitida"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Target Speed",
         "tr": "Hedef Hız",
         "de": "Zielgeschwindigkeit",
-        "fr": "Target Speed",
-        "es": "Target Speed",
+        "fr": "Vitesse cible",
+        "es": "Velocidad objetivo",
         "ar": "Target Speed"
       },
       "businessContext_i18n": {
         "en": "Speed of the reflecting target. Positive for approaching, negative for receding.",
         "tr": "Yansıyan hedefin hızı. Yaklaşıyorsa pozitif, uzaklaşıyorsa negatif.",
-        "de": "Geschwindigkeit des reflektierenden Ziels. Positiv bei Annäherung, negativ bei Entfernung."
+        "de": "Geschwindigkeit des reflektierenden Ziels. Positiv bei Annäherung, negativ bei Entfernung.",
+        "fr": "Vitesse de la cible réfléchissante. Positive pour une approche, négative pour un éloignement.",
+        "es": "Velocidad del objetivo reflectante. Positiva si se acerca, negativa si se aleja."
       }
     },
     {
@@ -55,13 +59,15 @@
         "tr": "Açı (θ)",
         "de": "Winkel (θ)",
         "fr": "Angle (θ)",
-        "es": "Angle (θ)",
+        "es": "Ángulo (θ)",
         "ar": "Angle (θ)"
       },
       "businessContext_i18n": {
         "en": "Angle between target velocity vector and the line connecting source and target. 0° for head-on approach.",
         "tr": "Hedef hız vektörü ile kaynak ve hedefi birleştiren doğru arasındaki açı. Kafa kafaya yaklaşma için 0°.",
-        "de": "Winkel zwischen Zielgeschwindigkeitsvektor und der Verbindungslinie zwischen Quelle und Ziel. 0° für frontale Annäherung."
+        "de": "Winkel zwischen Zielgeschwindigkeitsvektor und der Verbindungslinie zwischen Quelle und Ziel. 0° für frontale Annäherung.",
+        "fr": "Angle entre le vecteur vitesse de la cible et la ligne reliant la source et la cible. 0° pour une approche frontale.",
+        "es": "Ángulo entre el vector de velocidad del objetivo y la línea que conecta la fuente y el objetivo. 0° para aproximación frontal."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Speed of Sound",
         "tr": "Ses Hızı",
         "de": "Schallgeschwindigkeit",
-        "fr": "Speed of Sound",
-        "es": "Speed of Sound",
+        "fr": "Vitesse du son",
+        "es": "Velocidad del sonido",
         "ar": "Speed of Sound"
       },
       "businessContext_i18n": {
         "en": "Speed of sound in the medium (e.g., air at 20°C)",
         "tr": "Ortamdaki ses hızı (örneğin, 20°C'de hava)",
-        "de": "Schallgeschwindigkeit im Medium (z.B. Luft bei 20°C)"
+        "de": "Schallgeschwindigkeit im Medium (z.B. Luft bei 20°C)",
+        "fr": "Vitesse du son dans le milieu (par exemple, air à 20°C)",
+        "es": "Velocidad del sonido en el medio (ej., aire a 20°C)"
       }
     }
   ],

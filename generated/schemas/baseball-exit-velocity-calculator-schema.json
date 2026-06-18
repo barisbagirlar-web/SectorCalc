@@ -12,14 +12,16 @@
         "en": "Ball Mass",
         "tr": "Top Kütlesi",
         "de": "Ballmasse",
-        "fr": "Ball Mass",
-        "es": "Ball Mass",
+        "fr": "Masse de la balle",
+        "es": "Masa de la pelota",
         "ar": "Ball Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the baseball in ounces. MLB regulations: 5 to 5.25 ounces.",
         "tr": "Beyzbol topunun ons cinsinden kütlesi. MLB kuralları: 5 ila 5,25 ons.",
-        "de": "Masse des Baseballs in Unzen. MLB-Vorschriften: 5 bis 5,25 Unzen."
+        "de": "Masse des Baseballs in Unzen. MLB-Vorschriften: 5 bis 5,25 Unzen.",
+        "fr": "Masse de la balle de baseball en onces. Règlement MLB : 5 à 5,25 onces.",
+        "es": "Masa de la pelota de béisbol en onzas. Reglamento MLB: 5 a 5.25 onzas."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Effective Bat Mass",
         "tr": "Etkin Sopa Kütlesi",
         "de": "Effektive Schlägermasse",
-        "fr": "Effective Bat Mass",
-        "es": "Effective Bat Mass",
+        "fr": "Masse effective de la batte",
+        "es": "Masa efectiva del bate",
         "ar": "Effective Bat Mass"
       },
       "businessContext_i18n": {
         "en": "Effective mass of the bat at the impact point, typically less than total bat weight. Default is for a standard wood bat.",
         "tr": "Çarpma noktasında sopanın etkin kütlesi, genellikle toplam sopa ağırlığından azdır. Varsayılan standart bir tahta sopa içindir.",
-        "de": "Effektive Masse des Schlägers am Aufprallpunkt, typischerweise geringer als das Gesamtgewicht. Standardwert für einen Holzschläger."
+        "de": "Effektive Masse des Schlägers am Aufprallpunkt, typischerweise geringer als das Gesamtgewicht. Standardwert für einen Holzschläger.",
+        "fr": "Masse effective de la batte au point d'impact, généralement inférieure au poids total de la batte. Valeur par défaut pour une batte en bois standard.",
+        "es": "Masa efectiva del bate en el punto de impacto, típicamente menor que el peso total del bate. El valor predeterminado es para un bate de madera estándar."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Pitch Speed",
         "tr": "Atış Hızı",
         "de": "Wurfgeschwindigkeit",
-        "fr": "Pitch Speed",
-        "es": "Pitch Speed",
+        "fr": "Vitesse du lancer",
+        "es": "Velocidad del lanzamiento",
         "ar": "Pitch Speed"
       },
       "businessContext_i18n": {
         "en": "Speed of the pitched ball as it crosses the plate, in miles per hour.",
         "tr": "Atılan topun plakayı geçerkenki hızı, mil/saat cinsinden.",
-        "de": "Geschwindigkeit des geworfenen Balls beim Überqueren der Platte, in Meilen pro Stunde."
+        "de": "Geschwindigkeit des geworfenen Balls beim Überqueren der Platte, in Meilen pro Stunde.",
+        "fr": "Vitesse de la balle lancée lorsqu'elle traverse le marbre, en miles par heure.",
+        "es": "Velocidad de la pelota lanzada al cruzar el plato, en millas por hora."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Bat Speed",
         "tr": "Sopa Hızı",
         "de": "Schlägergeschwindigkeit",
-        "fr": "Bat Speed",
-        "es": "Bat Speed",
+        "fr": "Vitesse de la batte",
+        "es": "Velocidad del bate",
         "ar": "Bat Speed"
       },
       "businessContext_i18n": {
         "en": "Speed of the bat's sweet spot at the moment of impact, in miles per hour.",
         "tr": "Çarpma anında sopanın tatlı noktasının hızı, mil/saat cinsinden.",
-        "de": "Geschwindigkeit des Sweet Spots des Schlägers im Moment des Aufpralls, in Meilen pro Stunde."
+        "de": "Geschwindigkeit des Sweet Spots des Schlägers im Moment des Aufpralls, in Meilen pro Stunde.",
+        "fr": "Vitesse du point idéal de la batte au moment de l'impact, en miles par heure.",
+        "es": "Velocidad del punto dulce del bate en el momento del impacto, en millas por hora."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Coefficient of Restitution",
         "tr": "Restitüsyon Katsayısı",
         "de": "Restitutionskoeffizient",
-        "fr": "Coefficient of Restitution",
-        "es": "Coefficient of Restitution",
+        "fr": "Coefficient de restitution",
+        "es": "Coeficiente de restitución",
         "ar": "Coefficient of Restitution"
       },
       "businessContext_i18n": {
         "en": "Coefficient of restitution between ball and bat, typically 0.5 to 0.55 for wood bats.",
         "tr": "Top ve sopa arasındaki restitüsyon katsayısı, tahta sopalar için tipik olarak 0.5 ila 0.55.",
-        "de": "Restitutionskoeffizient zwischen Ball und Schläger, typischerweise 0,5 bis 0,55 bei Holzschlägern."
+        "de": "Restitutionskoeffizient zwischen Ball und Schläger, typischerweise 0,5 bis 0,55 bei Holzschlägern.",
+        "fr": "Coefficient de restitution entre la balle et la batte, typiquement 0,5 à 0,55 pour les battes en bois.",
+        "es": "Coeficiente de restitución entre la pelota y el bate, típicamente 0.5 a 0.55 para bates de madera."
       }
     }
   ],

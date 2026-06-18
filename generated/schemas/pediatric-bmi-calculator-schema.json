@@ -12,13 +12,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Child's age in months (for percentile interpretation, not used in BMI formula).",
-        "tr": "Çocuğun ay cinsinden yaşı (persentil yorumu için, BMI formülünde kullanılmaz)."
+        "tr": "Çocuğun ay cinsinden yaşı (persentil yorumu için, BMI formülünde kullanılmaz).",
+        "de": "Alter des Kindes in Monaten (für Perzentil-Interpretation, nicht in BMI-Formel verwendet).",
+        "fr": "Âge de l'enfant en mois (pour interprétation percentile, non utilisé dans la formule IMC).",
+        "es": "Edad del niño en meses (para interpretación de percentiles, no se usa en la fórmula del IMC)."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Sex",
         "tr": "Cinsiyet",
         "de": "Geschlecht",
-        "fr": "Sex",
-        "es": "Sex",
+        "fr": "Sexe",
+        "es": "Sexo",
         "ar": "Sex"
       },
       "businessContext_i18n": {
         "en": "Biological sex (0 = female, 1 = male) for growth chart percentile lookup.",
-        "tr": "Biyolojik cinsiyet (0 = kadın, 1 = erkek) büyüme çizelgesi persentil sorgulaması için."
+        "tr": "Biyolojik cinsiyet (0 = kadın, 1 = erkek) büyüme çizelgesi persentil sorgulaması için.",
+        "de": "Biologisches Geschlecht (0 = weiblich, 1 = männlich) für Wachstumsdiagramm-Perzentil-Nachschlage.",
+        "fr": "Sexe biologique (0 = féminin, 1 = masculin) pour la recherche de percentile sur la courbe de croissance.",
+        "es": "Sexo biológico (0 = femenino, 1 = masculino) para la consulta de percentiles en tablas de crecimiento."
       }
     },
     {
@@ -52,14 +58,16 @@
         "en": "Weight",
         "tr": "Ağırlık",
         "de": "Gewicht",
-        "fr": "Weight",
-        "es": "Weight",
+        "fr": "Poids",
+        "es": "Peso",
         "ar": "Weight"
       },
       "businessContext_i18n": {
         "en": "Body weight in kilograms.",
         "tr": "Vücut ağırlığı (kg).",
-        "de": "Körpergewicht in Kilogramm."
+        "de": "Körpergewicht in Kilogramm.",
+        "fr": "Poids corporel en kilogrammes.",
+        "es": "Peso corporal en kilogramos."
       }
     },
     {
@@ -73,13 +81,16 @@
         "en": "Height",
         "tr": "Boy",
         "de": "Größe",
-        "fr": "Height",
-        "es": "Height",
+        "fr": "Taille",
+        "es": "Altura",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "Standing height in centimeters.",
-        "tr": "Ayakta boy (cm)."
+        "tr": "Ayakta boy (cm).",
+        "de": "Stehende Körpergröße in Zentimetern.",
+        "fr": "Taille debout en centimètres.",
+        "es": "Altura de pie en centímetros."
       }
     }
   ],

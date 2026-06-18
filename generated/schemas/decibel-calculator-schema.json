@@ -12,14 +12,16 @@
         "en": "Reference Power",
         "tr": "Referans Güç",
         "de": "Referenzleistung",
-        "fr": "Reference Power",
-        "es": "Reference Power",
+        "fr": "Puissance de référence",
+        "es": "Potencia de referencia",
         "ar": "Reference Power"
       },
       "businessContext_i18n": {
         "en": "The reference power level (e.g., 1 mW = 0.001 W for dBm)",
         "tr": "Referans güç seviyesi (örneğin, dBm için 1 mW = 0.001 W)",
-        "de": "Referenzleistungspegel (z. B. 1 mW = 0,001 W für dBm)"
+        "de": "Referenzleistungspegel (z. B. 1 mW = 0,001 W für dBm)",
+        "fr": "Niveau de puissance de référence (ex. 1 mW = 0,001 W pour dBm)",
+        "es": "Nivel de potencia de referencia (ej., 1 mW = 0.001 W para dBm)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Measured Power",
         "tr": "Ölçülen Güç",
         "de": "Gemessene Leistung",
-        "fr": "Measured Power",
-        "es": "Measured Power",
+        "fr": "Puissance mesurée",
+        "es": "Potencia medida",
         "ar": "Measured Power"
       },
       "businessContext_i18n": {
         "en": "The measured power level",
         "tr": "Ölçülen güç seviyesi",
-        "de": "Gemessener Leistungspegel"
+        "de": "Gemessener Leistungspegel",
+        "fr": "Le niveau de puissance mesuré",
+        "es": "Nivel de potencia medido"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Reference Amplitude",
         "tr": "Referans Genlik",
         "de": "Referenzamplitude",
-        "fr": "Reference Amplitude",
-        "es": "Reference Amplitude",
+        "fr": "Amplitude de référence",
+        "es": "Amplitud de referencia",
         "ar": "Reference Amplitude"
       },
       "businessContext_i18n": {
         "en": "The reference amplitude (voltage, pressure) in linear units",
         "tr": "Referans genlik (voltaj, basınç) doğrusal birimlerde",
-        "de": "Referenzamplitude (Spannung, Druck) in linearen Einheiten"
+        "de": "Referenzamplitude (Spannung, Druck) in linearen Einheiten",
+        "fr": "L'amplitude de référence (tension, pression) en unités linéaires",
+        "es": "La amplitud de referencia (voltaje, presión) en unidades lineales"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Measured Amplitude",
         "tr": "Ölçülen Genlik",
         "de": "Gemessene Amplitude",
-        "fr": "Measured Amplitude",
-        "es": "Measured Amplitude",
+        "fr": "Amplitude mesurée",
+        "es": "Amplitud medida",
         "ar": "Measured Amplitude"
       },
       "businessContext_i18n": {
         "en": "The measured amplitude",
         "tr": "Ölçülen genlik",
-        "de": "Gemessene Amplitude"
+        "de": "Gemessene Amplitude",
+        "fr": "L'amplitude mesurée",
+        "es": "La amplitud medida"
       }
     }
   ],

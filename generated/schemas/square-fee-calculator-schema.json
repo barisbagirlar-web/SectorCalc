@@ -12,13 +12,15 @@
         "en": "Length",
         "tr": "Uzunluk",
         "de": "Länge",
-        "fr": "Length",
-        "es": "Length",
+        "fr": "Longueur",
+        "es": "Longitud",
         "ar": "Length"
       },
       "businessContext_i18n": {
         "en": "The length of the rectangular area in meters.",
-        "tr": "Dikdörtgen alanın metre cinsinden uzunluğu."
+        "tr": "Dikdörtgen alanın metre cinsinden uzunluğu.",
+        "de": "Die Länge der rechteckigen Fläche in Metern.",
+        "fr": "La longueur de la zone rectangulaire en mètres."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Width",
         "tr": "Genişlik",
         "de": "Breite",
-        "fr": "Width",
-        "es": "Width",
+        "fr": "Largeur",
+        "es": "Ancho",
         "ar": "Width"
       },
       "businessContext_i18n": {
         "en": "The width of the rectangular area in meters.",
-        "tr": "Dikdörtgen alanın metre cinsinden genişliği."
+        "tr": "Dikdörtgen alanın metre cinsinden genişliği.",
+        "de": "Die Breite der rechteckigen Fläche in Metern.",
+        "fr": "La largeur de la zone rectangulaire en mètres."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Price per Square Meter",
         "tr": "Metrekare Başına Fiyat",
-        "de": "Price per Square Meter",
-        "fr": "Price per Square Meter",
+        "de": "Preis pro Quadratmeter",
+        "fr": "Prix au mètre carré",
         "es": "Price per Square Meter",
         "ar": "Price per Square Meter"
       },
       "businessContext_i18n": {
         "en": "The cost per square meter for the area.",
-        "tr": "Alan için metrekare başına maliyet."
+        "tr": "Alan için metrekare başına maliyet.",
+        "de": "Die Kosten pro Quadratmeter für die Fläche.",
+        "fr": "Le coût par mètre carré pour la zone."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
         "de": "Steuersatz",
-        "fr": "Tax Rate",
-        "es": "Tax Rate",
+        "fr": "Taux de taxe",
+        "es": "Tasa de impuesto",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Applicable tax rate as a percentage.",
-        "tr": "Yüzde olarak uygulanabilir vergi oranı."
+        "tr": "Yüzde olarak uygulanabilir vergi oranı.",
+        "de": "Anwendbarer Steuersatz in Prozent.",
+        "fr": "Taux de taxe applicable en pourcentage."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Service Fee",
         "tr": "Hizmet Ücreti",
-        "de": "Service Fee",
-        "fr": "Service Fee",
+        "de": "Servicegebühr",
+        "fr": "Frais de service",
         "es": "Service Fee",
         "ar": "Service Fee"
       },
       "businessContext_i18n": {
         "en": "Fixed service charge additional to the area cost.",
-        "tr": "Alan maliyetine eklenen sabit hizmet ücreti."
+        "tr": "Alan maliyetine eklenen sabit hizmet ücreti.",
+        "de": "Feste Servicegebühr zusätzlich zu den Flächenkosten.",
+        "fr": "Frais de service fixes supplémentaires au coût de la zone."
       }
     }
   ],

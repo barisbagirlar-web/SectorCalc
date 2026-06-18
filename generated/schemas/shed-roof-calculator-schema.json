@@ -12,13 +12,16 @@
         "en": "Roof Length",
         "tr": "Çatı Uzunluğu",
         "de": "Dachlänge",
-        "fr": "Roof Length",
-        "es": "Roof Length",
+        "fr": "Longueur du toit",
+        "es": "Longitud del techo",
         "ar": "Roof Length"
       },
       "businessContext_i18n": {
         "en": "Length of the building along the ridge",
-        "tr": "Binanın mahya boyunca uzunluğu"
+        "tr": "Binanın mahya boyunca uzunluğu",
+        "de": "Length of the building along the ridge",
+        "fr": "Longueur du bâtiment le long du faîtage",
+        "es": "Longitud del edificio a lo largo de la cumbrera"
       }
     },
     {
@@ -32,13 +35,15 @@
         "en": "Roof Width",
         "tr": "Çatı Genişliği",
         "de": "Dachbreite",
-        "fr": "Roof Width",
-        "es": "Roof Width",
+        "fr": "Largeur du toit",
+        "es": "Ancho del techo",
         "ar": "Roof Width"
       },
       "businessContext_i18n": {
         "en": "Horizontal width of the building from eave to eave",
-        "tr": "Saçaktan saçağa binanın yatay genişliği"
+        "tr": "Saçaktan saçağa binanın yatay genişliği",
+        "de": "Horizontale Breite des Gebäudes von Traufe zu Traufe",
+        "fr": "Largeur horizontale du bâtiment d'un avant-toit à l'autre"
       }
     },
     {
@@ -51,14 +56,16 @@
       "label_i18n": {
         "en": "Slope Angle",
         "tr": "Eğim Açısı",
-        "de": "Slope Angle",
-        "fr": "Slope Angle",
+        "de": "Neigungswinkel",
+        "fr": "Angle de pente",
         "es": "Slope Angle",
         "ar": "Slope Angle"
       },
       "businessContext_i18n": {
         "en": "Angle of the roof slope in degrees",
-        "tr": "Çatı eğiminin derece cinsinden açısı"
+        "tr": "Çatı eğiminin derece cinsinden açısı",
+        "de": "Winkel der Dachneigung in Grad",
+        "fr": "Angle de la pente du toit en degrés"
       }
     },
     {
@@ -71,14 +78,16 @@
       "label_i18n": {
         "en": "Overhang",
         "tr": "Saçak çıkıntısı",
-        "de": "Overhang",
-        "fr": "Overhang",
-        "es": "Overhang",
+        "de": "Überstand",
+        "fr": "Débord",
+        "es": "Voladizo",
         "ar": "Overhang"
       },
       "businessContext_i18n": {
         "en": "Overhang distance beyond walls on all sides",
-        "tr": "Duvarların her tarafındaki çıkıntı mesafesi"
+        "tr": "Duvarların her tarafındaki çıkıntı mesafesi",
+        "de": "Überstand über die Wände auf allen Seiten",
+        "fr": "Débord au-delà des murs de tous les côtés"
       }
     }
   ],

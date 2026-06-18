@@ -12,13 +12,15 @@
         "en": "Loan Amount",
         "tr": "Kredi Tutarı",
         "de": "Darlehensbetrag",
-        "fr": "Loan Amount",
-        "es": "Loan Amount",
+        "fr": "Montant du prêt",
+        "es": "Monto del préstamo",
         "ar": "Loan Amount"
       },
       "businessContext_i18n": {
         "en": "Net loan amount requested before SBA guarantee fee",
-        "tr": "SBA garanti ücreti öncesi talep edilen net kredi tutarı"
+        "tr": "SBA garanti ücreti öncesi talep edilen net kredi tutarı",
+        "de": "Nettodarlehensbetrag vor SBA-Garantiegebühr",
+        "fr": "Montant net du prêt demandé avant les frais de garantie SBA"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Interest Rate",
         "tr": "Faiz Oranı",
         "de": "Zinssatz",
-        "fr": "Interest Rate",
-        "es": "Interest Rate",
+        "fr": "Taux d'intérêt",
+        "es": "Tasa de interés",
         "ar": "Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Annual interest rate",
-        "tr": "Yıllık faiz oranı"
+        "tr": "Yıllık faiz oranı",
+        "de": "Jährlicher Zinssatz",
+        "fr": "Taux d'intérêt annuel"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Loan Term",
         "tr": "Kredi Vadesi",
         "de": "Darlehenslaufzeit",
-        "fr": "Loan Term",
-        "es": "Loan Term",
+        "fr": "Durée du prêt",
+        "es": "Plazo del préstamo",
         "ar": "Loan Term"
       },
       "businessContext_i18n": {
         "en": "Repayment period in years",
-        "tr": "Yıl cinsinden geri ödeme süresi"
+        "tr": "Yıl cinsinden geri ödeme süresi",
+        "de": "Rückzahlungszeitraum in Jahren",
+        "fr": "Période de remboursement en années"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "SBA Guarantee Fee",
         "tr": "SBA Garanti Ücreti",
-        "de": "SBA Guarantee Fee",
-        "fr": "SBA Guarantee Fee",
+        "de": "SBA-Garantiegebühr",
+        "fr": "Frais de garantie SBA",
         "es": "SBA Guarantee Fee",
         "ar": "SBA Guarantee Fee"
       },
       "businessContext_i18n": {
         "en": "SBA guarantee fee percentage (added to total financed amount)",
-        "tr": "SBA garanti ücreti yüzdesi (toplam finanse edilen tutara eklenir)"
+        "tr": "SBA garanti ücreti yüzdesi (toplam finanse edilen tutara eklenir)",
+        "de": "SBA-Garantiegebührenprozentsatz (zum gesamten finanzierten Betrag hinzugefügt)",
+        "fr": "Pourcentage des frais de garantie SBA (ajouté au montant total financé)"
       }
     }
   ],

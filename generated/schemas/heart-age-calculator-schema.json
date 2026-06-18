@@ -12,14 +12,16 @@
         "en": "Yaş",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Yaş",
-        "es": "Yaş",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Yaş"
       },
       "businessContext_i18n": {
         "en": "Hastanın kronolojik yaşı",
         "tr": "Hastanın kronolojik yaşı",
-        "de": "Chronologisches Alter des Patienten"
+        "de": "Chronologisches Alter des Patienten",
+        "fr": "Âge chronologique du patient",
+        "es": "Edad cronológica del paciente"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Sistolik Kan Basıncı",
         "tr": "Sistolik Kan Basıncı",
         "de": "Systolischer Blutdruck",
-        "fr": "Sistolik Kan Basıncı",
-        "es": "Sistolik Kan Basıncı",
+        "fr": "Pression artérielle systolique",
+        "es": "Presión arterial sistólica",
         "ar": "Sistolik Kan Basıncı"
       },
       "businessContext_i18n": {
         "en": "Ölçülen sistolik kan basıncı",
         "tr": "Ölçülen sistolik kan basıncı",
-        "de": "Gemessener systolischer Blutdruck"
+        "de": "Gemessener systolischer Blutdruck",
+        "fr": "Pression artérielle systolique mesurée",
+        "es": "Presión arterial sistólica medida"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Total Kolesterol",
         "tr": "Total Kolesterol",
         "de": "Gesamtcholesterin",
-        "fr": "Total Kolesterol",
-        "es": "Total Kolesterol",
+        "fr": "Cholestérol total",
+        "es": "Colesterol total",
         "ar": "Total Kolesterol"
       },
       "businessContext_i18n": {
         "en": "Açlık total kolesterol seviyesi",
         "tr": "Açlık total kolesterol seviyesi",
-        "de": "Nüchtern-Gesamtcholesterinspiegel"
+        "de": "Nüchtern-Gesamtcholesterinspiegel",
+        "fr": "Niveau de cholestérol total à jeun",
+        "es": "Nivel de colesterol total en ayunas"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "HDL Kolesterol",
         "tr": "HDL Kolesterol",
         "de": "HDL-Cholesterin",
-        "fr": "HDL Kolesterol",
-        "es": "HDL Kolesterol",
+        "fr": "Cholestérol HDL",
+        "es": "Colesterol HDL",
         "ar": "HDL Kolesterol"
       },
       "businessContext_i18n": {
         "en": "Yüksek yoğunluklu lipoprotein seviyesi",
         "tr": "Yüksek yoğunluklu lipoprotein seviyesi",
-        "de": "High-Density-Lipoprotein-Spiegel"
+        "de": "High-Density-Lipoprotein-Spiegel",
+        "fr": "Niveau de lipoprotéines de haute densité",
+        "es": "Nivel de lipoproteínas de alta densidad"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Sigara Kullanımı",
         "tr": "Sigara Kullanımı",
         "de": "Rauchen",
-        "fr": "Sigara Kullanımı",
-        "es": "Sigara Kullanımı",
+        "fr": "Tabagisme",
+        "es": "Consumo de tabaco",
         "ar": "Sigara Kullanımı"
       },
       "businessContext_i18n": {
         "en": "0: İçmiyor, 1: İçiyor",
         "tr": "0: İçmiyor, 1: İçiyor",
-        "de": "0: Nichtraucher, 1: Raucher"
+        "de": "0: Nichtraucher, 1: Raucher",
+        "fr": "0 : Non fumeur, 1 : Fumeur",
+        "es": "0: No fuma, 1: Fuma"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Diyabet",
         "tr": "Diyabet",
         "de": "Diabetes",
-        "fr": "Diyabet",
-        "es": "Diyabet",
+        "fr": "Diabète",
+        "es": "Diabetes",
         "ar": "Diyabet"
       },
       "businessContext_i18n": {
         "en": "0: Yok, 1: Var",
         "tr": "0: Yok, 1: Var",
-        "de": "0: Nein, 1: Ja"
+        "de": "0: Nein, 1: Ja",
+        "fr": "0 : Non, 1 : Oui",
+        "es": "0: No, 1: Sí"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Kan Basıncı Tedavisi",
         "tr": "Kan Basıncı Tedavisi",
         "de": "Blutdruckbehandlung",
-        "fr": "Kan Basıncı Tedavisi",
-        "es": "Kan Basıncı Tedavisi",
+        "fr": "Traitement de la pression artérielle",
+        "es": "Tratamiento para presión arterial",
         "ar": "Kan Basıncı Tedavisi"
       },
       "businessContext_i18n": {
         "en": "0: Tedavi yok, 1: Tedavi var",
         "tr": "0: Tedavi yok, 1: Tedavi var",
-        "de": "0: Keine Behandlung, 1: Behandlung"
+        "de": "0: Keine Behandlung, 1: Behandlung",
+        "fr": "0 : Pas de traitement, 1 : Traitement",
+        "es": "0: Sin tratamiento, 1: Con tratamiento"
       }
     }
   ],

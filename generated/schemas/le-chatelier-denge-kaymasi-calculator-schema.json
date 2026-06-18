@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Başlangıç A Derişimi",
         "tr": "Başlangıç A Derişimi",
-        "de": "Başlangıç A Derişimi",
-        "fr": "Başlangıç A Derişimi",
-        "es": "Başlangıç A Derişimi",
+        "de": "Anfangskonzentration von A",
+        "fr": "Concentration initiale de A",
+        "es": "Concentración inicial de A",
         "ar": "Başlangıç A Derişimi"
       },
       "businessContext_i18n": {
         "en": "Reaksiyona giren A maddesinin başlangıçtaki molar derişimi",
-        "tr": "Reaksiyona giren A maddesinin başlangıçtaki molar derişimi"
+        "tr": "Reaksiyona giren A maddesinin başlangıçtaki molar derişimi",
+        "de": "Anfängliche molare Konzentration der reagierenden Substanz A",
+        "fr": "Concentration molaire initiale du réactif A",
+        "es": "Concentración molar inicial de la sustancia A que reacciona"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Başlangıç B Derişimi",
         "tr": "Başlangıç B Derişimi",
-        "de": "Başlangıç B Derişimi",
-        "fr": "Başlangıç B Derişimi",
-        "es": "Başlangıç B Derişimi",
+        "de": "Anfangs-Konzentration B",
+        "fr": "Concentration initiale de B",
+        "es": "Concentración Inicial de B",
         "ar": "Başlangıç B Derişimi"
       },
       "businessContext_i18n": {
         "en": "Reaksiyon ürünü B maddesinin başlangıçtaki molar derişimi",
-        "tr": "Reaksiyon ürünü B maddesinin başlangıçtaki molar derişimi"
+        "tr": "Reaksiyon ürünü B maddesinin başlangıçtaki molar derişimi",
+        "de": "Anfängliche molare Konzentration des Reaktionsprodukts B",
+        "fr": "Concentration molaire initiale du produit B",
+        "es": "Concentración molar inicial de la sustancia B del producto de reacción"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Denge Sabiti (Kc)",
         "tr": "Denge Sabiti (Kc)",
-        "de": "Denge Sabiti (Kc)",
-        "fr": "Denge Sabiti (Kc)",
-        "es": "Denge Sabiti (Kc)",
+        "de": "Gleichgewichtskonstante (Kc)",
+        "fr": "Constante d'équilibre (Kc)",
+        "es": "Constante de Equilibrio (Kc)",
         "ar": "Denge Sabiti (Kc)"
       },
       "businessContext_i18n": {
         "en": "A ⇌ B reaksiyonunun derişim cinsinden denge sabiti",
-        "tr": "A ⇌ B reaksiyonunun derişim cinsinden denge sabiti"
+        "tr": "A ⇌ B reaksiyonunun derişim cinsinden denge sabiti",
+        "de": "Gleichgewichtskonstante der Reaktion A ⇌ B in Bezug auf die Konzentration",
+        "fr": "Constante d'équilibre en concentration pour la réaction A ⇌ B",
+        "es": "Constante de equilibrio en términos de concentración para la reacción A ⇌ B"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Eklenen A Miktarı",
         "tr": "Eklenen A Miktarı",
-        "de": "Eklenen A Miktarı",
-        "fr": "Eklenen A Miktarı",
-        "es": "Eklenen A Miktarı",
+        "de": "Zugegebene Menge A",
+        "fr": "Quantité de A ajoutée",
+        "es": "Cantidad de A Agregada",
         "ar": "Eklenen A Miktarı"
       },
       "businessContext_i18n": {
         "en": "Sisteme sonradan eklenen A maddesinin molar derişim değişimi (pozitif ekleme, negatif çıkarma)",
-        "tr": "Sisteme sonradan eklenen A maddesinin molar derişim değişimi (pozitif ekleme, negatif çıkarma)"
+        "tr": "Sisteme sonradan eklenen A maddesinin molar derişim değişimi (pozitif ekleme, negatif çıkarma)",
+        "de": "Molare Konzentrationsänderung von A, die dem System nachträglich zugegeben wird (positiv für Zugabe, negativ für Entnahme)",
+        "fr": "Variation de concentration molaire de A ajoutée au système (positive pour ajout, négative pour retrait)",
+        "es": "Cambio en la concentración molar de la sustancia A agregada posteriormente al sistema (positivo para adición, negativo para extracción)"
       }
     }
   ],

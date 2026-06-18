@@ -13,12 +13,14 @@
         "tr": "Mesafe (km)",
         "de": "Strecke (km)",
         "fr": "Distance (km)",
-        "es": "Distance (km)",
+        "es": "Distancia (km)",
         "ar": "Distance (km)"
       },
       "businessContext_i18n": {
         "en": "Total distance traveled by the vehicle.",
-        "tr": "Aracın kat ettiği toplam mesafe."
+        "tr": "Aracın kat ettiği toplam mesafe.",
+        "de": "Vom Fahrzeug zurückgelegte Gesamtstrecke.",
+        "fr": "Distance totale parcourue par le véhicule."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Fuel Consumption Rate",
         "tr": "Yakıt Tüketim Oranı",
         "de": "Kraftstoffverbrauchsrate",
-        "fr": "Fuel Consumption Rate",
-        "es": "Fuel Consumption Rate",
+        "fr": "Taux de consommation de carburant",
+        "es": "Tasa de consumo de combustible",
         "ar": "Fuel Consumption Rate"
       },
       "businessContext_i18n": {
         "en": "Average fuel consumption per 100 km (e.g., 8 L/100km for a mid-size car).",
-        "tr": "100 km başına ortalama yakıt tüketimi (örneğin, orta boy bir araba için 8 L/100 km)."
+        "tr": "100 km başına ortalama yakıt tüketimi (örneğin, orta boy bir araba için 8 L/100 km).",
+        "de": "Durchschnittlicher Kraftstoffverbrauch pro 100 km (z. B. 8 L/100 km für einen Mittelklassewagen).",
+        "fr": "Consommation moyenne de carburant aux 100 km (ex. : 8 L/100 km pour une voiture moyenne)."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Fuel Emission Factor",
         "tr": "Yakıt emisyon faktörü",
         "de": "Kraftstoff-Emissionsfaktor",
-        "fr": "Fuel Emission Factor",
-        "es": "Fuel Emission Factor",
+        "fr": "Facteur d'émission du carburant",
+        "es": "Factor de emisión del combustible",
         "ar": "Fuel Emission Factor"
       },
       "businessContext_i18n": {
         "en": "CO₂ emissions per liter of fuel burned. For diesel ~2.68 kg/L, gasoline ~2.31 kg/L.",
-        "tr": "Yakılan litre başına CO₂ emisyonu. Dizel için ~2,68 kg/L, benzin için ~2,31 kg/L."
+        "tr": "Yakılan litre başına CO₂ emisyonu. Dizel için ~2,68 kg/L, benzin için ~2,31 kg/L.",
+        "de": "CO₂-Emissionen pro Liter verbranntem Kraftstoff. Für Diesel ~2,68 kg/L, Benzin ~2,31 kg/L.",
+        "fr": "Émissions de CO₂ par litre de carburant brûlé. Pour le diesel ~2,68 kg/L, l'essence ~2,31 kg/L."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Number of Trips or Vehicles",
         "tr": "Sefer veya Araç Sayısı",
-        "de": "Number of Trips or Vehicles",
-        "fr": "Number of Trips or Vehicles",
+        "de": "Anzahl der Fahrten oder Fahrzeuge",
+        "fr": "Nombre de trajets ou de véhicules",
         "es": "Number of Trips or Vehicles",
         "ar": "Number of Trips or Vehicles"
       },
       "businessContext_i18n": {
         "en": "Number of identical trips or vehicles to scale total emissions.",
-        "tr": "Toplam emisyonları ölçeklendirmek için aynı sefer veya araç sayısı."
+        "tr": "Toplam emisyonları ölçeklendirmek için aynı sefer veya araç sayısı.",
+        "de": "Anzahl identischer Fahrten oder Fahrzeuge zur Skalierung der Gesamtemissionen.",
+        "fr": "Nombre de trajets ou de véhicules identiques pour mettre à l'échelle les émissions totales."
       }
     }
   ],

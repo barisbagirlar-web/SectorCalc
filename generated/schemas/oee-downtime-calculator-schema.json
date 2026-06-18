@@ -23,11 +23,17 @@
       "businessContext": "Total scheduled time for production in a shift/day (e.g., 8 hours = 480 minutes).",
       "label_i18n": {
         "en": "Planned Production Time (minutes)",
-        "tr": "Planlanan Üretim Süresi (dakika)"
+        "tr": "Planlanan Üretim Süresi (dakika)",
+        "de": "Geplante Produktionszeit (Minuten)",
+        "fr": "Temps de production planifié (minutes)",
+        "es": "Tiempo de producción planificado (minutos)"
       },
       "businessContext_i18n": {
         "en": "Total scheduled time for production in a shift/day (e.g., 8 hours = 480 minutes).",
-        "tr": "Bir vardiya/günde planlanan toplam üretim süresi (ör. 8 saat = 480 dakika)."
+        "tr": "Bir vardiya/günde planlanan toplam üretim süresi (ör. 8 saat = 480 dakika).",
+        "de": "Gesamte geplante Produktionszeit pro Schicht/Tag (z.B. 8 Stunden = 480 Minuten).",
+        "fr": "Temps total planifié pour la production par poste/jour (ex. 8 heures = 480 minutes).",
+        "es": "Tiempo total programado para producción en un turno/día (ej., 8 horas = 480 minutos)."
       }
     },
     {
@@ -41,11 +47,17 @@
       "businessContext": "Sum of all unplanned and planned stops (breakdowns, setup, maintenance).",
       "label_i18n": {
         "en": "Total Downtime (minutes)",
-        "tr": "Toplam Durma Süresi (dakika)"
+        "tr": "Toplam Durma Süresi (dakika)",
+        "de": "Gesamtstillstandszeit (Minuten)",
+        "fr": "Temps d'arrêt total (minutes)",
+        "es": "Tiempo de inactividad total (minutos)"
       },
       "businessContext_i18n": {
         "en": "Sum of all unplanned and planned stops (breakdowns, setup, maintenance).",
-        "tr": "Tüm plansız ve planlı duruşların toplamı (arıza, kurulum, bakım)."
+        "tr": "Tüm plansız ve planlı duruşların toplamı (arıza, kurulum, bakım).",
+        "de": "Summe aller ungeplanten und geplanten Stopps (Störungen, Rüsten, Wartung).",
+        "fr": "Somme de tous les arrêts non planifiés et planifiés (pannes, réglages, maintenance).",
+        "es": "Suma de todas las paradas no planificadas y planificadas (averías, preparación, mantenimiento)."
       }
     },
     {
@@ -59,11 +71,17 @@
       "businessContext": "Theoretical fastest time to produce one unit under optimal conditions.",
       "label_i18n": {
         "en": "Ideal Cycle Time (minutes per unit)",
-        "tr": "İdeal Çevrim Süresi (dakika/birim)"
+        "tr": "İdeal Çevrim Süresi (dakika/birim)",
+        "de": "Ideale Taktzeit (Minuten pro Einheit)",
+        "fr": "Temps de cycle idéal (minutes par unité)",
+        "es": "Tiempo de ciclo ideal (minutos por unidad)"
       },
       "businessContext_i18n": {
         "en": "Theoretical fastest time to produce one unit under optimal conditions.",
-        "tr": "Optimum koşullarda bir birim üretmek için teorik en hızlı süre."
+        "tr": "Optimum koşullarda bir birim üretmek için teorik en hızlı süre.",
+        "de": "Theoretisch schnellste Zeit, um eine Einheit unter optimalen Bedingungen zu produzieren.",
+        "fr": "Temps théorique le plus rapide pour produire une unité dans des conditions optimales.",
+        "es": "Tiempo teórico más rápido para producir una unidad en condiciones óptimas."
       }
     },
     {
@@ -77,11 +95,17 @@
       "businessContext": "Total count of units produced during the planned production time.",
       "label_i18n": {
         "en": "Total Parts Produced",
-        "tr": "Üretilen Toplam Parça"
+        "tr": "Üretilen Toplam Parça",
+        "de": "Gesamtzahl produzierter Teile",
+        "fr": "Nombre total de pièces produites",
+        "es": "Total de piezas producidas"
       },
       "businessContext_i18n": {
         "en": "Total count of units produced during the planned production time.",
-        "tr": "Planlanan üretim süresi boyunca üretilen toplam birim sayısı."
+        "tr": "Planlanan üretim süresi boyunca üretilen toplam birim sayısı.",
+        "de": "Gesamtzahl der während der geplanten Produktionszeit hergestellten Einheiten.",
+        "fr": "Nombre total d'unités produites pendant le temps de production planifié.",
+        "es": "Recuento total de unidades producidas durante el tiempo de producción planificado."
       }
     },
     {
@@ -95,11 +119,17 @@
       "businessContext": "Number of units that do not meet quality standards (scrap, rework).",
       "label_i18n": {
         "en": "Defective Parts",
-        "tr": "Hatalı Parçalar"
+        "tr": "Hatalı Parçalar",
+        "de": "Fehlerhafte Teile",
+        "fr": "Pièces défectueuses",
+        "es": "Piezas defectuosas"
       },
       "businessContext_i18n": {
         "en": "Number of units that do not meet quality standards (scrap, rework).",
-        "tr": "Kalite standartlarını karşılamayan birim sayısı (fire, yeniden işleme)."
+        "tr": "Kalite standartlarını karşılamayan birim sayısı (fire, yeniden işleme).",
+        "de": "Anzahl der Einheiten, die nicht den Qualitätsstandards entsprechen (Ausschuss, Nacharbeit).",
+        "fr": "Nombre d'unités ne répondant pas aux normes de qualité (rebut, reprise).",
+        "es": "Número de unidades que no cumplen con los estándares de calidad (desperdicio, retrabajo)."
       }
     },
     {
@@ -117,11 +147,16 @@
       "label_i18n": {
         "en": "Shift Type",
         "tr": "Vardiya Türü",
-        "de": "Schichttyp"
+        "de": "Schichttyp",
+        "fr": "Type de quart",
+        "es": "Tipo de turno"
       },
       "businessContext_i18n": {
         "en": "Type of shift to adjust for fatigue or environmental factors.",
-        "tr": "Yorgunluk veya çevresel faktörleri ayarlamak için vardiya türü."
+        "tr": "Yorgunluk veya çevresel faktörleri ayarlamak için vardiya türü.",
+        "de": "Schichttyp zur Anpassung an Ermüdung oder Umgebungsfaktoren.",
+        "fr": "Type de poste pour ajuster les facteurs de fatigue ou environnementaux.",
+        "es": "Tipo de turno para ajustar por fatiga o factores ambientales."
       }
     },
     {
@@ -133,11 +168,17 @@
       "businessContext": "If true, small stops are counted as downtime per Six Sigma guidelines.",
       "label_i18n": {
         "en": "Include Micro-Stops (< 2 min) in Downtime",
-        "tr": "Mikro-Duruşları (< 2 dk) Durma Süresine Dahil Et"
+        "tr": "Mikro-Duruşları (< 2 dk) Durma Süresine Dahil Et",
+        "de": "Mikrostopps (< 2 Min.) in Stillstandszeit einbeziehen",
+        "fr": "Inclure les micro-arrêts (< 2 min) dans le temps d'arrêt",
+        "es": "Incluir microparadas (< 2 min) en el tiempo de inactividad"
       },
       "businessContext_i18n": {
         "en": "If true, small stops are counted as downtime per Six Sigma guidelines.",
-        "tr": "Doğruysa, Altı Sigma yönergelerine göre küçük duruşlar durma süresi olarak sayılır."
+        "tr": "Doğruysa, Altı Sigma yönergelerine göre küçük duruşlar durma süresi olarak sayılır.",
+        "de": "Wenn aktiviert, werden kleine Stopps gemäß Six Sigma-Richtlinien als Stillstand gezählt.",
+        "fr": "Si vrai, les petits arrêts sont comptés comme temps d'arrêt selon les directives Six Sigma.",
+        "es": "Si es verdadero, las paradas pequeñas se cuentan como tiempo de inactividad según las directrices de Seis Sigma."
       }
     }
   ],

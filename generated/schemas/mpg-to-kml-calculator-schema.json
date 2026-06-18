@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Fuel Efficiency (mpg)",
         "tr": "Yakıt Verimliliği (mpg)",
-        "de": "Fuel Efficiency (mpg)",
-        "fr": "Fuel Efficiency (mpg)",
-        "es": "Fuel Efficiency (mpg)",
+        "de": "Kraftstoffeffizienz (mpg)",
+        "fr": "Rendement énergétique (mpg)",
+        "es": "Eficiencia de Combustible (mpg)",
         "ar": "Fuel Efficiency (mpg)"
       },
       "businessContext_i18n": {
         "en": "Miles per US gallon fuel efficiency",
-        "tr": "Mil başına ABD galonu cinsinden yakıt verimliliği"
+        "tr": "Mil başına ABD galonu cinsinden yakıt verimliliği",
+        "de": "Meilen pro US-Gallone Kraftstoffeffizienz",
+        "fr": "Miles par gallon US d'efficacité énergétique",
+        "es": "Millas por galón estadounidense de eficiencia de combustible"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Factor to convert mpg to km/L (0.425144 for US gallon; 0.354006 for Imperial)",
-        "tr": "mpg'yi km/L'ye dönüştürme faktörü (ABD galonu için 0,425144; İmparatorluk galonu için 0,354006)"
+        "tr": "mpg'yi km/L'ye dönüştürme faktörü (ABD galonu için 0,425144; İmparatorluk galonu için 0,354006)",
+        "de": "Faktor zur Umrechnung von mpg in km/L (0,425144 für US-Gallone; 0,354006 für Imperiale Gallone)",
+        "fr": "Facteur de conversion mpg en km/L (0,425144 pour gallon US ; 0,354006 pour gallon impérial)",
+        "es": "Factor para convertir mpg a km/L (0.425144 para galón estadounidense; 0.354006 para imperial)"
       }
     },
     {
@@ -52,14 +58,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding output",
         "tr": "Yuvarlama için ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen für die Rundung der Ausgabe"
+        "de": "Anzahl der Dezimalstellen für die Rundung der Ausgabe",
+        "fr": "Nombre de décimales pour l'arrondi du résultat",
+        "es": "Número de decimales para redondear el resultado"
       }
     },
     {
@@ -73,13 +81,16 @@
         "en": "Measurement Uncertainty (%)",
         "tr": "Ölçüm Belirsizliği (%)",
         "de": "Messunsicherheit (%)",
-        "fr": "Measurement Uncertainty (%)",
-        "es": "Measurement Uncertainty (%)",
+        "fr": "Incertitude de mesure (%)",
+        "es": "Incertidumbre de medición (%)",
         "ar": "Measurement Uncertainty (%)"
       },
       "businessContext_i18n": {
         "en": "Instrument uncertainty for worst-case tolerance analysis",
-        "tr": "En kötü durum tolerans analizi için enstrüman belirsizliği"
+        "tr": "En kötü durum tolerans analizi için enstrüman belirsizliği",
+        "de": "Instrumentenunsicherheit für Worst-Case-Toleranzanalyse",
+        "fr": "Incertitude de l'instrument pour l'analyse de tolérance au pire cas",
+        "es": "Incertidumbre del instrumento para análisis de tolerancia en el peor caso"
       }
     },
     {
@@ -93,13 +104,16 @@
         "en": "Calibration Offset",
         "tr": "Kalibrasyon Ofseti",
         "de": "Kalibrierungsversatz",
-        "fr": "Calibration Offset",
-        "es": "Calibration Offset",
+        "fr": "Décalage d'étalonnage",
+        "es": "Desviación de calibración",
         "ar": "Calibration Offset"
       },
       "businessContext_i18n": {
         "en": "Systematic instrument offset to be added after conversion",
-        "tr": "Dönüşümden sonra eklenecek sistematik enstrüman ofseti"
+        "tr": "Dönüşümden sonra eklenecek sistematik enstrüman ofseti",
+        "de": "Systematischer Instrumentenoffset, der nach der Umrechnung addiert wird",
+        "fr": "Décalage systématique de l'instrument à ajouter après conversion",
+        "es": "Desplazamiento sistemático del instrumento a añadir después de la conversión"
       }
     }
   ],

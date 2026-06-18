@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Heartbeats Counted",
         "tr": "Sayılan Kalp Atışı",
-        "de": "Heartbeats Counted",
-        "fr": "Heartbeats Counted",
+        "de": "Anzahl der gezählten Herzschläge",
+        "fr": "Nombre de battements cardiaques comptés",
         "es": "Heartbeats Counted",
         "ar": "Heartbeats Counted"
       },
       "businessContext_i18n": {
         "en": "Number of pulse beats counted over the measurement period.",
-        "tr": "Ölçüm süresi boyunca sayılan nabız atım sayısı."
+        "tr": "Ölçüm süresi boyunca sayılan nabız atım sayısı.",
+        "de": "Anzahl der Pulsschläge, die über den Messzeitraum gezählt wurden.",
+        "fr": "Nombre de pulsations comptées sur la période de mesure."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Measurement Duration",
         "tr": "Ölçüm Süresi",
         "de": "Messdauer",
-        "fr": "Measurement Duration",
-        "es": "Measurement Duration",
+        "fr": "Durée de mesure",
+        "es": "Duración de la medición",
         "ar": "Measurement Duration"
       },
       "businessContext_i18n": {
         "en": "Time in seconds over which the beats were counted.",
-        "tr": "Atımların sayıldığı saniye cinsinden süre."
+        "tr": "Atımların sayıldığı saniye cinsinden süre.",
+        "de": "Zeit in Sekunden, über die die Schläge gezählt wurden.",
+        "fr": "Temps en secondes pendant lequel les battements ont été comptés."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Age of the person for reference comparison.",
-        "tr": "Karşılaştırma referansı için kişinin yaşı."
+        "tr": "Karşılaştırma referansı için kişinin yaşı.",
+        "de": "Alter der Person zum Referenzvergleich.",
+        "fr": "Âge de la personne pour référence comparative."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Fitness Level",
         "tr": "Fitness Seviyesi",
         "de": "Fitness-Level",
-        "fr": "Fitness Level",
-        "es": "Fitness Level",
+        "fr": "Niveau de forme physique",
+        "es": "Nivel de condición física",
         "ar": "Fitness Level"
       },
       "businessContext_i18n": {
         "en": "Self-assessed fitness level from 1 (sedentary) to 10 (elite athlete). Used for interpretation.",
-        "tr": "1 (hareketsiz) ile 10 (elit atlet) arasında kendini değerlendirilen fitness seviyesi. Yorumlama için kullanılır."
+        "tr": "1 (hareketsiz) ile 10 (elit atlet) arasında kendini değerlendirilen fitness seviyesi. Yorumlama için kullanılır.",
+        "de": "Selbst eingeschätztes Fitnessniveau von 1 (sesshaft) bis 10 (Spitzensportler). Wird zur Interpretation verwendet.",
+        "fr": "Niveau de forme physique auto-évalué de 1 (sédentaire) à 10 (athlète d'élite). Utilisé pour l'interprétation."
       }
     }
   ],

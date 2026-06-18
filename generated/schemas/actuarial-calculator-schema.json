@@ -12,14 +12,16 @@
         "en": "Sum Assured",
         "tr": "Teminat Tutarı",
         "de": "Versicherungssumme",
-        "fr": "Sum Assured",
-        "es": "Sum Assured",
+        "fr": "Capital assuré",
+        "es": "Suma Asegurada",
         "ar": "Sum Assured"
       },
       "businessContext_i18n": {
         "en": "The amount payable upon the death of the insured",
         "tr": "Sigortalının ölümü halinde ödenecek tutar",
-        "de": "Der Betrag, der im Todesfall der versicherten Person fällig wird."
+        "de": "Der Betrag, der im Todesfall der versicherten Person fällig wird.",
+        "fr": "Montant payable en cas de décès de l'assuré",
+        "es": "Cantidad pagadera al fallecimiento del asegurado"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Annual Mortality Rate",
         "tr": "Yıllık Ölüm Oranı",
         "de": "Jährliche Sterblichkeitsrate",
-        "fr": "Annual Mortality Rate",
-        "es": "Annual Mortality Rate",
+        "fr": "Taux de mortalité annuel",
+        "es": "Tasa de Mortalidad Anual",
         "ar": "Annual Mortality Rate"
       },
       "businessContext_i18n": {
         "en": "The probability that the insured dies within one year, used to calculate expected claim costs",
         "tr": "Sigortalının bir yıl içinde ölme olasılığı, beklenen hasar maliyetlerini hesaplamak için kullanılır",
-        "de": "Die Wahrscheinlichkeit, dass die versicherte Person innerhalb eines Jahres stirbt, zur Berechnung der erwarteten Schadenskosten."
+        "de": "Die Wahrscheinlichkeit, dass die versicherte Person innerhalb eines Jahres stirbt, zur Berechnung der erwarteten Schadenskosten.",
+        "fr": "Probabilité que l'assuré décède dans l'année, utilisée pour calculer les coûts de sinistres attendus",
+        "es": "Probabilidad de que el asegurado fallezca dentro de un año, utilizada para calcular los costos esperados de siniestros"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
         "de": "Jährlicher Zinssatz",
-        "fr": "Annual Interest Rate",
-        "es": "Annual Interest Rate",
+        "fr": "Taux d'intérêt annuel",
+        "es": "Tasa de Interés Anual",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "The risk‑free discount rate used to compute present values of future benefits",
         "tr": "Gelecekteki faydaların bugünkü değerini hesaplamak için kullanılan risksiz iskonto oranı",
-        "de": "Der risikofreie Diskontierungssatz zur Berechnung der Barwerte zukünftiger Leistungen."
+        "de": "Der risikofreie Diskontierungssatz zur Berechnung der Barwerte zukünftiger Leistungen.",
+        "fr": "Taux d'actualisation sans risque utilisé pour calculer la valeur actuelle des prestations futures",
+        "es": "Tasa de descuento libre de riesgo utilizada para calcular el valor presente de los beneficios futuros"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Policy Term",
         "tr": "Poliçe Süresi",
         "de": "Versicherungsdauer",
-        "fr": "Policy Term",
-        "es": "Policy Term",
+        "fr": "Durée du contrat",
+        "es": "Plazo de la Póliza",
         "ar": "Policy Term"
       },
       "businessContext_i18n": {
         "en": "The number of years the insurance coverage remains in force",
         "tr": "Sigorta kapsamının yürürlükte kaldığı yıl sayısı",
-        "de": "Die Anzahl der Jahre, in denen der Versicherungsschutz besteht."
+        "de": "Die Anzahl der Jahre, in denen der Versicherungsschutz besteht.",
+        "fr": "Nombre d'années pendant lesquelles la couverture d'assurance reste en vigueur",
+        "es": "Número de años que la cobertura del seguro permanece vigente"
       }
     }
   ],

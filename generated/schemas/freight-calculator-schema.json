@@ -12,14 +12,16 @@
         "en": "Shipping Distance",
         "tr": "Nakliye Mesafesi",
         "de": "Versanddistanz",
-        "fr": "Shipping Distance",
-        "es": "Shipping Distance",
+        "fr": "Distance de transport",
+        "es": "Distancia de envío",
         "ar": "Shipping Distance"
       },
       "businessContext_i18n": {
         "en": "The total distance the freight will travel from origin to destination.",
         "tr": "Navlunun menşeiden varış noktasına kat edeceği toplam mesafe.",
-        "de": "Gesamte Transportentfernung vom Ursprung zum Ziel."
+        "de": "Gesamte Transportentfernung vom Ursprung zum Ziel.",
+        "fr": "Distance totale que le fret parcourra de l'origine à la destination.",
+        "es": "Distancia total que recorrerá la carga desde el origen hasta el destino."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Shipment Weight",
         "tr": "Gönderi Ağırlığı",
         "de": "Sendungsgewicht",
-        "fr": "Shipment Weight",
-        "es": "Shipment Weight",
+        "fr": "Poids de l'envoi",
+        "es": "Peso del envío",
         "ar": "Shipment Weight"
       },
       "businessContext_i18n": {
         "en": "Total weight of the goods being shipped.",
         "tr": "Gönderilen malların toplam ağırlığı.",
-        "de": "Gesamtgewicht der versendeten Ware."
+        "de": "Gesamtgewicht der versendeten Ware.",
+        "fr": "Poids total des marchandises expédiées.",
+        "es": "Peso total de las mercancías que se envían."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Fuel Cost per Liter",
         "tr": "Litre Başına Yakıt Maliyeti",
         "de": "Kraftstoffkosten pro Liter",
-        "fr": "Fuel Cost per Liter",
-        "es": "Fuel Cost per Liter",
+        "fr": "Coût du carburant par litre",
+        "es": "Coste de combustible por litro",
         "ar": "Fuel Cost per Liter"
       },
       "businessContext_i18n": {
         "en": "Current cost of diesel or fuel per liter.",
         "tr": "Litre başına güncel mazot veya yakıt maliyeti.",
-        "de": "Aktueller Diesel- oder Kraftstoffpreis pro Liter."
+        "de": "Aktueller Diesel- oder Kraftstoffpreis pro Liter.",
+        "fr": "Coût actuel du diesel ou du carburant par litre.",
+        "es": "Coste actual del diésel o combustible por litro."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Fuel Efficiency",
         "tr": "Yakıt Verimliliği",
         "de": "Kraftstoffeffizienz",
-        "fr": "Fuel Efficiency",
-        "es": "Fuel Efficiency",
+        "fr": "Rendement énergétique",
+        "es": "Eficiencia de combustible",
         "ar": "Fuel Efficiency"
       },
       "businessContext_i18n": {
         "en": "Average kilometers the transport vehicle travels per liter of fuel.",
         "tr": "Nakliye aracının litre yakıt başına kat ettiği ortalama kilometre.",
-        "de": "Durchschnittliche Kilometer pro Liter Kraftstoff des Transportfahrzeugs."
+        "de": "Durchschnittliche Kilometer pro Liter Kraftstoff des Transportfahrzeugs.",
+        "fr": "Kilomètres moyens parcourus par le véhicule de transport par litre de carburant.",
+        "es": "Kilómetros promedio que recorre el vehículo de transporte por litro de combustible."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Handling Rate per Kg",
         "tr": "Kg Başına Elleçleme Ücreti",
         "de": "Handhabungskosten pro kg",
-        "fr": "Handling Rate per Kg",
-        "es": "Handling Rate per Kg",
+        "fr": "Tarif de manutention par kg",
+        "es": "Tarifa de manipulación por kg",
         "ar": "Handling Rate per Kg"
       },
       "businessContext_i18n": {
         "en": "Cost of handling, loading, and unloading per kilogram.",
         "tr": "Kilogram başına elleçleme, yükleme ve boşaltma maliyeti.",
-        "de": "Kosten für Be- und Entladung pro Kilogramm."
+        "de": "Kosten für Be- und Entladung pro Kilogramm.",
+        "fr": "Coût de manutention, chargement et déchargement par kilogramme.",
+        "es": "Coste de manipulación, carga y descarga por kilogramo."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Additional Charges",
         "tr": "Ek Ücretler",
         "de": "Zusätzliche Gebühren",
-        "fr": "Additional Charges",
-        "es": "Additional Charges",
+        "fr": "Frais supplémentaires",
+        "es": "Cargos adicionales",
         "ar": "Additional Charges"
       },
       "businessContext_i18n": {
         "en": "Any tolls, surcharges, or fixed costs not included elsewhere.",
         "tr": "Başka yerde dahil edilmeyen geçiş ücretleri, ek ücretler veya sabit maliyetler.",
-        "de": "Zusätzliche Mautgebühren, Zuschläge oder Fixkosten, die nicht anderweitig enthalten sind."
+        "de": "Zusätzliche Mautgebühren, Zuschläge oder Fixkosten, die nicht anderweitig enthalten sind.",
+        "fr": "Tout péage, surcharge ou coût fixe non inclus ailleurs.",
+        "es": "Peajes, recargos o costes fijos no incluidos en otros conceptos."
       }
     }
   ],

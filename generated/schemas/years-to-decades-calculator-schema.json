@@ -12,13 +12,15 @@
         "en": "Years",
         "tr": "Yıl",
         "de": "Jahre",
-        "fr": "Years",
-        "es": "Years",
+        "fr": "Années",
+        "es": "Años",
         "ar": "Years"
       },
       "businessContext_i18n": {
         "en": "Number of full years to convert",
-        "tr": "Dönüştürülecek tam yıl sayısı"
+        "tr": "Dönüştürülecek tam yıl sayısı",
+        "de": "Anzahl der vollständigen umzurechnenden Jahre",
+        "fr": "Nombre d'années complètes à convertir"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Months",
         "tr": "Ay",
         "de": "Monate",
-        "fr": "Months",
-        "es": "Months",
+        "fr": "Mois",
+        "es": "Meses",
         "ar": "Months"
       },
       "businessContext_i18n": {
         "en": "Additional months (12 months = 1 year)",
-        "tr": "Ek aylar (12 ay = 1 yıl)"
+        "tr": "Ek aylar (12 ay = 1 yıl)",
+        "de": "Zusätzliche Monate (12 Monate = 1 Jahr)",
+        "fr": "Mois supplémentaires (12 mois = 1 an)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Weeks",
         "tr": "Haftalar",
-        "de": "Weeks",
-        "fr": "Weeks",
+        "de": "Wochen",
+        "fr": "Semaines",
         "es": "Weeks",
         "ar": "Weeks"
       },
       "businessContext_i18n": {
         "en": "Additional weeks (52.1429 weeks ≈ 1 year)",
-        "tr": "Ek haftalar (52,1429 hafta ≈ 1 yıl)"
+        "tr": "Ek haftalar (52,1429 hafta ≈ 1 yıl)",
+        "de": "Zusätzliche Wochen (52,1429 Wochen ≈ 1 Jahr)",
+        "fr": "Semaines supplémentaires (52,1429 semaines ≈ 1 an)"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Days",
         "tr": "Gün",
         "de": "Tage",
-        "fr": "Days",
-        "es": "Days",
+        "fr": "Jours",
+        "es": "Días",
         "ar": "Days"
       },
       "businessContext_i18n": {
         "en": "Additional days (365.25 days ≈ 1 year)",
-        "tr": "Ek günler (365,25 gün ≈ 1 yıl)"
+        "tr": "Ek günler (365,25 gün ≈ 1 yıl)",
+        "de": "Zusätzliche Tage (365,25 Tage ≈ 1 Jahr)",
+        "fr": "Jours supplémentaires (365,25 jours ≈ 1 an)"
       }
     },
     {
@@ -92,14 +100,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output",
         "tr": "Çıktı için ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen für die Ausgabe"
+        "de": "Anzahl der Dezimalstellen für die Ausgabe",
+        "fr": "Nombre de décimales pour le résultat",
+        "es": "Número de decimales para la salida"
       }
     }
   ],

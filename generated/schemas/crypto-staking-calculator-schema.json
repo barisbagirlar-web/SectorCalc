@@ -12,14 +12,16 @@
         "en": "Staked Amount",
         "tr": "Stake edilen miktar",
         "de": "Gestaketer Betrag",
-        "fr": "Staked Amount",
-        "es": "Staked Amount",
+        "fr": "Montant mis en jeu",
+        "es": "Cantidad apostada",
         "ar": "Staked Amount"
       },
       "businessContext_i18n": {
         "en": "The initial amount of cryptocurrency staked.",
         "tr": "Stake edilen kripto paranın başlangıç miktarı.",
-        "de": "Der anfängliche Betrag der gestaketen Kryptowährung."
+        "de": "Der anfängliche Betrag der gestaketen Kryptowährung.",
+        "fr": "Le montant initial de cryptomonnaie mis en jeu.",
+        "es": "La cantidad inicial de criptomoneda apostada."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Annual Percentage Yield (APY)",
         "tr": "Yıllık Yüzde Getiri (APY)",
         "de": "Jährliche prozentuale Rendite (APY)",
-        "fr": "Annual Percentage Yield (APY)",
-        "es": "Annual Percentage Yield (APY)",
+        "fr": "Rendement annuel en pourcentage (APY)",
+        "es": "Porcentaje de rendimiento anual (APY)",
         "ar": "Annual Percentage Yield (APY)"
       },
       "businessContext_i18n": {
         "en": "The annual yield offered by the staking protocol, expressed as a percentage.",
         "tr": "Staking protokolü tarafından sunulan yıllık getiri, yüzde olarak ifade edilir.",
-        "de": "Die vom Staking-Protokoll angebotene jährliche Rendite, ausgedrückt als Prozentsatz."
+        "de": "Die vom Staking-Protokoll angebotene jährliche Rendite, ausgedrückt als Prozentsatz.",
+        "fr": "Le rendement annuel offert par le protocole de staking, exprimé en pourcentage.",
+        "es": "El rendimiento anual ofrecido por el protocolo de staking, expresado como porcentaje."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Staking Duration",
         "tr": "Stake süresi",
         "de": "Staking-Dauer",
-        "fr": "Staking Duration",
-        "es": "Staking Duration",
+        "fr": "Durée de mise en jeu",
+        "es": "Duración del staking",
         "ar": "Staking Duration"
       },
       "businessContext_i18n": {
         "en": "The period over which the tokens are staked, in days.",
         "tr": "Token'ların stake edildiği süre, gün cinsinden.",
-        "de": "Der Zeitraum, über den die Token gestakt werden, in Tagen."
+        "de": "Der Zeitraum, über den die Token gestakt werden, in Tagen.",
+        "fr": "La période pendant laquelle les jetons sont mis en jeu, en jours.",
+        "es": "El período durante el cual los tokens están apostados, en días."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Compounds per Year",
         "tr": "Yıllık bileşik sayısı",
         "de": "Zinseszinsungen pro Jahr",
-        "fr": "Compounds per Year",
-        "es": "Compounds per Year",
+        "fr": "Compositions par an",
+        "es": "Capitalizaciones por año",
         "ar": "Compounds per Year"
       },
       "businessContext_i18n": {
         "en": "The number of times interest is compounded annually (e.g., 365 for daily, 12 for monthly, 1 for yearly).",
         "tr": "Faizin yılda kaç kez bileşik olarak hesaplandığı (örneğin, günlük için 365, aylık için 12, yıllık için 1).",
-        "de": "Die Anzahl der jährlichen Zinseszinsungen (z. B. 365 für täglich, 12 für monatlich, 1 für jährlich)."
+        "de": "Die Anzahl der jährlichen Zinseszinsungen (z. B. 365 für täglich, 12 für monatlich, 1 für jährlich).",
+        "fr": "Le nombre de fois que les intérêts sont composés annuellement (ex. : 365 pour quotidien, 12 pour mensuel, 1 pour annuel).",
+        "es": "El número de veces que se capitaliza el interés anualmente (ej., 365 para diario, 12 para mensual, 1 para anual)."
       }
     }
   ],

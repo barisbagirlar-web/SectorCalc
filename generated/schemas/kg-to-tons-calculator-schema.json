@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Gross Weight",
         "tr": "Brüt Ağırlık",
-        "de": "Gross Weight",
-        "fr": "Gross Weight",
-        "es": "Gross Weight",
+        "de": "Bruttogewicht",
+        "fr": "Poids brut",
+        "es": "Peso bruto",
         "ar": "Gross Weight"
       },
       "businessContext_i18n": {
         "en": "Total weight of goods including packaging",
-        "tr": "Ambalaj dahil toplam mal ağırlığı"
+        "tr": "Ambalaj dahil toplam mal ağırlığı",
+        "de": "Gesamtgewicht der Ware inklusive Verpackung",
+        "fr": "Poids total des marchandises, emballage compris",
+        "es": "Peso total de la mercancía incluyendo embalaje"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Tare Weight",
         "tr": "Dara Ağırlığı",
-        "de": "Tare Weight",
-        "fr": "Tare Weight",
-        "es": "Tare Weight",
+        "de": "Leergewicht",
+        "fr": "Tare",
+        "es": "Peso tara",
         "ar": "Tare Weight"
       },
       "businessContext_i18n": {
         "en": "Weight of empty packaging or container",
-        "tr": "Boş ambalaj veya konteyner ağırlığı"
+        "tr": "Boş ambalaj veya konteyner ağırlığı",
+        "de": "Gewicht der leeren Verpackung oder des Behälters",
+        "fr": "Poids de l'emballage ou du conteneur vide",
+        "es": "Peso del embalaje o contenedor vacío"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Number of Containers",
         "tr": "Kap Sayısı",
         "de": "Anzahl der Behälter",
-        "fr": "Number of Containers",
-        "es": "Number of Containers",
+        "fr": "Nombre de contenants",
+        "es": "Número de envases",
         "ar": "Number of Containers"
       },
       "businessContext_i18n": {
         "en": "Number of identical containers in the shipment",
-        "tr": "Sevkiyattaki özdeş konteyner sayısı"
+        "tr": "Sevkiyattaki özdeş konteyner sayısı",
+        "de": "Anzahl identischer Behälter in der Sendung",
+        "fr": "Nombre de conteneurs identiques dans l'envoi",
+        "es": "Número de contenedores idénticos en el envío"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Precision of the output value in tons (0-6 recommended)",
-        "tr": "Ton cinsinden çıktı değerinin hassasiyeti (0-6 önerilir)"
+        "tr": "Ton cinsinden çıktı değerinin hassasiyeti (0-6 önerilir)",
+        "de": "Genauigkeit des Ausgabewerts in Tonnen (0-6 empfohlen)",
+        "fr": "Précision de la valeur de sortie en tonnes (0-6 recommandé)",
+        "es": "Precisión del valor de salida en toneladas (0-6 recomendado)"
       }
     }
   ],

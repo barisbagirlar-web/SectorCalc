@@ -12,14 +12,16 @@
         "en": "Scale Length",
         "tr": "Skala Uzunluğu",
         "de": "Mensurlänge",
-        "fr": "Scale Length",
-        "es": "Scale Length",
+        "fr": "Longueur de la corde vibrante",
+        "es": "Longitud de escala",
         "ar": "Scale Length"
       },
       "businessContext_i18n": {
         "en": "Distance from nut to bridge (vibrating string length)",
         "tr": "Somundan köprüye mesafe (titreşen tel uzunluğu)",
-        "de": "Abstand von Sattel zu Steg (schwingende Saitenlänge)"
+        "de": "Abstand von Sattel zu Steg (schwingende Saitenlänge)",
+        "fr": "Distance du sillet de tête au chevalet (longueur vibrante de la corde)",
+        "es": "Distancia desde la cejilla al puente (longitud vibrante de la cuerda)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "String Diameter",
         "tr": "Tel Çapı",
         "de": "Saitendurchmesser",
-        "fr": "String Diameter",
-        "es": "String Diameter",
+        "fr": "Diamètre de la corde",
+        "es": "Diámetro de la cuerda",
         "ar": "String Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the string (e.g., 0.010 inch ≈ 0.254 mm)",
         "tr": "Tel çapı (örn. 0.010 inç ≈ 0.254 mm)",
-        "de": "Durchmesser der Saite (z. B. 0,010 Zoll ≈ 0,254 mm)"
+        "de": "Durchmesser der Saite (z. B. 0,010 Zoll ≈ 0,254 mm)",
+        "fr": "Diamètre de la corde (ex. 0,010 pouce ≈ 0,254 mm)",
+        "es": "Diámetro de la cuerda (ej., 0.010 pulgadas ≈ 0.254 mm)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Material Density",
         "tr": "Malzeme Yoğunluğu",
         "de": "Materialdichte",
-        "fr": "Material Density",
-        "es": "Material Density",
+        "fr": "Densité du matériau",
+        "es": "Densidad del material",
         "ar": "Material Density"
       },
       "businessContext_i18n": {
         "en": "Density of string material (steel ≈ 7850 kg/m³, nickel ≈ 8900 kg/m³)",
         "tr": "Tel malzemesi yoğunluğu (çelik ≈ 7850 kg/m³, nikel ≈ 8900 kg/m³)",
-        "de": "Dichte des Saitenmaterials (Stahl ≈ 7850 kg/m³, Nickel ≈ 8900 kg/m³)"
+        "de": "Dichte des Saitenmaterials (Stahl ≈ 7850 kg/m³, Nickel ≈ 8900 kg/m³)",
+        "fr": "Densité du matériau de la corde (acier ≈ 7850 kg/m³, nickel ≈ 8900 kg/m³)",
+        "es": "Densidad del material de la cuerda (acero ≈ 7850 kg/m³, níquel ≈ 8900 kg/m³)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Target Frequency",
         "tr": "Hedef Frekans",
         "de": "Zielfrequenz",
-        "fr": "Target Frequency",
-        "es": "Target Frequency",
+        "fr": "Fréquence cible",
+        "es": "Frecuencia objetivo",
         "ar": "Target Frequency"
       },
       "businessContext_i18n": {
         "en": "Desired pitch frequency (e.g., E4 = 329.63 Hz for high E string)",
         "tr": "İstenen perde frekansı (örn. yüksek E teli için E4 = 329.63 Hz)",
-        "de": "Gewünschte Tonfrequenz (z. B. E4 = 329,63 Hz für hohe E-Saite)"
+        "de": "Gewünschte Tonfrequenz (z. B. E4 = 329,63 Hz für hohe E-Saite)",
+        "fr": "Fréquence de hauteur désirée (ex. Mi4 = 329,63 Hz pour la corde mi aigu)",
+        "es": "Frecuencia de tono deseada (ej., E4 = 329.63 Hz para la cuerda Mi aguda)"
       }
     }
   ],

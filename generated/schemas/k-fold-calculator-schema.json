@@ -12,13 +12,16 @@
         "en": "Number of Folds (k)",
         "tr": "Kat Sayısı (k)",
         "de": "Anzahl der Falten (k)",
-        "fr": "Number of Folds (k)",
-        "es": "Number of Folds (k)",
+        "fr": "Nombre de plis (k)",
+        "es": "Número de pliegues (k)",
         "ar": "Number of Folds (k)"
       },
       "businessContext_i18n": {
         "en": "Number of folds used in cross-validation",
-        "tr": "Çapraz doğrulamada kullanılan katlama sayısı"
+        "tr": "Çapraz doğrulamada kullanılan katlama sayısı",
+        "de": "Anzahl der Faltungen für die Kreuzvalidierung",
+        "fr": "Nombre de plis utilisés dans la validation croisée",
+        "es": "Número de pliegues utilizados en la validación cruzada"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Sample Size (n)",
         "tr": "Örneklem Büyüklüğü (n)",
         "de": "Stichprobengröße (n)",
-        "fr": "Sample Size (n)",
-        "es": "Sample Size (n)",
+        "fr": "Taille de l'échantillon (n)",
+        "es": "Tamaño de la muestra (n)",
         "ar": "Sample Size (n)"
       },
       "businessContext_i18n": {
         "en": "Total number of observations in the dataset",
-        "tr": "Veri setindeki toplam gözlem sayısı"
+        "tr": "Veri setindeki toplam gözlem sayısı",
+        "de": "Gesamtzahl der Beobachtungen im Datensatz",
+        "fr": "Nombre total d'observations dans l'ensemble de données",
+        "es": "Número total de observaciones en el conjunto de datos"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Mean Accuracy",
         "tr": "Ortalama Doğruluk",
-        "de": "Mean Accuracy",
-        "fr": "Mean Accuracy",
-        "es": "Mean Accuracy",
+        "de": "Mittlere Genauigkeit",
+        "fr": "Précision moyenne",
+        "es": "Precisión media",
         "ar": "Mean Accuracy"
       },
       "businessContext_i18n": {
         "en": "Average accuracy across all folds",
-        "tr": "Tüm katlamalar arasındaki ortalama doğruluk"
+        "tr": "Tüm katlamalar arasındaki ortalama doğruluk",
+        "de": "Durchschnittliche Genauigkeit über alle Faltungen",
+        "fr": "Précision moyenne sur tous les plis",
+        "es": "Precisión promedio en todos los pliegues"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Standard Deviation of Accuracy",
         "tr": "Doğruluk Standart Sapması",
-        "de": "Standard Deviation of Accuracy",
-        "fr": "Standard Deviation of Accuracy",
-        "es": "Standard Deviation of Accuracy",
+        "de": "Standardabweichung der Genauigkeit",
+        "fr": "Écart type de la précision",
+        "es": "Desviación estándar de la precisión",
         "ar": "Standard Deviation of Accuracy"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of accuracy scores from each fold",
-        "tr": "Her katlamadan alınan doğruluk puanlarının standart sapması"
+        "tr": "Her katlamadan alınan doğruluk puanlarının standart sapması",
+        "de": "Standardabweichung der Genauigkeitswerte aus jedem Durchlauf",
+        "fr": "Écart type des scores de précision de chaque pli",
+        "es": "Desviación estándar de las puntuaciones de precisión de cada pliegue"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Z-Score",
         "tr": "Z-Skoru",
         "de": "Z-Wert",
-        "fr": "Z-Score",
-        "es": "Z-Score",
+        "fr": "Score Z",
+        "es": "Puntuación Z",
         "ar": "Z-Score"
       },
       "businessContext_i18n": {
         "en": "Z-score for desired confidence level (e.g., 1.96 for 95%)",
-        "tr": "İstenen güven düzeyi için Z-skoru (ör. %95 için 1,96)"
+        "tr": "İstenen güven düzeyi için Z-skoru (ör. %95 için 1,96)",
+        "de": "Z-Score für das gewünschte Konfidenzniveau (z. B. 1,96 für 95 %)",
+        "fr": "Score Z pour le niveau de confiance souhaité (ex. 1,96 pour 95 %)",
+        "es": "Puntuación Z para el nivel de confianza deseado (ej., 1.96 para 95%)"
       }
     }
   ],

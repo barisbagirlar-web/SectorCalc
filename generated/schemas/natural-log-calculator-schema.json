@@ -12,13 +12,16 @@
         "en": "Input Value",
         "tr": "Giriş Değeri",
         "de": "Eingabewert",
-        "fr": "Input Value",
-        "es": "Input Value",
+        "fr": "Valeur d'entrée",
+        "es": "Valor de entrada",
         "ar": "Input Value"
       },
       "businessContext_i18n": {
         "en": "Value to compute natural logarithm of (e.g., process ratio, dimensionless parameter)",
-        "tr": "Doğal logaritması hesaplanacak değer (örn. proses oranı, boyutsuz parametre)"
+        "tr": "Doğal logaritması hesaplanacak değer (örn. proses oranı, boyutsuz parametre)",
+        "de": "Wert, dessen natürlicher Logarithmus berechnet werden soll (z. B. Prozessverhältnis, dimensionsloser Parameter)",
+        "fr": "Valeur pour calculer le logarithme naturel (par exemple, rapport de processus, paramètre sans dimension)",
+        "es": "Valor para calcular el logaritmo natural (por ejemplo, relación de proceso, parámetro adimensional)"
       }
     },
     {
@@ -32,14 +35,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output",
         "tr": "Çıktı için ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen für die Ausgabe"
+        "de": "Anzahl der Dezimalstellen für die Ausgabe",
+        "fr": "Nombre de décimales pour le résultat",
+        "es": "Número de decimales para la salida"
       }
     },
     {
@@ -53,13 +58,16 @@
         "en": "Scale Factor",
         "tr": "Ölçek Faktörü",
         "de": "Skalierungsfaktor",
-        "fr": "Scale Factor",
-        "es": "Scale Factor",
+        "fr": "Facteur d'échelle",
+        "es": "Factor de escala",
         "ar": "Scale Factor"
       },
       "businessContext_i18n": {
         "en": "Multiply the natural log by this factor (e.g., 0.434294 converts to log10)",
-        "tr": "Doğal logaritmayı bu faktörle çarp (örn. 0.434294 log10'a dönüştürür)"
+        "tr": "Doğal logaritmayı bu faktörle çarp (örn. 0.434294 log10'a dönüştürür)",
+        "de": "Multiplizieren Sie den natürlichen Logarithmus mit diesem Faktor (z. B. 0,434294 für Umrechnung in log10)",
+        "fr": "Multiplier le logarithme naturel par ce facteur (par exemple, 0,434294 convertit en log10)",
+        "es": "Multiplicar el logaritmo natural por este factor (por ejemplo, 0.434294 convierte a log10)"
       }
     },
     {
@@ -73,13 +81,16 @@
         "en": "Offset",
         "tr": "Ofset",
         "de": "Offset",
-        "fr": "Offset",
-        "es": "Offset",
+        "fr": "Décalage",
+        "es": "Desplazamiento",
         "ar": "Offset"
       },
       "businessContext_i18n": {
         "en": "Add or subtract an offset to the scaled log value",
-        "tr": "Ölçeklenmiş log değerine bir ofset ekle veya çıkar"
+        "tr": "Ölçeklenmiş log değerine bir ofset ekle veya çıkar",
+        "de": "Addieren oder subtrahieren Sie einen Offset zum skalierten Logarithmuswert",
+        "fr": "Ajouter ou soustraire un décalage à la valeur logarithmique mise à l'échelle",
+        "es": "Sumar o restar un desplazamiento al valor logarítmico escalado"
       }
     },
     {
@@ -92,14 +103,17 @@
       "label_i18n": {
         "en": "Display e^x",
         "tr": "e^x'i göster",
-        "de": "Display e^x",
-        "fr": "Display e^x",
-        "es": "Display e^x",
+        "de": "e^x anzeigen",
+        "fr": "Afficher e^x",
+        "es": "Mostrar e^x",
         "ar": "Display e^x"
       },
       "businessContext_i18n": {
         "en": "Set to 1 to output e^x instead of the scaled natural log",
-        "tr": "Ölçeklenmiş doğal logaritma yerine e^x çıktısı almak için 1 olarak ayarlayın"
+        "tr": "Ölçeklenmiş doğal logaritma yerine e^x çıktısı almak için 1 olarak ayarlayın",
+        "de": "Auf 1 setzen, um e^x anstelle des skalierten natürlichen Logarithmus auszugeben",
+        "fr": "Mettre à 1 pour afficher e^x au lieu du logarithme naturel mis à l'échelle",
+        "es": "Establecer en 1 para mostrar e^x en lugar del logaritmo natural escalado"
       }
     }
   ],

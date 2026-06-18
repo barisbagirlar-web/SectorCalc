@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Bill Subtotal",
         "tr": "Fatura Ara Toplamı",
-        "de": "Bill Subtotal",
-        "fr": "Bill Subtotal",
+        "de": "Rechnungszwischensumme",
+        "fr": "Sous-total de la facture",
         "es": "Bill Subtotal",
         "ar": "Bill Subtotal"
       },
       "businessContext_i18n": {
         "en": "The total bill amount before service charge and taxes.",
-        "tr": "Hizmet bedeli ve vergilerden önceki toplam fatura tutarı."
+        "tr": "Hizmet bedeli ve vergilerden önceki toplam fatura tutarı.",
+        "de": "Der gesamte Rechnungsbetrag vor Servicegebühren und Steuern.",
+        "fr": "Le montant total de la facture avant les frais de service et les taxes."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Service Charge Rate",
         "tr": "Hizmet Bedeli Oranı",
-        "de": "Service Charge Rate",
-        "fr": "Service Charge Rate",
+        "de": "Servicegebührensatz",
+        "fr": "Taux de frais de service",
         "es": "Service Charge Rate",
         "ar": "Service Charge Rate"
       },
       "businessContext_i18n": {
         "en": "Common service charge rate, e.g., 18% for large parties.",
-        "tr": "Yaygın hizmet bedeli oranı, örn. büyük gruplar için %18."
+        "tr": "Yaygın hizmet bedeli oranı, örn. büyük gruplar için %18.",
+        "de": "Üblicher Servicegebührensatz, z. B. 18 % für große Gruppen.",
+        "fr": "Taux de frais de service courant, par exemple 18 % pour les grands groupes."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Minimum Service Charge",
         "tr": "Minimum Hizmet Bedeli",
-        "de": "Minimum Service Charge",
-        "fr": "Minimum Service Charge",
+        "de": "Mindestservicegebühr",
+        "fr": "Frais de service minimum",
         "es": "Minimum Service Charge",
         "ar": "Minimum Service Charge"
       },
       "businessContext_i18n": {
         "en": "A minimum service charge to be applied regardless of percentage.",
-        "tr": "Yüzdeye bakılmaksızın uygulanacak minimum hizmet bedeli."
+        "tr": "Yüzdeye bakılmaksızın uygulanacak minimum hizmet bedeli.",
+        "de": "Ein Mindestservicebetrag, der unabhängig vom Prozentsatz angewendet wird.",
+        "fr": "Un montant minimum de frais de service à appliquer quel que soit le pourcentage."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Party Size",
         "tr": "Grup Büyüklüğü",
-        "de": "Party Size",
-        "fr": "Party Size",
+        "de": "Personenanzahl",
+        "fr": "Taille du groupe",
         "es": "Party Size",
         "ar": "Party Size"
       },
       "businessContext_i18n": {
         "en": "Number of people in the party; some restaurants apply service charge only for parties above a threshold.",
-        "tr": "Gruptaki kişi sayısı; bazı restoranlar hizmet bedelini yalnızca belirli bir eşiğin üzerindeki gruplara uygular."
+        "tr": "Gruptaki kişi sayısı; bazı restoranlar hizmet bedelini yalnızca belirli bir eşiğin üzerindeki gruplara uygular.",
+        "de": "Anzahl der Personen in der Gruppe; einige Restaurants erheben Servicegebühren nur für Gruppen über einem Schwellenwert.",
+        "fr": "Nombre de personnes dans le groupe ; certains restaurants n'appliquent les frais de service qu'au-delà d'un seuil."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Service Charge Threshold",
         "tr": "Hizmet Bedeli Eşiği",
-        "de": "Service Charge Threshold",
-        "fr": "Service Charge Threshold",
+        "de": "Schwellenwert für Servicegebühr",
+        "fr": "Seuil des frais de service",
         "es": "Service Charge Threshold",
         "ar": "Service Charge Threshold"
       },
       "businessContext_i18n": {
         "en": "If party size is above this threshold, service charge is mandatory.",
-        "tr": "Grup büyüklüğü bu eşiğin üzerindeyse hizmet bedeli zorunludur."
+        "tr": "Grup büyüklüğü bu eşiğin üzerindeyse hizmet bedeli zorunludur.",
+        "de": "Wenn die Personenzahl diesen Schwellenwert überschreitet, ist die Servicegebühr verpflichtend.",
+        "fr": "Si la taille du groupe dépasse ce seuil, les frais de service sont obligatoires."
       }
     }
   ],

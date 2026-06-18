@@ -13,13 +13,15 @@
         "tr": "Açı",
         "de": "Winkel",
         "fr": "Angle",
-        "es": "Angle",
+        "es": "Ángulo",
         "ar": "Angle"
       },
       "businessContext_i18n": {
         "en": "Enter the angle value. Base unit is degrees unless unit selector is set to 1 (radians).",
         "tr": "Açı değerini girin. Birim seçici 1 (radyan) olarak ayarlanmadıkça temel birim derecedir.",
-        "de": "Geben Sie den Winkelwert ein. Basiseinheit ist Grad, es sei denn, der Einheitenwähler ist auf 1 (Bogenmaß) gesetzt."
+        "de": "Geben Sie den Winkelwert ein. Basiseinheit ist Grad, es sei denn, der Einheitenwähler ist auf 1 (Bogenmaß) gesetzt.",
+        "fr": "Entrez la valeur de l'angle. L'unité de base est le degré sauf si le sélecteur d'unité est réglé sur 1 (radians).",
+        "es": "Ingrese el valor del ángulo. La unidad base son grados a menos que el selector de unidades esté en 1 (radianes)."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Unit (0=deg,1=rad)",
         "tr": "Birim (0=derece,1=radyan)",
         "de": "Einheit (0=Grad, 1=Bogenmaß)",
-        "fr": "Unit (0=deg,1=rad)",
-        "es": "Unit (0=deg,1=rad)",
+        "fr": "Unité (0=deg,1=rad)",
+        "es": "Unidad (0=grados, 1=radianes)",
         "ar": "Unit (0=deg,1=rad)"
       },
       "businessContext_i18n": {
         "en": "Select unit: 0 for degrees, 1 for radians. The angle will be interpreted accordingly.",
         "tr": "Birim seçin: 0 derece, 1 radyan. Açı buna göre yorumlanacaktır.",
-        "de": "Wählen Sie die Einheit: 0 für Grad, 1 für Bogenmaß. Der Winkel wird entsprechend interpretiert."
+        "de": "Wählen Sie die Einheit: 0 für Grad, 1 für Bogenmaß. Der Winkel wird entsprechend interpretiert.",
+        "fr": "Sélectionnez l'unité : 0 pour degrés, 1 pour radians. L'angle sera interprété en conséquence.",
+        "es": "Seleccione la unidad: 0 para grados, 1 para radianes. El ángulo se interpretará en consecuencia."
       }
     },
     {
@@ -55,13 +59,15 @@
         "tr": "Genlik",
         "de": "Amplitude",
         "fr": "Amplitude",
-        "es": "Amplitude",
+        "es": "Amplitud",
         "ar": "Amplitude"
       },
       "businessContext_i18n": {
         "en": "Amplitude scaling factor for the cosine function. Default 1 gives standard cosine.",
         "tr": "Kosinüs fonksiyonu için genlik ölçekleme faktörü. Varsayılan 1 standart kosinüs verir.",
-        "de": "Amplitudenskalierungsfaktor für die Kosinusfunktion. Standard 1 ergibt den normalen Kosinus."
+        "de": "Amplitudenskalierungsfaktor für die Kosinusfunktion. Standard 1 ergibt den normalen Kosinus.",
+        "fr": "Facteur d'échelle d'amplitude pour la fonction cosinus. La valeur par défaut 1 donne un cosinus standard.",
+        "es": "Factor de escala de amplitud para la función coseno. El valor predeterminado 1 da un coseno estándar."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Frequency Multiplier (b)",
         "tr": "Frekans Çarpanı (b)",
         "de": "Frequenzmultiplikator (b)",
-        "fr": "Frequency Multiplier (b)",
-        "es": "Frequency Multiplier (b)",
+        "fr": "Multiplicateur de fréquence (b)",
+        "es": "Multiplicador de frecuencia (b)",
         "ar": "Frequency Multiplier (b)"
       },
       "businessContext_i18n": {
         "en": "Frequency multiplier for cosine argument: cos(b*x + phase).",
         "tr": "Kosinüs argümanı için frekans çarpanı: cos(b*x + faz).",
-        "de": "Frequenzmultiplikator für das Kosinusargument: cos(b*x + Phase)."
+        "de": "Frequenzmultiplikator für das Kosinusargument: cos(b*x + Phase).",
+        "fr": "Multiplicateur de fréquence pour l'argument du cosinus : cos(b*x + phase).",
+        "es": "Multiplicador de frecuencia para el argumento del coseno: cos(b*x + fase)."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Phase Shift (c)",
         "tr": "Faz Kayması (c)",
         "de": "Phasenverschiebung (c)",
-        "fr": "Phase Shift (c)",
-        "es": "Phase Shift (c)",
+        "fr": "Déphasage (c)",
+        "es": "Desplazamiento de fase (c)",
         "ar": "Phase Shift (c)"
       },
       "businessContext_i18n": {
         "en": "Phase shift added to argument. Input in radians regardless of unit selector, since phase shift is typically in radians.",
         "tr": "Argümana eklenen faz kayması. Faz kayması tipik olarak radyan cinsinden olduğu için birim seçiciden bağımsız olarak radyan cinsinden girin.",
-        "de": "Phasenverschiebung, die zum Argument addiert wird. Eingabe in Bogenmaß unabhängig vom Einheitenwähler, da die Phasenverschiebung typischerweise in Bogenmaß angegeben wird."
+        "de": "Phasenverschiebung, die zum Argument addiert wird. Eingabe in Bogenmaß unabhängig vom Einheitenwähler, da die Phasenverschiebung typischerweise in Bogenmaß angegeben wird.",
+        "fr": "Déphasage ajouté à l'argument. Saisie en radians quel que soit le sélecteur d'unité, car le déphasage est généralement en radians.",
+        "es": "Desplazamiento de fase añadido al argumento. Ingrese en radianes independientemente del selector de unidades, ya que el desplazamiento de fase suele estar en radianes."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the output.",
         "tr": "Çıktının yuvarlanması için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen für die Rundung des Ergebnisses."
+        "de": "Anzahl der Dezimalstellen für die Rundung des Ergebnisses.",
+        "fr": "Nombre de décimales pour l'arrondi du résultat.",
+        "es": "Número de decimales para redondear el resultado."
       }
     }
   ],

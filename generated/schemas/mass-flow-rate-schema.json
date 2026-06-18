@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Density (kg/m³)",
         "tr": "Yoğunluk (kg/m³)",
-        "de": "Density (kg/m³)",
-        "fr": "Density (kg/m³)",
-        "es": "Density (kg/m³)",
+        "de": "Dichte (kg/m³)",
+        "fr": "Densité (kg/m³)",
+        "es": "Densidad (kg/m³)",
         "ar": "Density (kg/m³)"
       },
       "businessContext_i18n": {
         "en": "Fluid density at operating conditions",
-        "tr": "Çalışma koşullarındaki akışkan yoğunluğu"
+        "tr": "Çalışma koşullarındaki akışkan yoğunluğu",
+        "de": "Fluiddichte unter Betriebsbedingungen",
+        "fr": "Densité du fluide dans les conditions de fonctionnement",
+        "es": "Densidad del fluido en condiciones de operación"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Flow Velocity (m/s)",
         "tr": "Akış Hızı (m/s)",
-        "de": "Flow Velocity (m/s)",
-        "fr": "Flow Velocity (m/s)",
-        "es": "Flow Velocity (m/s)",
+        "de": "Strömungsgeschwindigkeit (m/s)",
+        "fr": "Vitesse d'écoulement (m/s)",
+        "es": "Velocidad del flujo (m/s)",
         "ar": "Flow Velocity (m/s)"
       },
       "businessContext_i18n": {
         "en": "Average fluid velocity in pipe",
-        "tr": "Borudaki ortalama akışkan hızı"
+        "tr": "Borudaki ortalama akışkan hızı",
+        "de": "Mittlere Fluidgeschwindigkeit im Rohr",
+        "fr": "Vitesse moyenne du fluide dans la conduite",
+        "es": "Velocidad promedio del fluido en la tubería"
       }
     },
     {
@@ -51,15 +57,17 @@
       "label_i18n": {
         "en": "Pipe Inner Diameter (m)",
         "tr": "Boru İç Çapı (m)",
-        "de": "Pipe Inner Diameter (m)",
-        "fr": "Pipe Inner Diameter (m)",
-        "es": "Pipe Inner Diameter (m)",
+        "de": "Rohrinnendurchmesser (m)",
+        "fr": "Diamètre intérieur de la conduite (m)",
+        "es": "Diámetro interior de la tubería (m)",
         "ar": "Pipe Inner Diameter (m)"
       },
       "businessContext_i18n": {
         "en": "Internal diameter of the pipe",
         "tr": "Boru iç çapı",
-        "de": "Innendurchmesser des Rohrs"
+        "de": "Innendurchmesser des Rohrs",
+        "fr": "Diamètre intérieur du tuyau",
+        "es": "Diámetro interno de la tubería"
       }
     },
     {
@@ -73,13 +81,16 @@
         "en": "Temperature (°C)",
         "tr": "Sıcaklık (°C)",
         "de": "Temperatur (°C)",
-        "fr": "Temperature (°C)",
-        "es": "Temperature (°C)",
+        "fr": "Température (°C)",
+        "es": "Temperatura (°C)",
         "ar": "Temperature (°C)"
       },
       "businessContext_i18n": {
         "en": "Fluid temperature for density correction if needed",
-        "tr": "Gerekirse yoğunluk düzeltmesi için akışkan sıcaklığı"
+        "tr": "Gerekirse yoğunluk düzeltmesi için akışkan sıcaklığı",
+        "de": "Fluidtemperatur für Dichtekorrektur (falls erforderlich)",
+        "fr": "Température du fluide pour la correction de densité si nécessaire",
+        "es": "Temperatura del fluido para corrección de densidad si es necesario"
       }
     },
     {
@@ -93,13 +104,16 @@
         "en": "Pressure (bar)",
         "tr": "Basınç (bar)",
         "de": "Druck (bar)",
-        "fr": "Pressure (bar)",
-        "es": "Pressure (bar)",
+        "fr": "Pression (bar)",
+        "es": "Presión (bar)",
         "ar": "Pressure (bar)"
       },
       "businessContext_i18n": {
         "en": "Operating pressure for compressible fluids",
-        "tr": "Sıkıştırılabilir akışkanlar için çalışma basıncı"
+        "tr": "Sıkıştırılabilir akışkanlar için çalışma basıncı",
+        "de": "Betriebsdruck für kompressible Fluide",
+        "fr": "Pression de fonctionnement pour les fluides compressibles",
+        "es": "Presión de operación para fluidos compresibles"
       }
     },
     {
@@ -113,13 +127,16 @@
         "en": "Compressibility Factor (Z)",
         "tr": "Sıkıştırılabilirlik Faktörü (Z)",
         "de": "Kompressibilitätsfaktor (Z)",
-        "fr": "Compressibility Factor (Z)",
-        "es": "Compressibility Factor (Z)",
+        "fr": "Facteur de compressibilité (Z)",
+        "es": "Factor de compresibilidad (Z)",
         "ar": "Compressibility Factor (Z)"
       },
       "businessContext_i18n": {
         "en": "For gases, typically 1 for ideal gas",
-        "tr": "Gazlar için tipik olarak 1, ideal gaz için"
+        "tr": "Gazlar için tipik olarak 1, ideal gaz için",
+        "de": "Für Gase: typischerweise 1 für ideales Gas",
+        "fr": "Pour les gaz, généralement 1 pour un gaz parfait",
+        "es": "Para gases, típicamente 1 para gas ideal"
       }
     }
   ],

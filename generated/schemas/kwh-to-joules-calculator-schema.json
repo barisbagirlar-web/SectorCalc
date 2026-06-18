@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Enerji (kWh)",
         "tr": "Enerji (kWh)",
-        "de": "Enerji (kWh)",
-        "fr": "Enerji (kWh)",
-        "es": "Enerji (kWh)",
+        "de": "Energie (kWh)",
+        "fr": "Énergie (kWh)",
+        "es": "Energía (kWh)",
         "ar": "Enerji (kWh)"
       },
       "businessContext_i18n": {
         "en": "Doğrudan kWh cinsinden enerji değeri",
-        "tr": "Doğrudan kWh cinsinden enerji değeri"
+        "tr": "Doğrudan kWh cinsinden enerji değeri",
+        "de": "Direkter Energiewert in kWh",
+        "fr": "Valeur énergétique directe en kWh",
+        "es": "Valor de energía directamente en kWh"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Güç (kW)",
         "tr": "Güç (kW)",
-        "de": "Güç (kW)",
-        "fr": "Güç (kW)",
-        "es": "Güç (kW)",
+        "de": "Leistung (kW)",
+        "fr": "Puissance (kW)",
+        "es": "Potencia (kW)",
         "ar": "Güç (kW)"
       },
       "businessContext_i18n": {
         "en": "Alternatif hesaplama: Güç değeri",
-        "tr": "Alternatif hesaplama: Güç değeri"
+        "tr": "Alternatif hesaplama: Güç değeri",
+        "de": "Alternative Berechnung: Leistungswert",
+        "fr": "Calcul alternatif : Valeur de puissance",
+        "es": "Cálculo alternativo: Valor de potencia"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Zaman (saat)",
         "tr": "Zaman (saat)",
-        "de": "Zaman (saat)",
-        "fr": "Zaman (saat)",
-        "es": "Zaman (saat)",
+        "de": "Zeit (Stunden)",
+        "fr": "Temps (heures)",
+        "es": "Tiempo (horas)",
         "ar": "Zaman (saat)"
       },
       "businessContext_i18n": {
         "en": "Alternatif hesaplama: Süre",
-        "tr": "Alternatif hesaplama: Süre"
+        "tr": "Alternatif hesaplama: Süre",
+        "de": "Alternative Berechnung: Dauer",
+        "fr": "Calcul alternatif : Durée",
+        "es": "Cálculo alternativo: Duración"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Dönüşüm Katsayısı",
         "tr": "Dönüşüm Katsayısı",
-        "de": "Dönüşüm Katsayısı",
-        "fr": "Dönüşüm Katsayısı",
-        "es": "Dönüşüm Katsayısı",
+        "de": "Umrechnungsfaktor",
+        "fr": "Coefficient de conversion",
+        "es": "Factor de conversión",
         "ar": "Dönüşüm Katsayısı"
       },
       "businessContext_i18n": {
         "en": "Dönüşüm katsayısı (varsayılan 3.6e6)",
-        "tr": "Dönüşüm katsayısı (varsayılan 3.6e6)"
+        "tr": "Dönüşüm katsayısı (varsayılan 3.6e6)",
+        "de": "Umrechnungsfaktor (Standard 3,6e6)",
+        "fr": "Coefficient de conversion (par défaut 3,6e6)",
+        "es": "Coeficiente de conversión (por defecto 3.6e6)"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Ondalık Basamak",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Ondalık Basamak",
-        "es": "Ondalık Basamak",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Ondalık Basamak"
       },
       "businessContext_i18n": {
         "en": "Sonuç yuvarlama",
-        "tr": "Sonuç yuvarlama"
+        "tr": "Sonuç yuvarlama",
+        "de": "Ergebnisrundung",
+        "fr": "Arrondi du résultat",
+        "es": "Redondeo de resultado"
       }
     }
   ],

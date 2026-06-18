@@ -12,13 +12,15 @@
         "en": "Birth Year",
         "tr": "Doğum Yılı",
         "de": "Geburtsjahr",
-        "fr": "Birth Year",
-        "es": "Birth Year",
+        "fr": "Année de naissance",
+        "es": "Año de nacimiento",
         "ar": "Birth Year"
       },
       "businessContext_i18n": {
         "en": "Your birth year determines your full retirement age (FRA). Enter year as integer (e.g., 1965).",
-        "tr": "Doğum yılınız tam emeklilik yaşınızı (TEY) belirler. Yılı tam sayı olarak girin (ör. 1965)."
+        "tr": "Doğum yılınız tam emeklilik yaşınızı (TEY) belirler. Yılı tam sayı olarak girin (ör. 1965).",
+        "de": "Ihr Geburtsjahr bestimmt Ihr Regelrentenalter. Geben Sie das Jahr als ganze Zahl ein (z. B. 1965).",
+        "fr": "Votre année de naissance détermine votre âge de retraite à taux plein (ATRP). Saisissez l'année sous forme d'entier (ex. 1965)."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Early Retirement Age",
         "tr": "Erken Emeklilik Yaşı",
-        "de": "Early Retirement Age",
-        "fr": "Early Retirement Age",
+        "de": "Vorzeitiges Rentenalter",
+        "fr": "Âge de retraite anticipée",
         "es": "Early Retirement Age",
         "ar": "Early Retirement Age"
       },
       "businessContext_i18n": {
         "en": "The age at which you plan to start receiving benefits (minimum 62, maximum 70). Use decimal for months (e.g., 62 and 6 months = 62.5).",
-        "tr": "Fayda almaya başlamayı planladığınız yaş (minimum 62, maksimum 70). Aylar için ondalık kullanın (ör. 62 yıl 6 ay = 62.5)."
+        "tr": "Fayda almaya başlamayı planladığınız yaş (minimum 62, maksimum 70). Aylar için ondalık kullanın (ör. 62 yıl 6 ay = 62.5).",
+        "de": "Das Alter, in dem Sie planen, Leistungen zu beziehen (mindestens 62, maximal 70). Verwenden Sie Dezimalzahlen für Monate (z. B. 62 Jahre und 6 Monate = 62,5).",
+        "fr": "Âge auquel vous prévoyez de commencer à percevoir les prestations (minimum 62, maximum 70). Utilisez un nombre décimal pour les mois (ex. 62 ans et 6 mois = 62,5)."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Monthly Benefit at Full Retirement Age",
         "tr": "Tam Emeklilik Yaşında Aylık Fayda",
-        "de": "Monthly Benefit at Full Retirement Age",
-        "fr": "Monthly Benefit at Full Retirement Age",
+        "de": "Monatliche Leistung bei vollem Rentenalter",
+        "fr": "Prestation mensuelle à l'âge de la retraite à taux plein",
         "es": "Monthly Benefit at Full Retirement Age",
         "ar": "Monthly Benefit at Full Retirement Age"
       },
       "businessContext_i18n": {
         "en": "The monthly benefit you would receive if you wait until full retirement age (primary insurance amount).",
-        "tr": "Tam emeklilik yaşına kadar beklerseniz alacağınız aylık fayda (temel sigorta tutarı)."
+        "tr": "Tam emeklilik yaşına kadar beklerseniz alacağınız aylık fayda (temel sigorta tutarı).",
+        "de": "Die monatliche Leistung, die Sie erhalten würden, wenn Sie bis zum vollen Rentenalter warten (primärer Versicherungsbetrag).",
+        "fr": "Prestation mensuelle que vous recevriez si vous attendiez l'âge de la retraite à taux plein (montant de l'assurance primaire)."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Cost-of-Living Adjustment Factor",
         "tr": "Yaşam Maliyeti Ayarlama Faktörü",
-        "de": "Cost-of-Living Adjustment Factor",
-        "fr": "Cost-of-Living Adjustment Factor",
+        "de": "Anpassungsfaktor für Lebenshaltungskosten (COLA)",
+        "fr": "Facteur d'ajustement au coût de la vie",
         "es": "Cost-of-Living Adjustment Factor",
         "ar": "Cost-of-Living Adjustment Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier to adjust for COLA (1 = no adjustment). Usually 1 for current benefit calculations.",
-        "tr": "COLA'ya göre ayarlama çarpanı (1 = ayarlama yok). Genellikle mevcut fayda hesaplamaları için 1."
+        "tr": "COLA'ya göre ayarlama çarpanı (1 = ayarlama yok). Genellikle mevcut fayda hesaplamaları için 1.",
+        "de": "Multiplikator zur Anpassung an COLA (1 = keine Anpassung). Normalerweise 1 für aktuelle Leistungsberechnungen.",
+        "fr": "Multiplicateur pour ajuster selon l'ACV (1 = pas d'ajustement). Généralement 1 pour les calculs de prestations actuels."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Weight",
         "tr": "Ağırlık",
         "de": "Gewicht",
-        "fr": "Weight",
-        "es": "Weight",
+        "fr": "Poids",
+        "es": "Peso",
         "ar": "Weight"
       },
       "businessContext_i18n": {
         "en": "User's weight in kilograms.",
         "tr": "Kullanıcının kilogram cinsinden ağırlığı.",
-        "de": "Gewicht des Benutzers in Kilogramm."
+        "de": "Gewicht des Benutzers in Kilogramm.",
+        "fr": "Poids de l'utilisateur en kilogrammes.",
+        "es": "Peso del usuario en kilogramos."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Height",
         "tr": "Boy",
         "de": "Größe",
-        "fr": "Height",
-        "es": "Height",
+        "fr": "Taille",
+        "es": "Altura",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "User's height in centimeters (optional for BMR).",
         "tr": "Kullanıcının santimetre cinsinden boyu (BMR için isteğe bağlı).",
-        "de": "Größe des Benutzers in Zentimetern (optional für BMR)."
+        "de": "Größe des Benutzers in Zentimetern (optional für BMR).",
+        "fr": "Taille de l'utilisateur en centimètres (optionnel pour le BMR).",
+        "es": "Altura del usuario en centímetros (opcional para TMB)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "User's age in years.",
         "tr": "Kullanıcının yıl cinsinden yaşı.",
-        "de": "Alter des Benutzers in Jahren."
+        "de": "Alter des Benutzers in Jahren.",
+        "fr": "Âge de l'utilisateur en années.",
+        "es": "Edad del usuario en años."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Gender",
         "tr": "Cinsiyet",
         "de": "Geschlecht",
-        "fr": "Gender",
-        "es": "Gender",
+        "fr": "Genre",
+        "es": "Género",
         "ar": "Gender"
       },
       "businessContext_i18n": {
         "en": "0 for female, 1 for male.",
         "tr": "0 kadın, 1 erkek.",
-        "de": "0 für weiblich, 1 für männlich."
+        "de": "0 für weiblich, 1 für männlich.",
+        "fr": "0 pour femme, 1 pour homme.",
+        "es": "0 para femenino, 1 para masculino."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "MET Value",
         "tr": "MET Değeri",
         "de": "MET-Wert",
-        "fr": "MET Value",
-        "es": "MET Value",
+        "fr": "Valeur MET",
+        "es": "Valor MET",
         "ar": "MET Value"
       },
       "businessContext_i18n": {
         "en": "Metabolic Equivalent of Task for the activity.",
         "tr": "Aktivite için metabolik eşdeğer.",
-        "de": "Metabolisches Äquivalent der Aufgabe für die Aktivität."
+        "de": "Metabolisches Äquivalent der Aufgabe für die Aktivität.",
+        "fr": "Équivalent métabolique de la tâche pour l'activité.",
+        "es": "Equivalente metabólico de la tarea para la actividad."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Duration",
         "tr": "Süre",
         "de": "Dauer",
-        "fr": "Duration",
-        "es": "Duration",
+        "fr": "Durée",
+        "es": "Duración",
         "ar": "Duration"
       },
       "businessContext_i18n": {
         "en": "Duration of the activity in minutes.",
         "tr": "Aktivitenin dakika cinsinden süresi.",
-        "de": "Dauer der Aktivität in Minuten."
+        "de": "Dauer der Aktivität in Minuten.",
+        "fr": "Durée de l'activité en minutes.",
+        "es": "Duración de la actividad en minutos."
       }
     }
   ],

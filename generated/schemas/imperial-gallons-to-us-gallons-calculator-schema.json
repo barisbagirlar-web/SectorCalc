@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Imperial Gallons",
         "tr": "İmparatorluk Galonu",
-        "de": "Imperial Gallons",
-        "fr": "Imperial Gallons",
-        "es": "Imperial Gallons",
+        "de": "Imperiale Gallonen",
+        "fr": "Gallons impériaux",
+        "es": "Galones imperiales",
         "ar": "Imperial Gallons"
       },
       "businessContext_i18n": {
         "en": "The volume in imperial gallons to convert.",
-        "tr": "Dönüştürülecek imparatorluk galonu cinsinden hacim."
+        "tr": "Dönüştürülecek imparatorluk galonu cinsinden hacim.",
+        "de": "Das in imperialen Gallonen umzurechnende Volumen.",
+        "fr": "Le volume en gallons impériaux à convertir.",
+        "es": "El volumen en galones imperiales a convertir."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Batch Size",
         "tr": "Parti Büyüklüğü",
         "de": "Losgröße",
-        "fr": "Batch Size",
-        "es": "Batch Size",
+        "fr": "Taille de lot",
+        "es": "Tamaño de lote",
         "ar": "Batch Size"
       },
       "businessContext_i18n": {
         "en": "Number of batches or containers being converted.",
-        "tr": "Dönüştürülen parti veya kap sayısı."
+        "tr": "Dönüştürülen parti veya kap sayısı.",
+        "de": "Anzahl der umzurechnenden Chargen oder Behälter.",
+        "fr": "Nombre de lots ou de conteneurs convertis.",
+        "es": "Número de lotes o contenedores que se convierten."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Tolerance",
         "tr": "Tolerans",
         "de": "Toleranz",
-        "fr": "Tolerance",
-        "es": "Tolerance",
+        "fr": "Tolérance",
+        "es": "Tolerancia",
         "ar": "Tolerance"
       },
       "businessContext_i18n": {
         "en": "Allowable measurement tolerance as percentage.",
-        "tr": "Yüzde olarak izin verilen ölçüm toleransı."
+        "tr": "Yüzde olarak izin verilen ölçüm toleransı.",
+        "de": "Zulässige Messtoleranz in Prozent.",
+        "fr": "Tolérance de mesure autorisée en pourcentage.",
+        "es": "Tolerancia de medición permitida como porcentaje."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Temperature",
         "tr": "Sıcaklık",
         "de": "Temperatur",
-        "fr": "Temperature",
-        "es": "Temperature",
+        "fr": "Température",
+        "es": "Temperatura",
         "ar": "Temperature"
       },
       "businessContext_i18n": {
         "en": "Ambient temperature for density correction (if applicable).",
-        "tr": "Yoğunluk düzeltmesi için ortam sıcaklığı (varsa)."
+        "tr": "Yoğunluk düzeltmesi için ortam sıcaklığı (varsa).",
+        "de": "Umgebungstemperatur für Dichtekorrektur (falls zutreffend).",
+        "fr": "Température ambiante pour la correction de densité (si applicable).",
+        "es": "Temperatura ambiente para la corrección de densidad (si aplica)."
       }
     }
   ],

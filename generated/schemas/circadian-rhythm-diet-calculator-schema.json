@@ -12,14 +12,16 @@
         "en": "Chronotype Score (1-5)",
         "tr": "Kronotip Puanı (1-5)",
         "de": "Chronotyp-Score (1-5)",
-        "fr": "Chronotype Score (1-5)",
-        "es": "Chronotype Score (1-5)",
+        "fr": "Score de chronotype (1-5)",
+        "es": "Puntuación de cronotipo (1-5)",
         "ar": "Chronotype Score (1-5)"
       },
       "businessContext_i18n": {
         "en": "Morningness-Eveningness score where 1=Extreme Morning, 5=Extreme Evening",
         "tr": "Sabahçıl-Akşamcıl puanı; 1=Aşırı Sabahçıl, 5=Aşırı Akşamcıl",
-        "de": "Morgen-Typ/Abend-Typ-Score, wobei 1=Extremer Morgen-Typ, 5=Extremer Abend-Typ"
+        "de": "Morgen-Typ/Abend-Typ-Score, wobei 1=Extremer Morgen-Typ, 5=Extremer Abend-Typ",
+        "fr": "Score de matinalité-vespéralité où 1=Extrême matinal, 5=Extrême vespéral",
+        "es": "Puntuación de matutinidad-vespertinidad donde 1=Extremadamente matutino, 5=Extremadamente vespertino"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Shift Start Time (hour)",
         "tr": "Vardiya Başlangıç Saati (saat)",
         "de": "Schichtbeginn (Stunde)",
-        "fr": "Shift Start Time (hour)",
-        "es": "Shift Start Time (hour)",
+        "fr": "Heure de début de poste (heure)",
+        "es": "Hora de inicio del turno (hora)",
         "ar": "Shift Start Time (hour)"
       },
       "businessContext_i18n": {
         "en": "Work shift start in 24-hour format (e.g., 8.5 for 08:30)",
         "tr": "İş vardiyası başlangıcı 24 saat formatında (örn. 8,5, 08:30 için)",
-        "de": "Arbeitsschichtbeginn im 24-Stunden-Format (z.B. 8,5 für 08:30)"
+        "de": "Arbeitsschichtbeginn im 24-Stunden-Format (z.B. 8,5 für 08:30)",
+        "fr": "Début du poste de travail au format 24h (ex. 8,5 pour 08:30)",
+        "es": "Inicio del turno de trabajo en formato 24 horas (ej. 8.5 para 08:30)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Number of Meals",
         "tr": "Öğün Sayısı",
         "de": "Anzahl der Mahlzeiten",
-        "fr": "Number of Meals",
-        "es": "Number of Meals",
+        "fr": "Nombre de repas",
+        "es": "Número de comidas",
         "ar": "Number of Meals"
       },
       "businessContext_i18n": {
         "en": "Total number of meals per day (including snacks)",
         "tr": "Günlük toplam öğün sayısı (atıştırmalıklar dahil)",
-        "de": "Gesamtzahl der Mahlzeiten pro Tag (inkl. Snacks)"
+        "de": "Gesamtzahl der Mahlzeiten pro Tag (inkl. Snacks)",
+        "fr": "Nombre total de repas par jour (y compris les collations)",
+        "es": "Número total de comidas al día (incluyendo tentempiés)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Fasting Window (hours)",
         "tr": "Oruç Aralığı (saat)",
         "de": "Fastenfenster (Stunden)",
-        "fr": "Fasting Window (hours)",
-        "es": "Fasting Window (hours)",
+        "fr": "Fenêtre de jeûne (heures)",
+        "es": "Ventana de ayuno (horas)",
         "ar": "Fasting Window (hours)"
       },
       "businessContext_i18n": {
         "en": "Duration between last meal and first meal of the next day",
         "tr": "Son öğün ile ertesi günün ilk öğünü arasındaki süre",
-        "de": "Dauer zwischen letzter Mahlzeit und erster Mahlzeit des nächsten Tages"
+        "de": "Dauer zwischen letzter Mahlzeit und erster Mahlzeit des nächsten Tages",
+        "fr": "Durée entre le dernier repas et le premier repas du lendemain",
+        "es": "Duración entre la última comida y la primera comida del día siguiente"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Average Cost per Meal (EUR)",
         "tr": "Öğün Başına Ortalama Maliyet (EUR)",
         "de": "Durchschnittliche Kosten pro Mahlzeit (EUR)",
-        "fr": "Average Cost per Meal (EUR)",
-        "es": "Average Cost per Meal (EUR)",
+        "fr": "Coût moyen par repas (EUR)",
+        "es": "Coste medio por comida (EUR)",
         "ar": "Average Cost per Meal (EUR)"
       },
       "businessContext_i18n": {
         "en": "Estimated average cost per meal including preparation and ingredients",
         "tr": "Hazırlık ve malzemeler dahil öğün başına tahmini ortalama maliyet",
-        "de": "Geschätzte durchschnittliche Kosten pro Mahlzeit inkl. Zubereitung und Zutaten"
+        "de": "Geschätzte durchschnittliche Kosten pro Mahlzeit inkl. Zubereitung und Zutaten",
+        "fr": "Coût moyen estimé par repas, incluant la préparation et les ingrédients",
+        "es": "Coste medio estimado por comida, incluyendo preparación e ingredientes"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Number of Days",
         "tr": "Gün Sayısı",
         "de": "Anzahl der Tage",
-        "fr": "Number of Days",
-        "es": "Number of Days",
+        "fr": "Nombre de jours",
+        "es": "Número de días",
         "ar": "Number of Days"
       },
       "businessContext_i18n": {
         "en": "Planning period in days",
         "tr": "Planlama dönemi (gün)",
-        "de": "Planungszeitraum in Tagen"
+        "de": "Planungszeitraum in Tagen",
+        "fr": "Période de planification en jours",
+        "es": "Período de planificación en días"
       }
     }
   ],

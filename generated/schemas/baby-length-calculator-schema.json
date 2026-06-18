@@ -12,14 +12,16 @@
         "en": "Age (months)",
         "tr": "Yaş (ay)",
         "de": "Alter (Monate)",
-        "fr": "Age (months)",
-        "es": "Age (months)",
+        "fr": "Âge (mois)",
+        "es": "Edad (meses)",
         "ar": "Age (months)"
       },
       "businessContext_i18n": {
         "en": "Baby's age in months, used for length estimation based on standard growth curves.",
         "tr": "Bebeğin ay cinsinden yaşı, standart büyüme eğrilerine dayalı boy tahmini için kullanılır.",
-        "de": "Alter des Babys in Monaten, verwendet für Längenschätzung basierend auf Standard-Wachstumskurven."
+        "de": "Alter des Babys in Monaten, verwendet für Längenschätzung basierend auf Standard-Wachstumskurven.",
+        "fr": "Âge du bébé en mois, utilisé pour l'estimation de la taille basée sur les courbes de croissance standard.",
+        "es": "Edad del bebé en meses, utilizada para estimar la longitud según curvas de crecimiento estándar."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Weight (kg)",
         "tr": "Ağırlık (kg)",
         "de": "Gewicht (kg)",
-        "fr": "Weight (kg)",
-        "es": "Weight (kg)",
+        "fr": "Poids (kg)",
+        "es": "Peso (kg)",
         "ar": "Weight (kg)"
       },
       "businessContext_i18n": {
         "en": "Baby's weight in kilograms, a supplementary predictor for length.",
         "tr": "Bebeğin kilogram cinsinden ağırlığı, boy için tamamlayıcı bir tahmin edici.",
-        "de": "Gewicht des Babys in Kilogramm, ein ergänzender Prädiktor für die Länge."
+        "de": "Gewicht des Babys in Kilogramm, ein ergänzender Prädiktor für die Länge.",
+        "fr": "Poids du bébé en kilogrammes, prédicteur supplémentaire pour la taille.",
+        "es": "Peso del bebé en kilogramos, predictor complementario de la longitud."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Gender (0=girl, 1=boy)",
         "tr": "Cinsiyet (0=kız, 1=erkek)",
         "de": "Geschlecht (0=Mädchen, 1=Junge)",
-        "fr": "Gender (0=girl, 1=boy)",
-        "es": "Gender (0=girl, 1=boy)",
+        "fr": "Genre (0=fille, 1=garçon)",
+        "es": "Género (0=niña, 1=niño)",
         "ar": "Gender (0=girl, 1=boy)"
       },
       "businessContext_i18n": {
         "en": "Gender code (0 for female, 1 for male) to apply length offset.",
         "tr": "Cinsiyet kodu (0 kadın, 1 erkek) boy ofsetini uygulamak için.",
-        "de": "Geschlechtscode (0 für weiblich, 1 für männlich) zur Anwendung des Längen-Offsets."
+        "de": "Geschlechtscode (0 für weiblich, 1 für männlich) zur Anwendung des Längen-Offsets.",
+        "fr": "Code de genre (0 pour féminin, 1 pour masculin) pour appliquer le décalage de taille.",
+        "es": "Código de género (0 para femenino, 1 para masculino) para aplicar el ajuste de longitud."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Premature (weeks)",
         "tr": "Prematüre (hafta)",
         "de": "Frühgeburt (Wochen)",
-        "fr": "Premature (weeks)",
-        "es": "Premature (weeks)",
+        "fr": "Prématurité (semaines)",
+        "es": "Prematuro (semanas)",
         "ar": "Premature (weeks)"
       },
       "businessContext_i18n": {
         "en": "Number of weeks born early; used to correct age for prematurity adjustment.",
         "tr": "Erken doğan hafta sayısı; prematüre ayarlaması için yaşı düzeltmek amacıyla kullanılır.",
-        "de": "Anzahl der Wochen zu früh geboren; zur Korrektur des Alters für Frühgeburtenanpassung."
+        "de": "Anzahl der Wochen zu früh geboren; zur Korrektur des Alters für Frühgeburtenanpassung.",
+        "fr": "Nombre de semaines de naissance prématurée ; utilisé pour corriger l'âge pour l'ajustement de prématurité.",
+        "es": "Número de semanas de nacimiento prematuro; se utiliza para corregir la edad por ajuste de prematuridad."
       }
     }
   ],

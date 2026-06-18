@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Lower bound a",
         "tr": "Alt sınır a",
-        "de": "Lower bound a",
-        "fr": "Lower bound a",
-        "es": "Lower bound a",
+        "de": "Untere Grenze a",
+        "fr": "Borne inférieure a",
+        "es": "Límite inferior a",
         "ar": "Lower bound a"
       },
       "businessContext_i18n": {
         "en": "Left endpoint of the interval",
-        "tr": "Aralığın sol uç noktası"
+        "tr": "Aralığın sol uç noktası",
+        "de": "Linker Endpunkt des Intervalls",
+        "fr": "Extrémité gauche de l'intervalle",
+        "es": "Extremo izquierdo del intervalo"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Upper bound b",
         "tr": "Üst sınır b",
-        "de": "Upper bound b",
-        "fr": "Upper bound b",
-        "es": "Upper bound b",
+        "de": "Obere Grenze b",
+        "fr": "Borne supérieure b",
+        "es": "Límite superior b",
         "ar": "Upper bound b"
       },
       "businessContext_i18n": {
         "en": "Right endpoint of the interval, must be greater than a",
-        "tr": "Aralığın sağ uç noktası, a'dan büyük olmalıdır"
+        "tr": "Aralığın sağ uç noktası, a'dan büyük olmalıdır",
+        "de": "Rechter Endpunkt des Intervalls, muss größer als a sein",
+        "fr": "Extrémité droite de l'intervalle, doit être supérieure à a",
+        "es": "Extremo derecho del intervalo, debe ser mayor que a"
       }
     },
     {
@@ -58,7 +64,10 @@
       },
       "businessContext_i18n": {
         "en": "Function value at the lower bound",
-        "tr": "Alt sınırdaki fonksiyon değeri"
+        "tr": "Alt sınırdaki fonksiyon değeri",
+        "de": "Funktionswert an der unteren Grenze",
+        "fr": "Valeur de la fonction à la borne inférieure",
+        "es": "Valor de la función en el límite inferior"
       }
     },
     {
@@ -78,7 +87,10 @@
       },
       "businessContext_i18n": {
         "en": "Function value at the upper bound",
-        "tr": "Üst sınırdaki fonksiyon değeri"
+        "tr": "Üst sınırdaki fonksiyon değeri",
+        "de": "Funktionswert an der oberen Grenze",
+        "fr": "Valeur de la fonction à la borne supérieure",
+        "es": "Valor de la función en el límite superior"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Target value k",
         "tr": "Hedef değer k",
-        "de": "Target value k",
-        "fr": "Target value k",
-        "es": "Target value k",
+        "de": "Zielwert k",
+        "fr": "Valeur cible k",
+        "es": "Valor objetivo k",
         "ar": "Target value k"
       },
       "businessContext_i18n": {
         "en": "Value to find between f(a) and f(b)",
-        "tr": "f(a) ile f(b) arasında bulunacak değer"
+        "tr": "f(a) ile f(b) arasında bulunacak değer",
+        "de": "Wert, der zwischen f(a) und f(b) gesucht wird",
+        "fr": "Valeur à trouver entre f(a) et f(b)",
+        "es": "Valor a encontrar entre f(a) y f(b)"
       }
     }
   ],

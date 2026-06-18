@@ -12,14 +12,16 @@
         "en": "Breathing Rate",
         "tr": "Solunum hızı",
         "de": "Atemfrequenz",
-        "fr": "Breathing Rate",
-        "es": "Breathing Rate",
+        "fr": "Fréquence respiratoire",
+        "es": "Frecuencia respiratoria",
         "ar": "Breathing Rate"
       },
       "businessContext_i18n": {
         "en": "Average respiratory rate for a person at rest",
         "tr": "Dinlenme halindeki bir kişi için ortalama solunum hızı",
-        "de": "Durchschnittliche Atemfrequenz einer Person im Ruhezustand"
+        "de": "Durchschnittliche Atemfrequenz einer Person im Ruhezustand",
+        "fr": "Fréquence respiratoire moyenne d'une personne au repos",
+        "es": "Frecuencia respiratoria promedio de una persona en reposo"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Tidal Volume",
         "tr": "Soluk hacmi",
         "de": "Atemzugvolumen",
-        "fr": "Tidal Volume",
-        "es": "Tidal Volume",
+        "fr": "Volume courant",
+        "es": "Volumen corriente",
         "ar": "Tidal Volume"
       },
       "businessContext_i18n": {
         "en": "Volume of air displaced per breath",
         "tr": "Her nefeste yer değiştiren hava hacmi",
-        "de": "Luftvolumen, das pro Atemzug bewegt wird"
+        "de": "Luftvolumen, das pro Atemzug bewegt wird",
+        "fr": "Volume d'air déplacé par respiration",
+        "es": "Volumen de aire desplazado por respiración"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Cylinder Water Volume",
         "tr": "Tüp su hacmi",
         "de": "Wasservolumen der Flasche",
-        "fr": "Cylinder Water Volume",
-        "es": "Cylinder Water Volume",
+        "fr": "Volume d'eau de la bouteille",
+        "es": "Volumen de agua del cilindro",
         "ar": "Cylinder Water Volume"
       },
       "businessContext_i18n": {
         "en": "Internal water volume of the SCBA cylinder",
         "tr": "SCBA tüpünün iç su hacmi",
-        "de": "Internes Wasservolumen der SCBA-Flasche"
+        "de": "Internes Wasservolumen der SCBA-Flasche",
+        "fr": "Volume d'eau interne de la bouteille SCBA",
+        "es": "Volumen interno de agua del cilindro SCBA"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Cylinder Pressure",
         "tr": "Tüp basıncı",
         "de": "Flaschenfüllstand",
-        "fr": "Cylinder Pressure",
-        "es": "Cylinder Pressure",
+        "fr": "Pression de la bouteille",
+        "es": "Presión del cilindro",
         "ar": "Cylinder Pressure"
       },
       "businessContext_i18n": {
         "en": "Filled pressure of the cylinder",
         "tr": "Tüpün doldurma basıncı",
-        "de": "Fülldruck der Flasche"
+        "de": "Fülldruck der Flasche",
+        "fr": "Pression de remplissage de la bouteille",
+        "es": "Presión de llenado del cilindro"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Safety margin to ensure sufficient air reserve",
         "tr": "Yeterli hava rezervini sağlamak için güvenlik marjı",
-        "de": "Sicherheitsmarge zur Gewährleistung ausreichender Luftreserve"
+        "de": "Sicherheitsmarge zur Gewährleistung ausreichender Luftreserve",
+        "fr": "Marge de sécurité pour garantir une réserve d'air suffisante",
+        "es": "Margen de seguridad para asegurar una reserva de aire suficiente"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Ambient Pressure",
         "tr": "Ortam basıncı",
         "de": "Umgebungsdruck",
-        "fr": "Ambient Pressure",
-        "es": "Ambient Pressure",
+        "fr": "Pression ambiante",
+        "es": "Presión ambiente",
         "ar": "Ambient Pressure"
       },
       "businessContext_i18n": {
         "en": "Atmospheric pressure at the working location (1 atm at sea level)",
         "tr": "Çalışma konumundaki atmosfer basıncı (deniz seviyesinde 1 atm)",
-        "de": "Atmosphärischer Druck am Arbeitsort (1 atm auf Meereshöhe)"
+        "de": "Atmosphärischer Druck am Arbeitsort (1 atm auf Meereshöhe)",
+        "fr": "Pression atmosphérique au lieu de travail (1 atm au niveau de la mer)",
+        "es": "Presión atmosférica en el lugar de trabajo (1 atm a nivel del mar)"
       }
     }
   ],

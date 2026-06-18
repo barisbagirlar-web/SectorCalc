@@ -13,12 +13,15 @@
         "tr": "Rakım",
         "de": "Höhe",
         "fr": "Altitude",
-        "es": "Altitude",
+        "es": "Altitud",
         "ar": "Altitude"
       },
       "businessContext_i18n": {
         "en": "Satellite height above planet surface",
-        "tr": "Uydunun gezegen yüzeyinden yüksekliği"
+        "tr": "Uydunun gezegen yüzeyinden yüksekliği",
+        "de": "Satellitenhöhe über der Planetenoberfläche",
+        "fr": "Hauteur du satellite au-dessus de la surface de la planète",
+        "es": "Altura del satélite sobre la superficie del planeta"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Planet Radius",
         "tr": "Gezegen Yarıçapı",
-        "de": "Planet Radius",
-        "fr": "Planet Radius",
-        "es": "Planet Radius",
+        "de": "Planetenradius",
+        "fr": "Rayon de la planète",
+        "es": "Radio del planeta",
         "ar": "Planet Radius"
       },
       "businessContext_i18n": {
         "en": "Radius of the central body (e.g., Earth)",
-        "tr": "Merkezi cismin yarıçapı (ör. Dünya)"
+        "tr": "Merkezi cismin yarıçapı (ör. Dünya)",
+        "de": "Radius des Zentralkörpers (z. B. Erde)",
+        "fr": "Rayon du corps central (par exemple, la Terre)",
+        "es": "Radio del cuerpo central (ej. Tierra)"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Eccentricity",
         "tr": "Dışmerkezlik",
-        "de": "Eccentricity",
-        "fr": "Eccentricity",
-        "es": "Eccentricity",
+        "de": "Exzentrizität",
+        "fr": "Excentricité",
+        "es": "Excentricidad",
         "ar": "Eccentricity"
       },
       "businessContext_i18n": {
         "en": "Orbit eccentricity (0 for circular orbit)",
-        "tr": "Yörünge dışmerkezliği (dairesel yörünge için 0)"
+        "tr": "Yörünge dışmerkezliği (dairesel yörünge için 0)",
+        "de": "Bahn-Exzentrizität (0 für Kreisbahn)",
+        "fr": "Excentricité de l'orbite (0 pour une orbite circulaire)",
+        "es": "Excentricidad orbital (0 para órbita circular)"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Gravitational Parameter",
         "tr": "Yerçekim Parametresi",
         "de": "Gravitationsparameter",
-        "fr": "Gravitational Parameter",
-        "es": "Gravitational Parameter",
+        "fr": "Paramètre gravitationnel",
+        "es": "Parámetro gravitacional",
         "ar": "Gravitational Parameter"
       },
       "businessContext_i18n": {
         "en": "Standard gravitational parameter (G × M)",
-        "tr": "Standart çekim parametresi (G × M)"
+        "tr": "Standart çekim parametresi (G × M)",
+        "de": "Standard-Gravitationsparameter (G × M)",
+        "fr": "Paramètre gravitationnel standard (G × M)",
+        "es": "Parámetro gravitacional estándar (G × M)"
       }
     }
   ],

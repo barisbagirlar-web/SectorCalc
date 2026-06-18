@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Distance (miles)",
         "tr": "Mesafe (mil)",
-        "de": "Distance (miles)",
+        "de": "Entfernung (Meilen)",
         "fr": "Distance (miles)",
-        "es": "Distance (miles)",
+        "es": "Distancia (millas)",
         "ar": "Distance (miles)"
       },
       "businessContext_i18n": {
         "en": "Total distance traveled in miles for the trip or period.",
-        "tr": "Seyahat veya dönem için kat edilen toplam mesafe (mil)"
+        "tr": "Seyahat veya dönem için kat edilen toplam mesafe (mil)",
+        "de": "Gesamte zurückgelegte Entfernung in Meilen für die Reise oder den Zeitraum.",
+        "fr": "Distance totale parcourue en miles pour le trajet ou la période.",
+        "es": "Distancia total recorrida en millas para el viaje o período."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Fuel Efficiency",
         "tr": "Yakıt Verimliliği",
         "de": "Kraftstoffeffizienz",
-        "fr": "Fuel Efficiency",
-        "es": "Fuel Efficiency",
+        "fr": "Rendement énergétique",
+        "es": "Eficiencia de combustible",
         "ar": "Fuel Efficiency"
       },
       "businessContext_i18n": {
         "en": "Vehicle fuel efficiency in miles per gallon.",
-        "tr": "Araç yakıt verimliliği (mil/galon)."
+        "tr": "Araç yakıt verimliliği (mil/galon).",
+        "de": "Kraftstoffeffizienz des Fahrzeugs in Meilen pro Gallone.",
+        "fr": "Rendement énergétique du véhicule en miles par gallon.",
+        "es": "Eficiencia de combustible del vehículo en millas por galón."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Fuel Price",
         "tr": "Yakıt Fiyatı",
         "de": "Kraftstoffpreis",
-        "fr": "Fuel Price",
-        "es": "Fuel Price",
+        "fr": "Prix du carburant",
+        "es": "Precio del Combustible",
         "ar": "Fuel Price"
       },
       "businessContext_i18n": {
         "en": "Current fuel price per gallon.",
-        "tr": "Güncel yakıt fiyatı (galon başına)."
+        "tr": "Güncel yakıt fiyatı (galon başına).",
+        "de": "Aktueller Kraftstoffpreis pro Gallone.",
+        "fr": "Prix actuel du carburant par gallon.",
+        "es": "Precio actual del combustible por galón."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Maintenance Cost",
         "tr": "Bakım Maliyeti",
-        "de": "Maintenance Cost",
-        "fr": "Maintenance Cost",
-        "es": "Maintenance Cost",
+        "de": "Wartungskosten",
+        "fr": "Coût d'entretien",
+        "es": "Coste de mantenimiento",
         "ar": "Maintenance Cost"
       },
       "businessContext_i18n": {
         "en": "Estimated maintenance cost per mile (tires, oil, repairs).",
-        "tr": "Mil başına tahmini bakım maliyeti (lastik, yağ, onarım)."
+        "tr": "Mil başına tahmini bakım maliyeti (lastik, yağ, onarım).",
+        "de": "Geschätzte Wartungskosten pro Meile (Reifen, Öl, Reparaturen).",
+        "fr": "Coût d'entretien estimé par mile (pneus, huile, réparations).",
+        "es": "Coste estimado de mantenimiento por milla (neumáticos, aceite, reparaciones)."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Annual Fixed Costs",
         "tr": "Yıllık Sabit Maliyetler",
-        "de": "Annual Fixed Costs",
-        "fr": "Annual Fixed Costs",
-        "es": "Annual Fixed Costs",
+        "de": "Jährliche Fixkosten",
+        "fr": "Coûts fixes annuels",
+        "es": "Costes Fijos Anuales",
         "ar": "Annual Fixed Costs"
       },
       "businessContext_i18n": {
         "en": "Total annual fixed costs like insurance and registration.",
-        "tr": "Sigorta ve tescil gibi toplam yıllık sabit maliyetler."
+        "tr": "Sigorta ve tescil gibi toplam yıllık sabit maliyetler.",
+        "de": "Jährliche Fixkosten wie Versicherung und Zulassung.",
+        "fr": "Total des coûts fixes annuels comme l'assurance et l'immatriculation.",
+        "es": "Costes fijos anuales totales como seguro y matriculación."
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Annual Mileage",
         "tr": "Yıllık Kilometre",
         "de": "Jährliche Fahrleistung",
-        "fr": "Annual Mileage",
-        "es": "Annual Mileage",
+        "fr": "Kilométrage annuel",
+        "es": "Kilometraje anual",
         "ar": "Annual Mileage"
       },
       "businessContext_i18n": {
         "en": "Estimated total miles driven per year.",
-        "tr": "Yılda tahmini toplam sürülen mil."
+        "tr": "Yılda tahmini toplam sürülen mil.",
+        "de": "Geschätzte Gesamtmeilen pro Jahr.",
+        "fr": "Nombre total estimé de miles parcourus par an.",
+        "es": "Millas totales estimadas recorridas por año."
       }
     }
   ],

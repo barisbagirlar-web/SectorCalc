@@ -12,13 +12,15 @@
         "en": "Radius",
         "tr": "Yarıçap",
         "de": "Radius",
-        "fr": "Radius",
-        "es": "Radius",
+        "fr": "Rayon",
+        "es": "Radio",
         "ar": "Radius"
       },
       "businessContext_i18n": {
         "en": "The radius of the sphere in meters",
-        "tr": "Kürenin metre cinsinden yarıçapı"
+        "tr": "Kürenin metre cinsinden yarıçapı",
+        "de": "Radius der Kugel in Metern",
+        "fr": "Rayon de la sphère en mètres"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Diameter",
         "tr": "Çap",
         "de": "Durchmesser",
-        "fr": "Diameter",
-        "es": "Diameter",
+        "fr": "Diamètre",
+        "es": "Diámetro",
         "ar": "Diameter"
       },
       "businessContext_i18n": {
         "en": "The diameter of the sphere in meters, used if Input Type is 1",
-        "tr": "Kürenin metre cinsinden çapı, Giriş Türü 1 ise kullanılır"
+        "tr": "Kürenin metre cinsinden çapı, Giriş Türü 1 ise kullanılır",
+        "de": "Durchmesser der Kugel in Metern, verwendet wenn Eingabetyp 1 ist",
+        "fr": "Diamètre de la sphère en mètres, utilisé si le type d'entrée est 1"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Input Type",
         "tr": "Giriş Türü",
-        "de": "Input Type",
-        "fr": "Input Type",
+        "de": "Eingabetyp",
+        "fr": "Type d'entrée",
         "es": "Input Type",
         "ar": "Input Type"
       },
       "businessContext_i18n": {
         "en": "0 = Use Radius, 1 = Use Diameter",
-        "tr": "0 = Yarıçap Kullan, 1 = Çap Kullan"
+        "tr": "0 = Yarıçap Kullan, 1 = Çap Kullan",
+        "de": "0 = Radius verwenden, 1 = Durchmesser verwenden",
+        "fr": "0 = Utiliser le rayon, 1 = Utiliser le diamètre"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Output Unit",
         "tr": "Çıktı Birimi",
         "de": "Ausgabeeinheit",
-        "fr": "Output Unit",
-        "es": "Output Unit",
+        "fr": "Unité de sortie",
+        "es": "Unidad de salida",
         "ar": "Output Unit"
       },
       "businessContext_i18n": {
         "en": "0 = m², 1 = cm², 2 = mm², 3 = ft²",
-        "tr": "0 = m², 1 = cm², 2 = mm², 3 = ft²"
+        "tr": "0 = m², 1 = cm², 2 = mm², 3 = ft²",
+        "de": "0 = m², 1 = cm², 2 = mm², 3 = ft²",
+        "fr": "0 = m², 1 = cm², 2 = mm², 3 = ft²"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Cost per m²",
         "tr": "m² başına maliyet",
-        "de": "Cost per m²",
-        "fr": "Cost per m²",
+        "de": "Kosten pro m²",
+        "fr": "Coût par m²",
         "es": "Cost per m²",
         "ar": "Cost per m²"
       },
       "businessContext_i18n": {
         "en": "Cost of material per square meter for coating or painting",
-        "tr": "Kaplama veya boyama için metrekare başına malzeme maliyeti"
+        "tr": "Kaplama veya boyama için metrekare başına malzeme maliyeti",
+        "de": "Materialkosten pro Quadratmeter für Beschichtung oder Lackierung",
+        "fr": "Coût du matériau par mètre carré pour le revêtement ou la peinture"
       }
     },
     {
@@ -112,14 +122,16 @@
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
         "de": "Abfallfaktor",
-        "fr": "Waste Factor",
-        "es": "Waste Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Additional percentage for material waste",
         "tr": "Malzeme fire yüzdesi",
-        "de": "Zusätzlicher Prozentsatz für Materialverschnitt"
+        "de": "Zusätzlicher Prozentsatz für Materialverschnitt",
+        "fr": "Pourcentage supplémentaire pour les déchets de matériaux",
+        "es": "Porcentaje adicional por desperdicio de material"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Alternating Stress",
         "tr": "Değişken Gerilme",
         "de": "Wechselspannung",
-        "fr": "Alternating Stress",
-        "es": "Alternating Stress",
+        "fr": "Contrainte alternée",
+        "es": "Esfuerzo alternante",
         "ar": "Alternating Stress"
       },
       "businessContext_i18n": {
         "en": "Stress amplitude (sigma_a)",
         "tr": "Gerilme genliği (sigma_a)",
-        "de": "Spannungsamplitude (sigma_a)"
+        "de": "Spannungsamplitude (sigma_a)",
+        "fr": "Amplitude de contrainte (sigma_a)",
+        "es": "Amplitud de esfuerzo (sigma_a)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Mean Stress",
         "tr": "Ortalama Gerilme",
         "de": "Mittelspannung",
-        "fr": "Mean Stress",
-        "es": "Mean Stress",
+        "fr": "Contrainte moyenne",
+        "es": "Esfuerzo medio",
         "ar": "Mean Stress"
       },
       "businessContext_i18n": {
         "en": "Mean stress (sigma_m)",
         "tr": "Ortalama gerilme (sigma_m)",
-        "de": "Mittelspannung (sigma_m)"
+        "de": "Mittelspannung (sigma_m)",
+        "fr": "Contrainte moyenne (sigma_m)",
+        "es": "Esfuerzo medio (sigma_m)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Endurance Limit",
         "tr": "Yorulma Sınırı",
         "de": "Dauerfestigkeit",
-        "fr": "Endurance Limit",
-        "es": "Endurance Limit",
+        "fr": "Limite d'endurance",
+        "es": "Límite de resistencia a la fatiga",
         "ar": "Endurance Limit"
       },
       "businessContext_i18n": {
         "en": "Material endurance limit (S_e)",
         "tr": "Malzeme yorulma sınırı (S_e)",
-        "de": "Dauerfestigkeit des Materials (S_e)"
+        "de": "Dauerfestigkeit des Materials (S_e)",
+        "fr": "Limite d'endurance du matériau (S_e)",
+        "es": "Límite de resistencia a la fatiga del material (S_e)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Ultimate Tensile Strength",
         "tr": "Çekme Dayanımı",
         "de": "Zugfestigkeit",
-        "fr": "Ultimate Tensile Strength",
-        "es": "Ultimate Tensile Strength",
+        "fr": "Résistance ultime à la traction",
+        "es": "Resistencia máxima a la tracción",
         "ar": "Ultimate Tensile Strength"
       },
       "businessContext_i18n": {
         "en": "Material ultimate tensile strength (S_ut)",
         "tr": "Malzeme nihai çekme dayanımı (S_ut)",
-        "de": "Zugfestigkeit des Materials (S_ut)"
+        "de": "Zugfestigkeit des Materials (S_ut)",
+        "fr": "Résistance ultime à la traction du matériau (S_ut)",
+        "es": "Resistencia máxima a la tracción del material (S_ut)"
       }
     }
   ],

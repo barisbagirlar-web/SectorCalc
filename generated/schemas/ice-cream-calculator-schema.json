@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Batch Mix Volume",
         "tr": "Parti Karışım Hacmi",
-        "de": "Batch Mix Volume",
-        "fr": "Batch Mix Volume",
-        "es": "Batch Mix Volume",
+        "de": "Batch-Mischvolumen",
+        "fr": "Volume du lot de mélange",
+        "es": "Volumen de mezcla por lote",
         "ar": "Batch Mix Volume"
       },
       "businessContext_i18n": {
         "en": "Volume of liquid ice cream mix before freezing/aeration",
-        "tr": "Dondurma/şişirme öncesi sıvı dondurma karışımının hacmi"
+        "tr": "Dondurma/şişirme öncesi sıvı dondurma karışımının hacmi",
+        "de": "Volumen der flüssigen Eismischung vor dem Gefrieren/Belüften",
+        "fr": "Volume du mélange liquide de crème glacée avant congélation/aération",
+        "es": "Volumen de mezcla líquida de helado antes de congelación/aireación"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Overrun",
         "tr": "Şişirme Oranı",
         "de": "Overrun",
-        "fr": "Overrun",
+        "fr": "Foisonnement",
         "es": "Overrun",
         "ar": "Overrun"
       },
       "businessContext_i18n": {
         "en": "Percentage increase in volume due to air incorporation during freezing",
-        "tr": "Dondurma sırasında hava katılımı nedeniyle hacim artış yüzdesi"
+        "tr": "Dondurma sırasında hava katılımı nedeniyle hacim artış yüzdesi",
+        "de": "Prozentuale Volumenzunahme durch Lufteinbringung während des Gefrierens",
+        "fr": "Pourcentage d'augmentation du volume dû à l'incorporation d'air pendant la congélation",
+        "es": "Aumento porcentual en volumen debido a la incorporación de aire durante la congelación"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Mix Cost per Liter",
         "tr": "Litre Başına Karışım Maliyeti",
-        "de": "Mix Cost per Liter",
-        "fr": "Mix Cost per Liter",
-        "es": "Mix Cost per Liter",
+        "de": "Mischungskosten pro Liter",
+        "fr": "Coût du mélange par litre",
+        "es": "Costo de mezcla por litro",
         "ar": "Mix Cost per Liter"
       },
       "businessContext_i18n": {
         "en": "Cost of ingredients for one liter of liquid mix",
-        "tr": "Bir litre sıvı karışım için malzeme maliyeti"
+        "tr": "Bir litre sıvı karışım için malzeme maliyeti",
+        "de": "Kosten der Zutaten für einen Liter flüssige Mischung",
+        "fr": "Coût des ingrédients pour un litre de mélange liquide",
+        "es": "Costo de ingredientes por litro de mezcla líquida"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Packaging Cost per Liter",
         "tr": "Litre Başına Ambalaj Maliyeti",
-        "de": "Packaging Cost per Liter",
-        "fr": "Packaging Cost per Liter",
-        "es": "Packaging Cost per Liter",
+        "de": "Verpackungskosten pro Liter",
+        "fr": "Coût d'emballage par litre",
+        "es": "Costo de empaque por litro",
         "ar": "Packaging Cost per Liter"
       },
       "businessContext_i18n": {
         "en": "Cost of packaging materials per liter of final ice cream",
-        "tr": "Bir litre nihai dondurma için ambalaj malzemesi maliyeti"
+        "tr": "Bir litre nihai dondurma için ambalaj malzemesi maliyeti",
+        "de": "Kosten des Verpackungsmaterials pro Liter fertiges Eis",
+        "fr": "Coût des matériaux d'emballage par litre de crème glacée finale",
+        "es": "Costo de materiales de empaque por litro de helado final"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Other Costs per Batch",
         "tr": "Parti Başına Diğer Maliyetler",
-        "de": "Other Costs per Batch",
-        "fr": "Other Costs per Batch",
-        "es": "Other Costs per Batch",
+        "de": "Sonstige Kosten pro Batch",
+        "fr": "Autres coûts par lot",
+        "es": "Otros costos por lote",
         "ar": "Other Costs per Batch"
       },
       "businessContext_i18n": {
         "en": "Fixed costs per batch (labor, energy, etc.)",
-        "tr": "Parti başına sabit maliyetler (işçilik, enerji vb.)"
+        "tr": "Parti başına sabit maliyetler (işçilik, enerji vb.)",
+        "de": "Fixkosten pro Batch (Arbeit, Energie usw.)",
+        "fr": "Coûts fixes par lot (main-d'œuvre, énergie, etc.)",
+        "es": "Costos fijos por lote (mano de obra, energía, etc.)"
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Desired Profit Margin",
         "tr": "Hedef Kar Marjı",
         "de": "Gewünschte Gewinnspanne",
-        "fr": "Desired Profit Margin",
-        "es": "Desired Profit Margin",
+        "fr": "Marge bénéficiaire souhaitée",
+        "es": "Margen de beneficio deseado",
         "ar": "Desired Profit Margin"
       },
       "businessContext_i18n": {
         "en": "Target profit margin as a percentage of selling price",
-        "tr": "Satış fiyatının yüzdesi olarak hedef kar marjı"
+        "tr": "Satış fiyatının yüzdesi olarak hedef kar marjı",
+        "de": "Zielgewinnmarge als Prozentsatz des Verkaufspreises",
+        "fr": "Marge bénéficiaire cible en pourcentage du prix de vente",
+        "es": "Margen de beneficio objetivo como porcentaje del precio de venta"
       }
     }
   ],

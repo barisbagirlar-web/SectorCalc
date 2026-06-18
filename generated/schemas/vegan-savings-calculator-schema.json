@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Number of Meals per Week",
         "tr": "Haftalık Öğün Sayısı",
-        "de": "Number of Meals per Week",
-        "fr": "Number of Meals per Week",
+        "de": "Anzahl Mahlzeiten pro Woche",
+        "fr": "Nombre de repas par semaine",
         "es": "Number of Meals per Week",
         "ar": "Number of Meals per Week"
       },
       "businessContext_i18n": {
         "en": "Total number of meals that are being switched from meat-based to vegan.",
-        "tr": "Et bazlıdan vegana geçirilen toplam öğün sayısı."
+        "tr": "Et bazlıdan vegana geçirilen toplam öğün sayısı.",
+        "de": "Gesamtzahl der Mahlzeiten, die von fleischbasiert auf vegan umgestellt werden.",
+        "fr": "Nombre total de repas passant d'un régime carné à un régime végétalien."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Average CO2 per Meat Meal",
         "tr": "Etli Öğün Başına Ortalama CO2",
-        "de": "Average CO2 per Meat Meal",
-        "fr": "Average CO2 per Meat Meal",
+        "de": "Durchschnittliches CO₂ pro Fleischmahlzeit",
+        "fr": "CO₂ moyen par repas carné",
         "es": "Average CO2 per Meat Meal",
         "ar": "Average CO2 per Meat Meal"
       },
       "businessContext_i18n": {
         "en": "Average carbon footprint of a meat-based meal.",
-        "tr": "Et bazlı bir öğünün ortalama karbon ayak izi."
+        "tr": "Et bazlı bir öğünün ortalama karbon ayak izi.",
+        "de": "Durchschnittlicher CO₂-Fußabdruck einer fleischbasierten Mahlzeit.",
+        "fr": "Empreinte carbone moyenne d'un repas carné."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Average CO2 per Vegan Meal",
         "tr": "Vegan Öğün Başına Ortalama CO2",
-        "de": "Average CO2 per Vegan Meal",
-        "fr": "Average CO2 per Vegan Meal",
+        "de": "Durchschnittliches CO₂ pro veganer Mahlzeit",
+        "fr": "CO₂ moyen par repas végétalien",
         "es": "Average CO2 per Vegan Meal",
         "ar": "Average CO2 per Vegan Meal"
       },
       "businessContext_i18n": {
         "en": "Average carbon footprint of a vegan meal.",
-        "tr": "Vegan bir öğünün ortalama karbon ayak izi."
+        "tr": "Vegan bir öğünün ortalama karbon ayak izi.",
+        "de": "Durchschnittlicher CO₂-Fußabdruck einer veganen Mahlzeit.",
+        "fr": "Empreinte carbone moyenne d'un repas végétalien."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Cost per Meat Meal",
         "tr": "Etli Öğün Maliyeti",
-        "de": "Cost per Meat Meal",
-        "fr": "Cost per Meat Meal",
+        "de": "Kosten pro Fleischmahlzeit",
+        "fr": "Coût par repas carné",
         "es": "Cost per Meat Meal",
         "ar": "Cost per Meat Meal"
       },
       "businessContext_i18n": {
         "en": "Average cost of a meat-based meal.",
-        "tr": "Et bazlı bir öğünün ortalama maliyeti."
+        "tr": "Et bazlı bir öğünün ortalama maliyeti.",
+        "de": "Durchschnittliche Kosten einer fleischbasierten Mahlzeit.",
+        "fr": "Coût moyen d'un repas carné."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Cost per Vegan Meal",
         "tr": "Vegan Öğün Maliyeti",
-        "de": "Cost per Vegan Meal",
-        "fr": "Cost per Vegan Meal",
+        "de": "Kosten pro veganer Mahlzeit",
+        "fr": "Coût par repas végétalien",
         "es": "Cost per Vegan Meal",
         "ar": "Cost per Vegan Meal"
       },
       "businessContext_i18n": {
         "en": "Average cost of a vegan meal.",
-        "tr": "Vegan bir öğünün ortalama maliyeti."
+        "tr": "Vegan bir öğünün ortalama maliyeti.",
+        "de": "Durchschnittliche Kosten einer veganen Mahlzeit.",
+        "fr": "Coût moyen d'un repas végétalien."
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Number of Weeks",
         "tr": "Hafta Sayısı",
         "de": "Anzahl der Wochen",
-        "fr": "Number of Weeks",
-        "es": "Number of Weeks",
+        "fr": "Nombre de semaines",
+        "es": "Número de semanas",
         "ar": "Number of Weeks"
       },
       "businessContext_i18n": {
         "en": "Period in weeks for the calculation.",
-        "tr": "Hesaplama için hafta cinsinden süre."
+        "tr": "Hesaplama için hafta cinsinden süre.",
+        "de": "Zeitraum in Wochen für die Berechnung.",
+        "fr": "Période en semaines pour le calcul."
       }
     }
   ],

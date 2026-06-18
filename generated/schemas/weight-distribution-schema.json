@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Total Weight (kg)",
         "tr": "Toplam Ağırlık (kg)",
-        "de": "Total Weight (kg)",
-        "fr": "Total Weight (kg)",
+        "de": "Gesamtgewicht (kg)",
+        "fr": "Poids total (kg)",
         "es": "Total Weight (kg)",
         "ar": "Total Weight (kg)"
       },
       "businessContext_i18n": {
         "en": "Total weight of the load or vehicle",
-        "tr": "Yükün veya aracın toplam ağırlığı"
+        "tr": "Yükün veya aracın toplam ağırlığı",
+        "de": "Gesamtgewicht der Last oder des Fahrzeugs",
+        "fr": "Poids total de la charge ou du véhicule"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Distance from Front Axle to COG (m)",
         "tr": "Ön Aks ile Ağırlık Merkezi Arası Mesafe (m)",
-        "de": "Distance from Front Axle to COG (m)",
-        "fr": "Distance from Front Axle to COG (m)",
+        "de": "Abstand von Vorderachse zu Schwerpunkt (m)",
+        "fr": "Distance de l'essieu avant au CDG (m)",
         "es": "Distance from Front Axle to COG (m)",
         "ar": "Distance from Front Axle to COG (m)"
       },
       "businessContext_i18n": {
         "en": "Horizontal distance from front axle to center of gravity",
-        "tr": "Ön aks ile ağırlık merkezi arasındaki yatay mesafe"
+        "tr": "Ön aks ile ağırlık merkezi arasındaki yatay mesafe",
+        "de": "Horizontaler Abstand von der Vorderachse zum Schwerpunkt",
+        "fr": "Distance horizontale de l'essieu avant au centre de gravité"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Distance from Rear Axle to COG (m)",
         "tr": "Arka Aks ile Ağırlık Merkezi Arası Mesafe (m)",
-        "de": "Distance from Rear Axle to COG (m)",
-        "fr": "Distance from Rear Axle to COG (m)",
+        "de": "Abstand von Hinterachse zu Schwerpunkt (m)",
+        "fr": "Distance de l'essieu arrière au CDG (m)",
         "es": "Distance from Rear Axle to COG (m)",
         "ar": "Distance from Rear Axle to COG (m)"
       },
       "businessContext_i18n": {
         "en": "Horizontal distance from rear axle to center of gravity",
-        "tr": "Arka aks ile ağırlık merkezi arasındaki yatay mesafe"
+        "tr": "Arka aks ile ağırlık merkezi arasındaki yatay mesafe",
+        "de": "Horizontaler Abstand von der Hinterachse zum Schwerpunkt",
+        "fr": "Distance horizontale de l'essieu arrière au centre de gravité"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Wheelbase (m)",
         "tr": "Dingil Mesafesi (m)",
-        "de": "Wheelbase (m)",
-        "fr": "Wheelbase (m)",
+        "de": "Radstand (m)",
+        "fr": "Empattement (m)",
         "es": "Wheelbase (m)",
         "ar": "Wheelbase (m)"
       },
       "businessContext_i18n": {
         "en": "Distance between front and rear axles",
-        "tr": "Ön ve arka akslar arasındaki mesafe"
+        "tr": "Ön ve arka akslar arasındaki mesafe",
+        "de": "Abstand zwischen Vorder- und Hinterachse",
+        "fr": "Distance entre les essieux avant et arrière"
       }
     }
   ],

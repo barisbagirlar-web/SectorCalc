@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Worker ID",
         "tr": "Çalışan Kimliği",
-        "de": "Worker ID",
-        "fr": "Worker ID",
-        "es": "Worker ID",
+        "de": "Mitarbeiter-ID",
+        "fr": "ID du travailleur",
+        "es": "ID del trabajador",
         "ar": "Worker ID"
       },
       "businessContext_i18n": {
         "en": "Unique identifier of the assessed worker.",
-        "tr": "Değerlendirilen çalışanın benzersiz tanımlayıcısı."
+        "tr": "Değerlendirilen çalışanın benzersiz tanımlayıcısı.",
+        "de": "Eindeutige Kennung des bewerteten Mitarbeiters.",
+        "fr": "Identifiant unique du travailleur évalué.",
+        "es": "Identificador único del trabajador evaluado."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Shift Number",
         "tr": "Vardiya Numarası",
-        "de": "Shift Number",
-        "fr": "Shift Number",
-        "es": "Shift Number",
+        "de": "Schichtnummer",
+        "fr": "Numéro de quart",
+        "es": "Número de turno",
         "ar": "Shift Number"
       },
       "businessContext_i18n": {
         "en": "Shift during which assessment occurs.",
-        "tr": "Değerlendirmenin yapıldığı vardiya."
+        "tr": "Değerlendirmenin yapıldığı vardiya.",
+        "de": "Schicht, in der die Bewertung stattfindet.",
+        "fr": "Quart pendant lequel l'évaluation a lieu.",
+        "es": "Turno durante el cual se realiza la evaluación."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Little interest or pleasure in doing things (last 2 weeks)",
         "tr": "Son 2 hafta boyunca işlere karşı ilgi veya zevk azlığı",
-        "de": "Little interest or pleasure in doing things (last 2 weeks)",
-        "fr": "Little interest or pleasure in doing things (last 2 weeks)",
-        "es": "Little interest or pleasure in doing things (last 2 weeks)",
+        "de": "Wenig Interesse oder Freude an Tätigkeiten (letzte 2 Wochen)",
+        "fr": "Peu d'intérêt ou de plaisir à faire des choses (2 dernières semaines)",
+        "es": "Poco interés o placer en hacer cosas (últimas 2 semanas)",
         "ar": "Little interest or pleasure in doing things (last 2 weeks)"
       },
       "businessContext_i18n": {
         "en": "Response to PHQ-2 question 1: 0=Not at all, 1=Several days, 2=More than half the days, 3=Nearly every day.",
-        "tr": "PHQ-2 sorusu 1 yanıtı: 0=Hiç, 1=Birkaç gün, 2=Günlerin yarısından fazlası, 3=Hemen her gün."
+        "tr": "PHQ-2 sorusu 1 yanıtı: 0=Hiç, 1=Birkaç gün, 2=Günlerin yarısından fazlası, 3=Hemen her gün.",
+        "de": "Antwort auf PHQ-2 Frage 1: 0=Überhaupt nicht, 1=An mehreren Tagen, 2=An mehr als der Hälfte der Tage, 3=Fast jeden Tag.",
+        "fr": "Réponse à la question 1 du PHQ-2 : 0=Pas du tout, 1=Plusieurs jours, 2=Plus de la moitié des jours, 3=Presque tous les jours.",
+        "es": "Respuesta a la pregunta 1 del PHQ-2: 0=Nada, 1=Varios días, 2=Más de la mitad de los días, 3=Casi todos los días."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Feeling down, depressed, or hopeless (last 2 weeks)",
         "tr": "Son 2 hafta boyunca üzgün, depresif veya umutsuz hissetme",
-        "de": "Feeling down, depressed, or hopeless (last 2 weeks)",
-        "fr": "Feeling down, depressed, or hopeless (last 2 weeks)",
-        "es": "Feeling down, depressed, or hopeless (last 2 weeks)",
+        "de": "Niedergeschlagenheit, Depression oder Hoffnungslosigkeit (letzte 2 Wochen)",
+        "fr": "Se sentir triste, déprimé ou désespéré (2 dernières semaines)",
+        "es": "Sentirse decaído, deprimido o sin esperanza (últimas 2 semanas)",
         "ar": "Feeling down, depressed, or hopeless (last 2 weeks)"
       },
       "businessContext_i18n": {
         "en": "Response to PHQ-2 question 2: 0=Not at all, 1=Several days, 2=More than half the days, 3=Nearly every day.",
-        "tr": "PHQ-2 sorusu 2 yanıtı: 0=Hiç, 1=Birkaç gün, 2=Günlerin yarısından fazlası, 3=Hemen her gün."
+        "tr": "PHQ-2 sorusu 2 yanıtı: 0=Hiç, 1=Birkaç gün, 2=Günlerin yarısından fazlası, 3=Hemen her gün.",
+        "de": "Antwort auf PHQ-2 Frage 2: 0=Überhaupt nicht, 1=An mehreren Tagen, 2=An mehr als der Hälfte der Tage, 3=Fast jeden Tag.",
+        "fr": "Réponse à la question 2 du PHQ-2 : 0=Pas du tout, 1=Plusieurs jours, 2=Plus de la moitié des jours, 3=Presque tous les jours.",
+        "es": "Respuesta a la pregunta 2 del PHQ-2: 0=Nada, 1=Varios días, 2=Más de la mitad de los días, 3=Casi todos los días."
       }
     }
   ],

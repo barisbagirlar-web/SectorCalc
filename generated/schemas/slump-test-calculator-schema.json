@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Mold Height",
         "tr": "Kalıp Yüksekliği",
-        "de": "Mold Height",
-        "fr": "Mold Height",
+        "de": "Formhöhe",
+        "fr": "Hauteur du moule",
         "es": "Mold Height",
         "ar": "Mold Height"
       },
       "businessContext_i18n": {
         "en": "Standard slump cone height (300 mm per ASTM C143)",
-        "tr": "Standart slump konisi yüksekliği (ASTM C143'e göre 300 mm)"
+        "tr": "Standart slump konisi yüksekliği (ASTM C143'e göre 300 mm)",
+        "de": "Standard-Setzhöhe (300 mm nach ASTM C143)",
+        "fr": "Hauteur standard du cône d'affaissement (300 mm selon ASTM C143)"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Top Diameter",
         "tr": "Üst Çap",
-        "de": "Top Diameter",
-        "fr": "Top Diameter",
+        "de": "Oberer Durchmesser",
+        "fr": "Diamètre supérieur",
         "es": "Top Diameter",
         "ar": "Top Diameter"
       },
       "businessContext_i18n": {
         "en": "Top diameter of slump cone (100 mm)",
-        "tr": "Slump konisinin üst çapı (100 mm)"
+        "tr": "Slump konisinin üst çapı (100 mm)",
+        "de": "Oberer Durchmesser des Setzkegels (100 mm)",
+        "fr": "Diamètre supérieur du cône d'affaissement (100 mm)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Bottom Diameter",
         "tr": "Alt Çap",
-        "de": "Bottom Diameter",
-        "fr": "Bottom Diameter",
+        "de": "Unterer Durchmesser",
+        "fr": "Diamètre inférieur",
         "es": "Bottom Diameter",
         "ar": "Bottom Diameter"
       },
       "businessContext_i18n": {
         "en": "Bottom diameter of slump cone (200 mm)",
-        "tr": "Huni taban çapı (200 mm)"
+        "tr": "Huni taban çapı (200 mm)",
+        "de": "Unterer Durchmesser des Setzkegels (200 mm)",
+        "fr": "Diamètre inférieur du cône d'affaissement (200 mm)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Measured Slump Height",
         "tr": "Ölçülen Çökme Yüksekliği",
-        "de": "Measured Slump Height",
-        "fr": "Measured Slump Height",
+        "de": "Gemessene Setzhöhe",
+        "fr": "Hauteur d'affaissement mesurée",
         "es": "Measured Slump Height",
         "ar": "Measured Slump Height"
       },
       "businessContext_i18n": {
         "en": "Height of the slumped concrete after cone removal (average if asymmetrical)",
-        "tr": "Huni çıkarıldıktan sonra çöken betonun yüksekliği (asimetrik ise ortalama)"
+        "tr": "Huni çıkarıldıktan sonra çöken betonun yüksekliği (asimetrik ise ortalama)",
+        "de": "Höhe des abgesackten Betons nach Entfernen des Kegels (Mittelwert bei Asymmetrie)",
+        "fr": "Hauteur du béton affaissé après retrait du cône (moyenne si asymétrique)"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Specified Minimum Slump",
         "tr": "Belirtilen Minimum Çökme",
-        "de": "Specified Minimum Slump",
-        "fr": "Specified Minimum Slump",
+        "de": "Spezifizierter Mindest-Slump",
+        "fr": "Affaissement minimum spécifié",
         "es": "Specified Minimum Slump",
         "ar": "Specified Minimum Slump"
       },
       "businessContext_i18n": {
         "en": "Minimum allowable slump per project specification",
-        "tr": "Proje şartnamesine göre izin verilen minimum çökme"
+        "tr": "Proje şartnamesine göre izin verilen minimum çökme",
+        "de": "Mindestzulässiger Slump gemäß Projektspezifikation",
+        "fr": "Affaissement minimum autorisé selon le cahier des charges du projet"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Specified Maximum Slump",
         "tr": "Belirtilen Maksimum Çökme",
-        "de": "Specified Maximum Slump",
-        "fr": "Specified Maximum Slump",
+        "de": "Spezifizierter Maximal-Slump",
+        "fr": "Affaissement maximum spécifié",
         "es": "Specified Maximum Slump",
         "ar": "Specified Maximum Slump"
       },
       "businessContext_i18n": {
         "en": "Maximum allowable slump per project specification",
-        "tr": "Proje şartnamesine göre izin verilen maksimum çökme"
+        "tr": "Proje şartnamesine göre izin verilen maksimum çökme",
+        "de": "Maximal zulässiger Slump gemäß Projektspezifikation",
+        "fr": "Affaissement maximum autorisé selon le cahier des charges du projet"
       }
     }
   ],

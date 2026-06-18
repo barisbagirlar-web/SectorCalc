@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Satış Hacmi (birim)",
         "tr": "Satış Hacmi (birim)",
-        "de": "Satış Hacmi (birim)",
-        "fr": "Satış Hacmi (birim)",
-        "es": "Satış Hacmi (birim)",
+        "de": "Verkaufsvolumen (Einheiten)",
+        "fr": "Volume des ventes (unités)",
+        "es": "Volumen de ventas (unidades)",
         "ar": "Satış Hacmi (birim)"
       },
       "businessContext_i18n": {
         "en": "Satılan ürün adedi",
-        "tr": "Satılan ürün adedi"
+        "tr": "Satılan ürün adedi",
+        "de": "Anzahl verkaufter Produkte",
+        "fr": "Nombre d'unités vendues",
+        "es": "Cantidad de unidades vendidas"
       }
     },
     {
@@ -32,14 +35,16 @@
         "en": "Birim Satış Fiyatı",
         "tr": "Birim Satış Fiyatı",
         "de": "Verkaufspreis pro Einheit",
-        "fr": "Birim Satış Fiyatı",
-        "es": "Birim Satış Fiyatı",
+        "fr": "Prix de vente unitaire",
+        "es": "Precio de venta unitario",
         "ar": "Birim Satış Fiyatı"
       },
       "businessContext_i18n": {
         "en": "Ürün başına satış fiyatı",
         "tr": "Ürün başına satış fiyatı",
-        "de": "Verkaufspreis pro Produkt"
+        "de": "Verkaufspreis pro Produkt",
+        "fr": "Prix de vente unitaire",
+        "es": "Precio de venta por producto"
       }
     },
     {
@@ -53,13 +58,16 @@
         "en": "Birim Değişken Maliyet",
         "tr": "Birim Değişken Maliyet",
         "de": "Variable Kosten pro Einheit",
-        "fr": "Birim Değişken Maliyet",
-        "es": "Birim Değişken Maliyet",
+        "fr": "Coût variable unitaire",
+        "es": "Coste variable unitario",
         "ar": "Birim Değişken Maliyet"
       },
       "businessContext_i18n": {
         "en": "Her birim için değişken maliyet",
-        "tr": "Her birim için değişken maliyet"
+        "tr": "Her birim için değişken maliyet",
+        "de": "Variable Kosten pro Einheit",
+        "fr": "Coût variable par unité",
+        "es": "Costo variable por unidad"
       }
     },
     {
@@ -73,13 +81,16 @@
         "en": "Sabit Maliyetler",
         "tr": "Sabit Maliyetler",
         "de": "Fixkosten",
-        "fr": "Sabit Maliyetler",
-        "es": "Sabit Maliyetler",
+        "fr": "Coûts fixes",
+        "es": "Fixed Costs",
         "ar": "Sabit Maliyetler"
       },
       "businessContext_i18n": {
         "en": "Dönemsel sabit maliyetler toplamı",
-        "tr": "Dönemsel sabit maliyetler toplamı"
+        "tr": "Dönemsel sabit maliyetler toplamı",
+        "de": "Summe der periodischen Fixkosten",
+        "fr": "Total des coûts fixes périodiques",
+        "es": "Total de costos fijos del período"
       }
     }
   ],

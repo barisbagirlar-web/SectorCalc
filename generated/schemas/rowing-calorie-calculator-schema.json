@@ -12,14 +12,16 @@
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Body Weight",
-        "es": "Body Weight",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "User's body weight in kilograms",
         "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı",
-        "de": "Körpergewicht des Benutzers in Kilogramm"
+        "de": "Körpergewicht des Benutzers in Kilogramm",
+        "fr": "Poids corporel de l'utilisateur en kilogrammes",
+        "es": "Peso corporal del usuario en kilogramos"
       }
     },
     {
@@ -32,14 +34,16 @@
       "label_i18n": {
         "en": "Active Duration",
         "tr": "Aktif Süre",
-        "de": "Active Duration",
-        "fr": "Active Duration",
+        "de": "Aktive Dauer",
+        "fr": "Durée active",
         "es": "Active Duration",
         "ar": "Active Duration"
       },
       "businessContext_i18n": {
         "en": "Duration of active rowing in minutes",
-        "tr": "Dakika cinsinden aktif kürek çekme süresi"
+        "tr": "Dakika cinsinden aktif kürek çekme süresi",
+        "de": "Dauer des aktiven Ruderns in Minuten",
+        "fr": "Durée de l'aviron actif en minutes"
       }
     },
     {
@@ -53,13 +57,15 @@
         "en": "Rest Duration",
         "tr": "Dinlenme Süresi",
         "de": "Ruhedauer",
-        "fr": "Rest Duration",
-        "es": "Rest Duration",
+        "fr": "Durée de repos",
+        "es": "Duración del reposo",
         "ar": "Rest Duration"
       },
       "businessContext_i18n": {
         "en": "Duration of rest intervals in minutes",
-        "tr": "Dakika cinsinden dinlenme aralıklarının süresi"
+        "tr": "Dakika cinsinden dinlenme aralıklarının süresi",
+        "de": "Dauer der Ruheintervalle in Minuten",
+        "fr": "Durée des intervalles de repos en minutes"
       }
     },
     {
@@ -73,13 +79,15 @@
         "en": "MET Value",
         "tr": "MET Değeri",
         "de": "MET-Wert",
-        "fr": "MET Value",
-        "es": "MET Value",
+        "fr": "Valeur MET",
+        "es": "Valor MET",
         "ar": "MET Value"
       },
       "businessContext_i18n": {
         "en": "Metabolic Equivalent of Task for rowing intensity",
-        "tr": "Kürek çekme yoğunluğu için metabolik eşdeğer"
+        "tr": "Kürek çekme yoğunluğu için metabolik eşdeğer",
+        "de": "Metabolisches Äquivalent der Aufgabe für die Ruderintensität",
+        "fr": "Équivalent métabolique de la tâche pour l'intensité de l'aviron"
       }
     }
   ],

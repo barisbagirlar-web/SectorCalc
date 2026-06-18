@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "First parameter (m)",
         "tr": "Birinci parametre (m)",
-        "de": "First parameter (m)",
-        "fr": "First parameter (m)",
-        "es": "First parameter (m)",
+        "de": "Erster Parameter (m)",
+        "fr": "Premier paramètre (m)",
+        "es": "Primer parámetro (m)",
         "ar": "First parameter (m)"
       },
       "businessContext_i18n": {
         "en": "m > n, positive integer",
-        "tr": "m > n, pozitif tam sayı"
+        "tr": "m > n, pozitif tam sayı",
+        "de": "m > n, positive ganze Zahl",
+        "fr": "m > n, entier positif",
+        "es": "m > n, entero positivo"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Second parameter (n)",
         "tr": "İkinci parametre (n)",
-        "de": "Second parameter (n)",
-        "fr": "Second parameter (n)",
-        "es": "Second parameter (n)",
+        "de": "Zweiter Parameter (n)",
+        "fr": "Second paramètre (n)",
+        "es": "Segundo parámetro (n)",
         "ar": "Second parameter (n)"
       },
       "businessContext_i18n": {
         "en": "n < m, non-negative integer",
-        "tr": "n < m, negatif olmayan tam sayı"
+        "tr": "n < m, negatif olmayan tam sayı",
+        "de": "n < m, nicht-negative ganze Zahl",
+        "fr": "n < m, entier non négatif",
+        "es": "n < m, entero no negativo"
       }
     },
     {
@@ -48,8 +54,8 @@
         "en": "auto_input_3",
         "tr": "Otomatik girdi 3",
         "de": "auto_input_3",
-        "fr": "auto_input_3",
-        "es": "auto_input_3",
+        "fr": "Entrée automatique 3",
+        "es": "entrada_automática_3",
         "ar": "auto_input_3"
       },
       "type": "number",
@@ -60,8 +66,8 @@
         "en": "Auto-generated input 3.",
         "tr": "Otomatik oluşturulan girdi 3.",
         "de": "Automatisch generierte Eingabe 3.",
-        "fr": "Auto-generated input 3.",
-        "es": "Auto-generated input 3.",
+        "fr": "Entrée générée automatiquement 3.",
+        "es": "Entrada generada automáticamente 3.",
         "ar": "Auto-generated input 3."
       }
     }

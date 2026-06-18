@@ -12,13 +12,16 @@
         "en": "Fluid Ounces",
         "tr": "Sıvı Ons",
         "de": "Flüssigunzen",
-        "fr": "Fluid Ounces",
-        "es": "Fluid Ounces",
+        "fr": "Onces liquides",
+        "es": "Onzas líquidas",
         "ar": "Fluid Ounces"
       },
       "businessContext_i18n": {
         "en": "Amount of liquid in fluid ounces (US).",
-        "tr": "Sıvı ons (ABD) cinsinden sıvı miktarı."
+        "tr": "Sıvı ons (ABD) cinsinden sıvı miktarı.",
+        "de": "Flüssigkeitsmenge in Flüssigunzen (US).",
+        "fr": "Quantité de liquide en onces liquides (US).",
+        "es": "Cantidad de líquido en onzas líquidas (EE. UU.)."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Tablespoons per Fluid Ounce",
         "tr": "Sıvı Ons Başına Yemek Kaşığı",
-        "de": "Tablespoons per Fluid Ounce",
-        "fr": "Tablespoons per Fluid Ounce",
-        "es": "Tablespoons per Fluid Ounce",
+        "de": "Esslöffel pro Flüssigunze",
+        "fr": "Cuillères à soupe par once liquide",
+        "es": "Cucharadas por onza líquida",
         "ar": "Tablespoons per Fluid Ounce"
       },
       "businessContext_i18n": {
         "en": "Standard US conversion factor. Adjust for imperial or other standards.",
-        "tr": "Standart ABD dönüşüm faktörü. İmparatorluk veya diğer standartlar için ayarlayın."
+        "tr": "Standart ABD dönüşüm faktörü. İmparatorluk veya diğer standartlar için ayarlayın.",
+        "de": "Standard-US-Umrechnungsfaktor. Für imperiale oder andere Standards anpassen.",
+        "fr": "Facteur de conversion standard US. Ajuster pour le système impérial ou d'autres normes.",
+        "es": "Factor de conversión estándar de EE. UU. Ajuste para medidas imperiales u otros estándares."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the result.",
-        "tr": "Sonucu yuvarlamak için ondalık basamak sayısı."
+        "tr": "Sonucu yuvarlamak için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses.",
+        "fr": "Nombre de décimales pour arrondir le résultat.",
+        "es": "Número de decimales para redondear el resultado."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Additional percentage to add for safety margin (e.g., 5 for 5%).",
-        "tr": "Güvenlik marjı için eklenecek ek yüzde (örneğin, %5 için 5)."
+        "tr": "Güvenlik marjı için eklenecek ek yüzde (örneğin, %5 için 5).",
+        "de": "Zusätzlicher Prozentsatz für Sicherheitsmarge (z. B. 5 für 5%).",
+        "fr": "Pourcentage supplémentaire à ajouter pour marge de sécurité (ex. 5 pour 5%).",
+        "es": "Porcentaje adicional para margen de seguridad (ej. 5 para 5%)."
       }
     }
   ],

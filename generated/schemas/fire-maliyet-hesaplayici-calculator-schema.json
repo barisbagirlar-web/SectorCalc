@@ -12,14 +12,16 @@
         "en": "Toplam Malzeme (kg)",
         "tr": "Toplam Malzeme (kg)",
         "de": "Gesamtmaterial (kg)",
-        "fr": "Toplam Malzeme (kg)",
-        "es": "Toplam Malzeme (kg)",
+        "fr": "Total Matière (kg)",
+        "es": "Material total (kg)",
         "ar": "Toplam Malzeme (kg)"
       },
       "businessContext_i18n": {
         "en": "Üretime giren toplam hammadde miktarı",
         "tr": "Üretime giren toplam hammadde miktarı",
-        "de": "Gesamtmenge des in die Produktion eingehenden Rohmaterials"
+        "de": "Gesamtmenge des in die Produktion eingehenden Rohmaterials",
+        "fr": "Quantité totale de matière première entrant en production",
+        "es": "Cantidad total de materia prima que ingresa a producción"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "İyi Ürün (kg)",
         "tr": "İyi Ürün (kg)",
         "de": "Gutprodukt (kg)",
-        "fr": "İyi Ürün (kg)",
-        "es": "İyi Ürün (kg)",
+        "fr": "Bon Produit (kg)",
+        "es": "Producto bueno (kg)",
         "ar": "İyi Ürün (kg)"
       },
       "businessContext_i18n": {
         "en": "Kalite kontrolden geçen nihai ürün ağırlığı",
         "tr": "Kalite kontrolden geçen nihai ürün ağırlığı",
-        "de": "Gewicht des Endprodukts, das die Qualitätskontrolle bestanden hat"
+        "de": "Gewicht des Endprodukts, das die Qualitätskontrolle bestanden hat",
+        "fr": "Poids du produit final ayant passé le contrôle qualité",
+        "es": "Peso del producto final que pasa el control de calidad"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Yeniden İşlenebilir (kg)",
         "tr": "Yeniden İşlenebilir (kg)",
         "de": "Nachbearbeitbar (kg)",
-        "fr": "Yeniden İşlenebilir (kg)",
-        "es": "Yeniden İşlenebilir (kg)",
+        "fr": "Recyclable (kg)",
+        "es": "Reprocesable (kg)",
         "ar": "Yeniden İşlenebilir (kg)"
       },
       "businessContext_i18n": {
         "en": "Tamir edilebilir hurda miktarı",
         "tr": "Tamir edilebilir hurda miktarı",
-        "de": "Menge des reparierbaren Ausschusses"
+        "de": "Menge des reparierbaren Ausschusses",
+        "fr": "Quantité de rebut réparable",
+        "es": "Cantidad de desperdicio reparable"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Hurda Fiyatı (TL/kg)",
         "tr": "Hurda Fiyatı (TL/kg)",
         "de": "Schrottpreis (TL/kg)",
-        "fr": "Hurda Fiyatı (TL/kg)",
-        "es": "Hurda Fiyatı (TL/kg)",
+        "fr": "Prix de la ferraille (TL/kg)",
+        "es": "Precio de desperdicio (TL/kg)",
         "ar": "Hurda Fiyatı (TL/kg)"
       },
       "businessContext_i18n": {
         "en": "Güncel hurda alım fiyatı",
         "tr": "Güncel hurda alım fiyatı",
-        "de": "Aktueller Schrottankaufspreis"
+        "de": "Aktueller Schrottankaufspreis",
+        "fr": "Prix d'achat actuel de la ferraille",
+        "es": "Precio actual de compra de desperdicio"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Malzeme Maliyeti (TL/kg)",
         "tr": "Malzeme Maliyeti (TL/kg)",
         "de": "Materialkosten (TL/kg)",
-        "fr": "Malzeme Maliyeti (TL/kg)",
-        "es": "Malzeme Maliyeti (TL/kg)",
+        "fr": "Coût matière (TL/kg)",
+        "es": "Costo de material (TL/kg)",
         "ar": "Malzeme Maliyeti (TL/kg)"
       },
       "businessContext_i18n": {
         "en": "Hammadde birim maliyeti",
         "tr": "Hammadde birim maliyeti",
-        "de": "Stückkosten des Rohmaterials"
+        "de": "Stückkosten des Rohmaterials",
+        "fr": "Coût unitaire de la matière première",
+        "es": "Costo unitario de materia prima"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "İşçilik ve Genel Gider (TL/kg)",
         "tr": "İşçilik ve Genel Gider (TL/kg)",
         "de": "Arbeits- und Gemeinkosten (TL/kg)",
-        "fr": "İşçilik ve Genel Gider (TL/kg)",
-        "es": "İşçilik ve Genel Gider (TL/kg)",
+        "fr": "Main-d'œuvre et frais généraux (TL/kg)",
+        "es": "Mano de obra y gastos generales (TL/kg)",
         "ar": "İşçilik ve Genel Gider (TL/kg)"
       },
       "businessContext_i18n": {
         "en": "İşçilik ve genel üretim giderlerinin kg başına dağıtımı",
         "tr": "İşçilik ve genel üretim giderlerinin kg başına dağıtımı",
-        "de": "Verteilung der Arbeits- und Gemeinkosten pro kg"
+        "de": "Verteilung der Arbeits- und Gemeinkosten pro kg",
+        "fr": "Répartition des frais de main-d'œuvre et de production par kg",
+        "es": "Distribución de mano de obra y gastos generales de producción por kg"
       }
     }
   ],

@@ -12,13 +12,15 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Age of the insured person",
-        "tr": "Sigortalının yaşı"
+        "tr": "Sigortalının yaşı",
+        "de": "Alter der versicherten Person",
+        "fr": "Âge de la personne assurée"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Smoker",
         "tr": "Sigara içen",
-        "de": "Smoker",
-        "fr": "Smoker",
-        "es": "Smoker",
+        "de": "Raucher",
+        "fr": "Fumeur",
+        "es": "Fumador",
         "ar": "Smoker"
       },
       "businessContext_i18n": {
         "en": "Indicates if the insured is a smoker",
-        "tr": "Sigortalının sigara içip içmediğini belirtir"
+        "tr": "Sigortalının sigara içip içmediğini belirtir",
+        "de": "Gibt an, ob die versicherte Person raucht",
+        "fr": "Indique si l'assuré est fumeur"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Coverage Amount",
         "tr": "Teminat Tutarı",
         "de": "Deckungssumme",
-        "fr": "Coverage Amount",
-        "es": "Coverage Amount",
+        "fr": "Montant de la couverture",
+        "es": "Monto de cobertura",
         "ar": "Coverage Amount"
       },
       "businessContext_i18n": {
         "en": "Death benefit amount",
-        "tr": "Ölüm yardımı tutarı"
+        "tr": "Ölüm yardımı tutarı",
+        "de": "Todesfallleistung",
+        "fr": "Montant du capital décès"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Term (Years)",
         "tr": "Vade (Yıl)",
-        "de": "Term (Years)",
-        "fr": "Term (Years)",
+        "de": "Laufzeit (Jahre)",
+        "fr": "Durée (années)",
         "es": "Term (Years)",
         "ar": "Term (Years)"
       },
       "businessContext_i18n": {
         "en": "Policy term length",
-        "tr": "Poliçe vadesi"
+        "tr": "Poliçe vadesi",
+        "de": "Vertragslaufzeit",
+        "fr": "Durée de la police"
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Interest Rate",
         "tr": "Faiz Oranı",
         "de": "Zinssatz",
-        "fr": "Interest Rate",
-        "es": "Interest Rate",
+        "fr": "Taux d'intérêt",
+        "es": "Tasa de interés",
         "ar": "Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Annual discount rate for present value calculation",
-        "tr": "Bugünkü değer hesaplaması için yıllık iskonto oranı"
+        "tr": "Bugünkü değer hesaplaması için yıllık iskonto oranı",
+        "de": "Jährlicher Abzinsungssatz für die Barwertberechnung",
+        "fr": "Taux d'actualisation annuel pour le calcul de la valeur actuelle"
       }
     }
   ],

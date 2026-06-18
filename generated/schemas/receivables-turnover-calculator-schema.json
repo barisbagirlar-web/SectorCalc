@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Net Credit Sales",
         "tr": "Net Kredi Satışları",
-        "de": "Net Credit Sales",
-        "fr": "Net Credit Sales",
-        "es": "Net Credit Sales",
+        "de": "Netto-Kreditverkäufe",
+        "fr": "Ventes nettes à crédit",
+        "es": "Ventas netas a crédito",
         "ar": "Net Credit Sales"
       },
       "businessContext_i18n": {
         "en": "Total credit sales minus returns and allowances.",
-        "tr": "İadeler ve indirimler hariç toplam kredi satışları."
+        "tr": "İadeler ve indirimler hariç toplam kredi satışları.",
+        "de": "Gesamte Kreditverkäufe abzüglich Retouren und Gutschriften.",
+        "fr": "Total des ventes à crédit moins les retours et les remises.",
+        "es": "Ventas totales a crédito menos devoluciones y descuentos."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Beginning Accounts Receivable",
         "tr": "Dönem Başı Alacak Hesapları",
-        "de": "Beginning Accounts Receivable",
-        "fr": "Beginning Accounts Receivable",
-        "es": "Beginning Accounts Receivable",
+        "de": "Anfangsbestand Forderungen",
+        "fr": "Comptes clients débutants",
+        "es": "Cuentas por cobrar iniciales",
         "ar": "Beginning Accounts Receivable"
       },
       "businessContext_i18n": {
         "en": "Accounts receivable at start of period.",
-        "tr": "Dönem başındaki alacak hesapları."
+        "tr": "Dönem başındaki alacak hesapları.",
+        "de": "Forderungen zu Beginn des Zeitraums.",
+        "fr": "Comptes clients en début de période.",
+        "es": "Cuentas por cobrar al inicio del período."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Ending Accounts Receivable",
         "tr": "Dönem Sonu Alacak Hesapları",
-        "de": "Ending Accounts Receivable",
-        "fr": "Ending Accounts Receivable",
-        "es": "Ending Accounts Receivable",
+        "de": "Endbestand Forderungen",
+        "fr": "Comptes clients finaux",
+        "es": "Cuentas por cobrar finales",
         "ar": "Ending Accounts Receivable"
       },
       "businessContext_i18n": {
         "en": "Accounts receivable at end of period.",
-        "tr": "Dönem sonundaki alacak hesapları."
+        "tr": "Dönem sonundaki alacak hesapları.",
+        "de": "Forderungen am Ende des Zeitraums.",
+        "fr": "Comptes clients en fin de période.",
+        "es": "Cuentas por cobrar al final del período."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Days in Period",
         "tr": "Dönemdeki Gün Sayısı",
         "de": "Tage im Zeitraum",
-        "fr": "Days in Period",
-        "es": "Days in Period",
+        "fr": "Jours dans la période",
+        "es": "Días del período",
         "ar": "Days in Period"
       },
       "businessContext_i18n": {
         "en": "Number of days in the accounting period (e.g., 365 for year).",
-        "tr": "Muhasebe dönemindeki gün sayısı (örneğin, yıl için 365)."
+        "tr": "Muhasebe dönemindeki gün sayısı (örneğin, yıl için 365).",
+        "de": "Anzahl der Tage im Abrechnungszeitraum (z. B. 365 für ein Jahr).",
+        "fr": "Nombre de jours dans la période comptable (ex. 365 pour une année).",
+        "es": "Número de días del período contable (ej., 365 para un año)."
       }
     }
   ],

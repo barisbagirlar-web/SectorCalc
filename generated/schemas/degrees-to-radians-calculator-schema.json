@@ -12,14 +12,16 @@
         "en": "Degrees",
         "tr": "Derece",
         "de": "Grad",
-        "fr": "Degrees",
-        "es": "Degrees",
+        "fr": "Degrés",
+        "es": "Grados",
         "ar": "Degrees"
       },
       "businessContext_i18n": {
         "en": "Whole degrees component of the angle in DMS format.",
         "tr": "DMS formatında açının tam derece bileşeni.",
-        "de": "Gradkomponente des Winkels im DMS-Format."
+        "de": "Gradkomponente des Winkels im DMS-Format.",
+        "fr": "Partie entière des degrés de l'angle au format DMS.",
+        "es": "Componente de grados enteros del ángulo en formato DMS."
       }
     },
     {
@@ -34,13 +36,15 @@
         "tr": "Dakika",
         "de": "Minuten",
         "fr": "Minutes",
-        "es": "Minutes",
+        "es": "Minutos",
         "ar": "Minutes"
       },
       "businessContext_i18n": {
         "en": "Minutes component (0-59).",
         "tr": "Dakika bileşeni (0-59).",
-        "de": "Minutenkomponente (0-59)."
+        "de": "Minutenkomponente (0-59).",
+        "fr": "Composante minutes (0-59).",
+        "es": "Componente de minutos (0-59)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Seconds",
         "tr": "Saniye",
         "de": "Sekunden",
-        "fr": "Seconds",
-        "es": "Seconds",
+        "fr": "Secondes",
+        "es": "Segundos",
         "ar": "Seconds"
       },
       "businessContext_i18n": {
         "en": "Seconds component (0-59.999...).",
         "tr": "Saniye bileşeni (0-59.999...).",
-        "de": "Sekundenkomponente (0-59,999...)."
+        "de": "Sekundenkomponente (0-59,999...).",
+        "fr": "Composante secondes (0-59,999...).",
+        "es": "Componente de segundos (0-59.999...)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the output radian value for precision control.",
         "tr": "Hassasiyet kontrolü için çıktı radyan değerinin yuvarlanacağı ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen für die Rundung des Ausgabewerts im Bogenmaß zur Präzisionssteuerung."
+        "de": "Anzahl der Dezimalstellen für die Rundung des Ausgabewerts im Bogenmaß zur Präzisionssteuerung.",
+        "fr": "Nombre de décimales pour arrondir la valeur du radian en sortie, pour le contrôle de précision.",
+        "es": "Número de decimales para redondear el valor de salida en radianes para control de precisión."
       }
     }
   ],

@@ -12,13 +12,16 @@
         "en": "Total Revenue",
         "tr": "Toplam Gelir",
         "de": "Gesamtumsatz",
-        "fr": "Total Revenue",
-        "es": "Total Revenue",
+        "fr": "Revenu total",
+        "es": "Ingresos totales",
         "ar": "Total Revenue"
       },
       "businessContext_i18n": {
         "en": "Total sales income before any deductions.",
-        "tr": "Herhangi bir kesintiden önceki toplam satış geliri."
+        "tr": "Herhangi bir kesintiden önceki toplam satış geliri.",
+        "de": "Gesamtverkaufserlös vor Abzügen.",
+        "fr": "Revenu total des ventes avant toute déduction.",
+        "es": "Ingresos totales por ventas antes de deducciones."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Cost of Goods Sold",
         "tr": "Satılan Malın Maliyeti",
         "de": "Herstellkosten der verkauften Waren",
-        "fr": "Cost of Goods Sold",
-        "es": "Cost of Goods Sold",
+        "fr": "Coût des marchandises vendues",
+        "es": "Coste de los bienes vendidos",
         "ar": "Cost of Goods Sold"
       },
       "businessContext_i18n": {
         "en": "Direct costs attributable to the production of goods sold.",
-        "tr": "Satılan malların üretimine doğrudan atfedilebilen maliyetler."
+        "tr": "Satılan malların üretimine doğrudan atfedilebilen maliyetler.",
+        "de": "Direkte Kosten, die der Herstellung der verkauften Waren zuzurechnen sind.",
+        "fr": "Coûts directs attribuables à la production des biens vendus.",
+        "es": "Costos directos atribuibles a la producción de bienes vendidos."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Operating Expenses",
         "tr": "Faaliyet Giderleri",
         "de": "Betriebskosten",
-        "fr": "Operating Expenses",
-        "es": "Operating Expenses",
+        "fr": "Charges d'exploitation",
+        "es": "Gastos operativos",
         "ar": "Operating Expenses"
       },
       "businessContext_i18n": {
         "en": "Expenses incurred from normal business operations like rent, utilities, salaries.",
-        "tr": "Kira, kamu hizmetleri, maaşlar gibi normal iş operasyonlarından kaynaklanan giderler."
+        "tr": "Kira, kamu hizmetleri, maaşlar gibi normal iş operasyonlarından kaynaklanan giderler.",
+        "de": "Aufwendungen aus dem normalen Geschäftsbetrieb wie Miete, Nebenkosten, Gehälter.",
+        "fr": "Dépenses liées aux opérations commerciales normales comme le loyer, les services publics, les salaires.",
+        "es": "Gastos incurridos por operaciones comerciales normales como alquiler, servicios públicos, salarios."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Interest Expense",
         "tr": "Faiz Gideri",
         "de": "Zinsaufwand",
-        "fr": "Interest Expense",
-        "es": "Interest Expense",
+        "fr": "Charges d'intérêts",
+        "es": "Gastos por intereses",
         "ar": "Interest Expense"
       },
       "businessContext_i18n": {
         "en": "Cost of borrowing money.",
-        "tr": "Borçlanma maliyeti."
+        "tr": "Borçlanma maliyeti.",
+        "de": "Kosten der Kreditaufnahme.",
+        "fr": "Coût d'emprunt de l'argent.",
+        "es": "Costo de pedir dinero prestado."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Tax Expense",
         "tr": "Vergi Gideri",
-        "de": "Tax Expense",
-        "fr": "Tax Expense",
-        "es": "Tax Expense",
+        "de": "Steueraufwand",
+        "fr": "Charge fiscale",
+        "es": "Gasto fiscal",
         "ar": "Tax Expense"
       },
       "businessContext_i18n": {
         "en": "Income tax owed based on taxable income.",
-        "tr": "Vergiye tabi gelir üzerinden ödenmesi gereken gelir vergisi."
+        "tr": "Vergiye tabi gelir üzerinden ödenmesi gereken gelir vergisi.",
+        "de": "Einkommensteuer, die auf das zu versteuernde Einkommen geschuldet wird.",
+        "fr": "Impôt sur le revenu dû sur le revenu imposable.",
+        "es": "Impuesto sobre la renta adeudado según la renta imponible."
       }
     }
   ],

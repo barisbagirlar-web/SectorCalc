@@ -12,13 +12,15 @@
         "en": "Wind Speed",
         "tr": "Rüzgar Hızı",
         "de": "Windgeschwindigkeit",
-        "fr": "Wind Speed",
-        "es": "Wind Speed",
+        "fr": "Vitesse du vent",
+        "es": "Velocidad del viento",
         "ar": "Wind Speed"
       },
       "businessContext_i18n": {
         "en": "True wind speed in meters per second",
-        "tr": "Gerçek rüzgar hızı (m/s)"
+        "tr": "Gerçek rüzgar hızı (m/s)",
+        "de": "Wahre Windgeschwindigkeit in Metern pro Sekunde",
+        "fr": "Vitesse réelle du vent en mètres par seconde"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Sail Area",
         "tr": "Yelken Alanı",
-        "de": "Sail Area",
-        "fr": "Sail Area",
+        "de": "Segelfläche",
+        "fr": "Surface de voile",
         "es": "Sail Area",
         "ar": "Sail Area"
       },
       "businessContext_i18n": {
         "en": "Total sail area in square meters",
-        "tr": "Toplam yelken alanı (m²)"
+        "tr": "Toplam yelken alanı (m²)",
+        "de": "Gesamtsegelfläche in Quadratmetern",
+        "fr": "Surface de voile totale en mètres carrés"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Lever Arm",
         "tr": "Kaldıraç Kolu",
-        "de": "Lever Arm",
-        "fr": "Lever Arm",
+        "de": "Hebelarm",
+        "fr": "Bras de levier",
         "es": "Lever Arm",
         "ar": "Lever Arm"
       },
       "businessContext_i18n": {
         "en": "Vertical distance from center of gravity to center of effort of sails",
-        "tr": "Ağırlık merkezinden yelken basınç merkezine dikey mesafe"
+        "tr": "Ağırlık merkezinden yelken basınç merkezine dikey mesafe",
+        "de": "Vertikaler Abstand vom Schwerpunkt zum Druckpunkt der Segel",
+        "fr": "Distance verticale du centre de gravité au centre d'effort des voiles"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Air Density",
         "tr": "Hava Yoğunluğu",
         "de": "Luftdichte",
-        "fr": "Air Density",
-        "es": "Air Density",
+        "fr": "Densité de l'air",
+        "es": "Densidad del aire",
         "ar": "Air Density"
       },
       "businessContext_i18n": {
         "en": "Air density (standard sea level value is 1.225 kg/m³)",
-        "tr": "Hava yoğunluğu (standart deniz seviyesi değeri 1,225 kg/m³)"
+        "tr": "Hava yoğunluğu (standart deniz seviyesi değeri 1,225 kg/m³)",
+        "de": "Luftdichte (Standardwert auf Meereshöhe: 1,225 kg/m³)",
+        "fr": "Densité de l'air (valeur standard au niveau de la mer : 1,225 kg/m³)"
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Factor applied for safety margin (≥1.0)",
-        "tr": "Güvenlik marjı için uygulanan faktör (≥1,0)"
+        "tr": "Güvenlik marjı için uygulanan faktör (≥1,0)",
+        "de": "Sicherheitsfaktor (≥1,0)",
+        "fr": "Facteur de marge de sécurité (≥1,0)"
       }
     }
   ],

@@ -23,12 +23,16 @@
       "label_i18n": {
         "en": "Monthly API Call Volume",
         "tr": "Aylık API Çağrı Hacmi",
-        "de": "Monatliches API-Aufrufvolumen"
+        "de": "Monatliches API-Aufrufvolumen",
+        "fr": "Volume mensuel d'appels API",
+        "es": "Volumen mensual de llamadas API"
       },
       "businessContext_i18n": {
         "en": "Total number of API calls made per month, including successful and overrun calls.",
         "tr": "Başarılı ve aşım çağrıları dahil aylık toplam API çağrısı sayısı.",
-        "de": "Gesamtzahl der API-Aufrufe pro Monat, einschließlich erfolgreicher und übermäßiger Aufrufe."
+        "de": "Gesamtzahl der API-Aufrufe pro Monat, einschließlich erfolgreicher und übermäßiger Aufrufe.",
+        "fr": "Nombre total d'appels API par mois, y compris les appels réussis et les dépassements.",
+        "es": "Número total de llamadas API realizadas por mes, incluyendo llamadas exitosas y excedidas."
       }
     },
     {
@@ -43,12 +47,16 @@
       "label_i18n": {
         "en": "Overrun Rate",
         "tr": "Aşım Oranı",
-        "de": "Überlaufrate"
+        "de": "Überlaufrate",
+        "fr": "Taux de dépassement",
+        "es": "Tasa de excedencia"
       },
       "businessContext_i18n": {
         "en": "Percentage of API calls that exceed the agreed response time threshold (e.g., >200ms).",
         "tr": "Kabul edilen yanıt süresi eşiğini (örn. >200ms) aşan API çağrılarının yüzdesi.",
-        "de": "Prozentsatz der API-Aufrufe, die den vereinbarten Antwortzeitschwellenwert (z. B. >200 ms) überschreiten."
+        "de": "Prozentsatz der API-Aufrufe, die den vereinbarten Antwortzeitschwellenwert (z. B. >200 ms) überschreiten.",
+        "fr": "Pourcentage d'appels API qui dépassent le seuil de temps de réponse convenu (ex. >200ms).",
+        "es": "Porcentaje de llamadas API que superan el umbral de tiempo de respuesta acordado (p. ej., >200 ms)."
       }
     },
     {
@@ -63,12 +71,16 @@
       "label_i18n": {
         "en": "Average Overrun Duration",
         "tr": "Ortalama Aşım Süresi",
-        "de": "Durchschnittliche Überlaufdauer"
+        "de": "Durchschnittliche Überlaufdauer",
+        "fr": "Durée moyenne de dépassement",
+        "es": "Duración promedio de excedencia"
       },
       "businessContext_i18n": {
         "en": "Average extra time beyond the SLA threshold for overrun calls.",
         "tr": "Aşım çağrıları için SLA eşiğinin ötesindeki ortalama ek süre.",
-        "de": "Durchschnittliche zusätzliche Zeit über den SLA-Schwellenwert hinaus für Überlaufaufrufe."
+        "de": "Durchschnittliche zusätzliche Zeit über den SLA-Schwellenwert hinaus für Überlaufaufrufe.",
+        "fr": "Temps supplémentaire moyen au-delà du seuil SLA pour les appels en dépassement.",
+        "es": "Tiempo extra promedio más allá del umbral de SLA para llamadas excedidas."
       }
     },
     {
@@ -83,12 +95,16 @@
       "label_i18n": {
         "en": "Cost per API Call",
         "tr": "API Çağrısı Başına Maliyet",
-        "de": "Kosten pro API-Aufruf"
+        "de": "Kosten pro API-Aufruf",
+        "fr": "Coût par appel API",
+        "es": "Costo por llamada API"
       },
       "businessContext_i18n": {
         "en": "Direct cost per API call (compute, network, storage).",
         "tr": "API çağrısı başına doğrudan maliyet (işlem, ağ, depolama).",
-        "de": "Direkte Kosten pro API-Aufruf (Rechenleistung, Netzwerk, Speicher)."
+        "de": "Direkte Kosten pro API-Aufruf (Rechenleistung, Netzwerk, Speicher).",
+        "fr": "Coût direct par appel API (calcul, réseau, stockage).",
+        "es": "Costo directo por llamada API (cómputo, red, almacenamiento)."
       }
     },
     {
@@ -103,12 +119,16 @@
       "label_i18n": {
         "en": "Retry Cost per Call",
         "tr": "Yeniden Deneme Başına Maliyet",
-        "de": "Wiederholungskosten pro Aufruf"
+        "de": "Wiederholungskosten pro Aufruf",
+        "fr": "Coût de nouvelle tentative par appel",
+        "es": "Costo de reintento por llamada"
       },
       "businessContext_i18n": {
         "en": "Additional cost incurred when a call is retried due to timeout or error.",
         "tr": "Zaman aşımı veya hata nedeniyle bir çağrı yeniden denendiğinde oluşan ek maliyet.",
-        "de": "Zusätzliche Kosten, die bei einem erneuten Aufruf aufgrund von Zeitüberschreitung oder Fehler anfallen."
+        "de": "Zusätzliche Kosten, die bei einem erneuten Aufruf aufgrund von Zeitüberschreitung oder Fehler anfallen.",
+        "fr": "Coût supplémentaire encouru lorsqu'un appel est relancé en raison d'un délai d'attente ou d'une erreur.",
+        "es": "Costo adicional incurrido cuando una llamada se reintenta debido a tiempo de espera o error."
       }
     },
     {
@@ -123,12 +143,16 @@
       "label_i18n": {
         "en": "Retry Rate",
         "tr": "Yeniden Deneme Oranı",
-        "de": "Wiederholungsrate"
+        "de": "Wiederholungsrate",
+        "fr": "Taux de nouvelle tentative",
+        "es": "Tasa de reintento"
       },
       "businessContext_i18n": {
         "en": "Percentage of overrun calls that trigger a retry.",
         "tr": "Yeniden denemeyi tetikleyen aşım çağrılarının yüzdesi.",
-        "de": "Prozentsatz der überlaufenen Aufrufe, die eine Wiederholung auslösen."
+        "de": "Prozentsatz der überlaufenen Aufrufe, die eine Wiederholung auslösen.",
+        "fr": "Pourcentage d'appels en dépassement qui déclenchent une nouvelle tentative.",
+        "es": "Porcentaje de llamadas excedidas que desencadenan un reintento."
       }
     },
     {
@@ -143,12 +167,16 @@
       "label_i18n": {
         "en": "Monthly Data Egress",
         "tr": "Aylık Veri Çıkışı",
-        "de": "Monatlicher Datenabfluss"
+        "de": "Monatlicher Datenabfluss",
+        "fr": "Sortie de données mensuelle",
+        "es": "Salida de datos mensual"
       },
       "businessContext_i18n": {
         "en": "Total data transferred out of the cloud per month.",
         "tr": "Buluttan aylık toplam dışa aktarılan veri.",
-        "de": "Gesamte Datenmenge, die pro Monat aus der Cloud übertragen wird."
+        "de": "Gesamte Datenmenge, die pro Monat aus der Cloud übertragen wird.",
+        "fr": "Volume total de données sortant du cloud par mois.",
+        "es": "Total de datos transferidos fuera de la nube por mes."
       }
     },
     {
@@ -163,12 +191,16 @@
       "label_i18n": {
         "en": "Egress Cost per GB",
         "tr": "GB başına çıkış maliyeti",
-        "de": "Abflusskosten pro GB"
+        "de": "Abflusskosten pro GB",
+        "fr": "Coût de sortie par Go",
+        "es": "Costo de salida por GB"
       },
       "businessContext_i18n": {
         "en": "Cost per GB of data egress (varies by provider and region).",
         "tr": "Veri çıkışının GB başına maliyeti (sağlayıcıya ve bölgeye göre değişir).",
-        "de": "Kosten pro GB Datenabfluss (variiert je nach Anbieter und Region)."
+        "de": "Kosten pro GB Datenabfluss (variiert je nach Anbieter und Region).",
+        "fr": "Coût par Go de sortie de données (varie selon le fournisseur et la région).",
+        "es": "Costo por GB de salida de datos (varía según el proveedor y la región)."
       }
     }
   ],

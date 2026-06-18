@@ -12,14 +12,16 @@
         "en": "Target Date (days from epoch)",
         "tr": "Hedef Tarih (referans günden itibaren gün sayısı)",
         "de": "Zieldatum (Tage ab Epoche)",
-        "fr": "Target Date (days from epoch)",
-        "es": "Target Date (days from epoch)",
+        "fr": "Date cible (jours depuis l'époque)",
+        "es": "Fecha Objetivo (días desde época)",
         "ar": "Target Date (days from epoch)"
       },
       "businessContext_i18n": {
         "en": "The deadline or target completion date expressed as number of days from a reference date (e.g., 2024-01-01).",
         "tr": "Bir referans tarihten (ör. 2024-01-01) itibaren gün olarak ifade edilen son tarih veya hedef tamamlanma tarihi.",
-        "de": "Das Fälligkeits- oder Zielabschlussdatum, ausgedrückt als Anzahl der Tage ab einem Referenzdatum (z. B. 2024-01-01)."
+        "de": "Das Fälligkeits- oder Zielabschlussdatum, ausgedrückt als Anzahl der Tage ab einem Referenzdatum (z. B. 2024-01-01).",
+        "fr": "La date limite ou la date d'achèvement cible exprimée en nombre de jours à partir d'une date de référence (par exemple, 2024-01-01).",
+        "es": "La fecha límite o de finalización objetivo expresada como número de días desde una fecha de referencia (ej., 2024-01-01)."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Planned Duration",
         "tr": "Planlanan Süre",
         "de": "Geplante Dauer",
-        "fr": "Planned Duration",
-        "es": "Planned Duration",
+        "fr": "Durée prévue",
+        "es": "Duración Planificada",
         "ar": "Planned Duration"
       },
       "businessContext_i18n": {
         "en": "The estimated total work duration in calendar days.",
         "tr": "Takvim günü cinsinden tahmini toplam iş süresi.",
-        "de": "Die geschätzte Gesamtarbeitsdauer in Kalendertagen."
+        "de": "Die geschätzte Gesamtarbeitsdauer in Kalendertagen.",
+        "fr": "La durée totale estimée du travail en jours calendaires.",
+        "es": "La duración total estimada del trabajo en días calendario."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Buffer Days",
         "tr": "Tampon Günler",
         "de": "Puffertage",
-        "fr": "Buffer Days",
-        "es": "Buffer Days",
+        "fr": "Jours tampon",
+        "es": "Días de Amortiguación",
         "ar": "Buffer Days"
       },
       "businessContext_i18n": {
         "en": "Additional safety margin in days.",
         "tr": "Gün cinsinden ek güvenlik marjı.",
-        "de": "Zusätzlicher Sicherheitsspielraum in Tagen."
+        "de": "Zusätzlicher Sicherheitsspielraum in Tagen.",
+        "fr": "Marge de sécurité supplémentaire en jours.",
+        "es": "Margen de seguridad adicional en días."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Efficiency Factor",
         "tr": "Verimlilik Faktörü",
         "de": "Effizienzfaktor",
-        "fr": "Efficiency Factor",
-        "es": "Efficiency Factor",
+        "fr": "Facteur d'efficacité",
+        "es": "Factor de eficiencia",
         "ar": "Efficiency Factor"
       },
       "businessContext_i18n": {
         "en": "Productivity factor; 1 = 100% efficiency. A value less than 1 increases effective duration.",
         "tr": "Verimlilik faktörü; 1 = %100 verim. 1'den küçük bir değer etkin süreyi artırır.",
-        "de": "Produktivitätsfaktor; 1 = 100% Effizienz. Ein Wert unter 1 erhöht die effektive Dauer."
+        "de": "Produktivitätsfaktor; 1 = 100% Effizienz. Ein Wert unter 1 erhöht die effektive Dauer.",
+        "fr": "Facteur de productivité ; 1 = efficacité à 100 %. Une valeur inférieure à 1 augmente la durée effective.",
+        "es": "Factor de productividad; 1 = 100% de eficiencia. Un valor menor a 1 aumenta la duración efectiva."
       }
     }
   ],

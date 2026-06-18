@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Titreşim Frekansı (Hz)",
         "tr": "Titreşim Frekansı (Hz)",
-        "de": "Titreşim Frekansı (Hz)",
-        "fr": "Titreşim Frekansı (Hz)",
+        "de": "Schwingungsfrequenz (Hz)",
+        "fr": "Fréquence de vibration (Hz)",
         "es": "Titreşim Frekansı (Hz)",
         "ar": "Titreşim Frekansı (Hz)"
       },
       "businessContext_i18n": {
         "en": "Makinanın çalışma frekansı",
-        "tr": "Makinanın çalışma frekansı"
+        "tr": "Makinanın çalışma frekansı",
+        "de": "Betriebsfrequenz der Maschine",
+        "fr": "Fréquence de fonctionnement de la machine"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Genlik (mm)",
         "tr": "Genlik (mm)",
-        "de": "Genlik (mm)",
-        "fr": "Genlik (mm)",
+        "de": "Amplitude (mm)",
+        "fr": "Amplitude (mm)",
         "es": "Genlik (mm)",
         "ar": "Genlik (mm)"
       },
       "businessContext_i18n": {
         "en": "Ölçülen titreşim genliği",
-        "tr": "Ölçülen titreşim genliği"
+        "tr": "Ölçülen titreşim genliği",
+        "de": "Gemessene Schwingungsamplitude",
+        "fr": "Amplitude de vibration mesurée"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Sönümleme Katsayısı",
         "tr": "Sönümleme Katsayısı",
-        "de": "Sönümleme Katsayısı",
-        "fr": "Sönümleme Katsayısı",
+        "de": "Dämpfungskoeffizient",
+        "fr": "Coefficient d'amortissement",
         "es": "Sönümleme Katsayısı",
         "ar": "Sönümleme Katsayısı"
       },
       "businessContext_i18n": {
         "en": "Sistem sönümleme karakteristiği",
-        "tr": "Sistem sönümleme karakteristiği"
+        "tr": "Sistem sönümleme karakteristiği",
+        "de": "Systemdämpfungscharakteristik",
+        "fr": "Caractéristique d'amortissement du système"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Malzeme Faktörü (GPa)",
         "tr": "Malzeme Faktörü (GPa)",
-        "de": "Malzeme Faktörü (GPa)",
-        "fr": "Malzeme Faktörü (GPa)",
+        "de": "Materialfaktor (GPa)",
+        "fr": "Facteur matériau (GPa)",
         "es": "Malzeme Faktörü (GPa)",
         "ar": "Malzeme Faktörü (GPa)"
       },
       "businessContext_i18n": {
         "en": "Kullanılan malzemenin elastisite modülü",
-        "tr": "Kullanılan malzemenin elastisite modülü"
+        "tr": "Kullanılan malzemenin elastisite modülü",
+        "de": "Elastizitätsmodul des verwendeten Materials",
+        "fr": "Module d'élasticité du matériau utilisé"
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Güvenlik Faktörü",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Güvenlik Faktörü",
-        "es": "Güvenlik Faktörü",
+        "fr": "Facteur de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Güvenlik Faktörü"
       },
       "businessContext_i18n": {
         "en": "Operasyonel güvenlik payı",
-        "tr": "Operasyonel güvenlik payı"
+        "tr": "Operasyonel güvenlik payı",
+        "de": "Operativer Sicherheitsfaktor",
+        "fr": "Marge de sécurité opérationnelle"
       }
     }
   ],

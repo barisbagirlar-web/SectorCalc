@@ -12,14 +12,16 @@
         "en": "Titrant Volume (mL)",
         "tr": "Titrant Hacmi (mL)",
         "de": "Titriervolumen (mL)",
-        "fr": "Titrant Volume (mL)",
-        "es": "Titrant Volume (mL)",
+        "fr": "Volume de titrant (mL)",
+        "es": "Volumen de titulante (mL)",
         "ar": "Titrant Volume (mL)"
       },
       "businessContext_i18n": {
         "en": "Volume of titrant used to reach the equivalence point",
         "tr": "Eşdeğerlik noktasına ulaşmak için kullanılan titrant hacmi",
-        "de": "Volumen der Titrierlösung bis zum Äquivalenzpunkt"
+        "de": "Volumen der Titrierlösung bis zum Äquivalenzpunkt",
+        "fr": "Volume de titrant utilisé pour atteindre le point d'équivalence",
+        "es": "Volumen de titulante usado para alcanzar el punto de equivalencia"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Titrant Concentration (mol/L)",
         "tr": "Titrant Konsantrasyonu (mol/L)",
         "de": "Titrierkonzentration (mol/L)",
-        "fr": "Titrant Concentration (mol/L)",
-        "es": "Titrant Concentration (mol/L)",
+        "fr": "Concentration du titrant (mol/L)",
+        "es": "Concentración del titulante (mol/L)",
         "ar": "Titrant Concentration (mol/L)"
       },
       "businessContext_i18n": {
         "en": "Concentration of the standard titrant solution",
         "tr": "Standart titrant çözeltisinin konsantrasyonu",
-        "de": "Konzentration der Standard-Titrierlösung"
+        "de": "Konzentration der Standard-Titrierlösung",
+        "fr": "Concentration de la solution titrante standard",
+        "es": "Concentración de la solución titulante estándar"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Titrant Proticity",
         "tr": "Titrant Protonluk Sayısı",
         "de": "Protonenzahl des Titranten",
-        "fr": "Titrant Proticity",
-        "es": "Titrant Proticity",
+        "fr": "Proticité du titrant",
+        "es": "Proticidad del titulante",
         "ar": "Titrant Proticity"
       },
       "businessContext_i18n": {
         "en": "Number of reactive H+ or OH- per titrant molecule",
         "tr": "Titrant molekülü başına reaktif H+ veya OH- sayısı",
-        "de": "Anzahl der reaktiven H+ oder OH- pro Titrantmolekül"
+        "de": "Anzahl der reaktiven H+ oder OH- pro Titrantmolekül",
+        "fr": "Nombre de H+ ou OH- réactifs par molécule de titrant",
+        "es": "Número de H+ u OH- reactivos por molécula de titulante"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Analyte Volume (mL)",
         "tr": "Analit Hacmi (mL)",
         "de": "Analytvolumen (mL)",
-        "fr": "Analyte Volume (mL)",
-        "es": "Analyte Volume (mL)",
+        "fr": "Volume de l'analyte (mL)",
+        "es": "Volumen del analito (mL)",
         "ar": "Analyte Volume (mL)"
       },
       "businessContext_i18n": {
         "en": "Volume of the analyte sample taken for titration",
         "tr": "Titrasyon için alınan analit numunesinin hacmi",
-        "de": "Volumen der Analytprobe für die Titration"
+        "de": "Volumen der Analytprobe für die Titration",
+        "fr": "Volume de l'échantillon d'analyte prélevé pour le titrage",
+        "es": "Volumen de la muestra de analito tomada para la titulación"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Analyte Proticity",
         "tr": "Analit Protonluk Sayısı",
         "de": "Protonenzahl des Analyten",
-        "fr": "Analyte Proticity",
-        "es": "Analyte Proticity",
+        "fr": "Proticité de l'analyte",
+        "es": "Proticidad del analito",
         "ar": "Analyte Proticity"
       },
       "businessContext_i18n": {
         "en": "Number of reactive H+ or OH- per analyte molecule",
         "tr": "Analit molekülü başına reaktif H+ veya OH- sayısı",
-        "de": "Anzahl der reaktiven H+ oder OH- pro Analytmolekül"
+        "de": "Anzahl der reaktiven H+ oder OH- pro Analytmolekül",
+        "fr": "Nombre de H+ ou OH- réactifs par molécule d'analyte",
+        "es": "Número de H+ u OH- reactivos por molécula de analito"
       }
     }
   ],

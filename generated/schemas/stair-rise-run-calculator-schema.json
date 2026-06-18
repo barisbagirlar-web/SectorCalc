@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Total Rise (Floor-to-Floor Height)",
         "tr": "Toplam Yükseklik (Katlar Arası Döşeme Yüksekliği)",
-        "de": "Total Rise (Floor-to-Floor Height)",
-        "fr": "Total Rise (Floor-to-Floor Height)",
+        "de": "Toplam Yükseklik (Kattan Kata Yükseklik)",
+        "fr": "Hauteur totale (hauteur sol à sol)",
         "es": "Total Rise (Floor-to-Floor Height)",
         "ar": "Total Rise (Floor-to-Floor Height)"
       },
       "businessContext_i18n": {
         "en": "The total vertical height between finished floor levels.",
-        "tr": "Bitmiş döşeme seviyeleri arasındaki toplam dikey yükseklik."
+        "tr": "Bitmiş döşeme seviyeleri arasındaki toplam dikey yükseklik.",
+        "de": "Bitmiş döşeme seviyeleri arasındaki toplam dikey yükseklik.",
+        "fr": "La hauteur verticale totale entre les niveaux finis."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Total Run Available",
         "tr": "Mevcut Toplam Yatay Uzunluk",
-        "de": "Total Run Available",
-        "fr": "Total Run Available",
+        "de": "Mevcut Toplam Yatay Uzunluk",
+        "fr": "Longueur horizontale disponible",
         "es": "Total Run Available",
         "ar": "Total Run Available"
       },
       "businessContext_i18n": {
         "en": "The total horizontal distance available for the staircase.",
-        "tr": "Merdiven için mevcut toplam yatay mesafe."
+        "tr": "Merdiven için mevcut toplam yatay mesafe.",
+        "de": "Merdiven için mevcut toplam yatay mesafe.",
+        "fr": "La distance horizontale totale disponible pour l'escalier."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Maximum Riser Height (Code)",
         "tr": "Maksimum Rıht Yüksekliği (Yönetmelik)",
-        "de": "Maximum Riser Height (Code)",
-        "fr": "Maximum Riser Height (Code)",
+        "de": "Maksimum Rıht Yüksekliği (Yönetmelik)",
+        "fr": "Hauteur de contremarche maximale (réglementation)",
         "es": "Maximum Riser Height (Code)",
         "ar": "Maximum Riser Height (Code)"
       },
       "businessContext_i18n": {
         "en": "The maximum allowed riser height as per local building regulations.",
-        "tr": "Yerel bina yönetmeliklerine göre izin verilen maksimum rıht yüksekliği."
+        "tr": "Yerel bina yönetmeliklerine göre izin verilen maksimum rıht yüksekliği.",
+        "de": "Yerel bina yönetmeliklerine göre izin verilen maksimum rıht yüksekliği.",
+        "fr": "La hauteur de contremarche maximale autorisée selon les réglementations locales."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Minimum Tread Depth (Code)",
         "tr": "Minimum Basamak Derinliği (Yönetmelik)",
-        "de": "Minimum Tread Depth (Code)",
-        "fr": "Minimum Tread Depth (Code)",
+        "de": "Minimum Basamak Derinliği (Yönetmelik)",
+        "fr": "Profondeur de marche minimale (réglementation)",
         "es": "Minimum Tread Depth (Code)",
         "ar": "Minimum Tread Depth (Code)"
       },
       "businessContext_i18n": {
         "en": "The minimum required tread depth (going) as per local building regulations.",
-        "tr": "Yerel bina yönetmeliklerine göre gereken minimum basamak derinliği (genişlik)."
+        "tr": "Yerel bina yönetmeliklerine göre gereken minimum basamak derinliği (genişlik).",
+        "de": "Yerel bina yönetmeliklerine göre gereken minimum basamak derinliği (genişlik).",
+        "fr": "La profondeur de marche minimale requise selon les réglementations locales."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Desired Riser Height",
         "tr": "İstenen Rıht Yüksekliği",
-        "de": "Desired Riser Height",
-        "fr": "Desired Riser Height",
+        "de": "İstenen Rıht Yüksekliği",
+        "fr": "Hauteur de contremarche souhaitée",
         "es": "Desired Riser Height",
         "ar": "Desired Riser Height"
       },
       "businessContext_i18n": {
         "en": "The preferred riser height for comfort, typically between 150-190 mm.",
-        "tr": "Konfor için tercih edilen rıht yüksekliği, tipik olarak 150-190 mm arası."
+        "tr": "Konfor için tercih edilen rıht yüksekliği, tipik olarak 150-190 mm arası.",
+        "de": "Konfor için tercih edilen rıht yüksekliği, genellikle 150-190 mm arası.",
+        "fr": "Hauteur de contremarche préférée pour le confort, généralement entre 150 et 190 mm."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Nosing Overhang",
         "tr": "Basamak Taşması",
-        "de": "Nosing Overhang",
-        "fr": "Nosing Overhang",
+        "de": "Nasenüberstand",
+        "fr": "Surplomb du nez de marche",
         "es": "Nosing Overhang",
         "ar": "Nosing Overhang"
       },
       "businessContext_i18n": {
         "en": "The distance the tread extends beyond the riser face. Used for precise tread dimensioning.",
-        "tr": "Basamağın rıht yüzeyinin ötesine uzandığı mesafe. Hassas basamak boyutlandırması için kullanılır."
+        "tr": "Basamağın rıht yüzeyinin ötesine uzandığı mesafe. Hassas basamak boyutlandırması için kullanılır.",
+        "de": "Der Abstand, um den die Trittfläche über die Setzstufe hinausragt. Wird für präzise Trittmaße verwendet.",
+        "fr": "Distance dont la marche dépasse la face de la contremarche. Utilisée pour un dimensionnement précis de la marche."
       }
     }
   ],

@@ -12,13 +12,16 @@
         "en": "Flow Rate",
         "tr": "Debi",
         "de": "Durchflussrate",
-        "fr": "Flow Rate",
-        "es": "Flow Rate",
+        "fr": "Débit",
+        "es": "Caudal",
         "ar": "Flow Rate"
       },
       "businessContext_i18n": {
         "en": "Volumetric flow rate of water through the turbine.",
-        "tr": "Türbinden geçen suyun hacimsel debisi."
+        "tr": "Türbinden geçen suyun hacimsel debisi.",
+        "de": "Volumetrischer Durchfluss des Wassers durch die Turbine.",
+        "fr": "Débit volumétrique de l'eau à travers la turbine.",
+        "es": "Caudal volumétrico de agua a través de la turbina."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Head",
         "tr": "Düşü",
-        "de": "Head",
-        "fr": "Head",
-        "es": "Head",
+        "de": "Fallhöhe",
+        "fr": "Hauteur de chute",
+        "es": "Altura",
         "ar": "Head"
       },
       "businessContext_i18n": {
         "en": "Net hydraulic head, the effective height water falls.",
-        "tr": "Net hidrolik düşü, suyun düştüğü etkin yükseklik."
+        "tr": "Net hidrolik düşü, suyun düştüğü etkin yükseklik.",
+        "de": "Netto-Fallhöhe, die effektive Höhe, die das Wasser fällt.",
+        "fr": "Hauteur de chute nette, hauteur effective de la chute d'eau.",
+        "es": "Altura hidráulica neta, la altura efectiva que cae el agua."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Turbine Efficiency",
         "tr": "Türbin Verimi",
-        "de": "Turbine Efficiency",
-        "fr": "Turbine Efficiency",
-        "es": "Turbine Efficiency",
+        "de": "Turbinenwirkungsgrad",
+        "fr": "Rendement de la turbine",
+        "es": "Eficiencia de la turbina",
         "ar": "Turbine Efficiency"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the turbine in converting hydraulic energy to mechanical energy.",
-        "tr": "Türbinin hidrolik enerjiyi mekanik enerjiye dönüştürme verimi."
+        "tr": "Türbinin hidrolik enerjiyi mekanik enerjiye dönüştürme verimi.",
+        "de": "Wirkungsgrad der Turbine bei der Umwandlung von hydraulischer in mechanische Energie.",
+        "fr": "Rendement de la turbine pour convertir l'énergie hydraulique en énergie mécanique.",
+        "es": "Eficiencia de la turbina al convertir energía hidráulica en energía mecánica."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Generator Efficiency",
         "tr": "Jeneratör Verimliliği",
         "de": "Generator Efficiency",
-        "fr": "Generator Efficiency",
-        "es": "Generator Efficiency",
+        "fr": "Rendement du générateur",
+        "es": "Eficiencia del generador",
         "ar": "Generator Efficiency"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the electrical generator in converting mechanical energy to electrical energy.",
-        "tr": "Elektrik jeneratörünün mekanik enerjiyi elektrik enerjisine dönüştürme verimi."
+        "tr": "Elektrik jeneratörünün mekanik enerjiyi elektrik enerjisine dönüştürme verimi.",
+        "de": "Wirkungsgrad des elektrischen Generators bei der Umwandlung von mechanischer in elektrische Energie.",
+        "fr": "Rendement du générateur électrique pour convertir l'énergie mécanique en énergie électrique.",
+        "es": "Eficiencia del generador eléctrico al convertir energía mecánica en energía eléctrica."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Water Density",
         "tr": "Su Yoğunluğu",
         "de": "Wasserdichte",
-        "fr": "Water Density",
-        "es": "Water Density",
+        "fr": "Densité de l'eau",
+        "es": "Densidad del agua",
         "ar": "Water Density"
       },
       "businessContext_i18n": {
         "en": "Density of water, usually 1000 kg/m³ for freshwater.",
-        "tr": "Suyun yoğunluğu, genellikle tatlı su için 1000 kg/m³."
+        "tr": "Suyun yoğunluğu, genellikle tatlı su için 1000 kg/m³.",
+        "de": "Dichte des Wassers, normalerweise 1000 kg/m³ für Süßwasser.",
+        "fr": "Masse volumique de l'eau, généralement 1000 kg/m³ pour l'eau douce.",
+        "es": "Densidad del agua, normalmente 1000 kg/m³ para agua dulce."
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Gravity",
         "tr": "Yerçekimi",
         "de": "Schwerkraft",
-        "fr": "Gravity",
-        "es": "Gravity",
+        "fr": "Gravité",
+        "es": "Gravedad",
         "ar": "Gravity"
       },
       "businessContext_i18n": {
         "en": "Acceleration due to gravity, standard is 9.81 m/s².",
-        "tr": "Yerçekimi ivmesi, standart 9.81 m/s²."
+        "tr": "Yerçekimi ivmesi, standart 9.81 m/s².",
+        "de": "Erdbeschleunigung, Standard 9,81 m/s².",
+        "fr": "Accélération due à la gravité, standard 9,81 m/s².",
+        "es": "Aceleración debida a la gravedad, estándar es 9.81 m/s²."
       }
     }
   ],

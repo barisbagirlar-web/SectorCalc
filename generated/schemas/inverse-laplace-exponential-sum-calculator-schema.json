@@ -13,12 +13,15 @@
         "tr": "Genlik 1",
         "de": "Amplitude 1",
         "fr": "Amplitude 1",
-        "es": "Amplitude 1",
+        "es": "Amplitud 1",
         "ar": "Amplitude 1"
       },
       "businessContext_i18n": {
         "en": "Coefficient of the first exponential term in the Laplace inverse",
-        "tr": "Laplace tersinde birinci üstel terimin katsayısı"
+        "tr": "Laplace tersinde birinci üstel terimin katsayısı",
+        "de": "Koeffizient des ersten Exponentialterms in der inversen Laplace-Transformation",
+        "fr": "Coefficient du premier terme exponentiel dans l'inverse de Laplace",
+        "es": "Coeficiente del primer término exponencial en la inversa de Laplace"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Decay Rate 1",
         "tr": "Sönüm Hızı 1",
-        "de": "Decay Rate 1",
-        "fr": "Decay Rate 1",
-        "es": "Decay Rate 1",
+        "de": "Abklingrate 1",
+        "fr": "Taux de décroissance 1",
+        "es": "Tasa de decaimiento 1",
         "ar": "Decay Rate 1"
       },
       "businessContext_i18n": {
         "en": "Pole location for the first exponential (positive for stable decay)",
-        "tr": "Birinci üstel için kutup konumu (kararlı sönüm için pozitif)"
+        "tr": "Birinci üstel için kutup konumu (kararlı sönüm için pozitif)",
+        "de": "Polstelle des ersten Exponentialterms (positiv für stabile Abklingrate)",
+        "fr": "Emplacement du pôle pour la première exponentielle (positif pour une décroissance stable)",
+        "es": "Ubicación del polo para la primera exponencial (positiva para decaimiento estable)"
       }
     },
     {
@@ -53,12 +59,15 @@
         "tr": "Genlik 2",
         "de": "Amplitude 2",
         "fr": "Amplitude 2",
-        "es": "Amplitude 2",
+        "es": "Amplitud 2",
         "ar": "Amplitude 2"
       },
       "businessContext_i18n": {
         "en": "Coefficient of the second exponential term",
-        "tr": "İkinci üstel terimin katsayısı"
+        "tr": "İkinci üstel terimin katsayısı",
+        "de": "Koeffizient des zweiten Exponentialterms",
+        "fr": "Coefficient du deuxième terme exponentiel",
+        "es": "Coeficiente del segundo término exponencial"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Decay Rate 2",
         "tr": "Sönüm Hızı 2",
-        "de": "Decay Rate 2",
-        "fr": "Decay Rate 2",
-        "es": "Decay Rate 2",
+        "de": "Abklingrate 2",
+        "fr": "Taux de décroissance 2",
+        "es": "Tasa de decaimiento 2",
         "ar": "Decay Rate 2"
       },
       "businessContext_i18n": {
         "en": "Pole location for the second exponential",
-        "tr": "İkinci üstel için kutup konumu"
+        "tr": "İkinci üstel için kutup konumu",
+        "de": "Polstelle des zweiten Exponentialterms",
+        "fr": "Emplacement du pôle pour la deuxième exponentielle",
+        "es": "Ubicación del polo para la segunda exponencial"
       }
     },
     {
@@ -93,12 +105,15 @@
         "tr": "Genlik 3",
         "de": "Amplitude 3",
         "fr": "Amplitude 3",
-        "es": "Amplitude 3",
+        "es": "Amplitud 3",
         "ar": "Amplitude 3"
       },
       "businessContext_i18n": {
         "en": "Coefficient of the third exponential term",
-        "tr": "Üçüncü üstel terimin katsayısı"
+        "tr": "Üçüncü üstel terimin katsayısı",
+        "de": "Koeffizient des dritten Exponentialterms",
+        "fr": "Coefficient du troisième terme exponentiel",
+        "es": "Coeficiente del tercer término exponencial"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Decay Rate 3",
         "tr": "Sönüm Hızı 3",
-        "de": "Decay Rate 3",
-        "fr": "Decay Rate 3",
-        "es": "Decay Rate 3",
+        "de": "Abklingrate 3",
+        "fr": "Taux de décroissance 3",
+        "es": "Tasa de decaimiento 3",
         "ar": "Decay Rate 3"
       },
       "businessContext_i18n": {
         "en": "Pole location for the third exponential",
-        "tr": "Üçüncü üstel için kutup konumu"
+        "tr": "Üçüncü üstel için kutup konumu",
+        "de": "Polstelle des dritten Exponentialterms",
+        "fr": "Emplacement du pôle pour la troisième exponentielle",
+        "es": "Ubicación del polo para la tercera exponencial"
       }
     },
     {
@@ -132,13 +150,16 @@
         "en": "Time",
         "tr": "Zaman",
         "de": "Zeit",
-        "fr": "Time",
-        "es": "Time",
+        "fr": "Temps",
+        "es": "Tiempo",
         "ar": "Time"
       },
       "businessContext_i18n": {
         "en": "Time point at which to evaluate the inverse Laplace transform",
-        "tr": "Ters Laplace dönüşümünün değerlendirileceği zaman noktası"
+        "tr": "Ters Laplace dönüşümünün değerlendirileceği zaman noktası",
+        "de": "Zeitpunkt zur Auswertung der inversen Laplace-Transformation",
+        "fr": "Point temporel auquel évaluer la transformée de Laplace inverse",
+        "es": "Punto de tiempo en el que evaluar la transformada inversa de Laplace"
       }
     }
   ],

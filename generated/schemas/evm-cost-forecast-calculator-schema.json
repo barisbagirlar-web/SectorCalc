@@ -23,12 +23,16 @@
       "label_i18n": {
         "en": "Budget at Completion",
         "tr": "Bütçe Tamamlanma",
-        "de": "Budget bei Fertigstellung"
+        "de": "Budget bei Fertigstellung",
+        "fr": "Budget à l'achèvement",
+        "es": "Presupuesto al Finalizar"
       },
       "businessContext_i18n": {
         "en": "Total authorized budget for the work scope (PMBOK).",
         "tr": "İş kapsamı için toplam yetkilendirilmiş bütçe (PMBOK).",
-        "de": "Gesamtes genehmigtes Budget für den Arbeitsumfang (PMBOK)."
+        "de": "Gesamtes genehmigtes Budget für den Arbeitsumfang (PMBOK).",
+        "fr": "Budget total autorisé pour le périmètre des travaux (PMBOK).",
+        "es": "Presupuesto total autorizado para el alcance del trabajo (PMBOK)."
       }
     },
     {
@@ -43,12 +47,16 @@
       "label_i18n": {
         "en": "Earned Value",
         "tr": "Kazanılan Değer",
-        "de": "Ertragswert"
+        "de": "Ertragswert",
+        "fr": "Valeur acquise",
+        "es": "Valor Ganado"
       },
       "businessContext_i18n": {
         "en": "Value of work actually performed, measured in budgeted cost.",
         "tr": "Gerçekleştirilen işin bütçelenmiş maliyet cinsinden değeri.",
-        "de": "Wert der tatsächlich geleisteten Arbeit, gemessen in budgetierten Kosten."
+        "de": "Wert der tatsächlich geleisteten Arbeit, gemessen in budgetierten Kosten.",
+        "fr": "Valeur des travaux réellement effectués, mesurée en coût budgété.",
+        "es": "Valor del trabajo realmente realizado, medido en costo presupuestado."
       }
     },
     {
@@ -63,12 +71,16 @@
       "label_i18n": {
         "en": "Actual Cost",
         "tr": "Gerçek Maliyet",
-        "de": "Tatsächliche Kosten"
+        "de": "Tatsächliche Kosten",
+        "fr": "Coût réel",
+        "es": "Costo Real"
       },
       "businessContext_i18n": {
         "en": "Total cost incurred for the work performed.",
         "tr": "Gerçekleştirilen iş için oluşan toplam maliyet.",
-        "de": "Gesamtkosten für die durchgeführte Arbeit."
+        "de": "Gesamtkosten für die durchgeführte Arbeit.",
+        "fr": "Coût total encouru pour les travaux effectués.",
+        "es": "Costo total incurrido por el trabajo realizado."
       }
     },
     {
@@ -83,12 +95,16 @@
       "label_i18n": {
         "en": "Planned Value",
         "tr": "Planlanan Değer",
-        "de": "Planwert"
+        "de": "Planwert",
+        "fr": "Valeur planifiée",
+        "es": "Valor Planificado"
       },
       "businessContext_i18n": {
         "en": "Authorized budget for the work scheduled to be completed.",
         "tr": "Tamamlanması planlanan iş için yetkilendirilmiş bütçe.",
-        "de": "Genehmigtes Budget für die planmäßig abzuschließende Arbeit."
+        "de": "Genehmigtes Budget für die planmäßig abzuschließende Arbeit.",
+        "fr": "Budget autorisé pour les travaux planifiés à réaliser.",
+        "es": "Presupuesto autorizado para el trabajo programado a completar."
       }
     },
     {
@@ -103,12 +119,16 @@
       "label_i18n": {
         "en": "Percent Complete (physical)",
         "tr": "Fiziksel Tamamlanma Yüzdesi",
-        "de": "Fertigstellungsgrad (physisch)"
+        "de": "Fertigstellungsgrad (physisch)",
+        "fr": "Pourcentage d'avancement (physique)",
+        "es": "Porcentaje de Avance (físico)"
       },
       "businessContext_i18n": {
         "en": "Objective physical progress estimate (e.g., via earned value rules).",
         "tr": "Nesnel fiziksel ilerleme tahmini (örn. kazanılan değer kuralları ile).",
-        "de": "Objektiver physischer Fortschrittsschätzung (z. B. über Earned-Value-Regeln)."
+        "de": "Objektiver physischer Fortschrittsschätzung (z. B. über Earned-Value-Regeln).",
+        "fr": "Estimation objective de l'avancement physique (par ex., via les règles de la valeur acquise).",
+        "es": "Estimación objetiva del progreso físico (ej. mediante reglas de valor ganado)."
       }
     },
     {
@@ -123,12 +143,16 @@
       "label_i18n": {
         "en": "Cost Performance Index (override)",
         "tr": "Maliyet Performans Endeksi (geçersiz kılma)",
-        "de": "Kostenleistungsindex (Überschreibung)"
+        "de": "Kostenleistungsindex (Überschreibung)",
+        "fr": "Indice de performance des coûts (surcharge)",
+        "es": "Índice de Desempeño de Costos (anulación)"
       },
       "businessContext_i18n": {
         "en": "If provided, overrides calculated CPI. CPI = EV/AC.",
         "tr": "Sağlanırsa, hesaplanan MPI'yi geçersiz kılar. MPI = KD/BM.",
-        "de": "Falls angegeben, überschreibt den berechneten CPI. CPI = EV/AC."
+        "de": "Falls angegeben, überschreibt den berechneten CPI. CPI = EV/AC.",
+        "fr": "Si fourni, remplace l'IPC calculé. IPC = EV/AC.",
+        "es": "Si se proporciona, anula el CPI calculado. CPI = EV/AC."
       }
     },
     {
@@ -143,12 +167,16 @@
       "label_i18n": {
         "en": "Schedule Performance Index (override)",
         "tr": "Program Performans Endeksi (geçersiz kılma)",
-        "de": "Terminplan-Leistungsindex (Überschreibung)"
+        "de": "Terminplan-Leistungsindex (Überschreibung)",
+        "fr": "Indice de performance du calendrier (surcharge)",
+        "es": "Índice de Desempeño del Cronograma (anulación)"
       },
       "businessContext_i18n": {
         "en": "If provided, overrides calculated SPI. SPI = EV/PV.",
         "tr": "Sağlanırsa, hesaplanan PPE'yi geçersiz kılar. PPE = KD/PD.",
-        "de": "Falls angegeben, überschreibt den berechneten SPI. SPI = EV/PV."
+        "de": "Falls angegeben, überschreibt den berechneten SPI. SPI = EV/PV.",
+        "fr": "Si fourni, remplace l'ISP calculé. ISP = EV/PV.",
+        "es": "Si se proporciona, anula el SPI calculado. SPI = EV/PV."
       }
     },
     {
@@ -163,12 +191,16 @@
       "label_i18n": {
         "en": "Use weighted CPI/SPI for EAC",
         "tr": "TBM için ağırlıklı MPI/PPE kullan",
-        "de": "Gewichteten CPI/SPI für EAC verwenden"
+        "de": "Gewichteten CPI/SPI für EAC verwenden",
+        "fr": "Utiliser IPC/ISP pondéré pour l'EAC",
+        "es": "Usar CPI/SPI ponderado para EAC"
       },
       "businessContext_i18n": {
         "en": "If true, applies 0.8*CPI + 0.2*SPI weighting for EAC (industry practice).",
         "tr": "Doğruysa, TBM için 0.8*MPI + 0.2*PPE ağırlıklandırması uygular (endüstri uygulaması).",
-        "de": "Wenn wahr, wendet 0,8*CPI + 0,2*SPI-Gewichtung für EAC an (Branchenpraxis)."
+        "de": "Wenn wahr, wendet 0,8*CPI + 0,2*SPI-Gewichtung für EAC an (Branchenpraxis).",
+        "fr": "Si vrai, applique une pondération 0,8*IPC + 0,2*ISP pour l'EAC (pratique industrielle).",
+        "es": "Si es verdadero, aplica ponderación 0.8*CPI + 0.2*SPI para EAC (práctica industrial)."
       }
     }
   ],

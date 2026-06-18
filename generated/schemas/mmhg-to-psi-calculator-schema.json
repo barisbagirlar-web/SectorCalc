@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Pressure (mmHg)",
         "tr": "Basınç (mmHg)",
-        "de": "Pressure (mmHg)",
-        "fr": "Pressure (mmHg)",
-        "es": "Pressure (mmHg)",
+        "de": "Druck (mmHg)",
+        "fr": "Pression (mmHg)",
+        "es": "Presión (mmHg)",
         "ar": "Pressure (mmHg)"
       },
       "businessContext_i18n": {
         "en": "Measured pressure in millimeters of mercury, standard atmosphere = 760 mmHg",
-        "tr": "Milimetre cıva cinsinden ölçülen basınç, standart atmosfer = 760 mmHg"
+        "tr": "Milimetre cıva cinsinden ölçülen basınç, standart atmosfer = 760 mmHg",
+        "de": "Gemessener Druck in Millimeter Quecksilbersäule, Standardatmosphäre = 760 mmHg",
+        "fr": "Pression mesurée en millimètres de mercure, atmosphère standard = 760 mmHg",
+        "es": "Presión medida en milímetros de mercurio, atmósfera estándar = 760 mmHg"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor from mmHg to psi (1 mmHg = 0.0193368 psi). Adjust for custom calibrations.",
-        "tr": "mmHg'den psi'ye standart dönüşüm faktörü (1 mmHg = 0,0193368 psi). Özel kalibrasyonlar için ayarlayın."
+        "tr": "mmHg'den psi'ye standart dönüşüm faktörü (1 mmHg = 0,0193368 psi). Özel kalibrasyonlar için ayarlayın.",
+        "de": "Standardumrechnungsfaktor von mmHg in psi (1 mmHg = 0,0193368 psi). Für individuelle Kalibrierungen anpassen.",
+        "fr": "Facteur de conversion standard de mmHg en psi (1 mmHg = 0,0193368 psi). Ajuster pour les étalonnages personnalisés.",
+        "es": "Factor de conversión estándar de mmHg a psi (1 mmHg = 0.0193368 psi). Ajuste para calibraciones personalizadas."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Offset",
         "tr": "Ofset",
         "de": "Offset",
-        "fr": "Offset",
-        "es": "Offset",
+        "fr": "Décalage",
+        "es": "Desplazamiento",
         "ar": "Offset"
       },
       "businessContext_i18n": {
         "en": "Calibration offset in psi to correct systematic measurement error.",
-        "tr": "Sistematik ölçüm hatasını düzeltmek için psi cinsinden kalibrasyon ofseti."
+        "tr": "Sistematik ölçüm hatasını düzeltmek için psi cinsinden kalibrasyon ofseti.",
+        "de": "Kalibrierungsversatz in psi zur Korrektur systematischer Messfehler.",
+        "fr": "Décalage d'étalonnage en psi pour corriger l'erreur de mesure systématique.",
+        "es": "Desplazamiento de calibración en psi para corregir el error sistemático de medición."
       }
     },
     {
@@ -72,14 +81,16 @@
         "en": "Output Precision",
         "tr": "Çıktı Hassasiyeti",
         "de": "Ausgabegenauigkeit",
-        "fr": "Output Precision",
-        "es": "Output Precision",
+        "fr": "Précision de sortie",
+        "es": "Precisión de salida",
         "ar": "Output Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the rounded output.",
         "tr": "Yuvarlanmış çıktı için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen für das gerundete Ergebnis."
+        "de": "Anzahl der Dezimalstellen für das gerundete Ergebnis.",
+        "fr": "Nombre de décimales pour le résultat arrondi.",
+        "es": "Número de decimales para la salida redondeada."
       }
     }
   ],

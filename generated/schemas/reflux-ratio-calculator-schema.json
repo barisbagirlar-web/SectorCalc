@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Besleme Akış Hızı",
         "tr": "Besleme Akış Hızı",
-        "de": "Besleme Akış Hızı",
-        "fr": "Besleme Akış Hızı",
+        "de": "Zufuhrdurchsatz",
+        "fr": "Débit d'alimentation",
         "es": "Besleme Akış Hızı",
         "ar": "Besleme Akış Hızı"
       },
       "businessContext_i18n": {
         "en": "Damıtma kolonuna beslenen toplam akış hızı.",
-        "tr": "Damıtma kolonuna beslenen toplam akış hızı."
+        "tr": "Damıtma kolonuna beslenen toplam akış hızı.",
+        "de": "Gesamtdurchsatz, der der Destillationskolonne zugeführt wird.",
+        "fr": "Débit total d'alimentation de la colonne de distillation."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Besleme Kompozisyonu",
         "tr": "Besleme Kompozisyonu",
-        "de": "Besleme Kompozisyonu",
-        "fr": "Besleme Kompozisyonu",
+        "de": "Zufuhrzusammensetzung",
+        "fr": "Composition de l'alimentation",
         "es": "Besleme Kompozisyonu",
         "ar": "Besleme Kompozisyonu"
       },
       "businessContext_i18n": {
         "en": "Besleme akımındaki hafif bileşenin mol kesri.",
-        "tr": "Besleme akımındaki hafif bileşenin mol kesri."
+        "tr": "Besleme akımındaki hafif bileşenin mol kesri.",
+        "de": "Stoffmengenanteil der leichten Komponente im Zufuhrstrom.",
+        "fr": "Fraction molaire du composant léger dans le courant d'alimentation."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Distilat Akış Hızı",
         "tr": "Distilat Akış Hızı",
-        "de": "Distilat Akış Hızı",
-        "fr": "Distilat Akış Hızı",
+        "de": "Destillatdurchsatz",
+        "fr": "Débit de distillat",
         "es": "Distilat Akış Hızı",
         "ar": "Distilat Akış Hızı"
       },
       "businessContext_i18n": {
         "en": "Kolon üst ürünü olarak alınan distilat akış hızı.",
-        "tr": "Kolon üst ürünü olarak alınan distilat akış hızı."
+        "tr": "Kolon üst ürünü olarak alınan distilat akış hızı.",
+        "de": "Destillatdurchsatz, der als Kopfprodukt der Kolonne entnommen wird.",
+        "fr": "Débit de distillat prélevé comme produit de tête de colonne."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Distilat Kompozisyonu",
         "tr": "Distilat Kompozisyonu",
-        "de": "Distilat Kompozisyonu",
-        "fr": "Distilat Kompozisyonu",
+        "de": "Destillatzusammensetzung",
+        "fr": "Composition du distillat",
         "es": "Distilat Kompozisyonu",
         "ar": "Distilat Kompozisyonu"
       },
       "businessContext_i18n": {
         "en": "Distilat akımındaki hafif bileşenin mol kesri.",
-        "tr": "Distilat akımındaki hafif bileşenin mol kesri."
+        "tr": "Distilat akımındaki hafif bileşenin mol kesri.",
+        "de": "Stoffmengenanteil der leichten Komponente im Destillatstrom.",
+        "fr": "Fraction molaire du composant léger dans le courant de distillat."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Reflü Akış Hızı",
         "tr": "Reflü Akış Hızı",
-        "de": "Reflü Akış Hızı",
-        "fr": "Reflü Akış Hızı",
+        "de": "Rücklaufdurchsatz",
+        "fr": "Débit de reflux",
         "es": "Reflü Akış Hızı",
         "ar": "Reflü Akış Hızı"
       },
       "businessContext_i18n": {
         "en": "Kolon içine geri döndürülen sıvı akış hızı.",
-        "tr": "Kolon içine geri döndürülen sıvı akış hızı."
+        "tr": "Kolon içine geri döndürülen sıvı akış hızı.",
+        "de": "Flüssigkeitsdurchsatz, der in die Kolonne zurückgeführt wird.",
+        "fr": "Débit de liquide renvoyé dans la colonne."
       }
     }
   ],

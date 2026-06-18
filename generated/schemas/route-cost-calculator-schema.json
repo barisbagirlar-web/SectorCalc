@@ -22,11 +22,16 @@
       "businessContext": "Total one-way distance of the route. Used as primary driver for fuel, labor, and maintenance costs.",
       "label_i18n": {
         "en": "Route Distance (km)",
-        "tr": "Rota Mesafesi (km)"
+        "tr": "Rota Mesafesi (km)",
+        "de": "Routendistanz (km)",
+        "fr": "Distance de route (km)",
+        "es": "Distancia de ruta (km)"
       },
       "businessContext_i18n": {
         "en": "Total one-way distance of the route. Used as primary driver for fuel, labor, and maintenance costs.",
-        "tr": "Rotanın tek yön toplam mesafesi. Yakıt, işçilik ve bakım maliyetleri için birincil sürücü olarak kullanılır."
+        "tr": "Rotanın tek yön toplam mesafesi. Yakıt, işçilik ve bakım maliyetleri için birincil sürücü olarak kullanılır.",
+        "de": "Gesamte Einwegstrecke der Route. Wird als Haupttreiber für Kraftstoff-, Arbeits- und Wartungskosten verwendet.",
+        "fr": "Distance totale aller simple de la route. Utilisée comme principal facteur pour les coûts de carburant, main-d'œuvre et entretien."
       }
     },
     {
@@ -41,11 +46,15 @@
       "label_i18n": {
         "en": "Fuel Consumption (L/100km)",
         "tr": "Yakıt Tüketimi (L/100km)",
-        "de": "Kraftstoffverbrauch (L/100km)"
+        "de": "Kraftstoffverbrauch (L/100km)",
+        "fr": "Consommation de carburant (L/100km)",
+        "es": "Consumo de combustible (L/100km)"
       },
       "businessContext_i18n": {
         "en": "Average fuel consumption of the vehicle. Based on manufacturer data or telematics.",
-        "tr": "Aracın ortalama yakıt tüketimi. Üretici verileri veya telematik esas alınır."
+        "tr": "Aracın ortalama yakıt tüketimi. Üretici verileri veya telematik esas alınır.",
+        "de": "Durchschnittlicher Kraftstoffverbrauch des Fahrzeugs. Basierend auf Herstellerdaten oder Telematik.",
+        "fr": "Consommation moyenne de carburant du véhicule. Basée sur les données du constructeur ou la télématique."
       }
     },
     {
@@ -59,11 +68,15 @@
       "businessContext": "Current market price of diesel or gasoline. Updated weekly.",
       "label_i18n": {
         "en": "Fuel Price (per liter)",
-        "tr": "Yakıt Fiyatı (litre başına)"
+        "tr": "Yakıt Fiyatı (litre başına)",
+        "de": "Kraftstoffpreis (pro Liter)",
+        "fr": "Prix du carburant (par litre)"
       },
       "businessContext_i18n": {
         "en": "Current market price of diesel or gasoline. Updated weekly.",
-        "tr": "Dizel veya benzinin güncel piyasa fiyatı. Haftalık güncellenir."
+        "tr": "Dizel veya benzinin güncel piyasa fiyatı. Haftalık güncellenir.",
+        "de": "Aktueller Marktpreis für Diesel oder Benzin. Wöchentlich aktualisiert.",
+        "fr": "Prix actuel du diesel ou de l'essence sur le marché. Mis à jour chaque semaine."
       }
     },
     {
@@ -77,11 +90,15 @@
       "businessContext": "Gross hourly wage including social charges. Based on collective labor agreements.",
       "label_i18n": {
         "en": "Driver Wage (€/hour)",
-        "tr": "Sürücü Ücreti (€/saat)"
+        "tr": "Sürücü Ücreti (€/saat)",
+        "de": "Fahrerlohn (€/Stunde)",
+        "fr": "Salaire du conducteur (€/heure)"
       },
       "businessContext_i18n": {
         "en": "Gross hourly wage including social charges. Based on collective labor agreements.",
-        "tr": "Sosyal giderler dahil brüt saatlik ücret. Toplu iş sözleşmelerine dayanır."
+        "tr": "Sosyal giderler dahil brüt saatlik ücret. Toplu iş sözleşmelerine dayanır.",
+        "de": "Bruttostundenlohn inklusive Sozialabgaben. Basierend auf Tarifverträgen.",
+        "fr": "Salaire horaire brut incluant les charges sociales. Basé sur les conventions collectives."
       }
     },
     {
@@ -96,11 +113,15 @@
       "label_i18n": {
         "en": "Average Speed (km/h)",
         "tr": "Ortalama Hız (km/s)",
-        "de": "Durchschnittsgeschwindigkeit (km/h)"
+        "de": "Durchschnittsgeschwindigkeit (km/h)",
+        "fr": "Vitesse moyenne (km/h)",
+        "es": "Velocidad media (km/h)"
       },
       "businessContext_i18n": {
         "en": "Expected average speed including traffic and stops. Used to calculate travel time.",
-        "tr": "Trafik ve duraklar dahil beklenen ortalama hız. Seyahat süresini hesaplamak için kullanılır."
+        "tr": "Trafik ve duraklar dahil beklenen ortalama hız. Seyahat süresini hesaplamak için kullanılır.",
+        "de": "Erwartete Durchschnittsgeschwindigkeit inklusive Verkehr und Stopps. Wird zur Berechnung der Reisezeit verwendet.",
+        "fr": "Vitesse moyenne attendue incluant le trafic et les arrêts. Utilisée pour calculer le temps de trajet."
       }
     },
     {
@@ -114,11 +135,15 @@
       "businessContext": "Average maintenance cost per kilometer including tires, oil, and repairs. Based on fleet data.",
       "label_i18n": {
         "en": "Maintenance Cost (€/km)",
-        "tr": "Bakım Maliyeti (€/km)"
+        "tr": "Bakım Maliyeti (€/km)",
+        "de": "Wartungskosten (€/km)",
+        "fr": "Coût d'entretien (€/km)"
       },
       "businessContext_i18n": {
         "en": "Average maintenance cost per kilometer including tires, oil, and repairs. Based on fleet data.",
-        "tr": "Lastikler, yağ ve onarımlar dahil kilometre başına ortalama bakım maliyeti. Filo verilerine dayanır."
+        "tr": "Lastikler, yağ ve onarımlar dahil kilometre başına ortalama bakım maliyeti. Filo verilerine dayanır.",
+        "de": "Durchschnittliche Wartungskosten pro Kilometer inklusive Reifen, Öl und Reparaturen. Basierend auf Flottendaten.",
+        "fr": "Coût d'entretien moyen par kilomètre incluant pneus, huile et réparations. Basé sur les données de la flotte."
       }
     },
     {
@@ -132,11 +157,15 @@
       "businessContext": "Sum of all tolls on the route. Can be obtained from route planning software.",
       "label_i18n": {
         "en": "Total Toll Cost (€)",
-        "tr": "Toplam Geçiş Ücreti (€)"
+        "tr": "Toplam Geçiş Ücreti (€)",
+        "de": "Gesamte Mautkosten (€)",
+        "fr": "Coût total des péages (€)"
       },
       "businessContext_i18n": {
         "en": "Sum of all tolls on the route. Can be obtained from route planning software.",
-        "tr": "Rotadaki tüm geçiş ücretlerinin toplamı. Rota planlama yazılımından elde edilebilir."
+        "tr": "Rotadaki tüm geçiş ücretlerinin toplamı. Rota planlama yazılımından elde edilebilir.",
+        "de": "Summe aller Mautgebühren auf der Route. Kann aus Routenplanungssoftware bezogen werden.",
+        "fr": "Somme de tous les péages sur la route. Peut être obtenue via un logiciel de planification d'itinéraire."
       }
     },
     {
@@ -150,11 +179,15 @@
       "businessContext": "Total weight of cargo. Affects fuel consumption and wear.",
       "label_i18n": {
         "en": "Load Weight (tonnes)",
-        "tr": "Yük Ağırlığı (ton)"
+        "tr": "Yük Ağırlığı (ton)",
+        "de": "Ladegewicht (Tonnen)",
+        "fr": "Poids de la charge (tonnes)"
       },
       "businessContext_i18n": {
         "en": "Total weight of cargo. Affects fuel consumption and wear.",
-        "tr": "Kargonun toplam ağırlığı. Yakıt tüketimini ve aşınmayı etkiler."
+        "tr": "Kargonun toplam ağırlığı. Yakıt tüketimini ve aşınmayı etkiler.",
+        "de": "Gesamtgewicht der Ladung. Beeinflusst Kraftstoffverbrauch und Verschleiß.",
+        "fr": "Poids total de la cargaison. Affecte la consommation de carburant et l'usure."
       }
     }
   ],

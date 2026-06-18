@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Drainage Area",
         "tr": "Drenaj Alanı",
-        "de": "Drainage Area",
-        "fr": "Drainage Area",
-        "es": "Drainage Area",
+        "de": "Einzugsgebietsfläche",
+        "fr": "Superficie du bassin versant",
+        "es": "Área de drenaje",
         "ar": "Drainage Area"
       },
       "businessContext_i18n": {
         "en": "Havza alanı",
-        "tr": "Havza Alanı"
+        "tr": "Havza Alanı",
+        "de": "Einzugsgebiet",
+        "fr": "Superficie du bassin versant"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Time of Concentration",
         "tr": "Toparlanma Süresi",
-        "de": "Time of Concentration",
-        "fr": "Time of Concentration",
+        "de": "Konzentrationszeit",
+        "fr": "Temps de concentration",
         "es": "Time of Concentration",
         "ar": "Time of Concentration"
       },
       "businessContext_i18n": {
         "en": "Akış zamanı",
-        "tr": "Akış Süresi"
+        "tr": "Akış Süresi",
+        "de": "Fließzeit",
+        "fr": "Temps d'écoulement"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Peak Rate Factor",
         "tr": "Pik Akış Faktörü",
-        "de": "Peak Rate Factor",
-        "fr": "Peak Rate Factor",
+        "de": "Spitzenabflussfaktor",
+        "fr": "Facteur de pointe",
         "es": "Peak Rate Factor",
         "ar": "Peak Rate Factor"
       },
       "businessContext_i18n": {
         "en": "Pik faktörü",
-        "tr": "Pik Faktörü"
+        "tr": "Pik Faktörü",
+        "de": "Spitzenfaktor",
+        "fr": "Facteur de pointe"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Rainfall Duration",
         "tr": "Yağış Süresi",
-        "de": "Rainfall Duration",
-        "fr": "Rainfall Duration",
+        "de": "Regendauer",
+        "fr": "Durée de la pluie",
         "es": "Rainfall Duration",
         "ar": "Rainfall Duration"
       },
       "businessContext_i18n": {
         "en": "Yağış süresi",
-        "tr": "Yağış Süresi"
+        "tr": "Yağış Süresi",
+        "de": "Niederschlagsdauer",
+        "fr": "Durée de la pluie"
       }
     }
   ],

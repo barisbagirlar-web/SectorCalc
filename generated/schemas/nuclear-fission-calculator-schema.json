@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Fissile Material Mass",
         "tr": "Bölünebilir Malzeme Kütlesi",
-        "de": "Fissile Material Mass",
-        "fr": "Fissile Material Mass",
-        "es": "Fissile Material Mass",
+        "de": "Masse des spaltbaren Materials",
+        "fr": "Masse de matière fissile",
+        "es": "Masa de material fisible",
         "ar": "Fissile Material Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the fissile material sample.",
-        "tr": "Bölünebilir malzeme numunesinin kütlesi."
+        "tr": "Bölünebilir malzeme numunesinin kütlesi.",
+        "de": "Masse der spaltbaren Materialprobe.",
+        "fr": "Masse de l'échantillon de matière fissile.",
+        "es": "Masa de la muestra de material fisible."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Energy per Fission",
         "tr": "Fisyon Başına Enerji",
-        "de": "Energy per Fission",
-        "fr": "Energy per Fission",
-        "es": "Energy per Fission",
+        "de": "Energie pro Spaltung",
+        "fr": "Énergie par fission",
+        "es": "Energía por fisión",
         "ar": "Energy per Fission"
       },
       "businessContext_i18n": {
         "en": "Average energy released per fission event.",
-        "tr": "Fisyon olayı başına salınan ortalama enerji."
+        "tr": "Fisyon olayı başına salınan ortalama enerji.",
+        "de": "Durchschnittliche Energie, die pro Spaltungsereignis freigesetzt wird.",
+        "fr": "Énergie moyenne libérée par événement de fission.",
+        "es": "Energía promedio liberada por evento de fisión."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Molar Mass",
         "tr": "Molar Kütle",
         "de": "Molmasse",
-        "fr": "Molar Mass",
-        "es": "Molar Mass",
+        "fr": "Masse molaire",
+        "es": "Masa molar",
         "ar": "Molar Mass"
       },
       "businessContext_i18n": {
         "en": "Molar mass of the fissile isotope.",
-        "tr": "Bölünebilir izotopun molar kütlesi."
+        "tr": "Bölünebilir izotopun molar kütlesi.",
+        "de": "Molmasse des spaltbaren Isotops.",
+        "fr": "Masse molaire de l'isotope fissile.",
+        "es": "Masa molar del isótopo fisible."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Avogadro's Number",
         "tr": "Avogadro Sayısı",
-        "de": "Avogadro's Number",
-        "fr": "Avogadro's Number",
-        "es": "Avogadro's Number",
+        "de": "Avogadro-Zahl",
+        "fr": "Nombre d'Avogadro",
+        "es": "Número de Avogadro",
         "ar": "Avogadro's Number"
       },
       "businessContext_i18n": {
         "en": "Avogadro constant, number of atoms per mole.",
-        "tr": "Avogadro sabiti, mol başına atom sayısı."
+        "tr": "Avogadro sabiti, mol başına atom sayısı.",
+        "de": "Avogadro-Konstante, Anzahl der Atome pro Mol.",
+        "fr": "Constante d'Avogadro, nombre d'atomes par mole.",
+        "es": "Constante de Avogadro, número de átomos por mol."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Conversion MeV to Joules",
         "tr": "MeV'den Joule'e Dönüşüm",
-        "de": "Conversion MeV to Joules",
-        "fr": "Conversion MeV to Joules",
-        "es": "Conversion MeV to Joules",
+        "de": "Umrechnung MeV in Joule",
+        "fr": "Conversion MeV en Joules",
+        "es": "Conversión de MeV a julios",
         "ar": "Conversion MeV to Joules"
       },
       "businessContext_i18n": {
         "en": "Conversion factor from mega-electronvolts to joules.",
-        "tr": "Mega-elektronvoltlardan joule'lere dönüşüm faktörü."
+        "tr": "Mega-elektronvoltlardan joule'lere dönüşüm faktörü.",
+        "de": "Umrechnungsfaktor von Megaelektronenvolt in Joule.",
+        "fr": "Facteur de conversion des méga-électronvolts en joules.",
+        "es": "Factor de conversión de megaelectronvoltios a julios."
       }
     }
   ],

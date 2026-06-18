@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Pool Surface Area",
         "tr": "Havuz Yüzey Alanı",
-        "de": "Pool Surface Area",
-        "fr": "Pool Surface Area",
-        "es": "Pool Surface Area",
+        "de": "Pool-Oberfläche",
+        "fr": "Surface du bassin",
+        "es": "Área de superficie de la piscina",
         "ar": "Pool Surface Area"
       },
       "businessContext_i18n": {
         "en": "The water surface area of the pool exposed to air.",
-        "tr": "Havuzun havaya maruz kalan su yüzey alanı."
+        "tr": "Havuzun havaya maruz kalan su yüzey alanı.",
+        "de": "Die Wasseroberfläche des Pools, die der Luft ausgesetzt ist.",
+        "fr": "La surface de l'eau du bassin exposée à l'air.",
+        "es": "El área de la superficie del agua de la piscina expuesta al aire."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Water Temperature",
         "tr": "Su Sıcaklığı",
-        "de": "Water Temperature",
-        "fr": "Water Temperature",
-        "es": "Water Temperature",
+        "de": "Wassertemperatur",
+        "fr": "Température de l'eau",
+        "es": "Temperatura del agua",
         "ar": "Water Temperature"
       },
       "businessContext_i18n": {
         "en": "Average temperature of the pool water.",
-        "tr": "Havuz suyunun ortalama sıcaklığı."
+        "tr": "Havuz suyunun ortalama sıcaklığı.",
+        "de": "Durchschnittstemperatur des Poolwassers.",
+        "fr": "Température moyenne de l'eau du bassin.",
+        "es": "Temperatura promedio del agua de la piscina."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Air Temperature",
         "tr": "Hava Sıcaklığı",
         "de": "Lufttemperatur",
-        "fr": "Air Temperature",
-        "es": "Air Temperature",
+        "fr": "Température de l'air",
+        "es": "Temperatura del aire",
         "ar": "Air Temperature"
       },
       "businessContext_i18n": {
         "en": "Ambient air temperature above the pool.",
-        "tr": "Havuzun üzerindeki ortam hava sıcaklığı."
+        "tr": "Havuzun üzerindeki ortam hava sıcaklığı.",
+        "de": "Umgebungslufttemperatur über dem Pool.",
+        "fr": "Température de l'air ambiant au-dessus du bassin.",
+        "es": "Temperatura del aire ambiente sobre la piscina."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Relative Humidity",
         "tr": "Bağıl Nem",
         "de": "Relative Luftfeuchtigkeit",
-        "fr": "Relative Humidity",
-        "es": "Relative Humidity",
+        "fr": "Humidité relative",
+        "es": "Humedad relativa",
         "ar": "Relative Humidity"
       },
       "businessContext_i18n": {
         "en": "Percentage of moisture in air relative to saturation at air temperature.",
-        "tr": "Havanın doyma noktasına göre nem yüzdesi."
+        "tr": "Havanın doyma noktasına göre nem yüzdesi.",
+        "de": "Prozentsatz der Feuchtigkeit in der Luft relativ zur Sättigung bei Lufttemperatur.",
+        "fr": "Pourcentage d'humidité dans l'air par rapport à la saturation à la température de l'air.",
+        "es": "Porcentaje de humedad en el aire relativo a la saturación a la temperatura del aire."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Wind Speed",
         "tr": "Rüzgar Hızı",
         "de": "Windgeschwindigkeit",
-        "fr": "Wind Speed",
-        "es": "Wind Speed",
+        "fr": "Vitesse du vent",
+        "es": "Velocidad del viento",
         "ar": "Wind Speed"
       },
       "businessContext_i18n": {
         "en": "Average wind speed above the pool surface.",
-        "tr": "Havuz yüzeyi üzerindeki ortalama rüzgar hızı."
+        "tr": "Havuz yüzeyi üzerindeki ortalama rüzgar hızı.",
+        "de": "Durchschnittliche Windgeschwindigkeit über der Pooloberfläche.",
+        "fr": "Vitesse moyenne du vent au-dessus de la surface du bassin.",
+        "es": "Velocidad promedio del viento sobre la superficie de la piscina."
       }
     }
   ],

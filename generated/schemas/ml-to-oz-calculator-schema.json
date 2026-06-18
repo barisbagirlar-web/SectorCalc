@@ -13,12 +13,15 @@
         "tr": "Hacim (ml)",
         "de": "Volumen (ml)",
         "fr": "Volume (ml)",
-        "es": "Volume (ml)",
+        "es": "Volumen (ml)",
         "ar": "Volume (ml)"
       },
       "businessContext_i18n": {
         "en": "Miktar mililitre cinsinden",
-        "tr": "Miktar mililitre cinsinden"
+        "tr": "Miktar mililitre cinsinden",
+        "de": "Menge in Millilitern",
+        "fr": "Quantité en millilitres",
+        "es": "Cantidad en mililitros"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "US fl oz per ml",
         "tr": "US fl oz / ml",
-        "de": "US fl oz per ml",
-        "fr": "US fl oz per ml",
-        "es": "US fl oz per ml",
+        "de": "US fl oz pro ml",
+        "fr": "oz liq US par ml",
+        "es": "Onzas líquidas estadounidenses por ml",
         "ar": "US fl oz per ml"
       },
       "businessContext_i18n": {
         "en": "1 ml = 0.033814 US fluid ounces",
-        "tr": "1 ml = 0,033814 ABD sıvı ons"
+        "tr": "1 ml = 0,033814 ABD sıvı ons",
+        "de": "1 ml = 0,033814 US-Flüssigunzen",
+        "fr": "1 ml = 0,033814 onces liquides US",
+        "es": "1 ml = 0.033814 onzas líquidas estadounidenses"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "UK fl oz per ml",
         "tr": "UK fl oz / ml",
-        "de": "UK fl oz per ml",
-        "fr": "UK fl oz per ml",
-        "es": "UK fl oz per ml",
+        "de": "UK fl oz pro ml",
+        "fr": "oz liq UK par ml",
+        "es": "Onzas líquidas británicas por ml",
         "ar": "UK fl oz per ml"
       },
       "businessContext_i18n": {
         "en": "1 ml = 0.035195 UK fluid ounces",
-        "tr": "1 ml = 0,035195 İngiliz sıvı ons"
+        "tr": "1 ml = 0,035195 İngiliz sıvı ons",
+        "de": "1 ml = 0,035195 UK-Flüssigunzen",
+        "fr": "1 ml = 0,035195 onces liquides UK",
+        "es": "1 ml = 0.035195 onzas líquidas británicas"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Decimal precision",
         "tr": "Ondalık hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal precision",
-        "es": "Decimal precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal precision"
       },
       "businessContext_i18n": {
         "en": "Yuvarlama hassasiyeti (ondalık basamak)",
-        "tr": "Yuvarlama hassasiyeti (ondalık basamak)"
+        "tr": "Yuvarlama hassasiyeti (ondalık basamak)",
+        "de": "Rundungsgenauigkeit (Dezimalstellen)",
+        "fr": "Précision d'arrondi (décimales)",
+        "es": "Precisión de redondeo (decimales)"
       }
     }
   ],

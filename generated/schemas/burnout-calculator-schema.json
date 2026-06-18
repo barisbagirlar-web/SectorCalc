@@ -12,14 +12,16 @@
         "en": "Motor Rated Power",
         "tr": "Motor Anma Gücü",
         "de": "Motor-Nennleistung",
-        "fr": "Motor Rated Power",
-        "es": "Motor Rated Power",
+        "fr": "Puissance nominale du moteur",
+        "es": "Potencia nominal del motor",
         "ar": "Motor Rated Power"
       },
       "businessContext_i18n": {
         "en": "Nominal power of the motor at full load",
         "tr": "Motorun tam yükteki nominal gücü",
-        "de": "Nennleistung des Motors bei Volllast"
+        "de": "Nennleistung des Motors bei Volllast",
+        "fr": "Puissance nominale du moteur en pleine charge",
+        "es": "Potencia nominal del motor a plena carga"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Actual Load",
         "tr": "Gerçek Yük",
         "de": "Tatsächliche Last",
-        "fr": "Actual Load",
-        "es": "Actual Load",
+        "fr": "Charge réelle",
+        "es": "Carga real",
         "ar": "Actual Load"
       },
       "businessContext_i18n": {
         "en": "Actual mechanical power drawn by the driven equipment",
         "tr": "Tahrik edilen ekipman tarafından çekilen gerçek mekanik güç",
-        "de": "Tatsächliche mechanische Leistungsaufnahme der angetriebenen Ausrüstung"
+        "de": "Tatsächliche mechanische Leistungsaufnahme der angetriebenen Ausrüstung",
+        "fr": "Puissance mécanique réelle absorbée par l'équipement entraîné",
+        "es": "Potencia mecánica real consumida por el equipo accionado"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Ambient Temperature",
         "tr": "Ortam Sıcaklığı",
         "de": "Umgebungstemperatur",
-        "fr": "Ambient Temperature",
-        "es": "Ambient Temperature",
+        "fr": "Température ambiante",
+        "es": "Temperatura ambiente",
         "ar": "Ambient Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of the surrounding environment",
         "tr": "Çevre Sıcaklığı",
-        "de": "Temperatur der Umgebung"
+        "de": "Temperatur der Umgebung",
+        "fr": "Température de l'environnement ambiant",
+        "es": "Temperatura del entorno circundante"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Insulation Max Temperature",
         "tr": "Yalıtım Maksimum Sıcaklığı",
         "de": "Isolations-Maximaltemperatur",
-        "fr": "Insulation Max Temperature",
-        "es": "Insulation Max Temperature",
+        "fr": "Température maximale de l'isolation",
+        "es": "Temperatura máxima del aislamiento",
         "ar": "Insulation Max Temperature"
       },
       "businessContext_i18n": {
         "en": "Maximum allowable winding temperature (insulation class limit)",
         "tr": "İzin verilen maksimum sargı sıcaklığı (yalıtım sınıfı limiti)",
-        "de": "Maximal zulässige Wicklungstemperatur (Grenze der Isolationsklasse)"
+        "de": "Maximal zulässige Wicklungstemperatur (Grenze der Isolationsklasse)",
+        "fr": "Température maximale admissible du bobinage (limite de classe d'isolation)",
+        "es": "Temperatura máxima permitida del devanado (límite de clase de aislamiento)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Rated Ambient Temperature",
         "tr": "Anma Ortam Sıcaklığı",
         "de": "Nenn-Umgebungstemperatur",
-        "fr": "Rated Ambient Temperature",
-        "es": "Rated Ambient Temperature",
+        "fr": "Température ambiante nominale",
+        "es": "Temperatura ambiente nominal",
         "ar": "Rated Ambient Temperature"
       },
       "businessContext_i18n": {
         "en": "Standard ambient temperature for motor design (typically 40°C)",
         "tr": "Motor tasarımı için standart ortam sıcaklığı (tipik olarak 40°C)",
-        "de": "Standard-Umgebungstemperatur für Motordesign (typischerweise 40 °C)"
+        "de": "Standard-Umgebungstemperatur für Motordesign (typischerweise 40 °C)",
+        "fr": "Température ambiante standard pour la conception du moteur (généralement 40°C)",
+        "es": "Temperatura ambiente estándar para el diseño del motor (típicamente 40°C)"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Thermal Time Constant",
         "tr": "Termal Zaman Sabiti",
         "de": "Thermische Zeitkonstante",
-        "fr": "Thermal Time Constant",
-        "es": "Thermal Time Constant",
+        "fr": "Constante de temps thermique",
+        "es": "Constante de tiempo térmica",
         "ar": "Thermal Time Constant"
       },
       "businessContext_i18n": {
         "en": "Time for the motor temperature to reach 63.2% of its steady-state rise",
         "tr": "Motor sıcaklığının kararlı hal artışının %63,2'sine ulaşması için geçen süre",
-        "de": "Zeit, bis die Motortemperatur 63,2 % ihres stationären Anstiegs erreicht"
+        "de": "Zeit, bis die Motortemperatur 63,2 % ihres stationären Anstiegs erreicht",
+        "fr": "Temps nécessaire pour que la température du moteur atteigne 63,2 % de son élévation en régime permanent",
+        "es": "Tiempo para que la temperatura del motor alcance el 63.2% de su aumento en estado estacionario"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Duty Cycle",
         "tr": "Görev Çevrimi",
         "de": "Einschaltdauer",
-        "fr": "Duty Cycle",
-        "es": "Duty Cycle",
+        "fr": "Cycle de service",
+        "es": "Ciclo de trabajo",
         "ar": "Duty Cycle"
       },
       "businessContext_i18n": {
         "en": "Fraction of time motor runs under load (0-1, 1 = continuous)",
         "tr": "Motorun yük altında çalıştığı sürenin oranı (0-1, 1 = sürekli)",
-        "de": "Anteil der Zeit, in der der Motor unter Last läuft (0–1, 1 = Dauerbetrieb)"
+        "de": "Anteil der Zeit, in der der Motor unter Last läuft (0–1, 1 = Dauerbetrieb)",
+        "fr": "Fraction du temps pendant laquelle le moteur fonctionne en charge (0-1, 1 = continu)",
+        "es": "Fracción de tiempo que el motor funciona bajo carga (0-1, 1 = continuo)"
       }
     }
   ],

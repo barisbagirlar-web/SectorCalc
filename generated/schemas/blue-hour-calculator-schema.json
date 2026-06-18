@@ -12,14 +12,16 @@
         "en": "Sunrise Time (decimal hours)",
         "tr": "Gün Doğumu Saati (ondalık saat)",
         "de": "Sonnenaufgangszeit (Dezimalstunden)",
-        "fr": "Sunrise Time (decimal hours)",
-        "es": "Sunrise Time (decimal hours)",
+        "fr": "Heure du lever du soleil (heures décimales)",
+        "es": "Hora del amanecer (horas decimales)",
         "ar": "Sunrise Time (decimal hours)"
       },
       "businessContext_i18n": {
         "en": "Time of sunrise in decimal hours (e.g., 6.5 = 06:30). Used to compute blue hour start.",
         "tr": "Gün doğumu zamanı ondalık saat cinsinden (örn. 6.5 = 06:30). Mavi saat başlangıcını hesaplamak için kullanılır.",
-        "de": "Zeit des Sonnenaufgangs in Dezimalstunden (z. B. 6,5 = 06:30). Wird zur Berechnung des Beginns der blauen Stunde verwendet."
+        "de": "Zeit des Sonnenaufgangs in Dezimalstunden (z. B. 6,5 = 06:30). Wird zur Berechnung des Beginns der blauen Stunde verwendet.",
+        "fr": "Heure du lever du soleil en heures décimales (ex. 6,5 = 06:30). Utilisée pour calculer le début de l'heure bleue.",
+        "es": "Hora del amanecer en horas decimales (ej. 6.5 = 06:30). Se usa para calcular el inicio de la hora azul."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Sunset Time (decimal hours)",
         "tr": "Gün Batımı Saati (ondalık saat)",
         "de": "Sonnenuntergangszeit (Dezimalstunden)",
-        "fr": "Sunset Time (decimal hours)",
-        "es": "Sunset Time (decimal hours)",
+        "fr": "Heure du coucher du soleil (heures décimales)",
+        "es": "Hora del atardecer (horas decimales)",
         "ar": "Sunset Time (decimal hours)"
       },
       "businessContext_i18n": {
         "en": "Time of sunset in decimal hours. Used to compute blue hour end.",
         "tr": "Gün batımı zamanı ondalık saat cinsinden. Mavi saat bitişini hesaplamak için kullanılır.",
-        "de": "Zeit des Sonnenuntergangs in Dezimalstunden. Wird zur Berechnung des Endes der blauen Stunde verwendet."
+        "de": "Zeit des Sonnenuntergangs in Dezimalstunden. Wird zur Berechnung des Endes der blauen Stunde verwendet.",
+        "fr": "Heure du coucher du soleil en heures décimales. Utilisée pour calculer la fin de l'heure bleue.",
+        "es": "Hora del atardecer en horas decimales. Se usa para calcular el final de la hora azul."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Latitude (degrees)",
         "tr": "Enlem (derece)",
         "de": "Breitengrad (Grad)",
-        "fr": "Latitude (degrees)",
-        "es": "Latitude (degrees)",
+        "fr": "Latitude (degrés)",
+        "es": "Latitud (grados)",
         "ar": "Latitude (degrees)"
       },
       "businessContext_i18n": {
         "en": "Latitude of location in decimal degrees. Affects duration of twilight.",
         "tr": "Konumun enlemi ondalık derece cinsinden. Alacakaranlık süresini etkiler.",
-        "de": "Breitengrad des Standorts in Dezimalgrad. Beeinflusst die Dauer der Dämmerung."
+        "de": "Breitengrad des Standorts in Dezimalgrad. Beeinflusst die Dauer der Dämmerung.",
+        "fr": "Latitude du lieu en degrés décimaux. Affecte la durée du crépuscule.",
+        "es": "Latitud de la ubicación en grados decimales. Afecta la duración del crepúsculo."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Longitude (degrees)",
         "tr": "Boylam (derece)",
         "de": "Längengrad (Grad)",
-        "fr": "Longitude (degrees)",
-        "es": "Longitude (degrees)",
+        "fr": "Longitude (degrés)",
+        "es": "Longitud (grados)",
         "ar": "Longitude (degrees)"
       },
       "businessContext_i18n": {
         "en": "Longitude of location in decimal degrees. Used for time zone correction.",
         "tr": "Konumun boylamı ondalık derece cinsinden. Saat dilimi düzeltmesi için kullanılır.",
-        "de": "Längengrad des Standorts in Dezimalgrad. Wird für die Zeitzonenkorrektur verwendet."
+        "de": "Längengrad des Standorts in Dezimalgrad. Wird für die Zeitzonenkorrektur verwendet.",
+        "fr": "Longitude du lieu en degrés décimaux. Utilisée pour la correction du fuseau horaire.",
+        "es": "Longitud de la ubicación en grados decimales. Se usa para la corrección de zona horaria."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Timezone Offset from UTC (hours)",
         "tr": "UTC'den Saat Dilimi Farkı (saat)",
         "de": "Zeitzonenversatz von UTC (Stunden)",
-        "fr": "Timezone Offset from UTC (hours)",
-        "es": "Timezone Offset from UTC (hours)",
+        "fr": "Décalage horaire par rapport à UTC (heures)",
+        "es": "Desplazamiento de zona horaria desde UTC (horas)",
         "ar": "Timezone Offset from UTC (hours)"
       },
       "businessContext_i18n": {
         "en": "Time zone offset relative to UTC. Adjusts solar time to local time.",
         "tr": "UTC'ye göre saat dilimi farkı. Güneş saatini yerel saate ayarlar.",
-        "de": "Zeitzonenversatz relativ zur UTC. Passt die Sonnenzeit an die Ortszeit an."
+        "de": "Zeitzonenversatz relativ zur UTC. Passt die Sonnenzeit an die Ortszeit an.",
+        "fr": "Décalage horaire par rapport à UTC. Ajuste l'heure solaire à l'heure locale.",
+        "es": "Desplazamiento de zona horaria respecto a UTC. Ajusta la hora solar a la hora local."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Day of Year (1-365)",
         "tr": "Yılın Günü (1-365)",
         "de": "Tag des Jahres (1-365)",
-        "fr": "Day of Year (1-365)",
-        "es": "Day of Year (1-365)",
+        "fr": "Jour de l'année (1-365)",
+        "es": "Día del año (1-365)",
         "ar": "Day of Year (1-365)"
       },
       "businessContext_i18n": {
         "en": "Day of the year (1 = Jan 1). Used for solar declination calculation.",
         "tr": "Yılın günü (1 = 1 Ocak). Güneş deklinasyonu hesaplamasında kullanılır.",
-        "de": "Tag des Jahres (1 = 1. Januar). Wird für die Berechnung der Sonnendeklination verwendet."
+        "de": "Tag des Jahres (1 = 1. Januar). Wird für die Berechnung der Sonnendeklination verwendet.",
+        "fr": "Jour de l'année (1 = 1er janvier). Utilisé pour le calcul de la déclinaison solaire.",
+        "es": "Día del año (1 = 1 de enero). Se utiliza para el cálculo de la declinación solar."
       }
     }
   ],

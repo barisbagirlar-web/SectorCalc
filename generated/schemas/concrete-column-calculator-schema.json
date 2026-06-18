@@ -12,14 +12,16 @@
         "en": "Column Width (b)",
         "tr": "Kolon Genişliği (b)",
         "de": "Stützenbreite (b)",
-        "fr": "Column Width (b)",
-        "es": "Column Width (b)",
+        "fr": "Largeur du poteau (b)",
+        "es": "Ancho de columna (b)",
         "ar": "Column Width (b)"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional width of the concrete column.",
         "tr": "Beton kolonun enine kesit genişliği.",
-        "de": "Querschnittsbreite der Betonstütze."
+        "de": "Querschnittsbreite der Betonstütze.",
+        "fr": "Largeur de la section transversale du poteau en béton.",
+        "es": "Ancho de la sección transversal de la columna de concreto."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Column Depth (h)",
         "tr": "Kolon Derinliği (h)",
         "de": "Stützentiefe (h)",
-        "fr": "Column Depth (h)",
-        "es": "Column Depth (h)",
+        "fr": "Profondeur du poteau (h)",
+        "es": "Profundidad de columna (h)",
         "ar": "Column Depth (h)"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional depth of the concrete column.",
         "tr": "Beton kolonun enine kesit derinliği.",
-        "de": "Querschnittstiefe der Betonstütze."
+        "de": "Querschnittstiefe der Betonstütze.",
+        "fr": "Profondeur de la section transversale du poteau en béton.",
+        "es": "Profundidad de la sección transversal de la columna de concreto."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Concrete Compressive Strength (f'c)",
         "tr": "Beton Basınç Dayanımı (f'c)",
         "de": "Beton-Druckfestigkeit (f'c)",
-        "fr": "Concrete Compressive Strength (f'c)",
-        "es": "Concrete Compressive Strength (f'c)",
+        "fr": "Résistance à la compression du béton (f'c)",
+        "es": "Resistencia a compresión del concreto (f'c)",
         "ar": "Concrete Compressive Strength (f'c)"
       },
       "businessContext_i18n": {
         "en": "Specified compressive strength of concrete at 28 days.",
         "tr": "28 günde belirtilen beton basınç dayanımı.",
-        "de": "Festgelegte Druckfestigkeit des Betons nach 28 Tagen."
+        "de": "Festgelegte Druckfestigkeit des Betons nach 28 Tagen.",
+        "fr": "Résistance à la compression spécifiée du béton à 28 jours.",
+        "es": "Resistencia a compresión especificada del concreto a los 28 días."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Steel Yield Strength (fy)",
         "tr": "Çelik Akma Dayanımı (fy)",
         "de": "Streckgrenze des Betonstahls (fy)",
-        "fr": "Steel Yield Strength (fy)",
-        "es": "Steel Yield Strength (fy)",
+        "fr": "Limite d'élasticité de l'acier (fy)",
+        "es": "Límite elástico del acero (fy)",
         "ar": "Steel Yield Strength (fy)"
       },
       "businessContext_i18n": {
         "en": "Yield strength of longitudinal reinforcing steel.",
         "tr": "Boyuna donatı çeliğinin akma dayanımı.",
-        "de": "Streckgrenze des Längsbewehrungsstahls."
+        "de": "Streckgrenze des Längsbewehrungsstahls.",
+        "fr": "Limite d'élasticité de l'acier de renforcement longitudinal.",
+        "es": "Límite elástico del acero de refuerzo longitudinal."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Total Steel Area (As)",
         "tr": "Toplam Çelik Alanı (As)",
         "de": "Gesamte Stahlfläche (As)",
-        "fr": "Total Steel Area (As)",
-        "es": "Total Steel Area (As)",
+        "fr": "Aire totale d'acier (As)",
+        "es": "Área total de acero (As)",
         "ar": "Total Steel Area (As)"
       },
       "businessContext_i18n": {
         "en": "Total cross-sectional area of longitudinal reinforcement.",
         "tr": "Boyuna donatının toplam enine kesit alanı.",
-        "de": "Gesamte Querschnittsfläche der Längsbewehrung."
+        "de": "Gesamte Querschnittsfläche der Längsbewehrung.",
+        "fr": "Aire totale de la section transversale du renforcement longitudinal.",
+        "es": "Área transversal total del refuerzo longitudinal."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Strength Reduction Factor (φ)",
         "tr": "Dayanım Azaltma Faktörü (φ)",
         "de": "Abminderungsfaktor (φ)",
-        "fr": "Strength Reduction Factor (φ)",
-        "es": "Strength Reduction Factor (φ)",
+        "fr": "Facteur de réduction de résistance (φ)",
+        "es": "Factor de reducción de resistencia (φ)",
         "ar": "Strength Reduction Factor (φ)"
       },
       "businessContext_i18n": {
         "en": "Strength reduction factor for tied columns (0.65 per ACI 318).",
         "tr": "Fretli kolonlar için dayanım azaltma faktörü (ACI 318'e göre 0.65).",
-        "de": "Festigkeitsminderungsfaktor für umschnürte Stützen (0,65 gemäß ACI 318)."
+        "de": "Festigkeitsminderungsfaktor für umschnürte Stützen (0,65 gemäß ACI 318).",
+        "fr": "Facteur de réduction de résistance pour poteaux frettés (0,65 selon ACI 318).",
+        "es": "Factor de reducción de resistencia para columnas estribadas (0.65 según ACI 318)."
       }
     }
   ],

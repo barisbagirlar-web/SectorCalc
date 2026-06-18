@@ -22,11 +22,17 @@
       "businessContext": "Total volume of water withdrawn for irrigation per year.",
       "label_i18n": {
         "en": "Annual water volume used",
-        "tr": "Yıllık su hacmi kullanımı"
+        "tr": "Yıllık su hacmi kullanımı",
+        "de": "Jährlich genutzte Wassermenge",
+        "fr": "Volume d'eau annuel utilisé",
+        "es": "Volumen anual de agua utilizado"
       },
       "businessContext_i18n": {
         "en": "Total volume of water withdrawn for irrigation per year.",
-        "tr": "Sulama için yılda çekilen toplam su hacmi."
+        "tr": "Sulama için yılda çekilen toplam su hacmi.",
+        "de": "Gesamte jährlich für Bewässerung entnommene Wassermenge.",
+        "fr": "Volume total d'eau prélevé pour l'irrigation par an.",
+        "es": "Volumen total de agua extraída para riego por año."
       }
     },
     {
@@ -40,11 +46,17 @@
       "businessContext": "Unit cost of water including extraction, treatment, and delivery.",
       "label_i18n": {
         "en": "Water cost per m³",
-        "tr": "m³ başına su maliyeti"
+        "tr": "m³ başına su maliyeti",
+        "de": "Wasserkosten pro m³",
+        "fr": "Coût de l'eau par m³",
+        "es": "Coste del agua por m³"
       },
       "businessContext_i18n": {
         "en": "Unit cost of water including extraction, treatment, and delivery.",
-        "tr": "Çıkarma, arıtma ve dağıtım dahil birim su maliyeti."
+        "tr": "Çıkarma, arıtma ve dağıtım dahil birim su maliyeti.",
+        "de": "Stückkosten des Wassers inklusive Gewinnung, Aufbereitung und Lieferung.",
+        "fr": "Coût unitaire de l'eau incluant l'extraction, le traitement et la livraison.",
+        "es": "Coste unitario del agua, incluyendo extracción, tratamiento y distribución."
       }
     },
     {
@@ -58,11 +70,17 @@
       "businessContext": "Average electricity cost for pumping and distribution.",
       "label_i18n": {
         "en": "Energy cost per kWh",
-        "tr": "kWh başına enerji maliyeti"
+        "tr": "kWh başına enerji maliyeti",
+        "de": "Energiekosten pro kWh",
+        "fr": "Coût énergétique par kWh",
+        "es": "Coste energético por kWh"
       },
       "businessContext_i18n": {
         "en": "Average electricity cost for pumping and distribution.",
-        "tr": "Pompalama ve dağıtım için ortalama elektrik maliyeti."
+        "tr": "Pompalama ve dağıtım için ortalama elektrik maliyeti.",
+        "de": "Durchschnittliche Stromkosten für Pumpen und Verteilung.",
+        "fr": "Coût moyen de l'électricité pour le pompage et la distribution.",
+        "es": "Coste medio de electricidad para bombeo y distribución."
       }
     },
     {
@@ -76,11 +94,17 @@
       "businessContext": "Overall efficiency of pump and motor system (ISO 9906).",
       "label_i18n": {
         "en": "Pump system efficiency",
-        "tr": "Pompa sistemi verimliliği"
+        "tr": "Pompa sistemi verimliliği",
+        "de": "Pumpensystem-Wirkungsgrad",
+        "fr": "Rendement du système de pompage",
+        "es": "Eficiencia del sistema de bomba"
       },
       "businessContext_i18n": {
         "en": "Overall efficiency of pump and motor system (ISO 9906).",
-        "tr": "Pompa ve motor sisteminin genel verimliliği (ISO 9906)."
+        "tr": "Pompa ve motor sisteminin genel verimliliği (ISO 9906).",
+        "de": "Gesamtwirkungsgrad von Pumpen- und Motorsystem (ISO 9906).",
+        "fr": "Rendement global du système pompe-moteur (ISO 9906).",
+        "es": "Eficiencia general del sistema de bomba y motor (ISO 9906)."
       }
     },
     {
@@ -94,11 +118,17 @@
       "businessContext": "Percentage of water lost due to leaks, evaporation, and runoff.",
       "label_i18n": {
         "en": "Distribution losses",
-        "tr": "Dağıtım kayıpları"
+        "tr": "Dağıtım kayıpları",
+        "de": "Verteilungsverluste",
+        "fr": "Pertes de distribution",
+        "es": "Pérdidas de distribución"
       },
       "businessContext_i18n": {
         "en": "Percentage of water lost due to leaks, evaporation, and runoff.",
-        "tr": "Sızıntı, buharlaşma ve akış nedeniyle kaybedilen su yüzdesi."
+        "tr": "Sızıntı, buharlaşma ve akış nedeniyle kaybedilen su yüzdesi.",
+        "de": "Prozentsatz des Wasserverlusts durch Lecks, Verdunstung und Abfluss.",
+        "fr": "Pourcentage d'eau perdue dû aux fuites, évaporation et ruissellement.",
+        "es": "Porcentaje de agua perdida por fugas, evaporación y escorrentía."
       }
     },
     {
@@ -112,11 +142,17 @@
       "businessContext": "Total labor hours dedicated to irrigation operation and maintenance.",
       "label_i18n": {
         "en": "Annual labor hours for irrigation",
-        "tr": "Yıllık sulama işçilik saati"
+        "tr": "Yıllık sulama işçilik saati",
+        "de": "Jährliche Arbeitsstunden für Bewässerung",
+        "fr": "Heures de main-d'œuvre annuelles pour l'irrigation",
+        "es": "Horas de trabajo anuales para riego"
       },
       "businessContext_i18n": {
         "en": "Total labor hours dedicated to irrigation operation and maintenance.",
-        "tr": "Sulama işletme ve bakımına ayrılan toplam işçilik saati."
+        "tr": "Sulama işletme ve bakımına ayrılan toplam işçilik saati.",
+        "de": "Gesamte Arbeitsstunden für Bewässerungsbetrieb und -wartung.",
+        "fr": "Nombre total d'heures de main-d'œuvre consacrées à l'exploitation et à l'entretien de l'irrigation.",
+        "es": "Total de horas de trabajo dedicadas a la operación y mantenimiento del riego."
       }
     },
     {
@@ -130,12 +166,17 @@
       "businessContext": "Average hourly wage including benefits.",
       "label_i18n": {
         "en": "Labor rate per hour",
-        "tr": "Saatlik işçilik ücreti"
+        "tr": "Saatlik işçilik ücreti",
+        "de": "Stundensatz",
+        "fr": "Taux horaire de main-d'œuvre",
+        "es": "Tarifa por hora de trabajo"
       },
       "businessContext_i18n": {
         "en": "Average hourly wage including benefits.",
         "tr": "Yan haklar dahil ortalama saatlik ücret.",
-        "de": "Durchschnittlicher Stundenlohn inklusive Zusatzleistungen."
+        "de": "Durchschnittlicher Stundenlohn inklusive Zusatzleistungen.",
+        "fr": "Salaire horaire moyen incluant les avantages sociaux.",
+        "es": "Salario promedio por hora incluyendo beneficios."
       }
     },
     {
@@ -149,11 +190,17 @@
       "businessContext": "Total annual cost for repairs, parts, and servicing.",
       "label_i18n": {
         "en": "Annual maintenance cost",
-        "tr": "Yıllık bakım maliyeti"
+        "tr": "Yıllık bakım maliyeti",
+        "de": "Jährliche Wartungskosten",
+        "fr": "Coût d'entretien annuel",
+        "es": "Coste anual de mantenimiento"
       },
       "businessContext_i18n": {
         "en": "Total annual cost for repairs, parts, and servicing.",
-        "tr": "Onarım, yedek parça ve servis için yıllık toplam maliyet."
+        "tr": "Onarım, yedek parça ve servis için yıllık toplam maliyet.",
+        "de": "Gesamte jährliche Kosten für Reparaturen, Ersatzteile und Wartung.",
+        "fr": "Coût annuel total pour les réparations, pièces et services.",
+        "es": "Coste total anual por reparaciones, piezas y servicio."
       }
     }
   ],

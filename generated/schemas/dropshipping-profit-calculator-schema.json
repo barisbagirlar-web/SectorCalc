@@ -12,14 +12,16 @@
         "en": "Selling Price per Unit",
         "tr": "Birim Satış Fiyatı",
         "de": "Verkaufspreis pro Einheit",
-        "fr": "Selling Price per Unit",
-        "es": "Selling Price per Unit",
+        "fr": "Prix de vente unitaire",
+        "es": "Precio de venta por unidad",
         "ar": "Selling Price per Unit"
       },
       "businessContext_i18n": {
         "en": "The price at which the product is sold to customers",
         "tr": "Ürünün müşterilere satıldığı fiyat",
-        "de": "The price at which the product is sold to customers"
+        "de": "Verkaufspreis an Kunden",
+        "fr": "Prix de vente aux clients",
+        "es": "Precio de venta al cliente"
       }
     },
     {
@@ -32,15 +34,17 @@
       "label_i18n": {
         "en": "Cost Price per Unit",
         "tr": "Birim Başına Maliyet Fiyatı",
-        "de": "Cost Price per Unit",
-        "fr": "Cost Price per Unit",
-        "es": "Cost Price per Unit",
+        "de": "Einstandspreis pro Einheit",
+        "fr": "Coût unitaire d'achat",
+        "es": "Costo unitario de compra",
         "ar": "Cost Price per Unit"
       },
       "businessContext_i18n": {
         "en": "The price paid to the supplier per unit",
         "tr": "Tedarikçiye birim başına ödenen fiyat",
-        "de": "The price paid to the supplier per unit"
+        "de": "Vom Lieferanten pro Einheit gezahlter Preis",
+        "fr": "Prix payé au fournisseur par unité",
+        "es": "Precio pagado al proveedor por unidad"
       }
     },
     {
@@ -53,15 +57,17 @@
       "label_i18n": {
         "en": "Shipping Cost per Unit",
         "tr": "Birim Başına Nakliye Maliyeti",
-        "de": "Shipping Cost per Unit",
-        "fr": "Shipping Cost per Unit",
-        "es": "Shipping Cost per Unit",
+        "de": "Versandkosten pro Einheit",
+        "fr": "Coût d'expédition par unité",
+        "es": "Costo de envío por unidad",
         "ar": "Shipping Cost per Unit"
       },
       "businessContext_i18n": {
         "en": "The shipping cost incurred per unit delivered",
         "tr": "Teslim edilen birim başına oluşan nakliye maliyeti",
-        "de": "Die pro gelieferter Einheit anfallenden Versandkosten"
+        "de": "Die pro gelieferter Einheit anfallenden Versandkosten",
+        "fr": "Coût d'expédition encouru par unité livrée",
+        "es": "Costo de envío incurrido por unidad entregada"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Monthly Order Volume",
         "tr": "Aylık Sipariş Hacmi",
         "de": "Monatliches Bestellvolumen",
-        "fr": "Monthly Order Volume",
-        "es": "Monthly Order Volume",
+        "fr": "Volume mensuel de commandes",
+        "es": "Volumen mensual de pedidos",
         "ar": "Monthly Order Volume"
       },
       "businessContext_i18n": {
         "en": "Number of orders processed per month",
         "tr": "Ayda işlenen sipariş sayısı",
-        "de": "Anzahl der pro Monat bearbeiteten Bestellungen"
+        "de": "Anzahl der pro Monat bearbeiteten Bestellungen",
+        "fr": "Nombre de commandes traitées par mois",
+        "es": "Número de pedidos procesados por mes"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Monthly Fixed Costs",
         "tr": "Aylık Sabit Maliyetler",
         "de": "Monatliche Fixkosten",
-        "fr": "Monthly Fixed Costs",
-        "es": "Monthly Fixed Costs",
+        "fr": "Coûts fixes mensuels",
+        "es": "Costos fijos mensuales",
         "ar": "Monthly Fixed Costs"
       },
       "businessContext_i18n": {
         "en": "Fixed operational costs per month (e.g., store subscriptions, marketing)",
         "tr": "Aylık sabit operasyonel maliyetler (ör. mağaza abonelikleri, pazarlama)",
-        "de": "Fixe Betriebskosten pro Monat (z. B. Shop-Abonnements, Marketing)"
+        "de": "Fixe Betriebskosten pro Monat (z. B. Shop-Abonnements, Marketing)",
+        "fr": "Coûts opérationnels fixes par mois (ex. abonnements boutique, marketing)",
+        "es": "Costos operativos fijos por mes (ej. suscripciones de tienda, marketing)"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Payment Gateway Fee",
         "tr": "Ödeme Ağ Geçidi Ücreti",
         "de": "Zahlungsabwicklungsgebühr",
-        "fr": "Payment Gateway Fee",
-        "es": "Payment Gateway Fee",
+        "fr": "Frais de passerelle de paiement",
+        "es": "Comisión de pasarela de pago",
         "ar": "Payment Gateway Fee"
       },
       "businessContext_i18n": {
         "en": "Transaction fee as a percentage of the selling price",
         "tr": "Satış fiyatının yüzdesi olarak işlem ücreti",
-        "de": "Transaktionsgebühr als Prozentsatz des Verkaufspreises"
+        "de": "Transaktionsgebühr als Prozentsatz des Verkaufspreises",
+        "fr": "Frais de transaction en pourcentage du prix de vente",
+        "es": "Comisión como porcentaje del precio de venta"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Kaynak Aktivitesi (Ci)",
         "tr": "Kaynak Aktivitesi (Ci)",
-        "de": "Kaynak Aktivitesi (Ci)",
-        "fr": "Kaynak Aktivitesi (Ci)",
-        "es": "Kaynak Aktivitesi (Ci)",
+        "de": "Quellaktivität (Ci)",
+        "fr": "Activité de la source (Ci)",
+        "es": "Actividad de la fuente (Ci)",
         "ar": "Kaynak Aktivitesi (Ci)"
       },
       "businessContext_i18n": {
         "en": "Radyoaktif kaynağın aktivite değeri (Curie cinsinden).",
-        "tr": "Radyoaktif kaynağın aktivite değeri (Curie cinsinden)."
+        "tr": "Radyoaktif kaynağın aktivite değeri (Curie cinsinden).",
+        "de": "Aktivitätswert der radioaktiven Quelle in Curie.",
+        "fr": "Valeur d'activité de la source radioactive (en Curie).",
+        "es": "Valor de actividad de la fuente radiactiva (en Curios)."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Mesafe (m)",
         "tr": "Mesafe (m)",
-        "de": "Mesafe (m)",
-        "fr": "Mesafe (m)",
-        "es": "Mesafe (m)",
+        "de": "Abstand (m)",
+        "fr": "Distance (m)",
+        "es": "Distancia (m)",
         "ar": "Mesafe (m)"
       },
       "businessContext_i18n": {
         "en": "Kaynaktan hedef noktaya olan mesafe.",
-        "tr": "Kaynaktan hedef noktaya olan mesafe."
+        "tr": "Kaynaktan hedef noktaya olan mesafe.",
+        "de": "Abstand von der Quelle zum Zielpunkt.",
+        "fr": "Distance de la source au point cible.",
+        "es": "Distancia desde la fuente al punto objetivo."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Zırhlama Kalınlığı (cm)",
         "tr": "Zırhlama Kalınlığı (cm)",
-        "de": "Zırhlama Kalınlığı (cm)",
-        "fr": "Zırhlama Kalınlığı (cm)",
-        "es": "Zırhlama Kalınlığı (cm)",
+        "de": "Abschirmungsdicke (cm)",
+        "fr": "Épaisseur du blindage (cm)",
+        "es": "Grosor del blindaje (cm)",
         "ar": "Zırhlama Kalınlığı (cm)"
       },
       "businessContext_i18n": {
         "en": "Kullanılan zırh malzemesinin kalınlığı (örneğin kurşun).",
-        "tr": "Kullanılan zırh malzemesinin kalınlığı (örneğin kurşun)."
+        "tr": "Kullanılan zırh malzemesinin kalınlığı (örneğin kurşun).",
+        "de": "Dicke des verwendeten Abschirmungsmaterials (z. B. Blei).",
+        "fr": "Épaisseur du matériau de blindage utilisé (ex. plomb).",
+        "es": "Grosor del material de blindaje utilizado (ej. plomo)."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Yarı Değer Kalınlığı (cm)",
         "tr": "Yarı Değer Kalınlığı (cm)",
-        "de": "Yarı Değer Kalınlığı (cm)",
-        "fr": "Yarı Değer Kalınlığı (cm)",
-        "es": "Yarı Değer Kalınlığı (cm)",
+        "de": "Halbwertdicke (cm)",
+        "fr": "Épaisseur de demi-atténuation (cm)",
+        "es": "Grosor de valor medio (cm)",
         "ar": "Yarı Değer Kalınlığı (cm)"
       },
       "businessContext_i18n": {
         "en": "Zırh malzemesinin radyasyonu yarıya indiren kalınlık değeri.",
-        "tr": "Zırh malzemesinin radyasyonu yarıya indiren kalınlık değeri."
+        "tr": "Zırh malzemesinin radyasyonu yarıya indiren kalınlık değeri.",
+        "de": "Dicke des Abschirmungsmaterials, die die Strahlung um die Hälfte reduziert.",
+        "fr": "Épaisseur du matériau de blindage réduisant de moitié le rayonnement.",
+        "es": "Grosor del material de blindaje que reduce la radiación a la mitad."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Maruziyet Süresi (saat)",
         "tr": "Maruziyet Süresi (saat)",
-        "de": "Maruziyet Süresi (saat)",
-        "fr": "Maruziyet Süresi (saat)",
-        "es": "Maruziyet Süresi (saat)",
+        "de": "Expositionsdauer (Stunden)",
+        "fr": "Durée d'exposition (heures)",
+        "es": "Tiempo de exposición (horas)",
         "ar": "Maruziyet Süresi (saat)"
       },
       "businessContext_i18n": {
         "en": "Radyasyona maruz kalınan toplam süre.",
-        "tr": "Radyasyona maruz kalınan toplam süre."
+        "tr": "Radyasyona maruz kalınan toplam süre.",
+        "de": "Gesamte Expositionsdauer.",
+        "fr": "Temps total d'exposition au rayonnement.",
+        "es": "Tiempo total de exposición a la radiación."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Gama Sabiti (R·m²/(Ci·saat))",
         "tr": "Gama Sabiti (R·m²/(Ci·saat))",
-        "de": "Gama Sabiti (R·m²/(Ci·saat))",
-        "fr": "Gama Sabiti (R·m²/(Ci·saat))",
-        "es": "Gama Sabiti (R·m²/(Ci·saat))",
+        "de": "Gammakonstante (R·m²/(Ci·h))",
+        "fr": "Constante gamma (R·m²/(Ci·h))",
+        "es": "Constante gamma (R·m²/(Ci·h))",
         "ar": "Gama Sabiti (R·m²/(Ci·saat))"
       },
       "businessContext_i18n": {
         "en": "Kaynağın gama ışını sabiti (örneğin Co-60 için 1.32).",
-        "tr": "Kaynağın gama ışını sabiti (örneğin Co-60 için 1.32)."
+        "tr": "Kaynağın gama ışını sabiti (örneğin Co-60 için 1.32).",
+        "de": "Gammastrahlungskonstante der Quelle (z. B. 1,32 für Co-60).",
+        "fr": "Constante gamma de la source (ex. 1,32 pour Co-60).",
+        "es": "Constante de rayos gamma de la fuente (ej. 1.32 para Co-60)."
       }
     }
   ],

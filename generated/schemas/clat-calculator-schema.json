@@ -12,14 +12,16 @@
         "en": "Mass (m)",
         "tr": "Kütle (m)",
         "de": "Masse (m)",
-        "fr": "Mass (m)",
-        "es": "Mass (m)",
+        "fr": "Masse (m)",
+        "es": "Masa (m)",
         "ar": "Mass (m)"
       },
       "businessContext_i18n": {
         "en": "Mass of the rotating component (e.g., blade, disk)",
         "tr": "Dönen bileşenin kütlesi (ör. bıçak, disk)",
-        "de": "Masse der rotierenden Komponente (z. B. Schaufel, Scheibe)"
+        "de": "Masse der rotierenden Komponente (z. B. Schaufel, Scheibe)",
+        "fr": "Masse du composant rotatif (ex. pale, disque)",
+        "es": "Masa del componente rotatorio (ej. pala, disco)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Radius (r)",
         "tr": "Yarıçap (r)",
         "de": "Radius (r)",
-        "fr": "Radius (r)",
-        "es": "Radius (r)",
+        "fr": "Rayon (r)",
+        "es": "Radio (r)",
         "ar": "Radius (r)"
       },
       "businessContext_i18n": {
         "en": "Distance from rotation axis to center of mass",
         "tr": "Dönme ekseninden kütle merkezine olan mesafe",
-        "de": "Abstand von der Rotationsachse zum Massenschwerpunkt"
+        "de": "Abstand von der Rotationsachse zum Massenschwerpunkt",
+        "fr": "Distance de l'axe de rotation au centre de masse",
+        "es": "Distancia desde el eje de rotación al centro de masa"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Angular Velocity (ω)",
         "tr": "Açısal Hız (ω)",
         "de": "Winkelgeschwindigkeit (ω)",
-        "fr": "Angular Velocity (ω)",
-        "es": "Angular Velocity (ω)",
+        "fr": "Vitesse angulaire (ω)",
+        "es": "Velocidad angular (ω)",
         "ar": "Angular Velocity (ω)"
       },
       "businessContext_i18n": {
         "en": "Rotational speed in radians per second (1 rad/s ≈ 9.55 rpm)",
         "tr": "Saniyede radyan cinsinden dönüş hızı (1 rad/s ≈ 9.55 rpm)",
-        "de": "Drehzahl in Radiant pro Sekunde (1 rad/s ≈ 9,55 U/min)"
+        "de": "Drehzahl in Radiant pro Sekunde (1 rad/s ≈ 9,55 U/min)",
+        "fr": "Vitesse de rotation en radians par seconde (1 rad/s ≈ 9,55 tr/min)",
+        "es": "Velocidad de rotación en radianes por segundo (1 rad/s ≈ 9.55 rpm)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Cross-sectional Area (A)",
         "tr": "Kesit Alanı (A)",
         "de": "Querschnittsfläche (A)",
-        "fr": "Cross-sectional Area (A)",
-        "es": "Cross-sectional Area (A)",
+        "fr": "Section transversale (A)",
+        "es": "Área de sección transversal (A)",
         "ar": "Cross-sectional Area (A)"
       },
       "businessContext_i18n": {
         "en": "Effective cross-sectional area supporting the load",
         "tr": "Yükü taşıyan etkin kesit alanı",
-        "de": "Effektive Querschnittsfläche, die die Last trägt"
+        "de": "Effektive Querschnittsfläche, die die Last trägt",
+        "fr": "Section transversale effective supportant la charge",
+        "es": "Área de sección transversal efectiva que soporta la carga"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Yield Stress (σ_y)",
         "tr": "Akma Gerilmesi (σ_y)",
         "de": "Streckgrenze (σ_y)",
-        "fr": "Yield Stress (σ_y)",
-        "es": "Yield Stress (σ_y)",
+        "fr": "Limite d'élasticité (σ_y)",
+        "es": "Esfuerzo de fluencia (σ_y)",
         "ar": "Yield Stress (σ_y)"
       },
       "businessContext_i18n": {
         "en": "Material yield strength (e.g., structural steel ~250 MPa)",
         "tr": "Malzemenin akma dayanımı (örneğin yapısal çelik ~250 MPa)",
-        "de": "Materialstreckgrenze (z. B. Baustahl ~250 MPa)"
+        "de": "Materialstreckgrenze (z. B. Baustahl ~250 MPa)",
+        "fr": "Résistance à l'élasticité du matériau (ex. acier de construction ~250 MPa)",
+        "es": "Resistencia a la fluencia del material (ej. acero estructural ~250 MPa)"
       }
     }
   ],

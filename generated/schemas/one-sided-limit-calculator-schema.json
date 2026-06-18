@@ -12,13 +12,16 @@
         "en": "Sample Mean",
         "tr": "Örneklem ortalaması",
         "de": "Stichprobenmittelwert",
-        "fr": "Sample Mean",
-        "es": "Sample Mean",
+        "fr": "Moyenne de l'échantillon",
+        "es": "Media muestral",
         "ar": "Sample Mean"
       },
       "businessContext_i18n": {
         "en": "The arithmetic mean of the sample measurements.",
-        "tr": "Örnek ölçümlerin aritmetik ortalaması"
+        "tr": "Örnek ölçümlerin aritmetik ortalaması",
+        "de": "Das arithmetische Mittel der Stichprobenmessungen.",
+        "fr": "Moyenne arithmétique des mesures de l'échantillon.",
+        "es": "La media aritmética de las mediciones de la muestra."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Sample Standard Deviation",
         "tr": "Örneklem standart sapması",
         "de": "Stichprobenstandardabweichung",
-        "fr": "Sample Standard Deviation",
-        "es": "Sample Standard Deviation",
+        "fr": "Écart type de l'échantillon",
+        "es": "Desviación estándar muestral",
         "ar": "Sample Standard Deviation"
       },
       "businessContext_i18n": {
         "en": "The standard deviation of the sample, calculated with n-1 degrees of freedom.",
-        "tr": "n-1 serbestlik derecesi ile hesaplanan örnek standart sapması"
+        "tr": "n-1 serbestlik derecesi ile hesaplanan örnek standart sapması",
+        "de": "Die Standardabweichung der Stichprobe, berechnet mit n-1 Freiheitsgraden.",
+        "fr": "Écart type de l'échantillon, calculé avec n-1 degrés de liberté.",
+        "es": "La desviación estándar de la muestra, calculada con n-1 grados de libertad."
       }
     },
     {
@@ -52,14 +58,16 @@
         "en": "Sample Size",
         "tr": "Örneklem büyüklüğü",
         "de": "Stichprobengröße",
-        "fr": "Sample Size",
-        "es": "Sample Size",
+        "fr": "Taille de l'échantillon",
+        "es": "Tamaño de la muestra",
         "ar": "Sample Size"
       },
       "businessContext_i18n": {
         "en": "Number of observations in the sample.",
         "tr": "Örneklemdeki gözlem sayısı.",
-        "de": "Anzahl der Beobachtungen in der Stichprobe."
+        "de": "Anzahl der Beobachtungen in der Stichprobe.",
+        "fr": "Nombre d'observations dans l'échantillon.",
+        "es": "Número de observaciones en la muestra."
       }
     },
     {
@@ -72,14 +80,17 @@
       "label_i18n": {
         "en": "Z-score for Proportion (p)",
         "tr": "Oran (p) için Z-skoru",
-        "de": "Z-score for Proportion (p)",
-        "fr": "Z-score for Proportion (p)",
-        "es": "Z-score for Proportion (p)",
+        "de": "Z-Score für Anteil (p)",
+        "fr": "Score Z pour la proportion (p)",
+        "es": "Puntuación Z para proporción (p)",
         "ar": "Z-score for Proportion (p)"
       },
       "businessContext_i18n": {
         "en": "Standard normal critical value for desired proportion. Common values: p=0.99 → zp=2.326, p=0.95 → zp=1.645.",
-        "tr": "İstenen oran için standart normal kritik değer. Yaygın değerler: p=0.99 → zp=2.326, p=0.95 → zp=1.645."
+        "tr": "İstenen oran için standart normal kritik değer. Yaygın değerler: p=0.99 → zp=2.326, p=0.95 → zp=1.645.",
+        "de": "Standardnormaler kritischer Wert für den gewünschten Anteil. Übliche Werte: p=0,99 → zp=2,326, p=0,95 → zp=1,645.",
+        "fr": "Valeur critique normale standard pour la proportion souhaitée. Valeurs courantes : p=0,99 → zp=2,326, p=0,95 → zp=1,645.",
+        "es": "Valor crítico normal estándar para la proporción deseada. Valores comunes: p=0.99 → zp=2.326, p=0.95 → zp=1.645."
       }
     },
     {
@@ -92,14 +103,17 @@
       "label_i18n": {
         "en": "Z-score for Confidence (γ)",
         "tr": "Güven (γ) için Z-skoru",
-        "de": "Z-score for Confidence (γ)",
-        "fr": "Z-score for Confidence (γ)",
-        "es": "Z-score for Confidence (γ)",
+        "de": "Z-Score für Konfidenz (γ)",
+        "fr": "Score Z pour le niveau de confiance (γ)",
+        "es": "Puntuación Z para confianza (γ)",
         "ar": "Z-score for Confidence (γ)"
       },
       "businessContext_i18n": {
         "en": "Standard normal critical value for confidence level. Common values: γ=0.95 → zγ=1.645, γ=0.99 → zγ=2.326.",
-        "tr": "Güven düzeyi için standart normal kritik değer. Yaygın değerler: γ=0.95 → zγ=1.645, γ=0.99 → zγ=2.326."
+        "tr": "Güven düzeyi için standart normal kritik değer. Yaygın değerler: γ=0.95 → zγ=1.645, γ=0.99 → zγ=2.326.",
+        "de": "Standardnormaler kritischer Wert für das Konfidenzniveau. Übliche Werte: γ=0,95 → zγ=1,645, γ=0,99 → zγ=2,326.",
+        "fr": "Valeur critique normale standard pour le niveau de confiance. Valeurs courantes : γ=0,95 → zγ=1,645, γ=0,99 → zγ=2,326.",
+        "es": "Valor crítico normal estándar para el nivel de confianza. Valores comunes: γ=0.95 → zγ=1.645, γ=0.99 → zγ=2.326."
       }
     },
     {
@@ -112,14 +126,17 @@
       "label_i18n": {
         "en": "Limit Direction",
         "tr": "Limit Yönü",
-        "de": "Limit Direction",
-        "fr": "Limit Direction",
-        "es": "Limit Direction",
+        "de": "Grenzrichtung",
+        "fr": "Direction de la limite",
+        "es": "Dirección del límite",
         "ar": "Limit Direction"
       },
       "businessContext_i18n": {
         "en": "1 for upper tolerance limit, 0 for lower tolerance limit.",
-        "tr": "1 üst tolerans limiti için, 0 alt tolerans limiti için."
+        "tr": "1 üst tolerans limiti için, 0 alt tolerans limiti için.",
+        "de": "1 für obere Toleranzgrenze, 0 für untere Toleranzgrenze.",
+        "fr": "1 pour la limite de tolérance supérieure, 0 pour la limite de tolérance inférieure.",
+        "es": "1 para límite de tolerancia superior, 0 para límite de tolerancia inferior."
       }
     }
   ],

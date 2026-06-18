@@ -12,14 +12,16 @@
         "en": "Length",
         "tr": "Uzunluk",
         "de": "Länge",
-        "fr": "Length",
-        "es": "Length",
+        "fr": "Longueur",
+        "es": "Longitud",
         "ar": "Length"
       },
       "businessContext_i18n": {
         "en": "Length of the area to cover with gravel (feet)",
         "tr": "Çakıl döşenecek alanın uzunluğu (feet)",
-        "de": "Länge der mit Kies zu bedeckenden Fläche (Fuß)"
+        "de": "Länge der mit Kies zu bedeckenden Fläche (Fuß)",
+        "fr": "Longueur de la zone à couvrir de gravier (pieds)",
+        "es": "Largo del área a cubrir con grava (pies)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Width",
         "tr": "Genişlik",
         "de": "Breite",
-        "fr": "Width",
-        "es": "Width",
+        "fr": "Largeur",
+        "es": "Ancho",
         "ar": "Width"
       },
       "businessContext_i18n": {
         "en": "Width of the area to cover with gravel (feet)",
         "tr": "Çakıl döşenecek alanın genişliği (feet)",
-        "de": "Breite der mit Kies zu bedeckenden Fläche (Fuß)"
+        "de": "Breite der mit Kies zu bedeckenden Fläche (Fuß)",
+        "fr": "Largeur de la zone à couvrir de gravier (pieds)",
+        "es": "Ancho del área a cubrir con grava (pies)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Depth",
         "tr": "Derinlik",
         "de": "Tiefe",
-        "fr": "Depth",
-        "es": "Depth",
+        "fr": "Profondeur",
+        "es": "Profundidad",
         "ar": "Depth"
       },
       "businessContext_i18n": {
         "en": "Desired depth of gravel layer (inches)",
         "tr": "İstenen çakıl derinliği (inç)",
-        "de": "Gewünschte Kiesschichtdicke (Zoll)"
+        "de": "Gewünschte Kiesschichtdicke (Zoll)",
+        "fr": "Profondeur souhaitée de la couche de gravier (pouces)",
+        "es": "Profundidad deseada de la capa de grava (pulgadas)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Compaction Factor",
         "tr": "Sıkıştırma Faktörü",
         "de": "Verdichtungsfaktor",
-        "fr": "Compaction Factor",
-        "es": "Compaction Factor",
+        "fr": "Facteur de compactage",
+        "es": "Factor de compactación",
         "ar": "Compaction Factor"
       },
       "businessContext_i18n": {
         "en": "Percentage of volume increase to account for compaction after installation",
         "tr": "Sıkıştırma sonrası hacim artış yüzdesi",
-        "de": "Prozentsatz der Volumenzunahme zur Berücksichtigung der Verdichtung nach dem Einbau"
+        "de": "Prozentsatz der Volumenzunahme zur Berücksichtigung der Verdichtung nach dem Einbau",
+        "fr": "Pourcentage d'augmentation de volume pour tenir compte du compactage après installation",
+        "es": "Porcentaje de aumento de volumen para compensar la compactación después de la instalación"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
         "de": "Abfallfaktor",
-        "fr": "Waste Factor",
-        "es": "Waste Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Percentage of extra material to account for waste, spillage, and uneven ground",
         "tr": "Atık, dökülme ve düz olmayan zemin için ek malzeme yüzdesi",
-        "de": "Prozentsatz des zusätzlichen Materials zur Berücksichtigung von Abfall, Verschüttung und unebenem Boden"
+        "de": "Prozentsatz des zusätzlichen Materials zur Berücksichtigung von Abfall, Verschüttung und unebenem Boden",
+        "fr": "Pourcentage de matériau supplémentaire pour tenir compte des déchets, des déversements et des terrains irréguliers",
+        "es": "Porcentaje de material extra para compensar desperdicios, derrames y terreno irregular"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Gravel Density",
         "tr": "Çakıl Yoğunluğu",
         "de": "Kiesdichte",
-        "fr": "Gravel Density",
-        "es": "Gravel Density",
+        "fr": "Densité du gravier",
+        "es": "Densidad de la grava",
         "ar": "Gravel Density"
       },
       "businessContext_i18n": {
         "en": "Bulk density of the gravel (typical gravel ~120 lb/ft³)",
         "tr": "Çakılın yığın yoğunluğu (tipik çakıl ~120 lb/ft³)",
-        "de": "Schüttdichte des Kieses (typischer Kies ~120 lb/ft³)"
+        "de": "Schüttdichte des Kieses (typischer Kies ~120 lb/ft³)",
+        "fr": "Densité apparente du gravier (gravier typique ~120 lb/ft³)",
+        "es": "Densidad aparente de la grava (grava típica ~120 lb/ft³)"
       }
     }
   ],

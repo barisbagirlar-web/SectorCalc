@@ -22,11 +22,15 @@
       "businessContext": "Total annual revenue of the facility or business unit.",
       "label_i18n": {
         "en": "Annual Revenue (USD)",
-        "tr": "Yıllık Gelir (USD)"
+        "tr": "Yıllık Gelir (USD)",
+        "de": "Jahresumsatz (USD)",
+        "fr": "Revenu annuel (USD)"
       },
       "businessContext_i18n": {
         "en": "Total annual revenue of the facility or business unit.",
-        "tr": "Tesisin veya iş biriminin toplam yıllık geliri."
+        "tr": "Tesisin veya iş biriminin toplam yıllık geliri.",
+        "de": "Gesamtjahresumsatz der Anlage oder Geschäftseinheit.",
+        "fr": "Revenu annuel total de l'installation ou de l'unité commerciale."
       }
     },
     {
@@ -40,11 +44,15 @@
       "businessContext": "Current operating profit margin as a percentage of revenue.",
       "label_i18n": {
         "en": "Operating Margin (%)",
-        "tr": "Faaliyet Marjı (%)"
+        "tr": "Faaliyet Marjı (%)",
+        "de": "Betriebsmarge (%)",
+        "fr": "Marge opérationnelle (%)"
       },
       "businessContext_i18n": {
         "en": "Current operating profit margin as a percentage of revenue.",
-        "tr": "Gelirin yüzdesi olarak mevcut faaliyet kar marjı."
+        "tr": "Gelirin yüzdesi olarak mevcut faaliyet kar marjı.",
+        "de": "Aktuelle Betriebsgewinnmarge als Prozentsatz des Umsatzes.",
+        "fr": "Marge bénéficiaire opérationnelle actuelle en pourcentage du chiffre d'affaires."
       }
     },
     {
@@ -58,11 +66,15 @@
       "businessContext": "Current value of all inventory held (raw materials, WIP, finished goods).",
       "label_i18n": {
         "en": "Total Inventory Value (USD)",
-        "tr": "Toplam Stok Değeri (USD)"
+        "tr": "Toplam Stok Değeri (USD)",
+        "de": "Gesamter Lagerwert (USD)",
+        "fr": "Valeur totale des stocks (USD)"
       },
       "businessContext_i18n": {
         "en": "Current value of all inventory held (raw materials, WIP, finished goods).",
-        "tr": "Mevcut tüm stokların değeri (hammadde, yarı mamul, mamul)."
+        "tr": "Mevcut tüm stokların değeri (hammadde, yarı mamul, mamul).",
+        "de": "Aktueller Wert aller Lagerbestände (Rohstoffe, Umlaufbestand, Fertigwaren).",
+        "fr": "Valeur actuelle de tous les stocks détenus (matières premières, encours, produits finis)."
       }
     },
     {
@@ -76,11 +88,15 @@
       "businessContext": "Annual cost to hold inventory (storage, insurance, obsolescence, capital cost). Typical range 20-30%.",
       "label_i18n": {
         "en": "Inventory Carrying Cost (% of inventory value)",
-        "tr": "Stok Taşıma Maliyeti (stok değerinin %'si)"
+        "tr": "Stok Taşıma Maliyeti (stok değerinin %'si)",
+        "de": "Lagerhaltungskosten (% des Lagerwerts)",
+        "fr": "Coût de possession des stocks (% de la valeur des stocks)"
       },
       "businessContext_i18n": {
         "en": "Annual cost to hold inventory (storage, insurance, obsolescence, capital cost). Typical range 20-30%.",
-        "tr": "Stok bulundurmanın yıllık maliyeti (depolama, sigorta, eskime, sermaye maliyeti). Tipik aralık %20-30."
+        "tr": "Stok bulundurmanın yıllık maliyeti (depolama, sigorta, eskime, sermaye maliyeti). Tipik aralık %20-30.",
+        "de": "Jährliche Kosten für die Lagerhaltung (Lagerung, Versicherung, Veralterung, Kapitalkosten). Typischer Bereich 20-30%.",
+        "fr": "Coût annuel de détention des stocks (stockage, assurance, obsolescence, coût du capital). Plage typique 20-30%."
       }
     },
     {
@@ -94,11 +110,15 @@
       "businessContext": "Total annual cost of direct labor in the operation.",
       "label_i18n": {
         "en": "Annual Direct Labor Cost (USD)",
-        "tr": "Yıllık Direkt İşçilik Maliyeti (USD)"
+        "tr": "Yıllık Direkt İşçilik Maliyeti (USD)",
+        "de": "Jährliche direkte Arbeitskosten (USD)",
+        "fr": "Coût annuel de main-d'œuvre directe (USD)"
       },
       "businessContext_i18n": {
         "en": "Total annual cost of direct labor in the operation.",
-        "tr": "Operasyondaki direkt işçiliğin toplam yıllık maliyeti."
+        "tr": "Operasyondaki direkt işçiliğin toplam yıllık maliyeti.",
+        "de": "Gesamte jährliche direkte Arbeitskosten im Betrieb.",
+        "fr": "Coût annuel total de la main-d'œuvre directe dans l'exploitation."
       }
     },
     {
@@ -112,11 +132,16 @@
       "businessContext": "Percentage of products that do not meet quality standards (Six Sigma metric).",
       "label_i18n": {
         "en": "Defect Rate (%)",
-        "tr": "Hata Oranı (%)"
+        "tr": "Hata Oranı (%)",
+        "de": "Ausschussrate (%)",
+        "fr": "Taux de rebut (%)",
+        "es": "Tasa de defectos (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of products that do not meet quality standards (Six Sigma metric).",
-        "tr": "Kalite standartlarını karşılamayan ürünlerin yüzdesi (Altı Sigma metriği)."
+        "tr": "Kalite standartlarını karşılamayan ürünlerin yüzdesi (Altı Sigma metriği).",
+        "de": "Prozentsatz der Produkte, die die Qualitätsstandards nicht erfüllen (Six Sigma-Kennzahl).",
+        "fr": "Pourcentage de produits ne répondant pas aux normes de qualité (métrique Six Sigma)."
       }
     },
     {
@@ -130,11 +155,15 @@
       "businessContext": "Average cost incurred per defective unit (rework, scrap, warranty).",
       "label_i18n": {
         "en": "Cost per Defect (USD)",
-        "tr": "Kusur Başına Maliyet (USD)"
+        "tr": "Kusur Başına Maliyet (USD)",
+        "de": "Kosten pro Fehler (USD)",
+        "fr": "Coût par défaut (USD)"
       },
       "businessContext_i18n": {
         "en": "Average cost incurred per defective unit (rework, scrap, warranty).",
-        "tr": "Kusurlu birim başına ortalama maliyet (yeniden işleme, fire, garanti)."
+        "tr": "Kusurlu birim başına ortalama maliyet (yeniden işleme, fire, garanti).",
+        "de": "Durchschnittliche Kosten pro fehlerhafter Einheit (Nacharbeit, Ausschuss, Garantie).",
+        "fr": "Coût moyen encouru par unité défectueuse (reprise, rebut, garantie)."
       }
     },
     {
@@ -148,11 +177,15 @@
       "businessContext": "Total annual energy expenditure for the facility.",
       "label_i18n": {
         "en": "Annual Energy Cost (USD)",
-        "tr": "Yıllık Enerji Maliyeti (USD)"
+        "tr": "Yıllık Enerji Maliyeti (USD)",
+        "de": "Jährliche Energiekosten (USD)",
+        "fr": "Coût énergétique annuel (USD)"
       },
       "businessContext_i18n": {
         "en": "Total annual energy expenditure for the facility.",
-        "tr": "Tesis için toplam yıllık enerji harcaması."
+        "tr": "Tesis için toplam yıllık enerji harcaması.",
+        "de": "Gesamte jährliche Energieausgaben für die Anlage.",
+        "fr": "Dépense énergétique annuelle totale pour l'installation."
       }
     }
   ],

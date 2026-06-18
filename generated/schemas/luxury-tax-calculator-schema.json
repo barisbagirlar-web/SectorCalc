@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Item Price",
         "tr": "Ürün Fiyatı",
-        "de": "Item Price",
-        "fr": "Item Price",
-        "es": "Item Price",
+        "de": "Artikelpreis",
+        "fr": "Prix de l'article",
+        "es": "Precio del artículo",
         "ar": "Item Price"
       },
       "businessContext_i18n": {
         "en": "Base price of the luxury item before tax",
-        "tr": "Vergi öncesi lüks ürünün taban fiyatı"
+        "tr": "Vergi öncesi lüks ürünün taban fiyatı",
+        "de": "Grundpreis des Luxusartikels vor Steuern",
+        "fr": "Prix de base de l'article de luxe avant taxes",
+        "es": "Precio base del artículo de lujo antes de impuestos"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Tax Threshold",
         "tr": "Vergi Eşiği",
-        "de": "Tax Threshold",
-        "fr": "Tax Threshold",
-        "es": "Tax Threshold",
+        "de": "Steuerschwelle",
+        "fr": "Seuil fiscal",
+        "es": "Umbral de impuesto",
         "ar": "Tax Threshold"
       },
       "businessContext_i18n": {
         "en": "Price threshold above which luxury tax applies",
-        "tr": "Lüks vergisinin uygulanacağı fiyat eşiği"
+        "tr": "Lüks vergisinin uygulanacağı fiyat eşiği",
+        "de": "Preisschwelle, ab der die Luxussteuer anfällt",
+        "fr": "Seuil de prix au-dessus duquel la taxe de luxe s'applique",
+        "es": "Umbral de precio por encima del cual se aplica el impuesto de lujo"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
         "de": "Steuersatz",
-        "fr": "Tax Rate",
-        "es": "Tax Rate",
+        "fr": "Taux de taxe",
+        "es": "Tasa de impuesto",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Luxury tax rate as a percentage",
-        "tr": "Yüzde olarak lüks vergi oranı"
+        "tr": "Yüzde olarak lüks vergi oranı",
+        "de": "Luxussteuersatz in Prozent",
+        "fr": "Taux de la taxe de luxe en pourcentage",
+        "es": "Tasa del impuesto de lujo como porcentaje"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Quantity",
         "tr": "Miktar",
         "de": "Menge",
-        "fr": "Quantity",
-        "es": "Quantity",
+        "fr": "Quantité",
+        "es": "Cantidad",
         "ar": "Quantity"
       },
       "businessContext_i18n": {
         "en": "Number of identical luxury items",
-        "tr": "Aynı lüks ürünlerin adedi"
+        "tr": "Aynı lüks ürünlerin adedi",
+        "de": "Anzahl identischer Luxusartikel",
+        "fr": "Nombre d'articles de luxe identiques",
+        "es": "Número de artículos de lujo idénticos"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Fixed Deduction",
         "tr": "Sabit İndirim",
-        "de": "Fixed Deduction",
-        "fr": "Fixed Deduction",
-        "es": "Fixed Deduction",
+        "de": "Fester Abzug",
+        "fr": "Déduction fixe",
+        "es": "Deducción fija",
         "ar": "Fixed Deduction"
       },
       "businessContext_i18n": {
         "en": "Fixed deduction from taxable amount per item",
-        "tr": "Ürün başına vergilendirilebilir tutardan düşülen sabit indirim"
+        "tr": "Ürün başına vergilendirilebilir tutardan düşülen sabit indirim",
+        "de": "Fester Abzug vom steuerpflichtigen Betrag pro Artikel",
+        "fr": "Déduction fixe du montant imposable par article",
+        "es": "Deducción fija del monto imponible por artículo"
       }
     }
   ],

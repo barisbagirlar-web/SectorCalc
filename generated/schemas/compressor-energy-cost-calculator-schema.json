@@ -25,12 +25,16 @@
       "label_i18n": {
         "en": "Compressor Motor Power Rating",
         "tr": "Kompresör motor gücü değeri",
-        "de": "Motorleistung des Verdichters"
+        "de": "Motorleistung des Verdichters",
+        "fr": "Puissance nominale du moteur du compresseur",
+        "es": "Potencia nominal del motor del compresor"
       },
       "businessContext_i18n": {
         "en": "Nameplate power of the compressor motor. Typically from 5 kW to 5000 kW for industrial units.",
         "tr": "Kompresör motorunun anma gücü. Endüstriyel üniteler için tipik olarak 5 kW ile 5000 kW arası.",
-        "de": "Typenleistung des Verdichtermotors. Typischerweise 5 kW bis 5000 kW für Industrieanlagen."
+        "de": "Typenleistung des Verdichtermotors. Typischerweise 5 kW bis 5000 kW für Industrieanlagen.",
+        "fr": "Puissance nominale du moteur du compresseur. Typiquement de 5 kW à 5000 kW pour les unités industrielles.",
+        "es": "Potencia de placa del motor del compresor. Típicamente de 5 kW a 5000 kW para unidades industriales."
       }
     },
     {
@@ -45,12 +49,16 @@
       "label_i18n": {
         "en": "Motor Efficiency",
         "tr": "Motor verimliliği",
-        "de": "Motorwirkungsgrad"
+        "de": "Motorwirkungsgrad",
+        "fr": "Rendement du moteur",
+        "es": "Eficiencia del motor"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the electric motor driving the compressor. Premium efficiency motors (IE3/IE4) are >90%.",
         "tr": "Kompresörü tahrik eden elektrik motorunun verimi. Premium verimli motorlar (IE3/IE4) >%90'dır.",
-        "de": "Wirkungsgrad des Elektromotors, der den Verdichter antreibt. Premium-Wirkungsgradmotoren (IE3/IE4) liegen über 90 %."
+        "de": "Wirkungsgrad des Elektromotors, der den Verdichter antreibt. Premium-Wirkungsgradmotoren (IE3/IE4) liegen über 90 %.",
+        "fr": "Rendement du moteur électrique entraînant le compresseur. Les moteurs à haut rendement (IE3/IE4) sont >90 %.",
+        "es": "Eficiencia del motor eléctrico que acciona el compresor. Motores de eficiencia premium (IE3/IE4) >90%."
       }
     },
     {
@@ -69,12 +77,16 @@
       "label_i18n": {
         "en": "Compressor Type",
         "tr": "Kompresör Tipi",
-        "de": "Verdichtertyp"
+        "de": "Verdichtertyp",
+        "fr": "Type de compresseur",
+        "es": "Tipo de compresor"
       },
       "businessContext_i18n": {
         "en": "Different compressor types have different specific power curves and maintenance profiles.",
         "tr": "Farklı kompresör tiplerinin farklı özgül güç eğrileri ve bakım profilleri vardır.",
-        "de": "Verschiedene Verdichtertypen haben unterschiedliche spezifische Leistungskurven und Wartungsprofile."
+        "de": "Verschiedene Verdichtertypen haben unterschiedliche spezifische Leistungskurven und Wartungsprofile.",
+        "fr": "Les différents types de compresseurs ont des courbes de puissance spécifique et des profils de maintenance différents.",
+        "es": "Los diferentes tipos de compresores tienen curvas de potencia específica y perfiles de mantenimiento distintos."
       }
     },
     {
@@ -89,12 +101,16 @@
       "label_i18n": {
         "en": "Operating Hours per Year",
         "tr": "Yıllık Çalışma Saati",
-        "de": "Betriebsstunden pro Jahr"
+        "de": "Betriebsstunden pro Jahr",
+        "fr": "Heures de fonctionnement par an",
+        "es": "Horas de operación por año"
       },
       "businessContext_i18n": {
         "en": "Total annual operating hours. Typical industrial: 8000 hours (2 shifts, 5 days).",
         "tr": "Toplam yıllık çalışma saati. Tipik endüstriyel: 8000 saat (2 vardiya, 5 gün).",
-        "de": "Jährliche Betriebsstunden gesamt. Typisch Industrie: 8000 Stunden (2 Schichten, 5 Tage)."
+        "de": "Jährliche Betriebsstunden gesamt. Typisch Industrie: 8000 Stunden (2 Schichten, 5 Tage).",
+        "fr": "Heures de fonctionnement annuelles totales. Industriel typique : 8000 h (2 équipes, 5 jours).",
+        "es": "Horas totales de operación anuales. Típico industrial: 8000 horas (2 turnos, 5 días)."
       }
     },
     {
@@ -109,12 +125,16 @@
       "label_i18n": {
         "en": "Load Factor (Average % of Full Load)",
         "tr": "Yük Faktörü (Tam Yükün Ortalama Yüzdesi)",
-        "de": "Lastfaktor (durchschnittlicher Prozentsatz der Volllast)"
+        "de": "Lastfaktor (durchschnittlicher Prozentsatz der Volllast)",
+        "fr": "Facteur de charge (pourcentage moyen de la pleine charge)",
+        "es": "Factor de carga (promedio % de carga completa)"
       },
       "businessContext_i18n": {
         "en": "Average percentage of full load capacity at which the compressor operates. Includes part-load and unloaded periods.",
         "tr": "Kompresörün tam yük kapasitesinin ortalama yüzdesi olarak çalıştığı değer. Kısmi yük ve boşta çalışma sürelerini içerir.",
-        "de": "Durchschnittlicher Prozentsatz der Volllastkapazität, bei dem der Verdichter arbeitet. Umfasst Teillast- und entlastete Phasen."
+        "de": "Durchschnittlicher Prozentsatz der Volllastkapazität, bei dem der Verdichter arbeitet. Umfasst Teillast- und entlastete Phasen.",
+        "fr": "Pourcentage moyen de la capacité à pleine charge auquel le compresseur fonctionne. Inclut les périodes de charge partielle et de décharge.",
+        "es": "Porcentaje promedio de la capacidad a plena carga al que opera el compresor. Incluye períodos de carga parcial y sin carga."
       }
     },
     {
@@ -129,12 +149,16 @@
       "label_i18n": {
         "en": "Electricity Cost",
         "tr": "Elektrik Maliyeti",
-        "de": "Stromkosten"
+        "de": "Stromkosten",
+        "fr": "Coût de l'électricité",
+        "es": "Coste de electricidad"
       },
       "businessContext_i18n": {
         "en": "Blended average cost per kWh including demand charges. Typical range $0.05-$0.30.",
         "tr": "Talep ücretleri dahil kWh başına harmanlanmış ortalama maliyet. Tipik aralık $0.05-$0.30.",
-        "de": "Gemischte Durchschnittskosten pro kWh inkl. Leistungspreise. Typischer Bereich 0,05–0,30 $."
+        "de": "Gemischte Durchschnittskosten pro kWh inkl. Leistungspreise. Typischer Bereich 0,05–0,30 $.",
+        "fr": "Coût moyen pondéré par kWh incluant les frais de demande. Plage typique 0,05-0,30 $.",
+        "es": "Costo promedio combinado por kWh, incluyendo cargos por demanda. Rango típico $0.05-$0.30."
       }
     },
     {
@@ -149,12 +173,16 @@
       "label_i18n": {
         "en": "Estimated System Leakage",
         "tr": "Tahmini Sistem Kaçağı",
-        "de": "Geschätzte Systemleckage"
+        "de": "Geschätzte Systemleckage",
+        "fr": "Fuite estimée du système",
+        "es": "Fugas estimadas del sistema"
       },
       "businessContext_i18n": {
         "en": "Percentage of compressed air lost through leaks. Typical industrial systems: 20-30%.",
         "tr": "Kaçaklar yoluyla kaybedilen basınçlı hava yüzdesi. Tipik endüstriyel sistemler: %20-30.",
-        "de": "Prozentsatz der Druckluft, der durch Lecks verloren geht. Typische Industrieanlagen: 20–30 %."
+        "de": "Prozentsatz der Druckluft, der durch Lecks verloren geht. Typische Industrieanlagen: 20–30 %.",
+        "fr": "Pourcentage d'air comprimé perdu par les fuites. Systèmes industriels typiques : 20-30 %.",
+        "es": "Porcentaje de aire comprimido perdido por fugas. Sistemas industriales típicos: 20-30%."
       }
     },
     {
@@ -169,12 +197,16 @@
       "label_i18n": {
         "en": "System Pressure Setpoint",
         "tr": "Sistem Basınç Ayar Noktası",
-        "de": "Systemdruck-Sollwert"
+        "de": "Systemdruck-Sollwert",
+        "fr": "Consigne de pression du système",
+        "es": "Punto de ajuste de presión del sistema"
       },
       "businessContext_i18n": {
         "en": "Operating pressure at the compressor discharge. Higher pressure increases energy consumption by ~1% per 0.1 bar.",
         "tr": "Kompresör çıkışındaki işletme basıncı. Daha yüksek basınç, enerji tüketimini 0,1 bar başına ~%1 artırır.",
-        "de": "Betriebsdruck am Verdicheraustritt. Höherer Druck erhöht den Energieverbrauch um ca. 1 % pro 0,1 bar."
+        "de": "Betriebsdruck am Verdicheraustritt. Höherer Druck erhöht den Energieverbrauch um ca. 1 % pro 0,1 bar.",
+        "fr": "Pression de fonctionnement à la sortie du compresseur. Une pression plus élevée augmente la consommation d'énergie d'environ 1 % par 0,1 bar.",
+        "es": "Presión de operación en la descarga del compresor. Mayor presión aumenta el consumo de energía ~1% por cada 0.1 bar."
       }
     }
   ],

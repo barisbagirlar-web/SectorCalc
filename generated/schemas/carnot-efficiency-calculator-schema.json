@@ -12,14 +12,16 @@
         "en": "Hot Reservoir Temperature (K)",
         "tr": "Sıcak Rezervuar Sıcaklığı (K)",
         "de": "Heißreservoir-Temperatur (K)",
-        "fr": "Hot Reservoir Temperature (K)",
-        "es": "Hot Reservoir Temperature (K)",
+        "fr": "Température du réservoir chaud (K)",
+        "es": "Temperatura del depósito caliente (K)",
         "ar": "Hot Reservoir Temperature (K)"
       },
       "businessContext_i18n": {
         "en": "Temperature of the high-temperature heat source in Kelvin",
         "tr": "Yüksek sıcaklıktaki ısı kaynağının Kelvin cinsinden sıcaklığı",
-        "de": "Temperatur der Hochtemperatur-Wärmequelle in Kelvin"
+        "de": "Temperatur der Hochtemperatur-Wärmequelle in Kelvin",
+        "fr": "Température de la source de chaleur haute température en Kelvin",
+        "es": "Temperatura de la fuente de calor de alta temperatura en Kelvin"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Cold Reservoir Temperature (K)",
         "tr": "Soğuk Rezervuar Sıcaklığı (K)",
         "de": "Kaltreservoir-Temperatur (K)",
-        "fr": "Cold Reservoir Temperature (K)",
-        "es": "Cold Reservoir Temperature (K)",
+        "fr": "Température du réservoir froid (K)",
+        "es": "Temperatura del depósito frío (K)",
         "ar": "Cold Reservoir Temperature (K)"
       },
       "businessContext_i18n": {
         "en": "Temperature of the low-temperature heat sink in Kelvin",
         "tr": "Düşük sıcaklıktaki ısı emicinin Kelvin cinsinden sıcaklığı",
-        "de": "Temperatur der Niedertemperatur-Wärmesenke in Kelvin"
+        "de": "Temperatur der Niedertemperatur-Wärmesenke in Kelvin",
+        "fr": "Température du puits de chaleur basse température en Kelvin",
+        "es": "Temperatura del sumidero de calor de baja temperatura en Kelvin"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Heat Input (kJ)",
         "tr": "Isı Girişi (kJ)",
         "de": "Wärmezufuhr (kJ)",
-        "fr": "Heat Input (kJ)",
-        "es": "Heat Input (kJ)",
+        "fr": "Apport de chaleur (kJ)",
+        "es": "Entrada de calor (kJ)",
         "ar": "Heat Input (kJ)"
       },
       "businessContext_i18n": {
         "en": "Heat energy supplied to the engine per cycle or time interval",
         "tr": "Motorun çevrim veya zaman aralığı başına sağlanan ısı enerjisi",
-        "de": "Dem Motor pro Zyklus oder Zeitintervall zugeführte Wärmeenergie"
+        "de": "Dem Motor pro Zyklus oder Zeitintervall zugeführte Wärmeenergie",
+        "fr": "Énergie thermique fournie au moteur par cycle ou intervalle de temps",
+        "es": "Energía térmica suministrada al motor por ciclo o intervalo de tiempo"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Net Work Output (kJ)",
         "tr": "Net İş Çıkışı (kJ)",
         "de": "Netto-Arbeitsleistung (kJ)",
-        "fr": "Net Work Output (kJ)",
-        "es": "Net Work Output (kJ)",
+        "fr": "Travail net produit (kJ)",
+        "es": "Trabajo neto de salida (kJ)",
         "ar": "Net Work Output (kJ)"
       },
       "businessContext_i18n": {
         "en": "Net mechanical work produced by the engine",
         "tr": "Motor tarafından üretilen net mekanik iş",
-        "de": "Vom Motor erzeugte mechanische Nettoarbeit"
+        "de": "Vom Motor erzeugte mechanische Nettoarbeit",
+        "fr": "Travail mécanique net produit par le moteur",
+        "es": "Trabajo mecánico neto producido por el motor"
       }
     }
   ],

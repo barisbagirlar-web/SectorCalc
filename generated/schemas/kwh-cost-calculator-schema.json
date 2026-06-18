@@ -23,11 +23,17 @@
       "businessContext": "Total metered kilowatt-hours for the billing period. Used as primary driver for energy cost.",
       "label_i18n": {
         "en": "Energy Consumption (kWh)",
-        "tr": "Enerji Tüketimi (kWh)"
+        "tr": "Enerji Tüketimi (kWh)",
+        "de": "Energieverbrauch (kWh)",
+        "fr": "Consommation d'énergie (kWh)",
+        "es": "Consumo de energía (kWh)"
       },
       "businessContext_i18n": {
         "en": "Total metered kilowatt-hours for the billing period. Used as primary driver for energy cost.",
-        "tr": "Fatura dönemi için ölçülen toplam kilovatsaat. Enerji maliyetinin ana sürücüsü olarak kullanılır."
+        "tr": "Fatura dönemi için ölçülen toplam kilovatsaat. Enerji maliyetinin ana sürücüsü olarak kullanılır.",
+        "de": "Summe der gemessenen Kilowattstunden im Abrechnungszeitraum. Wird als primärer Treiber für die Energiekosten verwendet.",
+        "fr": "Total des kilowattheures mesurés pour la période de facturation. Utilisé comme principal facteur de coût énergétique.",
+        "es": "Total de kilovatios-hora medidos en el período de facturación. Utilizado como factor principal del coste energético."
       }
     },
     {
@@ -42,11 +48,16 @@
       "label_i18n": {
         "en": "Peak Demand (kW)",
         "tr": "Tepe Talebi (kW)",
-        "de": "Spitzenlast (kW)"
+        "de": "Spitzenlast (kW)",
+        "fr": "Demande de pointe (kW)",
+        "es": "Demanda máxima (kW)"
       },
       "businessContext_i18n": {
         "en": "Highest 15-minute average demand in the period. Drives demand charges per utility tariff.",
-        "tr": "Dönemdeki en yüksek 15 dakikalık ortalama talep. Tarifeye göre talep ücretlerini belirler."
+        "tr": "Dönemdeki en yüksek 15 dakikalık ortalama talep. Tarifeye göre talep ücretlerini belirler.",
+        "de": "Höchste 15-Minuten-Durchschnittsleistung im Zeitraum. Treibt die Leistungspreise gemäß dem Tarif des Versorgungsunternehmens.",
+        "fr": "Moyenne de la demande la plus élevée sur 15 minutes au cours de la période. Détermine les frais de demande selon le tarif du fournisseur.",
+        "es": "Demanda máxima promedio de 15 minutos en el período. Impulsa los cargos por demanda según la tarifa de la empresa de servicios públicos."
       }
     },
     {
@@ -61,11 +72,16 @@
       "label_i18n": {
         "en": "Energy Rate ($/kWh)",
         "tr": "Enerji Birim Fiyatı ($/kWh)",
-        "de": "Energiepreis ($/kWh)"
+        "de": "Energiepreis ($/kWh)",
+        "fr": "Tarif énergétique ($/kWh)",
+        "es": "Tarifa energética ($/kWh)"
       },
       "businessContext_i18n": {
         "en": "Blended energy charge from utility bill, including generation and transmission.",
-        "tr": "Elektrik faturasından üretim ve iletimi içeren harmanlanmış enerji ücreti."
+        "tr": "Elektrik faturasından üretim ve iletimi içeren harmanlanmış enerji ücreti.",
+        "de": "Gemischter Energiepreis aus der Stromrechnung, inklusive Erzeugung und Übertragung.",
+        "fr": "Coût énergétique mixte de la facture d'électricité, incluant la production et le transport.",
+        "es": "Cargo energético combinado de la factura de servicios públicos, incluyendo generación y transmisión."
       }
     },
     {
@@ -79,11 +95,17 @@
       "businessContext": "Monthly demand charge per kW of peak demand, varies by utility and region.",
       "label_i18n": {
         "en": "Demand Rate ($/kW)",
-        "tr": "Talep Oranı ($/kW)"
+        "tr": "Talep Oranı ($/kW)",
+        "de": "Leistungspreis ($/kW)",
+        "fr": "Tarif de demande ($/kW)",
+        "es": "Tarifa de demanda ($/kW)"
       },
       "businessContext_i18n": {
         "en": "Monthly demand charge per kW of peak demand, varies by utility and region.",
-        "tr": "kW başına aylık talep ücreti, bölgeye ve elektrik dağıtım şirketine göre değişir."
+        "tr": "kW başına aylık talep ücreti, bölgeye ve elektrik dağıtım şirketine göre değişir.",
+        "de": "Monatlicher Leistungspreis pro kW Spitzenlast, variiert je nach Versorger und Region.",
+        "fr": "Frais mensuels de demande par kW de pointe, variables selon le fournisseur et la région.",
+        "es": "Cargo mensual por demanda por kW de demanda máxima, varía según la empresa de servicios públicos y la región."
       }
     },
     {
@@ -98,11 +120,16 @@
       "label_i18n": {
         "en": "Power Factor",
         "tr": "Güç Faktörü",
-        "de": "Leistungsfaktor"
+        "de": "Leistungsfaktor",
+        "fr": "Facteur de puissance",
+        "es": "Factor de potencia"
       },
       "businessContext_i18n": {
         "en": "Ratio of real power to apparent power. Low PF incurs penalties per utility tariff.",
-        "tr": "Gerçek gücün görünür güce oranı. Düşük güç faktörü tarifeye göre ceza uygulanmasına neden olur."
+        "tr": "Gerçek gücün görünür güce oranı. Düşük güç faktörü tarifeye göre ceza uygulanmasına neden olur.",
+        "de": "Verhältnis von Wirkleistung zu Scheinleistung. Niedriger Leistungsfaktor führt zu Strafzahlungen gemäß Tarif.",
+        "fr": "Rapport entre la puissance réelle et la puissance apparente. Un faible facteur de puissance entraîne des pénalités selon le tarif.",
+        "es": "Relación entre potencia real y potencia aparente. Un factor de potencia bajo incurre en penalizaciones según la tarifa de la empresa de servicios públicos."
       }
     },
     {
@@ -116,11 +143,17 @@
       "businessContext": "Minimum power factor before penalty applies, typically 0.9 per utility standards.",
       "label_i18n": {
         "en": "PF Penalty Threshold",
-        "tr": "GF Cezası Eşiği"
+        "tr": "GF Cezası Eşiği",
+        "de": "Schwellenwert für Leistungsfaktor-Strafen",
+        "fr": "Seuil de pénalité pour facteur de puissance",
+        "es": "Umbral de penalización por factor de potencia"
       },
       "businessContext_i18n": {
         "en": "Minimum power factor before penalty applies, typically 0.9 per utility standards.",
-        "tr": "Ceza uygulanmadan önceki minimum güç faktörü, tipik olarak standartlara göre 0.9."
+        "tr": "Ceza uygulanmadan önceki minimum güç faktörü, tipik olarak standartlara göre 0.9.",
+        "de": "Mindestleistungsfaktor vor Strafzahlungen, typischerweise 0,9 gemäß Versorgerstandards.",
+        "fr": "Facteur de puissance minimum avant application de la pénalité, généralement 0,9 selon les normes des fournisseurs.",
+        "es": "Factor de potencia mínimo antes de que se aplique la penalización, típicamente 0.9 según estándares de la empresa de servicios públicos."
       }
     },
     {
@@ -134,11 +167,17 @@
       "businessContext": "Cost per reactive power (kvar) when PF below threshold.",
       "label_i18n": {
         "en": "PF Penalty Rate ($/kvar)",
-        "tr": "GF Cezası Oranı ($/kvar)"
+        "tr": "GF Cezası Oranı ($/kvar)",
+        "de": "Strafzahlungssatz für Leistungsfaktor ($/kvar)",
+        "fr": "Taux de pénalité pour facteur de puissance ($/kvar)",
+        "es": "Tarifa de penalización por factor de potencia ($/kvar)"
       },
       "businessContext_i18n": {
         "en": "Cost per reactive power (kvar) when PF below threshold.",
-        "tr": "GF eşiğin altındayken reaktif güç (kvar) başına maliyet."
+        "tr": "GF eşiğin altındayken reaktif güç (kvar) başına maliyet.",
+        "de": "Kosten pro Blindleistung (kvar) bei Unterschreitung des Schwellenwerts.",
+        "fr": "Coût par puissance réactive (kvar) lorsque le facteur de puissance est inférieur au seuil.",
+        "es": "Coste por potencia reactiva (kvar) cuando el factor de potencia está por debajo del umbral."
       }
     },
     {
@@ -153,11 +192,16 @@
       "label_i18n": {
         "en": "System Efficiency (%)",
         "tr": "Sistem Verimliliği (%)",
-        "de": "Systemwirkungsgrad (%)"
+        "de": "Systemwirkungsgrad (%)",
+        "fr": "Rendement du système (%)",
+        "es": "Eficiencia del sistema (%)"
       },
       "businessContext_i18n": {
         "en": "Overall electrical system efficiency including transformers, cables, and motors. Used for loss adjustment.",
-        "tr": "Transformatörler, kablolar ve motorlar dahil genel elektrik sistemi verimliliği. Kayıp düzeltmesi için kullanılır."
+        "tr": "Transformatörler, kablolar ve motorlar dahil genel elektrik sistemi verimliliği. Kayıp düzeltmesi için kullanılır.",
+        "de": "Gesamtwirkungsgrad des elektrischen Systems einschließlich Transformatoren, Kabeln und Motoren. Wird für Verlustanpassung verwendet.",
+        "fr": "Rendement global du système électrique incluant transformateurs, câbles et moteurs. Utilisé pour l'ajustement des pertes.",
+        "es": "Eficiencia general del sistema eléctrico incluyendo transformadores, cables y motores. Utilizado para ajuste de pérdidas."
       }
     }
   ],

@@ -12,13 +12,15 @@
         "en": "Nominal Dimension",
         "tr": "Nominal Boyut",
         "de": "Nennmaß",
-        "fr": "Nominal Dimension",
-        "es": "Nominal Dimension",
+        "fr": "Dimension nominale",
+        "es": "Dimensión nominal",
         "ar": "Nominal Dimension"
       },
       "businessContext_i18n": {
         "en": "Nominal dimension in thou (thousandths of an inch) to be converted",
-        "tr": "Dönüştürülecek binlik inç cinsinden nominal boyut"
+        "tr": "Dönüştürülecek binlik inç cinsinden nominal boyut",
+        "de": "Nennmaß in Tausendstel Zoll (thou), das umgerechnet werden soll",
+        "fr": "Dimension nominale en mils (millièmes de pouce) à convertir"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Upper Tolerance",
         "tr": "Üst Tolerans",
-        "de": "Upper Tolerance",
-        "fr": "Upper Tolerance",
-        "es": "Upper Tolerance",
+        "de": "Obere Toleranz",
+        "fr": "Tolérance supérieure",
+        "es": "Tolerancia superior",
         "ar": "Upper Tolerance"
       },
       "businessContext_i18n": {
         "en": "Upper tolerance limit in thou",
-        "tr": "Üst tolerans limiti (binlik inç cinsinden)"
+        "tr": "Üst tolerans limiti (binlik inç cinsinden)",
+        "de": "Obere Toleranzgrenze in Tausendstel Zoll",
+        "fr": "Limite de tolérance supérieure en mils"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Lower Tolerance",
         "tr": "Alt Tolerans",
-        "de": "Lower Tolerance",
-        "fr": "Lower Tolerance",
-        "es": "Lower Tolerance",
+        "de": "Untere Toleranz",
+        "fr": "Tolérance inférieure",
+        "es": "Tolerancia inferior",
         "ar": "Lower Tolerance"
       },
       "businessContext_i18n": {
         "en": "Lower tolerance limit in thou (use negative value if below nominal)",
-        "tr": "Alt tolerans limiti (nominalin altındaysa negatif değer kullanın)"
+        "tr": "Alt tolerans limiti (nominalin altındaysa negatif değer kullanın)",
+        "de": "Untere Toleranzgrenze in Tausendstel Zoll (negativer Wert, wenn unter Nennmaß)",
+        "fr": "Limite de tolérance inférieure en mils (utiliser une valeur négative si inférieure au nominal)"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Fixed conversion factor from thou to millimeters (1 thou = 0.0254 mm)",
-        "tr": "Binlik inçten milimetreye sabit dönüşüm faktörü (1 binlik inç = 0,0254 mm)"
+        "tr": "Binlik inçten milimetreye sabit dönüşüm faktörü (1 binlik inç = 0,0254 mm)",
+        "de": "Fester Umrechnungsfaktor von Tausendstel Zoll in Millimeter (1 thou = 0,0254 mm)",
+        "fr": "Facteur de conversion fixe des mils en millimètres (1 mil = 0,0254 mm)"
       }
     },
     {
@@ -92,14 +100,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding results",
         "tr": "Sonuçların yuvarlanması için ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen für Rundungsergebnisse"
+        "de": "Anzahl der Dezimalstellen für Rundungsergebnisse",
+        "fr": "Nombre de décimales pour l'arrondi des résultats",
+        "es": "Número de decimales para redondear resultados"
       }
     }
   ],

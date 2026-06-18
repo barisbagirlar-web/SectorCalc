@@ -12,13 +12,16 @@
         "en": "Power Rating",
         "tr": "Güç Değeri",
         "de": "Leistungsaufnahme",
-        "fr": "Power Rating",
-        "es": "Power Rating",
+        "fr": "Puissance nominale",
+        "es": "Potencia nominal",
         "ar": "Power Rating"
       },
       "businessContext_i18n": {
         "en": "Rated power consumption of a single device in watts.",
-        "tr": "Tek bir cihazın watt cinsinden anma güç tüketimi."
+        "tr": "Tek bir cihazın watt cinsinden anma güç tüketimi.",
+        "de": "Nennleistungsaufnahme eines einzelnen Geräts in Watt.",
+        "fr": "Consommation nominale d'un seul appareil en watts.",
+        "es": "Consumo nominal de un solo dispositivo en vatios."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Number of Devices",
         "tr": "Cihaz Sayısı",
         "de": "Anzahl der Geräte",
-        "fr": "Number of Devices",
-        "es": "Number of Devices",
+        "fr": "Nombre de dispositifs",
+        "es": "Número de dispositivos",
         "ar": "Number of Devices"
       },
       "businessContext_i18n": {
         "en": "Number of identical devices operating concurrently.",
-        "tr": "Eşzamanlı çalışan özdeş cihaz sayısı."
+        "tr": "Eşzamanlı çalışan özdeş cihaz sayısı.",
+        "de": "Anzahl der gleichzeitig betriebenen identischen Geräte.",
+        "fr": "Nombre d'appareils identiques fonctionnant simultanément.",
+        "es": "Número de dispositivos idénticos operando simultáneamente."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Usage Hours per Day",
         "tr": "Günlük Kullanım Saati",
-        "de": "Usage Hours per Day",
-        "fr": "Usage Hours per Day",
-        "es": "Usage Hours per Day",
+        "de": "Nutzungsstunden pro Tag",
+        "fr": "Heures d'utilisation par jour",
+        "es": "Horas de uso por día",
         "ar": "Usage Hours per Day"
       },
       "businessContext_i18n": {
         "en": "Average daily operating hours of the device(s).",
-        "tr": "Cihaz(lar)ın ortalama günlük çalışma saati."
+        "tr": "Cihaz(lar)ın ortalama günlük çalışma saati.",
+        "de": "Durchschnittliche tägliche Betriebsstunden des Geräts/der Geräte.",
+        "fr": "Heures de fonctionnement quotidiennes moyennes du ou des appareils.",
+        "es": "Horas diarias promedio de funcionamiento del dispositivo(s)."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Days per Month",
         "tr": "Aylık Gün Sayısı",
         "de": "Tage pro Monat",
-        "fr": "Days per Month",
-        "es": "Days per Month",
+        "fr": "Jours par mois",
+        "es": "Días por mes",
         "ar": "Days per Month"
       },
       "businessContext_i18n": {
         "en": "Number of operating days per month, typically 30 for estimation.",
-        "tr": "Aylık çalışma günü sayısı, tahmin için genellikle 30."
+        "tr": "Aylık çalışma günü sayısı, tahmin için genellikle 30.",
+        "de": "Anzahl der Betriebstage pro Monat, typischerweise 30 für eine Schätzung.",
+        "fr": "Nombre de jours de fonctionnement par mois, généralement 30 pour une estimation.",
+        "es": "Número de días operativos por mes, típicamente 30 para estimación."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Electricity Rate",
         "tr": "Elektrik Tarifesi",
         "de": "Stromtarif",
-        "fr": "Electricity Rate",
-        "es": "Electricity Rate",
+        "fr": "Tarif électrique",
+        "es": "Tarifa eléctrica",
         "ar": "Electricity Rate"
       },
       "businessContext_i18n": {
         "en": "Cost per kilowatt-hour in euros (adjust to local currency).",
-        "tr": "Kilovatsaat başına euro cinsinden maliyet (yerel para birimine göre ayarlayın)."
+        "tr": "Kilovatsaat başına euro cinsinden maliyet (yerel para birimine göre ayarlayın).",
+        "de": "Kosten pro Kilowattstunde in Euro (an lokale Währung anpassen).",
+        "fr": "Coût par kilowattheure en euros (ajuster selon la devise locale).",
+        "es": "Coste por kilovatio-hora en euros (ajustar a moneda local)."
       }
     }
   ],

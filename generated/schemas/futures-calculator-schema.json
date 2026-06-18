@@ -12,14 +12,16 @@
         "en": "Alış Fiyatı",
         "tr": "Alış Fiyatı",
         "de": "Kaufpreis",
-        "fr": "Alış Fiyatı",
-        "es": "Alış Fiyatı",
+        "fr": "Prix d'achat",
+        "es": "Precio de compra",
         "ar": "Alış Fiyatı"
       },
       "businessContext_i18n": {
         "en": "Vadeli işlem sözleşmesinin alış birim fiyatı",
         "tr": "Vadeli işlem sözleşmesinin alış birim fiyatı",
-        "de": "Einkaufspreis pro Einheit des Terminkontrakts"
+        "de": "Einkaufspreis pro Einheit des Terminkontrakts",
+        "fr": "Prix unitaire d'achat du contrat à terme",
+        "es": "Precio unitario de compra del contrato de futuros"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Satış Fiyatı",
         "tr": "Satış Fiyatı",
         "de": "Verkaufspreis",
-        "fr": "Satış Fiyatı",
-        "es": "Satış Fiyatı",
+        "fr": "Prix de vente",
+        "es": "Precio de venta",
         "ar": "Satış Fiyatı"
       },
       "businessContext_i18n": {
         "en": "Vadeli işlem sözleşmesinin satış birim fiyatı",
         "tr": "Vadeli işlem sözleşmesinin satış birim fiyatı",
-        "de": "Verkaufspreis pro Einheit des Terminkontrakts"
+        "de": "Verkaufspreis pro Einheit des Terminkontrakts",
+        "fr": "Prix unitaire de vente du contrat à terme",
+        "es": "Precio unitario de venta del contrato de futuros"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Sözleşme Büyüklüğü",
         "tr": "Sözleşme Büyüklüğü",
         "de": "Kontraktgröße",
-        "fr": "Sözleşme Büyüklüğü",
-        "es": "Sözleşme Büyüklüğü",
+        "fr": "Taille du contrat",
+        "es": "Tamaño del contrato",
         "ar": "Sözleşme Büyüklüğü"
       },
       "businessContext_i18n": {
         "en": "Bir sözleşmenin temsil ettiği dayanak varlık miktarı",
         "tr": "Bir sözleşmenin temsil ettiği dayanak varlık miktarı",
-        "de": "Menge des Basiswerts, den ein Kontrakt repräsentiert"
+        "de": "Menge des Basiswerts, den ein Kontrakt repräsentiert",
+        "fr": "Quantité d'actif sous-jacent représentée par un contrat",
+        "es": "Cantidad del activo subyacente que representa un contrato"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Kontrat Sayısı",
         "tr": "Kontrat Sayısı",
         "de": "Anzahl der Kontrakte",
-        "fr": "Kontrat Sayısı",
-        "es": "Kontrat Sayısı",
+        "fr": "Nombre de contrats",
+        "es": "Número de contratos",
         "ar": "Kontrat Sayısı"
       },
       "businessContext_i18n": {
         "en": "Alım/satım yapılan vadeli işlem sözleşmesi sayısı",
         "tr": "Alım/satım yapılan vadeli işlem sözleşmesi sayısı",
-        "de": "Anzahl der gehandelten Terminkontrakte"
+        "de": "Anzahl der gehandelten Terminkontrakte",
+        "fr": "Nombre de contrats à terme achetés/vendus",
+        "es": "Número de contratos de futuros comprados/vendidos"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Teminat Oranı",
         "tr": "Teminat Oranı",
         "de": "Einschussquote",
-        "fr": "Teminat Oranı",
-        "es": "Teminat Oranı",
+        "fr": "Taux de marge",
+        "es": "Tasa de margen",
         "ar": "Teminat Oranı"
       },
       "businessContext_i18n": {
         "en": "Sözleşme değerinin teminat olarak yatırılması gereken yüzdesi",
         "tr": "Sözleşme değerinin teminat olarak yatırılması gereken yüzdesi",
-        "de": "Prozentsatz des Kontraktwerts, der als Sicherheit hinterlegt werden muss"
+        "de": "Prozentsatz des Kontraktwerts, der als Sicherheit hinterlegt werden muss",
+        "fr": "Pourcentage de la valeur du contrat à déposer en garantie",
+        "es": "Porcentaje del valor del contrato que debe depositarse como margen"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Komisyon (Sözleşme Başına)",
         "tr": "Komisyon (Sözleşme Başına)",
         "de": "Provision (pro Kontrakt)",
-        "fr": "Komisyon (Sözleşme Başına)",
-        "es": "Komisyon (Sözleşme Başına)",
+        "fr": "Commission (par contrat)",
+        "es": "Comisión (por contrato)",
         "ar": "Komisyon (Sözleşme Başına)"
       },
       "businessContext_i18n": {
         "en": "Bir sözleşme için alım veya satımda ödenen işlem komisyonu",
         "tr": "Bir sözleşme için alım veya satımda ödenen işlem komisyonu",
-        "de": "Transaktionsprovision für Kauf oder Verkauf eines Kontrakts"
+        "de": "Transaktionsprovision für Kauf oder Verkauf eines Kontrakts",
+        "fr": "Commission de transaction payée à l'achat ou à la vente pour un contrat",
+        "es": "Comisión de transacción pagada por la compra o venta de un contrato"
       }
     }
   ],

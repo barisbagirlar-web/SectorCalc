@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Semi-Major Axis",
         "tr": "Yarı Büyük Eksen",
-        "de": "Semi-Major Axis",
-        "fr": "Semi-Major Axis",
-        "es": "Semi-Major Axis",
+        "de": "Große Halbachse",
+        "fr": "Demi-grand axe",
+        "es": "Semieje mayor",
         "ar": "Semi-Major Axis"
       },
       "businessContext_i18n": {
         "en": "The semi-major axis of the orbit.",
-        "tr": "Yörüngenin yarı büyük ekseni."
+        "tr": "Yörüngenin yarı büyük ekseni.",
+        "de": "Die große Halbachse der Umlaufbahn.",
+        "fr": "Le demi-grand axe de l'orbite.",
+        "es": "El semieje mayor de la órbita."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Eccentricity",
         "tr": "Dışmerkezlik",
-        "de": "Eccentricity",
-        "fr": "Eccentricity",
-        "es": "Eccentricity",
+        "de": "Exzentrizität",
+        "fr": "Excentricité",
+        "es": "Excentricidad",
         "ar": "Eccentricity"
       },
       "businessContext_i18n": {
         "en": "Orbit eccentricity (0 ≤ e < 1 for elliptical).",
-        "tr": "Yörünge dışmerkezliği (eliptik için 0 ≤ e < 1)."
+        "tr": "Yörünge dışmerkezliği (eliptik için 0 ≤ e < 1).",
+        "de": "Bahn-Exzentrizität (0 ≤ e < 1 für elliptisch).",
+        "fr": "Excentricité de l'orbite (0 ≤ e < 1 pour une orbite elliptique).",
+        "es": "Excentricidad orbital (0 ≤ e < 1 para elíptica)."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Gravitational Parameter",
         "tr": "Yerçekim Parametresi",
         "de": "Gravitationsparameter",
-        "fr": "Gravitational Parameter",
-        "es": "Gravitational Parameter",
+        "fr": "Paramètre gravitationnel",
+        "es": "Parámetro gravitacional",
         "ar": "Gravitational Parameter"
       },
       "businessContext_i18n": {
         "en": "Standard gravitational parameter of central body.",
-        "tr": "Merkezi cismin standart çekim parametresi."
+        "tr": "Merkezi cismin standart çekim parametresi.",
+        "de": "Standard-Gravitationsparameter des Zentralkörpers.",
+        "fr": "Paramètre gravitationnel standard du corps central.",
+        "es": "Parámetro gravitacional estándar del cuerpo central."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "True Anomaly",
         "tr": "Gerçek Anomali",
-        "de": "True Anomaly",
-        "fr": "True Anomaly",
-        "es": "True Anomaly",
+        "de": "Wahre Anomalie",
+        "fr": "Anomalie vraie",
+        "es": "Anomalía verdadera",
         "ar": "True Anomaly"
       },
       "businessContext_i18n": {
         "en": "Angle from periapsis to current position.",
-        "tr": "Periapsisten mevcut konuma açı."
+        "tr": "Periapsisten mevcut konuma açı.",
+        "de": "Winkel von der Periapsis zur aktuellen Position.",
+        "fr": "Angle du périastre à la position actuelle.",
+        "es": "Ángulo desde el periastro hasta la posición actual."
       }
     }
   ],

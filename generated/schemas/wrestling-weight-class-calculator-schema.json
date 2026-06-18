@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Gender (0=Female, 1=Male)",
         "tr": "Cinsiyet (0=Kadın, 1=Erkek)",
-        "de": "Gender (0=Female, 1=Male)",
-        "fr": "Gender (0=Female, 1=Male)",
-        "es": "Gender (0=Female, 1=Male)",
+        "de": "Geschlecht (0 = Weiblich, 1 = Männlich)",
+        "fr": "Sexe (0=Féminin, 1=Masculin)",
+        "es": "Género (0=Femenino, 1=Masculino)",
         "ar": "Gender (0=Female, 1=Male)"
       },
       "businessContext_i18n": {
         "en": "Cinsiyet seçimi",
-        "tr": "Cinsiyet seçimi"
+        "tr": "Cinsiyet seçimi",
+        "de": "Geschlechtsauswahl",
+        "fr": "Sélection du sexe"
       }
     },
     {
@@ -32,14 +34,16 @@
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Body Weight",
-        "es": "Body Weight",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "Vücut ağırlığı",
         "tr": "Vücut ağırlığı",
-        "de": "Körpergewicht"
+        "de": "Körpergewicht",
+        "fr": "Poids corporel",
+        "es": "Peso corporal"
       }
     },
     {
@@ -53,14 +57,16 @@
         "en": "Height",
         "tr": "Boy",
         "de": "Größe",
-        "fr": "Height",
-        "es": "Height",
+        "fr": "Taille",
+        "es": "Altura",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "Boy uzunluğu",
         "tr": "Boy uzunluğu",
-        "de": "Körpergröße"
+        "de": "Körpergröße",
+        "fr": "Taille",
+        "es": "Altura"
       }
     },
     {
@@ -74,14 +80,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Yaş",
         "tr": "Yaş",
-        "de": "Alter"
+        "de": "Alter",
+        "fr": "Âge",
+        "es": "Edad"
       }
     },
     {
@@ -95,13 +103,15 @@
         "en": "Body Fat Percentage",
         "tr": "Vücut yağ yüzdesi",
         "de": "Körperfettanteil",
-        "fr": "Body Fat Percentage",
-        "es": "Body Fat Percentage",
+        "fr": "Pourcentage de graisse corporelle",
+        "es": "Porcentaje de grasa corporal",
         "ar": "Body Fat Percentage"
       },
       "businessContext_i18n": {
         "en": "Vücut yağ oranı",
-        "tr": "Vücut yağ oranı"
+        "tr": "Vücut yağ oranı",
+        "de": "Körperfettanteil",
+        "fr": "Pourcentage de graisse corporelle"
       }
     }
   ],

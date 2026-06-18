@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Resistance per unit length (R)",
         "tr": "Birim uzunluk başına direnç (R)",
-        "de": "Resistance per unit length (R)",
-        "fr": "Resistance per unit length (R)",
-        "es": "Resistance per unit length (R)",
+        "de": "Widerstand pro Längeneinheit (R)",
+        "fr": "Résistance par unité de longueur (R)",
+        "es": "Resistencia por unidad de longitud (R)",
         "ar": "Resistance per unit length (R)"
       },
       "businessContext_i18n": {
         "en": "Series resistance per unit length of the transmission line",
-        "tr": "İletim hattının birim uzunluk başına seri direnci"
+        "tr": "İletim hattının birim uzunluk başına seri direnci",
+        "de": "Serienwiderstand pro Längeneinheit der Übertragungsleitung",
+        "fr": "Résistance série par unité de longueur de la ligne de transmission",
+        "es": "Resistencia serie por unidad de longitud de la línea de transmisión"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Inductance per unit length (L)",
         "tr": "Birim uzunluk başına endüktans (L)",
-        "de": "Inductance per unit length (L)",
-        "fr": "Inductance per unit length (L)",
-        "es": "Inductance per unit length (L)",
+        "de": "Induktivität pro Längeneinheit (L)",
+        "fr": "Inductance par unité de longueur (L)",
+        "es": "Inductancia por unidad de longitud (L)",
         "ar": "Inductance per unit length (L)"
       },
       "businessContext_i18n": {
         "en": "Series inductance per unit length",
-        "tr": "Birim uzunluk başına seri endüktans"
+        "tr": "Birim uzunluk başına seri endüktans",
+        "de": "Serieninduktivität pro Längeneinheit",
+        "fr": "Inductance série par unité de longueur",
+        "es": "Inductancia serie por unidad de longitud"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Conductance per unit length (G)",
         "tr": "Birim uzunluk başına iletkenlik (G)",
-        "de": "Conductance per unit length (G)",
-        "fr": "Conductance per unit length (G)",
-        "es": "Conductance per unit length (G)",
+        "de": "Leitwert pro Längeneinheit (G)",
+        "fr": "Conductance par unité de longueur (G)",
+        "es": "Conductancia por unidad de longitud (G)",
         "ar": "Conductance per unit length (G)"
       },
       "businessContext_i18n": {
         "en": "Shunt conductance per unit length (use 0 for ideal lossless line)",
-        "tr": "Birim uzunluk başına şönt iletkenlik (ideal kayıpsız hat için 0 kullanın)"
+        "tr": "Birim uzunluk başına şönt iletkenlik (ideal kayıpsız hat için 0 kullanın)",
+        "de": "Querleitwert pro Längeneinheit (bei idealer verlustfreier Leitung 0)",
+        "fr": "Conductance shunt par unité de longueur (utiliser 0 pour une ligne idéale sans perte)",
+        "es": "Conductancia en derivación por unidad de longitud (use 0 para línea ideal sin pérdidas)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Capacitance per unit length (C)",
         "tr": "Birim uzunluk başına kapasitans (C)",
-        "de": "Capacitance per unit length (C)",
-        "fr": "Capacitance per unit length (C)",
-        "es": "Capacitance per unit length (C)",
+        "de": "Kapazität pro Längeneinheit (C)",
+        "fr": "Capacité par unité de longueur (C)",
+        "es": "Capacitancia por unidad de longitud (C)",
         "ar": "Capacitance per unit length (C)"
       },
       "businessContext_i18n": {
         "en": "Shunt capacitance per unit length",
-        "tr": "Birim uzunluk başına şönt kapasitans"
+        "tr": "Birim uzunluk başına şönt kapasitans",
+        "de": "Querkapazität pro Längeneinheit",
+        "fr": "Capacité shunt par unité de longueur",
+        "es": "Capacitancia en derivación por unidad de longitud"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Frequency (f)",
         "tr": "Frekans (f)",
         "de": "Frequenz (f)",
-        "fr": "Frequency (f)",
-        "es": "Frequency (f)",
+        "fr": "Fréquence (f)",
+        "es": "Frecuencia (f)",
         "ar": "Frequency (f)"
       },
       "businessContext_i18n": {
         "en": "Operating frequency of the signal",
-        "tr": "Sinyalin çalışma frekansı"
+        "tr": "Sinyalin çalışma frekansı",
+        "de": "Betriebsfrequenz des Signals",
+        "fr": "Fréquence de fonctionnement du signal",
+        "es": "Frecuencia de operación de la señal"
       }
     }
   ],

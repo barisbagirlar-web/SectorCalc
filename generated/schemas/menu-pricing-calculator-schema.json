@@ -12,13 +12,16 @@
         "en": "Total Ingredient Cost",
         "tr": "Toplam Malzeme Maliyeti",
         "de": "Gesamtkosten der Zutaten",
-        "fr": "Total Ingredient Cost",
-        "es": "Total Ingredient Cost",
+        "fr": "Coût total des ingrédients",
+        "es": "Costo total de ingredientes",
         "ar": "Total Ingredient Cost"
       },
       "businessContext_i18n": {
         "en": "The total cost of all ingredients used to prepare the dish.",
-        "tr": "Yemeği hazırlamak için kullanılan tüm malzemelerin toplam maliyeti."
+        "tr": "Yemeği hazırlamak için kullanılan tüm malzemelerin toplam maliyeti.",
+        "de": "Die Gesamtkosten aller Zutaten, die zur Zubereitung des Gerichts verwendet werden.",
+        "fr": "Le coût total de tous les ingrédients utilisés pour préparer le plat.",
+        "es": "El costo total de todos los ingredientes utilizados para preparar el plato."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Labor Cost per Hour",
         "tr": "Saatlik işçilik maliyeti",
         "de": "Arbeitskosten pro Stunde",
-        "fr": "Labor Cost per Hour",
-        "es": "Labor Cost per Hour",
+        "fr": "Coût de la main-d'œuvre par heure",
+        "es": "Costo de mano de obra por hora",
         "ar": "Labor Cost per Hour"
       },
       "businessContext_i18n": {
         "en": "The hourly labor cost for the chef or staff preparing the dish.",
-        "tr": "Yemeği hazırlayan şef veya personelin saatlik işgücü maliyeti."
+        "tr": "Yemeği hazırlayan şef veya personelin saatlik işgücü maliyeti.",
+        "de": "Die stündlichen Arbeitskosten für den Koch oder das Personal, das das Gericht zubereitet.",
+        "fr": "Le coût horaire de la main-d'œuvre du chef ou du personnel préparant le plat.",
+        "es": "El costo laboral por hora del chef o del personal que prepara el plato."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Preparation Time",
         "tr": "Hazırlık Süresi",
         "de": "Zubereitungszeit",
-        "fr": "Preparation Time",
-        "es": "Preparation Time",
+        "fr": "Temps de préparation",
+        "es": "Tiempo de preparación",
         "ar": "Preparation Time"
       },
       "businessContext_i18n": {
         "en": "The total time in minutes required to prepare the dish.",
-        "tr": "Yemeği hazırlamak için gereken toplam süre (dakika cinsinden)."
+        "tr": "Yemeği hazırlamak için gereken toplam süre (dakika cinsinden).",
+        "de": "Die Gesamtzeit in Minuten, die für die Zubereitung des Gerichts erforderlich ist.",
+        "fr": "Le temps total en minutes nécessaire pour préparer le plat.",
+        "es": "El tiempo total en minutos requerido para preparar el plato."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Overhead Percentage",
         "tr": "Genel Gider Yüzdesi",
         "de": "Gemeinkostenprozentsatz",
-        "fr": "Overhead Percentage",
-        "es": "Overhead Percentage",
+        "fr": "Pourcentage de frais généraux",
+        "es": "Porcentaje de gastos generales",
         "ar": "Overhead Percentage"
       },
       "businessContext_i18n": {
         "en": "The overhead costs as a percentage of the total direct costs (e.g., rent, utilities).",
-        "tr": "Toplam doğrudan maliyetlerin yüzdesi olarak genel giderler (ör. kira, elektrik)."
+        "tr": "Toplam doğrudan maliyetlerin yüzdesi olarak genel giderler (ör. kira, elektrik).",
+        "de": "Die Gemeinkosten als Prozentsatz der gesamten direkten Kosten (z. B. Miete, Nebenkosten).",
+        "fr": "Les frais généraux en pourcentage des coûts directs totaux (ex. loyer, services publics).",
+        "es": "Los costos indirectos como porcentaje de los costos directos totales (p. ej., alquiler, servicios públicos)."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Desired Profit Margin",
         "tr": "Hedef Kar Marjı",
         "de": "Gewünschte Gewinnspanne",
-        "fr": "Desired Profit Margin",
-        "es": "Desired Profit Margin",
+        "fr": "Marge bénéficiaire souhaitée",
+        "es": "Margen de beneficio deseado",
         "ar": "Desired Profit Margin"
       },
       "businessContext_i18n": {
         "en": "The target profit margin on the selling price.",
-        "tr": "Satış fiyatı üzerinden hedeflenen kar marjı."
+        "tr": "Satış fiyatı üzerinden hedeflenen kar marjı.",
+        "de": "Die angestrebte Gewinnmarge auf den Verkaufspreis.",
+        "fr": "La marge bénéficiaire cible sur le prix de vente.",
+        "es": "El margen de beneficio objetivo sobre el precio de venta."
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Number of Servings",
         "tr": "Porsiyon Sayısı",
         "de": "Anzahl der Portionen",
-        "fr": "Number of Servings",
-        "es": "Number of Servings",
+        "fr": "Nombre de portions",
+        "es": "Número de porciones",
         "ar": "Number of Servings"
       },
       "businessContext_i18n": {
         "en": "The number of servings the recipe yields.",
-        "tr": "Tarifin verdiği porsiyon sayısı."
+        "tr": "Tarifin verdiği porsiyon sayısı.",
+        "de": "Die Anzahl der Portionen, die das Rezept ergibt.",
+        "fr": "Le nombre de portions que la recette produit.",
+        "es": "El número de porciones que rinde la receta."
       }
     }
   ],

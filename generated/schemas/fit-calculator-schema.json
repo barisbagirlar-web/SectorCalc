@@ -12,14 +12,16 @@
         "en": "Nominal Çap",
         "tr": "Nominal Çap",
         "de": "Nominal çap",
-        "fr": "Nominal Çap",
-        "es": "Nominal Çap",
+        "fr": "Diamètre nominal",
+        "es": "Diámetro nominal",
         "ar": "Nominal Çap"
       },
       "businessContext_i18n": {
         "en": "Mil ve delik için ortak nominal çap",
         "tr": "Mil ve delik için ortak nominal çap",
-        "de": "Mil ve delik için ortak nominal çap"
+        "de": "Gemeinsamer Nenndurchmesser für Welle und Bohrung",
+        "fr": "Diamètre nominal commun pour arbre et alésage",
+        "es": "Diámetro nominal común para eje y agujero"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Delik Üst Sapma",
         "tr": "Delik Üst Sapma",
         "de": "Delik üst sapma",
-        "fr": "Delik Üst Sapma",
-        "es": "Delik Üst Sapma",
+        "fr": "Écart supérieur de l'alésage",
+        "es": "Desviación superior del agujero",
         "ar": "Delik Üst Sapma"
       },
       "businessContext_i18n": {
         "en": "Delik tolerans üst sınır sapması (örn. H7 için +0.025mm)",
         "tr": "Delik tolerans üst sınır sapması (örn. H7 için +0.025mm)",
-        "de": "Delik tolerans üst sınır sapması (örn. H7 için +0.025mm)"
+        "de": "Obere Abweichung der Bohrungstoleranz (z. B. für H7 +0,025 mm)",
+        "fr": "Écart limite supérieur de tolérance de l'alésage (ex. pour H7 +0,025mm)",
+        "es": "Desviación del límite superior de tolerancia del agujero (ej. para H7 +0.025mm)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Delik Alt Sapma",
         "tr": "Delik Alt Sapma",
         "de": "Delik alt sapma",
-        "fr": "Delik Alt Sapma",
-        "es": "Delik Alt Sapma",
+        "fr": "Écart inférieur de l'alésage",
+        "es": "Desviación inferior del agujero",
         "ar": "Delik Alt Sapma"
       },
       "businessContext_i18n": {
         "en": "Delik tolerans alt sınır sapması (örn. H7 için 0)",
         "tr": "Delik tolerans alt sınır sapması (örn. H7 için 0)",
-        "de": "Delik tolerans alt sınır sapması (örn. H7 için 0)"
+        "de": "Untere Abweichung der Bohrungstoleranz (z. B. für H7 0)",
+        "fr": "Écart inférieur de tolérance de l'alésage (ex. 0 pour H7)",
+        "es": "Desviación del límite inferior de tolerancia del agujero (ej. para H7 0)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Mil Üst Sapma",
         "tr": "Mil Üst Sapma",
         "de": "Mil üst sapma",
-        "fr": "Mil Üst Sapma",
-        "es": "Mil Üst Sapma",
+        "fr": "Écart supérieur de l'arbre",
+        "es": "Desviación superior del eje",
         "ar": "Mil Üst Sapma"
       },
       "businessContext_i18n": {
         "en": "Mil tolerans üst sınır sapması (örn. h6 için 0)",
         "tr": "Mil tolerans üst sınır sapması (örn. h6 için 0)",
-        "de": "Mil tolerans üst sınır sapması (örn. h6 için 0)"
+        "de": "Obere Abweichung der Wellentoleranz (z. B. für h6 0)",
+        "fr": "Écart supérieur de tolérance de l'arbre (ex. 0 pour h6)",
+        "es": "Desviación superior del límite de tolerancia del eje (ej. 0 para h6)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Mil Alt Sapma",
         "tr": "Mil Alt Sapma",
         "de": "Mil alt sapma",
-        "fr": "Mil Alt Sapma",
-        "es": "Mil Alt Sapma",
+        "fr": "Écart inférieur de l'arbre",
+        "es": "Desviación inferior del eje",
         "ar": "Mil Alt Sapma"
       },
       "businessContext_i18n": {
         "en": "Mil tolerans alt sınır sapması (örn. h6 için -0.016mm)",
         "tr": "Mil tolerans alt sınır sapması (örn. h6 için -0.016mm)",
-        "de": "Mil tolerans alt sınır sapması (örn. h6 için -0.016mm)"
+        "de": "Untere Abweichung der Wellentoleranz (z. B. für h6 -0,016 mm)",
+        "fr": "Écart inférieur de tolérance de l'arbre (ex. -0,016 mm pour h6)",
+        "es": "Desviación inferior del límite de tolerancia del eje (ej. -0.016mm para h6)"
       }
     }
   ],

@@ -12,13 +12,15 @@
         "en": "Mass Flow Rate",
         "tr": "Kütlesel Debi",
         "de": "Massenstrom",
-        "fr": "Mass Flow Rate",
-        "es": "Mass Flow Rate",
+        "fr": "Débit massique",
+        "es": "Caudal másico",
         "ar": "Mass Flow Rate"
       },
       "businessContext_i18n": {
         "en": "The rate at which mass is expelled from the propulsion system.",
-        "tr": "Tahrik sisteminden atılan kütle akış hızı."
+        "tr": "Tahrik sisteminden atılan kütle akış hızı.",
+        "de": "Die Rate, mit der Masse aus dem Antriebssystem ausgestoßen wird.",
+        "fr": "Le débit massique éjecté du système de propulsion."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Exhaust Velocity",
         "tr": "Egzoz Hızı",
-        "de": "Exhaust Velocity",
-        "fr": "Exhaust Velocity",
+        "de": "Austrittsgeschwindigkeit",
+        "fr": "Vitesse d'éjection",
         "es": "Exhaust Velocity",
         "ar": "Exhaust Velocity"
       },
       "businessContext_i18n": {
         "en": "The velocity of the exhaust gases relative to the engine.",
-        "tr": "Egzoz gazlarının motora göre hızı."
+        "tr": "Egzoz gazlarının motora göre hızı.",
+        "de": "Die Geschwindigkeit der Abgase relativ zum Triebwerk.",
+        "fr": "La vitesse des gaz d'échappement par rapport au moteur."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Exit Pressure",
         "tr": "Çıkış Basıncı",
-        "de": "Exit Pressure",
-        "fr": "Exit Pressure",
+        "de": "Austrittsdruck",
+        "fr": "Pression de sortie",
         "es": "Exit Pressure",
         "ar": "Exit Pressure"
       },
       "businessContext_i18n": {
         "en": "The static pressure at the nozzle exit plane.",
-        "tr": "Nozul çıkış düzlemindeki statik basınç."
+        "tr": "Nozul çıkış düzlemindeki statik basınç.",
+        "de": "Der statische Druck an der Düsenaustrittsebene.",
+        "fr": "La pression statique au plan de sortie de la tuyère."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Ambient Pressure",
         "tr": "Ortam basıncı",
         "de": "Umgebungsdruck",
-        "fr": "Ambient Pressure",
-        "es": "Ambient Pressure",
+        "fr": "Pression ambiante",
+        "es": "Presión ambiente",
         "ar": "Ambient Pressure"
       },
       "businessContext_i18n": {
         "en": "The pressure of the surrounding environment.",
-        "tr": "Çevre ortamının basıncı."
+        "tr": "Çevre ortamının basıncı.",
+        "de": "Der Druck der Umgebung.",
+        "fr": "La pression de l'environnement environnant."
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Exit Area",
         "tr": "Çıkış Alanı",
         "de": "Austrittsfläche",
-        "fr": "Exit Area",
-        "es": "Exit Area",
+        "fr": "Aire de sortie",
+        "es": "Área de salida",
         "ar": "Exit Area"
       },
       "businessContext_i18n": {
         "en": "The cross-sectional area of the nozzle exit.",
-        "tr": "Nozul çıkışının kesit alanı."
+        "tr": "Nozul çıkışının kesit alanı.",
+        "de": "Die Querschnittsfläche des Düsenaustritts.",
+        "fr": "La section transversale de la sortie de la buse."
       }
     }
   ],

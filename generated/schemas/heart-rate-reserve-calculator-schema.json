@@ -12,14 +12,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Age of the individual in years, used to estimate maximum heart rate if not explicitly provided",
         "tr": "Bireyin yaşı (yıl olarak); açıkça belirtilmezse maksimum kalp atış hızını tahmin etmek için kullanılır",
-        "de": "Alter der Person in Jahren, wird zur Schätzung der maximalen Herzfrequenz verwendet, falls nicht explizit angegeben"
+        "de": "Alter der Person in Jahren, wird zur Schätzung der maximalen Herzfrequenz verwendet, falls nicht explizit angegeben",
+        "fr": "Âge de l'individu en années, utilisé pour estimer la fréquence cardiaque maximale si non fournie explicitement",
+        "es": "Edad del individuo en años, utilizada para estimar la frecuencia cardíaca máxima si no se proporciona explícitamente"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Resting Heart Rate",
         "tr": "Dinlenme Kalp Atış Hızı",
         "de": "Ruhepuls",
-        "fr": "Resting Heart Rate",
-        "es": "Resting Heart Rate",
+        "fr": "Fréquence cardiaque au repos",
+        "es": "Frecuencia cardíaca en reposo",
         "ar": "Resting Heart Rate"
       },
       "businessContext_i18n": {
         "en": "Resting heart rate measured in the morning before any activity, in beats per minute",
         "tr": "Sabah herhangi bir aktiviteden önce ölçülen dinlenme kalp atış hızı (atım/dakika)",
-        "de": "Ruhepuls am Morgen vor jeder Aktivität, in Schlägen pro Minute"
+        "de": "Ruhepuls am Morgen vor jeder Aktivität, in Schlägen pro Minute",
+        "fr": "Fréquence cardiaque au repos mesurée le matin avant toute activité, en battements par minute",
+        "es": "Frecuencia cardíaca en reposo medida por la mañana antes de cualquier actividad, en latidos por minuto"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Maximum Heart Rate",
         "tr": "Maksimum Kalp Atış Hızı",
         "de": "Maximale Herzfrequenz",
-        "fr": "Maximum Heart Rate",
-        "es": "Maximum Heart Rate",
+        "fr": "Fréquence cardiaque maximale",
+        "es": "Frecuencia cardíaca máxima",
         "ar": "Maximum Heart Rate"
       },
       "businessContext_i18n": {
         "en": "Maximum heart rate in beats per minute; if set to 0, it is estimated as 220 minus age",
         "tr": "Maksimum kalp atış hızı (atım/dakika); 0 girilirse 220 eksi yaş olarak tahmin edilir",
-        "de": "Maximale Herzfrequenz in Schlägen pro Minute; bei 0 wird sie als 220 minus Alter geschätzt"
+        "de": "Maximale Herzfrequenz in Schlägen pro Minute; bei 0 wird sie als 220 minus Alter geschätzt",
+        "fr": "Fréquence cardiaque maximale en battements par minute ; si réglée à 0, elle est estimée à 220 moins l'âge",
+        "es": "Frecuencia cardíaca máxima en latidos por minuto; si se establece en 0, se estima como 220 menos la edad"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Training Intensity",
         "tr": "Antrenman Yoğunluğu",
         "de": "Trainingsintensität",
-        "fr": "Training Intensity",
-        "es": "Training Intensity",
+        "fr": "Intensité d'entraînement",
+        "es": "Intensidad de entrenamiento",
         "ar": "Training Intensity"
       },
       "businessContext_i18n": {
         "en": "Desired training intensity as a percentage of heart rate reserve (Karvonen method)",
         "tr": "Kalp atış hızı rezervinin yüzdesi olarak istenen antrenman yoğunluğu (Karvonen yöntemi)",
-        "de": "Gewünschte Trainingsintensität als Prozentsatz der Herzfrequenzreserve (Karvonen-Methode)"
+        "de": "Gewünschte Trainingsintensität als Prozentsatz der Herzfrequenzreserve (Karvonen-Methode)",
+        "fr": "Intensité d'entraînement souhaitée en pourcentage de la réserve de fréquence cardiaque (méthode de Karvonen)",
+        "es": "Intensidad de entrenamiento deseada como porcentaje de la reserva de frecuencia cardíaca (método de Karvonen)"
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Initial Weight",
         "tr": "Başlangıç Ağırlığı",
-        "de": "Initial Weight",
-        "fr": "Initial Weight",
+        "de": "Anfangsgewicht",
+        "fr": "Poids initial",
         "es": "Initial Weight",
         "ar": "Initial Weight"
       },
       "businessContext_i18n": {
         "en": "Weight of material at the start of the drying process",
-        "tr": "Kurutma işleminin başlangıcındaki malzeme ağırlığı"
+        "tr": "Kurutma işleminin başlangıcındaki malzeme ağırlığı",
+        "de": "Gewicht des Materials zu Beginn des Trocknungsprozesses",
+        "fr": "Poids du matériau au début du processus de séchage"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Dry Weight",
         "tr": "Kuru Ağırlık",
-        "de": "Dry Weight",
-        "fr": "Dry Weight",
+        "de": "Trockengewicht",
+        "fr": "Poids sec",
         "es": "Dry Weight",
         "ar": "Dry Weight"
       },
       "businessContext_i18n": {
         "en": "Asymptotic bone-dry weight of the material (lowest attainable weight)",
-        "tr": "Malzemenin asimptotik kemik kuru ağırlığı (ulaşılabilir en düşük ağırlık)"
+        "tr": "Malzemenin asimptotik kemik kuru ağırlığı (ulaşılabilir en düşük ağırlık)",
+        "de": "Asymptotisches knochentrockenes Gewicht des Materials (niedrigstes erreichbares Gewicht)",
+        "fr": "Poids asymptotique sec à l'os du matériau (poids le plus bas atteignable)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Target Weight",
         "tr": "Hedef Ağırlık",
-        "de": "Target Weight",
-        "fr": "Target Weight",
+        "de": "Zielgewicht",
+        "fr": "Poids cible",
         "es": "Target Weight",
         "ar": "Target Weight"
       },
       "businessContext_i18n": {
         "en": "Desired final weight after drying (must be > dryWeight)",
-        "tr": "Kurutma sonrası istenen nihai ağırlık (dryWeight'ten büyük olmalıdır)"
+        "tr": "Kurutma sonrası istenen nihai ağırlık (dryWeight'ten büyük olmalıdır)",
+        "de": "Gewünschtes Endgewicht nach Trocknung (muss > Trockengewicht sein)",
+        "fr": "Poids final souhaité après séchage (doit être > poids sec)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Drying Rate Constant",
         "tr": "Kurutma Hızı Sabiti",
-        "de": "Drying Rate Constant",
-        "fr": "Drying Rate Constant",
+        "de": "Trocknungsratenkonstante",
+        "fr": "Constante de taux de séchage",
         "es": "Drying Rate Constant",
         "ar": "Drying Rate Constant"
       },
       "businessContext_i18n": {
         "en": "Exponential drying constant (k) characterizing the speed of moisture removal",
-        "tr": "Nem giderme hızını karakterize eden üstel kurutma sabiti (k)"
+        "tr": "Nem giderme hızını karakterize eden üstel kurutma sabiti (k)",
+        "de": "Exponentielle Trocknungskonstante (k), die die Geschwindigkeit der Feuchtigkeitsentfernung charakterisiert",
+        "fr": "Constante de séchage exponentielle (k) caractérisant la vitesse d'élimination de l'humidité"
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Process Efficiency",
         "tr": "Proses Verimliliği",
         "de": "Prozesseffizienz",
-        "fr": "Process Efficiency",
-        "es": "Process Efficiency",
+        "fr": "Efficacité du processus",
+        "es": "Eficiencia del proceso",
         "ar": "Process Efficiency"
       },
       "businessContext_i18n": {
         "en": "Efficiency factor (0–100) scaling the effective drying rate",
-        "tr": "Verimlilik faktörü (0–100), efektif kurutma hızını ölçekler"
+        "tr": "Verimlilik faktörü (0–100), efektif kurutma hızını ölçekler",
+        "de": "Wirkungsgradfaktor (0–100), der die effektive Trocknungsrate skaliert",
+        "fr": "Facteur d'efficacité (0–100) ajustant le taux de séchage effectif"
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Setup Time",
         "tr": "Kurulum Süresi",
         "de": "Rüstzeit",
-        "fr": "Setup Time",
-        "es": "Setup Time",
+        "fr": "Temps de réglage",
+        "es": "Tiempo de preparación",
         "ar": "Setup Time"
       },
       "businessContext_i18n": {
         "en": "Initial handling or delay time before active drying begins",
-        "tr": "Aktif kurutma başlamadan önceki ilk işlem veya gecikme süresi"
+        "tr": "Aktif kurutma başlamadan önceki ilk işlem veya gecikme süresi",
+        "de": "Anfängliche Handhabungs- oder Verzögerungszeit vor Beginn der aktiven Trocknung",
+        "fr": "Temps de manutention ou de délai initial avant le début du séchage actif"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Dynamic Viscosity (μ)",
         "tr": "Dinamik Viskozite (μ)",
-        "de": "Dynamic Viscosity (μ)",
-        "fr": "Dynamic Viscosity (μ)",
-        "es": "Dynamic Viscosity (μ)",
+        "de": "Dynamische Viskosität (μ)",
+        "fr": "Viscosité dynamique (μ)",
+        "es": "Viscosidad dinámica (μ)",
         "ar": "Dynamic Viscosity (μ)"
       },
       "businessContext_i18n": {
         "en": "Fluid’s dynamic viscosity in Pascal-seconds (1 Pa·s = 1 N·s/m² = 10 P)",
-        "tr": "Pascal-saniye cinsinden akışkanın dinamik viskozitesi (1 Pa·s = 1 N·s/m² = 10 P)"
+        "tr": "Pascal-saniye cinsinden akışkanın dinamik viskozitesi (1 Pa·s = 1 N·s/m² = 10 P)",
+        "de": "Dynamische Viskosität des Fluids in Pascal-Sekunden (1 Pa·s = 1 N·s/m² = 10 P)",
+        "fr": "Viscosité dynamique du fluide en pascal-secondes (1 Pa·s = 1 N·s/m² = 10 P)",
+        "es": "Viscosidad dinámica del fluido en Pascal-segundo (1 Pa·s = 1 N·s/m² = 10 P)"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Density (ρ)",
         "tr": "Yoğunluk (ρ)",
         "de": "Dichte (ρ)",
-        "fr": "Density (ρ)",
-        "es": "Density (ρ)",
+        "fr": "Masse volumique (ρ)",
+        "es": "Densidad (ρ)",
         "ar": "Density (ρ)"
       },
       "businessContext_i18n": {
         "en": "Fluid’s mass density in kg/m³ (water ≈ 1000 kg/m³)",
-        "tr": "Akışkanın kütle yoğunluğu kg/m³ cinsinden (su ≈ 1000 kg/m³)"
+        "tr": "Akışkanın kütle yoğunluğu kg/m³ cinsinden (su ≈ 1000 kg/m³)",
+        "de": "Massendichte des Fluids in kg/m³ (Wasser ≈ 1000 kg/m³)",
+        "fr": "Masse volumique du fluide en kg/m³ (eau ≈ 1000 kg/m³)",
+        "es": "Densidad másica del fluido en kg/m³ (agua ≈ 1000 kg/m³)"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Flow Velocity (v)",
         "tr": "Akış Hızı (v)",
         "de": "Strömungsgeschwindigkeit (v)",
-        "fr": "Flow Velocity (v)",
-        "es": "Flow Velocity (v)",
+        "fr": "Vitesse d'écoulement (v)",
+        "es": "Velocidad del flujo (v)",
         "ar": "Flow Velocity (v)"
       },
       "businessContext_i18n": {
         "en": "Mean flow velocity (m/s)",
-        "tr": "Ortalama akış hızı (m/s)"
+        "tr": "Ortalama akış hızı (m/s)",
+        "de": "Mittlere Strömungsgeschwindigkeit (m/s)",
+        "fr": "Vitesse moyenne d'écoulement (m/s)",
+        "es": "Velocidad media del flujo (m/s)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Characteristic Length (L)",
         "tr": "Karakteristik Uzunluk (L)",
-        "de": "Characteristic Length (L)",
-        "fr": "Characteristic Length (L)",
-        "es": "Characteristic Length (L)",
+        "de": "Charakteristische Länge (L)",
+        "fr": "Longueur caractéristique (L)",
+        "es": "Longitud característica (L)",
         "ar": "Characteristic Length (L)"
       },
       "businessContext_i18n": {
         "en": "Characteristic linear dimension (e.g., pipe diameter) in meters",
-        "tr": "Metre cinsinden karakteristik doğrusal boyut (ör. boru çapı)"
+        "tr": "Metre cinsinden karakteristik doğrusal boyut (ör. boru çapı)",
+        "de": "Charakteristische lineare Abmessung (z. B. Rohrdurchmesser) in Metern",
+        "fr": "Dimension linéaire caractéristique (ex. diamètre du tuyau) en mètres",
+        "es": "Dimensión lineal característica (p. ej., diámetro de tubería) en metros"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Leagues",
         "tr": "Lig",
-        "de": "Leagues",
-        "fr": "Leagues",
-        "es": "Leagues",
+        "de": "Meilen",
+        "fr": "Ligues",
+        "es": "Leguas",
         "ar": "Leagues"
       },
       "businessContext_i18n": {
         "en": "Distance in leagues to convert",
-        "tr": "Dönüştürülecek lig cinsinden mesafe"
+        "tr": "Dönüştürülecek lig cinsinden mesafe",
+        "de": "Entfernung in Meilen zur Umrechnung",
+        "fr": "Distance en ligues à convertir",
+        "es": "Distancia en leguas a convertir"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "League Type",
         "tr": "Lig Türü",
-        "de": "League Type",
-        "fr": "League Type",
-        "es": "League Type",
+        "de": "Meilentyp",
+        "fr": "Type de ligue",
+        "es": "Tipo de Legua",
         "ar": "League Type"
       },
       "businessContext_i18n": {
         "en": "0: Statute (3 mi/lg), 1: Nautical (3.452 mi/lg), 2: Metric (2.485 mi/lg)",
-        "tr": "0: Kara (3 mil/lg), 1: Deniz (3.452 mil/lg), 2: Metrik (2.485 mil/lg)"
+        "tr": "0: Kara (3 mil/lg), 1: Deniz (3.452 mil/lg), 2: Metrik (2.485 mil/lg)",
+        "de": "0: Statute (3 mi/lg), 1: Nautisch (3,452 mi/lg), 2: Metrisch (2,485 mi/lg)",
+        "fr": "0 : Statutaire (3 mi/lg), 1 : Nautique (3,452 mi/lg), 2 : Métrique (2,485 mi/lg)",
+        "es": "0: Estatutaria (3 mi/lg), 1: Náutica (3.452 mi/lg), 2: Métrica (2.485 mi/lg)"
       }
     },
     {
@@ -52,14 +58,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounded output",
         "tr": "Yuvarlatılmış çıktı için ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen für die gerundete Ausgabe"
+        "de": "Anzahl der Dezimalstellen für die gerundete Ausgabe",
+        "fr": "Nombre de décimales pour le résultat arrondi",
+        "es": "Número de decimales para la salida redondeada"
       }
     },
     {
@@ -72,14 +80,17 @@
       "label_i18n": {
         "en": "Custom Factor (0=use type)",
         "tr": "Özel Faktör (0=türü kullan)",
-        "de": "Custom Factor (0=use type)",
-        "fr": "Custom Factor (0=use type)",
-        "es": "Custom Factor (0=use type)",
+        "de": "Benutzerdefinierter Faktor (0 = Typ verwenden)",
+        "fr": "Facteur personnalisé (0 = utiliser le type)",
+        "es": "Factor Personalizado (0=usar tipo)",
         "ar": "Custom Factor (0=use type)"
       },
       "businessContext_i18n": {
         "en": "Override miles per league; if zero, uses league type default",
-        "tr": "Mil/lig değerini geçersiz kılar; sıfırsa lig türü varsayılanını kullanır"
+        "tr": "Mil/lig değerini geçersiz kılar; sıfırsa lig türü varsayılanını kullanır",
+        "de": "Überschreibt Meilen pro Liga; wenn Null, wird der Standard des Ligentyps verwendet",
+        "fr": "Remplacer les miles par ligue ; si zéro, utilise la valeur par défaut du type de ligue",
+        "es": "Anular millas por legua; si es cero, usa el valor predeterminado del tipo de legua"
       }
     }
   ],

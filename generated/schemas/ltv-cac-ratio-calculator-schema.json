@@ -12,13 +12,16 @@
         "en": "Aylık Ortalama Gelir (ARPU)",
         "tr": "Aylık Ortalama Gelir (ARPU)",
         "de": "Aylık Ortalama Gelir (ARPU)",
-        "fr": "Aylık Ortalama Gelir (ARPU)",
-        "es": "Aylık Ortalama Gelir (ARPU)",
+        "fr": "Revenu moyen par utilisateur (ARPU)",
+        "es": "Ingreso Promedio por Usuario (ARPU) Mensual",
         "ar": "Aylık Ortalama Gelir (ARPU)"
       },
       "businessContext_i18n": {
         "en": "Bir müşteriden aylık olarak elde edilen ortalama gelir.",
-        "tr": "Bir müşteriden aylık olarak elde edilen ortalama gelir."
+        "tr": "Bir müşteriden aylık olarak elde edilen ortalama gelir.",
+        "de": "Bir müşteriden aylık olarak elde edilen ortalama gelir.",
+        "fr": "Revenu moyen mensuel par client.",
+        "es": "Ingreso promedio obtenido de un cliente por mes."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Brüt Kar Marjı (%)",
         "tr": "Brüt Kar Marjı (%)",
         "de": "Brüt Kar Marjı (%)",
-        "fr": "Brüt Kar Marjı (%)",
-        "es": "Brüt Kar Marjı (%)",
+        "fr": "Marge brute (%)",
+        "es": "Margen de Beneficio Bruto (%)",
         "ar": "Brüt Kar Marjı (%)"
       },
       "businessContext_i18n": {
         "en": "Satılan her birim ürün/hizmetten elde edilen brüt kar yüzdesi.",
-        "tr": "Satılan her birim ürün/hizmetten elde edilen brüt kar yüzdesi."
+        "tr": "Satılan her birim ürün/hizmetten elde edilen brüt kar yüzdesi.",
+        "de": "Satılan her birim ürün/hizmetten elde edilen brüt kar yüzdesi.",
+        "fr": "Pourcentage de marge brute sur chaque unité de produit/service vendue.",
+        "es": "Porcentaje de beneficio bruto obtenido por cada unidad de producto/servicio vendida."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Aylık Kayıp Oranı (%)",
         "tr": "Aylık Kayıp Oranı (%)",
         "de": "Aylık Kayıp Oranı (%)",
-        "fr": "Aylık Kayıp Oranı (%)",
-        "es": "Aylık Kayıp Oranı (%)",
+        "fr": "Taux de perte mensuel (%)",
+        "es": "Tasa de Pérdida Mensual (%)",
         "ar": "Aylık Kayıp Oranı (%)"
       },
       "businessContext_i18n": {
         "en": "Her ay müşteri tabanının ne kadarının kaybedildiğini gösteren oran.",
-        "tr": "Her ay müşteri tabanının ne kadarının kaybedildiğini gösteren oran."
+        "tr": "Her ay müşteri tabanının ne kadarının kaybedildiğini gösteren oran.",
+        "de": "Her ay müşteri tabanının ne kadarının kaybedildiğini gösteren oran.",
+        "fr": "Taux indiquant la proportion de la clientèle perdue chaque mois.",
+        "es": "Porcentaje de la base de clientes que se pierde cada mes."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "İskonto Oranı (%)",
         "tr": "İskonto Oranı (%)",
-        "de": "İskonto Oranı (%)",
-        "fr": "İskonto Oranı (%)",
-        "es": "İskonto Oranı (%)",
+        "de": "Diskontsatz (%)",
+        "fr": "Taux d'actualisation (%)",
+        "es": "Tasa de descuento (%)",
         "ar": "İskonto Oranı (%)"
       },
       "businessContext_i18n": {
         "en": "Gelecekteki nakit akışlarının bugünkü değerini bulmak için kullanılan yıllık iskonto oranı.",
-        "tr": "Gelecekteki nakit akışlarının bugünkü değerini bulmak için kullanılan yıllık iskonto oranı."
+        "tr": "Gelecekteki nakit akışlarının bugünkü değerini bulmak için kullanılan yıllık iskonto oranı.",
+        "de": "Jährlicher Diskontsatz zur Berechnung des Barwerts zukünftiger Zahlungsströme.",
+        "fr": "Taux d'actualisation annuel utilisé pour calculer la valeur actuelle des flux de trésorerie futurs.",
+        "es": "Tasa de descuento anual utilizada para calcular el valor presente de los flujos de efectivo futuros."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Toplam Edinme Maliyeti",
         "tr": "Toplam Edinme Maliyeti",
-        "de": "Toplam Edinme Maliyeti",
-        "fr": "Toplam Edinme Maliyeti",
-        "es": "Toplam Edinme Maliyeti",
+        "de": "Gesamtakquisitionskosten",
+        "fr": "Coût total d'acquisition",
+        "es": "Costo total de adquisición",
         "ar": "Toplam Edinme Maliyeti"
       },
       "businessContext_i18n": {
         "en": "Belirli bir dönemdeki toplam pazarlama ve satış harcamaları.",
-        "tr": "Belirli bir dönemdeki toplam pazarlama ve satış harcamaları."
+        "tr": "Belirli bir dönemdeki toplam pazarlama ve satış harcamaları.",
+        "de": "Gesamte Marketing- und Vertriebsausgaben in einem bestimmten Zeitraum.",
+        "fr": "Dépenses totales de marketing et de vente sur une période donnée.",
+        "es": "Gastos totales de marketing y ventas en un período determinado."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Kazanılan Yeni Müşteri Sayısı",
         "tr": "Kazanılan Yeni Müşteri Sayısı",
-        "de": "Kazanılan Yeni Müşteri Sayısı",
-        "fr": "Kazanılan Yeni Müşteri Sayısı",
-        "es": "Kazanılan Yeni Müşteri Sayısı",
+        "de": "Anzahl neuer Kunden",
+        "fr": "Nombre de nouveaux clients acquis",
+        "es": "Número de nuevos clientes adquiridos",
         "ar": "Kazanılan Yeni Müşteri Sayısı"
       },
       "businessContext_i18n": {
         "en": "Aynı dönemde kazanılan yeni müşteri sayısı.",
-        "tr": "Aynı dönemde kazanılan yeni müşteri sayısı."
+        "tr": "Aynı dönemde kazanılan yeni müşteri sayısı.",
+        "de": "Anzahl der im selben Zeitraum gewonnenen Neukunden.",
+        "fr": "Nombre de nouveaux clients acquis au cours de la même période.",
+        "es": "Número de nuevos clientes adquiridos en el mismo período."
       }
     }
   ],

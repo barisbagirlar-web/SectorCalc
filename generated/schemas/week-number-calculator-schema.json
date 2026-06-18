@@ -12,13 +12,15 @@
         "en": "Yıl",
         "tr": "Yıl",
         "de": "Jahr",
-        "fr": "Yıl",
-        "es": "Yıl",
+        "fr": "Année",
+        "es": "Año",
         "ar": "Yıl"
       },
       "businessContext_i18n": {
         "en": "Hafta numarası hesaplanacak yıl",
-        "tr": "Hafta numarası hesaplanacak yıl"
+        "tr": "Hafta numarası hesaplanacak yıl",
+        "de": "Jahr für die Berechnung der Wochennummer",
+        "fr": "Année pour le calcul du numéro de semaine"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Ay",
         "tr": "Ay",
         "de": "Monat",
-        "fr": "Ay",
-        "es": "Ay",
+        "fr": "Mois",
+        "es": "Mes",
         "ar": "Ay"
       },
       "businessContext_i18n": {
         "en": "Hafta numarası hesaplanacak ay (1-12)",
-        "tr": "Hafta numarası hesaplanacak ay (1-12)"
+        "tr": "Hafta numarası hesaplanacak ay (1-12)",
+        "de": "Monat für die Berechnung der Wochennummer (1-12)",
+        "fr": "Mois pour le calcul du numéro de semaine (1-12)"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Gün",
         "tr": "Gün",
         "de": "Tag",
-        "fr": "Gün",
-        "es": "Gün",
+        "fr": "Jour",
+        "es": "Día",
         "ar": "Gün"
       },
       "businessContext_i18n": {
         "en": "Hafta numarası hesaplanacak gün (1-31)",
-        "tr": "Hafta numarası hesaplanacak gün (1-31)"
+        "tr": "Hafta numarası hesaplanacak gün (1-31)",
+        "de": "Tag für die Berechnung der Wochennummer (1-31)",
+        "fr": "Jour pour le calcul du numéro de semaine (1-31)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Hafta Başlangıç Günü",
         "tr": "Hafta Başlangıç Günü",
-        "de": "Hafta Başlangıç Günü",
-        "fr": "Hafta Başlangıç Günü",
+        "de": "Starttag der Woche",
+        "fr": "Jour de début de semaine",
         "es": "Hafta Başlangıç Günü",
         "ar": "Hafta Başlangıç Günü"
       },
       "businessContext_i18n": {
         "en": "Haftanın başladığı gün (0=Pazar, 1=Pazartesi, ..., 6=Cumartesi)",
-        "tr": "Haftanın başladığı gün (0=Pazar, 1=Pazartesi, ..., 6=Cumartesi)"
+        "tr": "Haftanın başladığı gün (0=Pazar, 1=Pazartesi, ..., 6=Cumartesi)",
+        "de": "Tag, an dem die Woche beginnt (0=Sonntag, 1=Montag, ..., 6=Samstag)",
+        "fr": "Jour de début de semaine (0=Dimanche, 1=Lundi, ..., 6=Samedi)"
       }
     }
   ],

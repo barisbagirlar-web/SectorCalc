@@ -12,13 +12,15 @@
         "en": "Wavelength (λ)",
         "tr": "Dalga Boyu (λ)",
         "de": "Wellenlänge (λ)",
-        "fr": "Wavelength (λ)",
-        "es": "Wavelength (λ)",
+        "fr": "Longueur d'onde (λ)",
+        "es": "Longitud de onda (λ)",
         "ar": "Wavelength (λ)"
       },
       "businessContext_i18n": {
         "en": "Light wavelength in vacuum",
-        "tr": "Işığın vakumdaki dalga boyu"
+        "tr": "Işığın vakumdaki dalga boyu",
+        "de": "Lichtwellenlänge im Vakuum",
+        "fr": "Longueur d'onde de la lumière dans le vide"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Slit Separation (d)",
         "tr": "Yarık Ayrımı (d)",
-        "de": "Slit Separation (d)",
-        "fr": "Slit Separation (d)",
+        "de": "Spaltabstand (d)",
+        "fr": "Séparation des fentes (d)",
         "es": "Slit Separation (d)",
         "ar": "Slit Separation (d)"
       },
       "businessContext_i18n": {
         "en": "Distance between the two slits",
-        "tr": "İki yarık arasındaki mesafe"
+        "tr": "İki yarık arasındaki mesafe",
+        "de": "Abstand zwischen den beiden Spalten",
+        "fr": "Distance entre les deux fentes"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Screen Distance (L)",
         "tr": "Ekran Mesafesi (L)",
-        "de": "Screen Distance (L)",
-        "fr": "Screen Distance (L)",
+        "de": "Schirmabstand (L)",
+        "fr": "Distance de l'écran (L)",
         "es": "Screen Distance (L)",
         "ar": "Screen Distance (L)"
       },
       "businessContext_i18n": {
         "en": "Distance from slits to observation screen",
-        "tr": "Yarıklardan gözlem ekranına olan mesafe"
+        "tr": "Yarıklardan gözlem ekranına olan mesafe",
+        "de": "Abstand von den Spalten zum Beobachtungsschirm",
+        "fr": "Distance des fentes à l'écran d'observation"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Fringe Order (m)",
         "tr": "Saçak Sırası (m)",
-        "de": "Fringe Order (m)",
-        "fr": "Fringe Order (m)",
+        "de": "Streifenordnung (m)",
+        "fr": "Ordre de la frange (m)",
         "es": "Fringe Order (m)",
         "ar": "Fringe Order (m)"
       },
       "businessContext_i18n": {
         "en": "Order number of the bright fringe (0 for central)",
-        "tr": "Parlak saçağın sıra numarası (merkez için 0)"
+        "tr": "Parlak saçağın sıra numarası (merkez için 0)",
+        "de": "Ordnungszahl des hellen Streifens (0 für zentral)",
+        "fr": "Numéro d'ordre de la frange brillante (0 pour la centrale)"
       }
     }
   ],

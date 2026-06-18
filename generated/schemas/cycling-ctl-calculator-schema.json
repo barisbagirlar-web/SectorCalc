@@ -12,14 +12,16 @@
         "en": "Current CTL",
         "tr": "Mevcut CTL",
         "de": "Aktueller CTL",
-        "fr": "Current CTL",
-        "es": "Current CTL",
+        "fr": "CTL actuel",
+        "es": "CTL actual",
         "ar": "Current CTL"
       },
       "businessContext_i18n": {
         "en": "Current Chronic Training Load value",
         "tr": "Mevcut Kronik Antrenman Yükü değeri",
-        "de": "Aktueller Wert der chronischen Trainingsbelastung"
+        "de": "Aktueller Wert der chronischen Trainingsbelastung",
+        "fr": "Valeur actuelle de la charge d'entraînement chronique",
+        "es": "Valor actual de la carga de entrenamiento crónica"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Daily TSS",
         "tr": "Günlük TSS",
         "de": "Täglicher TSS",
-        "fr": "Daily TSS",
-        "es": "Daily TSS",
+        "fr": "TSS quotidien",
+        "es": "TSS diario",
         "ar": "Daily TSS"
       },
       "businessContext_i18n": {
         "en": "Training Stress Score per day for the forecast period",
         "tr": "Tahmin dönemi için günlük Antrenman Stres Skoru",
-        "de": "Training Stress Score pro Tag für den Prognosezeitraum"
+        "de": "Training Stress Score pro Tag für den Prognosezeitraum",
+        "fr": "Score de stress d'entraînement par jour pour la période de prévision",
+        "es": "Puntuación de estrés de entrenamiento por día para el período de pronóstico"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Time Constant",
         "tr": "Zaman Sabiti",
         "de": "Zeitkonstante",
-        "fr": "Time Constant",
-        "es": "Time Constant",
+        "fr": "Constante de temps",
+        "es": "Constante de tiempo",
         "ar": "Time Constant"
       },
       "businessContext_i18n": {
         "en": "Decay time constant for CTL (typically 42 days)",
         "tr": "CTL için sönüm zaman sabiti (genellikle 42 gün)",
-        "de": "Abfallzeitkonstante für CTL (typischerweise 42 Tage)"
+        "de": "Abfallzeitkonstante für CTL (typischerweise 42 Tage)",
+        "fr": "Constante de temps de décroissance pour CTL (généralement 42 jours)",
+        "es": "Constante de tiempo de decaimiento para CTL (típicamente 42 días)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Number of Days",
         "tr": "Gün Sayısı",
         "de": "Anzahl der Tage",
-        "fr": "Number of Days",
-        "es": "Number of Days",
+        "fr": "Nombre de jours",
+        "es": "Número de días",
         "ar": "Number of Days"
       },
       "businessContext_i18n": {
         "en": "Number of consecutive days with the given Daily TSS",
         "tr": "Verilen Günlük TSS ile ardışık gün sayısı",
-        "de": "Anzahl aufeinanderfolgender Tage mit dem angegebenen täglichen TSS"
+        "de": "Anzahl aufeinanderfolgender Tage mit dem angegebenen täglichen TSS",
+        "fr": "Nombre de jours consécutifs avec le TSS quotidien donné",
+        "es": "Número de días consecutivos con el TSS diario dado"
       }
     }
   ],

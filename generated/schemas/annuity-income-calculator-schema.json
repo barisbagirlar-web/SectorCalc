@@ -12,14 +12,16 @@
         "en": "Principal Amount",
         "tr": "Anapara Tutarı",
         "de": "Kapitalbetrag",
-        "fr": "Principal Amount",
-        "es": "Principal Amount",
+        "fr": "Montant principal",
+        "es": "Monto principal",
         "ar": "Principal Amount"
       },
       "businessContext_i18n": {
         "en": "Initial lump sum investment",
         "tr": "Başlangıçtaki toplu yatırım",
-        "de": "Einmalige Anfangsinvestition"
+        "de": "Einmalige Anfangsinvestition",
+        "fr": "Investissement initial forfaitaire",
+        "es": "Inversión inicial única"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
         "de": "Jährlicher Zinssatz",
-        "fr": "Annual Interest Rate",
-        "es": "Annual Interest Rate",
+        "fr": "Taux d'intérêt annuel",
+        "es": "Tasa de Interés Anual",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Expected annual return rate",
         "tr": "Beklenen yıllık getiri oranı",
-        "de": "Erwartete jährliche Rendite"
+        "de": "Erwartete jährliche Rendite",
+        "fr": "Taux de rendement annuel attendu",
+        "es": "Tasa de rendimiento anual esperada"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Number of Periods",
         "tr": "Dönem Sayısı",
         "de": "Anzahl der Perioden",
-        "fr": "Number of Periods",
-        "es": "Number of Periods",
+        "fr": "Nombre de périodes",
+        "es": "Número de períodos",
         "ar": "Number of Periods"
       },
       "businessContext_i18n": {
         "en": "Total annuity duration",
         "tr": "Toplam gelir süresi",
-        "de": "Gesamtdauer der Rente"
+        "de": "Gesamtdauer der Rente",
+        "fr": "Durée totale de la rente",
+        "es": "Duración total de la anualidad"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Payments Per Year",
         "tr": "Yıllık Ödeme Sayısı",
         "de": "Zahlungen pro Jahr",
-        "fr": "Payments Per Year",
-        "es": "Payments Per Year",
+        "fr": "Paiements par an",
+        "es": "Pagos por año",
         "ar": "Payments Per Year"
       },
       "businessContext_i18n": {
         "en": "Frequency of payments (e.g., 12 for monthly)",
         "tr": "Ödeme sıklığı (örneğin aylık için 12)",
-        "de": "Häufigkeit der Zahlungen (z. B. 12 für monatlich)"
+        "de": "Häufigkeit der Zahlungen (z. B. 12 für monatlich)",
+        "fr": "Fréquence des paiements (ex. 12 pour mensuel)",
+        "es": "Frecuencia de los pagos (ej., 12 para mensual)"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Internal Mill Diameter (D)",
         "tr": "İç Değirmen Çapı (D)",
-        "de": "Internal Mill Diameter (D)",
-        "fr": "Internal Mill Diameter (D)",
-        "es": "Internal Mill Diameter (D)",
+        "de": "Innendurchmesser der Mühle (D)",
+        "fr": "Diamètre intérieur du broyeur (D)",
+        "es": "Diámetro interno del molino (D)",
         "ar": "Internal Mill Diameter (D)"
       },
       "businessContext_i18n": {
         "en": "Inner diameter of the mill shell, measured without liners. Determines critical speed and power draw.",
-        "tr": "Astarsız ölçülen değirmen gövdesinin iç çapı. Kritik hız ve güç tüketimini belirler."
+        "tr": "Astarsız ölçülen değirmen gövdesinin iç çapı. Kritik hız ve güç tüketimini belirler.",
+        "de": "Innendurchmesser des Mahlwerks, gemessen ohne Auskleidung. Bestimmt kritische Drehzahl und Leistungsaufnahme.",
+        "fr": "Diamètre intérieur de la cuve du broyeur, mesuré sans revêtements. Détermine la vitesse critique et la puissance absorbée.",
+        "es": "Diámetro interior del casco del molino, medido sin revestimientos. Determina la velocidad crítica y la potencia."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Internal Mill Length (L)",
         "tr": "Değirmen İç Uzunluğu (L)",
-        "de": "Internal Mill Length (L)",
-        "fr": "Internal Mill Length (L)",
-        "es": "Internal Mill Length (L)",
+        "de": "Innenlänge der Mühle (L)",
+        "fr": "Longueur intérieure du broyeur (L)",
+        "es": "Longitud interna del molino (L)",
         "ar": "Internal Mill Length (L)"
       },
       "businessContext_i18n": {
         "en": "Effective grinding length of the mill. Affects charge volume and power.",
-        "tr": "Değirmenin etkin öğütme uzunluğu. Şarj hacmini ve gücü etkiler."
+        "tr": "Değirmenin etkin öğütme uzunluğu. Şarj hacmini ve gücü etkiler.",
+        "de": "Effektive Mahlkammerlänge. Beeinflusst Füllungsgrad und Leistung.",
+        "fr": "Longueur de broyage effective du broyeur. Affecte le volume de la charge et la puissance.",
+        "es": "Longitud efectiva de molienda del molino. Afecta el volumen de carga y la potencia."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Mill Rotation Speed",
         "tr": "Değirmen Dönüş Hızı",
-        "de": "Mill Rotation Speed",
-        "fr": "Mill Rotation Speed",
-        "es": "Mill Rotation Speed",
+        "de": "Mühlendrehzahl",
+        "fr": "Vitesse de rotation du broyeur",
+        "es": "Velocidad de rotación del molino",
         "ar": "Mill Rotation Speed"
       },
       "businessContext_i18n": {
         "en": "Actual rotational speed of the mill. Typically 65-80% of critical speed for optimal operation.",
-        "tr": "Değirmenin gerçek dönüş hızı. Optimum çalışma için tipik olarak kritik hızın %65-80'i."
+        "tr": "Değirmenin gerçek dönüş hızı. Optimum çalışma için tipik olarak kritik hızın %65-80'i.",
+        "de": "Tatsächliche Drehzahl der Mühle. Typischerweise 65-80 % der kritischen Drehzahl für optimalen Betrieb.",
+        "fr": "Vitesse de rotation réelle du broyeur. Généralement 65-80 % de la vitesse critique pour un fonctionnement optimal.",
+        "es": "Velocidad de rotación real del molino. Típicamente 65-80% de la velocidad crítica para una operación óptima."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Ball Filling Fraction (J)",
         "tr": "Bilya Dolum Oranı (J)",
-        "de": "Ball Filling Fraction (J)",
-        "fr": "Ball Filling Fraction (J)",
-        "es": "Ball Filling Fraction (J)",
+        "de": "Kugelfüllungsgrad (J)",
+        "fr": "Fraction de remplissage en boulets (J)",
+        "es": "Fracción de llenado de bolas (J)",
         "ar": "Ball Filling Fraction (J)"
       },
       "businessContext_i18n": {
         "en": "Fraction of mill volume occupied by grinding media (balls). Affects power consumption and throughput.",
-        "tr": "Değirmen hacminin öğütme ortamı (bilyalar) tarafından kaplanan oranı. Güç tüketimini ve verimi etkiler."
+        "tr": "Değirmen hacminin öğütme ortamı (bilyalar) tarafından kaplanan oranı. Güç tüketimini ve verimi etkiler.",
+        "de": "Anteil des Mahlkammervolumens, der von Mahlkörpern (Kugeln) eingenommen wird. Beeinflusst Leistungsaufnahme und Durchsatz.",
+        "fr": "Fraction du volume du broyeur occupée par les corps broyants (boulets). Affecte la consommation d'énergie et le débit.",
+        "es": "Fracción del volumen del molino ocupada por el medio de molienda (bolas). Afecta el consumo de energía y el rendimiento."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Ball Bulk Density",
         "tr": "Bilya Yığın Yoğunluğu",
-        "de": "Ball Bulk Density",
-        "fr": "Ball Bulk Density",
-        "es": "Ball Bulk Density",
+        "de": "Schüttdichte der Kugeln",
+        "fr": "Masse volumique apparente des boulets",
+        "es": "Densidad aparente de las bolas",
         "ar": "Ball Bulk Density"
       },
       "businessContext_i18n": {
         "en": "Bulk density of the grinding media charge. For steel balls, typical is 4800 kg/m³.",
-        "tr": "Öğütme ortamı şarjının yığın yoğunluğu. Çelik bilyalar için tipik değer 4800 kg/m³."
+        "tr": "Öğütme ortamı şarjının yığın yoğunluğu. Çelik bilyalar için tipik değer 4800 kg/m³.",
+        "de": "Schüttdichte der Mahlkörperfüllung. Für Stahlkugen typischerweise 4800 kg/m³.",
+        "fr": "Masse volumique apparente de la charge de corps broyants. Pour des boulets en acier, typiquement 4800 kg/m³.",
+        "es": "Densidad aparente de la carga de medio de molienda. Para bolas de acero, típicamente 4800 kg/m³."
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Motor Efficiency",
         "tr": "Motor verimliliği",
         "de": "Motorwirkungsgrad",
-        "fr": "Motor Efficiency",
-        "es": "Motor Efficiency",
+        "fr": "Rendement du moteur",
+        "es": "Eficiencia del motor",
         "ar": "Motor Efficiency"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the motor and drive system. Used to calculate required input electrical power.",
-        "tr": "Motor ve tahrik sisteminin verimliliği. Gerekli giriş elektrik gücünü hesaplamak için kullanılır."
+        "tr": "Motor ve tahrik sisteminin verimliliği. Gerekli giriş elektrik gücünü hesaplamak için kullanılır.",
+        "de": "Wirkungsgrad des Motor- und Antriebssystems. Wird zur Berechnung der erforderlichen elektrischen Eingangsleistung verwendet.",
+        "fr": "Efficacité du moteur et du système d'entraînement. Utilisée pour calculer la puissance électrique d'entrée requise.",
+        "es": "Eficiencia del motor y sistema de transmisión. Se utiliza para calcular la potencia eléctrica de entrada requerida."
       }
     }
   ],

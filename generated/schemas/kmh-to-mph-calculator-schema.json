@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Speed (km/h)",
         "tr": "Hız (km/s)",
-        "de": "Speed (km/h)",
-        "fr": "Speed (km/h)",
-        "es": "Speed (km/h)",
+        "de": "Geschwindigkeit (km/h)",
+        "fr": "Vitesse (km/h)",
+        "es": "Velocidad (km/h)",
         "ar": "Speed (km/h)"
       },
       "businessContext_i18n": {
         "en": "Enter the speed in kilometers per hour",
-        "tr": "Hızı kilometre/saat cinsinden girin"
+        "tr": "Hızı kilometre/saat cinsinden girin",
+        "de": "Geben Sie die Geschwindigkeit in Kilometern pro Stunde ein",
+        "fr": "Entrez la vitesse en kilomètres par heure",
+        "es": "Ingrese la velocidad en kilómetros por hora"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Number of kilometers in one mile. Standard is 1.609344.",
-        "tr": "Bir mildeki kilometre sayısı. Standart 1,609344'tür."
+        "tr": "Bir mildeki kilometre sayısı. Standart 1,609344'tür.",
+        "de": "Anzahl der Kilometer in einer Meile. Standard ist 1,609344.",
+        "fr": "Nombre de kilomètres dans un mile. La valeur standard est 1,609344.",
+        "es": "Número de kilómetros en una milla. El estándar es 1.609344."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the result",
-        "tr": "Sonuç için ondalık basamak sayısı"
+        "tr": "Sonuç için ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen für das Ergebnis",
+        "fr": "Nombre de décimales pour le résultat",
+        "es": "Número de decimales para el resultado"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Known mph (for verification)",
         "tr": "Bilinen mph (doğrulama için)",
-        "de": "Known mph (for verification)",
-        "fr": "Known mph (for verification)",
-        "es": "Known mph (for verification)",
+        "de": "Bekannte mph (zur Überprüfung)",
+        "fr": "mph connu (pour vérification)",
+        "es": "mph conocido (para verificación)",
         "ar": "Known mph (for verification)"
       },
       "businessContext_i18n": {
         "en": "If you know the correct mph, enter here for error calculation.",
-        "tr": "Doğru mph'yi biliyorsanız, hata hesaplaması için buraya girin."
+        "tr": "Doğru mph'yi biliyorsanız, hata hesaplaması için buraya girin.",
+        "de": "Wenn Sie die korrekte mph kennen, geben Sie sie hier zur Fehlerberechnung ein.",
+        "fr": "Si vous connaissez le mph correct, saisissez-le ici pour le calcul d'erreur.",
+        "es": "Si conoce las mph correctas, ingrese aquí para el cálculo de error."
       }
     }
   ],

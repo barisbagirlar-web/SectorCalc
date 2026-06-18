@@ -12,14 +12,16 @@
         "en": "Volume in Centiliters",
         "tr": "Santilitre cinsinden hacim",
         "de": "Volumen in Zentilitern",
-        "fr": "Volume in Centiliters",
-        "es": "Volume in Centiliters",
+        "fr": "Volume en centilitres",
+        "es": "Volumen en centilitros",
         "ar": "Volume in Centiliters"
       },
       "businessContext_i18n": {
         "en": "Quantity of liquid in centiliters to convert.",
         "tr": "Dönüştürülecek santilitre cinsinden sıvı miktarı.",
-        "de": "Menge der Flüssigkeit in Zentilitern zur Umrechnung."
+        "de": "Menge der Flüssigkeit in Zentilitern zur Umrechnung.",
+        "fr": "Quantité de liquide en centilitres à convertir.",
+        "es": "Cantidad de líquido en centilitros a convertir."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Ounce Type",
         "tr": "Ons Türü",
         "de": "Unzen-Typ",
-        "fr": "Ounce Type",
-        "es": "Ounce Type",
+        "fr": "Type d'once",
+        "es": "Tipo de onza",
         "ar": "Ounce Type"
       },
       "businessContext_i18n": {
         "en": "0 for US fluid ounces, 1 for UK fluid ounces.",
         "tr": "0 ABD sıvı onsu, 1 İngiltere sıvı onsu.",
-        "de": "0 für US-Flüssigunzen, 1 für UK-Flüssigunzen."
+        "de": "0 für US-Flüssigunzen, 1 für UK-Flüssigunzen.",
+        "fr": "0 pour les onces liquides US, 1 pour les onces liquides UK.",
+        "es": "0 para onzas líquidas estadounidenses, 1 para onzas líquidas británicas."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Number of Containers",
         "tr": "Kap Sayısı",
         "de": "Anzahl der Behälter",
-        "fr": "Number of Containers",
-        "es": "Number of Containers",
+        "fr": "Nombre de contenants",
+        "es": "Número de envases",
         "ar": "Number of Containers"
       },
       "businessContext_i18n": {
         "en": "Number of identical containers holding this volume.",
         "tr": "Bu hacmi tutan özdeş kap sayısı.",
-        "de": "Anzahl identischer Behälter mit diesem Volumen."
+        "de": "Anzahl identischer Behälter mit diesem Volumen.",
+        "fr": "Nombre de contenants identiques contenant ce volume.",
+        "es": "Número de envases idénticos que contienen este volumen."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
         "de": "Abfallfaktor",
-        "fr": "Waste Factor",
-        "es": "Waste Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Percentage of volume lost or additional required, e.g., 5 for 5% waste.",
         "tr": "Kayıp veya ek gereken hacim yüzdesi, örn. %5 fire için 5.",
-        "de": "Prozentsatz des verlorenen oder zusätzlich benötigten Volumens, z.B. 5 für 5% Ausschuss."
+        "de": "Prozentsatz des verlorenen oder zusätzlich benötigten Volumens, z.B. 5 für 5% Ausschuss.",
+        "fr": "Pourcentage de volume perdu ou supplémentaire requis, par ex. 5 pour 5% de perte.",
+        "es": "Porcentaje de volumen perdido o adicional requerido, ej., 5 para 5% de desperdicio."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Rounding Precision",
         "tr": "Yuvarlama Hassasiyeti",
         "de": "Rundungsgenauigkeit",
-        "fr": "Rounding Precision",
-        "es": "Rounding Precision",
+        "fr": "Précision d'arrondi",
+        "es": "Precisión de redondeo",
         "ar": "Rounding Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for final output.",
         "tr": "Nihai çıktı için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen für die endgültige Ausgabe."
+        "de": "Anzahl der Dezimalstellen für die endgültige Ausgabe.",
+        "fr": "Nombre de décimales pour la sortie finale.",
+        "es": "Número de decimales para la salida final."
       }
     }
   ],

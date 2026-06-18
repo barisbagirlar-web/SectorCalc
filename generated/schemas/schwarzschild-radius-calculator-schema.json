@@ -12,13 +12,15 @@
         "en": "Mass",
         "tr": "Kütle",
         "de": "Masse",
-        "fr": "Mass",
-        "es": "Mass",
+        "fr": "Masse",
+        "es": "Masa",
         "ar": "Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the object.",
-        "tr": "Nesnenin kütlesi."
+        "tr": "Nesnenin kütlesi.",
+        "de": "Masse des Objekts.",
+        "fr": "Masse de l'objet."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Gravitational Constant",
         "tr": "Yerçekimi Sabiti",
         "de": "Gravitationskonstante",
-        "fr": "Gravitational Constant",
-        "es": "Gravitational Constant",
+        "fr": "Constante gravitationnelle",
+        "es": "Constante gravitacional",
         "ar": "Gravitational Constant"
       },
       "businessContext_i18n": {
         "en": "Newton's gravitational constant.",
-        "tr": "Newton'un yerçekimi sabiti."
+        "tr": "Newton'un yerçekimi sabiti.",
+        "de": "Newtons Gravitationskonstante.",
+        "fr": "Constante gravitationnelle de Newton."
       }
     },
     {
@@ -51,15 +55,17 @@
       "label_i18n": {
         "en": "Speed of Light",
         "tr": "Işık Hızı",
-        "de": "Speed of Light",
-        "fr": "Speed of Light",
-        "es": "Speed of Light",
+        "de": "Lichtgeschwindigkeit",
+        "fr": "Vitesse de la lumière",
+        "es": "Velocidad de la luz",
         "ar": "Speed of Light"
       },
       "businessContext_i18n": {
         "en": "Speed of light in vacuum.",
         "tr": "Işığın vakumdaki hızı.",
-        "de": "Lichtgeschwindigkeit im Vakuum."
+        "de": "Lichtgeschwindigkeit im Vakuum.",
+        "fr": "Vitesse de la lumière dans le vide.",
+        "es": "Velocidad de la luz en el vacío."
       }
     },
     {
@@ -73,13 +79,15 @@
         "en": "Output Unit Factor",
         "tr": "Çıktı Birim Faktörü",
         "de": "Ausgabeeinheitenfaktor",
-        "fr": "Output Unit Factor",
-        "es": "Output Unit Factor",
+        "fr": "Facteur d'unité de sortie",
+        "es": "Factor de unidad de salida",
         "ar": "Output Unit Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier to convert meters to desired unit (e.g., 100 for cm, 0.001 for km).",
-        "tr": "Metreyi istenen birime dönüştürmek için çarpan (ör. cm için 100, km için 0.001)."
+        "tr": "Metreyi istenen birime dönüştürmek için çarpan (ör. cm için 100, km için 0.001).",
+        "de": "Multiplikator zur Umrechnung von Metern in die gewünschte Einheit (z. B. 100 für cm, 0,001 für km).",
+        "fr": "Multiplicateur pour convertir les mètres en unité souhaitée (ex. 100 pour cm, 0,001 pour km)."
       }
     }
   ],

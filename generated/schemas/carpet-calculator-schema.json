@@ -12,14 +12,16 @@
         "en": "Oda Uzunluğu",
         "tr": "Oda Uzunluğu",
         "de": "Raumlänge",
-        "fr": "Oda Uzunluğu",
-        "es": "Oda Uzunluğu",
+        "fr": "Longueur de la pièce",
+        "es": "Longitud de la habitación",
         "ar": "Oda Uzunluğu"
       },
       "businessContext_i18n": {
         "en": "Halı döşenecek odanın ana yöndeki uzunluğu (metre).",
         "tr": "Halı döşenecek odanın ana yöndeki uzunluğu (metre).",
-        "de": "Länge des Raums in Hauptrichtung (Meter)"
+        "de": "Länge des Raums in Hauptrichtung (Meter)",
+        "fr": "Longueur de la pièce dans la direction principale (mètre)",
+        "es": "Longitud de la habitación en la dirección principal (metros)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Oda Genişliği",
         "tr": "Oda Genişliği",
         "de": "Raumbreite",
-        "fr": "Oda Genişliği",
-        "es": "Oda Genişliği",
+        "fr": "Largeur de la pièce",
+        "es": "Ancho de la habitación",
         "ar": "Oda Genişliği"
       },
       "businessContext_i18n": {
         "en": "Halı döşenecek odanın enlemesine genişliği (metre).",
         "tr": "Halı döşenecek odanın enlemesine genişliği (metre).",
-        "de": "Breite des Raums quer zur Hauptrichtung (Meter)"
+        "de": "Breite des Raums quer zur Hauptrichtung (Meter)",
+        "fr": "Largeur de la pièce dans le sens transversal (mètre)",
+        "es": "Ancho de la habitación en la dirección transversal (metros)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Halı Rulo Eni",
         "tr": "Halı Rulo Eni",
         "de": "Teppichrollenbreite",
-        "fr": "Halı Rulo Eni",
-        "es": "Halı Rulo Eni",
+        "fr": "Largeur du rouleau de moquette",
+        "es": "Ancho del rollo de alfombra",
         "ar": "Halı Rulo Eni"
       },
       "businessContext_i18n": {
         "en": "Standart halı rulo genişliği; piyasada 3, 4, 5 m olabilir.",
         "tr": "Standart halı rulo genişliği; piyasada 3, 4, 5 m olabilir.",
-        "de": "Standard-Teppichrollenbreite; im Handel 3, 4, 5 m möglich"
+        "de": "Standard-Teppichrollenbreite; im Handel 3, 4, 5 m möglich",
+        "fr": "Largeur standard du rouleau de moquette ; sur le marché, elle peut être de 3, 4 ou 5 m",
+        "es": "Ancho estándar del rollo de alfombra; en el mercado puede ser 3, 4 o 5 m"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Halı Birim Fiyatı",
         "tr": "Halı Birim Fiyatı",
         "de": "Teppichpreis pro Quadratmeter",
-        "fr": "Halı Birim Fiyatı",
-        "es": "Halı Birim Fiyatı",
+        "fr": "Prix unitaire de la moquette",
+        "es": "Precio unitario de la alfombra",
         "ar": "Halı Birim Fiyatı"
       },
       "businessContext_i18n": {
         "en": "Seçilen halının metrekare başına satış fiyatı.",
         "tr": "Seçilen halının metrekare başına satış fiyatı.",
-        "de": "Verkaufspreis des gewählten Teppichs pro Quadratmeter"
+        "de": "Verkaufspreis des gewählten Teppichs pro Quadratmeter",
+        "fr": "Prix de vente au mètre carré de la moquette choisie",
+        "es": "Precio de venta por metro cuadrado de la alfombra seleccionada"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Fire Oranı",
         "tr": "Fire Oranı",
         "de": "Verschnittanteil",
-        "fr": "Fire Oranı",
-        "es": "Fire Oranı",
+        "fr": "Taux de perte",
+        "es": "Porcentaje de desperdicio",
         "ar": "Fire Oranı"
       },
       "businessContext_i18n": {
         "en": "Kesim, desen uydurma ve ek yerleri için ayrılan ilave malzeme yüzdesi.",
         "tr": "Kesim, desen uydurma ve ek yerleri için ayrılan ilave malzeme yüzdesi.",
-        "de": "Zuschlag für Verschnitt, Musteranpassung und Nahtzugaben in Prozent"
+        "de": "Zuschlag für Verschnitt, Musteranpassung und Nahtzugaben in Prozent",
+        "fr": "Pourcentage de matériau supplémentaire pour les coupes, l'ajustement des motifs et les joints",
+        "es": "Porcentaje de material adicional para cortes, ajuste de patrón y uniones"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Döşeme İşçilik Bedeli",
         "tr": "Döşeme İşçilik Bedeli",
         "de": "Verlegekosten",
-        "fr": "Döşeme İşçilik Bedeli",
-        "es": "Döşeme İşçilik Bedeli",
+        "fr": "Frais de main-d'œuvre pour la pose",
+        "es": "Costo de mano de obra de instalación",
         "ar": "Döşeme İşçilik Bedeli"
       },
       "businessContext_i18n": {
         "en": "Halının serilmesi için usta tarafından metrekare başına alınan işçilik ücreti.",
         "tr": "Halının serilmesi için usta tarafından metrekare başına alınan işçilik ücreti.",
-        "de": "Vom Handwerker pro Quadratmeter berechneter Arbeitslohn für das Verlegen des Teppichs"
+        "de": "Vom Handwerker pro Quadratmeter berechneter Arbeitslohn für das Verlegen des Teppichs",
+        "fr": "Frais de main-d'œuvre au mètre carré facturés par l'artisan pour la pose de la moquette",
+        "es": "Tarifa de mano de obra por metro cuadrado cobrada por el instalador"
       }
     }
   ],

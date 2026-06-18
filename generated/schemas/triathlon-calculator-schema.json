@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Swim Distance",
         "tr": "Yüzme Mesafesi",
-        "de": "Swim Distance",
-        "fr": "Swim Distance",
+        "de": "Schwimmdistanz",
+        "fr": "Distance de natation",
         "es": "Swim Distance",
         "ar": "Swim Distance"
       },
       "businessContext_i18n": {
         "en": "Total swimming distance in meters",
-        "tr": "Toplam yüzme mesafesi (metre)"
+        "tr": "Toplam yüzme mesafesi (metre)",
+        "de": "Gesamte Schwimmdistanz in Metern",
+        "fr": "Distance totale de natation en mètres"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Bike Distance",
         "tr": "Bisiklet Mesafesi",
-        "de": "Bike Distance",
-        "fr": "Bike Distance",
+        "de": "Radstrecke",
+        "fr": "Distance à vélo",
         "es": "Bike Distance",
         "ar": "Bike Distance"
       },
       "businessContext_i18n": {
         "en": "Total cycling distance in kilometers",
-        "tr": "Toplam bisiklet mesafesi (kilometre)"
+        "tr": "Toplam bisiklet mesafesi (kilometre)",
+        "de": "Gesamte Radfahrdistanz in Kilometern",
+        "fr": "Distance totale de cyclisme en kilomètres"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Run Distance",
         "tr": "Koşu Mesafesi",
-        "de": "Run Distance",
-        "fr": "Run Distance",
+        "de": "Laufstrecke",
+        "fr": "Distance de course",
         "es": "Run Distance",
         "ar": "Run Distance"
       },
       "businessContext_i18n": {
         "en": "Total running distance in kilometers",
-        "tr": "Toplam koşu mesafesi (kilometre)"
+        "tr": "Toplam koşu mesafesi (kilometre)",
+        "de": "Gesamte Laufsdistanz in Kilometern",
+        "fr": "Distance totale de course à pied en kilomètres"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Swim Pace",
         "tr": "Yüzme Temposu",
-        "de": "Swim Pace",
-        "fr": "Swim Pace",
+        "de": "Schwimmtempo",
+        "fr": "Allure de nage",
         "es": "Swim Pace",
         "ar": "Swim Pace"
       },
       "businessContext_i18n": {
         "en": "Average swimming time per 100 meters in minutes",
-        "tr": "100 metre başına ortalama yüzme süresi (dakika)"
+        "tr": "100 metre başına ortalama yüzme süresi (dakika)",
+        "de": "Durchschnittliche Schwimmzeit pro 100 Meter in Minuten",
+        "fr": "Temps moyen de natation par 100 mètres en minutes"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Bike Speed",
         "tr": "Bisiklet Hızı",
-        "de": "Bike Speed",
-        "fr": "Bike Speed",
+        "de": "Radgeschwindigkeit",
+        "fr": "Vitesse à vélo",
         "es": "Bike Speed",
         "ar": "Bike Speed"
       },
       "businessContext_i18n": {
         "en": "Average cycling speed in kilometers per hour",
-        "tr": "Ortalama bisiklet hızı (km/saat)"
+        "tr": "Ortalama bisiklet hızı (km/saat)",
+        "de": "Durchschnittliche Radfahrgeschwindigkeit in Kilometern pro Stunde",
+        "fr": "Vitesse moyenne de cyclisme en kilomètres par heure"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Run Pace",
         "tr": "Koşu Temposu",
-        "de": "Run Pace",
-        "fr": "Run Pace",
+        "de": "Lauftempo",
+        "fr": "Allure de course",
         "es": "Run Pace",
         "ar": "Run Pace"
       },
       "businessContext_i18n": {
         "en": "Average running time per kilometer in minutes",
-        "tr": "Kilometre başına ortalama koşu süresi (dakika)"
+        "tr": "Kilometre başına ortalama koşu süresi (dakika)",
+        "de": "Durchschnittliche Laufzeit pro Kilometer in Minuten",
+        "fr": "Temps moyen de course par kilomètre en minutes"
       }
     }
   ],

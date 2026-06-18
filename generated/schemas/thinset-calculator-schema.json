@@ -12,13 +12,15 @@
         "en": "Area to Tile",
         "tr": "Fayans Döşenecek Alan",
         "de": "Zu fliesende Fläche",
-        "fr": "Area to Tile",
-        "es": "Area to Tile",
+        "fr": "Surface à carreler",
+        "es": "Área a embaldosar",
         "ar": "Area to Tile"
       },
       "businessContext_i18n": {
         "en": "Total surface area to be tiled, in square meters.",
-        "tr": "Fayans döşenecek toplam yüzey alanı, metrekare cinsinden."
+        "tr": "Fayans döşenecek toplam yüzey alanı, metrekare cinsinden.",
+        "de": "Gesamtfläche in Quadratmetern, die gefliest werden soll.",
+        "fr": "Surface totale à carreler, en mètres carrés."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Trowel Notch Size",
         "tr": "Mala Çentik Boyutu",
-        "de": "Trowel Notch Size",
-        "fr": "Trowel Notch Size",
+        "de": "Zahnkelle-Größe",
+        "fr": "Taille de la truelle crantée",
         "es": "Trowel Notch Size",
         "ar": "Trowel Notch Size"
       },
       "businessContext_i18n": {
         "en": "Size of the square-notched trowel used, determines adhesive coverage rate.",
-        "tr": "Kullanılan kare çentikli malanın boyutu, yapıştırıcı kaplama oranını belirler."
+        "tr": "Kullanılan kare çentikli malanın boyutu, yapıştırıcı kaplama oranını belirler.",
+        "de": "Größe der verwendeten Zahnkelle, bestimmt die Klebstoffabdeckungsrate.",
+        "fr": "Taille de la truelle carrée crantée utilisée, détermine le taux de couverture de l'adhésif."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
         "de": "Abfallfaktor",
-        "fr": "Waste Factor",
-        "es": "Waste Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Additional percentage for waste, cuts, and spillage.",
-        "tr": "Atık, kesim ve dökülme için ek yüzde."
+        "tr": "Atık, kesim ve dökülme için ek yüzde.",
+        "de": "Zusätzlicher Prozentsatz für Verschnitt, Zuschnitte und Verschütten.",
+        "fr": "Pourcentage supplémentaire pour les déchets, coupes et débordements."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Bag Weight",
         "tr": "Çanta Ağırlığı",
-        "de": "Bag Weight",
-        "fr": "Bag Weight",
-        "es": "Bag Weight",
+        "de": "Sackgewicht",
+        "fr": "Poids du sac",
+        "es": "Peso del saco",
         "ar": "Bag Weight"
       },
       "businessContext_i18n": {
         "en": "Net weight of a single thinset mortar bag.",
-        "tr": "Tek bir thinset harç torbasının net ağırlığı."
+        "tr": "Tek bir thinset harç torbasının net ağırlığı.",
+        "de": "Nettogewicht eines einzelnen Dünnbettmörtelsacks.",
+        "fr": "Poids net d'un sac de mortier-colle."
       }
     }
   ],

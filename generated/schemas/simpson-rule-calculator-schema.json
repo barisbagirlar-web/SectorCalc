@@ -12,13 +12,15 @@
         "en": "Alt Sınır (a)",
         "tr": "Alt Sınır (a)",
         "de": "Untere Grenze (a)",
-        "fr": "Alt Sınır (a)",
-        "es": "Alt Sınır (a)",
+        "fr": "Limite inférieure (a)",
+        "es": "Límite inferior (a)",
         "ar": "Alt Sınır (a)"
       },
       "businessContext_i18n": {
         "en": "İntegrasyonun başlangıç noktası",
-        "tr": "İntegrasyonun başlangıç noktası"
+        "tr": "İntegrasyonun başlangıç noktası",
+        "de": "Startpunkt der Integration",
+        "fr": "Point de départ de l'intégration"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Üst Sınır (b)",
         "tr": "Üst Sınır (b)",
         "de": "Obere Grenze (b)",
-        "fr": "Üst Sınır (b)",
-        "es": "Üst Sınır (b)",
+        "fr": "Limite supérieure (b)",
+        "es": "Límite superior (b)",
         "ar": "Üst Sınır (b)"
       },
       "businessContext_i18n": {
         "en": "İntegrasyonun bitiş noktası",
-        "tr": "İntegrasyonun bitiş noktası"
+        "tr": "İntegrasyonun bitiş noktası",
+        "de": "Endpunkt der Integration",
+        "fr": "Point d'arrivée de l'intégration"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "y₀ (a noktasındaki değer)",
         "tr": "y₀ (a noktasındaki değer)",
-        "de": "y₀ (a noktasındaki değer)",
-        "fr": "y₀ (a noktasındaki değer)",
+        "de": "y₀ (Wert an Punkt a)",
+        "fr": "y₀ (valeur au point a)",
         "es": "y₀ (a noktasındaki değer)",
         "ar": "y₀ (a noktasındaki değer)"
       },
       "businessContext_i18n": {
         "en": "f(a) fonksiyon değeri",
-        "tr": "f(a) fonksiyon değeri"
+        "tr": "f(a) fonksiyon değeri",
+        "de": "Funktionswert f(a)",
+        "fr": "valeur de la fonction f(a)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "y₁ (a+h noktasındaki değer)",
         "tr": "y₁ (a+h noktasındaki değer)",
-        "de": "y₁ (a+h noktasındaki değer)",
-        "fr": "y₁ (a+h noktasındaki değer)",
+        "de": "y₁ (Wert an Punkt a+h)",
+        "fr": "y₁ (valeur au point a+h)",
         "es": "y₁ (a+h noktasındaki değer)",
         "ar": "y₁ (a+h noktasındaki değer)"
       },
       "businessContext_i18n": {
         "en": "f(a+h) fonksiyon değeri",
-        "tr": "f(a+h) fonksiyon değeri"
+        "tr": "f(a+h) fonksiyon değeri",
+        "de": "f(a+h) Funktionswert",
+        "fr": "valeur de la fonction f(a+h)"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "y₂ (a+2h noktasındaki değer)",
         "tr": "y₂ (a+2h noktasındaki değer)",
-        "de": "y₂ (a+2h noktasındaki değer)",
-        "fr": "y₂ (a+2h noktasındaki değer)",
+        "de": "y₂ (Wert an a+2h)",
+        "fr": "y₂ (valeur au point a+2h)",
         "es": "y₂ (a+2h noktasındaki değer)",
         "ar": "y₂ (a+2h noktasındaki değer)"
       },
       "businessContext_i18n": {
         "en": "f(a+2h) fonksiyon değeri",
-        "tr": "f(a+2h) fonksiyon değeri"
+        "tr": "f(a+2h) fonksiyon değeri",
+        "de": "f(a+2h) Funktionswert",
+        "fr": "valeur de la fonction f(a+2h)"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "y₃ (a+3h noktasındaki değer)",
         "tr": "y₃ (a+3h noktasındaki değer)",
-        "de": "y₃ (a+3h noktasındaki değer)",
-        "fr": "y₃ (a+3h noktasındaki değer)",
+        "de": "y₃ (Wert an a+3h)",
+        "fr": "y₃ (valeur au point a+3h)",
         "es": "y₃ (a+3h noktasındaki değer)",
         "ar": "y₃ (a+3h noktasındaki değer)"
       },
       "businessContext_i18n": {
         "en": "f(a+3h) fonksiyon değeri",
-        "tr": "f(a+3h) fonksiyon değeri"
+        "tr": "f(a+3h) fonksiyon değeri",
+        "de": "f(a+3h) Funktionswert",
+        "fr": "valeur de la fonction f(a+3h)"
       }
     },
     {
@@ -131,14 +143,16 @@
       "label_i18n": {
         "en": "y₄ (b noktasındaki değer)",
         "tr": "y₄ (b noktasındaki değer)",
-        "de": "y₄ (b noktasındaki değer)",
-        "fr": "y₄ (b noktasındaki değer)",
+        "de": "y₄ (Wert an b)",
+        "fr": "y₄ (valeur au point b)",
         "es": "y₄ (b noktasındaki değer)",
         "ar": "y₄ (b noktasındaki değer)"
       },
       "businessContext_i18n": {
         "en": "f(b) fonksiyon değeri",
-        "tr": "f(b) fonksiyon değeri"
+        "tr": "f(b) fonksiyon değeri",
+        "de": "f(b) Funktionswert",
+        "fr": "valeur de la fonction f(b)"
       }
     }
   ],

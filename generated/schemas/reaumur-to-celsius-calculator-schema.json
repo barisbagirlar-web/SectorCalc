@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Réaumur Temperature",
         "tr": "Réaumur Sıcaklığı",
-        "de": "Réaumur Temperature",
-        "fr": "Réaumur Temperature",
-        "es": "Réaumur Temperature",
+        "de": "Réaumur-Temperatur",
+        "fr": "Température Réaumur",
+        "es": "Temperatura Réaumur",
         "ar": "Réaumur Temperature"
       },
       "businessContext_i18n": {
         "en": "The temperature value measured in degrees Réaumur to be converted to Celsius.",
-        "tr": "Celsius'a dönüştürülecek Réaumur derece cinsinden sıcaklık değeri."
+        "tr": "Celsius'a dönüştürülecek Réaumur derece cinsinden sıcaklık değeri.",
+        "de": "Der in Grad Réaumur gemessene Temperaturwert, der in Celsius umgerechnet werden soll.",
+        "fr": "La valeur de température mesurée en degrés Réaumur à convertir en Celsius.",
+        "es": "Valor de temperatura medido en grados Réaumur a convertir a Celsius."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output result. Ensures compliance with reporting precision requirements.",
-        "tr": "Çıktı sonucu için ondalık basamak sayısı. Raporlama hassasiyet gereksinimlerine uygunluğu sağlar."
+        "tr": "Çıktı sonucu için ondalık basamak sayısı. Raporlama hassasiyet gereksinimlerine uygunluğu sağlar.",
+        "de": "Anzahl der Dezimalstellen für das Ausgabeergebnis. Stellt die Einhaltung der Berichtsanforderungen sicher.",
+        "fr": "Nombre de décimales pour le résultat de sortie. Assure la conformité avec les exigences de précision des rapports.",
+        "es": "Número de decimales para el resultado de salida. Asegura el cumplimiento de los requisitos de precisión del informe."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Measurement Uncertainty (±)",
         "tr": "Ölçüm belirsizliği (±)",
         "de": "Messunsicherheit (±)",
-        "fr": "Measurement Uncertainty (±)",
-        "es": "Measurement Uncertainty (±)",
+        "fr": "Incertitude de mesure (±)",
+        "es": "Incertidumbre de medición (±)",
         "ar": "Measurement Uncertainty (±)"
       },
       "businessContext_i18n": {
         "en": "The estimated uncertainty of the Réaumur measurement, for quality assurance documentation.",
-        "tr": "Kalite güvence dokümantasyonu için Réaumur ölçümünün tahmini belirsizliği."
+        "tr": "Kalite güvence dokümantasyonu için Réaumur ölçümünün tahmini belirsizliği.",
+        "de": "Die geschätzte Unsicherheit der Réaumur-Messung für die Qualitätssicherungsdokumentation.",
+        "fr": "L'incertitude estimée de la mesure Réaumur, pour la documentation d'assurance qualité.",
+        "es": "Incertidumbre estimada de la medición Réaumur, para documentación de aseguramiento de calidad."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Calibration Offset",
         "tr": "Kalibrasyon Ofseti",
         "de": "Kalibrierungsversatz",
-        "fr": "Calibration Offset",
-        "es": "Calibration Offset",
+        "fr": "Décalage d'étalonnage",
+        "es": "Desviación de calibración",
         "ar": "Calibration Offset"
       },
       "businessContext_i18n": {
         "en": "Optional offset to correct for systematic error in the measurement device, as per calibration certificate.",
-        "tr": "Kalibrasyon sertifikasına göre ölçüm cihazındaki sistematik hatayı düzeltmek için isteğe bağlı ofset."
+        "tr": "Kalibrasyon sertifikasına göre ölçüm cihazındaki sistematik hatayı düzeltmek için isteğe bağlı ofset.",
+        "de": "Optionaler Offset zur Korrektur systematischer Fehler des Messgeräts gemäß Kalibrierschein.",
+        "fr": "Décalage optionnel pour corriger l'erreur systématique de l'appareil de mesure, selon le certificat d'étalonnage.",
+        "es": "Desplazamiento opcional para corregir error sistemático en el dispositivo de medición, según certificado de calibración."
       }
     }
   ],

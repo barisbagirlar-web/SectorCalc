@@ -12,13 +12,16 @@
         "en": "Center X (h)",
         "tr": "Merkez X (h)",
         "de": "Mittelpunkt X (h)",
-        "fr": "Center X (h)",
-        "es": "Center X (h)",
+        "fr": "Centre X (h)",
+        "es": "Centro X (h)",
         "ar": "Center X (h)"
       },
       "businessContext_i18n": {
         "en": "Horizontal coordinate of the hyperbola center.",
-        "tr": "Hiperbol merkezinin yatay koordinatı."
+        "tr": "Hiperbol merkezinin yatay koordinatı.",
+        "de": "Horizontale Koordinate des Hyperbelmittelpunkts",
+        "fr": "Coordonnée horizontale du centre de l'hyperbole.",
+        "es": "Coordenada horizontal del centro de la hipérbola"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Center Y (k)",
         "tr": "Merkez Y (k)",
         "de": "Mittelpunkt Y (k)",
-        "fr": "Center Y (k)",
-        "es": "Center Y (k)",
+        "fr": "Centre Y (k)",
+        "es": "Centro Y (k)",
         "ar": "Center Y (k)"
       },
       "businessContext_i18n": {
         "en": "Vertical coordinate of the hyperbola center.",
-        "tr": "Hiperbol merkezinin dikey koordinatı."
+        "tr": "Hiperbol merkezinin dikey koordinatı.",
+        "de": "Vertikale Koordinate des Hyperbelmittelpunkts",
+        "fr": "Coordonnée verticale du centre de l'hyperbole.",
+        "es": "Coordenada vertical del centro de la hipérbola"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Semi-Major Axis (a)",
         "tr": "Yarı-Büyük Eksen (a)",
         "de": "Große Halbachse (a)",
-        "fr": "Semi-Major Axis (a)",
-        "es": "Semi-Major Axis (a)",
+        "fr": "Demi-grand axe (a)",
+        "es": "Semieje mayor (a)",
         "ar": "Semi-Major Axis (a)"
       },
       "businessContext_i18n": {
         "en": "Distance from center to vertex along transverse axis.",
-        "tr": "Merkezden enine eksen boyunca tepe noktasına olan mesafe."
+        "tr": "Merkezden enine eksen boyunca tepe noktasına olan mesafe.",
+        "de": "Abstand vom Mittelpunkt zum Scheitelpunkt entlang der Hauptachse",
+        "fr": "Distance du centre au sommet le long de l'axe transverse.",
+        "es": "Distancia del centro al vértice a lo largo del eje transversal"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Semi-Minor Axis (b)",
         "tr": "Yarı-Küçük Eksen (b)",
         "de": "Kleine Halbachse (b)",
-        "fr": "Semi-Minor Axis (b)",
-        "es": "Semi-Minor Axis (b)",
+        "fr": "Demi-petit axe (b)",
+        "es": "Semieje menor (b)",
         "ar": "Semi-Minor Axis (b)"
       },
       "businessContext_i18n": {
         "en": "Distance related to asymptote slope, perpendicular to a.",
-        "tr": "Asimptot eğimiyle ilgili, a'ya dik mesafe."
+        "tr": "Asimptot eğimiyle ilgili, a'ya dik mesafe.",
+        "de": "Abstand bezogen auf die Asymptotensteigung, senkrecht zu a",
+        "fr": "Distance liée à la pente de l'asymptote, perpendiculaire à a.",
+        "es": "Distancia relacionada con la pendiente de la asíntota, perpendicular a a"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Transverse Axis",
         "tr": "Enine Eksen",
-        "de": "Transverse Axis",
-        "fr": "Transverse Axis",
-        "es": "Transverse Axis",
+        "de": "Hauptachse",
+        "fr": "Axe transverse",
+        "es": "Eje transversal",
         "ar": "Transverse Axis"
       },
       "businessContext_i18n": {
         "en": "Direction of transverse axis: 0 for horizontal, 1 for vertical.",
-        "tr": "Enine eksenin yönü: 0 yatay, 1 dikey."
+        "tr": "Enine eksenin yönü: 0 yatay, 1 dikey.",
+        "de": "Richtung der Hauptachse: 0 für horizontal, 1 für vertikal",
+        "fr": "Direction de l'axe transverse : 0 pour horizontal, 1 pour vertical.",
+        "es": "Dirección del eje transversal: 0 para horizontal, 1 para vertical"
       }
     }
   ],

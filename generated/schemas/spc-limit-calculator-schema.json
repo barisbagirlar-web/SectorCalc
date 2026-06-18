@@ -22,11 +22,15 @@
       "businessContext": "Number of samples per subgroup for X-bar and R charts. Typical values: 3-10.",
       "label_i18n": {
         "en": "Subgroup Size (n)",
-        "tr": "Alt Grup Boyutu (n)"
+        "tr": "Alt Grup Boyutu (n)",
+        "de": "Stichprobengröße (n)",
+        "fr": "Taille du sous-groupe (n)"
       },
       "businessContext_i18n": {
         "en": "Number of samples per subgroup for X-bar and R charts. Typical values: 3-10.",
-        "tr": "X-bar ve R grafikleri için alt grup başına örnek sayısı. Tipik değerler: 3-10."
+        "tr": "X-bar ve R grafikleri için alt grup başına örnek sayısı. Tipik değerler: 3-10.",
+        "de": "Anzahl der Proben pro Untergruppe für X-Quer- und R-Karten. Typische Werte: 3-10.",
+        "fr": "Nombre d'échantillons par sous-groupe pour les cartes X-barre et R. Valeurs typiques : 3-10."
       }
     },
     {
@@ -40,11 +44,15 @@
       "businessContext": "Total subgroups used to estimate process variation. Minimum 10 for reliable limits.",
       "label_i18n": {
         "en": "Number of Subgroups (k)",
-        "tr": "Alt Grup Sayısı (k)"
+        "tr": "Alt Grup Sayısı (k)",
+        "de": "Anzahl der Untergruppen (k)",
+        "fr": "Nombre de sous-groupes (k)"
       },
       "businessContext_i18n": {
         "en": "Total subgroups used to estimate process variation. Minimum 10 for reliable limits.",
-        "tr": "Proses değişkenliğini tahmin etmek için kullanılan toplam alt grup sayısı. Güvenilir limitler için minimum 10."
+        "tr": "Proses değişkenliğini tahmin etmek için kullanılan toplam alt grup sayısı. Güvenilir limitler için minimum 10.",
+        "de": "Gesamtzahl der Untergruppen zur Schätzung der Prozessstreuung. Mindestens 10 für zuverlässige Grenzen.",
+        "fr": "Total des sous-groupes utilisés pour estimer la variation du processus. Minimum 10 pour des limites fiables."
       }
     },
     {
@@ -58,11 +66,15 @@
       "businessContext": "Average of subgroup means. Central line for X-bar chart.",
       "label_i18n": {
         "en": "Overall Mean (X-double-bar)",
-        "tr": "Genel Ortalama (X-çift-çizgi)"
+        "tr": "Genel Ortalama (X-çift-çizgi)",
+        "de": "Gesamtmittelwert (X-Doppelquer)",
+        "fr": "Moyenne globale (X-double-barre)"
       },
       "businessContext_i18n": {
         "en": "Average of subgroup means. Central line for X-bar chart.",
-        "tr": "Alt grup ortalamalarının ortalaması. X-bar grafiği için merkez çizgisi."
+        "tr": "Alt grup ortalamalarının ortalaması. X-bar grafiği için merkez çizgisi.",
+        "de": "Mittelwert der Untergruppenmittelwerte. Mittellinie der X-Quer-Karte.",
+        "fr": "Moyenne des moyennes des sous-groupes. Ligne centrale pour la carte X-barre."
       }
     },
     {
@@ -76,11 +88,15 @@
       "businessContext": "Mean of subgroup ranges. Used to estimate process sigma.",
       "label_i18n": {
         "en": "Average Range (R-bar)",
-        "tr": "Ortalama Aralık (R-bar)"
+        "tr": "Ortalama Aralık (R-bar)",
+        "de": "Mittlere Spannweite (R-Quer)",
+        "fr": "Étendue moyenne (R-barre)"
       },
       "businessContext_i18n": {
         "en": "Mean of subgroup ranges. Used to estimate process sigma.",
-        "tr": "Alt grup aralıklarının ortalaması. Proses sigmasını tahmin etmek için kullanılır."
+        "tr": "Alt grup aralıklarının ortalaması. Proses sigmasını tahmin etmek için kullanılır.",
+        "de": "Mittelwert der Untergruppenspannweiten. Wird zur Schätzung der Prozess-Sigma verwendet.",
+        "fr": "Moyenne des étendues des sous-groupes. Utilisée pour estimer le sigma du processus."
       }
     },
     {
@@ -94,11 +110,16 @@
       "businessContext": "Maximum acceptable value per customer or design requirement.",
       "label_i18n": {
         "en": "Upper Specification Limit (USL)",
-        "tr": "Üst Spesifikasyon Limiti (USL)"
+        "tr": "Üst Spesifikasyon Limiti (USL)",
+        "de": "Obere Spezifikationsgrenze (OSG)",
+        "fr": "Limite de spécification supérieure (USL)",
+        "es": "Límite superior de especificación (LSE)"
       },
       "businessContext_i18n": {
         "en": "Maximum acceptable value per customer or design requirement.",
-        "tr": "Müşteri veya tasarım gereksinimine göre izin verilen maksimum değer."
+        "tr": "Müşteri veya tasarım gereksinimine göre izin verilen maksimum değer.",
+        "de": "Maximal akzeptabler Wert gemäß Kunden- oder Konstruktionsanforderung.",
+        "fr": "Valeur maximale acceptable selon le client ou la spécification."
       }
     },
     {
@@ -112,11 +133,16 @@
       "businessContext": "Minimum acceptable value per customer or design requirement.",
       "label_i18n": {
         "en": "Lower Specification Limit (LSL)",
-        "tr": "Alt Spesifikasyon Limiti (LSL)"
+        "tr": "Alt Spesifikasyon Limiti (LSL)",
+        "de": "Untere Spezifikationsgrenze (USG)",
+        "fr": "Limite de spécification inférieure (LSL)",
+        "es": "Límite de especificación inferior (LSL)"
       },
       "businessContext_i18n": {
         "en": "Minimum acceptable value per customer or design requirement.",
-        "tr": "Müşteri veya tasarım gereksinimine göre izin verilen minimum değer."
+        "tr": "Müşteri veya tasarım gereksinimine göre izin verilen minimum değer.",
+        "de": "Minimal akzeptabler Wert gemäß Kunden- oder Konstruktionsanforderung.",
+        "fr": "Valeur minimale acceptable selon le client ou la spécification."
       }
     },
     {
@@ -133,11 +159,15 @@
       "businessContext": "Select control chart type. Xbar-R for small subgroups, Xbar-s for larger, I-MR for individual measurements.",
       "label_i18n": {
         "en": "Chart Type",
-        "tr": "Grafik Türü"
+        "tr": "Grafik Türü",
+        "de": "Kartentyp",
+        "fr": "Type de graphique"
       },
       "businessContext_i18n": {
         "en": "Select control chart type. Xbar-R for small subgroups, Xbar-s for larger, I-MR for individual measurements.",
-        "tr": "Kontrol grafiği türünü seçin. Küçük alt gruplar için Xbar-R, büyük alt gruplar için Xbar-s, bireysel ölçümler için I-MR."
+        "tr": "Kontrol grafiği türünü seçin. Küçük alt gruplar için Xbar-R, büyük alt gruplar için Xbar-s, bireysel ölçümler için I-MR.",
+        "de": "Wählen Sie den Regelkartentyp. Xbar-R für kleine Untergruppen, Xbar-s für größere, I-MR für Einzelmessungen.",
+        "fr": "Sélectionnez le type de carte de contrôle. Xbar-R pour petits sous-groupes, Xbar-s pour plus grands, I-MR pour mesures individuelles."
       }
     },
     {
@@ -149,11 +179,15 @@
       "businessContext": "If true, sigma is estimated from R-bar/d2. If false, use pooled standard deviation.",
       "label_i18n": {
         "en": "Use Estimated Sigma from R-bar",
-        "tr": "R-bar'dan Tahmini Sigma Kullan"
+        "tr": "R-bar'dan Tahmini Sigma Kullan",
+        "de": "Verwende geschätztes Sigma aus R-Balken",
+        "fr": "Utiliser l'écart-type estimé à partir de R-bar"
       },
       "businessContext_i18n": {
         "en": "If true, sigma is estimated from R-bar/d2. If false, use pooled standard deviation.",
-        "tr": "Doğruysa, sigma R-bar/d2'den tahmin edilir. Yanlışsa, havuzlanmış standart sapma kullanılır."
+        "tr": "Doğruysa, sigma R-bar/d2'den tahmin edilir. Yanlışsa, havuzlanmış standart sapma kullanılır.",
+        "de": "Wenn wahr, wird Sigma aus R-Balken/d2 geschätzt. Wenn falsch, wird die gepoolte Standardabweichung verwendet.",
+        "fr": "Si vrai, l'écart-type est estimé à partir de R-bar/d2. Si faux, utiliser l'écart-type poolé."
       }
     }
   ],

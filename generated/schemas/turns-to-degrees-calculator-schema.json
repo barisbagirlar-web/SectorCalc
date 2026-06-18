@@ -12,13 +12,15 @@
         "en": "Number of Turns",
         "tr": "Sarım Sayısı",
         "de": "Windungszahl",
-        "fr": "Number of Turns",
-        "es": "Number of Turns",
+        "fr": "Nombre de spires",
+        "es": "Número de vueltas",
         "ar": "Number of Turns"
       },
       "businessContext_i18n": {
         "en": "The angle measured in full rotations.",
-        "tr": "Tam dönüş cinsinden ölçülen açı."
+        "tr": "Tam dönüş cinsinden ölçülen açı.",
+        "de": "Der Winkel gemessen in vollen Umdrehungen.",
+        "fr": "Angle mesuré en tours complets."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Precision of output for quality control documentation.",
-        "tr": "Kalite kontrol dokümantasyonu için çıktı hassasiyeti."
+        "tr": "Kalite kontrol dokümantasyonu için çıktı hassasiyeti.",
+        "de": "Präzision der Ausgabe für die Qualitätskontrolldokumentation.",
+        "fr": "Précision de la sortie pour la documentation du contrôle qualité."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Operator ID",
         "tr": "Operatör Kimliği",
         "de": "Bediener-ID",
-        "fr": "Operator ID",
-        "es": "Operator ID",
+        "fr": "ID opérateur",
+        "es": "ID del operador",
         "ar": "Operator ID"
       },
       "businessContext_i18n": {
         "en": "Identifier of the operator performing the measurement for traceability.",
-        "tr": "İzlenebilirlik için ölçümü yapan operatörün tanımlayıcısı."
+        "tr": "İzlenebilirlik için ölçümü yapan operatörün tanımlayıcısı.",
+        "de": "Kennung des Bedieners, der die Messung für die Rückverfolgbarkeit durchführt.",
+        "fr": "Identifiant de l'opérateur effectuant la mesure pour la traçabilité."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Measurement Date (YYYYMMDD)",
         "tr": "Ölçüm Tarihi (YYYYAAAGGG)",
-        "de": "Measurement Date (YYYYMMDD)",
-        "fr": "Measurement Date (YYYYMMDD)",
+        "de": "Messdatum (JJJJMMTT)",
+        "fr": "Date de mesure (AAAAMMJJ)",
         "es": "Measurement Date (YYYYMMDD)",
         "ar": "Measurement Date (YYYYMMDD)"
       },
       "businessContext_i18n": {
         "en": "Date of measurement for ISO 9001 records.",
-        "tr": "ISO 9001 kayıtları için ölçüm tarihi."
+        "tr": "ISO 9001 kayıtları için ölçüm tarihi.",
+        "de": "Datum der Messung für ISO 9001-Aufzeichnungen.",
+        "fr": "Date de mesure pour les enregistrements ISO 9001."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Machine ID",
         "tr": "Makine Kimliği",
-        "de": "Machine ID",
-        "fr": "Machine ID",
+        "de": "Maschinen-ID",
+        "fr": "ID machine",
         "es": "Machine ID",
         "ar": "Machine ID"
       },
       "businessContext_i18n": {
         "en": "Machine used for measurement if automated.",
-        "tr": "Otomatik ise ölçüm için kullanılan makine."
+        "tr": "Otomatik ise ölçüm için kullanılan makine.",
+        "de": "Maschine, die für die Messung verwendet wird, falls automatisiert.",
+        "fr": "Machine utilisée pour la mesure si automatisée."
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Batch Number",
         "tr": "Parti Numarası",
         "de": "Chargennummer",
-        "fr": "Batch Number",
-        "es": "Batch Number",
+        "fr": "Numéro de lot",
+        "es": "Número de lote",
         "ar": "Batch Number"
       },
       "businessContext_i18n": {
         "en": "Production batch for traceability.",
-        "tr": "İzlenebilirlik için üretim partisi."
+        "tr": "İzlenebilirlik için üretim partisi.",
+        "de": "Produktionscharge für die Rückverfolgbarkeit.",
+        "fr": "Lot de production pour la traçabilité."
       }
     }
   ],

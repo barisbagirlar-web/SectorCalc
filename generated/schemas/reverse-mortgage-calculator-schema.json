@@ -12,13 +12,15 @@
         "en": "Home Value",
         "tr": "Ev değeri",
         "de": "Hauswert",
-        "fr": "Home Value",
-        "es": "Home Value",
+        "fr": "Valeur du bien",
+        "es": "Valor de la vivienda",
         "ar": "Home Value"
       },
       "businessContext_i18n": {
         "en": "Current appraised value of the home.",
-        "tr": "Evin güncel değerleme fiyatı."
+        "tr": "Evin güncel değerleme fiyatı.",
+        "de": "Aktueller Schätzwert des Hauses.",
+        "fr": "Valeur actuelle estimée du logement."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Borrower Age",
         "tr": "Borçlu Yaşı",
-        "de": "Borrower Age",
-        "fr": "Borrower Age",
+        "de": "Alter des Kreditnehmers",
+        "fr": "Âge de l'emprunteur",
         "es": "Borrower Age",
         "ar": "Borrower Age"
       },
       "businessContext_i18n": {
         "en": "Age of the youngest borrower.",
-        "tr": "En genç borçlunun yaşı."
+        "tr": "En genç borçlunun yaşı.",
+        "de": "Alter des jüngsten Kreditnehmers.",
+        "fr": "Âge de l'emprunteur le plus jeune."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Interest Rate",
         "tr": "Faiz Oranı",
         "de": "Zinssatz",
-        "fr": "Interest Rate",
-        "es": "Interest Rate",
+        "fr": "Taux d'intérêt",
+        "es": "Tasa de interés",
         "ar": "Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Expected interest rate (annual).",
-        "tr": "Beklenen faiz oranı (yıllık)."
+        "tr": "Beklenen faiz oranı (yıllık).",
+        "de": "Erwarteter Zinssatz (jährlich).",
+        "fr": "Taux d'intérêt attendu (annuel)."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Lender Margin",
         "tr": "Borç Veren Marjı",
-        "de": "Lender Margin",
-        "fr": "Lender Margin",
+        "de": "Kreditgeber-Marge",
+        "fr": "Marge du prêteur",
         "es": "Lender Margin",
         "ar": "Lender Margin"
       },
       "businessContext_i18n": {
         "en": "Margin added to reference rate.",
-        "tr": "Referans orana eklenen marj."
+        "tr": "Referans orana eklenen marj.",
+        "de": "Marge, die zum Referenzzinssatz hinzugefügt wird.",
+        "fr": "Marge ajoutée au taux de référence."
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Life Expectancy",
         "tr": "Yaşam Beklentisi",
         "de": "Lebenserwartung",
-        "fr": "Life Expectancy",
-        "es": "Life Expectancy",
+        "fr": "Espérance de vie",
+        "es": "Esperanza de vida",
         "ar": "Life Expectancy"
       },
       "businessContext_i18n": {
         "en": "Projected lifespan for cost calculation.",
-        "tr": "Maliyet hesaplaması için öngörülen kullanım ömrü."
+        "tr": "Maliyet hesaplaması için öngörülen kullanım ömrü.",
+        "de": "Prognostizierte Lebensdauer für die Kostenberechnung.",
+        "fr": "Durée de vie projetée pour le calcul des coûts."
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Piston Diameter",
         "tr": "Piston Çapı",
-        "de": "Piston Diameter",
-        "fr": "Piston Diameter",
-        "es": "Piston Diameter",
+        "de": "Kolbendurchmesser",
+        "fr": "Diamètre du piston",
+        "es": "Diámetro del pistón",
         "ar": "Piston Diameter"
       },
       "businessContext_i18n": {
         "en": "Hidrolik silindir piston çapı",
-        "tr": "Hidrolik silindir piston çapı"
+        "tr": "Hidrolik silindir piston çapı",
+        "de": "Hydraulikzylinder-Kolbendurchmesser",
+        "fr": "Diamètre du piston du vérin hydraulique",
+        "es": "Diámetro del pistón del cilindro hidráulico"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "System Pressure",
         "tr": "Sistem Basıncı",
         "de": "Systemdruck",
-        "fr": "System Pressure",
-        "es": "System Pressure",
+        "fr": "Pression du système",
+        "es": "Presión del sistema",
         "ar": "System Pressure"
       },
       "businessContext_i18n": {
         "en": "Hidrolik sistem basıncı",
-        "tr": "Hidrolik sistem basıncı"
+        "tr": "Hidrolik sistem basıncı",
+        "de": "Hydrauliksystemdruck",
+        "fr": "Pression du système hydraulique",
+        "es": "Presión del sistema hidráulico"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Mechanical Efficiency",
         "tr": "Mekanik Verim",
-        "de": "Mechanical Efficiency",
-        "fr": "Mechanical Efficiency",
-        "es": "Mechanical Efficiency",
+        "de": "Mechanischer Wirkungsgrad",
+        "fr": "Rendement mécanique",
+        "es": "Eficiencia mecánica",
         "ar": "Mechanical Efficiency"
       },
       "businessContext_i18n": {
         "en": "Mekanik verim (sürtünme kayıpları vb.)",
-        "tr": "Mekanik verim (sürtünme kayıpları vb.)"
+        "tr": "Mekanik verim (sürtünme kayıpları vb.)",
+        "de": "Mechanischer Wirkungsgrad (Reibungsverluste usw.)",
+        "fr": "Rendement mécanique (pertes par frottement, etc.)",
+        "es": "Eficiencia mecánica (pérdidas por fricción, etc.)"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Emniyet katsayısı (aşırı yüklemeye karşı)",
-        "tr": "Emniyet katsayısı (aşırı yüklemeye karşı)"
+        "tr": "Emniyet katsayısı (aşırı yüklemeye karşı)",
+        "de": "Sicherheitsfaktor (gegen Überlast)",
+        "fr": "Coefficient de sécurité (contre les surcharges)",
+        "es": "Factor de seguridad (contra sobrecarga)"
       }
     }
   ],

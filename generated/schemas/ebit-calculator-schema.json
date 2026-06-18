@@ -12,14 +12,16 @@
         "en": "Revenue",
         "tr": "Gelir",
         "de": "Umsatzerlöse",
-        "fr": "Revenue",
-        "es": "Revenue",
+        "fr": "Revenu",
+        "es": "Ingresos",
         "ar": "Revenue"
       },
       "businessContext_i18n": {
         "en": "Total sales revenue from primary business operations",
         "tr": "Toplam Satış Geliri",
-        "de": "Gesamtumsatz aus dem Hauptgeschäftsbetrieb"
+        "de": "Gesamtumsatz aus dem Hauptgeschäftsbetrieb",
+        "fr": "Chiffre d'affaires total des opérations commerciales principales",
+        "es": "Ingresos totales por ventas de las operaciones comerciales principales"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Cost of Goods Sold",
         "tr": "Satılan Malın Maliyeti",
         "de": "Herstellkosten der verkauften Waren",
-        "fr": "Cost of Goods Sold",
-        "es": "Cost of Goods Sold",
+        "fr": "Coût des marchandises vendues",
+        "es": "Coste de los bienes vendidos",
         "ar": "Cost of Goods Sold"
       },
       "businessContext_i18n": {
         "en": "Direct costs attributable to the production of goods sold",
         "tr": "Satılan malların üretimine doğrudan atfedilebilen maliyetler.",
-        "de": "Direkte Kosten, die der Produktion der verkauften Waren zuzurechnen sind"
+        "de": "Direkte Kosten, die der Produktion der verkauften Waren zuzurechnen sind",
+        "fr": "Coûts directs attribuables à la production des biens vendus",
+        "es": "Costes directos atribuibles a la producción de los bienes vendidos"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Selling, General & Administrative Expenses",
         "tr": "Satış, Genel ve İdari Giderler",
         "de": "Vertriebs-, allgemeine und Verwaltungskosten",
-        "fr": "Selling, General & Administrative Expenses",
-        "es": "Selling, General & Administrative Expenses",
+        "fr": "Frais de vente, généraux et administratifs",
+        "es": "Gastos de venta, generales y administrativos",
         "ar": "Selling, General & Administrative Expenses"
       },
       "businessContext_i18n": {
         "en": "Indirect operating expenses including sales, marketing, and administrative costs",
         "tr": "Satış, pazarlama ve idari maliyetleri içeren dolaylı işletme giderleri.",
-        "de": "Indirekte Betriebskosten, einschließlich Vertriebs-, Marketing- und Verwaltungskosten"
+        "de": "Indirekte Betriebskosten, einschließlich Vertriebs-, Marketing- und Verwaltungskosten",
+        "fr": "Charges opérationnelles indirectes incluant les frais de vente, marketing et administratifs",
+        "es": "Gastos operativos indirectos que incluyen ventas, marketing y costes administrativos"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Research & Development Expenses",
         "tr": "Araştırma ve Geliştirme Giderleri",
         "de": "Forschungs- und Entwicklungskosten",
-        "fr": "Research & Development Expenses",
-        "es": "Research & Development Expenses",
+        "fr": "Dépenses de recherche et développement",
+        "es": "Gastos de investigación y desarrollo",
         "ar": "Research & Development Expenses"
       },
       "businessContext_i18n": {
         "en": "Expenditures for innovation, product development, and process improvements",
         "tr": "İnovasyon, ürün geliştirme ve süreç iyileştirmeleri için yapılan harcamalar.",
-        "de": "Ausgaben für Innovation, Produktentwicklung und Prozessverbesserungen"
+        "de": "Ausgaben für Innovation, Produktentwicklung und Prozessverbesserungen",
+        "fr": "Dépenses pour l'innovation, le développement de produits et l'amélioration des processus",
+        "es": "Gastos en innovación, desarrollo de productos y mejoras de procesos"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Depreciation & Amortization",
         "tr": "Amortisman ve İtfa",
         "de": "Abschreibungen und Amortisation",
-        "fr": "Depreciation & Amortization",
-        "es": "Depreciation & Amortization",
+        "fr": "Dépréciation et amortissement",
+        "es": "Depreciación y amortización",
         "ar": "Depreciation & Amortization"
       },
       "businessContext_i18n": {
         "en": "Systematic allocation of tangible and intangible asset costs over useful lives",
         "tr": "Maddi ve maddi olmayan duran varlık maliyetlerinin faydalı ömürlerine sistematik olarak dağıtılması",
-        "de": "Systematische Verteilung der Anschaffungskosten von Sach- und immateriellen Vermögenswerten über die Nutzungsdauer"
+        "de": "Systematische Verteilung der Anschaffungskosten von Sach- und immateriellen Vermögenswerten über die Nutzungsdauer",
+        "fr": "Répartition systématique des coûts des actifs corporels et incorporels sur leur durée d'utilité",
+        "es": "Asignación sistemática de costes de activos tangibles e intangibles a lo largo de su vida útil"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Other Operating Expenses",
         "tr": "Diğer Faaliyet Giderleri",
         "de": "Sonstige betriebliche Aufwendungen",
-        "fr": "Other Operating Expenses",
-        "es": "Other Operating Expenses",
+        "fr": "Autres charges d'exploitation",
+        "es": "Otros gastos operativos",
         "ar": "Other Operating Expenses"
       },
       "businessContext_i18n": {
         "en": "Additional operating costs not captured in SG&A, R&D, or D&A",
         "tr": "SG&A, Ar-Ge veya D&A'ya dahil olmayan ek faaliyet giderleri",
-        "de": "Zusätzliche Betriebskosten, die nicht in VVGK, FuE oder A&A enthalten sind"
+        "de": "Zusätzliche Betriebskosten, die nicht in VVGK, FuE oder A&A enthalten sind",
+        "fr": "Coûts d'exploitation supplémentaires non inclus dans les frais de vente, généraux et administratifs, la R&D ou les D&A",
+        "es": "Costes operativos adicionales no incluidos en SG&A, I+D o D&A"
       }
     }
   ],

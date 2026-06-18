@@ -12,13 +12,16 @@
         "en": "Bore Diameter",
         "tr": "Delik Çapı",
         "de": "Bohrungsdurchmesser",
-        "fr": "Bore Diameter",
-        "es": "Bore Diameter",
+        "fr": "Diamètre d'alésage",
+        "es": "Diámetro del agujero",
         "ar": "Bore Diameter"
       },
       "businessContext_i18n": {
         "en": "Inner diameter of the pneumatic cylinder bore",
-        "tr": "Pnömatik silindir deliğinin iç çapı."
+        "tr": "Pnömatik silindir deliğinin iç çapı.",
+        "de": "Innendurchmesser der Pneumatikzylinderbohrung",
+        "fr": "Diamètre intérieur de l'alésage du vérin pneumatique",
+        "es": "Diámetro interior del cilindro neumático"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Rod Diameter",
         "tr": "Piston çubuğu çapı",
         "de": "Kolbenstangendurchmesser",
-        "fr": "Rod Diameter",
-        "es": "Rod Diameter",
+        "fr": "Diamètre de la tige",
+        "es": "Diámetro del vástago",
         "ar": "Rod Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the piston rod (0 for rodless cylinder)",
-        "tr": "Piston çubuğunun çapı (çubuksuz silindir için 0)."
+        "tr": "Piston çubuğunun çapı (çubuksuz silindir için 0).",
+        "de": "Durchmesser der Kolbenstange (0 für kolbenstangenlosen Zylinder)",
+        "fr": "Diamètre de la tige de piston (0 pour vérin sans tige)",
+        "es": "Diámetro del vástago del pistón (0 para cilindro sin vástago)"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Working Pressure",
         "tr": "Çalışma Basıncı",
-        "de": "Working Pressure",
-        "fr": "Working Pressure",
-        "es": "Working Pressure",
+        "de": "Arbeitsdruck",
+        "fr": "Pression de service",
+        "es": "Presión de trabajo",
         "ar": "Working Pressure"
       },
       "businessContext_i18n": {
         "en": "Gauge pressure of compressed air supply",
-        "tr": "Basınçlı hava beslemesinin gösterge basıncı"
+        "tr": "Basınçlı hava beslemesinin gösterge basıncı",
+        "de": "Überdruck der Druckluftversorgung",
+        "fr": "Pression manométrique de l'alimentation en air comprimé",
+        "es": "Presión manométrica del suministro de aire comprimido"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Stroke Length",
         "tr": "Strok uzunluğu",
         "de": "Hublänge",
-        "fr": "Stroke Length",
-        "es": "Stroke Length",
+        "fr": "Longueur de course",
+        "es": "Longitud de carrera",
         "ar": "Stroke Length"
       },
       "businessContext_i18n": {
         "en": "Distance the piston travels per cycle",
-        "tr": "Pistonun çevrim başına kat ettiği mesafe"
+        "tr": "Pistonun çevrim başına kat ettiği mesafe",
+        "de": "Vom Kolben pro Zyklus zurückgelegte Strecke",
+        "fr": "Distance parcourue par le piston par cycle",
+        "es": "Distancia que recorre el pistón por ciclo"
       }
     },
     {
@@ -92,14 +104,16 @@
         "en": "Cycles per Minute",
         "tr": "Dakikadaki Çevrim Sayısı",
         "de": "Zyklen pro Minute",
-        "fr": "Cycles per Minute",
-        "es": "Cycles per Minute",
+        "fr": "Cycles par minute",
+        "es": "Ciclos por minuto",
         "ar": "Cycles per Minute"
       },
       "businessContext_i18n": {
         "en": "Operating frequency",
         "tr": "Çalışma frekansı",
-        "de": "Betriebsfrequenz"
+        "de": "Betriebsfrequenz",
+        "fr": "Fréquence de fonctionnement",
+        "es": "Frecuencia de operación"
       }
     },
     {
@@ -113,13 +127,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Recommended additional force percentage for selection",
-        "tr": "Seçim için önerilen ek kuvvet yüzdesi"
+        "tr": "Seçim için önerilen ek kuvvet yüzdesi",
+        "de": "Empfohlener zusätzlicher Kraftprozentsatz für die Auswahl",
+        "fr": "Pourcentage de force supplémentaire recommandé pour la sélection",
+        "es": "Porcentaje de fuerza adicional recomendado para la selección"
       }
     }
   ],

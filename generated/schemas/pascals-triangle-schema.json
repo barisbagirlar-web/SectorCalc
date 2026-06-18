@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Row Index (0-based)",
         "tr": "Satır İndeksi (0 tabanlı)",
-        "de": "Row Index (0-based)",
-        "fr": "Row Index (0-based)",
-        "es": "Row Index (0-based)",
+        "de": "Zeilenindex (0-basiert)",
+        "fr": "Indice de ligne (base 0)",
+        "es": "Índice de fila (basado en 0)",
         "ar": "Row Index (0-based)"
       },
       "businessContext_i18n": {
         "en": "The row number in Pascal's triangle, starting from 0.",
-        "tr": "Pascal üçgeninde 0'dan başlayan satır numarası."
+        "tr": "Pascal üçgeninde 0'dan başlayan satır numarası.",
+        "de": "Der Zeilenindex im Pascalschen Dreieck, beginnend bei 0.",
+        "fr": "Le numéro de ligne dans le triangle de Pascal, en commençant par 0.",
+        "es": "El número de fila en el triángulo de Pascal, comenzando desde 0."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Column Index (0-based)",
         "tr": "Sütun İndeksi (0 tabanlı)",
-        "de": "Column Index (0-based)",
-        "fr": "Column Index (0-based)",
-        "es": "Column Index (0-based)",
+        "de": "Spaltenindex (0-basiert)",
+        "fr": "Indice de colonne (base 0)",
+        "es": "Índice de columna (basado en 0)",
         "ar": "Column Index (0-based)"
       },
       "businessContext_i18n": {
         "en": "The column position within the specified row, starting from 0.",
-        "tr": "Belirtilen satırda 0'dan başlayan sütun konumu."
+        "tr": "Belirtilen satırda 0'dan başlayan sütun konumu.",
+        "de": "Die Spaltenposition innerhalb der angegebenen Zeile, beginnend bei 0.",
+        "fr": "La position dans la colonne pour la ligne spécifiée, en commençant par 0.",
+        "es": "La posición de la columna dentro de la fila especificada, comenzando desde 0."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Number of Rows to Generate",
         "tr": "Oluşturulacak Satır Sayısı",
-        "de": "Number of Rows to Generate",
-        "fr": "Number of Rows to Generate",
-        "es": "Number of Rows to Generate",
+        "de": "Anzahl der zu generierenden Zeilen",
+        "fr": "Nombre de lignes à générer",
+        "es": "Número de filas a generar",
         "ar": "Number of Rows to Generate"
       },
       "businessContext_i18n": {
         "en": "Total number of rows to generate for the triangle.",
-        "tr": "Üçgen için oluşturulacak toplam satır sayısı."
+        "tr": "Üçgen için oluşturulacak toplam satır sayısı.",
+        "de": "Gesamtzahl der zu generierenden Zeilen für das Dreieck.",
+        "fr": "Nombre total de lignes à générer pour le triangle.",
+        "es": "Número total de filas a generar para el triángulo."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Maximum Value to Display",
         "tr": "Görüntülenecek Maksimum Değer",
-        "de": "Maximum Value to Display",
-        "fr": "Maximum Value to Display",
-        "es": "Maximum Value to Display",
+        "de": "Maximal anzuzeigender Wert",
+        "fr": "Valeur maximale à afficher",
+        "es": "Valor máximo a mostrar",
         "ar": "Maximum Value to Display"
       },
       "businessContext_i18n": {
         "en": "Only display entries with value less than or equal to this threshold.",
-        "tr": "Yalnızca bu eşik değerine eşit veya daha küçük girişleri göster."
+        "tr": "Yalnızca bu eşik değerine eşit veya daha küçük girişleri göster.",
+        "de": "Nur Einträge anzeigen, deren Wert kleiner oder gleich diesem Schwellenwert ist.",
+        "fr": "Afficher uniquement les entrées dont la valeur est inférieure ou égale à ce seuil.",
+        "es": "Solo mostrar entradas con valor menor o igual a este umbral."
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "US Jacket Size",
         "tr": "ABD Ceket Bedeni",
-        "de": "US Jacket Size",
-        "fr": "US Jacket Size",
+        "de": "US-Jackengröße",
+        "fr": "Taille de veste US",
         "es": "US Jacket Size",
         "ar": "US Jacket Size"
       },
       "businessContext_i18n": {
         "en": "Enter the US men's suit jacket size (chest measurement in inches). Standard sizes: 36, 38, 40, 42, etc.",
-        "tr": "ABD erkek takım elbise ceket bedenini (göğüs ölçüsü inç cinsinden) girin. Standart bedenler: 36, 38, 40, 42 vb."
+        "tr": "ABD erkek takım elbise ceket bedenini (göğüs ölçüsü inç cinsinden) girin. Standart bedenler: 36, 38, 40, 42 vb.",
+        "de": "Geben Sie die US-Herren-Anzugjackengröße (Brustumfang in Zoll) ein. Standardgrößen: 36, 38, 40, 42 usw.",
+        "fr": "Entrez la taille de veste de costume homme US (tour de poitrine en pouces). Tailles standard : 36, 38, 40, 42, etc."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "US Pants Waist (inches)",
         "tr": "ABD Pantolon Beli (inç)",
-        "de": "US Pants Waist (inches)",
-        "fr": "US Pants Waist (inches)",
+        "de": "US-Hosenbund (Zoll)",
+        "fr": "Tour de taille pantalon US (pouces)",
         "es": "US Pants Waist (inches)",
         "ar": "US Pants Waist (inches)"
       },
       "businessContext_i18n": {
         "en": "Optional: Enter the US pants waist size in inches for conversion.",
-        "tr": "İsteğe bağlı: Dönüşüm için ABD pantolon bel ölçüsünü inç cinsinden girin."
+        "tr": "İsteğe bağlı: Dönüşüm için ABD pantolon bel ölçüsünü inç cinsinden girin.",
+        "de": "Optional: Geben Sie die US-Hosenbundweite in Zoll zur Umrechnung ein.",
+        "fr": "Optionnel : Entrez le tour de taille du pantalon US en pouces pour la conversion."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "US Pants Inseam (inches)",
         "tr": "ABD Pantolon İç Dikişi (inç)",
-        "de": "US Pants Inseam (inches)",
-        "fr": "US Pants Inseam (inches)",
+        "de": "US-Hoseninnenbeinlänge (Zoll)",
+        "fr": "Longueur d'entrejambe pantalon US (pouces)",
         "es": "US Pants Inseam (inches)",
         "ar": "US Pants Inseam (inches)"
       },
       "businessContext_i18n": {
         "en": "Optional: Enter the US pants inseam length in inches.",
-        "tr": "İsteğe bağlı: ABD pantolon iç dikiş uzunluğunu inç cinsinden girin."
+        "tr": "İsteğe bağlı: ABD pantolon iç dikiş uzunluğunu inç cinsinden girin.",
+        "de": "Optional: Geben Sie die US-Hoseninnenbeinlänge in Zoll ein.",
+        "fr": "Optionnel : Entrez la longueur d'entrejambe du pantalon US en pouces."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Jacket Size Offset",
         "tr": "Ceket Bedeni Farkı",
-        "de": "Jacket Size Offset",
-        "fr": "Jacket Size Offset",
+        "de": "Jackengrößen-Offset",
+        "fr": "Décalage de taille de veste",
         "es": "Jacket Size Offset",
         "ar": "Jacket Size Offset"
       },
       "businessContext_i18n": {
         "en": "The conversion offset from US to EU jacket size (EU = US + offset). Standard is 10. Adjust if needed.",
-        "tr": "ABD'den AB ceket bedenine dönüşüm farkı (AB = ABD + fark). Standart 10'dur. Gerekirse ayarlayın."
+        "tr": "ABD'den AB ceket bedenine dönüşüm farkı (AB = ABD + fark). Standart 10'dur. Gerekirse ayarlayın.",
+        "de": "Der Umrechnungs-Offset von US- zu EU-Jackengröße (EU = US + Offset). Standard ist 10. Bei Bedarf anpassen.",
+        "fr": "Le décalage de conversion de la taille de veste US vers EU (EU = US + décalage). Standard est 10. Ajustez si nécessaire."
       }
     }
   ],

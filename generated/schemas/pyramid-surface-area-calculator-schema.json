@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Taban Kenar Uzunluğu",
         "tr": "Taban Kenar Uzunluğu",
-        "de": "Taban Kenar Uzunluğu",
-        "fr": "Taban Kenar Uzunluğu",
-        "es": "Taban Kenar Uzunluğu",
+        "de": "Basiskantenlänge",
+        "fr": "Longueur du côté de la base",
+        "es": "Longitud del lado de la base",
         "ar": "Taban Kenar Uzunluğu"
       },
       "businessContext_i18n": {
         "en": "Kare piramidin taban kenarının metre cinsinden uzunluğu.",
-        "tr": "Kare piramidin taban kenarının metre cinsinden uzunluğu."
+        "tr": "Kare piramidin taban kenarının metre cinsinden uzunluğu.",
+        "de": "Länge der Basiskante einer quadratischen Pyramide in Metern.",
+        "fr": "Longueur du côté de la base de la pyramide carrée en mètres.",
+        "es": "Longitud en metros del lado de la base de la pirámide cuadrada."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Yükseklik",
         "tr": "Yükseklik",
-        "de": "Yükseklik",
-        "fr": "Yükseklik",
-        "es": "Yükseklik",
+        "de": "Höhe",
+        "fr": "Hauteur",
+        "es": "Altura",
         "ar": "Yükseklik"
       },
       "businessContext_i18n": {
         "en": "Piramidin tabandan tepeye dikey yüksekliği.",
-        "tr": "Yükseklik"
+        "tr": "Yükseklik",
+        "de": "Senkrechte Höhe der Pyramide von der Basis bis zur Spitze.",
+        "fr": "Hauteur verticale de la pyramide de la base au sommet.",
+        "es": "Altura vertical de la pirámide desde la base hasta el vértice."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Yan Yüzey Yüksekliği",
         "tr": "Yan Yüzey Yüksekliği",
-        "de": "Yan Yüzey Yüksekliği",
-        "fr": "Yan Yüzey Yüksekliği",
-        "es": "Yan Yüzey Yüksekliği",
+        "de": "Seitenhöhe",
+        "fr": "Hauteur de la face latérale",
+        "es": "Altura de la cara lateral",
         "ar": "Yan Yüzey Yüksekliği"
       },
       "businessContext_i18n": {
         "en": "Eğik kenar yüksekliği biliniyorsa girilir; 0 girilirse taban ve yükseklikten hesaplanır.",
-        "tr": "Eğik kenar yüksekliği biliniyorsa girilir; 0 girilirse taban ve yükseklikten hesaplanır."
+        "tr": "Eğik kenar yüksekliği biliniyorsa girilir; 0 girilirse taban ve yükseklikten hesaplanır.",
+        "de": "Wird eingegeben, wenn die schräge Kantenhöhe bekannt ist; bei 0 wird sie aus Basis und Höhe berechnet.",
+        "fr": "Saisir la hauteur oblique si connue ; si 0, elle est calculée à partir de la base et de la hauteur.",
+        "es": "Se ingresa si se conoce la altura del borde inclinado; si se ingresa 0, se calcula a partir de la base y la altura."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Fire Oranı",
         "tr": "Fire Oranı",
         "de": "Verschnittanteil",
-        "fr": "Fire Oranı",
-        "es": "Fire Oranı",
+        "fr": "Taux de perte",
+        "es": "Porcentaje de desperdicio",
         "ar": "Fire Oranı"
       },
       "businessContext_i18n": {
         "en": "Malzeme kesim ve montaj fire oranı (ondalık olarak, örn. 5 için %5).",
-        "tr": "Fire Oranı"
+        "tr": "Fire Oranı",
+        "de": "Materialverschnitt- und Montageverlustrate (als Dezimalzahl, z.B. 5 für 5%).",
+        "fr": "Taux de perte de matériau (coupe et montage) en décimal (ex. 5 pour 5%).",
+        "es": "Tasa de desperdicio por corte y montaje del material (en decimal, ej. 5 para 5%)."
       }
     }
   ],

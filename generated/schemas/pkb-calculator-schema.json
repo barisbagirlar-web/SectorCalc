@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Base Dissociation Constant (Kb)",
         "tr": "Baz Ayrışma Sabiti (Kb)",
-        "de": "Base Dissociation Constant (Kb)",
-        "fr": "Base Dissociation Constant (Kb)",
-        "es": "Base Dissociation Constant (Kb)",
+        "de": "Basendissoziationskonstante (Kb)",
+        "fr": "Constante de dissociation basique (Kb)",
+        "es": "Constante de Disociación de Base (Kb)",
         "ar": "Base Dissociation Constant (Kb)"
       },
       "businessContext_i18n": {
         "en": "Equilibrium constant for the base dissociation reaction.",
-        "tr": "Baz ayrışma reaksiyonu için denge sabiti."
+        "tr": "Baz ayrışma reaksiyonu için denge sabiti.",
+        "de": "Gleichgewichtskonstante für die Basendissoziationsreaktion.",
+        "fr": "Constante d'équilibre pour la réaction de dissociation de la base.",
+        "es": "Constante de equilibrio para la reacción de disociación de la base."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Acid Dissociation Constant (Ka)",
         "tr": "Asit Ayrışma Sabiti (Ka)",
         "de": "Säuredissoziationskonstante (Ka)",
-        "fr": "Acid Dissociation Constant (Ka)",
-        "es": "Acid Dissociation Constant (Ka)",
+        "fr": "Constante de dissociation acide (Ka)",
+        "es": "Constante de disociación del ácido (Ka)",
         "ar": "Acid Dissociation Constant (Ka)"
       },
       "businessContext_i18n": {
         "en": "Equilibrium constant for the conjugate acid. Used if Kb is not provided.",
-        "tr": "Konjuge asit için denge sabiti. Kb sağlanmadıysa kullanılır."
+        "tr": "Konjuge asit için denge sabiti. Kb sağlanmadıysa kullanılır.",
+        "de": "Gleichgewichtskonstante für die konjugierte Säure. Wird verwendet, wenn Kb nicht angegeben ist.",
+        "fr": "Constante d'équilibre pour l'acide conjugué. Utilisée si Kb n'est pas fournie.",
+        "es": "Constante de equilibrio para el ácido conjugado. Se usa si no se proporciona Kb."
       }
     },
     {
@@ -58,7 +64,10 @@
       },
       "businessContext_i18n": {
         "en": "Negative base-10 logarithm of Ka. Used if Kb and Ka are not provided.",
-        "tr": "Ka'nın negatif baz-10 logaritması. Kb ve Ka sağlanmadıysa kullanılır."
+        "tr": "Ka'nın negatif baz-10 logaritması. Kb ve Ka sağlanmadıysa kullanılır.",
+        "de": "Negativer dekadischer Logarithmus von Ka. Wird verwendet, wenn Kb und Ka nicht angegeben sind.",
+        "fr": "Logarithme négatif en base 10 de Ka. Utilisé si Kb et Ka ne sont pas fournis.",
+        "es": "Logaritmo negativo en base 10 de Ka. Se usa si no se proporcionan Kb y Ka."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Ion Product of Water (Kw)",
         "tr": "Suyun İyon Çarpımı (Kw)",
-        "de": "Ion Product of Water (Kw)",
-        "fr": "Ion Product of Water (Kw)",
-        "es": "Ion Product of Water (Kw)",
+        "de": "Ionenprodukt des Wassers (Kw)",
+        "fr": "Produit ionique de l'eau (Kw)",
+        "es": "Producto iónico del agua (Kw)",
         "ar": "Ion Product of Water (Kw)"
       },
       "businessContext_i18n": {
         "en": "Self-ionization constant of water at 25°C. Used when deriving Kb from Ka.",
-        "tr": "25°C'de suyun kendi kendine iyonlaşma sabiti. Kb'yi Ka'dan türetirken kullanılır."
+        "tr": "25°C'de suyun kendi kendine iyonlaşma sabiti. Kb'yi Ka'dan türetirken kullanılır.",
+        "de": "Autoprotolysekonstante des Wassers bei 25 °C. Wird verwendet, um Kb aus Ka abzuleiten.",
+        "fr": "Constante d'auto-ionisation de l'eau à 25°C. Utilisée pour dériver Kb à partir de Ka.",
+        "es": "Constante de autoionización del agua a 25°C. Se usa al derivar Kb a partir de Ka."
       }
     }
   ],

@@ -35,11 +35,17 @@
       "businessContext": "Maximum allowable working pressure per ASME UG-21",
       "label_i18n": {
         "en": "Design Pressure (P)",
-        "tr": "Tasarım Basıncı (P)"
+        "tr": "Tasarım Basıncı (P)",
+        "de": "Auslegungsdruck (P)",
+        "fr": "Pression de calcul (P)",
+        "es": "Presión de diseño (P)"
       },
       "businessContext_i18n": {
         "en": "Maximum allowable working pressure per ASME UG-21",
-        "tr": "ASME UG-21'e göre izin verilen maksimum çalışma basıncı"
+        "tr": "ASME UG-21'e göre izin verilen maksimum çalışma basıncı",
+        "de": "Maximal zulässiger Betriebsdruck gemäß ASME UG-21",
+        "fr": "Pression maximale de service admissible selon ASME UG-21",
+        "es": "Presión máxima de trabajo admisible según ASME UG-21"
       }
     },
     {
@@ -53,11 +59,17 @@
       "businessContext": "Inside diameter of cylindrical shell",
       "label_i18n": {
         "en": "Vessel Inner Diameter (D)",
-        "tr": "Kazan İç Çapı (D)"
+        "tr": "Kazan İç Çapı (D)",
+        "de": "Behälterinnendurchmesser (D)",
+        "fr": "Diamètre intérieur de la cuve (D)",
+        "es": "Diámetro interior del recipiente (D)"
       },
       "businessContext_i18n": {
         "en": "Inside diameter of cylindrical shell",
-        "tr": "Silindirik kabuğun iç çapı"
+        "tr": "Silindirik kabuğun iç çapı",
+        "de": "Innendurchmesser des zylindrischen Mantels",
+        "fr": "Diamètre intérieur de la coque cylindrique",
+        "es": "Diámetro interior de la carcasa cilíndrica"
       }
     },
     {
@@ -71,11 +83,17 @@
       "businessContext": "Material allowable stress at design temperature per ASME II Part D",
       "label_i18n": {
         "en": "Allowable Stress (S)",
-        "tr": "İzin Verilen Gerilme (S)"
+        "tr": "İzin Verilen Gerilme (S)",
+        "de": "Zulässige Spannung (S)",
+        "fr": "Contrainte admissible (S)",
+        "es": "Esfuerzo admisible (S)"
       },
       "businessContext_i18n": {
         "en": "Material allowable stress at design temperature per ASME II Part D",
-        "tr": "Tasarım sıcaklığında malzemenin izin verilen gerilmesi, ASME II Kısım D'ye göre"
+        "tr": "Tasarım sıcaklığında malzemenin izin verilen gerilmesi, ASME II Kısım D'ye göre",
+        "de": "Zulässige Werkstoffspannung bei Auslegungstemperatur gemäß ASME II Teil D",
+        "fr": "Contrainte admissible du matériau à la température de calcul selon ASME II Part D",
+        "es": "Esfuerzo admisible del material a temperatura de diseño según ASME II Parte D"
       }
     },
     {
@@ -91,11 +109,17 @@
       "businessContext": "Welded joint efficiency factor per ASME UW-12",
       "label_i18n": {
         "en": "Joint Efficiency (E)",
-        "tr": "Bağlantı Verimliliği (E)"
+        "tr": "Bağlantı Verimliliği (E)",
+        "de": "Verbindungswirkungsgrad (E)",
+        "fr": "Efficacité du joint (E)",
+        "es": "Eficiencia de junta (E)"
       },
       "businessContext_i18n": {
         "en": "Welded joint efficiency factor per ASME UW-12",
-        "tr": "Kaynaklı bağlantı verimlilik faktörü, ASME UW-12'ye göre"
+        "tr": "Kaynaklı bağlantı verimlilik faktörü, ASME UW-12'ye göre",
+        "de": "Schweißnahtwirkungsgrad gemäß ASME UW-12",
+        "fr": "Facteur d'efficacité du joint soudé selon ASME UW-12",
+        "es": "Factor de eficiencia de junta soldada según ASME UW-12"
       },
       "unit": "unit"
     },
@@ -110,11 +134,17 @@
       "businessContext": "Additional thickness for corrosion/erosion per UG-25",
       "label_i18n": {
         "en": "Corrosion Allowance (CA)",
-        "tr": "Korozyon Payı (CA)"
+        "tr": "Korozyon Payı (CA)",
+        "de": "Korrosionszuschlag (CA)",
+        "fr": "Surépaisseur de corrosion (CA)",
+        "es": "Sobreespesor por corrosión (CA)"
       },
       "businessContext_i18n": {
         "en": "Additional thickness for corrosion/erosion per UG-25",
-        "tr": "UG-25'e göre korozyon/erozyon için ek kalınlık"
+        "tr": "UG-25'e göre korozyon/erozyon için ek kalınlık",
+        "de": "Zusätzliche Wanddicke für Korrosion/Erosion gemäß UG-25",
+        "fr": "Épaisseur supplémentaire pour corrosion/érosion selon UG-25",
+        "es": "Espesor adicional por corrosión/erosión según UG-25"
       }
     },
     {
@@ -128,11 +158,17 @@
       "businessContext": "Lean manufacturing metric for material waste reduction",
       "label_i18n": {
         "en": "Material Utilization Factor",
-        "tr": "Malzeme Kullanım Faktörü"
+        "tr": "Malzeme Kullanım Faktörü",
+        "de": "Materialnutzungsfaktor",
+        "fr": "Facteur d'utilisation du matériau",
+        "es": "Factor de utilización del material"
       },
       "businessContext_i18n": {
         "en": "Lean manufacturing metric for material waste reduction",
-        "tr": "Malzeme israfını azaltmak için yalın üretim metriği"
+        "tr": "Malzeme israfını azaltmak için yalın üretim metriği",
+        "de": "Lean-Kennzahl zur Reduzierung von Materialverschwendung",
+        "fr": "Métrique Lean pour la réduction des déchets de matériaux",
+        "es": "Métrica Lean para reducción de desperdicio de material"
       }
     },
     {
@@ -143,11 +179,17 @@
       "businessContext": "Enable to use custom safety factor instead of ASME default 3.5",
       "label_i18n": {
         "en": "Override Safety Factor",
-        "tr": "Güvenlik Faktörünü Geçersiz Kıl"
+        "tr": "Güvenlik Faktörünü Geçersiz Kıl",
+        "de": "Sicherheitsfaktor überschreiben",
+        "fr": "Facteur de sécurité de remplacement",
+        "es": "Factor de seguridad anulado"
       },
       "businessContext_i18n": {
         "en": "Enable to use custom safety factor instead of ASME default 3.5",
-        "tr": "ASME varsayılan 3.5 yerine özel güvenlik faktörü kullanmak için etkinleştirin"
+        "tr": "ASME varsayılan 3.5 yerine özel güvenlik faktörü kullanmak için etkinleştirin",
+        "de": "Aktivieren, um einen benutzerdefinierten Sicherheitsfaktor anstelle des ASME-Standards 3,5 zu verwenden",
+        "fr": "Activer pour utiliser un facteur de sécurité personnalisé au lieu de la valeur par défaut ASME de 3,5",
+        "es": "Habilitar para usar factor de seguridad personalizado en lugar del valor por defecto ASME de 3.5"
       },
       "unit": "unit"
     },
@@ -162,11 +204,17 @@
       "businessContext": "Only used if override is enabled; typical range per ISO 16528",
       "label_i18n": {
         "en": "Custom Safety Factor",
-        "tr": "Özel Güvenlik Faktörü"
+        "tr": "Özel Güvenlik Faktörü",
+        "de": "Benutzerdefinierter Sicherheitsfaktor",
+        "fr": "Facteur de sécurité personnalisé",
+        "es": "Factor de seguridad personalizado"
       },
       "businessContext_i18n": {
         "en": "Only used if override is enabled; typical range per ISO 16528",
-        "tr": "Yalnızca geçersiz kılma etkinse kullanılır; ISO 16528'e göre tipik aralık"
+        "tr": "Yalnızca geçersiz kılma etkinse kullanılır; ISO 16528'e göre tipik aralık",
+        "de": "Nur verwendet, wenn Überschreibung aktiviert ist; typischer Bereich gemäß ISO 16528",
+        "fr": "Utilisé uniquement si le remplacement est activé ; plage typique selon ISO 16528",
+        "es": "Solo se usa si la anulación está habilitada; rango típico según ISO 16528"
       }
     }
   ],

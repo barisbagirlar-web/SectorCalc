@@ -12,13 +12,15 @@
         "en": "Aperture (f-stop)",
         "tr": "Diyafram (f-stop)",
         "de": "Blende (f-stop)",
-        "fr": "Aperture (f-stop)",
-        "es": "Aperture (f-stop)",
+        "fr": "Ouverture (f-stop)",
+        "es": "Apertura (f-stop)",
         "ar": "Aperture (f-stop)"
       },
       "businessContext_i18n": {
         "en": "Lens aperture setting",
-        "tr": "Lens diyafram ayarı"
+        "tr": "Lens diyafram ayarı",
+        "de": "Blendenöffnung",
+        "fr": "Ouverture du diaphragme"
       }
     },
     {
@@ -38,7 +40,9 @@
       },
       "businessContext_i18n": {
         "en": "Film or sensor sensitivity",
-        "tr": "Film veya sensör hassasiyeti"
+        "tr": "Film veya sensör hassasiyeti",
+        "de": "Film- oder Sensor-Empfindlichkeit",
+        "fr": "Sensibilité du film ou du capteur"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Light Condition (EV offset)",
         "tr": "Işık Durumu (EV düzeltmesi)",
-        "de": "Light Condition (EV offset)",
-        "fr": "Light Condition (EV offset)",
+        "de": "Lichtbedingung (EV-Offset)",
+        "fr": "Condition lumineuse (décalage EV)",
         "es": "Light Condition (EV offset)",
         "ar": "Light Condition (EV offset)"
       },
       "businessContext_i18n": {
         "en": "Adjustment for sunny 16 baseline: 0 for bright sun, +1 for slight overcast, -1 for open shade, etc.",
-        "tr": "Güneşli 16 kuralına göre düzeltme: 0 parlak güneş, +1 hafif bulutlu, -1 açık gölge vb."
+        "tr": "Güneşli 16 kuralına göre düzeltme: 0 parlak güneş, +1 hafif bulutlu, -1 açık gölge vb.",
+        "de": "Anpassung an die Sunny-16-Baseline: 0 für helle Sonne, +1 für leichte Bewölkung, -1 für offenen Schatten usw.",
+        "fr": "Ajustement par rapport à la règle sunny 16 : 0 pour soleil vif, +1 pour léger voile, -1 pour ombre ouverte, etc."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "ND Filter (stops)",
         "tr": "ND Filtre (durak)",
-        "de": "ND Filter (stops)",
-        "fr": "ND Filter (stops)",
+        "de": "ND-Filter (Blendenstufen)",
+        "fr": "Filtre ND (diaphs)",
         "es": "ND Filter (stops)",
         "ar": "ND Filter (stops)"
       },
       "businessContext_i18n": {
         "en": "Neutral density filter reduction in stops",
-        "tr": "Nötr yoğunluk filtresinin durak cinsinden azaltması"
+        "tr": "Nötr yoğunluk filtresinin durak cinsinden azaltması",
+        "de": "Reduzierung durch Neutraldichtefilter in Blendenstufen",
+        "fr": "Réduction en diaphs du filtre neutre"
       }
     }
   ],

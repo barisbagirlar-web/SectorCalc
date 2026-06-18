@@ -12,13 +12,15 @@
         "en": "Wire Diameter",
         "tr": "Tel Çapı",
         "de": "Drahtdurchmesser",
-        "fr": "Wire Diameter",
-        "es": "Wire Diameter",
+        "fr": "Diamètre du fil",
+        "es": "Diámetro del alambre",
         "ar": "Wire Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the wire used in the mesh",
-        "tr": "Tel örgüde kullanılan telin çapı"
+        "tr": "Tel örgüde kullanılan telin çapı",
+        "de": "Durchmesser des für das Netz verwendeten Drahtes",
+        "fr": "Diamètre du fil utilisé dans le treillis"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Mesh Opening",
         "tr": "Mesh Açıklığı",
-        "de": "Mesh Opening",
-        "fr": "Mesh Opening",
+        "de": "Maschenöffnung",
+        "fr": "Ouverture de maille",
         "es": "Mesh Opening",
         "ar": "Mesh Opening"
       },
       "businessContext_i18n": {
         "en": "Clear opening size between adjacent parallel wires",
-        "tr": "Paralel teller arasındaki net açıklık boyutu"
+        "tr": "Paralel teller arasındaki net açıklık boyutu",
+        "de": "Freie Öffnungsweite zwischen benachbarten parallelen Drähten",
+        "fr": "Taille d'ouverture libre entre deux fils parallèles adjacents"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Sheet Width",
         "tr": "Levha genişliği",
-        "de": "Sheet Width",
-        "fr": "Sheet Width",
+        "de": "Plattenbreite",
+        "fr": "Largeur du panneau",
         "es": "Sheet Width",
         "ar": "Sheet Width"
       },
       "businessContext_i18n": {
         "en": "Width of a single mesh sheet",
-        "tr": "Tek bir mesh tabakasının genişliği"
+        "tr": "Tek bir mesh tabakasının genişliği",
+        "de": "Breite einer einzelnen Netzplatte",
+        "fr": "Largeur d'une feuille de treillis"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Sheet Length",
         "tr": "Levha uzunluğu",
-        "de": "Sheet Length",
-        "fr": "Sheet Length",
+        "de": "Plattenlänge",
+        "fr": "Longueur du panneau",
         "es": "Sheet Length",
         "ar": "Sheet Length"
       },
       "businessContext_i18n": {
         "en": "Length of a single mesh sheet",
-        "tr": "Tek bir mesh tabakasının uzunluğu"
+        "tr": "Tek bir mesh tabakasının uzunluğu",
+        "de": "Länge einer einzelnen Netzplatte",
+        "fr": "Longueur d'une feuille de treillis"
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Quantity",
         "tr": "Miktar",
         "de": "Menge",
-        "fr": "Quantity",
-        "es": "Quantity",
+        "fr": "Quantité",
+        "es": "Cantidad",
         "ar": "Quantity"
       },
       "businessContext_i18n": {
         "en": "Number of mesh sheets",
-        "tr": "Mesh tabakası sayısı"
+        "tr": "Mesh tabakası sayısı",
+        "de": "Anzahl der Netzplatten",
+        "fr": "Nombre de feuilles de treillis"
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Material Density",
         "tr": "Malzeme Yoğunluğu",
         "de": "Materialdichte",
-        "fr": "Material Density",
-        "es": "Material Density",
+        "fr": "Densité du matériau",
+        "es": "Densidad del material",
         "ar": "Material Density"
       },
       "businessContext_i18n": {
         "en": "Density of the wire material (e.g., steel = 7850 kg/m³)",
-        "tr": "Tel malzemesinin yoğunluğu (ör. çelik = 7850 kg/m³)"
+        "tr": "Tel malzemesinin yoğunluğu (ör. çelik = 7850 kg/m³)",
+        "de": "Dichte des Drahtmaterials (z. B. Stahl = 7850 kg/m³)",
+        "fr": "Densité du matériau du fil (ex. acier = 7850 kg/m³)"
       }
     }
   ],

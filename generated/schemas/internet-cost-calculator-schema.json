@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Aylık Temel Ücret",
         "tr": "Aylık Temel Ücret",
-        "de": "Aylık Temel Ücret",
-        "fr": "Aylık Temel Ücret",
-        "es": "Aylık Temel Ücret",
+        "de": "Monatliche Grundgebühr",
+        "fr": "Frais de base mensuels",
+        "es": "Tarifa base mensual",
         "ar": "Aylık Temel Ücret"
       },
       "businessContext_i18n": {
         "en": "Aylık sabit internet ücreti",
-        "tr": "Aylık sabit internet ücreti"
+        "tr": "Aylık sabit internet ücreti",
+        "de": "Monatliche Festnetz-Internetgebühr",
+        "fr": "Frais internet fixes mensuels",
+        "es": "Cargo fijo mensual de internet"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Veri Kotası",
         "tr": "Veri Kotası",
-        "de": "Veri Kotası",
-        "fr": "Veri Kotası",
-        "es": "Veri Kotası",
+        "de": "Datenvolumen",
+        "fr": "Quota de données",
+        "es": "Cuota de datos",
         "ar": "Veri Kotası"
       },
       "businessContext_i18n": {
         "en": "Aylık veri kullanım sınırı",
-        "tr": "Aylık veri kullanım sınırı"
+        "tr": "Aylık veri kullanım sınırı",
+        "de": "Monatliches Datenlimit",
+        "fr": "Limite mensuelle d'utilisation des données",
+        "es": "Límite de uso de datos mensual"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Aşım Ücreti (GB başına)",
         "tr": "Aşım Ücreti (GB başına)",
-        "de": "Aşım Ücreti (GB başına)",
-        "fr": "Aşım Ücreti (GB başına)",
-        "es": "Aşım Ücreti (GB başına)",
+        "de": "Überlastungsgebühr (pro GB)",
+        "fr": "Frais de dépassement (par Go)",
+        "es": "Cargo por exceso (por GB)",
         "ar": "Aşım Ücreti (GB başına)"
       },
       "businessContext_i18n": {
         "en": "Kota aşımında GB başına ek ücret",
-        "tr": "Kota aşımında GB başına ek ücret"
+        "tr": "Kota aşımında GB başına ek ücret",
+        "de": "Zusätzliche Gebühr pro GB bei Überschreitung des Datenvolumens",
+        "fr": "Frais supplémentaires par Go en cas de dépassement du quota",
+        "es": "Cargo adicional por GB al exceder la cuota"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Kullanım Miktarı",
         "tr": "Kullanım Miktarı",
-        "de": "Kullanım Miktarı",
-        "fr": "Kullanım Miktarı",
-        "es": "Kullanım Miktarı",
+        "de": "Nutzungsmenge",
+        "fr": "Quantité utilisée",
+        "es": "Cantidad de uso",
         "ar": "Kullanım Miktarı"
       },
       "businessContext_i18n": {
         "en": "Gerçekleşen aylık veri kullanımı",
-        "tr": "Gerçekleşen aylık veri kullanımı"
+        "tr": "Gerçekleşen aylık veri kullanımı",
+        "de": "Tatsächliche monatliche Datennutzung",
+        "fr": "Utilisation mensuelle réelle des données",
+        "es": "Uso de datos mensual real"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Taahhüt İndirimi",
         "tr": "Taahhüt İndirimi",
-        "de": "Taahhüt İndirimi",
-        "fr": "Taahhüt İndirimi",
-        "es": "Taahhüt İndirimi",
+        "de": "Vertragsrabatt",
+        "fr": "Remise d'engagement",
+        "es": "Descuento por contrato",
         "ar": "Taahhüt İndirimi"
       },
       "businessContext_i18n": {
         "en": "Sözleşme süresine bağlı yüzde indirim",
-        "tr": "Sözleşme süresine bağlı yüzde indirim"
+        "tr": "Sözleşme süresine bağlı yüzde indirim",
+        "de": "Prozentualer Rabatt basierend auf Vertragslaufzeit",
+        "fr": "Pourcentage de remise lié à la durée du contrat",
+        "es": "Porcentaje de descuento según duración del contrato"
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Vergi Oranı",
         "tr": "Vergi Oranı",
         "de": "Steuersatz",
-        "fr": "Vergi Oranı",
-        "es": "Vergi Oranı",
+        "fr": "Taux d'imposition",
+        "es": "Tasa impositiva",
         "ar": "Vergi Oranı"
       },
       "businessContext_i18n": {
         "en": "Uygulanan vergi yüzdesi",
-        "tr": "Uygulanan vergi yüzdesi"
+        "tr": "Uygulanan vergi yüzdesi",
+        "de": "Angewandter Steuersatz in Prozent",
+        "fr": "Pourcentage de taxe appliqué",
+        "es": "Porcentaje de impuesto aplicado"
       }
     }
   ],

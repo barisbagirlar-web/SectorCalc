@@ -12,14 +12,16 @@
         "en": "System Voltage",
         "tr": "Sistem Gerilimi",
         "de": "Systemspannung",
-        "fr": "System Voltage",
-        "es": "System Voltage",
+        "fr": "Tension du système",
+        "es": "Tensión del sistema",
         "ar": "System Voltage"
       },
       "businessContext_i18n": {
         "en": "Nominal system voltage (e.g., 230V single-phase, 400V three-phase).",
         "tr": "Nominal sistem gerilimi (ör. 230V tek faz, 400V üç faz).",
-        "de": "Nennspannung des Systems (z. B. 230V einphasig, 400V dreiphasig)"
+        "de": "Nennspannung des Systems (z. B. 230V einphasig, 400V dreiphasig)",
+        "fr": "Tension nominale du système (ex. : 230V monophasé, 400V triphasé)",
+        "es": "Tensión nominal del sistema (ej. 230V monofásico, 400V trifásico)."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Number of Phases",
         "tr": "Faz Sayısı",
         "de": "Anzahl der Phasen",
-        "fr": "Number of Phases",
-        "es": "Number of Phases",
+        "fr": "Nombre de phases",
+        "es": "Número de fases",
         "ar": "Number of Phases"
       },
       "businessContext_i18n": {
         "en": "1 for single-phase, 3 for three-phase.",
         "tr": "Tek faz için 1, üç faz için 3.",
-        "de": "1 für einphasig, 3 für dreiphasig"
+        "de": "1 für einphasig, 3 für dreiphasig",
+        "fr": "1 pour monophasé, 3 pour triphasé",
+        "es": "1 para monofásico, 3 para trifásico."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Number of Branch Circuits",
         "tr": "Devre Sayısı",
         "de": "Anzahl der Abzweigstromkreise",
-        "fr": "Number of Branch Circuits",
-        "es": "Number of Branch Circuits",
+        "fr": "Nombre de circuits dérivés",
+        "es": "Número de circuitos derivados",
         "ar": "Number of Branch Circuits"
       },
       "businessContext_i18n": {
         "en": "Total number of branch circuits to be supplied.",
         "tr": "Beslenecek toplam branş devre sayısı.",
-        "de": "Gesamtzahl der zu versorgenden Abzweigstromkreise."
+        "de": "Gesamtzahl der zu versorgenden Abzweigstromkreise.",
+        "fr": "Nombre total de circuits dérivés à alimenter",
+        "es": "Número total de circuitos derivados a alimentar."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Load per Circuit",
         "tr": "Devre Başına Yük",
         "de": "Last pro Stromkreis",
-        "fr": "Load per Circuit",
-        "es": "Load per Circuit",
+        "fr": "Charge par circuit",
+        "es": "Carga por circuito",
         "ar": "Load per Circuit"
       },
       "businessContext_i18n": {
         "en": "Rated current per branch circuit.",
         "tr": "Branş devre başına anma akımı.",
-        "de": "Nennstrom pro Abzweigstromkreis."
+        "de": "Nennstrom pro Abzweigstromkreis.",
+        "fr": "Courant nominal par circuit dérivé",
+        "es": "Corriente nominal por circuito derivado."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Diversity Factor",
         "tr": "Çeşitlilik Faktörü",
         "de": "Gleichzeitigkeitsfaktor",
-        "fr": "Diversity Factor",
-        "es": "Diversity Factor",
+        "fr": "Facteur de diversité",
+        "es": "Factor de diversidad",
         "ar": "Diversity Factor"
       },
       "businessContext_i18n": {
         "en": "Factor accounting for non-simultaneous loads (0-1).",
         "tr": "Eş zamanlı olmayan yükleri hesaba katan faktör (0-1).",
-        "de": "Faktor für nicht gleichzeitige Lasten (0-1)."
+        "de": "Faktor für nicht gleichzeitige Lasten (0-1).",
+        "fr": "Facteur tenant compte des charges non simultanées (0-1)",
+        "es": "Factor que considera cargas no simultáneas (0-1)."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Power Factor",
         "tr": "Güç Faktörü",
         "de": "Leistungsfaktor",
-        "fr": "Power Factor",
-        "es": "Power Factor",
+        "fr": "Facteur de puissance",
+        "es": "Factor de potencia",
         "ar": "Power Factor"
       },
       "businessContext_i18n": {
         "en": "Power factor of the load (0-1).",
         "tr": "Yükün güç faktörü (0-1).",
-        "de": "Leistungsfaktor der Last (0-1)."
+        "de": "Leistungsfaktor der Last (0-1).",
+        "fr": "Facteur de puissance de la charge (0-1).",
+        "es": "Factor de potencia de la carga (0-1)."
       }
     }
   ],

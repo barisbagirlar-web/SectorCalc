@@ -12,14 +12,16 @@
         "en": "Ambient Temperature",
         "tr": "Ortam Sıcaklığı",
         "de": "Umgebungstemperatur",
-        "fr": "Ambient Temperature",
-        "es": "Ambient Temperature",
+        "fr": "Température ambiante",
+        "es": "Temperatura ambiente",
         "ar": "Ambient Temperature"
       },
       "businessContext_i18n": {
         "en": "Initial temperature of surroundings",
         "tr": "Ortamın başlangıç sıcaklığı",
-        "de": "Anfangstemperatur der Umgebung"
+        "de": "Anfangstemperatur der Umgebung",
+        "fr": "Température initiale de l'environnement",
+        "es": "Temperatura inicial del entorno"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Grill Surface Area",
         "tr": "Izgara Yüzey Alanı",
         "de": "Grillfläche",
-        "fr": "Grill Surface Area",
-        "es": "Grill Surface Area",
+        "fr": "Surface du gril",
+        "es": "Área de la superficie de la parrilla",
         "ar": "Grill Surface Area"
       },
       "businessContext_i18n": {
         "en": "Area of grill surface exposed to heat",
         "tr": "Isıya maruz kalan ızgara yüzey alanı",
-        "de": "Fläche der dem Feuer ausgesetzten Grillfläche"
+        "de": "Fläche der dem Feuer ausgesetzten Grillfläche",
+        "fr": "Surface du gril exposée à la chaleur",
+        "es": "Área de la superficie de la parrilla expuesta al calor"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Heat Input Power",
         "tr": "Isı Giriş Gücü",
         "de": "Heizleistung",
-        "fr": "Heat Input Power",
-        "es": "Heat Input Power",
+        "fr": "Puissance d'entrée thermique",
+        "es": "Potencia de entrada de calor",
         "ar": "Heat Input Power"
       },
       "businessContext_i18n": {
         "en": "Electrical or gas power input to grill",
         "tr": "Izgaraya elektrik veya gaz güç girişi",
-        "de": "Elektrische oder Gasleistung des Grills"
+        "de": "Elektrische oder Gasleistung des Grills",
+        "fr": "Puissance électrique ou gaz d'entrée du gril",
+        "es": "Potencia de entrada eléctrica o de gas a la parrilla"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Efficiency",
         "tr": "Verim",
         "de": "Wirkungsgrad",
-        "fr": "Efficiency",
-        "es": "Efficiency",
+        "fr": "Rendement",
+        "es": "Eficiencia",
         "ar": "Efficiency"
       },
       "businessContext_i18n": {
         "en": "Percentage of heat transferred to grill surface (0-100)",
         "tr": "Izgara yüzeyine aktarılan ısı yüzdesi (0-100)",
-        "de": "Prozentsatz der auf die Grillfläche übertragenen Wärme (0-100)"
+        "de": "Prozentsatz der auf die Grillfläche übertragenen Wärme (0-100)",
+        "fr": "Pourcentage de chaleur transférée à la surface du gril (0-100)",
+        "es": "Porcentaje de calor transferido a la superficie de la parrilla (0-100)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Heat Transfer Coefficient",
         "tr": "Isı Transfer Katsayısı",
         "de": "Wärmeübergangskoeffizient",
-        "fr": "Heat Transfer Coefficient",
-        "es": "Heat Transfer Coefficient",
+        "fr": "Coefficient de transfert thermique",
+        "es": "Coeficiente de transferencia de calor",
         "ar": "Heat Transfer Coefficient"
       },
       "businessContext_i18n": {
         "en": "Combined convection and radiation coefficient",
         "tr": "Birleşik konveksiyon ve radyasyon katsayısı",
-        "de": "Kombinierter Konvektions- und Strahlungskoeffizient"
+        "de": "Kombinierter Konvektions- und Strahlungskoeffizient",
+        "fr": "Coefficient combiné de convection et rayonnement",
+        "es": "Coeficiente combinado de convección y radiación"
       }
     }
   ],

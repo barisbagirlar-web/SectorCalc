@@ -12,14 +12,16 @@
         "en": "Beam Span (L)",
         "tr": "Kiriş Açıklığı (L)",
         "de": "Balkenspannweite (L)",
-        "fr": "Beam Span (L)",
-        "es": "Beam Span (L)",
+        "fr": "Portée de la poutre (L)",
+        "es": "Luz de la viga (L)",
         "ar": "Beam Span (L)"
       },
       "businessContext_i18n": {
         "en": "Clear distance between supports for a simply supported beam.",
         "tr": "Basit mesnetli bir kiriş için mesnetler arası net mesafe.",
-        "de": "Freier Abstand zwischen den Auflagern eines einfach gestützten Balkens."
+        "de": "Freier Abstand zwischen den Auflagern eines einfach gestützten Balkens.",
+        "fr": "Distance libre entre les appuis pour une poutre simplement appuyée.",
+        "es": "Distancia libre entre apoyos para una viga simplemente apoyada."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Uniformly Distributed Load (w)",
         "tr": "Düzgün Yayılı Yük (w)",
         "de": "Gleichmäßig verteilte Last (w)",
-        "fr": "Uniformly Distributed Load (w)",
-        "es": "Uniformly Distributed Load (w)",
+        "fr": "Charge uniformément répartie (w)",
+        "es": "Carga uniformemente distribuida (w)",
         "ar": "Uniformly Distributed Load (w)"
       },
       "businessContext_i18n": {
         "en": "Load applied evenly along the full length of the beam.",
         "tr": "Kirişin tüm uzunluğu boyunca eşit olarak uygulanan yük.",
-        "de": "Gleichmäßig über die gesamte Balkenlänge aufgebrachte Last."
+        "de": "Gleichmäßig über die gesamte Balkenlänge aufgebrachte Last.",
+        "fr": "Charge appliquée uniformément sur toute la longueur de la poutre.",
+        "es": "Carga aplicada uniformemente a lo largo de toda la viga."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Allowable Bending Stress (σ_allow)",
         "tr": "İzin Verilen Eğilme Gerilmesi (σ_allow)",
         "de": "Zulässige Biegespannung (σ_zul)",
-        "fr": "Allowable Bending Stress (σ_allow)",
-        "es": "Allowable Bending Stress (σ_allow)",
+        "fr": "Contrainte de flexion admissible (σ_allow)",
+        "es": "Esfuerzo de flexión admisible (σ_adm)",
         "ar": "Allowable Bending Stress (σ_allow)"
       },
       "businessContext_i18n": {
         "en": "Maximum permissible stress for the beam material under bending.",
         "tr": "Kiriş malzemesinin eğilme altında izin verilen maksimum gerilmesi.",
-        "de": "Maximal zulässige Spannung des Balkenmaterials unter Biegung."
+        "de": "Maximal zulässige Spannung des Balkenmaterials unter Biegung.",
+        "fr": "Contrainte maximale admissible pour le matériau de la poutre en flexion.",
+        "es": "Esfuerzo máximo permitido para el material de la viga bajo flexión."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Modulus of Elasticity (E)",
         "tr": "Elastisite Modülü (E)",
         "de": "Elastizitätsmodul (E)",
-        "fr": "Modulus of Elasticity (E)",
-        "es": "Modulus of Elasticity (E)",
+        "fr": "Module d'élasticité (E)",
+        "es": "Módulo de elasticidad (E)",
         "ar": "Modulus of Elasticity (E)"
       },
       "businessContext_i18n": {
         "en": "Young's modulus of the beam material.",
         "tr": "Kiriş malzemesinin Young modülü.",
-        "de": "Elastizitätsmodul des Balkenmaterials."
+        "de": "Elastizitätsmodul des Balkenmaterials.",
+        "fr": "Module de Young du matériau de la poutre.",
+        "es": "Módulo de Young del material de la viga."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Deflection Limit Ratio (L/δ)",
         "tr": "Sehim Sınır Oranı (L/δ)",
         "de": "Durchbiegungsgrenzverhältnis (L/δ)",
-        "fr": "Deflection Limit Ratio (L/δ)",
-        "es": "Deflection Limit Ratio (L/δ)",
+        "fr": "Rapport limite de flèche (L/δ)",
+        "es": "Relación límite de deflexión (L/δ)",
         "ar": "Deflection Limit Ratio (L/δ)"
       },
       "businessContext_i18n": {
         "en": "Allowable deflection expressed as span divided by this ratio (e.g., 360 means L/360).",
         "tr": "Açıklığın bu orana bölünmesiyle ifade edilen izin verilen sehim (örn. 360, L/360 anlamına gelir).",
-        "de": "Zulässige Durchbiegung als Spannweite geteilt durch dieses Verhältnis (z. B. 360 bedeutet L/360)."
+        "de": "Zulässige Durchbiegung als Spannweite geteilt durch dieses Verhältnis (z. B. 360 bedeutet L/360).",
+        "fr": "Flèche admissible exprimée par la portée divisée par ce rapport (ex. 360 signifie L/360).",
+        "es": "Deflexión admisible expresada como luz dividida por esta relación (ej., 360 significa L/360)."
       }
     }
   ],

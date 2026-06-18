@@ -12,14 +12,16 @@
         "en": "Accounts Payable (Beginning)",
         "tr": "Ticari Borçlar (Dönem Başı)",
         "de": "Verbindlichkeiten aus Lieferungen und Leistungen (Anfang)",
-        "fr": "Accounts Payable (Beginning)",
-        "es": "Accounts Payable (Beginning)",
+        "fr": "Dettes fournisseurs (début)",
+        "es": "Cuentas por Pagar (Inicio)",
         "ar": "Accounts Payable (Beginning)"
       },
       "businessContext_i18n": {
         "en": "Beginning balance of accounts payable from the balance sheet at the start of the period.",
         "tr": "Dönem başındaki bilançodan ticari borçların başlangıç bakiyesi.",
-        "de": "Anfangsbestand der Verbindlichkeiten aus Lieferungen und Leistungen aus der Bilanz zu Beginn des Zeitraums."
+        "de": "Anfangsbestand der Verbindlichkeiten aus Lieferungen und Leistungen aus der Bilanz zu Beginn des Zeitraums.",
+        "fr": "Solde début des dettes fournisseurs au bilan au début de la période.",
+        "es": "Saldo inicial de cuentas por pagar del balance general al inicio del período."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Accounts Payable (Ending)",
         "tr": "Ticari Borçlar (Dönem Sonu)",
         "de": "Verbindlichkeiten aus Lieferungen und Leistungen (Ende)",
-        "fr": "Accounts Payable (Ending)",
-        "es": "Accounts Payable (Ending)",
+        "fr": "Dettes fournisseurs (fin)",
+        "es": "Cuentas por Pagar (Final)",
         "ar": "Accounts Payable (Ending)"
       },
       "businessContext_i18n": {
         "en": "Ending balance of accounts payable from the balance sheet at the end of the period.",
         "tr": "Dönem sonundaki bilançodan ticari borçların bitiş bakiyesi.",
-        "de": "Endbestand der Verbindlichkeiten aus Lieferungen und Leistungen aus der Bilanz am Ende des Zeitraums."
+        "de": "Endbestand der Verbindlichkeiten aus Lieferungen und Leistungen aus der Bilanz am Ende des Zeitraums.",
+        "fr": "Solde fin des dettes fournisseurs au bilan à la fin de la période.",
+        "es": "Saldo final de cuentas por pagar del balance general al final del período."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Cost of Goods Sold (COGS)",
         "tr": "Satılan Malların Maliyeti (COGS)",
         "de": "Umsatzkosten (COGS)",
-        "fr": "Cost of Goods Sold (COGS)",
-        "es": "Cost of Goods Sold (COGS)",
+        "fr": "Coût des marchandises vendues (COGS)",
+        "es": "Costo de bienes vendidos (COGS)",
         "ar": "Cost of Goods Sold (COGS)"
       },
       "businessContext_i18n": {
         "en": "Total cost of goods sold during the period, from the income statement.",
         "tr": "Dönem boyunca satılan malların toplam maliyeti, gelir tablosundan.",
-        "de": "Gesamtkosten der verkauften Waren während des Zeitraums, aus der Gewinn- und Verlustrechnung."
+        "de": "Gesamtkosten der verkauften Waren während des Zeitraums, aus der Gewinn- und Verlustrechnung.",
+        "fr": "Coût total des marchandises vendues pendant la période, issu du compte de résultat.",
+        "es": "Costo total de los bienes vendidos durante el período, del estado de resultados."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Number of Days in Period",
         "tr": "Dönemdeki Gün Sayısı",
         "de": "Anzahl der Tage im Zeitraum",
-        "fr": "Number of Days in Period",
-        "es": "Number of Days in Period",
+        "fr": "Nombre de jours dans la période",
+        "es": "Número de Días en el Período",
         "ar": "Number of Days in Period"
       },
       "businessContext_i18n": {
         "en": "Number of calendar days in the measurement period (e.g., 365 for annual, 90 for quarterly).",
         "tr": "Ölçüm dönemindeki takvim günü sayısı (örneğin, yıllık için 365, üç aylık için 90).",
-        "de": "Anzahl der Kalendertage im Messzeitraum (z. B. 365 für jährlich, 90 für vierteljährlich)."
+        "de": "Anzahl der Kalendertage im Messzeitraum (z. B. 365 für jährlich, 90 für vierteljährlich).",
+        "fr": "Nombre de jours calendaires dans la période de mesure (ex. 365 pour annuel, 90 pour trimestriel).",
+        "es": "Número de días calendario en el período de medición (por ejemplo, 365 para anual, 90 para trimestral)."
       }
     }
   ],

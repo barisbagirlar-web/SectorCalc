@@ -12,14 +12,16 @@
         "en": "Bending Moment",
         "tr": "Eğilme Momenti",
         "de": "Biegemoment",
-        "fr": "Bending Moment",
-        "es": "Bending Moment",
+        "fr": "Moment fléchissant",
+        "es": "Momento flector",
         "ar": "Bending Moment"
       },
       "businessContext_i18n": {
         "en": "Applied bending moment at the section of interest.",
         "tr": "İlgili kesitte uygulanan eğilme momenti.",
-        "de": "Angewandtes Biegemoment am interessierenden Querschnitt."
+        "de": "Angewandtes Biegemoment am interessierenden Querschnitt.",
+        "fr": "Moment fléchissant appliqué à la section considérée.",
+        "es": "Momento flector aplicado en la sección de interés."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Section Modulus",
         "tr": "Kesit Modülü",
         "de": "Widerstandsmoment",
-        "fr": "Section Modulus",
-        "es": "Section Modulus",
+        "fr": "Module de section",
+        "es": "Módulo de sección",
         "ar": "Section Modulus"
       },
       "businessContext_i18n": {
         "en": "Elastic section modulus about the axis of bending.",
         "tr": "Eğilme eksenine göre elastik kesit modülü.",
-        "de": "Elastisches Widerstandsmoment um die Biegeachse."
+        "de": "Elastisches Widerstandsmoment um die Biegeachse.",
+        "fr": "Module de section élastique autour de l'axe de flexion.",
+        "es": "Módulo de sección elástico respecto al eje de flexión."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Distance from Neutral Axis",
         "tr": "Nötr Eksene Uzaklık",
         "de": "Abstand von der neutralen Faser",
-        "fr": "Distance from Neutral Axis",
-        "es": "Distance from Neutral Axis",
+        "fr": "Distance de l'axe neutre",
+        "es": "Distancia desde el eje neutro",
         "ar": "Distance from Neutral Axis"
       },
       "businessContext_i18n": {
         "en": "Distance from the neutral axis to the extreme fiber where stress is maximum.",
         "tr": "Nötr eksenden gerilmenin maksimum olduğu en uç lifteki mesafe.",
-        "de": "Abstand von der neutralen Faser zur äußersten Faser, wo die Spannung maximal ist."
+        "de": "Abstand von der neutralen Faser zur äußersten Faser, wo die Spannung maximal ist.",
+        "fr": "Distance de l'axe neutre à la fibre extrême où la contrainte est maximale.",
+        "es": "Distancia desde el eje neutro hasta la fibra extrema donde el esfuerzo es máximo."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Moment of Inertia",
         "tr": "Eylemsizlik Momenti",
         "de": "Trägheitsmoment",
-        "fr": "Moment of Inertia",
-        "es": "Moment of Inertia",
+        "fr": "Moment d'inertie",
+        "es": "Momento de inercia",
         "ar": "Moment of Inertia"
       },
       "businessContext_i18n": {
         "en": "Second moment of area about the neutral axis.",
         "tr": "Nötr eksene göre alanın ikinci momenti.",
-        "de": "Flächenträgheitsmoment um die neutrale Achse."
+        "de": "Flächenträgheitsmoment um die neutrale Achse.",
+        "fr": "Moment d'inertie de la section autour de l'axe neutre.",
+        "es": "Segundo momento de área respecto al eje neutro."
       }
     }
   ],

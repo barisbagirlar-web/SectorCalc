@@ -12,14 +12,16 @@
         "en": "Değer",
         "tr": "Değer",
         "de": "Wert",
-        "fr": "Değer",
-        "es": "Değer",
+        "fr": "Valeur",
+        "es": "Valor",
         "ar": "Değer"
       },
       "businessContext_i18n": {
         "en": "Dönüştürülecek sayısal değer",
         "tr": "Dönüştürülecek sayısal değer",
-        "de": "Umzurechnender Zahlenwert"
+        "de": "Umzurechnender Zahlenwert",
+        "fr": "Valeur numérique à convertir",
+        "es": "Valor numérico a convertir"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Kaynak Birim",
         "tr": "Kaynak Birim",
         "de": "Quelleinheit",
-        "fr": "Kaynak Birim",
-        "es": "Kaynak Birim",
+        "fr": "Unité source",
+        "es": "Unidad de origen",
         "ar": "Kaynak Birim"
       },
       "businessContext_i18n": {
         "en": "Kaynak birim kodu (0: metre, 1: feet, 2: inch, 3: cm)",
         "tr": "Kaynak birim kodu (0: metre, 1: feet, 2: inç, 3: cm)",
-        "de": "Quelleinheitscode (0: Meter, 1: Fuß, 2: Zoll, 3: cm)"
+        "de": "Quelleinheitscode (0: Meter, 1: Fuß, 2: Zoll, 3: cm)",
+        "fr": "Code de l'unité source (0: mètre, 1: pied, 2: pouce, 3: cm)",
+        "es": "Código de unidad de origen (0: metro, 1: pie, 2: pulgada, 3: cm)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Hedef Birim",
         "tr": "Hedef Birim",
         "de": "Zieleinheit",
-        "fr": "Hedef Birim",
-        "es": "Hedef Birim",
+        "fr": "Unité cible",
+        "es": "Unidad de destino",
         "ar": "Hedef Birim"
       },
       "businessContext_i18n": {
         "en": "Hedef birim kodu (0: metre, 1: feet, 2: inch, 3: cm)",
         "tr": "Hedef birim kodu (0: metre, 1: feet, 2: inç, 3: cm)",
-        "de": "Zieleinheitscode (0: Meter, 1: Fuß, 2: Zoll, 3: cm)"
+        "de": "Zieleinheitscode (0: Meter, 1: Fuß, 2: Zoll, 3: cm)",
+        "fr": "Code de l'unité cible (0: mètre, 1: pied, 2: pouce, 3: cm)",
+        "es": "Código de unidad de destino (0: metro, 1: pie, 2: pulgada, 3: cm)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Hassasiyet",
         "tr": "Hassasiyet",
         "de": "Genauigkeit",
-        "fr": "Hassasiyet",
-        "es": "Hassasiyet",
+        "fr": "Précision",
+        "es": "Precisión",
         "ar": "Hassasiyet"
       },
       "businessContext_i18n": {
         "en": "Ondalık basamak sayısı",
         "tr": "Ondalık basamak sayısı",
-        "de": "Anzahl Dezimalstellen"
+        "de": "Anzahl Dezimalstellen",
+        "fr": "Nombre de décimales",
+        "es": "Número de decimales"
       }
     }
   ],

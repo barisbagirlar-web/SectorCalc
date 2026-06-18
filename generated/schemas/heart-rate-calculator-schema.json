@@ -12,14 +12,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "User's age in years",
         "tr": "Kullanıcının yıl cinsinden yaşı",
-        "de": "Alter des Benutzers in Jahren"
+        "de": "Alter des Benutzers in Jahren",
+        "fr": "Âge de l'utilisateur en années",
+        "es": "Edad del usuario en años"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Resting Heart Rate",
         "tr": "Dinlenme Kalp Atış Hızı",
         "de": "Ruhepuls",
-        "fr": "Resting Heart Rate",
-        "es": "Resting Heart Rate",
+        "fr": "Fréquence cardiaque au repos",
+        "es": "Frecuencia cardíaca en reposo",
         "ar": "Resting Heart Rate"
       },
       "businessContext_i18n": {
         "en": "Resting heart rate in beats per minute",
         "tr": "Dinlenme kalp atış hızı (atım/dakika)",
-        "de": "Ruheherzfrequenz in Schlägen pro Minute"
+        "de": "Ruheherzfrequenz in Schlägen pro Minute",
+        "fr": "Fréquence cardiaque au repos en battements par minute",
+        "es": "Frecuencia cardíaca en reposo en latidos por minuto"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Intensity",
         "tr": "Yoğunluk",
         "de": "Intensität",
-        "fr": "Intensity",
-        "es": "Intensity",
+        "fr": "Intensité",
+        "es": "Intensidad",
         "ar": "Intensity"
       },
       "businessContext_i18n": {
         "en": "Target intensity as a percentage (0-100)",
         "tr": "Hedef yoğunluk yüzde olarak (0-100)",
-        "de": "Zielintensität in Prozent (0-100)"
+        "de": "Zielintensität in Prozent (0-100)",
+        "fr": "Intensité cible en pourcentage (0-100)",
+        "es": "Intensidad objetivo como porcentaje (0-100)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Maximum Heart Rate",
         "tr": "Maksimum Kalp Atış Hızı",
         "de": "Maximale Herzfrequenz",
-        "fr": "Maximum Heart Rate",
-        "es": "Maximum Heart Rate",
+        "fr": "Fréquence cardiaque maximale",
+        "es": "Frecuencia cardíaca máxima",
         "ar": "Maximum Heart Rate"
       },
       "businessContext_i18n": {
         "en": "If known, enter maximum heart rate; 0 to estimate from age using Tanaka formula",
         "tr": "Biliniyorsa maksimum kalp atış hızını girin; 0 girilirse Tanaka formülü ile yaşa göre tahmin edilir",
-        "de": "Wenn bekannt, maximale Herzfrequenz eingeben; 0 für Schätzung aus Alter mittels Tanaka-Formel"
+        "de": "Wenn bekannt, maximale Herzfrequenz eingeben; 0 für Schätzung aus Alter mittels Tanaka-Formel",
+        "fr": "Si connue, saisir la fréquence cardiaque maximale ; 0 pour estimer à partir de l'âge avec la formule de Tanaka",
+        "es": "Si se conoce, ingrese la frecuencia cardíaca máxima; 0 para estimar a partir de la edad usando la fórmula de Tanaka"
       }
     }
   ],

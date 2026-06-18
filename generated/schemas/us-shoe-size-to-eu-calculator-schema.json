@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "US Shoe Size",
         "tr": "ABD Ayakkabı Numarası",
-        "de": "US Shoe Size",
-        "fr": "US Shoe Size",
+        "de": "US-Schuhgröße",
+        "fr": "Pointure US",
         "es": "US Shoe Size",
         "ar": "US Shoe Size"
       },
       "businessContext_i18n": {
         "en": "The US shoe size to convert (e.g., 5-14 for men, 5-12 for women, 1-7 for children). Set to 0 to use foot length instead.",
-        "tr": "Dönüştürülecek ABD ayakkabı numarası (örn. erkekler için 5-14, kadınlar için 5-12, çocuklar için 1-7). Ayak uzunluğu kullanmak için 0 olarak ayarlayın."
+        "tr": "Dönüştürülecek ABD ayakkabı numarası (örn. erkekler için 5-14, kadınlar için 5-12, çocuklar için 1-7). Ayak uzunluğu kullanmak için 0 olarak ayarlayın.",
+        "de": "Die umzurechnende US-Schuhgröße (z.B. 5-14 für Männer, 5-12 für Frauen, 1-7 für Kinder). Auf 0 setzen, um stattdessen die Fußlänge zu verwenden.",
+        "fr": "La pointure US à convertir (ex. 5-14 pour hommes, 5-12 pour femmes, 1-7 pour enfants). Mettre 0 pour utiliser la longueur du pied."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Foot Length (cm)",
         "tr": "Ayak Uzunluğu (cm)",
-        "de": "Foot Length (cm)",
-        "fr": "Foot Length (cm)",
+        "de": "Fußlänge (cm)",
+        "fr": "Longueur du pied (cm)",
         "es": "Foot Length (cm)",
         "ar": "Foot Length (cm)"
       },
       "businessContext_i18n": {
         "en": "Foot length in centimeters. Used only when US size is 0. Conversion formula: EU = 1.5 × (footLengthCm + 1.5).",
-        "tr": "Santimetre cinsinden ayak uzunluğu. Yalnızca ABD numarası 0 olduğunda kullanılır. Dönüşüm formülü: EU = 1,5 × (ayakUzunluğuCm + 1,5)."
+        "tr": "Santimetre cinsinden ayak uzunluğu. Yalnızca ABD numarası 0 olduğunda kullanılır. Dönüşüm formülü: EU = 1,5 × (ayakUzunluğuCm + 1,5).",
+        "de": "Fußlänge in Zentimetern. Wird nur verwendet, wenn die US-Größe 0 ist. Umrechnungsformel: EU = 1,5 × (FußlängeCm + 1,5).",
+        "fr": "Longueur du pied en centimètres. Utilisée uniquement si la pointure US est 0. Formule de conversion : EU = 1,5 × (longueurPiedCm + 1,5)."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Gender/Age Group",
         "tr": "Cinsiyet/Yaş Grubu",
-        "de": "Gender/Age Group",
-        "fr": "Gender/Age Group",
+        "de": "Geschlecht/Altersgruppe",
+        "fr": "Genre / Groupe d'âge",
         "es": "Gender/Age Group",
         "ar": "Gender/Age Group"
       },
       "businessContext_i18n": {
         "en": "0: Men (EU ≈ US + 33), 1: Women (EU ≈ US + 31), 2: Children (EU ≈ US + 16). Used only when US size > 0.",
-        "tr": "0: Erkek (EU ≈ US + 33), 1: Kadın (EU ≈ US + 31), 2: Çocuk (EU ≈ US + 16). Yalnızca ABD numarası > 0 olduğunda kullanılır."
+        "tr": "0: Erkek (EU ≈ US + 33), 1: Kadın (EU ≈ US + 31), 2: Çocuk (EU ≈ US + 16). Yalnızca ABD numarası > 0 olduğunda kullanılır.",
+        "de": "0: Männer (EU ≈ US + 33), 1: Frauen (EU ≈ US + 31), 2: Kinder (EU ≈ US + 16). Wird nur verwendet, wenn die US-Größe > 0 ist.",
+        "fr": "0 : Hommes (EU ≈ US + 33), 1 : Femmes (EU ≈ US + 31), 2 : Enfants (EU ≈ US + 16). Utilisé uniquement si la pointure US > 0."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "User Adjustment",
         "tr": "Kullanıcı Ayarı",
-        "de": "User Adjustment",
-        "fr": "User Adjustment",
+        "de": "Benutzeranpassung",
+        "fr": "Ajustement utilisateur",
         "es": "User Adjustment",
         "ar": "User Adjustment"
       },
       "businessContext_i18n": {
         "en": "Optional manual adjustment to the final EU size to account for brand variation or personal fit (e.g., +0.5 for a wider fit).",
-        "tr": "Marka farklılığı veya kişisel uyum için nihai EU numarasına isteğe bağlı manuel ayar (örn. daha geniş uyum için +0,5)."
+        "tr": "Marka farklılığı veya kişisel uyum için nihai EU numarasına isteğe bağlı manuel ayar (örn. daha geniş uyum için +0,5).",
+        "de": "Optionale manuelle Anpassung der endgültigen EU-Größe, um Markenabweichungen oder persönliche Passform zu berücksichtigen (z.B. +0,5 für eine weitere Passform).",
+        "fr": "Ajustement manuel optionnel de la pointure EU finale pour tenir compte des variations de marque ou du confort (ex. +0,5 pour une coupe plus large)."
       }
     }
   ],

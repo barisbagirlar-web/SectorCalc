@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Lawn Area",
         "tr": "Çim Alanı",
-        "de": "Lawn Area",
-        "fr": "Lawn Area",
-        "es": "Lawn Area",
+        "de": "Rasenfläche",
+        "fr": "Surface de la pelouse",
+        "es": "Área del césped",
         "ar": "Lawn Area"
       },
       "businessContext_i18n": {
         "en": "Total lawn area to be serviced",
-        "tr": "Bakım yapılacak toplam çim alanı"
+        "tr": "Bakım yapılacak toplam çim alanı",
+        "de": "Gesamte zu pflegende Rasenfläche",
+        "fr": "Surface totale de la pelouse à entretenir",
+        "es": "Área total del césped a mantener"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Grass Seed Cost",
         "tr": "Çim Tohumu Maliyeti",
-        "de": "Grass Seed Cost",
-        "fr": "Grass Seed Cost",
-        "es": "Grass Seed Cost",
+        "de": "Rasensamenkosten",
+        "fr": "Coût des semences de gazon",
+        "es": "Coste de la semilla de césped",
         "ar": "Grass Seed Cost"
       },
       "businessContext_i18n": {
         "en": "Cost of grass seed per square meter",
-        "tr": "Metrekare başına çim tohumu maliyeti"
+        "tr": "Metrekare başına çim tohumu maliyeti",
+        "de": "Kosten für Rasensamen pro Quadratmeter",
+        "fr": "Coût des semences de gazon par mètre carré",
+        "es": "Coste de la semilla de césped por metro cuadrado"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Fertilizer Cost",
         "tr": "Gübre Maliyeti",
-        "de": "Fertilizer Cost",
-        "fr": "Fertilizer Cost",
-        "es": "Fertilizer Cost",
+        "de": "Düngerkosten",
+        "fr": "Coût de l'engrais",
+        "es": "Coste del fertilizante",
         "ar": "Fertilizer Cost"
       },
       "businessContext_i18n": {
         "en": "Cost of fertilizer per square meter",
-        "tr": "Metrekare başına gübre maliyeti"
+        "tr": "Metrekare başına gübre maliyeti",
+        "de": "Kosten für Dünger pro Quadratmeter",
+        "fr": "Coût de l'engrais par mètre carré",
+        "es": "Coste del fertilizante por metro cuadrado"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Irrigation Cost",
         "tr": "Sulama Maliyeti",
-        "de": "Irrigation Cost",
-        "fr": "Irrigation Cost",
-        "es": "Irrigation Cost",
+        "de": "Bewässerungskosten",
+        "fr": "Coût de l'irrigation",
+        "es": "Coste de riego",
         "ar": "Irrigation Cost"
       },
       "businessContext_i18n": {
         "en": "Cost of irrigation water per square meter",
-        "tr": "Metrekare başına sulama suyu maliyeti"
+        "tr": "Metrekare başına sulama suyu maliyeti",
+        "de": "Kosten für Bewässerungswasser pro Quadratmeter",
+        "fr": "Coût de l'eau d'irrigation par mètre carré",
+        "es": "Coste del agua de riego por metro cuadrado"
       }
     },
     {
@@ -92,14 +104,16 @@
         "en": "Labor Rate",
         "tr": "İşçilik ücreti",
         "de": "Stundensatz",
-        "fr": "Labor Rate",
-        "es": "Labor Rate",
+        "fr": "Taux de main-d'œuvre",
+        "es": "Tarifa de mano de obra",
         "ar": "Labor Rate"
       },
       "businessContext_i18n": {
         "en": "Hourly rate for labor",
         "tr": "Saatlik işçilik ücreti",
-        "de": "Stundensatz für Arbeitskräfte"
+        "de": "Stundensatz für Arbeitskräfte",
+        "fr": "Taux horaire de la main-d'œuvre",
+        "es": "Tarifa horaria de mano de obra"
       }
     },
     {
@@ -113,13 +127,16 @@
         "en": "Labor Hours",
         "tr": "İşçilik Saati",
         "de": "Arbeitsstunden",
-        "fr": "Labor Hours",
-        "es": "Labor Hours",
+        "fr": "Heures de main-d'œuvre",
+        "es": "Horas de mano de obra",
         "ar": "Labor Hours"
       },
       "businessContext_i18n": {
         "en": "Estimated labor hours required",
-        "tr": "Tahmini işçilik saati"
+        "tr": "Tahmini işçilik saati",
+        "de": "Geschätzte Arbeitsstunden",
+        "fr": "Heures de travail estimées requises",
+        "es": "Horas de trabajo estimadas requeridas"
       }
     },
     {
@@ -133,14 +150,16 @@
         "en": "Profit Margin",
         "tr": "Kâr Marjı",
         "de": "Gewinnmarge",
-        "fr": "Profit Margin",
-        "es": "Profit Margin",
+        "fr": "Marge bénéficiaire",
+        "es": "Margen de beneficio",
         "ar": "Profit Margin"
       },
       "businessContext_i18n": {
         "en": "Desired profit margin percentage",
         "tr": "İstenen kâr marjı yüzdesi",
-        "de": "Gewünschter Gewinnmargenprozentsatz"
+        "de": "Gewünschter Gewinnmargenprozentsatz",
+        "fr": "Pourcentage de marge bénéficiaire souhaité",
+        "es": "Porcentaje de margen de beneficio deseado"
       }
     }
   ],

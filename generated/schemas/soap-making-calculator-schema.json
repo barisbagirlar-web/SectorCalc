@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Total Oil Weight",
         "tr": "Toplam Yağ Ağırlığı",
-        "de": "Total Oil Weight",
-        "fr": "Total Oil Weight",
+        "de": "Gesamtölgewicht",
+        "fr": "Poids total des huiles",
         "es": "Total Oil Weight",
         "ar": "Total Oil Weight"
       },
       "businessContext_i18n": {
         "en": "Weight of all oils in the recipe",
-        "tr": "Tarifteki tüm yağların ağırlığı"
+        "tr": "Tarifteki tüm yağların ağırlığı",
+        "de": "Gewicht aller Öle im Rezept",
+        "fr": "Poids de toutes les huiles dans la recette"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "SAP Value (NaOH)",
         "tr": "SAP Değeri (NaOH)",
-        "de": "SAP Value (NaOH)",
-        "fr": "SAP Value (NaOH)",
+        "de": "SAP-Wert (NaOH)",
+        "fr": "Valeur SAP (NaOH)",
         "es": "SAP Value (NaOH)",
         "ar": "SAP Value (NaOH)"
       },
       "businessContext_i18n": {
         "en": "Milligrams of NaOH required to saponify 1 gram of oil blend",
-        "tr": "1 gram yağ karışımını sabunlaştırmak için gereken NaOH miligramı"
+        "tr": "1 gram yağ karışımını sabunlaştırmak için gereken NaOH miligramı",
+        "de": "Milligramm NaOH zur Verseifung von 1 Gramm Ölmischung",
+        "fr": "Milligrammes de NaOH nécessaires pour saponifier 1 gramme du mélange d'huiles"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Superfat Percentage",
         "tr": "Süper Yağ Yüzdesi",
-        "de": "Superfat Percentage",
-        "fr": "Superfat Percentage",
+        "de": "Überfettungsprozentsatz",
+        "fr": "Pourcentage de surgras",
         "es": "Superfat Percentage",
         "ar": "Superfat Percentage"
       },
       "businessContext_i18n": {
         "en": "Percentage of oils left unsaponified for conditioning",
-        "tr": "Bakım için sabunlaşmamış bırakılan yağların yüzdesi"
+        "tr": "Bakım için sabunlaşmamış bırakılan yağların yüzdesi",
+        "de": "Prozentsatz der unverseiften Öle für die Pflege",
+        "fr": "Pourcentage d'huiles laissées non saponifiées pour le conditionnement"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Water as % of Oils",
         "tr": "Yağların Yüzdesi Olarak Su",
-        "de": "Water as % of Oils",
-        "fr": "Water as % of Oils",
+        "de": "Wasser als % der Öle",
+        "fr": "Eau en % des huiles",
         "es": "Water as % of Oils",
         "ar": "Water as % of Oils"
       },
       "businessContext_i18n": {
         "en": "Weight of water relative to total oil weight",
-        "tr": "Toplam yağ ağırlığına göre su ağırlığı"
+        "tr": "Toplam yağ ağırlığına göre su ağırlığı",
+        "de": "Gewicht des Wassers relativ zum Gesamtölgewicht",
+        "fr": "Poids de l'eau par rapport au poids total des huiles"
       }
     }
   ],

@@ -12,13 +12,16 @@
         "en": "Frequency",
         "tr": "Frekans",
         "de": "Frequenz",
-        "fr": "Frequency",
-        "es": "Frequency",
+        "fr": "Fréquence",
+        "es": "Frecuencia",
         "ar": "Frequency"
       },
       "businessContext_i18n": {
         "en": "Operating frequency of the AC circuit",
-        "tr": "AC devresinin çalışma frekansı"
+        "tr": "AC devresinin çalışma frekansı",
+        "de": "Betriebsfrequenz des Wechselstromkreises",
+        "fr": "Fréquence de fonctionnement du circuit CA",
+        "es": "Frecuencia de operación del circuito de CA"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Capacitance",
         "tr": "Kapasitans",
-        "de": "Capacitance",
-        "fr": "Capacitance",
-        "es": "Capacitance",
+        "de": "Kapazität",
+        "fr": "Capacité",
+        "es": "Capacitancia",
         "ar": "Capacitance"
       },
       "businessContext_i18n": {
         "en": "Capacitance value of the capacitor",
-        "tr": "Kondansatörün kapasitans değeri"
+        "tr": "Kondansatörün kapasitans değeri",
+        "de": "Kapazitätswert des Kondensators",
+        "fr": "Valeur de la capacité du condensateur",
+        "es": "Valor de capacitancia del capacitor"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Inductance",
         "tr": "Endüktans",
-        "de": "Inductance",
+        "de": "Induktivität",
         "fr": "Inductance",
-        "es": "Inductance",
+        "es": "Inductancia",
         "ar": "Inductance"
       },
       "businessContext_i18n": {
         "en": "Inductance value of the inductor",
-        "tr": "Bobinin endüktans değeri"
+        "tr": "Bobinin endüktans değeri",
+        "de": "Induktivitätswert der Spule",
+        "fr": "Valeur de l'inductance de la bobine",
+        "es": "Valor de inductancia del inductor"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Connection Type",
         "tr": "Bağlantı Türü",
-        "de": "Connection Type",
-        "fr": "Connection Type",
-        "es": "Connection Type",
+        "de": "Verbindungsart",
+        "fr": "Type de connexion",
+        "es": "Tipo de conexión",
         "ar": "Connection Type"
       },
       "businessContext_i18n": {
         "en": "Connection configuration of LC circuit",
-        "tr": "LC devresinin bağlantı konfigürasyonu"
+        "tr": "LC devresinin bağlantı konfigürasyonu",
+        "de": "Verbindungskonfiguration des LC-Kreises",
+        "fr": "Configuration de connexion du circuit LC",
+        "es": "Configuración de conexión del circuito LC"
       }
     }
   ],

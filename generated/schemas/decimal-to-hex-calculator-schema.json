@@ -12,14 +12,16 @@
         "en": "Decimal Number",
         "tr": "Ondalık Sayı",
         "de": "Dezimalzahl",
-        "fr": "Decimal Number",
-        "es": "Decimal Number",
+        "fr": "Nombre décimal",
+        "es": "Número decimal",
         "ar": "Decimal Number"
       },
       "businessContext_i18n": {
         "en": "The decimal integer to convert to hexadecimal. Non-negative, integer.",
         "tr": "Ondalık tam sayıyı onaltılıya dönüştürün. Negatif olmayan, tam sayı.",
-        "de": "Die dezimale Ganzzahl, die in Hexadezimal umgewandelt werden soll. Nicht negativ, ganzzahlig."
+        "de": "Die dezimale Ganzzahl, die in Hexadezimal umgewandelt werden soll. Nicht negativ, ganzzahlig.",
+        "fr": "L'entier décimal à convertir en hexadécimal. Non négatif, entier.",
+        "es": "El número entero decimal a convertir a hexadecimal. No negativo, entero."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Minimum Length",
         "tr": "Minimum Uzunluk",
         "de": "Mindestlänge",
-        "fr": "Minimum Length",
-        "es": "Minimum Length",
+        "fr": "Longueur minimale",
+        "es": "Longitud mínima",
         "ar": "Minimum Length"
       },
       "businessContext_i18n": {
         "en": "Minimum number of hexadecimal digits. Pads with leading zeros if result is shorter.",
         "tr": "Minimum onaltılı basamak sayısı. Sonuç daha kısaysa başa sıfır ekler.",
-        "de": "Mindestanzahl hexadezimaler Ziffern. Füllt mit führenden Nullen auf, wenn das Ergebnis kürzer ist."
+        "de": "Mindestanzahl hexadezimaler Ziffern. Füllt mit führenden Nullen auf, wenn das Ergebnis kürzer ist.",
+        "fr": "Nombre minimal de chiffres hexadécimaux. Ajoute des zéros non significatifs si le résultat est plus court.",
+        "es": "Número mínimo de dígitos hexadecimales. Rellena con ceros a la izquierda si el resultado es más corto."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Uppercase",
         "tr": "Büyük Harf",
         "de": "Großbuchstaben",
-        "fr": "Uppercase",
-        "es": "Uppercase",
+        "fr": "Majuscules",
+        "es": "Mayúsculas",
         "ar": "Uppercase"
       },
       "businessContext_i18n": {
         "en": "Set to 1 to output uppercase letters (A-F), 0 for lowercase (a-f).",
         "tr": "Büyük harf (A-F) çıktısı için 1, küçük harf (a-f) için 0.",
-        "de": "Auf 1 setzen für Großbuchstaben (A-F), 0 für Kleinbuchstaben (a-f)."
+        "de": "Auf 1 setzen für Großbuchstaben (A-F), 0 für Kleinbuchstaben (a-f).",
+        "fr": "Mettre à 1 pour afficher les lettres majuscules (A-F), 0 pour les minuscules (a-f).",
+        "es": "Establecer en 1 para generar letras mayúsculas (A-F), 0 para minúsculas (a-f)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Prefix",
         "tr": "Ön Ek",
         "de": "Präfix",
-        "fr": "Prefix",
-        "es": "Prefix",
+        "fr": "Préfixe",
+        "es": "Prefijo",
         "ar": "Prefix"
       },
       "businessContext_i18n": {
         "en": "0: no prefix; 1: prefix '0x'; 2: prefix '0X'.",
         "tr": "0: ön ek yok; 1: '0x' ön eki; 2: '0X' ön eki.",
-        "de": "0: kein Präfix; 1: Präfix '0x'; 2: Präfix '0X'."
+        "de": "0: kein Präfix; 1: Präfix '0x'; 2: Präfix '0X'.",
+        "fr": "0: pas de préfixe ; 1: préfixe '0x' ; 2: préfixe '0X'.",
+        "es": "0: sin prefijo; 1: prefijo '0x'; 2: prefijo '0X'."
       }
     }
   ],

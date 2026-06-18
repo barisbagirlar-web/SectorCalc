@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Envanter Devir Hızı",
         "tr": "Envanter Devir Hızı",
-        "de": "Envanter Devir Hızı",
-        "fr": "Envanter Devir Hızı",
+        "de": "Lagerumschlagshäufigkeit",
+        "fr": "Taux de rotation des stocks",
         "es": "Envanter Devir Hızı",
         "ar": "Envanter Devir Hızı"
       },
       "businessContext_i18n": {
         "en": "Yıllık envanter devir hızı (satılan mal maliyeti / ortalama envanter)",
-        "tr": "Yıllık envanter devir hızı (satılan mal maliyeti / ortalama envanter)"
+        "tr": "Yıllık envanter devir hızı (satılan mal maliyeti / ortalama envanter)",
+        "de": "Jährliche Lagerumschlagshäufigkeit (Kosten der verkauften Waren / durchschnittlicher Lagerbestand)",
+        "fr": "Taux de rotation annuel des stocks (coût des marchandises vendues / stock moyen)"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Makine Kullanım Oranı",
         "tr": "Makine Kullanım Oranı",
-        "de": "Makine Kullanım Oranı",
-        "fr": "Makine Kullanım Oranı",
+        "de": "Maschinenauslastungsgrad",
+        "fr": "Taux d'utilisation des machines",
         "es": "Makine Kullanım Oranı",
         "ar": "Makine Kullanım Oranı"
       },
       "businessContext_i18n": {
         "en": "Makinelerin fiili çalışma süresinin planlanan süreye oranı",
-        "tr": "Makinelerin fiili çalışma süresinin planlanan süreye oranı"
+        "tr": "Makinelerin fiili çalışma süresinin planlanan süreye oranı",
+        "de": "Verhältnis der tatsächlichen Betriebszeit der Maschinen zur geplanten Zeit",
+        "fr": "Rapport entre le temps de fonctionnement réel des machines et le temps planifié"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Sipariş Doğruluk Oranı",
         "tr": "Sipariş Doğruluk Oranı",
-        "de": "Sipariş Doğruluk Oranı",
-        "fr": "Sipariş Doğruluk Oranı",
+        "de": "Liefertreuequote",
+        "fr": "Taux de précision des commandes",
         "es": "Sipariş Doğruluk Oranı",
         "ar": "Sipariş Doğruluk Oranı"
       },
       "businessContext_i18n": {
         "en": "Hatızısız teslim edilen siparişlerin toplam siparişlere oranı",
-        "tr": "Hatızısız teslim edilen siparişlerin toplam siparişlere oranı"
+        "tr": "Hatızısız teslim edilen siparişlerin toplam siparişlere oranı",
+        "de": "Verhältnis der fehlerfrei gelieferten Aufträge zur Gesamtzahl der Aufträge",
+        "fr": "Rapport entre les commandes livrées sans erreur et le total des commandes"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Hata Oranı",
         "tr": "Hata Oranı",
-        "de": "Hata Oranı",
-        "fr": "Hata Oranı",
-        "es": "Hata Oranı",
+        "de": "Fehlerrate",
+        "fr": "Taux de défauts",
+        "es": "Tasa de defectos",
         "ar": "Hata Oranı"
       },
       "businessContext_i18n": {
         "en": "Üretimdeki kusurlu ürün oranı",
-        "tr": "Üretimdeki kusurlu ürün oranı"
+        "tr": "Üretimdeki kusurlu ürün oranı",
+        "de": "Ausschussrate in der Produktion",
+        "fr": "Taux de produits défectueux dans la production"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Bakım Uyum Oranı",
         "tr": "Bakım Uyum Oranı",
-        "de": "Bakım Uyum Oranı",
-        "fr": "Bakım Uyum Oranı",
+        "de": "Wartungserfüllungsgrad",
+        "fr": "Taux de conformité de la maintenance",
         "es": "Bakım Uyum Oranı",
         "ar": "Bakım Uyum Oranı"
       },
       "businessContext_i18n": {
         "en": "Planlanan bakım görevlerinin zamanında tamamlanma oranı",
-        "tr": "Planlanan bakım görevlerinin zamanında tamamlanma oranı"
+        "tr": "Planlanan bakım görevlerinin zamanında tamamlanma oranı",
+        "de": "Anteil der planmäßigen Wartungsaufgaben, die termingerecht abgeschlossen wurden",
+        "fr": "Pourcentage des tâches de maintenance planifiées terminées à temps"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "İş Güvenliği Skoru",
         "tr": "İş Güvenliği Skoru",
-        "de": "İş Güvenliği Skoru",
-        "fr": "İş Güvenliği Skoru",
+        "de": "Arbeitssicherheits-Score",
+        "fr": "Score de sécurité au travail",
         "es": "İş Güvenliği Skoru",
         "ar": "İş Güvenliği Skoru"
       },
       "businessContext_i18n": {
         "en": "İSG denetim puanı (0-100)",
-        "tr": "İSG denetim puanı (0-100)"
+        "tr": "İSG denetim puanı (0-100)",
+        "de": "Sicherheitsaudit-Punktzahl (0-100)",
+        "fr": "Score d'audit SST (0-100)"
       }
     }
   ],

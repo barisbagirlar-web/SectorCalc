@@ -12,14 +12,16 @@
         "en": "Congestive Heart Failure (1 point)",
         "tr": "Konjestif Kalp Yetmezliği (1 puan)",
         "de": "Kongestive Herzinsuffizienz (1 Punkt)",
-        "fr": "Congestive Heart Failure (1 point)",
-        "es": "Congestive Heart Failure (1 point)",
+        "fr": "Insuffisance cardiaque congestive (1 point)",
+        "es": "Insuficiencia cardíaca congestiva (1 punto)",
         "ar": "Congestive Heart Failure (1 point)"
       },
       "businessContext_i18n": {
         "en": "History of CHF",
         "tr": "KKY öyküsü",
-        "de": "Vorgeschichte von CHF"
+        "de": "Vorgeschichte von CHF",
+        "fr": "Antécédents d'ICC",
+        "es": "Antecedentes de ICC"
       }
     },
     {
@@ -34,13 +36,15 @@
         "tr": "Hipertansiyon (1 puan)",
         "de": "Hypertonie (1 Punkt)",
         "fr": "Hypertension (1 point)",
-        "es": "Hypertension (1 point)",
+        "es": "Hipertensión (1 punto)",
         "ar": "Hypertension (1 point)"
       },
       "businessContext_i18n": {
         "en": "Diagnosed hypertension",
         "tr": "Tanı almış hipertansiyon",
-        "de": "Diagnostizierte Hypertonie"
+        "de": "Diagnostizierte Hypertonie",
+        "fr": "Hypertension diagnostiquée",
+        "es": "Hipertensión diagnosticada"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Age ≥75 years (2 points)",
         "tr": "Yaş ≥75 yıl (2 puan)",
         "de": "Alter ≥75 Jahre (2 Punkte)",
-        "fr": "Age ≥75 years (2 points)",
-        "es": "Age ≥75 years (2 points)",
+        "fr": "Âge ≥75 ans (2 points)",
+        "es": "Edad ≥75 años (2 puntos)",
         "ar": "Age ≥75 years (2 points)"
       },
       "businessContext_i18n": {
         "en": "Patient age 75 or older",
         "tr": "Hasta yaşı 75 veya üzeri",
-        "de": "Patientenalter 75 oder älter"
+        "de": "Patientenalter 75 oder älter",
+        "fr": "Patient âgé de 75 ans ou plus",
+        "es": "Paciente de 75 años o más"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Diabetes Mellitus (1 point)",
         "tr": "Diyabetes Mellitus (1 puan)",
         "de": "Diabetes mellitus (1 Punkt)",
-        "fr": "Diabetes Mellitus (1 point)",
-        "es": "Diabetes Mellitus (1 point)",
+        "fr": "Diabète sucré (1 point)",
+        "es": "Diabetes mellitus (1 punto)",
         "ar": "Diabetes Mellitus (1 point)"
       },
       "businessContext_i18n": {
         "en": "Diagnosed diabetes",
         "tr": "Tanı almış diyabet",
-        "de": "Diagnostizierter Diabetes"
+        "de": "Diagnostizierter Diabetes",
+        "fr": "Diabète diagnostiqué",
+        "es": "Diabetes diagnosticada"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Prior Stroke/TIA/Thromboembolism (2 points)",
         "tr": "Önceki İnme/TIA/Tromboemboli (2 puan)",
         "de": "Früherer Schlaganfall/TIA/Thromboembolie (2 Punkte)",
-        "fr": "Prior Stroke/TIA/Thromboembolism (2 points)",
-        "es": "Prior Stroke/TIA/Thromboembolism (2 points)",
+        "fr": "AVC/AIT/Thromboembolie antérieurs (2 points)",
+        "es": "Accidente cerebrovascular/AIT/tromboembolismo previo (2 puntos)",
         "ar": "Prior Stroke/TIA/Thromboembolism (2 points)"
       },
       "businessContext_i18n": {
         "en": "History of stroke, TIA, or systemic embolism",
         "tr": "İnme, TIA veya sistemik emboli öyküsü",
-        "de": "Vorgeschichte von Schlaganfall, TIA oder systemischer Embolie"
+        "de": "Vorgeschichte von Schlaganfall, TIA oder systemischer Embolie",
+        "fr": "Antécédents d'AVC, d'AIT ou d'embolie systémique",
+        "es": "Antecedentes de accidente cerebrovascular, AIT o embolia sistémica"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Vascular Disease (1 point)",
         "tr": "Vasküler Hastalık (1 puan)",
         "de": "Gefäßerkrankung (1 Punkt)",
-        "fr": "Vascular Disease (1 point)",
-        "es": "Vascular Disease (1 point)",
+        "fr": "Maladie vasculaire (1 point)",
+        "es": "Enfermedad vascular (1 punto)",
         "ar": "Vascular Disease (1 point)"
       },
       "businessContext_i18n": {
         "en": "Prior MI, peripheral artery disease, or aortic plaque",
         "tr": "Önceki MI, periferik arter hastalığı veya aort plağı",
-        "de": "Früherer Herzinfarkt, periphere arterielle Verschlusskrankheit oder Aortenplaque"
+        "de": "Früherer Herzinfarkt, periphere arterielle Verschlusskrankheit oder Aortenplaque",
+        "fr": "Antécédents d'IDM, de maladie artérielle périphérique ou de plaque aortique",
+        "es": "IAM previo, enfermedad arterial periférica o placa aórtica"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Age 65-74 years (1 point)",
         "tr": "65-74 yaş (1 puan)",
         "de": "Alter 65–74 Jahre (1 Punkt)",
-        "fr": "Age 65-74 years (1 point)",
-        "es": "Age 65-74 years (1 point)",
+        "fr": "Âge 65-74 ans (1 point)",
+        "es": "Edad 65-74 años (1 punto)",
         "ar": "Age 65-74 years (1 point)"
       },
       "businessContext_i18n": {
         "en": "Patient age between 65 and 74",
         "tr": "Hasta yaşı 65 ile 74 arasında",
-        "de": "Patientenalter zwischen 65 und 74"
+        "de": "Patientenalter zwischen 65 und 74",
+        "fr": "Âge du patient entre 65 et 74 ans",
+        "es": "Paciente con edad entre 65 y 74"
       }
     },
     {
@@ -159,14 +173,16 @@
         "en": "Female Sex (1 point)",
         "tr": "Kadın cinsiyet (1 puan)",
         "de": "Weibliches Geschlecht (1 Punkt)",
-        "fr": "Female Sex (1 point)",
-        "es": "Female Sex (1 point)",
+        "fr": "Sexe féminin (1 point)",
+        "es": "Sexo femenino (1 punto)",
         "ar": "Female Sex (1 point)"
       },
       "businessContext_i18n": {
         "en": "Patient is female",
         "tr": "Hasta kadın",
-        "de": "Patientin ist weiblich"
+        "de": "Patientin ist weiblich",
+        "fr": "Le patient est de sexe féminin",
+        "es": "El paciente es mujer"
       }
     }
   ],

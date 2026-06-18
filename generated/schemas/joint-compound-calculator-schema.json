@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Number of Drywall Sheets",
         "tr": "Alçıpan Levha Sayısı",
-        "de": "Number of Drywall Sheets",
-        "fr": "Number of Drywall Sheets",
-        "es": "Number of Drywall Sheets",
+        "de": "Anzahl der Trockenbauplatten",
+        "fr": "Nombre de plaques de plâtre",
+        "es": "Número de paneles de yeso",
         "ar": "Number of Drywall Sheets"
       },
       "businessContext_i18n": {
         "en": "Total number of drywall sheets to be taped and finished.",
-        "tr": "Bantlanacak ve son kat yapılacak toplam alçıpan levha sayısı."
+        "tr": "Bantlanacak ve son kat yapılacak toplam alçıpan levha sayısı.",
+        "de": "Gesamtzahl der Trockenbauplatten, die tapeziert und verspachtelt werden müssen.",
+        "fr": "Nombre total de plaques de plâtre à bander et à finir.",
+        "es": "Número total de placas de yeso a cintar y enlucir."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Average Joint Length per Sheet",
         "tr": "Levha Başına Ortalama Derz Uzunluğu",
-        "de": "Average Joint Length per Sheet",
-        "fr": "Average Joint Length per Sheet",
-        "es": "Average Joint Length per Sheet",
+        "de": "Durchschnittliche Fugenlänge pro Platte",
+        "fr": "Longueur moyenne des joints par plaque",
+        "es": "Longitud media de junta por placa",
         "ar": "Average Joint Length per Sheet"
       },
       "businessContext_i18n": {
         "en": "Average linear length of joints per sheet (including butt and tapered joints).",
-        "tr": "Levha başına ortalama doğrusal derz uzunluğu (alın derzleri ve konik derzler dahil)."
+        "tr": "Levha başına ortalama doğrusal derz uzunluğu (alın derzleri ve konik derzler dahil).",
+        "de": "Durchschnittliche lineare Länge der Fugen pro Platte (einschließlich Stoß- und Schrägfugen).",
+        "fr": "Longueur linéaire moyenne des joints par plaque (y compris les joints aboutés et coniques).",
+        "es": "Longitud lineal media de las juntas por placa (incluyendo juntas a tope y cónicas)."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Joint Width",
         "tr": "Derz Genişliği",
         "de": "Fugenbreite",
-        "fr": "Joint Width",
-        "es": "Joint Width",
+        "fr": "Largeur du joint",
+        "es": "Ancho de la junta",
         "ar": "Joint Width"
       },
       "businessContext_i18n": {
         "en": "Width of the joint compound application area across the joint.",
-        "tr": "Derz Bileşiği Uygulama Genişliği"
+        "tr": "Derz Bileşiği Uygulama Genişliği",
+        "de": "Breite des Spachtelmasse-Auftragsbereichs entlang der Fuge.",
+        "fr": "Largeur de la zone d'application de l'enduit sur le joint.",
+        "es": "Ancho del área de aplicación del compuesto para juntas a lo largo de la junta."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Compound Thickness per Coat",
         "tr": "Kat Başına Bileşik Kalınlığı",
-        "de": "Compound Thickness per Coat",
-        "fr": "Compound Thickness per Coat",
-        "es": "Compound Thickness per Coat",
+        "de": "Spachtelmasse-Dicke pro Schicht",
+        "fr": "Épaisseur de l'enduit par couche",
+        "es": "Espesor del compuesto por capa",
         "ar": "Compound Thickness per Coat"
       },
       "businessContext_i18n": {
         "en": "Applied wet thickness of joint compound per coat.",
-        "tr": "Kat başına uygulanan ıslak derz bileşiği kalınlığı."
+        "tr": "Kat başına uygulanan ıslak derz bileşiği kalınlığı.",
+        "de": "Aufgetragene Nassdicke der Spachtelmasse pro Schicht.",
+        "fr": "Épaisseur humide appliquée de l'enduit par couche.",
+        "es": "Espesor húmedo aplicado del compuesto para juntas por capa."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Number of Coats",
         "tr": "Kat Sayısı",
         "de": "Anzahl der Anstriche",
-        "fr": "Number of Coats",
-        "es": "Number of Coats",
+        "fr": "Nombre de couches",
+        "es": "Número de capas",
         "ar": "Number of Coats"
       },
       "businessContext_i18n": {
         "en": "Number of coats applied (e.g., tape coat, fill coat, finish coat).",
-        "tr": "Uygulanan Kat Sayısı"
+        "tr": "Uygulanan Kat Sayısı",
+        "de": "Anzahl der aufgetragenen Schichten (z. B. Einbettungsschicht, Füllschicht, Deckschicht).",
+        "fr": "Nombre de couches appliquées (par exemple, couche de bande, couche de remplissage, couche de finition).",
+        "es": "Número de capas aplicadas (p. ej., capa de cinta, capa de relleno, capa de acabado)."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Coverage Factor",
         "tr": "Kaplama Faktörü",
-        "de": "Coverage Factor",
-        "fr": "Coverage Factor",
-        "es": "Coverage Factor",
+        "de": "Ergiebigkeitsfaktor",
+        "fr": "Facteur de couverture",
+        "es": "Factor de cobertura",
         "ar": "Coverage Factor"
       },
       "businessContext_i18n": {
         "en": "Manufacturer-specified coverage rate per mm thickness per kg of compound.",
-        "tr": "Üretici tarafından belirtilen, mm kalınlık başına kg bileşik başına kaplama oranı."
+        "tr": "Üretici tarafından belirtilen, mm kalınlık başına kg bileşik başına kaplama oranı.",
+        "de": "Vom Hersteller angegebene Ergiebigkeit pro mm Dicke pro kg Spachtelmasse.",
+        "fr": "Taux de couverture spécifié par le fabricant par mm d'épaisseur par kg d'enduit.",
+        "es": "Tasa de cobertura especificada por el fabricante por mm de espesor por kg de compuesto."
       }
     }
   ],

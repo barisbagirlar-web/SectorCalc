@@ -13,13 +13,15 @@
         "tr": "Hacim",
         "de": "Volumen",
         "fr": "Volume",
-        "es": "Volume",
+        "es": "Volumen",
         "ar": "Volume"
       },
       "businessContext_i18n": {
         "en": "Total volume of the cube or material.",
         "tr": "Küpün veya malzemenin toplam hacmi.",
-        "de": "Gesamtvolumen des Würfels oder Materials."
+        "de": "Gesamtvolumen des Würfels oder Materials.",
+        "fr": "Volume total du cube ou du matériau.",
+        "es": "Volumen total del cubo o material."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Tolerance",
         "tr": "Tolerans",
         "de": "Toleranz",
-        "fr": "Tolerance",
-        "es": "Tolerance",
+        "fr": "Tolérance",
+        "es": "Tolerancia",
         "ar": "Tolerance"
       },
       "businessContext_i18n": {
         "en": "Manufacturing tolerance for rounding the side length.",
         "tr": "Kenar uzunluğunu yuvarlamak için üretim toleransı.",
-        "de": "Fertigungstoleranz zum Runden der Seitenlänge."
+        "de": "Fertigungstoleranz zum Runden der Seitenlänge.",
+        "fr": "Tolérance de fabrication pour l'arrondi de la longueur du côté.",
+        "es": "Tolerancia de fabricación para redondear la longitud del lado."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Oversize Allowance",
         "tr": "Büyük Boy Payı",
         "de": "Übermaßzugabe",
-        "fr": "Oversize Allowance",
-        "es": "Oversize Allowance",
+        "fr": "Marge de surdimensionnement",
+        "es": "Margen de sobredimensión",
         "ar": "Oversize Allowance"
       },
       "businessContext_i18n": {
         "en": "Extra material allowance to add to side.",
         "tr": "Kenara eklenecek ekstra malzeme payı.",
-        "de": "Zusätzliche Materialzugabe zur Seite."
+        "de": "Zusätzliche Materialzugabe zur Seite.",
+        "fr": "Marge de matériau supplémentaire à ajouter au côté.",
+        "es": "Margen de material adicional para añadir al lado."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Calibration Offset",
         "tr": "Kalibrasyon Ofseti",
         "de": "Kalibrierungsversatz",
-        "fr": "Calibration Offset",
-        "es": "Calibration Offset",
+        "fr": "Décalage d'étalonnage",
+        "es": "Desviación de calibración",
         "ar": "Calibration Offset"
       },
       "businessContext_i18n": {
         "en": "Instrument calibration offset to apply.",
         "tr": "Uygulanacak enstrüman kalibrasyon ofseti.",
-        "de": "Anzuwendender Instrumentenkalibrierungs-Offset."
+        "de": "Anzuwendender Instrumentenkalibrierungs-Offset.",
+        "fr": "Décalage d'étalonnage de l'instrument à appliquer.",
+        "es": "Desplazamiento de calibración del instrumento a aplicar."
       }
     }
   ],

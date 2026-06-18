@@ -12,14 +12,16 @@
         "en": "Measurement Value",
         "tr": "Ölçüm Değeri",
         "de": "Messwert",
-        "fr": "Measurement Value",
-        "es": "Measurement Value",
+        "fr": "Valeur mesurée",
+        "es": "Valor de medición",
         "ar": "Measurement Value"
       },
       "businessContext_i18n": {
         "en": "Process measurement to evaluate",
         "tr": "Değerlendirilecek proses ölçümü",
-        "de": "Zu bewertende Prozessmessgröße"
+        "de": "Zu bewertende Prozessmessgröße",
+        "fr": "Mesure du procédé à évaluer",
+        "es": "Medición del proceso a evaluar"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Target Value",
         "tr": "Hedef Değer",
         "de": "Zielwert",
-        "fr": "Target Value",
-        "es": "Target Value",
+        "fr": "Valeur cible",
+        "es": "Valor objetivo",
         "ar": "Target Value"
       },
       "businessContext_i18n": {
         "en": "Nominal target value",
         "tr": "Nominal hedef değer",
-        "de": "Nominaler Zielwert"
+        "de": "Nominaler Zielwert",
+        "fr": "Valeur nominale cible",
+        "es": "Valor nominal objetivo"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Lower Specification Limit",
         "tr": "Alt Spesifikasyon Limiti",
         "de": "Untere Spezifikationsgrenze",
-        "fr": "Lower Specification Limit",
-        "es": "Lower Specification Limit",
+        "fr": "Limite inférieure de spécification",
+        "es": "Límite inferior de especificación",
         "ar": "Lower Specification Limit"
       },
       "businessContext_i18n": {
         "en": "Minimum acceptable value",
         "tr": "Minimum kabul edilebilir değer",
-        "de": "Minimal akzeptabler Wert"
+        "de": "Minimal akzeptabler Wert",
+        "fr": "Valeur minimale acceptable",
+        "es": "Valor mínimo aceptable"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Upper Specification Limit",
         "tr": "Üst Spesifikasyon Limiti",
         "de": "Obere Spezifikationsgrenze",
-        "fr": "Upper Specification Limit",
-        "es": "Upper Specification Limit",
+        "fr": "Limite supérieure de spécification",
+        "es": "Límite superior de especificación",
         "ar": "Upper Specification Limit"
       },
       "businessContext_i18n": {
         "en": "Maximum acceptable value",
         "tr": "Maksimum kabul edilebilir değer",
-        "de": "Maximal akzeptabler Wert"
+        "de": "Maximal akzeptabler Wert",
+        "fr": "Valeur maximale acceptable",
+        "es": "Valor máximo aceptable"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Warning Zone Fraction",
         "tr": "Uyarı Bölgesi Kesri",
         "de": "Warnzonenanteil",
-        "fr": "Warning Zone Fraction",
-        "es": "Warning Zone Fraction",
+        "fr": "Fraction de la zone d'avertissement",
+        "es": "Fracción de zona de advertencia",
         "ar": "Warning Zone Fraction"
       },
       "businessContext_i18n": {
         "en": "Fraction of spec half-range defining green zone around target (0-1)",
         "tr": "Hedef etrafındaki yeşil bölgeyi tanımlayan spesifikasyon yarı aralığının kesri (0-1)",
-        "de": "Anteil des Spezifikationshalbbereichs, der die grüne Zone um den Zielwert definiert (0-1)"
+        "de": "Anteil des Spezifikationshalbbereichs, der die grüne Zone um den Zielwert definiert (0-1)",
+        "fr": "Fraction de la demi-plage de spécification définissant la zone verte autour de la cible (0-1)",
+        "es": "Fracción del semirango de especificación que define la zona verde alrededor del objetivo (0-1)"
       }
     }
   ],

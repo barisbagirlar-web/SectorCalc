@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Lesson Duration (hours)",
         "tr": "Ders Süresi (saat)",
-        "de": "Lesson Duration (hours)",
-        "fr": "Lesson Duration (hours)",
-        "es": "Lesson Duration (hours)",
+        "de": "Unterrichtsdauer (Stunden)",
+        "fr": "Durée de la leçon (heures)",
+        "es": "Duración de la Lección (horas)",
         "ar": "Lesson Duration (hours)"
       },
       "businessContext_i18n": {
         "en": "Duration of one riding lesson in hours.",
-        "tr": "Bir binicilik dersinin saat cinsinden süresi."
+        "tr": "Bir binicilik dersinin saat cinsinden süresi.",
+        "de": "Dauer einer Reitstunde in Stunden.",
+        "fr": "Durée d'une leçon d'équitation en heures.",
+        "es": "Duración de una lección de equitación en horas."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Instructor Hourly Rate",
         "tr": "Eğitmen Saatlik Ücreti",
-        "de": "Instructor Hourly Rate",
-        "fr": "Instructor Hourly Rate",
-        "es": "Instructor Hourly Rate",
+        "de": "Stundensatz des Ausbilders",
+        "fr": "Taux horaire de l'instructeur",
+        "es": "Tarifa por hora del instructor",
         "ar": "Instructor Hourly Rate"
       },
       "businessContext_i18n": {
         "en": "Cost per hour for the riding instructor.",
-        "tr": "Binicilik eğitmeni için saat başına maliyet."
+        "tr": "Binicilik eğitmeni için saat başına maliyet.",
+        "de": "Kosten pro Stunde für den Reitlehrer.",
+        "fr": "Coût par heure pour l'instructeur d'équitation.",
+        "es": "Costo por hora del instructor de equitación."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Horse Maintenance Cost per Lesson",
         "tr": "Ders Başına At Bakım Maliyeti",
-        "de": "Horse Maintenance Cost per Lesson",
-        "fr": "Horse Maintenance Cost per Lesson",
-        "es": "Horse Maintenance Cost per Lesson",
+        "de": "Pferdeunterhaltskosten pro Unterrichtsstunde",
+        "fr": "Coût d'entretien du cheval par leçon",
+        "es": "Costo de mantenimiento del caballo por lección",
         "ar": "Horse Maintenance Cost per Lesson"
       },
       "businessContext_i18n": {
         "en": "Additional cost for horse care, feed, and tack per lesson.",
-        "tr": "Ders başına at bakımı, yem ve ekipman için ek maliyet."
+        "tr": "Ders başına at bakımı, yem ve ekipman için ek maliyet.",
+        "de": "Zusätzliche Kosten für Pferdepflege, Futter und Ausrüstung pro Unterrichtsstunde.",
+        "fr": "Coût supplémentaire pour les soins du cheval, l'alimentation et le harnachement par leçon.",
+        "es": "Costo adicional por cuidado del caballo, alimentación y arreos por lección."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Equipment Rental per Lesson",
         "tr": "Ders Başına Ekipman Kiralama",
-        "de": "Equipment Rental per Lesson",
-        "fr": "Equipment Rental per Lesson",
-        "es": "Equipment Rental per Lesson",
+        "de": "Ausrüstungsverleih pro Unterrichtsstunde",
+        "fr": "Location d'équipement par leçon",
+        "es": "Alquiler de equipo por lección",
         "ar": "Equipment Rental per Lesson"
       },
       "businessContext_i18n": {
         "en": "Cost for renting helmet, boots, etc. per lesson.",
-        "tr": "Ders başına kask, bot vb. kiralama maliyeti."
+        "tr": "Ders başına kask, bot vb. kiralama maliyeti.",
+        "de": "Kosten für die Anmietung von Helm, Stiefeln usw. pro Unterrichtsstunde.",
+        "fr": "Coût de location du casque, des bottes, etc. par leçon.",
+        "es": "Costo por alquilar casco, botas, etc. por lección."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Insurance Fee per Lesson",
         "tr": "Ders Başına Sigorta Ücreti",
-        "de": "Insurance Fee per Lesson",
-        "fr": "Insurance Fee per Lesson",
-        "es": "Insurance Fee per Lesson",
+        "de": "Versicherungsgebühr pro Unterrichtsstunde",
+        "fr": "Frais d'assurance par leçon",
+        "es": "Tarifa de seguro por lección",
         "ar": "Insurance Fee per Lesson"
       },
       "businessContext_i18n": {
         "en": "Insurance cost allocated per lesson.",
-        "tr": "Ders başına tahsis edilen sigorta maliyeti."
+        "tr": "Ders başına tahsis edilen sigorta maliyeti.",
+        "de": "Versicherungskosten, die pro Unterrichtsstunde zugeordnet werden.",
+        "fr": "Coût d'assurance alloué par leçon.",
+        "es": "Costo del seguro asignado por lección."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Travel Cost per Lesson",
         "tr": "Ders Başına Seyahat Maliyeti",
-        "de": "Travel Cost per Lesson",
-        "fr": "Travel Cost per Lesson",
-        "es": "Travel Cost per Lesson",
+        "de": "Reisekosten pro Unterrichtsstunde",
+        "fr": "Frais de déplacement par leçon",
+        "es": "Costo de viaje por lección",
         "ar": "Travel Cost per Lesson"
       },
       "businessContext_i18n": {
         "en": "Travel expenses to reach the stable per lesson.",
-        "tr": "Ders başına ahıra ulaşım masrafları."
+        "tr": "Ders başına ahıra ulaşım masrafları.",
+        "de": "Reisekosten zum Stall pro Unterrichtsstunde.",
+        "fr": "Frais de déplacement pour se rendre au centre équestre par leçon.",
+        "es": "Gastos de viaje para llegar al establo por lección."
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Number of Lessons",
         "tr": "Ders Sayısı",
-        "de": "Number of Lessons",
-        "fr": "Number of Lessons",
-        "es": "Number of Lessons",
+        "de": "Anzahl der Unterrichtsstunden",
+        "fr": "Nombre de leçons",
+        "es": "Número de lecciones",
         "ar": "Number of Lessons"
       },
       "businessContext_i18n": {
         "en": "Total number of lessons in the package.",
-        "tr": "Paketteki toplam ders sayısı."
+        "tr": "Paketteki toplam ders sayısı.",
+        "de": "Gesamtzahl der Unterrichtsstunden im Paket.",
+        "fr": "Nombre total de leçons dans le forfait.",
+        "es": "Número total de lecciones en el paquete."
       }
     }
   ],

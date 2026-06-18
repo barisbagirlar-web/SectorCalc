@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Weak Acid Concentration [HA]",
         "tr": "Zayıf Asit Konsantrasyonu [HA]",
-        "de": "Weak Acid Concentration [HA]",
-        "fr": "Weak Acid Concentration [HA]",
-        "es": "Weak Acid Concentration [HA]",
+        "de": "Konzentration der schwachen Säure [HA]",
+        "fr": "Concentration d'acide faible [HA]",
+        "es": "Concentración de ácido débil [HA]",
         "ar": "Weak Acid Concentration [HA]"
       },
       "businessContext_i18n": {
         "en": "Molar concentration of the weak acid form.",
-        "tr": "Zayıf asit formunun molar konsantrasyonu."
+        "tr": "Zayıf asit formunun molar konsantrasyonu.",
+        "de": "Molare Konzentration der schwachen Säureform.",
+        "fr": "Concentration molaire de la forme acide faible.",
+        "es": "Concentración molar de la forma de ácido débil."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Conjugate Base Concentration [A-]",
         "tr": "Konjuge Baz Konsantrasyonu [A-]",
-        "de": "Conjugate Base Concentration [A-]",
-        "fr": "Conjugate Base Concentration [A-]",
-        "es": "Conjugate Base Concentration [A-]",
+        "de": "Konzentration der konjugierten Base [A-]",
+        "fr": "Concentration de base conjuguée [A-]",
+        "es": "Concentración de base conjugada [A-]",
         "ar": "Conjugate Base Concentration [A-]"
       },
       "businessContext_i18n": {
         "en": "Molar concentration of the conjugate base form.",
-        "tr": "Konjuge baz formunun molar konsantrasyonu."
+        "tr": "Konjuge baz formunun molar konsantrasyonu.",
+        "de": "Molare Konzentration der konjugierten Baseform.",
+        "fr": "Concentration molaire de la forme base conjuguée.",
+        "es": "Concentración molar de la forma de base conjugada."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Solution pH",
         "tr": "Çözelti pH'ı",
-        "de": "Solution pH",
-        "fr": "Solution pH",
-        "es": "Solution pH",
+        "de": "pH-Wert der Lösung",
+        "fr": "pH de la solution",
+        "es": "pH de la solución",
         "ar": "Solution pH"
       },
       "businessContext_i18n": {
         "en": "Measured pH of the buffer solution.",
-        "tr": "Tampon çözeltinin ölçülen pH'ı."
+        "tr": "Tampon çözeltinin ölçülen pH'ı.",
+        "de": "Gemessener pH-Wert der Pufferlösung.",
+        "fr": "pH mesuré de la solution tampon.",
+        "es": "pH medido de la solución tampón."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Temperature",
         "tr": "Sıcaklık",
         "de": "Temperatur",
-        "fr": "Temperature",
-        "es": "Temperature",
+        "fr": "Température",
+        "es": "Temperatura",
         "ar": "Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of the solution (reference, not used in standard calculation).",
-        "tr": "Çözeltinin sıcaklığı (referans, standart hesaplamada kullanılmaz)."
+        "tr": "Çözeltinin sıcaklığı (referans, standart hesaplamada kullanılmaz).",
+        "de": "Temperatur der Lösung (Referenz, nicht in der Standardberechnung verwendet).",
+        "fr": "Température de la solution (référence, non utilisée dans le calcul standard).",
+        "es": "Temperatura de la solución (referencia, no se usa en el cálculo estándar)."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Environmental Score",
         "tr": "Çevresel Puan",
         "de": "Umwelt-Score",
-        "fr": "Environmental Score",
-        "es": "Environmental Score",
+        "fr": "Score environnemental",
+        "es": "Puntuación ambiental",
         "ar": "Environmental Score"
       },
       "businessContext_i18n": {
         "en": "Aggregated environmental performance score. Higher is better.",
         "tr": "Toplanmış çevresel performans puanı. Yüksek olan daha iyidir.",
-        "de": "Aggregierte Umweltleistungsbewertung. Höher ist besser."
+        "de": "Aggregierte Umweltleistungsbewertung. Höher ist besser.",
+        "fr": "Score de performance environnementale agrégé. Plus il est élevé, mieux c'est.",
+        "es": "Puntuación agregada de desempeño ambiental. Mayor es mejor."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Social Score",
         "tr": "Sosyal Puan",
         "de": "Sozial-Score",
-        "fr": "Social Score",
-        "es": "Social Score",
+        "fr": "Score social",
+        "es": "Puntuación social",
         "ar": "Social Score"
       },
       "businessContext_i18n": {
         "en": "Aggregated social performance score. Higher is better.",
         "tr": "Toplanmış sosyal performans puanı. Yüksek olan daha iyidir.",
-        "de": "Aggregierte Sozialleistungsbewertung. Höher ist besser."
+        "de": "Aggregierte Sozialleistungsbewertung. Höher ist besser.",
+        "fr": "Score de performance sociale agrégé. Plus il est élevé, mieux c'est.",
+        "es": "Puntuación agregada de desempeño social. Mayor es mejor."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Governance Score",
         "tr": "Yönetişim Puanı",
         "de": "Governance-Score",
-        "fr": "Governance Score",
-        "es": "Governance Score",
+        "fr": "Score de gouvernance",
+        "es": "Puntuación de gobierno",
         "ar": "Governance Score"
       },
       "businessContext_i18n": {
         "en": "Aggregated governance performance score. Higher is better.",
         "tr": "Toplam yönetişim performans puanı. Yüksek olması daha iyidir.",
-        "de": "Aggregierte Governance-Leistungsbewertung. Höher ist besser."
+        "de": "Aggregierte Governance-Leistungsbewertung. Höher ist besser.",
+        "fr": "Score agrégé de performance en gouvernance. Plus élevé est meilleur.",
+        "es": "Puntuación agregada de desempeño de gobierno. Mayor es mejor."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Weight Environment",
         "tr": "Çevre Ağırlığı",
         "de": "Gewicht Umwelt",
-        "fr": "Weight Environment",
-        "es": "Weight Environment",
+        "fr": "Poids Environnement",
+        "es": "Peso del medio ambiente",
         "ar": "Weight Environment"
       },
       "businessContext_i18n": {
         "en": "Weight for environmental score. Must be >0. Sum of all weights should be positive.",
         "tr": "Çevre puanı için ağırlık. >0 olmalıdır. Tüm ağırlıkların toplamı pozitif olmalıdır.",
-        "de": "Gewicht für den Umwelt-Score. Muss >0 sein. Summe aller Gewichte sollte positiv sein."
+        "de": "Gewicht für den Umwelt-Score. Muss >0 sein. Summe aller Gewichte sollte positiv sein.",
+        "fr": "Poids pour le score environnemental. Doit être >0. La somme de tous les poids doit être positive.",
+        "es": "Peso para la puntuación ambiental. Debe ser >0. La suma de todos los pesos debe ser positiva."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Weight Social",
         "tr": "Sosyal Ağırlık",
         "de": "Gewicht Sozial",
-        "fr": "Weight Social",
-        "es": "Weight Social",
+        "fr": "Poids Social",
+        "es": "Peso Social",
         "ar": "Weight Social"
       },
       "businessContext_i18n": {
         "en": "Weight for social score.",
         "tr": "Sosyal puan için ağırlık.",
-        "de": "Gewicht für den Sozial-Score."
+        "de": "Gewicht für den Sozial-Score.",
+        "fr": "Poids pour le score social.",
+        "es": "Peso para la puntuación social."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Weight Governance",
         "tr": "Yönetişim Ağırlığı",
         "de": "Gewicht Governance",
-        "fr": "Weight Governance",
-        "es": "Weight Governance",
+        "fr": "Poids Gouvernance",
+        "es": "Peso Gobernanza",
         "ar": "Weight Governance"
       },
       "businessContext_i18n": {
         "en": "Weight for governance score.",
         "tr": "Yönetişim puanı için ağırlık.",
-        "de": "Gewicht für den Governance-Score."
+        "de": "Gewicht für den Governance-Score.",
+        "fr": "Poids pour le score de gouvernance.",
+        "es": "Peso para la puntuación de gobernanza."
       }
     }
   ],

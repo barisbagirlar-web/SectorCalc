@@ -23,11 +23,15 @@
       "label_i18n": {
         "en": "Annual Demand (units)",
         "tr": "Yıllık Talep (birim)",
-        "de": "Jahresbedarf (Einheiten)"
+        "de": "Jahresbedarf (Einheiten)",
+        "fr": "Demande annuelle (unités)",
+        "es": "Demanda anual (unidades)"
       },
       "businessContext_i18n": {
         "en": "Total customer demand per year for the product family under analysis.",
-        "tr": "Analiz edilen ürün ailesi için yıllık toplam müşteri talebi."
+        "tr": "Analiz edilen ürün ailesi için yıllık toplam müşteri talebi.",
+        "de": "Gesamte Kundennachfrage pro Jahr für die analysierte Produktfamilie.",
+        "fr": "Demande totale du client par an pour la famille de produits analysée."
       }
     },
     {
@@ -41,11 +45,15 @@
       "businessContext": "Average selling price per unit to the customer.",
       "label_i18n": {
         "en": "Selling Price per unit",
-        "tr": "Birim Satış Fiyatı"
+        "tr": "Birim Satış Fiyatı",
+        "de": "Verkaufspreis pro Einheit",
+        "fr": "Prix de vente unitaire"
       },
       "businessContext_i18n": {
         "en": "Average selling price per unit to the customer.",
-        "tr": "Müşteriye birim başına ortalama satış fiyatı."
+        "tr": "Müşteriye birim başına ortalama satış fiyatı.",
+        "de": "Durchschnittlicher Verkaufspreis pro Einheit an den Kunden.",
+        "fr": "Prix de vente moyen unitaire au client."
       }
     },
     {
@@ -59,11 +67,15 @@
       "businessContext": "Direct material cost per unit.",
       "label_i18n": {
         "en": "Material Cost per unit",
-        "tr": "Birim Malzeme Maliyeti"
+        "tr": "Birim Malzeme Maliyeti",
+        "de": "Materialkosten pro Einheit",
+        "fr": "Coût matière unitaire"
       },
       "businessContext_i18n": {
         "en": "Direct material cost per unit.",
-        "tr": "Birim başına direkt malzeme maliyeti."
+        "tr": "Birim başına direkt malzeme maliyeti.",
+        "de": "Direkte Materialkosten pro Einheit.",
+        "fr": "Coût direct matière par unité."
       }
     },
     {
@@ -77,11 +89,15 @@
       "businessContext": "Fully loaded labor cost per operator hour.",
       "label_i18n": {
         "en": "Labor Cost per hour",
-        "tr": "Saatlik İşçilik Maliyeti"
+        "tr": "Saatlik İşçilik Maliyeti",
+        "de": "Arbeitskosten pro Stunde",
+        "fr": "Coût de main-d'œuvre par heure"
       },
       "businessContext_i18n": {
         "en": "Fully loaded labor cost per operator hour.",
-        "tr": "Operatör saati başına tam yüklü işçilik maliyeti."
+        "tr": "Operatör saati başına tam yüklü işçilik maliyeti.",
+        "de": "Voll belastete Arbeitskosten pro Bedienstundenstunde.",
+        "fr": "Coût de main-d'œuvre entièrement chargé par heure opérateur."
       }
     },
     {
@@ -95,11 +111,15 @@
       "businessContext": "Sum of all process cycle times for one unit through the value stream.",
       "label_i18n": {
         "en": "Total Cycle Time (minutes)",
-        "tr": "Toplam Çevrim Süresi (dakika)"
+        "tr": "Toplam Çevrim Süresi (dakika)",
+        "de": "Gesamte Zykluszeit (Minuten)",
+        "fr": "Temps de cycle total (minutes)"
       },
       "businessContext_i18n": {
         "en": "Sum of all process cycle times for one unit through the value stream.",
-        "tr": "Değer akışı boyunca bir birim için tüm proses çevrim sürelerinin toplamı."
+        "tr": "Değer akışı boyunca bir birim için tüm proses çevrim sürelerinin toplamı.",
+        "de": "Summe aller Prozesszykluszeiten für eine Einheit durch den Wertstrom.",
+        "fr": "Somme de tous les temps de cycle de processus pour une unité à travers la chaîne de valeur."
       }
     },
     {
@@ -113,11 +133,15 @@
       "businessContext": "Sum of only value-added process times (ISO 22400, Lean definition).",
       "label_i18n": {
         "en": "Total Value-Added Time (minutes)",
-        "tr": "Toplam Katma Değer Süresi (dakika)"
+        "tr": "Toplam Katma Değer Süresi (dakika)",
+        "de": "Gesamte Wertschöpfungszeit (Minuten)",
+        "fr": "Temps à valeur ajoutée total (minutes)"
       },
       "businessContext_i18n": {
         "en": "Sum of only value-added process times (ISO 22400, Lean definition).",
-        "tr": "Yalnızca katma değerli proses sürelerinin toplamı (ISO 22400, Yalın tanımı)."
+        "tr": "Yalnızca katma değerli proses sürelerinin toplamı (ISO 22400, Yalın tanımı).",
+        "de": "Summe nur der wertschöpfenden Prozesszeiten (ISO 22400, Lean-Definition).",
+        "fr": "Somme des temps de processus à valeur ajoutée uniquement (définition ISO 22400, Lean)."
       }
     },
     {
@@ -131,11 +155,16 @@
       "businessContext": "Percentage of units that require rework or are scrapped (First Pass Yield).",
       "label_i18n": {
         "en": "Defect Rate (%)",
-        "tr": "Hata Oranı (%)"
+        "tr": "Hata Oranı (%)",
+        "de": "Ausschussrate (%)",
+        "fr": "Taux de rebut (%)",
+        "es": "Tasa de defectos (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of units that require rework or are scrapped (First Pass Yield).",
-        "tr": "Yeniden işlem veya fire olan birimlerin yüzdesi (İlk Geçiş Verimi)."
+        "tr": "Yeniden işlem veya fire olan birimlerin yüzdesi (İlk Geçiş Verimi).",
+        "de": "Prozentsatz der Einheiten, die Nacharbeit oder Ausschuss erfordern (First Pass Yield).",
+        "fr": "Pourcentage d'unités nécessitant une reprise ou mises au rebut (rendement de premier passage)."
       }
     },
     {
@@ -149,11 +178,15 @@
       "businessContext": "Additional cost to rework one defective unit (labor + material).",
       "label_i18n": {
         "en": "Rework Cost per defective unit",
-        "tr": "Hatalı Birim Başına Yeniden İşlem Maliyeti"
+        "tr": "Hatalı Birim Başına Yeniden İşlem Maliyeti",
+        "de": "Nacharbeitskosten pro fehlerhafter Einheit",
+        "fr": "Coût de reprise par unité défectueuse"
       },
       "businessContext_i18n": {
         "en": "Additional cost to rework one defective unit (labor + material).",
-        "tr": "Bir hatalı birimi yeniden işlemek için ek maliyet (işçilik + malzeme)."
+        "tr": "Bir hatalı birimi yeniden işlemek için ek maliyet (işçilik + malzeme).",
+        "de": "Zusätzliche Kosten für die Nacharbeit einer fehlerhaften Einheit (Arbeit + Material).",
+        "fr": "Coût supplémentaire pour reprendre une unité défectueuse (main-d'œuvre + matière)."
       }
     }
   ],

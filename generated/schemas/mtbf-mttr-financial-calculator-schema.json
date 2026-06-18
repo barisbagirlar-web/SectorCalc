@@ -24,11 +24,16 @@
       "label_i18n": {
         "en": "Operating Hours per Year",
         "tr": "Yıllık Çalışma Saati",
-        "de": "Betriebsstunden pro Jahr"
+        "de": "Betriebsstunden pro Jahr",
+        "fr": "Heures de fonctionnement par an",
+        "es": "Horas de operación por año"
       },
       "businessContext_i18n": {
         "en": "Total planned operating hours of the equipment per year. Used to calculate failure frequency and downtime.",
-        "tr": "Ekipmanın yıllık planlanan toplam çalışma saati. Arıza sıklığı ve duruş süresini hesaplamak için kullanılır."
+        "tr": "Ekipmanın yıllık planlanan toplam çalışma saati. Arıza sıklığı ve duruş süresini hesaplamak için kullanılır.",
+        "de": "Gesamte geplante Betriebsstunden der Anlage pro Jahr. Wird zur Berechnung der Ausfallhäufigkeit und Stillstandszeit verwendet.",
+        "fr": "Nombre total d'heures de fonctionnement prévues de l'équipement par an. Utilisé pour calculer la fréquence des défaillances et les temps d'arrêt.",
+        "es": "Horas totales de operación planificada del equipo por año. Se usa para calcular la frecuencia de fallas y el tiempo de inactividad."
       }
     },
     {
@@ -43,11 +48,16 @@
       "label_i18n": {
         "en": "Number of Units",
         "tr": "Birim Sayısı",
-        "de": "Anzahl der Einheiten"
+        "de": "Anzahl der Einheiten",
+        "fr": "Nombre d'unités",
+        "es": "Número de unidades"
       },
       "businessContext_i18n": {
         "en": "Total number of identical or similar assets in the fleet.",
-        "tr": "Filotaki özdeş veya benzer varlıkların toplam sayısı."
+        "tr": "Filotaki özdeş veya benzer varlıkların toplam sayısı.",
+        "de": "Gesamtzahl identischer oder ähnlicher Anlagen im Bestand.",
+        "fr": "Nombre total d'actifs identiques ou similaires dans la flotte.",
+        "es": "Número total de activos idénticos o similares en la flota."
       }
     },
     {
@@ -61,11 +71,17 @@
       "businessContext": "Average time between failures for a repairable system. Higher is better. ISO 14224.",
       "label_i18n": {
         "en": "Mean Time Between Failures (MTBF)",
-        "tr": "Arızalar Arası Ortalama Süre (MTBF)"
+        "tr": "Arızalar Arası Ortalama Süre (MTBF)",
+        "de": "Mittlere Betriebsdauer zwischen Ausfällen (MTBF)",
+        "fr": "Temps moyen de bon fonctionnement (MTBF)",
+        "es": "Tiempo Medio Entre Fallos (MTBF)"
       },
       "businessContext_i18n": {
         "en": "Average time between failures for a repairable system. Higher is better. ISO 14224.",
-        "tr": "Arızalar arası ortalama süre (MTBF). Daha yüksek daha iyidir. ISO 14224."
+        "tr": "Arızalar arası ortalama süre (MTBF). Daha yüksek daha iyidir. ISO 14224.",
+        "de": "Durchschnittliche Zeit zwischen Ausfällen eines reparierbaren Systems. Höher ist besser. ISO 14224.",
+        "fr": "Temps moyen entre pannes pour un système réparable. Plus élevé est meilleur. ISO 14224.",
+        "es": "Tiempo promedio entre fallas para un sistema reparable. Más alto es mejor. ISO 14224."
       }
     },
     {
@@ -80,11 +96,16 @@
       "label_i18n": {
         "en": "Mean Time To Repair (MTTR)",
         "tr": "Ortalama onarım süresi (MTTR)",
-        "de": "Mittlere Reparaturdauer (MTTR)"
+        "de": "Mittlere Reparaturdauer (MTTR)",
+        "fr": "Temps moyen de réparation (MTTR)",
+        "es": "Tiempo medio de reparación (MTTR)"
       },
       "businessContext_i18n": {
         "en": "Average time to restore a failed system to operational state. Lower is better. Includes diagnosis, repair, testing.",
-        "tr": "Ortalama onarım süresi (MTTR). Daha düşük daha iyidir. Teşhis, onarım, test dahil."
+        "tr": "Ortalama onarım süresi (MTTR). Daha düşük daha iyidir. Teşhis, onarım, test dahil.",
+        "de": "Mittlere Reparaturdauer (MTTR)",
+        "fr": "Temps moyen pour restaurer un système défaillant à un état opérationnel. Plus bas est meilleur. Inclut diagnostic, réparation, test.",
+        "es": "Tiempo promedio para restaurar un sistema fallido a estado operativo. Más bajo es mejor. Incluye diagnóstico, reparación, pruebas."
       }
     },
     {
@@ -98,11 +119,17 @@
       "businessContext": "Lost profit or cost incurred per hour of equipment downtime (lost production, labor, penalties).",
       "label_i18n": {
         "en": "Cost per Downtime Hour",
-        "tr": "Saat Başına Durma Maliyeti"
+        "tr": "Saat Başına Durma Maliyeti",
+        "de": "Kosten pro Stillstandsstunde",
+        "fr": "Coût par heure d'arrêt",
+        "es": "Costo por Hora de Inactividad"
       },
       "businessContext_i18n": {
         "en": "Lost profit or cost incurred per hour of equipment downtime (lost production, labor, penalties).",
-        "tr": "Ekipman duruşu saat başına kaybedilen kar veya oluşan maliyet (kayıp üretim, işçilik, cezalar)."
+        "tr": "Ekipman duruşu saat başına kaybedilen kar veya oluşan maliyet (kayıp üretim, işçilik, cezalar).",
+        "de": "Verlust oder Kosten pro Stunde Maschinenstillstand (Produktionsausfall, Lohnkosten, Strafen)",
+        "fr": "Perte de profit ou coût encouru par heure d'arrêt d'équipement (production perdue, main-d'œuvre, pénalités).",
+        "es": "Pérdida de beneficio o coste incurrido por hora de inactividad del equipo (producción perdida, mano de obra, penalizaciones)."
       }
     },
     {
@@ -116,11 +143,17 @@
       "businessContext": "Fixed costs per failure: spare parts, logistics, contractor fees, administrative overhead.",
       "label_i18n": {
         "en": "Cost per Failure Event (excluding downtime)",
-        "tr": "Arıza Başına Maliyet (duruş hariç)"
+        "tr": "Arıza Başına Maliyet (duruş hariç)",
+        "de": "Kosten pro Ausfallereignis (ohne Stillstand)",
+        "fr": "Coût par événement de panne (hors arrêt)",
+        "es": "Coste por evento de fallo (excluyendo tiempo de inactividad)"
       },
       "businessContext_i18n": {
         "en": "Fixed costs per failure: spare parts, logistics, contractor fees, administrative overhead.",
-        "tr": "Arıza başına sabit maliyetler: yedek parça, lojistik, yüklenici ücretleri, idari giderler."
+        "tr": "Arıza başına sabit maliyetler: yedek parça, lojistik, yüklenici ücretleri, idari giderler.",
+        "de": "Fixkosten pro Ausfall: Ersatzteile, Logistik, Fremdfirmen, Verwaltungsaufwand",
+        "fr": "Coûts fixes par panne : pièces de rechange, logistique, frais de sous-traitance, frais administratifs.",
+        "es": "Costes fijos por fallo: piezas de repuesto, logística, honorarios de contratistas, gastos administrativos."
       }
     },
     {
@@ -134,11 +167,17 @@
       "businessContext": "Hourly cost of maintenance personnel (including overhead).",
       "label_i18n": {
         "en": "Maintenance Labor Rate",
-        "tr": "Bakım İşçilik Ücreti"
+        "tr": "Bakım İşçilik Ücreti",
+        "de": "Instandhaltungs-Stundensatz",
+        "fr": "Taux horaire de maintenance",
+        "es": "Tarifa de mano de obra de mantenimiento"
       },
       "businessContext_i18n": {
         "en": "Hourly cost of maintenance personnel (including overhead).",
-        "tr": "Bakım personelinin saatlik maliyeti (genel giderler dahil)."
+        "tr": "Bakım personelinin saatlik maliyeti (genel giderler dahil).",
+        "de": "Stündliche Kosten des Instandhaltungspersonals (inkl. Gemeinkosten)",
+        "fr": "Coût horaire du personnel de maintenance (y compris frais généraux).",
+        "es": "Coste por hora del personal de mantenimiento (incluyendo gastos generales)."
       }
     },
     {
@@ -152,11 +191,17 @@
       "businessContext": "Annual budget allocated to reliability improvement projects (training, redesign, predictive maintenance).",
       "label_i18n": {
         "en": "Reliability Improvement Investment (annual)",
-        "tr": "Güvenilirlik İyileştirme Yatırımı (yıllık)"
+        "tr": "Güvenilirlik İyileştirme Yatırımı (yıllık)",
+        "de": "Investition in Zuverlässigkeitsverbesserung (jährlich)",
+        "fr": "Investissement annuel en amélioration de la fiabilité",
+        "es": "Inversión anual en mejora de la fiabilidad"
       },
       "businessContext_i18n": {
         "en": "Annual budget allocated to reliability improvement projects (training, redesign, predictive maintenance).",
-        "tr": "Güvenilirlik iyileştirme projelerine ayrılan yıllık bütçe (eğitim, yeniden tasarım, kestirimci bakım)."
+        "tr": "Güvenilirlik iyileştirme projelerine ayrılan yıllık bütçe (eğitim, yeniden tasarım, kestirimci bakım).",
+        "de": "Jährliches Budget für Zuverlässigkeitsprojekte (Schulung, Neukonstruktion, vorausschauende Instandhaltung)",
+        "fr": "Budget annuel alloué aux projets d'amélioration de la fiabilité (formation, reconception, maintenance prédictive).",
+        "es": "Presupuesto anual asignado a proyectos de mejora de la fiabilidad (formación, rediseño, mantenimiento predictivo)."
       }
     }
   ],

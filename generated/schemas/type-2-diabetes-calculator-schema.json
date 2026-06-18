@@ -12,13 +12,15 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Patient's age in years",
-        "tr": "Hastanın yaşı (yıl)"
+        "tr": "Hastanın yaşı (yıl)",
+        "de": "Alter des Patienten in Jahren",
+        "fr": "Âge du patient en années"
       }
     },
     {
@@ -32,14 +34,16 @@
         "en": "BMI",
         "tr": "VKİ",
         "de": "BMI",
-        "fr": "BMI",
-        "es": "BMI",
+        "fr": "IMC",
+        "es": "IMC",
         "ar": "BMI"
       },
       "businessContext_i18n": {
         "en": "Body Mass Index",
         "tr": "Vücut Kitle İndeksi",
-        "de": "Body-Mass-Index"
+        "de": "Body-Mass-Index",
+        "fr": "Indice de masse corporelle",
+        "es": "Índice de masa corporal"
       }
     },
     {
@@ -53,13 +57,15 @@
         "en": "Waist Circumference",
         "tr": "Bel Çevresi",
         "de": "Taillenumfang",
-        "fr": "Waist Circumference",
-        "es": "Waist Circumference",
+        "fr": "Tour de taille",
+        "es": "Circunferencia de cintura",
         "ar": "Waist Circumference"
       },
       "businessContext_i18n": {
         "en": "Waist measurement in centimeters",
-        "tr": "Bel ölçümü (cm)"
+        "tr": "Bel ölçümü (cm)",
+        "de": "Taillenumfang in Zentimetern",
+        "fr": "Tour de taille en centimètres"
       }
     },
     {
@@ -73,14 +79,16 @@
         "en": "Fasting Glucose",
         "tr": "Açlık Glukozu",
         "de": "Nüchternblutzucker",
-        "fr": "Fasting Glucose",
-        "es": "Fasting Glucose",
+        "fr": "Glycémie à jeun",
+        "es": "Glucosa en ayunas",
         "ar": "Fasting Glucose"
       },
       "businessContext_i18n": {
         "en": "Fasting blood glucose level",
         "tr": "Açlık kan şekeri seviyesi",
-        "de": "Nüchternblutzuckerspiegel"
+        "de": "Nüchternblutzuckerspiegel",
+        "fr": "Glycémie à jeun",
+        "es": "Nivel de glucosa en sangre en ayunas"
       }
     },
     {
@@ -94,13 +102,16 @@
         "en": "HDL Cholesterol",
         "tr": "HDL Kolesterol",
         "de": "HDL-Cholesterin",
-        "fr": "HDL Cholesterol",
-        "es": "HDL Cholesterol",
+        "fr": "Cholestérol HDL",
+        "es": "Colesterol HDL",
         "ar": "HDL Cholesterol"
       },
       "businessContext_i18n": {
         "en": "High-density lipoprotein cholesterol",
-        "tr": "Yüksek yoğunluklu lipoprotein kolesterol"
+        "tr": "Yüksek yoğunluklu lipoprotein kolesterol",
+        "de": "High-Density-Lipoprotein-Cholesterin",
+        "fr": "Cholestérol à lipoprotéines de haute densité",
+        "es": "Colesterol de lipoproteínas de alta densidad"
       }
     },
     {
@@ -113,14 +124,17 @@
       "label_i18n": {
         "en": "Systolic BP",
         "tr": "Sistolik Kan Basıncı",
-        "de": "Systolic BP",
-        "fr": "Systolic BP",
+        "de": "Systolischer Blutdruck",
+        "fr": "Pression artérielle systolique",
         "es": "Systolic BP",
         "ar": "Systolic BP"
       },
       "businessContext_i18n": {
         "en": "Systolic blood pressure",
-        "tr": "Sistolik kan basıncı"
+        "tr": "Sistolik kan basıncı",
+        "de": "Systolischer Blutdruck",
+        "fr": "Pression artérielle systolique",
+        "es": "Presión arterial sistólica"
       }
     }
   ],

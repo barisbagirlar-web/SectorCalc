@@ -12,14 +12,16 @@
         "en": "Density Value",
         "tr": "Yoğunluk Değeri",
         "de": "Dichtewert",
-        "fr": "Density Value",
-        "es": "Density Value",
+        "fr": "Valeur de densité",
+        "es": "Valor de densidad",
         "ar": "Density Value"
       },
       "businessContext_i18n": {
         "en": "The numeric density value to convert.",
         "tr": "Dönüştürülecek sayısal yoğunluk değeri.",
-        "de": "Der numerische Dichtewert zur Umrechnung."
+        "de": "Der numerische Dichtewert zur Umrechnung.",
+        "fr": "Valeur numérique de densité à convertir.",
+        "es": "El valor numérico de densidad a convertir."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "From Unit (1=kg/m³, 2=g/cm³, 3=lb/ft³, 4=lb/in³)",
         "tr": "Kaynak Birim (1=kg/m³, 2=g/cm³, 3=lb/ft³, 4=lb/in³)",
         "de": "Von Einheit (1=kg/m³, 2=g/cm³, 3=lb/ft³, 4=lb/in³)",
-        "fr": "From Unit (1=kg/m³, 2=g/cm³, 3=lb/ft³, 4=lb/in³)",
-        "es": "From Unit (1=kg/m³, 2=g/cm³, 3=lb/ft³, 4=lb/in³)",
+        "fr": "Unité de départ (1=kg/m³, 2=g/cm³, 3=lb/ft³, 4=lb/in³)",
+        "es": "Unidad de origen (1=kg/m³, 2=g/cm³, 3=lb/ft³, 4=lb/in³)",
         "ar": "From Unit (1=kg/m³, 2=g/cm³, 3=lb/ft³, 4=lb/in³)"
       },
       "businessContext_i18n": {
         "en": "Code of the input density unit: 1 for kg/m³, 2 for g/cm³, 3 for lb/ft³, 4 for lb/in³.",
         "tr": "Giriş yoğunluk biriminin kodu: 1 kg/m³, 2 g/cm³, 3 lb/ft³, 4 lb/in³.",
-        "de": "Code der Eingangsdichteeinheit: 1 für kg/m³, 2 für g/cm³, 3 für lb/ft³, 4 für lb/in³."
+        "de": "Code der Eingangsdichteeinheit: 1 für kg/m³, 2 für g/cm³, 3 für lb/ft³, 4 für lb/in³.",
+        "fr": "Code de l'unité de densité d'entrée : 1 pour kg/m³, 2 pour g/cm³, 3 pour lb/ft³, 4 pour lb/in³.",
+        "es": "Código de la unidad de densidad de entrada: 1 para kg/m³, 2 para g/cm³, 3 para lb/ft³, 4 para lb/in³."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "To Unit (1=kg/m³, 2=g/cm³, 3=lb/ft³, 4=lb/in³)",
         "tr": "Hedef Birim (1=kg/m³, 2=g/cm³, 3=lb/ft³, 4=lb/in³)",
         "de": "Zu Einheit (1=kg/m³, 2=g/cm³, 3=lb/ft³, 4=lb/in³)",
-        "fr": "To Unit (1=kg/m³, 2=g/cm³, 3=lb/ft³, 4=lb/in³)",
-        "es": "To Unit (1=kg/m³, 2=g/cm³, 3=lb/ft³, 4=lb/in³)",
+        "fr": "Unité cible (1=kg/m³, 2=g/cm³, 3=lb/ft³, 4=lb/in³)",
+        "es": "Unidad de destino (1=kg/m³, 2=g/cm³, 3=lb/ft³, 4=lb/in³)",
         "ar": "To Unit (1=kg/m³, 2=g/cm³, 3=lb/ft³, 4=lb/in³)"
       },
       "businessContext_i18n": {
         "en": "Code of the desired output density unit: 1 for kg/m³, 2 for g/cm³, 3 for lb/ft³, 4 for lb/in³.",
         "tr": "İstenen çıkış yoğunluk biriminin kodu: 1 kg/m³, 2 g/cm³, 3 lb/ft³, 4 lb/in³.",
-        "de": "Code der gewünschten Ausgangsdichteeinheit: 1 für kg/m³, 2 für g/cm³, 3 für lb/ft³, 4 für lb/in³."
+        "de": "Code der gewünschten Ausgangsdichteeinheit: 1 für kg/m³, 2 für g/cm³, 3 für lb/ft³, 4 für lb/in³.",
+        "fr": "Code de l'unité de densité de sortie souhaitée : 1 pour kg/m³, 2 pour g/cm³, 3 pour lb/ft³, 4 pour lb/in³.",
+        "es": "Código de la unidad de densidad de salida deseada: 1 para kg/m³, 2 para g/cm³, 3 para lb/ft³, 4 para lb/in³."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the output.",
         "tr": "Çıktının yuvarlanması için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen für die Rundung des Ergebnisses."
+        "de": "Anzahl der Dezimalstellen für die Rundung des Ergebnisses.",
+        "fr": "Nombre de décimales pour l'arrondi du résultat.",
+        "es": "Número de decimales para redondear el resultado."
       }
     }
   ],

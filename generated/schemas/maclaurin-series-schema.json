@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Function f(x)",
         "tr": "Fonksiyon f(x)",
-        "de": "Function f(x)",
-        "fr": "Function f(x)",
-        "es": "Function f(x)",
+        "de": "Funktion f(x)",
+        "fr": "Fonction f(x)",
+        "es": "Función f(x)",
         "ar": "Function f(x)"
       },
       "businessContext_i18n": {
         "en": "Mathematical function to expand",
-        "tr": "Açılacak matematiksel fonksiyon"
+        "tr": "Açılacak matematiksel fonksiyon",
+        "de": "Mathematische Funktion zum Entwickeln",
+        "fr": "Fonction mathématique à développer",
+        "es": "Función matemática a expandir"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Center a",
         "tr": "Merkez a",
-        "de": "Center a",
-        "fr": "Center a",
-        "es": "Center a",
+        "de": "Entwicklungspunkt a",
+        "fr": "Centre a",
+        "es": "Centro a",
         "ar": "Center a"
       },
       "businessContext_i18n": {
         "en": "Expansion point (Maclaurin if a=0)",
-        "tr": "Açılım noktası (a=0 ise Maclaurin)"
+        "tr": "Açılım noktası (a=0 ise Maclaurin)",
+        "de": "Entwicklungspunkt (Maclaurin wenn a=0)",
+        "fr": "Point de développement (Maclaurin si a=0)",
+        "es": "Punto de expansión (Maclaurin si a=0)"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Evaluation point x",
         "tr": "Değerlendirme noktası x",
-        "de": "Evaluation point x",
-        "fr": "Evaluation point x",
-        "es": "Evaluation point x",
+        "de": "Auswertungspunkt x",
+        "fr": "Point d'évaluation x",
+        "es": "Punto de evaluación x",
         "ar": "Evaluation point x"
       },
       "businessContext_i18n": {
         "en": "Point at which series is evaluated",
-        "tr": "Serinin değerlendirildiği nokta"
+        "tr": "Serinin değerlendirildiği nokta",
+        "de": "Punkt, an dem die Reihe ausgewertet wird",
+        "fr": "Point auquel la série est évaluée",
+        "es": "Punto en el que se evalúa la serie"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Number of terms n",
         "tr": "Terim sayısı n",
-        "de": "Number of terms n",
-        "fr": "Number of terms n",
-        "es": "Number of terms n",
+        "de": "Anzahl der Terme n",
+        "fr": "Nombre de termes n",
+        "es": "Número de términos n",
         "ar": "Number of terms n"
       },
       "businessContext_i18n": {
         "en": "Number of terms in the series",
-        "tr": "Serideki terim sayısı"
+        "tr": "Serideki terim sayısı",
+        "de": "Anzahl der Terme in der Reihe",
+        "fr": "Nombre de termes dans la série",
+        "es": "Número de términos en la serie"
       }
     }
   ],

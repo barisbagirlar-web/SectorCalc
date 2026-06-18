@@ -12,13 +12,16 @@
         "en": "Current (I)",
         "tr": "Akım (I)",
         "de": "Strom (I)",
-        "fr": "Current (I)",
-        "es": "Current (I)",
+        "fr": "Courant (I)",
+        "es": "Corriente (I)",
         "ar": "Current (I)"
       },
       "businessContext_i18n": {
         "en": "Elektrik akımı (Amper)",
-        "tr": "Elektrik akımı (Amper)"
+        "tr": "Elektrik akımı (Amper)",
+        "de": "Elektrischer Strom (Ampere)",
+        "fr": "Courant électrique (Ampères)",
+        "es": "Corriente eléctrica (Amperios)"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Number of Turns (N)",
         "tr": "Dönüş Sayısı (N)",
-        "de": "Number of Turns (N)",
-        "fr": "Number of Turns (N)",
-        "es": "Number of Turns (N)",
+        "de": "Anzahl der Windungen (N)",
+        "fr": "Nombre de spires (N)",
+        "es": "Número de vueltas (N)",
         "ar": "Number of Turns (N)"
       },
       "businessContext_i18n": {
         "en": "Bobindeki sarım sayısı",
-        "tr": "Bobindeki sarım sayısı"
+        "tr": "Bobindeki sarım sayısı",
+        "de": "Anzahl der Windungen in der Spule",
+        "fr": "Nombre de spires dans la bobine",
+        "es": "Número de vueltas en la bobina"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Length (L)",
         "tr": "Uzunluk (L)",
-        "de": "Length (L)",
-        "fr": "Length (L)",
-        "es": "Length (L)",
+        "de": "Länge (L)",
+        "fr": "Longueur (L)",
+        "es": "Longitud (L)",
         "ar": "Length (L)"
       },
       "businessContext_i18n": {
         "en": "Bobin uzunluğu (metre)",
-        "tr": "Bobin uzunluğu (metre)"
+        "tr": "Bobin uzunluğu (metre)",
+        "de": "Spulenlänge (Meter)",
+        "fr": "Longueur de la bobine (mètres)",
+        "es": "Longitud de la bobina (metros)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Relative Permeability (μᵣ)",
         "tr": "Bağıl Geçirgenlik (μᵣ)",
-        "de": "Relative Permeability (μᵣ)",
-        "fr": "Relative Permeability (μᵣ)",
-        "es": "Relative Permeability (μᵣ)",
+        "de": "Relative Permeabilität (μᵣ)",
+        "fr": "Perméabilité relative (μᵣ)",
+        "es": "Permeabilidad relativa (μᵣ)",
         "ar": "Relative Permeability (μᵣ)"
       },
       "businessContext_i18n": {
         "en": "Çekirdek malzemenin bağıl manyetik geçirgenliği",
-        "tr": "Çekirdek malzemenin bağıl manyetik geçirgenliği"
+        "tr": "Çekirdek malzemenin bağıl manyetik geçirgenliği",
+        "de": "Relative magnetische Permeabilität des Kernmaterials",
+        "fr": "Perméabilité magnétique relative du matériau du noyau",
+        "es": "Permeabilidad magnética relativa del material del núcleo"
       }
     }
   ],

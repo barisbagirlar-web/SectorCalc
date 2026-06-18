@@ -12,14 +12,16 @@
         "en": "Feet",
         "tr": "Feet",
         "de": "Fuß",
-        "fr": "Feet",
-        "es": "Feet",
+        "fr": "Pieds",
+        "es": "Pies",
         "ar": "Feet"
       },
       "businessContext_i18n": {
         "en": "Distance in feet to convert to miles.",
         "tr": "Mil'e dönüştürülecek fit cinsinden mesafe.",
-        "de": "Entfernung in Fuß, die in Meilen umgerechnet werden soll."
+        "de": "Entfernung in Fuß, die in Meilen umgerechnet werden soll.",
+        "fr": "Distance en pieds à convertir en miles.",
+        "es": "Distancia en pies a convertir a millas."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Feet per Mile",
         "tr": "Mil Başına Fit",
         "de": "Fuß pro Meile",
-        "fr": "Feet per Mile",
-        "es": "Feet per Mile",
+        "fr": "Pieds par mile",
+        "es": "Pies por milla",
         "ar": "Feet per Mile"
       },
       "businessContext_i18n": {
         "en": "Conversion factor: 1 mile = 5280 feet (international foot).",
         "tr": "Dönüşüm faktörü: 1 mil = 5280 fit (uluslararası fit).",
-        "de": "Umrechnungsfaktor: 1 Meile = 5280 Fuß (internationaler Fuß)."
+        "de": "Umrechnungsfaktor: 1 Meile = 5280 Fuß (internationaler Fuß).",
+        "fr": "Facteur de conversion : 1 mile = 5280 pieds (pied international).",
+        "es": "Factor de conversión: 1 milla = 5280 pies (pie internacional)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the output miles.",
         "tr": "Çıktı millerini yuvarlamak için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen für die Rundung der Ausgabemeilen."
+        "de": "Anzahl der Dezimalstellen für die Rundung der Ausgabemeilen.",
+        "fr": "Nombre de décimales pour l'arrondi des miles en sortie.",
+        "es": "Número de decimales para redondear las millas de salida."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Miles (Reverse)",
         "tr": "Mil (Ters)",
         "de": "Meilen (Rückwärts)",
-        "fr": "Miles (Reverse)",
-        "es": "Miles (Reverse)",
+        "fr": "Miles (inverse)",
+        "es": "Millas (inverso)",
         "ar": "Miles (Reverse)"
       },
       "businessContext_i18n": {
         "en": "Optional miles value for reverse conversion to feet. If non-zero, the reverse feet will be displayed in breakdown.",
         "tr": "Ters dönüşüm için isteğe bağlı mil değeri. Sıfırdan farklıysa, ters fit dökümde görüntülenir.",
-        "de": "Optionaler Meilenwert für Rückwärtsumrechnung in Fuß. Wenn ungleich Null, werden die rückwärtigen Fuß in der Aufschlüsselung angezeigt."
+        "de": "Optionaler Meilenwert für Rückwärtsumrechnung in Fuß. Wenn ungleich Null, werden die rückwärtigen Fuß in der Aufschlüsselung angezeigt.",
+        "fr": "Valeur optionnelle en miles pour la conversion inverse en pieds. Si non nul, les pieds inverses seront affichés dans la décomposition.",
+        "es": "Valor opcional en millas para conversión inversa a pies. Si no es cero, los pies inversos se mostrarán en el desglose."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Gender",
         "tr": "Cinsiyet",
         "de": "Geschlecht",
-        "fr": "Gender",
-        "es": "Gender",
+        "fr": "Genre",
+        "es": "Género",
         "ar": "Gender"
       },
       "businessContext_i18n": {
         "en": "0 for male, 1 for female",
         "tr": "0 erkek, 1 kadın",
-        "de": "0 für männlich, 1 für weiblich"
+        "de": "0 für männlich, 1 für weiblich",
+        "fr": "0 pour masculin, 1 pour féminin",
+        "es": "0 para masculino, 1 para femenino"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Body Weight",
-        "es": "Body Weight",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "Body weight in kilograms",
         "tr": "Vücut ağırlığı (kilogram cinsinden).",
-        "de": "Körpergewicht in Kilogramm"
+        "de": "Körpergewicht in Kilogramm",
+        "fr": "Poids corporel en kilogrammes",
+        "es": "Peso corporal en kilogramos"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Number of Drinks",
         "tr": "İçecek Sayısı",
         "de": "Anzahl der Getränke",
-        "fr": "Number of Drinks",
-        "es": "Number of Drinks",
+        "fr": "Nombre de verres",
+        "es": "Número de bebidas",
         "ar": "Number of Drinks"
       },
       "businessContext_i18n": {
         "en": "Standard drinks (14g ethanol each)",
         "tr": "Standart içki (her biri 14g etanol)",
-        "de": "Standardgetränke (14 g Ethanol pro Stück)"
+        "de": "Standardgetränke (14 g Ethanol pro Stück)",
+        "fr": "Verres standard (14 g d'éthanol chacun)",
+        "es": "Bebidas estándar (14 g de etanol cada una)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Hours Since First Drink",
         "tr": "İlk İçkiden Bu Yana Geçen Saat",
         "de": "Stunden seit dem ersten Getränk",
-        "fr": "Hours Since First Drink",
-        "es": "Hours Since First Drink",
+        "fr": "Heures depuis le premier verre",
+        "es": "Horas desde la primera bebida",
         "ar": "Hours Since First Drink"
       },
       "businessContext_i18n": {
         "en": "Time elapsed since start of drinking",
         "tr": "İçmeye başladıktan sonra geçen süre",
-        "de": "Verstrichene Zeit seit Beginn des Trinkens"
+        "de": "Verstrichene Zeit seit Beginn des Trinkens",
+        "fr": "Temps écoulé depuis le début de la consommation",
+        "es": "Tiempo transcurrido desde el inicio de la ingesta"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Alcohol Percentage per Drink",
         "tr": "İçki Başına Alkol Yüzdesi",
         "de": "Alkoholanteil pro Getränk",
-        "fr": "Alcohol Percentage per Drink",
-        "es": "Alcohol Percentage per Drink",
+        "fr": "Pourcentage d'alcool par verre",
+        "es": "Porcentaje de alcohol por bebida",
         "ar": "Alcohol Percentage per Drink"
       },
       "businessContext_i18n": {
         "en": "Alcohol by volume (ABV) per drink",
         "tr": "İçki başına hacimce alkol oranı (ABV)",
-        "de": "Alkoholvolumen (ABV) pro Getränk"
+        "de": "Alkoholvolumen (ABV) pro Getränk",
+        "fr": "Taux d'alcool par volume (ABV) par verre",
+        "es": "Graduación alcohólica (ABV) por bebida"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Volume per Drink",
         "tr": "İçki Başına Hacim",
         "de": "Volumen pro Getränk",
-        "fr": "Volume per Drink",
-        "es": "Volume per Drink",
+        "fr": "Volume par verre",
+        "es": "Volumen por bebida",
         "ar": "Volume per Drink"
       },
       "businessContext_i18n": {
         "en": "Volume of one drink in milliliters",
         "tr": "Bir içkinin mililitre cinsinden hacmi",
-        "de": "Volumen eines Getränks in Millilitern"
+        "de": "Volumen eines Getränks in Millilitern",
+        "fr": "Volume d'un verre en millilitres",
+        "es": "Volumen de una bebida en mililitros"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Generator Rated Power",
         "tr": "Jeneratör Anma Gücü",
         "de": "Generator Rated Power",
-        "fr": "Generator Rated Power",
-        "es": "Generator Rated Power",
+        "fr": "Puissance nominale du générateur",
+        "es": "Potencia Nominal del Generador",
         "ar": "Generator Rated Power"
       },
       "businessContext_i18n": {
         "en": "Maximum continuous electrical power output of the generator as specified by the manufacturer.",
         "tr": "Üretici tarafından belirtilen jeneratörün maksimum sürekli elektrik gücü çıkışı.",
-        "de": "Maximum continuous electrical power output of the generator as specified by the manufacturer."
+        "de": "Maximum continuous electrical power output of the generator as specified by the manufacturer.",
+        "fr": "Puissance électrique continue maximale du générateur spécifiée par le fabricant.",
+        "es": "Potencia eléctrica continua máxima del generador según lo especificado por el fabricante."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Load Factor",
         "tr": "Yük Faktörü",
         "de": "Lastfaktor",
-        "fr": "Load Factor",
-        "es": "Load Factor",
+        "fr": "Facteur de charge",
+        "es": "Factor de carga",
         "ar": "Load Factor"
       },
       "businessContext_i18n": {
         "en": "Average percentage of rated power at which the generator operates during the period.",
         "tr": "Jeneratörün periyot boyunca çalıştığı anma gücünün ortalama yüzdesi.",
-        "de": "Average percentage of rated power at which the generator operates during the period."
+        "de": "Average percentage of rated power at which the generator operates during the period.",
+        "fr": "Pourcentage moyen de la puissance nominale auquel le générateur fonctionne pendant la période.",
+        "es": "Porcentaje promedio de la potencia nominal al que opera el generador durante el período."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Operating Hours per Day",
         "tr": "Günlük Çalışma Saati",
         "de": "Betriebsstunden pro Tag",
-        "fr": "Operating Hours per Day",
-        "es": "Operating Hours per Day",
+        "fr": "Heures de fonctionnement par jour",
+        "es": "Horas de operación por día",
         "ar": "Operating Hours per Day"
       },
       "businessContext_i18n": {
         "en": "Number of hours the generator is expected to run per day.",
         "tr": "Jeneratörün günde çalışması beklenen saat sayısı.",
-        "de": "Number of hours the generator is expected to run per day."
+        "de": "Number of hours the generator is expected to run per day.",
+        "fr": "Nombre d'heures de fonctionnement prévu du générateur par jour.",
+        "es": "Número de horas que se espera que el generador funcione por día."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Fuel Consumption Rate",
         "tr": "Yakıt Tüketim Oranı",
         "de": "Kraftstoffverbrauchsrate",
-        "fr": "Fuel Consumption Rate",
-        "es": "Fuel Consumption Rate",
+        "fr": "Taux de consommation de carburant",
+        "es": "Tasa de consumo de combustible",
         "ar": "Fuel Consumption Rate"
       },
       "businessContext_i18n": {
         "en": "Volume of fuel consumed per kilowatt-hour of electrical energy generated, at the given load factor.",
         "tr": "Verilen yük faktöründe, üretilen kilovat-saat elektrik enerjisi başına tüketilen yakıt hacmi.",
-        "de": "Volume of fuel consumed per kilowatt-hour of electrical energy generated, at the given load factor."
+        "de": "Volume of fuel consumed per kilowatt-hour of electrical energy generated, at the given load factor.",
+        "fr": "Volume de carburant consommé par kilowattheure d'énergie électrique générée, au facteur de charge donné.",
+        "es": "Volumen de combustible consumido por kilovatio-hora de energía eléctrica generada, en el factor de carga dado."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Fuel Density",
         "tr": "Yakıt Yoğunluğu",
         "de": "Kraftstoffdichte",
-        "fr": "Fuel Density",
-        "es": "Fuel Density",
+        "fr": "Densité du carburant",
+        "es": "Densidad del combustible",
         "ar": "Fuel Density"
       },
       "businessContext_i18n": {
         "en": "Mass density of the fuel (e.g., diesel ~0.85 kg/L).",
         "tr": "Yakıtın kütle yoğunluğu (örneğin, dizel ~0,85 kg/L).",
-        "de": "Mass density of the fuel (e.g., diesel ~0.85 kg/L)."
+        "de": "Mass density of the fuel (e.g., diesel ~0.85 kg/L).",
+        "fr": "Masse volumique du carburant (ex. diesel ~0,85 kg/L).",
+        "es": "Densidad másica del combustible (p. ej., diésel ~0.85 kg/L)."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Generator Efficiency",
         "tr": "Jeneratör Verimliliği",
         "de": "Generator Efficiency",
-        "fr": "Generator Efficiency",
-        "es": "Generator Efficiency",
+        "fr": "Rendement du générateur",
+        "es": "Eficiencia del generador",
         "ar": "Generator Efficiency"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the generator in converting mechanical input to electrical output.",
         "tr": "Jeneratörün mekanik girişi elektrik çıkışına dönüştürme verimliliği.",
-        "de": "Efficiency of the generator in converting mechanical input to electrical output."
+        "de": "Efficiency of the generator in converting mechanical input to electrical output.",
+        "fr": "Rendement du générateur dans la conversion de l'entrée mécanique en sortie électrique.",
+        "es": "Eficiencia del generador al convertir la entrada mecánica en salida eléctrica."
       }
     }
   ],

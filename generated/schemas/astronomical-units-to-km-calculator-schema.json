@@ -12,14 +12,16 @@
         "en": "Astronomik Birim (AU)",
         "tr": "Astronomik Birim (AU)",
         "de": "Astronomische Einheit (AE)",
-        "fr": "Astronomik Birim (AU)",
-        "es": "Astronomik Birim (AU)",
+        "fr": "Unité astronomique (UA)",
+        "es": "Unidad Astronómica (AU)",
         "ar": "Astronomik Birim (AU)"
       },
       "businessContext_i18n": {
         "en": "Dönüştürülecek mesafe değeri, astronomik birim cinsinden.",
         "tr": "Dönüştürülecek mesafe değeri, astronomik birim cinsinden.",
-        "de": "Umzurechnender Entfernungswert in astronomischen Einheiten."
+        "de": "Umzurechnender Entfernungswert in astronomischen Einheiten.",
+        "fr": "Valeur de distance à convertir, en unités astronomiques.",
+        "es": "Valor de distancia a convertir, en unidades astronómicas."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Dönüşüm Oranı",
         "tr": "Dönüşüm Oranı",
         "de": "Umrechnungsfaktor",
-        "fr": "Dönüşüm Oranı",
-        "es": "Dönüşüm Oranı",
+        "fr": "Taux de conversion",
+        "es": "Tasa de conversión",
         "ar": "Dönüşüm Oranı"
       },
       "businessContext_i18n": {
         "en": "1 AU'nun kilometre karşılığı. IAU 2012 tanımına göre sabittir.",
         "tr": "1 AU'nun kilometre karşılığı. IAU 2012 tanımına göre sabittir.",
-        "de": "Entsprechung von 1 AE in Kilometern. Fest definiert nach IAU 2012."
+        "de": "Entsprechung von 1 AE in Kilometern. Fest definiert nach IAU 2012.",
+        "fr": "Équivalent en kilomètres d'une UA. Constante selon la définition de l'IAU 2012.",
+        "es": "Equivalente en kilómetros de 1 AU. Constante según definición IAU 2012."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Gösterim Hassasiyeti",
         "tr": "Gösterim Hassasiyeti",
         "de": "Anzeigegenauigkeit",
-        "fr": "Gösterim Hassasiyeti",
-        "es": "Gösterim Hassasiyeti",
+        "fr": "Précision d'affichage",
+        "es": "Precisión de visualización",
         "ar": "Gösterim Hassasiyeti"
       },
       "businessContext_i18n": {
         "en": "Sonuç gösteriminde kullanılacak ondalık basamak sayısı. Hesaplamada etkisizdir.",
         "tr": "Sonuç gösteriminde kullanılacak ondalık basamak sayısı. Hesaplamada etkisizdir.",
-        "de": "Anzahl der Dezimalstellen für die Ergebnisanzeige. Ohne Einfluss auf die Berechnung."
+        "de": "Anzahl der Dezimalstellen für die Ergebnisanzeige. Ohne Einfluss auf die Berechnung.",
+        "fr": "Nombre de décimales à afficher pour le résultat. Sans effet sur le calcul.",
+        "es": "Número de decimales a usar en la visualización del resultado. No afecta el cálculo."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Çıktı Çarpanı",
         "tr": "Çıktı Çarpanı",
         "de": "Ausgabemultiplikator",
-        "fr": "Çıktı Çarpanı",
-        "es": "Çıktı Çarpanı",
+        "fr": "Multiplicateur de sortie",
+        "es": "Factor de salida",
         "ar": "Çıktı Çarpanı"
       },
       "businessContext_i18n": {
         "en": "Çıktı birimini ölçeklendirmek için katsayı. 1: km, 1e-6: milyon km.",
         "tr": "Çıktı birimini ölçeklendirmek için katsayı. 1: km, 1e-6: milyon km.",
-        "de": "Koeffizient zur Skalierung der Ausgabeeinheit. 1: km, 1e-6: Millionen km."
+        "de": "Koeffizient zur Skalierung der Ausgabeeinheit. 1: km, 1e-6: Millionen km.",
+        "fr": "Coefficient pour mettre à l'échelle l'unité de sortie. 1 : km, 1e-6 : millions de km.",
+        "es": "Coeficiente para escalar la unidad de salida. 1: km, 1e-6: millones de km."
       }
     }
   ],

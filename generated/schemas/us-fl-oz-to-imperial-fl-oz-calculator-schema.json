@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "US Fluid Ounces",
         "tr": "ABD Sıvı Onsu",
-        "de": "US Fluid Ounces",
-        "fr": "US Fluid Ounces",
+        "de": "US-Flüssigunzen",
+        "fr": "Onces liquides US",
         "es": "US Fluid Ounces",
         "ar": "US Fluid Ounces"
       },
       "businessContext_i18n": {
         "en": "Volume in US fluid ounces",
-        "tr": "ABD sıvı ons cinsinden hacim"
+        "tr": "ABD sıvı ons cinsinden hacim",
+        "de": "Volumen in US-Flüssigunzen",
+        "fr": "Volume en onces liquides US"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Batch Size",
         "tr": "Parti Büyüklüğü",
         "de": "Losgröße",
-        "fr": "Batch Size",
-        "es": "Batch Size",
+        "fr": "Taille de lot",
+        "es": "Tamaño de lote",
         "ar": "Batch Size"
       },
       "businessContext_i18n": {
         "en": "Number of units per batch",
-        "tr": "Parti başına birim sayısı"
+        "tr": "Parti başına birim sayısı",
+        "de": "Anzahl der Einheiten pro Charge",
+        "fr": "Nombre d'unités par lot"
       }
     },
     {
@@ -51,15 +55,17 @@
       "label_i18n": {
         "en": "Package Count",
         "tr": "Paket Sayısı",
-        "de": "Package Count",
-        "fr": "Package Count",
+        "de": "Packungsanzahl",
+        "fr": "Nombre de colis",
         "es": "Package Count",
         "ar": "Package Count"
       },
       "businessContext_i18n": {
         "en": "Number of identical packages",
         "tr": "Özdeş paket sayısı",
-        "de": "Anzahl identischer Pakete"
+        "de": "Anzahl identischer Pakete",
+        "fr": "Nombre de colis identiques",
+        "es": "Número de paquetes idénticos"
       }
     },
     {
@@ -72,14 +78,16 @@
       "label_i18n": {
         "en": "Measurement Tolerance",
         "tr": "Ölçüm Toleransı",
-        "de": "Measurement Tolerance",
-        "fr": "Measurement Tolerance",
+        "de": "Messtoleranz",
+        "fr": "Tolérance de mesure",
         "es": "Measurement Tolerance",
         "ar": "Measurement Tolerance"
       },
       "businessContext_i18n": {
         "en": "Allowed deviation (±%) for quality control",
-        "tr": "Kalite kontrol için izin verilen sapma (±%)"
+        "tr": "Kalite kontrol için izin verilen sapma (±%)",
+        "de": "Zulässige Abweichung (±%) für die Qualitätskontrolle",
+        "fr": "Écart autorisé (±%) pour le contrôle qualité"
       }
     }
   ],

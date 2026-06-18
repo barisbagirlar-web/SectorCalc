@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Liquid Density",
         "tr": "Sıvı Yoğunluğu",
-        "de": "Liquid Density",
-        "fr": "Liquid Density",
-        "es": "Liquid Density",
+        "de": "Flüssigkeitsdichte",
+        "fr": "Densité du liquide",
+        "es": "Densidad del líquido",
         "ar": "Liquid Density"
       },
       "businessContext_i18n": {
         "en": "Density of the liquid at measurement temperature",
-        "tr": "Ölçüm sıcaklığında sıvının yoğunluğu"
+        "tr": "Ölçüm sıcaklığında sıvının yoğunluğu",
+        "de": "Dichte der Flüssigkeit bei Messtemperatur",
+        "fr": "Densité du liquide à la température de mesure"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Acceleration due to Gravity",
         "tr": "Yerçekimi İvmesi",
-        "de": "Acceleration due to Gravity",
-        "fr": "Acceleration due to Gravity",
+        "de": "Erdbeschleunigung",
+        "fr": "Accélération due à la gravité",
         "es": "Acceleration due to Gravity",
         "ar": "Acceleration due to Gravity"
       },
       "businessContext_i18n": {
         "en": "Standard gravity or local gravity value",
-        "tr": "Standart yerçekimi veya yerel yerçekimi değeri"
+        "tr": "Standart yerçekimi veya yerel yerçekimi değeri",
+        "de": "Standardgravitation oder lokale Gravitation",
+        "fr": "Gravité standard ou gravité locale"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Capillary Rise Height",
         "tr": "Kılcal yükselme yüksekliği",
-        "de": "Capillary Rise Height",
-        "fr": "Capillary Rise Height",
+        "de": "Kapillarsteighöhe",
+        "fr": "Hauteur de remontée capillaire",
         "es": "Capillary Rise Height",
         "ar": "Capillary Rise Height"
       },
       "businessContext_i18n": {
         "en": "Measured height difference between liquid in capillary and free surface",
-        "tr": "Kılcal borudaki sıvı ile serbest yüzey arasındaki ölçülen yükseklik farkı"
+        "tr": "Kılcal borudaki sıvı ile serbest yüzey arasındaki ölçülen yükseklik farkı",
+        "de": "Gemessener Höhenunterschied zwischen Flüssigkeit in Kapillare und freier Oberfläche",
+        "fr": "Différence de hauteur mesurée entre le liquide dans le capillaire et la surface libre"
       }
     },
     {
@@ -71,15 +77,17 @@
       "label_i18n": {
         "en": "Capillary Radius",
         "tr": "Kılcal yarıçap",
-        "de": "Capillary Radius",
-        "fr": "Capillary Radius",
+        "de": "Kapillarradius",
+        "fr": "Rayon du capillaire",
         "es": "Capillary Radius",
         "ar": "Capillary Radius"
       },
       "businessContext_i18n": {
         "en": "Inner radius of the capillary tube",
         "tr": "Kılcal borunun iç yarıçapı",
-        "de": "Innenradius des Kapillarrohrs"
+        "de": "Innenradius des Kapillarrohrs",
+        "fr": "Rayon intérieur du tube capillaire",
+        "es": "Radio interior del tubo capilar"
       }
     },
     {
@@ -93,13 +101,15 @@
         "en": "Contact Angle",
         "tr": "Temas Açısı",
         "de": "Eingriffswinkel",
-        "fr": "Contact Angle",
-        "es": "Contact Angle",
+        "fr": "Angle de contact",
+        "es": "Ángulo de contacto",
         "ar": "Contact Angle"
       },
       "businessContext_i18n": {
         "en": "Contact angle between liquid and capillary wall, 0° for completely wetting liquids",
-        "tr": "Sıvı ile kılcal duvar arasındaki temas açısı, tamamen ıslatan sıvılar için 0°"
+        "tr": "Sıvı ile kılcal duvar arasındaki temas açısı, tamamen ıslatan sıvılar için 0°",
+        "de": "Kontaktwinkel zwischen Flüssigkeit und Kapillarwand, 0° für vollständig benetzende Flüssigkeiten",
+        "fr": "Angle de contact entre le liquide et la paroi du capillaire, 0° pour les liquides parfaitement mouillants"
       }
     }
   ],

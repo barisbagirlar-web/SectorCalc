@@ -12,14 +12,16 @@
         "en": "Total Letters",
         "tr": "Toplam Harf",
         "de": "Gesamtbuchstaben",
-        "fr": "Total Letters",
-        "es": "Total Letters",
+        "fr": "Total des lettres",
+        "es": "Total de letras",
         "ar": "Total Letters"
       },
       "businessContext_i18n": {
         "en": "Total number of characters that are letters (A-Z, a-z) in the text",
         "tr": "Metindeki harf olan toplam karakter sayısı (A-Z, a-z)",
-        "de": "Gesamtzahl der Buchstaben (A-Z, a-z) im Text"
+        "de": "Gesamtzahl der Buchstaben (A-Z, a-z) im Text",
+        "fr": "Nombre total de caractères alphabétiques (A-Z, a-z) dans le texte",
+        "es": "Número total de caracteres que son letras (A-Z, a-z) en el texto"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Total Words",
         "tr": "Toplam Kelime",
         "de": "Gesamtwörter",
-        "fr": "Total Words",
-        "es": "Total Words",
+        "fr": "Total des mots",
+        "es": "Total de palabras",
         "ar": "Total Words"
       },
       "businessContext_i18n": {
         "en": "Total number of words in the text",
         "tr": "Metindeki toplam kelime sayısı",
-        "de": "Gesamtzahl der Wörter im Text"
+        "de": "Gesamtzahl der Wörter im Text",
+        "fr": "Nombre total de mots dans le texte",
+        "es": "Número total de palabras en el texto"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Total Sentences",
         "tr": "Toplam Cümle",
         "de": "Gesamtsätze",
-        "fr": "Total Sentences",
-        "es": "Total Sentences",
+        "fr": "Total des phrases",
+        "es": "Total de oraciones",
         "ar": "Total Sentences"
       },
       "businessContext_i18n": {
         "en": "Total number of sentences in the text",
         "tr": "Metindeki toplam cümle sayısı",
-        "de": "Gesamtzahl der Sätze im Text"
+        "de": "Gesamtzahl der Sätze im Text",
+        "fr": "Nombre total de phrases dans le texte",
+        "es": "Número total de oraciones en el texto"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Normalization Word Count",
         "tr": "Normalleştirilmiş Kelime Sayısı",
         "de": "Normalisierte Wortanzahl",
-        "fr": "Normalization Word Count",
-        "es": "Normalization Word Count",
+        "fr": "Nombre de mots normalisé",
+        "es": "Recuento de palabras para normalización",
         "ar": "Normalization Word Count"
       },
       "businessContext_i18n": {
         "en": "Number of words to normalize to (typically 100 for Coleman-Liau)",
         "tr": "Normalleştirilecek kelime sayısı (Coleman-Liau için genellikle 100)",
-        "de": "Anzahl der Wörter zur Normalisierung (typischerweise 100 für Coleman-Liau)"
+        "de": "Anzahl der Wörter zur Normalisierung (typischerweise 100 für Coleman-Liau)",
+        "fr": "Nombre de mots à normaliser (généralement 100 pour Coleman-Liau)",
+        "es": "Número de palabras para normalizar (típicamente 100 para Coleman-Liau)"
       }
     }
   ],

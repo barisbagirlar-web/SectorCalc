@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Basınç (Torr)",
         "tr": "Basınç (Torr)",
-        "de": "Basınç (Torr)",
-        "fr": "Basınç (Torr)",
+        "de": "Druck (Torr)",
+        "fr": "Pression (Torr)",
         "es": "Basınç (Torr)",
         "ar": "Basınç (Torr)"
       },
       "businessContext_i18n": {
         "en": "Ölçülen veya hesaplanan torr cinsinden basınç değeri.",
-        "tr": "Ölçülen veya hesaplanan torr cinsinden basınç değeri."
+        "tr": "Ölçülen veya hesaplanan torr cinsinden basınç değeri.",
+        "de": "Gemessener oder berechneter Druckwert in Torr.",
+        "fr": "Valeur de pression mesurée ou calculée en torr"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Dönüşüm Faktörü (psi/Torr)",
         "tr": "Dönüşüm Faktörü (psi/Torr)",
-        "de": "Dönüşüm Faktörü (psi/Torr)",
-        "fr": "Dönüşüm Faktörü (psi/Torr)",
+        "de": "Umrechnungsfaktor (psi/Torr)",
+        "fr": "Facteur de conversion (psi/Torr)",
         "es": "Dönüşüm Faktörü (psi/Torr)",
         "ar": "Dönüşüm Faktörü (psi/Torr)"
       },
       "businessContext_i18n": {
         "en": "Standart dönüşüm faktörü; kalibrasyon ihtiyacına göre ayarlanabilir.",
-        "tr": "Standart dönüşüm faktörü; kalibrasyon ihtiyacına göre ayarlanabilir."
+        "tr": "Standart dönüşüm faktörü; kalibrasyon ihtiyacına göre ayarlanabilir.",
+        "de": "Standard-Umrechnungsfaktor; kann je nach Kalibrierungsbedarf angepasst werden.",
+        "fr": "Facteur de conversion standard ; ajustable selon les besoins d'étalonnage"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Ondalık Basamak Sayısı",
         "tr": "Ondalık Basamak Sayısı",
         "de": "Anzahl Dezimalstellen",
-        "fr": "Ondalık Basamak Sayısı",
-        "es": "Ondalık Basamak Sayısı",
+        "fr": "Nombre de décimales",
+        "es": "Número de decimales",
         "ar": "Ondalık Basamak Sayısı"
       },
       "businessContext_i18n": {
         "en": "Sonuç gösteriminde istenen ondalık hane sayısı.",
-        "tr": "Sonuç gösteriminde istenen ondalık hane sayısı."
+        "tr": "Sonuç gösteriminde istenen ondalık hane sayısı.",
+        "de": "Gewünschte Anzahl Dezimalstellen in der Ergebnisanzeige.",
+        "fr": "Nombre de décimales souhaité pour l'affichage du résultat"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Kalibrasyon Ofseti (psi)",
         "tr": "Kalibrasyon Ofseti (psi)",
-        "de": "Kalibrasyon Ofseti (psi)",
-        "fr": "Kalibrasyon Ofseti (psi)",
+        "de": "Kalibrierungs-Offset (psi)",
+        "fr": "Offset d'étalonnage (psi)",
         "es": "Kalibrasyon Ofseti (psi)",
         "ar": "Kalibrasyon Ofseti (psi)"
       },
       "businessContext_i18n": {
         "en": "Sıfır ayarı veya kaydırma düzeltmesi için eklenen ofset.",
-        "tr": "Sıfır ayarı veya kaydırma düzeltmesi için eklenen ofset."
+        "tr": "Sıfır ayarı veya kaydırma düzeltmesi için eklenen ofset.",
+        "de": "Offset für Nullpunktabgleich oder Verschiebungskorrektur.",
+        "fr": "Offset ajouté pour la mise à zéro ou la correction de dérive"
       }
     }
   ],

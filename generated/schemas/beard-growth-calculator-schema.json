@@ -12,14 +12,16 @@
         "en": "Current Beard Length",
         "tr": "Mevcut Sakal Uzunluğu",
         "de": "Aktuelle Bartlänge",
-        "fr": "Current Beard Length",
-        "es": "Current Beard Length",
+        "fr": "Longueur actuelle de la barbe",
+        "es": "Longitud actual de la barba",
         "ar": "Current Beard Length"
       },
       "businessContext_i18n": {
         "en": "Measured length of existing beard in millimeters.",
         "tr": "Mevcut sakalın milimetre cinsinden ölçülen uzunluğu.",
-        "de": "Gemessene Länge des vorhandenen Barts in Millimetern."
+        "de": "Gemessene Länge des vorhandenen Barts in Millimetern.",
+        "fr": "Longueur mesurée de la barbe existante en millimètres.",
+        "es": "Longitud medida de la barba existente en milímetros."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Desired Beard Length",
         "tr": "Hedef Sakal Uzunluğu",
         "de": "Gewünschte Bartlänge",
-        "fr": "Desired Beard Length",
-        "es": "Desired Beard Length",
+        "fr": "Longueur souhaitée de la barbe",
+        "es": "Longitud deseada de la barba",
         "ar": "Desired Beard Length"
       },
       "businessContext_i18n": {
         "en": "Target beard length in millimeters.",
         "tr": "Milimetre cinsinden hedef sakal uzunluğu.",
-        "de": "Zielbartlänge in Millimetern."
+        "de": "Zielbartlänge in Millimetern.",
+        "fr": "Longueur cible de la barbe en millimètres.",
+        "es": "Longitud objetivo de la barba en milímetros."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Average Daily Growth Rate",
         "tr": "Ortalama Günlük Büyüme Hızı",
         "de": "Durchschnittliche tägliche Wachstumsrate",
-        "fr": "Average Daily Growth Rate",
-        "es": "Average Daily Growth Rate",
+        "fr": "Taux de croissance quotidien moyen",
+        "es": "Tasa de crecimiento diario promedio",
         "ar": "Average Daily Growth Rate"
       },
       "businessContext_i18n": {
         "en": "Average beard growth rate per day. Typical range 0.3-0.5 mm/day.",
         "tr": "Günlük ortalama sakal büyüme hızı. Tipik aralık 0.3-0.5 mm/gün.",
-        "de": "Durchschnittliche Bartwachstumsrate pro Tag. Typischer Bereich 0,3–0,5 mm/Tag."
+        "de": "Durchschnittliche Bartwachstumsrate pro Tag. Typischer Bereich 0,3–0,5 mm/Tag.",
+        "fr": "Taux de croissance moyen de la barbe par jour. Plage typique 0,3-0,5 mm/jour.",
+        "es": "Tasa promedio de crecimiento de la barba por día. Rango típico 0.3-0.5 mm/día."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Resting Days per Month",
         "tr": "Aylık Dinlenme Günleri",
         "de": "Ruhetage pro Monat",
-        "fr": "Resting Days per Month",
-        "es": "Resting Days per Month",
+        "fr": "Jours de repos par mois",
+        "es": "Días de descanso por mes",
         "ar": "Resting Days per Month"
       },
       "businessContext_i18n": {
         "en": "Number of days per month when beard does not grow (e.g., due to shaving cycles or rest phases).",
         "tr": "Sakalın uzamadığı aylık gün sayısı (örneğin tıraş döngüleri veya dinlenme evreleri nedeniyle).",
-        "de": "Anzahl der Tage pro Monat, an denen der Bart nicht wächst (z. B. aufgrund von Rasierzyklen oder Ruhephasen)."
+        "de": "Anzahl der Tage pro Monat, an denen der Bart nicht wächst (z. B. aufgrund von Rasierzyklen oder Ruhephasen).",
+        "fr": "Nombre de jours par mois où la barbe ne pousse pas (par exemple, en raison de cycles de rasage ou de phases de repos).",
+        "es": "Número de días por mes en que la barba no crece (por ejemplo, debido a ciclos de afeitado o fases de descanso)."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Genetic Growth Factor",
         "tr": "Genetik Büyüme Faktörü",
         "de": "Genetischer Wachstumsfaktor",
-        "fr": "Genetic Growth Factor",
-        "es": "Genetic Growth Factor",
+        "fr": "Facteur de croissance génétique",
+        "es": "Factor genético de crecimiento",
         "ar": "Genetic Growth Factor"
       },
       "businessContext_i18n": {
         "en": "Factor accounting for genetic variations (1.0 = average, >1 faster growth).",
         "tr": "Genetik varyasyonları hesaba katan faktör (1.0 = ortalama, >1 daha hızlı büyüme).",
-        "de": "Faktor für genetische Abweichungen (1,0 = Durchschnitt, >1 schnelleres Wachstum)."
+        "de": "Faktor für genetische Abweichungen (1,0 = Durchschnitt, >1 schnelleres Wachstum).",
+        "fr": "Facteur tenant compte des variations génétiques (1,0 = moyen, >1 croissance plus rapide).",
+        "es": "Factor que tiene en cuenta variaciones genéticas (1.0 = promedio, >1 crecimiento más rápido)."
       }
     }
   ],

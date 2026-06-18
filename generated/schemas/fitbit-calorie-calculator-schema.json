@@ -12,14 +12,16 @@
         "en": "Yaş",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Yaş",
-        "es": "Yaş",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Yaş"
       },
       "businessContext_i18n": {
         "en": "Kullanıcının yıl cinsinden yaşı",
         "tr": "Kullanıcının yıl cinsinden yaşı",
-        "de": "Kullanıcının yıl cinsinden yaşı"
+        "de": "Alter des Benutzers in Jahren",
+        "fr": "Âge de l'utilisateur en années",
+        "es": "Edad del usuario en años"
       }
     },
     {
@@ -32,15 +34,17 @@
       "label_i18n": {
         "en": "Cinsiyet (0: Kadın, 1: Erkek)",
         "tr": "Cinsiyet (0: Kadın, 1: Erkek)",
-        "de": "Cinsiyet (0: Kadın, 1: Erkek)",
-        "fr": "Cinsiyet (0: Kadın, 1: Erkek)",
-        "es": "Cinsiyet (0: Kadın, 1: Erkek)",
+        "de": "Geschlecht (0: Weiblich, 1: Männlich)",
+        "fr": "Sexe (0 : Femme, 1 : Homme)",
+        "es": "Sexo (0: Mujer, 1: Hombre)",
         "ar": "Cinsiyet (0: Kadın, 1: Erkek)"
       },
       "businessContext_i18n": {
         "en": "Cinsiyet: 0 kadın, 1 erkek",
         "tr": "Cinsiyet: 0 kadın, 1 erkek",
-        "de": "Cinsiyet: 0 kadın, 1 erkek"
+        "de": "Geschlecht: 0 weiblich, 1 männlich",
+        "fr": "Sexe : 0 femme, 1 homme",
+        "es": "Sexo: 0 mujer, 1 hombre"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Ağırlık",
         "tr": "Ağırlık",
         "de": "Gewicht",
-        "fr": "Ağırlık",
-        "es": "Ağırlık",
+        "fr": "Poids",
+        "es": "Peso",
         "ar": "Ağırlık"
       },
       "businessContext_i18n": {
         "en": "Kullanıcının kilogram cinsinden vücut ağırlığı",
         "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı",
-        "de": "Kullanıcının kilogram cinsinden vücut ağırlığı"
+        "de": "Körpergewicht des Benutzers in Kilogramm",
+        "fr": "Poids corporel de l'utilisateur en kilogrammes",
+        "es": "Peso corporal del usuario en kilogramos"
       }
     },
     {
@@ -76,13 +82,15 @@
         "tr": "Boy",
         "de": "Junge",
         "fr": "Boy",
-        "es": "Boy",
+        "es": "Niño",
         "ar": "Boy"
       },
       "businessContext_i18n": {
         "en": "Kullanıcının santimetre cinsinden boyu",
         "tr": "Kullanıcının santimetre cinsinden boyu",
-        "de": "Kullanıcının santimetre cinsinden boyu"
+        "de": "Körpergröße des Benutzers in Zentimetern",
+        "fr": "Taille de l'utilisateur en centimètres",
+        "es": "Altura del usuario en centímetros"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Aktivite Faktörü",
         "tr": "Aktivite Faktörü",
         "de": "Aktivitätsfaktor",
-        "fr": "Aktivite Faktörü",
-        "es": "Aktivite Faktörü",
+        "fr": "Facteur d'activité",
+        "es": "Factor de actividad",
         "ar": "Aktivite Faktörü"
       },
       "businessContext_i18n": {
         "en": "Sedanter:1.2, Hafif aktif:1.375, Orta aktif:1.55, Çok aktif:1.725, Ekstra aktif:1.9",
         "tr": "Sedanter:1.2, Hafif aktif:1.375, Orta aktif:1.55, Çok aktif:1.725, Ekstra aktif:1.9",
-        "de": "Sedanter:1.2, Hafif aktif:1.375, Orta aktif:1.55, Çok aktif:1.725, Ekstra aktif:1.9"
+        "de": "Bewegungsfaktor: Sitzend:1,2, Leicht aktiv:1,375, Mäßig aktiv:1,55, Sehr aktiv:1,725, Extrem aktiv:1,9",
+        "fr": "Sédentaire : 1,2, Légèrement actif : 1,375, Modérément actif : 1,55, Très actif : 1,725, Extrêmement actif : 1,9",
+        "es": "Sedentario:1.2, Ligeramente activo:1.375, Moderadamente activo:1.55, Muy activo:1.725, Extra activo:1.9"
       }
     }
   ],

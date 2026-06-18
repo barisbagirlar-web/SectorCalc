@@ -12,14 +12,16 @@
         "en": "Setpoint (SP)",
         "tr": "Set Noktası (SP)",
         "de": "Sollwert (SP)",
-        "fr": "Setpoint (SP)",
-        "es": "Setpoint (SP)",
+        "fr": "Consigne (SP)",
+        "es": "Punto de Consigna (SP)",
         "ar": "Setpoint (SP)"
       },
       "businessContext_i18n": {
         "en": "Desired process value",
         "tr": "İstenen proses değeri",
-        "de": "Gewünschter Prozesswert"
+        "de": "Gewünschter Prozesswert",
+        "fr": "Valeur de consigne souhaitée",
+        "es": "Valor deseado del proceso"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Process Variable (PV)",
         "tr": "Proses Değişkeni (PV)",
         "de": "Prozessgröße (PV)",
-        "fr": "Process Variable (PV)",
-        "es": "Process Variable (PV)",
+        "fr": "Variable de procédé (PV)",
+        "es": "Variable de Proceso (PV)",
         "ar": "Process Variable (PV)"
       },
       "businessContext_i18n": {
         "en": "Measured process value",
         "tr": "Ölçülen proses değeri",
-        "de": "Gemessener Prozesswert"
+        "de": "Gemessener Prozesswert",
+        "fr": "Valeur mesurée du procédé",
+        "es": "Valor medido del proceso"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Proportional Gain (Kp)",
         "tr": "Oransal Kazanç (Kp)",
         "de": "Proportionalverstärkung (Kp)",
-        "fr": "Proportional Gain (Kp)",
-        "es": "Proportional Gain (Kp)",
+        "fr": "Gain proportionnel (Kp)",
+        "es": "Ganancia Proporcional (Kp)",
         "ar": "Proportional Gain (Kp)"
       },
       "businessContext_i18n": {
         "en": "Proportional controller gain",
         "tr": "Oransal kontrolör kazancı",
-        "de": "Verstärkung des Proportionalreglers"
+        "de": "Verstärkung des Proportionalreglers",
+        "fr": "Gain du contrôleur proportionnel",
+        "es": "Ganancia del controlador proporcional"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Integral Time (Ti)",
         "tr": "İntegral Süresi (Ti)",
         "de": "Integralzeit (Ti)",
-        "fr": "Integral Time (Ti)",
-        "es": "Integral Time (Ti)",
+        "fr": "Temps intégral (Ti)",
+        "es": "Tiempo Integral (Ti)",
         "ar": "Integral Time (Ti)"
       },
       "businessContext_i18n": {
         "en": "Integral time constant",
         "tr": "İntegral zaman sabiti",
-        "de": "Integralzeitkonstante"
+        "de": "Integralzeitkonstante",
+        "fr": "Constante de temps intégrale",
+        "es": "Constante de tiempo integral"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Derivative Time (Td)",
         "tr": "Türev Süresi (Td)",
         "de": "Differenzialzeit (Td)",
-        "fr": "Derivative Time (Td)",
-        "es": "Derivative Time (Td)",
+        "fr": "Temps dérivé (Td)",
+        "es": "Tiempo Derivativo (Td)",
         "ar": "Derivative Time (Td)"
       },
       "businessContext_i18n": {
         "en": "Derivative time constant",
         "tr": "Türev zaman sabiti",
-        "de": "Differenzialzeitkonstante"
+        "de": "Differenzialzeitkonstante",
+        "fr": "Constante de temps dérivée",
+        "es": "Constante de tiempo derivativo"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Sample Time (Ts)",
         "tr": "Örnekleme Süresi (Ts)",
         "de": "Abtastzeit (Ts)",
-        "fr": "Sample Time (Ts)",
-        "es": "Sample Time (Ts)",
+        "fr": "Temps d'échantillonnage (Ts)",
+        "es": "Tiempo de muestreo (Ts)",
         "ar": "Sample Time (Ts)"
       },
       "businessContext_i18n": {
         "en": "Controller sample interval",
         "tr": "Kontrolör örnekleme aralığı",
-        "de": "Abtastintervall des Reglers"
+        "de": "Abtastintervall des Reglers",
+        "fr": "Intervalle d'échantillonnage du contrôleur",
+        "es": "Intervalo de muestreo del controlador"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Previous Error (e_prev)",
         "tr": "Önceki Hata (e_prev)",
         "de": "Vorheriger Fehler (e_prev)",
-        "fr": "Previous Error (e_prev)",
-        "es": "Previous Error (e_prev)",
+        "fr": "Erreur précédente (e_prev)",
+        "es": "Error anterior (e_prev)",
         "ar": "Previous Error (e_prev)"
       },
       "businessContext_i18n": {
         "en": "Error from previous sample",
         "tr": "Bir önceki örnekten hata",
-        "de": "Fehler aus vorheriger Abtastung"
+        "de": "Fehler aus vorheriger Abtastung",
+        "fr": "Erreur de l'échantillon précédent",
+        "es": "Error de la muestra anterior"
       }
     },
     {
@@ -159,14 +173,16 @@
         "en": "Integral Sum (sum_e)",
         "tr": "İntegral Toplamı (sum_e)",
         "de": "Integralsumme (sum_e)",
-        "fr": "Integral Sum (sum_e)",
-        "es": "Integral Sum (sum_e)",
+        "fr": "Somme intégrale (sum_e)",
+        "es": "Suma integral (sum_e)",
         "ar": "Integral Sum (sum_e)"
       },
       "businessContext_i18n": {
         "en": "Accumulated integral error",
         "tr": "Birikmiş integral hatası",
-        "de": "Aufsummierter Integralfehler"
+        "de": "Aufsummierter Integralfehler",
+        "fr": "Erreur intégrale accumulée",
+        "es": "Error integral acumulado"
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Number of Adult Passengers",
         "tr": "Yetişkin Yolcu Sayısı",
-        "de": "Number of Adult Passengers",
-        "fr": "Number of Adult Passengers",
+        "de": "Anzahl erwachsener Passagiere",
+        "fr": "Nombre de passagers adultes",
         "es": "Number of Adult Passengers",
         "ar": "Number of Adult Passengers"
       },
       "businessContext_i18n": {
         "en": "The number of adult passengers traveling.",
-        "tr": "Seyahat eden yetişkin yolcu sayısı."
+        "tr": "Seyahat eden yetişkin yolcu sayısı.",
+        "de": "Die Anzahl der reisenden erwachsenen Passagiere.",
+        "fr": "Le nombre de passagers adultes voyageant."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Number of Children (5-12)",
         "tr": "Çocuk Sayısı (5-12)",
-        "de": "Number of Children (5-12)",
-        "fr": "Number of Children (5-12)",
+        "de": "Anzahl Kinder (5-12)",
+        "fr": "Nombre d'enfants (5-12 ans)",
         "es": "Number of Children (5-12)",
         "ar": "Number of Children (5-12)"
       },
       "businessContext_i18n": {
         "en": "Number of children aged 5-12. They get a discount.",
-        "tr": "5-12 yaş arası çocuk sayısı. İndirim uygulanır."
+        "tr": "5-12 yaş arası çocuk sayısı. İndirim uygulanır.",
+        "de": "Anzahl der Kinder im Alter von 5-12 Jahren. Sie erhalten einen Rabatt.",
+        "fr": "Nombre d'enfants âgés de 5 à 12 ans. Ils bénéficient d'une réduction."
       }
     },
     {
@@ -53,13 +57,15 @@
         "tr": "Mesafe",
         "de": "Entfernung",
         "fr": "Distance",
-        "es": "Distance",
+        "es": "Distancia",
         "ar": "Distance"
       },
       "businessContext_i18n": {
         "en": "Total travel distance in kilometers.",
         "tr": "Kilometre cinsinden toplam seyahat mesafesi.",
-        "de": "Gesamte Fahrstrecke in Kilometern."
+        "de": "Gesamte Fahrstrecke in Kilometern.",
+        "fr": "Distance totale parcourue en kilomètres.",
+        "es": "Distancia total de viaje en kilómetros."
       }
     },
     {
@@ -72,14 +78,16 @@
       "label_i18n": {
         "en": "Base Fare per km",
         "tr": "Km Başına Taban Ücret",
-        "de": "Base Fare per km",
-        "fr": "Base Fare per km",
+        "de": "Grundtarif pro km",
+        "fr": "Tarif de base par km",
         "es": "Base Fare per km",
         "ar": "Base Fare per km"
       },
       "businessContext_i18n": {
         "en": "Standard fare per kilometer per passenger.",
-        "tr": "Yolcu başına kilometre başına standart ücret."
+        "tr": "Yolcu başına kilometre başına standart ücret.",
+        "de": "Standardtarif pro Kilometer pro Passagier.",
+        "fr": "Tarif standard par kilomètre par passager."
       }
     },
     {
@@ -92,14 +100,16 @@
       "label_i18n": {
         "en": "Child Discount Rate",
         "tr": "Çocuk İndirim Oranı",
-        "de": "Child Discount Rate",
-        "fr": "Child Discount Rate",
+        "de": "Kinderrabatt",
+        "fr": "Taux de réduction enfant",
         "es": "Child Discount Rate",
         "ar": "Child Discount Rate"
       },
       "businessContext_i18n": {
         "en": "Discount percentage applied to child tickets (0-100).",
-        "tr": "Çocuk biletlerine uygulanan indirim yüzdesi (0-100)."
+        "tr": "Çocuk biletlerine uygulanan indirim yüzdesi (0-100).",
+        "de": "Rabattprozentsatz für Kindertickets (0-100).",
+        "fr": "Pourcentage de réduction appliqué aux billets enfants (0-100)."
       }
     },
     {
@@ -112,14 +122,16 @@
       "label_i18n": {
         "en": "Group Discount Rate (for 5+ passengers)",
         "tr": "Grup İndirim Oranı (5+ yolcu)",
-        "de": "Group Discount Rate (for 5+ passengers)",
-        "fr": "Group Discount Rate (for 5+ passengers)",
+        "de": "Gruppenrabatt (ab 5 Passagieren)",
+        "fr": "Taux de réduction groupe (5+ passagers)",
         "es": "Group Discount Rate (for 5+ passengers)",
         "ar": "Group Discount Rate (for 5+ passengers)"
       },
       "businessContext_i18n": {
         "en": "Additional discount rate for groups of 5 or more total passengers.",
-        "tr": "5 veya daha fazla toplam yolcu için grup indirim oranı."
+        "tr": "5 veya daha fazla toplam yolcu için grup indirim oranı.",
+        "de": "Zusätzlicher Rabatt für Gruppen von 5 oder mehr Passagieren.",
+        "fr": "Taux de réduction supplémentaire pour les groupes de 5 passagers ou plus."
       }
     },
     {
@@ -132,14 +144,16 @@
       "label_i18n": {
         "en": "Service Fee per Ticket",
         "tr": "Bilet Başına Hizmet Ücreti",
-        "de": "Service Fee per Ticket",
-        "fr": "Service Fee per Ticket",
+        "de": "Servicegebühr pro Ticket",
+        "fr": "Frais de service par billet",
         "es": "Service Fee per Ticket",
         "ar": "Service Fee per Ticket"
       },
       "businessContext_i18n": {
         "en": "Fixed service fee applied per ticket (per passenger).",
-        "tr": "Bilet başına (yolcu başına) uygulanan sabit hizmet ücreti."
+        "tr": "Bilet başına (yolcu başına) uygulanan sabit hizmet ücreti.",
+        "de": "Feste Servicegebühr, die pro Ticket (pro Passagier) erhoben wird.",
+        "fr": "Frais de service fixes appliqués par billet (par passager)."
       }
     }
   ],

@@ -12,13 +12,15 @@
         "en": "Sample Mean",
         "tr": "Örneklem ortalaması",
         "de": "Stichprobenmittelwert",
-        "fr": "Sample Mean",
-        "es": "Sample Mean",
+        "fr": "Moyenne de l'échantillon",
+        "es": "Media muestral",
         "ar": "Sample Mean"
       },
       "businessContext_i18n": {
         "en": "The average value of the sample data collected from the process.",
-        "tr": "Süreçten toplanan örneklem verisinin ortalama değeri."
+        "tr": "Süreçten toplanan örneklem verisinin ortalama değeri.",
+        "de": "Der Durchschnittswert der aus dem Prozess gesammelten Stichprobendaten.",
+        "fr": "Valeur moyenne des données de l'échantillon collectées à partir du processus."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Hypothesized Mean",
         "tr": "Hipotez Edilen Ortalama",
-        "de": "Hypothesized Mean",
-        "fr": "Hypothesized Mean",
+        "de": "Hypothetischer Mittelwert",
+        "fr": "Moyenne hypothétique",
         "es": "Hypothesized Mean",
         "ar": "Hypothesized Mean"
       },
       "businessContext_i18n": {
         "en": "The value of the population mean under the null hypothesis.",
-        "tr": "Sıfır hipotezi altındaki popülasyon ortalamasının değeri."
+        "tr": "Sıfır hipotezi altındaki popülasyon ortalamasının değeri.",
+        "de": "Der Wert des Populationsmittelwerts unter der Nullhypothese.",
+        "fr": "Valeur de la moyenne de la population sous l'hypothèse nulle."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Sample Standard Deviation",
         "tr": "Örneklem standart sapması",
         "de": "Stichprobenstandardabweichung",
-        "fr": "Sample Standard Deviation",
-        "es": "Sample Standard Deviation",
+        "fr": "Écart type de l'échantillon",
+        "es": "Desviación estándar muestral",
         "ar": "Sample Standard Deviation"
       },
       "businessContext_i18n": {
         "en": "The standard deviation of the sample data, measuring variability.",
-        "tr": "Örneklem verisinin standart sapması, değişkenliği ölçer."
+        "tr": "Örneklem verisinin standart sapması, değişkenliği ölçer.",
+        "de": "Die Standardabweichung der Stichprobendaten, ein Maß für die Variabilität.",
+        "fr": "Écart type des données de l'échantillon, mesurant la variabilité."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Sample Size",
         "tr": "Örneklem büyüklüğü",
         "de": "Stichprobengröße",
-        "fr": "Sample Size",
-        "es": "Sample Size",
+        "fr": "Taille de l'échantillon",
+        "es": "Tamaño de la muestra",
         "ar": "Sample Size"
       },
       "businessContext_i18n": {
         "en": "The number of observations in the sample (must be >1).",
-        "tr": "Örneklemdeki gözlem sayısı (>1 olmalıdır)."
+        "tr": "Örneklemdeki gözlem sayısı (>1 olmalıdır).",
+        "de": "Die Anzahl der Beobachtungen in der Stichprobe (muss >1 sein).",
+        "fr": "Nombre d'observations dans l'échantillon (doit être >1)."
       }
     }
   ],

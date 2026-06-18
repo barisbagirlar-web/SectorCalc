@@ -11,15 +11,17 @@
       "label_i18n": {
         "en": "Number of Turns (N)",
         "tr": "Dönüş Sayısı (N)",
-        "de": "Number of Turns (N)",
-        "fr": "Number of Turns (N)",
-        "es": "Number of Turns (N)",
+        "de": "Anzahl der Windungen (N)",
+        "fr": "Nombre de spires (N)",
+        "es": "Número de vueltas (N)",
         "ar": "Number of Turns (N)"
       },
       "businessContext_i18n": {
         "en": "Number of turns in the coil",
         "tr": "Bobindeki sarım sayısı",
-        "de": "Anzahl der Windungen in der Spule"
+        "de": "Anzahl der Windungen in der Spule",
+        "fr": "Nombre de spires dans la bobine",
+        "es": "Número de vueltas en la bobina"
       }
     },
     {
@@ -32,14 +34,17 @@
       "label_i18n": {
         "en": "Change in Magnetic Field (ΔB)",
         "tr": "Manyetik Alan Değişimi (ΔB)",
-        "de": "Change in Magnetic Field (ΔB)",
-        "fr": "Change in Magnetic Field (ΔB)",
-        "es": "Change in Magnetic Field (ΔB)",
+        "de": "Änderung des Magnetfelds (ΔB)",
+        "fr": "Variation du champ magnétique (ΔB)",
+        "es": "Cambio en el campo magnético (ΔB)",
         "ar": "Change in Magnetic Field (ΔB)"
       },
       "businessContext_i18n": {
         "en": "Change in magnetic flux density",
-        "tr": "Manyetik akı yoğunluğundaki değişim"
+        "tr": "Manyetik akı yoğunluğundaki değişim",
+        "de": "Änderung der magnetischen Flussdichte",
+        "fr": "Variation de la densité de flux magnétique",
+        "es": "Cambio en la densidad de flujo magnético"
       }
     },
     {
@@ -52,14 +57,17 @@
       "label_i18n": {
         "en": "Area of Loop (A)",
         "tr": "Döngü Alanı (A)",
-        "de": "Area of Loop (A)",
-        "fr": "Area of Loop (A)",
-        "es": "Area of Loop (A)",
+        "de": "Fläche der Schleife (A)",
+        "fr": "Surface de la boucle (A)",
+        "es": "Área del bucle (A)",
         "ar": "Area of Loop (A)"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional area of the coil",
-        "tr": "Bobinin kesit alanı"
+        "tr": "Bobinin kesit alanı",
+        "de": "Querschnittsfläche der Spule",
+        "fr": "Section transversale de la bobine",
+        "es": "Área de la sección transversal de la bobina"
       }
     },
     {
@@ -72,14 +80,17 @@
       "label_i18n": {
         "en": "Time Interval (Δt)",
         "tr": "Zaman Aralığı (Δt)",
-        "de": "Time Interval (Δt)",
-        "fr": "Time Interval (Δt)",
-        "es": "Time Interval (Δt)",
+        "de": "Zeitintervall (Δt)",
+        "fr": "Intervalle de temps (Δt)",
+        "es": "Intervalo de tiempo (Δt)",
         "ar": "Time Interval (Δt)"
       },
       "businessContext_i18n": {
         "en": "Time over which the magnetic field changes",
-        "tr": "Manyetik alanın değiştiği süre"
+        "tr": "Manyetik alanın değiştiği süre",
+        "de": "Zeit, über die sich das Magnetfeld ändert",
+        "fr": "Temps pendant lequel le champ magnétique change",
+        "es": "Tiempo durante el cual cambia el campo magnético"
       }
     },
     {
@@ -94,12 +105,15 @@
         "tr": "Açı (θ)",
         "de": "Winkel (θ)",
         "fr": "Angle (θ)",
-        "es": "Angle (θ)",
+        "es": "Ángulo (θ)",
         "ar": "Angle (θ)"
       },
       "businessContext_i18n": {
         "en": "Angle between magnetic field and normal to the loop",
-        "tr": "Manyetik alan ile döngü normali arasındaki açı"
+        "tr": "Manyetik alan ile döngü normali arasındaki açı",
+        "de": "Winkel zwischen Magnetfeld und Normalen zur Schleife",
+        "fr": "Angle entre le champ magnétique et la normale à la boucle",
+        "es": "Ángulo entre el campo magnético y la normal al bucle"
       }
     }
   ],

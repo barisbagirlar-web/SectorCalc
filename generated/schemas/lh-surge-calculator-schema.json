@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Akış Hızı",
         "tr": "Akış Hızı",
-        "de": "Akış Hızı",
-        "fr": "Akış Hızı",
-        "es": "Akış Hızı",
+        "de": "Durchflussrate",
+        "fr": "Débit",
+        "es": "Caudal",
         "ar": "Akış Hızı"
       },
       "businessContext_i18n": {
         "en": "Boru içindeki akışkan hızı (genelde su için 1-3 m/s)",
-        "tr": "Boru içindeki akışkan hızı (genelde su için 1-3 m/s)"
+        "tr": "Boru içindeki akışkan hızı (genelde su için 1-3 m/s)",
+        "de": "Strömungsgeschwindigkeit im Rohr (normalerweise 1-3 m/s für Wasser)",
+        "fr": "Vitesse du fluide dans le tuyau (généralement 1-3 m/s pour l'eau)",
+        "es": "Velocidad del fluido en la tubería (generalmente 1-3 m/s para agua)"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Boru Çapı",
         "tr": "Boru Çapı",
         "de": "Rohrdurchmesser",
-        "fr": "Boru Çapı",
-        "es": "Boru Çapı",
+        "fr": "Diamètre du tuyau",
+        "es": "Diámetro de la tubería",
         "ar": "Boru Çapı"
       },
       "businessContext_i18n": {
         "en": "Boru iç çapı (metre cinsinden)",
-        "tr": "Boru iç çapı (metre cinsinden)"
+        "tr": "Boru iç çapı (metre cinsinden)",
+        "de": "Rohrinnendurchmesser (in Metern)",
+        "fr": "Diamètre intérieur du tuyau (en mètres)",
+        "es": "Diámetro interior de la tubería (en metros)"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Boru Uzunluğu",
         "tr": "Boru Uzunluğu",
-        "de": "Boru Uzunluğu",
-        "fr": "Boru Uzunluğu",
-        "es": "Boru Uzunluğu",
+        "de": "Rohrlänge",
+        "fr": "Longueur du tuyau",
+        "es": "Longitud de la tubería",
         "ar": "Boru Uzunluğu"
       },
       "businessContext_i18n": {
         "en": "Basınç dalgasının ilerlediği toplam boru uzunluğu",
-        "tr": "Basınç dalgasının ilerlediği toplam boru uzunluğu"
+        "tr": "Basınç dalgasının ilerlediği toplam boru uzunluğu",
+        "de": "Gesamtlänge des Rohrs, in dem sich die Druckwelle ausbreitet",
+        "fr": "Longueur totale du tuyau sur laquelle l'onde de pression se propage",
+        "es": "Longitud total de la tubería recorrida por la onda de presión"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Vana Kapanma Süresi",
         "tr": "Vana Kapanma Süresi",
-        "de": "Vana Kapanma Süresi",
-        "fr": "Vana Kapanma Süresi",
-        "es": "Vana Kapanma Süresi",
+        "de": "Ventilschließzeit",
+        "fr": "Temps de fermeture de la vanne",
+        "es": "Tiempo de cierre de la válvula",
         "ar": "Vana Kapanma Süresi"
       },
       "businessContext_i18n": {
         "en": "Vananın tamamen kapanması için geçen süre",
-        "tr": "Vananın tamamen kapanması için geçen süre"
+        "tr": "Vananın tamamen kapanması için geçen süre",
+        "de": "Zeit, die das Ventil zum vollständigen Schließen benötigt",
+        "fr": "Temps nécessaire à la fermeture complète de la vanne",
+        "es": "Tiempo necesario para el cierre completo de la válvula"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Basınç Dalga Hızı",
         "tr": "Basınç Dalga Hızı",
-        "de": "Basınç Dalga Hızı",
-        "fr": "Basınç Dalga Hızı",
-        "es": "Basınç Dalga Hızı",
+        "de": "Druckwellengeschwindigkeit",
+        "fr": "Vitesse de l'onde de pression",
+        "es": "Velocidad de la onda de presión",
         "ar": "Basınç Dalga Hızı"
       },
       "businessContext_i18n": {
         "en": "Ortamdaki ses hızı / su darbesi dalga hızı (su için ~1200 m/s)",
-        "tr": "Ortamdaki ses hızı / su darbesi dalga hızı (su için ~1200 m/s)"
+        "tr": "Ortamdaki ses hızı / su darbesi dalga hızı (su için ~1200 m/s)",
+        "de": "Schallgeschwindigkeit im Medium / Geschwindigkeit der Druckwelle (für Wasser ~1200 m/s)",
+        "fr": "Vitesse du son dans le milieu / vitesse de l'onde de coup de bélier (environ 1200 m/s pour l'eau)",
+        "es": "Velocidad del sonido en el medio / velocidad de la onda de golpe de ariete (~1200 m/s para agua)"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Akışkan Yoğunluğu",
         "tr": "Akışkan Yoğunluğu",
-        "de": "Akışkan Yoğunluğu",
-        "fr": "Akışkan Yoğunluğu",
-        "es": "Akışkan Yoğunluğu",
+        "de": "Fluiddichte",
+        "fr": "Masse volumique du fluide",
+        "es": "Densidad del fluido",
         "ar": "Akışkan Yoğunluğu"
       },
       "businessContext_i18n": {
         "en": "Akışkanın yoğunluğu (su için 1000 kg/m³)",
-        "tr": "Akışkanın yoğunluğu (su için 1000 kg/m³)"
+        "tr": "Akışkanın yoğunluğu (su için 1000 kg/m³)",
+        "de": "Dichte des Fluids (für Wasser 1000 kg/m³)",
+        "fr": "Masse volumique du fluide (1000 kg/m³ pour l'eau)",
+        "es": "Densidad del fluido (1000 kg/m³ para agua)"
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Boru Et Kalınlığı",
         "tr": "Boru Et Kalınlığı",
-        "de": "Boru Et Kalınlığı",
-        "fr": "Boru Et Kalınlığı",
-        "es": "Boru Et Kalınlığı",
+        "de": "Rohrwanddicke",
+        "fr": "Épaisseur de la paroi du tuyau",
+        "es": "Espesor de la pared de la tubería",
         "ar": "Boru Et Kalınlığı"
       },
       "businessContext_i18n": {
         "en": "Boru cidar kalınlığı (gerilim hesabı için gerekli)",
-        "tr": "Boru cidar kalınlığı (gerilim hesabı için gerekli)"
+        "tr": "Boru cidar kalınlığı (gerilim hesabı için gerekli)",
+        "de": "Rohrwandstärke (für Spannungsberechnung erforderlich)",
+        "fr": "Épaisseur de la paroi du tuyau (nécessaire pour le calcul des contraintes)",
+        "es": "Espesor de la pared de la tubería (necesario para el cálculo de tensiones)"
       }
     }
   ],

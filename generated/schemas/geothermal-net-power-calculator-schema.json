@@ -12,14 +12,16 @@
         "en": "Mass Flow Rate",
         "tr": "Kütlesel Debi",
         "de": "Massenstrom",
-        "fr": "Mass Flow Rate",
-        "es": "Mass Flow Rate",
+        "fr": "Débit massique",
+        "es": "Caudal másico",
         "ar": "Mass Flow Rate"
       },
       "businessContext_i18n": {
         "en": "The mass flow rate of geothermal fluid from the production well.",
         "tr": "Üretim kuyusundan gelen jeotermal akışkanın kütlesel debisi.",
-        "de": "Der Massenstrom des geothermischen Fluids aus der Förderbohrung."
+        "de": "Der Massenstrom des geothermischen Fluids aus der Förderbohrung.",
+        "fr": "Débit massique du fluide géothermique provenant du puits de production.",
+        "es": "Caudal másico del fluido geotérmico desde el pozo de producción."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Specific Heat Capacity",
         "tr": "Özgül Isı Kapasitesi",
         "de": "Spezifische Wärmekapazität",
-        "fr": "Specific Heat Capacity",
-        "es": "Specific Heat Capacity",
+        "fr": "Capacité thermique massique",
+        "es": "Capacidad calorífica específica",
         "ar": "Specific Heat Capacity"
       },
       "businessContext_i18n": {
         "en": "Specific heat capacity of the geothermal fluid (water).",
         "tr": "Jeotermal akışkanın (su) özgül ısı kapasitesi.",
-        "de": "Spezifische Wärmekapazität des geothermischen Fluids (Wasser)."
+        "de": "Spezifische Wärmekapazität des geothermischen Fluids (Wasser).",
+        "fr": "Capacité thermique massique du fluide géothermique (eau).",
+        "es": "Capacidad calorífica específica del fluido geotérmico (agua)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Inlet Temperature",
         "tr": "Giriş Sıcaklığı",
         "de": "Eintrittstemperatur",
-        "fr": "Inlet Temperature",
-        "es": "Inlet Temperature",
+        "fr": "Température d'entrée",
+        "es": "Temperatura de entrada",
         "ar": "Inlet Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of the geothermal fluid at the wellhead.",
         "tr": "Jeotermal akışkanın kuyu başındaki sıcaklığı.",
-        "de": "Temperatur des geothermischen Fluids am Bohrlochkopf."
+        "de": "Temperatur des geothermischen Fluids am Bohrlochkopf.",
+        "fr": "Température du fluide géothermique en tête de puits.",
+        "es": "Temperatura del fluido geotérmico en la cabeza del pozo."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Outlet Temperature",
         "tr": "Çıkış Sıcaklığı",
         "de": "Austrittstemperatur",
-        "fr": "Outlet Temperature",
-        "es": "Outlet Temperature",
+        "fr": "Température de sortie",
+        "es": "Temperatura de salida",
         "ar": "Outlet Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of the geothermal fluid after heat extraction (reinjection temperature).",
         "tr": "Isı çekimi sonrası jeotermal akışkanın sıcaklığı (re-enjeksiyon sıcaklığı).",
-        "de": "Temperatur des geothermischen Fluids nach der Wärmeextraktion (Reinjektionstemperatur)."
+        "de": "Temperatur des geothermischen Fluids nach der Wärmeextraktion (Reinjektionstemperatur).",
+        "fr": "Température du fluide géothermique après extraction de chaleur (température de réinjection).",
+        "es": "Temperatura del fluido geotérmico después de la extracción de calor (temperatura de reinyección)."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Conversion Efficiency",
         "tr": "Dönüşüm Verimliliği",
         "de": "Umwandlungswirkungsgrad",
-        "fr": "Conversion Efficiency",
-        "es": "Conversion Efficiency",
+        "fr": "Rendement de conversion",
+        "es": "Eficiencia de conversión",
         "ar": "Conversion Efficiency"
       },
       "businessContext_i18n": {
         "en": "Efficiency of converting thermal energy to electricity (typical binary plant 10-15%).",
         "tr": "Termal enerjinin elektriğe dönüşüm verimliliği (tipik ikili santral %10-15).",
-        "de": "Effizienz der Umwandlung von thermischer Energie in Elektrizität (typisches Binary-Kraftwerk 10-15%)."
+        "de": "Effizienz der Umwandlung von thermischer Energie in Elektrizität (typisches Binary-Kraftwerk 10-15%).",
+        "fr": "Rendement de conversion de l'énergie thermique en électricité (usine binaire typique 10-15 %).",
+        "es": "Eficiencia de conversión de energía térmica a eléctrica (planta binaria típica 10-15%)."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Parasitic Load",
         "tr": "Parazit Yük",
         "de": "Eigenverbrauch",
-        "fr": "Parasitic Load",
-        "es": "Parasitic Load",
+        "fr": "Charge parasite",
+        "es": "Carga parásita",
         "ar": "Parasitic Load"
       },
       "businessContext_i18n": {
         "en": "Power consumed by pumps and auxiliary equipment.",
         "tr": "Pompalar ve yardımcı ekipman tarafından tüketilen güç.",
-        "de": "Von Pumpen und Hilfsgeräten verbrauchte Leistung."
+        "de": "Von Pumpen und Hilfsgeräten verbrauchte Leistung.",
+        "fr": "Puissance consommée par les pompes et équipements auxiliaires.",
+        "es": "Potencia consumida por bombas y equipos auxiliares."
       }
     }
   ],

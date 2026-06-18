@@ -12,14 +12,16 @@
         "en": "Internal Energy (U)",
         "tr": "İç enerji (U)",
         "de": "Innere Energie (U)",
-        "fr": "Internal Energy (U)",
-        "es": "Internal Energy (U)",
+        "fr": "Énergie interne (U)",
+        "es": "Energía interna (U)",
         "ar": "Internal Energy (U)"
       },
       "businessContext_i18n": {
         "en": "Total internal energy of the thermodynamic system.",
         "tr": "Termodinamik sistemin toplam iç enerjisi.",
-        "de": "Gesamte innere Energie des thermodynamischen Systems."
+        "de": "Gesamte innere Energie des thermodynamischen Systems.",
+        "fr": "Énergie interne totale du système thermodynamique.",
+        "es": "Energía interna total del sistema termodinámico."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Temperature (T)",
         "tr": "Sıcaklık (T)",
         "de": "Temperatur (T)",
-        "fr": "Temperature (T)",
-        "es": "Temperature (T)",
+        "fr": "Température (T)",
+        "es": "Temperatura (T)",
         "ar": "Temperature (T)"
       },
       "businessContext_i18n": {
         "en": "Absolute temperature in Kelvin.",
         "tr": "Kelvin cinsinden mutlak sıcaklık.",
-        "de": "Absolute Temperatur in Kelvin."
+        "de": "Absolute Temperatur in Kelvin.",
+        "fr": "Température absolue en Kelvin.",
+        "es": "Temperatura absoluta en Kelvin."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Entropy (S)",
         "tr": "Entropi (S)",
         "de": "Entropie (S)",
-        "fr": "Entropy (S)",
-        "es": "Entropy (S)",
+        "fr": "Entropie (S)",
+        "es": "Entropía (S)",
         "ar": "Entropy (S)"
       },
       "businessContext_i18n": {
         "en": "Entropy of the system.",
         "tr": "Sistemin entropisi.",
-        "de": "Entropie des Systems."
+        "de": "Entropie des Systems.",
+        "fr": "Entropie du système.",
+        "es": "Entropía del sistema."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Amount of Substance (n)",
         "tr": "Madde miktarı (n)",
         "de": "Stoffmenge (n)",
-        "fr": "Amount of Substance (n)",
-        "es": "Amount of Substance (n)",
+        "fr": "Quantité de matière (n)",
+        "es": "Cantidad de sustancia (n)",
         "ar": "Amount of Substance (n)"
       },
       "businessContext_i18n": {
         "en": "Amount of substance in moles. Default is 1 for total system calculations.",
         "tr": "Mol cinsinden madde miktarı. Toplam sistem hesaplamaları için varsayılan 1'dir.",
-        "de": "Stoffmenge in Mol. Standardmäßig 1 für Gesamtsystemberechnungen."
+        "de": "Stoffmenge in Mol. Standardmäßig 1 für Gesamtsystemberechnungen.",
+        "fr": "Quantité de matière en moles. Par défaut 1 pour les calculs du système total.",
+        "es": "Cantidad de sustancia en moles. El valor predeterminado es 1 para cálculos del sistema total."
       }
     }
   ],

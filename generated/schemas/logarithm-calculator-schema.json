@@ -22,11 +22,17 @@
       "businessContext": "Primary input for logarithmic calculation. Represents throughput, defect count, or signal amplitude.",
       "label_i18n": {
         "en": "Value X (operand)",
-        "tr": "Değer X (işlenen)"
+        "tr": "Değer X (işlenen)",
+        "de": "Wert X (Operand)",
+        "fr": "Valeur X (opérande)",
+        "es": "Valor X (operando)"
       },
       "businessContext_i18n": {
         "en": "Primary input for logarithmic calculation. Represents throughput, defect count, or signal amplitude.",
-        "tr": "Logaritmik hesaplama için birincil girdi. Verim, hata sayısı veya sinyal genliğini temsil eder."
+        "tr": "Logaritmik hesaplama için birincil girdi. Verim, hata sayısı veya sinyal genliğini temsil eder.",
+        "de": "Primäreingabe für logarithmische Berechnung. Stellt Durchsatz, Fehleranzahl oder Signalamplitude dar.",
+        "fr": "Entrée principale pour le calcul logarithmique. Représente le débit, le nombre de défauts ou l'amplitude du signal.",
+        "es": "Entrada principal para el cálculo logarítmico. Representa rendimiento, conteo de defectos o amplitud de señal."
       }
     },
     {
@@ -45,11 +51,17 @@
       "businessContext": "Select logarithmic base per application: base 2 for binary entropy, base e for continuous processes, base 10 for decibel and pH scales.",
       "label_i18n": {
         "en": "Logarithm Base",
-        "tr": "Logaritma Tabanı"
+        "tr": "Logaritma Tabanı",
+        "de": "Logarithmus-Basis",
+        "fr": "Base du logarithme",
+        "es": "Base del logaritmo"
       },
       "businessContext_i18n": {
         "en": "Select logarithmic base per application: base 2 for binary entropy, base e for continuous processes, base 10 for decibel and pH scales.",
-        "tr": "Uygulamaya göre logaritma tabanını seçin: ikili entropi için taban 2, sürekli süreçler için taban e, desibel ve pH ölçekleri için taban 10."
+        "tr": "Uygulamaya göre logaritma tabanını seçin: ikili entropi için taban 2, sürekli süreçler için taban e, desibel ve pH ölçekleri için taban 10.",
+        "de": "Logarithmus-Basis je nach Anwendung wählen: Basis 2 für binäre Entropie, Basis e für kontinuierliche Prozesse, Basis 10 für Dezibel- und pH-Skalen.",
+        "fr": "Sélectionnez la base logarithmique selon l'application : base 2 pour l'entropie binaire, base e pour les processus continus, base 10 pour les échelles de décibels et de pH.",
+        "es": "Seleccione la base logarítmica según la aplicación: base 2 para entropía binaria, base e para procesos continuos, base 10 para escalas de decibelios y pH."
       }
     },
     {
@@ -68,11 +80,17 @@
       "businessContext": "Select unit type to apply correct scaling for decibel calculations in acoustics, electronics, or vibration analysis.",
       "label_i18n": {
         "en": "Unit Type",
-        "tr": "Birim Türü"
+        "tr": "Birim Türü",
+        "de": "Einheitentyp",
+        "fr": "Type d'unité",
+        "es": "Tipo de unidad"
       },
       "businessContext_i18n": {
         "en": "Select unit type to apply correct scaling for decibel calculations in acoustics, electronics, or vibration analysis.",
-        "tr": "Akustik, elektronik veya titreşim analizinde desibel hesaplamaları için doğru ölçeklendirmeyi uygulamak üzere birim türünü seçin."
+        "tr": "Akustik, elektronik veya titreşim analizinde desibel hesaplamaları için doğru ölçeklendirmeyi uygulamak üzere birim türünü seçin.",
+        "de": "Einheitentyp wählen, um korrekte Skalierung für Dezibel-Berechnungen in Akustik, Elektronik oder Schwingungsanalyse anzuwenden.",
+        "fr": "Sélectionnez le type d'unité pour appliquer la mise à l'échelle correcte pour les calculs en décibels en acoustique, électronique ou analyse vibratoire.",
+        "es": "Seleccione el tipo de unidad para aplicar el escalado correcto en cálculos de decibelios en acústica, electrónica o análisis de vibraciones."
       }
     },
     {
@@ -86,11 +104,17 @@
       "businessContext": "Reference baseline for ratio-based logarithmic calculations (e.g., reference power, reference amplitude).",
       "label_i18n": {
         "en": "Reference Value (for ratio)",
-        "tr": "Referans Değeri (oran için)"
+        "tr": "Referans Değeri (oran için)",
+        "de": "Referenzwert (für Verhältnis)",
+        "fr": "Valeur de référence (pour le rapport)",
+        "es": "Valor de referencia (para la relación)"
       },
       "businessContext_i18n": {
         "en": "Reference baseline for ratio-based logarithmic calculations (e.g., reference power, reference amplitude).",
-        "tr": "Oran bazlı logaritmik hesaplamalar için referans taban çizgisi (ör. referans güç, referans genlik)."
+        "tr": "Oran bazlı logaritmik hesaplamalar için referans taban çizgisi (ör. referans güç, referans genlik).",
+        "de": "Referenzbasis für verhältnisbasierte logarithmische Berechnungen (z. B. Referenzleistung, Referenzamplitude).",
+        "fr": "Référence de base pour les calculs logarithmiques basés sur un rapport (par exemple, puissance de référence, amplitude de référence).",
+        "es": "Línea base de referencia para cálculos logarítmicos basados en relaciones (p. ej., potencia de referencia, amplitud de referencia)."
       }
     },
     {
@@ -104,11 +128,17 @@
       "businessContext": "Toggle to activate automated alerts when logarithmic results exceed predefined industrial thresholds.",
       "label_i18n": {
         "en": "Enable Threshold Alerts",
-        "tr": "Eşik Uyarılarını Etkinleştir"
+        "tr": "Eşik Uyarılarını Etkinleştir",
+        "de": "Schwellenwert-Benachrichtigungen aktivieren",
+        "fr": "Activer les alertes de seuil",
+        "es": "Activar alertas de umbral"
       },
       "businessContext_i18n": {
         "en": "Toggle to activate automated alerts when logarithmic results exceed predefined industrial thresholds.",
-        "tr": "Logaritmik sonuçlar önceden tanımlanmış endüstriyel eşikleri aştığında otomatik uyarıları etkinleştirmek için geçiş yapın."
+        "tr": "Logaritmik sonuçlar önceden tanımlanmış endüstriyel eşikleri aştığında otomatik uyarıları etkinleştirmek için geçiş yapın.",
+        "de": "Aktivieren Sie diese Option, um automatisierte Benachrichtigungen zu aktivieren, wenn logarithmische Ergebnisse vordefinierte Industrieschwellenwerte überschreiten.",
+        "fr": "Activer pour déclencher des alertes automatisées lorsque les résultats logarithmiques dépassent des seuils industriels prédéfinis.",
+        "es": "Active para activar alertas automáticas cuando los resultados logarítmicos superen los umbrales industriales predefinidos."
       }
     }
   ],

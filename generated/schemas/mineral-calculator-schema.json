@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Ore Tonnage",
         "tr": "Cevher Tonajı",
-        "de": "Ore Tonnage",
-        "fr": "Ore Tonnage",
-        "es": "Ore Tonnage",
+        "de": "Erztonnage",
+        "fr": "Tonnage de minerai",
+        "es": "Tonelaje de Mineral",
         "ar": "Ore Tonnage"
       },
       "businessContext_i18n": {
         "en": "Total mass of ore mined or processed.",
-        "tr": "Çıkarılan veya işlenen toplam cevher kütlesi."
+        "tr": "Çıkarılan veya işlenen toplam cevher kütlesi.",
+        "de": "Gesamtmasse des abgebauten oder verarbeiteten Erzes.",
+        "fr": "Masse totale de minerai extrait ou traité.",
+        "es": "Masa total de mineral extraído o procesado."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Ore Grade",
         "tr": "Cevher Tenörü",
-        "de": "Ore Grade",
-        "fr": "Ore Grade",
-        "es": "Ore Grade",
+        "de": "Erzgehalt",
+        "fr": "Teneur du minerai",
+        "es": "Ley del Mineral",
         "ar": "Ore Grade"
       },
       "businessContext_i18n": {
         "en": "Percentage of valuable mineral in the ore.",
-        "tr": "Cevherdeki değerli mineral yüzdesi."
+        "tr": "Cevherdeki değerli mineral yüzdesi.",
+        "de": "Prozentsatz des wertvollen Minerals im Erz.",
+        "fr": "Pourcentage de minéral précieux dans le minerai.",
+        "es": "Porcentaje de mineral valioso en el mineral."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Recovery Rate",
         "tr": "Geri Kazanım Oranı",
         "de": "Rückgewinnungsrate",
-        "fr": "Recovery Rate",
-        "es": "Recovery Rate",
+        "fr": "Taux de récupération",
+        "es": "Tasa de recuperación",
         "ar": "Recovery Rate"
       },
       "businessContext_i18n": {
         "en": "Percentage of the valuable mineral that can be recovered during processing.",
-        "tr": "İşleme sırasında geri kazanılabilen değerli mineral yüzdesi."
+        "tr": "İşleme sırasında geri kazanılabilen değerli mineral yüzdesi.",
+        "de": "Prozentsatz des wertvollen Minerals, der während der Verarbeitung zurückgewonnen werden kann.",
+        "fr": "Pourcentage du minéral précieux pouvant être récupéré lors du traitement.",
+        "es": "Porcentaje del mineral valioso que se puede recuperar durante el procesamiento."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Metal Price",
         "tr": "Metal Fiyatı",
-        "de": "Metal Price",
-        "fr": "Metal Price",
-        "es": "Metal Price",
+        "de": "Metallpreis",
+        "fr": "Prix du métal",
+        "es": "Precio del Metal",
         "ar": "Metal Price"
       },
       "businessContext_i18n": {
         "en": "Market price of the recovered metal per ton.",
-        "tr": "Geri kazanılan metalin ton başına piyasa fiyatı."
+        "tr": "Geri kazanılan metalin ton başına piyasa fiyatı.",
+        "de": "Marktpreis des zurückgewonnenen Metalls pro Tonne.",
+        "fr": "Prix du marché du métal récupéré par tonne.",
+        "es": "Precio de mercado del metal recuperado por tonelada."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Processing Cost",
         "tr": "İşleme Maliyeti",
-        "de": "Processing Cost",
-        "fr": "Processing Cost",
-        "es": "Processing Cost",
+        "de": "Verarbeitungskosten",
+        "fr": "Coût de traitement",
+        "es": "Costo de Procesamiento",
         "ar": "Processing Cost"
       },
       "businessContext_i18n": {
         "en": "Cost to process one ton of ore.",
-        "tr": "Bir ton cevheri işleme maliyeti."
+        "tr": "Bir ton cevheri işleme maliyeti.",
+        "de": "Kosten für die Verarbeitung einer Tonne Erz.",
+        "fr": "Coût de traitement d'une tonne de minerai.",
+        "es": "Costo de procesar una tonelada de mineral."
       }
     }
   ],

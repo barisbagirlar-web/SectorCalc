@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Raw Material Cost per Unit",
         "tr": "Birim Başına Hammadde Maliyeti",
-        "de": "Raw Material Cost per Unit",
-        "fr": "Raw Material Cost per Unit",
-        "es": "Raw Material Cost per Unit",
+        "de": "Rohmaterialkosten pro Einheit",
+        "fr": "Coût matière première par unité",
+        "es": "Coste de materia prima por unidad",
         "ar": "Raw Material Cost per Unit"
       },
       "businessContext_i18n": {
         "en": "Cost of raw materials per unit of production input.",
-        "tr": "Üretim girdisi birimi başına hammadde maliyeti."
+        "tr": "Üretim girdisi birimi başına hammadde maliyeti.",
+        "de": "Kosten der Rohmaterialien pro Produktionseinheit",
+        "fr": "Coût des matières premières par unité d'intrant de production."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Yield Percentage",
         "tr": "Verim Yüzdesi",
         "de": "Ausbeuteprozentsatz",
-        "fr": "Yield Percentage",
-        "es": "Yield Percentage",
+        "fr": "Pourcentage de rendement",
+        "es": "Porcentaje de rendimiento",
         "ar": "Yield Percentage"
       },
       "businessContext_i18n": {
         "en": "Percentage of good units out of total input.",
-        "tr": "Toplam girdi içindeki iyi birimlerin yüzdesi."
+        "tr": "Toplam girdi içindeki iyi birimlerin yüzdesi.",
+        "de": "Prozentsatz der guten Einheiten am Gesamteinsatz",
+        "fr": "Pourcentage d'unités bonnes par rapport au total des intrants."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Energy Cost per Unit",
         "tr": "Birim Başına Enerji Maliyeti",
-        "de": "Energy Cost per Unit",
-        "fr": "Energy Cost per Unit",
+        "de": "Energiekosten pro Einheit",
+        "fr": "Coût énergétique par unité",
         "es": "Energy Cost per Unit",
         "ar": "Energy Cost per Unit"
       },
       "businessContext_i18n": {
         "en": "Energy cost per unit produced.",
-        "tr": "Üretilen birim başına enerji maliyeti."
+        "tr": "Üretilen birim başına enerji maliyeti.",
+        "de": "Energiekosten pro produzierter Einheit",
+        "fr": "Coût énergétique par unité produite."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Labor Cost per Unit",
         "tr": "Birim başına işçilik maliyeti",
-        "de": "Labor Cost per Unit",
-        "fr": "Labor Cost per Unit",
-        "es": "Labor Cost per Unit",
+        "de": "Arbeitskosten pro Stück",
+        "fr": "Coût de main-d'œuvre par unité",
+        "es": "Coste de mano de obra por unidad",
         "ar": "Labor Cost per Unit"
       },
       "businessContext_i18n": {
         "en": "Direct labor cost per unit produced.",
-        "tr": "Üretilen birim başına direkt işçilik maliyeti."
+        "tr": "Üretilen birim başına direkt işçilik maliyeti.",
+        "de": "Direkte Arbeitskosten pro produzierter Einheit",
+        "fr": "Coût de main-d'œuvre directe par unité produite."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Overhead Cost per Unit",
         "tr": "Birim Başına Genel Gider Maliyeti",
-        "de": "Overhead Cost per Unit",
-        "fr": "Overhead Cost per Unit",
-        "es": "Overhead Cost per Unit",
+        "de": "Gemeinkosten pro Einheit",
+        "fr": "Coût des frais généraux par unité",
+        "es": "Coste general por unidad",
         "ar": "Overhead Cost per Unit"
       },
       "businessContext_i18n": {
         "en": "Allocated overhead cost per unit produced.",
-        "tr": "Üretilen birim başına dağıtılan genel gider maliyeti."
+        "tr": "Üretilen birim başına dağıtılan genel gider maliyeti.",
+        "de": "Zugewiesene Gemeinkosten pro produzierter Einheit",
+        "fr": "Coût des frais généraux alloués par unité produite."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Production Volume",
         "tr": "Üretim Hacmi",
-        "de": "Production Volume",
-        "fr": "Production Volume",
-        "es": "Production Volume",
+        "de": "Produktionsvolumen",
+        "fr": "Volume de production",
+        "es": "Volumen de producción",
         "ar": "Production Volume"
       },
       "businessContext_i18n": {
         "en": "Total number of units produced (good + defective).",
-        "tr": "Üretilen toplam birim sayısı (iyi + kusurlu)."
+        "tr": "Üretilen toplam birim sayısı (iyi + kusurlu).",
+        "de": "Gesamtzahl der produzierten Einheiten (gut + Ausschuss)",
+        "fr": "Nombre total d'unités produites (bonnes + défectueuses)."
       }
     },
     {
@@ -131,14 +143,16 @@
       "label_i18n": {
         "en": "Defect Rate",
         "tr": "Fire Oranı",
-        "de": "Defect Rate",
-        "fr": "Defect Rate",
-        "es": "Defect Rate",
+        "de": "Fehlerrate",
+        "fr": "Taux de rebut",
+        "es": "Tasa de defectos",
         "ar": "Defect Rate"
       },
       "businessContext_i18n": {
         "en": "Percentage of defective units from total production.",
-        "tr": "Toplam üretimden kusurlu birimlerin yüzdesi."
+        "tr": "Toplam üretimden kusurlu birimlerin yüzdesi.",
+        "de": "Prozentsatz der Ausschusseinheiten an der Gesamtproduktion",
+        "fr": "Pourcentage d'unités défectueuses par rapport à la production totale."
       }
     }
   ],

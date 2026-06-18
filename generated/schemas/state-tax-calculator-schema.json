@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Gross Income",
         "tr": "Brüt Gelir",
-        "de": "Gross Income",
-        "fr": "Gross Income",
+        "de": "Bruttoeinkommen",
+        "fr": "Revenu brut",
         "es": "Gross Income",
         "ar": "Gross Income"
       },
       "businessContext_i18n": {
         "en": "Annual gross income before taxes",
-        "tr": "Vergi öncesi yıllık brüt gelir"
+        "tr": "Vergi öncesi yıllık brüt gelir",
+        "de": "Jährliches Bruttoeinkommen vor Steuern",
+        "fr": "Revenu brut annuel avant impôts"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "State Tax Rate",
         "tr": "Eyalet Vergi Oranı",
         "de": "Steuersatz des Bundesstaats",
-        "fr": "State Tax Rate",
-        "es": "State Tax Rate",
+        "fr": "Taux d'imposition de l'État",
+        "es": "Tasa impositiva estatal",
         "ar": "State Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Applicable state income tax rate",
-        "tr": "Geçerli eyalet gelir vergisi oranı"
+        "tr": "Geçerli eyalet gelir vergisi oranı",
+        "de": "Anwendbarer staatlicher Einkommensteuersatz",
+        "fr": "Taux d'imposition sur le revenu de l'État applicable"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Standard Deduction",
         "tr": "Standart Kesinti",
-        "de": "Standard Deduction",
-        "fr": "Standard Deduction",
+        "de": "Pauschbetrag",
+        "fr": "Déduction forfaitaire",
         "es": "Standard Deduction",
         "ar": "Standard Deduction"
       },
       "businessContext_i18n": {
         "en": "Standard deduction amount for the tax year",
-        "tr": "Vergi yılı için standart kesinti tutarı"
+        "tr": "Vergi yılı için standart kesinti tutarı",
+        "de": "Pauschbetrag für das Steuerjahr",
+        "fr": "Montant de la déduction forfaitaire pour l'année d'imposition"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Additional Deductions",
         "tr": "Ek Kesintiler",
-        "de": "Additional Deductions",
-        "fr": "Additional Deductions",
+        "de": "Zusätzliche Abzüge",
+        "fr": "Déductions supplémentaires",
         "es": "Additional Deductions",
         "ar": "Additional Deductions"
       },
       "businessContext_i18n": {
         "en": "Other deductions (e.g., mortgage interest, charitable contributions)",
-        "tr": "Diğer kesintiler (ör. ipotek faizi, bağışlar)"
+        "tr": "Diğer kesintiler (ör. ipotek faizi, bağışlar)",
+        "de": "Weitere Abzüge (z. B. Hypothekenzinsen, Spenden)",
+        "fr": "Autres déductions (ex. intérêts hypothécaires, dons caritatifs)"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Tax Credits",
         "tr": "Vergi Kredileri",
-        "de": "Tax Credits",
-        "fr": "Tax Credits",
+        "de": "Steuergutschriften",
+        "fr": "Crédits d'impôt",
         "es": "Tax Credits",
         "ar": "Tax Credits"
       },
       "businessContext_i18n": {
         "en": "Non-refundable tax credits to reduce tax liability",
-        "tr": "Vergi borcunu azaltmak için iade edilmeyen vergi kredileri"
+        "tr": "Vergi borcunu azaltmak için iade edilmeyen vergi kredileri",
+        "de": "Nicht erstattungsfähige Steuergutschriften zur Reduzierung der Steuerschuld",
+        "fr": "Crédits d'impôt non remboursables pour réduire l'impôt dû"
       }
     }
   ],

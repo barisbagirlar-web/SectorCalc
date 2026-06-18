@@ -12,13 +12,15 @@
         "en": "Purchase Price",
         "tr": "Satın Alma Fiyatı",
         "de": "Kaufpreis",
-        "fr": "Purchase Price",
-        "es": "Purchase Price",
+        "fr": "Prix d'achat",
+        "es": "Precio de compra",
         "ar": "Purchase Price"
       },
       "businessContext_i18n": {
         "en": "Initial acquisition cost of the asset",
-        "tr": "Varlığın ilk edinim maliyeti"
+        "tr": "Varlığın ilk edinim maliyeti",
+        "de": "Anschaffungskosten des Vermögenswerts",
+        "fr": "Coût d'acquisition initial de l'actif"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Annual Maintenance Cost",
         "tr": "Yıllık Bakım Maliyeti",
         "de": "Jährliche Wartungskosten",
-        "fr": "Annual Maintenance Cost",
-        "es": "Annual Maintenance Cost",
+        "fr": "Coût d'entretien annuel",
+        "es": "Costo de mantenimiento anual",
         "ar": "Annual Maintenance Cost"
       },
       "businessContext_i18n": {
         "en": "Yearly maintenance expense",
-        "tr": "Yıllık bakım gideri"
+        "tr": "Yıllık bakım gideri",
+        "de": "Jährliche Wartungskosten",
+        "fr": "Dépense annuelle de maintenance"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Annual Energy Cost",
         "tr": "Yıllık Enerji Maliyeti",
-        "de": "Annual Energy Cost",
-        "fr": "Annual Energy Cost",
+        "de": "Jährliche Energiekosten",
+        "fr": "Coût énergétique annuel",
         "es": "Annual Energy Cost",
         "ar": "Annual Energy Cost"
       },
       "businessContext_i18n": {
         "en": "Yearly energy or fuel cost",
-        "tr": "Yıllık enerji veya yakıt maliyeti"
+        "tr": "Yıllık enerji veya yakıt maliyeti",
+        "de": "Jährliche Energie- oder Brennstoffkosten",
+        "fr": "Coût annuel de l'énergie ou du carburant"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Resale Value",
         "tr": "Hurda Değeri",
-        "de": "Resale Value",
-        "fr": "Resale Value",
+        "de": "Wiederverkaufswert",
+        "fr": "Valeur de revente",
         "es": "Resale Value",
         "ar": "Resale Value"
       },
       "businessContext_i18n": {
         "en": "Expected resale or salvage value at end of ownership period",
-        "tr": "Sahiplik süresi sonunda beklenen hurda veya kalıntı değer"
+        "tr": "Sahiplik süresi sonunda beklenen hurda veya kalıntı değer",
+        "de": "Erwarteter Restwert am Ende der Besitzdauer",
+        "fr": "Valeur de revente ou de récupération attendue à la fin de la période de possession"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Ownership Period",
         "tr": "Sahiplik Süresi",
-        "de": "Ownership Period",
-        "fr": "Ownership Period",
+        "de": "Besitzdauer",
+        "fr": "Période de possession",
         "es": "Ownership Period",
         "ar": "Ownership Period"
       },
       "businessContext_i18n": {
         "en": "Duration of ownership in years",
-        "tr": "Sahiplik süresi (yıl olarak)"
+        "tr": "Sahiplik süresi (yıl olarak)",
+        "de": "Besitzdauer in Jahren",
+        "fr": "Durée de possession en années"
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Annual Discount Rate",
         "tr": "Yıllık İskonto Oranı",
         "de": "Jährlicher Diskontsatz",
-        "fr": "Annual Discount Rate",
-        "es": "Annual Discount Rate",
+        "fr": "Taux d'actualisation annuel",
+        "es": "Tasa de descuento anual",
         "ar": "Annual Discount Rate"
       },
       "businessContext_i18n": {
         "en": "Discount rate reflecting time value of money",
-        "tr": "Paranın zaman değerini yansıtan iskonto oranı"
+        "tr": "Paranın zaman değerini yansıtan iskonto oranı",
+        "de": "Abzinsungssatz, der den Zeitwert des Geldes widerspiegelt",
+        "fr": "Taux d'actualisation reflétant la valeur temporelle de l'argent"
       }
     }
   ],

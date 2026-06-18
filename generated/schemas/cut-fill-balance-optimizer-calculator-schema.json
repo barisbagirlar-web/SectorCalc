@@ -23,12 +23,16 @@
       "label_i18n": {
         "en": "Cut Volume",
         "tr": "Kesme Hacmi",
-        "de": "Abtragsvolumen"
+        "de": "Abtragsvolumen",
+        "fr": "Cut Volume",
+        "es": "Volumen de corte"
       },
       "businessContext_i18n": {
         "en": "Total volume of material to be excavated from cut areas, measured in bank cubic meters (BCM).",
         "tr": "Kesme alanlarından kazılacak toplam malzeme hacmi, bank metreküp (BCM) cinsinden ölçülür.",
-        "de": "Gesamtvolumen des aus Abtragsbereichen auszuhebenden Materials, gemessen in Bank Cubic Metern (BCM)."
+        "de": "Gesamtvolumen des aus Abtragsbereichen auszuhebenden Materials, gemessen in Bank Cubic Metern (BCM).",
+        "fr": "Total volume of material to be excavated from cut areas, measured in bank cubic meters (BCM).",
+        "es": "Volumen total de material a excavar en áreas de corte, medido en metros cúbicos en banco (BCM)."
       }
     },
     {
@@ -43,12 +47,16 @@
       "label_i18n": {
         "en": "Fill Volume",
         "tr": "Dolgu Hacmi",
-        "de": "Füllvolumen"
+        "de": "Füllvolumen",
+        "fr": "Fill Volume",
+        "es": "Volumen de relleno"
       },
       "businessContext_i18n": {
         "en": "Total volume of material required for fill/embankment areas, measured in compacted cubic meters (CCM).",
         "tr": "Dolgu/set alanları için gereken toplam malzeme hacmi, sıkıştırılmış metreküp (CCM) cinsinden ölçülür.",
-        "de": "Gesamtvolumen des Materials, das für Damm-/Verfüllbereiche benötigt wird, gemessen in verdichteten Kubikmetern (CCM)."
+        "de": "Gesamtvolumen des Materials, das für Damm-/Verfüllbereiche benötigt wird, gemessen in verdichteten Kubikmetern (CCM).",
+        "fr": "Total volume of material required for fill/embankment areas, measured in compacted cubic meters (CCM).",
+        "es": "Volumen total de material requerido para áreas de relleno/terraplén, medido en metros cúbicos compactados (CCM)."
       }
     },
     {
@@ -63,12 +71,16 @@
       "label_i18n": {
         "en": "Swell Factor",
         "tr": "Kabarma Faktörü",
-        "de": "Auflockerungsfaktor"
+        "de": "Auflockerungsfaktor",
+        "fr": "Swell Factor",
+        "es": "Factor de esponjamiento"
       },
       "businessContext_i18n": {
         "en": "Factor accounting for volume increase when material is excavated (loose state vs. bank state). Typical range 1.1–1.4.",
         "tr": "Malzemenin kazıldığında hacim artışını hesaba katan faktör (gevşek durum vs. bank durumu). Tipik aralık 1.1–1.4.",
-        "de": "Faktor, der die Volumenzunahme beim Ausheben berücksichtigt (lose vs. gewachsener Zustand). Typischer Bereich 1,1–1,4."
+        "de": "Faktor, der die Volumenzunahme beim Ausheben berücksichtigt (lose vs. gewachsener Zustand). Typischer Bereich 1,1–1,4.",
+        "fr": "Factor accounting for volume increase when material is excavated (loose state vs. bank state). Typical range 1.1–1.4.",
+        "es": "Factor que contabiliza el aumento de volumen al excavar material (estado suelto vs. banco). Rango típico 1.1–1.4."
       }
     },
     {
@@ -83,12 +95,16 @@
       "label_i18n": {
         "en": "Shrinkage Factor",
         "tr": "Büzülme Faktörü",
-        "de": "Schwindfaktor"
+        "de": "Schwindfaktor",
+        "fr": "Shrinkage Factor",
+        "es": "Factor de contracción"
       },
       "businessContext_i18n": {
         "en": "Factor accounting for volume decrease when material is compacted (compacted state vs. bank state). Typical range 0.75–0.95.",
         "tr": "Malzemenin sıkıştırıldığında hacim azalmasını hesaba katan faktör (sıkıştırılmış durum vs. bank durumu). Tipik aralık 0.75–0.95.",
-        "de": "Verdichtungsfaktor"
+        "de": "Verdichtungsfaktor",
+        "fr": "Factor accounting for volume decrease when material is compacted (compacted state vs. bank state). Typical range 0.75–0.95.",
+        "es": "Factor de compactación"
       }
     },
     {
@@ -103,12 +119,16 @@
       "label_i18n": {
         "en": "Average Haul Distance",
         "tr": "Ortalama Taşıma Mesafesi",
-        "de": "Mittlere Transportentfernung"
+        "de": "Mittlere Transportentfernung",
+        "fr": "Average Haul Distance",
+        "es": "Distancia media de acarreo"
       },
       "businessContext_i18n": {
         "en": "Average one-way distance from cut to fill areas, used for cost and fuel calculations.",
         "tr": "Kesme alanlarından dolgu alanlarına tek yönlü ortalama mesafe, maliyet ve yakıt hesaplamalarında kullanılır.",
-        "de": "Mittlere einfache Entfernung vom Einschnitt zur Verfüllung, verwendet für Kosten- und Kraftstoffberechnungen."
+        "de": "Mittlere einfache Entfernung vom Einschnitt zur Verfüllung, verwendet für Kosten- und Kraftstoffberechnungen.",
+        "fr": "Average one-way distance from cut to fill areas, used for cost and fuel calculations.",
+        "es": "Distancia media de ida desde áreas de corte a relleno, utilizada para cálculos de coste y combustible."
       }
     },
     {
@@ -123,12 +143,16 @@
       "label_i18n": {
         "en": "Unit Haul Cost",
         "tr": "Birim Taşıma Maliyeti",
-        "de": "Stücktransportkosten"
+        "de": "Stücktransportkosten",
+        "fr": "Coût de transport unitaire",
+        "es": "Coste unitario de acarreo"
       },
       "businessContext_i18n": {
         "en": "Cost per cubic meter per kilometer of hauling material, including fuel, labor, and equipment depreciation.",
         "tr": "Malzeme taşımanın metreküp başına kilometre başına maliyeti; yakıt, işçilik ve ekipman amortismanını içerir.",
-        "de": "Kosten pro Kubikmeter pro Kilometer für den Materialtransport, einschließlich Kraftstoff, Arbeit und Geräteabschreibung."
+        "de": "Kosten pro Kubikmeter pro Kilometer für den Materialtransport, einschließlich Kraftstoff, Arbeit und Geräteabschreibung.",
+        "fr": "Coût par mètre cube par kilomètre de transport de matériau, incluant carburant, main-d'œuvre et dépréciation de l'équipement.",
+        "es": "Coste por metro cúbico por kilómetro de acarreo de material, incluyendo combustible, mano de obra y depreciación del equipo."
       }
     },
     {
@@ -143,12 +167,16 @@
       "label_i18n": {
         "en": "Waste Disposal Cost",
         "tr": "Atık Bertaraf Maliyeti",
-        "de": "Entsorgungskosten"
+        "de": "Entsorgungskosten",
+        "fr": "Coût d'élimination des déchets",
+        "es": "Coste de eliminación de residuos"
       },
       "businessContext_i18n": {
         "en": "Cost per cubic meter for disposing excess material at a designated waste site.",
         "tr": "Fazla malzemenin belirlenmiş bir atık sahasında bertaraf edilmesinin metreküp başına maliyeti.",
-        "de": "Kosten pro Kubikmeter für die Entsorgung von Überschussmaterial auf einer dafür vorgesehenen Deponie."
+        "de": "Kosten pro Kubikmeter für die Entsorgung von Überschussmaterial auf einer dafür vorgesehenen Deponie.",
+        "fr": "Coût par mètre cube pour l'élimination des matériaux excédentaires dans un site de décharge désigné.",
+        "es": "Coste por metro cúbico para eliminar material sobrante en un vertedero designado."
       }
     },
     {
@@ -163,12 +191,16 @@
       "label_i18n": {
         "en": "Borrow Material Cost",
         "tr": "Ödünç Malzeme Maliyeti",
-        "de": "Materialkosten aus Entnahmegrube"
+        "de": "Materialkosten aus Entnahmegrube",
+        "fr": "Coût du matériau d'emprunt",
+        "es": "Coste de material de préstamo"
       },
       "businessContext_i18n": {
         "en": "Cost per cubic meter to import material from a borrow pit to meet fill deficit.",
         "tr": "Dolgu açığını karşılamak için bir ödünç ocaktan malzeme ithal etmenin metreküp başına maliyeti.",
-        "de": "Kosten pro Kubikmeter für den Import von Material aus einer Entnahmegrube zur Deckung des Verfüllungsdefizits."
+        "de": "Kosten pro Kubikmeter für den Import von Material aus einer Entnahmegrube zur Deckung des Verfüllungsdefizits.",
+        "fr": "Coût par mètre cube pour importer du matériau d'une carrière afin de combler un déficit de remblai.",
+        "es": "Coste por metro cúbico para importar material de un banco de préstamo para cubrir el déficit de relleno."
       }
     }
   ],

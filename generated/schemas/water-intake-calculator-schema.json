@@ -20,11 +20,15 @@
       "businessContext": "Total full-time equivalent employees on site.",
       "label_i18n": {
         "en": "Number of Employees",
-        "tr": "Çalışan Sayısı"
+        "tr": "Çalışan Sayısı",
+        "de": "Anzahl der Mitarbeiter",
+        "fr": "Nombre d'employés"
       },
       "businessContext_i18n": {
         "en": "Total full-time equivalent employees on site.",
-        "tr": "Sahadaki toplam tam zamanlı eşdeğer çalışan sayısı."
+        "tr": "Sahadaki toplam tam zamanlı eşdeğer çalışan sayısı.",
+        "de": "Gesamtzahl der Vollzeitäquivalente am Standort",
+        "fr": "Nombre total d'employés équivalents temps plein sur site."
       }
     },
     {
@@ -38,11 +42,15 @@
       "businessContext": "Number of operating days per year.",
       "label_i18n": {
         "en": "Work Days per Year",
-        "tr": "Yıllık çalışma günü"
+        "tr": "Yıllık çalışma günü",
+        "de": "Arbeitstage pro Jahr",
+        "fr": "Jours de travail par an"
       },
       "businessContext_i18n": {
         "en": "Number of operating days per year.",
-        "tr": "Yıllık faaliyet günü sayısı."
+        "tr": "Yıllık faaliyet günü sayısı.",
+        "de": "Anzahl der Betriebstage pro Jahr",
+        "fr": "Nombre de jours d'exploitation par an."
       }
     },
     {
@@ -56,11 +64,15 @@
       "businessContext": "Estimated daily water consumption per employee (drinking, sanitation, cleaning).",
       "label_i18n": {
         "en": "Average Water Use per Person per Day",
-        "tr": "Kişi başı günlük ortalama su kullanımı"
+        "tr": "Kişi başı günlük ortalama su kullanımı",
+        "de": "Durchschnittlicher Wasserverbrauch pro Person und Tag",
+        "fr": "Consommation moyenne d'eau par personne et par jour"
       },
       "businessContext_i18n": {
         "en": "Estimated daily water consumption per employee (drinking, sanitation, cleaning).",
-        "tr": "Çalışan başına tahmini günlük su tüketimi (içme, temizlik, sanitasyon)."
+        "tr": "Çalışan başına tahmini günlük su tüketimi (içme, temizlik, sanitasyon).",
+        "de": "Geschätzter täglicher Wasserverbrauch pro Mitarbeiter (Trinken, Sanitär, Reinigung)",
+        "fr": "Consommation quotidienne estimée d'eau par employé (boisson, sanitaires, nettoyage)."
       }
     },
     {
@@ -74,11 +86,15 @@
       "businessContext": "Water used per unit of production output (e.g., liters per product).",
       "label_i18n": {
         "en": "Process Water Intensity",
-        "tr": "Proses su yoğunluğu"
+        "tr": "Proses su yoğunluğu",
+        "de": "Prozesswasserintensität",
+        "fr": "Intensité en eau de procédé"
       },
       "businessContext_i18n": {
         "en": "Water used per unit of production output (e.g., liters per product).",
-        "tr": "Birim üretim çıktısı başına kullanılan su (örn. ürün başına litre)."
+        "tr": "Birim üretim çıktısı başına kullanılan su (örn. ürün başına litre).",
+        "de": "Wasserverbrauch pro Produktionseinheit (z. B. Liter pro Produkt)",
+        "fr": "Eau utilisée par unité de production (ex. litres par produit)."
       }
     },
     {
@@ -92,11 +108,16 @@
       "businessContext": "Total units produced per year.",
       "label_i18n": {
         "en": "Annual Production Units",
-        "tr": "Yıllık Üretim Birimleri"
+        "tr": "Yıllık Üretim Birimleri",
+        "de": "Jährliche Produktionseinheiten",
+        "fr": "Unités de production annuelles",
+        "es": "Unidades de producción anuales"
       },
       "businessContext_i18n": {
         "en": "Total units produced per year.",
-        "tr": "Yılda üretilen toplam birim sayısı."
+        "tr": "Yılda üretilen toplam birim sayısı.",
+        "de": "Gesamtzahl der produzierten Einheiten pro Jahr",
+        "fr": "Nombre total d'unités produites par an."
       }
     },
     {
@@ -110,11 +131,15 @@
       "businessContext": "Estimated percentage of water lost due to leaks in the distribution system.",
       "label_i18n": {
         "en": "Leakage Factor",
-        "tr": "Kaçak faktörü"
+        "tr": "Kaçak faktörü",
+        "de": "Leckagefaktor",
+        "fr": "Facteur de fuite"
       },
       "businessContext_i18n": {
         "en": "Estimated percentage of water lost due to leaks in the distribution system.",
-        "tr": "Dağıtım sistemindeki sızıntılar nedeniyle kaybedilen suyun tahmini yüzdesi."
+        "tr": "Dağıtım sistemindeki sızıntılar nedeniyle kaybedilen suyun tahmini yüzdesi.",
+        "de": "Geschätzter Prozentsatz des Wasserverlusts durch Lecks im Verteilungssystem",
+        "fr": "Pourcentage estimé d'eau perdue dû aux fuites dans le réseau de distribution."
       }
     },
     {
@@ -128,11 +153,15 @@
       "businessContext": "Percentage of process water that is treated and reused.",
       "label_i18n": {
         "en": "Water Recycling Rate",
-        "tr": "Su geri dönüşüm oranı"
+        "tr": "Su geri dönüşüm oranı",
+        "de": "Wasserwiederverwendungsrate",
+        "fr": "Taux de recyclage de l'eau"
       },
       "businessContext_i18n": {
         "en": "Percentage of process water that is treated and reused.",
-        "tr": "Arıtılıp yeniden kullanılan proses suyunun yüzdesi."
+        "tr": "Arıtılıp yeniden kullanılan proses suyunun yüzdesi.",
+        "de": "Prozentsatz des Prozesswassers, das aufbereitet und wiederverwendet wird",
+        "fr": "Pourcentage de l'eau de procédé traitée et réutilisée."
       }
     },
     {
@@ -146,11 +175,15 @@
       "businessContext": "Multiplier to account for seasonal variations (e.g., summer peak).",
       "label_i18n": {
         "en": "Seasonal Adjustment Factor",
-        "tr": "Mevsimsel ayarlama faktörü"
+        "tr": "Mevsimsel ayarlama faktörü",
+        "de": "Saisonaler Anpassungsfaktor",
+        "fr": "Facteur d'ajustement saisonnier"
       },
       "businessContext_i18n": {
         "en": "Multiplier to account for seasonal variations (e.g., summer peak).",
-        "tr": "Mevsimsel değişiklikleri hesaba katmak için çarpan (örn. yaz zirvesi)."
+        "tr": "Mevsimsel değişiklikleri hesaba katmak için çarpan (örn. yaz zirvesi).",
+        "de": "Multiplikator zur Berücksichtigung saisonaler Schwankungen (z. B. Sommerhoch)",
+        "fr": "Multiplicateur pour tenir compte des variations saisonnières (ex. pic estival)."
       }
     }
   ],

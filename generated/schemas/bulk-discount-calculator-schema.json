@@ -12,14 +12,16 @@
         "en": "Base Price per Unit",
         "tr": "Birim Başına Taban Fiyat",
         "de": "Grundpreis pro Einheit",
-        "fr": "Base Price per Unit",
-        "es": "Base Price per Unit",
+        "fr": "Prix de base par unité",
+        "es": "Precio base por unidad",
         "ar": "Base Price per Unit"
       },
       "businessContext_i18n": {
         "en": "The standard price per unit before any bulk discount is applied.",
         "tr": "Toplu indirim uygulanmadan önceki standart birim fiyatı.",
-        "de": "Der Standardpreis pro Einheit vor Anwendung eines Mengenrabatts."
+        "de": "Der Standardpreis pro Einheit vor Anwendung eines Mengenrabatts.",
+        "fr": "Le prix standard par unité avant application de toute remise sur volume.",
+        "es": "El precio estándar por unidad antes de aplicar cualquier descuento por volumen."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Quantity Ordered",
         "tr": "Sipariş Edilen Miktar",
         "de": "Bestellte Menge",
-        "fr": "Quantity Ordered",
-        "es": "Quantity Ordered",
+        "fr": "Quantité commandée",
+        "es": "Cantidad pedida",
         "ar": "Quantity Ordered"
       },
       "businessContext_i18n": {
         "en": "The total number of units being purchased in a single order.",
         "tr": "Tek bir siparişte satın alınan toplam birim sayısı.",
-        "de": "Die Gesamtzahl der in einer Bestellung gekauften Einheiten."
+        "de": "Die Gesamtzahl der in einer Bestellung gekauften Einheiten.",
+        "fr": "Le nombre total d'unités achetées en une seule commande.",
+        "es": "El número total de unidades compradas en un solo pedido."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Maximum Discount",
         "tr": "Maksimum İndirim",
         "de": "Maximaler Rabatt",
-        "fr": "Maximum Discount",
-        "es": "Maximum Discount",
+        "fr": "Remise maximale",
+        "es": "Descuento máximo",
         "ar": "Maximum Discount"
       },
       "businessContext_i18n": {
         "en": "The upper limit of the discount percentage achievable with very large orders.",
         "tr": "Çok büyük siparişlerde ulaşılabilen maksimum indirim yüzdesi.",
-        "de": "Die Obergrenze des Rabattprozentsatzes, der bei sehr großen Bestellungen erreichbar ist."
+        "de": "Die Obergrenze des Rabattprozentsatzes, der bei sehr großen Bestellungen erreichbar ist.",
+        "fr": "La limite supérieure du pourcentage de remise atteignable avec des commandes très importantes.",
+        "es": "El límite superior del porcentaje de descuento alcanzable con pedidos muy grandes."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Discount Scale Factor",
         "tr": "İndirim Ölçek Faktörü",
         "de": "Rabatt-Skalierungsfaktor",
-        "fr": "Discount Scale Factor",
-        "es": "Discount Scale Factor",
+        "fr": "Facteur d'échelle de la remise",
+        "es": "Factor de escala del descuento",
         "ar": "Discount Scale Factor"
       },
       "businessContext_i18n": {
         "en": "The quantity at which the discount reaches approximately 63% of the maximum discount (i.e., the e-folding scale).",
         "tr": "İndirimin maksimum indirimin yaklaşık %63'üne ulaştığı miktar (e-katlama ölçeği).",
-        "de": "Die Menge, bei der der Rabatt etwa 63 % des maximalen Rabatts erreicht (d. h. die e-Faltungs-Skala)."
+        "de": "Die Menge, bei der der Rabatt etwa 63 % des maximalen Rabatts erreicht (d. h. die e-Faltungs-Skala).",
+        "fr": "La quantité à laquelle la remise atteint environ 63 % de la remise maximale (c'est-à-dire l'échelle de e-folding).",
+        "es": "La cantidad en la que el descuento alcanza aproximadamente el 63% del descuento máximo (es decir, la escala de e-fold)."
       }
     }
   ],

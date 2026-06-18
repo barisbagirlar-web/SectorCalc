@@ -12,14 +12,16 @@
         "en": "Wake Time",
         "tr": "Uyanma Saati",
         "de": "Aufwachzeit",
-        "fr": "Wake Time",
-        "es": "Wake Time",
+        "fr": "Heure de réveil",
+        "es": "Hora de despertar",
         "ar": "Wake Time"
       },
       "businessContext_i18n": {
         "en": "The hour of day when the worker typically wakes up (24-hour format)",
         "tr": "İşçinin tipik olarak uyandığı günün saati (24 saat formatı)",
-        "de": "Die Stunde des Tages, zu der der Arbeiter normalerweise aufwacht (24-Stunden-Format)"
+        "de": "Die Stunde des Tages, zu der der Arbeiter normalerweise aufwacht (24-Stunden-Format)",
+        "fr": "Heure à laquelle le travailleur se réveille généralement (format 24h)",
+        "es": "Hora del día en que el trabajador se despierta normalmente (formato 24 horas)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Current Time",
         "tr": "Şu Anki Saat",
         "de": "Aktuelle Uhrzeit",
-        "fr": "Current Time",
-        "es": "Current Time",
+        "fr": "Heure actuelle",
+        "es": "Hora actual",
         "ar": "Current Time"
       },
       "businessContext_i18n": {
         "en": "The hour of day for which alertness is to be predicted",
         "tr": "Uyanıklığın tahmin edileceği günün saati",
-        "de": "Die Stunde des Tages, für die die Wachsamkeit vorhergesagt werden soll"
+        "de": "Die Stunde des Tages, für die die Wachsamkeit vorhergesagt werden soll",
+        "fr": "Heure pour laquelle la vigilance doit être prédite",
+        "es": "Hora del día para la que se va a predecir el nivel de alerta"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Sleep Duration",
         "tr": "Uyku Süresi",
         "de": "Schlafdauer",
-        "fr": "Sleep Duration",
-        "es": "Sleep Duration",
+        "fr": "Durée de sommeil",
+        "es": "Duración del sueño",
         "ar": "Sleep Duration"
       },
       "businessContext_i18n": {
         "en": "Duration of prior sleep, affecting baseline alertness (optional use)",
         "tr": "Önceki uykunun süresi, temel uyanıklığı etkiler (isteğe bağlı kullanım)",
-        "de": "Dauer des vorherigen Schlafs, die die Basiswachsamkeit beeinflusst (optional)"
+        "de": "Dauer des vorherigen Schlafs, die die Basiswachsamkeit beeinflusst (optional)",
+        "fr": "Durée du sommeil antérieur, affectant la vigilance de base (utilisation facultative)",
+        "es": "Duración del sueño previo, que afecta la alerta basal (uso opcional)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Circadian Amplitude",
         "tr": "Sirkadiyen Genlik",
         "de": "Zirkadiane Amplitude",
-        "fr": "Circadian Amplitude",
-        "es": "Circadian Amplitude",
+        "fr": "Amplitude circadienne",
+        "es": "Amplitud circadiana",
         "ar": "Circadian Amplitude"
       },
       "businessContext_i18n": {
         "en": "Typical amplitude of circadian alertness fluctuation (deviation from baseline)",
         "tr": "Sirkadiyen uyanıklık dalgalanmasının tipik genliği (temel değerden sapma)",
-        "de": "Typische Amplitude der zirkadianen Wachsamkeitsschwankung (Abweichung vom Basiswert)"
+        "de": "Typische Amplitude der zirkadianen Wachsamkeitsschwankung (Abweichung vom Basiswert)",
+        "fr": "Amplitude typique de la fluctuation de la vigilance circadienne (écart par rapport à la ligne de base)",
+        "es": "Amplitud típica de la fluctuación circadiana de la alerta (desviación de la línea base)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Baseline Alertness",
         "tr": "Temel Uyanıklık",
         "de": "Basiswachsamkeit",
-        "fr": "Baseline Alertness",
-        "es": "Baseline Alertness",
+        "fr": "Vigilance de base",
+        "es": "Alerta basal",
         "ar": "Baseline Alertness"
       },
       "businessContext_i18n": {
         "en": "Baseline alertness level after adequate sleep, typically 70 (scale 0-100)",
         "tr": "Yeterli uykudan sonra temel uyanıklık seviyesi, tipik olarak 70 (0-100 ölçeği)",
-        "de": "Basiswachsamkeitsniveau nach ausreichendem Schlaf, normalerweise 70 (Skala 0-100)"
+        "de": "Basiswachsamkeitsniveau nach ausreichendem Schlaf, normalerweise 70 (Skala 0-100)",
+        "fr": "Niveau de vigilance de base après un sommeil adéquat, généralement 70 (échelle 0-100)",
+        "es": "Nivel de alerta basal después de un sueño adecuado, normalmente 70 (escala 0-100)"
       }
     }
   ],

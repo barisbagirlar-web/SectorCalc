@@ -12,14 +12,16 @@
         "en": "EBIT (Faiz ve Vergi Öncesi Kâr)",
         "tr": "EBIT (Faiz ve Vergi Öncesi Kâr)",
         "de": "EBIT (Ergebnis vor Zinsen und Steuern)",
-        "fr": "EBIT (Faiz ve Vergi Öncesi Kâr)",
-        "es": "EBIT (Faiz ve Vergi Öncesi Kâr)",
+        "fr": "EBIT (Bénéfice avant intérêts et impôts)",
+        "es": "EBIT (Beneficio antes de intereses e impuestos)",
         "ar": "EBIT (Faiz ve Vergi Öncesi Kâr)"
       },
       "businessContext_i18n": {
         "en": "Faiz ve vergi öncesi net faaliyet kârı (Earnings Before Interest and Taxes).",
         "tr": "Faiz ve vergi öncesi net faaliyet kârı (Earnings Before Interest and Taxes).",
-        "de": "Nettoergebnis aus der Betriebstätigkeit vor Zinsen und Steuern."
+        "de": "Nettoergebnis aus der Betriebstätigkeit vor Zinsen und Steuern.",
+        "fr": "Bénéfice net d'exploitation avant intérêts et impôts.",
+        "es": "Beneficio neto de explotación antes de intereses e impuestos (Earnings Before Interest and Taxes)."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Faiz Gideri",
         "tr": "Faiz Gideri",
         "de": "Zinsaufwand",
-        "fr": "Faiz Gideri",
-        "es": "Faiz Gideri",
+        "fr": "Charges d'intérêts",
+        "es": "Gastos por intereses",
         "ar": "Faiz Gideri"
       },
       "businessContext_i18n": {
         "en": "Toplam borç faiz ödemeleri.",
         "tr": "Toplam borç faiz ödemeleri.",
-        "de": "Gesamte Zinszahlungen auf Schulden."
+        "de": "Gesamte Zinszahlungen auf Schulden.",
+        "fr": "Paiements d'intérêts totaux sur la dette.",
+        "es": "Pagos totales de intereses sobre la deuda."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Vergi Oranı",
         "tr": "Vergi Oranı",
         "de": "Steuersatz",
-        "fr": "Vergi Oranı",
-        "es": "Vergi Oranı",
+        "fr": "Taux d'imposition",
+        "es": "Tasa impositiva",
         "ar": "Vergi Oranı"
       },
       "businessContext_i18n": {
         "en": "Kurumlar vergisi oranı (ondalık, örn. 0.25).",
         "tr": "Kurumlar vergisi oranı (ondalık, örn. 0.25).",
-        "de": "Körperschaftsteuersatz (Dezimal, z. B. 0,25)."
+        "de": "Körperschaftsteuersatz (Dezimal, z. B. 0,25).",
+        "fr": "Taux d'impôt sur les sociétés (décimal, ex. 0.25).",
+        "es": "Tasa del impuesto de sociedades (decimal, ej. 0.25)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "İmtiyazlı Hisse Temettüsü",
         "tr": "İmtiyazlı Hisse Temettüsü",
         "de": "Vorzugsdividende",
-        "fr": "İmtiyazlı Hisse Temettüsü",
-        "es": "İmtiyazlı Hisse Temettüsü",
+        "fr": "Dividendes sur actions privilégiées",
+        "es": "Dividendo de acciones preferentes",
         "ar": "İmtiyazlı Hisse Temettüsü"
       },
       "businessContext_i18n": {
         "en": "İmtiyazlı hisse senetlerine ödenen toplam temettü.",
         "tr": "İmtiyazlı hisse senetlerine ödenen toplam temettü.",
-        "de": "Gesamte Dividende auf Vorzugsaktien."
+        "de": "Gesamte Dividende auf Vorzugsaktien.",
+        "fr": "Total des dividendes versés sur les actions privilégiées.",
+        "es": "Dividendo total pagado a acciones preferentes."
       }
     }
   ],

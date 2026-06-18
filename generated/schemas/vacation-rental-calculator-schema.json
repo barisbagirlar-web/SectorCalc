@@ -12,13 +12,15 @@
         "en": "Nightly Rate",
         "tr": "Gecelik Ücret",
         "de": "Nächtlicher Preis",
-        "fr": "Nightly Rate",
-        "es": "Nightly Rate",
+        "fr": "Tarif nocturne",
+        "es": "Tarifa nocturna",
         "ar": "Nightly Rate"
       },
       "businessContext_i18n": {
         "en": "The base cost per night of the rental.",
-        "tr": "Kiralık konutun gece başına taban maliyeti."
+        "tr": "Kiralık konutun gece başına taban maliyeti.",
+        "de": "Die Basiskosten pro Nacht der Miete.",
+        "fr": "Coût de base par nuit de la location."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Number of Nights",
         "tr": "Gece Sayısı",
         "de": "Anzahl der Nächte",
-        "fr": "Number of Nights",
-        "es": "Number of Nights",
+        "fr": "Nombre de nuits",
+        "es": "Número de noches",
         "ar": "Number of Nights"
       },
       "businessContext_i18n": {
         "en": "Total nights the rental is booked.",
-        "tr": "Kiralanan gecelerin toplam sayısı."
+        "tr": "Kiralanan gecelerin toplam sayısı.",
+        "de": "Gesamtzahl der Nächte, in denen die Unterkunft gebucht ist.",
+        "fr": "Nombre total de nuits de location."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Cleaning Fee",
         "tr": "Temizlik Ücreti",
         "de": "Reinigungsgebühr",
-        "fr": "Cleaning Fee",
-        "es": "Cleaning Fee",
+        "fr": "Frais de ménage",
+        "es": "Tarifa de limpieza",
         "ar": "Cleaning Fee"
       },
       "businessContext_i18n": {
         "en": "One-time cleaning fee added to the total.",
-        "tr": "Toplam tutara eklenen tek seferlik temizlik ücreti."
+        "tr": "Toplam tutara eklenen tek seferlik temizlik ücreti.",
+        "de": "Einmalige Reinigungsgebühr, die zum Gesamtbetrag hinzugefügt wird.",
+        "fr": "Frais de ménage uniques ajoutés au total."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Service Fee (%)",
         "tr": "Hizmet Ücreti (%)",
-        "de": "Service Fee (%)",
-        "fr": "Service Fee (%)",
+        "de": "Servicegebühr (%)",
+        "fr": "Frais de service (%)",
         "es": "Service Fee (%)",
         "ar": "Service Fee (%)"
       },
       "businessContext_i18n": {
         "en": "Service fee as a percentage of the rental cost after any discounts.",
-        "tr": "İndirimler sonrası kiralama maliyetinin yüzdesi olarak hizmet ücreti."
+        "tr": "İndirimler sonrası kiralama maliyetinin yüzdesi olarak hizmet ücreti.",
+        "de": "Servicegebühr als Prozentsatz der Mietkosten nach etwaigen Rabatten.",
+        "fr": "Frais de service en pourcentage du coût de location après remises."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Tax Rate (%)",
         "tr": "Vergi Oranı (%)",
-        "de": "Tax Rate (%)",
-        "fr": "Tax Rate (%)",
-        "es": "Tax Rate (%)",
+        "de": "Steuersatz (%)",
+        "fr": "Taux d'imposition (%)",
+        "es": "Tasa impositiva (%)",
         "ar": "Tax Rate (%)"
       },
       "businessContext_i18n": {
         "en": "Tax percentage applied to the pre-tax total.",
-        "tr": "Vergi öncesi toplama uygulanan vergi yüzdesi."
+        "tr": "Vergi öncesi toplama uygulanan vergi yüzdesi.",
+        "de": "Steuerprozentsatz, der auf den Nettobetrag vor Steuern angewendet wird.",
+        "fr": "Pourcentage de taxe appliqué au total avant taxes."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Discount (%)",
         "tr": "İndirim (%)",
-        "de": "Discount (%)",
-        "fr": "Discount (%)",
-        "es": "Discount (%)",
+        "de": "Rabatt (%)",
+        "fr": "Remise (%)",
+        "es": "Descuento (%)",
         "ar": "Discount (%)"
       },
       "businessContext_i18n": {
         "en": "Discount percentage applied to the base rental cost (nightly rate × nights).",
-        "tr": "Temel kiralama maliyetine (gecelik ücret × gece sayısı) uygulanan indirim yüzdesi."
+        "tr": "Temel kiralama maliyetine (gecelik ücret × gece sayısı) uygulanan indirim yüzdesi.",
+        "de": "Rabattprozentsatz, der auf die Basismietkosten angewendet wird (Nachtpreis × Nächte).",
+        "fr": "Pourcentage de remise appliqué au coût de location de base (tarif nuit × nuits)."
       }
     }
   ],

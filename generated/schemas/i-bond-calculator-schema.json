@@ -12,13 +12,16 @@
         "en": "Investment Amount",
         "tr": "Yatırım Tutarı",
         "de": "Investitionsbetrag",
-        "fr": "Investment Amount",
-        "es": "Investment Amount",
+        "fr": "Montant de l'investissement",
+        "es": "Monto de inversión",
         "ar": "Investment Amount"
       },
       "businessContext_i18n": {
         "en": "The amount you invest in I Bonds",
-        "tr": "I Bond'larına yatırdığınız miktar"
+        "tr": "I Bond'larına yatırdığınız miktar",
+        "de": "Der Betrag, den Sie in I Bonds investieren",
+        "fr": "Le montant que vous investissez dans les obligations I",
+        "es": "El monto que invierte en Bonos I"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Fixed Rate (%)",
         "tr": "Sabit Oran (%)",
-        "de": "Fixed Rate (%)",
-        "fr": "Fixed Rate (%)",
-        "es": "Fixed Rate (%)",
+        "de": "Fester Zinssatz (%)",
+        "fr": "Taux fixe (%)",
+        "es": "Tasa fija (%)",
         "ar": "Fixed Rate (%)"
       },
       "businessContext_i18n": {
         "en": "The fixed rate set by the Treasury for the bond",
-        "tr": "Hazine tarafından tahvil için belirlenen sabit oran"
+        "tr": "Hazine tarafından tahvil için belirlenen sabit oran",
+        "de": "Der vom Finanzministerium für die Anleihe festgelegte feste Zinssatz",
+        "fr": "Le taux fixe fixé par le Trésor pour l'obligation",
+        "es": "La tasa fija establecida por el Tesoro para el bono"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Inflation Rate (%)",
         "tr": "Enflasyon Oranı (%)",
-        "de": "Inflation Rate (%)",
-        "fr": "Inflation Rate (%)",
-        "es": "Inflation Rate (%)",
+        "de": "Inflationsrate (%)",
+        "fr": "Taux d'inflation (%)",
+        "es": "Tasa de inflación (%)",
         "ar": "Inflation Rate (%)"
       },
       "businessContext_i18n": {
         "en": "The annual inflation rate based on CPI-U",
-        "tr": "TÜFE-FE'ye dayalı yıllık enflasyon oranı"
+        "tr": "TÜFE-FE'ye dayalı yıllık enflasyon oranı",
+        "de": "Die jährliche Inflationsrate basierend auf dem CPI-U",
+        "fr": "Le taux d'inflation annuel basé sur l'IPC-U",
+        "es": "La tasa de inflación anual basada en el IPC-U"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Years Held",
         "tr": "Tutulan Yıl Sayısı",
-        "de": "Years Held",
-        "fr": "Years Held",
-        "es": "Years Held",
+        "de": "Haltedauer (Jahre)",
+        "fr": "Années de détention",
+        "es": "Años de tenencia",
         "ar": "Years Held"
       },
       "businessContext_i18n": {
         "en": "Number of years the bond is held (1-30)",
-        "tr": "Tahvilin tutulduğu yıl sayısı (1-30)"
+        "tr": "Tahvilin tutulduğu yıl sayısı (1-30)",
+        "de": "Anzahl der Jahre, die die Anleihe gehalten wird (1-30)",
+        "fr": "Nombre d'années pendant lesquelles l'obligation est détenue (1-30)",
+        "es": "Número de años que se mantiene el bono (1-30)"
       }
     }
   ],

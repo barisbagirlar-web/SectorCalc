@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Frekans (Hz)",
         "tr": "Frekans (Hz)",
-        "de": "Frekans (Hz)",
-        "fr": "Frekans (Hz)",
-        "es": "Frekans (Hz)",
+        "de": "Frequenz (Hz)",
+        "fr": "Fréquence (Hz)",
+        "es": "Frecuencia (Hz)",
         "ar": "Frekans (Hz)"
       },
       "businessContext_i18n": {
         "en": "Elektrik şebeke frekansı",
-        "tr": "Elektrik şebeke frekansı"
+        "tr": "Elektrik şebeke frekansı",
+        "de": "Netzfrequenz",
+        "fr": "Fréquence du réseau électrique",
+        "es": "Frecuencia de la red eléctrica"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Kutup Sayısı",
         "tr": "Kutup Sayısı",
-        "de": "Kutup Sayısı",
-        "fr": "Kutup Sayısı",
-        "es": "Kutup Sayısı",
+        "de": "Polzahl",
+        "fr": "Nombre de pôles",
+        "es": "Número de polos",
         "ar": "Kutup Sayısı"
       },
       "businessContext_i18n": {
         "en": "Motor kutup sayısı",
-        "tr": "Motor kutup sayısı"
+        "tr": "Motor kutup sayısı",
+        "de": "Motorpolzahl",
+        "fr": "Nombre de pôles du moteur",
+        "es": "Número de polos del motor"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Kayma (%)",
         "tr": "Kayma (%)",
-        "de": "Kayma (%)",
-        "fr": "Kayma (%)",
-        "es": "Kayma (%)",
+        "de": "Schlupf (%)",
+        "fr": "Glissement (%)",
+        "es": "Deslizamiento (%)",
         "ar": "Kayma (%)"
       },
       "businessContext_i18n": {
         "en": "Motor kayması",
-        "tr": "Motor kayması"
+        "tr": "Motor kayması",
+        "de": "Motorschlupf",
+        "fr": "Glissement du moteur",
+        "es": "Deslizamiento del motor"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Çıkış Gücü (kW)",
         "tr": "Çıkış Gücü (kW)",
-        "de": "Çıkış Gücü (kW)",
-        "fr": "Çıkış Gücü (kW)",
-        "es": "Çıkış Gücü (kW)",
+        "de": "Ausgangsleistung (kW)",
+        "fr": "Puissance de sortie (kW)",
+        "es": "Potencia de salida (kW)",
         "ar": "Çıkış Gücü (kW)"
       },
       "businessContext_i18n": {
         "en": "Motor mil gücü",
-        "tr": "Motor mil gücü"
+        "tr": "Motor mil gücü",
+        "de": "Motorwellenleistung",
+        "fr": "Puissance à l'arbre du moteur",
+        "es": "Potencia en el eje del motor"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Gerilim (V)",
         "tr": "Gerilim (V)",
         "de": "Spannung (V)",
-        "fr": "Gerilim (V)",
-        "es": "Gerilim (V)",
+        "fr": "Tension (V)",
+        "es": "Voltaje (V)",
         "ar": "Gerilim (V)"
       },
       "businessContext_i18n": {
         "en": "Hat voltajı",
-        "tr": "Hat voltajı"
+        "tr": "Hat voltajı",
+        "de": "Netzspannung",
+        "fr": "Tension de ligne",
+        "es": "Tensión de línea"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Akım (A)",
         "tr": "Akım (A)",
-        "de": "Akım (A)",
-        "fr": "Akım (A)",
-        "es": "Akım (A)",
+        "de": "Strom (A)",
+        "fr": "Courant (A)",
+        "es": "Corriente (A)",
         "ar": "Akım (A)"
       },
       "businessContext_i18n": {
         "en": "Hat akımı",
-        "tr": "Hat akımı"
+        "tr": "Hat akımı",
+        "de": "Leitungsstrom",
+        "fr": "Courant de ligne",
+        "es": "Corriente de línea"
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Güç Faktörü",
         "tr": "Güç Faktörü",
-        "de": "Güç Faktörü",
-        "fr": "Güç Faktörü",
-        "es": "Güç Faktörü",
+        "de": "Leistungsfaktor",
+        "fr": "Facteur de puissance",
+        "es": "Factor de potencia",
         "ar": "Güç Faktörü"
       },
       "businessContext_i18n": {
         "en": "Motor güç faktörü",
-        "tr": "Motor güç faktörü"
+        "tr": "Motor güç faktörü",
+        "de": "Motorleistungsfaktor",
+        "fr": "Facteur de puissance du moteur",
+        "es": "Factor de potencia del motor"
       }
     }
   ],

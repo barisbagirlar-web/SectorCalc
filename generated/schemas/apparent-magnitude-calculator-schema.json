@@ -12,14 +12,16 @@
         "en": "Object Flux",
         "tr": "Nesne Akısı",
         "de": "Objektfluss",
-        "fr": "Object Flux",
-        "es": "Object Flux",
+        "fr": "Flux de l'objet",
+        "es": "Flujo del objeto",
         "ar": "Object Flux"
       },
       "businessContext_i18n": {
         "en": "Measured radiative flux of the celestial object",
         "tr": "Gök cisminin ölçülen ışınım akısı",
-        "de": "Gemessener Strahlungsfluss des Himmelsobjekts"
+        "de": "Gemessener Strahlungsfluss des Himmelsobjekts",
+        "fr": "Flux radiatif mesuré de l'objet céleste",
+        "es": "Flujo radiativo medido del objeto celeste"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Reference Flux",
         "tr": "Referans Akısı",
         "de": "Referenzfluss",
-        "fr": "Reference Flux",
-        "es": "Reference Flux",
+        "fr": "Flux de référence",
+        "es": "Flujo de referencia",
         "ar": "Reference Flux"
       },
       "businessContext_i18n": {
         "en": "Flux corresponding to magnitude zero point",
         "tr": "Sıfır noktası büyüklüğüne karşılık gelen akı",
-        "de": "Fluss entsprechend dem Nullpunkt der Magnitude"
+        "de": "Fluss entsprechend dem Nullpunkt der Magnitude",
+        "fr": "Flux correspondant au point zéro de magnitude",
+        "es": "Flujo correspondiente al punto cero de magnitud"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Zero Point Correction",
         "tr": "Sıfır Noktası Düzeltmesi",
         "de": "Nullpunktkorrektur",
-        "fr": "Zero Point Correction",
-        "es": "Zero Point Correction",
+        "fr": "Correction du point zéro",
+        "es": "Corrección del punto cero",
         "ar": "Zero Point Correction"
       },
       "businessContext_i18n": {
         "en": "Offset to align with a specific magnitude system",
         "tr": "Belirli bir büyüklük sistemiyle uyum sağlamak için ofset",
-        "de": "Offset zur Angleichung an ein bestimmtes Magnitudensystem"
+        "de": "Offset zur Angleichung an ein bestimmtes Magnitudensystem",
+        "fr": "Décalage pour s'aligner sur un système de magnitude spécifique",
+        "es": "Desplazamiento para alinear con un sistema de magnitud específico"
       }
     },
     {
@@ -76,13 +82,15 @@
         "tr": "Sönümleme",
         "de": "Extinktion",
         "fr": "Extinction",
-        "es": "Extinction",
+        "es": "Extinción",
         "ar": "Extinction"
       },
       "businessContext_i18n": {
         "en": "Dimming due to interstellar dust (positive value reduces brightness)",
         "tr": "Yıldızlararası toz nedeniyle kararma (pozitif değer parlaklığı azaltır)",
-        "de": "Abschwächung durch interstellaren Staub (positiver Wert verringert Helligkeit)"
+        "de": "Abschwächung durch interstellaren Staub (positiver Wert verringert Helligkeit)",
+        "fr": "Atténuation due à la poussière interstellaire (valeur positive réduit la luminosité)",
+        "es": "Atenuación debida al polvo interestelar (valor positivo reduce el brillo)"
       }
     }
   ],

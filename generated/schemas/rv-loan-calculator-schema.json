@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "RV Price",
         "tr": "Karavan Fiyatı",
-        "de": "RV Price",
-        "fr": "RV Price",
+        "de": "RV-Preis",
+        "fr": "Karavan Fiyatı",
         "es": "RV Price",
         "ar": "RV Price"
       },
       "businessContext_i18n": {
         "en": "Total price of the RV",
-        "tr": "Karavanın toplam fiyatı"
+        "tr": "Karavanın toplam fiyatı",
+        "de": "Gesamtpreis des Wohnmobils",
+        "fr": "Karavanın toplam fiyatı"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Down Payment",
         "tr": "Peşinat",
         "de": "Anzahlung",
-        "fr": "Down Payment",
-        "es": "Down Payment",
+        "fr": "Acompte",
+        "es": "Pago inicial",
         "ar": "Down Payment"
       },
       "businessContext_i18n": {
         "en": "Amount paid upfront",
-        "tr": "Peşin ödenen tutar"
+        "tr": "Peşin ödenen tutar",
+        "de": "Anzahlung",
+        "fr": "Peşinat tutarı"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Trade-In Value",
         "tr": "Takas Değeri",
         "de": "Inzahlungnahmewert",
-        "fr": "Trade-In Value",
-        "es": "Trade-In Value",
+        "fr": "Valeur de reprise",
+        "es": "Valor de intercambio",
         "ar": "Trade-In Value"
       },
       "businessContext_i18n": {
         "en": "Value of trade-in vehicle",
-        "tr": "Takas aracın değeri"
+        "tr": "Takas aracın değeri",
+        "de": "Wert des Inzahlungnahme-Fahrzeugs",
+        "fr": "Takas aracın değeri"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
         "de": "Jährlicher Zinssatz",
-        "fr": "Annual Interest Rate",
-        "es": "Annual Interest Rate",
+        "fr": "Taux d'intérêt annuel",
+        "es": "Tasa de Interés Anual",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Annual percentage rate",
-        "tr": "Yıllık yüzde oranı"
+        "tr": "Yıllık yüzde oranı",
+        "de": "Effektiver Jahreszins",
+        "fr": "Yıllık faiz oranı"
       }
     },
     {
@@ -92,13 +100,16 @@
         "en": "Loan Term",
         "tr": "Kredi Vadesi",
         "de": "Darlehenslaufzeit",
-        "fr": "Loan Term",
-        "es": "Loan Term",
+        "fr": "Durée du prêt",
+        "es": "Plazo del préstamo",
         "ar": "Loan Term"
       },
       "businessContext_i18n": {
         "en": "Loan duration in months",
-        "tr": "Ay cinsinden kredi süresi"
+        "tr": "Ay cinsinden kredi süresi",
+        "de": "Darlehenslaufzeit in Monaten",
+        "fr": "Durée du prêt en mois",
+        "es": "Duración del préstamo en meses"
       }
     },
     {
@@ -112,13 +123,15 @@
         "en": "Sales Tax Rate",
         "tr": "Satış Vergisi Oranı",
         "de": "Umsatzsteuersatz",
-        "fr": "Sales Tax Rate",
-        "es": "Sales Tax Rate",
+        "fr": "Taux de taxe de vente",
+        "es": "Tasa de impuesto a las ventas",
         "ar": "Sales Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Applicable sales tax percentage",
-        "tr": "Uygulanan satış vergisi yüzdesi"
+        "tr": "Uygulanan satış vergisi yüzdesi",
+        "de": "Anwendbarer Umsatzsteuersatz in Prozent",
+        "fr": "Uygulanan satış vergisi yüzdesi"
       }
     }
   ],

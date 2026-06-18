@@ -22,11 +22,17 @@
       "businessContext": "Average hourly wage including burden for direct labor operators.",
       "label_i18n": {
         "en": "Labor Rate (per hour)",
-        "tr": "İşçilik Ücreti (saat başına)"
+        "tr": "İşçilik Ücreti (saat başına)",
+        "de": "Stundensatz (pro Stunde)",
+        "fr": "Taux horaire de main-d'œuvre",
+        "es": "Tarifa de mano de obra (por hora)"
       },
       "businessContext_i18n": {
         "en": "Average hourly wage including burden for direct labor operators.",
-        "tr": "Direkt işçilik operatörleri için yan haklar dahil ortalama saatlik ücret."
+        "tr": "Direkt işçilik operatörleri için yan haklar dahil ortalama saatlik ücret.",
+        "de": "Durchschnittlicher Stundenlohn inkl. Lohnnebenkosten für direktes Personal.",
+        "fr": "Salaire horaire moyen charges comprises pour les opérateurs de production directe.",
+        "es": "Salario medio por hora incluyendo cargas sociales para operadores de mano de obra directa."
       }
     },
     {
@@ -40,11 +46,17 @@
       "businessContext": "Standard time per production cycle (e.g., per unit or batch).",
       "label_i18n": {
         "en": "Labor Hours per Cycle",
-        "tr": "Çevrim Başına İşçilik Saati"
+        "tr": "Çevrim Başına İşçilik Saati",
+        "de": "Arbeitsstunden pro Zyklus",
+        "fr": "Heures de main-d'œuvre par cycle",
+        "es": "Horas de mano de obra por ciclo"
       },
       "businessContext_i18n": {
         "en": "Standard time per production cycle (e.g., per unit or batch).",
-        "tr": "Üretim çevrimi başına standart süre (örneğin birim veya parti başına)."
+        "tr": "Üretim çevrimi başına standart süre (örneğin birim veya parti başına).",
+        "de": "Standardzeit pro Produktionszyklus (z. B. pro Einheit oder Charge).",
+        "fr": "Temps standard par cycle de production (par exemple, par unité ou par lot).",
+        "es": "Tiempo estándar por ciclo de producción (ej., por unidad o lote)."
       }
     },
     {
@@ -58,11 +70,17 @@
       "businessContext": "Direct material cost per unit of output.",
       "label_i18n": {
         "en": "Material Cost per Unit",
-        "tr": "Birim Başına Malzeme Maliyeti"
+        "tr": "Birim Başına Malzeme Maliyeti",
+        "de": "Materialkosten pro Einheit",
+        "fr": "Coût matière par unité",
+        "es": "Coste de material por unidad"
       },
       "businessContext_i18n": {
         "en": "Direct material cost per unit of output.",
-        "tr": "Çıktı birimi başına direkt malzeme maliyeti."
+        "tr": "Çıktı birimi başına direkt malzeme maliyeti.",
+        "de": "Direkte Materialkosten pro Ausbringungseinheit.",
+        "fr": "Coût des matières directes par unité produite.",
+        "es": "Costo de material directo por unidad de producción."
       }
     },
     {
@@ -76,11 +94,17 @@
       "businessContext": "Electricity, gas, or other energy costs per production cycle.",
       "label_i18n": {
         "en": "Energy Cost per Cycle",
-        "tr": "Çevrim Başına Enerji Maliyeti"
+        "tr": "Çevrim Başına Enerji Maliyeti",
+        "de": "Energiekosten pro Zyklus",
+        "fr": "Coût énergétique par cycle",
+        "es": "Costo energético por ciclo"
       },
       "businessContext_i18n": {
         "en": "Electricity, gas, or other energy costs per production cycle.",
-        "tr": "Üretim çevrimi başına elektrik, gaz veya diğer enerji maliyetleri."
+        "tr": "Üretim çevrimi başına elektrik, gaz veya diğer enerji maliyetleri.",
+        "de": "Strom-, Gas- oder andere Energiekosten pro Produktionszyklus.",
+        "fr": "Coûts d'électricité, de gaz ou autres coûts énergétiques par cycle de production.",
+        "es": "Costos de electricidad, gas u otros energéticos por ciclo de producción."
       }
     },
     {
@@ -94,11 +118,17 @@
       "businessContext": "Average preventive and corrective maintenance cost allocated per cycle.",
       "label_i18n": {
         "en": "Maintenance Cost per Cycle",
-        "tr": "Çevrim Başına Bakım Maliyeti"
+        "tr": "Çevrim Başına Bakım Maliyeti",
+        "de": "Instandhaltungskosten pro Zyklus",
+        "fr": "Coût de maintenance par cycle",
+        "es": "Costo de mantenimiento por ciclo"
       },
       "businessContext_i18n": {
         "en": "Average preventive and corrective maintenance cost allocated per cycle.",
-        "tr": "Çevrim başına tahsis edilen ortalama önleyici ve düzeltici bakım maliyeti."
+        "tr": "Çevrim başına tahsis edilen ortalama önleyici ve düzeltici bakım maliyeti.",
+        "de": "Durchschnittliche vorbeugende und korrigierende Instandhaltungskosten pro Zyklus.",
+        "fr": "Coût moyen de maintenance préventive et corrective alloué par cycle.",
+        "es": "Costo promedio de mantenimiento preventivo y correctivo asignado por ciclo."
       }
     },
     {
@@ -112,11 +142,17 @@
       "businessContext": "Percentage applied to direct costs to cover indirect expenses (ISO 14051).",
       "label_i18n": {
         "en": "Overhead Rate (%)",
-        "tr": "Genel Gider Oranı (%)"
+        "tr": "Genel Gider Oranı (%)",
+        "de": "Gemeinkostensatz (%)",
+        "fr": "Taux de frais généraux (%)",
+        "es": "Tasa de gastos generales (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage applied to direct costs to cover indirect expenses (ISO 14051).",
-        "tr": "Dolaylı giderleri karşılamak için direkt maliyetlere uygulanan yüzde (ISO 14051)."
+        "tr": "Dolaylı giderleri karşılamak için direkt maliyetlere uygulanan yüzde (ISO 14051).",
+        "de": "Prozentsatz, der auf direkte Kosten angewendet wird, um indirekte Kosten abzudecken (ISO 14051).",
+        "fr": "Pourcentage appliqué aux coûts directs pour couvrir les dépenses indirectes (ISO 14051).",
+        "es": "Porcentaje aplicado a los costos directos para cubrir gastos indirectos (ISO 14051)."
       }
     },
     {
@@ -130,11 +166,17 @@
       "businessContext": "Actual cycle time per unit; used for throughput and efficiency calculations.",
       "label_i18n": {
         "en": "Cycle Time (minutes)",
-        "tr": "Çevrim Süresi (dakika)"
+        "tr": "Çevrim Süresi (dakika)",
+        "de": "Zykluszeit (Minuten)",
+        "fr": "Temps de cycle (minutes)",
+        "es": "Tiempo de ciclo (minutos)"
       },
       "businessContext_i18n": {
         "en": "Actual cycle time per unit; used for throughput and efficiency calculations.",
-        "tr": "Birim başına gerçek çevrim süresi; verim ve üretkenlik hesaplamalarında kullanılır."
+        "tr": "Birim başına gerçek çevrim süresi; verim ve üretkenlik hesaplamalarında kullanılır.",
+        "de": "Tatsächliche Zykluszeit pro Einheit; wird für Durchsatz- und Effizienzberechnungen verwendet.",
+        "fr": "Temps de cycle réel par unité ; utilisé pour les calculs de débit et d'efficacité.",
+        "es": "Tiempo de ciclo real por unidad; utilizado para cálculos de rendimiento y eficiencia."
       }
     },
     {
@@ -148,11 +190,17 @@
       "businessContext": "Percentage of units that fail quality inspection (Six Sigma metric).",
       "label_i18n": {
         "en": "Defect Rate (%)",
-        "tr": "Hata Oranı (%)"
+        "tr": "Hata Oranı (%)",
+        "de": "Ausschussrate (%)",
+        "fr": "Taux de rebut (%)",
+        "es": "Tasa de defectos (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of units that fail quality inspection (Six Sigma metric).",
-        "tr": "Kalite denetiminde başarısız olan birimlerin yüzdesi (Altı Sigma metriği)."
+        "tr": "Kalite denetiminde başarısız olan birimlerin yüzdesi (Altı Sigma metriği).",
+        "de": "Prozentsatz der Einheiten, die die Qualitätsprüfung nicht bestehen (Six Sigma-Kennzahl).",
+        "fr": "Pourcentage d'unités qui échouent au contrôle qualité (métrique Six Sigma).",
+        "es": "Porcentaje de unidades que fallan la inspección de calidad (métrica Seis Sigma)."
       }
     }
   ],

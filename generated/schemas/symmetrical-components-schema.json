@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Phase A Voltage (V)",
         "tr": "Faz A Gerilimi (V)",
-        "de": "Phase A Voltage (V)",
-        "fr": "Phase A Voltage (V)",
+        "de": "Phase-A-Spannung (V)",
+        "fr": "Tension phase A (V)",
         "es": "Phase A Voltage (V)",
         "ar": "Phase A Voltage (V)"
       },
       "businessContext_i18n": {
         "en": "Measured line-to-neutral voltage of phase A",
-        "tr": "Faz A'nın ölçülen hat-nötr gerilimi"
+        "tr": "Faz A'nın ölçülen hat-nötr gerilimi",
+        "de": "Gemessene Leiter-Neutral-Spannung von Phase A",
+        "fr": "Tension mesurée phase-neutre de la phase A"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Phase B Voltage (V)",
         "tr": "Faz B Gerilimi (V)",
-        "de": "Phase B Voltage (V)",
-        "fr": "Phase B Voltage (V)",
+        "de": "Phase-B-Spannung (V)",
+        "fr": "Tension phase B (V)",
         "es": "Phase B Voltage (V)",
         "ar": "Phase B Voltage (V)"
       },
       "businessContext_i18n": {
         "en": "Measured line-to-neutral voltage of phase B",
-        "tr": "Faz B'nin nötr-toprak gerilimi"
+        "tr": "Faz B'nin nötr-toprak gerilimi",
+        "de": "Gemessene Leiter-Neutral-Spannung von Phase B",
+        "fr": "Tension phase à neutre mesurée de la phase B"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Phase C Voltage (V)",
         "tr": "Faz C Gerilimi (V)",
-        "de": "Phase C Voltage (V)",
-        "fr": "Phase C Voltage (V)",
+        "de": "Phase C Spannung (V)",
+        "fr": "Tension phase C (V)",
         "es": "Phase C Voltage (V)",
         "ar": "Phase C Voltage (V)"
       },
       "businessContext_i18n": {
         "en": "Measured line-to-neutral voltage of phase C",
-        "tr": "Faz C'nin nötr-toprak gerilimi"
+        "tr": "Faz C'nin nötr-toprak gerilimi",
+        "de": "Gemessene Leiter-Neutral-Spannung von Phase C",
+        "fr": "Tension phase à neutre mesurée de la phase C"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Phase A Angle (deg)",
         "tr": "Faz A Açısı (derece)",
-        "de": "Phase A Angle (deg)",
-        "fr": "Phase A Angle (deg)",
+        "de": "Phase A Winkel (Grad)",
+        "fr": "Angle phase A (deg)",
         "es": "Phase A Angle (deg)",
         "ar": "Phase A Angle (deg)"
       },
       "businessContext_i18n": {
         "en": "Phase angle of phase A voltage",
-        "tr": "Faz A geriliminin faz açısı"
+        "tr": "Faz A geriliminin faz açısı",
+        "de": "Phasenwinkel der Phase A Spannung",
+        "fr": "Angle de phase de la tension de la phase A"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Phase B Angle (deg)",
         "tr": "Faz B Açısı (derece)",
-        "de": "Phase B Angle (deg)",
-        "fr": "Phase B Angle (deg)",
+        "de": "Phase B Winkel (Grad)",
+        "fr": "Angle phase B (deg)",
         "es": "Phase B Angle (deg)",
         "ar": "Phase B Angle (deg)"
       },
       "businessContext_i18n": {
         "en": "Phase angle of phase B voltage",
-        "tr": "Faz B geriliminin faz açısı"
+        "tr": "Faz B geriliminin faz açısı",
+        "de": "Phasenwinkel der Phase B Spannung",
+        "fr": "Angle de phase de la tension de la phase B"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Phase C Angle (deg)",
         "tr": "Faz C Açısı (derece)",
-        "de": "Phase C Angle (deg)",
-        "fr": "Phase C Angle (deg)",
+        "de": "Phase C Winkel (Grad)",
+        "fr": "Angle phase C (deg)",
         "es": "Phase C Angle (deg)",
         "ar": "Phase C Angle (deg)"
       },
       "businessContext_i18n": {
         "en": "Phase angle of phase C voltage",
-        "tr": "Faz C geriliminin faz açısı"
+        "tr": "Faz C geriliminin faz açısı",
+        "de": "Phasenwinkel der Phase C Spannung",
+        "fr": "Angle de phase de la tension de la phase C"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Sıcaklık 1",
         "tr": "Sıcaklık 1",
         "de": "Temperatur 1",
-        "fr": "Sıcaklık 1",
-        "es": "Sıcaklık 1",
+        "fr": "Température 1",
+        "es": "Temperatura 1",
         "ar": "Sıcaklık 1"
       },
       "businessContext_i18n": {
         "en": "Birinci sıcaklık değeri (Santigrat)",
         "tr": "Birinci sıcaklık değeri (Santigrat)",
-        "de": "Erster Temperaturwert (Grad Celsius)"
+        "de": "Erster Temperaturwert (Grad Celsius)",
+        "fr": "Première valeur de température (Celsius)",
+        "es": "Primer valor de temperatura (Celsius)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Basınç 1",
         "tr": "Basınç 1",
         "de": "Druck 1",
-        "fr": "Basınç 1",
-        "es": "Basınç 1",
+        "fr": "Pression 1",
+        "es": "Presión 1",
         "ar": "Basınç 1"
       },
       "businessContext_i18n": {
         "en": "Birinci basınç değeri (kPa)",
         "tr": "Birinci basınç değeri (kPa)",
-        "de": "Erster Druckwert (kPa)"
+        "de": "Erster Druckwert (kPa)",
+        "fr": "Première valeur de pression (kPa)",
+        "es": "Primer valor de presión (kPa)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Sıcaklık 2",
         "tr": "Sıcaklık 2",
         "de": "Temperatur 2",
-        "fr": "Sıcaklık 2",
-        "es": "Sıcaklık 2",
+        "fr": "Température 2",
+        "es": "Temperatura 2",
         "ar": "Sıcaklık 2"
       },
       "businessContext_i18n": {
         "en": "İkinci sıcaklık değeri (Santigrat)",
         "tr": "İkinci sıcaklık değeri (Santigrat)",
-        "de": "Zweiter Temperaturwert (Grad Celsius)"
+        "de": "Zweiter Temperaturwert (Grad Celsius)",
+        "fr": "Deuxième valeur de température (Celsius)",
+        "es": "Segundo valor de temperatura (Celsius)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Basınç 2",
         "tr": "Basınç 2",
         "de": "Druck 2",
-        "fr": "Basınç 2",
-        "es": "Basınç 2",
+        "fr": "Pression 2",
+        "es": "Presión 2",
         "ar": "Basınç 2"
       },
       "businessContext_i18n": {
         "en": "İkinci basınç değeri (kPa)",
         "tr": "İkinci basınç değeri (kPa)",
-        "de": "Zweiter Druckwert (kPa)"
+        "de": "Zweiter Druckwert (kPa)",
+        "fr": "Deuxième valeur de pression (kPa)",
+        "es": "Segundo valor de presión (kPa)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Gaz Sabiti (R)",
         "tr": "Gaz Sabiti (R)",
         "de": "Gaskonstante (R)",
-        "fr": "Gaz Sabiti (R)",
-        "es": "Gaz Sabiti (R)",
+        "fr": "Constante des gaz (R)",
+        "es": "Constante de los gases (R)",
         "ar": "Gaz Sabiti (R)"
       },
       "businessContext_i18n": {
         "en": "İdeal gaz sabiti, genellikle 8.314 J/(mol·K)",
         "tr": "İdeal gaz sabiti, genellikle 8.314 J/(mol·K)",
-        "de": "Ideale Gaskonstante, normalerweise 8,314 J/(mol·K)"
+        "de": "Ideale Gaskonstante, normalerweise 8,314 J/(mol·K)",
+        "fr": "Constante universelle des gaz, généralement 8,314 J/(mol·K)",
+        "es": "Constante universal de los gases, generalmente 8.314 J/(mol·K)"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Molekül Ağırlığı",
         "tr": "Molekül Ağırlığı",
         "de": "Molekulargewicht",
-        "fr": "Molekül Ağırlığı",
-        "es": "Molekül Ağırlığı",
+        "fr": "Masse moléculaire",
+        "es": "Peso molecular",
         "ar": "Molekül Ağırlığı"
       },
       "businessContext_i18n": {
         "en": "Maddenin molekül ağırlığı (isteğe bağlı, kütleye özgü ısı hesabı için)",
         "tr": "Maddenin molekül ağırlığı (isteğe bağlı, kütleye özgü ısı hesabı için)",
-        "de": "Molekulargewicht der Substanz (optional, für massenspezifische Wärmeberechnung)"
+        "de": "Molekulargewicht der Substanz (optional, für massenspezifische Wärmeberechnung)",
+        "fr": "Masse moléculaire de la substance (optionnelle, pour le calcul de la chaleur massique)",
+        "es": "Peso molecular de la sustancia (opcional, para cálculo de calor específico másico)"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Data Size",
         "tr": "Veri Boyutu",
         "de": "Datenmenge",
-        "fr": "Data Size",
-        "es": "Data Size",
+        "fr": "Taille des données",
+        "es": "Tamaño de datos",
         "ar": "Data Size"
       },
       "businessContext_i18n": {
         "en": "Total data volume to be transferred",
         "tr": "Aktarılacak Toplam Veri Hacmi",
-        "de": "Zu übertragendes Gesamtdatenvolumen"
+        "de": "Zu übertragendes Gesamtdatenvolumen",
+        "fr": "Volume total de données à transférer",
+        "es": "Volumen total de datos a transferir"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Transfer Speed",
         "tr": "Aktarım Hızı",
         "de": "Übertragungsgeschwindigkeit",
-        "fr": "Transfer Speed",
-        "es": "Transfer Speed",
+        "fr": "Vitesse de transfert",
+        "es": "Velocidad de transferencia",
         "ar": "Transfer Speed"
       },
       "businessContext_i18n": {
         "en": "Available network bandwidth",
         "tr": "Mevcut ağ bant genişliği",
-        "de": "Verfügbare Netzwerkbandbreite"
+        "de": "Verfügbare Netzwerkbandbreite",
+        "fr": "Bande passante réseau disponible",
+        "es": "Ancho de banda de red disponible"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Protocol Overhead",
         "tr": "Protokol Ek Yükü",
         "de": "Protokoll-Overhead",
-        "fr": "Protocol Overhead",
-        "es": "Protocol Overhead",
+        "fr": "Surcharge de protocole",
+        "es": "Sobrecarga de protocolo",
         "ar": "Protocol Overhead"
       },
       "businessContext_i18n": {
         "en": "Percentage of bandwidth lost due to protocol overhead",
         "tr": "Protokol yükü nedeniyle kaybedilen bant genişliği yüzdesi",
-        "de": "Prozentsatz der durch Protokoll-Overhead verlorenen Bandbreite"
+        "de": "Prozentsatz der durch Protokoll-Overhead verlorenen Bandbreite",
+        "fr": "Pourcentage de bande passante perdu en raison des frais généraux de protocole",
+        "es": "Porcentaje de ancho de banda perdido debido a sobrecarga de protocolo"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Number of Files",
         "tr": "Dosya Sayısı",
         "de": "Anzahl der Dateien",
-        "fr": "Number of Files",
-        "es": "Number of Files",
+        "fr": "Nombre de fichiers",
+        "es": "Número de archivos",
         "ar": "Number of Files"
       },
       "businessContext_i18n": {
         "en": "Number of separate files, each incurring transfer latency",
         "tr": "Her biri aktarım gecikmesine neden olan ayrı dosya sayısı",
-        "de": "Anzahl der einzelnen Dateien, die jeweils eine Übertragungslatenz verursachen"
+        "de": "Anzahl der einzelnen Dateien, die jeweils eine Übertragungslatenz verursachen",
+        "fr": "Nombre de fichiers distincts, chacun entraînant une latence de transfert",
+        "es": "Número de archivos separados, cada uno incurre en latencia de transferencia"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Latency per File",
         "tr": "Dosya Başına Gecikme",
         "de": "Latenz pro Datei",
-        "fr": "Latency per File",
-        "es": "Latency per File",
+        "fr": "Latence par fichier",
+        "es": "Latencia por archivo",
         "ar": "Latency per File"
       },
       "businessContext_i18n": {
         "en": "Handshake latency incurred per file (e.g., RTT for request/response)",
         "tr": "Dosya başına oluşan el sıkışma gecikmesi (ör. istek/yanıt için RTT)",
-        "de": "Handshake-Latenz pro Datei (z. B. RTT für Anfrage/Antwort)"
+        "de": "Handshake-Latenz pro Datei (z. B. RTT für Anfrage/Antwort)",
+        "fr": "Latence d'établissement de connexion par fichier (ex. RTT pour requête/réponse)",
+        "es": "Latencia de negociación incurrida por archivo (p. ej., RTT para solicitud/respuesta)"
       }
     }
   ],

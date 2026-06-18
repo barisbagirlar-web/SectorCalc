@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Object Distance (p)",
         "tr": "Nesne Uzaklığı (p)",
-        "de": "Object Distance (p)",
-        "fr": "Object Distance (p)",
-        "es": "Object Distance (p)",
+        "de": "Objektabstand (p)",
+        "fr": "Distance objet (p)",
+        "es": "Distancia del objeto (p)",
         "ar": "Object Distance (p)"
       },
       "businessContext_i18n": {
         "en": "Distance from the object to the mirror. Positive for real objects (in front of the mirror).",
-        "tr": "Nesnenin aynaya olan uzaklığı. Gerçek nesneler (aynanın önünde) için pozitif."
+        "tr": "Nesnenin aynaya olan uzaklığı. Gerçek nesneler (aynanın önünde) için pozitif.",
+        "de": "Abstand vom Objekt zum Spiegel. Positiv für reale Objekte (vor dem Spiegel).",
+        "fr": "Distance de l'objet au miroir. Positive pour les objets réels (devant le miroir).",
+        "es": "Distancia desde el objeto al espejo. Positiva para objetos reales (delante del espejo)."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Radius of Curvature (R)",
         "tr": "Eğrilik Yarıçapı (R)",
-        "de": "Radius of Curvature (R)",
-        "fr": "Radius of Curvature (R)",
-        "es": "Radius of Curvature (R)",
+        "de": "Krümmungsradius (R)",
+        "fr": "Rayon de courbure (R)",
+        "es": "Radio de curvatura (R)",
         "ar": "Radius of Curvature (R)"
       },
       "businessContext_i18n": {
         "en": "Radius of curvature of the mirror. Positive for concave mirrors, negative for convex mirrors (use absolute value and set mirror type).",
-        "tr": "Aynanın eğrilik yarıçapı. İçbükey aynalar için pozitif, dışbükey aynalar için negatif (mutlak değer kullanın ve ayna tipini ayarlayın)."
+        "tr": "Aynanın eğrilik yarıçapı. İçbükey aynalar için pozitif, dışbükey aynalar için negatif (mutlak değer kullanın ve ayna tipini ayarlayın).",
+        "de": "Krümmungsradius des Spiegels. Positiv für konkave Spiegel, negativ für konvexe Spiegel (Absolutwert verwenden und Spiegeltyp einstellen).",
+        "fr": "Rayon de courbure du miroir. Positif pour les miroirs concaves, négatif pour les miroirs convexes (utilisez la valeur absolue et définissez le type de miroir).",
+        "es": "Radio de curvatura del espejo. Positivo para espejos cóncavos, negativo para convexos (use valor absoluto y establezca el tipo de espejo)."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Mirror Type (Concave=1, Convex=-1)",
         "tr": "Ayna Tipi (İçbükey=1, Dışbükey=-1)",
-        "de": "Mirror Type (Concave=1, Convex=-1)",
-        "fr": "Mirror Type (Concave=1, Convex=-1)",
-        "es": "Mirror Type (Concave=1, Convex=-1)",
+        "de": "Spiegeltyp (Konkav=1, Konvex=-1)",
+        "fr": "Type de miroir (Concave=1, Convexe=-1)",
+        "es": "Tipo de espejo (Cóncavo=1, Convexo=-1)",
         "ar": "Mirror Type (Concave=1, Convex=-1)"
       },
       "businessContext_i18n": {
         "en": "1 for concave (converging) mirror, -1 for convex (diverging) mirror. Used to set the sign of the focal length.",
-        "tr": "İçbükey (yakınsak) ayna için 1, dışbükey (ıraksak) ayna için -1. Odak uzunluğunun işaretini ayarlamak için kullanılır."
+        "tr": "İçbükey (yakınsak) ayna için 1, dışbükey (ıraksak) ayna için -1. Odak uzunluğunun işaretini ayarlamak için kullanılır.",
+        "de": "1 für konkaven (sammelnden) Spiegel, -1 für konvexen (zerstreuenden) Spiegel. Wird verwendet, um das Vorzeichen der Brennweite festzulegen.",
+        "fr": "1 pour un miroir concave (convergent), -1 pour un miroir convexe (divergent). Utilisé pour définir le signe de la distance focale.",
+        "es": "1 para espejo cóncavo (convergente), -1 para convexo (divergente). Se usa para definir el signo de la distancia focal."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Object Height (h₀)",
         "tr": "Nesne Yüksekliği (h₀)",
-        "de": "Object Height (h₀)",
-        "fr": "Object Height (h₀)",
-        "es": "Object Height (h₀)",
+        "de": "Objekthöhe (h₀)",
+        "fr": "Hauteur objet (h₀)",
+        "es": "Altura del objeto (h₀)",
         "ar": "Object Height (h₀)"
       },
       "businessContext_i18n": {
         "en": "Height of the object. Positive if upright relative to the optical axis.",
-        "tr": "Nesnenin yüksekliği. Optik eksene göre dik ise pozitif."
+        "tr": "Nesnenin yüksekliği. Optik eksene göre dik ise pozitif.",
+        "de": "Höhe des Objekts. Positiv, wenn aufrecht relativ zur optischen Achse.",
+        "fr": "Hauteur de l'objet. Positive si droite par rapport à l'axe optique.",
+        "es": "Altura del objeto. Positiva si está erguida respecto al eje óptico."
       }
     }
   ],

@@ -12,13 +12,16 @@
         "en": "Total Words",
         "tr": "Toplam Kelime",
         "de": "Gesamtwörter",
-        "fr": "Total Words",
-        "es": "Total Words",
+        "fr": "Total des mots",
+        "es": "Total de palabras",
         "ar": "Total Words"
       },
       "businessContext_i18n": {
         "en": "Total word count of the document",
-        "tr": "Belgenin toplam kelime sayısı"
+        "tr": "Belgenin toplam kelime sayısı",
+        "de": "Gesamtwortanzahl des Dokuments",
+        "fr": "Nombre total de mots du document",
+        "es": "Recuento total de palabras del documento"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Average Words per Paragraph",
         "tr": "Paragraf Başına Ortalama Kelime Sayısı",
-        "de": "Average Words per Paragraph",
-        "fr": "Average Words per Paragraph",
-        "es": "Average Words per Paragraph",
+        "de": "Durchschnittliche Wörter pro Absatz",
+        "fr": "Nombre moyen de mots par paragraphe",
+        "es": "Promedio de palabras por párrafo",
         "ar": "Average Words per Paragraph"
       },
       "businessContext_i18n": {
         "en": "Average number of words in a paragraph",
-        "tr": "Bir paragraftaki ortalama kelime sayısı"
+        "tr": "Bir paragraftaki ortalama kelime sayısı",
+        "de": "Durchschnittliche Anzahl von Wörtern in einem Absatz",
+        "fr": "Nombre moyen de mots dans un paragraphe",
+        "es": "Número promedio de palabras en un párrafo"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Total Characters",
         "tr": "Toplam Karakter",
-        "de": "Total Characters",
-        "fr": "Total Characters",
-        "es": "Total Characters",
+        "de": "Gesamtzeichen",
+        "fr": "Nombre total de caractères",
+        "es": "Total de caracteres",
         "ar": "Total Characters"
       },
       "businessContext_i18n": {
         "en": "Total character count (including spaces) for verification",
-        "tr": "Doğrulama için toplam karakter sayısı (boşluklar dahil)"
+        "tr": "Doğrulama için toplam karakter sayısı (boşluklar dahil)",
+        "de": "Gesamtzeichenanzahl (inkl. Leerzeichen) zur Überprüfung",
+        "fr": "Nombre total de caractères (espaces compris) pour vérification",
+        "es": "Recuento total de caracteres (incluyendo espacios) para verificación"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Average Characters per Word",
         "tr": "Kelime Başına Ortalama Karakter",
-        "de": "Average Characters per Word",
-        "fr": "Average Characters per Word",
-        "es": "Average Characters per Word",
+        "de": "Durchschnittliche Zeichen pro Wort",
+        "fr": "Moyenne de caractères par mot",
+        "es": "Promedio de caracteres por palabra",
         "ar": "Average Characters per Word"
       },
       "businessContext_i18n": {
         "en": "Average length of words used to validate word count",
-        "tr": "Kelime sayısını doğrulamak için kullanılan ortalama kelime uzunluğu"
+        "tr": "Kelime sayısını doğrulamak için kullanılan ortalama kelime uzunluğu",
+        "de": "Durchschnittliche Länge der verwendeten Wörter zur Validierung der Wortanzahl",
+        "fr": "Longueur moyenne des mots utilisée pour valider le nombre de mots",
+        "es": "Longitud promedio de las palabras utilizadas para validar el recuento de palabras"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Total Pages",
         "tr": "Toplam Sayfa",
-        "de": "Total Pages",
-        "fr": "Total Pages",
-        "es": "Total Pages",
+        "de": "Gesamtseiten",
+        "fr": "Nombre total de pages",
+        "es": "Páginas totales",
         "ar": "Total Pages"
       },
       "businessContext_i18n": {
         "en": "Number of pages if known, for alternative calculation",
-        "tr": "Biliniyorsa alternatif hesaplama için sayfa sayısı"
+        "tr": "Biliniyorsa alternatif hesaplama için sayfa sayısı",
+        "de": "Seitenzahl, falls bekannt, für alternative Berechnung",
+        "fr": "Nombre de pages si connu, pour un calcul alternatif",
+        "es": "Número de páginas si se conoce, para cálculo alternativo"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Lines per Page",
         "tr": "Sayfa Başına Satır",
-        "de": "Lines per Page",
-        "fr": "Lines per Page",
-        "es": "Lines per Page",
+        "de": "Zeilen pro Seite",
+        "fr": "Lignes par page",
+        "es": "Líneas por página",
         "ar": "Lines per Page"
       },
       "businessContext_i18n": {
         "en": "Average number of lines on a page",
-        "tr": "Bir sayfadaki ortalama satır sayısı"
+        "tr": "Bir sayfadaki ortalama satır sayısı",
+        "de": "Durchschnittliche Anzahl Zeilen auf einer Seite",
+        "fr": "Nombre moyen de lignes sur une page",
+        "es": "Número promedio de líneas en una página"
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Words per Line",
         "tr": "Satır Başına Kelime",
-        "de": "Words per Line",
-        "fr": "Words per Line",
-        "es": "Words per Line",
+        "de": "Wörter pro Zeile",
+        "fr": "Mots par ligne",
+        "es": "Palabras por línea",
         "ar": "Words per Line"
       },
       "businessContext_i18n": {
         "en": "Average words per line",
-        "tr": "Satır başına ortalama kelime sayısı"
+        "tr": "Satır başına ortalama kelime sayısı",
+        "de": "Durchschnittliche Wörter pro Zeile",
+        "fr": "Nombre moyen de mots par ligne",
+        "es": "Promedio de palabras por línea"
       }
     },
     {
@@ -151,14 +172,17 @@
       "label_i18n": {
         "en": "Paragraphs per Page",
         "tr": "Sayfa Başına Paragraf",
-        "de": "Paragraphs per Page",
-        "fr": "Paragraphs per Page",
-        "es": "Paragraphs per Page",
+        "de": "Absätze pro Seite",
+        "fr": "Paragraphes par page",
+        "es": "Párrafos por página",
         "ar": "Paragraphs per Page"
       },
       "businessContext_i18n": {
         "en": "Typical paragraphs on a page, used for page-based estimate",
-        "tr": "Sayfa bazlı tahmin için kullanılan tipik paragraf sayısı"
+        "tr": "Sayfa bazlı tahmin için kullanılan tipik paragraf sayısı",
+        "de": "Typische Absätze auf einer Seite, verwendet für seitenbasierte Schätzung",
+        "fr": "Paragraphes typiques sur une page, utilisés pour l'estimation basée sur la page",
+        "es": "Párrafos típicos en una página, usado para estimación basada en páginas"
       }
     }
   ],

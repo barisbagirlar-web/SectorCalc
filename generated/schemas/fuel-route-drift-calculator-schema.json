@@ -24,12 +24,16 @@
       "label_i18n": {
         "en": "Planned Route Distance",
         "tr": "Planlanan Rota Mesafesi",
-        "de": "Geplante Routenentfernung"
+        "de": "Geplante Routenentfernung",
+        "fr": "Distance de route planifiée",
+        "es": "Distancia de ruta planificada"
       },
       "businessContext_i18n": {
         "en": "Total distance of the planned route as per logistics plan.",
         "tr": "Lojistik planına göre planlanan rotanın toplam mesafesi.",
-        "de": "Gesamtentfernung der geplanten Route gemäß Logistikplan."
+        "de": "Gesamtentfernung der geplanten Route gemäß Logistikplan.",
+        "fr": "Distance totale de la route planifiée selon le plan logistique.",
+        "es": "Distancia total de la ruta planificada según el plan logístico."
       }
     },
     {
@@ -44,12 +48,16 @@
       "label_i18n": {
         "en": "Actual Route Distance",
         "tr": "Gerçek Rota Mesafesi",
-        "de": "Tatsächliche Routenentfernung"
+        "de": "Tatsächliche Routenentfernung",
+        "fr": "Distance de route réelle",
+        "es": "Distancia de ruta real"
       },
       "businessContext_i18n": {
         "en": "Total distance actually driven, including deviations.",
         "tr": "Sapmalar dahil fiilen sürülen toplam mesafe.",
-        "de": "Tatsächlich gefahrene Gesamtstrecke inkl. Abweichungen."
+        "de": "Tatsächlich gefahrene Gesamtstrecke inkl. Abweichungen.",
+        "fr": "Distance totale réellement parcourue, y compris les écarts.",
+        "es": "Distancia total realmente recorrida, incluyendo desviaciones."
       }
     },
     {
@@ -64,12 +72,16 @@
       "label_i18n": {
         "en": "Average Fuel Consumption Rate",
         "tr": "Ortalama Yakıt Tüketim Oranı",
-        "de": "Durchschnittlicher Kraftstoffverbrauch"
+        "de": "Durchschnittlicher Kraftstoffverbrauch",
+        "fr": "Taux de consommation moyen de carburant",
+        "es": "Tasa media de consumo de combustible"
       },
       "businessContext_i18n": {
         "en": "Vehicle fuel consumption rate under standard conditions (ISO 14040).",
         "tr": "Standart koşullar altında (ISO 14040) araç yakıt tüketim oranı.",
-        "de": "Kraftstoffverbrauch des Fahrzeugs unter Standardbedingungen (ISO 14040)."
+        "de": "Kraftstoffverbrauch des Fahrzeugs unter Standardbedingungen (ISO 14040).",
+        "fr": "Taux de consommation de carburant du véhicule dans des conditions standard (ISO 14040).",
+        "es": "Tasa de consumo de combustible del vehículo en condiciones estándar (ISO 14040)."
       }
     },
     {
@@ -84,12 +96,16 @@
       "label_i18n": {
         "en": "Fuel Price per Liter",
         "tr": "Litre Başına Yakıt Fiyatı",
-        "de": "Kraftstoffpreis pro Liter"
+        "de": "Kraftstoffpreis pro Liter",
+        "fr": "Prix du carburant par litre",
+        "es": "Precio del combustible por litro"
       },
       "businessContext_i18n": {
         "en": "Current market price of diesel or gasoline per liter.",
         "tr": "Litre başına dizel veya benzinin güncel piyasa fiyatı.",
-        "de": "Aktueller Marktpreis für Diesel oder Benzin pro Liter."
+        "de": "Aktueller Marktpreis für Diesel oder Benzin pro Liter.",
+        "fr": "Prix actuel du marché du diesel ou de l'essence par litre.",
+        "es": "Precio actual de mercado del diésel o gasolina por litro."
       }
     },
     {
@@ -104,12 +120,16 @@
       "label_i18n": {
         "en": "Load Weight",
         "tr": "Yük Ağırlığı",
-        "de": "Lastgewicht"
+        "de": "Lastgewicht",
+        "fr": "Poids de la charge",
+        "es": "Peso de la carga"
       },
       "businessContext_i18n": {
         "en": "Total weight of cargo carried, affects fuel consumption.",
         "tr": "Taşınan toplam yük ağırlığı, yakıt tüketimini etkiler.",
-        "de": "Gesamtgewicht der transportierten Ladung, beeinflusst den Kraftstoffverbrauch."
+        "de": "Gesamtgewicht der transportierten Ladung, beeinflusst den Kraftstoffverbrauch.",
+        "fr": "Poids total de la cargaison transportée, affecte la consommation de carburant.",
+        "es": "Peso total de la carga transportada, afecta el consumo de combustible."
       }
     },
     {
@@ -126,12 +146,16 @@
       "label_i18n": {
         "en": "Terrain Type",
         "tr": "Arazi Türü",
-        "de": "Geländetyp"
+        "de": "Geländetyp",
+        "fr": "Type de terrain",
+        "es": "Tipo de terreno"
       },
       "businessContext_i18n": {
         "en": "Terrain classification affecting fuel efficiency (WERC guidelines).",
         "tr": "Yakıt verimliliğini etkileyen arazi sınıflandırması (WERC yönergeleri).",
-        "de": "Geländeklassifizierung, die die Kraftstoffeffizienz beeinflusst (WERC-Richtlinien)."
+        "de": "Geländeklassifizierung, die die Kraftstoffeffizienz beeinflusst (WERC-Richtlinien).",
+        "fr": "Classification du terrain affectant l'efficacité énergétique (directives WERC).",
+        "es": "Clasificación del terreno que afecta la eficiencia del combustible (directrices WERC)."
       },
       "unit": "unit"
     },
@@ -149,12 +173,16 @@
       "label_i18n": {
         "en": "Traffic Condition",
         "tr": "Trafik Durumu",
-        "de": "Verkehrsbedingungen"
+        "de": "Verkehrsbedingungen",
+        "fr": "Condition de circulation",
+        "es": "Condición del tráfico"
       },
       "businessContext_i18n": {
         "en": "Traffic density impact on fuel consumption and route drift.",
         "tr": "Yakıt tüketimi ve rota sapması üzerinde trafik yoğunluğu etkisi.",
-        "de": "Auswirkung der Verkehrsdichte auf Kraftstoffverbrauch und Routenabweichung."
+        "de": "Auswirkung der Verkehrsdichte auf Kraftstoffverbrauch und Routenabweichung.",
+        "fr": "Impact de la densité du trafic sur la consommation de carburant et les écarts de route.",
+        "es": "Impacto de la densidad del tráfico en el consumo de combustible y la desviación de ruta."
       },
       "unit": "unit"
     },
@@ -170,12 +198,16 @@
       "label_i18n": {
         "en": "Driver Behavior Score",
         "tr": "Sürücü Davranış Puanı",
-        "de": "Fahrerverhaltensbewertung"
+        "de": "Fahrerverhaltensbewertung",
+        "fr": "Score de comportement du conducteur",
+        "es": "Puntuación de comportamiento del conductor"
       },
       "businessContext_i18n": {
         "en": "Eco-driving score based on acceleration, braking, idling (Lean Six Sigma metric).",
         "tr": "Hızlanma, frenleme, rölantiye dayalı eko-sürüş puanı (Yalın Altı Sigma metriği).",
-        "de": "Öko-Fahrbewertung basierend auf Beschleunigung, Bremsen, Leerlauf (Lean Six Sigma-Metrik)."
+        "de": "Öko-Fahrbewertung basierend auf Beschleunigung, Bremsen, Leerlauf (Lean Six Sigma-Metrik).",
+        "fr": "Score d'éco-conduite basé sur l'accélération, le freinage, le ralenti (métrique Lean Six Sigma).",
+        "es": "Puntuación de conducción ecológica basada en aceleración, frenado, ralentí (métrica Lean Seis Sigma)."
       }
     }
   ],

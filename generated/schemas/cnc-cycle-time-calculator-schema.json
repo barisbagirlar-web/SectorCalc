@@ -24,12 +24,16 @@
       "label_i18n": {
         "en": "Cutting Length",
         "tr": "Kesme Uzunluğu",
-        "de": "Schnittlänge"
+        "de": "Schnittlänge",
+        "fr": "Longueur de coupe",
+        "es": "Longitud de corte"
       },
       "businessContext_i18n": {
         "en": "Total length of the tool path in contact with the workpiece. Derived from CAM or drawing.",
         "tr": "Takım yolunun iş parçasıyla temas halindeki toplam uzunluğu. CAM veya çizimden elde edilir.",
-        "de": "Gesamtlänge des Werkzeugwegs im Kontakt mit dem Werkstück. Abgeleitet aus CAM oder Zeichnung."
+        "de": "Gesamtlänge des Werkzeugwegs im Kontakt mit dem Werkstück. Abgeleitet aus CAM oder Zeichnung.",
+        "fr": "Longueur totale du trajet d'outil en contact avec la pièce. Issue de la FAO ou du dessin.",
+        "es": "Longitud total de la trayectoria de la herramienta en contacto con la pieza. Derivada del CAM o del plano."
       }
     },
     {
@@ -44,12 +48,16 @@
       "label_i18n": {
         "en": "Feed Rate",
         "tr": "İlerleme Hızı",
-        "de": "Vorschubgeschwindigkeit"
+        "de": "Vorschubgeschwindigkeit",
+        "fr": "Avance",
+        "es": "Avance"
       },
       "businessContext_i18n": {
         "en": "Linear feed speed of the cutting tool. Based on material and tool specifications.",
         "tr": "Kesici takımın doğrusal ilerleme hızı. Malzeme ve takım özelliklerine göre belirlenir.",
-        "de": "Lineare Vorschubgeschwindigkeit des Schneidwerkzeugs. Basierend auf Material- und Werkzeugspezifikationen."
+        "de": "Lineare Vorschubgeschwindigkeit des Schneidwerkzeugs. Basierend auf Material- und Werkzeugspezifikationen.",
+        "fr": "Vitesse d'avance linéaire de l'outil de coupe. Basée sur le matériau et les spécifications de l'outil.",
+        "es": "Velocidad de avance lineal de la herramienta de corte. Basada en las especificaciones del material y la herramienta."
       }
     },
     {
@@ -64,12 +72,16 @@
       "label_i18n": {
         "en": "Spindle Speed",
         "tr": "İş Mili Hızı",
-        "de": "Spindeldrehzahl"
+        "de": "Spindeldrehzahl",
+        "fr": "Vitesse de broche",
+        "es": "Velocidad del husillo"
       },
       "businessContext_i18n": {
         "en": "Rotational speed of the spindle. Affects cutting speed and surface finish.",
         "tr": "İş milinin dönüş hızı. Kesme hızını ve yüzey kalitesini etkiler.",
-        "de": "Rotationsgeschwindigkeit der Spindel. Beeinflusst Schnittgeschwindigkeit und Oberflächengüte."
+        "de": "Rotationsgeschwindigkeit der Spindel. Beeinflusst Schnittgeschwindigkeit und Oberflächengüte.",
+        "fr": "Vitesse de rotation de la broche. Affecte la vitesse de coupe et l'état de surface.",
+        "es": "Velocidad de rotación del husillo. Afecta la velocidad de corte y el acabado superficial."
       }
     },
     {
@@ -84,12 +96,16 @@
       "label_i18n": {
         "en": "Number of Passes",
         "tr": "Pas Sayısı",
-        "de": "Anzahl der Schnitte"
+        "de": "Anzahl der Schnitte",
+        "fr": "Nombre de passes",
+        "es": "Número de pasadas"
       },
       "businessContext_i18n": {
         "en": "Number of cutting passes required to achieve final geometry.",
         "tr": "Nihai geometriyi elde etmek için gereken kesme pası sayısı.",
-        "de": "Anzahl der erforderlichen Schnitte zur Erzielung der endgültigen Geometrie."
+        "de": "Anzahl der erforderlichen Schnitte zur Erzielung der endgültigen Geometrie.",
+        "fr": "Nombre de passes de coupe nécessaires pour obtenir la géométrie finale.",
+        "es": "Número de pasadas de corte necesarias para lograr la geometría final."
       }
     },
     {
@@ -104,12 +120,16 @@
       "label_i18n": {
         "en": "Rapid Traverse Distance",
         "tr": "Hızlı Hareket Mesafesi",
-        "de": "Eilgangstrecke"
+        "de": "Eilgangstrecke",
+        "fr": "Distance en déplacement rapide",
+        "es": "Distancia de desplazamiento rápido"
       },
       "businessContext_i18n": {
         "en": "Total distance traveled at rapid traverse (non-cutting moves).",
         "tr": "Hızlı hareketle kat edilen toplam mesafe (kesme dışı hareketler).",
-        "de": "Gesamtstrecke im Eilgang (Nicht-Schnittbewegungen)."
+        "de": "Gesamtstrecke im Eilgang (Nicht-Schnittbewegungen).",
+        "fr": "Distance totale parcourue en déplacement rapide (mouvements sans coupe).",
+        "es": "Distancia total recorrida en desplazamiento rápido (movimientos sin corte)."
       }
     },
     {
@@ -124,12 +144,16 @@
       "label_i18n": {
         "en": "Rapid Traverse Rate",
         "tr": "Hızlı Hareket Hızı",
-        "de": "Eilganggeschwindigkeit"
+        "de": "Eilganggeschwindigkeit",
+        "fr": "Vitesse de déplacement rapide",
+        "es": "Velocidad de desplazamiento rápido"
       },
       "businessContext_i18n": {
         "en": "Maximum speed of the machine during rapid moves.",
         "tr": "Makinenin hızlı hareketler sırasındaki maksimum hızı.",
-        "de": "Maximale Geschwindigkeit der Maschine bei Eilbewegungen."
+        "de": "Maximale Geschwindigkeit der Maschine bei Eilbewegungen.",
+        "fr": "Vitesse maximale de la machine lors des déplacements rapides.",
+        "es": "Velocidad máxima de la máquina durante movimientos rápidos."
       }
     },
     {
@@ -144,12 +168,16 @@
       "label_i18n": {
         "en": "Tool Change Time",
         "tr": "Takım Değiştirme Süresi",
-        "de": "Werkzeugwechselzeit"
+        "de": "Werkzeugwechselzeit",
+        "fr": "Temps de changement d'outil",
+        "es": "Tiempo de cambio de herramienta"
       },
       "businessContext_i18n": {
         "en": "Average time to change a tool, including turret indexing.",
         "tr": "Bir takımı değiştirmek için geçen ortalama süre, taret indeksleme dahil.",
-        "de": "Durchschnittliche Zeit für einen Werkzeugwechsel, einschließlich Revolverindexierung."
+        "de": "Durchschnittliche Zeit für einen Werkzeugwechsel, einschließlich Revolverindexierung.",
+        "fr": "Temps moyen pour changer un outil, y compris l'indexation du magasin.",
+        "es": "Tiempo promedio para cambiar una herramienta, incluyendo el indexado del torreta."
       }
     },
     {
@@ -164,12 +192,16 @@
       "label_i18n": {
         "en": "Number of Tool Changes",
         "tr": "Takım Değiştirme Sayısı",
-        "de": "Anzahl der Werkzeugwechsel"
+        "de": "Anzahl der Werkzeugwechsel",
+        "fr": "Nombre de changements d'outil",
+        "es": "Número de cambios de herramienta"
       },
       "businessContext_i18n": {
         "en": "Total tool changes required for the operation.",
         "tr": "Operasyon için gereken toplam takım değiştirme sayısı.",
-        "de": "Gesamtzahl der für den Vorgang erforderlichen Werkzeugwechsel."
+        "de": "Gesamtzahl der für den Vorgang erforderlichen Werkzeugwechsel.",
+        "fr": "Nombre total de changements d'outil requis pour l'opération.",
+        "es": "Cambios totales de herramienta requeridos para la operación."
       }
     }
   ],

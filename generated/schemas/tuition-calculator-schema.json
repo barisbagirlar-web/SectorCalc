@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Tuition per Credit",
         "tr": "Kredi Başına Öğrenim Ücreti",
-        "de": "Tuition per Credit",
-        "fr": "Tuition per Credit",
+        "de": "Studiengebühren pro Leistungspunkt",
+        "fr": "Frais de scolarité par crédit",
         "es": "Tuition per Credit",
         "ar": "Tuition per Credit"
       },
       "businessContext_i18n": {
         "en": "Cost per credit hour",
-        "tr": "Kredi saati başına maliyet"
+        "tr": "Kredi saati başına maliyet",
+        "de": "Kosten pro Leistungspunkt",
+        "fr": "Coût par heure de crédit"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Number of Credits",
         "tr": "Kredi Sayısı",
-        "de": "Number of Credits",
-        "fr": "Number of Credits",
+        "de": "Anzahl der Credits",
+        "fr": "Nombre de crédits",
         "es": "Number of Credits",
         "ar": "Number of Credits"
       },
       "businessContext_i18n": {
         "en": "Total credit hours enrolled",
-        "tr": "Toplam kayıtlı kredi saati"
+        "tr": "Toplam kayıtlı kredi saati",
+        "de": "Gesamtzahl der eingeschriebenen Kreditstunden",
+        "fr": "Total d'heures de cours inscrites"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Additional Fees",
         "tr": "Ek Ücretler",
         "de": "Zusätzliche Gebühren",
-        "fr": "Additional Fees",
-        "es": "Additional Fees",
+        "fr": "Frais supplémentaires",
+        "es": "Cargos adicionales",
         "ar": "Additional Fees"
       },
       "businessContext_i18n": {
         "en": "Extra fees like lab, technology, etc.",
-        "tr": "Laboratuvar, teknoloji vb. ek ücretler"
+        "tr": "Laboratuvar, teknoloji vb. ek ücretler",
+        "de": "Zusätzliche Gebühren wie Labor, Technologie usw.",
+        "fr": "Frais supplémentaires (laboratoire, technologie, etc.)"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Discount Percentage",
         "tr": "İndirim Yüzdesi",
         "de": "Rabattprozentsatz",
-        "fr": "Discount Percentage",
-        "es": "Discount Percentage",
+        "fr": "Pourcentage de réduction",
+        "es": "Porcentaje de descuento",
         "ar": "Discount Percentage"
       },
       "businessContext_i18n": {
         "en": "Percentage discount on subtotal",
-        "tr": "Ara toplamda yüzde indirim"
+        "tr": "Ara toplamda yüzde indirim",
+        "de": "Prozentualer Rabatt auf den Zwischensumme",
+        "fr": "Pourcentage de réduction sur le sous-total"
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
         "de": "Steuersatz",
-        "fr": "Tax Rate",
-        "es": "Tax Rate",
+        "fr": "Taux de taxe",
+        "es": "Tasa de impuesto",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Tax rate applied after discount",
-        "tr": "İndirim sonrası uygulanan vergi oranı"
+        "tr": "İndirim sonrası uygulanan vergi oranı",
+        "de": "Steuersatz nach Rabatt",
+        "fr": "Taux de taxe appliqué après réduction"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Scholarship",
         "tr": "Burs",
-        "de": "Scholarship",
-        "fr": "Scholarship",
+        "de": "Stipendium",
+        "fr": "Bourse",
         "es": "Scholarship",
         "ar": "Scholarship"
       },
       "businessContext_i18n": {
         "en": "Scholarship amount to deduct",
-        "tr": "Düşülecek burs miktarı"
+        "tr": "Düşülecek burs miktarı",
+        "de": "Abzuziehender Stipendienbetrag",
+        "fr": "Montant de la bourse à déduire"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Raw Material Footprint",
         "tr": "Hammadde Ayak İzi",
-        "de": "Raw Material Footprint",
-        "fr": "Raw Material Footprint",
-        "es": "Raw Material Footprint",
+        "de": "Rohmaterial-Fußabdruck",
+        "fr": "Empreinte matière première",
+        "es": "Huella de materia prima",
         "ar": "Raw Material Footprint"
       },
       "businessContext_i18n": {
         "en": "Carbon footprint from raw material extraction and processing",
-        "tr": "Hammadde çıkarma ve işlemeden kaynaklanan karbon ayak izi"
+        "tr": "Hammadde çıkarma ve işlemeden kaynaklanan karbon ayak izi",
+        "de": "CO₂-Fußabdruck aus Rohmaterialgewinnung und -verarbeitung",
+        "fr": "Empreinte carbone de l'extraction et du traitement des matières premières",
+        "es": "Huella de carbono de la extracción y procesamiento de materias primas"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Manufacturing Footprint",
         "tr": "Üretim Ayak İzi",
-        "de": "Manufacturing Footprint",
-        "fr": "Manufacturing Footprint",
-        "es": "Manufacturing Footprint",
+        "de": "Herstellungs-Fußabdruck",
+        "fr": "Empreinte de fabrication",
+        "es": "Huella de fabricación",
         "ar": "Manufacturing Footprint"
       },
       "businessContext_i18n": {
         "en": "Emissions from manufacturing process energy and waste",
-        "tr": "Üretim süreci enerjisi ve atıklarından kaynaklanan emisyonlar"
+        "tr": "Üretim süreci enerjisi ve atıklarından kaynaklanan emisyonlar",
+        "de": "Emissionen aus Energie und Abfall des Herstellungsprozesses",
+        "fr": "Émissions liées à l'énergie et aux déchets du processus de fabrication",
+        "es": "Emisiones de energía y residuos del proceso de fabricación"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Transport Distance",
         "tr": "Nakliye Mesafesi",
-        "de": "Transport Distance",
-        "fr": "Transport Distance",
-        "es": "Transport Distance",
+        "de": "Transportdistanz",
+        "fr": "Distance de transport",
+        "es": "Distancia de transporte",
         "ar": "Transport Distance"
       },
       "businessContext_i18n": {
         "en": "Total distance transported over product lifecycle",
-        "tr": "Ürün yaşam döngüsü boyunca taşınan toplam mesafe"
+        "tr": "Ürün yaşam döngüsü boyunca taşınan toplam mesafe",
+        "de": "Gesamte transportierte Distanz über den Produktlebenszyklus",
+        "fr": "Distance totale transportée sur le cycle de vie du produit",
+        "es": "Distancia total transportada durante el ciclo de vida del producto"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Transport Emission Factor",
         "tr": "Taşıma Emisyon Faktörü",
-        "de": "Transport Emission Factor",
-        "fr": "Transport Emission Factor",
-        "es": "Transport Emission Factor",
+        "de": "Transportemissionsfaktor",
+        "fr": "Facteur d'émission de transport",
+        "es": "Factor de emisión de transporte",
         "ar": "Transport Emission Factor"
       },
       "businessContext_i18n": {
         "en": "Emission factor per kilometer for transport mode",
-        "tr": "Taşıma modu için kilometre başına emisyon faktörü"
+        "tr": "Taşıma modu için kilometre başına emisyon faktörü",
+        "de": "Emissionsfaktor pro Kilometer für das Transportmittel",
+        "fr": "Facteur d'émission par kilomètre pour le mode de transport",
+        "es": "Factor de emisión por kilómetro para el modo de transporte"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Use Phase Energy",
         "tr": "Kullanım Aşaması Enerjisi",
-        "de": "Use Phase Energy",
-        "fr": "Use Phase Energy",
-        "es": "Use Phase Energy",
+        "de": "Nutzungsenergie",
+        "fr": "Énergie en phase d'utilisation",
+        "es": "Energía en fase de uso",
         "ar": "Use Phase Energy"
       },
       "businessContext_i18n": {
         "en": "Energy consumed during product use phase",
-        "tr": "Ürün kullanım aşamasında tüketilen enerji"
+        "tr": "Ürün kullanım aşamasında tüketilen enerji",
+        "de": "Während der Nutzungsphase verbrauchte Energie",
+        "fr": "Énergie consommée pendant la phase d'utilisation du produit",
+        "es": "Energía consumida durante la fase de uso del producto"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Use Phase Emission Factor",
         "tr": "Kullanım Aşaması Emisyon Faktörü",
-        "de": "Use Phase Emission Factor",
-        "fr": "Use Phase Emission Factor",
-        "es": "Use Phase Emission Factor",
+        "de": "Emissionsfaktor Nutzungsphase",
+        "fr": "Facteur d'émission en phase d'utilisation",
+        "es": "Factor de emisión en fase de uso",
         "ar": "Use Phase Emission Factor"
       },
       "businessContext_i18n": {
         "en": "Grid emission factor for use phase electricity",
-        "tr": "Kullanım aşaması elektriği için şebeke emisyon faktörü"
+        "tr": "Kullanım aşaması elektriği için şebeke emisyon faktörü",
+        "de": "Netz-Emissionsfaktor für Strom in der Nutzungsphase",
+        "fr": "Facteur d'émission du réseau pour l'électricité en phase d'utilisation",
+        "es": "Factor de emisión de la red para electricidad en fase de uso"
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "End-of-Life Footprint",
         "tr": "Kullanım Ömrü Sonu Ayak İzi",
-        "de": "End-of-Life Footprint",
-        "fr": "End-of-Life Footprint",
-        "es": "End-of-Life Footprint",
+        "de": "Fußabdruck am Lebensende",
+        "fr": "Empreinte en fin de vie",
+        "es": "Huella al final de la vida útil",
         "ar": "End-of-Life Footprint"
       },
       "businessContext_i18n": {
         "en": "Emissions from disposal, recycling, or incineration",
-        "tr": "Bertaraf, geri dönüşüm veya yakmadan kaynaklanan emisyonlar"
+        "tr": "Bertaraf, geri dönüşüm veya yakmadan kaynaklanan emisyonlar",
+        "de": "Emissionen durch Entsorgung, Recycling oder Verbrennung",
+        "fr": "Émissions liées à l'élimination, au recyclage ou à l'incinération",
+        "es": "Emisiones por eliminación, reciclaje o incineración"
       }
     }
   ],

@@ -20,11 +20,17 @@
       "businessContext": "Original planned project duration in months as per baseline schedule.",
       "label_i18n": {
         "en": "Planned Duration (months)",
-        "tr": "Planlanan Süre (ay)"
+        "tr": "Planlanan Süre (ay)",
+        "de": "Geplante Dauer (Monate)",
+        "fr": "Durée planifiée (mois)",
+        "es": "Duración planificada (meses)"
       },
       "businessContext_i18n": {
         "en": "Original planned project duration in months as per baseline schedule.",
-        "tr": "Temel takvime göre orijinal planlanan proje süresi (ay cinsinden)."
+        "tr": "Temel takvime göre orijinal planlanan proje süresi (ay cinsinden).",
+        "de": "Ursprünglich geplante Projektdauer in Monaten gemäß Basisplan.",
+        "fr": "Durée initiale prévue du projet en mois selon le calendrier de référence",
+        "es": "Duración original planificada del proyecto en meses según el cronograma base."
       }
     },
     {
@@ -38,11 +44,17 @@
       "businessContext": "Elapsed time since project start, used to compute schedule performance.",
       "label_i18n": {
         "en": "Actual Duration to Date (months)",
-        "tr": "Bugüne Kadar Geçen Süre (ay)"
+        "tr": "Bugüne Kadar Geçen Süre (ay)",
+        "de": "Tatsächliche Dauer bis heute (Monate)",
+        "fr": "Durée réelle à ce jour (mois)",
+        "es": "Duración real hasta la fecha (meses)"
       },
       "businessContext_i18n": {
         "en": "Elapsed time since project start, used to compute schedule performance.",
-        "tr": "Proje başlangıcından bu yana geçen süre, takvim performansını hesaplamak için kullanılır."
+        "tr": "Proje başlangıcından bu yana geçen süre, takvim performansını hesaplamak için kullanılır.",
+        "de": "Verstrichene Zeit seit Projektstart, zur Berechnung der Termintreue.",
+        "fr": "Temps écoulé depuis le début du projet, utilisé pour calculer la performance du calendrier",
+        "es": "Tiempo transcurrido desde el inicio del proyecto, utilizado para calcular el rendimiento del cronograma."
       }
     },
     {
@@ -56,11 +68,17 @@
       "businessContext": "Total budgeted cost for the project at completion.",
       "label_i18n": {
         "en": "Planned Total Cost (USD)",
-        "tr": "Planlanan Toplam Maliyet (USD)"
+        "tr": "Planlanan Toplam Maliyet (USD)",
+        "de": "Geplante Gesamtkosten (USD)",
+        "fr": "Coût total planifié (USD)",
+        "es": "Costo total planificado (USD)"
       },
       "businessContext_i18n": {
         "en": "Total budgeted cost for the project at completion.",
-        "tr": "Projenin tamamlanması için bütçelenen toplam maliyet."
+        "tr": "Projenin tamamlanması için bütçelenen toplam maliyet.",
+        "de": "Gesamtbudget für das Projekt bei Abschluss.",
+        "fr": "Coût total budgété pour le projet à son achèvement",
+        "es": "Costo total presupuestado para el proyecto al finalizar."
       }
     },
     {
@@ -74,11 +92,17 @@
       "businessContext": "Total costs actually incurred up to the current reporting period.",
       "label_i18n": {
         "en": "Actual Cost Incurred (USD)",
-        "tr": "Gerçekleşen Maliyet (USD)"
+        "tr": "Gerçekleşen Maliyet (USD)",
+        "de": "Tatsächlich angefallene Kosten (USD)",
+        "fr": "Coût réel engagé (USD)",
+        "es": "Costo real incurrido (USD)"
       },
       "businessContext_i18n": {
         "en": "Total costs actually incurred up to the current reporting period.",
-        "tr": "Mevcut raporlama dönemine kadar fiilen gerçekleşen toplam maliyetler."
+        "tr": "Mevcut raporlama dönemine kadar fiilen gerçekleşen toplam maliyetler.",
+        "de": "Bis zum aktuellen Berichtszeitraum tatsächlich angefallene Kosten.",
+        "fr": "Coûts totaux réellement engagés jusqu'à la période de rapport actuelle",
+        "es": "Costos totales realmente incurridos hasta el período de informe actual."
       }
     },
     {
@@ -92,11 +116,17 @@
       "businessContext": "Estimated percentage of work completed based on earned value or physical progress.",
       "label_i18n": {
         "en": "Percent Complete (%)",
-        "tr": "Tamamlanma Yüzdesi (%)"
+        "tr": "Tamamlanma Yüzdesi (%)",
+        "de": "Fertigstellungsgrad (%)",
+        "fr": "Pourcentage d'avancement (%)",
+        "es": "Porcentaje completado (%)"
       },
       "businessContext_i18n": {
         "en": "Estimated percentage of work completed based on earned value or physical progress.",
-        "tr": "Kazanılmış değer veya fiziksel ilerlemeye dayalı olarak tahmini tamamlanma yüzdesi."
+        "tr": "Kazanılmış değer veya fiziksel ilerlemeye dayalı olarak tahmini tamamlanma yüzdesi.",
+        "de": "Geschätzter Prozentsatz der abgeschlossenen Arbeiten basierend auf Earned Value oder physischem Fortschritt.",
+        "fr": "Pourcentage estimé des travaux achevés basé sur la valeur acquise ou l'avancement physique",
+        "es": "Porcentaje estimado de trabajo completado basado en el valor ganado o el progreso físico."
       }
     },
     {
@@ -115,11 +145,17 @@
       "businessContext": "Frequency of scope changes affecting project baseline. Low = 0-1 changes, Moderate = 2-4, High = 5+.",
       "label_i18n": {
         "en": "Scope Change Frequency",
-        "tr": "Kapsam Değişiklik Sıklığı"
+        "tr": "Kapsam Değişiklik Sıklığı",
+        "de": "Häufigkeit von Umfangsänderungen",
+        "fr": "Fréquence des changements de périmètre",
+        "es": "Frecuencia de cambios de alcance"
       },
       "businessContext_i18n": {
         "en": "Frequency of scope changes affecting project baseline. Low = 0-1 changes, Moderate = 2-4, High = 5+.",
-        "tr": "Proje temelini etkileyen kapsam değişikliklerinin sıklığı. Düşük = 0-1 değişiklik, Orta = 2-4, Yüksek = 5+."
+        "tr": "Proje temelini etkileyen kapsam değişikliklerinin sıklığı. Düşük = 0-1 değişiklik, Orta = 2-4, Yüksek = 5+.",
+        "de": "Häufigkeit von Umfangsänderungen, die den Projektbasisplan beeinflussen. Niedrig = 0–1 Änderungen, Mittel = 2–4, Hoch = 5+.",
+        "fr": "Fréquence des changements de périmètre affectant la référence du projet. Faible = 0-1 changements, Modérée = 2-4, Élevée = 5+.",
+        "es": "Frecuencia de cambios de alcance que afectan la línea base del proyecto. Baja = 0-1 cambios, Moderada = 2-4, Alta = 5+."
       }
     },
     {
@@ -138,11 +174,17 @@
       "businessContext": "Average experience level of the core project team.",
       "label_i18n": {
         "en": "Team Experience Level",
-        "tr": "Ekip Deneyim Seviyesi"
+        "tr": "Ekip Deneyim Seviyesi",
+        "de": "Erfahrungsniveau des Teams",
+        "fr": "Niveau d'expérience de l'équipe",
+        "es": "Nivel de experiencia del equipo"
       },
       "businessContext_i18n": {
         "en": "Average experience level of the core project team.",
-        "tr": "Proje ekibinin ortalama deneyim seviyesi."
+        "tr": "Proje ekibinin ortalama deneyim seviyesi.",
+        "de": "Durchschnittliches Erfahrungsniveau des Kernprojektteams.",
+        "fr": "Niveau d'expérience moyen de l'équipe principale du projet",
+        "es": "Nivel de experiencia promedio del equipo central del proyecto."
       }
     },
     {
@@ -156,11 +198,17 @@
       "businessContext": "Number of defects per unit of output (e.g., per 1000 lines of code, per 100 parts).",
       "label_i18n": {
         "en": "Quality Defect Rate (defects per unit)",
-        "tr": "Kalite Kusur Oranı (birim başına kusur)"
+        "tr": "Kalite Kusur Oranı (birim başına kusur)",
+        "de": "Qualitätsfehlerrate (Fehler pro Einheit)",
+        "fr": "Taux de défauts qualité (défauts par unité)",
+        "es": "Tasa de defectos de calidad (defectos por unidad)"
       },
       "businessContext_i18n": {
         "en": "Number of defects per unit of output (e.g., per 1000 lines of code, per 100 parts).",
-        "tr": "Birim çıktı başına kusur sayısı (ör. 1000 kod satırı başına, 100 parça başına)."
+        "tr": "Birim çıktı başına kusur sayısı (ör. 1000 kod satırı başına, 100 parça başına).",
+        "de": "Anzahl der Fehler pro Ausgabeeinheit (z. B. pro 1000 Codezeilen, pro 100 Teile).",
+        "fr": "Nombre de défauts par unité de production (par exemple, pour 1000 lignes de code, pour 100 pièces).",
+        "es": "Número de defectos por unidad de producción (por ejemplo, por cada 1000 líneas de código, por cada 100 piezas)."
       }
     }
   ],

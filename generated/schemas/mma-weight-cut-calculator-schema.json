@@ -12,13 +12,16 @@
         "en": "Current Weight",
         "tr": "Mevcut Ağırlık",
         "de": "Aktuelles Gewicht",
-        "fr": "Current Weight",
-        "es": "Current Weight",
+        "fr": "Poids actuel",
+        "es": "Peso actual",
         "ar": "Current Weight"
       },
       "businessContext_i18n": {
         "en": "The fighter's weight before cutting, in kilograms.",
-        "tr": "Sporcunun kesim öncesi ağırlığı, kilogram cinsinden."
+        "tr": "Sporcunun kesim öncesi ağırlığı, kilogram cinsinden.",
+        "de": "Das Gewicht des Kämpfers vor der Gewichtsreduktion in Kilogramm.",
+        "fr": "Poids du combattant avant la coupe, en kilogrammes.",
+        "es": "El peso del luchador antes del corte, en kilogramos."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Body Fat %",
         "tr": "Vücut Yağ Oranı (%)",
-        "de": "Body Fat %",
-        "fr": "Body Fat %",
-        "es": "Body Fat %",
+        "de": "Körperfettanteil %",
+        "fr": "% de graisse corporelle",
+        "es": "% de grasa corporal",
         "ar": "Body Fat %"
       },
       "businessContext_i18n": {
         "en": "Current body fat percentage.",
-        "tr": "Mevcut vücut yağ yüzdesi."
+        "tr": "Mevcut vücut yağ yüzdesi.",
+        "de": "Aktueller Körperfettanteil in Prozent.",
+        "fr": "Pourcentage actuel de graisse corporelle.",
+        "es": "Porcentaje actual de grasa corporal."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Target Fight Weight",
         "tr": "Hedef Dövüş Ağırlığı",
-        "de": "Target Fight Weight",
-        "fr": "Target Fight Weight",
-        "es": "Target Fight Weight",
+        "de": "Zielkampfgewicht",
+        "fr": "Poids de combat cible",
+        "es": "Peso objetivo de pelea",
         "ar": "Target Fight Weight"
       },
       "businessContext_i18n": {
         "en": "The target weight to make, in kilograms.",
-        "tr": "Ulaşılması gereken hedef ağırlık, kilogram cinsinden."
+        "tr": "Ulaşılması gereken hedef ağırlık, kilogram cinsinden.",
+        "de": "Das Zielgewicht in Kilogramm, das erreicht werden muss.",
+        "fr": "Poids cible à atteindre, en kilogrammes.",
+        "es": "Peso objetivo a alcanzar, en kilogramos."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Max Dehydration %",
         "tr": "Maksimum Dehidrasyon Oranı (%)",
-        "de": "Max Dehydration %",
-        "fr": "Max Dehydration %",
-        "es": "Max Dehydration %",
+        "de": "Maximale Dehydrierung %",
+        "fr": "% de déshydratation max",
+        "es": "% máximo de deshidratación",
         "ar": "Max Dehydration %"
       },
       "businessContext_i18n": {
         "en": "Maximum safe dehydration as percentage of current body weight (5% is common extreme).",
-        "tr": "Mevcut vücut ağırlığının yüzdesi olarak maksimum güvenli dehidrasyon (%5 yaygın uç noktadır)."
+        "tr": "Mevcut vücut ağırlığının yüzdesi olarak maksimum güvenli dehidrasyon (%5 yaygın uç noktadır).",
+        "de": "Maximale sichere Dehydrierung als Prozentsatz des aktuellen Körpergewichts (5 % ist üblich extrem).",
+        "fr": "Déshydratation maximale sécuritaire en pourcentage du poids corporel actuel (5% est un extrême courant).",
+        "es": "Deshidratación máxima segura como porcentaje del peso corporal actual (5% es un extremo común)."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Days Until Weigh-in",
         "tr": "Tartıya Kalan Gün Sayısı",
-        "de": "Days Until Weigh-in",
-        "fr": "Days Until Weigh-in",
-        "es": "Days Until Weigh-in",
+        "de": "Tage bis zum Wiegen",
+        "fr": "Jours avant la pesée",
+        "es": "Días hasta el pesaje",
         "ar": "Days Until Weigh-in"
       },
       "businessContext_i18n": {
         "en": "Number of days until the official weigh-in.",
-        "tr": "Resmi tartıya kalan gün sayısı."
+        "tr": "Resmi tartıya kalan gün sayısı.",
+        "de": "Anzahl der Tage bis zum offiziellen Wiegen.",
+        "fr": "Nombre de jours avant la pesée officielle.",
+        "es": "Número de días hasta el pesaje oficial."
       }
     }
   ],

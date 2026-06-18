@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Cake Shape (0=Round, 1=Square)",
         "tr": "Pasta Şekli (0=Yuvarlak, 1=Kare)",
-        "de": "Cake Shape (0=Round, 1=Square)",
-        "fr": "Cake Shape (0=Round, 1=Square)",
+        "de": "Kuchenform (0=Rund, 1=Quadrat)",
+        "fr": "Forme du gâteau (0=Rond, 1=Carré)",
         "es": "Cake Shape (0=Round, 1=Square)",
         "ar": "Cake Shape (0=Round, 1=Square)"
       },
       "businessContext_i18n": {
         "en": "Select shape: 0 for round tiers, 1 for square tiers.",
-        "tr": "Şekil seçin: yuvarlak katlar için 0, kare katlar için 1."
+        "tr": "Şekil seçin: yuvarlak katlar için 0, kare katlar için 1.",
+        "de": "Form auswählen: 0 für runde Etagen, 1 für quadratische Etagen.",
+        "fr": "Sélectionnez la forme : 0 pour les étages ronds, 1 pour les étages carrés."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Tier 1 Diameter/Side",
         "tr": "Kat 1 Çap/Kenar",
-        "de": "Tier 1 Diameter/Side",
-        "fr": "Tier 1 Diameter/Side",
+        "de": "Etage 1 Durchmesser/Seite",
+        "fr": "Diamètre/Côté de l'étage 1",
         "es": "Tier 1 Diameter/Side",
         "ar": "Tier 1 Diameter/Side"
       },
       "businessContext_i18n": {
         "en": "Diameter for round or side length for square tier.",
-        "tr": "Yuvarlak kat için çap veya kare kat için kenar uzunluğu."
+        "tr": "Yuvarlak kat için çap veya kare kat için kenar uzunluğu.",
+        "de": "Durchmesser für runde oder Seitenlänge für quadratische Etage.",
+        "fr": "Diamètre pour un étage rond ou longueur du côté pour un étage carré."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Tier 2 Diameter/Side",
         "tr": "Kat 2 Çap/Kenar",
-        "de": "Tier 2 Diameter/Side",
-        "fr": "Tier 2 Diameter/Side",
+        "de": "Etage 2 Durchmesser/Seite",
+        "fr": "Diamètre/Côté de l'étage 2",
         "es": "Tier 2 Diameter/Side",
         "ar": "Tier 2 Diameter/Side"
       },
       "businessContext_i18n": {
         "en": "Enter 0 if no second tier.",
-        "tr": "İkinci kat yoksa 0 girin."
+        "tr": "İkinci kat yoksa 0 girin.",
+        "de": "0 eingeben, wenn keine zweite Etage vorhanden.",
+        "fr": "Entrez 0 s'il n'y a pas de deuxième étage."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Tier 3 Diameter/Side",
         "tr": "Kat 3 Çap/Kenar",
-        "de": "Tier 3 Diameter/Side",
-        "fr": "Tier 3 Diameter/Side",
+        "de": "Etage 3 Durchmesser/Seite",
+        "fr": "Diamètre/Côté de l'étage 3",
         "es": "Tier 3 Diameter/Side",
         "ar": "Tier 3 Diameter/Side"
       },
       "businessContext_i18n": {
         "en": "Enter 0 if no third tier.",
-        "tr": "Üçüncü kat yoksa 0 girin."
+        "tr": "Üçüncü kat yoksa 0 girin.",
+        "de": "0 eingeben, wenn keine dritte Etage vorhanden.",
+        "fr": "Entrez 0 s'il n'y a pas de troisième étage."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Serving Size (sq in)",
         "tr": "Porsiyon Boyutu (inç kare)",
-        "de": "Serving Size (sq in)",
-        "fr": "Serving Size (sq in)",
+        "de": "Portionsgröße (Quadratzoll)",
+        "fr": "Taille de portion (po²)",
         "es": "Serving Size (sq in)",
         "ar": "Serving Size (sq in)"
       },
       "businessContext_i18n": {
         "en": "Typical wedding serving is 1x2 inches = 2 sq in.",
-        "tr": "Tipik düğün porsiyonu 1x2 inç = 2 inç karedir."
+        "tr": "Tipik düğün porsiyonu 1x2 inç = 2 inç karedir.",
+        "de": "Typische Hochzeitsportion ist 1x2 Zoll = 2 Quadratzoll.",
+        "fr": "Une portion de mariage typique est de 1x2 pouces = 2 po²."
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Guest Count",
         "tr": "Misafir Sayısı",
         "de": "Gästeanzahl",
-        "fr": "Guest Count",
-        "es": "Guest Count",
+        "fr": "Nombre d'invités",
+        "es": "Número de invitados",
         "ar": "Guest Count"
       },
       "businessContext_i18n": {
         "en": "Number of guests to serve. Used to compute surplus.",
-        "tr": "Servis edilecek misafir sayısı. Fazlalığı hesaplamak için kullanılır."
+        "tr": "Servis edilecek misafir sayısı. Fazlalığı hesaplamak için kullanılır.",
+        "de": "Anzahl der zu versorgenden Gäste. Wird zur Berechnung des Überschusses verwendet.",
+        "fr": "Nombre d'invités à servir. Utilisé pour calculer le surplus."
       }
     }
   ],

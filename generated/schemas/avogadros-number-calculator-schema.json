@@ -12,14 +12,16 @@
         "en": "Mass of Substance (g)",
         "tr": "Madde Kütlesi (g)",
         "de": "Masse der Substanz (g)",
-        "fr": "Mass of Substance (g)",
-        "es": "Mass of Substance (g)",
+        "fr": "Masse de la substance (g)",
+        "es": "Masa de la sustancia (g)",
         "ar": "Mass of Substance (g)"
       },
       "businessContext_i18n": {
         "en": "Mass of the sample in grams",
         "tr": "Numunenin gram cinsinden kütlesi",
-        "de": "Masse der Probe in Gramm"
+        "de": "Masse der Probe in Gramm",
+        "fr": "Masse de l'échantillon en grammes",
+        "es": "Masa de la muestra en gramos"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Molar Mass (g/mol)",
         "tr": "Molar Kütle (g/mol)",
         "de": "Molmasse (g/mol)",
-        "fr": "Molar Mass (g/mol)",
-        "es": "Molar Mass (g/mol)",
+        "fr": "Masse molaire (g/mol)",
+        "es": "Masa molar (g/mol)",
         "ar": "Molar Mass (g/mol)"
       },
       "businessContext_i18n": {
         "en": "Molar mass of the substance (e.g., water = 18.015 g/mol)",
         "tr": "Maddenin molar kütlesi (örneğin, su = 18,015 g/mol)",
-        "de": "Molmasse der Substanz (z. B. Wasser = 18,015 g/mol)"
+        "de": "Molmasse der Substanz (z. B. Wasser = 18,015 g/mol)",
+        "fr": "Masse molaire de la substance (ex. eau = 18,015 g/mol)",
+        "es": "Masa molar de la sustancia (ej., agua = 18.015 g/mol)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Avogadro's Constant (mol⁻¹)",
         "tr": "Avogadro Sabiti (mol⁻¹)",
         "de": "Avogadro-Konstante (mol⁻¹)",
-        "fr": "Avogadro's Constant (mol⁻¹)",
-        "es": "Avogadro's Constant (mol⁻¹)",
+        "fr": "Constante d'Avogadro (mol⁻¹)",
+        "es": "Constante de Avogadro (mol⁻¹)",
         "ar": "Avogadro's Constant (mol⁻¹)"
       },
       "businessContext_i18n": {
         "en": "Avogadro's number (6.02214076×10²³ mol⁻¹)",
         "tr": "Avogadro sayısı (6,02214076×10²³ mol⁻¹)",
-        "de": "Avogadro-Zahl (6,02214076×10²³ mol⁻¹)"
+        "de": "Avogadro-Zahl (6,02214076×10²³ mol⁻¹)",
+        "fr": "Nombre d'Avogadro (6,02214076×10²³ mol⁻¹)",
+        "es": "Número de Avogadro (6.02214076×10²³ mol⁻¹)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Molecules per Unit Cell",
         "tr": "Birim Hücre Başına Molekül Sayısı",
         "de": "Moleküle pro Elementarzelle",
-        "fr": "Molecules per Unit Cell",
-        "es": "Molecules per Unit Cell",
+        "fr": "Molécules par maille élémentaire",
+        "es": "Moléculas por celda unitaria",
         "ar": "Molecules per Unit Cell"
       },
       "businessContext_i18n": {
         "en": "Number of molecules per unit cell in a crystal (optional, default 1)",
         "tr": "Bir kristalde birim hücre başına molekül sayısı (isteğe bağlı, varsayılan 1)",
-        "de": "Anzahl der Moleküle pro Elementarzelle in einem Kristall (optional, Standard 1)"
+        "de": "Anzahl der Moleküle pro Elementarzelle in einem Kristall (optional, Standard 1)",
+        "fr": "Nombre de molécules par maille élémentaire dans un cristal (optionnel, défaut 1)",
+        "es": "Número de moléculas por celda unitaria en un cristal (opcional, predeterminado 1)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Unit Cell Volume (nm³)",
         "tr": "Birim Hücre Hacmi (nm³)",
         "de": "Elementarzellenvolumen (nm³)",
-        "fr": "Unit Cell Volume (nm³)",
-        "es": "Unit Cell Volume (nm³)",
+        "fr": "Volume de la maille élémentaire (nm³)",
+        "es": "Volumen de la celda unitaria (nm³)",
         "ar": "Unit Cell Volume (nm³)"
       },
       "businessContext_i18n": {
         "en": "Volume of a unit cell in cubic nanometers (optional, default 1)",
         "tr": "Birim hücrenin nanometreküp cinsinden hacmi (isteğe bağlı, varsayılan 1)",
-        "de": "Volumen einer Elementarzelle in Kubiknanometern (optional, Standard 1)"
+        "de": "Volumen einer Elementarzelle in Kubiknanometern (optional, Standard 1)",
+        "fr": "Volume d'une maille élémentaire en nanomètres cubes (optionnel, défaut 1)",
+        "es": "Volumen de una celda unitaria en nanómetros cúbicos (opcional, predeterminado 1)"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Density (g/cm³)",
         "tr": "Yoğunluk (g/cm³)",
         "de": "Dichte (g/cm³)",
-        "fr": "Density (g/cm³)",
-        "es": "Density (g/cm³)",
+        "fr": "Masse volumique (g/cm³)",
+        "es": "Densidad (g/cm³)",
         "ar": "Density (g/cm³)"
       },
       "businessContext_i18n": {
         "en": "Density of the substance (optional, default 1)",
         "tr": "Maddenin yoğunluğu (isteğe bağlı, varsayılan 1)",
-        "de": "Dichte der Substanz (optional, Standard 1)"
+        "de": "Dichte der Substanz (optional, Standard 1)",
+        "fr": "Masse volumique de la substance (optionnel, défaut 1)",
+        "es": "Densidad de la sustancia (opcional, predeterminado 1)"
       }
     }
   ],

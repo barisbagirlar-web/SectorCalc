@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Total Depth",
         "tr": "Toplam Derinlik",
-        "de": "Total Depth",
-        "fr": "Total Depth",
+        "de": "Gesamttiefe",
+        "fr": "Profondeur totale",
         "es": "Total Depth",
         "ar": "Total Depth"
       },
       "businessContext_i18n": {
         "en": "The total measured depth of the wellbore from surface to bottom.",
-        "tr": "Kuyu deliğinin yüzeyden tabana kadar ölçülen toplam derinliği."
+        "tr": "Kuyu deliğinin yüzeyden tabana kadar ölçülen toplam derinliği.",
+        "de": "Die gesamte gemessene Tiefe des Bohrlochs von der Oberfläche bis zur Sohle.",
+        "fr": "Profondeur totale mesurée du puits depuis la surface jusqu'au fond."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Casing Shoe Depth",
         "tr": "Muhafaza Borusu Dibi Derinliği",
-        "de": "Casing Shoe Depth",
-        "fr": "Casing Shoe Depth",
+        "de": "Tiefe des Futterrohrschuhs",
+        "fr": "Profondeur du sabot de cuvelage",
         "es": "Casing Shoe Depth",
         "ar": "Casing Shoe Depth"
       },
       "businessContext_i18n": {
         "en": "The measured depth of the casing shoe.",
-        "tr": "Muhafaza borusu dibinin ölçülen derinliği."
+        "tr": "Muhafaza borusu dibinin ölçülen derinliği.",
+        "de": "Die gemessene Tiefe des Futterrohrschuhs.",
+        "fr": "Profondeur mesurée du sabot de cuvelage."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Casing Inner Diameter",
         "tr": "Muhafaza Borusu İç Çapı",
-        "de": "Casing Inner Diameter",
-        "fr": "Casing Inner Diameter",
+        "de": "Innendurchmesser des Futterrohrs",
+        "fr": "Diamètre intérieur du cuvelage",
         "es": "Casing Inner Diameter",
         "ar": "Casing Inner Diameter"
       },
       "businessContext_i18n": {
         "en": "Inner diameter of the casing section.",
-        "tr": "Muhafaza bölümünün iç çapı."
+        "tr": "Muhafaza bölümünün iç çapı.",
+        "de": "Innendurchmesser des Futterrohrabschnitts.",
+        "fr": "Diamètre intérieur de la section de cuvelage."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Open Hole Diameter",
         "tr": "Açık Delik Çapı",
-        "de": "Open Hole Diameter",
-        "fr": "Open Hole Diameter",
+        "de": "Durchmesser des offenen Bohrlochs",
+        "fr": "Diamètre du trou ouvert",
         "es": "Open Hole Diameter",
         "ar": "Open Hole Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the open hole section below the shoe.",
-        "tr": "Muhafaza borusu dibinin altındaki açık delik bölümünün çapı."
+        "tr": "Muhafaza borusu dibinin altındaki açık delik bölümünün çapı.",
+        "de": "Durchmesser des offenen Bohrlochabschnitts unterhalb des Schuhs.",
+        "fr": "Diamètre de la section de trou ouvert sous le sabot."
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Fluid Density",
         "tr": "Akışkan Yoğunluğu",
         "de": "Flüssigkeitsdichte",
-        "fr": "Fluid Density",
-        "es": "Fluid Density",
+        "fr": "Densité du fluide",
+        "es": "Densidad del fluido",
         "ar": "Fluid Density"
       },
       "businessContext_i18n": {
         "en": "Density of the wellbore fluid.",
-        "tr": "Kuyu içi akışkanın yoğunluğu."
+        "tr": "Kuyu içi akışkanın yoğunluğu.",
+        "de": "Dichte der Bohrlochflüssigkeit.",
+        "fr": "Densité du fluide de forage."
       }
     }
   ],

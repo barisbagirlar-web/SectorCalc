@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Loan Amount ($)",
         "tr": "Kredi Tutarı ($)",
-        "de": "Loan Amount ($)",
-        "fr": "Loan Amount ($)",
+        "de": "Darlehensbetrag ($)",
+        "fr": "Montant du prêt ($)",
         "es": "Loan Amount ($)",
         "ar": "Loan Amount ($)"
       },
       "businessContext_i18n": {
         "en": "Total loan amount requested from SBA 7(a) program",
-        "tr": "SBA 7(a) programından talep edilen toplam kredi tutarı"
+        "tr": "SBA 7(a) programından talep edilen toplam kredi tutarı",
+        "de": "Gesamter Darlehensbetrag, der im SBA 7(a)-Programm beantragt wird",
+        "fr": "Montant total du prêt demandé dans le cadre du programme SBA 7(a)"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Annual Interest Rate (%)",
         "tr": "Yıllık Faiz Oranı (%)",
-        "de": "Annual Interest Rate (%)",
-        "fr": "Annual Interest Rate (%)",
+        "de": "Jährlicher Zinssatz (%)",
+        "fr": "Taux d'intérêt annuel (%)",
         "es": "Annual Interest Rate (%)",
         "ar": "Annual Interest Rate (%)"
       },
       "businessContext_i18n": {
         "en": "Annual interest rate on the loan",
-        "tr": "Kredinin yıllık faiz oranı"
+        "tr": "Kredinin yıllık faiz oranı",
+        "de": "Jährlicher Zinssatz des Darlehens",
+        "fr": "Taux d'intérêt annuel du prêt"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Loan Term (months)",
         "tr": "Kredi Vadesi (ay)",
-        "de": "Loan Term (months)",
-        "fr": "Loan Term (months)",
+        "de": "Darlehenslaufzeit (Monate)",
+        "fr": "Durée du prêt (mois)",
         "es": "Loan Term (months)",
         "ar": "Loan Term (months)"
       },
       "businessContext_i18n": {
         "en": "Repayment period in months",
-        "tr": "Ay cinsinden geri ödeme süresi"
+        "tr": "Ay cinsinden geri ödeme süresi",
+        "de": "Rückzahlungszeitraum in Monaten",
+        "fr": "Période de remboursement en mois"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "SBA Guarantee Fee Rate (%)",
         "tr": "SGA Garanti Ücreti Oranı (%)",
-        "de": "SBA Guarantee Fee Rate (%)",
-        "fr": "SBA Guarantee Fee Rate (%)",
+        "de": "SBA-Garantiegebührensatz (%)",
+        "fr": "Taux de frais de garantie SBA (%)",
         "es": "SBA Guarantee Fee Rate (%)",
         "ar": "SBA Guarantee Fee Rate (%)"
       },
       "businessContext_i18n": {
         "en": "One-time guarantee fee charged by SBA, typically 2-3.5%",
-        "tr": "SBA tarafından tahsil edilen tek seferlik garanti ücreti, tipik olarak %2-3,5"
+        "tr": "SBA tarafından tahsil edilen tek seferlik garanti ücreti, tipik olarak %2-3,5",
+        "de": "Einmalige Garantiegebühr der SBA, typischerweise 2-3,5%",
+        "fr": "Frais de garantie unique facturés par la SBA, généralement 2-3,5 %"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Origination Fee Rate (%)",
         "tr": "Başlangıç Ücreti Oranı (%)",
-        "de": "Origination Fee Rate (%)",
-        "fr": "Origination Fee Rate (%)",
+        "de": "Bearbeitungsgebührensatz (%)",
+        "fr": "Taux de frais de montage (%)",
         "es": "Origination Fee Rate (%)",
         "ar": "Origination Fee Rate (%)"
       },
       "businessContext_i18n": {
         "en": "Lender origination fee as percentage of loan amount",
-        "tr": "Kredi tutarının yüzdesi olarak borç veren başlangıç ücreti"
+        "tr": "Kredi tutarının yüzdesi olarak borç veren başlangıç ücreti",
+        "de": "Bearbeitungsgebühr des Kreditgebers als Prozentsatz des Darlehensbetrags",
+        "fr": "Frais de montage du prêteur en pourcentage du montant du prêt"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Annual Business Revenue ($)",
         "tr": "Yıllık İşletme Geliri ($)",
-        "de": "Annual Business Revenue ($)",
-        "fr": "Annual Business Revenue ($)",
+        "de": "Jährlicher Geschäftsumsatz ($)",
+        "fr": "Revenu annuel de l'entreprise ($)",
         "es": "Annual Business Revenue ($)",
         "ar": "Annual Business Revenue ($)"
       },
       "businessContext_i18n": {
         "en": "Gross annual revenue of the business",
-        "tr": "İşletmenin brüt yıllık geliri"
+        "tr": "İşletmenin brüt yıllık geliri",
+        "de": "Bruttojahresumsatz des Unternehmens",
+        "fr": "Revenu annuel brut de l'entreprise"
       }
     }
   ],

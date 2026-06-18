@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Basınç (kPa)",
         "tr": "Basınç (kPa)",
-        "de": "Basınç (kPa)",
-        "fr": "Basınç (kPa)",
-        "es": "Basınç (kPa)",
+        "de": "Druck (kPa)",
+        "fr": "Pression (kPa)",
+        "es": "Presión (kPa)",
         "ar": "Basınç (kPa)"
       },
       "businessContext_i18n": {
         "en": "Dönüştürülecek kPa cinsinden basınç değeri",
-        "tr": "Dönüştürülecek kPa cinsinden basınç değeri"
+        "tr": "Dönüştürülecek kPa cinsinden basınç değeri",
+        "de": "Druckwert in kPa, der umgerechnet werden soll",
+        "fr": "Valeur de pression en kPa à convertir",
+        "es": "Valor de presión en kPa a convertir"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Dönüşüm Katsayısı",
         "tr": "Dönüşüm Katsayısı",
-        "de": "Dönüşüm Katsayısı",
-        "fr": "Dönüşüm Katsayısı",
-        "es": "Dönüşüm Katsayısı",
+        "de": "Umrechnungsfaktor",
+        "fr": "Coefficient de conversion",
+        "es": "Factor de conversión",
         "ar": "Dönüşüm Katsayısı"
       },
       "businessContext_i18n": {
         "en": "kPa'yı psi'ye çevirmek için kullanılan katsayı (varsayılan standart değer)",
-        "tr": "kPa'yı psi'ye çevirmek için kullanılan katsayı (varsayılan standart değer)"
+        "tr": "kPa'yı psi'ye çevirmek için kullanılan katsayı (varsayılan standart değer)",
+        "de": "Faktor zur Umrechnung von kPa in psi (Standardwert)",
+        "fr": "Coefficient utilisé pour convertir les kPa en psi (valeur standard par défaut)",
+        "es": "Factor utilizado para convertir kPa a psi (valor estándar por defecto)"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Ondalık Basamak",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Ondalık Basamak",
-        "es": "Ondalık Basamak",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Ondalık Basamak"
       },
       "businessContext_i18n": {
         "en": "Sonuçtaki ondalık basamak sayısı",
-        "tr": "Sonuçtaki ondalık basamak sayısı"
+        "tr": "Sonuçtaki ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen im Ergebnis",
+        "fr": "Nombre de décimales du résultat",
+        "es": "Número de decimales en el resultado"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Ofset (psi)",
         "tr": "Ofset (psi)",
-        "de": "Ofset (psi)",
-        "fr": "Ofset (psi)",
-        "es": "Ofset (psi)",
+        "de": "Offset (psi)",
+        "fr": "Offset (psi)",
+        "es": "Desplazamiento (psi)",
         "ar": "Ofset (psi)"
       },
       "businessContext_i18n": {
         "en": "Lineer dönüşüm sonrası eklenecek sabit ofset (genellikle 0)",
-        "tr": "Lineer dönüşüm sonrası eklenecek sabit ofset (genellikle 0)"
+        "tr": "Lineer dönüşüm sonrası eklenecek sabit ofset (genellikle 0)",
+        "de": "Konstanter Offset, der nach der linearen Umrechnung hinzugefügt wird (normalerweise 0)",
+        "fr": "Offset constant ajouté après la transformation linéaire (généralement 0)",
+        "es": "Desplazamiento constante a añadir después de la conversión lineal (generalmente 0)"
       }
     }
   ],

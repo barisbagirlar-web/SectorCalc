@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Sum Assured (Death Benefit)",
         "tr": "Sigorta Tutarı (Ölüm Tazminatı)",
-        "de": "Sum Assured (Death Benefit)",
-        "fr": "Sum Assured (Death Benefit)",
+        "de": "Versicherungssumme (Todesfallleistung)",
+        "fr": "Capital assuré (prestation décès)",
         "es": "Sum Assured (Death Benefit)",
         "ar": "Sum Assured (Death Benefit)"
       },
       "businessContext_i18n": {
         "en": "The amount paid upon death of the insured.",
-        "tr": "Sigortalının ölümü halinde ödenecek tutar."
+        "tr": "Sigortalının ölümü halinde ödenecek tutar.",
+        "de": "Der Betrag, der beim Tod der versicherten Person ausgezahlt wird.",
+        "fr": "Montant versé en cas de décès de l'assuré."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Annual Mortality Rate",
         "tr": "Yıllık Ölüm Oranı",
         "de": "Jährliche Sterblichkeitsrate",
-        "fr": "Annual Mortality Rate",
-        "es": "Annual Mortality Rate",
+        "fr": "Taux de mortalité annuel",
+        "es": "Tasa de Mortalidad Anual",
         "ar": "Annual Mortality Rate"
       },
       "businessContext_i18n": {
         "en": "The probability that the insured will die within the next year.",
-        "tr": "Sigortalının önümüzdeki yıl içinde ölme olasılığı."
+        "tr": "Sigortalının önümüzdeki yıl içinde ölme olasılığı.",
+        "de": "Die Wahrscheinlichkeit, dass die versicherte Person innerhalb des nächsten Jahres stirbt.",
+        "fr": "Probabilité que l'assuré décède dans l'année à venir."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Annual Discount Rate (i)",
         "tr": "Yıllık İskonto Oranı (i)",
-        "de": "Annual Discount Rate (i)",
-        "fr": "Annual Discount Rate (i)",
+        "de": "Jährlicher Diskontsatz (i)",
+        "fr": "Taux d'actualisation annuel (i)",
         "es": "Annual Discount Rate (i)",
         "ar": "Annual Discount Rate (i)"
       },
       "businessContext_i18n": {
         "en": "The interest rate used for discounting future benefits.",
-        "tr": "Gelecekteki faydaların iskonto edilmesinde kullanılan faiz oranı."
+        "tr": "Gelecekteki faydaların iskonto edilmesinde kullanılan faiz oranı.",
+        "de": "Der Zinssatz, der zur Diskontierung zukünftiger Leistungen verwendet wird.",
+        "fr": "Taux d'intérêt utilisé pour actualiser les prestations futures."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Expense Loading",
         "tr": "Gider Yüklemesi",
-        "de": "Expense Loading",
-        "fr": "Expense Loading",
+        "de": "Kostenzuschlag",
+        "fr": "Chargement des frais",
         "es": "Expense Loading",
         "ar": "Expense Loading"
       },
       "businessContext_i18n": {
         "en": "Loading factor for expenses, as a decimal (e.g., 0.1 for 10%).",
-        "tr": "Giderler için yükleme faktörü, ondalık olarak (ör. %10 için 0,1)."
+        "tr": "Giderler için yükleme faktörü, ondalık olarak (ör. %10 için 0,1).",
+        "de": "Zuschlagsfaktor für Kosten, als Dezimalzahl (z. B. 0,1 für 10 %).",
+        "fr": "Facteur de chargement pour les frais, sous forme décimale (ex. 0,1 pour 10%)."
       }
     }
   ],

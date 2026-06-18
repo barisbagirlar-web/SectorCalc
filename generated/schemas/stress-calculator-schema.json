@@ -12,13 +12,15 @@
         "en": "Applied Force",
         "tr": "Uygulanan Kuvvet",
         "de": "Angewandte Kraft",
-        "fr": "Applied Force",
-        "es": "Applied Force",
+        "fr": "Force appliquée",
+        "es": "Fuerza aplicada",
         "ar": "Applied Force"
       },
       "businessContext_i18n": {
         "en": "Tensile or compressive load",
-        "tr": "Çekme veya basma yükü"
+        "tr": "Çekme veya basma yükü",
+        "de": "Zug- oder Drucklast",
+        "fr": "Charge en traction ou compression"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Cross-sectional Area",
         "tr": "Kesit Alanı",
         "de": "Querschnittsfläche",
-        "fr": "Cross-sectional Area",
-        "es": "Cross-sectional Area",
+        "fr": "Section transversale",
+        "es": "Área de la sección transversal",
         "ar": "Cross-sectional Area"
       },
       "businessContext_i18n": {
         "en": "Nominal cross-sectional area",
-        "tr": "Nominal kesit alanı"
+        "tr": "Nominal kesit alanı",
+        "de": "Nennquerschnittsfläche",
+        "fr": "Section transversale nominale"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Design safety factor (≥1)",
-        "tr": "Tasarım emniyet katsayısı (≥1)"
+        "tr": "Tasarım emniyet katsayısı (≥1)",
+        "de": "Auslegungssicherheitsfaktor (≥1)",
+        "fr": "Coefficient de sécurité de conception (≥1)"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Yield Strength",
         "tr": "Akma Dayanımı",
         "de": "Streckgrenze",
-        "fr": "Yield Strength",
-        "es": "Yield Strength",
+        "fr": "Limite d'élasticité",
+        "es": "Límite elástico",
         "ar": "Yield Strength"
       },
       "businessContext_i18n": {
         "en": "Material yield stress",
-        "tr": "Malzeme akma gerilmesi"
+        "tr": "Malzeme akma gerilmesi",
+        "de": "Streckgrenze des Materials",
+        "fr": "Limite d'élasticité du matériau"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Stress Concentration Kt",
         "tr": "Gerilme Yığılması Kt",
-        "de": "Stress Concentration Kt",
-        "fr": "Stress Concentration Kt",
+        "de": "Spannungskonzentration Kt",
+        "fr": "Concentration de contrainte Kt",
         "es": "Stress Concentration Kt",
         "ar": "Stress Concentration Kt"
       },
       "businessContext_i18n": {
         "en": "Geometric stress concentration factor",
-        "tr": "Geometrik gerilme yığılma faktörü"
+        "tr": "Geometrik gerilme yığılma faktörü",
+        "de": "Geometrischer Spannungskonzentrationsfaktor",
+        "fr": "Facteur géométrique de concentration de contrainte"
       }
     }
   ],

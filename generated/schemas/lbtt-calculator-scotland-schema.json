@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Purchase Price (£)",
         "tr": "Satın Alma Fiyatı (£)",
-        "de": "Purchase Price (£)",
-        "fr": "Purchase Price (£)",
-        "es": "Purchase Price (£)",
+        "de": "Kaufpreis (£)",
+        "fr": "Prix d'achat (£)",
+        "es": "Precio de Compra (£)",
         "ar": "Purchase Price (£)"
       },
       "businessContext_i18n": {
         "en": "Total price paid for the property",
-        "tr": "Mülk için ödenen toplam fiyat"
+        "tr": "Mülk için ödenen toplam fiyat",
+        "de": "Gesamter für die Immobilie gezahlter Preis",
+        "fr": "Prix total payé pour la propriété",
+        "es": "Precio total pagado por la propiedad"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "First Time Buyer? (1=Yes, 0=No)",
         "tr": "İlk Kez Ev Alıcısı mı? (1=Evet, 0=Hayır)",
-        "de": "First Time Buyer? (1=Yes, 0=No)",
-        "fr": "First Time Buyer? (1=Yes, 0=No)",
-        "es": "First Time Buyer? (1=Yes, 0=No)",
+        "de": "Erstkäufer? (1=Ja, 0=Nein)",
+        "fr": "Premier acheteur ? (1=Oui, 0=Non)",
+        "es": "¿Comprador por primera vez? (1=Sí, 0=No)",
         "ar": "First Time Buyer? (1=Yes, 0=No)"
       },
       "businessContext_i18n": {
         "en": "1 if buyer is a first-time buyer, else 0",
-        "tr": "Alıcı ilk kez ev alıyorsa 1, değilse 0"
+        "tr": "Alıcı ilk kez ev alıyorsa 1, değilse 0",
+        "de": "1 wenn Käufer ein Erstkäufer ist, sonst 0",
+        "fr": "1 si l'acheteur est un premier acheteur, sinon 0",
+        "es": "1 si el comprador es comprador por primera vez, si no 0"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Additional Dwelling? (1=Yes, 0=No)",
         "tr": "Ek Konut mu? (1=Evet, 0=Hayır)",
-        "de": "Additional Dwelling? (1=Yes, 0=No)",
-        "fr": "Additional Dwelling? (1=Yes, 0=No)",
-        "es": "Additional Dwelling? (1=Yes, 0=No)",
+        "de": "Zusätzliche Wohnung? (1=Ja, 0=Nein)",
+        "fr": "Logement supplémentaire ? (1=Oui, 0=Non)",
+        "es": "¿Vivienda adicional? (1=Sí, 0=No)",
         "ar": "Additional Dwelling? (1=Yes, 0=No)"
       },
       "businessContext_i18n": {
         "en": "1 if property is an additional dwelling (ADS), else 0",
-        "tr": "Mülk ek bir konut ise (ADS) 1, değilse 0"
+        "tr": "Mülk ek bir konut ise (ADS) 1, değilse 0",
+        "de": "1 wenn die Immobilie eine zusätzliche Wohnung (ADS) ist, sonst 0",
+        "fr": "1 si la propriété est un logement supplémentaire (ADS), sinon 0",
+        "es": "1 si la propiedad es una vivienda adicional (ADS), si no 0"
       }
     }
   ],

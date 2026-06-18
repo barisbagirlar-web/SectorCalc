@@ -12,14 +12,16 @@
         "en": "Air Velocity (FPM)",
         "tr": "Hava Hızı (FPM)",
         "de": "Luftgeschwindigkeit (FPM)",
-        "fr": "Air Velocity (FPM)",
-        "es": "Air Velocity (FPM)",
+        "fr": "Vitesse de l'air (FPM)",
+        "es": "Velocidad del aire (FPM)",
         "ar": "Air Velocity (FPM)"
       },
       "businessContext_i18n": {
         "en": "The speed of air moving through the duct, typically measured in feet per minute.",
         "tr": "Havanın kanal içindeki hızı, tipik olarak dakikadaki fit cinsinden ölçülür.",
-        "de": "Die Geschwindigkeit der Luft, die sich durch den Kanal bewegt, typischerweise gemessen in Fuß pro Minute."
+        "de": "Die Geschwindigkeit der Luft, die sich durch den Kanal bewegt, typischerweise gemessen in Fuß pro Minute.",
+        "fr": "La vitesse de l'air se déplaçant dans le conduit, généralement mesurée en pieds par minute.",
+        "es": "Velocidad del aire que se mueve a través del conducto, medida típicamente en pies por minuto."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Duct Width (inches)",
         "tr": "Kanal Genişliği (inç)",
         "de": "Kanalbreite (Zoll)",
-        "fr": "Duct Width (inches)",
-        "es": "Duct Width (inches)",
+        "fr": "Largeur du conduit (pouces)",
+        "es": "Ancho del conducto (pulgadas)",
         "ar": "Duct Width (inches)"
       },
       "businessContext_i18n": {
         "en": "Width of the rectangular duct.",
         "tr": "Dikdörtgen kanalın genişliği.",
-        "de": "Breite des rechteckigen Kanals."
+        "de": "Breite des rechteckigen Kanals.",
+        "fr": "Largeur du conduit rectangulaire.",
+        "es": "Ancho del conducto rectangular."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Duct Height (inches)",
         "tr": "Kanal Yüksekliği (inç)",
         "de": "Kanalhöhe (Zoll)",
-        "fr": "Duct Height (inches)",
-        "es": "Duct Height (inches)",
+        "fr": "Hauteur du conduit (pouces)",
+        "es": "Altura del conducto (pulgadas)",
         "ar": "Duct Height (inches)"
       },
       "businessContext_i18n": {
         "en": "Height of the rectangular duct.",
         "tr": "Dikdörtgen kanalın yüksekliği.",
-        "de": "Höhe des rechteckigen Kanals."
+        "de": "Höhe des rechteckigen Kanals.",
+        "fr": "Hauteur du conduit rectangulaire.",
+        "es": "Altura del conducto rectangular."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier to account for duct leakage and system inefficiencies, typically 1.1 to 1.2.",
         "tr": "Kanal kaçağı ve sistem verimsizliklerini hesaba katan çarpan, tipik olarak 1.1 ila 1.2.",
-        "de": "Multiplikator zur Berücksichtigung von Kanalverlusten und Systemineffizienzen, typischerweise 1,1 bis 1,2."
+        "de": "Multiplikator zur Berücksichtigung von Kanalverlusten und Systemineffizienzen, typischerweise 1,1 bis 1,2.",
+        "fr": "Multiplicateur pour tenir compte des fuites du conduit et des inefficacités du système, généralement 1,1 à 1,2.",
+        "es": "Multiplicador para tener en cuenta fugas en el conducto e ineficiencias del sistema, típicamente 1.1 a 1.2."
       }
     }
   ],

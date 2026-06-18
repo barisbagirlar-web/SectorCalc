@@ -23,12 +23,16 @@
       "label_i18n": {
         "en": "Number of Departments",
         "tr": "Departman Sayısı",
-        "de": "Anzahl der Abteilungen"
+        "de": "Anzahl der Abteilungen",
+        "fr": "Nombre de départements",
+        "es": "Número de Departamentos"
       },
       "businessContext_i18n": {
         "en": "Total distinct production or storage areas in the facility.",
         "tr": "Tesisteki toplam farklı üretim veya depolama alanı sayısı.",
-        "de": "Gesamtzahl der verschiedenen Produktions- oder Lagerbereiche in der Anlage."
+        "de": "Gesamtzahl der verschiedenen Produktions- oder Lagerbereiche in der Anlage.",
+        "fr": "Nombre total de zones distinctes de production ou de stockage dans l'installation.",
+        "es": "Áreas totales de producción o almacenamiento distintas en la instalación."
       }
     },
     {
@@ -43,12 +47,16 @@
       "label_i18n": {
         "en": "Flow Intensity Matrix (triangular, comma-separated per row)",
         "tr": "Akış Yoğunluğu Matrisi (üçgen, satır başına virgülle ayrılmış)",
-        "de": "Flussintensitätsmatrix (dreieckig, zeilenweise durch Komma getrennt)"
+        "de": "Flussintensitätsmatrix (dreieckig, zeilenweise durch Komma getrennt)",
+        "fr": "Matrice d'intensité des flux (triangulaire, séparée par des virgules par ligne)",
+        "es": "Matriz de Intensidad de Flujo (triangular, separada por comas por fila)"
       },
       "businessContext_i18n": {
         "en": "Number of material movements between each pair of departments per day.",
         "tr": "Her bir departman çifti arasında günlük malzeme hareketi sayısı.",
-        "de": "Anzahl der Materialbewegungen zwischen jedem Abteilungspaar pro Tag."
+        "de": "Anzahl der Materialbewegungen zwischen jedem Abteilungspaar pro Tag.",
+        "fr": "Nombre de mouvements de matériaux entre chaque paire de départements par jour.",
+        "es": "Número de movimientos de material entre cada par de departamentos por día."
       }
     },
     {
@@ -63,12 +71,16 @@
       "label_i18n": {
         "en": "Distance Matrix (triangular, comma-separated per row)",
         "tr": "Mesafe Matrisi (üçgen, satır başına virgülle ayrılmış)",
-        "de": "Entfernungsmatrix (dreieckig, zeilenweise durch Komma getrennt)"
+        "de": "Entfernungsmatrix (dreieckig, zeilenweise durch Komma getrennt)",
+        "fr": "Matrice des distances (triangulaire, séparée par des virgules par ligne)",
+        "es": "Matriz de Distancias (triangular, separada por comas por fila)"
       },
       "businessContext_i18n": {
         "en": "Current or proposed travel distances between department centroids.",
         "tr": "Departman merkezleri arasındaki mevcut veya önerilen seyahat mesafeleri.",
-        "de": "Aktuelle oder geplante Transportentfernungen zwischen Abteilungsschwerpunkten."
+        "de": "Aktuelle oder geplante Transportentfernungen zwischen Abteilungsschwerpunkten.",
+        "fr": "Distances de déplacement actuelles ou proposées entre les centroïdes des départements.",
+        "es": "Distancias de desplazamiento actuales o propuestas entre los centroides de los departamentos."
       }
     },
     {
@@ -83,12 +95,16 @@
       "label_i18n": {
         "en": "Path Efficiency Factor",
         "tr": "Yol Verimlilik Faktörü",
-        "de": "Pfadeffizienzfaktor"
+        "de": "Pfadeffizienzfaktor",
+        "fr": "Facteur d'efficacité du chemin",
+        "es": "Factor de Eficiencia de Ruta"
       },
       "businessContext_i18n": {
         "en": "Ratio of straight-line distance to actual travel path (1.0 = perfect straight line).",
         "tr": "Düz çizgi mesafesinin gerçek seyahat yoluna oranı (1.0 = mükemmel düz çizgi).",
-        "de": "Verhältnis der geradlinigen Entfernung zum tatsächlichen Transportweg (1,0 = perfekte gerade Linie)."
+        "de": "Verhältnis der geradlinigen Entfernung zum tatsächlichen Transportweg (1,0 = perfekte gerade Linie).",
+        "fr": "Rapport entre la distance en ligne droite et le chemin de déplacement réel (1,0 = ligne droite parfaite).",
+        "es": "Relación entre la distancia en línea recta y la ruta de desplazamiento real (1.0 = línea recta perfecta)."
       }
     },
     {
@@ -107,12 +123,16 @@
       "label_i18n": {
         "en": "Layout Type",
         "tr": "Yerleşim Türü",
-        "de": "Layout-Typ"
+        "de": "Layout-Typ",
+        "fr": "Type d'implantation",
+        "es": "Tipo de Distribución"
       },
       "businessContext_i18n": {
         "en": "Classification of the facility layout according to standard industrial engineering taxonomy.",
         "tr": "Tesis yerleşiminin standart endüstri mühendisliği sınıflandırmasına göre sınıflandırılması.",
-        "de": "Klassifizierung des Anlagenlayouts nach Standardtaxonomie des Industrial Engineering."
+        "de": "Klassifizierung des Anlagenlayouts nach Standardtaxonomie des Industrial Engineering.",
+        "fr": "Classification de l'implantation selon la taxonomie standard du génie industriel.",
+        "es": "Clasificación de la distribución de la instalación según la taxonomía estándar de ingeniería industrial."
       }
     },
     {
@@ -125,12 +145,16 @@
       "label_i18n": {
         "en": "Use Weighted Distance (Flow × Distance)",
         "tr": "Ağırlıklı Mesafe Kullan (Akış × Mesafe)",
-        "de": "Gewichtete Entfernung verwenden (Fluss × Entfernung)"
+        "de": "Gewichtete Entfernung verwenden (Fluss × Entfernung)",
+        "fr": "Utiliser la distance pondérée (flux × distance)",
+        "es": "Usar Distancia Ponderada (Flujo × Distancia)"
       },
       "businessContext_i18n": {
         "en": "If true, the primary result is the sum of flow × distance; otherwise raw distance sum.",
         "tr": "Doğruysa, birincil sonuç akış × mesafe toplamıdır; aksi halde ham mesafe toplamı.",
-        "de": "Wenn wahr, ist das primäre Ergebnis die Summe von Fluss × Entfernung; andernfalls die rohe Entfernungssumme."
+        "de": "Wenn wahr, ist das primäre Ergebnis die Summe von Fluss × Entfernung; andernfalls die rohe Entfernungssumme.",
+        "fr": "Si vrai, le résultat principal est la somme des flux × distance ; sinon la somme brute des distances.",
+        "es": "Si es verdadero, el resultado principal es la suma de flujo × distancia; de lo contrario, suma de distancia bruta."
       }
     }
   ],

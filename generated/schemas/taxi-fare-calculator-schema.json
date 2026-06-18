@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Base Fare",
         "tr": "Taban ücret",
-        "de": "Base Fare",
-        "fr": "Base Fare",
-        "es": "Base Fare",
+        "de": "Grundpreis",
+        "fr": "Tarif de base",
+        "es": "Tarifa base",
         "ar": "Base Fare"
       },
       "businessContext_i18n": {
         "en": "Initial flag-drop or starting fee for taxi.",
-        "tr": "Taksi için ilk açılış ücreti veya başlangıç ücreti"
+        "tr": "Taksi için ilk açılış ücreti veya başlangıç ücreti",
+        "de": "Grundgebühr oder Startgebühr für Taxi",
+        "fr": "Frais de prise en charge ou de départ pour le taxi"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Cost per Kilometer",
         "tr": "Kilometre Başına Maliyet",
-        "de": "Cost per Kilometer",
-        "fr": "Cost per Kilometer",
+        "de": "Kosten pro Kilometer",
+        "fr": "Coût par kilomètre",
         "es": "Cost per Kilometer",
         "ar": "Cost per Kilometer"
       },
       "businessContext_i18n": {
         "en": "Rate charged per kilometer traveled.",
-        "tr": "Seyahat edilen kilometre başına uygulanan ücret"
+        "tr": "Seyahat edilen kilometre başına uygulanan ücret",
+        "de": "Tarif pro gefahrenem Kilometer",
+        "fr": "Tarif appliqué par kilomètre parcouru"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Cost per Minute",
         "tr": "Dakika başına maliyet",
-        "de": "Cost per Minute",
-        "fr": "Cost per Minute",
-        "es": "Cost per Minute",
+        "de": "Kosten pro Minute",
+        "fr": "Coût par minute",
+        "es": "Coste por minuto",
         "ar": "Cost per Minute"
       },
       "businessContext_i18n": {
         "en": "Rate charged per minute for waiting or slow traffic.",
-        "tr": "Bekleme veya yavaş trafik için dakika başına uygulanan ücret"
+        "tr": "Bekleme veya yavaş trafik için dakika başına uygulanan ücret",
+        "de": "Tarif pro Minute für Wartezeit oder langsamen Verkehr",
+        "fr": "Tarif appliqué par minute d'attente ou de circulation lente"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Trip Distance",
         "tr": "Seyahat Mesafesi",
-        "de": "Trip Distance",
-        "fr": "Trip Distance",
+        "de": "Fahrtstrecke",
+        "fr": "Distance du trajet",
         "es": "Trip Distance",
         "ar": "Trip Distance"
       },
       "businessContext_i18n": {
         "en": "Total distance of the trip in kilometers.",
-        "tr": "Seyahatin kilometre cinsinden toplam mesafesi"
+        "tr": "Seyahatin kilometre cinsinden toplam mesafesi",
+        "de": "Gesamtstrecke der Fahrt in Kilometern",
+        "fr": "Distance totale du trajet en kilomètres"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Trip Time",
         "tr": "Seyahat Süresi",
-        "de": "Trip Time",
-        "fr": "Trip Time",
+        "de": "Fahrtzeit",
+        "fr": "Durée du trajet",
         "es": "Trip Time",
         "ar": "Trip Time"
       },
       "businessContext_i18n": {
         "en": "Total duration of the trip in minutes.",
-        "tr": "Seyahatin dakika cinsinden toplam süresi"
+        "tr": "Seyahatin dakika cinsinden toplam süresi",
+        "de": "Gesamtdauer der Fahrt in Minuten",
+        "fr": "Durée totale du trajet en minutes"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Additional Surcharge",
         "tr": "Ek Ücret",
-        "de": "Additional Surcharge",
-        "fr": "Additional Surcharge",
+        "de": "Zusätzlicher Zuschlag",
+        "fr": "Supplément additionnel",
         "es": "Additional Surcharge",
         "ar": "Additional Surcharge"
       },
       "businessContext_i18n": {
         "en": "Any extra fees such as airport toll, night charge, etc.",
-        "tr": "Havalimanı geçiş ücreti, gece ücreti vb. gibi ek ücretler"
+        "tr": "Havalimanı geçiş ücreti, gece ücreti vb. gibi ek ücretler",
+        "de": "Zusätzliche Gebühren wie Flughafenmaut, Nachtzuschlag usw.",
+        "fr": "Frais supplémentaires tels que péage aéroportuaire, tarif de nuit, etc."
       }
     }
   ],

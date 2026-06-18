@@ -12,14 +12,16 @@
         "en": "Gross Score",
         "tr": "Brüt Skor",
         "de": "Bruttopunktzahl",
-        "fr": "Gross Score",
-        "es": "Gross Score",
+        "fr": "Score brut",
+        "es": "Puntuación bruta",
         "ar": "Gross Score"
       },
       "businessContext_i18n": {
         "en": "Your actual strokes for the round, before any adjustments.",
         "tr": "Tur için gerçek vuruşlarınız, herhangi bir düzeltmeden önce.",
-        "de": "Ihre tatsächlichen Schläge für die Runde, vor jeglichen Anpassungen."
+        "de": "Ihre tatsächlichen Schläge für die Runde, vor jeglichen Anpassungen.",
+        "fr": "Vos coups réels pour la ronde, avant tout ajustement.",
+        "es": "Tus golpes reales en la ronda, antes de cualquier ajuste."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Course Rating",
         "tr": "Saha Derecesi",
         "de": "Course Rating",
-        "fr": "Course Rating",
-        "es": "Course Rating",
+        "fr": "Indice de difficulté du parcours",
+        "es": "Valoración del campo",
         "ar": "Course Rating"
       },
       "businessContext_i18n": {
         "en": "The USGA Course Rating from the tee you played, typically between 67 and 77.",
         "tr": "Oynadığınız tee'den USGA Saha Derecesi, tipik olarak 67 ile 77 arasında.",
-        "de": "Der USGA Course Rating vom gespielten Abschlag, typischerweise zwischen 67 und 77."
+        "de": "Der USGA Course Rating vom gespielten Abschlag, typischerweise zwischen 67 und 77.",
+        "fr": "L'indice de difficulté USGA du départ que vous avez joué, généralement entre 67 et 77.",
+        "es": "Valoración del campo USGA desde el tee que jugaste, típicamente entre 67 y 77."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Slope Rating",
         "tr": "Eğim Derecesi",
         "de": "Slope Rating",
-        "fr": "Slope Rating",
-        "es": "Slope Rating",
+        "fr": "Indice de pente",
+        "es": "Pendiente",
         "ar": "Slope Rating"
       },
       "businessContext_i18n": {
         "en": "The USGA Slope Rating, indicates relative difficulty for bogey golfers compared to scratch golfers, range 55-155.",
         "tr": "USGA Eğim Derecesi, boği golfçüler için sıfır handikaplı golfçülere göre göreceli zorluğu gösterir, aralık 55-155.",
-        "de": "Der USGA Slope Rating, zeigt die relative Schwierigkeit für Bogey-Golfer im Vergleich zu Scratch-Golfern an, Bereich 55-155."
+        "de": "Der USGA Slope Rating, zeigt die relative Schwierigkeit für Bogey-Golfer im Vergleich zu Scratch-Golfern an, Bereich 55-155.",
+        "fr": "L'indice de pente USGA, indique la difficulté relative pour les joueurs bogey par rapport aux joueurs scratch, plage 55-155.",
+        "es": "Pendiente USGA, indica la dificultad relativa para golfistas bogey en comparación con golfistas scratch, rango 55-155."
       }
     },
     {
@@ -82,7 +88,9 @@
       "businessContext_i18n": {
         "en": "The total par for the course, needed for Course Handicap calculation.",
         "tr": "Sahanın toplam parı, Saha Handikap hesaplaması için gereklidir.",
-        "de": "Das Gesamtpar des Platzes, benötigt für die Berechnung des Course Handicap."
+        "de": "Das Gesamtpar des Platzes, benötigt für die Berechnung des Course Handicap.",
+        "fr": "Le par total du parcours, nécessaire pour le calcul du handicap de parcours.",
+        "es": "El par total del campo, necesario para el cálculo del hándicap del campo."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Handicap Index",
         "tr": "Handikap İndeksi",
         "de": "Handicap-Index",
-        "fr": "Handicap Index",
-        "es": "Handicap Index",
+        "fr": "Indice de handicap",
+        "es": "Índice de Hándicap",
         "ar": "Handicap Index"
       },
       "businessContext_i18n": {
         "en": "Your current Handicap Index, if known, to calculate Course Handicap.",
         "tr": "Biliniyorsa mevcut Handikap İndeksiniz, Saha Handikap'ı hesaplamak için.",
-        "de": "Ihr aktueller Handicap-Index, falls bekannt, zur Berechnung des Course Handicap."
+        "de": "Ihr aktueller Handicap-Index, falls bekannt, zur Berechnung des Course Handicap.",
+        "fr": "Votre indice de handicap actuel, si connu, pour calculer le handicap de parcours.",
+        "es": "Tu Índice de Hándicap actual, si se conoce, para calcular el hándicap del campo."
       }
     }
   ],

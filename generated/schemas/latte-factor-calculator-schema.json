@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Daily Expense Amount",
         "tr": "Günlük Harcama Tutarı",
-        "de": "Daily Expense Amount",
-        "fr": "Daily Expense Amount",
-        "es": "Daily Expense Amount",
+        "de": "Täglicher Ausgabenbetrag",
+        "fr": "Montant de dépense quotidienne",
+        "es": "Monto de gasto diario",
         "ar": "Daily Expense Amount"
       },
       "businessContext_i18n": {
         "en": "The amount you spend daily on the item you're eliminating",
-        "tr": "Elimine ettiğiniz ürüne günlük harcadığınız miktar"
+        "tr": "Elimine ettiğiniz ürüne günlük harcadığınız miktar",
+        "de": "Der Betrag, den Sie täglich für den zu eliminierenden Gegenstand ausgeben",
+        "fr": "Le montant que vous dépensez quotidiennement pour l'article que vous éliminez",
+        "es": "El monto que gastas diariamente en el artículo que estás eliminando"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Days per Week",
         "tr": "Gün/Hafta",
         "de": "Tage pro Woche",
-        "fr": "Days per Week",
-        "es": "Days per Week",
+        "fr": "Jours par semaine",
+        "es": "Días por semana",
         "ar": "Days per Week"
       },
       "businessContext_i18n": {
         "en": "Number of days per week you make this purchase",
-        "tr": "Bu alışverişi haftada kaç gün yaptığınız"
+        "tr": "Bu alışverişi haftada kaç gün yaptığınız",
+        "de": "Anzahl der Tage pro Woche, an denen Sie diesen Kauf tätigen",
+        "fr": "Nombre de jours par semaine où vous effectuez cet achat",
+        "es": "Número de días por semana que realizas esta compra"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Investment Horizon",
         "tr": "Yatırım Süresi",
-        "de": "Investment Horizon",
-        "fr": "Investment Horizon",
-        "es": "Investment Horizon",
+        "de": "Anlagehorizont",
+        "fr": "Horizon d'investissement",
+        "es": "Horizonte de inversión",
         "ar": "Investment Horizon"
       },
       "businessContext_i18n": {
         "en": "Number of years you plan to invest the saved money",
-        "tr": "Biriktirilen parayı yatırmayı planladığınız yıl sayısı"
+        "tr": "Biriktirilen parayı yatırmayı planladığınız yıl sayısı",
+        "de": "Anzahl der Jahre, die Sie das gesparte Geld anlegen möchten",
+        "fr": "Nombre d'années pendant lesquelles vous prévoyez investir l'argent économisé",
+        "es": "Número de años que planeas invertir el dinero ahorrado"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Expected Annual Return",
         "tr": "Beklenen Yıllık Getiri",
         "de": "Erwartete jährliche Rendite",
-        "fr": "Expected Annual Return",
-        "es": "Expected Annual Return",
+        "fr": "Rendement annuel attendu",
+        "es": "Rendimiento anual esperado",
         "ar": "Expected Annual Return"
       },
       "businessContext_i18n": {
         "en": "Expected annual return rate on investment (e.g., 7 for 7%)",
-        "tr": "Yatırımdan beklenen yıllık getiri oranı (örneğin %7 için 7)"
+        "tr": "Yatırımdan beklenen yıllık getiri oranı (örneğin %7 için 7)",
+        "de": "Erwartete jährliche Rendite der Anlage (z. B. 7 für 7 %)",
+        "fr": "Taux de rendement annuel attendu sur l'investissement (ex. 7 pour 7%)",
+        "es": "Tasa de rendimiento anual esperada de la inversión (ej., 7 para 7%)"
       }
     }
   ],

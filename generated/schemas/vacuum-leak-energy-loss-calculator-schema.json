@@ -22,11 +22,15 @@
       "businessContext": "Estimated diameter of the leak orifice, typically measured via ultrasonic leak detector or flow test.",
       "label_i18n": {
         "en": "Equivalent Leak Diameter (mm)",
-        "tr": "Eşdeğer Sızıntı Çapı (mm)"
+        "tr": "Eşdeğer Sızıntı Çapı (mm)",
+        "de": "Äquivalenter Leckdurchmesser (mm)",
+        "fr": "Diamètre équivalent de fuite (mm)"
       },
       "businessContext_i18n": {
         "en": "Estimated diameter of the leak orifice, typically measured via ultrasonic leak detector or flow test.",
-        "tr": "Sızıntı deliğinin tahmini çapı, genellikle ultrasonik sızıntı dedektörü veya akış testi ile ölçülür."
+        "tr": "Sızıntı deliğinin tahmini çapı, genellikle ultrasonik sızıntı dedektörü veya akış testi ile ölçülür.",
+        "de": "Geschätzter Durchmesser der Lecköffnung, typischerweise gemessen mit Ultraschall-Leckdetektor oder Durchflusstest.",
+        "fr": "Diamètre estimé de l'orifice de fuite, généralement mesuré par détecteur ultrasonique ou test de débit."
       }
     },
     {
@@ -40,11 +44,15 @@
       "businessContext": "Operating pressure of the compressed air system at the point of leak.",
       "label_i18n": {
         "en": "System Pressure (bar gauge)",
-        "tr": "Sistem Basıncı (bar gösterge)"
+        "tr": "Sistem Basıncı (bar gösterge)",
+        "de": "Systemdruck (bar Überdruck)",
+        "fr": "Pression du système (bar effectif)"
       },
       "businessContext_i18n": {
         "en": "Operating pressure of the compressed air system at the point of leak.",
-        "tr": "Sızıntı noktasında basınçlı hava sisteminin çalışma basıncı."
+        "tr": "Sızıntı noktasında basınçlı hava sisteminin çalışma basıncı.",
+        "de": "Betriebsdruck des Druckluftsystems an der Leckstelle.",
+        "fr": "Pression de fonctionnement du système d'air comprimé au point de fuite."
       }
     },
     {
@@ -59,11 +67,15 @@
       "label_i18n": {
         "en": "Operating Hours per Year",
         "tr": "Yıllık Çalışma Saati",
-        "de": "Betriebsstunden pro Jahr"
+        "de": "Betriebsstunden pro Jahr",
+        "fr": "Heures de fonctionnement par an",
+        "es": "Horas de operación por año"
       },
       "businessContext_i18n": {
         "en": "Total annual hours the vacuum/compressed air system is in operation.",
-        "tr": "Vakum/basınçlı hava sisteminin yıllık toplam çalışma saati."
+        "tr": "Vakum/basınçlı hava sisteminin yıllık toplam çalışma saati.",
+        "de": "Gesamte jährliche Betriebsstunden des Vakuum-/Druckluftsystems.",
+        "fr": "Heures annuelles totales de fonctionnement du système de vide/air comprimé."
       }
     },
     {
@@ -77,11 +89,15 @@
       "businessContext": "Average cost of electricity per kilowatt-hour, including demand charges if applicable.",
       "label_i18n": {
         "en": "Electricity Cost ($/kWh)",
-        "tr": "Elektrik Maliyeti ($/kWh)"
+        "tr": "Elektrik Maliyeti ($/kWh)",
+        "de": "Stromkosten ($/kWh)",
+        "fr": "Coût de l'électricité ($/kWh)"
       },
       "businessContext_i18n": {
         "en": "Average cost of electricity per kilowatt-hour, including demand charges if applicable.",
-        "tr": "Talep bedelleri dahil olmak üzere kilovatsaat başına ortalama elektrik maliyeti."
+        "tr": "Talep bedelleri dahil olmak üzere kilovatsaat başına ortalama elektrik maliyeti.",
+        "de": "Durchschnittliche Stromkosten pro Kilowattstunde, einschließlich Leistungspreisen falls zutreffend.",
+        "fr": "Coût moyen de l'électricité par kilowattheure, incluant les frais de demande si applicable."
       }
     },
     {
@@ -95,11 +111,15 @@
       "businessContext": "Power consumption of the compressor per 100 cfm of free air delivered. Typical range 16-22 kW/100 cfm for rotary screw compressors.",
       "label_i18n": {
         "en": "Compressor Specific Power (kW per 100 cfm)",
-        "tr": "Kompresör Özgül Gücü (100 cfm başına kW)"
+        "tr": "Kompresör Özgül Gücü (100 cfm başına kW)",
+        "de": "Spezifische Kompressorleistung (kW pro 100 cfm)",
+        "fr": "Puissance spécifique du compresseur (kW par 100 cfm)"
       },
       "businessContext_i18n": {
         "en": "Power consumption of the compressor per 100 cfm of free air delivered. Typical range 16-22 kW/100 cfm for rotary screw compressors.",
-        "tr": "100 cfm serbest hava debisi başına kompresörün güç tüketimi. Vidalı kompresörler için tipik aralık 16-22 kW/100 cfm."
+        "tr": "100 cfm serbest hava debisi başına kompresörün güç tüketimi. Vidalı kompresörler için tipik aralık 16-22 kW/100 cfm.",
+        "de": "Leistungsaufnahme des Kompressors pro 100 cfm freier Luftlieferung. Typischer Bereich 16-22 kW/100 cfm für Schraubenkompressoren.",
+        "fr": "Consommation électrique du compresseur par 100 cfm d'air libre délivré. Plage typique 16-22 kW/100 cfm pour les compresseurs à vis rotative."
       }
     },
     {
@@ -114,11 +134,15 @@
       "label_i18n": {
         "en": "Ambient Temperature (°C)",
         "tr": "Ortam Sıcaklığı (°C)",
-        "de": "Umgebungstemperatur (°C)"
+        "de": "Umgebungstemperatur (°C)",
+        "fr": "Température ambiante (°C)",
+        "es": "Temperatura ambiente (°C)"
       },
       "businessContext_i18n": {
         "en": "Average ambient temperature at compressor intake, affects air density and mass flow.",
-        "tr": "Kompresör girişindeki ortalama ortam sıcaklığı, hava yoğunluğunu ve kütle akışını etkiler."
+        "tr": "Kompresör girişindeki ortalama ortam sıcaklığı, hava yoğunluğunu ve kütle akışını etkiler.",
+        "de": "Durchschnittliche Umgebungstemperatur am Kompressoreinlass, beeinflusst Luftdichte und Massenstrom.",
+        "fr": "Température ambiante moyenne à l'admission du compresseur, affecte la densité de l'air et le débit massique."
       }
     },
     {
@@ -135,11 +159,15 @@
       "businessContext": "Shape factor affects discharge coefficient. Round is typical for drilled holes; sharp for cracks; long for pipes.",
       "label_i18n": {
         "en": "Leak Type (Orifice Shape Factor)",
-        "tr": "Sızıntı Türü (Delik Şekil Faktörü)"
+        "tr": "Sızıntı Türü (Delik Şekil Faktörü)",
+        "de": "Lecktyp (Öffnungsformfaktor)",
+        "fr": "Type de fuite (facteur de forme de l'orifice)"
       },
       "businessContext_i18n": {
         "en": "Shape factor affects discharge coefficient. Round is typical for drilled holes; sharp for cracks; long for pipes.",
-        "tr": "Şekil faktörü boşaltma katsayısını etkiler. Yuvarlak delikler için tipik, keskin çatlaklar için keskin, uzun borular için uzun."
+        "tr": "Şekil faktörü boşaltma katsayısını etkiler. Yuvarlak delikler için tipik, keskin çatlaklar için keskin, uzun borular için uzun.",
+        "de": "Formfaktor beeinflusst Ausflusskoeffizienten. Rund ist typisch für gebohrte Löcher; scharf für Risse; lang für Rohre.",
+        "fr": "Le facteur de forme affecte le coefficient de décharge. Rond est typique pour les trous percés ; aigu pour les fissures ; long pour les tuyaux."
       }
     },
     {
@@ -151,11 +179,15 @@
       "businessContext": "If enabled, calculates CO2 emissions and associated cost based on grid emission factor.",
       "label_i18n": {
         "en": "Include Carbon Cost Calculation",
-        "tr": "Karbon Maliyeti Hesaplamasını Dahil Et"
+        "tr": "Karbon Maliyeti Hesaplamasını Dahil Et",
+        "de": "CO₂-Kostenberechnung einschließen",
+        "fr": "Inclure le calcul du coût carbone"
       },
       "businessContext_i18n": {
         "en": "If enabled, calculates CO2 emissions and associated cost based on grid emission factor.",
-        "tr": "Etkinleştirilirse, şebeke emisyon faktörüne göre CO2 emisyonlarını ve ilişkili maliyeti hesaplar."
+        "tr": "Etkinleştirilirse, şebeke emisyon faktörüne göre CO2 emisyonlarını ve ilişkili maliyeti hesaplar.",
+        "de": "Wenn aktiviert, berechnet CO₂-Emissionen und zugehörige Kosten basierend auf dem Netz-Emissionsfaktor.",
+        "fr": "Si activé, calcule les émissions de CO₂ et le coût associé en fonction du facteur d'émission du réseau."
       }
     }
   ],

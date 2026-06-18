@@ -25,12 +25,16 @@
       "label_i18n": {
         "en": "Digital Twin Scope",
         "tr": "Dijital İkiz Kapsamı",
-        "de": "Digitaler Zwilling – Umfang"
+        "de": "Digitaler Zwilling – Umfang",
+        "fr": "Périmètre du jumeau numérique",
+        "es": "Alcance del gemelo digital"
       },
       "businessContext_i18n": {
         "en": "Select the scope of the digital twin: asset, process, system, or enterprise. Influences complexity and cost multipliers.",
         "tr": "Dijital ikizin kapsamını seçin: varlık, süreç, sistem veya kuruluş. Karmaşıklık ve maliyet çarpanlarını etkiler.",
-        "de": "Wählen Sie den Umfang des digitalen Zwillings: Anlage, Prozess, System oder Unternehmen. Beeinflusst Komplexitäts- und Kostenmultiplikatoren."
+        "de": "Wählen Sie den Umfang des digitalen Zwillings: Anlage, Prozess, System oder Unternehmen. Beeinflusst Komplexitäts- und Kostenmultiplikatoren.",
+        "fr": "Sélectionnez le périmètre du jumeau numérique : actif, processus, système ou entreprise. Influence les multiplicateurs de complexité et de coût.",
+        "es": "Seleccione el alcance del gemelo digital: activo, proceso, sistema o empresa. Influye en los multiplicadores de complejidad y coste."
       }
     },
     {
@@ -45,12 +49,16 @@
       "label_i18n": {
         "en": "Number of Assets/Entities",
         "tr": "Varlık/Varlık Sayısı",
-        "de": "Anzahl der Anlagen/Entitäten"
+        "de": "Anzahl der Anlagen/Entitäten",
+        "fr": "Nombre d'actifs/entités",
+        "es": "Número de activos/entidades"
       },
       "businessContext_i18n": {
         "en": "Total number of physical assets or entities to be modeled in the digital twin.",
         "tr": "Dijital ikizde modellenecek toplam fiziksel varlık veya varlık sayısı.",
-        "de": "Gesamtzahl der physischen Anlagen oder Entitäten, die im digitalen Zwilling modelliert werden sollen."
+        "de": "Gesamtzahl der physischen Anlagen oder Entitäten, die im digitalen Zwilling modelliert werden sollen.",
+        "fr": "Nombre total d'actifs physiques ou d'entités à modéliser dans le jumeau numérique.",
+        "es": "Número total de activos físicos o entidades a modelar en el gemelo digital."
       }
     },
     {
@@ -65,12 +73,16 @@
       "label_i18n": {
         "en": "Sensor Density (sensors per asset)",
         "tr": "Sensör Yoğunluğu (varlık başına sensör)",
-        "de": "Sensordichte (Sensoren pro Anlage)"
+        "de": "Sensordichte (Sensoren pro Anlage)",
+        "fr": "Densité de capteurs (capteurs par actif)",
+        "es": "Densidad de sensores (sensores por activo)"
       },
       "businessContext_i18n": {
         "en": "Average number of IoT sensors per asset. Higher density increases data acquisition and processing costs.",
         "tr": "Varlık başına ortalama IoT sensör sayısı. Yüksek yoğunluk, veri toplama ve işleme maliyetlerini artırır.",
-        "de": "Durchschnittliche Anzahl von IoT-Sensoren pro Anlage. Höhere Dichte erhöht die Kosten für Datenerfassung und -verarbeitung."
+        "de": "Durchschnittliche Anzahl von IoT-Sensoren pro Anlage. Höhere Dichte erhöht die Kosten für Datenerfassung und -verarbeitung.",
+        "fr": "Nombre moyen de capteurs IoT par actif. Une densité plus élevée augmente les coûts d'acquisition et de traitement des données.",
+        "es": "Número promedio de sensores IoT por activo. Una mayor densidad aumenta los costes de adquisición y procesamiento de datos."
       }
     },
     {
@@ -85,12 +97,16 @@
       "label_i18n": {
         "en": "Data Acquisition Frequency",
         "tr": "Veri Toplama Sıklığı",
-        "de": "Datenerfassungsfrequenz"
+        "de": "Datenerfassungsfrequenz",
+        "fr": "Fréquence d'acquisition des données",
+        "es": "Frecuencia de adquisición de datos"
       },
       "businessContext_i18n": {
         "en": "Frequency of data collection: 0.1 (every 10s), 1 (per second), 10 (10 Hz), 100 (100 Hz). Higher frequency increases data volume and cost.",
         "tr": "Veri toplama sıklığı: 0.1 (her 10 saniyede bir), 1 (saniyede bir), 10 (10 Hz), 100 (100 Hz). Yüksek sıklık, veri hacmini ve maliyeti artırır.",
-        "de": "Häufigkeit der Datenerfassung: 0,1 (alle 10 s), 1 (pro Sekunde), 10 (10 Hz), 100 (100 Hz). Höhere Frequenz erhöht das Datenvolumen und die Kosten."
+        "de": "Häufigkeit der Datenerfassung: 0,1 (alle 10 s), 1 (pro Sekunde), 10 (10 Hz), 100 (100 Hz). Höhere Frequenz erhöht das Datenvolumen und die Kosten.",
+        "fr": "Fréquence de collecte des données : 0,1 (toutes les 10 s), 1 (par seconde), 10 (10 Hz), 100 (100 Hz). Une fréquence plus élevée augmente le volume de données et le coût.",
+        "es": "Frecuencia de recolección de datos: 0.1 (cada 10s), 1 (por segundo), 10 (10 Hz), 100 (100 Hz). Una frecuencia más alta aumenta el volumen de datos y el costo."
       }
     },
     {
@@ -105,12 +121,16 @@
       "label_i18n": {
         "en": "Integration Complexity",
         "tr": "Entegrasyon Karmaşıklığı",
-        "de": "Integrationskomplexität"
+        "de": "Integrationskomplexität",
+        "fr": "Complexité d'intégration",
+        "es": "Complejidad de integración"
       },
       "businessContext_i18n": {
         "en": "Complexity of integrating with existing systems (ERP, MES, CMMS). Low, medium, high. Affects labor and software costs.",
         "tr": "Mevcut sistemlerle (ERP, MES, CMMS) entegrasyon karmaşıklığı. Düşük, orta, yüksek. İşçilik ve yazılım maliyetlerini etkiler.",
-        "de": "Komplexität der Integration mit bestehenden Systemen (ERP, MES, CMMS). Niedrig, mittel, hoch. Beeinflusst Arbeits- und Softwarekosten."
+        "de": "Komplexität der Integration mit bestehenden Systemen (ERP, MES, CMMS). Niedrig, mittel, hoch. Beeinflusst Arbeits- und Softwarekosten.",
+        "fr": "Complexité de l'intégration avec les systèmes existants (ERP, MES, GMAO). Faible, moyenne, élevée. Affecte les coûts de main-d'œuvre et de logiciel.",
+        "es": "Complejidad de integración con sistemas existentes (ERP, MES, CMMS). Baja, media, alta. Afecta los costos de mano de obra y software."
       }
     },
     {
@@ -125,12 +145,16 @@
       "label_i18n": {
         "en": "Data Quality Index (DQI)",
         "tr": "Veri Kalite Endeksi (VKE)",
-        "de": "Datenqualitätsindex (DQI)"
+        "de": "Datenqualitätsindex (DQI)",
+        "fr": "Indice de qualité des données (IQD)",
+        "es": "Índice de calidad de datos (DQI)"
       },
       "businessContext_i18n": {
         "en": "Percentage of data that is accurate, complete, and timely. Based on ISO 8000 data quality standards.",
         "tr": "Doğru, eksiksiz ve zamanında olan veri yüzdesi. ISO 8000 veri kalitesi standartlarına dayanır.",
-        "de": "Prozentsatz der Daten, die genau, vollständig und zeitnah sind. Basierend auf ISO-8000-Datenqualitätsstandards."
+        "de": "Prozentsatz der Daten, die genau, vollständig und zeitnah sind. Basierend auf ISO-8000-Datenqualitätsstandards.",
+        "fr": "Pourcentage de données exactes, complètes et opportunes. Basé sur les normes de qualité des données ISO 8000.",
+        "es": "Porcentaje de datos que son precisos, completos y oportunos. Basado en estándares de calidad de datos ISO 8000."
       }
     },
     {
@@ -145,12 +169,16 @@
       "label_i18n": {
         "en": "Average Labor Rate (USD/hour)",
         "tr": "Ortalama İşçilik Ücreti (USD/saat)",
-        "de": "Durchschnittlicher Stundensatz (USD/Stunde)"
+        "de": "Durchschnittlicher Stundensatz (USD/Stunde)",
+        "fr": "Taux de main-d'œuvre moyen (USD/heure)",
+        "es": "Tarifa laboral promedio (USD/hora)"
       },
       "businessContext_i18n": {
         "en": "Blended hourly rate for engineering and IT staff involved in digital twin development and maintenance.",
         "tr": "Dijital ikiz geliştirme ve bakımında yer alan mühendislik ve BT personeli için harmanlanmış saatlik ücret.",
-        "de": "Gemischter Stundensatz für Ingenieur- und IT-Personal, das an der Entwicklung und Wartung des digitalen Zwillings beteiligt ist."
+        "de": "Gemischter Stundensatz für Ingenieur- und IT-Personal, das an der Entwicklung und Wartung des digitalen Zwillings beteiligt ist.",
+        "fr": "Taux horaire mixte pour le personnel d'ingénierie et informatique impliqué dans le développement et la maintenance du jumeau numérique.",
+        "es": "Tarifa mixta por hora para el personal de ingeniería y TI involucrado en el desarrollo y mantenimiento del gemelo digital."
       }
     },
     {
@@ -165,12 +193,16 @@
       "label_i18n": {
         "en": "Expected Lifespan (years)",
         "tr": "Beklenen Kullanım Ömrü (yıl)",
-        "de": "Erwartete Lebensdauer (Jahre)"
+        "de": "Erwartete Lebensdauer (Jahre)",
+        "fr": "Durée de vie prévue (années)",
+        "es": "Vida útil esperada (años)"
       },
       "businessContext_i18n": {
         "en": "Expected operational lifespan of the digital twin system. Used for amortization and total cost of ownership calculations.",
         "tr": "Dijital ikiz sisteminin beklenen operasyonel kullanım ömrü. Amortisman ve toplam sahip olma maliyeti hesaplamaları için kullanılır.",
-        "de": "Erwartete betriebliche Lebensdauer des digitalen Zwillingssystems. Wird für Abschreibung und Gesamtbetriebskostenberechnungen verwendet."
+        "de": "Erwartete betriebliche Lebensdauer des digitalen Zwillingssystems. Wird für Abschreibung und Gesamtbetriebskostenberechnungen verwendet.",
+        "fr": "Durée de vie opérationnelle prévue du système de jumeau numérique. Utilisée pour l'amortissement et le calcul du coût total de possession.",
+        "es": "Vida útil operativa esperada del sistema de gemelo digital. Se utiliza para cálculos de amortización y costo total de propiedad."
       }
     }
   ],

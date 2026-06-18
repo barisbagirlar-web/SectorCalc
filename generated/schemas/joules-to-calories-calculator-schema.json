@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Energy in Joules",
         "tr": "Enerji (Joule)",
-        "de": "Energy in Joules",
-        "fr": "Energy in Joules",
-        "es": "Energy in Joules",
+        "de": "Energie in Joule",
+        "fr": "Énergie en joules",
+        "es": "Energía en julios",
         "ar": "Energy in Joules"
       },
       "businessContext_i18n": {
         "en": "Enter the amount of energy in joules that you wish to convert into calories. Typical applications include food energy labeling, engineering thermal calculations, or scientific energy unit conversions.",
-        "tr": "Kaloriye dönüştürmek istediğiniz enerji miktarını joule cinsinden girin. Tipik uygulamalar: gıda enerji etiketlemesi, mühendislik termal hesaplamaları veya bilimsel enerji birim dönüşümleri."
+        "tr": "Kaloriye dönüştürmek istediğiniz enerji miktarını joule cinsinden girin. Tipik uygulamalar: gıda enerji etiketlemesi, mühendislik termal hesaplamaları veya bilimsel enerji birim dönüşümleri.",
+        "de": "Geben Sie die Energiemenge in Joule ein, die Sie in Kalorien umrechnen möchten. Typische Anwendungen sind Lebensmittelenergiekennzeichnung, thermische Berechnungen im Ingenieurwesen oder wissenschaftliche Energieeinheitenumrechnungen.",
+        "fr": "Entrez la quantité d'énergie en joules que vous souhaitez convertir en calories. Les applications typiques incluent l'étiquetage de l'énergie alimentaire, les calculs thermiques d'ingénierie ou les conversions d'unités d'énergie scientifiques.",
+        "es": "Ingrese la cantidad de energía en julios que desea convertir a calorías. Las aplicaciones típicas incluyen etiquetado de energía alimentaria, cálculos térmicos de ingeniería o conversiones de unidades de energía científicas."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Calorie Standard",
         "tr": "Kalori Standardı",
-        "de": "Calorie Standard",
+        "de": "Kalorienstandard",
         "fr": "Calorie Standard",
-        "es": "Calorie Standard",
+        "es": "Estándar de caloría",
         "ar": "Calorie Standard"
       },
       "businessContext_i18n": {
         "en": "Select the conversion standard: 1 = Thermochemical (4.184 J/cal), 2 = 4°C calorie (4.204 J/cal), 3 = 15°C calorie (4.1855 J/cal), 4 = International Steam Table (4.1868 J/cal), 5 = Mean calorie (4.190 J/cal). Used to ensure compliance with specific industry or regulatory definitions.",
-        "tr": "Dönüşüm standardını seçin: 1 = Termokimyasal (4,184 J/cal), 2 = 4°C kalorisi (4,204 J/cal), 3 = 15°C kalorisi (4,1855 J/cal), 4 = Uluslararası Buhar Tablosu (4,1868 J/cal), 5 = Ortalama kalori (4,190 J/cal). Belirli endüstri veya düzenleyici tanımlara uygunluğu sağlamak için kullanılır."
+        "tr": "Dönüşüm standardını seçin: 1 = Termokimyasal (4,184 J/cal), 2 = 4°C kalorisi (4,204 J/cal), 3 = 15°C kalorisi (4,1855 J/cal), 4 = Uluslararası Buhar Tablosu (4,1868 J/cal), 5 = Ortalama kalori (4,190 J/cal). Belirli endüstri veya düzenleyici tanımlara uygunluğu sağlamak için kullanılır.",
+        "de": "Wählen Sie den Umrechnungsstandard: 1 = Thermochemisch (4,184 J/cal), 2 = 4°C-Kalorie (4,204 J/cal), 3 = 15°C-Kalorie (4,1855 J/cal), 4 = Internationale Dampftabelle (4,1868 J/cal), 5 = Mittlere Kalorie (4,190 J/cal). Wird verwendet, um die Einhaltung spezifischer Industrie- oder Regulierungsdefinitionen sicherzustellen.",
+        "fr": "Sélectionnez la norme de conversion : 1 = Thermochimique (4,184 J/cal), 2 = Calorie à 4°C (4,204 J/cal), 3 = Calorie à 15°C (4,1855 J/cal), 4 = Table internationale de vapeur (4,1868 J/cal), 5 = Calorie moyenne (4,190 J/cal). Utilisé pour assurer la conformité avec des définitions industrielles ou réglementaires spécifiques.",
+        "es": "Seleccione el estándar de conversión: 1 = Termoquímica (4.184 J/cal), 2 = Caloría a 4°C (4.204 J/cal), 3 = Caloría a 15°C (4.1855 J/cal), 4 = Tabla de Vapor Internacional (4.1868 J/cal), 5 = Caloría media (4.190 J/cal). Se utiliza para garantizar el cumplimiento de definiciones industriales o regulatorias específicas."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Defines the number of decimal places in the final calorie output. Important for reporting accuracy in quality control or nutritional labeling (e.g., 0 for whole numbers, 2 for typical food labels).",
-        "tr": "Nihai kalori çıktısındaki ondalık basamak sayısını tanımlar. Kalite kontrol veya besin etiketlemesinde raporlama doğruluğu için önemlidir (örneğin, tam sayılar için 0, tipik gıda etiketleri için 2)."
+        "tr": "Nihai kalori çıktısındaki ondalık basamak sayısını tanımlar. Kalite kontrol veya besin etiketlemesinde raporlama doğruluğu için önemlidir (örneğin, tam sayılar için 0, tipik gıda etiketleri için 2).",
+        "de": "Legt die Anzahl der Dezimalstellen in der endgültigen Kalorienausgabe fest. Wichtig für die Berichtsgenauigkeit in der Qualitätskontrolle oder bei Nährwertkennzeichnungen (z. B. 0 für ganze Zahlen, 2 für typische Lebensmitteletiketten).",
+        "fr": "Définit le nombre de décimales dans le résultat final en calories. Important pour la précision des rapports en contrôle qualité ou étiquetage nutritionnel (ex. : 0 pour nombres entiers, 2 pour étiquettes alimentaires typiques).",
+        "es": "Define el número de decimales en la salida final de calorías. Importante para la precisión de informes en control de calidad o etiquetado nutricional (p. ej., 0 para números enteros, 2 para etiquetas de alimentos típicas)."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Rounding Method",
         "tr": "Yuvarlama yöntemi",
         "de": "Rundungsmethode",
-        "fr": "Rounding Method",
-        "es": "Rounding Method",
+        "fr": "Méthode d'arrondi",
+        "es": "Método de redondeo",
         "ar": "Rounding Method"
       },
       "businessContext_i18n": {
         "en": "0 = round to nearest (standard mathematical rounding), 1 = floor (always round down), 2 = ceil (always round up). Selection may depend on regulatory rounding rules or internal manufacturing conventions.",
-        "tr": "0 = en yakına yuvarla (standart matematiksel yuvarlama), 1 = taban (her zaman aşağı yuvarla), 2 = tavan (her zaman yukarı yuvarla). Seçim, düzenleyici yuvarlama kurallarına veya iç üretim kurallarına bağlı olabilir."
+        "tr": "0 = en yakına yuvarla (standart matematiksel yuvarlama), 1 = taban (her zaman aşağı yuvarla), 2 = tavan (her zaman yukarı yuvarla). Seçim, düzenleyici yuvarlama kurallarına veya iç üretim kurallarına bağlı olabilir.",
+        "de": "0 = auf nächste ganze Zahl runden (Standard), 1 = abrunden, 2 = aufrunden. Die Auswahl kann von regulatorischen Rundungsregeln oder internen Fertigungskonventionen abhängen.",
+        "fr": "0 = arrondi au plus proche (arrondi mathématique standard), 1 = plancher (toujours arrondir vers le bas), 2 = plafond (toujours arrondir vers le haut). Le choix peut dépendre des règles d'arrondi réglementaires ou des conventions internes de fabrication.",
+        "es": "0 = redondear al más cercano (redondeo matemático estándar), 1 = piso (siempre redondear hacia abajo), 2 = techo (siempre redondear hacia arriba). La selección puede depender de reglas de redondeo regulatorias o convenciones internas de fabricación."
       }
     }
   ],

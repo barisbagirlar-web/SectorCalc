@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Kibibytes",
         "tr": "Kibibayt",
-        "de": "Kibibytes",
-        "fr": "Kibibytes",
+        "de": "Kibibyte",
+        "fr": "Kibioctets",
         "es": "Kibibytes",
         "ar": "Kibibytes"
       },
       "businessContext_i18n": {
         "en": "Amount of data in kibibytes (binary) to be converted",
-        "tr": "Dönüştürülecek kibibayt (ikili) cinsinden veri miktarı"
+        "tr": "Dönüştürülecek kibibayt (ikili) cinsinden veri miktarı",
+        "de": "Datenmenge in Kibibyte (binär) zur Umrechnung",
+        "fr": "Quantité de données en kibioctets (binaire) à convertir",
+        "es": "Cantidad de datos en kibibytes (binario) a convertir"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Decimal places",
         "tr": "Ondalık basamaklar",
         "de": "Dezimalstellen",
-        "fr": "Decimal places",
-        "es": "Decimal places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the final result",
-        "tr": "Nihai sonucu yuvarlamak için ondalık basamak sayısı"
+        "tr": "Nihai sonucu yuvarlamak için ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen für die Rundung des Endergebnisses",
+        "fr": "Nombre de décimales pour arrondir le résultat final",
+        "es": "Número de decimales para redondear el resultado final"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Redundancy factor",
         "tr": "Yedeklilik faktörü",
-        "de": "Redundancy factor",
-        "fr": "Redundancy factor",
-        "es": "Redundancy factor",
+        "de": "Redundanzfaktor",
+        "fr": "Facteur de redondance",
+        "es": "Factor de redundancia",
         "ar": "Redundancy factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier for storage redundancy (e.g., RAID, replication)",
-        "tr": "Depolama yedekliliği için çarpan (örneğin, RAID, replikasyon)"
+        "tr": "Depolama yedekliliği için çarpan (örneğin, RAID, replikasyon)",
+        "de": "Multiplikator für Speicherredundanz (z. B. RAID, Replikation)",
+        "fr": "Multiplicateur pour la redondance de stockage (ex. : RAID, réplication)",
+        "es": "Multiplicador para redundancia de almacenamiento (ej. RAID, replicación)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Overhead percent",
         "tr": "Ek yük yüzdesi",
-        "de": "Overhead percent",
-        "fr": "Overhead percent",
-        "es": "Overhead percent",
+        "de": "Overhead-Prozentsatz",
+        "fr": "Pourcentage de frais généraux",
+        "es": "Porcentaje de sobrecarga",
         "ar": "Overhead percent"
       },
       "businessContext_i18n": {
         "en": "Additional overhead percentage for filesystem metadata or provisioning",
-        "tr": "Dosya sistemi meta verileri veya provizyon için ek yük yüzdesi"
+        "tr": "Dosya sistemi meta verileri veya provizyon için ek yük yüzdesi",
+        "de": "Zusätzlicher Overhead-Prozentsatz für Dateisystem-Metadaten oder Bereitstellung",
+        "fr": "Pourcentage supplémentaire de frais généraux pour les métadonnées du système de fichiers ou le provisionnement",
+        "es": "Porcentaje adicional de sobrecarga para metadatos del sistema de archivos o aprovisionamiento"
       }
     }
   ],

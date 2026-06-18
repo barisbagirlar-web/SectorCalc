@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Building Width (Span)",
         "tr": "Bina Genişliği (Açıklık)",
-        "de": "Building Width (Span)",
-        "fr": "Building Width (Span)",
-        "es": "Building Width (Span)",
+        "de": "Gebäudebreite (Spannweite)",
+        "fr": "Largeur du bâtiment (portée)",
+        "es": "Ancho del edificio (luz)",
         "ar": "Building Width (Span)"
       },
       "businessContext_i18n": {
         "en": "Total horizontal distance from eave to eave across the ridge.",
-        "tr": "Mahyadan saçağa kadar olan toplam yatay mesafe."
+        "tr": "Mahyadan saçağa kadar olan toplam yatay mesafe.",
+        "de": "Gesamte horizontale Distanz von Traufe zu Traufe über den First.",
+        "fr": "Distance horizontale totale d'un avant-toit à l'autre en passant par le faîte.",
+        "es": "Distancia horizontal total desde el alero hasta el alero a través de la cumbrera."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Building Length",
         "tr": "Bina Uzunluğu",
         "de": "Gebäudelänge",
-        "fr": "Building Length",
-        "es": "Building Length",
+        "fr": "Longueur du bâtiment",
+        "es": "Largo del edificio",
         "ar": "Building Length"
       },
       "businessContext_i18n": {
         "en": "Length of building parallel to ridge.",
-        "tr": "Mahyaya paralel bina uzunluğu."
+        "tr": "Mahyaya paralel bina uzunluğu.",
+        "de": "Länge des Gebäudes parallel zum First.",
+        "fr": "Longueur du bâtiment parallèlement au faîte.",
+        "es": "Longitud del edificio paralela a la cumbrera."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Lower Slope Angle",
         "tr": "Alt Eğim Açısı",
-        "de": "Lower Slope Angle",
-        "fr": "Lower Slope Angle",
-        "es": "Lower Slope Angle",
+        "de": "Neigungswinkel unteres Dach",
+        "fr": "Angle de la pente inférieure",
+        "es": "Ángulo de la pendiente inferior",
         "ar": "Lower Slope Angle"
       },
       "businessContext_i18n": {
         "en": "Angle of lower slope from horizontal, typically steep (60-80°).",
-        "tr": "Alt eğimin yataydan açısı, tipik olarak dik (60-80°)."
+        "tr": "Alt eğimin yataydan açısı, tipik olarak dik (60-80°).",
+        "de": "Winkel des unteren Dachs zur Horizontalen, typischerweise steil (60-80°).",
+        "fr": "Angle de la pente inférieure par rapport à l'horizontale, généralement raide (60-80°).",
+        "es": "Ángulo de la pendiente inferior desde la horizontal, típicamente pronunciado (60-80°)."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Upper Slope Angle",
         "tr": "Üst Eğim Açısı",
-        "de": "Upper Slope Angle",
-        "fr": "Upper Slope Angle",
-        "es": "Upper Slope Angle",
+        "de": "Neigungswinkel oberes Dach",
+        "fr": "Angle de la pente supérieure",
+        "es": "Ángulo de la pendiente superior",
         "ar": "Upper Slope Angle"
       },
       "businessContext_i18n": {
         "en": "Angle of upper slope from horizontal, typically shallower (10-30°).",
-        "tr": "Üst eğimin yataydan açısı, tipik olarak daha sığ (10-30°)."
+        "tr": "Üst eğimin yataydan açısı, tipik olarak daha sığ (10-30°).",
+        "de": "Winkel des oberen Dachs zur Horizontalen, typischerweise flacher (10-30°).",
+        "fr": "Angle de la pente supérieure par rapport à l'horizontale, généralement plus faible (10-30°).",
+        "es": "Ángulo de la pendiente superior desde la horizontal, típicamente más suave (10-30°)."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Lower Vertical Height",
         "tr": "Alt Dikey Yükseklik",
-        "de": "Lower Vertical Height",
-        "fr": "Lower Vertical Height",
-        "es": "Lower Vertical Height",
+        "de": "Untere vertikale Höhe",
+        "fr": "Hauteur verticale inférieure",
+        "es": "Altura vertical inferior",
         "ar": "Lower Vertical Height"
       },
       "businessContext_i18n": {
         "en": "Vertical rise from eave to break point where slope changes.",
-        "tr": "Saçaktan eğimin değiştiği kırılma noktasına kadar dikey yükselme."
+        "tr": "Saçaktan eğimin değiştiği kırılma noktasına kadar dikey yükselme.",
+        "de": "Vertikaler Anstieg von der Traufe zum Knickpunkt, an dem sich die Neigung ändert.",
+        "fr": "Élévation verticale de l'avant-toit au point de rupture où la pente change.",
+        "es": "Elevación vertical desde el alero hasta el punto de quiebre donde cambia la pendiente."
       }
     }
   ],

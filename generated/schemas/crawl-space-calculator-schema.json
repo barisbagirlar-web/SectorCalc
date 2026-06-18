@@ -12,14 +12,16 @@
         "en": "Crawl Space Length",
         "tr": "Sürünme Alanı Uzunluğu",
         "de": "Kriechkellerlänge",
-        "fr": "Crawl Space Length",
-        "es": "Crawl Space Length",
+        "fr": "Longueur du vide sanitaire",
+        "es": "Largo del espacio de arrastre",
         "ar": "Crawl Space Length"
       },
       "businessContext_i18n": {
         "en": "Horizontal dimension (long side) of the crawl space.",
         "tr": "Sürünme alanının yatay boyutu (uzun kenar).",
-        "de": "Horizontale Abmessung (lange Seite) des Kriechkellers."
+        "de": "Horizontale Abmessung (lange Seite) des Kriechkellers.",
+        "fr": "Dimension horizontale (côté long) du vide sanitaire.",
+        "es": "Dimensión horizontal (lado largo) del espacio de arrastre."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Crawl Space Width",
         "tr": "Sürünme Alanı Genişliği",
         "de": "Kriechkellerbreite",
-        "fr": "Crawl Space Width",
-        "es": "Crawl Space Width",
+        "fr": "Largeur du vide sanitaire",
+        "es": "Ancho del espacio de arrastre",
         "ar": "Crawl Space Width"
       },
       "businessContext_i18n": {
         "en": "Horizontal dimension (short side) of the crawl space.",
         "tr": "Sürünme alanının yatay boyutu (kısa kenar).",
-        "de": "Horizontale Abmessung (kurze Seite) des Kriechkellers."
+        "de": "Horizontale Abmessung (kurze Seite) des Kriechkellers.",
+        "fr": "Dimension horizontale (côté court) du vide sanitaire.",
+        "es": "Dimensión horizontal (lado corto) del espacio de arrastre."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Crawl Space Height",
         "tr": "Sürünme Alanı Yüksekliği",
         "de": "Kriechkellerhöhe",
-        "fr": "Crawl Space Height",
-        "es": "Crawl Space Height",
+        "fr": "Hauteur du vide sanitaire",
+        "es": "Altura del espacio de arrastre",
         "ar": "Crawl Space Height"
       },
       "businessContext_i18n": {
         "en": "Vertical distance from dirt floor to bottom of floor joists.",
         "tr": "Toprak zeminden döşeme kirişlerinin altına kadar olan dikey mesafe.",
-        "de": "Vertikaler Abstand vom Erdboden bis zur Unterseite der Bodenbalken."
+        "de": "Vertikaler Abstand vom Erdboden bis zur Unterseite der Bodenbalken.",
+        "fr": "Distance verticale du sol en terre au bas des solives de plancher.",
+        "es": "Distancia vertical desde el piso de tierra hasta la parte inferior de las viguetas del piso."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Vent Area Ratio",
         "tr": "Havalandırma Alanı Oranı",
         "de": "Lüftungsflächenverhältnis",
-        "fr": "Vent Area Ratio",
-        "es": "Vent Area Ratio",
+        "fr": "Ratio de surface de ventilation",
+        "es": "Relación de área de ventilación",
         "ar": "Vent Area Ratio"
       },
       "businessContext_i18n": {
         "en": "Ratio of net free vent area to floor area. Building code: 1/150 (no vapor barrier) ≈ 0.00667; 1/1500 (with vapor barrier) ≈ 0.000667.",
         "tr": "Net serbest havalandırma alanının taban alanına oranı. Bina yönetmeliği: buhar bariyeri yoksa 1/150 ≈ 0.00667; buhar bariyeri varsa 1/1500 ≈ 0.000667.",
-        "de": "Verhältnis der Netto-Lüftungsfläche zur Grundfläche. Bauordnung: 1/150 (ohne Dampfsperre) ≈ 0,00667; 1/1500 (mit Dampfsperre) ≈ 0,000667."
+        "de": "Verhältnis der Netto-Lüftungsfläche zur Grundfläche. Bauordnung: 1/150 (ohne Dampfsperre) ≈ 0,00667; 1/1500 (mit Dampfsperre) ≈ 0,000667.",
+        "fr": "Ratio de la surface de ventilation nette libre par rapport à la surface au sol. Code du bâtiment : 1/150 (sans pare-vapeur) ≈ 0,00667 ; 1/1500 (avec pare-vapeur) ≈ 0,000667.",
+        "es": "Relación del área libre neta de ventilación con el área del piso. Código de construcción: 1/150 (sin barrera de vapor) ≈ 0.00667; 1/1500 (con barrera de vapor) ≈ 0.000667."
       }
     }
   ],

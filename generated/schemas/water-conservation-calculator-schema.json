@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Current Water Consumption",
         "tr": "Mevcut Su Tüketimi",
-        "de": "Current Water Consumption",
-        "fr": "Current Water Consumption",
+        "de": "Aktueller Wasserverbrauch",
+        "fr": "Consommation d'eau actuelle",
         "es": "Current Water Consumption",
         "ar": "Current Water Consumption"
       },
       "businessContext_i18n": {
         "en": "Total water usage in the current period",
-        "tr": "Cari dönemdeki toplam su kullanımı"
+        "tr": "Cari dönemdeki toplam su kullanımı",
+        "de": "Gesamter Wasserverbrauch im aktuellen Zeitraum",
+        "fr": "Utilisation totale d'eau sur la période en cours"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Baseline Water Consumption",
         "tr": "Baz Su Tüketimi",
-        "de": "Baseline Water Consumption",
-        "fr": "Baseline Water Consumption",
+        "de": "Basis-Wasserverbrauch",
+        "fr": "Consommation d'eau de référence",
         "es": "Baseline Water Consumption",
         "ar": "Baseline Water Consumption"
       },
       "businessContext_i18n": {
         "en": "Water consumption in a reference period for comparison",
-        "tr": "Karşılaştırma için referans dönemdeki su tüketimi"
+        "tr": "Karşılaştırma için referans dönemdeki su tüketimi",
+        "de": "Wasserverbrauch in einem Referenzzeitraum zum Vergleich",
+        "fr": "Consommation d'eau sur une période de référence pour comparaison"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Water Cost per m³",
         "tr": "Metreküp Başına Su Maliyeti",
-        "de": "Water Cost per m³",
-        "fr": "Water Cost per m³",
+        "de": "Wasserkosten pro m³",
+        "fr": "Coût de l'eau par m³",
         "es": "Water Cost per m³",
         "ar": "Water Cost per m³"
       },
       "businessContext_i18n": {
         "en": "Unit cost of water supply",
-        "tr": "Su temininin birim maliyeti"
+        "tr": "Su temininin birim maliyeti",
+        "de": "Stückkosten der Wasserversorgung",
+        "fr": "Coût unitaire de l'approvisionnement en eau"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Leakage Percentage",
         "tr": "Kaçak Yüzdesi",
-        "de": "Leakage Percentage",
-        "fr": "Leakage Percentage",
+        "de": "Leckage-Prozentsatz",
+        "fr": "Pourcentage de fuite",
         "es": "Leakage Percentage",
         "ar": "Leakage Percentage"
       },
       "businessContext_i18n": {
         "en": "Estimated percentage of water lost due to leaks",
-        "tr": "Sızıntılar nedeniyle kaybedilen suyun tahmini yüzdesi"
+        "tr": "Sızıntılar nedeniyle kaybedilen suyun tahmini yüzdesi",
+        "de": "Geschätzter Prozentsatz des durch Lecks verlorenen Wassers",
+        "fr": "Pourcentage estimé d'eau perdue à cause de fuites"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Efficiency Improvement Target",
         "tr": "Verimlilik İyileştirme Hedefi",
-        "de": "Efficiency Improvement Target",
-        "fr": "Efficiency Improvement Target",
+        "de": "Effizienzsteigerungsziel",
+        "fr": "Objectif d'amélioration de l'efficacité",
         "es": "Efficiency Improvement Target",
         "ar": "Efficiency Improvement Target"
       },
       "businessContext_i18n": {
         "en": "Target percentage reduction in water use through efficiency measures",
-        "tr": "Verimlilik önlemleriyle su kullanımında hedeflenen yüzde azalma"
+        "tr": "Verimlilik önlemleriyle su kullanımında hedeflenen yüzde azalma",
+        "de": "Zielprozentsatz zur Reduzierung des Wasserverbrauchs durch Effizienzmaßnahmen",
+        "fr": "Pourcentage cible de réduction de la consommation d'eau grâce à des mesures d'efficacité"
       }
     }
   ],

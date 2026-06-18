@@ -12,13 +12,15 @@
         "en": "Nightly Rate",
         "tr": "Gecelik Ücret",
         "de": "Nächtlicher Preis",
-        "fr": "Nightly Rate",
-        "es": "Nightly Rate",
+        "fr": "Tarif nocturne",
+        "es": "Tarifa nocturna",
         "ar": "Nightly Rate"
       },
       "businessContext_i18n": {
         "en": "Daily rental price of the property",
-        "tr": "Mülkün günlük kira fiyatı"
+        "tr": "Mülkün günlük kira fiyatı",
+        "de": "Täglicher Mietpreis der Immobilie",
+        "fr": "Prix de location quotidien du bien"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Number of Nights",
         "tr": "Gece Sayısı",
         "de": "Anzahl der Nächte",
-        "fr": "Number of Nights",
-        "es": "Number of Nights",
+        "fr": "Nombre de nuits",
+        "es": "Número de noches",
         "ar": "Number of Nights"
       },
       "businessContext_i18n": {
         "en": "Length of stay in nights",
-        "tr": "Gece olarak kalış süresi"
+        "tr": "Gece olarak kalış süresi",
+        "de": "Aufenthaltsdauer in Nächten",
+        "fr": "Durée du séjour en nuits"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Cleaning Fee",
         "tr": "Temizlik Ücreti",
         "de": "Reinigungsgebühr",
-        "fr": "Cleaning Fee",
-        "es": "Cleaning Fee",
+        "fr": "Frais de ménage",
+        "es": "Tarifa de limpieza",
         "ar": "Cleaning Fee"
       },
       "businessContext_i18n": {
         "en": "One-time fee for cleaning services",
-        "tr": "Temizlik hizmetleri için tek seferlik ücret"
+        "tr": "Temizlik hizmetleri için tek seferlik ücret",
+        "de": "Einmalige Reinigungsgebühr",
+        "fr": "Frais uniques de nettoyage"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Service Fee (%)",
         "tr": "Hizmet Ücreti (%)",
-        "de": "Service Fee (%)",
-        "fr": "Service Fee (%)",
+        "de": "Servicegebühr (%)",
+        "fr": "Frais de service (%)",
         "es": "Service Fee (%)",
         "ar": "Service Fee (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of base amount charged as service fee",
-        "tr": "Temel tutar üzerinden alınan hizmet ücreti yüzdesi"
+        "tr": "Temel tutar üzerinden alınan hizmet ücreti yüzdesi",
+        "de": "Prozentsatz des Grundbetrags, der als Servicegebühr berechnet wird",
+        "fr": "Pourcentage du montant de base facturé comme frais de service"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Occupancy Tax (%)",
         "tr": "Doluluk Vergisi (%)",
-        "de": "Occupancy Tax (%)",
-        "fr": "Occupancy Tax (%)",
+        "de": "Belegungssteuer (%)",
+        "fr": "Taxe d'occupation (%)",
         "es": "Occupancy Tax (%)",
         "ar": "Occupancy Tax (%)"
       },
       "businessContext_i18n": {
         "en": "Local tax percentage on rental subtotal",
-        "tr": "Kira alt toplamına uygulanan yerel vergi yüzdesi"
+        "tr": "Kira alt toplamına uygulanan yerel vergi yüzdesi",
+        "de": "Lokaler Steuerprozentsatz auf die Mietzwischensumme",
+        "fr": "Pourcentage de taxe locale sur le sous-total de location"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Discount (%)",
         "tr": "İndirim (%)",
-        "de": "Discount (%)",
-        "fr": "Discount (%)",
-        "es": "Discount (%)",
+        "de": "Rabatt (%)",
+        "fr": "Remise (%)",
+        "es": "Descuento (%)",
         "ar": "Discount (%)"
       },
       "businessContext_i18n": {
         "en": "Discount percentage applied to base amount",
-        "tr": "Temel tutara uygulanan indirim yüzdesi"
+        "tr": "Temel tutara uygulanan indirim yüzdesi",
+        "de": "Rabattprozentsatz, der auf den Grundbetrag angewendet wird",
+        "fr": "Pourcentage de réduction appliqué au montant de base"
       }
     }
   ],

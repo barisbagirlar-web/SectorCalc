@@ -12,13 +12,15 @@
         "en": "Electricity Consumption",
         "tr": "Elektrik Tüketimi",
         "de": "Stromverbrauch",
-        "fr": "Electricity Consumption",
-        "es": "Electricity Consumption",
+        "fr": "Consommation d'électricité",
+        "es": "Consumo eléctrico",
         "ar": "Electricity Consumption"
       },
       "businessContext_i18n": {
         "en": "Annual grid or purchased electricity consumption.",
-        "tr": "Yıllık şebeke veya satın alınan elektrik tüketimi."
+        "tr": "Yıllık şebeke veya satın alınan elektrik tüketimi.",
+        "de": "Jährlicher Strombezug aus dem Netz oder zugekaufter Strom.",
+        "fr": "Consommation annuelle d'électricité du réseau ou achetée."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Location-Based Emission Factor",
         "tr": "Konum Bazlı Emisyon Faktörü",
-        "de": "Location-Based Emission Factor",
-        "fr": "Location-Based Emission Factor",
+        "de": "Standortbasierter Emissionsfaktor",
+        "fr": "Facteur d'émission basé sur la localisation",
         "es": "Location-Based Emission Factor",
         "ar": "Location-Based Emission Factor"
       },
       "businessContext_i18n": {
         "en": "Grid average emission factor from national or regional authority.",
-        "tr": "Ulusal veya bölgesel otoriteden şebeke ortalama emisyon faktörü."
+        "tr": "Ulusal veya bölgesel otoriteden şebeke ortalama emisyon faktörü.",
+        "de": "Durchschnittlicher Netz-Emissionsfaktor der nationalen oder regionalen Behörde.",
+        "fr": "Facteur d'émission moyen du réseau provenant de l'autorité nationale ou régionale."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Market-Based Emission Factor",
         "tr": "Piyasa Bazlı Emisyon Faktörü",
-        "de": "Market-Based Emission Factor",
-        "fr": "Market-Based Emission Factor",
+        "de": "Marktbasierter Emissionsfaktor",
+        "fr": "Facteur d'émission basé sur le marché",
         "es": "Market-Based Emission Factor",
         "ar": "Market-Based Emission Factor"
       },
       "businessContext_i18n": {
         "en": "Supplier-specific or residual mix emission factor.",
-        "tr": "Tedarikçiye özgü veya artık karışım emisyon faktörü."
+        "tr": "Tedarikçiye özgü veya artık karışım emisyon faktörü.",
+        "de": "Lieferantenspezifischer oder Residualmix-Emissionsfaktor.",
+        "fr": "Facteur d'émission spécifique au fournisseur ou du mix résiduel."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Purchased Heat Consumption",
         "tr": "Satın Alınan Isı Tüketimi",
-        "de": "Purchased Heat Consumption",
-        "fr": "Purchased Heat Consumption",
+        "de": "Wärmebezug",
+        "fr": "Consommation de chaleur achetée",
         "es": "Purchased Heat Consumption",
         "ar": "Purchased Heat Consumption"
       },
       "businessContext_i18n": {
         "en": "Annual purchased heat/steam/cooling converted to MWh.",
-        "tr": "Yıllık satın alınan ısı/buhar/soğutma MWh'ye dönüştürülmüş."
+        "tr": "Yıllık satın alınan ısı/buhar/soğutma MWh'ye dönüştürülmüş.",
+        "de": "Jährlich zugekaufte Wärme/Dampf/Kälte, umgerechnet in MWh.",
+        "fr": "Chaleur/vapeur/froid acheté annuellement converti en MWh."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Heat Emission Factor",
         "tr": "Isı Emisyon Faktörü",
-        "de": "Heat Emission Factor",
-        "fr": "Heat Emission Factor",
+        "de": "Emissionsfaktor für Wärme",
+        "fr": "Facteur d'émission de chaleur",
         "es": "Heat Emission Factor",
         "ar": "Heat Emission Factor"
       },
       "businessContext_i18n": {
         "en": "Emission factor for purchased heat/steam/cooling.",
-        "tr": "Satın alınan ısı/buhar/soğutma için emisyon faktörü."
+        "tr": "Satın alınan ısı/buhar/soğutma için emisyon faktörü.",
+        "de": "Emissionsfaktor für zugekaufte Wärme/Dampf/Kälte.",
+        "fr": "Facteur d'émission pour la chaleur/la vapeur/le froid achetés."
       }
     }
   ],

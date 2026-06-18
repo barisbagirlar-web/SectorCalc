@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Defect Rate",
         "tr": "Fire Oranı",
-        "de": "Defect Rate",
-        "fr": "Defect Rate",
-        "es": "Defect Rate",
+        "de": "Fehlerrate",
+        "fr": "Taux de rebut",
+        "es": "Tasa de defectos",
         "ar": "Defect Rate"
       },
       "businessContext_i18n": {
         "en": "Percentage of defective products",
-        "tr": "Hatalı ürün yüzdesi"
+        "tr": "Hatalı ürün yüzdesi",
+        "de": "Prozentsatz fehlerhafter Produkte",
+        "fr": "Pourcentage de produits défectueux",
+        "es": "Porcentaje de productos defectuosos"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "On-Time Delivery Rate",
         "tr": "Zamanında Teslimat Oranı",
-        "de": "On-Time Delivery Rate",
-        "fr": "On-Time Delivery Rate",
-        "es": "On-Time Delivery Rate",
+        "de": "Termintreue",
+        "fr": "Taux de livraison à temps",
+        "es": "Tasa de entrega a tiempo",
         "ar": "On-Time Delivery Rate"
       },
       "businessContext_i18n": {
         "en": "Percentage of deliveries completed on time",
-        "tr": "Zamanında tamamlanan teslimatların yüzdesi"
+        "tr": "Zamanında tamamlanan teslimatların yüzdesi",
+        "de": "Prozentsatz pünktlich gelieferter Lieferungen",
+        "fr": "Pourcentage de livraisons effectuées à temps",
+        "es": "Porcentaje de entregas realizadas a tiempo"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Actual Productivity",
         "tr": "Gerçek Verimlilik",
-        "de": "Actual Productivity",
-        "fr": "Actual Productivity",
-        "es": "Actual Productivity",
+        "de": "Tatsächliche Produktivität",
+        "fr": "Productivité réelle",
+        "es": "Productividad real",
         "ar": "Actual Productivity"
       },
       "businessContext_i18n": {
         "en": "Actual production rate",
-        "tr": "Gerçek üretim hızı"
+        "tr": "Gerçek üretim hızı",
+        "de": "Tatsächliche Produktionsrate",
+        "fr": "Taux de production réel",
+        "es": "Tasa de producción real"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Target Productivity",
         "tr": "Hedef Verimlilik",
-        "de": "Target Productivity",
-        "fr": "Target Productivity",
-        "es": "Target Productivity",
+        "de": "Zielproduktivität",
+        "fr": "Productivité cible",
+        "es": "Productividad objetivo",
         "ar": "Target Productivity"
       },
       "businessContext_i18n": {
         "en": "Target production rate",
-        "tr": "Hedef üretim hızı"
+        "tr": "Hedef üretim hızı",
+        "de": "Zielproduktionsrate",
+        "fr": "Taux de production cible",
+        "es": "Tasa de producción objetivo"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Safety Incidents",
         "tr": "Güvenlik Olayları",
-        "de": "Safety Incidents",
-        "fr": "Safety Incidents",
-        "es": "Safety Incidents",
+        "de": "Sicherheitsvorfälle",
+        "fr": "Incidents de sécurité",
+        "es": "Incidentes de seguridad",
         "ar": "Safety Incidents"
       },
       "businessContext_i18n": {
         "en": "Number of safety incidents (each deducts 10 points)",
-        "tr": "Güvenlik olayı sayısı (her biri 10 puan düşer)"
+        "tr": "Güvenlik olayı sayısı (her biri 10 puan düşer)",
+        "de": "Anzahl der Sicherheitsvorfälle (jeder Abzug von 10 Punkten)",
+        "fr": "Nombre d'incidents de sécurité (chaque incident déduit 10 points)",
+        "es": "Número de incidentes de seguridad (cada uno descuenta 10 puntos)"
       }
     }
   ],

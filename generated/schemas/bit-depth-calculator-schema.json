@@ -12,14 +12,16 @@
         "en": "Bit Depth",
         "tr": "Bit Derinliği",
         "de": "Bittiefe",
-        "fr": "Bit Depth",
-        "es": "Bit Depth",
+        "fr": "Profondeur de bits",
+        "es": "Profundidad de bits",
         "ar": "Bit Depth"
       },
       "businessContext_i18n": {
         "en": "Number of bits used to represent each sample. Determines dynamic range and number of possible values.",
         "tr": "Her örneği temsil etmek için kullanılan bit sayısı. Dinamik aralığı ve olası değer sayısını belirler.",
-        "de": "Anzahl der Bits zur Darstellung jedes Samples. Bestimmt Dynamikumfang und Anzahl möglicher Werte."
+        "de": "Anzahl der Bits zur Darstellung jedes Samples. Bestimmt Dynamikumfang und Anzahl möglicher Werte.",
+        "fr": "Nombre de bits utilisés pour représenter chaque échantillon. Détermine la plage dynamique et le nombre de valeurs possibles.",
+        "es": "Número de bits utilizados para representar cada muestra. Determina el rango dinámico y el número de valores posibles."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Sample Rate",
         "tr": "Örnekleme Hızı",
         "de": "Abtastrate",
-        "fr": "Sample Rate",
-        "es": "Sample Rate",
+        "fr": "Taux d'échantillonnage",
+        "es": "Frecuencia de muestreo",
         "ar": "Sample Rate"
       },
       "businessContext_i18n": {
         "en": "Samples per second. Common values: 44.1 kHz for CD, 48 kHz for video, 96 kHz for high‑res.",
         "tr": "Saniyedeki örnek sayısı. Yaygın değerler: CD için 44,1 kHz, video için 48 kHz, yüksek çözünürlük için 96 kHz.",
-        "de": "Samples pro Sekunde. Übliche Werte: 44,1 kHz für CD, 48 kHz für Video, 96 kHz für High-Res."
+        "de": "Samples pro Sekunde. Übliche Werte: 44,1 kHz für CD, 48 kHz für Video, 96 kHz für High-Res.",
+        "fr": "Échantillons par seconde. Valeurs courantes : 44,1 kHz pour CD, 48 kHz pour vidéo, 96 kHz pour haute résolution.",
+        "es": "Muestras por segundo. Valores comunes: 44.1 kHz para CD, 48 kHz para video, 96 kHz para alta resolución."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Number of Channels",
         "tr": "Kanal Sayısı",
         "de": "Anzahl der Kanäle",
-        "fr": "Number of Channels",
-        "es": "Number of Channels",
+        "fr": "Nombre de canaux",
+        "es": "Número de canales",
         "ar": "Number of Channels"
       },
       "businessContext_i18n": {
         "en": "1 for mono, 2 for stereo, 5.1 for surround, etc.",
         "tr": "1 mono, 2 stereo, 5.1 surround vb. için.",
-        "de": "1 für Mono, 2 für Stereo, 5.1 für Surround usw."
+        "de": "1 für Mono, 2 für Stereo, 5.1 für Surround usw.",
+        "fr": "1 pour mono, 2 pour stéréo, 5.1 pour surround, etc.",
+        "es": "1 para mono, 2 para estéreo, 5.1 para sonido envolvente, etc."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Duration",
         "tr": "Süre",
         "de": "Dauer",
-        "fr": "Duration",
-        "es": "Duration",
+        "fr": "Durée",
+        "es": "Duración",
         "ar": "Duration"
       },
       "businessContext_i18n": {
         "en": "Duration of the audio stream in seconds.",
         "tr": "Ses akışının saniye cinsinden süresi.",
-        "de": "Dauer des Audiostreams in Sekunden."
+        "de": "Dauer des Audiostreams in Sekunden.",
+        "fr": "Durée du flux audio en secondes.",
+        "es": "Duración del flujo de audio en segundos."
       }
     }
   ],

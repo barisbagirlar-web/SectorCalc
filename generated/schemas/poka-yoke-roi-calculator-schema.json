@@ -22,11 +22,17 @@
       "businessContext": "Total number of units produced per year for the process line where the poka-yoke will be applied.",
       "label_i18n": {
         "en": "Annual Units Produced",
-        "tr": "Yıllık Üretim Miktarı"
+        "tr": "Yıllık Üretim Miktarı",
+        "de": "Jährlich produzierte Einheiten",
+        "fr": "Unités produites par an",
+        "es": "Unidades producidas por año"
       },
       "businessContext_i18n": {
         "en": "Total number of units produced per year for the process line where the poka-yoke will be applied.",
-        "tr": "Poka-yoke uygulanacak proses hattında yılda üretilen toplam birim sayısı."
+        "tr": "Poka-yoke uygulanacak proses hattında yılda üretilen toplam birim sayısı.",
+        "de": "Gesamtzahl der pro Jahr produzierten Einheiten für die Prozesslinie, in der das Poka-Yoke angewendet wird.",
+        "fr": "Nombre total d'unités produites par an pour la ligne de processus où le poka-yoke sera appliqué.",
+        "es": "Número total de unidades producidas por año en la línea de proceso donde se aplicará el poka-yoke."
       }
     },
     {
@@ -40,11 +46,17 @@
       "businessContext": "Current defect rate in parts per million (ppm) for the process step targeted by the poka-yoke.",
       "label_i18n": {
         "en": "Current Defect Rate",
-        "tr": "Mevcut Hata Oranı"
+        "tr": "Mevcut Hata Oranı",
+        "de": "Aktuelle Fehlerrate",
+        "fr": "Taux de défauts actuel",
+        "es": "Tasa de defectos actual"
       },
       "businessContext_i18n": {
         "en": "Current defect rate in parts per million (ppm) for the process step targeted by the poka-yoke.",
-        "tr": "Poka-yoke hedeflenen proses adımı için milyonda parça (ppm) cinsinden mevcut hata oranı."
+        "tr": "Poka-yoke hedeflenen proses adımı için milyonda parça (ppm) cinsinden mevcut hata oranı.",
+        "de": "Aktuelle Fehlerrate in Teilen pro Million (ppm) für den Prozessschritt, der durch das Poka-Yoke adressiert wird.",
+        "fr": "Taux de défauts actuel en parties par million (ppm) pour l'étape de processus ciblée par le poka-yoke.",
+        "es": "Tasa de defectos actual en partes por millón (ppm) para el paso del proceso objetivo del poka-yoke."
       }
     },
     {
@@ -59,11 +71,16 @@
       "label_i18n": {
         "en": "Defect Cost per Unit",
         "tr": "Birim Kusur Maliyeti",
-        "de": "Fehlerkosten pro Einheit"
+        "de": "Fehlerkosten pro Einheit",
+        "fr": "Coût du défaut par unité",
+        "es": "Costo por defecto por unidad"
       },
       "businessContext_i18n": {
         "en": "Average total cost incurred per defective unit, including scrap, rework, warranty, and lost customer goodwill.",
-        "tr": "Hatalı birim başına ortalama toplam maliyet (fire, yeniden işleme, garanti ve kaybedilen müşteri itibarı dahil)."
+        "tr": "Hatalı birim başına ortalama toplam maliyet (fire, yeniden işleme, garanti ve kaybedilen müşteri itibarı dahil).",
+        "de": "Durchschnittliche Gesamtkosten pro fehlerhafter Einheit, einschließlich Ausschuss, Nacharbeit, Garantie und entgangener Kundenzufriedenheit.",
+        "fr": "Coût total moyen par unité défectueuse, incluant rebut, reprise, garantie et perte de clientèle.",
+        "es": "Costo total promedio incurrido por unidad defectuosa, incluyendo desperdicio, retrabajo, garantía y pérdida de buena voluntad del cliente."
       }
     },
     {
@@ -81,11 +98,17 @@
       "businessContext": "Expected percentage of defects that will be prevented by the poka-yoke device or process.",
       "label_i18n": {
         "en": "Poka-Yoke Effectiveness",
-        "tr": "Poka-Yoke Etkinliği"
+        "tr": "Poka-Yoke Etkinliği",
+        "de": "Poka-Yoke-Wirksamkeit",
+        "fr": "Efficacité du poka-yoke",
+        "es": "Efectividad del poka-yoke"
       },
       "businessContext_i18n": {
         "en": "Expected percentage of defects that will be prevented by the poka-yoke device or process.",
-        "tr": "Poka-yoke cihazı veya prosesi tarafından önlenmesi beklenen hataların yüzdesi."
+        "tr": "Poka-yoke cihazı veya prosesi tarafından önlenmesi beklenen hataların yüzdesi.",
+        "de": "Erwarteter Prozentsatz der Fehler, die durch die Poka-Yoke-Vorrichtung oder den Prozess verhindert werden.",
+        "fr": "Pourcentage attendu de défauts qui seront évités par le dispositif ou processus poka-yoke.",
+        "es": "Porcentaje esperado de defectos que serán prevenidos por el dispositivo o proceso poka-yoke."
       }
     },
     {
@@ -99,11 +122,17 @@
       "businessContext": "Total one-time cost to design, purchase, install, and validate the poka-yoke solution.",
       "label_i18n": {
         "en": "Implementation Cost",
-        "tr": "Uygulama Maliyeti"
+        "tr": "Uygulama Maliyeti",
+        "de": "Implementierungskosten",
+        "fr": "Coût de mise en œuvre",
+        "es": "Costo de implementación"
       },
       "businessContext_i18n": {
         "en": "Total one-time cost to design, purchase, install, and validate the poka-yoke solution.",
-        "tr": "Poka-yoke çözümünü tasarlamak, satın almak, kurmak ve doğrulamak için toplam tek seferlik maliyet."
+        "tr": "Poka-yoke çözümünü tasarlamak, satın almak, kurmak ve doğrulamak için toplam tek seferlik maliyet.",
+        "de": "Einmalige Gesamtkosten für Design, Kauf, Installation und Validierung der Poka-Yoke-Lösung.",
+        "fr": "Coût unique total pour concevoir, acheter, installer et valider la solution poka-yoke.",
+        "es": "Costo único total para diseñar, comprar, instalar y validar la solución poka-yoke."
       }
     },
     {
@@ -118,11 +147,16 @@
       "label_i18n": {
         "en": "Annual Maintenance Cost",
         "tr": "Yıllık Bakım Maliyeti",
-        "de": "Jährliche Wartungskosten"
+        "de": "Jährliche Wartungskosten",
+        "fr": "Coût d'entretien annuel",
+        "es": "Costo de mantenimiento anual"
       },
       "businessContext_i18n": {
         "en": "Recurring yearly cost for calibration, spare parts, and upkeep of the poka-yoke system.",
-        "tr": "Poka-yoke sisteminin kalibrasyonu, yedek parçaları ve bakımı için yıllık tekrarlanan maliyet."
+        "tr": "Poka-yoke sisteminin kalibrasyonu, yedek parçaları ve bakımı için yıllık tekrarlanan maliyet.",
+        "de": "Jährlich wiederkehrende Kosten für Kalibrierung, Ersatzteile und Wartung des Poka-Yoke-Systems.",
+        "fr": "Coût annuel récurrent pour l'étalonnage, les pièces de rechange et l'entretien du système poka-yoke.",
+        "es": "Costo anual recurrente para calibración, piezas de repuesto y mantenimiento del sistema poka-yoke."
       }
     },
     {
@@ -136,11 +170,17 @@
       "businessContext": "Estimated reduction in inspection and rework labor hours per year due to the poka-yoke.",
       "label_i18n": {
         "en": "Labor Hours Saved per Year",
-        "tr": "Yıllık Kurtarılan İşçilik Saati"
+        "tr": "Yıllık Kurtarılan İşçilik Saati",
+        "de": "Eingesparte Arbeitsstunden pro Jahr",
+        "fr": "Heures de main-d'œuvre économisées par an",
+        "es": "Horas de mano de obra ahorradas por año"
       },
       "businessContext_i18n": {
         "en": "Estimated reduction in inspection and rework labor hours per year due to the poka-yoke.",
-        "tr": "Poka-yoke sayesinde yılda tahmini olarak azaltılan muayene ve yeniden işleme işçilik saatleri."
+        "tr": "Poka-yoke sayesinde yılda tahmini olarak azaltılan muayene ve yeniden işleme işçilik saatleri.",
+        "de": "Geschätzte Reduzierung der Arbeitsstunden für Inspektion und Nacharbeit pro Jahr durch das Poka-Yoke.",
+        "fr": "Réduction estimée des heures de main-d'œuvre d'inspection et de reprise par an grâce au poka-yoke.",
+        "es": "Reducción estimada en horas de mano de obra de inspección y retrabajo por año debido al poka-yoke."
       }
     },
     {
@@ -155,11 +195,16 @@
       "label_i18n": {
         "en": "Labor Rate",
         "tr": "İşçilik ücreti",
-        "de": "Stundensatz"
+        "de": "Stundensatz",
+        "fr": "Taux de main-d'œuvre",
+        "es": "Tarifa de mano de obra"
       },
       "businessContext_i18n": {
         "en": "Fully burdened hourly labor cost for operators and inspectors.",
-        "tr": "Operatörler ve denetçiler için tam yüklü saatlik işçilik maliyeti."
+        "tr": "Operatörler ve denetçiler için tam yüklü saatlik işçilik maliyeti.",
+        "de": "Voll belastete stündliche Arbeitskosten für Bediener und Prüfer.",
+        "fr": "Coût horaire de main-d'œuvre entièrement chargé pour les opérateurs et les inspecteurs.",
+        "es": "Coste laboral por hora totalmente cargado para operadores e inspectores."
       }
     }
   ],

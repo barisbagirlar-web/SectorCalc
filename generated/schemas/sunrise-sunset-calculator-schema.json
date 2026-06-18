@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Latitude",
         "tr": "Enlem",
-        "de": "Latitude",
+        "de": "Breitengrad",
         "fr": "Latitude",
         "es": "Latitude",
         "ar": "Latitude"
       },
       "businessContext_i18n": {
         "en": "Latitude of the location in decimal degrees (north positive).",
-        "tr": "Konumun ondalık derece cinsinden enlemi (kuzey pozitif)."
+        "tr": "Konumun ondalık derece cinsinden enlemi (kuzey pozitif).",
+        "de": "Breitengrad des Standorts in Dezimalgrad (Nord positiv).",
+        "fr": "Latitude du lieu en degrés décimaux (positif au nord)."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Longitude",
         "tr": "Boylam",
-        "de": "Longitude",
+        "de": "Längengrad",
         "fr": "Longitude",
         "es": "Longitude",
         "ar": "Longitude"
       },
       "businessContext_i18n": {
         "en": "Longitude of the location in decimal degrees (east positive).",
-        "tr": "Konumun ondalık derece cinsinden boylamı (doğu pozitif)."
+        "tr": "Konumun ondalık derece cinsinden boylamı (doğu pozitif).",
+        "de": "Längengrad des Standorts in Dezimalgrad (Ost positiv).",
+        "fr": "Longitude du lieu en degrés décimaux (positif à l'est)."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Day of Year",
         "tr": "Yılın Günü",
-        "de": "Day of Year",
-        "fr": "Day of Year",
+        "de": "Tag des Jahres",
+        "fr": "Jour de l'année",
         "es": "Day of Year",
         "ar": "Day of Year"
       },
       "businessContext_i18n": {
         "en": "Day number of the year (1-365 or 1-366 for leap year).",
-        "tr": "Yılın gün numarası (1-365 veya artık yılda 1-366)."
+        "tr": "Yılın gün numarası (1-365 veya artık yılda 1-366).",
+        "de": "Tagesnummer des Jahres (1-365 oder 1-366 für Schaltjahr).",
+        "fr": "Numéro du jour dans l'année (1-365 ou 1-366 pour année bissextile)."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Timezone Offset",
         "tr": "Saat Dilimi Farkı",
-        "de": "Timezone Offset",
-        "fr": "Timezone Offset",
+        "de": "Zeitzonen-Offset",
+        "fr": "Décalage horaire",
         "es": "Timezone Offset",
         "ar": "Timezone Offset"
       },
       "businessContext_i18n": {
         "en": "Offset from UTC in hours (e.g., -4 for EDT).",
-        "tr": "UTC'den saat cinsinden fark (örneğin, EDT için -4)."
+        "tr": "UTC'den saat cinsinden fark (örneğin, EDT için -4).",
+        "de": "Offset von UTC in Stunden (z.B. -4 für EDT).",
+        "fr": "Décalage par rapport à UTC en heures (ex. -4 pour EDT)."
       }
     }
   ],

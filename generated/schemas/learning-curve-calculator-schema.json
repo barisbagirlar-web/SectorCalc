@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "First Unit Cost",
         "tr": "İlk Birim Maliyeti",
-        "de": "First Unit Cost",
-        "fr": "First Unit Cost",
-        "es": "First Unit Cost",
+        "de": "Kosten der ersten Einheit",
+        "fr": "Coût de la première unité",
+        "es": "Costo de la primera unidad",
         "ar": "First Unit Cost"
       },
       "businessContext_i18n": {
         "en": "Cost or time required to produce the first unit (in any currency or hour unit). Serves as basis for learning curve calculation.",
-        "tr": "İlk birimi üretmek için gereken maliyet veya süre (herhangi bir para birimi veya saat birimi). Öğrenme eğrisi hesaplaması için temel oluşturur."
+        "tr": "İlk birimi üretmek için gereken maliyet veya süre (herhangi bir para birimi veya saat birimi). Öğrenme eğrisi hesaplaması için temel oluşturur.",
+        "de": "Kosten oder Zeit, die für die Herstellung der ersten Einheit erforderlich sind (in beliebiger Währungs- oder Stundeneinheit). Dient als Basis für die Lernkurvenberechnung.",
+        "fr": "Coût ou temps nécessaire pour produire la première unité (dans n'importe quelle unité monétaire ou horaire). Sert de base au calcul de la courbe d'apprentissage.",
+        "es": "Costo o tiempo requerido para producir la primera unidad (en cualquier moneda o unidad de hora). Sirve como base para el cálculo de la curva de aprendizaje."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Learning Rate",
         "tr": "Öğrenme Oranı",
-        "de": "Learning Rate",
-        "fr": "Learning Rate",
-        "es": "Learning Rate",
+        "de": "Lernrate",
+        "fr": "Taux d'apprentissage",
+        "es": "Tasa de aprendizaje",
         "ar": "Learning Rate"
       },
       "businessContext_i18n": {
         "en": "The percentage of cost retained when cumulative output doubles. Typical values range from 70% to 100% (no learning).",
-        "tr": "Kümülatif çıktı iki katına çıktığında korunan maliyet yüzdesi. Tipik değerler %70 ile %100 (öğrenme yok) arasındadır."
+        "tr": "Kümülatif çıktı iki katına çıktığında korunan maliyet yüzdesi. Tipik değerler %70 ile %100 (öğrenme yok) arasındadır.",
+        "de": "Der Prozentsatz der Kosten, der erhalten bleibt, wenn sich die kumulierte Produktion verdoppelt. Typische Werte liegen zwischen 70 % und 100 % (kein Lerneffekt).",
+        "fr": "Pourcentage du coût conservé lorsque la production cumulée double. Les valeurs typiques vont de 70 % à 100 % (pas d'apprentissage).",
+        "es": "Porcentaje del costo que se retiene cuando la producción acumulada se duplica. Los valores típicos oscilan entre 70% y 100% (sin aprendizaje)."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Unit Number",
         "tr": "Birim Numarası",
-        "de": "Unit Number",
-        "fr": "Unit Number",
-        "es": "Unit Number",
+        "de": "Einheitennummer",
+        "fr": "Numéro d'unité",
+        "es": "Número de unidad",
         "ar": "Unit Number"
       },
       "businessContext_i18n": {
         "en": "The cumulative unit number for which the individual cost is estimated.",
-        "tr": "Bireysel maliyetin tahmin edildiği kümülatif birim numarası."
+        "tr": "Bireysel maliyetin tahmin edildiği kümülatif birim numarası.",
+        "de": "Die kumulierte Einheitennummer, für die die individuellen Kosten geschätzt werden.",
+        "fr": "Le numéro d'unité cumulé pour lequel le coût individuel est estimé.",
+        "es": "Número de unidad acumulada para la cual se estima el costo individual."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Batch Size",
         "tr": "Parti Büyüklüğü",
         "de": "Losgröße",
-        "fr": "Batch Size",
-        "es": "Batch Size",
+        "fr": "Taille de lot",
+        "es": "Tamaño de lote",
         "ar": "Batch Size"
       },
       "businessContext_i18n": {
         "en": "Total number of units in the production batch for total cost calculation.",
-        "tr": "Toplam maliyet hesaplaması için üretim partisindeki toplam birim sayısı."
+        "tr": "Toplam maliyet hesaplaması için üretim partisindeki toplam birim sayısı.",
+        "de": "Gesamtzahl der Einheiten in der Produktionscharge für die Gesamtkostenberechnung.",
+        "fr": "Nombre total d'unités dans le lot de production pour le calcul du coût total.",
+        "es": "Número total de unidades en el lote de producción para el cálculo del costo total."
       }
     }
   ],

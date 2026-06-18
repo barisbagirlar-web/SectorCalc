@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Heat Added (Q)",
         "tr": "Eklenen Isı (Q)",
-        "de": "Heat Added (Q)",
-        "fr": "Heat Added (Q)",
+        "de": "Wärmezufuhr (Q)",
+        "fr": "Chaleur ajoutée (Q)",
         "es": "Heat Added (Q)",
         "ar": "Heat Added (Q)"
       },
       "businessContext_i18n": {
         "en": "Total heat energy added to the substance",
-        "tr": "Maddeye eklenen toplam ısı enerjisi"
+        "tr": "Maddeye eklenen toplam ısı enerjisi",
+        "de": "Gesamte dem Stoff zugeführte Wärmeenergie",
+        "fr": "Énergie thermique totale ajoutée à la substance"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Mass (m)",
         "tr": "Kütle (m)",
         "de": "Masse (m)",
-        "fr": "Mass (m)",
-        "es": "Mass (m)",
+        "fr": "Masse (m)",
+        "es": "Masa (m)",
         "ar": "Mass (m)"
       },
       "businessContext_i18n": {
         "en": "Mass of the substance being heated",
-        "tr": "Isıtılan maddenin kütlesi"
+        "tr": "Isıtılan maddenin kütlesi",
+        "de": "Masse des zu erhitzenden Stoffes",
+        "fr": "Masse de la substance chauffée"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Initial Temperature",
         "tr": "Başlangıç Sıcaklığı",
         "de": "Anfangstemperatur",
-        "fr": "Initial Temperature",
-        "es": "Initial Temperature",
+        "fr": "Température initiale",
+        "es": "Temperatura inicial",
         "ar": "Initial Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of the substance before heating",
-        "tr": "Isıtmadan önce maddenin sıcaklığı"
+        "tr": "Isıtmadan önce maddenin sıcaklığı",
+        "de": "Temperatur des Stoffes vor dem Erhitzen",
+        "fr": "Température de la substance avant chauffage"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Final Temperature",
         "tr": "Son Sıcaklık",
         "de": "Endtemperatur",
-        "fr": "Final Temperature",
-        "es": "Final Temperature",
+        "fr": "Température finale",
+        "es": "Temperatura final",
         "ar": "Final Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of the substance after heating",
-        "tr": "Isıtmadan sonra maddenin sıcaklığı"
+        "tr": "Isıtmadan sonra maddenin sıcaklığı",
+        "de": "Temperatur des Stoffes nach dem Erhitzen",
+        "fr": "Température de la substance après chauffage"
       }
     }
   ],

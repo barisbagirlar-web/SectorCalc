@@ -12,13 +12,16 @@
         "en": "Property Value",
         "tr": "Mülk Değeri",
         "de": "Eigenschaftswert",
-        "fr": "Property Value",
-        "es": "Property Value",
+        "fr": "Valeur du bien",
+        "es": "Valor de la propiedad",
         "ar": "Property Value"
       },
       "businessContext_i18n": {
         "en": "The total purchase price or assessed value of the property.",
-        "tr": "Mülkün toplam satın alma fiyatı veya değerleme tutarı."
+        "tr": "Mülkün toplam satın alma fiyatı veya değerleme tutarı.",
+        "de": "Gesamtkaufpreis oder Verkehrswert der Immobilie.",
+        "fr": "Le prix d'achat total ou la valeur estimée de la propriété.",
+        "es": "Precio de compra total o valor tasado de la propiedad."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
         "de": "Steuersatz",
-        "fr": "Tax Rate",
-        "es": "Tax Rate",
+        "fr": "Taux de taxe",
+        "es": "Tasa de impuesto",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "The applicable land transfer tax rate as a percentage (e.g., 2.5 for 2.5%).",
-        "tr": "Geçerli emlak vergisi oranı yüzde olarak (örneğin, %2.5 için 2.5)."
+        "tr": "Geçerli emlak vergisi oranı yüzde olarak (örneğin, %2.5 için 2.5).",
+        "de": "Anwendbarer Grunderwerbsteuersatz in Prozent (z. B. 2,5 für 2,5 %).",
+        "fr": "Le taux applicable des droits de mutation immobilière en pourcentage (par exemple, 2,5 pour 2,5 %).",
+        "es": "Tasa de impuesto a la transferencia de terrenos aplicable como porcentaje (ej., 2.5 para 2.5%)."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "First-Time Buyer Exemption",
         "tr": "İlk Kez Ev Sahibi Muafiyeti",
-        "de": "First-Time Buyer Exemption",
-        "fr": "First-Time Buyer Exemption",
-        "es": "First-Time Buyer Exemption",
+        "de": "Befreiung für Erstkäufer",
+        "fr": "Exemption pour primo-accédant",
+        "es": "Exención para compradores primerizos",
         "ar": "First-Time Buyer Exemption"
       },
       "businessContext_i18n": {
         "en": "Maximum exemption amount available for first-time home buyers. Set to 0 if not applicable.",
-        "tr": "İlk kez ev sahibi olanlar için mevcut maksimum muafiyet tutarı. Geçerli değilse 0 girin."
+        "tr": "İlk kez ev sahibi olanlar için mevcut maksimum muafiyet tutarı. Geçerli değilse 0 girin.",
+        "de": "Maximaler Befreiungsbetrag für Erstkäufer. Auf 0 setzen, wenn nicht zutreffend.",
+        "fr": "Montant d'exemption maximal disponible pour les primo-accédants. Mettre à 0 si non applicable.",
+        "es": "Monto máximo de exención disponible para compradores primerizos. Establecer en 0 si no aplica."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "First-Time Buyer?",
         "tr": "İlk Kez Ev Sahibi mi?",
-        "de": "First-Time Buyer?",
-        "fr": "First-Time Buyer?",
-        "es": "First-Time Buyer?",
+        "de": "Erstkäufer?",
+        "fr": "Primo-accédant ?",
+        "es": "¿Comprador primerizo?",
         "ar": "First-Time Buyer?"
       },
       "businessContext_i18n": {
         "en": "1 if buyer qualifies as a first-time buyer, else 0.",
-        "tr": "Alıcının ilk kez ev sahibi olma durumu: 1 ise uygun, 0 değil."
+        "tr": "Alıcının ilk kez ev sahibi olma durumu: 1 ise uygun, 0 değil.",
+        "de": "1 wenn der Käufer als Erstkäufer qualifiziert ist, sonst 0.",
+        "fr": "1 si l'acheteur est un primo-accédant, sinon 0.",
+        "es": "1 si el comprador califica como primerizo, si no 0."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Administrative Fee",
         "tr": "İdari Ücret",
-        "de": "Administrative Fee",
-        "fr": "Administrative Fee",
-        "es": "Administrative Fee",
+        "de": "Verwaltungsgebühr",
+        "fr": "Frais administratifs",
+        "es": "Tarifa administrativa",
         "ar": "Administrative Fee"
       },
       "businessContext_i18n": {
         "en": "Government administrative or registration fee, if any.",
-        "tr": "Varsa devlet idari veya kayıt ücreti."
+        "tr": "Varsa devlet idari veya kayıt ücreti.",
+        "de": "Staatliche Verwaltungs- oder Registrierungsgebühr, falls vorhanden.",
+        "fr": "Frais administratifs ou d'enregistrement gouvernementaux, le cas échéant.",
+        "es": "Tarifa gubernamental administrativa o de registro, si la hay."
       }
     }
   ],

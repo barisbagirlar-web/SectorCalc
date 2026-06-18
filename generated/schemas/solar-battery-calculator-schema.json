@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Günlük Enerji Tüketimi",
         "tr": "Günlük Enerji Tüketimi",
-        "de": "Günlük Enerji Tüketimi",
-        "fr": "Günlük Enerji Tüketimi",
+        "de": "Täglicher Energieverbrauch",
+        "fr": "Consommation énergétique quotidienne",
         "es": "Günlük Enerji Tüketimi",
         "ar": "Günlük Enerji Tüketimi"
       },
       "businessContext_i18n": {
         "en": "Toplam günlük enerji ihtiyacı",
-        "tr": "Toplam günlük enerji ihtiyacı"
+        "tr": "Toplam günlük enerji ihtiyacı",
+        "de": "Gesamter täglicher Energiebedarf",
+        "fr": "Besoin énergétique quotidien total"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Efektif Güneşlenme Süresi",
         "tr": "Efektif Güneşlenme Süresi",
-        "de": "Efektif Güneşlenme Süresi",
-        "fr": "Efektif Güneşlenme Süresi",
+        "de": "Effektive Sonnenscheindauer",
+        "fr": "Durée d'ensoleillement effectif",
         "es": "Efektif Güneşlenme Süresi",
         "ar": "Efektif Güneşlenme Süresi"
       },
       "businessContext_i18n": {
         "en": "Günlük ortalama tam güneş ışığı süresi",
-        "tr": "Günlük ortalama tam güneş ışığı süresi"
+        "tr": "Günlük ortalama tam güneş ışığı süresi",
+        "de": "Tägliche durchschnittliche volle Sonnenstunden",
+        "fr": "Durée quotidienne moyenne de plein soleil"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Sistem Voltajı",
         "tr": "Sistem Voltajı",
-        "de": "Sistem Voltajı",
-        "fr": "Sistem Voltajı",
+        "de": "Systemspannung",
+        "fr": "Tension du système",
         "es": "Sistem Voltajı",
         "ar": "Sistem Voltajı"
       },
       "businessContext_i18n": {
         "en": "Akü bankası voltajı",
-        "tr": "Akü bankası voltajı"
+        "tr": "Akü bankası voltajı",
+        "de": "Batteriespannung",
+        "fr": "Tension du parc de batteries"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Deşarj Derinliği (DoD)",
         "tr": "Deşarj Derinliği (DoD)",
         "de": "Entladetiefe (DoD)",
-        "fr": "Deşarj Derinliği (DoD)",
-        "es": "Deşarj Derinliği (DoD)",
+        "fr": "Profondeur de décharge (DoD)",
+        "es": "Profundidad de descarga (DoD)",
         "ar": "Deşarj Derinliği (DoD)"
       },
       "businessContext_i18n": {
         "en": "Akünün kullanılabilir kapasite oranı (0-1 arası)",
-        "tr": "Akünün kullanılabilir kapasite oranı (0-1 arası)"
+        "tr": "Akünün kullanılabilir kapasite oranı (0-1 arası)",
+        "de": "Nutzbarer Kapazitätsanteil der Batterie (0–1)",
+        "fr": "Taux de capacité utilisable de la batterie (0-1)"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Otonomi Gün Sayısı",
         "tr": "Otonomi Gün Sayısı",
-        "de": "Otonomi Gün Sayısı",
-        "fr": "Otonomi Gün Sayısı",
+        "de": "Autonomietage",
+        "fr": "Nombre de jours d'autonomie",
         "es": "Otonomi Gün Sayısı",
         "ar": "Otonomi Gün Sayısı"
       },
       "businessContext_i18n": {
         "en": "Güneşsiz günlerde sistemin çalışma süresi",
-        "tr": "Güneşsiz günlerde sistemin çalışma süresi"
+        "tr": "Güneşsiz günlerde sistemin çalışma süresi",
+        "de": "Betriebsdauer des Systems an sonnenlosen Tagen",
+        "fr": "Durée de fonctionnement du système sans soleil"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Akü Verimliliği",
         "tr": "Akü Verimliliği",
-        "de": "Akü Verimliliği",
-        "fr": "Akü Verimliliği",
+        "de": "Batteriewirkungsgrad",
+        "fr": "Rendement de la batterie",
         "es": "Akü Verimliliği",
         "ar": "Akü Verimliliği"
       },
       "businessContext_i18n": {
         "en": "Akü şarj/deşarj verimliliği (0-1)",
-        "tr": "Akü şarj/deşarj verimliliği (0-1)"
+        "tr": "Akü şarj/deşarj verimliliği (0-1)",
+        "de": "Lade-/Entladewirkungsgrad der Batterie (0–1)",
+        "fr": "Rendement de charge/décharge de la batterie (0-1)"
       }
     },
     {
@@ -131,14 +143,16 @@
       "label_i18n": {
         "en": "Tek Akü Kapasitesi",
         "tr": "Tek Akü Kapasitesi",
-        "de": "Tek Akü Kapasitesi",
-        "fr": "Tek Akü Kapasitesi",
+        "de": "Einzelne Batteriekapazität",
+        "fr": "Capacité d'une batterie",
         "es": "Tek Akü Kapasitesi",
         "ar": "Tek Akü Kapasitesi"
       },
       "businessContext_i18n": {
         "en": "Kullanılacak her bir akünün kapasitesi",
-        "tr": "Kullanılacak her bir akünün kapasitesi"
+        "tr": "Kullanılacak her bir akünün kapasitesi",
+        "de": "Kapazität jeder verwendeten Batterie",
+        "fr": "Capacité de chaque batterie utilisée"
       }
     }
   ],

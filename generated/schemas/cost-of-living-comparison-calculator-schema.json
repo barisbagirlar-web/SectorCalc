@@ -12,14 +12,16 @@
         "en": "Base City Rent",
         "tr": "Temel Şehir Kira",
         "de": "Basisstadt Miete",
-        "fr": "Base City Rent",
-        "es": "Base City Rent",
+        "fr": "Loyer de la ville de base",
+        "es": "Alquiler base en la ciudad",
         "ar": "Base City Rent"
       },
       "businessContext_i18n": {
         "en": "Average monthly rent for a 1-bedroom apartment in the base city.",
         "tr": "Temel şehirde 1 yatak odalı bir daire için ortalama aylık kira.",
-        "de": "Durchschnittliche Monatsmiete für eine 1-Zimmer-Wohnung in der Basisstadt."
+        "de": "Durchschnittliche Monatsmiete für eine 1-Zimmer-Wohnung in der Basisstadt.",
+        "fr": "Loyer mensuel moyen pour un appartement d'une chambre dans la ville de base.",
+        "es": "Alquiler mensual promedio de un departamento de 1 dormitorio en la ciudad base."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Base City Utilities",
         "tr": "Temel Şehir Faturaları",
         "de": "Basisstadt Betriebskosten",
-        "fr": "Base City Utilities",
-        "es": "Base City Utilities",
+        "fr": "Services publics de la ville de base",
+        "es": "Servicios públicos base en la ciudad",
         "ar": "Base City Utilities"
       },
       "businessContext_i18n": {
         "en": "Monthly cost of basic utilities (electricity, water, heating, garbage) for a standard apartment.",
         "tr": "Standart bir daire için temel faturaların (elektrik, su, ısınma, çöp) aylık maliyeti.",
-        "de": "Monatliche Kosten für grundlegende Betriebskosten (Strom, Wasser, Heizung, Müll) für eine Standardwohnung."
+        "de": "Monatliche Kosten für grundlegende Betriebskosten (Strom, Wasser, Heizung, Müll) für eine Standardwohnung.",
+        "fr": "Coût mensuel des services publics de base (électricité, eau, chauffage, ordures) pour un appartement standard.",
+        "es": "Costo mensual de servicios públicos básicos (electricidad, agua, calefacción, basura) para un departamento estándar."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Base City Groceries",
         "tr": "Temel Şehir Market Alışverişi",
         "de": "Basisstadt Lebensmittel",
-        "fr": "Base City Groceries",
-        "es": "Base City Groceries",
+        "fr": "Courses de la ville de base",
+        "es": "Comestibles base en la ciudad",
         "ar": "Base City Groceries"
       },
       "businessContext_i18n": {
         "en": "Monthly grocery bill for a single person in the base city.",
         "tr": "Temel şehirde tek kişi için aylık market faturası.",
-        "de": "Monatliche Lebensmittelrechnung für eine Einzelperson in der Basisstadt."
+        "de": "Monatliche Lebensmittelrechnung für eine Einzelperson in der Basisstadt.",
+        "fr": "Facture mensuelle d'épicerie pour une personne seule dans la ville de base.",
+        "es": "Gasto mensual en comestibles para una persona sola en la ciudad base."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Base City Transportation",
         "tr": "Temel Şehir Ulaşım",
         "de": "Basisstadt Transport",
-        "fr": "Base City Transportation",
-        "es": "Base City Transportation",
+        "fr": "Transport de la ville de base",
+        "es": "Transporte base en la ciudad",
         "ar": "Base City Transportation"
       },
       "businessContext_i18n": {
         "en": "Monthly public transport pass or equivalent fuel costs in the base city.",
         "tr": "Temel şehirde aylık toplu taşıma kartı veya eşdeğer yakıt maliyeti.",
-        "de": "Monatliche Fahrkarte für öffentliche Verkehrsmittel oder entsprechende Kraftstoffkosten in der Basisstadt."
+        "de": "Monatliche Fahrkarte für öffentliche Verkehrsmittel oder entsprechende Kraftstoffkosten in der Basisstadt.",
+        "fr": "Abonnement mensuel aux transports en commun ou coût équivalent en carburant dans la ville de base.",
+        "es": "Pase mensual de transporte público o costo equivalente de combustible en la ciudad base."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Base City Misc. Expenses",
         "tr": "Temel Şehir Diğer Giderler",
         "de": "Basisstadt Sonstige Ausgaben",
-        "fr": "Base City Misc. Expenses",
-        "es": "Base City Misc. Expenses",
+        "fr": "Dépenses diverses de la ville de base",
+        "es": "Gastos varios base en la ciudad",
         "ar": "Base City Misc. Expenses"
       },
       "businessContext_i18n": {
         "en": "Other monthly living expenses (entertainment, clothing, personal care) in the base city.",
         "tr": "Temel şehirde diğer aylık yaşam giderleri (eğlence, giyim, kişisel bakım).",
-        "de": "Andere monatliche Lebenshaltungskosten (Unterhaltung, Kleidung, Körperpflege) in der Basisstadt."
+        "de": "Andere monatliche Lebenshaltungskosten (Unterhaltung, Kleidung, Körperpflege) in der Basisstadt.",
+        "fr": "Autres dépenses mensuelles (loisirs, vêtements, soins personnels) dans la ville de base.",
+        "es": "Otros gastos mensuales de vida (entretenimiento, vestimenta, cuidado personal) en la ciudad base."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Target City Cost of Living Index",
         "tr": "Hedef Şehir Yaşam Maliyeti Endeksi",
         "de": "Zielstadt-Lebenshaltungskostenindex",
-        "fr": "Target City Cost of Living Index",
-        "es": "Target City Cost of Living Index",
+        "fr": "Indice du coût de la vie de la ville cible",
+        "es": "Índice de costo de vida de la ciudad destino",
         "ar": "Target City Cost of Living Index"
       },
       "businessContext_i18n": {
         "en": "Cost of living index of the target city, relative to base city = 100. A value above 100 means it is more expensive.",
         "tr": "Hedef şehrin yaşam maliyeti endeksi, temel şehir = 100. 100'ün üzeri daha pahalı olduğunu gösterir.",
-        "de": "Lebenshaltungskostenindex der Zielstadt, relativ zur Basisstadt = 100. Ein Wert über 100 bedeutet, dass es teurer ist."
+        "de": "Lebenshaltungskostenindex der Zielstadt, relativ zur Basisstadt = 100. Ein Wert über 100 bedeutet, dass es teurer ist.",
+        "fr": "Indice du coût de la vie de la ville cible, par rapport à la ville de base = 100. Une valeur supérieure à 100 signifie qu'elle est plus chère.",
+        "es": "Índice de costo de vida de la ciudad destino, relativo a la ciudad base = 100. Un valor superior a 100 significa que es más caro."
       }
     }
   ],

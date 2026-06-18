@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Julian Years",
         "tr": "Jülyen yılı",
-        "de": "Julian Years",
-        "fr": "Julian Years",
-        "es": "Julian Years",
+        "de": "Julianische Jahre",
+        "fr": "Années juliennes",
+        "es": "Años julianos",
         "ar": "Julian Years"
       },
       "businessContext_i18n": {
         "en": "Number of Julian years to convert",
-        "tr": "Dönüştürülecek Jülyen yılı sayısı"
+        "tr": "Dönüştürülecek Jülyen yılı sayısı",
+        "de": "Anzahl der zu konvertierenden Julianischen Jahre",
+        "fr": "Nombre d'années juliennes à convertir",
+        "es": "Número de años julianos a convertir"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Days per Julian Year",
         "tr": "Jülyen yılı başına gün",
-        "de": "Days per Julian Year",
-        "fr": "Days per Julian Year",
-        "es": "Days per Julian Year",
+        "de": "Tage pro Julianischem Jahr",
+        "fr": "Jours par année julienne",
+        "es": "Días por año juliano",
         "ar": "Days per Julian Year"
       },
       "businessContext_i18n": {
         "en": "Standard length of a Julian year",
-        "tr": "Bir Jülyen yılının standart uzunluğu"
+        "tr": "Bir Jülyen yılının standart uzunluğu",
+        "de": "Standardlänge eines Julianischen Jahres",
+        "fr": "Durée standard d'une année julienne",
+        "es": "Duración estándar de un año juliano"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places in output",
-        "tr": "Çıktıdaki ondalık basamak sayısı"
+        "tr": "Çıktıdaki ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen im Ergebnis",
+        "fr": "Nombre de décimales dans le résultat",
+        "es": "Número de decimales en el resultado"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Rounding Mode",
         "tr": "Yuvarlama Modu",
         "de": "Rundungsmodus",
-        "fr": "Rounding Mode",
-        "es": "Rounding Mode",
+        "fr": "Mode d'arrondi",
+        "es": "Modo de redondeo",
         "ar": "Rounding Mode"
       },
       "businessContext_i18n": {
         "en": "Rounding method for result",
-        "tr": "Sonuç için yuvarlama yöntemi"
+        "tr": "Sonuç için yuvarlama yöntemi",
+        "de": "Rundungsmethode für das Ergebnis",
+        "fr": "Méthode d'arrondi pour le résultat",
+        "es": "Método de redondeo para el resultado"
       }
     }
   ],

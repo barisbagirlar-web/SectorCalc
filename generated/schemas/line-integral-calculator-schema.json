@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Başlangıç X Koordinatı",
         "tr": "Başlangıç X Koordinatı",
-        "de": "Başlangıç X Koordinatı",
-        "fr": "Başlangıç X Koordinatı",
-        "es": "Başlangıç X Koordinatı",
+        "de": "Start-X-Koordinate",
+        "fr": "Coordonnée X de départ",
+        "es": "Coordenada X inicial",
         "ar": "Başlangıç X Koordinatı"
       },
       "businessContext_i18n": {
         "en": "Başlangıç noktasının X koordinatı",
-        "tr": "Başlangıç noktasının X koordinatı"
+        "tr": "Başlangıç noktasının X koordinatı",
+        "de": "X-Koordinate des Startpunkts",
+        "fr": "Coordonnée X du point de départ",
+        "es": "Coordenada X del punto inicial"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Başlangıç Y Koordinatı",
         "tr": "Başlangıç Y Koordinatı",
-        "de": "Başlangıç Y Koordinatı",
-        "fr": "Başlangıç Y Koordinatı",
-        "es": "Başlangıç Y Koordinatı",
+        "de": "Start-Y-Koordinate",
+        "fr": "Coordonnée Y de départ",
+        "es": "Coordenada Y inicial",
         "ar": "Başlangıç Y Koordinatı"
       },
       "businessContext_i18n": {
         "en": "Başlangıç noktasının Y koordinatı",
-        "tr": "Başlangıç noktasının Y koordinatı"
+        "tr": "Başlangıç noktasının Y koordinatı",
+        "de": "Y-Koordinate des Startpunkts",
+        "fr": "Coordonnée Y du point de départ",
+        "es": "Coordenada Y del punto inicial"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Bitiş X Koordinatı",
         "tr": "Bitiş X Koordinatı",
-        "de": "Bitiş X Koordinatı",
-        "fr": "Bitiş X Koordinatı",
-        "es": "Bitiş X Koordinatı",
+        "de": "End-X-Koordinate",
+        "fr": "Coordonnée X de fin",
+        "es": "Coordenada X final",
         "ar": "Bitiş X Koordinatı"
       },
       "businessContext_i18n": {
         "en": "Bitiş noktasının X koordinatı",
-        "tr": "Bitiş noktasının X koordinatı"
+        "tr": "Bitiş noktasının X koordinatı",
+        "de": "X-Koordinate des Endpunkts",
+        "fr": "Coordonnée X du point de fin",
+        "es": "Coordenada X del punto final"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Bitiş Y Koordinatı",
         "tr": "Bitiş Y Koordinatı",
-        "de": "Bitiş Y Koordinatı",
-        "fr": "Bitiş Y Koordinatı",
-        "es": "Bitiş Y Koordinatı",
+        "de": "End-Y-Koordinate",
+        "fr": "Coordonnée Y de fin",
+        "es": "Coordenada Y final",
         "ar": "Bitiş Y Koordinatı"
       },
       "businessContext_i18n": {
         "en": "Bitiş noktasının Y koordinatı",
-        "tr": "Bitiş noktasının Y koordinatı"
+        "tr": "Bitiş noktasının Y koordinatı",
+        "de": "Y-Koordinate des Endpunkts",
+        "fr": "Coordonnée Y du point de fin",
+        "es": "Coordenada Y del punto final"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Sabit Terim (f0)",
         "tr": "Sabit Terim (f0)",
-        "de": "Sabit Terim (f0)",
-        "fr": "Sabit Terim (f0)",
-        "es": "Sabit Terim (f0)",
+        "de": "Konstante (f0)",
+        "fr": "Terme constant (f0)",
+        "es": "Término constante (f0)",
         "ar": "Sabit Terim (f0)"
       },
       "businessContext_i18n": {
         "en": "f(x,y) = c0 + cx*x + cy*y fonksiyonunun sabit terimi",
-        "tr": "f(x,y) = c0 + cx*x + cy*y fonksiyonunun sabit terimi"
+        "tr": "f(x,y) = c0 + cx*x + cy*y fonksiyonunun sabit terimi",
+        "de": "Konstante der Funktion f(x,y) = c0 + cx*x + cy*y",
+        "fr": "Terme constant de la fonction f(x,y) = c0 + cx*x + cy*y",
+        "es": "Término constante de la función f(x,y) = c0 + cx*x + cy*y"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "X Katsayısı",
         "tr": "X Katsayısı",
-        "de": "X Katsayısı",
-        "fr": "X Katsayısı",
-        "es": "X Katsayısı",
+        "de": "X-Koeffizient",
+        "fr": "Coefficient X",
+        "es": "Coeficiente de X",
         "ar": "X Katsayısı"
       },
       "businessContext_i18n": {
         "en": "X değişkeninin katsayısı",
-        "tr": "X değişkeninin katsayısı"
+        "tr": "X değişkeninin katsayısı",
+        "de": "Koeffizient der Variablen x",
+        "fr": "Coefficient de la variable X",
+        "es": "Coeficiente de la variable X"
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Y Katsayısı",
         "tr": "Y Katsayısı",
-        "de": "Y Katsayısı",
-        "fr": "Y Katsayısı",
-        "es": "Y Katsayısı",
+        "de": "Y-Koeffizient",
+        "fr": "Coefficient Y",
+        "es": "Coeficiente de Y",
         "ar": "Y Katsayısı"
       },
       "businessContext_i18n": {
         "en": "Y değişkeninin katsayısı",
-        "tr": "Y değişkeninin katsayısı"
+        "tr": "Y değişkeninin katsayısı",
+        "de": "Koeffizient der Variablen y",
+        "fr": "Coefficient de la variable Y",
+        "es": "Coeficiente de la variable Y"
       }
     }
   ],

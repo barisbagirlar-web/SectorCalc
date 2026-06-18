@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Surface Function f(x,y)",
         "tr": "Yüzey Fonksiyonu f(x,y)",
-        "de": "Surface Function f(x,y)",
-        "fr": "Surface Function f(x,y)",
+        "de": "Oberflächenfunktion f(x,y)",
+        "fr": "Fonction de surface f(x,y)",
         "es": "Surface Function f(x,y)",
         "ar": "Surface Function f(x,y)"
       },
       "businessContext_i18n": {
         "en": "Scalar function value on surface",
-        "tr": "Yüzeydeki skaler fonksiyon değeri"
+        "tr": "Yüzeydeki skaler fonksiyon değeri",
+        "de": "Skalarer Funktionswert auf der Oberfläche",
+        "fr": "Valeur de la fonction scalaire sur la surface"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "X Lower Bound",
         "tr": "X Alt Sınırı",
-        "de": "X Lower Bound",
-        "fr": "X Lower Bound",
+        "de": "X-Untergrenze",
+        "fr": "Borne inférieure X",
         "es": "X Lower Bound",
         "ar": "X Lower Bound"
       },
       "businessContext_i18n": {
         "en": "Lower limit of x integration",
-        "tr": "x entegrasyonunun alt limiti"
+        "tr": "x entegrasyonunun alt limiti",
+        "de": "Untere Grenze der x-Integration",
+        "fr": "Limite inférieure d'intégration en x"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "X Upper Bound",
         "tr": "X Üst Sınırı",
-        "de": "X Upper Bound",
-        "fr": "X Upper Bound",
+        "de": "X-Obergrenze",
+        "fr": "Borne supérieure X",
         "es": "X Upper Bound",
         "ar": "X Upper Bound"
       },
       "businessContext_i18n": {
         "en": "Upper limit of x integration",
-        "tr": "x entegrasyonunun üst limiti"
+        "tr": "x entegrasyonunun üst limiti",
+        "de": "Obere Grenze der x-Integration",
+        "fr": "Limite supérieure d'intégration en x"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Y Lower Bound",
         "tr": "Y Alt Sınırı",
-        "de": "Y Lower Bound",
-        "fr": "Y Lower Bound",
+        "de": "Y-Untergrenze",
+        "fr": "Borne inférieure Y",
         "es": "Y Lower Bound",
         "ar": "Y Lower Bound"
       },
       "businessContext_i18n": {
         "en": "Lower limit of y integration",
-        "tr": "y entegrasyonunun alt limiti"
+        "tr": "y entegrasyonunun alt limiti",
+        "de": "Untere Grenze der y-Integration",
+        "fr": "Limite inférieure d'intégration en y"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Y Upper Bound",
         "tr": "Y Üst Sınırı",
-        "de": "Y Upper Bound",
-        "fr": "Y Upper Bound",
+        "de": "Y-Obergrenze",
+        "fr": "Borne supérieure Y",
         "es": "Y Upper Bound",
         "ar": "Y Upper Bound"
       },
       "businessContext_i18n": {
         "en": "Upper limit of y integration",
-        "tr": "y entegrasyonunun üst limiti"
+        "tr": "y entegrasyonunun üst limiti",
+        "de": "Obere Grenze der y-Integration",
+        "fr": "Limite supérieure d'intégration en y"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Step Size dx",
         "tr": "Adım Boyutu dx",
-        "de": "Step Size dx",
-        "fr": "Step Size dx",
+        "de": "Schrittweite dx",
+        "fr": "Pas dx",
         "es": "Step Size dx",
         "ar": "Step Size dx"
       },
       "businessContext_i18n": {
         "en": "Discretization step in x",
-        "tr": "x yönünde ayrıklaştırma adımı"
+        "tr": "x yönünde ayrıklaştırma adımı",
+        "de": "Diskretisierungsschritt in x",
+        "fr": "Pas de discrétisation en x"
       }
     },
     {
@@ -131,14 +143,16 @@
       "label_i18n": {
         "en": "Step Size dy",
         "tr": "Adım Boyutu dy",
-        "de": "Step Size dy",
-        "fr": "Step Size dy",
+        "de": "Schrittweite dy",
+        "fr": "Pas dy",
         "es": "Step Size dy",
         "ar": "Step Size dy"
       },
       "businessContext_i18n": {
         "en": "Discretization step in y",
-        "tr": "y'de ayrıklaştırma adımı"
+        "tr": "y'de ayrıklaştırma adımı",
+        "de": "Diskretisierungsschritt in y",
+        "fr": "Pas de discrétisation en y"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Milimetre Değeri",
         "tr": "Milimetre Değeri",
-        "de": "Milimetre Değeri",
-        "fr": "Milimetre Değeri",
-        "es": "Milimetre Değeri",
+        "de": "Millimeterwert",
+        "fr": "Valeur en millimètres",
+        "es": "Valor en milímetros",
         "ar": "Milimetre Değeri"
       },
       "businessContext_i18n": {
         "en": "Dönüştürülecek ölçüm değeri",
-        "tr": "Dönüştürülecek ölçüm değeri"
+        "tr": "Dönüştürülecek ölçüm değeri",
+        "de": "Zu konvertierender Messwert",
+        "fr": "Valeur de mesure à convertir",
+        "es": "Valor de medición a convertir"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Kalibrasyon Düzeltme Faktörü",
         "tr": "Kalibrasyon Düzeltme Faktörü",
-        "de": "Kalibrasyon Düzeltme Faktörü",
-        "fr": "Kalibrasyon Düzeltme Faktörü",
-        "es": "Kalibrasyon Düzeltme Faktörü",
+        "de": "Kalibrierungskorrekturfaktor",
+        "fr": "Facteur de correction d'étalonnage",
+        "es": "Factor de corrección de calibración",
         "ar": "Kalibrasyon Düzeltme Faktörü"
       },
       "businessContext_i18n": {
         "en": "Ölçüm cihazı kalibrasyon katsayısı",
-        "tr": "Ölçüm cihazı kalibrasyon katsayısı"
+        "tr": "Ölçüm cihazı kalibrasyon katsayısı",
+        "de": "Kalibrierungskoeffizient des Messgeräts",
+        "fr": "Coefficient d'étalonnage de l'instrument de mesure",
+        "es": "Coeficiente de calibración del instrumento de medición"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Ölçek Faktörü",
         "tr": "Ölçek Faktörü",
-        "de": "Ölçek Faktörü",
-        "fr": "Ölçek Faktörü",
-        "es": "Ölçek Faktörü",
+        "de": "Skalierungsfaktor",
+        "fr": "Facteur d'échelle",
+        "es": "Factor de escala",
         "ar": "Ölçek Faktörü"
       },
       "businessContext_i18n": {
         "en": "Çizim/plan ölçek katsayısı",
-        "tr": "Çizim/plan ölçek katsayısı"
+        "tr": "Çizim/plan ölçek katsayısı",
+        "de": "Skalierungsfaktor der Zeichnung/des Plans",
+        "fr": "Coefficient d'échelle du dessin/plan",
+        "es": "Factor de escala del dibujo/plano"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Ölçüm Belirsizliği (mm)",
         "tr": "Ölçüm Belirsizliği (mm)",
-        "de": "Ölçüm Belirsizliği (mm)",
-        "fr": "Ölçüm Belirsizliği (mm)",
-        "es": "Ölçüm Belirsizliği (mm)",
+        "de": "Messunsicherheit (mm)",
+        "fr": "Incertitude de mesure (mm)",
+        "es": "Incertidumbre de medición (mm)",
         "ar": "Ölçüm Belirsizliği (mm)"
       },
       "businessContext_i18n": {
         "en": "Standart belirsizlik (k=1)",
-        "tr": "Standart belirsizlik (k=1)"
+        "tr": "Standart belirsizlik (k=1)",
+        "de": "Standardunsicherheit (k=1)",
+        "fr": "Incertitude type (k=1)",
+        "es": "Incertidumbre estándar (k=1)"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Genişletme Faktörü (k)",
         "tr": "Genişletme Faktörü (k)",
-        "de": "Genişletme Faktörü (k)",
-        "fr": "Genişletme Faktörü (k)",
-        "es": "Genişletme Faktörü (k)",
+        "de": "Erweiterungsfaktor (k)",
+        "fr": "Facteur d'élargissement (k)",
+        "es": "Factor de cobertura (k)",
         "ar": "Genişletme Faktörü (k)"
       },
       "businessContext_i18n": {
         "en": "Belirsizlik genişletme katsayısı (genelde 2)",
-        "tr": "Belirsizlik genişletme katsayısı (genelde 2)"
+        "tr": "Belirsizlik genişletme katsayısı (genelde 2)",
+        "de": "Erweiterungskoeffizient der Unsicherheit (normalerweise 2)",
+        "fr": "Coefficient d'élargissement de l'incertitude (généralement 2)",
+        "es": "Factor de cobertura de incertidumbre (generalmente 2)"
       }
     }
   ],

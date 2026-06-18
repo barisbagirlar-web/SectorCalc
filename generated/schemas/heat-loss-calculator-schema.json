@@ -12,14 +12,16 @@
         "en": "External Wall Area",
         "tr": "Dış Duvar Alanı",
         "de": "Außenwandfläche",
-        "fr": "External Wall Area",
-        "es": "External Wall Area",
+        "fr": "Surface totale des murs extérieurs hors fenêtres",
+        "es": "Área de pared exterior",
         "ar": "External Wall Area"
       },
       "businessContext_i18n": {
         "en": "Total external wall area excluding windows",
         "tr": "Pencereler hariç toplam dış duvar alanı",
-        "de": "Gesamte Außenwandfläche ohne Fenster"
+        "de": "Gesamte Außenwandfläche ohne Fenster",
+        "fr": "Surface totale des murs extérieurs hors fenêtres",
+        "es": "Área total de pared exterior excluyendo ventanas"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Window Area",
         "tr": "Pencere Alanı",
         "de": "Fensterfläche",
-        "fr": "Window Area",
-        "es": "Window Area",
+        "fr": "Surface des fenêtres",
+        "es": "Área de ventanas",
         "ar": "Window Area"
       },
       "businessContext_i18n": {
         "en": "Total window area",
         "tr": "Toplam pencere alanı",
-        "de": "Gesamte Fensterfläche"
+        "de": "Gesamte Fensterfläche",
+        "fr": "Surface totale des fenêtres",
+        "es": "Área total de ventanas"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Roof Area",
         "tr": "Çatı Alanı",
         "de": "Dachfläche",
-        "fr": "Roof Area",
-        "es": "Roof Area",
+        "fr": "Surface de toit",
+        "es": "Área del techo",
         "ar": "Roof Area"
       },
       "businessContext_i18n": {
         "en": "Total roof or ceiling area exposed to exterior",
         "tr": "Dış ortama maruz kalan toplam çatı veya tavan alanı",
-        "de": "Gesamte Dach- oder Deckenfläche, die dem Außenbereich ausgesetzt ist"
+        "de": "Gesamte Dach- oder Deckenfläche, die dem Außenbereich ausgesetzt ist",
+        "fr": "Surface totale du toit ou du plafond exposée à l'extérieur",
+        "es": "Área total de techo o cubierta expuesta al exterior"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "U-Value Wall",
         "tr": "Duvar U-Değeri",
         "de": "U-Wert Wand",
-        "fr": "U-Value Wall",
-        "es": "U-Value Wall",
+        "fr": "Valeur U du mur",
+        "es": "Valor U de las paredes",
         "ar": "U-Value Wall"
       },
       "businessContext_i18n": {
         "en": "Thermal transmittance of walls",
         "tr": "Duvarların ısıl geçirgenlik katsayısı",
-        "de": "Wärmedurchgangskoeffizient der Wände"
+        "de": "Wärmedurchgangskoeffizient der Wände",
+        "fr": "Transmittance thermique des murs",
+        "es": "Transmitancia térmica de las paredes"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "U-Value Window",
         "tr": "Pencere U-Değeri",
         "de": "U-Wert Fenster",
-        "fr": "U-Value Window",
-        "es": "U-Value Window",
+        "fr": "Valeur U de la fenêtre",
+        "es": "Valor U de la ventana",
         "ar": "U-Value Window"
       },
       "businessContext_i18n": {
         "en": "Thermal transmittance of windows",
         "tr": "Pencerelerin ısıl geçirgenlik katsayısı",
-        "de": "Wärmedurchgangskoeffizient der Fenster"
+        "de": "Wärmedurchgangskoeffizient der Fenster",
+        "fr": "Transmittance thermique des fenêtres",
+        "es": "Transmitancia térmica de las ventanas"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "U-Value Roof",
         "tr": "Çatı U-Değeri",
         "de": "U-Wert Dach",
-        "fr": "U-Value Roof",
-        "es": "U-Value Roof",
+        "fr": "Valeur U du toit",
+        "es": "Valor U del techo",
         "ar": "U-Value Roof"
       },
       "businessContext_i18n": {
         "en": "Thermal transmittance of roof/ceiling",
         "tr": "Çatı/tavanın ısıl geçirgenlik katsayısı",
-        "de": "Wärmedurchgangskoeffizient von Dach/Decke"
+        "de": "Wärmedurchgangskoeffizient von Dach/Decke",
+        "fr": "Transmittance thermique du toit/plafond",
+        "es": "Transmitancia térmica del techo/cubierta"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Indoor Temperature",
         "tr": "İç Ortam Sıcaklığı",
         "de": "Innentemperatur",
-        "fr": "Indoor Temperature",
-        "es": "Indoor Temperature",
+        "fr": "Température intérieure",
+        "es": "Temperatura interior",
         "ar": "Indoor Temperature"
       },
       "businessContext_i18n": {
         "en": "Design indoor air temperature",
         "tr": "Tasarım iç hava sıcaklığı",
-        "de": "Auslegungs-Innenlufttemperatur"
+        "de": "Auslegungs-Innenlufttemperatur",
+        "fr": "Température de l'air intérieur de conception",
+        "es": "Temperatura interior de diseño"
       }
     },
     {
@@ -159,14 +173,16 @@
         "en": "Outdoor Temperature",
         "tr": "Dış Ortam Sıcaklığı",
         "de": "Außentemperatur",
-        "fr": "Outdoor Temperature",
-        "es": "Outdoor Temperature",
+        "fr": "Température extérieure",
+        "es": "Temperatura exterior",
         "ar": "Outdoor Temperature"
       },
       "businessContext_i18n": {
         "en": "Design outdoor air temperature",
         "tr": "Tasarım dış hava sıcaklığı",
-        "de": "Auslegungs-Außenlufttemperatur"
+        "de": "Auslegungs-Außenlufttemperatur",
+        "fr": "Température de l'air extérieur de conception",
+        "es": "Temperatura exterior de diseño"
       }
     }
   ],

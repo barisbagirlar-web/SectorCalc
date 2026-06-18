@@ -12,14 +12,16 @@
         "en": "Roof Length",
         "tr": "Çatı Uzunluğu",
         "de": "Dachlänge",
-        "fr": "Roof Length",
-        "es": "Roof Length",
+        "fr": "Longueur du toit",
+        "es": "Longitud del techo",
         "ar": "Roof Length"
       },
       "businessContext_i18n": {
         "en": "Horizontal length of the eave edge (building length), used to calculate total eave drip edge distance.",
         "tr": "Saçak kenarının yatay uzunluğu (bina uzunluğu), toplam saçak damlama mesafesini hesaplamak için kullanılır.",
-        "de": "Horizontale Länge der Traufkante (Gebäudelänge), zur Berechnung des gesamten Traufabstands."
+        "de": "Horizontale Länge der Traufkante (Gebäudelänge), zur Berechnung des gesamten Traufabstands.",
+        "fr": "Longueur horizontale du bord d'avant-toit (longueur du bâtiment), utilisée pour calculer la distance totale du bord d'avant-toit.",
+        "es": "Longitud horizontal del borde del alero (longitud del edificio), utilizada para calcular la distancia total del borde del alero."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Roof Width",
         "tr": "Çatı Genişliği",
         "de": "Dachbreite",
-        "fr": "Roof Width",
-        "es": "Roof Width",
+        "fr": "Largeur du toit",
+        "es": "Ancho del techo",
         "ar": "Roof Width"
       },
       "businessContext_i18n": {
         "en": "Horizontal span from eave to eave (building width), used to compute the horizontal run of the gable rake.",
         "tr": "Saçaktan saçağa yatay açıklık (bina genişliği), üçgen çatı eğiminin yatay koşusunu hesaplamak için kullanılır.",
-        "de": "Horizontale Spannweite von Traufe zu Traufe (Gebäudebreite), zur Berechnung des horizontalen Verlaufs der Giebelschräge."
+        "de": "Horizontale Spannweite von Traufe zu Traufe (Gebäudebreite), zur Berechnung des horizontalen Verlaufs der Giebelschräge.",
+        "fr": "Portée horizontale d'avant-toit à avant-toit (largeur du bâtiment), utilisée pour calculer la course horizontale du pignon.",
+        "es": "Tramo horizontal de alero a alero (ancho del edificio), utilizado para calcular el recorrido horizontal del hastial."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Roof Pitch",
         "tr": "Çatı Eğimi",
         "de": "Dachneigung",
-        "fr": "Roof Pitch",
-        "es": "Roof Pitch",
+        "fr": "Pente du toit",
+        "es": "Pendiente del techo",
         "ar": "Roof Pitch"
       },
       "businessContext_i18n": {
         "en": "Rise in inches per 12 inches of horizontal run, used to compute the slope length of the rake.",
         "tr": "12 inç yatay koşu başına inç cinsinden yükselme, eğimin eğim uzunluğunu hesaplamak için kullanılır.",
-        "de": "Steigung in Zoll pro 12 Zoll horizontalem Verlauf, zur Berechnung der Neigungslänge der Schräge."
+        "de": "Steigung in Zoll pro 12 Zoll horizontalem Verlauf, zur Berechnung der Neigungslänge der Schräge.",
+        "fr": "Élévation en pouces par 12 pouces de course horizontale, utilisée pour calculer la longueur de pente du rampant.",
+        "es": "Elevación en pulgadas por cada 12 pulgadas de recorrido horizontal, utilizada para calcular la longitud de la pendiente del hastial."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Gable Overhang",
         "tr": "Üçgen Çatı Çıkıntısı",
         "de": "Giebelüberstand",
-        "fr": "Gable Overhang",
-        "es": "Gable Overhang",
+        "fr": "Débord de pignon",
+        "es": "Voladizo del hastial",
         "ar": "Gable Overhang"
       },
       "businessContext_i18n": {
         "en": "Horizontal projection of the rake beyond the gable wall, added to half of roof width to obtain the total run.",
         "tr": "Üçgen duvarın ötesindeki eğimin yatay izdüşümü, toplam koşuyu elde etmek için çatı genişliğinin yarısına eklenir.",
-        "de": "Horizontal projection of the rake beyond the gable wall, added to half of roof width to obtain the total run."
+        "de": "Horizontalprojektion des Dachüberstands über die Giebelwand, addiert zur halben Dachbreite, um die Gesamtspannweite zu erhalten.",
+        "fr": "Projection horizontale du rampant au-delà du mur pignon, ajoutée à la moitié de la largeur du toit pour obtenir la course totale.",
+        "es": "Proyección horizontal del hastial más allá del muro del hastial, añadida a la mitad del ancho del techo para obtener el recorrido total."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
         "de": "Abfallfaktor",
-        "fr": "Waste Factor",
-        "es": "Waste Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Percentage of extra material to allow for cutting, fitting, and installation errors.",
         "tr": "Kesme, uydurma ve montaj hatalarına izin vermek için ekstra malzeme yüzdesi.",
-        "de": "Percentage of extra material to allow for cutting, fitting, and installation errors."
+        "de": "Prozentsatz des zusätzlichen Materials für Zuschnitt, Montage und Installationsfehler.",
+        "fr": "Pourcentage de matériau supplémentaire pour tenir compte des coupes, ajustements et erreurs d'installation.",
+        "es": "Porcentaje de material extra para permitir cortes, ajustes y errores de instalación."
       }
     }
   ],

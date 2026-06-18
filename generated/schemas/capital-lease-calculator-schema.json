@@ -12,14 +12,16 @@
         "en": "Asset Cost",
         "tr": "Varlık Maliyeti",
         "de": "Vermögenswertkosten",
-        "fr": "Asset Cost",
-        "es": "Asset Cost",
+        "fr": "Coût de l'actif",
+        "es": "Costo del activo",
         "ar": "Asset Cost"
       },
       "businessContext_i18n": {
         "en": "Fair value or cost of the asset being leased.",
         "tr": "Kiralanan varlığın gerçeğe uygun değeri veya maliyeti.",
-        "de": "Beizulegender Zeitwert oder Kosten des geleasten Vermögenswerts."
+        "de": "Beizulegender Zeitwert oder Kosten des geleasten Vermögenswerts.",
+        "fr": "Juste valeur ou coût de l'actif loué.",
+        "es": "Valor razonable o costo del activo arrendado."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Lease Term",
         "tr": "Kira Süresi",
         "de": "Leasinglaufzeit",
-        "fr": "Lease Term",
-        "es": "Lease Term",
+        "fr": "Durée du bail",
+        "es": "Plazo de arrendamiento",
         "ar": "Lease Term"
       },
       "businessContext_i18n": {
         "en": "Duration of the lease in years.",
         "tr": "Kira süresi (yıl olarak).",
-        "de": "Laufzeit des Leasingvertrags in Jahren."
+        "de": "Laufzeit des Leasingvertrags in Jahren.",
+        "fr": "Durée du bail en années.",
+        "es": "Duración del arrendamiento en años."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
         "de": "Jährlicher Zinssatz",
-        "fr": "Annual Interest Rate",
-        "es": "Annual Interest Rate",
+        "fr": "Taux d'intérêt annuel",
+        "es": "Tasa de Interés Anual",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Implicit interest rate in the lease, per annum.",
         "tr": "Kira sözleşmesindeki zımni faiz oranı (yıllık).",
-        "de": "Impliziter Zinssatz des Leasingvertrags pro Jahr."
+        "de": "Impliziter Zinssatz des Leasingvertrags pro Jahr.",
+        "fr": "Taux d'intérêt implicite du bail, par an.",
+        "es": "Tasa de interés implícita en el arrendamiento, anual."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Residual Value",
         "tr": "Kalıntı Değer",
         "de": "Restwert",
-        "fr": "Residual Value",
-        "es": "Residual Value",
+        "fr": "Valeur résiduelle",
+        "es": "Valor residual",
         "ar": "Residual Value"
       },
       "businessContext_i18n": {
         "en": "Estimated fair value of the asset at the end of the lease term.",
         "tr": "Kira süresi sonunda varlığın tahmini gerçeğe uygun değeri.",
-        "de": "Geschätzter Zeitwert des Vermögenswerts am Ende der Leasinglaufzeit."
+        "de": "Geschätzter Zeitwert des Vermögenswerts am Ende der Leasinglaufzeit.",
+        "fr": "Juste valeur estimée de l'actif à la fin du bail.",
+        "es": "Valor razonable estimado del activo al final del plazo del arrendamiento."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Payments per Year",
         "tr": "Yıllık Ödeme Sayısı",
         "de": "Zahlungen pro Jahr",
-        "fr": "Payments per Year",
-        "es": "Payments per Year",
+        "fr": "Paiements par an",
+        "es": "Pagos por año",
         "ar": "Payments per Year"
       },
       "businessContext_i18n": {
         "en": "Number of lease payments per year (12 for monthly, 4 for quarterly, 1 for annual).",
         "tr": "Yıllık kira ödeme sayısı (12 aylık, 4 üç aylık, 1 yıllık).",
-        "de": "Anzahl der Leasingzahlungen pro Jahr (12 für monatlich, 4 für vierteljährlich, 1 für jährlich)."
+        "de": "Anzahl der Leasingzahlungen pro Jahr (12 für monatlich, 4 für vierteljährlich, 1 für jährlich).",
+        "fr": "Nombre de paiements de loyer par an (12 pour mensuel, 4 pour trimestriel, 1 pour annuel).",
+        "es": "Número de pagos de arrendamiento por año (12 para mensual, 4 para trimestral, 1 para anual)."
       }
     }
   ],

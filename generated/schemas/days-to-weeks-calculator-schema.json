@@ -12,14 +12,16 @@
         "en": "Total Days",
         "tr": "Toplam Gün",
         "de": "Gesamttage",
-        "fr": "Total Days",
-        "es": "Total Days",
+        "fr": "Total des jours",
+        "es": "Días totales",
         "ar": "Total Days"
       },
       "businessContext_i18n": {
         "en": "Total number of days to be converted into weeks.",
         "tr": "Haftalara dönüştürülecek toplam gün sayısı.",
-        "de": "Gesamtzahl der Tage, die in Wochen umgerechnet werden sollen."
+        "de": "Gesamtzahl der Tage, die in Wochen umgerechnet werden sollen.",
+        "fr": "Nombre total de jours à convertir en semaines.",
+        "es": "Número total de días a convertir en semanas."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Days per Week",
         "tr": "Gün/Hafta",
         "de": "Tage pro Woche",
-        "fr": "Days per Week",
-        "es": "Days per Week",
+        "fr": "Jours par semaine",
+        "es": "Días por semana",
         "ar": "Days per Week"
       },
       "businessContext_i18n": {
         "en": "Standard number of days per week for the conversion (e.g., 7 for calendar weeks, 5 for work weeks).",
         "tr": "Dönüşüm için haftadaki standart gün sayısı (ör. takvim haftaları için 7, iş haftaları için 5).",
-        "de": "Standardanzahl Tage pro Woche für die Umrechnung (z. B. 7 für Kalenderwochen, 5 für Arbeitswochen)."
+        "de": "Standardanzahl Tage pro Woche für die Umrechnung (z. B. 7 für Kalenderwochen, 5 für Arbeitswochen).",
+        "fr": "Nombre standard de jours par semaine pour la conversion (ex. : 7 pour les semaines calendaires, 5 pour les semaines de travail).",
+        "es": "Número estándar de días por semana para la conversión (ej. 7 para semanas calendario, 5 para semanas laborales)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the primary output (weeks).",
         "tr": "Ana çıktı (hafta) için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen für die primäre Ausgabe (Wochen)."
+        "de": "Anzahl der Dezimalstellen für die primäre Ausgabe (Wochen).",
+        "fr": "Nombre de décimales pour le résultat principal (semaines).",
+        "es": "Número de decimales para el resultado principal (semanas)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Show Remainder Days",
         "tr": "Kalan Günleri Göster",
         "de": "Resttage anzeigen",
-        "fr": "Show Remainder Days",
-        "es": "Show Remainder Days",
+        "fr": "Afficher les jours restants",
+        "es": "Mostrar días restantes",
         "ar": "Show Remainder Days"
       },
       "businessContext_i18n": {
         "en": "Set to 1 to include the breakdown of full weeks and remainder days; 0 to output only decimal weeks.",
         "tr": "Tam haftalar ve kalan günlerin dökümünü dahil etmek için 1, yalnızca ondalık hafta çıktısı için 0.",
-        "de": "Auf 1 setzen, um die Aufschlüsselung in volle Wochen und Resttage einzuschließen; 0, um nur Dezimalwochen auszugeben."
+        "de": "Auf 1 setzen, um die Aufschlüsselung in volle Wochen und Resttage einzuschließen; 0, um nur Dezimalwochen auszugeben.",
+        "fr": "Mettre à 1 pour inclure la décomposition en semaines complètes et jours restants ; 0 pour afficher uniquement les semaines décimales.",
+        "es": "Establecer en 1 para incluir el desglose de semanas completas y días restantes; 0 para mostrar solo semanas decimales."
       }
     }
   ],

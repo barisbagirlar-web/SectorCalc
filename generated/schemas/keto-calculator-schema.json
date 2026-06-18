@@ -12,13 +12,16 @@
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Body Weight",
-        "es": "Body Weight",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "Total body weight in kilograms",
-        "tr": "Toplam vücut ağırlığı (kg)"
+        "tr": "Toplam vücut ağırlığı (kg)",
+        "de": "Gesamtkörpergewicht in Kilogramm",
+        "fr": "Poids corporel total en kilogrammes",
+        "es": "Peso corporal total en kilogramos"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Body Fat Percentage",
         "tr": "Vücut yağ yüzdesi",
         "de": "Körperfettanteil",
-        "fr": "Body Fat Percentage",
-        "es": "Body Fat Percentage",
+        "fr": "Pourcentage de graisse corporelle",
+        "es": "Porcentaje de grasa corporal",
         "ar": "Body Fat Percentage"
       },
       "businessContext_i18n": {
         "en": "Estimated body fat percentage (e.g., 25 for 25%)",
-        "tr": "Tahmini vücut yağ yüzdesi (örneğin, %25 için 25)"
+        "tr": "Tahmini vücut yağ yüzdesi (örneğin, %25 için 25)",
+        "de": "Geschätzter Körperfettanteil (z.B. 25 für 25%)",
+        "fr": "Pourcentage estimé de graisse corporelle (ex. 25 pour 25%)",
+        "es": "Porcentaje estimado de grasa corporal (ej. 25 para 25%)"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Gender (1=Male, 0=Female)",
         "tr": "Cinsiyet (1=Erkek, 0=Kadın)",
         "de": "Geschlecht (1=Männlich, 0=Weiblich)",
-        "fr": "Gender (1=Male, 0=Female)",
-        "es": "Gender (1=Male, 0=Female)",
+        "fr": "Sexe (1=Homme, 0=Femme)",
+        "es": "Género (1=Hombre, 0=Mujer)",
         "ar": "Gender (1=Male, 0=Female)"
       },
       "businessContext_i18n": {
         "en": "1 for male, 0 for female",
-        "tr": "1 erkek, 0 kadın"
+        "tr": "1 erkek, 0 kadın",
+        "de": "1 für männlich, 0 für weiblich",
+        "fr": "1 pour homme, 0 pour femme",
+        "es": "1 para hombre, 0 para mujer"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Activity Level Multiplier",
         "tr": "Aktivite seviyesi çarpanı",
         "de": "Aktivitätsniveau-Multiplikator",
-        "fr": "Activity Level Multiplier",
-        "es": "Activity Level Multiplier",
+        "fr": "Multiplicateur du niveau d'activité",
+        "es": "Multiplicador de nivel de actividad",
         "ar": "Activity Level Multiplier"
       },
       "businessContext_i18n": {
         "en": "1.2: Sedentary, 1.375: Lightly Active, 1.55: Moderately Active, 1.725: Very Active, 1.9: Extra Active",
-        "tr": "1,2: Hareketsiz, 1,375: Hafif Aktif, 1,55: Orta Aktif, 1,725: Çok Aktif, 1,9: Ekstra Aktif"
+        "tr": "1,2: Hareketsiz, 1,375: Hafif Aktif, 1,55: Orta Aktif, 1,725: Çok Aktif, 1,9: Ekstra Aktif",
+        "de": "1,2: Bewegungsarm, 1,375: Leicht aktiv, 1,55: Mäßig aktiv, 1,725: Sehr aktiv, 1,9: Extrem aktiv",
+        "fr": "1,2 : Sédentaire, 1,375 : Légèrement actif, 1,55 : Modérément actif, 1,725 : Très actif, 1,9 : Extrêmement actif",
+        "es": "1.2: Sedentario, 1.375: Ligeramente activo, 1.55: Moderadamente activo, 1.725: Muy activo, 1.9: Extra activo"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Caloric Deficit",
         "tr": "Kalori Açığı",
-        "de": "Caloric Deficit",
-        "fr": "Caloric Deficit",
-        "es": "Caloric Deficit",
+        "de": "Kaloriendefizit",
+        "fr": "Déficit calorique",
+        "es": "Déficit calórico",
         "ar": "Caloric Deficit"
       },
       "businessContext_i18n": {
         "en": "Percentage to reduce maintenance calories (0=maintenance, 20=20% deficit for weight loss)",
-        "tr": "Bazal kaloriden düşülecek yüzde (0=koruma, 20=kil kaybı için %20 açık)"
+        "tr": "Bazal kaloriden düşülecek yüzde (0=koruma, 20=kil kaybı için %20 açık)",
+        "de": "Prozentsatz zur Reduzierung der Erhaltungskalorien (0=Erhaltung, 20=20% Defizit zur Gewichtsabnahme)",
+        "fr": "Pourcentage de réduction des calories de maintien (0=maintien, 20=déficit de 20% pour perte de poids)",
+        "es": "Porcentaje para reducir las calorías de mantenimiento (0=mantenimiento, 20=20% de déficit para pérdida de peso)"
       }
     }
   ],

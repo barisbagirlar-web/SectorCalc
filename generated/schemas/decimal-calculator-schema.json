@@ -12,14 +12,16 @@
         "en": "Operand A",
         "tr": "İşlenen A",
         "de": "Operand A",
-        "fr": "Operand A",
-        "es": "Operand A",
+        "fr": "Opérande A",
+        "es": "Operando A",
         "ar": "Operand A"
       },
       "businessContext_i18n": {
         "en": "First decimal operand for calculation",
         "tr": "Hesaplama için ilk ondalık işlenen",
-        "de": "Erster Dezimaloperand für die Berechnung"
+        "de": "Erster Dezimaloperand für die Berechnung",
+        "fr": "Premier opérande décimal pour le calcul",
+        "es": "Primer operando decimal para el cálculo"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Operand B",
         "tr": "İşlenen B",
         "de": "Operand B",
-        "fr": "Operand B",
-        "es": "Operand B",
+        "fr": "Opérande B",
+        "es": "Operando B",
         "ar": "Operand B"
       },
       "businessContext_i18n": {
         "en": "Second decimal operand for calculation",
         "tr": "Hesaplama için ikinci ondalık işlenen",
-        "de": "Zweiter Dezimaloperand für die Berechnung"
+        "de": "Zweiter Dezimaloperand für die Berechnung",
+        "fr": "Second opérande décimal pour le calcul",
+        "es": "Segundo operando decimal para el cálculo"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Operation Type",
         "tr": "İşlem Türü",
         "de": "Operationstyp",
-        "fr": "Operation Type",
-        "es": "Operation Type",
+        "fr": "Type d'opération",
+        "es": "Tipo de operación",
         "ar": "Operation Type"
       },
       "businessContext_i18n": {
         "en": "Operation code: 1-Add, 2-Subtract, 3-Multiply, 4-Divide",
         "tr": "İşlem kodu: 1-Toplama, 2-Çıkarma, 3-Çarpma, 4-Bölme",
-        "de": "Operationscode: 1-Addieren, 2-Subtrahieren, 3-Multiplizieren, 4-Dividieren"
+        "de": "Operationscode: 1-Addieren, 2-Subtrahieren, 3-Multiplizieren, 4-Dividieren",
+        "fr": "Code d'opération : 1-Addition, 2-Soustraction, 3-Multiplication, 4-Division",
+        "es": "Código de operación: 1-Sumar, 2-Restar, 3-Multiplicar, 4-Dividir"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places in the rounded result",
         "tr": "Yuvarlanmış sonuçtaki ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen im gerundeten Ergebnis"
+        "de": "Anzahl der Dezimalstellen im gerundeten Ergebnis",
+        "fr": "Nombre de décimales dans le résultat arrondi",
+        "es": "Número de decimales en el resultado redondeado"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Rounding Mode",
         "tr": "Yuvarlama Modu",
         "de": "Rundungsmodus",
-        "fr": "Rounding Mode",
-        "es": "Rounding Mode",
+        "fr": "Mode d'arrondi",
+        "es": "Modo de redondeo",
         "ar": "Rounding Mode"
       },
       "businessContext_i18n": {
         "en": "Rounding method: 0-standard rounding (half up), 1-floor, 2-ceil, 3-truncate",
         "tr": "Yuvarlama yöntemi: 0-standart yuvarlama (yarı yukarı), 1-taban, 2-tavan, 3-kes",
-        "de": "Rundungsmethode: 0-Standardrundung (kaufmännisch), 1-Abrunden, 2-Aufrunden, 3-Abschneiden"
+        "de": "Rundungsmethode: 0-Standardrundung (kaufmännisch), 1-Abrunden, 2-Aufrunden, 3-Abschneiden",
+        "fr": "Méthode d'arrondi : 0-arrondi standard (demi au supérieur), 1-plancher, 2-plafond, 3-troncature",
+        "es": "Método de redondeo: 0-redondeo estándar (mitad hacia arriba), 1-suelo, 2-techo, 3-truncar"
       }
     }
   ],

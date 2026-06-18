@@ -12,14 +12,16 @@
         "en": "Calculation Mode",
         "tr": "Hesaplama Modu",
         "de": "Berechnungsmodus",
-        "fr": "Calculation Mode",
-        "es": "Calculation Mode",
+        "fr": "Mode de calcul",
+        "es": "Modo de cálculo",
         "ar": "Calculation Mode"
       },
       "businessContext_i18n": {
         "en": "1: Unit Conversion (mg/dL <-> mmol/L), 2: HbA1c to eAG (mg/dL), 3: eAG (mg/dL) to HbA1c",
         "tr": "1: Birim Dönüşümü (mg/dL <-> mmol/L), 2: HbA1c'den eAG'ye (mg/dL), 3: eAG'den (mg/dL) HbA1c'ye",
-        "de": "1: Einheitenumrechnung (mg/dL <-> mmol/L), 2: HbA1c zu eAG (mg/dL), 3: eAG (mg/dL) zu HbA1c"
+        "de": "1: Einheitenumrechnung (mg/dL <-> mmol/L), 2: HbA1c zu eAG (mg/dL), 3: eAG (mg/dL) zu HbA1c",
+        "fr": "1 : Conversion d'unité (mg/dL <-> mmol/L), 2 : HbA1c vers eAG (mg/dL), 3 : eAG (mg/dL) vers HbA1c",
+        "es": "1: Conversión de unidades (mg/dL <-> mmol/L), 2: HbA1c a eAG (mg/dL), 3: eAG (mg/dL) a HbA1c"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Input Value",
         "tr": "Giriş Değeri",
         "de": "Eingabewert",
-        "fr": "Input Value",
-        "es": "Input Value",
+        "fr": "Valeur d'entrée",
+        "es": "Valor de entrada",
         "ar": "Input Value"
       },
       "businessContext_i18n": {
         "en": "The blood glucose value to convert or calculate from; unit depends on mode and unitFrom",
         "tr": "Dönüştürülecek veya hesaplanacak kan glukoz değeri; birim, mod ve unitFrom'a bağlıdır",
-        "de": "Der Blutzuckerwert, der umgerechnet oder berechnet werden soll; Einheit hängt von Modus und unitFrom ab"
+        "de": "Der Blutzuckerwert, der umgerechnet oder berechnet werden soll; Einheit hängt von Modus und unitFrom ab",
+        "fr": "La valeur de glycémie à convertir ou à calculer ; l'unité dépend du mode et de unitFrom",
+        "es": "El valor de glucosa en sangre a convertir o calcular; la unidad depende del modo y unitFrom"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Input Unit",
         "tr": "Giriş Birimi",
         "de": "Eingabeeinheit",
-        "fr": "Input Unit",
-        "es": "Input Unit",
+        "fr": "Unité d'entrée",
+        "es": "Unidad de entrada",
         "ar": "Input Unit"
       },
       "businessContext_i18n": {
         "en": "1 for mg/dL, 2 for mmol/L (used in mode 1; in other modes, assume input units accordingly)",
         "tr": "1 mg/dL, 2 mmol/L (mod 1'de kullanılır; diğer modlarda giriş birimi buna göre varsayılır)",
-        "de": "1 für mg/dL, 2 für mmol/L (verwendet in Modus 1; in anderen Modi entsprechend Eingabeeinheiten)"
+        "de": "1 für mg/dL, 2 für mmol/L (verwendet in Modus 1; in anderen Modi entsprechend Eingabeeinheiten)",
+        "fr": "1 pour mg/dL, 2 pour mmol/L (utilisé en mode 1 ; dans les autres modes, supposer les unités d'entrée appropriées)",
+        "es": "1 para mg/dL, 2 para mmol/L (usado en modo 1; en otros modos, asumir unidades de entrada según corresponda)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Target Unit",
         "tr": "Hedef Birim",
         "de": "Zieleinheit",
-        "fr": "Target Unit",
-        "es": "Target Unit",
+        "fr": "Unité cible",
+        "es": "Unidad objetivo",
         "ar": "Target Unit"
       },
       "businessContext_i18n": {
         "en": "1 for mg/dL, 2 for mmol/L (used in mode 1)",
         "tr": "1 mg/dL, 2 mmol/L (mod 1'de kullanılır)",
-        "de": "1 für mg/dL, 2 für mmol/L (verwendet in Modus 1)"
+        "de": "1 für mg/dL, 2 für mmol/L (verwendet in Modus 1)",
+        "fr": "1 pour mg/dL, 2 pour mmol/L (utilisé en mode 1)",
+        "es": "1 para mg/dL, 2 para mmol/L (usado en modo 1)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Fasting State",
         "tr": "Açlık Durumu",
         "de": "Nüchternzustand",
-        "fr": "Fasting State",
-        "es": "Fasting State",
+        "fr": "État à jeun",
+        "es": "Estado de ayuno",
         "ar": "Fasting State"
       },
       "businessContext_i18n": {
         "en": "1 if fasting, 0 if non-fasting (for reference only, does not affect calculation)",
         "tr": "1 aç, 0 tok (yalnızca referans amaçlıdır, hesaplamayı etkilemez)",
-        "de": "1 wenn nüchtern, 0 wenn nicht nüchtern (nur als Referenz, beeinflusst Berechnung nicht)"
+        "de": "1 wenn nüchtern, 0 wenn nicht nüchtern (nur als Referenz, beeinflusst Berechnung nicht)",
+        "fr": "1 si à jeun, 0 si non à jeun (pour référence uniquement, n'affecte pas le calcul)",
+        "es": "1 si está en ayunas, 0 si no está en ayunas (solo como referencia, no afecta el cálculo)"
       }
     }
   ],

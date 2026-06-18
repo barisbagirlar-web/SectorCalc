@@ -12,14 +12,16 @@
         "en": "Vehicle Price",
         "tr": "Araç Fiyatı",
         "de": "Fahrzeugpreis",
-        "fr": "Vehicle Price",
-        "es": "Vehicle Price",
+        "fr": "Prix du véhicule",
+        "es": "Precio del vehículo",
         "ar": "Vehicle Price"
       },
       "businessContext_i18n": {
         "en": "Total price of the vehicle including any additional fees.",
         "tr": "Ek ücretler dahil aracın toplam fiyatı.",
-        "de": "Gesamtpreis des Fahrzeugs inklusive aller zusätzlichen Gebühren."
+        "de": "Gesamtpreis des Fahrzeugs inklusive aller zusätzlichen Gebühren.",
+        "fr": "Prix total du véhicule, frais supplémentaires inclus.",
+        "es": "Precio total del vehículo incluyendo cualquier cargo adicional."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Down Payment",
         "tr": "Peşinat",
         "de": "Anzahlung",
-        "fr": "Down Payment",
-        "es": "Down Payment",
+        "fr": "Acompte",
+        "es": "Pago inicial",
         "ar": "Down Payment"
       },
       "businessContext_i18n": {
         "en": "Amount paid upfront that reduces the loan principal.",
         "tr": "Kredi anaparasını azaltan peşin ödenen tutar.",
-        "de": "Vorauszahlung, die den Darlehensbetrag reduziert."
+        "de": "Vorauszahlung, die den Darlehensbetrag reduziert.",
+        "fr": "Montant versé d'avance qui réduit le capital du prêt.",
+        "es": "Cantidad pagada por adelantado que reduce el capital del préstamo."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Trade-In Value",
         "tr": "Takas Değeri",
         "de": "Inzahlungnahmewert",
-        "fr": "Trade-In Value",
-        "es": "Trade-In Value",
+        "fr": "Valeur de reprise",
+        "es": "Valor de intercambio",
         "ar": "Trade-In Value"
       },
       "businessContext_i18n": {
         "en": "Value of a vehicle traded in, which reduces the amount to finance.",
         "tr": "Takas edilen aracın değeri, finanse edilecek tutarı azaltır.",
-        "de": "Wert eines in Zahlung gegebenen Fahrzeugs, der den zu finanzierenden Betrag reduziert."
+        "de": "Wert eines in Zahlung gegebenen Fahrzeugs, der den zu finanzierenden Betrag reduziert.",
+        "fr": "Valeur d'un véhicule repris, qui réduit le montant à financer.",
+        "es": "Valor de un vehículo entregado como parte de pago, que reduce el monto a financiar."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Sales Tax Rate",
         "tr": "Satış Vergisi Oranı",
         "de": "Umsatzsteuersatz",
-        "fr": "Sales Tax Rate",
-        "es": "Sales Tax Rate",
+        "fr": "Taux de taxe de vente",
+        "es": "Tasa de impuesto a las ventas",
         "ar": "Sales Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Applicable sales tax percentage on the taxable amount (vehicle price minus trade-in).",
         "tr": "Vergiye tabi tutar (araç fiyatı eksi takas) üzerinden uygulanan satış vergisi yüzdesi.",
-        "de": "Anwendbarer Umsatzsteuerprozentsatz auf den steuerpflichtigen Betrag (Fahrzeugpreis abzüglich Inzahlungnahme)."
+        "de": "Anwendbarer Umsatzsteuerprozentsatz auf den steuerpflichtigen Betrag (Fahrzeugpreis abzüglich Inzahlungnahme).",
+        "fr": "Pourcentage de taxe de vente applicable sur le montant imposable (prix du véhicule moins reprise).",
+        "es": "Porcentaje de impuesto a las ventas aplicable sobre el monto gravable (precio del vehículo menos valor de intercambio)."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Interest Rate (APR)",
         "tr": "Faiz Oranı (APR)",
         "de": "Zinssatz (effektiver Jahreszins)",
-        "fr": "Interest Rate (APR)",
-        "es": "Interest Rate (APR)",
+        "fr": "Taux d'intérêt (TAEG)",
+        "es": "Tasa de interés (APY)",
         "ar": "Interest Rate (APR)"
       },
       "businessContext_i18n": {
         "en": "Annual Percentage Rate for the loan.",
         "tr": "Kredi için yıllık yüzde oranı.",
-        "de": "Effektiver Jahreszins für das Darlehen."
+        "de": "Effektiver Jahreszins für das Darlehen.",
+        "fr": "Taux annuel effectif global du prêt.",
+        "es": "Tasa de porcentaje anual para el préstamo."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Loan Term",
         "tr": "Kredi Vadesi",
         "de": "Darlehenslaufzeit",
-        "fr": "Loan Term",
-        "es": "Loan Term",
+        "fr": "Durée du prêt",
+        "es": "Plazo del préstamo",
         "ar": "Loan Term"
       },
       "businessContext_i18n": {
         "en": "Duration of the loan in months.",
         "tr": "Kredi vadesi (ay olarak).",
-        "de": "Laufzeit des Darlehens in Monaten."
+        "de": "Laufzeit des Darlehens in Monaten.",
+        "fr": "Durée du prêt en mois.",
+        "es": "Duración del préstamo en meses."
       }
     }
   ],

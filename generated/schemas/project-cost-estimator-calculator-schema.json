@@ -20,11 +20,17 @@
       "businessContext": "Total planned direct labor hours for the project, based on work breakdown structure (WBS).",
       "label_i18n": {
         "en": "Direct Labor Hours",
-        "tr": "Direkt İşçilik Saatleri"
+        "tr": "Direkt İşçilik Saatleri",
+        "de": "Direkte Arbeitsstunden",
+        "fr": "Heures de main-d'œuvre directe",
+        "es": "Horas de mano de obra directa"
       },
       "businessContext_i18n": {
         "en": "Total planned direct labor hours for the project, based on work breakdown structure (WBS).",
-        "tr": "İş kırılım yapısına (WBS) dayalı olarak proje için planlanan toplam direkt işçilik saati."
+        "tr": "İş kırılım yapısına (WBS) dayalı olarak proje için planlanan toplam direkt işçilik saati.",
+        "de": "Geplante direkte Arbeitsstunden für das Projekt, basierend auf dem Arbeitsstrukturplan (WBS).",
+        "fr": "Total des heures de main-d'œuvre directe planifiées pour le projet, basé sur la structure de découpage du projet (WBS).",
+        "es": "Total de horas de mano de obra directa planificadas para el proyecto, basado en la estructura de desglose de trabajo (EDT)."
       }
     },
     {
@@ -39,11 +45,16 @@
       "label_i18n": {
         "en": "Average Labor Rate",
         "tr": "Ortalama İşçilik Ücreti",
-        "de": "Durchschnittlicher Stundensatz"
+        "de": "Durchschnittlicher Stundensatz",
+        "fr": "Taux de main-d'œuvre moyen",
+        "es": "Tarifa de mano de obra promedio"
       },
       "businessContext_i18n": {
         "en": "Weighted average hourly rate including wages, benefits, and overhead per ISO 15686-5.",
-        "tr": "Ücretler, yan haklar ve genel giderler dahil ağırlıklı ortalama saatlik ücret (ISO 15686-5'e göre)."
+        "tr": "Ücretler, yan haklar ve genel giderler dahil ağırlıklı ortalama saatlik ücret (ISO 15686-5'e göre).",
+        "de": "Gewichteter durchschnittlicher Stundensatz inkl. Löhne, Zusatzleistungen und Gemeinkosten gemäß ISO 15686-5.",
+        "fr": "Taux horaire moyen pondéré incluant salaires, avantages et frais généraux selon l'ISO 15686-5.",
+        "es": "Tarifa horaria promedio ponderada que incluye salarios, beneficios y gastos generales según ISO 15686-5."
       }
     },
     {
@@ -58,11 +69,16 @@
       "label_i18n": {
         "en": "Material Cost",
         "tr": "Malzeme Maliyeti",
-        "de": "Materialkosten"
+        "de": "Materialkosten",
+        "fr": "Coût des matières",
+        "es": "Coste de material"
       },
       "businessContext_i18n": {
         "en": "Total cost of raw materials and purchased components, including procurement and logistics.",
-        "tr": "Tedarik ve lojistik dahil hammadde ve satın alınan bileşenlerin toplam maliyeti."
+        "tr": "Tedarik ve lojistik dahil hammadde ve satın alınan bileşenlerin toplam maliyeti.",
+        "de": "Gesamtkosten für Rohmaterial und zugekaufte Komponenten, inkl. Beschaffung und Logistik.",
+        "fr": "Coût total des matières premières et des composants achetés, y compris l'approvisionnement et la logistique.",
+        "es": "Costo total de materias primas y componentes comprados, incluyendo adquisición y logística."
       }
     },
     {
@@ -76,11 +92,17 @@
       "businessContext": "Cost of specialized machinery, tooling, and equipment depreciation or rental.",
       "label_i18n": {
         "en": "Equipment & Tooling Cost",
-        "tr": "Ekipman & Takım Maliyeti"
+        "tr": "Ekipman & Takım Maliyeti",
+        "de": "Ausrüstungs- und Werkzeugkosten",
+        "fr": "Coût de l'équipement et de l'outillage",
+        "es": "Costo de equipos y herramientas"
       },
       "businessContext_i18n": {
         "en": "Cost of specialized machinery, tooling, and equipment depreciation or rental.",
-        "tr": "Özel makine, takım ve ekipman amortismanı veya kiralama maliyeti."
+        "tr": "Özel makine, takım ve ekipman amortismanı veya kiralama maliyeti.",
+        "de": "Kosten für Spezialmaschinen, Werkzeuge sowie Abschreibung oder Miete von Anlagen.",
+        "fr": "Coût des machines spécialisées, de l'outillage et de l'amortissement ou de la location de l'équipement.",
+        "es": "Costo de maquinaria especializada, herramientas y depreciación o alquiler de equipos."
       }
     },
     {
@@ -95,11 +117,16 @@
       "label_i18n": {
         "en": "Overhead Percentage",
         "tr": "Genel Gider Yüzdesi",
-        "de": "Gemeinkostenprozentsatz"
+        "de": "Gemeinkostenprozentsatz",
+        "fr": "Pourcentage de frais généraux",
+        "es": "Porcentaje de gastos generales"
       },
       "businessContext_i18n": {
         "en": "Indirect cost rate (facilities, utilities, management) as a percentage of direct costs, per standard cost accounting.",
-        "tr": "Direkt maliyetlerin yüzdesi olarak endirekt maliyet oranı (tesis, yardımcı hizmetler, yönetim), standart maliyet muhasebesine göre."
+        "tr": "Direkt maliyetlerin yüzdesi olarak endirekt maliyet oranı (tesis, yardımcı hizmetler, yönetim), standart maliyet muhasebesine göre.",
+        "de": "Gemeinkostensatz (Betrieb, Versorgung, Verwaltung) als Prozentsatz der direkten Kosten, gemäß Standardkostenrechnung.",
+        "fr": "Taux de coûts indirects (installations, services publics, gestion) en pourcentage des coûts directs, selon la comptabilité analytique standard.",
+        "es": "Tasa de costos indirectos (instalaciones, servicios públicos, gestión) como porcentaje de los costos directos, según contabilidad de costos estándar."
       }
     },
     {
@@ -118,11 +145,17 @@
       ],
       "label_i18n": {
         "en": "Project Complexity Factor",
-        "tr": "Proje Karmaşıklık Faktörü"
+        "tr": "Proje Karmaşıklık Faktörü",
+        "de": "Projektkomplexitätsfaktor",
+        "fr": "Facteur de complexité du projet",
+        "es": "Factor de complejidad del proyecto"
       },
       "businessContext_i18n": {
         "en": "Adjusts cost based on project complexity (low/medium/high) per PMI and Lean principles.",
-        "tr": "Proje karmaşıklığına (düşük/orta/yüksek) göre maliyeti ayarlar, PMI ve Yalın prensiplerine göre."
+        "tr": "Proje karmaşıklığına (düşük/orta/yüksek) göre maliyeti ayarlar, PMI ve Yalın prensiplerine göre.",
+        "de": "Passt die Kosten basierend auf der Projektkomplexität (niedrig/mittel/hoch) gemäß PMI und Lean-Prinzipien an.",
+        "fr": "Ajuste le coût en fonction de la complexité du projet (faible/moyenne/élevée) selon les principes PMI et Lean.",
+        "es": "Ajusta el costo según la complejidad del proyecto (baja/media/alta) según principios PMI y Lean."
       }
     },
     {
@@ -142,11 +175,17 @@
       ],
       "label_i18n": {
         "en": "Quality Level (Sigma)",
-        "tr": "Kalite Seviyesi (Sigma)"
+        "tr": "Kalite Seviyesi (Sigma)",
+        "de": "Qualitätsniveau (Sigma)",
+        "fr": "Niveau de qualité (Sigma)",
+        "es": "Nivel de calidad (Sigma)"
       },
       "businessContext_i18n": {
         "en": "Target quality level based on Six Sigma; higher sigma reduces rework and hidden costs.",
-        "tr": "Altı Sigma'ya dayalı hedef kalite seviyesi; yüksek sigma, yeniden işleme ve görünmeyen maliyetleri azaltır."
+        "tr": "Altı Sigma'ya dayalı hedef kalite seviyesi; yüksek sigma, yeniden işleme ve görünmeyen maliyetleri azaltır.",
+        "de": "Angestrebtes Qualitätsniveau basierend auf Six Sigma; höheres Sigma reduziert Nacharbeit und versteckte Kosten.",
+        "fr": "Niveau de qualité cible basé sur Six Sigma ; un sigma plus élevé réduit les reprises et les coûts cachés.",
+        "es": "Nivel de calidad objetivo basado en Seis Sigma; un sigma más alto reduce el retrabajo y los costos ocultos."
       }
     },
     {
@@ -160,11 +199,17 @@
       "businessContext": "If true, applies lean waste reduction factor (e.g., 5% reduction in labor and material).",
       "label_i18n": {
         "en": "Apply Lean Standardization",
-        "tr": "Yalın Standardizasyonu Uygula"
+        "tr": "Yalın Standardizasyonu Uygula",
+        "de": "Lean-Standardisierung anwenden",
+        "fr": "Appliquer la standardisation Lean",
+        "es": "Aplicar estandarización Lean"
       },
       "businessContext_i18n": {
         "en": "If true, applies lean waste reduction factor (e.g., 5% reduction in labor and material).",
-        "tr": "Doğruysa, yalın israf azaltma faktörü uygular (örneğin, işçilik ve malzemede %5 azalma)."
+        "tr": "Doğruysa, yalın israf azaltma faktörü uygular (örneğin, işçilik ve malzemede %5 azalma).",
+        "de": "Wenn aktiviert, wird der Lean-Verschwendungsreduktionsfaktor angewendet (z. B. 5 % Reduktion bei Arbeit und Material).",
+        "fr": "Si vrai, applique un facteur de réduction des gaspillages Lean (par exemple, réduction de 5 % de la main-d'œuvre et des matériaux).",
+        "es": "Si es verdadero, aplica el factor de reducción de desperdicios Lean (por ejemplo, reducción del 5% en mano de obra y materiales)."
       }
     }
   ],

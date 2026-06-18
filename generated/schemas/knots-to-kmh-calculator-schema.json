@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Speed in knots",
         "tr": "Knot cinsinden hız",
-        "de": "Speed in knots",
-        "fr": "Speed in knots",
-        "es": "Speed in knots",
+        "de": "Geschwindigkeit in Knoten",
+        "fr": "Vitesse en nœuds",
+        "es": "Velocidad en nudos",
         "ar": "Speed in knots"
       },
       "businessContext_i18n": {
         "en": "The speed value in knots to convert.",
-        "tr": "Dönüştürülecek knot cinsinden hız değeri."
+        "tr": "Dönüştürülecek knot cinsinden hız değeri.",
+        "de": "Der Geschwindigkeitswert in Knoten, der umgerechnet werden soll.",
+        "fr": "La valeur de vitesse en nœuds à convertir.",
+        "es": "El valor de velocidad en nudos a convertir."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Conversion factor",
         "tr": "Dönüşüm faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion factor",
-        "es": "Conversion factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion factor"
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor from knots to kilometers per hour. Default is 1.852.",
-        "tr": "Knot'tan kilometre/saat'e standart dönüşüm faktörü. Varsayılan 1.852'dir."
+        "tr": "Knot'tan kilometre/saat'e standart dönüşüm faktörü. Varsayılan 1.852'dir.",
+        "de": "Standard-Umrechnungsfaktor von Knoten in Kilometer pro Stunde. Standard ist 1,852.",
+        "fr": "Facteur de conversion standard des nœuds en kilomètres par heure. Par défaut 1,852.",
+        "es": "Factor de conversión estándar de nudos a kilómetros por hora. Por defecto es 1.852."
       }
     },
     {
@@ -52,14 +58,16 @@
         "en": "Decimal places",
         "tr": "Ondalık basamaklar",
         "de": "Dezimalstellen",
-        "fr": "Decimal places",
-        "es": "Decimal places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the result.",
         "tr": "Sonuç için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen für das Ergebnis."
+        "de": "Anzahl der Dezimalstellen für das Ergebnis.",
+        "fr": "Nombre de décimales pour le résultat.",
+        "es": "Número de decimales para el resultado."
       }
     },
     {
@@ -72,14 +80,17 @@
       "label_i18n": {
         "en": "Rounding mode",
         "tr": "Yuvarlama modu",
-        "de": "Rounding mode",
-        "fr": "Rounding mode",
-        "es": "Rounding mode",
+        "de": "Rundungsmodus",
+        "fr": "Mode d'arrondi",
+        "es": "Modo de redondeo",
         "ar": "Rounding mode"
       },
       "businessContext_i18n": {
         "en": "Rounding mode: 0 = floor, 1 = round, 2 = ceil.",
-        "tr": "Yuvarlama modu: 0 = taban, 1 = yuvarla, 2 = tavan."
+        "tr": "Yuvarlama modu: 0 = taban, 1 = yuvarla, 2 = tavan.",
+        "de": "Rundungsmodus: 0 = abrunden, 1 = runden, 2 = aufrunden.",
+        "fr": "Mode d'arrondi : 0 = plancher, 1 = arrondi, 2 = plafond.",
+        "es": "Modo de redondeo: 0 = suelo, 1 = redondeo, 2 = techo."
       }
     }
   ],

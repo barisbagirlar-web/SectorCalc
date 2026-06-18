@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Surface Area per Part",
         "tr": "Parça Başına Yüzey Alanı",
-        "de": "Surface Area per Part",
-        "fr": "Surface Area per Part",
+        "de": "Oberfläche pro Teil",
+        "fr": "Surface par pièce",
         "es": "Surface Area per Part",
         "ar": "Surface Area per Part"
       },
       "businessContext_i18n": {
         "en": "Total surface area of a single part to be coated, measured in square meters.",
-        "tr": "Kaplanacak tek bir parçanın toplam yüzey alanı, metrekare cinsinden ölçülür."
+        "tr": "Kaplanacak tek bir parçanın toplam yüzey alanı, metrekare cinsinden ölçülür.",
+        "de": "Gesamtoberfläche eines einzelnen zu beschichtenden Teils, gemessen in Quadratmetern.",
+        "fr": "Surface totale d'une seule pièce à revêtir, mesurée en mètres carrés."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Coating Thickness",
         "tr": "Kaplama Kalınlığı",
-        "de": "Coating Thickness",
-        "fr": "Coating Thickness",
+        "de": "Beschichtungsdicke",
+        "fr": "Épaisseur du revêtement",
         "es": "Coating Thickness",
         "ar": "Coating Thickness"
       },
       "businessContext_i18n": {
         "en": "Target dry film thickness of the coating, measured in micrometers.",
-        "tr": "Kaplamanın hedef kuru film kalınlığı, mikrometre cinsinden ölçülür."
+        "tr": "Kaplamanın hedef kuru film kalınlığı, mikrometre cinsinden ölçülür.",
+        "de": "Ziel-Trockenfilmdicke der Beschichtung, gemessen in Mikrometern.",
+        "fr": "Épaisseur cible du film sec du revêtement, mesurée en micromètres."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Coating Material Density",
         "tr": "Kaplama Malzemesi Yoğunluğu",
-        "de": "Coating Material Density",
-        "fr": "Coating Material Density",
+        "de": "Dichte des Beschichtungsmaterials",
+        "fr": "Densité du matériau de revêtement",
         "es": "Coating Material Density",
         "ar": "Coating Material Density"
       },
       "businessContext_i18n": {
         "en": "Density of the coating material in its dried state, in kilograms per cubic meter.",
-        "tr": "Kaplama malzemesinin kuru haldeki yoğunluğu, metreküp başına kilogram cinsinden."
+        "tr": "Kaplama malzemesinin kuru haldeki yoğunluğu, metreküp başına kilogram cinsinden.",
+        "de": "Dichte des Beschichtungsmaterials im getrockneten Zustand, in Kilogramm pro Kubikmeter.",
+        "fr": "Densité du matériau de revêtement à l'état sec, en kilogrammes par mètre cube."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Number of Parts",
         "tr": "Parça Sayısı",
-        "de": "Number of Parts",
-        "fr": "Number of Parts",
+        "de": "Anzahl der Teile",
+        "fr": "Nombre de pièces",
         "es": "Number of Parts",
         "ar": "Number of Parts"
       },
       "businessContext_i18n": {
         "en": "Quantity of parts to be coated in the batch.",
-        "tr": "Partide kaplanacak parça miktarı."
+        "tr": "Partide kaplanacak parça miktarı.",
+        "de": "Menge der in der Charge zu beschichtenden Teile.",
+        "fr": "Quantité de pièces à revêtir dans le lot."
       }
     }
   ],

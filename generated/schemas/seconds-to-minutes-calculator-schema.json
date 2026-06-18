@@ -12,13 +12,15 @@
         "en": "Saniye",
         "tr": "Saniye",
         "de": "Sekunden",
-        "fr": "Saniye",
-        "es": "Saniye",
+        "fr": "Secondes",
+        "es": "Segundos",
         "ar": "Saniye"
       },
       "businessContext_i18n": {
         "en": "Ölçülen saniye cinsinden süre",
-        "tr": "Ölçülen saniye cinsinden süre"
+        "tr": "Ölçülen saniye cinsinden süre",
+        "de": "Gemessene Zeit in Sekunden",
+        "fr": "Temps mesuré en secondes"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Ölçek Faktörü",
         "tr": "Ölçek Faktörü",
-        "de": "Ölçek Faktörü",
-        "fr": "Ölçek Faktörü",
-        "es": "Ölçek Faktörü",
+        "de": "Skalierungsfaktor",
+        "fr": "Facteur d'échelle",
+        "es": "Factor de escala",
         "ar": "Ölçek Faktörü"
       },
       "businessContext_i18n": {
         "en": "Çarpımsal kalibrasyon faktörü (ör. saat kayması için 1.0002)",
-        "tr": "Çarpımsal kalibrasyon faktörü (ör. saat kayması için 1.0002)"
+        "tr": "Çarpımsal kalibrasyon faktörü (ör. saat kayması için 1.0002)",
+        "de": "Multiplikativer Kalibrierungsfaktor (z. B. 1,0002 für Zeitabweichung)",
+        "fr": "Facteur de calibration multiplicatif (ex. 1.0002 pour une dérive horaire)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Ofset (Saniye)",
         "tr": "Ofset (Saniye)",
-        "de": "Ofset (Saniye)",
-        "fr": "Ofset (Saniye)",
+        "de": "Offset (Sekunden)",
+        "fr": "Offset (secondes)",
         "es": "Ofset (Saniye)",
         "ar": "Ofset (Saniye)"
       },
       "businessContext_i18n": {
         "en": "Toplamsal kalibrasyon ofseti (sıfır hatası)",
-        "tr": "Toplamsal kalibrasyon ofseti (sıfır hatası)"
+        "tr": "Toplamsal kalibrasyon ofseti (sıfır hatası)",
+        "de": "Additiver Kalibrierungsoffset (Nullpunktfehler)",
+        "fr": "Offset de calibration additif (erreur de zéro)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Yuvarlama Hassasiyeti",
         "tr": "Yuvarlama Hassasiyeti",
-        "de": "Yuvarlama Hassasiyeti",
-        "fr": "Yuvarlama Hassasiyeti",
+        "de": "Rundungsgenauigkeit",
+        "fr": "Précision d'arrondi",
         "es": "Yuvarlama Hassasiyeti",
         "ar": "Yuvarlama Hassasiyeti"
       },
       "businessContext_i18n": {
         "en": "Çıktı dakika için ondalık basamak sayısı",
-        "tr": "Çıktı dakika için ondalık basamak sayısı"
+        "tr": "Çıktı dakika için ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen für die Ausgabe in Minuten",
+        "fr": "Nombre de décimales pour la sortie en minutes"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Yuvarlama Yöntemi",
         "tr": "Yuvarlama Yöntemi",
-        "de": "Yuvarlama Yöntemi",
-        "fr": "Yuvarlama Yöntemi",
+        "de": "Rundungsmethode",
+        "fr": "Méthode d'arrondi",
         "es": "Yuvarlama Yöntemi",
         "ar": "Yuvarlama Yöntemi"
       },
       "businessContext_i18n": {
         "en": "Yuvarlama yöntemi: 0=tabana, 1=yuvarla, 2=tavana",
-        "tr": "Yuvarlama yöntemi: 0=tabana, 1=yuvarla, 2=tavana"
+        "tr": "Yuvarlama yöntemi: 0=tabana, 1=yuvarla, 2=tavana",
+        "de": "Rundungsmethode: 0=abrunden, 1=runden, 2=aufrunden",
+        "fr": "Méthode d'arrondi : 0=plancher, 1=arrondi, 2=plafond"
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Sıcaklık",
         "tr": "Sıcaklık",
         "de": "Temperatur",
-        "fr": "Sıcaklık",
-        "es": "Sıcaklık",
+        "fr": "Température",
+        "es": "Temperatura",
         "ar": "Sıcaklık"
       },
       "businessContext_i18n": {
         "en": "Termal kompanzasyon için ortam sıcaklığı",
-        "tr": "Termal kompanzasyon için ortam sıcaklığı"
+        "tr": "Termal kompanzasyon için ortam sıcaklığı",
+        "de": "Umgebungstemperatur für thermische Kompensation",
+        "fr": "Température ambiante pour compensation thermique"
       }
     },
     {
@@ -131,14 +143,16 @@
       "label_i18n": {
         "en": "Sıcaklık Katsayısı",
         "tr": "Sıcaklık Katsayısı",
-        "de": "Sıcaklık Katsayısı",
-        "fr": "Sıcaklık Katsayısı",
+        "de": "Temperaturkoeffizient",
+        "fr": "Coefficient de température",
         "es": "Sıcaklık Katsayısı",
         "ar": "Sıcaklık Katsayısı"
       },
       "businessContext_i18n": {
         "en": "°C başına zamanlama hatası sıcaklık katsayısı",
-        "tr": "°C başına zamanlama hatası sıcaklık katsayısı"
+        "tr": "°C başına zamanlama hatası sıcaklık katsayısı",
+        "de": "Temperaturkoeffizient des Zeitfehlers pro °C",
+        "fr": "Erreur de synchronisation par °C due au coefficient de température"
       }
     },
     {
@@ -151,14 +165,16 @@
       "label_i18n": {
         "en": "Nem",
         "tr": "Nem",
-        "de": "Nem",
-        "fr": "Nem",
+        "de": "Feuchte",
+        "fr": "Humidité",
         "es": "Nem",
         "ar": "Nem"
       },
       "businessContext_i18n": {
         "en": "Bağıl nem (tamlama için dahil edilmiştir, genelde ihmal edilir)",
-        "tr": "Bağıl nem (tamlama için dahil edilmiştir, genelde ihmal edilir)"
+        "tr": "Bağıl nem (tamlama için dahil edilmiştir, genelde ihmal edilir)",
+        "de": "Relative Feuchte (zur Vervollständigung enthalten, normalerweise vernachlässigt)",
+        "fr": "Humidité relative (incluse pour complétude, généralement négligée)"
       }
     }
   ],

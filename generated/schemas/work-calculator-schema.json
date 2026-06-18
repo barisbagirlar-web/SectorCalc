@@ -12,14 +12,16 @@
         "en": "Mass",
         "tr": "Kütle",
         "de": "Masse",
-        "fr": "Mass",
-        "es": "Mass",
+        "fr": "Masse",
+        "es": "Masa",
         "ar": "Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the object in kilograms",
         "tr": "Nesnenin kilogram cinsinden kütlesi",
-        "de": "Masse des Objekts in Kilogramm"
+        "de": "Masse des Objekts in Kilogramm",
+        "fr": "Masse de l'objet en kilogrammes",
+        "es": "Masa del objeto en kilogramos"
       }
     },
     {
@@ -34,12 +36,14 @@
         "tr": "Mesafe",
         "de": "Entfernung",
         "fr": "Distance",
-        "es": "Distance",
+        "es": "Distancia",
         "ar": "Distance"
       },
       "businessContext_i18n": {
         "en": "Distance moved along the incline in meters",
-        "tr": "Eğim boyunca metre cinsinden kat edilen mesafe"
+        "tr": "Eğim boyunca metre cinsinden kat edilen mesafe",
+        "de": "Zurückgelegte Strecke entlang der Neigung in Metern",
+        "fr": "Distance parcourue le long du plan incliné en mètres"
       }
     },
     {
@@ -52,14 +56,16 @@
       "label_i18n": {
         "en": "Incline Angle",
         "tr": "Eğim Açısı",
-        "de": "Incline Angle",
-        "fr": "Incline Angle",
-        "es": "Incline Angle",
+        "de": "Neigungswinkel",
+        "fr": "Angle d'inclinaison",
+        "es": "Ángulo de inclinación",
         "ar": "Incline Angle"
       },
       "businessContext_i18n": {
         "en": "Angle of the incline relative to horizontal",
-        "tr": "Eğimin yataya göre açısı"
+        "tr": "Eğimin yataya göre açısı",
+        "de": "Neigungswinkel relativ zur Horizontalen",
+        "fr": "Angle du plan incliné par rapport à l'horizontale"
       }
     },
     {
@@ -73,13 +79,15 @@
         "en": "Friction Coefficient",
         "tr": "Sürtünme Katsayısı",
         "de": "Reibungskoeffizient",
-        "fr": "Friction Coefficient",
-        "es": "Friction Coefficient",
+        "fr": "Coefficient de frottement",
+        "es": "Coeficiente de fricción",
         "ar": "Friction Coefficient"
       },
       "businessContext_i18n": {
         "en": "Coefficient of kinetic friction (dimensionless)",
-        "tr": "Kinetik sürtünme katsayısı (boyutsuz)"
+        "tr": "Kinetik sürtünme katsayısı (boyutsuz)",
+        "de": "Koeffizient der kinetischen Reibung (dimensionslos)",
+        "fr": "Coefficient de frottement cinétique (sans dimension)"
       }
     }
   ],

@@ -12,13 +12,16 @@
         "en": "Mass",
         "tr": "Kütle",
         "de": "Masse",
-        "fr": "Mass",
-        "es": "Mass",
+        "fr": "Masse",
+        "es": "Masa",
         "ar": "Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the substance undergoing phase change",
-        "tr": "Faz değişimine uğrayan maddenin kütlesi"
+        "tr": "Faz değişimine uğrayan maddenin kütlesi",
+        "de": "Masse des Stoffes, der den Phasenwechsel durchläuft",
+        "fr": "Masse de la substance subissant un changement de phase",
+        "es": "Masa de la sustancia que experimenta el cambio de fase"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Specific Latent Heat",
         "tr": "Özgül gizli ısı",
-        "de": "Specific Latent Heat",
-        "fr": "Specific Latent Heat",
-        "es": "Specific Latent Heat",
+        "de": "Spezifische latente Wärme",
+        "fr": "Chaleur latente spécifique",
+        "es": "Calor latente específico",
         "ar": "Specific Latent Heat"
       },
       "businessContext_i18n": {
         "en": "Energy required per kilogram to change phase at constant temperature",
-        "tr": "Sabit sıcaklıkta faz değişimi için kilogram başına gereken enerji"
+        "tr": "Sabit sıcaklıkta faz değişimi için kilogram başına gereken enerji",
+        "de": "Energie pro Kilogramm für Phasenwechsel bei konstanter Temperatur",
+        "fr": "Énergie requise par kilogramme pour changer de phase à température constante",
+        "es": "Energía requerida por kilogramo para cambiar de fase a temperatura constante"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Number of Cycles",
         "tr": "Döngü Sayısı",
         "de": "Anzahl der Zyklen",
-        "fr": "Number of Cycles",
-        "es": "Number of Cycles",
+        "fr": "Nombre de cycles",
+        "es": "Número de ciclos",
         "ar": "Number of Cycles"
       },
       "businessContext_i18n": {
         "en": "Number of complete phase change cycles (e.g., melt-freeze)",
-        "tr": "Tamamlanan faz değişimi döngüsü sayısı (örn. erime-donma)"
+        "tr": "Tamamlanan faz değişimi döngüsü sayısı (örn. erime-donma)",
+        "de": "Anzahl vollständiger Phasenwechselzyklen (z. B. Schmelzen-Gefrieren)",
+        "fr": "Nombre de cycles complets de changement de phase (ex. fusion-solidification)",
+        "es": "Número de ciclos completos de cambio de fase (ej. fusión-congelación)"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Efficiency",
         "tr": "Verim",
         "de": "Wirkungsgrad",
-        "fr": "Efficiency",
-        "es": "Efficiency",
+        "fr": "Rendement",
+        "es": "Eficiencia",
         "ar": "Efficiency"
       },
       "businessContext_i18n": {
         "en": "Heat transfer efficiency (0–100%) accounting for losses",
-        "tr": "Kayıpları hesaba katan ısı transfer verimliliği (%0–100)"
+        "tr": "Kayıpları hesaba katan ısı transfer verimliliği (%0–100)",
+        "de": "Wärmeübertragungseffizienz (0–100 %) unter Berücksichtigung von Verlusten",
+        "fr": "Efficacité du transfert thermique (0–100 %) tenant compte des pertes",
+        "es": "Eficiencia de transferencia de calor (0–100%) considerando pérdidas"
       }
     }
   ],

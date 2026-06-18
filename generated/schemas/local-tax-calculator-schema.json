@@ -12,13 +12,16 @@
         "en": "Property Value",
         "tr": "Mülk Değeri",
         "de": "Eigenschaftswert",
-        "fr": "Property Value",
-        "es": "Property Value",
+        "fr": "Valeur du bien",
+        "es": "Valor de la propiedad",
         "ar": "Property Value"
       },
       "businessContext_i18n": {
         "en": "Assessed or market value of the property subject to local tax.",
-        "tr": "Yerel vergiye tabi mülkün değerleme veya piyasa değeri."
+        "tr": "Yerel vergiye tabi mülkün değerleme veya piyasa değeri.",
+        "de": "Bewerteter oder Marktwert der Immobilie, der der lokalen Steuer unterliegt.",
+        "fr": "Valeur estimée ou marchande du bien soumis à la taxe foncière locale.",
+        "es": "Valor tasado o de mercado de la propiedad sujeto a impuesto local."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Property Tax Rate",
         "tr": "Emlak Vergisi Oranı",
-        "de": "Property Tax Rate",
-        "fr": "Property Tax Rate",
-        "es": "Property Tax Rate",
+        "de": "Grundsteuersatz",
+        "fr": "Taux d'imposition foncière",
+        "es": "Tasa de impuesto a la propiedad",
         "ar": "Property Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Local property tax rate as a percentage.",
-        "tr": "Yüzde olarak yerel emlak vergisi oranı."
+        "tr": "Yüzde olarak yerel emlak vergisi oranı.",
+        "de": "Lokaler Grundsteuersatz in Prozent.",
+        "fr": "Taux de taxe foncière locale en pourcentage.",
+        "es": "Tasa de impuesto a la propiedad local como porcentaje."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Sales Amount",
         "tr": "Satış Tutarı",
-        "de": "Sales Amount",
-        "fr": "Sales Amount",
-        "es": "Sales Amount",
+        "de": "Verkaufsbetrag",
+        "fr": "Montant des ventes",
+        "es": "Monto de venta",
         "ar": "Sales Amount"
       },
       "businessContext_i18n": {
         "en": "Total sales amount subject to local sales tax.",
-        "tr": "Yerel satış vergisine tabi toplam satış tutarı."
+        "tr": "Yerel satış vergisine tabi toplam satış tutarı.",
+        "de": "Gesamtverkaufsbetrag, der der lokalen Umsatzsteuer unterliegt.",
+        "fr": "Montant total des ventes soumis à la taxe de vente locale.",
+        "es": "Monto total de venta sujeto a impuesto a las ventas local."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Sales Tax Rate",
         "tr": "Satış Vergisi Oranı",
         "de": "Umsatzsteuersatz",
-        "fr": "Sales Tax Rate",
-        "es": "Sales Tax Rate",
+        "fr": "Taux de taxe de vente",
+        "es": "Tasa de impuesto a las ventas",
         "ar": "Sales Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Local sales tax rate as a percentage.",
-        "tr": "Yerel satış vergisi oranı (yüzde olarak)."
+        "tr": "Yerel satış vergisi oranı (yüzde olarak).",
+        "de": "Lokaler Umsatzsteuersatz in Prozent.",
+        "fr": "Taux de la taxe de vente locale en pourcentage.",
+        "es": "Tasa de impuesto a las ventas local como porcentaje."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Income Amount",
         "tr": "Gelir Tutarı",
-        "de": "Income Amount",
-        "fr": "Income Amount",
-        "es": "Income Amount",
+        "de": "Einkommensbetrag",
+        "fr": "Montant du revenu",
+        "es": "Cantidad de ingresos",
         "ar": "Income Amount"
       },
       "businessContext_i18n": {
         "en": "Income amount subject to local income tax.",
-        "tr": "Yerel gelir vergisine tabi gelir tutarı."
+        "tr": "Yerel gelir vergisine tabi gelir tutarı.",
+        "de": "Einkommensbetrag, der der lokalen Einkommensteuer unterliegt.",
+        "fr": "Montant du revenu soumis à l'impôt local sur le revenu.",
+        "es": "Cantidad de ingresos sujeta al impuesto sobre la renta local."
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Income Tax Rate",
         "tr": "Gelir Vergisi Oranı",
         "de": "Einkommensteuersatz",
-        "fr": "Income Tax Rate",
-        "es": "Income Tax Rate",
+        "fr": "Taux d'Impôt sur le Revenu",
+        "es": "Tasa del Impuesto sobre la Renta",
         "ar": "Income Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Local income tax rate as a percentage.",
-        "tr": "Yerel gelir vergisi oranı (yüzde olarak)."
+        "tr": "Yerel gelir vergisi oranı (yüzde olarak).",
+        "de": "Lokaler Einkommensteuersatz in Prozent.",
+        "fr": "Taux de l'impôt local sur le revenu en pourcentage.",
+        "es": "Tasa del impuesto sobre la renta local como porcentaje."
       }
     }
   ],

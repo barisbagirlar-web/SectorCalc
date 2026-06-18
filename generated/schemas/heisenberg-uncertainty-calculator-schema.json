@@ -12,14 +12,16 @@
         "en": "Position uncertainty (Δx)",
         "tr": "Konum belirsizliği (Δx)",
         "de": "Positionsunsicherheit (Δx)",
-        "fr": "Position uncertainty (Δx)",
-        "es": "Position uncertainty (Δx)",
+        "fr": "Incertitude de position (Δx)",
+        "es": "Incertidumbre de posición (Δx)",
         "ar": "Position uncertainty (Δx)"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of position measurement (nanometer scale typical).",
         "tr": "Konum ölçümünün standart sapması (tipik olarak nanometre ölçeği).",
-        "de": "Standardabweichung der Positionsmessung (typischerweise Nanometer-Skala)."
+        "de": "Standardabweichung der Positionsmessung (typischerweise Nanometer-Skala).",
+        "fr": "Écart type de la mesure de position (échelle nanométrique typique).",
+        "es": "Desviación estándar de la medición de posición (escala típica en nanómetros)."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Momentum uncertainty (Δp)",
         "tr": "Momentum belirsizliği (Δp)",
         "de": "Impulsunsicherheit (Δp)",
-        "fr": "Momentum uncertainty (Δp)",
-        "es": "Momentum uncertainty (Δp)",
+        "fr": "Incertitude de quantité de mouvement (Δp)",
+        "es": "Incertidumbre de momento (Δp)",
         "ar": "Momentum uncertainty (Δp)"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of momentum measurement. Adjust based on measurement system.",
         "tr": "Momentum ölçümünün standart sapması. Ölçüm sistemine göre ayarlayın.",
-        "de": "Standardabweichung der Impulsmessung. Anpassung basierend auf dem Messsystem."
+        "de": "Standardabweichung der Impulsmessung. Anpassung basierend auf dem Messsystem.",
+        "fr": "Écart type de la mesure de quantité de mouvement. Ajuster selon le système de mesure.",
+        "es": "Desviación estándar de la medición de momento. Ajustar según el sistema de medición."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Reduced Planck constant (ħ)",
         "tr": "İndirgenmiş Planck sabiti (ħ)",
         "de": "Reduziertes Plancksches Wirkungsquantum (ħ)",
-        "fr": "Reduced Planck constant (ħ)",
-        "es": "Reduced Planck constant (ħ)",
+        "fr": "Constante de Planck réduite (ħ)",
+        "es": "Constante de Planck reducida (ħ)",
         "ar": "Reduced Planck constant (ħ)"
       },
       "businessContext_i18n": {
         "en": "Fundamental quantum constant. Typically fixed, but adjustable for theoretical scenarios.",
         "tr": "Temel kuantum sabiti. Genellikle sabittir, ancak teorik senaryolar için ayarlanabilir.",
-        "de": "Fundamentale Quantenkonstante. Normalerweise fest, aber für theoretische Szenarien anpassbar."
+        "de": "Fundamentale Quantenkonstante. Normalerweise fest, aber für theoretische Szenarien anpassbar.",
+        "fr": "Constante quantique fondamentale. Généralement fixe, mais ajustable pour des scénarios théoriques.",
+        "es": "Constante cuántica fundamental. Normalmente fija, pero ajustable para escenarios teóricos."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Compliance tolerance",
         "tr": "Uyum toleransı",
         "de": "Compliance-Toleranz",
-        "fr": "Compliance tolerance",
-        "es": "Compliance tolerance",
+        "fr": "Tolérance de conformité",
+        "es": "Tolerancia de cumplimiento",
         "ar": "Compliance tolerance"
       },
       "businessContext_i18n": {
         "en": "Safety factor multiplier for minimum uncertainty product. >=1 ensures strict Heisenberg compliance.",
         "tr": "Minimum belirsizlik çarpımı için güvenlik faktörü çarpanı. >=1, sıkı Heisenberg uyumluluğunu sağlar.",
-        "de": "Sicherheitsfaktor-Multiplikator für minimales Unsicherheitsprodukt. >=1 gewährleistet strenge Heisenberg-Konformität."
+        "de": "Sicherheitsfaktor-Multiplikator für minimales Unsicherheitsprodukt. >=1 gewährleistet strenge Heisenberg-Konformität.",
+        "fr": "Facteur de sécurité multiplicateur pour le produit d'incertitude minimal. >=1 garantit une conformité stricte à Heisenberg.",
+        "es": "Factor de seguridad multiplicador para el producto mínimo de incertidumbre. >=1 asegura el cumplimiento estricto de Heisenberg."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Particle mass",
         "tr": "Parçacık kütlesi",
         "de": "Teilchenmasse",
-        "fr": "Particle mass",
-        "es": "Particle mass",
+        "fr": "Masse de la particule",
+        "es": "Masa de la partícula",
         "ar": "Particle mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the particle (e.g., electron) for velocity uncertainty derivation.",
         "tr": "Hız belirsizliği türetimi için parçacığın (ör. elektron) kütlesi.",
-        "de": "Masse des Teilchens (z. B. Elektron) zur Ableitung der Geschwindigkeitsunsicherheit."
+        "de": "Masse des Teilchens (z. B. Elektron) zur Ableitung der Geschwindigkeitsunsicherheit.",
+        "fr": "Masse de la particule (ex. électron) pour la dérivation de l'incertitude de vitesse.",
+        "es": "Masa de la partícula (p. ej., electrón) para la derivación de la incertidumbre de velocidad."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Velocity uncertainty (Δv)",
         "tr": "Hız belirsizliği (Δv)",
         "de": "Geschwindigkeitsunsicherheit (Δv)",
-        "fr": "Velocity uncertainty (Δv)",
-        "es": "Velocity uncertainty (Δv)",
+        "fr": "Incertitude de vitesse (Δv)",
+        "es": "Incertidumbre de velocidad (Δv)",
         "ar": "Velocity uncertainty (Δv)"
       },
       "businessContext_i18n": {
         "en": "If 0, will be calculated as Δp/mass. Else used as direct input for alternative computations.",
         "tr": "0 ise Δp/kütle olarak hesaplanır. Aksi halde alternatif hesaplamalar için doğrudan girdi olarak kullanılır.",
-        "de": "Wenn 0, wird als Δp/Masse berechnet. Sonst als direkte Eingabe für alternative Berechnungen verwendet."
+        "de": "Wenn 0, wird als Δp/Masse berechnet. Sonst als direkte Eingabe für alternative Berechnungen verwendet.",
+        "fr": "Si 0, sera calculée comme Δp/masse. Sinon, utilisée comme entrée directe pour des calculs alternatifs.",
+        "es": "Si es 0, se calculará como Δp/masa. De lo contrario, se usa como entrada directa para cálculos alternativos."
       }
     }
   ],

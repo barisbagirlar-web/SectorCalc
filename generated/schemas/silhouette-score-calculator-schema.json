@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Point 1 Intra-cluster Distance (a)",
         "tr": "Nokta 1 Küme İçi Mesafe (a)",
-        "de": "Point 1 Intra-cluster Distance (a)",
-        "fr": "Point 1 Intra-cluster Distance (a)",
+        "de": "Punkt 1 Intra-Cluster-Abstand (a)",
+        "fr": "Distance intra-cluster du point 1 (a)",
         "es": "Point 1 Intra-cluster Distance (a)",
         "ar": "Point 1 Intra-cluster Distance (a)"
       },
       "businessContext_i18n": {
         "en": "Mean distance from point 1 to other points in its own cluster.",
-        "tr": "Nokta 1'in kendi kümesindeki diğer noktalara olan ortalama mesafesi."
+        "tr": "Nokta 1'in kendi kümesindeki diğer noktalara olan ortalama mesafesi.",
+        "de": "Mittlerer Abstand von Punkt 1 zu anderen Punkten in seinem eigenen Cluster.",
+        "fr": "Distance moyenne du point 1 aux autres points de son propre cluster."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Point 1 Nearest-cluster Distance (b)",
         "tr": "Nokta 1 En Yakın Küme Mesafesi (b)",
-        "de": "Point 1 Nearest-cluster Distance (b)",
-        "fr": "Point 1 Nearest-cluster Distance (b)",
+        "de": "Punkt 1 Nächstgelegener-Cluster-Abstand (b)",
+        "fr": "Distance du cluster le plus proche du point 1 (b)",
         "es": "Point 1 Nearest-cluster Distance (b)",
         "ar": "Point 1 Nearest-cluster Distance (b)"
       },
       "businessContext_i18n": {
         "en": "Mean distance from point 1 to points in the nearest neighboring cluster.",
-        "tr": "Nokta 1'in en yakın komşu kümedeki noktalara olan ortalama mesafesi."
+        "tr": "Nokta 1'in en yakın komşu kümedeki noktalara olan ortalama mesafesi.",
+        "de": "Mittlerer Abstand von Punkt 1 zu Punkten im nächstgelegenen Nachbarcluster.",
+        "fr": "Distance moyenne du point 1 aux points du cluster voisin le plus proche."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Point 2 Intra-cluster Distance (a)",
         "tr": "Nokta 2 Küme İçi Mesafe (a)",
-        "de": "Point 2 Intra-cluster Distance (a)",
-        "fr": "Point 2 Intra-cluster Distance (a)",
+        "de": "Punkt 2 Intra-Cluster-Abstand (a)",
+        "fr": "Distance intra-cluster du point 2 (a)",
         "es": "Point 2 Intra-cluster Distance (a)",
         "ar": "Point 2 Intra-cluster Distance (a)"
       },
       "businessContext_i18n": {
         "en": "Mean distance from point 2 to other points in its own cluster.",
-        "tr": "Nokta 2'nin kendi kümesindeki diğer noktalara olan ortalama mesafesi."
+        "tr": "Nokta 2'nin kendi kümesindeki diğer noktalara olan ortalama mesafesi.",
+        "de": "Mittlerer Abstand von Punkt 2 zu anderen Punkten in seinem eigenen Cluster.",
+        "fr": "Distance moyenne du point 2 aux autres points de son propre cluster."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Point 2 Nearest-cluster Distance (b)",
         "tr": "Nokta 2 En Yakın Küme Mesafesi (b)",
-        "de": "Point 2 Nearest-cluster Distance (b)",
-        "fr": "Point 2 Nearest-cluster Distance (b)",
+        "de": "Punkt 2 Nächstgelegener-Cluster-Abstand (b)",
+        "fr": "Distance du cluster le plus proche du point 2 (b)",
         "es": "Point 2 Nearest-cluster Distance (b)",
         "ar": "Point 2 Nearest-cluster Distance (b)"
       },
       "businessContext_i18n": {
         "en": "Mean distance from point 2 to points in the nearest neighboring cluster.",
-        "tr": "Nokta 2'nin en yakın komşu kümedeki noktalara olan ortalama mesafesi."
+        "tr": "Nokta 2'nin en yakın komşu kümedeki noktalara olan ortalama mesafesi.",
+        "de": "Mittlerer Abstand von Punkt 2 zu Punkten im nächstgelegenen Nachbarcluster.",
+        "fr": "Distance moyenne du point 2 aux points du cluster voisin le plus proche."
       }
     }
   ],

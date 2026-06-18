@@ -12,13 +12,16 @@
         "en": "Current Age",
         "tr": "Mevcut Yaş",
         "de": "Aktuelles Alter",
-        "fr": "Current Age",
-        "es": "Current Age",
+        "fr": "Âge actuel",
+        "es": "Edad actual",
         "ar": "Current Age"
       },
       "businessContext_i18n": {
         "en": "The individual's current age in years.",
-        "tr": "Bireyin yıl cinsinden mevcut yaşı."
+        "tr": "Bireyin yıl cinsinden mevcut yaşı.",
+        "de": "Das aktuelle Alter der Person in Jahren.",
+        "fr": "Âge actuel de l'individu en années.",
+        "es": "La edad actual del individuo en años."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Retirement Age",
         "tr": "Emeklilik Yaşı",
         "de": "Rentenalter",
-        "fr": "Retirement Age",
-        "es": "Retirement Age",
+        "fr": "Âge de la retraite",
+        "es": "Edad de jubilación",
         "ar": "Retirement Age"
       },
       "businessContext_i18n": {
         "en": "Age at which individual plans to retire and become eligible for Medicare.",
-        "tr": "Bireyin emekli olmayı ve Medicare'e hak kazanmayı planladığı yaş."
+        "tr": "Bireyin emekli olmayı ve Medicare'e hak kazanmayı planladığı yaş.",
+        "de": "Alter, in dem die Person plant, in Rente zu gehen und Anspruch auf Medicare zu haben.",
+        "fr": "Âge auquel l'individu prévoit de prendre sa retraite et de devenir éligible à Medicare.",
+        "es": "Edad a la que el individuo planea jubilarse y ser elegible para Medicare."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Current Annual Medical Expenses",
         "tr": "Mevcut Yıllık Tıbbi Giderler",
-        "de": "Current Annual Medical Expenses",
-        "fr": "Current Annual Medical Expenses",
-        "es": "Current Annual Medical Expenses",
+        "de": "Aktuelle jährliche medizinische Ausgaben",
+        "fr": "Dépenses médicales annuelles actuelles",
+        "es": "Gastos médicos anuales actuales",
         "ar": "Current Annual Medical Expenses"
       },
       "businessContext_i18n": {
         "en": "Current annual out-of-pocket medical expenses in US dollars.",
-        "tr": "ABD doları cinsinden mevcut yıllık cepten yapılan tıbbi harcamalar."
+        "tr": "ABD doları cinsinden mevcut yıllık cepten yapılan tıbbi harcamalar.",
+        "de": "Aktuelle jährliche Eigenanteilskosten für medizinische Ausgaben in US-Dollar.",
+        "fr": "Dépenses médicales annuelles actuelles à votre charge en dollars américains.",
+        "es": "Gastos médicos anuales actuales de bolsillo en dólares estadounidenses."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Expected Healthcare Inflation Rate",
         "tr": "Beklenen Sağlık Enflasyon Oranı",
-        "de": "Expected Healthcare Inflation Rate",
-        "fr": "Expected Healthcare Inflation Rate",
-        "es": "Expected Healthcare Inflation Rate",
+        "de": "Erwartete Inflationsrate im Gesundheitswesen",
+        "fr": "Taux d'inflation des soins de santé attendu",
+        "es": "Tasa de inflación sanitaria esperada",
         "ar": "Expected Healthcare Inflation Rate"
       },
       "businessContext_i18n": {
         "en": "Annual expected growth rate of medical costs in percent.",
-        "tr": "Tıbbi maliyetlerin yıllık beklenen büyüme oranı (yüzde)."
+        "tr": "Tıbbi maliyetlerin yıllık beklenen büyüme oranı (yüzde).",
+        "de": "Jährliche erwartete Wachstumsrate der medizinischen Kosten in Prozent.",
+        "fr": "Taux de croissance annuel attendu des coûts médicaux en pourcentage.",
+        "es": "Tasa de crecimiento anual esperada de los costos médicos en porcentaje."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Years in Retirement",
         "tr": "Emeklilik Yılları",
-        "de": "Years in Retirement",
-        "fr": "Years in Retirement",
-        "es": "Years in Retirement",
+        "de": "Jahre im Ruhestand",
+        "fr": "Années de retraite",
+        "es": "Años en jubilación",
         "ar": "Years in Retirement"
       },
       "businessContext_i18n": {
         "en": "Expected number of years in retirement during which medical expenses will be incurred.",
-        "tr": "Tıbbi giderlerin oluşacağı beklenen emeklilik yılı sayısı."
+        "tr": "Tıbbi giderlerin oluşacağı beklenen emeklilik yılı sayısı.",
+        "de": "Erwartete Anzahl der Jahre im Ruhestand, in denen medizinische Ausgaben anfallen.",
+        "fr": "Nombre d'années de retraite prévues pendant lesquelles des dépenses médicales seront engagées.",
+        "es": "Número esperado de años en jubilación durante los cuales se incurrirán en gastos médicos."
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Expected Investment Return Rate",
         "tr": "Beklenen Yatırım Getiri Oranı",
         "de": "Erwartete Kapitalrendite",
-        "fr": "Expected Investment Return Rate",
-        "es": "Expected Investment Return Rate",
+        "fr": "Taux de rendement attendu des investissements",
+        "es": "Tasa de rendimiento esperada de la inversión",
         "ar": "Expected Investment Return Rate"
       },
       "businessContext_i18n": {
         "en": "Annual expected rate of return on savings in percent, used to discount future expenses.",
-        "tr": "Gelecekteki giderleri iskonto etmek için kullanılan yıllık beklenen tasarruf getiri oranı (yüzde)."
+        "tr": "Gelecekteki giderleri iskonto etmek için kullanılan yıllık beklenen tasarruf getiri oranı (yüzde).",
+        "de": "Jährliche erwartete Rendite auf Ersparnisse in Prozent, zur Diskontierung zukünftiger Ausgaben.",
+        "fr": "Taux de rendement annuel attendu sur l'épargne en pourcentage, utilisé pour actualiser les dépenses futures.",
+        "es": "Tasa de rendimiento anual esperada de los ahorros en porcentaje, utilizada para descontar gastos futuros."
       }
     }
   ],

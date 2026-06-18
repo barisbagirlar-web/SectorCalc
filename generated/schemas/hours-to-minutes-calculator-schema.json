@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Saat",
         "tr": "Saat",
-        "de": "Saat",
-        "fr": "Saat",
-        "es": "Saat",
+        "de": "Stunde",
+        "fr": "Heure",
+        "es": "Hora",
         "ar": "Saat"
       },
       "businessContext_i18n": {
         "en": "Süre girdisi (saat)",
-        "tr": "Süre girdisi (saat)"
+        "tr": "Süre girdisi (saat)",
+        "de": "Zeiteingabe (Stunden)",
+        "fr": "Saisie de durée (heure)",
+        "es": "Entrada de tiempo (horas)"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Parti Büyüklüğü",
         "tr": "Parti Büyüklüğü",
-        "de": "Parti Büyüklüğü",
-        "fr": "Parti Büyüklüğü",
-        "es": "Parti Büyüklüğü",
+        "de": "Losgröße",
+        "fr": "Taille de lot",
+        "es": "Tamaño de lote",
         "ar": "Parti Büyüklüğü"
       },
       "businessContext_i18n": {
         "en": "İşlenen parti miktarı",
-        "tr": "İşlenen parti miktarı"
+        "tr": "İşlenen parti miktarı",
+        "de": "Bearbeitete Losmenge",
+        "fr": "Quantité de lot traitée",
+        "es": "Cantidad de lote procesado"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Makine Sayısı",
         "tr": "Makine Sayısı",
         "de": "Makine Sayısı",
-        "fr": "Makine Sayısı",
-        "es": "Makine Sayısı",
+        "fr": "Nombre de machines",
+        "es": "Número de máquinas",
         "ar": "Makine Sayısı"
       },
       "businessContext_i18n": {
         "en": "Operasyondaki makine adedi",
-        "tr": "Operasyondaki makine adedi"
+        "tr": "Operasyondaki makine adedi",
+        "de": "Anzahl der Maschinen im Vorgang",
+        "fr": "Nombre de machines dans l'opération",
+        "es": "Número de máquinas en la operación"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Ayarlama Yüzdesi",
         "tr": "Ayarlama Yüzdesi",
-        "de": "Ayarlama Yüzdesi",
-        "fr": "Ayarlama Yüzdesi",
-        "es": "Ayarlama Yüzdesi",
+        "de": "Einstellprozentsatz",
+        "fr": "Pourcentage de réglage",
+        "es": "Porcentaje de ajuste",
         "ar": "Ayarlama Yüzdesi"
       },
       "businessContext_i18n": {
         "en": "Kayıp veya kazanç faktörü (%)",
-        "tr": "Kayıp veya kazanç faktörü (%)"
+        "tr": "Kayıp veya kazanç faktörü (%)",
+        "de": "Verlust- oder Gewinnfaktor (%)",
+        "fr": "Facteur de perte ou de gain (%)",
+        "es": "Factor de pérdida o ganancia (%)"
       }
     }
   ],

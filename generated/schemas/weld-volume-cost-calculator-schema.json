@@ -31,11 +31,15 @@
       ],
       "label_i18n": {
         "en": "Joint Type",
-        "tr": "Birleştirme Türü"
+        "tr": "Birleştirme Türü",
+        "de": "Verbindungsart",
+        "fr": "Type de joint"
       },
       "businessContext_i18n": {
         "en": "Select the weld joint geometry per ISO 9692. Affects volume calculation formula.",
-        "tr": "ISO 9692'ye göre kaynak birleştirme geometrisini seçin. Hacim hesaplama formülünü etkiler."
+        "tr": "ISO 9692'ye göre kaynak birleştirme geometrisini seçin. Hacim hesaplama formülünü etkiler.",
+        "de": "Wählen Sie die Schweißnahtgeometrie gemäß ISO 9692. Beeinflusst die Volumenberechnungsformel.",
+        "fr": "Sélectionnez la géométrie du joint soudé selon l'ISO 9692. Affecte la formule de calcul du volume."
       }
     },
     {
@@ -49,11 +53,15 @@
       "businessContext": "Thickness of the base metal. Critical for groove volume calculation.",
       "label_i18n": {
         "en": "Plate Thickness (t)",
-        "tr": "Plaka Kalınlığı (t)"
+        "tr": "Plaka Kalınlığı (t)",
+        "de": "Blechdicke (t)",
+        "fr": "Épaisseur de la plaque (t)"
       },
       "businessContext_i18n": {
         "en": "Thickness of the base metal. Critical for groove volume calculation.",
-        "tr": "Temel metalin kalınlığı. Oluk hacmi hesaplaması için kritiktir."
+        "tr": "Temel metalin kalınlığı. Oluk hacmi hesaplaması için kritiktir.",
+        "de": "Dicke des Grundmetalls. Entscheidend für die Nutvolumenberechnung.",
+        "fr": "Épaisseur du métal de base. Critique pour le calcul du volume de la gorge."
       }
     },
     {
@@ -67,11 +75,15 @@
       "businessContext": "Land at the root of the groove. Affects effective depth.",
       "label_i18n": {
         "en": "Root Face (f)",
-        "tr": "Kök Yüzü (f)"
+        "tr": "Kök Yüzü (f)",
+        "de": "Stegfläche (f)",
+        "fr": "Face de racine (f)"
       },
       "businessContext_i18n": {
         "en": "Land at the root of the groove. Affects effective depth.",
-        "tr": "Oluğun kökündeki düzlük. Etkili derinliği etkiler."
+        "tr": "Oluğun kökündeki düzlük. Etkili derinliği etkiler.",
+        "de": "Steg an der Wurzel der Nut. Beeinflusst die effektive Tiefe.",
+        "fr": "Méplat à la racine de la gorge. Affecte la profondeur effective."
       }
     },
     {
@@ -85,11 +97,15 @@
       "businessContext": "Gap between plates at root. Increases weld volume.",
       "label_i18n": {
         "en": "Root Gap (g)",
-        "tr": "Kök Aralığı (g)"
+        "tr": "Kök Aralığı (g)",
+        "de": "Wurzelspalt (g)",
+        "fr": "Écartement à la racine (g)"
       },
       "businessContext_i18n": {
         "en": "Gap between plates at root. Increases weld volume.",
-        "tr": "Kök seviyesinde plakalar arasındaki boşluk. Kaynak hacmini artırır."
+        "tr": "Kök seviyesinde plakalar arasındaki boşluk. Kaynak hacmini artırır.",
+        "de": "Spalt zwischen den Blechen an der Wurzel. Erhöht das Schweißvolumen.",
+        "fr": "Espace entre les plaques à la racine. Augmente le volume de soudure."
       }
     },
     {
@@ -103,11 +119,15 @@
       "businessContext": "Included angle of V-groove. Standard range per AWS D1.1.",
       "label_i18n": {
         "en": "Groove Angle (α)",
-        "tr": "Oluk Açısı (α)"
+        "tr": "Oluk Açısı (α)",
+        "de": "Nutenwinkel (α)",
+        "fr": "Angle de la gorge (α)"
       },
       "businessContext_i18n": {
         "en": "Included angle of V-groove. Standard range per AWS D1.1.",
-        "tr": "V-oluğun dahil açısı. AWS D1.1'e göre standart aralık."
+        "tr": "V-oluğun dahil açısı. AWS D1.1'e göre standart aralık.",
+        "de": "Eingeschlossener Winkel der V-Nut. Standardbereich gemäß AWS D1.1.",
+        "fr": "Angle inclus de la gorge en V. Plage standard selon AWS D1.1."
       }
     },
     {
@@ -121,11 +141,15 @@
       "businessContext": "Total length of the weld seam.",
       "label_i18n": {
         "en": "Weld Length (L)",
-        "tr": "Kaynak Uzunluğu (L)"
+        "tr": "Kaynak Uzunluğu (L)",
+        "de": "Schweißnahtlänge (L)",
+        "fr": "Longueur de soudure (L)"
       },
       "businessContext_i18n": {
         "en": "Total length of the weld seam.",
-        "tr": "Kaynak dikişinin toplam uzunluğu."
+        "tr": "Kaynak dikişinin toplam uzunluğu.",
+        "de": "Gesamtlänge der Schweißnaht.",
+        "fr": "Longueur totale du cordon de soudure."
       }
     },
     {
@@ -139,11 +163,15 @@
       "businessContext": "Fillet weld leg size. Only used when joint_type = fillet.",
       "label_i18n": {
         "en": "Leg Length (for fillet)",
-        "tr": "Bacak Uzunluğu (köşe kaynağı için)"
+        "tr": "Bacak Uzunluğu (köşe kaynağı için)",
+        "de": "Schenkellänge (für Kehlnaht)",
+        "fr": "Longueur de gorge (pour soudure d'angle)"
       },
       "businessContext_i18n": {
         "en": "Fillet weld leg size. Only used when joint_type = fillet.",
-        "tr": "Köşe kaynağı bacak boyutu. Yalnızca joint_type = fillet olduğunda kullanılır."
+        "tr": "Köşe kaynağı bacak boyutu. Yalnızca joint_type = fillet olduğunda kullanılır.",
+        "de": "Schenkellänge der Kehlnaht. Nur verwendet, wenn joint_type = fillet.",
+        "fr": "Taille de la soudure d'angle. Utilisé uniquement lorsque joint_type = angle."
       }
     },
     {
@@ -164,11 +192,15 @@
       ],
       "label_i18n": {
         "en": "Welding Process",
-        "tr": "Kaynak Prosesi"
+        "tr": "Kaynak Prosesi",
+        "de": "Schweißprozess",
+        "fr": "Procédé de soudage"
       },
       "businessContext_i18n": {
         "en": "Select the welding process. Affects deposition efficiency and labor rate.",
-        "tr": "Kaynak prosesini seçin. Biriktirme verimliliğini ve işçilik ücretini etkiler."
+        "tr": "Kaynak prosesini seçin. Biriktirme verimliliğini ve işçilik ücretini etkiler.",
+        "de": "Wählen Sie den Schweißprozess. Beeinflusst Abscheideeffizienz und Arbeitskostensatz.",
+        "fr": "Sélectionnez le procédé de soudage. Affecte l'efficacité de dépôt et le taux de main-d'œuvre."
       }
     }
   ],

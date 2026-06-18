@@ -12,14 +12,16 @@
         "en": "Daily Work Hours",
         "tr": "Günlük Çalışma Saati",
         "de": "Tägliche Arbeitsstunden",
-        "fr": "Daily Work Hours",
-        "es": "Daily Work Hours",
+        "fr": "Heures de travail quotidiennes",
+        "es": "Horas de trabajo diarias",
         "ar": "Daily Work Hours"
       },
       "businessContext_i18n": {
         "en": "Total available work hours per day",
         "tr": "Günlük toplam kullanılabilir çalışma saati",
-        "de": "Gesamte verfügbare Arbeitsstunden pro Tag"
+        "de": "Gesamte verfügbare Arbeitsstunden pro Tag",
+        "fr": "Nombre total d'heures de travail disponibles par jour",
+        "es": "Total de horas de trabajo disponibles por día"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Number of Meetings",
         "tr": "Toplantı Sayısı",
         "de": "Anzahl der Besprechungen",
-        "fr": "Number of Meetings",
-        "es": "Number of Meetings",
+        "fr": "Nombre de réunions",
+        "es": "Número de reuniones",
         "ar": "Number of Meetings"
       },
       "businessContext_i18n": {
         "en": "Average number of meetings per day",
         "tr": "Günlük ortalama toplantı sayısı",
-        "de": "Durchschnittliche Anzahl Besprechungen pro Tag"
+        "de": "Durchschnittliche Anzahl Besprechungen pro Tag",
+        "fr": "Nombre moyen de réunions par jour",
+        "es": "Número promedio de reuniones por día"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Average Meeting Duration",
         "tr": "Ortalama Toplantı Süresi",
         "de": "Durchschnittliche Besprechungsdauer",
-        "fr": "Average Meeting Duration",
-        "es": "Average Meeting Duration",
+        "fr": "Durée moyenne des réunions",
+        "es": "Duración promedio de la reunión",
         "ar": "Average Meeting Duration"
       },
       "businessContext_i18n": {
         "en": "Average duration per meeting in minutes",
         "tr": "Dakika cinsinden ortalama toplantı süresi",
-        "de": "Durchschnittliche Dauer pro Besprechung in Minuten"
+        "de": "Durchschnittliche Dauer pro Besprechung in Minuten",
+        "fr": "Durée moyenne par réunion en minutes",
+        "es": "Duración promedio por reunión en minutos"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Interruptions per Day",
         "tr": "Günlük Kesintiler",
         "de": "Unterbrechungen pro Tag",
-        "fr": "Interruptions per Day",
-        "es": "Interruptions per Day",
+        "fr": "Interruptions par jour",
+        "es": "Interrupciones por día",
         "ar": "Interruptions per Day"
       },
       "businessContext_i18n": {
         "en": "Number of unplanned interruptions per day",
         "tr": "Günlük plansız kesinti sayısı",
-        "de": "Anzahl ungeplanter Unterbrechungen pro Tag"
+        "de": "Anzahl ungeplanter Unterbrechungen pro Tag",
+        "fr": "Nombre d'interruptions non planifiées par jour",
+        "es": "Número de interrupciones no planificadas por día"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Recovery Time per Interruption",
         "tr": "Kesinti başına toparlanma süresi",
         "de": "Erholungszeit pro Unterbrechung",
-        "fr": "Recovery Time per Interruption",
-        "es": "Recovery Time per Interruption",
+        "fr": "Temps de récupération par interruption",
+        "es": "Tiempo de recuperación por interrupción",
         "ar": "Recovery Time per Interruption"
       },
       "businessContext_i18n": {
         "en": "Minutes to regain deep focus after an interruption",
         "tr": "Bir kesintiden sonra derin odaklanmayı yeniden kazanma dakikası",
-        "de": "Minuten, um nach einer Unterbrechung wieder in den Tiefenfokus zu gelangen"
+        "de": "Minuten, um nach einer Unterbrechung wieder in den Tiefenfokus zu gelangen",
+        "fr": "Minutes pour retrouver une concentration profonde après une interruption",
+        "es": "Minutos para recuperar la concentración profunda después de una interrupción"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Deep Work Block Duration",
         "tr": "Derin Çalışma Blok Süresi",
         "de": "Dauer einer Tiefenarbeitsphase",
-        "fr": "Deep Work Block Duration",
-        "es": "Deep Work Block Duration",
+        "fr": "Durée du bloc de travail profond",
+        "es": "Duración del bloque de trabajo profundo",
         "ar": "Deep Work Block Duration"
       },
       "businessContext_i18n": {
         "en": "Typical length of an uninterrupted deep work session",
         "tr": "Kesintisiz derin çalışma oturumunun tipik uzunluğu",
-        "de": "Typische Länge einer ununterbrochenen Tiefenarbeitssitzung"
+        "de": "Typische Länge einer ununterbrochenen Tiefenarbeitssitzung",
+        "fr": "Longueur typique d'une session de travail profond ininterrompue",
+        "es": "Duración típica de una sesión de trabajo profundo sin interrupciones"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Shallow Work %",
         "tr": "Sığ Çalışma %",
         "de": "Anteil oberflächlicher Arbeit",
-        "fr": "Shallow Work %",
-        "es": "Shallow Work %",
+        "fr": "Pourcentage de travail superficiel",
+        "es": "% de trabajo superficial",
         "ar": "Shallow Work %"
       },
       "businessContext_i18n": {
         "en": "Percentage of daily hours spent on shallow, low-value tasks",
         "tr": "Günlük saatlerin sığ, düşük değerli görevlere harcanan yüzdesi",
-        "de": "Prozentsatz der täglichen Stunden für oberflächliche, geringwertige Aufgaben"
+        "de": "Prozentsatz der täglichen Stunden für oberflächliche, geringwertige Aufgaben",
+        "fr": "Pourcentage d'heures quotidiennes consacrées à des tâches superficielles à faible valeur ajoutée",
+        "es": "Porcentaje de horas diarias dedicadas a tareas superficiales de bajo valor"
       }
     }
   ],

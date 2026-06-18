@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Current Thickness (mm)",
         "tr": "Mevcut Kalınlık (mm)",
-        "de": "Current Thickness (mm)",
-        "fr": "Current Thickness (mm)",
+        "de": "Aktuelle Dicke (mm)",
+        "fr": "Épaisseur actuelle (mm)",
         "es": "Current Thickness (mm)",
         "ar": "Current Thickness (mm)"
       },
       "businessContext_i18n": {
         "en": "Measured actual wall thickness from ultrasonic testing (UT) gauge.",
-        "tr": "Ultrasonik test (UT) cihazından ölçülen gerçek duvar kalınlığı."
+        "tr": "Ultrasonik test (UT) cihazından ölçülen gerçek duvar kalınlığı.",
+        "de": "Gemessene tatsächliche Wanddicke aus der Ultraschallprüfung (UT).",
+        "fr": "Épaisseur réelle mesurée par jauge à ultrasons (UT)."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Minimum Allowable Thickness (mm)",
         "tr": "İzin Verilen Minimum Kalınlık (mm)",
-        "de": "Minimum Allowable Thickness (mm)",
-        "fr": "Minimum Allowable Thickness (mm)",
+        "de": "Minimal zulässige Dicke (mm)",
+        "fr": "Épaisseur minimale admissible (mm)",
         "es": "Minimum Allowable Thickness (mm)",
         "ar": "Minimum Allowable Thickness (mm)"
       },
       "businessContext_i18n": {
         "en": "Minimum thickness required by design code (e.g., ASME B31.3) before replacement.",
-        "tr": "Değiştirme öncesi tasarım kodunun (ör. ASME B31.3) gerektirdiği minimum kalınlık."
+        "tr": "Değiştirme öncesi tasarım kodunun (ör. ASME B31.3) gerektirdiği minimum kalınlık.",
+        "de": "Mindestdicke gemäß Auslegungscode (z. B. ASME B31.3) vor Austausch.",
+        "fr": "Épaisseur minimale requise par le code de conception (ex. ASME B31.3) avant remplacement."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Corrosion Rate (mm/year)",
         "tr": "Korozyon Hızı (mm/yıl)",
-        "de": "Corrosion Rate (mm/year)",
-        "fr": "Corrosion Rate (mm/year)",
+        "de": "Korrosionsrate (mm/Jahr)",
+        "fr": "Taux de corrosion (mm/an)",
         "es": "Corrosion Rate (mm/year)",
         "ar": "Corrosion Rate (mm/year)"
       },
       "businessContext_i18n": {
         "en": "Estimated uniform corrosion rate based on historical UT data or industry standards.",
-        "tr": "Geçmiş UT verileri veya endüstri standartlarına dayalı tahmini üniform korozyon hızı."
+        "tr": "Geçmiş UT verileri veya endüstri standartlarına dayalı tahmini üniform korozyon hızı.",
+        "de": "Geschätzte gleichmäßige Korrosionsrate basierend auf historischen UT-Daten oder Industriestandards.",
+        "fr": "Taux de corrosion uniforme estimé basé sur des données UT historiques ou des normes industrielles."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Measurement Confidence Factor",
         "tr": "Ölçüm Güven Faktörü",
-        "de": "Measurement Confidence Factor",
-        "fr": "Measurement Confidence Factor",
+        "de": "Messvertrauensfaktor",
+        "fr": "Facteur de confiance de mesure",
         "es": "Measurement Confidence Factor",
         "ar": "Measurement Confidence Factor"
       },
       "businessContext_i18n": {
         "en": "Safety factor to account for UT measurement uncertainty (≥1.0).",
-        "tr": "UT ölçüm belirsizliğini hesaba katmak için güvenlik faktörü (≥1.0)."
+        "tr": "UT ölçüm belirsizliğini hesaba katmak için güvenlik faktörü (≥1.0).",
+        "de": "Sicherheitsfaktor zur Berücksichtigung der UT-Messunsicherheit (≥1,0).",
+        "fr": "Facteur de sécurité pour tenir compte de l'incertitude de mesure UT (≥1,0)."
       }
     }
   ],

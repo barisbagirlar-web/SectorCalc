@@ -12,13 +12,15 @@
         "en": "Number of Shares",
         "tr": "Hisse Sayısı",
         "de": "Anzahl der Aktien",
-        "fr": "Number of Shares",
-        "es": "Number of Shares",
+        "fr": "Nombre d'actions",
+        "es": "Número de acciones",
         "ar": "Number of Shares"
       },
       "businessContext_i18n": {
         "en": "The total number of shares purchased in the stock.",
-        "tr": "Hisse senedinde satın alınan toplam hisse sayısı."
+        "tr": "Hisse senedinde satın alınan toplam hisse sayısı.",
+        "de": "Gesamtzahl der gekauften Aktien",
+        "fr": "Nombre total d'actions achetées."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Purchase Price per Share",
         "tr": "Hisse Başına Alış Fiyatı",
-        "de": "Purchase Price per Share",
-        "fr": "Purchase Price per Share",
+        "de": "Kaufpreis pro Aktie",
+        "fr": "Prix d'achat par action",
         "es": "Purchase Price per Share",
         "ar": "Purchase Price per Share"
       },
       "businessContext_i18n": {
         "en": "The price at which each share was bought.",
-        "tr": "Her bir hissenin satın alındığı fiyat."
+        "tr": "Her bir hissenin satın alındığı fiyat.",
+        "de": "Der Preis, zu dem jede Aktie gekauft wurde.",
+        "fr": "Prix auquel chaque action a été achetée."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Selling Price per Share",
         "tr": "Hisse Başına Satış Fiyatı",
-        "de": "Selling Price per Share",
-        "fr": "Selling Price per Share",
+        "de": "Verkaufspreis pro Aktie",
+        "fr": "Prix de vente par action",
         "es": "Selling Price per Share",
         "ar": "Selling Price per Share"
       },
       "businessContext_i18n": {
         "en": "The price at which each share was sold.",
-        "tr": "Her bir hissenin satıldığı fiyat."
+        "tr": "Her bir hissenin satıldığı fiyat.",
+        "de": "Der Preis, zu dem jede Aktie verkauft wurde.",
+        "fr": "Prix auquel chaque action a été vendue."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Total Dividends Received",
         "tr": "Alınan Toplam Temettü",
-        "de": "Total Dividends Received",
-        "fr": "Total Dividends Received",
+        "de": "Erhaltene Gesamtdividenden",
+        "fr": "Total des dividendes reçus",
         "es": "Total Dividends Received",
         "ar": "Total Dividends Received"
       },
       "businessContext_i18n": {
         "en": "Sum of all dividends paid per share over the holding period.",
-        "tr": "Elde tutma süresi boyunca hisse başına ödenen tüm temettülerin toplamı."
+        "tr": "Elde tutma süresi boyunca hisse başına ödenen tüm temettülerin toplamı.",
+        "de": "Summe aller Dividenden pro Aktie über den Haltedauerzeitraum.",
+        "fr": "Somme de tous les dividendes versés par action sur la période de détention."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Holding Period",
         "tr": "Tutma Süresi",
-        "de": "Holding Period",
-        "fr": "Holding Period",
-        "es": "Holding Period",
+        "de": "Haltedauer",
+        "fr": "Période de détention",
+        "es": "Período de tenencia",
         "ar": "Holding Period"
       },
       "businessContext_i18n": {
         "en": "The length of time the stock was held, in years.",
-        "tr": "Hisse senedinin elde tutulduğu süre (yıl cinsinden)."
+        "tr": "Hisse senedinin elde tutulduğu süre (yıl cinsinden).",
+        "de": "Die Dauer, für die die Aktie gehalten wurde, in Jahren.",
+        "fr": "Durée de détention de l'action, en années."
       }
     }
   ],

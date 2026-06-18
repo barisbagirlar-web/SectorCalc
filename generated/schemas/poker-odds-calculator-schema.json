@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Number of Outs",
         "tr": "Çıkış Sayısı",
-        "de": "Number of Outs",
-        "fr": "Number of Outs",
-        "es": "Number of Outs",
+        "de": "Anzahl der Outs",
+        "fr": "Nombre d'outs",
+        "es": "Número de outs",
         "ar": "Number of Outs"
       },
       "businessContext_i18n": {
         "en": "Number of cards that will improve your hand to a winner",
-        "tr": "Elinizi kazanan bir ele dönüştürecek kart sayısı."
+        "tr": "Elinizi kazanan bir ele dönüştürecek kart sayısı.",
+        "de": "Anzahl der Karten, die Ihre Hand zu einer Gewinnerhand verbessern.",
+        "fr": "Nombre de cartes qui amélioreront votre main pour qu'elle soit gagnante.",
+        "es": "Número de cartas que mejorarán tu mano a una ganadora"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Current Pot Size",
         "tr": "Mevcut Pot Büyüklüğü",
-        "de": "Current Pot Size",
-        "fr": "Current Pot Size",
-        "es": "Current Pot Size",
+        "de": "Aktuelle Pottgröße",
+        "fr": "Taille actuelle du pot",
+        "es": "Tamaño actual del bote",
         "ar": "Current Pot Size"
       },
       "businessContext_i18n": {
         "en": "Total chips in the pot before calling",
-        "tr": "Çağırmadan önce pottaki toplam fiş"
+        "tr": "Çağırmadan önce pottaki toplam fiş",
+        "de": "Gesamtzahl der Chips im Pot vor dem Call.",
+        "fr": "Total des jetons dans le pot avant la mise",
+        "es": "Total de fichas en el bote antes de igualar"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Bet to Call",
         "tr": "Çağrılacak Bahis",
-        "de": "Bet to Call",
-        "fr": "Bet to Call",
-        "es": "Bet to Call",
+        "de": "Einsatz zum Callen",
+        "fr": "Mise à suivre",
+        "es": "Apuesta a igualar",
         "ar": "Bet to Call"
       },
       "businessContext_i18n": {
         "en": "Amount you need to call to stay in the hand",
-        "tr": "Oyunda kalmak için çağırmanız gereken miktar"
+        "tr": "Oyunda kalmak için çağırmanız gereken miktar",
+        "de": "Betrag, den Sie callen müssen, um in der Hand zu bleiben.",
+        "fr": "Montant que vous devez suivre pour rester dans le coup",
+        "es": "Cantidad que necesitas igualar para permanecer en la mano"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Known Cards (yours + community)",
         "tr": "Bilinen Kartlar (sizinki + topluluk)",
-        "de": "Known Cards (yours + community)",
-        "fr": "Known Cards (yours + community)",
-        "es": "Known Cards (yours + community)",
+        "de": "Bekannte Karten (eigene + Gemeinschaftskarten)",
+        "fr": "Cartes connues (les vôtres + communautaires)",
+        "es": "Cartas conocidas (tuyas + comunitarias)",
         "ar": "Known Cards (yours + community)"
       },
       "businessContext_i18n": {
         "en": "Total cards you know, including your hole cards and community cards",
-        "tr": "Bildiğiniz toplam kart sayısı, kapalı kartlarınız ve topluluk kartları dahil"
+        "tr": "Bildiğiniz toplam kart sayısı, kapalı kartlarınız ve topluluk kartları dahil",
+        "de": "Gesamtzahl der bekannten Karten, einschließlich Ihrer Hole Cards und Gemeinschaftskarten",
+        "fr": "Nombre total de cartes que vous connaissez, incluant vos cartes fermées et les cartes communes",
+        "es": "Total de cartas que conoces, incluyendo tus cartas privadas y las comunitarias"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Total Deck Size",
         "tr": "Toplam Deste Boyutu",
-        "de": "Total Deck Size",
-        "fr": "Total Deck Size",
-        "es": "Total Deck Size",
+        "de": "Gesamte Kartengröße",
+        "fr": "Taille totale du paquet",
+        "es": "Tamaño total del mazo",
         "ar": "Total Deck Size"
       },
       "businessContext_i18n": {
         "en": "Standard deck size, usually 52",
-        "tr": "Standart deste boyutu, genellikle 52"
+        "tr": "Standart deste boyutu, genellikle 52",
+        "de": "Standard Deckgröße, normalerweise 52",
+        "fr": "Taille standard du paquet, généralement 52",
+        "es": "Tamaño estándar del mazo, normalmente 52"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Start Index",
         "tr": "Başlangıç İndeksi",
         "de": "Startindex",
-        "fr": "Start Index",
-        "es": "Start Index",
+        "fr": "Indice de début",
+        "es": "Índice de inicio",
         "ar": "Start Index"
       },
       "businessContext_i18n": {
         "en": "Starting index for the summation in the harmonic series.",
         "tr": "Harmonik seride toplamanın başlangıç indeksi.",
-        "de": "Startindex für die Summation in der harmonischen Reihe."
+        "de": "Startindex für die Summation in der harmonischen Reihe.",
+        "fr": "Indice de départ pour la sommation dans la série harmonique.",
+        "es": "Índice inicial para la suma en la serie armónica."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "End Index",
         "tr": "Bitiş İndeksi",
         "de": "Endindex",
-        "fr": "End Index",
-        "es": "End Index",
+        "fr": "Indice de fin",
+        "es": "Índice final",
         "ar": "End Index"
       },
       "businessContext_i18n": {
         "en": "Ending index for the summation.",
         "tr": "Toplamanın bitiş indeksi.",
-        "de": "Endindex für die Summation."
+        "de": "Endindex für die Summation.",
+        "fr": "Indice de fin pour la sommation.",
+        "es": "Índice final para la suma."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Exponent (p)",
         "tr": "Üs (p)",
         "de": "Exponent (p)",
-        "fr": "Exponent (p)",
-        "es": "Exponent (p)",
+        "fr": "Exposant (p)",
+        "es": "Exponente (p)",
         "ar": "Exponent (p)"
       },
       "businessContext_i18n": {
         "en": "Exponent for the denominator term; use 1 for the standard harmonic series (1/k^p).",
         "tr": "Payda terimi için üs; standart harmonik seri (1/k^p) için 1 kullanın.",
-        "de": "Exponent für den Nennerterm; verwenden Sie 1 für die Standard-Harmonische-Reihe (1/k^p)."
+        "de": "Exponent für den Nennerterm; verwenden Sie 1 für die Standard-Harmonische-Reihe (1/k^p).",
+        "fr": "Exposant pour le terme du dénominateur ; utiliser 1 pour la série harmonique standard (1/k^p).",
+        "es": "Exponente para el término del denominador; use 1 para la serie armónica estándar (1/k^p)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Increment",
         "tr": "Artış Miktarı",
         "de": "Schrittweite",
-        "fr": "Increment",
-        "es": "Increment",
+        "fr": "Incrément",
+        "es": "Incremento",
         "ar": "Increment"
       },
       "businessContext_i18n": {
         "en": "Step size between successive indices in the summation.",
         "tr": "Toplamada ardışık indeksler arasındaki adım boyutu.",
-        "de": "Schrittgröße zwischen aufeinanderfolgenden Indizes in der Summation."
+        "de": "Schrittgröße zwischen aufeinanderfolgenden Indizes in der Summation.",
+        "fr": "Pas entre les indices successifs dans la sommation.",
+        "es": "Tamaño del paso entre índices sucesivos en la suma."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Shift",
         "tr": "Kaydırma",
         "de": "Verschiebung",
-        "fr": "Shift",
-        "es": "Shift",
+        "fr": "Décalage",
+        "es": "Desplazamiento",
         "ar": "Shift"
       },
       "businessContext_i18n": {
         "en": "Constant added to the index inside the denominator before exponentiation.",
         "tr": "Üs alma öncesinde payda içindeki indekse eklenen sabit.",
-        "de": "Konstante, die vor der Potenzierung zum Index im Nenner addiert wird."
+        "de": "Konstante, die vor der Potenzierung zum Index im Nenner addiert wird.",
+        "fr": "Constante ajoutée à l'indice dans le dénominateur avant l'exponentiation.",
+        "es": "Constante añadida al índice dentro del denominador antes de la exponenciación."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Multiplier",
         "tr": "Çarpan",
         "de": "Multiplikator",
-        "fr": "Multiplier",
-        "es": "Multiplier",
+        "fr": "Multiplicateur",
+        "es": "Multiplicador",
         "ar": "Multiplier"
       },
       "businessContext_i18n": {
         "en": "Scaling factor applied to each term of the series.",
         "tr": "Serinin her terimine uygulanan ölçekleme faktörü.",
-        "de": "Skalierungsfaktor, der auf jeden Term der Reihe angewendet wird."
+        "de": "Skalierungsfaktor, der auf jeden Term der Reihe angewendet wird.",
+        "fr": "Facteur d'échelle appliqué à chaque terme de la série.",
+        "es": "Factor de escala aplicado a cada término de la serie."
       }
     }
   ],

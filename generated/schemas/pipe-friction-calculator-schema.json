@@ -12,13 +12,16 @@
         "en": "Pipe Length",
         "tr": "Boru Uzunluğu",
         "de": "Rohrlänge",
-        "fr": "Pipe Length",
-        "es": "Pipe Length",
+        "fr": "Longueur du tuyau",
+        "es": "Longitud de la tubería",
         "ar": "Pipe Length"
       },
       "businessContext_i18n": {
         "en": "Length of the straight pipe section",
-        "tr": "Düz boru bölümünün uzunluğu"
+        "tr": "Düz boru bölümünün uzunluğu",
+        "de": "Länge des geraden Rohrabschnitts",
+        "fr": "Longueur de la section de tuyau droit",
+        "es": "Longitud del tramo de tubería recta"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Internal Diameter",
         "tr": "İç Çap",
-        "de": "Internal Diameter",
-        "fr": "Internal Diameter",
-        "es": "Internal Diameter",
+        "de": "Innendurchmesser",
+        "fr": "Diamètre intérieur",
+        "es": "Diámetro interior",
         "ar": "Internal Diameter"
       },
       "businessContext_i18n": {
         "en": "Inside diameter of the pipe",
-        "tr": "Boru iç çapı"
+        "tr": "Boru iç çapı",
+        "de": "Innendurchmesser des Rohrs",
+        "fr": "Diamètre intérieur du tuyau",
+        "es": "Diámetro interior de la tubería"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Flow Rate",
         "tr": "Debi",
         "de": "Durchflussrate",
-        "fr": "Flow Rate",
-        "es": "Flow Rate",
+        "fr": "Débit",
+        "es": "Caudal",
         "ar": "Flow Rate"
       },
       "businessContext_i18n": {
         "en": "Volumetric flow rate of the fluid",
-        "tr": "Akışkanın hacimsel debisi"
+        "tr": "Akışkanın hacimsel debisi",
+        "de": "Volumenstrom des Fluids",
+        "fr": "Débit volumétrique du fluide",
+        "es": "Caudal volumétrico del fluido"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Pipe Roughness",
         "tr": "Boru Pürüzlülüğü",
-        "de": "Pipe Roughness",
-        "fr": "Pipe Roughness",
-        "es": "Pipe Roughness",
+        "de": "Rohrrauheit",
+        "fr": "Rugosité du tuyau",
+        "es": "Rugosidad de la tubería",
         "ar": "Pipe Roughness"
       },
       "businessContext_i18n": {
         "en": "Surface roughness of the pipe material (e.g., 0.045 for commercial steel)",
-        "tr": "Boru malzemesinin yüzey pürüzlülüğü (örneğin ticari çelik için 0.045)"
+        "tr": "Boru malzemesinin yüzey pürüzlülüğü (örneğin ticari çelik için 0.045)",
+        "de": "Oberflächenrauheit des Rohrmaterials (z. B. 0,045 für handelsüblichen Stahl)",
+        "fr": "Rugosité de surface du matériau du tuyau (ex. 0,045 pour acier commercial)",
+        "es": "Rugosidad superficial del material de la tubería (ej., 0.045 para acero comercial)"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Fluid Density",
         "tr": "Akışkan Yoğunluğu",
         "de": "Flüssigkeitsdichte",
-        "fr": "Fluid Density",
-        "es": "Fluid Density",
+        "fr": "Densité du fluide",
+        "es": "Densidad del fluido",
         "ar": "Fluid Density"
       },
       "businessContext_i18n": {
         "en": "Density of the fluid (e.g., 1000 for water at 20°C)",
-        "tr": "Akışkanın yoğunluğu (örneğin 20°C'de su için 1000)"
+        "tr": "Akışkanın yoğunluğu (örneğin 20°C'de su için 1000)",
+        "de": "Dichte des Fluids (z. B. 1000 für Wasser bei 20 °C)",
+        "fr": "Masse volumique du fluide (ex. 1000 pour l'eau à 20°C)",
+        "es": "Densidad del fluido (ej., 1000 para agua a 20°C)"
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Dynamic Viscosity",
         "tr": "Dinamik viskozite",
         "de": "Dynamische Viskosität",
-        "fr": "Dynamic Viscosity",
-        "es": "Dynamic Viscosity",
+        "fr": "Viscosité dynamique",
+        "es": "Viscosidad dinámica",
         "ar": "Dynamic Viscosity"
       },
       "businessContext_i18n": {
         "en": "Dynamic viscosity of the fluid (e.g., 0.001 for water at 20°C)",
-        "tr": "Akışkanın dinamik viskozitesi (örneğin 20°C'de su için 0.001)"
+        "tr": "Akışkanın dinamik viskozitesi (örneğin 20°C'de su için 0.001)",
+        "de": "Dynamische Viskosität des Fluids (z. B. 0,001 für Wasser bei 20 °C)",
+        "fr": "Viscosité dynamique du fluide (ex. 0,001 pour l'eau à 20°C)",
+        "es": "Viscosidad dinámica del fluido (ej., 0.001 para agua a 20°C)"
       }
     }
   ],

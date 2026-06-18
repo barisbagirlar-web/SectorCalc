@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Length (mm)",
         "tr": "Uzunluk (mm)",
-        "de": "Length (mm)",
-        "fr": "Length (mm)",
-        "es": "Length (mm)",
+        "de": "Länge (mm)",
+        "fr": "Longueur (mm)",
+        "es": "Longitud (mm)",
         "ar": "Length (mm)"
       },
       "businessContext_i18n": {
         "en": "The length of the plate in millimeters.",
-        "tr": "Plakanın milimetre cinsinden uzunluğu."
+        "tr": "Plakanın milimetre cinsinden uzunluğu.",
+        "de": "Die Länge der Platte in Millimetern.",
+        "fr": "La longueur de la plaque en millimètres.",
+        "es": "La longitud de la placa en milímetros."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Width (mm)",
         "tr": "Genişlik (mm)",
-        "de": "Width (mm)",
-        "fr": "Width (mm)",
-        "es": "Width (mm)",
+        "de": "Breite (mm)",
+        "fr": "Largeur (mm)",
+        "es": "Ancho (mm)",
         "ar": "Width (mm)"
       },
       "businessContext_i18n": {
         "en": "The width of the plate in millimeters.",
-        "tr": "Plakanın milimetre cinsinden genişliği."
+        "tr": "Plakanın milimetre cinsinden genişliği.",
+        "de": "Die Breite der Platte in Millimetern.",
+        "fr": "La largeur de la plaque en millimètres.",
+        "es": "Ancho de la placa en milímetros."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Thickness (mm)",
         "tr": "Kalınlık (mm)",
-        "de": "Thickness (mm)",
-        "fr": "Thickness (mm)",
-        "es": "Thickness (mm)",
+        "de": "Dicke (mm)",
+        "fr": "Épaisseur (mm)",
+        "es": "Espesor (mm)",
         "ar": "Thickness (mm)"
       },
       "businessContext_i18n": {
         "en": "The thickness of the plate in millimeters.",
-        "tr": "Plakanın milimetre cinsinden kalınlığı."
+        "tr": "Plakanın milimetre cinsinden kalınlığı.",
+        "de": "Die Dicke der Platte in Millimetern.",
+        "fr": "L'épaisseur de la plaque en millimètres.",
+        "es": "Espesor de la placa en milímetros."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Material Density (kg/m³)",
         "tr": "Malzeme Yoğunluğu (kg/m³)",
         "de": "Materialdichte (kg/m³)",
-        "fr": "Material Density (kg/m³)",
-        "es": "Material Density (kg/m³)",
+        "fr": "Densité du matériau (kg/m³)",
+        "es": "Densidad del material (kg/m³)",
         "ar": "Material Density (kg/m³)"
       },
       "businessContext_i18n": {
         "en": "Density of the plate material in kilograms per cubic meter.",
-        "tr": "Plaka malzemesinin metreküp başına kilogram cinsinden yoğunluğu."
+        "tr": "Plaka malzemesinin metreküp başına kilogram cinsinden yoğunluğu.",
+        "de": "Dichte des Plattenmaterials in Kilogramm pro Kubikmeter.",
+        "fr": "Densité du matériau de la plaque en kilogrammes par mètre cube.",
+        "es": "Densidad del material de la placa en kilogramos por metro cúbico."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Material Cost per kg",
         "tr": "Malzeme Maliyeti (kg başına)",
-        "de": "Material Cost per kg",
-        "fr": "Material Cost per kg",
-        "es": "Material Cost per kg",
+        "de": "Materialkosten pro kg",
+        "fr": "Coût matière par kg",
+        "es": "Coste del material por kg",
         "ar": "Material Cost per kg"
       },
       "businessContext_i18n": {
         "en": "Unit cost of the material per kilogram in local currency.",
-        "tr": "Malzemenin kilogram başına birim maliyeti (yerel para birimi)."
+        "tr": "Malzemenin kilogram başına birim maliyeti (yerel para birimi).",
+        "de": "Stückkosten des Materials pro Kilogramm in lokaler Währung.",
+        "fr": "Coût unitaire du matériau par kilogramme en devise locale.",
+        "es": "Costo unitario del material por kilogramo en moneda local."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Manufacturing Overhead (%)",
         "tr": "Üretim Genel Gideri (%)",
-        "de": "Manufacturing Overhead (%)",
-        "fr": "Manufacturing Overhead (%)",
-        "es": "Manufacturing Overhead (%)",
+        "de": "Fertigungsgemeinkosten (%)",
+        "fr": "Frais généraux de fabrication (%)",
+        "es": "Gastos generales de fabricación (%)",
         "ar": "Manufacturing Overhead (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage overhead applied to material cost to cover manufacturing, labor, and other indirect costs.",
-        "tr": "Malzeme maliyetine uygulanan ve üretim, işçilik ve diğer dolaylı maliyetleri karşılayan yüzde oranı."
+        "tr": "Malzeme maliyetine uygulanan ve üretim, işçilik ve diğer dolaylı maliyetleri karşılayan yüzde oranı.",
+        "de": "Prozentualer Zuschlag auf Materialkosten zur Deckung von Fertigungs-, Lohn- und anderen indirekten Kosten.",
+        "fr": "Pourcentage de frais généraux appliqué au coût matière pour couvrir la fabrication, la main-d'œuvre et autres coûts indirects.",
+        "es": "Porcentaje de gastos generales aplicado al costo del material para cubrir fabricación, mano de obra y otros costos indirectos."
       }
     },
     {
@@ -132,13 +150,16 @@
         "en": "Waste Factor (%)",
         "tr": "Fire Faktörü (%)",
         "de": "Verschnittfaktor (%)",
-        "fr": "Waste Factor (%)",
-        "es": "Waste Factor (%)",
+        "fr": "Facteur de déchet (%)",
+        "es": "Factor de desperdicio (%)",
         "ar": "Waste Factor (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of material expected to be wasted due to offcuts or defects.",
-        "tr": "Kesim artıkları veya kusurlar nedeniyle israf edilmesi beklenen malzeme yüzdesi."
+        "tr": "Kesim artıkları veya kusurlar nedeniyle israf edilmesi beklenen malzeme yüzdesi.",
+        "de": "Prozentsatz des erwarteten Materialabfalls durch Verschnitt oder Fehler.",
+        "fr": "Pourcentage de matière attendu comme perte (chutes ou défauts).",
+        "es": "Porcentaje de material que se espera desperdiciar debido a recortes o defectos."
       }
     }
   ],

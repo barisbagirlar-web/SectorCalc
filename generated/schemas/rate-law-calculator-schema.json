@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Initial Concentration [A]₀",
         "tr": "Başlangıç Derişimi [A]₀",
-        "de": "Initial Concentration [A]₀",
-        "fr": "Initial Concentration [A]₀",
-        "es": "Initial Concentration [A]₀",
+        "de": "Anfangskonzentration [A]₀",
+        "fr": "Concentration initiale [A]₀",
+        "es": "Concentración inicial [A]₀",
         "ar": "Initial Concentration [A]₀"
       },
       "businessContext_i18n": {
         "en": "Başlangıç konsantrasyonu (mol/L)",
-        "tr": "Başlangıç konsantrasyonu (mol/L)"
+        "tr": "Başlangıç konsantrasyonu (mol/L)",
+        "de": "Anfangskonzentration (mol/L)",
+        "fr": "Concentration initiale (mol/L)",
+        "es": "Concentración inicial (mol/L)"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Final Concentration [A]ₜ",
         "tr": "Son Konsantrasyon [A]ₜ",
-        "de": "Final Concentration [A]ₜ",
-        "fr": "Final Concentration [A]ₜ",
-        "es": "Final Concentration [A]ₜ",
+        "de": "Endkonzentration [A]ₜ",
+        "fr": "Concentration finale [A]ₜ",
+        "es": "Concentración final [A]ₜ",
         "ar": "Final Concentration [A]ₜ"
       },
       "businessContext_i18n": {
         "en": "t süre sonundaki konsantrasyon (mol/L)",
-        "tr": "t süre sonundaki konsantrasyon (mol/L)"
+        "tr": "t süre sonundaki konsantrasyon (mol/L)",
+        "de": "Konzentration nach Zeit t (mol/L)",
+        "fr": "Concentration au temps t (mol/L)",
+        "es": "Concentración en el tiempo t (mol/L)"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Time (t)",
         "tr": "Zaman (t)",
         "de": "Zeit (t)",
-        "fr": "Time (t)",
-        "es": "Time (t)",
+        "fr": "Temps (t)",
+        "es": "Tiempo (t)",
         "ar": "Time (t)"
       },
       "businessContext_i18n": {
         "en": "Reaksiyon süresi (saniye)",
-        "tr": "Reaksiyon süresi (saniye)"
+        "tr": "Reaksiyon süresi (saniye)",
+        "de": "Reaktionszeit (Sekunden)",
+        "fr": "Temps de réaction (secondes)",
+        "es": "Tiempo de reacción (segundos)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Reaction Order (n)",
         "tr": "Reaksiyon Derecesi (n)",
-        "de": "Reaction Order (n)",
-        "fr": "Reaction Order (n)",
-        "es": "Reaction Order (n)",
+        "de": "Reaktionsordnung (n)",
+        "fr": "Ordre de réaction (n)",
+        "es": "Orden de reacción (n)",
         "ar": "Reaction Order (n)"
       },
       "businessContext_i18n": {
         "en": "Reaksiyon mertebesi (0, 1, 2…) Hesaplama sıfırıncı, birinci ve ikinci mertebe için geçerlidir.",
-        "tr": "Reaksiyon mertebesi (0, 1, 2…) Hesaplama sıfırıncı, birinci ve ikinci mertebe için geçerlidir."
+        "tr": "Reaksiyon mertebesi (0, 1, 2…) Hesaplama sıfırıncı, birinci ve ikinci mertebe için geçerlidir.",
+        "de": "Reaktionsordnung (0, 1, 2…) Die Berechnung gilt für nullte, erste und zweite Ordnung.",
+        "fr": "Ordre de réaction (0, 1, 2…) Le calcul est valable pour les ordres zéro, un et deux.",
+        "es": "Orden de reacción (0, 1, 2…) El cálculo es válido para orden cero, primero y segundo."
       }
     }
   ],

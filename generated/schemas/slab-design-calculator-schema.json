@@ -12,13 +12,15 @@
         "en": "Span Length",
         "tr": "Açıklık Uzunluğu",
         "de": "Stützweite",
-        "fr": "Span Length",
-        "es": "Span Length",
+        "fr": "Longueur de la portée",
+        "es": "Longitud del vano",
         "ar": "Span Length"
       },
       "businessContext_i18n": {
         "en": "Clear span of the slab (simply supported)",
-        "tr": "Döşemenin açık açıklığı (basit mesnetli)"
+        "tr": "Döşemenin açık açıklığı (basit mesnetli)",
+        "de": "Stützweite der Platte (einfach gelagert)",
+        "fr": "Portée libre de la dalle (simplement appuyée)"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Live Load",
         "tr": "Hareketli Yük",
         "de": "Nutzlast",
-        "fr": "Live Load",
-        "es": "Live Load",
+        "fr": "Charge vive",
+        "es": "Carga viva",
         "ar": "Live Load"
       },
       "businessContext_i18n": {
         "en": "Imposed load (occupancy)",
-        "tr": "Hareketli yük (kullanım yükü)"
+        "tr": "Hareketli yük (kullanım yükü)",
+        "de": "Nutzlast (Nutzung)",
+        "fr": "Charge d'exploitation (occupation)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Dead Load (excluding self-weight)",
         "tr": "Sabit yük (öz ağırlık hariç)",
-        "de": "Dead Load (excluding self-weight)",
-        "fr": "Dead Load (excluding self-weight)",
+        "de": "Eigengewicht (ohne Eigenlast)",
+        "fr": "Charge permanente (hors poids propre)",
         "es": "Dead Load (excluding self-weight)",
         "ar": "Dead Load (excluding self-weight)"
       },
       "businessContext_i18n": {
         "en": "Superimposed dead load (finishes, services)",
-        "tr": "Sabit ek yük (kaplamalar, servisler)"
+        "tr": "Sabit ek yük (kaplamalar, servisler)",
+        "de": "Zusätzliche ständige Last (Oberflächen, Installationen)",
+        "fr": "Charge permanente additionnelle (finition, services)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Slab Thickness",
         "tr": "Döşeme Kalınlığı",
-        "de": "Slab Thickness",
-        "fr": "Slab Thickness",
+        "de": "Plattendicke",
+        "fr": "Épaisseur de la dalle",
         "es": "Slab Thickness",
         "ar": "Slab Thickness"
       },
       "businessContext_i18n": {
         "en": "Total depth of slab",
-        "tr": "Toplam döşeme derinliği"
+        "tr": "Toplam döşeme derinliği",
+        "de": "Gesamtdicke der Platte",
+        "fr": "Hauteur totale de la dalle"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Concrete Characteristic Strength (fck)",
         "tr": "Beton Karakteristik Dayanımı (fck)",
-        "de": "Concrete Characteristic Strength (fck)",
-        "fr": "Concrete Characteristic Strength (fck)",
+        "de": "Charakteristische Betondruckfestigkeit (fck)",
+        "fr": "Résistance caractéristique du béton (fck)",
         "es": "Concrete Characteristic Strength (fck)",
         "ar": "Concrete Characteristic Strength (fck)"
       },
       "businessContext_i18n": {
         "en": "28-day cylinder compressive strength",
-        "tr": "28 günlük silindir basınç dayanımı"
+        "tr": "28 günlük silindir basınç dayanımı",
+        "de": "Zylinderdruckfestigkeit nach 28 Tagen",
+        "fr": "Résistance à la compression sur cylindre à 28 jours"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Steel Yield Strength (fyk)",
         "tr": "Çelik Akma Dayanımı (fyk)",
-        "de": "Steel Yield Strength (fyk)",
-        "fr": "Steel Yield Strength (fyk)",
+        "de": "Streckgrenze des Betonstahls (fyk)",
+        "fr": "Limite d'élasticité de l'acier (fyk)",
         "es": "Steel Yield Strength (fyk)",
         "ar": "Steel Yield Strength (fyk)"
       },
       "businessContext_i18n": {
         "en": "Characteristic yield strength of reinforcement",
-        "tr": "Donatının karakteristik akma dayanımı"
+        "tr": "Donatının karakteristik akma dayanımı",
+        "de": "Charakteristische Streckgrenze der Bewehrung",
+        "fr": "Limite d'élasticité caractéristique des armatures"
       }
     },
     {
@@ -131,14 +143,16 @@
       "label_i18n": {
         "en": "Concrete Cover",
         "tr": "Beton Örtüsü",
-        "de": "Concrete Cover",
-        "fr": "Concrete Cover",
+        "de": "Betondeckung",
+        "fr": "Enrobage du béton",
         "es": "Concrete Cover",
         "ar": "Concrete Cover"
       },
       "businessContext_i18n": {
         "en": "Clear cover to reinforcement",
-        "tr": "Donatıya net örtü"
+        "tr": "Donatıya net örtü",
+        "de": "Lichte Betondeckung der Bewehrung",
+        "fr": "Enrobage minimal des armatures"
       }
     }
   ],

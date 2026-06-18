@@ -12,13 +12,16 @@
         "en": "Revenue",
         "tr": "Gelir",
         "de": "Umsatzerlöse",
-        "fr": "Revenue",
-        "es": "Revenue",
+        "fr": "Revenu",
+        "es": "Ingresos",
         "ar": "Revenue"
       },
       "businessContext_i18n": {
         "en": "Total sales or revenue from operations",
-        "tr": "Toplam satış veya faaliyet geliri"
+        "tr": "Toplam satış veya faaliyet geliri",
+        "de": "Gesamtumsatz oder Betriebserlöse",
+        "fr": "Total des ventes ou revenus d'exploitation",
+        "es": "Ventas o ingresos totales de operaciones"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Cost of Goods Sold (COGS)",
         "tr": "Satılan Malların Maliyeti (COGS)",
         "de": "Umsatzkosten (COGS)",
-        "fr": "Cost of Goods Sold (COGS)",
-        "es": "Cost of Goods Sold (COGS)",
+        "fr": "Coût des marchandises vendues (COGS)",
+        "es": "Costo de bienes vendidos (COGS)",
         "ar": "Cost of Goods Sold (COGS)"
       },
       "businessContext_i18n": {
         "en": "Direct costs attributable to production",
-        "tr": "Üretime doğrudan atfedilebilen maliyetler"
+        "tr": "Üretime doğrudan atfedilebilen maliyetler",
+        "de": "Direkte Kosten, die der Produktion zuzurechnen sind",
+        "fr": "Coûts directs attribuables à la production",
+        "es": "Costos directos atribuibles a la producción"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Operating Expenses",
         "tr": "Faaliyet Giderleri",
         "de": "Betriebskosten",
-        "fr": "Operating Expenses",
-        "es": "Operating Expenses",
+        "fr": "Charges d'exploitation",
+        "es": "Gastos operativos",
         "ar": "Operating Expenses"
       },
       "businessContext_i18n": {
         "en": "Selling, General & Administrative Expenses and other operating costs",
-        "tr": "Satış, Genel ve İdari Giderler ve diğer işletme maliyetleri"
+        "tr": "Satış, Genel ve İdari Giderler ve diğer işletme maliyetleri",
+        "de": "Vertriebs-, Gemein- und Verwaltungskosten sowie sonstige Betriebskosten",
+        "fr": "Frais de vente, généraux et administratifs et autres coûts d'exploitation",
+        "es": "Gastos de venta, generales y administrativos y otros costos operativos"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Other Operating Income",
         "tr": "Diğer Faaliyet Gelirleri",
-        "de": "Other Operating Income",
-        "fr": "Other Operating Income",
-        "es": "Other Operating Income",
+        "de": "Sonstige betriebliche Erträge",
+        "fr": "Autres produits d'exploitation",
+        "es": "Otros ingresos operativos",
         "ar": "Other Operating Income"
       },
       "businessContext_i18n": {
         "en": "Any other income directly from operations (negative if expense)",
-        "tr": "Faaliyetlerden doğrudan elde edilen diğer gelirler (gider ise negatif)"
+        "tr": "Faaliyetlerden doğrudan elde edilen diğer gelirler (gider ise negatif)",
+        "de": "Sonstige direkte betriebliche Erträge (negativ bei Aufwand)",
+        "fr": "Tout autre revenu directement lié à l'exploitation (négatif si charge)",
+        "es": "Cualquier otro ingreso directamente de operaciones (negativo si es gasto)"
       }
     }
   ],

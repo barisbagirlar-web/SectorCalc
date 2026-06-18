@@ -12,13 +12,16 @@
         "en": "Load Weight (kg)",
         "tr": "Yük Ağırlığı (kg)",
         "de": "Ladegewicht (kg)",
-        "fr": "Load Weight (kg)",
-        "es": "Load Weight (kg)",
+        "fr": "Poids de la charge (kg)",
+        "es": "Peso de la carga (kg)",
         "ar": "Load Weight (kg)"
       },
       "businessContext_i18n": {
         "en": "Weight of the object to be lifted.",
-        "tr": "Kaldırılacak nesnenin ağırlığı."
+        "tr": "Kaldırılacak nesnenin ağırlığı.",
+        "de": "Gewicht des zu hebenden Objekts.",
+        "fr": "Poids de l'objet à soulever.",
+        "es": "Peso del objeto a levantar."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Mechanical Advantage",
         "tr": "Mekanik Avantaj",
-        "de": "Mechanical Advantage",
-        "fr": "Mechanical Advantage",
-        "es": "Mechanical Advantage",
+        "de": "Mechanischer Vorteil",
+        "fr": "Avantage mécanique",
+        "es": "Ventaja mecánica",
         "ar": "Mechanical Advantage"
       },
       "businessContext_i18n": {
         "en": "Mechanical advantage from pulley or lever system.",
-        "tr": "Makara veya kaldıraç sisteminden kaynaklanan mekanik avantaj."
+        "tr": "Makara veya kaldıraç sisteminden kaynaklanan mekanik avantaj.",
+        "de": "Mechanischer Vorteil durch Flaschenzug oder Hebel.",
+        "fr": "Avantage mécanique d'un système de poulie ou de levier.",
+        "es": "Ventaja mecánica del sistema de poleas o palancas."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Friction Coefficient",
         "tr": "Sürtünme Katsayısı",
         "de": "Reibungskoeffizient",
-        "fr": "Friction Coefficient",
-        "es": "Friction Coefficient",
+        "fr": "Coefficient de frottement",
+        "es": "Coeficiente de fricción",
         "ar": "Friction Coefficient"
       },
       "businessContext_i18n": {
         "en": "Friction in the system (0-1).",
-        "tr": "Sistemdeki sürtünme (0-1)."
+        "tr": "Sistemdeki sürtünme (0-1).",
+        "de": "Reibung im System (0-1).",
+        "fr": "Frottement dans le système (0-1).",
+        "es": "Fricción en el sistema (0-1)."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Pull Angle from Vertical",
         "tr": "Dikeyden Çekme Açısı",
-        "de": "Pull Angle from Vertical",
-        "fr": "Pull Angle from Vertical",
-        "es": "Pull Angle from Vertical",
+        "de": "Zugwinkel zur Vertikalen",
+        "fr": "Angle de traction par rapport à la verticale",
+        "es": "Ángulo de tracción desde la vertical",
         "ar": "Pull Angle from Vertical"
       },
       "businessContext_i18n": {
         "en": "Angle at which the force is applied relative to vertical.",
-        "tr": "Kuvvetin dikeye göre uygulandığı açı."
+        "tr": "Kuvvetin dikeye göre uygulandığı açı.",
+        "de": "Winkel, in dem die Kraft relativ zur Vertikalen aufgebracht wird.",
+        "fr": "Angle sous lequel la force est appliquée par rapport à la verticale.",
+        "es": "Ángulo en el que se aplica la fuerza respecto a la vertical."
       }
     }
   ],

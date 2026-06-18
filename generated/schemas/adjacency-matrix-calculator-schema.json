@@ -12,14 +12,16 @@
         "en": "A[1,1] (self-loop)",
         "tr": "A[1,1] (kendine döngü)",
         "de": "A[1,1] (Selbstschleife)",
-        "fr": "A[1,1] (self-loop)",
-        "es": "A[1,1] (self-loop)",
+        "fr": "A[1,1] (boucle)",
+        "es": "A[1,1] (bucle propio)",
         "ar": "A[1,1] (self-loop)"
       },
       "businessContext_i18n": {
         "en": "Self-loop on node 1",
         "tr": "Düğüm 1 üzerinde kendine döngü",
-        "de": "Selbstschleife auf Knoten 1"
+        "de": "Selbstschleife auf Knoten 1",
+        "fr": "Boucle sur le nœud 1",
+        "es": "Bucle propio en el nodo 1"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "A[1,2] (edge 1->2)",
         "tr": "A[1,2] (kenar 1->2)",
         "de": "A[1,2] (Kante 1->2)",
-        "fr": "A[1,2] (edge 1->2)",
-        "es": "A[1,2] (edge 1->2)",
+        "fr": "A[1,2] (arête 1->2)",
+        "es": "A[1,2] (arista 1->2)",
         "ar": "A[1,2] (edge 1->2)"
       },
       "businessContext_i18n": {
         "en": "Edge from node 1 to node 2",
         "tr": "Düğüm 1'den düğüm 2'ye kenar",
-        "de": "Kante von Knoten 1 zu Knoten 2"
+        "de": "Kante von Knoten 1 zu Knoten 2",
+        "fr": "Arête du nœud 1 au nœud 2",
+        "es": "Arista del nodo 1 al nodo 2"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "A[2,1] (edge 2->1)",
         "tr": "A[2,1] (kenar 2->1)",
         "de": "A[2,1] (Kante 2->1)",
-        "fr": "A[2,1] (edge 2->1)",
-        "es": "A[2,1] (edge 2->1)",
+        "fr": "A[2,1] (arête 2->1)",
+        "es": "A[2,1] (arista 2->1)",
         "ar": "A[2,1] (edge 2->1)"
       },
       "businessContext_i18n": {
         "en": "Edge from node 2 to node 1",
         "tr": "Düğüm 2'den düğüm 1'e kenar",
-        "de": "Kante von Knoten 2 zu Knoten 1"
+        "de": "Kante von Knoten 2 zu Knoten 1",
+        "fr": "Arête du nœud 2 au nœud 1",
+        "es": "Arista del nodo 2 al nodo 1"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "A[2,2] (self-loop)",
         "tr": "A[2,2] (kendine döngü)",
         "de": "A[2,2] (Selbstschleife)",
-        "fr": "A[2,2] (self-loop)",
-        "es": "A[2,2] (self-loop)",
+        "fr": "A[2,2] (boucle)",
+        "es": "A[2,2] (bucle propio)",
         "ar": "A[2,2] (self-loop)"
       },
       "businessContext_i18n": {
         "en": "Self-loop on node 2",
         "tr": "Düğüm 2 üzerinde kendine döngü",
-        "de": "Selbstschleife auf Knoten 2"
+        "de": "Selbstschleife auf Knoten 2",
+        "fr": "Boucle sur le nœud 2",
+        "es": "Bucle propio en el nodo 2"
       }
     }
   ],

@@ -13,12 +13,15 @@
         "tr": "Mesafe (km)",
         "de": "Strecke (km)",
         "fr": "Distance (km)",
-        "es": "Distance (km)",
+        "es": "Distancia (km)",
         "ar": "Distance (km)"
       },
       "businessContext_i18n": {
         "en": "Marathon standard distance in kilometers",
-        "tr": "Maraton standart mesafesi (km)"
+        "tr": "Maraton standart mesafesi (km)",
+        "de": "Marathon-Standarddistanz in Kilometern",
+        "fr": "Distance standard du marathon en kilomètres",
+        "es": "Distancia estándar de maratón en kilómetros"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Hours",
         "tr": "Saat",
         "de": "Stunden",
-        "fr": "Hours",
-        "es": "Hours",
+        "fr": "Heures",
+        "es": "Horas",
         "ar": "Hours"
       },
       "businessContext_i18n": {
         "en": "Finish time hours component",
-        "tr": "Bitiş saati saat bileşeni"
+        "tr": "Bitiş saati saat bileşeni",
+        "de": "Stundenkomponente der Zielzeit",
+        "fr": "Heures du temps d'arrivée",
+        "es": "Componente de horas del tiempo de finalización"
       }
     },
     {
@@ -53,12 +59,15 @@
         "tr": "Dakika",
         "de": "Minuten",
         "fr": "Minutes",
-        "es": "Minutes",
+        "es": "Minutos",
         "ar": "Minutes"
       },
       "businessContext_i18n": {
         "en": "Finish time minutes component",
-        "tr": "Bitiş saati dakika bileşeni"
+        "tr": "Bitiş saati dakika bileşeni",
+        "de": "Minutenkomponente der Zielzeit",
+        "fr": "Minutes du temps d'arrivée",
+        "es": "Componente de minutos del tiempo de finalización"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Seconds",
         "tr": "Saniye",
         "de": "Sekunden",
-        "fr": "Seconds",
-        "es": "Seconds",
+        "fr": "Secondes",
+        "es": "Segundos",
         "ar": "Seconds"
       },
       "businessContext_i18n": {
         "en": "Finish time seconds component",
-        "tr": "Bitiş saati saniye bileşeni"
+        "tr": "Bitiş saati saniye bileşeni",
+        "de": "Sekundenkomponente der Zielzeit",
+        "fr": "Secondes du temps d'arrivée",
+        "es": "Componente de segundos del tiempo de finalización"
       }
     }
   ],

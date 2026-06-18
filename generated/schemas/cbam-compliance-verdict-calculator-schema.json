@@ -21,12 +21,16 @@
       "label_i18n": {
         "en": "Total Imported Tonnes (steel/aluminum/cement/fertilizer/hydrogen)",
         "tr": "Toplam İthal Edilen Tonaj (çelik/alüminyum/çimento/gübre/hidrojen)",
-        "de": "Gesamt importierte Tonnen (Stahl/Aluminium/Zement/Dünger/Wasserstoff)"
+        "de": "Gesamt importierte Tonnen (Stahl/Aluminium/Zement/Dünger/Wasserstoff)",
+        "fr": "Tonnes importées totales (acier/aluminium/ciment/engrais/hydrogène)",
+        "es": "Toneladas importadas totales (acero/aluminio/cemento/fertilizante/hidrógeno)"
       },
       "businessContext_i18n": {
         "en": "Total mass of CBAM-covered goods imported in the reporting period.",
         "tr": "Raporlama döneminde ithal edilen CBAM kapsamındaki malların toplam kütlesi.",
-        "de": "Gesamtmasse der CBAM-pflichtigen importierten Waren im Berichtszeitraum."
+        "de": "Gesamtmasse der CBAM-pflichtigen importierten Waren im Berichtszeitraum.",
+        "fr": "Masse totale des biens couverts par le MACF importés au cours de la période de déclaration.",
+        "es": "Masa total de bienes cubiertos por CBAM importados en el período de reporte."
       }
     },
     {
@@ -41,12 +45,16 @@
       "label_i18n": {
         "en": "Embedded Emissions per Tonne",
         "tr": "Ton Başına Gömülü Emisyonlar",
-        "de": "Eingebettete Emissionen pro Tonne"
+        "de": "Eingebettete Emissionen pro Tonne",
+        "fr": "Émissions intégrées par tonne",
+        "es": "Emisiones incorporadas por tonelada"
       },
       "businessContext_i18n": {
         "en": "Direct and indirect GHG emissions embedded in the imported goods (scope 1+2).",
         "tr": "İthal edilen mallara gömülü doğrudan ve dolaylı sera gazı emisyonları (kapsam 1+2).",
-        "de": "Direkte und indirekte Treibhausgasemissionen, die in den importierten Waren enthalten sind (Scope 1+2)."
+        "de": "Direkte und indirekte Treibhausgasemissionen, die in den importierten Waren enthalten sind (Scope 1+2).",
+        "fr": "Émissions directes et indirectes de GES intégrées dans les biens importés (scope 1+2).",
+        "es": "Emisiones directas e indirectas de GEI incorporadas en los bienes importados (alcance 1+2)."
       }
     },
     {
@@ -61,12 +69,16 @@
       "label_i18n": {
         "en": "Carbon Price Paid in Country of Origin",
         "tr": "Menşe Ülkede Ödenen Karbon Fiyatı",
-        "de": "Im Ursprungsland gezahlter CO₂-Preis"
+        "de": "Im Ursprungsland gezahlter CO₂-Preis",
+        "fr": "Prix du carbone payé dans le pays d'origine",
+        "es": "Precio del carbono pagado en el país de origen"
       },
       "businessContext_i18n": {
         "en": "Effective carbon price already paid in the exporting country (e.g., EU ETS equivalent).",
         "tr": "İhracatçı ülkede halihazırda ödenmiş etkin karbon fiyatı (ör. AB ETS eşdeğeri).",
-        "de": "Effektiver CO₂-Preis, der bereits im Exportland gezahlt wurde (z. B. EU-ETS-Äquivalent)."
+        "de": "Effektiver CO₂-Preis, der bereits im Exportland gezahlt wurde (z. B. EU-ETS-Äquivalent).",
+        "fr": "Prix effectif du carbone déjà payé dans le pays exportateur (ex. équivalent SEQE-UE).",
+        "es": "Precio efectivo del carbono ya pagado en el país exportador (ej. equivalente al EU ETS)."
       }
     },
     {
@@ -81,12 +93,16 @@
       "label_i18n": {
         "en": "CBAM Certificate Price (current auction)",
         "tr": "CBAM Sertifika Fiyatı (güncel açık artırma)",
-        "de": "CBAM-Zertifikatspreis (aktuelle Auktion)"
+        "de": "CBAM-Zertifikatspreis (aktuelle Auktion)",
+        "fr": "Prix du certificat MACF (enchère actuelle)",
+        "es": "Precio del certificado CBAM (subasta actual)"
       },
       "businessContext_i18n": {
         "en": "Latest weekly average auction price of CBAM certificates.",
         "tr": "CBAM sertifikalarının en son haftalık ortalama açık artırma fiyatı.",
-        "de": "Letzter wöchentlicher Durchschnittsauktionspreis für CBAM-Zertifikate."
+        "de": "Letzter wöchentlicher Durchschnittsauktionspreis für CBAM-Zertifikate.",
+        "fr": "Dernier prix moyen hebdomadaire aux enchères des certificats MACF.",
+        "es": "Precio medio semanal de subasta más reciente de los certificados CBAM."
       }
     },
     {
@@ -101,12 +117,16 @@
       "label_i18n": {
         "en": "Free Allocation Factor for Sector",
         "tr": "Sektör için Serbest Tahsis Faktörü",
-        "de": "Zuteilungsfaktor für kostenlose Zertifikate im Sektor"
+        "de": "Zuteilungsfaktor für kostenlose Zertifikate im Sektor",
+        "fr": "Facteur d'allocation gratuite pour le secteur",
+        "es": "Factor de asignación gratuita para el sector"
       },
       "businessContext_i18n": {
         "en": "Proportion of emissions covered by free allowances in the EU ETS for the product sector.",
         "tr": "AB ETS'de ürün sektörü için serbest tahsisat kapsamındaki emisyonların oranı.",
-        "de": "Anteil der Emissionen, der im EU-ETS durch kostenlose Zuteilungen für den Produktsektor gedeckt ist."
+        "de": "Anteil der Emissionen, der im EU-ETS durch kostenlose Zuteilungen für den Produktsektor gedeckt ist.",
+        "fr": "Proportion des émissions couvertes par des quotas gratuits dans le SEQE-UE pour le secteur du produit.",
+        "es": "Proporción de emisiones cubiertas por asignaciones gratuitas en el EU ETS para el sector del producto."
       }
     },
     {
@@ -126,12 +146,16 @@
       "label_i18n": {
         "en": "Verification Status of Embedded Emissions",
         "tr": "Gömülü Emisyonların Doğrulama Durumu",
-        "de": "Verifizierungsstatus der eingebetteten Emissionen"
+        "de": "Verifizierungsstatus der eingebetteten Emissionen",
+        "fr": "Statut de vérification des émissions intégrées",
+        "es": "Estado de verificación de las emisiones incorporadas"
       },
       "businessContext_i18n": {
         "en": "Whether the embedded emissions data has been independently verified by an accredited body.",
         "tr": "Gömülü emisyon verilerinin akredite bir kuruluş tarafından bağımsız olarak doğrulanıp doğrulanmadığı.",
-        "de": "Gibt an, ob die Daten zu den eingebetteten Emissionen von einer akkreditierten Stelle unabhängig verifiziert wurden."
+        "de": "Gibt an, ob die Daten zu den eingebetteten Emissionen von einer akkreditierten Stelle unabhängig verifiziert wurden.",
+        "fr": "Indique si les données d'émissions intégrées ont été vérifiées indépendamment par un organisme accrédité.",
+        "es": "Indica si los datos de emisiones incorporadas han sido verificados de forma independiente por un organismo acreditado."
       }
     },
     {
@@ -146,12 +170,16 @@
       "label_i18n": {
         "en": "Compliance Deadline Met (quarterly report submitted)",
         "tr": "Uyum Son Tarihi Karşılandı mı (üç aylık rapor sunuldu)",
-        "de": "Einhaltung der Compliance-Frist (Quartalsbericht eingereicht)"
+        "de": "Einhaltung der Compliance-Frist (Quartalsbericht eingereicht)",
+        "fr": "Respect de la date limite de conformité (rapport trimestriel soumis)",
+        "es": "Cumplimiento del plazo (informe trimestral presentado)"
       },
       "businessContext_i18n": {
         "en": "Indicates if the importer submitted the required CBAM report before the quarterly deadline.",
         "tr": "İthalatçının gerekli CBAM raporunu üç aylık son tarihten önce sunup sunmadığını belirtir.",
-        "de": "Zeigt an, ob der Importeur den erforderlichen CBAM-Bericht vor der Quartalsfrist eingereicht hat."
+        "de": "Zeigt an, ob der Importeur den erforderlichen CBAM-Bericht vor der Quartalsfrist eingereicht hat.",
+        "fr": "Indique si l'importateur a soumis le rapport MACF requis avant la date limite trimestrielle.",
+        "es": "Indica si el importador presentó el informe CBAM requerido antes del plazo trimestral."
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Sitting Height (cm)",
         "tr": "Oturma Yüksekliği (cm)",
-        "de": "Sitting Height (cm)",
-        "fr": "Sitting Height (cm)",
+        "de": "Sitzhöhe (cm)",
+        "fr": "Hauteur assise (cm)",
         "es": "Sitting Height (cm)",
         "ar": "Sitting Height (cm)"
       },
       "businessContext_i18n": {
         "en": "Sitting height measured in centimeters from the seating surface to the vertex of the head.",
-        "tr": "Oturma yüzeyinden başın tepe noktasına kadar santimetre cinsinden ölçülen oturma yüksekliği."
+        "tr": "Oturma yüzeyinden başın tepe noktasına kadar santimetre cinsinden ölçülen oturma yüksekliği.",
+        "de": "Sitzhöhe in Zentimetern gemessen von der Sitzfläche bis zum Scheitelpunkt des Kopfes.",
+        "fr": "Hauteur assise mesurée en centimètres de la surface d'assise au sommet de la tête."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Sitting Height (mm)",
         "tr": "Oturma Yüksekliği (mm)",
-        "de": "Sitting Height (mm)",
-        "fr": "Sitting Height (mm)",
+        "de": "Sitzhöhe (mm)",
+        "fr": "Hauteur assise (mm)",
         "es": "Sitting Height (mm)",
         "ar": "Sitting Height (mm)"
       },
       "businessContext_i18n": {
         "en": "Sitting height measured in millimeters. Will be converted to cm by dividing by 10.",
-        "tr": "Milimetre cinsinden ölçülen oturma yüksekliği. 10'a bölünerek cm'ye dönüştürülecektir."
+        "tr": "Milimetre cinsinden ölçülen oturma yüksekliği. 10'a bölünerek cm'ye dönüştürülecektir.",
+        "de": "Sitzhöhe in Millimetern gemessen. Wird durch Division durch 10 in cm umgerechnet.",
+        "fr": "Hauteur assise mesurée en millimètres. Sera convertie en cm en divisant par 10."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Standing Height (cm)",
         "tr": "Ayakta Boy (cm)",
-        "de": "Standing Height (cm)",
-        "fr": "Standing Height (cm)",
+        "de": "Stehhöhe (cm)",
+        "fr": "Taille debout (cm)",
         "es": "Standing Height (cm)",
         "ar": "Standing Height (cm)"
       },
       "businessContext_i18n": {
         "en": "Standing height measured in centimeters from floor to vertex.",
-        "tr": "Yerden tepe noktasına santimetre cinsinden ölçülen ayakta boy."
+        "tr": "Yerden tepe noktasına santimetre cinsinden ölçülen ayakta boy.",
+        "de": "Stehhöhe in Zentimetern gemessen vom Boden bis zum Scheitelpunkt.",
+        "fr": "Taille debout mesurée en centimètres du sol au sommet de la tête."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Standing Height (mm)",
         "tr": "Ayakta Boy (mm)",
-        "de": "Standing Height (mm)",
-        "fr": "Standing Height (mm)",
+        "de": "Stehhöhe (mm)",
+        "fr": "Taille debout (mm)",
         "es": "Standing Height (mm)",
         "ar": "Standing Height (mm)"
       },
       "businessContext_i18n": {
         "en": "Standing height measured in millimeters. Will be converted to cm by dividing by 10.",
-        "tr": "Milimetre cinsinden ölçülen ayakta boy. 10'a bölünerek cm'ye dönüştürülür."
+        "tr": "Milimetre cinsinden ölçülen ayakta boy. 10'a bölünerek cm'ye dönüştürülür.",
+        "de": "Stehende Körpergröße in Millimetern. Wird durch Division durch 10 in cm umgerechnet.",
+        "fr": "Taille debout mesurée en millimètres. Sera convertie en cm en divisant par 10."
       }
     }
   ],

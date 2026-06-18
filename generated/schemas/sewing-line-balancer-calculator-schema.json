@@ -20,11 +20,15 @@
       "businessContext": "Sum of all standard times for operations in the sewing line (ISO 9001 time measurement).",
       "label_i18n": {
         "en": "Total Work Content (TWC)",
-        "tr": "Toplam İş İçeriği (TWC)"
+        "tr": "Toplam İş İçeriği (TWC)",
+        "de": "Gesamtarbeitsinhalt (TWC)",
+        "fr": "Contenu total de travail (TWC)"
       },
       "businessContext_i18n": {
         "en": "Sum of all standard times for operations in the sewing line (ISO 9001 time measurement).",
-        "tr": "Dikiş hattındaki operasyonlar için tüm standart sürelerin toplamı (ISO 9001 zaman ölçümü)."
+        "tr": "Dikiş hattındaki operasyonlar için tüm standart sürelerin toplamı (ISO 9001 zaman ölçümü).",
+        "de": "Summe aller Standardzeiten für Arbeitsgänge in der Nählinie (ISO 9001 Zeitmessung).",
+        "fr": "Somme de tous les temps standards pour les opérations de la ligne de couture (mesure de temps ISO 9001)."
       }
     },
     {
@@ -38,11 +42,15 @@
       "businessContext": "Total direct labor assigned to the line.",
       "label_i18n": {
         "en": "Number of Operators",
-        "tr": "Operatör Sayısı"
+        "tr": "Operatör Sayısı",
+        "de": "Anzahl der Bediener",
+        "fr": "Nombre d'opérateurs"
       },
       "businessContext_i18n": {
         "en": "Total direct labor assigned to the line.",
-        "tr": "Hatta atanan toplam direkt işgücü."
+        "tr": "Hatta atanan toplam direkt işgücü.",
+        "de": "Gesamte direkte Arbeitskräfte, die der Linie zugewiesen sind.",
+        "fr": "Main-d'œuvre directe totale affectée à la ligne."
       }
     },
     {
@@ -56,11 +64,15 @@
       "businessContext": "Customer demand rate: available production time divided by required output (Lean manufacturing).",
       "label_i18n": {
         "en": "Takt Time",
-        "tr": "Takt Süresi"
+        "tr": "Takt Süresi",
+        "de": "Taktzeit",
+        "fr": "Temps de takt"
       },
       "businessContext_i18n": {
         "en": "Customer demand rate: available production time divided by required output (Lean manufacturing).",
-        "tr": "Müşteri talep hızı: mevcut üretim süresinin gerekli çıktıya bölünmesi (Yalın üretim)."
+        "tr": "Müşteri talep hızı: mevcut üretim süresinin gerekli çıktıya bölünmesi (Yalın üretim).",
+        "de": "Kundennachfragerate: verfügbare Produktionszeit geteilt durch erforderliche Ausbringung (Lean Manufacturing).",
+        "fr": "Taux de demande client : temps de production disponible divisé par la production requise (Lean manufacturing)."
       }
     },
     {
@@ -74,11 +86,15 @@
       "businessContext": "Longest operation time among all stations (Theory of Constraints).",
       "label_i18n": {
         "en": "Bottleneck Station Time",
-        "tr": "Darboğaz İstasyon Süresi"
+        "tr": "Darboğaz İstasyon Süresi",
+        "de": "Engpass-Stationszeit",
+        "fr": "Temps au goulot d'étranglement"
       },
       "businessContext_i18n": {
         "en": "Longest operation time among all stations (Theory of Constraints).",
-        "tr": "Tüm istasyonlar arasındaki en uzun operasyon süresi (Kısıtlar Teorisi)."
+        "tr": "Tüm istasyonlar arasındaki en uzun operasyon süresi (Kısıtlar Teorisi).",
+        "de": "Längste Bearbeitungszeit aller Stationen (Theory of Constraints).",
+        "fr": "Temps d'opération le plus long parmi tous les postes (Théorie des contraintes)."
       }
     },
     {
@@ -97,11 +113,15 @@
       ],
       "label_i18n": {
         "en": "Line Balance Type",
-        "tr": "Hat Dengeleme Türü"
+        "tr": "Hat Dengeleme Türü",
+        "de": "Linienausgleichstyp",
+        "fr": "Type d'équilibrage de ligne"
       },
       "businessContext_i18n": {
         "en": "Configuration of the sewing line: straight, U-shape, or modular (Lean layout principles).",
-        "tr": "Dikiş hattının konfigürasyonu: düz, U-şekilli veya modüler (Yalın yerleşim prensipleri)."
+        "tr": "Dikiş hattının konfigürasyonu: düz, U-şekilli veya modüler (Yalın yerleşim prensipleri).",
+        "de": "Konfiguration der Nählinie: gerade, U-förmig oder modular (Lean-Layout-Prinzipien).",
+        "fr": "Configuration de la ligne de couture : droite, en U ou modulaire (principes Lean d'implantation)."
       }
     },
     {
@@ -115,11 +135,15 @@
       "businessContext": "If true, the tool will suggest operator reassignment to improve balance.",
       "label_i18n": {
         "en": "Allow Rebalancing",
-        "tr": "Yeniden Dengelemeye İzin Ver"
+        "tr": "Yeniden Dengelemeye İzin Ver",
+        "de": "Neuausgleich zulassen",
+        "fr": "Autoriser le rééquilibrage"
       },
       "businessContext_i18n": {
         "en": "If true, the tool will suggest operator reassignment to improve balance.",
-        "tr": "Doğruysa, araç dengeyi iyileştirmek için operatör yeniden ataması önerecektir."
+        "tr": "Doğruysa, araç dengeyi iyileştirmek için operatör yeniden ataması önerecektir.",
+        "de": "Wenn wahr, schlägt das Tool eine Neuzuweisung von Bedienern vor, um den Ausgleich zu verbessern.",
+        "fr": "Si vrai, l'outil suggérera une réaffectation des opérateurs pour améliorer l'équilibre."
       }
     }
   ],

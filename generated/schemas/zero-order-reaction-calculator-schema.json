@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Initial Concentration",
         "tr": "Başlangıç Konsantrasyonu",
-        "de": "Initial Concentration",
-        "fr": "Initial Concentration",
+        "de": "Anfangskonzentration",
+        "fr": "Concentration initiale",
         "es": "Initial Concentration",
         "ar": "Initial Concentration"
       },
       "businessContext_i18n": {
         "en": "Initial concentration of the reactant before the reaction starts.",
-        "tr": "Reaksiyon başlamadan önce reaktantın başlangıç konsantrasyonu."
+        "tr": "Reaksiyon başlamadan önce reaktantın başlangıç konsantrasyonu.",
+        "de": "Anfangskonzentration des Reaktanten vor Reaktionsbeginn.",
+        "fr": "Concentration initiale du réactif avant le début de la réaction."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Rate Constant",
         "tr": "Hız Sabiti",
-        "de": "Rate Constant",
-        "fr": "Rate Constant",
-        "es": "Rate Constant",
+        "de": "Geschwindigkeitskonstante",
+        "fr": "Constante de vitesse",
+        "es": "Constante de velocidad",
         "ar": "Rate Constant"
       },
       "businessContext_i18n": {
         "en": "Zero-order rate constant, representing the consumption rate per unit time.",
-        "tr": "Sıfırıncı derece hız sabiti, birim zaman başına tüketim oranını temsil eder."
+        "tr": "Sıfırıncı derece hız sabiti, birim zaman başına tüketim oranını temsil eder.",
+        "de": "Geschwindigkeitskonstante nullter Ordnung, die die Verbrauchsrate pro Zeiteinheit darstellt.",
+        "fr": "Constante de vitesse d'ordre zéro, représentant le taux de consommation par unité de temps."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Reaction Time",
         "tr": "Reaksiyon Süresi",
-        "de": "Reaction Time",
-        "fr": "Reaction Time",
+        "de": "Reaktionszeit",
+        "fr": "Temps de réaction",
         "es": "Reaction Time",
         "ar": "Reaction Time"
       },
       "businessContext_i18n": {
         "en": "The time elapsed since the start of the reaction.",
-        "tr": "Reaksiyonun başlangıcından bu yana geçen süre."
+        "tr": "Reaksiyonun başlangıcından bu yana geçen süre.",
+        "de": "Die seit Reaktionsbeginn vergangene Zeit.",
+        "fr": "Temps écoulé depuis le début de la réaction."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Target Concentration",
         "tr": "Hedef Konsantrasyon",
-        "de": "Target Concentration",
-        "fr": "Target Concentration",
+        "de": "Zielkonzentration",
+        "fr": "Concentration cible",
         "es": "Target Concentration",
         "ar": "Target Concentration"
       },
       "businessContext_i18n": {
         "en": "Desired concentration of the reactant to calculate the required reaction time.",
-        "tr": "Gerekli reaksiyon süresini hesaplamak için istenen reaktant konsantrasyonu."
+        "tr": "Gerekli reaksiyon süresini hesaplamak için istenen reaktant konsantrasyonu.",
+        "de": "Gewünschte Konzentration des Reaktanten zur Berechnung der erforderlichen Reaktionszeit.",
+        "fr": "Concentration souhaitée du réactif pour calculer le temps de réaction nécessaire."
       }
     }
   ],

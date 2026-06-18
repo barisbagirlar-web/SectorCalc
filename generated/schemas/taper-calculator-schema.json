@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Large Diameter (D)",
         "tr": "Büyük Çap (D)",
-        "de": "Large Diameter (D)",
-        "fr": "Large Diameter (D)",
+        "de": "Großer Durchmesser (D)",
+        "fr": "Grand diamètre (D)",
         "es": "Large Diameter (D)",
         "ar": "Large Diameter (D)"
       },
       "businessContext_i18n": {
         "en": "The larger diameter of the tapered section",
-        "tr": "Konik bölümün büyük çapı"
+        "tr": "Konik bölümün büyük çapı",
+        "de": "Der größere Durchmesser des konischen Abschnitts",
+        "fr": "Le plus grand diamètre de la section conique"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Small Diameter (d)",
         "tr": "Küçük Çap (d)",
-        "de": "Small Diameter (d)",
-        "fr": "Small Diameter (d)",
+        "de": "Kleiner Durchmesser (d)",
+        "fr": "Petit diamètre (d)",
         "es": "Small Diameter (d)",
         "ar": "Small Diameter (d)"
       },
       "businessContext_i18n": {
         "en": "The smaller diameter of the tapered section",
-        "tr": "Konik bölümün küçük çapı"
+        "tr": "Konik bölümün küçük çapı",
+        "de": "Der kleinere Durchmesser des konischen Abschnitts",
+        "fr": "Le plus petit diamètre de la section conique"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Length (L)",
         "tr": "Uzunluk (L)",
-        "de": "Length (L)",
-        "fr": "Length (L)",
-        "es": "Length (L)",
+        "de": "Länge (L)",
+        "fr": "Longueur (L)",
+        "es": "Longitud (L)",
         "ar": "Length (L)"
       },
       "businessContext_i18n": {
         "en": "The length over which the taper is measured",
-        "tr": "Konikliğin ölçüldüğü uzunluk"
+        "tr": "Konikliğin ölçüldüğü uzunluk",
+        "de": "Die Länge, über die die Verjüngung gemessen wird",
+        "fr": "La longueur sur laquelle le cône est mesuré"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Reference Length",
         "tr": "Referans Uzunluğu",
-        "de": "Reference Length",
-        "fr": "Reference Length",
+        "de": "Referenzlänge",
+        "fr": "Longueur de référence",
         "es": "Reference Length",
         "ar": "Reference Length"
       },
       "businessContext_i18n": {
         "en": "A standard length over which to compute the diameter reduction (e.g., 100 mm)",
-        "tr": "Çap azalmasının hesaplanacağı standart uzunluk (örneğin, 100 mm)"
+        "tr": "Çap azalmasının hesaplanacağı standart uzunluk (örneğin, 100 mm)",
+        "de": "Eine Standardlänge zur Berechnung der Durchmesserreduktion (z.B. 100 mm)",
+        "fr": "Une longueur standard sur laquelle calculer la réduction de diamètre (par exemple, 100 mm)"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Tank Length",
         "tr": "Tank Uzunluğu",
         "de": "Tanklänge",
-        "fr": "Tank Length",
-        "es": "Tank Length",
+        "fr": "Longueur du réservoir",
+        "es": "Longitud del tanque",
         "ar": "Tank Length"
       },
       "businessContext_i18n": {
         "en": "Length of the fish tank in meters.",
         "tr": "Balık tankının metre cinsinden uzunluğu.",
-        "de": "Länge des Fischtanks in Metern."
+        "de": "Länge des Fischtanks in Metern.",
+        "fr": "Longueur du réservoir à poissons en mètres.",
+        "es": "Longitud del tanque de peces en metros."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Tank Width",
         "tr": "Tank Genişliği",
         "de": "Tankbreite",
-        "fr": "Tank Width",
-        "es": "Tank Width",
+        "fr": "Largeur du réservoir",
+        "es": "Ancho del tanque",
         "ar": "Tank Width"
       },
       "businessContext_i18n": {
         "en": "Width of the fish tank in meters.",
         "tr": "Balık tankının metre cinsinden genişliği.",
-        "de": "Breite des Fischtanks in Metern."
+        "de": "Breite des Fischtanks in Metern.",
+        "fr": "Largeur du réservoir à poissons en mètres.",
+        "es": "Ancho del tanque de peces en metros."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Water Depth",
         "tr": "Su Derinliği",
         "de": "Wassertiefe",
-        "fr": "Water Depth",
-        "es": "Water Depth",
+        "fr": "Profondeur de l'eau",
+        "es": "Profundidad del agua",
         "ar": "Water Depth"
       },
       "businessContext_i18n": {
         "en": "Depth of water in the tank in meters.",
         "tr": "Tanktaki suyun metre cinsinden derinliği.",
-        "de": "Wassertiefe im Tank in Metern."
+        "de": "Wassertiefe im Tank in Metern.",
+        "fr": "Profondeur de l'eau dans le réservoir en mètres.",
+        "es": "Profundidad del agua en el tanque en metros."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Average Fish Length",
         "tr": "Ortalama Balık Boyu",
         "de": "Durchschnittliche Fischlänge",
-        "fr": "Average Fish Length",
-        "es": "Average Fish Length",
+        "fr": "Longueur moyenne des poissons",
+        "es": "Longitud promedio del pez",
         "ar": "Average Fish Length"
       },
       "businessContext_i18n": {
         "en": "Average length of fish in centimeters.",
         "tr": "Balıkların santimetre cinsinden ortalama boyu.",
-        "de": "Durchschnittliche Länge der Fische in Zentimetern."
+        "de": "Durchschnittliche Länge der Fische in Zentimetern.",
+        "fr": "Longueur moyenne des poissons en centimètres.",
+        "es": "Longitud promedio de los peces en centímetros."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Condition Factor (K)",
         "tr": "Kondisyon Faktörü (K)",
         "de": "Konditionsfaktor (K)",
-        "fr": "Condition Factor (K)",
-        "es": "Condition Factor (K)",
+        "fr": "Facteur de condition (K)",
+        "es": "Factor de condición (K)",
         "ar": "Condition Factor (K)"
       },
       "businessContext_i18n": {
         "en": "Condition factor for weight-length relationship. Typical range 0.01-0.03.",
         "tr": "Ağırlık-boy ilişkisi için kondisyon faktörü. Tipik aralık 0.01-0.03.",
-        "de": "Konditionsfaktor für die Gewicht-Längen-Beziehung. Typischer Bereich 0,01-0,03."
+        "de": "Konditionsfaktor für die Gewicht-Längen-Beziehung. Typischer Bereich 0,01-0,03.",
+        "fr": "Facteur de condition pour la relation poids-longueur. Plage typique 0,01-0,03.",
+        "es": "Factor de condición para la relación peso-longitud. Rango típico 0.01-0.03."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Stocking Density",
         "tr": "Stok Yoğunluğu",
         "de": "Besatzdichte",
-        "fr": "Stocking Density",
-        "es": "Stocking Density",
+        "fr": "Densité de stockage",
+        "es": "Densidad de siembra",
         "ar": "Stocking Density"
       },
       "businessContext_i18n": {
         "en": "Desired stocking density in kg per cubic meter.",
         "tr": "Metreküp başına kilogram cinsinden istenen stok yoğunluğu.",
-        "de": "Gewünschte Besatzdichte in kg pro Kubikmeter."
+        "de": "Gewünschte Besatzdichte in kg pro Kubikmeter.",
+        "fr": "Densité de stockage souhaitée en kg par mètre cube.",
+        "es": "Densidad de siembra deseada en kg por metro cúbico."
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Safety factor to reduce stocking from theoretical maximum (0-1).",
         "tr": "Teorik maksimumdan stoklamayı azaltmak için güvenlik faktörü (0-1).",
-        "de": "Sicherheitsfaktor zur Reduzierung des Besatzes vom theoretischen Maximum (0-1)."
+        "de": "Sicherheitsfaktor zur Reduzierung des Besatzes vom theoretischen Maximum (0-1).",
+        "fr": "Facteur de sécurité pour réduire le stockage par rapport au maximum théorique (0-1).",
+        "es": "Factor de seguridad para reducir la siembra del máximo teórico (0-1)."
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Outer Diameter",
         "tr": "Dış Çap",
-        "de": "Outer Diameter",
-        "fr": "Outer Diameter",
-        "es": "Outer Diameter",
+        "de": "Außendurchmesser",
+        "fr": "Diamètre extérieur",
+        "es": "Diámetro exterior",
         "ar": "Outer Diameter"
       },
       "businessContext_i18n": {
         "en": "Pipe outer diameter in millimeters. Standard sizes: 21.3mm to 219.1mm.",
-        "tr": "Boru dış çapı milimetre cinsinden. Standart boyutlar: 21,3 mm - 219,1 mm."
+        "tr": "Boru dış çapı milimetre cinsinden. Standart boyutlar: 21,3 mm - 219,1 mm.",
+        "de": "Rohraußendurchmesser in Millimetern. Standardgrößen: 21,3 mm bis 219,1 mm.",
+        "fr": "Diamètre extérieur du tuyau en millimètres. Tailles standard : 21,3 mm à 219,1 mm.",
+        "es": "Diámetro exterior de la tubería en milímetros. Tamaños estándar: 21,3 mm a 219,1 mm."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Wall Thickness",
         "tr": "Duvar Kalınlığı (cm)",
         "de": "Duvar Kalınlığı",
-        "fr": "Wall Thickness",
-        "es": "Wall Thickness",
+        "fr": "Épaisseur du mur",
+        "es": "Espesor del muro",
         "ar": "Wall Thickness"
       },
       "businessContext_i18n": {
         "en": "Wall thickness in millimeters. Varies by schedule.",
-        "tr": "Milimetre cinsinden et kalınlığı. Schedule'a göre değişir."
+        "tr": "Milimetre cinsinden et kalınlığı. Schedule'a göre değişir.",
+        "de": "Wandstärke in Millimetern. Variiert je nach Schedule.",
+        "fr": "Épaisseur de paroi en millimètres. Varie selon le schedule.",
+        "es": "Espesor de pared en milímetros. Varía según el calendario."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Length",
         "tr": "Uzunluk",
         "de": "Länge",
-        "fr": "Length",
-        "es": "Length",
+        "fr": "Longueur",
+        "es": "Longitud",
         "ar": "Length"
       },
       "businessContext_i18n": {
         "en": "Pipe length in meters. Commonly 6m or 12m.",
-        "tr": "Metre cinsinden boru uzunluğu. Genellikle 6 m veya 12 m."
+        "tr": "Metre cinsinden boru uzunluğu. Genellikle 6 m veya 12 m.",
+        "de": "Rohrlänge in Metern. Üblich sind 6 m oder 12 m.",
+        "fr": "Longueur du tuyau en mètres. Généralement 6 m ou 12 m.",
+        "es": "Longitud de la tubería en metros. Comúnmente 6 m o 12 m."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Material Density",
         "tr": "Malzeme Yoğunluğu",
         "de": "Materialdichte",
-        "fr": "Material Density",
-        "es": "Material Density",
+        "fr": "Densité du matériau",
+        "es": "Densidad del material",
         "ar": "Material Density"
       },
       "businessContext_i18n": {
         "en": "Material density in kg/m³. Steel: 7850, aluminum: 2700, PVC: 1400.",
-        "tr": "kg/m³ cinsinden malzeme yoğunluğu. Çelik: 7850, alüminyum: 2700, PVC: 1400."
+        "tr": "kg/m³ cinsinden malzeme yoğunluğu. Çelik: 7850, alüminyum: 2700, PVC: 1400.",
+        "de": "Materialdichte in kg/m³. Stahl: 7850, Aluminium: 2700, PVC: 1400.",
+        "fr": "Densité du matériau en kg/m³. Acier : 7850, aluminium : 2700, PVC : 1400.",
+        "es": "Densidad del material en kg/m³. Acero: 7850, aluminio: 2700, PVC: 1400."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Quantity",
         "tr": "Miktar",
         "de": "Menge",
-        "fr": "Quantity",
-        "es": "Quantity",
+        "fr": "Quantité",
+        "es": "Cantidad",
         "ar": "Quantity"
       },
       "businessContext_i18n": {
         "en": "Number of pipe pieces.",
-        "tr": "Boru parça sayısı."
+        "tr": "Boru parça sayısı.",
+        "de": "Anzahl der Rohrstücke.",
+        "fr": "Nombre de pièces de tuyau.",
+        "es": "Número de piezas de tubería."
       }
     }
   ],

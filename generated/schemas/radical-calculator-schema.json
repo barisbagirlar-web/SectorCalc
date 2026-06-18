@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Çarpan",
         "tr": "Çarpan",
-        "de": "Çarpan",
-        "fr": "Çarpan",
-        "es": "Çarpan",
+        "de": "Multiplikator",
+        "fr": "Multiplicateur",
+        "es": "Multiplicador",
         "ar": "Çarpan"
       },
       "businessContext_i18n": {
         "en": "Kök önündeki katsayı çarpanı",
-        "tr": "Kök önündeki katsayı çarpanı"
+        "tr": "Kök önündeki katsayı çarpanı",
+        "de": "Koeffizient vor der Wurzel",
+        "fr": "Coefficient multiplicateur devant la racine",
+        "es": "Coeficiente multiplicador delante de la raíz"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Köklü Sayı",
         "tr": "Köklü Sayı",
-        "de": "Köklü Sayı",
-        "fr": "Köklü Sayı",
-        "es": "Köklü Sayı",
+        "de": "Radikand",
+        "fr": "Nombre sous la racine",
+        "es": "Radicando",
         "ar": "Köklü Sayı"
       },
       "businessContext_i18n": {
         "en": "Kök içine yazılan sayı",
-        "tr": "Kök içine yazılan sayı"
+        "tr": "Kök içine yazılan sayı",
+        "de": "Zahl unter der Wurzel",
+        "fr": "Nombre inscrit sous la racine",
+        "es": "Número dentro de la raíz"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Kök Derecesi",
         "tr": "Kök Derecesi",
-        "de": "Kök Derecesi",
-        "fr": "Kök Derecesi",
-        "es": "Kök Derecesi",
+        "de": "Wurzelexponent",
+        "fr": "Indice de la racine",
+        "es": "Índice de la raíz",
         "ar": "Kök Derecesi"
       },
       "businessContext_i18n": {
         "en": "Kökün derecesi (2 karekök, 3 küpkök...)",
-        "tr": "Kökün derecesi (2 karekök, 3 küpkök...)"
+        "tr": "Kökün derecesi (2 karekök, 3 küpkök...)",
+        "de": "Wurzelexponent (2 für Quadratwurzel, 3 für Kubikwurzel...)",
+        "fr": "Indice de la racine (2 pour racine carrée, 3 pour racine cubique...)",
+        "es": "Índice de la raíz (2 para raíz cuadrada, 3 para cúbica...)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Ek Terim",
         "tr": "Ek Terim",
-        "de": "Ek Terim",
-        "fr": "Ek Terim",
-        "es": "Ek Terim",
+        "de": "Zusätzlicher Term",
+        "fr": "Terme additionnel",
+        "es": "Término adicional",
         "ar": "Ek Terim"
       },
       "businessContext_i18n": {
         "en": "Sonuca eklenecek sabit sayı",
-        "tr": "Sonuca eklenecek sabit sayı"
+        "tr": "Sonuca eklenecek sabit sayı",
+        "de": "Konstante Zahl, die zum Ergebnis addiert wird",
+        "fr": "Constante à ajouter au résultat",
+        "es": "Número constante a añadir al resultado"
       }
     }
   ],

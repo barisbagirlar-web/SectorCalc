@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Laser Power",
         "tr": "Lazer gücü",
-        "de": "Laser Power",
-        "fr": "Laser Power",
-        "es": "Laser Power",
+        "de": "Laserleistung",
+        "fr": "Puissance laser",
+        "es": "Potencia del láser",
         "ar": "Laser Power"
       },
       "businessContext_i18n": {
         "en": "Nominal laser output power",
-        "tr": "Nominal lazer çıkış gücü"
+        "tr": "Nominal lazer çıkış gücü",
+        "de": "Nennleistung des Lasers",
+        "fr": "Puissance nominale de sortie du laser",
+        "es": "Potencia nominal de salida del láser"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Cutting Speed",
         "tr": "Kesme Hızı",
         "de": "Schnittgeschwindigkeit",
-        "fr": "Cutting Speed",
-        "es": "Cutting Speed",
+        "fr": "Vitesse de coupe",
+        "es": "Velocidad de corte",
         "ar": "Cutting Speed"
       },
       "businessContext_i18n": {
         "en": "Speed of the cutting head",
-        "tr": "Kesme kafasının hızı"
+        "tr": "Kesme kafasının hızı",
+        "de": "Geschwindigkeit des Schneidkopfes",
+        "fr": "Vitesse de la tête de coupe",
+        "es": "Velocidad del cabezal de corte"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Material Thickness",
         "tr": "Malzeme kalınlığı",
-        "de": "Material Thickness",
-        "fr": "Material Thickness",
-        "es": "Material Thickness",
+        "de": "Materialdicke",
+        "fr": "Épaisseur du matériau",
+        "es": "Espesor del material",
         "ar": "Material Thickness"
       },
       "businessContext_i18n": {
         "en": "Thickness of the material being cut",
-        "tr": "Kesilen malzemenin kalınlığı"
+        "tr": "Kesilen malzemenin kalınlığı",
+        "de": "Dicke des zu schneidenden Materials",
+        "fr": "Épaisseur du matériau à couper",
+        "es": "Espesor del material que se está cortando"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Kerf Width",
         "tr": "Kerf genişliği",
-        "de": "Kerf Width",
-        "fr": "Kerf Width",
-        "es": "Kerf Width",
+        "de": "Schnittfugenbreite",
+        "fr": "Largeur de saignée",
+        "es": "Ancho de corte",
         "ar": "Kerf Width"
       },
       "businessContext_i18n": {
         "en": "Width of the cut kerf",
-        "tr": "Kesim kerf genişliği"
+        "tr": "Kesim kerf genişliği",
+        "de": "Breite der Schnittfuge",
+        "fr": "Largeur de la saignée de coupe",
+        "es": "Ancho del corte"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Material Absorption Coefficient",
         "tr": "Malzeme soğurma katsayısı",
-        "de": "Material Absorption Coefficient",
-        "fr": "Material Absorption Coefficient",
-        "es": "Material Absorption Coefficient",
+        "de": "Materialabsorptionskoeffizient",
+        "fr": "Coefficient d'absorption du matériau",
+        "es": "Coeficiente de absorción del material",
         "ar": "Material Absorption Coefficient"
       },
       "businessContext_i18n": {
         "en": "Fraction of laser energy absorbed by the material (0-1)",
-        "tr": "Malzeme tarafından soğurulan lazer enerjisi oranı (0-1)"
+        "tr": "Malzeme tarafından soğurulan lazer enerjisi oranı (0-1)",
+        "de": "Anteil der vom Material absorbierten Laserenergie (0-1)",
+        "fr": "Fraction de l'énergie laser absorbée par le matériau (0-1)",
+        "es": "Fracción de energía láser absorbida por el material (0-1)"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Operating Cost per Hour",
         "tr": "Saatlik işletme maliyeti",
-        "de": "Operating Cost per Hour",
-        "fr": "Operating Cost per Hour",
-        "es": "Operating Cost per Hour",
+        "de": "Betriebskosten pro Stunde",
+        "fr": "Coût de fonctionnement par heure",
+        "es": "Coste operativo por hora",
         "ar": "Operating Cost per Hour"
       },
       "businessContext_i18n": {
         "en": "Total operating cost including electricity, maintenance, and labor",
-        "tr": "Elektrik, bakım ve işçilik dahil toplam işletme maliyeti"
+        "tr": "Elektrik, bakım ve işçilik dahil toplam işletme maliyeti",
+        "de": "Gesamtbetriebskosten inkl. Strom, Wartung und Arbeit",
+        "fr": "Coût total de fonctionnement incluant électricité, maintenance et main-d'œuvre",
+        "es": "Coste operativo total incluyendo electricidad, mantenimiento y mano de obra"
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Total Cut Length",
         "tr": "Toplam kesim uzunluğu",
-        "de": "Total Cut Length",
-        "fr": "Total Cut Length",
-        "es": "Total Cut Length",
+        "de": "Gesamtschnittlänge",
+        "fr": "Longueur totale de coupe",
+        "es": "Longitud total de corte",
         "ar": "Total Cut Length"
       },
       "businessContext_i18n": {
         "en": "Total length of the laser cut path for the job",
-        "tr": "İş için lazer kesim yolunun toplam uzunluğu"
+        "tr": "İş için lazer kesim yolunun toplam uzunluğu",
+        "de": "Gesamtlänge des Laserschneidpfads für den Auftrag",
+        "fr": "Longueur totale du trajet de coupe laser pour la tâche",
+        "es": "Longitud total de la trayectoria de corte láser para el trabajo"
       }
     },
     {
@@ -152,13 +173,16 @@
         "en": "Setup Time",
         "tr": "Kurulum Süresi",
         "de": "Rüstzeit",
-        "fr": "Setup Time",
-        "es": "Setup Time",
+        "fr": "Temps de réglage",
+        "es": "Tiempo de preparación",
         "ar": "Setup Time"
       },
       "businessContext_i18n": {
         "en": "Time required to load/unload material and set up the machine",
-        "tr": "Malzeme yükleme/boşaltma ve makine kurulumu için gereken süre"
+        "tr": "Malzeme yükleme/boşaltma ve makine kurulumu için gereken süre",
+        "de": "Zeit für Be- und Entladen sowie Einrichten der Maschine",
+        "fr": "Temps nécessaire pour charger/décharger le matériau et configurer la machine",
+        "es": "Tiempo necesario para cargar/descargar material y configurar la máquina"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "QR Code Version",
         "tr": "QR Kod Versiyonu",
-        "de": "QR Code Version",
-        "fr": "QR Code Version",
-        "es": "QR Code Version",
+        "de": "QR-Code-Version",
+        "fr": "Version du code QR",
+        "es": "Versión del código QR",
         "ar": "QR Code Version"
       },
       "businessContext_i18n": {
         "en": "QR code version from 1 to 40, determines data capacity and physical size.",
-        "tr": "1'den 40'a kadar QR kod versiyonu, veri kapasitesini ve fiziksel boyutu belirler."
+        "tr": "1'den 40'a kadar QR kod versiyonu, veri kapasitesini ve fiziksel boyutu belirler.",
+        "de": "QR-Code-Version von 1 bis 40, bestimmt Datenkapazität und physische Größe.",
+        "fr": "Version du code QR de 1 à 40, détermine la capacité de données et la taille physique.",
+        "es": "Versión del código QR del 1 al 40, determina la capacidad de datos y el tamaño físico."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Module Size",
         "tr": "Modül Boyutu",
-        "de": "Module Size",
-        "fr": "Module Size",
-        "es": "Module Size",
+        "de": "Modulgröße",
+        "fr": "Taille du module",
+        "es": "Tamaño del módulo",
         "ar": "Module Size"
       },
       "businessContext_i18n": {
         "en": "Edge length of one module (black or white square) in millimeters.",
-        "tr": "Bir modülün (siyah veya beyaz kare) milimetre cinsinden kenar uzunluğu."
+        "tr": "Bir modülün (siyah veya beyaz kare) milimetre cinsinden kenar uzunluğu.",
+        "de": "Kantenlänge eines Moduls (schwarzes oder weißes Quadrat) in Millimetern.",
+        "fr": "Longueur d'arête d'un module (carré noir ou blanc) en millimètres.",
+        "es": "Longitud del borde de un módulo (cuadrado negro o blanco) en milímetros."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Quiet Zone Width",
         "tr": "Sessiz Bölge Genişliği",
-        "de": "Quiet Zone Width",
-        "fr": "Quiet Zone Width",
-        "es": "Quiet Zone Width",
+        "de": "Ruhezonenbreite",
+        "fr": "Largeur de la zone de silence",
+        "es": "Ancho de la zona de silencio",
         "ar": "Quiet Zone Width"
       },
       "businessContext_i18n": {
         "en": "Required clear margin around the QR code, measured in modules (standard is 4).",
-        "tr": "QR kodu etrafında gerekli boş kenar boşluğu, modül cinsinden ölçülür (standart 4'tür)."
+        "tr": "QR kodu etrafında gerekli boş kenar boşluğu, modül cinsinden ölçülür (standart 4'tür).",
+        "de": "Erforderlicher freier Rand um den QR-Code, gemessen in Modulen (Standard ist 4).",
+        "fr": "Marge claire requise autour du code QR, mesurée en modules (la norme est 4).",
+        "es": "Margen libre requerido alrededor del código QR, medido en módulos (el estándar es 4)."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Print Resolution",
         "tr": "Baskı Çözünürlüğü",
-        "de": "Print Resolution",
-        "fr": "Print Resolution",
-        "es": "Print Resolution",
+        "de": "Druckauflösung",
+        "fr": "Résolution d'impression",
+        "es": "Resolución de impresión",
         "ar": "Print Resolution"
       },
       "businessContext_i18n": {
         "en": "Printer or display resolution in dots per inch, used for pixel dimension output.",
-        "tr": "İnç başına nokta cinsinden yazıcı veya ekran çözünürlüğü, piksel boyut çıktısı için kullanılır."
+        "tr": "İnç başına nokta cinsinden yazıcı veya ekran çözünürlüğü, piksel boyut çıktısı için kullanılır.",
+        "de": "Drucker- oder Bildschirmauflösung in Punkten pro Zoll, wird für die Pixelmaßausgabe verwendet.",
+        "fr": "Résolution de l'imprimante ou de l'écran en points par pouce, utilisée pour la sortie en dimensions de pixels.",
+        "es": "Resolución de la impresora o pantalla en puntos por pulgada, utilizada para la salida de dimensiones en píxeles."
       }
     }
   ],

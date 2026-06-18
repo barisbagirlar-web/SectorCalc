@@ -12,14 +12,16 @@
         "en": "Start Odometer",
         "tr": "Başlangıç Kilometre Sayacı",
         "de": "Startkilometerstand",
-        "fr": "Start Odometer",
-        "es": "Start Odometer",
+        "fr": "Compteur de départ",
+        "es": "Odómetro inicial",
         "ar": "Start Odometer"
       },
       "businessContext_i18n": {
         "en": "Initial odometer reading before trip",
         "tr": "Yolculuk öncesi ilk kilometre sayacı okuması",
-        "de": "Anfänglicher Kilometerstand vor der Fahrt"
+        "de": "Anfänglicher Kilometerstand vor der Fahrt",
+        "fr": "Relevé initial du compteur avant le trajet",
+        "es": "Lectura inicial del odómetro antes del viaje"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "End Odometer",
         "tr": "Bitiş Kilometre Sayacı",
         "de": "Endkilometerstand",
-        "fr": "End Odometer",
-        "es": "End Odometer",
+        "fr": "Compteur d'arrivée",
+        "es": "Odómetro final",
         "ar": "End Odometer"
       },
       "businessContext_i18n": {
         "en": "Final odometer reading after trip",
         "tr": "Yolculuk sonrası son kilometre sayacı okuması",
-        "de": "Endstand des Kilometerzählers nach der Fahrt"
+        "de": "Endstand des Kilometerzählers nach der Fahrt",
+        "fr": "Relevé final du compteur après le trajet",
+        "es": "Lectura final del odómetro después del viaje"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Fuel Used",
         "tr": "Kullanılan Yakıt",
         "de": "Verbrauchter Kraftstoff",
-        "fr": "Fuel Used",
-        "es": "Fuel Used",
+        "fr": "Carburant utilisé",
+        "es": "Combustible utilizado",
         "ar": "Fuel Used"
       },
       "businessContext_i18n": {
         "en": "Volume of fuel consumed during trip",
         "tr": "Yolculuk sırasında tüketilen yakıt hacmi",
-        "de": "Während der Fahrt verbrauchte Kraftstoffmenge"
+        "de": "Während der Fahrt verbrauchte Kraftstoffmenge",
+        "fr": "Volume de carburant consommé pendant le trajet",
+        "es": "Volumen de combustible consumido durante el viaje"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Fuel Price",
         "tr": "Yakıt Fiyatı",
         "de": "Kraftstoffpreis",
-        "fr": "Fuel Price",
-        "es": "Fuel Price",
+        "fr": "Prix du carburant",
+        "es": "Precio del Combustible",
         "ar": "Fuel Price"
       },
       "businessContext_i18n": {
         "en": "Price of fuel per gallon for cost calculation",
         "tr": "Maliyet hesaplaması için galon başına yakıt fiyatı",
-        "de": "Kraftstoffpreis pro Gallone für die Kostenberechnung"
+        "de": "Kraftstoffpreis pro Gallone für die Kostenberechnung",
+        "fr": "Prix du carburant par gallon pour le calcul du coût",
+        "es": "Precio del combustible por galón para el cálculo de costos"
       }
     }
   ],

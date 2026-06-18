@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Function Type",
         "tr": "Fonksiyon Türü",
-        "de": "Function Type",
-        "fr": "Function Type",
-        "es": "Function Type",
+        "de": "Funktionstyp",
+        "fr": "Type de fonction",
+        "es": "Tipo de función",
         "ar": "Function Type"
       },
       "businessContext_i18n": {
         "en": "1: polynomial, 2: exponential, 3: trigonometric",
-        "tr": "1: polinom, 2: üstel, 3: trigonometrik"
+        "tr": "1: polinom, 2: üstel, 3: trigonometrik",
+        "de": "1: polynomial, 2: exponential, 3: trigonometrisch",
+        "fr": "1: polynomial, 2: exponentielle, 3: trigonométrique",
+        "es": "1: polinomial, 2: exponencial, 3: trigonométrica"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Coefficient (a)",
         "tr": "Katsayı (a)",
-        "de": "Coefficient (a)",
+        "de": "Koeffizient (a)",
         "fr": "Coefficient (a)",
-        "es": "Coefficient (a)",
+        "es": "Coeficiente (a)",
         "ar": "Coefficient (a)"
       },
       "businessContext_i18n": {
         "en": "Coefficient of the function",
-        "tr": "Fonksiyonun katsayısı"
+        "tr": "Fonksiyonun katsayısı",
+        "de": "Koeffizient der Funktion",
+        "fr": "Coefficient de la fonction",
+        "es": "Coeficiente de la función"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Exponent (n)",
         "tr": "Üs (n)",
         "de": "Exponent (n)",
-        "fr": "Exponent (n)",
-        "es": "Exponent (n)",
+        "fr": "Exposant (n)",
+        "es": "Exponente (n)",
         "ar": "Exponent (n)"
       },
       "businessContext_i18n": {
         "en": "Exponent for polynomial (n != -1)",
-        "tr": "Polinom için üs (n ≠ -1)"
+        "tr": "Polinom için üs (n ≠ -1)",
+        "de": "Exponent für Polynom (n != -1)",
+        "fr": "Exposant pour le polynôme (n ≠ -1)",
+        "es": "Exponente para polinomio (n ≠ -1)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Constant (C)",
         "tr": "Sabit (C)",
-        "de": "Constant (C)",
-        "fr": "Constant (C)",
-        "es": "Constant (C)",
+        "de": "Konstante (C)",
+        "fr": "Constante (C)",
+        "es": "Constante (C)",
         "ar": "Constant (C)"
       },
       "businessContext_i18n": {
         "en": "Integration constant",
-        "tr": "İntegral sabiti"
+        "tr": "İntegral sabiti",
+        "de": "Integrationskonstante",
+        "fr": "Constante d'intégration",
+        "es": "Constante de integración"
       }
     }
   ],

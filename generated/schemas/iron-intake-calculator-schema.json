@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Ore Mass",
         "tr": "Cevher Kütlesi",
-        "de": "Ore Mass",
-        "fr": "Ore Mass",
-        "es": "Ore Mass",
+        "de": "Erzmasse",
+        "fr": "Masse de minerai",
+        "es": "Masa de mineral",
         "ar": "Ore Mass"
       },
       "businessContext_i18n": {
         "en": "Total mass of iron ore fed into the process",
-        "tr": "Proses beslenen toplam demir cevheri kütlesi"
+        "tr": "Proses beslenen toplam demir cevheri kütlesi",
+        "de": "Gesamtmasse des in den Prozess eingespeisten Eisenerzes",
+        "fr": "Masse totale de minerai de fer introduite dans le processus",
+        "es": "Masa total de mineral de hierro alimentado al proceso"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Iron Concentration",
         "tr": "Demir Konsantrasyonu",
-        "de": "Iron Concentration",
-        "fr": "Iron Concentration",
-        "es": "Iron Concentration",
+        "de": "Eisenkonzentration",
+        "fr": "Concentration en fer",
+        "es": "Concentración de hierro",
         "ar": "Iron Concentration"
       },
       "businessContext_i18n": {
         "en": "Mass percentage of iron in the ore",
-        "tr": "Cevherdeki demir kütle yüzdesi"
+        "tr": "Cevherdeki demir kütle yüzdesi",
+        "de": "Massenanteil von Eisen im Erz in Prozent",
+        "fr": "Pourcentage massique de fer dans le minerai",
+        "es": "Porcentaje en masa de hierro en el mineral"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Moisture Content",
         "tr": "Nem İçeriği",
-        "de": "Moisture Content",
-        "fr": "Moisture Content",
-        "es": "Moisture Content",
+        "de": "Feuchtigkeitsgehalt",
+        "fr": "Teneur en humidité",
+        "es": "Contenido de humedad",
         "ar": "Moisture Content"
       },
       "businessContext_i18n": {
         "en": "Moisture mass percentage in the ore",
-        "tr": "Cevherdeki nem kütle yüzdesi"
+        "tr": "Cevherdeki nem kütle yüzdesi",
+        "de": "Massenanteil der Feuchtigkeit im Erz in Prozent",
+        "fr": "Pourcentage massique d'humidité dans le minerai",
+        "es": "Porcentaje en masa de humedad en el mineral"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Recovery Rate",
         "tr": "Geri Kazanım Oranı",
         "de": "Rückgewinnungsrate",
-        "fr": "Recovery Rate",
-        "es": "Recovery Rate",
+        "fr": "Taux de récupération",
+        "es": "Tasa de recuperación",
         "ar": "Recovery Rate"
       },
       "businessContext_i18n": {
         "en": "Expected percentage of iron recovered from ore after processing",
-        "tr": "İşleme sonrası cevherden geri kazanılan beklenen demir yüzdesi"
+        "tr": "İşleme sonrası cevherden geri kazanılan beklenen demir yüzdesi",
+        "de": "Erwarteter prozentualer Eisenanteil, der nach der Verarbeitung aus dem Erz gewonnen wird",
+        "fr": "Pourcentage attendu de fer récupéré du minerai après traitement",
+        "es": "Porcentaje esperado de hierro recuperado del mineral después del procesamiento"
       }
     }
   ],

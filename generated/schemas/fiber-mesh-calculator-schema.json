@@ -12,14 +12,16 @@
         "en": "Surface Area",
         "tr": "Yüzey Alanı",
         "de": "Oberfläche",
-        "fr": "Surface Area",
-        "es": "Surface Area",
+        "fr": "Surface",
+        "es": "Área superficial",
         "ar": "Surface Area"
       },
       "businessContext_i18n": {
         "en": "Total surface area to cover with fiber mesh (in square meters)",
         "tr": "Fiber mesh ile kaplanacak toplam yüzey alanı (metrekare cinsinden)",
-        "de": "Gesamtfläche, die mit Fasergewebe abgedeckt werden soll (in Quadratmetern)"
+        "de": "Gesamtfläche, die mit Fasergewebe abgedeckt werden soll (in Quadratmetern)",
+        "fr": "Surface totale à couvrir avec le treillis en fibres (en mètres carrés)",
+        "es": "Superficie total a cubrir con malla de fibra (en metros cuadrados)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Roll Width",
         "tr": "Rulo genişliği",
         "de": "Rollenbreite",
-        "fr": "Roll Width",
-        "es": "Roll Width",
+        "fr": "Largeur du rouleau",
+        "es": "Ancho de rollo",
         "ar": "Roll Width"
       },
       "businessContext_i18n": {
         "en": "Width of a single roll of fiber mesh (in meters)",
         "tr": "Tek bir fiber mesh rulosunun genişliği (metre cinsinden)",
-        "de": "Breite einer einzelnen Rolle Fasergewebe (in Metern)"
+        "de": "Breite einer einzelnen Rolle Fasergewebe (in Metern)",
+        "fr": "Largeur d'un rouleau de treillis en fibres (en mètres)",
+        "es": "Ancho de un solo rollo de malla de fibra (en metros)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Roll Length",
         "tr": "Rulo uzunluğu",
         "de": "Rollenlänge",
-        "fr": "Roll Length",
-        "es": "Roll Length",
+        "fr": "Longueur du rouleau",
+        "es": "Longitud de rollo",
         "ar": "Roll Length"
       },
       "businessContext_i18n": {
         "en": "Length of a single roll of fiber mesh (in meters)",
         "tr": "Tek bir fiber mesh rulosunun uzunluğu (metre cinsinden)",
-        "de": "Länge einer einzelnen Rolle Fasergewebe (in Metern)"
+        "de": "Länge einer einzelnen Rolle Fasergewebe (in Metern)",
+        "fr": "Longueur d'un rouleau de treillis en fibres (en mètres)",
+        "es": "Longitud de un solo rollo de malla de fibra (en metros)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Overlap Distance",
         "tr": "Bindirme mesafesi",
         "de": "Überlappungsabstand",
-        "fr": "Overlap Distance",
-        "es": "Overlap Distance",
+        "fr": "Distance de chevauchement",
+        "es": "Distancia de solapamiento",
         "ar": "Overlap Distance"
       },
       "businessContext_i18n": {
         "en": "Overlap between adjacent sheets (in meters), typically 0.1 m",
         "tr": "Bitişik tabakalar arasındaki bindirme (metre cinsinden, genellikle 0,1 m)",
-        "de": "Überlappung zwischen benachbarten Bahnen (in Metern), typischerweise 0,1 m"
+        "de": "Überlappung zwischen benachbarten Bahnen (in Metern), typischerweise 0,1 m",
+        "fr": "Chevauchement entre feuilles adjacentes (en mètres), généralement 0,1 m",
+        "es": "Solapamiento entre láminas adyacentes (en metros), típicamente 0.1 m"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
         "de": "Abfallfaktor",
-        "fr": "Waste Factor",
-        "es": "Waste Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Percentage extra material for cutting waste and errors (e.g., 5)",
         "tr": "Kesim atığı ve hatalar için yüzde ekstra malzeme (örneğin 5)",
-        "de": "Prozentsatz des zusätzlichen Materials für Schnittabfall und Fehler (z. B. 5)"
+        "de": "Prozentsatz des zusätzlichen Materials für Schnittabfall und Fehler (z. B. 5)",
+        "fr": "Pourcentage de matériau supplémentaire pour les chutes et erreurs de coupe (ex. 5)",
+        "es": "Porcentaje de material extra para desperdicio de corte y errores (ej. 5)"
       }
     }
   ],

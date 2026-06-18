@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Turkey Weight (kg)",
         "tr": "Hindi Ağırlığı (kg)",
-        "de": "Turkey Weight (kg)",
-        "fr": "Turkey Weight (kg)",
+        "de": "Truthahngewicht (kg)",
+        "fr": "Poids de la dinde (kg)",
         "es": "Turkey Weight (kg)",
         "ar": "Turkey Weight (kg)"
       },
       "businessContext_i18n": {
         "en": "Weight of the whole turkey before cooking",
-        "tr": "Pişirmeden önce bütün hindinin ağırlığı"
+        "tr": "Pişirmeden önce bütün hindinin ağırlığı",
+        "de": "Gewicht des gesamten Truthahns vor dem Garen",
+        "fr": "Poids de la dinde entière avant cuisson"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Cooking Temperature (°C)",
         "tr": "Pişirme Sıcaklığı (°C)",
-        "de": "Cooking Temperature (°C)",
-        "fr": "Cooking Temperature (°C)",
+        "de": "Gartemperatur (°C)",
+        "fr": "Température de cuisson (°C)",
         "es": "Cooking Temperature (°C)",
         "ar": "Cooking Temperature (°C)"
       },
       "businessContext_i18n": {
         "en": "Oven temperature setting",
-        "tr": "Fırın sıcaklık ayarı"
+        "tr": "Fırın sıcaklık ayarı",
+        "de": "Ofentemperatur-Einstellung",
+        "fr": "Réglage de la température du four"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Stuffing Weight (kg)",
         "tr": "İç Harç Ağırlığı (kg)",
-        "de": "Stuffing Weight (kg)",
-        "fr": "Stuffing Weight (kg)",
+        "de": "Füllungsgewicht (kg)",
+        "fr": "Poids de la farce (kg)",
         "es": "Stuffing Weight (kg)",
         "ar": "Stuffing Weight (kg)"
       },
       "businessContext_i18n": {
         "en": "Weight of stuffing inside the turkey",
-        "tr": "Hindinin içindeki iç harcın ağırlığı"
+        "tr": "Hindinin içindeki iç harcın ağırlığı",
+        "de": "Gewicht der Füllung im Truthahn",
+        "fr": "Poids de la farce à l'intérieur de la dinde"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Thawed? (1=yes, 0=no)",
         "tr": "Çözülmüş mü? (1=evet, 0=hayır)",
-        "de": "Thawed? (1=yes, 0=no)",
-        "fr": "Thawed? (1=yes, 0=no)",
+        "de": "Aufgetaut? (1=ja, 0=nein)",
+        "fr": "Décongelé ? (1=oui, 0=non)",
         "es": "Thawed? (1=yes, 0=no)",
         "ar": "Thawed? (1=yes, 0=no)"
       },
       "businessContext_i18n": {
         "en": "Whether the turkey is fully thawed",
-        "tr": "Hindinin tamamen çözülüp çözülmediği"
+        "tr": "Hindinin tamamen çözülüp çözülmediği",
+        "de": "Ob der Truthahn vollständig aufgetaut ist",
+        "fr": "Indique si la dinde est complètement décongelée"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Altitude (m)",
         "tr": "Rakım (m)",
-        "de": "Altitude (m)",
+        "de": "Höhe (m)",
         "fr": "Altitude (m)",
-        "es": "Altitude (m)",
+        "es": "Altitud (m)",
         "ar": "Altitude (m)"
       },
       "businessContext_i18n": {
         "en": "Elevation above sea level",
-        "tr": "Deniz seviyesinden yükseklik"
+        "tr": "Deniz seviyesinden yükseklik",
+        "de": "Höhe über dem Meeresspiegel",
+        "fr": "Altitude au-dessus du niveau de la mer"
       }
     }
   ],

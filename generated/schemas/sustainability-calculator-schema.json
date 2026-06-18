@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Electricity consumption",
         "tr": "Elektrik tüketimi",
-        "de": "Electricity consumption",
-        "fr": "Electricity consumption",
+        "de": "Stromverbrauch",
+        "fr": "Consommation d'électricité",
         "es": "Electricity consumption",
         "ar": "Electricity consumption"
       },
       "businessContext_i18n": {
         "en": "Annual electricity usage from grid",
-        "tr": "Şebekeden yıllık elektrik kullanımı"
+        "tr": "Şebekeden yıllık elektrik kullanımı",
+        "de": "Jährlicher Strombezug aus dem Netz",
+        "fr": "Consommation annuelle d'électricité du réseau"
       }
     },
     {
@@ -31,15 +33,17 @@
       "label_i18n": {
         "en": "Natural gas consumption",
         "tr": "Doğal gaz tüketimi",
-        "de": "Natural gas consumption",
-        "fr": "Natural gas consumption",
+        "de": "Erdgasverbrauch",
+        "fr": "Consommation de gaz naturel",
         "es": "Natural gas consumption",
         "ar": "Natural gas consumption"
       },
       "businessContext_i18n": {
         "en": "Annual natural gas usage",
         "tr": "Yıllık doğal gaz tüketimi",
-        "de": "Jährlicher Erdgasverbrauch"
+        "de": "Jährlicher Erdgasverbrauch",
+        "fr": "Consommation annuelle de gaz naturel",
+        "es": "Consumo anual de gas natural"
       }
     },
     {
@@ -52,15 +56,17 @@
       "label_i18n": {
         "en": "Vehicle fuel consumption",
         "tr": "Araç yakıt tüketimi",
-        "de": "Vehicle fuel consumption",
-        "fr": "Vehicle fuel consumption",
+        "de": "Kraftstoffverbrauch von Fahrzeugen",
+        "fr": "Consommation de carburant des véhicules",
         "es": "Vehicle fuel consumption",
         "ar": "Vehicle fuel consumption"
       },
       "businessContext_i18n": {
         "en": "Annual fuel usage for vehicles",
         "tr": "Araçlar için yıllık yakıt tüketimi",
-        "de": "Jährlicher Kraftstoffverbrauch für Fahrzeuge"
+        "de": "Jährlicher Kraftstoffverbrauch für Fahrzeuge",
+        "fr": "Consommation annuelle de carburant pour les véhicules",
+        "es": "Consumo anual de combustible para vehículos"
       }
     },
     {
@@ -73,14 +79,16 @@
       "label_i18n": {
         "en": "Waste generated",
         "tr": "Oluşan atık",
-        "de": "Waste generated",
-        "fr": "Waste generated",
+        "de": "Angefallener Abfall",
+        "fr": "Déchets générés",
         "es": "Waste generated",
         "ar": "Waste generated"
       },
       "businessContext_i18n": {
         "en": "Annual waste generated",
-        "tr": "Yıllık oluşan atık"
+        "tr": "Yıllık oluşan atık",
+        "de": "Jährlich anfallender Abfall",
+        "fr": "Déchets annuels générés"
       }
     }
   ],

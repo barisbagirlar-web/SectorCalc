@@ -12,14 +12,16 @@
         "en": "Patient Weight",
         "tr": "Hasta Ağırlığı",
         "de": "Patientengewicht",
-        "fr": "Patient Weight",
-        "es": "Patient Weight",
+        "fr": "Poids du patient",
+        "es": "Peso del paciente",
         "ar": "Patient Weight"
       },
       "businessContext_i18n": {
         "en": "Weight of the patient in kilograms",
         "tr": "Hastanın kilogram cinsinden ağırlığı",
-        "de": "Gewicht des Patienten in Kilogramm"
+        "de": "Gewicht des Patienten in Kilogramm",
+        "fr": "Poids du patient en kilogrammes",
+        "es": "Peso del paciente en kilogramos"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Drug Concentration",
         "tr": "İlaç Konsantrasyonu",
         "de": "Wirkstoffkonzentration",
-        "fr": "Drug Concentration",
-        "es": "Drug Concentration",
+        "fr": "Concentration du médicament",
+        "es": "Concentración del fármaco",
         "ar": "Drug Concentration"
       },
       "businessContext_i18n": {
         "en": "Concentration of anesthetic agent in percentage (g/100mL)",
         "tr": "Anestezik maddenin yüzde olarak konsantrasyonu (g/100mL)",
-        "de": "Konzentration des Anästhetikums in Prozent (g/100 ml)"
+        "de": "Konzentration des Anästhetikums in Prozent (g/100 ml)",
+        "fr": "Concentration de l'agent anesthésique en pourcentage (g/100mL)",
+        "es": "Concentración del agente anestésico en porcentaje (g/100mL)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Desired Dose Rate",
         "tr": "İstenen Doz Hızı",
         "de": "Gewünschte Dosisrate",
-        "fr": "Desired Dose Rate",
-        "es": "Desired Dose Rate",
+        "fr": "Dose souhaitée",
+        "es": "Tasa de dosis deseada",
         "ar": "Desired Dose Rate"
       },
       "businessContext_i18n": {
         "en": "Desired dose of anesthetic per kilogram of body weight",
         "tr": "Vücut ağırlığının kilogramı başına istenen anestezik dozu",
-        "de": "Gewünschte Dosis des Anästhetikums pro Kilogramm Körpergewicht"
+        "de": "Gewünschte Dosis des Anästhetikums pro Kilogramm Körpergewicht",
+        "fr": "Dose souhaitée d'anesthésique par kilogramme de poids corporel",
+        "es": "Dosis deseada de anestésico por kilogramo de peso corporal"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Max Safe Dose Limit",
         "tr": "Maksimum Güvenli Doz Limiti",
         "de": "Maximale sichere Dosisgrenze",
-        "fr": "Max Safe Dose Limit",
-        "es": "Max Safe Dose Limit",
+        "fr": "Limite de dose maximale sécuritaire",
+        "es": "Límite máximo de dosis segura",
         "ar": "Max Safe Dose Limit"
       },
       "businessContext_i18n": {
         "en": "Maximum safe dose of the anesthetic without epinephrine (e.g., 4 mg/kg for lidocaine)",
         "tr": "Epinefrinsiz anesteziğin maksimum güvenli dozu (örn. lidokain için 4 mg/kg)",
-        "de": "Maximale sichere Dosis des Anästhetikums ohne Epinephrin (z. B. 4 mg/kg für Lidocain)"
+        "de": "Maximale sichere Dosis des Anästhetikums ohne Epinephrin (z. B. 4 mg/kg für Lidocain)",
+        "fr": "Dose maximale sécuritaire de l'anesthésique sans épinéphrine (ex. : 4 mg/kg pour la lidocaïne)",
+        "es": "Dosis máxima segura del anestésico sin epinefrina (ej., 4 mg/kg para lidocaína)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Epinephrine Added",
         "tr": "Epinefrin Eklendi",
         "de": "Epinephrin hinzugefügt",
-        "fr": "Epinephrine Added",
-        "es": "Epinephrine Added",
+        "fr": "Épinéphrine ajoutée",
+        "es": "Epinefrina añadida",
         "ar": "Epinephrine Added"
       },
       "businessContext_i18n": {
         "en": "Indicates whether epinephrine is added (1) or not (0). Increases max safe dose by 75%.",
         "tr": "Epinefrin eklenip eklenmediğini belirtir (1 evet, 0 hayır). Maksimum güvenli dozu %75 artırır.",
-        "de": "Gibt an, ob Epinephrin hinzugefügt wird (1) oder nicht (0). Erhöht die maximale sichere Dosis um 75%."
+        "de": "Gibt an, ob Epinephrin hinzugefügt wird (1) oder nicht (0). Erhöht die maximale sichere Dosis um 75%.",
+        "fr": "Indique si l'épinéphrine est ajoutée (1) ou non (0). Augmente la dose maximale sécuritaire de 75 %.",
+        "es": "Indica si se añade epinefrina (1) o no (0). Aumenta la dosis máxima segura en un 75%."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Volume On Hand",
         "tr": "Mevcut Hacim",
         "de": "Vorhandenes Volumen",
-        "fr": "Volume On Hand",
-        "es": "Volume On Hand",
+        "fr": "Volume disponible",
+        "es": "Volumen disponible",
         "ar": "Volume On Hand"
       },
       "businessContext_i18n": {
         "en": "Total volume of anesthetic solution available in the vial",
         "tr": "Flakonda bulunan toplam anestezik solüsyon hacmi",
-        "de": "Gesamtvolumen der verfügbaren Anästhesielösung in der Durchstechflasche"
+        "de": "Gesamtvolumen der verfügbaren Anästhesielösung in der Durchstechflasche",
+        "fr": "Volume total de solution anesthésique disponible dans le flacon",
+        "es": "Volumen total de solución anestésica disponible en el vial"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Working Capital",
         "tr": "İşletme Sermayesi",
         "de": "Betriebskapital",
-        "fr": "Working Capital",
-        "es": "Working Capital",
+        "fr": "Fonds de roulement",
+        "es": "Capital de trabajo",
         "ar": "Working Capital"
       },
       "businessContext_i18n": {
         "en": "Current Assets minus Current Liabilities",
         "tr": "Dönen Varlıklar eksi Kısa Vadeli Yükümlülükler",
-        "de": "Umlaufvermögen abzüglich kurzfristiger Verbindlichkeiten"
+        "de": "Umlaufvermögen abzüglich kurzfristiger Verbindlichkeiten",
+        "fr": "Actifs courants moins Passifs courants",
+        "es": "Activo corriente menos Pasivo corriente"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Total Assets",
         "tr": "Toplam Varlıklar",
         "de": "Gesamtvermögen",
-        "fr": "Total Assets",
-        "es": "Total Assets",
+        "fr": "Actif total",
+        "es": "Activos totales",
         "ar": "Total Assets"
       },
       "businessContext_i18n": {
         "en": "Total assets on balance sheet",
         "tr": "Bilançodaki toplam varlıklar",
-        "de": "Gesamtvermögen in der Bilanz"
+        "de": "Gesamtvermögen in der Bilanz",
+        "fr": "Actif total au bilan",
+        "es": "Activos totales en el balance general"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Retained Earnings",
         "tr": "Dağıtılmamış Kârlar",
         "de": "Gewinnrücklagen",
-        "fr": "Retained Earnings",
-        "es": "Retained Earnings",
+        "fr": "Bénéfices non répartis",
+        "es": "Ganancias retenidas",
         "ar": "Retained Earnings"
       },
       "businessContext_i18n": {
         "en": "Cumulative net income minus dividends",
         "tr": "Net gelir eksi temettülerin kümülatif toplamı",
-        "de": "Kumulierter Nettogewinn abzüglich Dividenden"
+        "de": "Kumulierter Nettogewinn abzüglich Dividenden",
+        "fr": "Résultat net cumulé moins dividendes",
+        "es": "Ingreso neto acumulado menos dividendos"
       }
     },
     {
@@ -82,7 +88,9 @@
       "businessContext_i18n": {
         "en": "Earnings Before Interest and Taxes",
         "tr": "Faiz ve Vergi Öncesi Kâr",
-        "de": "Gewinn vor Zinsen und Steuern"
+        "de": "Gewinn vor Zinsen und Steuern",
+        "fr": "Bénéfice avant intérêts et impôts",
+        "es": "Ganancias antes de intereses e impuestos"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Market Value of Equity",
         "tr": "Özsermayenin Piyasa Değeri",
         "de": "Marktwert des Eigenkapitals",
-        "fr": "Market Value of Equity",
-        "es": "Market Value of Equity",
+        "fr": "Valeur boursière des capitaux propres",
+        "es": "Valor de mercado del patrimonio",
         "ar": "Market Value of Equity"
       },
       "businessContext_i18n": {
         "en": "Market capitalization (share price * shares outstanding)",
         "tr": "Piyasa değeri (hisse fiyatı * dolaşımdaki hisse sayısı)",
-        "de": "Marktkapitalisierung (Aktienkurs * Anzahl der Aktien)"
+        "de": "Marktkapitalisierung (Aktienkurs * Anzahl der Aktien)",
+        "fr": "Capitalisation boursière (cours de l'action * nombre d'actions en circulation)",
+        "es": "Capitalización de mercado (precio de la acción * acciones en circulación)"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Total Liabilities",
         "tr": "Toplam Yükümlülükler",
         "de": "Gesamtverbindlichkeiten",
-        "fr": "Total Liabilities",
-        "es": "Total Liabilities",
+        "fr": "Passif total",
+        "es": "Pasivos totales",
         "ar": "Total Liabilities"
       },
       "businessContext_i18n": {
         "en": "Total liabilities on balance sheet",
         "tr": "Bilançodaki toplam yükümlülükler",
-        "de": "Gesamtverbindlichkeiten in der Bilanz"
+        "de": "Gesamtverbindlichkeiten in der Bilanz",
+        "fr": "Passif total au bilan",
+        "es": "Pasivos totales en el balance general"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Sales",
         "tr": "Satışlar",
         "de": "Umsatz",
-        "fr": "Sales",
-        "es": "Sales",
+        "fr": "Ventes",
+        "es": "Ventas",
         "ar": "Sales"
       },
       "businessContext_i18n": {
         "en": "Total revenue or sales",
         "tr": "Toplam gelir veya satışlar",
-        "de": "Gesamtumsatz oder -erlöse"
+        "de": "Gesamtumsatz oder -erlöse",
+        "fr": "Revenu total ou ventes",
+        "es": "Ingresos totales o ventas"
       }
     }
   ],

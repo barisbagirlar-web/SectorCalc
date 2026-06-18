@@ -12,14 +12,16 @@
         "en": "Ortalama Yük Gücü",
         "tr": "Ortalama Yük Gücü",
         "de": "Durchschnittliche Lastleistung",
-        "fr": "Ortalama Yük Gücü",
-        "es": "Ortalama Yük Gücü",
+        "fr": "Puissance de charge moyenne",
+        "es": "Potencia de carga promedio",
         "ar": "Ortalama Yük Gücü"
       },
       "businessContext_i18n": {
         "en": "Sürekli çalışan cihazların toplam aktif güç tüketimi",
         "tr": "Sürekli çalışan cihazların toplam aktif güç tüketimi",
-        "de": "Gesamtwirkleistungsaufnahme der Dauerlastgeräte"
+        "de": "Gesamtwirkleistungsaufnahme der Dauerlastgeräte",
+        "fr": "Consommation totale de puissance active des appareils en fonctionnement continu",
+        "es": "Consumo total de potencia activa de los dispositivos en funcionamiento continuo"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Akü Bankası Gerilimi",
         "tr": "Akü Bankası Gerilimi",
         "de": "Batteriebank-Spannung",
-        "fr": "Akü Bankası Gerilimi",
-        "es": "Akü Bankası Gerilimi",
+        "fr": "Tension du parc de batteries",
+        "es": "Tensión del banco de baterías",
         "ar": "Akü Bankası Gerilimi"
       },
       "businessContext_i18n": {
         "en": "Akü grubunun nominal çalışma gerilimi (seri/paralel bağlantı sonucu)",
         "tr": "Akü grubunun nominal çalışma gerilimi (seri/paralel bağlantı sonucu)",
-        "de": "Nennbetriebsspannung der Batteriebank (Ergebnis der Reihen-/Parallelschaltung)"
+        "de": "Nennbetriebsspannung der Batteriebank (Ergebnis der Reihen-/Parallelschaltung)",
+        "fr": "Tension nominale de fonctionnement du groupe de batteries (résultat des connexions série/parallèle)",
+        "es": "Tensión nominal de funcionamiento del grupo de baterías (resultado de conexión serie/paralelo)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Toplam Akü Kapasitesi",
         "tr": "Toplam Akü Kapasitesi",
         "de": "Gesamtbatteriekapazität",
-        "fr": "Toplam Akü Kapasitesi",
-        "es": "Toplam Akü Kapasitesi",
+        "fr": "Capacité totale de la batterie",
+        "es": "Capacidad total de la batería",
         "ar": "Toplam Akü Kapasitesi"
       },
       "businessContext_i18n": {
         "en": "Akü bankasının toplam amper-saat kapasitesi (sadece paralel bağlı aküler için toplam kapasite)",
         "tr": "Akü bankasının toplam amper-saat kapasitesi (sadece paralel bağlı aküler için toplam kapasite)",
-        "de": "Gesamt-Amperestunden-Kapazität der Batteriebank (nur bei parallel geschalteten Batterien)"
+        "de": "Gesamt-Amperestunden-Kapazität der Batteriebank (nur bei parallel geschalteten Batterien)",
+        "fr": "Capacité totale en ampères-heures du parc de batteries (capacité totale uniquement pour les batteries connectées en parallèle)",
+        "es": "Capacidad total en amperios-hora del banco de baterías (solo para baterías en paralelo, capacidad total)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Deşarj Derinliği (DoD)",
         "tr": "Deşarj Derinliği (DoD)",
         "de": "Entladetiefe (DoD)",
-        "fr": "Deşarj Derinliği (DoD)",
-        "es": "Deşarj Derinliği (DoD)",
+        "fr": "Profondeur de décharge (DoD)",
+        "es": "Profundidad de descarga (DoD)",
         "ar": "Deşarj Derinliği (DoD)"
       },
       "businessContext_i18n": {
         "en": "Akü ömrünü korumak için izin verilen maksimum deşarj yüzdesi (ör. kurşun-asit için %50)",
         "tr": "Akü ömrünü korumak için izin verilen maksimum deşarj yüzdesi (ör. kurşun-asit için %50)",
-        "de": "Maximal zulässiger Entladeprozentsatz zum Schutz der Batterielebensdauer (z. B. 50 % für Blei-Säure)"
+        "de": "Maximal zulässiger Entladeprozentsatz zum Schutz der Batterielebensdauer (z. B. 50 % für Blei-Säure)",
+        "fr": "Pourcentage de décharge maximal autorisé pour préserver la durée de vie de la batterie (ex. 50% pour plomb-acide)",
+        "es": "Porcentaje máximo de descarga permitido para preservar la vida útil de la batería (ej. 50% para plomo-ácido)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "İnverter Verimliliği",
         "tr": "İnverter Verimliliği",
         "de": "Wechselrichter-Wirkungsgrad",
-        "fr": "İnverter Verimliliği",
-        "es": "İnverter Verimliliği",
+        "fr": "Rendement de l'onduleur",
+        "es": "Eficiencia del inversor",
         "ar": "İnverter Verimliliği"
       },
       "businessContext_i18n": {
         "en": "İnverter veya DC/DC dönüştürücü verimlilik oranı (tipik %85-95)",
         "tr": "İnverter veya DC/DC dönüştürücü verimlilik oranı (tipik %85-95)",
-        "de": "Wirkungsgrad des Wechselrichters oder DC/DC-Wandlers (typisch 85-95 %)"
+        "de": "Wirkungsgrad des Wechselrichters oder DC/DC-Wandlers (typisch 85-95 %)",
+        "fr": "Rapport de rendement de l'onduleur ou du convertisseur DC/DC (typiquement 85-95%)",
+        "es": "Relación de eficiencia del inversor o convertidor DC/DC (típicamente 85-95%)"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Emniyet Katsayısı",
         "tr": "Emniyet Katsayısı",
         "de": "Sicherheitsfaktor",
-        "fr": "Emniyet Katsayısı",
-        "es": "Emniyet Katsayısı",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Emniyet Katsayısı"
       },
       "businessContext_i18n": {
         "en": "Hesaplamaya eklenen güvenlik marjı (≥1). 1: marjsız, 1.1: %10 yedek kapasite",
         "tr": "Hesaplamaya eklenen güvenlik marjı (≥1). 1: marjsız, 1.1: %10 yedek kapasite",
-        "de": "Zur Berechnung hinzugefügte Sicherheitsmarge (≥1). 1: keine Marge, 1,1: 10 % Reservekapazität"
+        "de": "Zur Berechnung hinzugefügte Sicherheitsmarge (≥1). 1: keine Marge, 1,1: 10 % Reservekapazität",
+        "fr": "Marge de sécurité ajoutée au calcul (≥1). 1 : sans marge, 1.1 : 10% de capacité de réserve",
+        "es": "Margen de seguridad añadido al cálculo (≥1). 1: sin margen, 1.1: 10% de capacidad de respaldo"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Sıcaklık Düzeltme Faktörü",
         "tr": "Sıcaklık Düzeltme Faktörü",
         "de": "Temperaturkorrekturfaktor",
-        "fr": "Sıcaklık Düzeltme Faktörü",
-        "es": "Sıcaklık Düzeltme Faktörü",
+        "fr": "Facteur de correction de température",
+        "es": "Factor de corrección por temperatura",
         "ar": "Sıcaklık Düzeltme Faktörü"
       },
       "businessContext_i18n": {
         "en": "Düşük sıcaklıklarda kapasite kaybını telafi eden katsayı (≤1). 1: oda sıcaklığı",
         "tr": "Düşük sıcaklıklarda kapasite kaybını telafi eden katsayı (≤1). 1: oda sıcaklığı",
-        "de": "Faktor zum Ausgleich von Kapazitätsverlusten bei niedrigen Temperaturen (≤1). 1: Raumtemperatur"
+        "de": "Faktor zum Ausgleich von Kapazitätsverlusten bei niedrigen Temperaturen (≤1). 1: Raumtemperatur",
+        "fr": "Coefficient compensant la perte de capacité à basse température (≤1). 1 : température ambiante",
+        "es": "Coeficiente que compensa la pérdida de capacidad a bajas temperaturas (≤1). 1: temperatura ambiente"
       }
     }
   ],

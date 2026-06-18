@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Modified Adjusted Gross Income (MAGI)",
         "tr": "Düzeltilmiş Brüt Gelir (MAGI)",
-        "de": "Modified Adjusted Gross Income (MAGI)",
-        "fr": "Modified Adjusted Gross Income (MAGI)",
-        "es": "Modified Adjusted Gross Income (MAGI)",
+        "de": "Modifiziertes bereinigtes Bruttoeinkommen (MAGI)",
+        "fr": "Revenu brut ajusté modifié (MAGI)",
+        "es": "Ingreso bruto ajustado modificado (MAGI)",
         "ar": "Modified Adjusted Gross Income (MAGI)"
       },
       "businessContext_i18n": {
         "en": "Annual income used to determine Income Related Monthly Adjustment Amount (IRMAA)",
-        "tr": "Gelire Bağlı Aylık Düzenleme Tutarını (IRMAA) belirlemek için kullanılan yıllık gelir"
+        "tr": "Gelire Bağlı Aylık Düzenleme Tutarını (IRMAA) belirlemek için kullanılan yıllık gelir",
+        "de": "Jährliches Einkommen zur Bestimmung des einkommensabhängigen monatlichen Anpassungsbetrags (IRMAA)",
+        "fr": "Revenu annuel utilisé pour déterminer le montant d'ajustement mensuel lié au revenu (IRMAA)",
+        "es": "Ingreso anual utilizado para determinar el monto de ajuste mensual relacionado con el ingreso (IRMAA)"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Filing Status",
         "tr": "Dosyalama Durumu",
-        "de": "Filing Status",
-        "fr": "Filing Status",
-        "es": "Filing Status",
+        "de": "Steuerstatus",
+        "fr": "Statut de déclaration",
+        "es": "Estado civil para efectos fiscales",
         "ar": "Filing Status"
       },
       "businessContext_i18n": {
         "en": "IRS tax filing status that determines IRMAA brackets",
-        "tr": "IRS vergi beyanname durumu, IRMAA dilimlerini belirler"
+        "tr": "IRS vergi beyanname durumu, IRMAA dilimlerini belirler",
+        "de": "IRS-Steuerstatus, der die IRMAA-Stufen bestimmt",
+        "fr": "Statut de déclaration fiscale IRS qui détermine les tranches IRMAA",
+        "es": "Estado civil para efectos fiscales del IRS que determina los tramos de IRMAA"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Standard Part B Monthly Premium",
         "tr": "Standart Bölüm B Aylık Primi",
-        "de": "Standard Part B Monthly Premium",
-        "fr": "Standard Part B Monthly Premium",
-        "es": "Standard Part B Monthly Premium",
+        "de": "Standard monatlicher Beitrag Teil B",
+        "fr": "Prime mensuelle standard de la partie B",
+        "es": "Prima mensual estándar de la Parte B",
         "ar": "Standard Part B Monthly Premium"
       },
       "businessContext_i18n": {
         "en": "Current year base monthly premium without adjustments",
-        "tr": "Cari yıl ayarlama yapılmamış aylık baz prim"
+        "tr": "Cari yıl ayarlama yapılmamış aylık baz prim",
+        "de": "Aktueller jährlicher Basisbeitrag ohne Anpassungen",
+        "fr": "Prime mensuelle de base de l'année en cours sans ajustements",
+        "es": "Prima base mensual del año actual sin ajustes"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Late Enrollment Period in Months",
         "tr": "Gecikmeli Kayıt Süresi (Ay)",
-        "de": "Late Enrollment Period in Months",
-        "fr": "Late Enrollment Period in Months",
-        "es": "Late Enrollment Period in Months",
+        "de": "Monate der verspäteten Einschreibung",
+        "fr": "Période d'inscription tardive en mois",
+        "es": "Período de inscripción tardía en meses",
         "ar": "Late Enrollment Period in Months"
       },
       "businessContext_i18n": {
         "en": "Number of months past Initial Enrollment Period without Part B or creditable coverage; used to compute penalty",
-        "tr": "İlk Kayıt Dönemi'nden sonra Bölüm B veya kredilendirilebilir teminat olmadan geçen ay sayısı; ceza hesaplamak için kullanılır"
+        "tr": "İlk Kayıt Dönemi'nden sonra Bölüm B veya kredilendirilebilir teminat olmadan geçen ay sayısı; ceza hesaplamak için kullanılır",
+        "de": "Anzahl der Monate nach dem ersten Einschreibungszeitraum ohne Teil B oder anrechenbare Deckung; zur Berechnung der Strafe verwendet",
+        "fr": "Nombre de mois après la période d'inscription initiale sans partie B ou couverture créditable ; utilisé pour calculer la pénalité",
+        "es": "Número de meses después del Período de Inscripción Inicial sin la Parte B o cobertura creíble; utilizado para calcular la penalización"
       }
     }
   ],

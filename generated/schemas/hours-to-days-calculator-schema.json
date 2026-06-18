@@ -12,13 +12,16 @@
         "en": "Total Work Hours",
         "tr": "Toplam Çalışma Saati",
         "de": "Gesamtarbeitsstunden",
-        "fr": "Total Work Hours",
-        "es": "Total Work Hours",
+        "fr": "Heures de travail totales",
+        "es": "Horas totales de trabajo",
         "ar": "Total Work Hours"
       },
       "businessContext_i18n": {
         "en": "Toplam iş yükü (saat cinsinden).",
-        "tr": "Toplam iş yükü (saat cinsinden)."
+        "tr": "Toplam iş yükü (saat cinsinden).",
+        "de": "Gesamtarbeitsbelastung (in Stunden).",
+        "fr": "Charge de travail totale (en heures).",
+        "es": "Carga de trabajo total (en horas)."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Daily Shift Hours",
         "tr": "Günlük Vardiya Saati",
-        "de": "Daily Shift Hours",
-        "fr": "Daily Shift Hours",
-        "es": "Daily Shift Hours",
+        "de": "Tägliche Schichtstunden",
+        "fr": "Heures de poste par jour",
+        "es": "Horas de turno diario",
         "ar": "Daily Shift Hours"
       },
       "businessContext_i18n": {
         "en": "Bir vardiyadaki planlanmış çalışma saati.",
-        "tr": "Bir vardiyadaki planlanmış çalışma saati."
+        "tr": "Bir vardiyadaki planlanmış çalışma saati.",
+        "de": "Geplante Arbeitsstunden pro Schicht.",
+        "fr": "Heures de travail planifiées par poste.",
+        "es": "Horas de trabajo planificadas en un turno."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Break Hours per Shift",
         "tr": "Vardiya Başına Mola Süresi",
-        "de": "Break Hours per Shift",
-        "fr": "Break Hours per Shift",
-        "es": "Break Hours per Shift",
+        "de": "Pausenzeit pro Schicht",
+        "fr": "Heures de pause par poste",
+        "es": "Horas de descanso por turno",
         "ar": "Break Hours per Shift"
       },
       "businessContext_i18n": {
         "en": "Vardiya başına mola süresi (efektif çalışma süresini azaltır).",
-        "tr": "Vardiya başına mola süresi (efektif çalışma süresini azaltır)."
+        "tr": "Vardiya başına mola süresi (efektif çalışma süresini azaltır).",
+        "de": "Pausenzeit pro Schicht (reduziert die effektive Arbeitszeit).",
+        "fr": "Durée de pause par poste (réduit le temps de travail effectif).",
+        "es": "Tiempo de descanso por turno (reduce el tiempo de trabajo efectivo)."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Shifts per Day",
         "tr": "Günlük Vardiya Sayısı",
-        "de": "Shifts per Day",
-        "fr": "Shifts per Day",
-        "es": "Shifts per Day",
+        "de": "Schichten pro Tag",
+        "fr": "Postes par jour",
+        "es": "Turnos por día",
         "ar": "Shifts per Day"
       },
       "businessContext_i18n": {
         "en": "Günlük vardiya sayısı (ör. 1, 2 veya 3).",
-        "tr": "Günlük vardiya sayısı (ör. 1, 2 veya 3)."
+        "tr": "Günlük vardiya sayısı (ör. 1, 2 veya 3).",
+        "de": "Anzahl der Schichten pro Tag (z. B. 1, 2 oder 3).",
+        "fr": "Nombre de postes par jour (ex. 1, 2 ou 3).",
+        "es": "Número de turnos por día (ej., 1, 2 o 3)."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Efficiency Factor",
         "tr": "Verimlilik Faktörü",
         "de": "Effizienzfaktor",
-        "fr": "Efficiency Factor",
-        "es": "Efficiency Factor",
+        "fr": "Facteur d'efficacité",
+        "es": "Factor de eficiencia",
         "ar": "Efficiency Factor"
       },
       "businessContext_i18n": {
         "en": "Üretim verimlilik faktörü (0-1 arası). 1 = %100 verim.",
-        "tr": "Üretim verimlilik faktörü (0-1 arası). 1 = %100 verim."
+        "tr": "Üretim verimlilik faktörü (0-1 arası). 1 = %100 verim.",
+        "de": "Produktionseffizienzfaktor (0-1). 1 = 100 % Effizienz.",
+        "fr": "Facteur d'efficacité de production (0-1). 1 = 100% d'efficacité.",
+        "es": "Factor de eficiencia de producción (0-1). 1 = 100% eficiente."
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Setup Time",
         "tr": "Kurulum Süresi",
         "de": "Rüstzeit",
-        "fr": "Setup Time",
-        "es": "Setup Time",
+        "fr": "Temps de réglage",
+        "es": "Tiempo de preparación",
         "ar": "Setup Time"
       },
       "businessContext_i18n": {
         "en": "Bir defaya mahsus kurulum süresi (iş yüküne eklenir).",
-        "tr": "Bir defaya mahsus kurulum süresi (iş yüküne eklenir)."
+        "tr": "Bir defaya mahsus kurulum süresi (iş yüküne eklenir).",
+        "de": "Einmalige Rüstzeit (wird zur Arbeitsbelastung hinzugefügt).",
+        "fr": "Temps de configuration unique (ajouté à la charge de travail).",
+        "es": "Tiempo de configuración único (se suma a la carga de trabajo)."
       }
     }
   ],

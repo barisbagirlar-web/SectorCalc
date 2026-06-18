@@ -12,14 +12,16 @@
         "en": "Feet",
         "tr": "Feet",
         "de": "Fuß",
-        "fr": "Feet",
-        "es": "Feet",
+        "fr": "Pieds",
+        "es": "Pies",
         "ar": "Feet"
       },
       "businessContext_i18n": {
         "en": "Whole feet part of the length measurement.",
         "tr": "Uzunluk ölçümünün tam fit kısmı.",
-        "de": "Ganze Fuß der Längenmessung."
+        "de": "Ganze Fuß der Längenmessung.",
+        "fr": "Partie en pieds entiers de la mesure de longueur.",
+        "es": "Parte entera en pies de la medición de longitud."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Inches",
         "tr": "İnç",
         "de": "Zoll",
-        "fr": "Inches",
-        "es": "Inches",
+        "fr": "Pouces",
+        "es": "Pulgadas",
         "ar": "Inches"
       },
       "businessContext_i18n": {
         "en": "Inches part of the length measurement (0-11).",
         "tr": "Uzunluk ölçümünün inç kısmı (0-11).",
-        "de": "Zollanteil der Längenmessung (0-11)."
+        "de": "Zollanteil der Längenmessung (0-11).",
+        "fr": "Partie en pouces de la mesure de longueur (0-11).",
+        "es": "Parte en pulgadas de la medición de longitud (0-11)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Conversion Standard",
         "tr": "Dönüşüm Standardı",
         "de": "Umrechnungsstandard",
-        "fr": "Conversion Standard",
-        "es": "Conversion Standard",
+        "fr": "Norme de conversion",
+        "es": "Estándar de conversión",
         "ar": "Conversion Standard"
       },
       "businessContext_i18n": {
         "en": "1: International foot (0.3048 m), 2: U.S. survey foot (0.3048006096012192 m).",
         "tr": "1: Uluslararası fit (0,3048 m), 2: ABD araştırma fiti (0,3048006096012192 m).",
-        "de": "1: Internationaler Fuß (0,3048 m), 2: US-Vermessungsfuß (0,3048006096012192 m)."
+        "de": "1: Internationaler Fuß (0,3048 m), 2: US-Vermessungsfuß (0,3048006096012192 m).",
+        "fr": "1 : Pied international (0,3048 m), 2 : Pied d'arpentage américain (0,3048006096012192 m).",
+        "es": "1: Pie internacional (0.3048 m), 2: Pie topográfico de EE. UU. (0.3048006096012192 m)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output in meters.",
         "tr": "Metre cinsinden çıktı için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen für die Ausgabe in Metern."
+        "de": "Anzahl der Dezimalstellen für die Ausgabe in Metern.",
+        "fr": "Nombre de décimales pour le résultat en mètres.",
+        "es": "Número de decimales para la salida en metros."
       }
     }
   ],

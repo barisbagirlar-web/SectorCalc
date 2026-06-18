@@ -12,14 +12,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Patient age in years",
         "tr": "Hasta yaşı (yıl)",
-        "de": "Patientenalter in Jahren"
+        "de": "Patientenalter in Jahren",
+        "fr": "Âge du patient en années",
+        "es": "Edad del paciente en años"
       }
     },
     {
@@ -32,14 +34,17 @@
       "label_i18n": {
         "en": "Tonsillar Exudate",
         "tr": "Tonsiller Eksüda",
-        "de": "Tonsillar Exudate",
-        "fr": "Tonsillar Exudate",
-        "es": "Tonsillar Exudate",
+        "de": "Tonsillenexsudat",
+        "fr": "Exsudat amygdalien",
+        "es": "Exudado amigdalino",
         "ar": "Tonsillar Exudate"
       },
       "businessContext_i18n": {
         "en": "1 if tonsillar exudate present, 0 otherwise",
-        "tr": "Tonsiller eksüda varsa 1, yoksa 0"
+        "tr": "Tonsiller eksüda varsa 1, yoksa 0",
+        "de": "1 bei Tonsillenexsudat, sonst 0",
+        "fr": "1 si exsudat amygdalien présent, 0 sinon",
+        "es": "1 si hay exudado amigdalino, 0 en caso contrario"
       }
     },
     {
@@ -52,14 +57,17 @@
       "label_i18n": {
         "en": "Tender Anterior Cervical Lymph Nodes",
         "tr": "Hassas Anterior Servikal Lenf Düğümleri",
-        "de": "Tender Anterior Cervical Lymph Nodes",
-        "fr": "Tender Anterior Cervical Lymph Nodes",
-        "es": "Tender Anterior Cervical Lymph Nodes",
+        "de": "Druckempfindliche vordere Halslymphknoten",
+        "fr": "Adénopathie cervicale antérieure sensible",
+        "es": "Adenopatías cervicales anteriores dolorosas",
         "ar": "Tender Anterior Cervical Lymph Nodes"
       },
       "businessContext_i18n": {
         "en": "1 if tender anterior cervical lymphadenopathy, 0 otherwise",
-        "tr": "Hassas anterior servikal lenfadenopati varsa 1, yoksa 0"
+        "tr": "Hassas anterior servikal lenfadenopati varsa 1, yoksa 0",
+        "de": "1 bei druckempfindlicher vorderer Halslymphadenopathie, sonst 0",
+        "fr": "1 si adénopathie cervicale antérieure sensible, 0 sinon",
+        "es": "1 si hay adenopatía cervical anterior dolorosa, 0 en caso contrario"
       }
     },
     {
@@ -72,14 +80,17 @@
       "label_i18n": {
         "en": "Fever Temperature",
         "tr": "Ateş Sıcaklığı",
-        "de": "Fever Temperature",
-        "fr": "Fever Temperature",
-        "es": "Fever Temperature",
+        "de": "Fiebertemperatur",
+        "fr": "Température fébrile",
+        "es": "Temperatura de fiebre",
         "ar": "Fever Temperature"
       },
       "businessContext_i18n": {
         "en": "Body temperature in degrees Celsius",
-        "tr": "Santigrat derece cinsinden vücut sıcaklığı"
+        "tr": "Santigrat derece cinsinden vücut sıcaklığı",
+        "de": "Körpertemperatur in Grad Celsius",
+        "fr": "Température corporelle en degrés Celsius",
+        "es": "Temperatura corporal en grados Celsius"
       }
     },
     {
@@ -92,14 +103,17 @@
       "label_i18n": {
         "en": "Cough",
         "tr": "Öksürük",
-        "de": "Cough",
-        "fr": "Cough",
-        "es": "Cough",
+        "de": "Husten",
+        "fr": "Toux",
+        "es": "Tos",
         "ar": "Cough"
       },
       "businessContext_i18n": {
         "en": "1 if cough present, 0 if absent",
-        "tr": "Öksürük varsa 1, yoksa 0"
+        "tr": "Öksürük varsa 1, yoksa 0",
+        "de": "1 bei Husten, 0 bei keinem Husten",
+        "fr": "1 si toux présente, 0 si absente",
+        "es": "1 si hay tos, 0 si no"
       }
     }
   ],

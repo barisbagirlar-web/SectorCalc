@@ -12,14 +12,16 @@
         "en": "Number of Vertices (V)",
         "tr": "Köşe Sayısı (V)",
         "de": "Anzahl der Knoten (V)",
-        "fr": "Number of Vertices (V)",
-        "es": "Number of Vertices (V)",
+        "fr": "Nombre de sommets (V)",
+        "es": "Número de Vértices (V)",
         "ar": "Number of Vertices (V)"
       },
       "businessContext_i18n": {
         "en": "Total graph vertices count",
         "tr": "Toplam grafik köşe sayısı",
-        "de": "Gesamtzahl der Knoten im Graphen"
+        "de": "Gesamtzahl der Knoten im Graphen",
+        "fr": "Nombre total de sommets du graphe",
+        "es": "Número total de vértices del grafo"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Number of Edges (E)",
         "tr": "Kenar Sayısı (E)",
         "de": "Anzahl der Kanten (E)",
-        "fr": "Number of Edges (E)",
-        "es": "Number of Edges (E)",
+        "fr": "Nombre d'arêtes (E)",
+        "es": "Número de Aristas (E)",
         "ar": "Number of Edges (E)"
       },
       "businessContext_i18n": {
         "en": "Total graph edges count",
         "tr": "Toplam grafik kenar sayısı",
-        "de": "Gesamtzahl der Kanten im Graphen"
+        "de": "Gesamtzahl der Kanten im Graphen",
+        "fr": "Nombre total d'arêtes du graphe",
+        "es": "Número total de aristas del grafo"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Number of Faces (F)",
         "tr": "Yüz Sayısı (F)",
         "de": "Anzahl der Flächen (F)",
-        "fr": "Number of Faces (F)",
-        "es": "Number of Faces (F)",
+        "fr": "Nombre de faces (F)",
+        "es": "Número de Caras (F)",
         "ar": "Number of Faces (F)"
       },
       "businessContext_i18n": {
         "en": "Planar graph faces count (including outer face)",
         "tr": "Düzlemsel grafik yüz sayısı (dış yüz dahil)",
-        "de": "Anzahl der Flächen des planaren Graphen (einschließlich Außenfläche)"
+        "de": "Anzahl der Flächen des planaren Graphen (einschließlich Außenfläche)",
+        "fr": "Nombre de faces du graphe planaire (y compris la face extérieure)",
+        "es": "Número de caras del grafo plano (incluyendo la cara exterior)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Number of Components (C)",
         "tr": "Bileşen Sayısı (C)",
         "de": "Anzahl der Komponenten (C)",
-        "fr": "Number of Components (C)",
-        "es": "Number of Components (C)",
+        "fr": "Nombre de composantes (C)",
+        "es": "Número de Componentes (C)",
         "ar": "Number of Components (C)"
       },
       "businessContext_i18n": {
         "en": "Connected components in the graph",
         "tr": "Grafikteki bağlı bileşenler",
-        "de": "Zusammenhängende Komponenten im Graphen"
+        "de": "Zusammenhängende Komponenten im Graphen",
+        "fr": "Composantes connexes dans le graphe",
+        "es": "Componentes conectados en el grafo"
       }
     }
   ],

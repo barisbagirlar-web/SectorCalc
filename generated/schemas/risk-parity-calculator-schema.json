@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Annualized Volatility Asset 1 (%)",
         "tr": "Yıllıklandırılmış Volatilite Varlık 1 (%)",
-        "de": "Annualized Volatility Asset 1 (%)",
-        "fr": "Annualized Volatility Asset 1 (%)",
+        "de": "Annualisierte Volatilität Anlage 1 (%)",
+        "fr": "Volatilité annualisée Actif 1 (%)",
         "es": "Annualized Volatility Asset 1 (%)",
         "ar": "Annualized Volatility Asset 1 (%)"
       },
       "businessContext_i18n": {
         "en": "The annualized volatility (standard deviation of returns) of Asset 1, expressed as a percentage. Used to determine its risk contribution.",
-        "tr": "Varlık 1'in yıllıklandırılmış volatilitesi (getirilerin standart sapması), yüzde olarak ifade edilir. Risk katkısını belirlemek için kullanılır."
+        "tr": "Varlık 1'in yıllıklandırılmış volatilitesi (getirilerin standart sapması), yüzde olarak ifade edilir. Risk katkısını belirlemek için kullanılır.",
+        "de": "Die annualisierte Volatilität (Standardabweichung der Renditen) von Anlage 1, ausgedrückt in Prozent. Wird verwendet, um ihren Risikobeitrag zu bestimmen.",
+        "fr": "La volatilité annualisée (écart type des rendements) de l'Actif 1, exprimée en pourcentage. Utilisée pour déterminer sa contribution au risque."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Annualized Volatility Asset 2 (%)",
         "tr": "Yıllıklandırılmış Volatilite Varlık 2 (%)",
-        "de": "Annualized Volatility Asset 2 (%)",
-        "fr": "Annualized Volatility Asset 2 (%)",
+        "de": "Annualisierte Volatilität Anlage 2 (%)",
+        "fr": "Volatilité annualisée Actif 2 (%)",
         "es": "Annualized Volatility Asset 2 (%)",
         "ar": "Annualized Volatility Asset 2 (%)"
       },
       "businessContext_i18n": {
         "en": "The annualized volatility of Asset 2, as a percentage. Inputting a high value will reduce its weight.",
-        "tr": "Varlık 2'nin yüzde olarak yıllıklandırılmış volatilitesi. Yüksek bir değer girmek ağırlığını azaltacaktır."
+        "tr": "Varlık 2'nin yüzde olarak yıllıklandırılmış volatilitesi. Yüksek bir değer girmek ağırlığını azaltacaktır.",
+        "de": "Die annualisierte Volatilität von Anlage 2 in Prozent. Die Eingabe eines hohen Werts reduziert ihr Gewicht.",
+        "fr": "La volatilité annualisée de l'Actif 2, en pourcentage. Une valeur élevée réduira son poids."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Annualized Volatility Asset 3 (%)",
         "tr": "Yıllıklandırılmış Volatilite Varlık 3 (%)",
-        "de": "Annualized Volatility Asset 3 (%)",
-        "fr": "Annualized Volatility Asset 3 (%)",
+        "de": "Annualisierte Volatilität Anlage 3 (%)",
+        "fr": "Volatilité annualisée Actif 3 (%)",
         "es": "Annualized Volatility Asset 3 (%)",
         "ar": "Annualized Volatility Asset 3 (%)"
       },
       "businessContext_i18n": {
         "en": "The annualized volatility of Asset 3. Use a very large number (e.g., 1e9) if this asset is not in the portfolio to effectively exclude it.",
-        "tr": "Varlık 3'ün volatilitesi. Bu varlık portföyde değilse, etkin bir şekilde hariç tutmak için çok büyük bir sayı (örneğin, 1e9) kullanın."
+        "tr": "Varlık 3'ün volatilitesi. Bu varlık portföyde değilse, etkin bir şekilde hariç tutmak için çok büyük bir sayı (örneğin, 1e9) kullanın.",
+        "de": "Die annualisierte Volatilität von Anlage 3. Verwenden Sie eine sehr große Zahl (z. B. 1e9), wenn diese Anlage nicht im Portfolio ist, um sie effektiv auszuschließen.",
+        "fr": "La volatilité annualisée de l'Actif 3. Utilisez un très grand nombre (par exemple, 1e9) si cet actif n'est pas dans le portefeuille pour l'exclure efficacement."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Annualized Volatility Asset 4 (%)",
         "tr": "Yıllıklandırılmış Volatilite Varlık 4 (%)",
-        "de": "Annualized Volatility Asset 4 (%)",
-        "fr": "Annualized Volatility Asset 4 (%)",
+        "de": "Annualisierte Volatilität Anlage 4 (%)",
+        "fr": "Volatilité annualisée Actif 4 (%)",
         "es": "Annualized Volatility Asset 4 (%)",
         "ar": "Annualized Volatility Asset 4 (%)"
       },
       "businessContext_i18n": {
         "en": "The annualized volatility of Asset 4. Set to a very large number if unused.",
-        "tr": "Varlık 4'ün volatilitesi. Kullanılmıyorsa çok büyük bir sayıya ayarlayın."
+        "tr": "Varlık 4'ün volatilitesi. Kullanılmıyorsa çok büyük bir sayıya ayarlayın.",
+        "de": "Die annualisierte Volatilität von Anlage 4. Auf eine sehr große Zahl setzen, wenn nicht verwendet.",
+        "fr": "La volatilité annualisée de l'Actif 4. Définissez un très grand nombre s'il n'est pas utilisé."
       }
     }
   ],

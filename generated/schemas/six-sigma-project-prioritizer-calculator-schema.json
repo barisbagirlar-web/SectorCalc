@@ -20,11 +20,15 @@
       "businessContext": "Current defects per million opportunities for the process under evaluation.",
       "label_i18n": {
         "en": "Defect Rate (DPMO)",
-        "tr": "Hata Oranı (DPMO)"
+        "tr": "Hata Oranı (DPMO)",
+        "de": "Fehlerrate (DPMO)",
+        "fr": "Taux de défauts (DPMO)"
       },
       "businessContext_i18n": {
         "en": "Current defects per million opportunities for the process under evaluation.",
-        "tr": "Değerlendirilen süreç için milyon fırsat başına mevcut hata sayısı."
+        "tr": "Değerlendirilen süreç için milyon fırsat başına mevcut hata sayısı.",
+        "de": "Aktuelle Fehler pro Million Möglichkeiten für den zu bewertenden Prozess.",
+        "fr": "Défauts actuels par million d'opportunités pour le processus évalué."
       }
     },
     {
@@ -38,11 +42,15 @@
       "businessContext": "Current sigma level of the process, typically derived from DPMO using standard conversion tables.",
       "label_i18n": {
         "en": "Current Process Sigma Level",
-        "tr": "Mevcut Süreç Sigma Seviyesi"
+        "tr": "Mevcut Süreç Sigma Seviyesi",
+        "de": "Aktuelles Prozess-Sigma-Niveau",
+        "fr": "Niveau Sigma actuel du processus"
       },
       "businessContext_i18n": {
         "en": "Current sigma level of the process, typically derived from DPMO using standard conversion tables.",
-        "tr": "Sürecin mevcut sigma seviyesi, genellikle standart dönüşüm tabloları kullanılarak DPMO'dan türetilir."
+        "tr": "Sürecin mevcut sigma seviyesi, genellikle standart dönüşüm tabloları kullanılarak DPMO'dan türetilir.",
+        "de": "Aktuelles Sigma-Niveau des Prozesses, typischerweise aus DPMO mit Standard-Umrechnungstabellen abgeleitet.",
+        "fr": "Niveau sigma actuel du processus, généralement dérivé du DPMO à l'aide de tables de conversion standard."
       }
     },
     {
@@ -56,11 +64,15 @@
       "businessContext": "Total number of units produced or transactions processed per year.",
       "label_i18n": {
         "en": "Annual Unit Volume",
-        "tr": "Yıllık Birim Hacmi"
+        "tr": "Yıllık Birim Hacmi",
+        "de": "Jährliches Stückvolumen",
+        "fr": "Volume annuel d'unités"
       },
       "businessContext_i18n": {
         "en": "Total number of units produced or transactions processed per year.",
-        "tr": "Yılda üretilen toplam birim veya işlenen işlem sayısı."
+        "tr": "Yılda üretilen toplam birim veya işlenen işlem sayısı.",
+        "de": "Gesamtzahl der pro Jahr produzierten Einheiten oder bearbeiteten Transaktionen.",
+        "fr": "Nombre total d'unités produites ou de transactions traitées par an."
       }
     },
     {
@@ -74,11 +86,15 @@
       "businessContext": "Average cost incurred per defect, including rework, scrap, warranty, and customer impact.",
       "label_i18n": {
         "en": "Cost per Defect",
-        "tr": "Hata Başına Maliyet"
+        "tr": "Hata Başına Maliyet",
+        "de": "Kosten pro Fehler",
+        "fr": "Coût par défaut"
       },
       "businessContext_i18n": {
         "en": "Average cost incurred per defect, including rework, scrap, warranty, and customer impact.",
-        "tr": "Yeniden işleme, fire, garanti ve müşteri etkisi dahil olmak üzere hata başına ortalama maliyet."
+        "tr": "Yeniden işleme, fire, garanti ve müşteri etkisi dahil olmak üzere hata başına ortalama maliyet.",
+        "de": "Durchschnittliche Kosten pro Fehler, einschließlich Nacharbeit, Ausschuss, Garantie und Kundenauswirkungen.",
+        "fr": "Coût moyen encouru par défaut, incluant reprise, rebut, garantie et impact client."
       }
     },
     {
@@ -92,11 +108,15 @@
       "businessContext": "Total cost to implement the Six Sigma improvement project (training, equipment, downtime, etc.).",
       "label_i18n": {
         "en": "Estimated Implementation Cost",
-        "tr": "Tahmini Uygulama Maliyeti"
+        "tr": "Tahmini Uygulama Maliyeti",
+        "de": "Geschätzte Implementierungskosten",
+        "fr": "Coût estimé de mise en œuvre"
       },
       "businessContext_i18n": {
         "en": "Total cost to implement the Six Sigma improvement project (training, equipment, downtime, etc.).",
-        "tr": "Altı Sigma iyileştirme projesini uygulamanın toplam maliyeti (eğitim, ekipman, duruş süresi vb.)."
+        "tr": "Altı Sigma iyileştirme projesini uygulamanın toplam maliyeti (eğitim, ekipman, duruş süresi vb.).",
+        "de": "Gesamtkosten für die Umsetzung des Six-Sigma-Verbesserungsprojekts (Schulung, Ausrüstung, Ausfallzeiten usw.).",
+        "fr": "Coût total pour mettre en œuvre le projet d'amélioration Six Sigma (formation, équipement, arrêt de production, etc.)."
       }
     },
     {
@@ -115,11 +135,15 @@
       "businessContext": "Qualitative assessment of risk associated with the project (technical complexity, resource availability, stakeholder buy-in).",
       "label_i18n": {
         "en": "Project Risk Level",
-        "tr": "Proje Risk Seviyesi"
+        "tr": "Proje Risk Seviyesi",
+        "de": "Projektrisikoniveau",
+        "fr": "Niveau de risque du projet"
       },
       "businessContext_i18n": {
         "en": "Qualitative assessment of risk associated with the project (technical complexity, resource availability, stakeholder buy-in).",
-        "tr": "Projeyle ilişkili riskin nitel değerlendirmesi (teknik karmaşıklık, kaynak mevcudiyeti, paydaş katılımı)."
+        "tr": "Projeyle ilişkili riskin nitel değerlendirmesi (teknik karmaşıklık, kaynak mevcudiyeti, paydaş katılımı).",
+        "de": "Qualitative Bewertung des mit dem Projekt verbundenen Risikos (technische Komplexität, Ressourcenverfügbarkeit, Stakeholder-Zustimmung).",
+        "fr": "Évaluation qualitative du risque associé au projet (complexité technique, disponibilité des ressources, adhésion des parties prenantes)."
       }
     },
     {
@@ -133,11 +157,15 @@
       "businessContext": "How well the project aligns with organizational strategic goals (1 = low, 10 = high).",
       "label_i18n": {
         "en": "Strategic Alignment Score",
-        "tr": "Stratejik Uyum Puanı"
+        "tr": "Stratejik Uyum Puanı",
+        "de": "Strategischer Ausrichtungswert",
+        "fr": "Score d'alignement stratégique"
       },
       "businessContext_i18n": {
         "en": "How well the project aligns with organizational strategic goals (1 = low, 10 = high).",
-        "tr": "Projenin kurumsal stratejik hedeflerle ne kadar uyumlu olduğu (1 = düşük, 10 = yüksek)."
+        "tr": "Projenin kurumsal stratejik hedeflerle ne kadar uyumlu olduğu (1 = düşük, 10 = yüksek).",
+        "de": "Wie gut das Projekt mit den strategischen Zielen der Organisation übereinstimmt (1 = niedrig, 10 = hoch).",
+        "fr": "Dans quelle mesure le projet s'aligne sur les objectifs stratégiques de l'organisation (1 = faible, 10 = élevé)."
       }
     },
     {
@@ -151,11 +179,15 @@
       "businessContext": "Degree of positive impact on customer satisfaction (1 = minimal, 10 = transformative).",
       "label_i18n": {
         "en": "Customer Impact Score",
-        "tr": "Müşteri Etki Puanı"
+        "tr": "Müşteri Etki Puanı",
+        "de": "Kundenauswirkungswert",
+        "fr": "Score d'impact client"
       },
       "businessContext_i18n": {
         "en": "Degree of positive impact on customer satisfaction (1 = minimal, 10 = transformative).",
-        "tr": "Müşteri memnuniyeti üzerindeki olumlu etki derecesi (1 = minimum, 10 = dönüştürücü)."
+        "tr": "Müşteri memnuniyeti üzerindeki olumlu etki derecesi (1 = minimum, 10 = dönüştürücü).",
+        "de": "Grad der positiven Auswirkung auf die Kundenzufriedenheit (1 = minimal, 10 = transformativ).",
+        "fr": "Degré d'impact positif sur la satisfaction client (1 = minimal, 10 = transformateur)."
       }
     }
   ],

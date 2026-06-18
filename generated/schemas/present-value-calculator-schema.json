@@ -12,13 +12,16 @@
         "en": "Future Value",
         "tr": "Gelecek Değer",
         "de": "Zukünftiger Wert",
-        "fr": "Future Value",
-        "es": "Future Value",
+        "fr": "Valeur future",
+        "es": "Valor futuro",
         "ar": "Future Value"
       },
       "businessContext_i18n": {
         "en": "The expected future amount.",
-        "tr": "Beklenen gelecekteki tutar."
+        "tr": "Beklenen gelecekteki tutar.",
+        "de": "Der erwartete zukünftige Betrag.",
+        "fr": "Montant futur attendu.",
+        "es": "Monto futuro esperado"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Discount Rate",
         "tr": "İndirim Oranı",
         "de": "Rabattsatz",
-        "fr": "Discount Rate",
-        "es": "Discount Rate",
+        "fr": "Taux de remise",
+        "es": "Tasa de descuento",
         "ar": "Discount Rate"
       },
       "businessContext_i18n": {
         "en": "Annual discount rate as a percentage.",
-        "tr": "Yıllık iskonto oranı yüzde olarak."
+        "tr": "Yıllık iskonto oranı yüzde olarak.",
+        "de": "Jährlicher Diskontsatz in Prozent.",
+        "fr": "Taux d'actualisation annuel en pourcentage.",
+        "es": "Tasa de descuento anual en porcentaje"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Number of Periods",
         "tr": "Dönem Sayısı",
         "de": "Anzahl der Perioden",
-        "fr": "Number of Periods",
-        "es": "Number of Periods",
+        "fr": "Nombre de périodes",
+        "es": "Número de períodos",
         "ar": "Number of Periods"
       },
       "businessContext_i18n": {
         "en": "Time in years until future value is received.",
-        "tr": "Gelecek değerin alınacağı yıl cinsinden süre."
+        "tr": "Gelecek değerin alınacağı yıl cinsinden süre.",
+        "de": "Zeit in Jahren bis zum Erhalt des zukünftigen Werts.",
+        "fr": "Durée en années jusqu'à réception de la valeur future.",
+        "es": "Tiempo en años hasta recibir el valor futuro"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Compounding Frequency",
         "tr": "Bileşik Sıklığı",
         "de": "Zinseszinshäufigkeit",
-        "fr": "Compounding Frequency",
-        "es": "Compounding Frequency",
+        "fr": "Fréquence de capitalisation",
+        "es": "Frecuencia de capitalización",
         "ar": "Compounding Frequency"
       },
       "businessContext_i18n": {
         "en": "Number of compounding periods per year (1=annual, 2=semi-annual, 12=monthly, etc.).",
-        "tr": "Yıllık bileşik dönem sayısı (1=yıllık, 2=altı aylık, 12=aylık, vb.)."
+        "tr": "Yıllık bileşik dönem sayısı (1=yıllık, 2=altı aylık, 12=aylık, vb.).",
+        "de": "Anzahl der Zinsperioden pro Jahr (1=jährlich, 2=halbjährlich, 12=monatlich usw.).",
+        "fr": "Nombre de périodes de capitalisation par an (1=annuel, 2=semestriel, 12=mensuel, etc.).",
+        "es": "Número de períodos de capitalización por año (1=anual, 2=semestral, 12=mensual, etc.)"
       }
     }
   ],

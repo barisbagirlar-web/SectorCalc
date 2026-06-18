@@ -13,13 +13,15 @@
         "tr": "Hacim (m³)",
         "de": "Volumen (m³)",
         "fr": "Volume (m³)",
-        "es": "Volume (m³)",
+        "es": "Volumen (m³)",
         "ar": "Volume (m³)"
       },
       "businessContext_i18n": {
         "en": "The volume in cubic meters to be converted.",
         "tr": "Dönüştürülecek metreküp cinsinden hacim.",
-        "de": "Das Volumen in Kubikmetern, das umgerechnet werden soll."
+        "de": "Das Volumen in Kubikmetern, das umgerechnet werden soll.",
+        "fr": "Le volume en mètres cubes à convertir.",
+        "es": "El volumen en metros cúbicos a convertir."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Conversion Factor (ft³ per m³)",
         "tr": "Dönüşüm Faktörü (ft³/m³)",
         "de": "Umrechnungsfaktor (ft³ pro m³)",
-        "fr": "Conversion Factor (ft³ per m³)",
-        "es": "Conversion Factor (ft³ per m³)",
+        "fr": "Facteur de conversion (ft³ par m³)",
+        "es": "Factor de conversión (ft³ por m³)",
         "ar": "Conversion Factor (ft³ per m³)"
       },
       "businessContext_i18n": {
         "en": "The number of cubic feet per cubic meter. Based on 1 m = 3.28084 ft.",
         "tr": "Metreküp başına düşen fit küp sayısı. 1 m = 3,28084 ft esas alınmıştır.",
-        "de": "Die Anzahl Kubikfuß pro Kubikmeter. Basierend auf 1 m = 3,28084 ft."
+        "de": "Die Anzahl Kubikfuß pro Kubikmeter. Basierend auf 1 m = 3,28084 ft.",
+        "fr": "Nombre de pieds cubes par mètre cube. Basé sur 1 m = 3,28084 pi.",
+        "es": "El número de pies cúbicos por metro cúbico. Basado en 1 m = 3.28084 ft."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Desired number of decimal places for the rounded result.",
         "tr": "Yuvarlatılmış sonuç için istenen ondalık basamak sayısı.",
-        "de": "Gewünschte Anzahl Dezimalstellen für das gerundete Ergebnis."
+        "de": "Gewünschte Anzahl Dezimalstellen für das gerundete Ergebnis.",
+        "fr": "Nombre de décimales souhaité pour le résultat arrondi.",
+        "es": "Número deseado de decimales para el resultado redondeado."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier for safety or conversion margin, typically 1 for exact conversion.",
         "tr": "Güvenlik veya dönüşüm marjı çarpanı, tam dönüşüm için genellikle 1.",
-        "de": "Multiplikator für Sicherheits- oder Umrechnungsspanne, typischerweise 1 für exakte Umrechnung."
+        "de": "Multiplikator für Sicherheits- oder Umrechnungsspanne, typischerweise 1 für exakte Umrechnung.",
+        "fr": "Multiplicateur pour marge de sécurité ou de conversion, généralement 1 pour une conversion exacte.",
+        "es": "Multiplicador por margen de seguridad o conversión, típicamente 1 para conversión exacta."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Measurement Uncertainty (%)",
         "tr": "Ölçüm Belirsizliği (%)",
         "de": "Messunsicherheit (%)",
-        "fr": "Measurement Uncertainty (%)",
-        "es": "Measurement Uncertainty (%)",
+        "fr": "Incertitude de mesure (%)",
+        "es": "Incertidumbre de medición (%)",
         "ar": "Measurement Uncertainty (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage uncertainty in the input measurement, affecting output uncertainty.",
         "tr": "Giriş ölçümündeki yüzde belirsizlik, çıktı belirsizliğini etkiler.",
-        "de": "Prozentuale Unsicherheit der Eingabemessung, die die Ergebnisunsicherheit beeinflusst."
+        "de": "Prozentuale Unsicherheit der Eingabemessung, die die Ergebnisunsicherheit beeinflusst.",
+        "fr": "Pourcentage d'incertitude dans la mesure d'entrée, affectant l'incertitude de sortie.",
+        "es": "Incertidumbre porcentual en la medición de entrada, que afecta la incertidumbre de salida."
       }
     }
   ],

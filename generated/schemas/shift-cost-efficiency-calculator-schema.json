@@ -22,11 +22,15 @@
       "businessContext": "Total scheduled shift time in hours. Standard shifts are 8 or 12 hours.",
       "label_i18n": {
         "en": "Shift Duration (hours)",
-        "tr": "Vardiya süresi (saat)"
+        "tr": "Vardiya süresi (saat)",
+        "de": "Schichtdauer (Stunden)",
+        "fr": "Durée du poste (heures)"
       },
       "businessContext_i18n": {
         "en": "Total scheduled shift time in hours. Standard shifts are 8 or 12 hours.",
-        "tr": "Toplam planlanan vardiya süresi saat cinsinden. Standart vardiyalar 8 veya 12 saattir."
+        "tr": "Toplam planlanan vardiya süresi saat cinsinden. Standart vardiyalar 8 veya 12 saattir.",
+        "de": "Gesamte geplante Schichtzeit in Stunden. Standardschichten sind 8 oder 12 Stunden.",
+        "fr": "Temps de poste programmé total en heures. Les postes standard sont de 8 ou 12 heures."
       }
     },
     {
@@ -40,11 +44,16 @@
       "businessContext": "Total good units produced during the shift, including reworked units.",
       "label_i18n": {
         "en": "Total Units Produced",
-        "tr": "Toplam Üretilen Birim"
+        "tr": "Toplam Üretilen Birim",
+        "de": "Gesamtproduzierte Einheiten",
+        "fr": "Nombre total d'unités produites",
+        "es": "Unidades totales producidas"
       },
       "businessContext_i18n": {
         "en": "Total good units produced during the shift, including reworked units.",
-        "tr": "Vardiya boyunca üretilen, yeniden işlenen birimler dahil toplam iyi birim."
+        "tr": "Vardiya boyunca üretilen, yeniden işlenen birimler dahil toplam iyi birim.",
+        "de": "Insgesamt produzierte gute Einheiten während der Schicht, einschließlich nachbearbeiteter Einheiten.",
+        "fr": "Nombre total d'unités bonnes produites pendant le poste, y compris les unités retravaillées."
       }
     },
     {
@@ -58,11 +67,16 @@
       "businessContext": "Units that failed quality inspection and are not reworkable.",
       "label_i18n": {
         "en": "Defective Units",
-        "tr": "Hatalı Birimler"
+        "tr": "Hatalı Birimler",
+        "de": "Fehlerhafte Einheiten",
+        "fr": "Unités défectueuses",
+        "es": "Unidades defectuosas"
       },
       "businessContext_i18n": {
         "en": "Units that failed quality inspection and are not reworkable.",
-        "tr": "Kalite kontrolünden geçemeyen ve yeniden işlenemeyen birimler."
+        "tr": "Kalite kontrolünden geçemeyen ve yeniden işlenemeyen birimler.",
+        "de": "Einheiten, die die Qualitätsprüfung nicht bestanden haben und nicht nachbearbeitet werden können.",
+        "fr": "Unités ayant échoué au contrôle qualité et non retravaillables."
       }
     },
     {
@@ -76,11 +90,16 @@
       "businessContext": "Units that required rework to meet quality standards.",
       "label_i18n": {
         "en": "Rework Units",
-        "tr": "Yeniden İşleme Birimleri"
+        "tr": "Yeniden İşleme Birimleri",
+        "de": "Nacharbeits-Einheiten",
+        "fr": "Unités de reprise",
+        "es": "Unidades retrabajadas"
       },
       "businessContext_i18n": {
         "en": "Units that required rework to meet quality standards.",
-        "tr": "Kalite standartlarını karşılamak için yeniden işlenmesi gereken birimler."
+        "tr": "Kalite standartlarını karşılamak için yeniden işlenmesi gereken birimler.",
+        "de": "Einheiten, die nachbearbeitet werden mussten, um die Qualitätsstandards zu erfüllen.",
+        "fr": "Unités ayant nécessité un retravail pour atteindre les normes de qualité."
       }
     },
     {
@@ -95,11 +114,15 @@
       "label_i18n": {
         "en": "Labor Cost per Hour",
         "tr": "Saatlik işçilik maliyeti",
-        "de": "Arbeitskosten pro Stunde"
+        "de": "Arbeitskosten pro Stunde",
+        "fr": "Coût de la main-d'œuvre par heure",
+        "es": "Costo de mano de obra por hora"
       },
       "businessContext_i18n": {
         "en": "Average fully loaded labor cost per operator per hour.",
-        "tr": "Operatör başına saatlik ortalama tam yüklü işçilik maliyeti."
+        "tr": "Operatör başına saatlik ortalama tam yüklü işçilik maliyeti.",
+        "de": "Durchschnittliche voll belastete Arbeitskosten pro Bediener pro Stunde.",
+        "fr": "Coût moyen de main-d'œuvre entièrement chargé par opérateur par heure."
       }
     },
     {
@@ -113,11 +136,15 @@
       "businessContext": "Total operators assigned to the shift.",
       "label_i18n": {
         "en": "Number of Operators",
-        "tr": "Operatör Sayısı"
+        "tr": "Operatör Sayısı",
+        "de": "Anzahl der Bediener",
+        "fr": "Nombre d'opérateurs"
       },
       "businessContext_i18n": {
         "en": "Total operators assigned to the shift.",
-        "tr": "Vardiyaya atanan toplam operatör sayısı."
+        "tr": "Vardiyaya atanan toplam operatör sayısı.",
+        "de": "Gesamtzahl der der Schicht zugewiesenen Bediener.",
+        "fr": "Nombre total d'opérateurs affectés au poste."
       }
     },
     {
@@ -131,11 +158,16 @@
       "businessContext": "Direct material cost per unit produced.",
       "label_i18n": {
         "en": "Material Cost per Unit",
-        "tr": "Birim Başına Malzeme Maliyeti"
+        "tr": "Birim Başına Malzeme Maliyeti",
+        "de": "Materialkosten pro Einheit",
+        "fr": "Coût matière par unité",
+        "es": "Coste de material por unidad"
       },
       "businessContext_i18n": {
         "en": "Direct material cost per unit produced.",
-        "tr": "Üretilen birim başına doğrudan malzeme maliyeti."
+        "tr": "Üretilen birim başına doğrudan malzeme maliyeti.",
+        "de": "Direkte Materialkosten pro produzierter Einheit.",
+        "fr": "Coût direct des matériaux par unité produite."
       }
     },
     {
@@ -149,11 +181,15 @@
       "businessContext": "Total energy cost (electricity, gas, etc.) for the shift.",
       "label_i18n": {
         "en": "Energy Cost per Shift",
-        "tr": "Vardiya Başına Enerji Maliyeti"
+        "tr": "Vardiya Başına Enerji Maliyeti",
+        "de": "Energiekosten pro Schicht",
+        "fr": "Coût énergétique par poste"
       },
       "businessContext_i18n": {
         "en": "Total energy cost (electricity, gas, etc.) for the shift.",
-        "tr": "Vardiya için toplam enerji maliyeti (elektrik, gaz vb.)."
+        "tr": "Vardiya için toplam enerji maliyeti (elektrik, gaz vb.).",
+        "de": "Gesamte Energiekosten (Strom, Gas usw.) für die Schicht.",
+        "fr": "Coût énergétique total (électricité, gaz, etc.) pour le poste."
       }
     }
   ],

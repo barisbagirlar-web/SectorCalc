@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Coefficient a (dy/dt = a·y + b)",
         "tr": "Katsayı a (dy/dt = a·y + b)",
-        "de": "Coefficient a (dy/dt = a·y + b)",
+        "de": "Koeffizient a (dy/dt = a·y + b)",
         "fr": "Coefficient a (dy/dt = a·y + b)",
-        "es": "Coefficient a (dy/dt = a·y + b)",
+        "es": "Coeficiente a (dy/dt = a·y + b)",
         "ar": "Coefficient a (dy/dt = a·y + b)"
       },
       "businessContext_i18n": {
         "en": "Rate constant in first-order linear ODE",
-        "tr": "Birinci dereceden lineer adi diferansiyel denklemde hız sabiti"
+        "tr": "Birinci dereceden lineer adi diferansiyel denklemde hız sabiti",
+        "de": "Geschwindigkeitskonstante in linearer DGL erster Ordnung",
+        "fr": "Constante de vitesse dans l'EDO linéaire du premier ordre",
+        "es": "Constante de velocidad en EDO lineal de primer orden"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Constant term b",
         "tr": "Sabit terim b",
-        "de": "Constant term b",
-        "fr": "Constant term b",
-        "es": "Constant term b",
+        "de": "Konstanter Term b",
+        "fr": "Terme constant b",
+        "es": "Término constante b",
         "ar": "Constant term b"
       },
       "businessContext_i18n": {
         "en": "Forcing term in the ODE",
-        "tr": "Adi diferansiyel denklemde zorlama terimi"
+        "tr": "Adi diferansiyel denklemde zorlama terimi",
+        "de": "Antriebsterm in der DGL",
+        "fr": "Terme forçant dans l'EDO",
+        "es": "Término forzante en la EDO"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Initial time",
         "tr": "Başlangıç zamanı",
-        "de": "Initial time",
-        "fr": "Initial time",
-        "es": "Initial time",
+        "de": "Startzeit",
+        "fr": "Temps initial",
+        "es": "Tiempo inicial",
         "ar": "Initial time"
       },
       "businessContext_i18n": {
         "en": "Start time for the integration",
-        "tr": "İntegrasyon için başlangıç zamanı"
+        "tr": "İntegrasyon için başlangıç zamanı",
+        "de": "Startzeit für die Integration",
+        "fr": "Temps de début de l'intégration",
+        "es": "Tiempo de inicio para la integración"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Initial value y(t0)",
         "tr": "Başlangıç değeri y(t0)",
-        "de": "Initial value y(t0)",
-        "fr": "Initial value y(t0)",
-        "es": "Initial value y(t0)",
+        "de": "Anfangswert y(t0)",
+        "fr": "Valeur initiale y(t0)",
+        "es": "Valor inicial y(t0)",
         "ar": "Initial value y(t0)"
       },
       "businessContext_i18n": {
         "en": "Initial condition at t0",
-        "tr": "t0'daki başlangıç koşulu"
+        "tr": "t0'daki başlangıç koşulu",
+        "de": "Anfangsbedingung bei t0",
+        "fr": "Condition initiale à t0",
+        "es": "Condición inicial en t0"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Step size",
         "tr": "Adım boyutu",
-        "de": "Step size",
-        "fr": "Step size",
-        "es": "Step size",
+        "de": "Schrittweite",
+        "fr": "Pas de temps",
+        "es": "Tamaño de paso",
         "ar": "Step size"
       },
       "businessContext_i18n": {
         "en": "Time increment for numerical approximation",
-        "tr": "Sayısal yaklaşım için zaman artışı"
+        "tr": "Sayısal yaklaşım için zaman artışı",
+        "de": "Zeitinkrement für numerische Näherung",
+        "fr": "Incrément de temps pour l'approximation numérique",
+        "es": "Incremento de tiempo para la aproximación numérica"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Number of steps",
         "tr": "Adım sayısı",
-        "de": "Number of steps",
-        "fr": "Number of steps",
-        "es": "Number of steps",
+        "de": "Anzahl der Schritte",
+        "fr": "Nombre d'étapes",
+        "es": "Número de pasos",
         "ar": "Number of steps"
       },
       "businessContext_i18n": {
         "en": "Total integration steps to reach final time",
-        "tr": "Son süreye ulaşmak için toplam entegrasyon adımı"
+        "tr": "Son süreye ulaşmak için toplam entegrasyon adımı",
+        "de": "Gesamtzahl der Integrationsschritte bis zur Endzeit",
+        "fr": "Nombre total d'étapes d'intégration pour atteindre le temps final",
+        "es": "Pasos totales de integración para alcanzar el tiempo final"
       }
     }
   ],

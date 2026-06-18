@@ -12,13 +12,15 @@
         "en": "Current Age",
         "tr": "Mevcut Yaş",
         "de": "Aktuelles Alter",
-        "fr": "Current Age",
-        "es": "Current Age",
+        "fr": "Âge actuel",
+        "es": "Edad actual",
         "ar": "Current Age"
       },
       "businessContext_i18n": {
         "en": "Age of the insured at policy inception",
-        "tr": "Poliçe başlangıcında sigortalının yaşı"
+        "tr": "Poliçe başlangıcında sigortalının yaşı",
+        "de": "Alter der versicherten Person bei Vertragsbeginn",
+        "fr": "Âge de l'assuré à la souscription de la police"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Annual Premium",
         "tr": "Yıllık Prim",
-        "de": "Annual Premium",
-        "fr": "Annual Premium",
+        "de": "Jahresprämie",
+        "fr": "Prime annuelle",
         "es": "Annual Premium",
         "ar": "Annual Premium"
       },
       "businessContext_i18n": {
         "en": "Annual premium paid by the policyholder",
-        "tr": "Poliçe sahibi tarafından ödenen yıllık prim"
+        "tr": "Poliçe sahibi tarafından ödenen yıllık prim",
+        "de": "Vom Versicherungsnehmer gezahlte Jahresprämie",
+        "fr": "Prime annuelle payée par le souscripteur"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Face Amount",
         "tr": "Nominal Tutar",
-        "de": "Face Amount",
-        "fr": "Face Amount",
+        "de": "Versicherungssumme",
+        "fr": "Capital assuré",
         "es": "Face Amount",
         "ar": "Face Amount"
       },
       "businessContext_i18n": {
         "en": "Initial death benefit guaranteed under the policy",
-        "tr": "Poliçe kapsamında garanti edilen başlangıç ölüm yardımı"
+        "tr": "Poliçe kapsamında garanti edilen başlangıç ölüm yardımı",
+        "de": "Anfängliche Todesfallleistung, die gemäß der Police garantiert ist",
+        "fr": "Prestation de décès initiale garantie par la police"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Interest Rate",
         "tr": "Faiz Oranı",
         "de": "Zinssatz",
-        "fr": "Interest Rate",
-        "es": "Interest Rate",
+        "fr": "Taux d'intérêt",
+        "es": "Tasa de interés",
         "ar": "Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Annual credited interest rate on cash value",
-        "tr": "Nakit değere uygulanan yıllık faiz oranı"
+        "tr": "Nakit değere uygulanan yıllık faiz oranı",
+        "de": "Jährlicher Gutschriftszinssatz auf den Rückkaufswert",
+        "fr": "Taux d'intérêt crédité annuel sur la valeur de rachat"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Policy Duration",
         "tr": "Poliçe Süresi",
-        "de": "Policy Duration",
-        "fr": "Policy Duration",
+        "de": "Vertragsdauer",
+        "fr": "Durée de la police",
         "es": "Policy Duration",
         "ar": "Policy Duration"
       },
       "businessContext_i18n": {
         "en": "Number of years premiums are paid and interest accumulates",
-        "tr": "Primlerin ödendiği ve faizin biriktiği yıl sayısı"
+        "tr": "Primlerin ödendiği ve faizin biriktiği yıl sayısı",
+        "de": "Anzahl der Jahre, in denen Prämien gezahlt werden und Zinsen anfallen",
+        "fr": "Nombre d'années pendant lesquelles les primes sont payées et les intérêts s'accumulent"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Expense Charge",
         "tr": "Masraf Ücreti",
-        "de": "Expense Charge",
-        "fr": "Expense Charge",
+        "de": "Kostenbelastung",
+        "fr": "Frais de gestion",
         "es": "Expense Charge",
         "ar": "Expense Charge"
       },
       "businessContext_i18n": {
         "en": "Annual percentage charge for mortality and expenses deducted from cash value accumulation",
-        "tr": "Nakit değer birikiminden kesilen mortalite ve giderler için yıllık yüzde ücreti"
+        "tr": "Nakit değer birikiminden kesilen mortalite ve giderler için yıllık yüzde ücreti",
+        "de": "Jährlicher Prozentsatz für Sterblichkeit und Kosten, der vom Rückkaufswert abgezogen wird",
+        "fr": "Pourcentage annuel prélevé pour la mortalité et les frais, déduit de l'accumulation de la valeur de rachat"
       }
     }
   ],

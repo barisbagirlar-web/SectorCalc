@@ -12,13 +12,16 @@
         "en": "Sıcaklık (°C)",
         "tr": "Sıcaklık (°C)",
         "de": "Sıcaklık (°C)",
-        "fr": "Sıcaklık (°C)",
-        "es": "Sıcaklık (°C)",
+        "fr": "Température (°C)",
+        "es": "Temperatura (°C)",
         "ar": "Sıcaklık (°C)"
       },
       "businessContext_i18n": {
         "en": "Dry bulb temperature in Celsius",
-        "tr": "Kuru termometre sıcaklığı (°C)"
+        "tr": "Kuru termometre sıcaklığı (°C)",
+        "de": "Trockenkugeltemperatur in Celsius",
+        "fr": "Température sèche en degrés Celsius",
+        "es": "Temperatura de bulbo seco en grados Celsius"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Bağıl Nem (%)",
         "tr": "Bağıl Nem (%)",
         "de": "Bağıl Nem (%)",
-        "fr": "Bağıl Nem (%)",
-        "es": "Bağıl Nem (%)",
+        "fr": "Humidité relative (%)",
+        "es": "Humedad relativa (%)",
         "ar": "Bağıl Nem (%)"
       },
       "businessContext_i18n": {
         "en": "Relative humidity percentage",
-        "tr": "Bağıl nem yüzdesi"
+        "tr": "Bağıl nem yüzdesi",
+        "de": "Relative Luftfeuchtigkeit in Prozent",
+        "fr": "Pourcentage d'humidité relative",
+        "es": "Porcentaje de humedad relativa"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Atmosfer Basıncı (hPa)",
         "tr": "Atmosfer Basıncı (hPa)",
-        "de": "Atmosfer Basıncı (hPa)",
-        "fr": "Atmosfer Basıncı (hPa)",
-        "es": "Atmosfer Basıncı (hPa)",
+        "de": "Atmosphärendruck (hPa)",
+        "fr": "Pression atmosphérique (hPa)",
+        "es": "Presión atmosférica (hPa)",
         "ar": "Atmosfer Basıncı (hPa)"
       },
       "businessContext_i18n": {
         "en": "Actual atmospheric pressure in hPa",
-        "tr": "Gerçek atmosfer basıncı (hPa)"
+        "tr": "Gerçek atmosfer basıncı (hPa)",
+        "de": "Tatsächlicher atmosphärischer Druck in hPa",
+        "fr": "Pression atmosphérique réelle en hPa",
+        "es": "Presión atmosférica real en hPa"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Rakım (m)",
         "tr": "Rakım (m)",
-        "de": "Rakım (m)",
-        "fr": "Rakım (m)",
-        "es": "Rakım (m)",
+        "de": "Höhe über dem Meeresspiegel (m)",
+        "fr": "Altitude (m)",
+        "es": "Altitud (m)",
         "ar": "Rakım (m)"
       },
       "businessContext_i18n": {
         "en": "Altitude above sea level in meters (for pressure estimation if pressure not available)",
-        "tr": "Deniz seviyesinden yükseklik (m) (basınç tahmini için, basınç mevcut değilse)"
+        "tr": "Deniz seviyesinden yükseklik (m) (basınç tahmini için, basınç mevcut değilse)",
+        "de": "Höhe über dem Meeresspiegel in Metern (für die Druckschätzung, falls Druck nicht verfügbar)",
+        "fr": "Altitude au-dessus du niveau de la mer en mètres (pour estimation de la pression si la pression n'est pas disponible)",
+        "es": "Altitud sobre el nivel del mar en metros (para estimación de presión si no se dispone de ella)"
       }
     }
   ],

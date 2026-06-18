@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Disk Sayısı",
         "tr": "Disk Sayısı",
-        "de": "Disk Sayısı",
-        "fr": "Disk Sayısı",
+        "de": "Anzahl der Scheiben",
+        "fr": "Nombre de disques",
         "es": "Disk Sayısı",
         "ar": "Disk Sayısı"
       },
       "businessContext_i18n": {
         "en": "Hanoi kulelerindeki disk sayısı",
-        "tr": "Hanoi kulelerindeki disk sayısı"
+        "tr": "Hanoi kulelerindeki disk sayısı",
+        "de": "Anzahl der Scheiben bei den Türmen von Hanoi",
+        "fr": "Nombre de disques dans les tours de Hanoï"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Manuel Hamle Süresi",
         "tr": "Manuel Hamle Süresi",
-        "de": "Manuel Hamle Süresi",
-        "fr": "Manuel Hamle Süresi",
+        "de": "Manuelle Zugzeit",
+        "fr": "Durée de déplacement manuel",
         "es": "Manuel Hamle Süresi",
         "ar": "Manuel Hamle Süresi"
       },
       "businessContext_i18n": {
         "en": "İnsan eliyle yapılan bir hamlenin süresi",
-        "tr": "İnsan eliyle yapılan bir hamlenin süresi"
+        "tr": "İnsan eliyle yapılan bir hamlenin süresi",
+        "de": "Dauer eines manuellen Zugs",
+        "fr": "Durée d'un déplacement effectué manuellement"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Otomatik Hamle Süresi",
         "tr": "Otomatik Hamle Süresi",
-        "de": "Otomatik Hamle Süresi",
-        "fr": "Otomatik Hamle Süresi",
+        "de": "Automatische Zugzeit",
+        "fr": "Durée de déplacement automatique",
         "es": "Otomatik Hamle Süresi",
         "ar": "Otomatik Hamle Süresi"
       },
       "businessContext_i18n": {
         "en": "Robotik kol ile yapılan bir hamlenin süresi",
-        "tr": "Robotik kol ile yapılan bir hamlenin süresi"
+        "tr": "Robotik kol ile yapılan bir hamlenin süresi",
+        "de": "Dauer eines Zugs mit Roboterarm",
+        "fr": "Durée d'un déplacement effectué par un bras robotisé"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Mod",
         "tr": "Mod",
-        "de": "Mod",
-        "fr": "Mod",
+        "de": "Modus",
+        "fr": "Mode",
         "es": "Mod",
         "ar": "Mod"
       },
       "businessContext_i18n": {
         "en": "0: Manuel, 1: Otomatik",
-        "tr": "0: Manuel, 1: Otomatik"
+        "tr": "0: Manuel, 1: Otomatik",
+        "de": "0: Manuell, 1: Automatisch",
+        "fr": "0 : Manuel, 1 : Automatique"
       }
     }
   ],

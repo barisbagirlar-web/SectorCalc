@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Object Speed",
         "tr": "Nesne Hızı",
-        "de": "Object Speed",
-        "fr": "Object Speed",
+        "de": "Objektgeschwindigkeit",
+        "fr": "Vitesse de l'objet",
         "es": "Object Speed",
         "ar": "Object Speed"
       },
       "businessContext_i18n": {
         "en": "Speed of the object being photographed.",
-        "tr": "Fotoğraflanan nesnenin hızı."
+        "tr": "Fotoğraflanan nesnenin hızı.",
+        "de": "Geschwindigkeit des fotografierten Objekts.",
+        "fr": "Vitesse de l'objet photographié."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Distance to Object",
         "tr": "Nesneye Uzaklık",
-        "de": "Distance to Object",
-        "fr": "Distance to Object",
+        "de": "Entfernung zum Objekt",
+        "fr": "Distance à l'objet",
         "es": "Distance to Object",
         "ar": "Distance to Object"
       },
       "businessContext_i18n": {
         "en": "Distance from camera to object.",
-        "tr": "Kameradan nesneye olan mesafe."
+        "tr": "Kameradan nesneye olan mesafe.",
+        "de": "Entfernung von der Kamera zum Objekt.",
+        "fr": "Distance de la caméra à l'objet."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Focal Length",
         "tr": "Odak Uzaklığı",
         "de": "Brennweite",
-        "fr": "Focal Length",
-        "es": "Focal Length",
+        "fr": "Distance focale",
+        "es": "Distancia focal",
         "ar": "Focal Length"
       },
       "businessContext_i18n": {
         "en": "Focal length of the lens.",
-        "tr": "Merceğin odak uzaklığı."
+        "tr": "Merceğin odak uzaklığı.",
+        "de": "Brennweite des Objektivs.",
+        "fr": "Longueur focale de l'objectif."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Pixel Size",
         "tr": "Piksel Boyutu",
-        "de": "Pixel Size",
-        "fr": "Pixel Size",
+        "de": "Pixelgröße",
+        "fr": "Taille du pixel",
         "es": "Pixel Size",
         "ar": "Pixel Size"
       },
       "businessContext_i18n": {
         "en": "Size of one pixel on the sensor.",
-        "tr": "Sensördeki bir pikselin boyutu."
+        "tr": "Sensördeki bir pikselin boyutu.",
+        "de": "Größe eines Pixels auf dem Sensor.",
+        "fr": "Taille d'un pixel sur le capteur."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Allowable Motion Blur",
         "tr": "İzin Verilen Hareket Bulanıklığı",
-        "de": "Allowable Motion Blur",
-        "fr": "Allowable Motion Blur",
+        "de": "Zulässige Bewegungsunschärfe",
+        "fr": "Flou de mouvement admissible",
         "es": "Allowable Motion Blur",
         "ar": "Allowable Motion Blur"
       },
       "businessContext_i18n": {
         "en": "Maximum allowable motion blur in pixels.",
-        "tr": "Piksel cinsinden izin verilen maksimum hareket bulanıklığı."
+        "tr": "Piksel cinsinden izin verilen maksimum hareket bulanıklığı.",
+        "de": "Maximal zulässige Bewegungsunschärfe in Pixeln.",
+        "fr": "Flou de mouvement maximal admissible en pixels."
       }
     }
   ],

@@ -12,13 +12,16 @@
         "en": "Total Revenue",
         "tr": "Toplam Gelir",
         "de": "Gesamtumsatz",
-        "fr": "Total Revenue",
-        "es": "Total Revenue",
+        "fr": "Revenu total",
+        "es": "Ingresos totales",
         "ar": "Total Revenue"
       },
       "businessContext_i18n": {
         "en": "Toplam gelir (satış gelirleri)",
-        "tr": "Toplam gelir (satış gelirleri)"
+        "tr": "Toplam gelir (satış gelirleri)",
+        "de": "Gesamterlös (Umsatzerlöse)",
+        "fr": "Revenu total (chiffre d'affaires)",
+        "es": "Ingresos totales (ingresos por ventas)"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Cost of Goods Sold (COGS)",
         "tr": "Satılan Malların Maliyeti (COGS)",
         "de": "Umsatzkosten (COGS)",
-        "fr": "Cost of Goods Sold (COGS)",
-        "es": "Cost of Goods Sold (COGS)",
+        "fr": "Coût des marchandises vendues (COGS)",
+        "es": "Costo de bienes vendidos (COGS)",
         "ar": "Cost of Goods Sold (COGS)"
       },
       "businessContext_i18n": {
         "en": "Satılan malın maliyeti (direkt giderler)",
-        "tr": "Satılan malın maliyeti (direkt giderler)"
+        "tr": "Satılan malın maliyeti (direkt giderler)",
+        "de": "Kosten der verkauften Waren (direkte Kosten)",
+        "fr": "Coût des marchandises vendues (dépenses directes)",
+        "es": "Costo de los bienes vendidos (gastos directos)"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Operating Expenses",
         "tr": "Faaliyet Giderleri",
         "de": "Betriebskosten",
-        "fr": "Operating Expenses",
-        "es": "Operating Expenses",
+        "fr": "Charges d'exploitation",
+        "es": "Gastos operativos",
         "ar": "Operating Expenses"
       },
       "businessContext_i18n": {
         "en": "Faaliyet giderleri (kira, personel, pazarlama vb.)",
-        "tr": "Faaliyet giderleri (kira, personel, pazarlama vb.)"
+        "tr": "Faaliyet giderleri (kira, personel, pazarlama vb.)",
+        "de": "Betriebskosten (Miete, Personal, Marketing usw.)",
+        "fr": "Dépenses d'exploitation (loyer, personnel, marketing, etc.)",
+        "es": "Gastos operativos (alquiler, personal, marketing, etc.)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Other Expenses",
         "tr": "Diğer Giderler",
-        "de": "Other Expenses",
-        "fr": "Other Expenses",
-        "es": "Other Expenses",
+        "de": "Sonstige Ausgaben",
+        "fr": "Autres dépenses",
+        "es": "Otros gastos",
         "ar": "Other Expenses"
       },
       "businessContext_i18n": {
         "en": "Diğer giderler (faiz, amortisman vb.)",
-        "tr": "Diğer giderler (faiz, amortisman vb.)"
+        "tr": "Diğer giderler (faiz, amortisman vb.)",
+        "de": "Sonstige Kosten (Zinsen, Abschreibungen usw.)",
+        "fr": "Autres dépenses (intérêts, amortissements, etc.)",
+        "es": "Otros gastos (intereses, depreciación, etc.)"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Tax Expense",
         "tr": "Vergi Gideri",
-        "de": "Tax Expense",
-        "fr": "Tax Expense",
-        "es": "Tax Expense",
+        "de": "Steueraufwand",
+        "fr": "Charge fiscale",
+        "es": "Gasto fiscal",
         "ar": "Tax Expense"
       },
       "businessContext_i18n": {
         "en": "Vergi gideri",
-        "tr": "Vergi gideri"
+        "tr": "Vergi gideri",
+        "de": "Steueraufwand",
+        "fr": "Charge fiscale",
+        "es": "Gasto fiscal"
       }
     }
   ],

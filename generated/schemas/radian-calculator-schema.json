@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Initial Angle (Degrees)",
         "tr": "Başlangıç Açısı (Derece)",
-        "de": "Initial Angle (Degrees)",
-        "fr": "Initial Angle (Degrees)",
-        "es": "Initial Angle (Degrees)",
+        "de": "Anfangswinkel (Grad)",
+        "fr": "Angle initial (degrés)",
+        "es": "Ángulo inicial (grados)",
         "ar": "Initial Angle (Degrees)"
       },
       "businessContext_i18n": {
         "en": "Starting angular position in degrees",
-        "tr": "Başlangıç açısal konumu derece cinsinden"
+        "tr": "Başlangıç açısal konumu derece cinsinden",
+        "de": "Startwinkel in Grad",
+        "fr": "Position angulaire de départ en degrés",
+        "es": "Posición angular inicial en grados"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Final Angle (Degrees)",
         "tr": "Bitiş Açısı (Derece)",
-        "de": "Final Angle (Degrees)",
-        "fr": "Final Angle (Degrees)",
-        "es": "Final Angle (Degrees)",
+        "de": "Endwinkel (Grad)",
+        "fr": "Angle final (degrés)",
+        "es": "Ángulo final (grados)",
         "ar": "Final Angle (Degrees)"
       },
       "businessContext_i18n": {
         "en": "Ending angular position in degrees",
-        "tr": "Bitiş açısal konumu derece cinsinden"
+        "tr": "Bitiş açısal konumu derece cinsinden",
+        "de": "Endwinkel in Grad",
+        "fr": "Position angulaire de fin en degrés",
+        "es": "Posición angular final en grados"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Time",
         "tr": "Zaman",
         "de": "Zeit",
-        "fr": "Time",
-        "es": "Time",
+        "fr": "Temps",
+        "es": "Tiempo",
         "ar": "Time"
       },
       "businessContext_i18n": {
         "en": "Time interval for angular displacement",
-        "tr": "Açısal yer değiştirme için zaman aralığı"
+        "tr": "Açısal yer değiştirme için zaman aralığı",
+        "de": "Zeitintervall für Winkelverschiebung",
+        "fr": "Intervalle de temps pour le déplacement angulaire",
+        "es": "Intervalo de tiempo para el desplazamiento angular"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Radius",
         "tr": "Yarıçap",
         "de": "Radius",
-        "fr": "Radius",
-        "es": "Radius",
+        "fr": "Rayon",
+        "es": "Radio",
         "ar": "Radius"
       },
       "businessContext_i18n": {
         "en": "Radius of circular path",
-        "tr": "Dairesel yolun yarıçapı"
+        "tr": "Dairesel yolun yarıçapı",
+        "de": "Radius der Kreisbahn",
+        "fr": "Rayon de la trajectoire circulaire",
+        "es": "Radio de la trayectoria circular"
       }
     }
   ],

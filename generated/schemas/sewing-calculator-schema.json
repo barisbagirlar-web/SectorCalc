@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Stitch Length",
         "tr": "Dikiş Uzunluğu",
-        "de": "Stitch Length",
-        "fr": "Stitch Length",
+        "de": "Stichlänge",
+        "fr": "Longueur de point",
         "es": "Stitch Length",
         "ar": "Stitch Length"
       },
       "businessContext_i18n": {
         "en": "Length of each stitch in millimeters",
-        "tr": "Her dikişin milimetre cinsinden uzunluğu"
+        "tr": "Her dikişin milimetre cinsinden uzunluğu",
+        "de": "Länge jedes Stichs in Millimetern",
+        "fr": "Longueur de chaque point en millimètres"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Seam Length",
         "tr": "Dikiş Yeri Uzunluğu",
-        "de": "Seam Length",
-        "fr": "Seam Length",
+        "de": "Nahtlänge",
+        "fr": "Longueur de couture",
         "es": "Seam Length",
         "ar": "Seam Length"
       },
       "businessContext_i18n": {
         "en": "Total length of the seam to be sewn",
-        "tr": "Dikilecek dikiş yerinin toplam uzunluğu"
+        "tr": "Dikilecek dikiş yerinin toplam uzunluğu",
+        "de": "Gesamtlänge der zu nähenden Naht",
+        "fr": "Longueur totale de la couture à réaliser"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Sewing Speed",
         "tr": "Dikiş Hızı",
-        "de": "Sewing Speed",
-        "fr": "Sewing Speed",
+        "de": "Nähgeschwindigkeit",
+        "fr": "Vitesse de couture",
         "es": "Sewing Speed",
         "ar": "Sewing Speed"
       },
       "businessContext_i18n": {
         "en": "Machine speed in stitches per minute",
-        "tr": "Makine hızı (dakikadaki dikiş sayısı)"
+        "tr": "Makine hızı (dakikadaki dikiş sayısı)",
+        "de": "Maschinengeschwindigkeit in Stichen pro Minute",
+        "fr": "Vitesse de la machine en points par minute"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Thread Consumption Factor",
         "tr": "İplik Tüketim Faktörü",
         "de": "Garnverbrauchsfaktor",
-        "fr": "Thread Consumption Factor",
-        "es": "Thread Consumption Factor",
+        "fr": "Facteur de consommation de fil",
+        "es": "Factor de consumo de hilo",
         "ar": "Thread Consumption Factor"
       },
       "businessContext_i18n": {
         "en": "Factor to estimate thread usage (typically 2.5-3.0)",
-        "tr": "İplik kullanımını tahmin etme faktörü (genellikle 2,5-3,0)"
+        "tr": "İplik kullanımını tahmin etme faktörü (genellikle 2,5-3,0)",
+        "de": "Faktor zur Schätzung des Fadenverbrauchs (typischerweise 2,5-3,0)",
+        "fr": "Facteur d'estimation de l'utilisation du fil (généralement 2,5-3,0)"
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Labor Cost per Hour",
         "tr": "Saatlik işçilik maliyeti",
         "de": "Arbeitskosten pro Stunde",
-        "fr": "Labor Cost per Hour",
-        "es": "Labor Cost per Hour",
+        "fr": "Coût de la main-d'œuvre par heure",
+        "es": "Costo de mano de obra por hora",
         "ar": "Labor Cost per Hour"
       },
       "businessContext_i18n": {
         "en": "Hourly wage of the operator",
-        "tr": "Operatörün saatlik ücreti"
+        "tr": "Operatörün saatlik ücreti",
+        "de": "Stundenlohn des Bedieners",
+        "fr": "Salaire horaire de l'opérateur"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Machine Cost per Hour",
         "tr": "Makine Saatlik Maliyeti",
-        "de": "Machine Cost per Hour",
-        "fr": "Machine Cost per Hour",
+        "de": "Maschinenkosten pro Stunde",
+        "fr": "Coût machine par heure",
         "es": "Machine Cost per Hour",
         "ar": "Machine Cost per Hour"
       },
       "businessContext_i18n": {
         "en": "Hourly cost of machine operation (depreciation, maintenance, energy)",
-        "tr": "Makine çalışmasının saatlik maliyeti (amortisman, bakım, enerji)"
+        "tr": "Makine çalışmasının saatlik maliyeti (amortisman, bakım, enerji)",
+        "de": "Stündliche Kosten des Maschinenbetriebs (Abschreibung, Wartung, Energie)",
+        "fr": "Coût horaire de fonctionnement de la machine (amortissement, maintenance, énergie)"
       }
     }
   ],

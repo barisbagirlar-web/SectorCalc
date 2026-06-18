@@ -12,14 +12,16 @@
         "en": "Kredi Tutarı",
         "tr": "Kredi Tutarı",
         "de": "Kreditbetrag",
-        "fr": "Kredi Tutarı",
-        "es": "Kredi Tutarı",
+        "fr": "Montant du crédit",
+        "es": "Monto del préstamo",
         "ar": "Kredi Tutarı"
       },
       "businessContext_i18n": {
         "en": "Anapara",
         "tr": "Anapara",
-        "de": "Darlehensbetrag"
+        "de": "Darlehensbetrag",
+        "fr": "Principal",
+        "es": "Capital"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Yıllık Faiz Oranı",
         "tr": "Yıllık Faiz Oranı",
         "de": "Jährlicher Zinssatz",
-        "fr": "Yıllık Faiz Oranı",
-        "es": "Yıllık Faiz Oranı",
+        "fr": "Taux d'intérêt annuel",
+        "es": "Tasa de interés anual",
         "ar": "Yıllık Faiz Oranı"
       },
       "businessContext_i18n": {
         "en": "Faiz",
         "tr": "Faiz",
-        "de": "Zinssatz"
+        "de": "Zinssatz",
+        "fr": "Intérêt",
+        "es": "Interés"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Vade (Ay)",
         "tr": "Vade (Ay)",
         "de": "Laufzeit (Monate)",
-        "fr": "Vade (Ay)",
-        "es": "Vade (Ay)",
+        "fr": "Durée (mois)",
+        "es": "Plazo (meses)",
         "ar": "Vade (Ay)"
       },
       "businessContext_i18n": {
         "en": "Vade",
         "tr": "Vade",
-        "de": "Laufzeit"
+        "de": "Laufzeit",
+        "fr": "Durée",
+        "es": "Plazo"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Balon Ödeme Yüzdesi",
         "tr": "Balon Ödeme Yüzdesi",
         "de": "Ballonzahlungsprozentsatz",
-        "fr": "Balon Ödeme Yüzdesi",
-        "es": "Balon Ödeme Yüzdesi",
+        "fr": "Pourcentage de paiement forfaitaire",
+        "es": "Porcentaje de pago global",
         "ar": "Balon Ödeme Yüzdesi"
       },
       "businessContext_i18n": {
         "en": "Balon ödeme, anaparanın yüzdesi",
         "tr": "Balon ödeme, anaparanın yüzdesi",
-        "de": "Ballonzahlung als Prozentsatz des Darlehensbetrags"
+        "de": "Ballonzahlung als Prozentsatz des Darlehensbetrags",
+        "fr": "Paiement forfaitaire, pourcentage du principal",
+        "es": "Pago global, porcentaje del capital"
       }
     }
   ],

@@ -13,13 +13,15 @@
         "tr": "Mesafe",
         "de": "Entfernung",
         "fr": "Distance",
-        "es": "Distance",
+        "es": "Distancia",
         "ar": "Distance"
       },
       "businessContext_i18n": {
         "en": "Total route distance",
         "tr": "Toplam rota mesafesi",
-        "de": "Gesamte Routenentfernung"
+        "de": "Gesamte Routenentfernung",
+        "fr": "Distance totale du trajet",
+        "es": "Distancia total de la ruta"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Average Speed",
         "tr": "Ortalama Hız",
         "de": "Durchschnittsgeschwindigkeit",
-        "fr": "Average Speed",
-        "es": "Average Speed",
+        "fr": "Vitesse moyenne",
+        "es": "Velocidad media",
         "ar": "Average Speed"
       },
       "businessContext_i18n": {
         "en": "Expected average travel speed",
         "tr": "Beklenen ortalama seyahat hızı",
-        "de": "Erwartete Durchschnittsgeschwindigkeit"
+        "de": "Erwartete Durchschnittsgeschwindigkeit",
+        "fr": "Vitesse moyenne de déplacement attendue",
+        "es": "Velocidad media de viaje esperada"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Fuel Consumption",
         "tr": "Yakıt Tüketimi",
         "de": "Kraftstoffverbrauch",
-        "fr": "Fuel Consumption",
-        "es": "Fuel Consumption",
+        "fr": "Consommation de carburant",
+        "es": "Consumo de combustible",
         "ar": "Fuel Consumption"
       },
       "businessContext_i18n": {
         "en": "Vehicle fuel consumption rate",
         "tr": "Araç yakıt tüketim oranı",
-        "de": "Kraftstoffverbrauch des Fahrzeugs"
+        "de": "Kraftstoffverbrauch des Fahrzeugs",
+        "fr": "Taux de consommation de carburant du véhicule",
+        "es": "Tasa de consumo de combustible del vehículo"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Fuel Price",
         "tr": "Yakıt Fiyatı",
         "de": "Kraftstoffpreis",
-        "fr": "Fuel Price",
-        "es": "Fuel Price",
+        "fr": "Prix du carburant",
+        "es": "Precio del Combustible",
         "ar": "Fuel Price"
       },
       "businessContext_i18n": {
         "en": "Cost of fuel per litre",
         "tr": "Litre başına yakıt maliyeti",
-        "de": "Kraftstoffkosten pro Liter"
+        "de": "Kraftstoffkosten pro Liter",
+        "fr": "Coût du carburant par litre",
+        "es": "Coste del combustible por litro"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Number of Stops",
         "tr": "Duruş Sayısı",
         "de": "Anzahl der Stopps",
-        "fr": "Number of Stops",
-        "es": "Number of Stops",
+        "fr": "Nombre d'arrêts",
+        "es": "Número de paradas",
         "ar": "Number of Stops"
       },
       "businessContext_i18n": {
         "en": "Number of rest/delivery stops",
         "tr": "Dinlenme/teslimat durağı sayısı",
-        "de": "Anzahl der Ruhe-/Lieferstopps"
+        "de": "Anzahl der Ruhe-/Lieferstopps",
+        "fr": "Nombre d'arrêts de repos/livraison",
+        "es": "Número de paradas de descanso/entrega"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Time per Stop",
         "tr": "Durak Başına Süre",
         "de": "Zeit pro Stopp",
-        "fr": "Time per Stop",
-        "es": "Time per Stop",
+        "fr": "Temps par arrêt",
+        "es": "Tiempo por parada",
         "ar": "Time per Stop"
       },
       "businessContext_i18n": {
         "en": "Average time spent per stop",
         "tr": "Durak başına ortalama harcanan süre",
-        "de": "Durchschnittliche Zeit pro Stopp"
+        "de": "Durchschnittliche Zeit pro Stopp",
+        "fr": "Temps moyen passé par arrêt",
+        "es": "Tiempo promedio por parada"
       }
     }
   ],

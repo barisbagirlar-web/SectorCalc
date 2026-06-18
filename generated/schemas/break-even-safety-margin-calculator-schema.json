@@ -21,12 +21,16 @@
       "label_i18n": {
         "en": "Total Fixed Costs",
         "tr": "Toplam Sabit Maliyetler",
-        "de": "Gesamte Fixkosten"
+        "de": "Gesamte Fixkosten",
+        "fr": "Coûts fixes totaux",
+        "es": "Costes fijos totales"
       },
       "businessContext_i18n": {
         "en": "Sum of all fixed expenses (rent, salaries, insurance) per period.",
         "tr": "Dönem başına tüm sabit giderlerin (kira, maaşlar, sigorta) toplamı.",
-        "de": "Summe aller Fixkosten (Miete, Gehälter, Versicherungen) pro Zeitraum."
+        "de": "Summe aller Fixkosten (Miete, Gehälter, Versicherungen) pro Zeitraum.",
+        "fr": "Somme de toutes les charges fixes (loyer, salaires, assurances) par période.",
+        "es": "Suma de todos los gastos fijos (alquiler, salarios, seguros) por período."
       }
     },
     {
@@ -41,12 +45,16 @@
       "label_i18n": {
         "en": "Variable Cost per Unit",
         "tr": "Birim Başına Değişken Maliyet",
-        "de": "Variable Kosten pro Einheit"
+        "de": "Variable Kosten pro Einheit",
+        "fr": "Coût variable par unité",
+        "es": "Coste variable por unidad"
       },
       "businessContext_i18n": {
         "en": "Direct material, labor, and overhead per unit.",
         "tr": "Birim başına direkt malzeme, işçilik ve genel gider.",
-        "de": "Direktmaterial, Arbeit und Gemeinkosten pro Einheit."
+        "de": "Direktmaterial, Arbeit und Gemeinkosten pro Einheit.",
+        "fr": "Coût direct matière, main-d'œuvre et frais généraux par unité.",
+        "es": "Material directo, mano de obra y gastos generales por unidad."
       }
     },
     {
@@ -61,12 +69,16 @@
       "label_i18n": {
         "en": "Selling Price per Unit",
         "tr": "Birim Satış Fiyatı",
-        "de": "Verkaufspreis pro Einheit"
+        "de": "Verkaufspreis pro Einheit",
+        "fr": "Prix de vente unitaire",
+        "es": "Precio de venta por unidad"
       },
       "businessContext_i18n": {
         "en": "Revenue per unit sold.",
         "tr": "Satılan birim başına gelir.",
-        "de": "Umsatz pro verkaufter Einheit."
+        "de": "Umsatz pro verkaufter Einheit.",
+        "fr": "Revenu par unité vendue.",
+        "es": "Ingresos por unidad vendida."
       }
     },
     {
@@ -81,12 +93,16 @@
       "label_i18n": {
         "en": "Actual Sales Volume",
         "tr": "Gerçek Satış Hacmi",
-        "de": "Tatsächliches Verkaufsvolumen"
+        "de": "Tatsächliches Verkaufsvolumen",
+        "fr": "Volume de ventes réel",
+        "es": "Volumen de ventas real"
       },
       "businessContext_i18n": {
         "en": "Number of units actually sold in the period.",
         "tr": "Dönemde fiilen satılan birim sayısı.",
-        "de": "Anzahl der im Zeitraum tatsächlich verkauften Einheiten."
+        "de": "Anzahl der im Zeitraum tatsächlich verkauften Einheiten.",
+        "fr": "Nombre d'unités réellement vendues sur la période.",
+        "es": "Número de unidades realmente vendidas en el período."
       }
     },
     {
@@ -101,12 +117,16 @@
       "label_i18n": {
         "en": "Maximum Capacity Volume",
         "tr": "Maksimum Kapasite Hacmi",
-        "de": "Maximale Kapazität (Einheiten)"
+        "de": "Maximale Kapazität (Einheiten)",
+        "fr": "Volume de capacité maximale",
+        "es": "Volumen de capacidad máxima"
       },
       "businessContext_i18n": {
         "en": "Theoretical maximum output under normal operating conditions.",
         "tr": "Normal çalışma koşullarında teorik maksimum çıktı.",
-        "de": "Theoretische maximale Ausbringung unter normalen Betriebsbedingungen."
+        "de": "Theoretische maximale Ausbringung unter normalen Betriebsbedingungen.",
+        "fr": "Production théorique maximale dans des conditions normales d'exploitation.",
+        "es": "Producción máxima teórica en condiciones normales de operación."
       }
     },
     {
@@ -121,12 +141,16 @@
       "label_i18n": {
         "en": "Demand Uncertainty Factor",
         "tr": "Talep Belirsizlik Faktörü",
-        "de": "Nachfrageunsicherheitsfaktor"
+        "de": "Nachfrageunsicherheitsfaktor",
+        "fr": "Facteur d'incertitude de la demande",
+        "es": "Factor de incertidumbre de la demanda"
       },
       "businessContext_i18n": {
         "en": "Expected percentage variation in demand (coefficient of variation).",
         "tr": "Talepte beklenen yüzde değişim (varyasyon katsayısı).",
-        "de": "Erwartete prozentuale Schwankung der Nachfrage (Variationskoeffizient)."
+        "de": "Erwartete prozentuale Schwankung der Nachfrage (Variationskoeffizient).",
+        "fr": "Pourcentage de variation attendue de la demande (coefficient de variation).",
+        "es": "Porcentaje esperado de variación en la demanda (coeficiente de variación)."
       }
     },
     {
@@ -141,12 +165,16 @@
       "label_i18n": {
         "en": "Cost Escalation Rate",
         "tr": "Maliyet Artış Oranı",
-        "de": "Kostensteigerungsrate"
+        "de": "Kostensteigerungsrate",
+        "fr": "Taux d'escalade des coûts",
+        "es": "Tasa de escalada de costes"
       },
       "businessContext_i18n": {
         "en": "Annual expected increase in variable costs (inflation, supplier pricing).",
         "tr": "Değişken maliyetlerde beklenen yıllık artış (enflasyon, tedarikçi fiyatlandırması).",
-        "de": "Jährlicher erwarteter Anstieg der variablen Kosten (Inflation, Lieferantenpreise)."
+        "de": "Jährlicher erwarteter Anstieg der variablen Kosten (Inflation, Lieferantenpreise).",
+        "fr": "Augmentation annuelle attendue des coûts variables (inflation, prix fournisseurs).",
+        "es": "Incremento anual esperado en costes variables (inflación, precios de proveedores)."
       }
     },
     {
@@ -161,12 +189,16 @@
       "label_i18n": {
         "en": "Include Tax Effect",
         "tr": "Vergi Etkisini Dahil Et",
-        "de": "Steuereffekt einbeziehen"
+        "de": "Steuereffekt einbeziehen",
+        "fr": "Inclure l'effet fiscal",
+        "es": "Incluir efecto fiscal"
       },
       "businessContext_i18n": {
         "en": "If true, tax rate input is required and after-tax break-even is calculated.",
         "tr": "Doğruysa, vergi oranı girişi gereklidir ve vergi sonrası başabaş hesaplanır.",
-        "de": "Wenn aktiviert, ist der Steuersatz erforderlich und der Break-Even nach Steuern wird berechnet."
+        "de": "Wenn aktiviert, ist der Steuersatz erforderlich und der Break-Even nach Steuern wird berechnet.",
+        "fr": "Si vrai, le taux d'imposition est requis et le seuil de rentabilité après impôt est calculé.",
+        "es": "Si es verdadero, se requiere la tasa impositiva y se calcula el punto de equilibrio después de impuestos."
       }
     }
   ],

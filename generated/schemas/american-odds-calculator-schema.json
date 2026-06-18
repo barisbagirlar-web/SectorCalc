@@ -12,14 +12,16 @@
         "en": "Calculation Mode",
         "tr": "Hesaplama Modu",
         "de": "Berechnungsmodus",
-        "fr": "Calculation Mode",
-        "es": "Calculation Mode",
+        "fr": "Mode de calcul",
+        "es": "Modo de cálculo",
         "ar": "Calculation Mode"
       },
       "businessContext_i18n": {
         "en": "0 = Calculate Payout, 1 = Calculate Required Wager",
         "tr": "0 = Ödeme Hesapla, 1 = Gerekli Bahis Hesapla",
-        "de": "0 = Auszahlung berechnen, 1 = Erforderlichen Einsatz berechnen"
+        "de": "0 = Auszahlung berechnen, 1 = Erforderlichen Einsatz berechnen",
+        "fr": "0 = Calculer le paiement, 1 = Calculer la mise requise",
+        "es": "0 = Calcular pago, 1 = Calcular apuesta requerida"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "American Odds",
         "tr": "Amerikan Oranları",
         "de": "Amerikanische Quoten",
-        "fr": "American Odds",
-        "es": "American Odds",
+        "fr": "Cotes américaines",
+        "es": "Cuotas americanas",
         "ar": "American Odds"
       },
       "businessContext_i18n": {
         "en": "Negative for favorites, positive for underdogs",
         "tr": "Favoriler için negatif, sürprizler için pozitif",
-        "de": "Negativ für Favoriten, positiv für Außenseiter"
+        "de": "Negativ für Favoriten, positiv für Außenseiter",
+        "fr": "Négatif pour les favoris, positif pour les outsiders",
+        "es": "Negativo para favoritos, positivo para no favoritos"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Wager Amount ($)",
         "tr": "Bahis Miktarı ($)",
         "de": "Einsatz ($)",
-        "fr": "Wager Amount ($)",
-        "es": "Wager Amount ($)",
+        "fr": "Montant de la mise ($)",
+        "es": "Monto de la apuesta ($)",
         "ar": "Wager Amount ($)"
       },
       "businessContext_i18n": {
         "en": "Amount bet (used in mode 0 for profit calculation, and always for breakdown)",
         "tr": "Yatırılan miktar (mod 0'da kar hesaplaması için ve her zaman döküm için kullanılır)",
-        "de": "Gesetzter Betrag (wird in Modus 0 für die Gewinnberechnung und immer für die Aufschlüsselung verwendet)"
+        "de": "Gesetzter Betrag (wird in Modus 0 für die Gewinnberechnung und immer für die Aufschlüsselung verwendet)",
+        "fr": "Montant misé (utilisé en mode 0 pour le calcul du profit, et toujours pour la répartition)",
+        "es": "Cantidad apostada (usada en modo 0 para cálculo de ganancia, y siempre para desglose)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Desired Profit ($)",
         "tr": "Hedef Kar ($)",
         "de": "Gewünschter Gewinn ($)",
-        "fr": "Desired Profit ($)",
-        "es": "Desired Profit ($)",
+        "fr": "Profit souhaité ($)",
+        "es": "Ganancia deseada ($)",
         "ar": "Desired Profit ($)"
       },
       "businessContext_i18n": {
         "en": "Target profit when mode is 1",
         "tr": "Mod 1'de hedef kar",
-        "de": "Zielgewinn bei Modus 1"
+        "de": "Zielgewinn bei Modus 1",
+        "fr": "Profit cible lorsque le mode est 1",
+        "es": "Ganancia objetivo cuando el modo es 1"
       }
     }
   ],

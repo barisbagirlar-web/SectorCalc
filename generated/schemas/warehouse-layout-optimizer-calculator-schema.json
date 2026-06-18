@@ -21,11 +21,15 @@
       "label_i18n": {
         "en": "Total Floor Area",
         "tr": "Toplam Kat Alanı",
-        "de": "Gesamte Geschossfläche"
+        "de": "Gesamte Geschossfläche",
+        "fr": "Surface de plancher totale",
+        "es": "Área total construida"
       },
       "businessContext_i18n": {
         "en": "Total available warehouse floor space in square feet.",
-        "tr": "Metrekare cinsinden toplam kullanılabilir depo taban alanı."
+        "tr": "Metrekare cinsinden toplam kullanılabilir depo taban alanı.",
+        "de": "Verfügbare Gesamtlagerfläche in Quadratfuß",
+        "fr": "Surface totale disponible de l'entrepôt en pieds carrés."
       }
     },
     {
@@ -39,11 +43,15 @@
       "businessContext": "Percentage of total floor area dedicated to storage (pallet racks, shelving).",
       "label_i18n": {
         "en": "Storage Area Percentage",
-        "tr": "Depolama Alanı Yüzdesi"
+        "tr": "Depolama Alanı Yüzdesi",
+        "de": "Lagerflächenanteil (%)",
+        "fr": "Pourcentage de la zone de stockage"
       },
       "businessContext_i18n": {
         "en": "Percentage of total floor area dedicated to storage (pallet racks, shelving).",
-        "tr": "Toplam taban alanının depolamaya (palet rafları, raf sistemleri) ayrılan yüzdesi"
+        "tr": "Toplam taban alanının depolamaya (palet rafları, raf sistemleri) ayrılan yüzdesi",
+        "de": "Prozentsatz der Gesamtfläche, der für die Lagerung genutzt wird (Palettenregale, Regale)",
+        "fr": "Pourcentage de la surface totale dédié au stockage (racks à palettes, rayonnages)."
       }
     },
     {
@@ -57,11 +65,15 @@
       "businessContext": "Width of main travel aisles in feet.",
       "label_i18n": {
         "en": "Aisle Width",
-        "tr": "Koridor Genişliği"
+        "tr": "Koridor Genişliği",
+        "de": "Gangbreite",
+        "fr": "Largeur d'allée"
       },
       "businessContext_i18n": {
         "en": "Width of main travel aisles in feet.",
-        "tr": "Ana taşıma koridorlarının fit cinsinden genişliği."
+        "tr": "Ana taşıma koridorlarının fit cinsinden genişliği.",
+        "de": "Breite der Hauptverkehrsgänge in Fuß.",
+        "fr": "Largeur des allées de circulation principales en pieds."
       }
     },
     {
@@ -78,11 +90,15 @@
       "businessContext": "Type of pallet storage system used.",
       "label_i18n": {
         "en": "Pallet Flow Type",
-        "tr": "Palet Akış Türü"
+        "tr": "Palet Akış Türü",
+        "de": "Paletten-Flow-Typ",
+        "fr": "Type de flux de palettes"
       },
       "businessContext_i18n": {
         "en": "Type of pallet storage system used.",
-        "tr": "Kullanılan palet depolama sistemi türü."
+        "tr": "Kullanılan palet depolama sistemi türü.",
+        "de": "Art des verwendeten Palettenlagersystems.",
+        "fr": "Type de système de stockage de palettes utilisé."
       },
       "unit": "unit"
     },
@@ -97,11 +113,15 @@
       "businessContext": "Average footprint of a single pallet (length x width).",
       "label_i18n": {
         "en": "Average Pallet Size (footprint)",
-        "tr": "Ortalama Palet Boyutu (ayak izi)"
+        "tr": "Ortalama Palet Boyutu (ayak izi)",
+        "de": "Durchschnittliche Palettengröße (Grundfläche)",
+        "fr": "Taille moyenne des palettes (empreinte au sol)"
       },
       "businessContext_i18n": {
         "en": "Average footprint of a single pallet (length x width).",
-        "tr": "Tek bir paletin ortalama ayak izi (uzunluk x genişlik)."
+        "tr": "Tek bir paletin ortalama ayak izi (uzunluk x genişlik).",
+        "de": "Durchschnittliche Grundfläche einer einzelnen Palette (Länge x Breite).",
+        "fr": "Empreinte au sol moyenne d'une palette (longueur x largeur)."
       }
     },
     {
@@ -115,11 +135,15 @@
       "businessContext": "Number of times inventory is cycled annually.",
       "label_i18n": {
         "en": "Average Inventory Turns per Year",
-        "tr": "Yıllık Ortalama Envanter Devir Sayısı"
+        "tr": "Yıllık Ortalama Envanter Devir Sayısı",
+        "de": "Durchschnittliche Lagerumschlagshäufigkeit pro Jahr",
+        "fr": "Rotation moyenne des stocks par an"
       },
       "businessContext_i18n": {
         "en": "Number of times inventory is cycled annually.",
-        "tr": "Envanterin yılda kaç kez döndüğü."
+        "tr": "Envanterin yılda kaç kez döndüğü.",
+        "de": "Anzahl der jährlichen Lagerumschläge.",
+        "fr": "Nombre de fois que le stock est renouvelé annuellement."
       }
     },
     {
@@ -134,11 +158,15 @@
       "label_i18n": {
         "en": "Labor Cost per Hour",
         "tr": "Saatlik işçilik maliyeti",
-        "de": "Arbeitskosten pro Stunde"
+        "de": "Arbeitskosten pro Stunde",
+        "fr": "Coût de la main-d'œuvre par heure",
+        "es": "Costo de mano de obra por hora"
       },
       "businessContext_i18n": {
         "en": "Fully loaded hourly wage for warehouse operators.",
-        "tr": "Depo operatörleri için tam yüklü saatlik ücret."
+        "tr": "Depo operatörleri için tam yüklü saatlik ücret.",
+        "de": "Voll belasteter Stundenlohn für Lagerarbeiter.",
+        "fr": "Salaire horaire chargé des opérateurs d'entrepôt."
       }
     },
     {
@@ -152,11 +180,15 @@
       "businessContext": "Hourly cost of material handling equipment (forklifts, pallet jacks).",
       "label_i18n": {
         "en": "Equipment Cost per Hour",
-        "tr": "Ekipman Saatlik Maliyeti"
+        "tr": "Ekipman Saatlik Maliyeti",
+        "de": "Gerätekosten pro Stunde",
+        "fr": "Coût horaire de l'équipement"
       },
       "businessContext_i18n": {
         "en": "Hourly cost of material handling equipment (forklifts, pallet jacks).",
-        "tr": "Malzeme taşıma ekipmanının (forklift, palet jakı) saatlik maliyeti."
+        "tr": "Malzeme taşıma ekipmanının (forklift, palet jakı) saatlik maliyeti.",
+        "de": "Stündliche Kosten für Materialtransportgeräte (Gabelstapler, Hubwagen).",
+        "fr": "Coût horaire des équipements de manutention (chariots élévateurs, transpalettes)."
       }
     }
   ],

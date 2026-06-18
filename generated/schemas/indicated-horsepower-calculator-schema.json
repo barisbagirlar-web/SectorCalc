@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Mean Effective Pressure (IMEP)",
         "tr": "Mean Effective Pressure (IMEP)",
-        "de": "Mean Effective Pressure (IMEP)",
-        "fr": "Mean Effective Pressure (IMEP)",
-        "es": "Mean Effective Pressure (IMEP)",
+        "de": "Mittlerer effektiver Druck (IMEP)",
+        "fr": "Pression moyenne effective (IMEP)",
+        "es": "Presión media efectiva (IMEP)",
         "ar": "Mean Effective Pressure (IMEP)"
       },
       "businessContext_i18n": {
         "en": "Indicated mean effective pressure inside the cylinder during the power stroke.",
-        "tr": "Güç stroku sırasında silindir içindeki indike ortalama efektif basınç."
+        "tr": "Güç stroku sırasında silindir içindeki indike ortalama efektif basınç.",
+        "de": "Indizierter mittlerer effektiver Druck im Zylinder während des Arbeitstakts.",
+        "fr": "Pression moyenne effective indiquée à l'intérieur du cylindre pendant la phase motrice.",
+        "es": "Presión media efectiva indicada dentro del cilindro durante la carrera de potencia."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Cylinder Bore Diameter",
         "tr": "Silindir Çapı",
-        "de": "Cylinder Bore Diameter",
-        "fr": "Cylinder Bore Diameter",
-        "es": "Cylinder Bore Diameter",
+        "de": "Zylinderbohrungsdurchmesser",
+        "fr": "Diamètre d'alésage du vérin",
+        "es": "Diámetro del cilindro",
         "ar": "Cylinder Bore Diameter"
       },
       "businessContext_i18n": {
         "en": "Internal diameter of the engine cylinder.",
-        "tr": "Motor silindirinin iç çapı."
+        "tr": "Motor silindirinin iç çapı.",
+        "de": "Innendurchmesser des Motorzylinders.",
+        "fr": "Diamètre intérieur du cylindre du moteur.",
+        "es": "Diámetro interno del cilindro del motor."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Stroke Length",
         "tr": "Strok uzunluğu",
         "de": "Hublänge",
-        "fr": "Stroke Length",
-        "es": "Stroke Length",
+        "fr": "Longueur de course",
+        "es": "Longitud de carrera",
         "ar": "Stroke Length"
       },
       "businessContext_i18n": {
         "en": "Distance the piston travels from top dead center to bottom dead center.",
-        "tr": "Pistonun üst ölü noktadan alt ölü noktaya kat ettiği mesafe."
+        "tr": "Pistonun üst ölü noktadan alt ölü noktaya kat ettiği mesafe.",
+        "de": "Strecke, die der Kolben vom oberen Totpunkt zum unteren Totpunkt zurücklegt.",
+        "fr": "Distance parcourue par le piston du point mort haut au point mort bas.",
+        "es": "Distancia que recorre el pistón desde el punto muerto superior hasta el punto muerto inferior."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Engine Speed",
         "tr": "Motor Devri",
         "de": "Motordrehzahl",
-        "fr": "Engine Speed",
-        "es": "Engine Speed",
+        "fr": "Régime moteur",
+        "es": "Velocidad del motor",
         "ar": "Engine Speed"
       },
       "businessContext_i18n": {
         "en": "Crankshaft rotational speed in revolutions per minute.",
-        "tr": "Krank mili dönüş hızı, dakikadaki devir sayısı."
+        "tr": "Krank mili dönüş hızı, dakikadaki devir sayısı.",
+        "de": "Kurbelwellendrehzahl in Umdrehungen pro Minute.",
+        "fr": "Vitesse de rotation du vilebrequin en tours par minute.",
+        "es": "Velocidad de rotación del cigüeñal en revoluciones por minuto."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Number of Cylinders",
         "tr": "Silindir sayısı",
         "de": "Anzahl der Zylinder",
-        "fr": "Number of Cylinders",
-        "es": "Number of Cylinders",
+        "fr": "Nombre de cylindres",
+        "es": "Número de cilindros",
         "ar": "Number of Cylinders"
       },
       "businessContext_i18n": {
         "en": "Total number of cylinders in the engine.",
-        "tr": "Motor toplam silindir sayısı."
+        "tr": "Motor toplam silindir sayısı.",
+        "de": "Gesamtzahl der Zylinder im Motor.",
+        "fr": "Nombre total de cylindres du moteur.",
+        "es": "Número total de cilindros en el motor."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Strokes per Cycle",
         "tr": "Çevrim başına strok sayısı",
-        "de": "Strokes per Cycle",
-        "fr": "Strokes per Cycle",
-        "es": "Strokes per Cycle",
+        "de": "Takte pro Zyklus",
+        "fr": "Temps par cycle",
+        "es": "Carreras por ciclo",
         "ar": "Strokes per Cycle"
       },
       "businessContext_i18n": {
         "en": "Number of strokes to complete a cycle: 2 for two-stroke, 4 for four-stroke engine.",
-        "tr": "Bir çevrimi tamamlamak için gereken strok sayısı: 2 zamanlı motor için 2, 4 zamanlı motor için 4."
+        "tr": "Bir çevrimi tamamlamak için gereken strok sayısı: 2 zamanlı motor için 2, 4 zamanlı motor için 4.",
+        "de": "Anzahl der Hübe für einen vollständigen Zyklus: 2 für Zweitakt-, 4 für Viertaktmotor.",
+        "fr": "Nombre de temps pour compléter un cycle : 2 pour un moteur deux-temps, 4 pour un moteur quatre-temps.",
+        "es": "Número de carreras para completar un ciclo: 2 para motor de dos tiempos, 4 para motor de cuatro tiempos."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Quantity",
         "tr": "Miktar",
         "de": "Menge",
-        "fr": "Quantity",
-        "es": "Quantity",
+        "fr": "Quantité",
+        "es": "Cantidad",
         "ar": "Quantity"
       },
       "businessContext_i18n": {
         "en": "Number of grocery items to purchase",
         "tr": "Satın alınacak market ürünü sayısı",
-        "de": "Anzahl der zu kaufenden Lebensmittelartikel"
+        "de": "Anzahl der zu kaufenden Lebensmittelartikel",
+        "fr": "Nombre d'articles alimentaires à acheter",
+        "es": "Número de artículos de comestibles a comprar"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Unit Price",
         "tr": "Birim Fiyat",
         "de": "Stückpreis",
-        "fr": "Unit Price",
-        "es": "Unit Price",
+        "fr": "Prix unitaire",
+        "es": "Precio unitario",
         "ar": "Unit Price"
       },
       "businessContext_i18n": {
         "en": "Price per item in your local currency",
         "tr": "Yerel para biriminde ürün başına fiyat",
-        "de": "Preis pro Artikel in Ihrer Landeswährung"
+        "de": "Preis pro Artikel in Ihrer Landeswährung",
+        "fr": "Prix par article dans votre devise locale",
+        "es": "Precio por artículo en su moneda local"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Discount Percentage",
         "tr": "İndirim Yüzdesi",
         "de": "Rabattprozentsatz",
-        "fr": "Discount Percentage",
-        "es": "Discount Percentage",
+        "fr": "Pourcentage de réduction",
+        "es": "Porcentaje de descuento",
         "ar": "Discount Percentage"
       },
       "businessContext_i18n": {
         "en": "Applied discount rate (e.g., 10 for 10%)",
         "tr": "Uygulanan indirim oranı (örn. %10 için 10)",
-        "de": "Angewandter Rabattsatz (z. B. 10 für 10%)"
+        "de": "Angewandter Rabattsatz (z. B. 10 für 10%)",
+        "fr": "Taux de remise appliqué (ex. 10 pour 10 %)",
+        "es": "Tasa de descuento aplicada (p. ej., 10 para 10%)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Tax Percentage",
         "tr": "Vergi Yüzdesi",
         "de": "Steuerprozentsatz",
-        "fr": "Tax Percentage",
-        "es": "Tax Percentage",
+        "fr": "Pourcentage de taxe",
+        "es": "Porcentaje de impuesto",
         "ar": "Tax Percentage"
       },
       "businessContext_i18n": {
         "en": "Tax rate to be applied after discounts (e.g., 5 for 5%)",
         "tr": "İndirimlerden sonra uygulanacak vergi oranı (örn. %5 için 5)",
-        "de": "Steuersatz nach Rabatten (z. B. 5 für 5%)"
+        "de": "Steuersatz nach Rabatten (z. B. 5 für 5%)",
+        "fr": "Taux de taxe à appliquer après remises (ex. 5 pour 5 %)",
+        "es": "Tasa de impuesto a aplicar después de descuentos (p. ej., 5 para 5%)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Shipping Fee",
         "tr": "Kargo Ücreti",
         "de": "Versandkosten",
-        "fr": "Shipping Fee",
-        "es": "Shipping Fee",
+        "fr": "Frais de livraison",
+        "es": "Tarifa de envío",
         "ar": "Shipping Fee"
       },
       "businessContext_i18n": {
         "en": "Additional shipping or delivery cost",
         "tr": "Ek kargo veya teslimat maliyeti",
-        "de": "Zusätzliche Versand- oder Lieferkosten"
+        "de": "Zusätzliche Versand- oder Lieferkosten",
+        "fr": "Frais d'expédition ou de livraison supplémentaires",
+        "es": "Costo adicional de envío o entrega"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Coupon Discount",
         "tr": "Kupon İndirimi",
         "de": "Coupon-Rabatt",
-        "fr": "Coupon Discount",
-        "es": "Coupon Discount",
+        "fr": "Remise par coupon",
+        "es": "Descuento por cupón",
         "ar": "Coupon Discount"
       },
       "businessContext_i18n": {
         "en": "Fixed amount discount from a coupon or voucher",
         "tr": "Kupon veya fişten sabit tutarlı indirim",
-        "de": "Festbetragsrabatt von einem Coupon oder Gutschein"
+        "de": "Festbetragsrabatt von einem Coupon oder Gutschein",
+        "fr": "Remise d'un montant fixe provenant d'un coupon ou d'un bon",
+        "es": "Descuento de monto fijo de un cupón o vale"
       }
     }
   ],

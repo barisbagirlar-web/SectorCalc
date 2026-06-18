@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "OG Reading",
         "tr": "OG Okuması",
-        "de": "OG Reading",
-        "fr": "OG Reading",
-        "es": "OG Reading",
+        "de": "Stammwürze-Messwert",
+        "fr": "Lecture DG",
+        "es": "Lectura de densidad original",
         "ar": "OG Reading"
       },
       "businessContext_i18n": {
         "en": "Original gravity reading from hydrometer (unadjusted for temperature)",
-        "tr": "Hidrometreden alınan ilk yoğunluk okuması (sıcaklık için düzeltilmemiş)"
+        "tr": "Hidrometreden alınan ilk yoğunluk okuması (sıcaklık için düzeltilmemiş)",
+        "de": "Ursprünglicher Stammwürze-Messwert vom Aräometer (nicht temperaturkorrigiert)",
+        "fr": "Lecture de densité initiale au densimètre (non corrigée pour la température)",
+        "es": "Lectura de densidad original del hidrómetro (sin ajustar por temperatura)"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "FG Reading",
         "tr": "SG Okuması",
-        "de": "FG Reading",
-        "fr": "FG Reading",
-        "es": "FG Reading",
+        "de": "FG-Messwert",
+        "fr": "Lecture DF",
+        "es": "Lectura de FG",
         "ar": "FG Reading"
       },
       "businessContext_i18n": {
         "en": "Final gravity reading from hydrometer (unadjusted for temperature)",
-        "tr": "Hidrometreden alınan son yoğunluk okuması (sıcaklık için düzeltilmemiş)"
+        "tr": "Hidrometreden alınan son yoğunluk okuması (sıcaklık için düzeltilmemiş)",
+        "de": "Endvergärungsgrad-Messung mit Hydrometer (nicht temperaturkorrigiert)",
+        "fr": "Lecture de densité finale au densimètre (non corrigée pour la température)",
+        "es": "Lectura de gravedad final del hidrómetro (sin ajustar por temperatura)"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Temperature at OG Reading",
         "tr": "OG Okumasındaki Sıcaklık",
-        "de": "Temperature at OG Reading",
-        "fr": "Temperature at OG Reading",
-        "es": "Temperature at OG Reading",
+        "de": "Temperatur bei OG-Messung",
+        "fr": "Température à la lecture DG",
+        "es": "Temperatura en la lectura de OG",
         "ar": "Temperature at OG Reading"
       },
       "businessContext_i18n": {
         "en": "Temperature of the liquid when OG reading was taken",
-        "tr": "OG okuması alındığında sıvının sıcaklığı"
+        "tr": "OG okuması alındığında sıvının sıcaklığı",
+        "de": "Temperatur der Flüssigkeit bei der OG-Messung",
+        "fr": "Température du liquide lors de la lecture de la densité initiale",
+        "es": "Temperatura del líquido cuando se tomó la lectura de OG"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Temperature at FG Reading",
         "tr": "SG Okumasındaki Sıcaklık",
-        "de": "Temperature at FG Reading",
-        "fr": "Temperature at FG Reading",
-        "es": "Temperature at FG Reading",
+        "de": "Temperatur bei FG-Messung",
+        "fr": "Température à la lecture DF",
+        "es": "Temperatura en la lectura de FG",
         "ar": "Temperature at FG Reading"
       },
       "businessContext_i18n": {
         "en": "Temperature of the liquid when FG reading was taken",
-        "tr": "SG okuması alındığında sıvının sıcaklığı"
+        "tr": "SG okuması alındığında sıvının sıcaklığı",
+        "de": "Temperatur der Flüssigkeit bei der FG-Messung",
+        "fr": "Température du liquide lors de la lecture de la densité finale",
+        "es": "Temperatura del líquido cuando se tomó la lectura de FG"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Hydrometer Calibration Temperature",
         "tr": "Hidrometre Kalibrasyon Sıcaklığı",
-        "de": "Hydrometer Calibration Temperature",
-        "fr": "Hydrometer Calibration Temperature",
-        "es": "Hydrometer Calibration Temperature",
+        "de": "Kalibriertemperatur des Hydrometers",
+        "fr": "Température d'étalonnage du densimètre",
+        "es": "Temperatura de calibración del hidrómetro",
         "ar": "Hydrometer Calibration Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature at which the hydrometer is calibrated (usually 20°C)",
-        "tr": "Hidrometrenin kalibre edildiği sıcaklık (genellikle 20°C)"
+        "tr": "Hidrometrenin kalibre edildiği sıcaklık (genellikle 20°C)",
+        "de": "Temperatur, bei der das Hydrometer kalibriert ist (normalerweise 20°C)",
+        "fr": "Température à laquelle le densimètre est étalonné (généralement 20°C)",
+        "es": "Temperatura a la que está calibrado el hidrómetro (normalmente 20°C)"
       }
     }
   ],

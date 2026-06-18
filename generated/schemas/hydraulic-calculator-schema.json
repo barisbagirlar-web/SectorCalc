@@ -12,13 +12,16 @@
         "en": "Pressure",
         "tr": "Basınç",
         "de": "Druck",
-        "fr": "Pressure",
-        "es": "Pressure",
+        "fr": "Pression",
+        "es": "Presión",
         "ar": "Pressure"
       },
       "businessContext_i18n": {
         "en": "System pressure in bar",
-        "tr": "Sistem basıncı (bar)"
+        "tr": "Sistem basıncı (bar)",
+        "de": "Systemdruck in bar",
+        "fr": "Pression du système en bar",
+        "es": "Presión del sistema en bar"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Flow Rate",
         "tr": "Debi",
         "de": "Durchflussrate",
-        "fr": "Flow Rate",
-        "es": "Flow Rate",
+        "fr": "Débit",
+        "es": "Caudal",
         "ar": "Flow Rate"
       },
       "businessContext_i18n": {
         "en": "Flow rate in liters per minute",
-        "tr": "Debi (litre/dakika)"
+        "tr": "Debi (litre/dakika)",
+        "de": "Durchflussrate in Litern pro Minute",
+        "fr": "Débit en litres par minute",
+        "es": "Caudal en litros por minuto"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Efficiency",
         "tr": "Verim",
         "de": "Wirkungsgrad",
-        "fr": "Efficiency",
-        "es": "Efficiency",
+        "fr": "Rendement",
+        "es": "Eficiencia",
         "ar": "Efficiency"
       },
       "businessContext_i18n": {
         "en": "Overall efficiency percentage",
-        "tr": "Toplam verim yüzdesi"
+        "tr": "Toplam verim yüzdesi",
+        "de": "Gesamtwirkungsgrad in Prozent",
+        "fr": "Pourcentage d'efficacité globale",
+        "es": "Porcentaje de eficiencia general"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Cylinder Bore Diameter",
         "tr": "Silindir Çapı",
-        "de": "Cylinder Bore Diameter",
-        "fr": "Cylinder Bore Diameter",
-        "es": "Cylinder Bore Diameter",
+        "de": "Zylinderbohrungsdurchmesser",
+        "fr": "Diamètre d'alésage du vérin",
+        "es": "Diámetro del cilindro",
         "ar": "Cylinder Bore Diameter"
       },
       "businessContext_i18n": {
         "en": "Inside diameter of cylinder",
-        "tr": "Silindirin iç çapı"
+        "tr": "Silindirin iç çapı",
+        "de": "Innendurchmesser des Zylinders",
+        "fr": "Diamètre intérieur du vérin",
+        "es": "Diámetro interior del cilindro"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Rod Diameter",
         "tr": "Piston çubuğu çapı",
         "de": "Kolbenstangendurchmesser",
-        "fr": "Rod Diameter",
-        "es": "Rod Diameter",
+        "fr": "Diamètre de la tige",
+        "es": "Diámetro del vástago",
         "ar": "Rod Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of piston rod",
-        "tr": "Piston çubuğu çapı"
+        "tr": "Piston çubuğu çapı",
+        "de": "Durchmesser der Kolbenstange",
+        "fr": "Diamètre de la tige de piston",
+        "es": "Diámetro del vástago del pistón"
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Length (ft)",
         "tr": "Uzunluk (ft)",
-        "de": "Length (ft)",
-        "fr": "Length (ft)",
-        "es": "Length (ft)",
+        "de": "Länge (ft)",
+        "fr": "Longueur (pi)",
+        "es": "Longitud (ft)",
         "ar": "Length (ft)"
       },
       "businessContext_i18n": {
         "en": "Length of the area to be covered with sod in feet.",
-        "tr": "Çim serilecek alanın fit cinsinden uzunluğu."
+        "tr": "Çim serilecek alanın fit cinsinden uzunluğu.",
+        "de": "Länge der mit Rasen zu bedeckenden Fläche in Fuß.",
+        "fr": "Longueur de la zone à couvrir de gazon en pieds."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Width (ft)",
         "tr": "Genişlik (ft)",
-        "de": "Width (ft)",
-        "fr": "Width (ft)",
-        "es": "Width (ft)",
+        "de": "Breite (ft)",
+        "fr": "Largeur (pi)",
+        "es": "Ancho (ft)",
         "ar": "Width (ft)"
       },
       "businessContext_i18n": {
         "en": "Width of the area to be covered with sod in feet.",
-        "tr": "Çim serilecek alanın fit cinsinden genişliği."
+        "tr": "Çim serilecek alanın fit cinsinden genişliği.",
+        "de": "Breite der mit Rasen zu bedeckenden Fläche in Fuß.",
+        "fr": "Largeur de la zone à couvrir de gazon en pieds."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Waste Factor (%)",
         "tr": "Fire Faktörü (%)",
         "de": "Verschnittfaktor (%)",
-        "fr": "Waste Factor (%)",
-        "es": "Waste Factor (%)",
+        "fr": "Facteur de déchet (%)",
+        "es": "Factor de desperdicio (%)",
         "ar": "Waste Factor (%)"
       },
       "businessContext_i18n": {
         "en": "Additional percentage of sod to account for cutting and fitting waste.",
-        "tr": "Kesim ve uyum kaybını karşılamak için ek çim yüzdesi."
+        "tr": "Kesim ve uyum kaybını karşılamak için ek çim yüzdesi.",
+        "de": "Zusätzlicher Prozentsatz an Rasen für Verschnitt und Anpassung.",
+        "fr": "Pourcentage supplémentaire de gazon pour tenir compte des pertes de coupe et d'ajustement."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Coverage per Roll (sq ft)",
         "tr": "Rulo Başına Kaplama (ft²)",
-        "de": "Coverage per Roll (sq ft)",
-        "fr": "Coverage per Roll (sq ft)",
+        "de": "Abdeckung pro Rolle (sq ft)",
+        "fr": "Couverture par rouleau (pi²)",
         "es": "Coverage per Roll (sq ft)",
         "ar": "Coverage per Roll (sq ft)"
       },
       "businessContext_i18n": {
         "en": "Area covered by a single roll of sod in square feet.",
-        "tr": "Tek bir çim rulosunun fit kare cinsinden kapladığı alan."
+        "tr": "Tek bir çim rulosunun fit kare cinsinden kapladığı alan.",
+        "de": "Von einer Rolle abgedeckte Fläche in Quadratfuß.",
+        "fr": "Surface couverte par un seul rouleau de gazon en pieds carrés."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Price per Roll ($)",
         "tr": "Rulo Fiyatı ($)",
-        "de": "Price per Roll ($)",
-        "fr": "Price per Roll ($)",
+        "de": "Preis pro Rolle ($)",
+        "fr": "Prix par rouleau ($)",
         "es": "Price per Roll ($)",
         "ar": "Price per Roll ($)"
       },
       "businessContext_i18n": {
         "en": "Unit cost of one roll of sod in dollars.",
-        "tr": "Bir rulo çimin dolar cinsinden birim maliyeti."
+        "tr": "Bir rulo çimin dolar cinsinden birim maliyeti.",
+        "de": "Stückkosten einer Rolle in Dollar.",
+        "fr": "Coût unitaire d'un rouleau de gazon en dollars."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Total Mass (rider + bike)",
         "tr": "Toplam Kütle (sürücü + bisiklet)",
         "de": "Gesamtmasse (Fahrer + Fahrrad)",
-        "fr": "Total Mass (rider + bike)",
-        "es": "Total Mass (rider + bike)",
+        "fr": "Masse totale (cycliste + vélo)",
+        "es": "Masa total (ciclista + bicicleta)",
         "ar": "Total Mass (rider + bike)"
       },
       "businessContext_i18n": {
         "en": "Combined mass of the rider and the bicycle in kilograms.",
         "tr": "Sürücü ve bisikletin kilogram cinsinden toplam kütlesi.",
-        "de": "Kombinierte Masse von Fahrer und Fahrrad in Kilogramm."
+        "de": "Kombinierte Masse von Fahrer und Fahrrad in Kilogramm.",
+        "fr": "Masse combinée du cycliste et du vélo en kilogrammes.",
+        "es": "Masa combinada del ciclista y la bicicleta en kilogramos."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Cycling Speed",
         "tr": "Bisiklet Hızı",
         "de": "Fahrgeschwindigkeit",
-        "fr": "Cycling Speed",
-        "es": "Cycling Speed",
+        "fr": "Vitesse de cyclisme",
+        "es": "Velocidad de ciclismo",
         "ar": "Cycling Speed"
       },
       "businessContext_i18n": {
         "en": "Desired or current cycling speed in kilometers per hour.",
         "tr": "Saatte kilometre cinsinden istenen veya mevcut bisiklet hızı.",
-        "de": "Gewünschte oder aktuelle Fahrgeschwindigkeit in Kilometern pro Stunde."
+        "de": "Gewünschte oder aktuelle Fahrgeschwindigkeit in Kilometern pro Stunde.",
+        "fr": "Vitesse de cyclisme souhaitée ou actuelle en kilomètres par heure.",
+        "es": "Velocidad de ciclismo deseada o actual en kilómetros por hora."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Road Gradient",
         "tr": "Yol Eğimi",
         "de": "Straßensteigung",
-        "fr": "Road Gradient",
-        "es": "Road Gradient",
+        "fr": "Pente de la route",
+        "es": "Pendiente de la carretera",
         "ar": "Road Gradient"
       },
       "businessContext_i18n": {
         "en": "Incline of the road as a percentage (positive for uphill, negative for downhill).",
         "tr": "Yolun yüzde olarak eğimi (yokuş yukarı için pozitif, yokuş aşağı için negatif).",
-        "de": "Steigung der Straße in Prozent (positiv für bergauf, negativ für bergab)."
+        "de": "Steigung der Straße in Prozent (positiv für bergauf, negativ für bergab).",
+        "fr": "Inclinaison de la route en pourcentage (positive pour montée, négative pour descente).",
+        "es": "Inclinación de la carretera como porcentaje (positivo para subida, negativo para bajada)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Wind Speed (headwind positive)",
         "tr": "Rüzgar Hızı (karşıdan esen pozitif)",
         "de": "Windgeschwindigkeit (Gegenwind positiv)",
-        "fr": "Wind Speed (headwind positive)",
-        "es": "Wind Speed (headwind positive)",
+        "fr": "Vitesse du vent (vent de face positif)",
+        "es": "Velocidad del viento (viento en contra positivo)",
         "ar": "Wind Speed (headwind positive)"
       },
       "businessContext_i18n": {
         "en": "Component of wind speed along the direction of travel (positive for headwind, negative for tailwind).",
         "tr": "Rüzgar hızının seyahat yönü boyunca bileşeni (karşıdan esen için pozitif, arkadan esen için negatif).",
-        "de": "Windkomponente entlang der Fahrtrichtung (positiv für Gegenwind, negativ für Rückenwind)."
+        "de": "Windkomponente entlang der Fahrtrichtung (positiv für Gegenwind, negativ für Rückenwind).",
+        "fr": "Composante de la vitesse du vent dans la direction du déplacement (positive pour vent de face, négative pour vent arrière).",
+        "es": "Componente de la velocidad del viento en la dirección de viaje (positivo para viento en contra, negativo para viento a favor)."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Rolling Resistance Coefficient (Crr)",
         "tr": "Yuvarlanma Direnci Katsayısı (Crr)",
         "de": "Rollwiderstandskoeffizient (Crr)",
-        "fr": "Rolling Resistance Coefficient (Crr)",
-        "es": "Rolling Resistance Coefficient (Crr)",
+        "fr": "Coefficient de résistance au roulement (Crr)",
+        "es": "Coeficiente de resistencia a la rodadura (Crr)",
         "ar": "Rolling Resistance Coefficient (Crr)"
       },
       "businessContext_i18n": {
         "en": "Coefficient of rolling resistance, typical values: 0.0025 (smooth track), 0.005 (road), 0.008 (gravel).",
         "tr": "Yuvarlanma direnci katsayısı, tipik değerler: 0.0025 (düz pist), 0.005 (yol), 0.008 (çakıl).",
-        "de": "Rollwiderstandskoeffizient, typische Werte: 0,0025 (glatte Bahn), 0,005 (Straße), 0,008 (Schotter)."
+        "de": "Rollwiderstandskoeffizient, typische Werte: 0,0025 (glatte Bahn), 0,005 (Straße), 0,008 (Schotter).",
+        "fr": "Coefficient de résistance au roulement, valeurs typiques : 0,0025 (piste lisse), 0,005 (route), 0,008 (gravier).",
+        "es": "Coeficiente de resistencia a la rodadura, valores típicos: 0.0025 (pista lisa), 0.005 (carretera), 0.008 (grava)."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Air Density",
         "tr": "Hava Yoğunluğu",
         "de": "Luftdichte",
-        "fr": "Air Density",
-        "es": "Air Density",
+        "fr": "Densité de l'air",
+        "es": "Densidad del aire",
         "ar": "Air Density"
       },
       "businessContext_i18n": {
         "en": "Density of ambient air (1.225 kg/m³ at sea level, 15°C).",
         "tr": "Ortam havasının yoğunluğu (deniz seviyesinde 1,225 kg/m³, 15°C).",
-        "de": "Dichte der Umgebungsluft (1,225 kg/m³ auf Meereshöhe, 15°C)."
+        "de": "Dichte der Umgebungsluft (1,225 kg/m³ auf Meereshöhe, 15°C).",
+        "fr": "Densité de l'air ambiant (1,225 kg/m³ au niveau de la mer, 15°C).",
+        "es": "Densidad del aire ambiente (1.225 kg/m³ a nivel del mar, 15°C)."
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Effective Frontal Area (CdA)",
         "tr": "Etkin Ön Alan (CdA)",
         "de": "Effektive Stirnfläche (CdA)",
-        "fr": "Effective Frontal Area (CdA)",
-        "es": "Effective Frontal Area (CdA)",
+        "fr": "Surface frontale effective (CdA)",
+        "es": "Área frontal efectiva (CdA)",
         "ar": "Effective Frontal Area (CdA)"
       },
       "businessContext_i18n": {
         "en": "Product of drag coefficient and frontal area, typically 0.2–0.4 m² for a cyclist.",
         "tr": "Sürtünme katsayısı ve ön alanın çarpımı, bir bisikletçi için tipik olarak 0,2–0,4 m².",
-        "de": "Produkt aus Luftwiderstandsbeiwert und Stirnfläche, typischerweise 0,2–0,4 m² für einen Radfahrer."
+        "de": "Produkt aus Luftwiderstandsbeiwert und Stirnfläche, typischerweise 0,2–0,4 m² für einen Radfahrer.",
+        "fr": "Produit du coefficient de traînée et de la surface frontale, typiquement 0,2–0,4 m² pour un cycliste.",
+        "es": "Producto del coeficiente de arrastre y el área frontal, típicamente 0.2–0.4 m² para un ciclista."
       }
     },
     {
@@ -159,14 +173,16 @@
         "en": "Drivetrain Efficiency",
         "tr": "Aktarma Organı Verimliliği",
         "de": "Antriebsstrang-Effizienz",
-        "fr": "Drivetrain Efficiency",
-        "es": "Drivetrain Efficiency",
+        "fr": "Rendement de la transmission",
+        "es": "Eficiencia del tren motriz",
         "ar": "Drivetrain Efficiency"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the bicycle drivetrain (0.95 = 95%).",
         "tr": "Bisiklet aktarma organı verimliliği (0,95 = %95).",
-        "de": "Wirkungsgrad des Fahrradantriebs (0,95 = 95%)."
+        "de": "Wirkungsgrad des Fahrradantriebs (0,95 = 95%).",
+        "fr": "Rendement de la transmission du vélo (0,95 = 95 %).",
+        "es": "Eficiencia de la transmisión de la bicicleta (0.95 = 95%)."
       }
     }
   ],

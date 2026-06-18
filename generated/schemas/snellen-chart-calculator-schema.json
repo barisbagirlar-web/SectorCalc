@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Test Mesafesi (m)",
         "tr": "Test Mesafesi (m)",
-        "de": "Test Mesafesi (m)",
-        "fr": "Test Mesafesi (m)",
+        "de": "Testabstand (m)",
+        "fr": "Distance de test (m)",
         "es": "Test Mesafesi (m)",
         "ar": "Test Mesafesi (m)"
       },
       "businessContext_i18n": {
         "en": "Hastanın test edildiği mesafe, genellikle 6 m.",
-        "tr": "Hastanın test edildiği mesafe, genellikle 6 m."
+        "tr": "Hastanın test edildiği mesafe, genellikle 6 m.",
+        "de": "Entfernung, in der der Patient getestet wird, normalerweise 6 m.",
+        "fr": "Distance à laquelle le patient est testé, généralement 6 m."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Optotip Yüksekliği (mm)",
         "tr": "Optotip Yüksekliği (mm)",
-        "de": "Optotip Yüksekliği (mm)",
-        "fr": "Optotip Yüksekliği (mm)",
+        "de": "Optotypenhöhe (mm)",
+        "fr": "Hauteur de l'optotype (mm)",
         "es": "Optotip Yüksekliği (mm)",
         "ar": "Optotip Yüksekliği (mm)"
       },
       "businessContext_i18n": {
         "en": "En küçük okunabilen harf veya sembolün tam yüksekliği.",
-        "tr": "En küçük okunabilen harf veya sembolün tam yüksekliği."
+        "tr": "En küçük okunabilen harf veya sembolün tam yüksekliği.",
+        "de": "Die genaue Höhe des kleinsten lesbaren Buchstabens oder Symbols.",
+        "fr": "Hauteur exacte de la plus petite lettre ou symbole lisible."
       }
     },
     {
@@ -48,8 +52,8 @@
         "en": "auto_input_3",
         "tr": "Otomatik girdi 3",
         "de": "auto_input_3",
-        "fr": "auto_input_3",
-        "es": "auto_input_3",
+        "fr": "Entrée automatique 3",
+        "es": "entrada_automática_3",
         "ar": "auto_input_3"
       },
       "type": "number",
@@ -60,8 +64,8 @@
         "en": "Auto-generated input 3.",
         "tr": "Otomatik oluşturulan girdi 3.",
         "de": "Automatisch generierte Eingabe 3.",
-        "fr": "Auto-generated input 3.",
-        "es": "Auto-generated input 3.",
+        "fr": "Entrée générée automatiquement 3.",
+        "es": "Entrada generada automáticamente 3.",
         "ar": "Auto-generated input 3."
       }
     }

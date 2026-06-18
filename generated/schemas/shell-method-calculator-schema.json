@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Lower Bound",
         "tr": "Alt Sınır",
-        "de": "Lower Bound",
-        "fr": "Lower Bound",
-        "es": "Lower Bound",
+        "de": "Untere Grenze",
+        "fr": "Limite inférieure",
+        "es": "Límite inferior",
         "ar": "Lower Bound"
       },
       "businessContext_i18n": {
         "en": "Lower limit of integration (x = a)",
-        "tr": "İntegralin alt sınırı (x = a)"
+        "tr": "İntegralin alt sınırı (x = a)",
+        "de": "Untere Integrationsgrenze (x = a)",
+        "fr": "Limite inférieure d'intégration (x = a)"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Upper Bound",
         "tr": "Üst Sınır",
-        "de": "Upper Bound",
-        "fr": "Upper Bound",
-        "es": "Upper Bound",
+        "de": "Obere Grenze",
+        "fr": "Limite supérieure",
+        "es": "Límite superior",
         "ar": "Upper Bound"
       },
       "businessContext_i18n": {
         "en": "Upper limit of integration (x = b)",
-        "tr": "İntegralin üst sınırı (x = b)"
+        "tr": "İntegralin üst sınırı (x = b)",
+        "de": "Obere Integrationsgrenze (x = b)",
+        "fr": "Limite supérieure d'intégration (x = b)"
       }
     },
     {
@@ -53,12 +57,14 @@
         "tr": "Katsayı a",
         "de": "Koeffizient a",
         "fr": "Coefficient a",
-        "es": "Coefficient a",
+        "es": "Coeficiente a",
         "ar": "Coefficient a"
       },
       "businessContext_i18n": {
         "en": "Coefficient of x² in f(x)",
-        "tr": "f(x)'te x²'nin katsayısı"
+        "tr": "f(x)'te x²'nin katsayısı",
+        "de": "Koeffizient von x² in f(x)",
+        "fr": "Coefficient de x² dans f(x)"
       }
     },
     {
@@ -73,12 +79,14 @@
         "tr": "Katsayı b",
         "de": "Koeffizient b",
         "fr": "Coefficient b",
-        "es": "Coefficient b",
+        "es": "Coeficiente b",
         "ar": "Coefficient b"
       },
       "businessContext_i18n": {
         "en": "Coefficient of x in f(x)",
-        "tr": "f(x)'te x'in katsayısı"
+        "tr": "f(x)'te x'in katsayısı",
+        "de": "Koeffizient von x in f(x)",
+        "fr": "Coefficient de x dans f(x)"
       }
     },
     {
@@ -93,12 +101,14 @@
         "tr": "Katsayı c",
         "de": "Koeffizient c",
         "fr": "Coefficient c",
-        "es": "Coefficient c",
+        "es": "Coeficiente c",
         "ar": "Coefficient c"
       },
       "businessContext_i18n": {
         "en": "Constant term in f(x)",
-        "tr": "f(x)'te sabit terim"
+        "tr": "f(x)'te sabit terim",
+        "de": "Konstantes Glied in f(x)",
+        "fr": "Terme constant dans f(x)"
       }
     }
   ],

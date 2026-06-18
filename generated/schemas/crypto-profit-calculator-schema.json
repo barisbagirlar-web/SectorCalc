@@ -12,14 +12,16 @@
         "en": "Initial Investment",
         "tr": "Başlangıç Yatırımı",
         "de": "Anfangsinvestition",
-        "fr": "Initial Investment",
-        "es": "Initial Investment",
+        "fr": "Investissement initial",
+        "es": "Inversión inicial",
         "ar": "Initial Investment"
       },
       "businessContext_i18n": {
         "en": "Amount invested in fiat currency (USD)",
         "tr": "Fiat para biriminde (USD) yatırılan miktar",
-        "de": "Investierter Betrag in Fiat-Währung (USD)"
+        "de": "Investierter Betrag in Fiat-Währung (USD)",
+        "fr": "Montant investi en devise fiduciaire (USD)",
+        "es": "Cantidad invertida en moneda fiduciaria (USD)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Buy Price per Coin",
         "tr": "Coin başına alış fiyatı",
         "de": "Kaufpreis pro Coin",
-        "fr": "Buy Price per Coin",
-        "es": "Buy Price per Coin",
+        "fr": "Prix d'achat par pièce",
+        "es": "Precio de compra por moneda",
         "ar": "Buy Price per Coin"
       },
       "businessContext_i18n": {
         "en": "Price at which cryptocurrency was purchased (per unit)",
         "tr": "Kripto paranın satın alındığı fiyat (birim başına)",
-        "de": "Preis, zu dem die Kryptowährung gekauft wurde (pro Einheit)"
+        "de": "Preis, zu dem die Kryptowährung gekauft wurde (pro Einheit)",
+        "fr": "Prix auquel la cryptomonnaie a été achetée (par unité)",
+        "es": "Precio al que se compró la criptomoneda (por unidad)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Sell Price per Coin",
         "tr": "Coin başına satış fiyatı",
         "de": "Verkaufspreis pro Coin",
-        "fr": "Sell Price per Coin",
-        "es": "Sell Price per Coin",
+        "fr": "Prix de vente par pièce",
+        "es": "Precio de venta por moneda",
         "ar": "Sell Price per Coin"
       },
       "businessContext_i18n": {
         "en": "Price at which cryptocurrency is sold (per unit)",
         "tr": "Kripto paranın satıldığı fiyat (birim başına)",
-        "de": "Preis, zu dem die Kryptowährung verkauft wird (pro Einheit)"
+        "de": "Preis, zu dem die Kryptowährung verkauft wird (pro Einheit)",
+        "fr": "Prix auquel la cryptomonnaie est vendue (par unité)",
+        "es": "Precio al que se vende la criptomoneda (por unidad)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Transaction Fee (%)",
         "tr": "İşlem Ücreti (%)",
         "de": "Transaktionsgebühr (%)",
-        "fr": "Transaction Fee (%)",
-        "es": "Transaction Fee (%)",
+        "fr": "Frais de transaction (%)",
+        "es": "Comisión de transacción (%)",
         "ar": "Transaction Fee (%)"
       },
       "businessContext_i18n": {
         "en": "Fee percentage charged per transaction (buy and sell)",
         "tr": "İşlem başına alınan ücret yüzdesi (alış ve satış)",
-        "de": "Prozentsatz der Gebühr pro Transaktion (Kauf und Verkauf)"
+        "de": "Prozentsatz der Gebühr pro Transaktion (Kauf und Verkauf)",
+        "fr": "Pourcentage de frais facturé par transaction (achat et vente)",
+        "es": "Porcentaje de comisión por transacción (compra y venta)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Tax on Profit (%)",
         "tr": "Kâr üzerinden vergi (%)",
         "de": "Steuer auf Gewinn (%)",
-        "fr": "Tax on Profit (%)",
-        "es": "Tax on Profit (%)",
+        "fr": "Impôt sur le bénéfice (%)",
+        "es": "Impuesto sobre ganancias (%)",
         "ar": "Tax on Profit (%)"
       },
       "businessContext_i18n": {
         "en": "Capital gains tax percentage applied to net profit",
         "tr": "Net kâra uygulanan sermaye kazancı vergisi yüzdesi",
-        "de": "Prozentsatz der Kapitalertragssteuer, angewendet auf den Nettogewinn"
+        "de": "Prozentsatz der Kapitalertragssteuer, angewendet auf den Nettogewinn",
+        "fr": "Pourcentage d'impôt sur les plus-values appliqué au bénéfice net",
+        "es": "Porcentaje de impuesto a las ganancias de capital aplicado a la ganancia neta"
       }
     }
   ],

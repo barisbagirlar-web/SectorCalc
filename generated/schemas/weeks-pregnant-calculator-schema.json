@@ -12,13 +12,15 @@
         "en": "Current Day",
         "tr": "Geçerli Gün",
         "de": "Aktueller Tag",
-        "fr": "Current Day",
-        "es": "Current Day",
+        "fr": "Jour actuel",
+        "es": "Día actual",
         "ar": "Current Day"
       },
       "businessContext_i18n": {
         "en": "Current day of month (1–31)",
-        "tr": "Ayın mevcut günü (1–31)"
+        "tr": "Ayın mevcut günü (1–31)",
+        "de": "Aktueller Tag des Monats (1–31)",
+        "fr": "Jour actuel du mois (1–31)"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Current Month",
         "tr": "Geçerli Ay",
         "de": "Aktueller Monat",
-        "fr": "Current Month",
-        "es": "Current Month",
+        "fr": "Mois actuel",
+        "es": "Mes actual",
         "ar": "Current Month"
       },
       "businessContext_i18n": {
         "en": "Current month number (1–12)",
-        "tr": "Mevcut ay numarası (1–12)"
+        "tr": "Mevcut ay numarası (1–12)",
+        "de": "Aktuelle Monatsnummer (1–12)",
+        "fr": "Numéro du mois actuel (1–12)"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Current Year",
         "tr": "Mevcut Yıl",
         "de": "Aktuelles Jahr",
-        "fr": "Current Year",
-        "es": "Current Year",
+        "fr": "Année en cours",
+        "es": "Año actual",
         "ar": "Current Year"
       },
       "businessContext_i18n": {
         "en": "Current year (e.g., 2025)",
-        "tr": "Mevcut yıl (ör. 2025)"
+        "tr": "Mevcut yıl (ör. 2025)",
+        "de": "Aktuelles Jahr (z. B. 2025)",
+        "fr": "Année actuelle (ex. 2025)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "LMP Day",
         "tr": "SAT Günü",
-        "de": "LMP Day",
-        "fr": "LMP Day",
-        "es": "LMP Day",
+        "de": "Tag der letzten Menstruation",
+        "fr": "Jour des dernières règles",
+        "es": "Día de la última menstruación",
         "ar": "LMP Day"
       },
       "businessContext_i18n": {
         "en": "Day of last menstrual period (1–31)",
-        "tr": "Son adet döneminin günü (1–31)"
+        "tr": "Son adet döneminin günü (1–31)",
+        "de": "Tag der letzten Menstruation (1–31)",
+        "fr": "Jour des dernières règles (1–31)"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "LMP Month",
         "tr": "SAT Ayı",
-        "de": "LMP Month",
-        "fr": "LMP Month",
-        "es": "LMP Month",
+        "de": "Monat der letzten Menstruation",
+        "fr": "Mois des dernières règles",
+        "es": "Mes de la última menstruación",
         "ar": "LMP Month"
       },
       "businessContext_i18n": {
         "en": "Month of last menstrual period (1–12)",
-        "tr": "Son adet döneminin ayı (1–12)"
+        "tr": "Son adet döneminin ayı (1–12)",
+        "de": "Monat der letzten Menstruation (1–12)",
+        "fr": "Mois des dernières règles (1–12)"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "LMP Year",
         "tr": "SAT Yılı",
-        "de": "LMP Year",
-        "fr": "LMP Year",
-        "es": "LMP Year",
+        "de": "Jahr der letzten Menstruation",
+        "fr": "Année des dernières règles",
+        "es": "Año de la última menstruación",
         "ar": "LMP Year"
       },
       "businessContext_i18n": {
         "en": "Year of last menstrual period",
-        "tr": "Son adet döneminin yılı"
+        "tr": "Son adet döneminin yılı",
+        "de": "Jahr der letzten Menstruation",
+        "fr": "Année des dernières règles"
       }
     },
     {
@@ -131,14 +143,16 @@
       "label_i18n": {
         "en": "Cycle Length",
         "tr": "Döngü Uzunluğu",
-        "de": "Cycle Length",
-        "fr": "Cycle Length",
+        "de": "Zykluslänge",
+        "fr": "Durée du cycle",
         "es": "Cycle Length",
         "ar": "Cycle Length"
       },
       "businessContext_i18n": {
         "en": "Average length of menstrual cycle in days (typically 28)",
-        "tr": "Adet döngüsünün gün cinsinden ortalama uzunluğu (genellikle 28)"
+        "tr": "Adet döngüsünün gün cinsinden ortalama uzunluğu (genellikle 28)",
+        "de": "Durchschnittliche Länge des Menstruationszyklus in Tagen (typischerweise 28)",
+        "fr": "Durée moyenne du cycle menstruel en jours (généralement 28)"
       }
     }
   ],

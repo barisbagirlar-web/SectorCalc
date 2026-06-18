@@ -12,13 +12,15 @@
         "en": "Seconds",
         "tr": "Saniye",
         "de": "Sekunden",
-        "fr": "Seconds",
-        "es": "Seconds",
+        "fr": "Secondes",
+        "es": "Segundos",
         "ar": "Seconds"
       },
       "businessContext_i18n": {
         "en": "Input time in seconds",
-        "tr": "Saniye cinsinden giriş süresi"
+        "tr": "Saniye cinsinden giriş süresi",
+        "de": "Eingabezeit in Sekunden",
+        "fr": "Saisir le temps en secondes"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Milliseconds",
         "tr": "Milisaniye",
-        "de": "Milliseconds",
-        "fr": "Milliseconds",
+        "de": "Millisekunden",
+        "fr": "Millisecondes",
         "es": "Milliseconds",
         "ar": "Milliseconds"
       },
       "businessContext_i18n": {
         "en": "Output time in milliseconds",
-        "tr": "Milisaniye cinsinden çıkış süresi"
+        "tr": "Milisaniye cinsinden çıkış süresi",
+        "de": "Ausgabezeit in Millisekunden",
+        "fr": "Temps de sortie en millisecondes"
       }
     },
     {
@@ -53,12 +57,14 @@
         "tr": "Dakika",
         "de": "Minuten",
         "fr": "Minutes",
-        "es": "Minutes",
+        "es": "Minutos",
         "ar": "Minutes"
       },
       "businessContext_i18n": {
         "en": "Equivalent time in minutes",
-        "tr": "Dakika cinsinden eşdeğer süre"
+        "tr": "Dakika cinsinden eşdeğer süre",
+        "de": "Äquivalente Zeit in Minuten",
+        "fr": "Temps équivalent en minutes"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Hours",
         "tr": "Saat",
         "de": "Stunden",
-        "fr": "Hours",
-        "es": "Hours",
+        "fr": "Heures",
+        "es": "Horas",
         "ar": "Hours"
       },
       "businessContext_i18n": {
         "en": "Equivalent time in hours",
-        "tr": "Saat cinsinden eşdeğer süre"
+        "tr": "Saat cinsinden eşdeğer süre",
+        "de": "Äquivalente Zeit in Stunden",
+        "fr": "Temps équivalent en heures"
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Days",
         "tr": "Gün",
         "de": "Tage",
-        "fr": "Days",
-        "es": "Days",
+        "fr": "Jours",
+        "es": "Días",
         "ar": "Days"
       },
       "businessContext_i18n": {
         "en": "Equivalent time in days",
-        "tr": "Gün cinsinden eşdeğer süre"
+        "tr": "Gün cinsinden eşdeğer süre",
+        "de": "Äquivalente Zeit in Tagen",
+        "fr": "Temps équivalent en jours"
       }
     }
   ],

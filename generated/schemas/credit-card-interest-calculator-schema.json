@@ -12,14 +12,16 @@
         "en": "Outstanding Balance",
         "tr": "Kalan Bakiye",
         "de": "Ausstehender Saldo",
-        "fr": "Outstanding Balance",
-        "es": "Outstanding Balance",
+        "fr": "Solde impayé",
+        "es": "Saldo pendiente",
         "ar": "Outstanding Balance"
       },
       "businessContext_i18n": {
         "en": "The current credit card balance.",
         "tr": "Mevcut kredi kartı bakiyesi.",
-        "de": "Aktueller Kreditkartensaldo"
+        "de": "Aktueller Kreditkartensaldo",
+        "fr": "Le solde actuel de la carte de crédit.",
+        "es": "El saldo actual de la tarjeta de crédito."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Annual Percentage Rate (APR)",
         "tr": "Yıllık Yüzde Oranı (APR)",
         "de": "Jährlicher Prozentsatz (APR)",
-        "fr": "Annual Percentage Rate (APR)",
-        "es": "Annual Percentage Rate (APR)",
+        "fr": "Taux annuel effectif global (TAEG)",
+        "es": "Tasa de porcentaje anual (APR)",
         "ar": "Annual Percentage Rate (APR)"
       },
       "businessContext_i18n": {
         "en": "The annual interest rate for the credit card.",
         "tr": "Kredi kartı için yıllık faiz oranı.",
-        "de": "Jährlicher Zinssatz für die Kreditkarte"
+        "de": "Jährlicher Zinssatz für die Kreditkarte",
+        "fr": "Le taux d'intérêt annuel de la carte de crédit.",
+        "es": "La tasa de interés anual de la tarjeta de crédito."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Billing Period (Days)",
         "tr": "Fatura Dönemi (Gün)",
         "de": "Abrechnungszeitraum (Tage)",
-        "fr": "Billing Period (Days)",
-        "es": "Billing Period (Days)",
+        "fr": "Période de facturation (jours)",
+        "es": "Período de facturación (días)",
         "ar": "Billing Period (Days)"
       },
       "businessContext_i18n": {
         "en": "Number of days in the billing cycle.",
         "tr": "Fatura döngüsündeki gün sayısı.",
-        "de": "Anzahl der Tage im Abrechnungszyklus"
+        "de": "Anzahl der Tage im Abrechnungszyklus",
+        "fr": "Nombre de jours dans le cycle de facturation.",
+        "es": "Número de días en el ciclo de facturación."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Minimum Payment (%)",
         "tr": "Asgari Ödeme (%)",
         "de": "Mindestzahlung (%)",
-        "fr": "Minimum Payment (%)",
-        "es": "Minimum Payment (%)",
+        "fr": "Paiement minimum (%)",
+        "es": "Pago mínimo (%)",
         "ar": "Minimum Payment (%)"
       },
       "businessContext_i18n": {
         "en": "The percentage of the outstanding balance required as minimum payment.",
         "tr": "Kalan bakiyenin asgari ödeme olarak gereken yüzdesi.",
-        "de": "Prozentsatz des ausstehenden Saldos, der als Mindestzahlung erforderlich ist"
+        "de": "Prozentsatz des ausstehenden Saldos, der als Mindestzahlung erforderlich ist",
+        "fr": "Le pourcentage du solde impayé requis comme paiement minimum.",
+        "es": "El porcentaje del saldo pendiente requerido como pago mínimo."
       }
     }
   ],

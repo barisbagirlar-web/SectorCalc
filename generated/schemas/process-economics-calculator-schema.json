@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Raw Material Cost per Unit",
         "tr": "Birim Başına Hammadde Maliyeti",
-        "de": "Raw Material Cost per Unit",
-        "fr": "Raw Material Cost per Unit",
-        "es": "Raw Material Cost per Unit",
+        "de": "Rohmaterialkosten pro Einheit",
+        "fr": "Coût matière première par unité",
+        "es": "Coste de materia prima por unidad",
         "ar": "Raw Material Cost per Unit"
       },
       "businessContext_i18n": {
         "en": "Cost of raw materials per unit of product",
-        "tr": "Birim ürün başına hammadde maliyeti"
+        "tr": "Birim ürün başına hammadde maliyeti",
+        "de": "Kosten der Rohmaterialien pro Produkteinheit",
+        "fr": "Coût des matières premières par unité de produit",
+        "es": "Coste de materias primas por unidad de producto"
       }
     },
     {
@@ -31,15 +34,17 @@
       "label_i18n": {
         "en": "Labor Cost per Unit",
         "tr": "Birim başına işçilik maliyeti",
-        "de": "Labor Cost per Unit",
-        "fr": "Labor Cost per Unit",
-        "es": "Labor Cost per Unit",
+        "de": "Arbeitskosten pro Stück",
+        "fr": "Coût de main-d'œuvre par unité",
+        "es": "Coste de mano de obra por unidad",
         "ar": "Labor Cost per Unit"
       },
       "businessContext_i18n": {
         "en": "Direct labor cost per unit",
         "tr": "Birim başına direkt işçilik maliyeti",
-        "de": "Direkte Arbeitskosten pro Einheit"
+        "de": "Direkte Arbeitskosten pro Einheit",
+        "fr": "Coût direct de la main-d'œuvre par unité",
+        "es": "Costo directo de mano de obra por unidad"
       }
     },
     {
@@ -52,15 +57,17 @@
       "label_i18n": {
         "en": "Overhead Cost per Unit",
         "tr": "Birim Başına Genel Gider Maliyeti",
-        "de": "Overhead Cost per Unit",
-        "fr": "Overhead Cost per Unit",
-        "es": "Overhead Cost per Unit",
+        "de": "Gemeinkosten pro Einheit",
+        "fr": "Coût des frais généraux par unité",
+        "es": "Coste general por unidad",
         "ar": "Overhead Cost per Unit"
       },
       "businessContext_i18n": {
         "en": "Manufacturing overhead per unit",
         "tr": "Birim başına üretim genel gideri",
-        "de": "Fertigungsgemeinkosten pro Einheit"
+        "de": "Fertigungsgemeinkosten pro Einheit",
+        "fr": "Frais généraux de fabrication par unité",
+        "es": "Gastos generales de fabricación por unidad"
       }
     },
     {
@@ -74,13 +81,16 @@
         "en": "Selling Price per Unit",
         "tr": "Birim Satış Fiyatı",
         "de": "Verkaufspreis pro Einheit",
-        "fr": "Selling Price per Unit",
-        "es": "Selling Price per Unit",
+        "fr": "Prix de vente unitaire",
+        "es": "Precio de venta por unidad",
         "ar": "Selling Price per Unit"
       },
       "businessContext_i18n": {
         "en": "Price at which product is sold",
-        "tr": "Ürünün satıldığı fiyat"
+        "tr": "Ürünün satıldığı fiyat",
+        "de": "Preis, zu dem das Produkt verkauft wird",
+        "fr": "Prix de vente du produit",
+        "es": "Precio al que se vende el producto"
       }
     },
     {
@@ -93,14 +103,17 @@
       "label_i18n": {
         "en": "Production Volume",
         "tr": "Üretim Hacmi",
-        "de": "Production Volume",
-        "fr": "Production Volume",
-        "es": "Production Volume",
+        "de": "Produktionsvolumen",
+        "fr": "Volume de production",
+        "es": "Volumen de producción",
         "ar": "Production Volume"
       },
       "businessContext_i18n": {
         "en": "Number of units produced per period",
-        "tr": "Dönem başına üretilen birim sayısı"
+        "tr": "Dönem başına üretilen birim sayısı",
+        "de": "Anzahl der pro Periode produzierten Einheiten",
+        "fr": "Nombre d'unités produites par période",
+        "es": "Número de unidades producidas por período"
       }
     },
     {
@@ -113,14 +126,17 @@
       "label_i18n": {
         "en": "Defect Rate",
         "tr": "Fire Oranı",
-        "de": "Defect Rate",
-        "fr": "Defect Rate",
-        "es": "Defect Rate",
+        "de": "Fehlerrate",
+        "fr": "Taux de rebut",
+        "es": "Tasa de defectos",
         "ar": "Defect Rate"
       },
       "businessContext_i18n": {
         "en": "Percentage of defective units",
-        "tr": "Hatalı birimlerin yüzdesi"
+        "tr": "Hatalı birimlerin yüzdesi",
+        "de": "Prozentsatz fehlerhafter Einheiten",
+        "fr": "Pourcentage d'unités défectueuses",
+        "es": "Porcentaje de unidades defectuosas"
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Lower bound a",
         "tr": "Alt sınır a",
-        "de": "Lower bound a",
-        "fr": "Lower bound a",
-        "es": "Lower bound a",
+        "de": "Untere Grenze a",
+        "fr": "Borne inférieure a",
+        "es": "Límite inferior a",
         "ar": "Lower bound a"
       },
       "businessContext_i18n": {
         "en": "Left endpoint of the interval [a,b]",
-        "tr": "[a,b] aralığının sol uç noktası"
+        "tr": "[a,b] aralığının sol uç noktası",
+        "de": "Linker Endpunkt des Intervalls [a,b]",
+        "fr": "Extrémité gauche de l'intervalle [a,b]"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Upper bound b",
         "tr": "Üst sınır b",
-        "de": "Upper bound b",
-        "fr": "Upper bound b",
-        "es": "Upper bound b",
+        "de": "Obere Grenze b",
+        "fr": "Borne supérieure b",
+        "es": "Límite superior b",
         "ar": "Upper bound b"
       },
       "businessContext_i18n": {
         "en": "Right endpoint of the interval [a,b]",
-        "tr": "[a,b] aralığının sağ uç noktası"
+        "tr": "[a,b] aralığının sağ uç noktası",
+        "de": "Rechter Endpunkt des Intervalls [a,b]",
+        "fr": "Extrémité droite de l'intervalle [a,b]"
       }
     },
     {
@@ -58,7 +62,10 @@
       },
       "businessContext_i18n": {
         "en": "Function value at a",
-        "tr": "a'daki fonksiyon değeri"
+        "tr": "a'daki fonksiyon değeri",
+        "de": "Funktionswert bei a",
+        "fr": "Valeur de la fonction en a",
+        "es": "Valor de la función en a"
       }
     },
     {
@@ -78,7 +85,10 @@
       },
       "businessContext_i18n": {
         "en": "Function value at b",
-        "tr": "b'deki fonksiyon değeri"
+        "tr": "b'deki fonksiyon değeri",
+        "de": "Funktionswert bei b",
+        "fr": "Valeur de la fonction en b",
+        "es": "Valor de la función en b"
       }
     },
     {
@@ -91,14 +101,16 @@
       "label_i18n": {
         "en": "Derivative coefficient",
         "tr": "Türev katsayısı",
-        "de": "Derivative coefficient",
-        "fr": "Derivative coefficient",
+        "de": "Ableitungskoeffizient",
+        "fr": "Coefficient de la dérivée",
         "es": "Derivative coefficient",
         "ar": "Derivative coefficient"
       },
       "businessContext_i18n": {
         "en": "Coefficient of x in derivative (e.g., for f(x)=x^2, derivative=2x, coefficient=2)",
-        "tr": "Türevde x'in katsayısı (örneğin f(x)=x^2 için türev=2x, katsayı=2)"
+        "tr": "Türevde x'in katsayısı (örneğin f(x)=x^2 için türev=2x, katsayı=2)",
+        "de": "Koeffizient von x in der Ableitung (z.B. für f(x)=x^2, Ableitung=2x, Koeffizient=2)",
+        "fr": "Coefficient de x dans la dérivée (ex: pour f(x)=x^2, dérivée=2x, coefficient=2)"
       }
     },
     {
@@ -111,14 +123,16 @@
       "label_i18n": {
         "en": "Derivative constant term",
         "tr": "Türev sabit terimi",
-        "de": "Derivative constant term",
-        "fr": "Derivative constant term",
+        "de": "Konstantes Glied der Ableitung",
+        "fr": "Terme constant de la dérivée",
         "es": "Derivative constant term",
         "ar": "Derivative constant term"
       },
       "businessContext_i18n": {
         "en": "Constant term in derivative (e.g., for f'(x)=2x+1, constant=1)",
-        "tr": "Türevdeki sabit terim (örneğin f'(x)=2x+1 için sabit=1)"
+        "tr": "Türevdeki sabit terim (örneğin f'(x)=2x+1 için sabit=1)",
+        "de": "Konstantes Glied in der Ableitung (z.B. für f'(x)=2x+1, Konstante=1)",
+        "fr": "Terme constant dans la dérivée (ex: pour f'(x)=2x+1, constante=1)"
       }
     }
   ],

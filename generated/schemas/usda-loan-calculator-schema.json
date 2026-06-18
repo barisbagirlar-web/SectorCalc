@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Base Loan Amount",
         "tr": "Temel Kredi Tutarı",
-        "de": "Base Loan Amount",
-        "fr": "Base Loan Amount",
+        "de": "Basisdarlehensbetrag",
+        "fr": "Montant du prêt de base",
         "es": "Base Loan Amount",
         "ar": "Base Loan Amount"
       },
       "businessContext_i18n": {
         "en": "The initial loan amount before adding the USDA upfront guarantee fee.",
-        "tr": "USDA peşin garanti ücreti eklenmeden önceki başlangıç kredi tutarı."
+        "tr": "USDA peşin garanti ücreti eklenmeden önceki başlangıç kredi tutarı.",
+        "de": "Der anfängliche Darlehensbetrag vor Hinzufügen der USDA-Vorabgarantiegebühr.",
+        "fr": "Montant initial du prêt avant ajout des frais de garantie USDA."
       }
     },
     {
@@ -32,14 +34,16 @@
         "en": "Interest Rate",
         "tr": "Faiz Oranı",
         "de": "Zinssatz",
-        "fr": "Interest Rate",
-        "es": "Interest Rate",
+        "fr": "Taux d'intérêt",
+        "es": "Tasa de interés",
         "ar": "Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Annual nominal interest rate for the loan.",
         "tr": "Kredi için yıllık nominal faiz oranı.",
-        "de": "Jährlicher Nominalzinssatz für das Darlehen."
+        "de": "Jährlicher Nominalzinssatz für das Darlehen.",
+        "fr": "Taux d'intérêt nominal annuel du prêt.",
+        "es": "Tasa de interés nominal anual del préstamo."
       }
     },
     {
@@ -53,14 +57,16 @@
         "en": "Loan Term (Years)",
         "tr": "Kredi Vadesi (Yıl)",
         "de": "Kreditlaufzeit (Jahre)",
-        "fr": "Loan Term (Years)",
-        "es": "Loan Term (Years)",
+        "fr": "Durée du prêt (années)",
+        "es": "Plazo del préstamo (años)",
         "ar": "Loan Term (Years)"
       },
       "businessContext_i18n": {
         "en": "Duration of the loan in years.",
         "tr": "Kredi süresi (yıl).",
-        "de": "Laufzeit des Darlehens in Jahren."
+        "de": "Laufzeit des Darlehens in Jahren.",
+        "fr": "Durée du prêt en années.",
+        "es": "Duración del préstamo en años."
       }
     },
     {
@@ -73,14 +79,16 @@
       "label_i18n": {
         "en": "Upfront Guarantee Fee",
         "tr": "Peşin Garanti Ücreti",
-        "de": "Upfront Guarantee Fee",
-        "fr": "Upfront Guarantee Fee",
+        "de": "Vorabgarantiegebühr",
+        "fr": "Frais de garantie initiaux",
         "es": "Upfront Guarantee Fee",
         "ar": "Upfront Guarantee Fee"
       },
       "businessContext_i18n": {
         "en": "One-time USDA guarantee fee as a percentage of the base loan amount.",
-        "tr": "Temel kredi tutarının yüzdesi olarak tek seferlik USDA garanti ücreti."
+        "tr": "Temel kredi tutarının yüzdesi olarak tek seferlik USDA garanti ücreti.",
+        "de": "Einmalige USDA-Garantiegebühr als Prozentsatz des Basisdarlehensbetrags.",
+        "fr": "Frais de garantie USDA uniques en pourcentage du montant du prêt de base."
       }
     },
     {
@@ -93,14 +101,16 @@
       "label_i18n": {
         "en": "Annual Fee",
         "tr": "Yıllık Ücret",
-        "de": "Annual Fee",
-        "fr": "Annual Fee",
+        "de": "Jahresgebühr",
+        "fr": "Frais annuels",
         "es": "Annual Fee",
         "ar": "Annual Fee"
       },
       "businessContext_i18n": {
         "en": "Ongoing USDA annual fee as a percentage of the base loan amount, paid monthly.",
-        "tr": "Temel kredi tutarının yüzdesi olarak devam eden USDA yıllık ücreti, aylık ödenir."
+        "tr": "Temel kredi tutarının yüzdesi olarak devam eden USDA yıllık ücreti, aylık ödenir.",
+        "de": "Laufende USDA-Jahresgebühr als Prozentsatz des Basisdarlehensbetrags, monatlich gezahlt.",
+        "fr": "Frais annuels USDA courants en pourcentage du montant du prêt de base, payés mensuellement."
       }
     },
     {
@@ -114,13 +124,15 @@
         "en": "Annual Property Tax",
         "tr": "Yıllık Emlak Vergisi",
         "de": "Jährliche Grundsteuer",
-        "fr": "Annual Property Tax",
-        "es": "Annual Property Tax",
+        "fr": "Taxe foncière annuelle",
+        "es": "Impuesto anual a la propiedad",
         "ar": "Annual Property Tax"
       },
       "businessContext_i18n": {
         "en": "Annual property tax amount.",
-        "tr": "Yıllık emlak vergisi tutarı."
+        "tr": "Yıllık emlak vergisi tutarı.",
+        "de": "Jährlicher Grundsteuerbetrag.",
+        "fr": "Montant annuel de la taxe foncière."
       }
     },
     {
@@ -133,14 +145,16 @@
       "label_i18n": {
         "en": "Annual Home Insurance",
         "tr": "Yıllık Ev Sigortası",
-        "de": "Annual Home Insurance",
-        "fr": "Annual Home Insurance",
-        "es": "Annual Home Insurance",
+        "de": "Jährliche Hausratversicherung",
+        "fr": "Assurance habitation annuelle",
+        "es": "Seguro anual de la vivienda",
         "ar": "Annual Home Insurance"
       },
       "businessContext_i18n": {
         "en": "Annual homeowners insurance premium.",
-        "tr": "Yıllık ev sahibi sigortası primi."
+        "tr": "Yıllık ev sahibi sigortası primi.",
+        "de": "Jährliche Hausratversicherungsprämie.",
+        "fr": "Prime annuelle d'assurance habitation."
       }
     }
   ],

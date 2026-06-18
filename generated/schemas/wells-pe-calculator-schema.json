@@ -12,13 +12,15 @@
         "en": "Sondaj Çamur Yoğunluğu",
         "tr": "Sondaj Çamur Yoğunluğu",
         "de": "Sondaj Çamur Yoğunluğu",
-        "fr": "Sondaj Çamur Yoğunluğu",
+        "fr": "Densité de la boue de forage",
         "es": "Sondaj Çamur Yoğunluğu",
         "ar": "Sondaj Çamur Yoğunluğu"
       },
       "businessContext_i18n": {
         "en": "Sondaj sıvısının statik yoğunluğu.",
-        "tr": "Sondaj sıvısının statik yoğunluğu."
+        "tr": "Sondaj sıvısının statik yoğunluğu.",
+        "de": "Statische Dichte der Bohrflüssigkeit.",
+        "fr": "Densité statique du fluide de forage."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Gerçek Dikey Derinlik (TVD)",
         "tr": "Gerçek Dikey Derinlik (TVD)",
-        "de": "Gerçek Dikey Derinlik (TVD)",
-        "fr": "Gerçek Dikey Derinlik (TVD)",
+        "de": "Wahre vertikale Tiefe (TVD)",
+        "fr": "Profondeur verticale réelle (TVD)",
         "es": "Gerçek Dikey Derinlik (TVD)",
         "ar": "Gerçek Dikey Derinlik (TVD)"
       },
       "businessContext_i18n": {
         "en": "Kuyunun gerçek dikey derinliği.",
-        "tr": "Kuyunun gerçek dikey derinliği."
+        "tr": "Kuyunun gerçek dikey derinliği.",
+        "de": "Die wahre vertikale Tiefe des Bohrlochs.",
+        "fr": "Profondeur verticale réelle du puits."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Halka Boşluğu Basınç Kaybı",
         "tr": "Halka Boşluğu Basınç Kaybı",
-        "de": "Halka Boşluğu Basınç Kaybı",
-        "fr": "Halka Boşluğu Basınç Kaybı",
+        "de": "Druckverlust im Ringraum",
+        "fr": "Perte de charge annulaire",
         "es": "Halka Boşluğu Basınç Kaybı",
         "ar": "Halka Boşluğu Basınç Kaybı"
       },
       "businessContext_i18n": {
         "en": "Halka boşluğundaki sürtünme basınç kaybı.",
-        "tr": "Halka boşluğundaki sürtünme basınç kaybı."
+        "tr": "Halka boşluğundaki sürtünme basınç kaybı.",
+        "de": "Reibungsdruckverlust im Ringraum.",
+        "fr": "Perte de charge par frottement dans l'espace annulaire."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Yerçekimi İvmesi",
         "tr": "Yerçekimi İvmesi",
         "de": "Erdbeschleunigung",
-        "fr": "Yerçekimi İvmesi",
-        "es": "Yerçekimi İvmesi",
+        "fr": "Accélération gravitationnelle",
+        "es": "Aceleración gravitacional",
         "ar": "Yerçekimi İvmesi"
       },
       "businessContext_i18n": {
         "en": "Standart yerçekimi ivmesi, genellikle 9.81 m/s².",
-        "tr": "Standart yerçekimi ivmesi, genellikle 9.81 m/s²."
+        "tr": "Standart yerçekimi ivmesi, genellikle 9.81 m/s².",
+        "de": "Standard-Erdbeschleunigung, normalerweise 9,81 m/s².",
+        "fr": "Accélération gravitationnelle standard, généralement 9,81 m/s²."
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Upstream Mach Number (M1)",
         "tr": "Yukarı Akış Mach Sayısı (M1)",
-        "de": "Upstream Mach Number (M1)",
-        "fr": "Upstream Mach Number (M1)",
-        "es": "Upstream Mach Number (M1)",
+        "de": "Upstream-Mach-Zahl (M1)",
+        "fr": "Nombre de Mach amont (M1)",
+        "es": "Número de Mach aguas arriba (M1)",
         "ar": "Upstream Mach Number (M1)"
       },
       "businessContext_i18n": {
         "en": "Mach number before the expansion fan",
-        "tr": "Genleşme fanı öncesi Mach sayısı"
+        "tr": "Genleşme fanı öncesi Mach sayısı",
+        "de": "Mach-Zahl vor dem Expansionsfächer",
+        "fr": "Nombre de Mach avant l'éventail de détente",
+        "es": "Número de Mach antes del abanico de expansión"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Specific Heat Ratio (γ)",
         "tr": "Özgül Isı Oranı (γ)",
         "de": "Isentropenexponent (γ)",
-        "fr": "Specific Heat Ratio (γ)",
-        "es": "Specific Heat Ratio (γ)",
+        "fr": "Rapport des chaleurs spécifiques (γ)",
+        "es": "Relación de calores específicos (γ)",
         "ar": "Specific Heat Ratio (γ)"
       },
       "businessContext_i18n": {
         "en": "Ratio of specific heats for the gas (e.g., 1.4 for air)",
-        "tr": "Gazın özgül ısı oranı (örneğin hava için 1.4)"
+        "tr": "Gazın özgül ısı oranı (örneğin hava için 1.4)",
+        "de": "Isentropenexponent des Gases (z. B. 1,4 für Luft)",
+        "fr": "Rapport des chaleurs spécifiques du gaz (ex. 1,4 pour l'air)",
+        "es": "Relación de calores específicos del gas (ej., 1.4 para aire)"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Flow Deflection Angle (θ)",
         "tr": "Akış Sapma Açısı (θ)",
-        "de": "Flow Deflection Angle (θ)",
-        "fr": "Flow Deflection Angle (θ)",
-        "es": "Flow Deflection Angle (θ)",
+        "de": "Strömungsablenkungswinkel (θ)",
+        "fr": "Angle de déviation de l'écoulement (θ)",
+        "es": "Ángulo de desviación del flujo (θ)",
         "ar": "Flow Deflection Angle (θ)"
       },
       "businessContext_i18n": {
         "en": "Angle through which the flow is turned (positive for expansion)",
-        "tr": "Akışın döndürüldüğü açı (genleşme için pozitif)"
+        "tr": "Akışın döndürüldüğü açı (genleşme için pozitif)",
+        "de": "Winkel, um den die Strömung umgelenkt wird (positiv für Expansion)",
+        "fr": "Angle de rotation de l'écoulement (positif pour une détente)",
+        "es": "Ángulo de giro del flujo (positivo para expansión)"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Length (m)",
         "tr": "Uzunluk (m)",
         "de": "Länge (m)",
-        "fr": "Length (m)",
-        "es": "Length (m)",
+        "fr": "Longueur (m)",
+        "es": "Longitud (m)",
         "ar": "Length (m)"
       },
       "businessContext_i18n": {
         "en": "Slab length in meters",
         "tr": "Döşeme uzunluğu (metre)",
-        "de": "Plattenlänge in Metern"
+        "de": "Plattenlänge in Metern",
+        "fr": "Longueur de la dalle en mètres",
+        "es": "Longitud de la losa en metros"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Width (m)",
         "tr": "Genişlik (m)",
         "de": "Breite (m)",
-        "fr": "Width (m)",
-        "es": "Width (m)",
+        "fr": "Largeur (m)",
+        "es": "Ancho (m)",
         "ar": "Width (m)"
       },
       "businessContext_i18n": {
         "en": "Slab width in meters",
         "tr": "Döşeme genişliği (metre)",
-        "de": "Plattenbreite in Metern"
+        "de": "Plattenbreite in Metern",
+        "fr": "Largeur de la dalle en mètres",
+        "es": "Ancho de la losa en metros"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Thickness (m)",
         "tr": "Kalınlık (m)",
         "de": "Dicke (m)",
-        "fr": "Thickness (m)",
-        "es": "Thickness (m)",
+        "fr": "Épaisseur (m)",
+        "es": "Espesor (m)",
         "ar": "Thickness (m)"
       },
       "businessContext_i18n": {
         "en": "Slab thickness in meters (e.g., 0.2 for 20 cm)",
         "tr": "Döşeme kalınlığı metre cinsinden (ör. 20 cm için 0.2)",
-        "de": "Plattendicke in Metern (z. B. 0,2 für 20 cm)"
+        "de": "Plattendicke in Metern (z. B. 0,2 für 20 cm)",
+        "fr": "Épaisseur de la dalle en mètres (ex. 0.2 pour 20 cm)",
+        "es": "Espesor de la losa en metros (ej. 0.2 para 20 cm)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Concrete Density",
         "tr": "Beton Yoğunluğu",
         "de": "Betondichte",
-        "fr": "Concrete Density",
-        "es": "Concrete Density",
+        "fr": "Densité du béton",
+        "es": "Densidad del hormigón",
         "ar": "Concrete Density"
       },
       "businessContext_i18n": {
         "en": "Density of concrete (kg/m³). Standard reinforced concrete: 2400",
         "tr": "Beton yoğunluğu (kg/m³). Standart betonarme: 2400",
-        "de": "Dichte des Betons (kg/m³). Standard-Stahlbeton: 2400"
+        "de": "Dichte des Betons (kg/m³). Standard-Stahlbeton: 2400",
+        "fr": "Densité du béton (kg/m³). Béton armé standard : 2400",
+        "es": "Densidad del concreto (kg/m³). Concreto armado estándar: 2400"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
         "de": "Abfallfaktor",
-        "fr": "Waste Factor",
-        "es": "Waste Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Percentage waste factor (typically 5-10%)",
         "tr": "Yüzde fire faktörü (tipik olarak %5-10)",
-        "de": "Prozentsatz Abfallfaktor (typischerweise 5-10%)"
+        "de": "Prozentsatz Abfallfaktor (typischerweise 5-10%)",
+        "fr": "Pourcentage de perte (généralement 5-10%)",
+        "es": "Porcentaje de factor de desperdicio (típicamente 5-10%)"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Horsepower",
         "tr": "Beygir Gücü",
-        "de": "Horsepower",
-        "fr": "Horsepower",
-        "es": "Horsepower",
+        "de": "Leistung in PS",
+        "fr": "Puissance en chevaux",
+        "es": "Caballos de fuerza",
         "ar": "Horsepower"
       },
       "businessContext_i18n": {
         "en": "Mechanical power of the engine or motor",
-        "tr": "Motorun veya makinenin mekanik gücü"
+        "tr": "Motorun veya makinenin mekanik gücü",
+        "de": "Mechanische Leistung des Motors",
+        "fr": "Puissance mécanique du moteur",
+        "es": "Potencia mecánica del motor o máquina"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Operating Time",
         "tr": "Çalışma Süresi",
-        "de": "Operating Time",
-        "fr": "Operating Time",
-        "es": "Operating Time",
+        "de": "Betriebszeit",
+        "fr": "Temps de fonctionnement",
+        "es": "Tiempo de operación",
         "ar": "Operating Time"
       },
       "businessContext_i18n": {
         "en": "Duration of operation",
-        "tr": "Çalışma süresi"
+        "tr": "Çalışma süresi",
+        "de": "Betriebsdauer",
+        "fr": "Durée de fonctionnement",
+        "es": "Duración de la operación"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Efficiency",
         "tr": "Verim",
         "de": "Wirkungsgrad",
-        "fr": "Efficiency",
-        "es": "Efficiency",
+        "fr": "Rendement",
+        "es": "Eficiencia",
         "ar": "Efficiency"
       },
       "businessContext_i18n": {
         "en": "Efficiency factor (100% for direct conversion)",
-        "tr": "Verim faktörü (doğrudan dönüşüm için %100)"
+        "tr": "Verim faktörü (doğrudan dönüşüm için %100)",
+        "de": "Wirkungsgrad (100% bei direkter Umwandlung)",
+        "fr": "Facteur de rendement (100% pour conversion directe)",
+        "es": "Factor de eficiencia (100% para conversión directa)"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Electricity Cost",
         "tr": "Elektrik Maliyeti",
         "de": "Stromkosten",
-        "fr": "Electricity Cost",
-        "es": "Electricity Cost",
+        "fr": "Coût de l'électricité",
+        "es": "Coste de electricidad",
         "ar": "Electricity Cost"
       },
       "businessContext_i18n": {
         "en": "Cost per kWh of electricity for cost estimation",
-        "tr": "Elektrik kWh başına maliyet, maliyet tahmini için"
+        "tr": "Elektrik kWh başına maliyet, maliyet tahmini için",
+        "de": "Kosten pro kWh Strom für Kostenschätzung",
+        "fr": "Coût par kWh d'électricité pour l'estimation des coûts",
+        "es": "Costo por kWh de electricidad para estimación de costos"
       }
     }
   ],

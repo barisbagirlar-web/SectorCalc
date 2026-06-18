@@ -12,13 +12,16 @@
         "en": "Operating Pressure",
         "tr": "Çalışma basıncı",
         "de": "Betriebsdruck",
-        "fr": "Operating Pressure",
-        "es": "Operating Pressure",
+        "fr": "Pression de service",
+        "es": "Presión de operación",
         "ar": "Operating Pressure"
       },
       "businessContext_i18n": {
         "en": "System operating pressure in Pascals",
-        "tr": "Sistem çalışma basıncı (Pascal)"
+        "tr": "Sistem çalışma basıncı (Pascal)",
+        "de": "Systembetriebsdruck in Pascal",
+        "fr": "Pression de fonctionnement du système en Pascals",
+        "es": "Presión de operación del sistema en Pascales"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Fluid Density",
         "tr": "Akışkan Yoğunluğu",
         "de": "Flüssigkeitsdichte",
-        "fr": "Fluid Density",
-        "es": "Fluid Density",
+        "fr": "Densité du fluide",
+        "es": "Densidad del fluido",
         "ar": "Fluid Density"
       },
       "businessContext_i18n": {
         "en": "Density of the pumped fluid",
-        "tr": "Pompalanan akışkanın yoğunluğu"
+        "tr": "Pompalanan akışkanın yoğunluğu",
+        "de": "Dichte der gepumpten Flüssigkeit",
+        "fr": "Densité du fluide pompé",
+        "es": "Densidad del fluido bombeado"
       }
     },
     {
@@ -52,14 +58,16 @@
         "en": "Flow Rate",
         "tr": "Debi",
         "de": "Durchflussrate",
-        "fr": "Flow Rate",
-        "es": "Flow Rate",
+        "fr": "Débit",
+        "es": "Caudal",
         "ar": "Flow Rate"
       },
       "businessContext_i18n": {
         "en": "Volumetric flow rate through the pipe",
         "tr": "Borudaki hacimsel akış hızı",
-        "de": "Volumenstrom durch das Rohr"
+        "de": "Volumenstrom durch das Rohr",
+        "fr": "Débit volumétrique dans le tuyau",
+        "es": "Caudal volumétrico a través de la tubería"
       }
     },
     {
@@ -73,14 +81,16 @@
         "en": "Pipe Diameter",
         "tr": "Boru Çapı",
         "de": "Rohrdurchmesser",
-        "fr": "Pipe Diameter",
-        "es": "Pipe Diameter",
+        "fr": "Diamètre du tuyau",
+        "es": "Diámetro de la tubería",
         "ar": "Pipe Diameter"
       },
       "businessContext_i18n": {
         "en": "Inner diameter of the pipe",
         "tr": "Boru iç çapı",
-        "de": "Innendurchmesser des Rohrs"
+        "de": "Innendurchmesser des Rohrs",
+        "fr": "Diamètre intérieur du tuyau",
+        "es": "Diámetro interior de la tubería"
       }
     },
     {
@@ -94,13 +104,16 @@
         "en": "Efficiency Factor",
         "tr": "Verimlilik Faktörü",
         "de": "Effizienzfaktor",
-        "fr": "Efficiency Factor",
-        "es": "Efficiency Factor",
+        "fr": "Facteur d'efficacité",
+        "es": "Factor de eficiencia",
         "ar": "Efficiency Factor"
       },
       "businessContext_i18n": {
         "en": "Overall efficiency factor (0-1)",
-        "tr": "Genel verimlilik faktörü (0-1)"
+        "tr": "Genel verimlilik faktörü (0-1)",
+        "de": "Gesamtwirkungsgrad (0-1)",
+        "fr": "Facteur d'efficacité global (0-1)",
+        "es": "Factor de eficiencia general (0-1)"
       }
     }
   ],

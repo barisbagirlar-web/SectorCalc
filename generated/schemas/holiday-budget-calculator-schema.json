@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Number of Travelers",
         "tr": "Yolcu Sayısı",
-        "de": "Number of Travelers",
-        "fr": "Number of Travelers",
-        "es": "Number of Travelers",
+        "de": "Anzahl der Reisenden",
+        "fr": "Nombre de voyageurs",
+        "es": "Número de viajeros",
         "ar": "Number of Travelers"
       },
       "businessContext_i18n": {
         "en": "Number of people traveling, affects per-person costs",
-        "tr": "Seyahat eden kişi sayısı, kişi başı maliyetleri etkiler"
+        "tr": "Seyahat eden kişi sayısı, kişi başı maliyetleri etkiler",
+        "de": "Anzahl der reisenden Personen, beeinflusst die Kosten pro Person",
+        "fr": "Nombre de personnes voyageant, affecte les coûts par personne",
+        "es": "Número de personas que viajan, afecta los costos por persona"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Trip Duration (Days)",
         "tr": "Seyahat Süresi (Gün)",
-        "de": "Trip Duration (Days)",
-        "fr": "Trip Duration (Days)",
-        "es": "Trip Duration (Days)",
+        "de": "Reisedauer (Tage)",
+        "fr": "Durée du voyage (jours)",
+        "es": "Duración del viaje (días)",
         "ar": "Trip Duration (Days)"
       },
       "businessContext_i18n": {
         "en": "Total number of days for the holiday",
-        "tr": "Tatil için toplam gün sayısı"
+        "tr": "Tatil için toplam gün sayısı",
+        "de": "Gesamtzahl der Tage für den Urlaub",
+        "fr": "Nombre total de jours pour les vacances",
+        "es": "Número total de días de las vacaciones"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Flight Cost per Person",
         "tr": "Kişi Başı Uçuş Maliyeti",
-        "de": "Flight Cost per Person",
-        "fr": "Flight Cost per Person",
-        "es": "Flight Cost per Person",
+        "de": "Flugkosten pro Person",
+        "fr": "Coût du vol par personne",
+        "es": "Costo de vuelo por persona",
         "ar": "Flight Cost per Person"
       },
       "businessContext_i18n": {
         "en": "Round-trip airfare cost per traveler",
-        "tr": "Her yolcu için gidiş-dönüş uçak bileti ücreti"
+        "tr": "Her yolcu için gidiş-dönüş uçak bileti ücreti",
+        "de": "Hin- und Rückflugkosten pro Reisendem",
+        "fr": "Coût du billet d'avion aller-retour par voyageur",
+        "es": "Tarifa aérea de ida y vuelta por viajero"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Hotel Cost per Night",
         "tr": "Gece Başına Otel Maliyeti",
-        "de": "Hotel Cost per Night",
-        "fr": "Hotel Cost per Night",
-        "es": "Hotel Cost per Night",
+        "de": "Hotelkosten pro Nacht",
+        "fr": "Coût de l'hôtel par nuit",
+        "es": "Costo de hotel por noche",
         "ar": "Hotel Cost per Night"
       },
       "businessContext_i18n": {
         "en": "Accommodation cost per night for the group",
-        "tr": "Grup için gece başına konaklama maliyeti"
+        "tr": "Grup için gece başına konaklama maliyeti",
+        "de": "Unterkunftskosten pro Nacht für die Gruppe",
+        "fr": "Coût d'hébergement par nuit pour le groupe",
+        "es": "Costo de alojamiento por noche para el grupo"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Daily Food Budget per Person",
         "tr": "Kişi Başı Günlük Yemek Bütçesi",
-        "de": "Daily Food Budget per Person",
-        "fr": "Daily Food Budget per Person",
-        "es": "Daily Food Budget per Person",
+        "de": "Tägliches Essensbudget pro Person",
+        "fr": "Budget alimentaire quotidien par personne",
+        "es": "Presupuesto diario de comida por persona",
         "ar": "Daily Food Budget per Person"
       },
       "businessContext_i18n": {
         "en": "Estimated daily food expense per traveler",
-        "tr": "Her yolcu için tahmini günlük yemek masrafı"
+        "tr": "Her yolcu için tahmini günlük yemek masrafı",
+        "de": "Geschätzte tägliche Essenskosten pro Reisendem",
+        "fr": "Estimation des dépenses alimentaires quotidiennes par voyageur",
+        "es": "Gasto diario estimado en comida por viajero"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Daily Activity Budget per Person",
         "tr": "Kişi Başı Günlük Aktivite Bütçesi",
-        "de": "Daily Activity Budget per Person",
-        "fr": "Daily Activity Budget per Person",
-        "es": "Daily Activity Budget per Person",
+        "de": "Tägliches Aktivitätsbudget pro Person",
+        "fr": "Budget quotidien pour les activités par personne",
+        "es": "Presupuesto diario de actividades por persona",
         "ar": "Daily Activity Budget per Person"
       },
       "businessContext_i18n": {
         "en": "Estimated daily activity/entertainment cost per traveler",
-        "tr": "Her yolcu için tahmini günlük aktivite/eğlence masrafı"
+        "tr": "Her yolcu için tahmini günlük aktivite/eğlence masrafı",
+        "de": "Geschätzte tägliche Aktivitäts-/Unterhaltungskosten pro Reisendem",
+        "fr": "Estimation du coût quotidien des activités/divertissements par voyageur",
+        "es": "Costo diario estimado en actividades/entretenimiento por viajero"
       }
     }
   ],

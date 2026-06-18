@@ -12,13 +12,15 @@
         "en": "Monthly Rent",
         "tr": "Aylık Kira",
         "de": "Monatsmiete",
-        "fr": "Monthly Rent",
-        "es": "Monthly Rent",
+        "fr": "Loyer mensuel",
+        "es": "Alquiler mensual",
         "ar": "Monthly Rent"
       },
       "businessContext_i18n": {
         "en": "The monthly rental income from the property.",
-        "tr": "Mülkten elde edilen aylık kira geliri."
+        "tr": "Mülkten elde edilen aylık kira geliri.",
+        "de": "Die monatlichen Mieteinnahmen aus der Immobilie.",
+        "fr": "Revenu locatif mensuel de la propriété."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Occupancy Rate (%)",
         "tr": "Doluluk Oranı (%)",
-        "de": "Occupancy Rate (%)",
-        "fr": "Occupancy Rate (%)",
+        "de": "Belegungsrate (%)",
+        "fr": "Taux d'occupation (%)",
         "es": "Occupancy Rate (%)",
         "ar": "Occupancy Rate (%)"
       },
       "businessContext_i18n": {
         "en": "Expected occupancy rate as a percentage of the year.",
-        "tr": "Yılın yüzdesi olarak beklenen doluluk oranı."
+        "tr": "Yılın yüzdesi olarak beklenen doluluk oranı.",
+        "de": "Erwartete Belegungsrate als Prozentsatz des Jahres.",
+        "fr": "Taux d'occupation attendu en pourcentage de l'année."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Management Fee (%)",
         "tr": "Yönetim Ücreti (%)",
-        "de": "Management Fee (%)",
-        "fr": "Management Fee (%)",
+        "de": "Verwaltungsgebühr (%)",
+        "fr": "Frais de gestion (%)",
         "es": "Management Fee (%)",
         "ar": "Management Fee (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of gross income for property management.",
-        "tr": "Gayrimenkul yönetimi için brüt gelirin yüzdesi."
+        "tr": "Gayrimenkul yönetimi için brüt gelirin yüzdesi.",
+        "de": "Prozentsatz des Bruttoeinkommens für die Immobilienverwaltung.",
+        "fr": "Pourcentage du revenu brut pour la gestion immobilière."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Monthly Maintenance",
         "tr": "Aylık Bakım",
-        "de": "Monthly Maintenance",
-        "fr": "Monthly Maintenance",
+        "de": "Monatliche Instandhaltung",
+        "fr": "Entretien mensuel",
         "es": "Monthly Maintenance",
         "ar": "Monthly Maintenance"
       },
       "businessContext_i18n": {
         "en": "Estimated monthly maintenance and repair costs.",
-        "tr": "Tahmini aylık bakım ve onarım maliyetleri."
+        "tr": "Tahmini aylık bakım ve onarım maliyetleri.",
+        "de": "Geschätzte monatliche Instandhaltungs- und Reparaturkosten.",
+        "fr": "Coûts estimés d'entretien et de réparation mensuels."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Monthly Insurance",
         "tr": "Aylık Sigorta",
-        "de": "Monthly Insurance",
-        "fr": "Monthly Insurance",
+        "de": "Monatliche Versicherung",
+        "fr": "Assurance mensuelle",
         "es": "Monthly Insurance",
         "ar": "Monthly Insurance"
       },
       "businessContext_i18n": {
         "en": "Monthly insurance premium.",
-        "tr": "Aylık sigorta primi."
+        "tr": "Aylık sigorta primi.",
+        "de": "Monatliche Versicherungsprämie.",
+        "fr": "Prime d'assurance mensuelle."
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Annual Property Tax",
         "tr": "Yıllık Emlak Vergisi",
         "de": "Jährliche Grundsteuer",
-        "fr": "Annual Property Tax",
-        "es": "Annual Property Tax",
+        "fr": "Taxe foncière annuelle",
+        "es": "Impuesto anual a la propiedad",
         "ar": "Annual Property Tax"
       },
       "businessContext_i18n": {
         "en": "Annual property tax amount.",
-        "tr": "Yıllık emlak vergisi tutarı."
+        "tr": "Yıllık emlak vergisi tutarı.",
+        "de": "Jährlicher Grundsteuerbetrag.",
+        "fr": "Montant annuel de la taxe foncière."
       }
     }
   ],

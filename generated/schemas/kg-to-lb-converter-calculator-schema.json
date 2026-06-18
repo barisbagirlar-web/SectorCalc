@@ -20,11 +20,17 @@
       "businessContext": "Input mass value in kilograms for conversion to pounds. Used in logistics, manufacturing, and trade.",
       "label_i18n": {
         "en": "Mass in Kilograms",
-        "tr": "Kütle (kg)"
+        "tr": "Kütle (kg)",
+        "de": "Masse in Kilogramm",
+        "fr": "Masse en kilogrammes",
+        "es": "Masa en kilogramos"
       },
       "businessContext_i18n": {
         "en": "Input mass value in kilograms for conversion to pounds. Used in logistics, manufacturing, and trade.",
-        "tr": "Pound'a dönüştürmek için kilogram cinsinden kütle değeri girin. Lojistik, imalat ve ticarette kullanılır."
+        "tr": "Pound'a dönüştürmek için kilogram cinsinden kütle değeri girin. Lojistik, imalat ve ticarette kullanılır.",
+        "de": "Massewert in Kilogramm zur Umrechnung in Pfund. Verwendung in Logistik, Fertigung und Handel.",
+        "fr": "Saisir la valeur de masse en kilogrammes pour conversion en livres. Utilisé en logistique, fabrication et commerce.",
+        "es": "Ingrese el valor de masa en kilogramos para convertir a libras. Se utiliza en logística, fabricación y comercio."
       }
     },
     {
@@ -47,11 +53,17 @@
       "businessContext": "Select number of decimal places for output rounding, per ISO 80000-1 rounding rules.",
       "label_i18n": {
         "en": "Precision Level",
-        "tr": "Hassasiyet Seviyesi"
+        "tr": "Hassasiyet Seviyesi",
+        "de": "Genauigkeitsstufe",
+        "fr": "Niveau de précision",
+        "es": "Nivel de precisión"
       },
       "businessContext_i18n": {
         "en": "Select number of decimal places for output rounding, per ISO 80000-1 rounding rules.",
-        "tr": "ISO 80000-1 yuvarlama kurallarına göre çıktı yuvarlaması için ondalık basamak sayısını seçin."
+        "tr": "ISO 80000-1 yuvarlama kurallarına göre çıktı yuvarlaması için ondalık basamak sayısını seçin.",
+        "de": "Anzahl der Dezimalstellen für die Ausgaberundung gemäß ISO 80000-1 Rundungsregeln.",
+        "fr": "Sélectionner le nombre de décimales pour l'arrondi de sortie, selon les règles d'arrondi ISO 80000-1.",
+        "es": "Seleccione el número de decimales para el redondeo de salida, según las reglas de redondeo ISO 80000-1."
       }
     },
     {
@@ -65,11 +77,17 @@
       "businessContext": "Apply WERC standard rounding (0.5 up) for trade compliance.",
       "label_i18n": {
         "en": "Use Industry Rounding (WERC)",
-        "tr": "Endüstri Yuvarlaması Kullan (WERC)"
+        "tr": "Endüstri Yuvarlaması Kullan (WERC)",
+        "de": "Branchenrundung (WERC) verwenden",
+        "fr": "Utiliser l'arrondi industriel (WERC)",
+        "es": "Usar redondeo industrial (WERC)"
       },
       "businessContext_i18n": {
         "en": "Apply WERC standard rounding (0.5 up) for trade compliance.",
-        "tr": "Ticaret uyumu için WERC standart yuvarlamasını (%0,5 yukarı) uygulayın."
+        "tr": "Ticaret uyumu için WERC standart yuvarlamasını (%0,5 yukarı) uygulayın.",
+        "de": "WERC-Standardrundung (0,5 auf) für Handelskonformität anwenden.",
+        "fr": "Appliquer l'arrondi standard WERC (0,5 vers le haut) pour la conformité commerciale.",
+        "es": "Aplicar redondeo estándar WERC (0.5 hacia arriba) para cumplimiento comercial."
       }
     },
     {
@@ -84,11 +102,16 @@
       "label_i18n": {
         "en": "Measurement Uncertainty (%)",
         "tr": "Ölçüm Belirsizliği (%)",
-        "de": "Messunsicherheit (%)"
+        "de": "Messunsicherheit (%)",
+        "fr": "Incertitude de mesure (%)",
+        "es": "Incertidumbre de medición (%)"
       },
       "businessContext_i18n": {
         "en": "Estimated uncertainty in the input measurement, used for confidence adjustment (ISO/IEC Guide 98-3).",
-        "tr": "Giriş ölçümündeki tahmini belirsizlik, güven ayarı için kullanılır (ISO/IEC Kılavuzu 98-3)."
+        "tr": "Giriş ölçümündeki tahmini belirsizlik, güven ayarı için kullanılır (ISO/IEC Kılavuzu 98-3).",
+        "de": "Geschätzte Unsicherheit der Eingangsmessung, verwendet für Konfidenzanpassung (ISO/IEC Guide 98-3).",
+        "fr": "Incertitude estimée de la mesure d'entrée, utilisée pour l'ajustement de confiance (ISO/IEC Guide 98-3).",
+        "es": "Incertidumbre estimada en la medición de entrada, utilizada para ajuste de confianza (ISO/IEC Guide 98-3)."
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Yıllık Portföy Getirisi (%)",
         "tr": "Yıllık Portföy Getirisi (%)",
-        "de": "Yıllık Portföy Getirisi (%)",
-        "fr": "Yıllık Portföy Getirisi (%)",
+        "de": "Jährliche Portfoliorendite (%)",
+        "fr": "Rendement annualisé du portefeuille (%)",
         "es": "Yıllık Portföy Getirisi (%)",
         "ar": "Yıllık Portföy Getirisi (%)"
       },
       "businessContext_i18n": {
         "en": "Portföyün yıllıklandırılmış getiri oranı.",
-        "tr": "Portföyün yıllıklandırılmış getiri oranı."
+        "tr": "Portföyün yıllıklandırılmış getiri oranı.",
+        "de": "Annualisierte Rendite des Portfolios",
+        "fr": "Taux de rendement annualisé du portefeuille."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Yıllık Risksiz Getiri (%)",
         "tr": "Yıllık Risksiz Getiri (%)",
-        "de": "Yıllık Risksiz Getiri (%)",
-        "fr": "Yıllık Risksiz Getiri (%)",
+        "de": "Jährlicher risikofreier Zinssatz (%)",
+        "fr": "Taux sans risque annualisé (%)",
         "es": "Yıllık Risksiz Getiri (%)",
         "ar": "Yıllık Risksiz Getiri (%)"
       },
       "businessContext_i18n": {
         "en": "Genellikle aynı vadedeki devlet tahvili faizi.",
-        "tr": "Genellikle aynı vadedeki devlet tahvili faizi."
+        "tr": "Genellikle aynı vadedeki devlet tahvili faizi.",
+        "de": "Üblicherweise der Zinssatz für Staatsanleihen gleicher Laufzeit",
+        "fr": "Généralement le taux des obligations d'État de même échéance."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Günlük Standart Sapma (%)",
         "tr": "Günlük Standart Sapma (%)",
-        "de": "Günlük Standart Sapma (%)",
-        "fr": "Günlük Standart Sapma (%)",
+        "de": "Tägliche Standardabweichung (%)",
+        "fr": "Écart type quotidien (%)",
         "es": "Günlük Standart Sapma (%)",
         "ar": "Günlük Standart Sapma (%)"
       },
       "businessContext_i18n": {
         "en": "Portföyün günlük getirilerinin standart sapması.",
-        "tr": "Portföyün günlük getirilerinin standart sapması."
+        "tr": "Portföyün günlük getirilerinin standart sapması.",
+        "de": "Standardabweichung der täglichen Portfoliorenditen",
+        "fr": "Écart type des rendements quotidiens du portefeuille."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Yıllık İşlem Günü Sayısı",
         "tr": "Yıllık İşlem Günü Sayısı",
-        "de": "Yıllık İşlem Günü Sayısı",
-        "fr": "Yıllık İşlem Günü Sayısı",
+        "de": "Jährliche Handelstage",
+        "fr": "Nombre de jours de bourse par an",
         "es": "Yıllık İşlem Günü Sayısı",
         "ar": "Yıllık İşlem Günü Sayısı"
       },
       "businessContext_i18n": {
         "en": "Yıllık işlem günü sayısı; hisse senedi piyasaları için genellikle 252.",
-        "tr": "Yıllık işlem günü sayısı; hisse senedi piyasaları için genellikle 252."
+        "tr": "Yıllık işlem günü sayısı; hisse senedi piyasaları için genellikle 252.",
+        "de": "Anzahl der jährlichen Handelstage; für Aktienmärkte üblicherweise 252",
+        "fr": "Nombre de jours de bourse par an ; généralement 252 pour les marchés boursiers."
       }
     }
   ],

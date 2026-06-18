@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Planned Production Time",
         "tr": "Planlanan Üretim Süresi",
-        "de": "Planned Production Time",
-        "fr": "Planned Production Time",
-        "es": "Planned Production Time",
+        "de": "Geplante Produktionszeit",
+        "fr": "Temps de production planifié",
+        "es": "Tiempo de producción planificado",
         "ar": "Planned Production Time"
       },
       "businessContext_i18n": {
         "en": "Total planned operating time for the machine.",
-        "tr": "Makinenin toplam planlanan çalışma süresi."
+        "tr": "Makinenin toplam planlanan çalışma süresi.",
+        "de": "Gesamte geplante Betriebszeit der Maschine.",
+        "fr": "Temps de fonctionnement total planifié pour la machine.",
+        "es": "Tiempo total de operación planificado para la máquina."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Unplanned Downtime",
         "tr": "Plansız Duruş",
         "de": "Ungeplante Stillstandszeit",
-        "fr": "Unplanned Downtime",
-        "es": "Unplanned Downtime",
+        "fr": "Temps d'arrêt non planifié",
+        "es": "Tiempo de inactividad no planificado",
         "ar": "Unplanned Downtime"
       },
       "businessContext_i18n": {
         "en": "Time lost due to breakdowns or unscheduled stops.",
-        "tr": "Arıza veya plansız duruşlar nedeniyle kaybedilen süre."
+        "tr": "Arıza veya plansız duruşlar nedeniyle kaybedilen süre.",
+        "de": "Zeitverlust durch Ausfälle oder ungeplante Stopps.",
+        "fr": "Temps perdu en raison de pannes ou d'arrêts non planifiés.",
+        "es": "Tiempo perdido por averías o paradas no programadas."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Ideal Cycle Time",
         "tr": "İdeal Çevrim Süresi",
-        "de": "Ideal Cycle Time",
-        "fr": "Ideal Cycle Time",
-        "es": "Ideal Cycle Time",
+        "de": "Ideale Taktzeit",
+        "fr": "Temps de cycle idéal",
+        "es": "Tiempo de ciclo ideal",
         "ar": "Ideal Cycle Time"
       },
       "businessContext_i18n": {
         "en": "Theoretically fastest time to produce one unit.",
-        "tr": "Bir birim üretmek için teorik olarak en hızlı süre."
+        "tr": "Bir birim üretmek için teorik olarak en hızlı süre.",
+        "de": "Theoretisch schnellste Zeit zur Herstellung einer Einheit.",
+        "fr": "Temps théorique le plus rapide pour produire une unité.",
+        "es": "Tiempo teóricamente más rápido para producir una unidad."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Total Units Produced",
         "tr": "Toplam Üretilen Birim",
-        "de": "Total Units Produced",
-        "fr": "Total Units Produced",
-        "es": "Total Units Produced",
+        "de": "Gesamtproduzierte Einheiten",
+        "fr": "Nombre total d'unités produites",
+        "es": "Unidades totales producidas",
         "ar": "Total Units Produced"
       },
       "businessContext_i18n": {
         "en": "Total output including defective units during planned time.",
-        "tr": "Planlanan sürede üretilen hatalı birimler dahil toplam çıktı."
+        "tr": "Planlanan sürede üretilen hatalı birimler dahil toplam çıktı.",
+        "de": "Gesamtausstoß einschließlich fehlerhafter Einheiten während der geplanten Zeit.",
+        "fr": "Production totale incluant les unités défectueuses pendant le temps planifié.",
+        "es": "Producción total incluyendo unidades defectuosas durante el tiempo planificado."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Defective Units",
         "tr": "Hatalı Birimler",
-        "de": "Defective Units",
-        "fr": "Defective Units",
-        "es": "Defective Units",
+        "de": "Fehlerhafte Einheiten",
+        "fr": "Unités défectueuses",
+        "es": "Unidades defectuosas",
         "ar": "Defective Units"
       },
       "businessContext_i18n": {
         "en": "Units that do not meet quality standards.",
-        "tr": "Kalite standartlarını karşılamayan birimler."
+        "tr": "Kalite standartlarını karşılamayan birimler.",
+        "de": "Einheiten, die nicht den Qualitätsstandards entsprechen.",
+        "fr": "Unités ne répondant pas aux normes de qualité.",
+        "es": "Unidades que no cumplen con los estándares de calidad."
       }
     }
   ],

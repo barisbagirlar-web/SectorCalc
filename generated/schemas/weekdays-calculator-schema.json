@@ -12,13 +12,15 @@
         "en": "Start Day",
         "tr": "Başlangıç Günü",
         "de": "Starttag",
-        "fr": "Start Day",
-        "es": "Start Day",
+        "fr": "Jour de début",
+        "es": "Día de inicio",
         "ar": "Start Day"
       },
       "businessContext_i18n": {
         "en": "The day component of the start date for calculating working days.",
-        "tr": "İş günü hesaplaması için başlangıç tarihinin gün bileşeni."
+        "tr": "İş günü hesaplaması için başlangıç tarihinin gün bileşeni.",
+        "de": "Die Tageskomponente des Startdatums für die Berechnung der Arbeitstage.",
+        "fr": "Composante jour de la date de début pour le calcul des jours ouvrés."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Start Month",
         "tr": "Başlangıç Ayı",
         "de": "Startmonat",
-        "fr": "Start Month",
-        "es": "Start Month",
+        "fr": "Mois de début",
+        "es": "Mes de inicio",
         "ar": "Start Month"
       },
       "businessContext_i18n": {
         "en": "The month component (1-12) of the start date.",
-        "tr": "Başlangıç tarihinin ay bileşeni (1-12)."
+        "tr": "Başlangıç tarihinin ay bileşeni (1-12).",
+        "de": "Die Monatskomponente (1-12) des Startdatums.",
+        "fr": "Composante mois (1-12) de la date de début."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Start Year",
         "tr": "Başlangıç Yılı",
         "de": "Startjahr",
-        "fr": "Start Year",
-        "es": "Start Year",
+        "fr": "Année de début",
+        "es": "Año de Inicio",
         "ar": "Start Year"
       },
       "businessContext_i18n": {
         "en": "The year component of the start date.",
-        "tr": "Başlangıç tarihinin yıl bileşeni."
+        "tr": "Başlangıç tarihinin yıl bileşeni.",
+        "de": "Das Jahr-Komponente des Startdatums.",
+        "fr": "Composante année de la date de début."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "End Day",
         "tr": "Bitiş Günü",
         "de": "Endtag",
-        "fr": "End Day",
-        "es": "End Day",
+        "fr": "Jour de fin",
+        "es": "Día de fin",
         "ar": "End Day"
       },
       "businessContext_i18n": {
         "en": "The day component of the end date.",
-        "tr": "Bitiş tarihinin gün bileşeni."
+        "tr": "Bitiş tarihinin gün bileşeni.",
+        "de": "Die Tag-Komponente des Enddatums.",
+        "fr": "Composante jour de la date de fin."
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "End Month",
         "tr": "Bitiş Ayı",
         "de": "Endmonat",
-        "fr": "End Month",
-        "es": "End Month",
+        "fr": "Mois de fin",
+        "es": "Mes de fin",
         "ar": "End Month"
       },
       "businessContext_i18n": {
         "en": "The month component (1-12) of the end date.",
-        "tr": "Bitiş tarihinin ay bileşeni (1-12)."
+        "tr": "Bitiş tarihinin ay bileşeni (1-12).",
+        "de": "Die Monats-Komponente (1-12) des Enddatums.",
+        "fr": "Composante mois (1-12) de la date de fin."
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "End Year",
         "tr": "Bitiş Yılı",
         "de": "Endjahr",
-        "fr": "End Year",
-        "es": "End Year",
+        "fr": "Année de fin",
+        "es": "Año de Finalización",
         "ar": "End Year"
       },
       "businessContext_i18n": {
         "en": "The year component of the end date.",
-        "tr": "Bitiş tarihinin yıl bileşeni."
+        "tr": "Bitiş tarihinin yıl bileşeni.",
+        "de": "Die Jahr-Komponente des Enddatums.",
+        "fr": "Composante année de la date de fin."
       }
     }
   ],

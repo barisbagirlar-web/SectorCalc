@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Load Mass",
         "tr": "Yük Kütlesi",
-        "de": "Load Mass",
-        "fr": "Load Mass",
-        "es": "Load Mass",
+        "de": "Lastmasse",
+        "fr": "Masse de la charge",
+        "es": "Masa de la carga",
         "ar": "Load Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the load to be supported",
-        "tr": "Desteklenecek yük kütlesi"
+        "tr": "Desteklenecek yük kütlesi",
+        "de": "Masse der zu tragenden Last",
+        "fr": "Masse de la charge à supporter"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Gravity",
         "tr": "Yerçekimi",
         "de": "Schwerkraft",
-        "fr": "Gravity",
-        "es": "Gravity",
+        "fr": "Gravité",
+        "es": "Gravedad",
         "ar": "Gravity"
       },
       "businessContext_i18n": {
         "en": "Gravitational acceleration (standard 9.81 m/s²)",
-        "tr": "Yerçekimi ivmesi (standart 9,81 m/s²)"
+        "tr": "Yerçekimi ivmesi (standart 9,81 m/s²)",
+        "de": "Erdbeschleunigung (Standard 9,81 m/s²)",
+        "fr": "Accélération gravitationnelle (standard 9,81 m/s²)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Angle from Horizontal",
         "tr": "Yataydan Açı",
-        "de": "Angle from Horizontal",
-        "fr": "Angle from Horizontal",
+        "de": "Winkel zur Horizontalen",
+        "fr": "Angle par rapport à l'horizontale",
         "es": "Angle from Horizontal",
         "ar": "Angle from Horizontal"
       },
       "businessContext_i18n": {
         "en": "Angle of ropes/cables from horizontal",
-        "tr": "Halat/kablo yataydan açısı"
+        "tr": "Halat/kablo yataydan açısı",
+        "de": "Winkel der Seile/Kabel zur Horizontalen",
+        "fr": "Angle des câbles par rapport à l'horizontale"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Number of Ropes",
         "tr": "Halat Sayısı",
-        "de": "Number of Ropes",
-        "fr": "Number of Ropes",
+        "de": "Anzahl der Seile",
+        "fr": "Nombre de câbles",
         "es": "Number of Ropes",
         "ar": "Number of Ropes"
       },
       "businessContext_i18n": {
         "en": "Number of supporting ropes or cables",
-        "tr": "Destekleyici halat veya kablo sayısı"
+        "tr": "Destekleyici halat veya kablo sayısı",
+        "de": "Anzahl der tragenden Seile oder Kabel",
+        "fr": "Nombre de câbles de support"
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Engineering safety factor per relevant standards",
-        "tr": "İlgili standartlara göre mühendislik güvenlik faktörü"
+        "tr": "İlgili standartlara göre mühendislik güvenlik faktörü",
+        "de": "Technischer Sicherheitsfaktor gemäß relevanter Normen",
+        "fr": "Coefficient de sécurité technique selon les normes applicables"
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Thermal Conductivity Value",
         "tr": "Termal İletkenlik Değeri",
-        "de": "Thermal Conductivity Value",
-        "fr": "Thermal Conductivity Value",
+        "de": "Wärmeleitfähigkeitswert",
+        "fr": "Valeur de conductivité thermique",
         "es": "Thermal Conductivity Value",
         "ar": "Thermal Conductivity Value"
       },
       "businessContext_i18n": {
         "en": "Numeric value to convert",
-        "tr": "Dönüştürülecek sayısal değer"
+        "tr": "Dönüştürülecek sayısal değer",
+        "de": "Umzurechnender Zahlenwert",
+        "fr": "Valeur numérique à convertir"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "From Unit Code",
         "tr": "Kaynak Birim Kodu",
-        "de": "From Unit Code",
-        "fr": "From Unit Code",
+        "de": "Von Einheitencode",
+        "fr": "Code de l'unité source",
         "es": "From Unit Code",
         "ar": "From Unit Code"
       },
       "businessContext_i18n": {
         "en": "Source unit: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)",
-        "tr": "Kaynak birim: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)"
+        "tr": "Kaynak birim: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)",
+        "de": "Quelleinheit: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)",
+        "fr": "Unité source : 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "To Unit Code",
         "tr": "Hedef Birim Kodu",
-        "de": "To Unit Code",
-        "fr": "To Unit Code",
+        "de": "Zu Einheitencode",
+        "fr": "Code de l'unité cible",
         "es": "To Unit Code",
         "ar": "To Unit Code"
       },
       "businessContext_i18n": {
         "en": "Target unit: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)",
-        "tr": "Hedef birim: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)"
+        "tr": "Hedef birim: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)",
+        "de": "Zieleinheit: 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)",
+        "fr": "Unité cible : 0=W/(m·K), 1=BTU/(hr·ft·°F), 2=kcal/(hr·m·°C), 3=W/(cm·K)"
       }
     },
     {
@@ -72,13 +78,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for result",
-        "tr": "Sonuç için ondalık basamak sayısı"
+        "tr": "Sonuç için ondalık basamak sayısı",
+        "de": "Temperaturwert in Newton-Skala",
+        "fr": "Nombre de décimales pour le résultat",
+        "es": "Número de decimales para el resultado"
       }
     }
   ],

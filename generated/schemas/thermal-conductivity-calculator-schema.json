@@ -31,11 +31,15 @@
       "label_i18n": {
         "en": "Material Type",
         "tr": "Malzeme Türü",
-        "de": "Materialtyp"
+        "de": "Materialtyp",
+        "fr": "Type de matériau",
+        "es": "Tipo de material"
       },
       "businessContext_i18n": {
         "en": "Select the material category to apply appropriate thermal conductivity ranges and correction factors per ISO 8301.",
-        "tr": "Uygun termal iletkenlik aralıklarını ve ISO 8301'e göre düzeltme faktörlerini uygulamak için malzeme kategorisini seçin."
+        "tr": "Uygun termal iletkenlik aralıklarını ve ISO 8301'e göre düzeltme faktörlerini uygulamak için malzeme kategorisini seçin.",
+        "de": "Wählen Sie die Materialkategorie aus, um geeignete Wärmeleitfähigkeitsbereiche und Korrekturfaktoren gemäß ISO 8301 anzuwenden.",
+        "fr": "Sélectionnez la catégorie de matériau pour appliquer les plages de conductivité thermique et les facteurs de correction appropriés selon la norme ISO 8301."
       }
     },
     {
@@ -50,11 +54,15 @@
       "label_i18n": {
         "en": "Operating Temperature",
         "tr": "Çalışma Sıcaklığı",
-        "de": "Betriebstemperatur"
+        "de": "Betriebstemperatur",
+        "fr": "Température de fonctionnement",
+        "es": "Temperatura de operación"
       },
       "businessContext_i18n": {
         "en": "Mean temperature of the material during operation. Affects phonon scattering and electron transport in solids.",
-        "tr": "Çalışma sırasında malzemenin ortalama sıcaklığı. Katılarda fonon saçılmasını ve elektron taşınımını etkiler."
+        "tr": "Çalışma sırasında malzemenin ortalama sıcaklığı. Katılarda fonon saçılmasını ve elektron taşınımını etkiler.",
+        "de": "Mittlere Temperatur des Materials während des Betriebs. Beeinflusst Phononenstreuung und Elektronentransport in Festkörpern.",
+        "fr": "Température moyenne du matériau en fonctionnement. Affecte la diffusion des phonons et le transport électronique dans les solides."
       }
     },
     {
@@ -69,11 +77,15 @@
       "label_i18n": {
         "en": "Thickness",
         "tr": "Kalınlık",
-        "de": "Dicke"
+        "de": "Dicke",
+        "fr": "Épaisseur",
+        "es": "Espesor"
       },
       "businessContext_i18n": {
         "en": "Material thickness in the direction of heat flow. Used for thermal resistance calculation.",
-        "tr": "Isı akışı yönünde malzeme kalınlığı. Termal direnç hesaplaması için kullanılır."
+        "tr": "Isı akışı yönünde malzeme kalınlığı. Termal direnç hesaplaması için kullanılır.",
+        "de": "Materialdicke in Richtung des Wärmeflusses. Wird für die Berechnung des Wärmewiderstands verwendet.",
+        "fr": "Épaisseur du matériau dans la direction du flux thermique. Utilisée pour le calcul de la résistance thermique."
       }
     },
     {
@@ -88,11 +100,15 @@
       "label_i18n": {
         "en": "Cross-Sectional Area",
         "tr": "Kesit Alanı",
-        "de": "Querschnittsfläche"
+        "de": "Querschnittsfläche",
+        "fr": "Section transversale",
+        "es": "Área de sección transversal"
       },
       "businessContext_i18n": {
         "en": "Area perpendicular to heat flow. Critical for heat flux density calculations.",
-        "tr": "Isı akışına dik alan. Isı akısı yoğunluğu hesaplamaları için kritiktir."
+        "tr": "Isı akışına dik alan. Isı akısı yoğunluğu hesaplamaları için kritiktir.",
+        "de": "Fläche senkrecht zum Wärmefluss. Entscheidend für die Berechnung der Wärmestromdichte.",
+        "fr": "Surface perpendiculaire au flux thermique. Critique pour les calculs de densité de flux thermique."
       }
     },
     {
@@ -106,11 +122,15 @@
       "businessContext": "Steady-state heat transfer rate through the material. Measured via calorimeter or heat flux sensor.",
       "label_i18n": {
         "en": "Heat Flow Rate",
-        "tr": "Isı Akış Hızı"
+        "tr": "Isı Akış Hızı",
+        "de": "Wärmestrom",
+        "fr": "Débit de chaleur"
       },
       "businessContext_i18n": {
         "en": "Steady-state heat transfer rate through the material. Measured via calorimeter or heat flux sensor.",
-        "tr": "Malzeme boyunca kararlı durum ısı transfer hızı. Kalorimetre veya ısı akısı sensörü ile ölçülür."
+        "tr": "Malzeme boyunca kararlı durum ısı transfer hızı. Kalorimetre veya ısı akısı sensörü ile ölçülür.",
+        "de": "Stationäre Wärmeübertragungsrate durch das Material. Gemessen mittels Kalorimeter oder Wärmeflusssensor.",
+        "fr": "Taux de transfert thermique en régime permanent à travers le matériau. Mesuré par calorimètre ou capteur de flux thermique."
       }
     },
     {
@@ -125,11 +145,15 @@
       "label_i18n": {
         "en": "Temperature Difference",
         "tr": "Sıcaklık Farkı",
-        "de": "Temperaturdifferenz"
+        "de": "Temperaturdifferenz",
+        "fr": "Différence de température",
+        "es": "Diferencia de temperatura"
       },
       "businessContext_i18n": {
         "en": "Temperature gradient across the material thickness. Drives conductive heat transfer.",
-        "tr": "Malzeme kalınlığı boyunca sıcaklık gradyanı. İletim yoluyla ısı transferini yönlendirir."
+        "tr": "Malzeme kalınlığı boyunca sıcaklık gradyanı. İletim yoluyla ısı transferini yönlendirir.",
+        "de": "Temperaturgradient über die Materialdicke. Treibt die Wärmeleitung an.",
+        "fr": "Gradient de température à travers l'épaisseur du matériau. Entraîne le transfert de chaleur par conduction."
       }
     },
     {
@@ -143,11 +167,16 @@
       "businessContext": "Percentage of moisture by volume. Increases effective thermal conductivity in porous materials (WERC guidelines).",
       "label_i18n": {
         "en": "Moisture Content",
-        "tr": "Nem İçeriği"
+        "tr": "Nem İçeriği",
+        "de": "Feuchtigkeitsgehalt",
+        "fr": "Teneur en humidité",
+        "es": "Contenido de humedad"
       },
       "businessContext_i18n": {
         "en": "Percentage of moisture by volume. Increases effective thermal conductivity in porous materials (WERC guidelines).",
-        "tr": "Hacimce nem yüzdesi. Gözenekli malzemelerde etkin termal iletkenliği artırır (WERC yönergeleri)."
+        "tr": "Hacimce nem yüzdesi. Gözenekli malzemelerde etkin termal iletkenliği artırır (WERC yönergeleri).",
+        "de": "Volumenprozent Feuchtigkeit. Erhöht die effektive Wärmeleitfähigkeit in porösen Materialien (WERC-Richtlinien).",
+        "fr": "Pourcentage d'humidité en volume. Augmente la conductivité thermique effective dans les matériaux poreux (directives WERC)."
       }
     },
     {
@@ -161,11 +190,15 @@
       "businessContext": "Multiplier accounting for material degradation over time. Based on Six Sigma aging studies.",
       "label_i18n": {
         "en": "Aging Factor",
-        "tr": "Yaşlanma Faktörü"
+        "tr": "Yaşlanma Faktörü",
+        "de": "Alterungsfaktor",
+        "fr": "Facteur de vieillissement"
       },
       "businessContext_i18n": {
         "en": "Multiplier accounting for material degradation over time. Based on Six Sigma aging studies.",
-        "tr": "Zamanla malzeme bozulmasını hesaba katan çarpan. Altı Sigma yaşlanma çalışmalarına dayanır."
+        "tr": "Zamanla malzeme bozulmasını hesaba katan çarpan. Altı Sigma yaşlanma çalışmalarına dayanır.",
+        "de": "Multiplikator für Materialverschlechterung über Zeit. Basierend auf Six Sigma-Alterungsstudien.",
+        "fr": "Multiplicateur tenant compte de la dégradation du matériau dans le temps. Basé sur des études de vieillissement Six Sigma."
       }
     }
   ],

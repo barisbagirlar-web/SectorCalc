@@ -12,14 +12,16 @@
         "en": "Temperature in Celsius",
         "tr": "Santigrat cinsinden sıcaklık",
         "de": "Temperatur in Celsius",
-        "fr": "Temperature in Celsius",
-        "es": "Temperature in Celsius",
+        "fr": "Température en degrés Celsius",
+        "es": "Temperatura en grados Celsius",
         "ar": "Temperature in Celsius"
       },
       "businessContext_i18n": {
         "en": "Measured temperature value from sensor or process",
         "tr": "Sensörden veya prosesten ölçülen sıcaklık değeri",
-        "de": "Gemessener Temperaturwert vom Sensor oder Prozess"
+        "de": "Gemessener Temperaturwert vom Sensor oder Prozess",
+        "fr": "Valeur de température mesurée par le capteur ou le processus",
+        "es": "Valor de temperatura medido del sensor o proceso"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Calibration Offset",
         "tr": "Kalibrasyon Ofseti",
         "de": "Kalibrierungsversatz",
-        "fr": "Calibration Offset",
-        "es": "Calibration Offset",
+        "fr": "Décalage d'étalonnage",
+        "es": "Desviación de calibración",
         "ar": "Calibration Offset"
       },
       "businessContext_i18n": {
         "en": "Instrument calibration offset to be added before conversion",
         "tr": "Dönüştürmeden önce eklenecek enstrüman kalibrasyon ofseti",
-        "de": "Instrumentenkalibrierungs-Offset, der vor der Umrechnung hinzugefügt wird"
+        "de": "Instrumentenkalibrierungs-Offset, der vor der Umrechnung hinzugefügt wird",
+        "fr": "Décalage d'étalonnage de l'instrument à ajouter avant la conversion",
+        "es": "Desviación de calibración del instrumento a añadir antes de la conversión"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output precision",
         "tr": "Çıktı hassasiyeti için ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen für Ausgabepräzision"
+        "de": "Anzahl der Dezimalstellen für Ausgabepräzision",
+        "fr": "Nombre de décimales pour la précision de sortie",
+        "es": "Número de decimales para la precisión de salida"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Measurement Uncertainty",
         "tr": "Ölçüm Belirsizliği",
         "de": "Messunsicherheit",
-        "fr": "Measurement Uncertainty",
-        "es": "Measurement Uncertainty",
+        "fr": "Incertitude de mesure",
+        "es": "Incertidumbre de medición",
         "ar": "Measurement Uncertainty"
       },
       "businessContext_i18n": {
         "en": "Uncertainty of the temperature measurement",
         "tr": "Sıcaklık ölçümünün belirsizliği",
-        "de": "Unsicherheit der Temperaturmessung"
+        "de": "Unsicherheit der Temperaturmessung",
+        "fr": "Incertitude de la mesure de température",
+        "es": "Incertidumbre de la medición de temperatura"
       }
     }
   ],

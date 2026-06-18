@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Annual Total Drug Costs",
         "tr": "Yıllık Toplam İlaç Maliyetleri",
-        "de": "Annual Total Drug Costs",
-        "fr": "Annual Total Drug Costs",
-        "es": "Annual Total Drug Costs",
+        "de": "Jährliche Gesamtarzneimittelkosten",
+        "fr": "Coûts totaux annuels des médicaments",
+        "es": "Costos totales anuales de medicamentos",
         "ar": "Annual Total Drug Costs"
       },
       "businessContext_i18n": {
         "en": "Total retail cost of all prescription drugs for the year before insurance",
-        "tr": "Sigortadan önce yıl boyunca tüm reçeteli ilaçların toplam perakende maliyeti"
+        "tr": "Sigortadan önce yıl boyunca tüm reçeteli ilaçların toplam perakende maliyeti",
+        "de": "Gesamte Einzelhandelskosten aller verschreibungspflichtigen Medikamente für das Jahr vor der Versicherung",
+        "fr": "Coût total au détail de tous les médicaments sur ordonnance pour l'année avant assurance",
+        "es": "Costo total al por menor de todos los medicamentos recetados para el año antes del seguro"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Plan Deductible",
         "tr": "Plan Muafiyeti",
-        "de": "Plan Deductible",
-        "fr": "Plan Deductible",
-        "es": "Plan Deductible",
+        "de": "Plan-Selbstbehalt",
+        "fr": "Franchise du régime",
+        "es": "Deducible del plan",
         "ar": "Plan Deductible"
       },
       "businessContext_i18n": {
         "en": "The amount you pay out-of-pocket before initial coverage begins",
-        "tr": "İlk teminat başlamadan önce cepten ödediğiniz tutar"
+        "tr": "İlk teminat başlamadan önce cepten ödediğiniz tutar",
+        "de": "Der Betrag, den Sie aus eigener Tasche zahlen, bevor die anfängliche Deckung beginnt",
+        "fr": "Montant que vous payez de votre poche avant le début de la couverture initiale",
+        "es": "La cantidad que paga de su bolsillo antes de que comience la cobertura inicial"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Initial Coinsurance Rate",
         "tr": "İlk Ortak Sigorta Oranı",
-        "de": "Initial Coinsurance Rate",
-        "fr": "Initial Coinsurance Rate",
-        "es": "Initial Coinsurance Rate",
+        "de": "Anfänglicher Kostenbeteiligungssatz",
+        "fr": "Taux de coassurance initial",
+        "es": "Tasa de coseguro inicial",
         "ar": "Initial Coinsurance Rate"
       },
       "businessContext_i18n": {
         "en": "Percentage of drug costs you pay during initial coverage phase",
-        "tr": "İlk teminat aşamasında ödediğiniz ilaç maliyetlerinin yüzdesi"
+        "tr": "İlk teminat aşamasında ödediğiniz ilaç maliyetlerinin yüzdesi",
+        "de": "Prozentsatz der Arzneimittelkosten, den Sie während der anfänglichen Deckungsphase zahlen",
+        "fr": "Pourcentage des coûts des médicaments que vous payez pendant la phase de couverture initiale",
+        "es": "Porcentaje de los costos de medicamentos que paga durante la fase de cobertura inicial"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Catastrophic Threshold",
         "tr": "Katastrofik Eşik",
-        "de": "Catastrophic Threshold",
-        "fr": "Catastrophic Threshold",
-        "es": "Catastrophic Threshold",
+        "de": "Katastrophenschwelle",
+        "fr": "Seuil catastrophique",
+        "es": "Umbral catastrófico",
         "ar": "Catastrophic Threshold"
       },
       "businessContext_i18n": {
         "en": "Out-of-pocket maximum after which catastrophic coverage begins",
-        "tr": "Katastrofik teminatın başladığı cepten maksimum harcama"
+        "tr": "Katastrofik teminatın başladığı cepten maksimum harcama",
+        "de": "Eigenanteilsmaximum, nach dem die Katastrophendeckung beginnt",
+        "fr": "Maximum de débours après lequel la couverture catastrophique commence",
+        "es": "Máximo de gastos de bolsillo después del cual comienza la cobertura catastrófica"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Catastrophic Coinsurance Rate",
         "tr": "Katastrofik Ortak Sigorta Oranı",
-        "de": "Catastrophic Coinsurance Rate",
-        "fr": "Catastrophic Coinsurance Rate",
-        "es": "Catastrophic Coinsurance Rate",
+        "de": "Katastrophen-Kostenbeteiligungssatz",
+        "fr": "Taux de coassurance catastrophique",
+        "es": "Tasa de coseguro catastrófico",
         "ar": "Catastrophic Coinsurance Rate"
       },
       "businessContext_i18n": {
         "en": "Percentage of drug costs you pay in catastrophic phase",
-        "tr": "Katastrofik aşamada ödediğiniz ilaç maliyetlerinin yüzdesi"
+        "tr": "Katastrofik aşamada ödediğiniz ilaç maliyetlerinin yüzdesi",
+        "de": "Prozentsatz der Arzneimittelkosten, den Sie in der Katastrophenphase zahlen",
+        "fr": "Pourcentage des coûts des médicaments que vous payez en phase catastrophique",
+        "es": "Porcentaje de los costos de medicamentos que paga en la fase catastrófica"
       }
     }
   ],

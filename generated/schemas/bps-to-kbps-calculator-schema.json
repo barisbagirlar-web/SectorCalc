@@ -12,14 +12,16 @@
         "en": "Bit rate (bps)",
         "tr": "Bit hızı (bps)",
         "de": "Bitrate (bps)",
-        "fr": "Bit rate (bps)",
-        "es": "Bit rate (bps)",
+        "fr": "Débit binaire (bps)",
+        "es": "Tasa de bits (bps)",
         "ar": "Bit rate (bps)"
       },
       "businessContext_i18n": {
         "en": "Data transfer rate in bits per second",
         "tr": "Saniyedeki bit cinsinden veri aktarım hızı",
-        "de": "Datenübertragungsrate in Bits pro Sekunde"
+        "de": "Datenübertragungsrate in Bits pro Sekunde",
+        "fr": "Taux de transfert de données en bits par seconde",
+        "es": "Tasa de transferencia de datos en bits por segundo"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Conversion factor",
         "tr": "Dönüşüm faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion factor",
-        "es": "Conversion factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion factor"
       },
       "businessContext_i18n": {
         "en": "Factor to convert bps to kbps (0.001 for SI standard)",
         "tr": "bps'yi kbps'ye dönüştürme faktörü (SI standardı için 0.001)",
-        "de": "Faktor zur Umrechnung von bps in kbps (0,001 für SI-Standard)"
+        "de": "Faktor zur Umrechnung von bps in kbps (0,001 für SI-Standard)",
+        "fr": "Facteur pour convertir bps en kbps (0.001 pour le standard SI)",
+        "es": "Factor para convertir bps a kbps (0.001 para estándar SI)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Rounding decimals",
         "tr": "Yuvarlama basamak sayısı",
         "de": "Rundungsdezimalstellen",
-        "fr": "Rounding decimals",
-        "es": "Rounding decimals",
+        "fr": "Arrondi décimal",
+        "es": "Redondeo de decimales",
         "ar": "Rounding decimals"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places in the converted output",
         "tr": "Dönüştürülmüş çıktıdaki ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen in der umgerechneten Ausgabe"
+        "de": "Anzahl der Dezimalstellen in der umgerechneten Ausgabe",
+        "fr": "Nombre de décimales dans le résultat converti",
+        "es": "Número de decimales en la salida convertida"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Confirmation bit",
         "tr": "Onay biti",
         "de": "Bestätigungsbit",
-        "fr": "Confirmation bit",
-        "es": "Confirmation bit",
+        "fr": "Bit de confirmation",
+        "es": "Bit de confirmación",
         "ar": "Confirmation bit"
       },
       "businessContext_i18n": {
         "en": "Integrity check: set to 1 to proceed with conversion",
         "tr": "Bütünlük kontrolü: dönüştürmeye devam etmek için 1 olarak ayarlayın",
-        "de": "Integritätsprüfung: auf 1 setzen, um mit der Umrechnung fortzufahren"
+        "de": "Integritätsprüfung: auf 1 setzen, um mit der Umrechnung fortzufahren",
+        "fr": "Vérification d'intégrité : mettre à 1 pour procéder à la conversion",
+        "es": "Verificación de integridad: establecer en 1 para proceder con la conversión"
       }
     }
   ],

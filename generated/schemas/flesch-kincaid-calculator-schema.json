@@ -12,14 +12,16 @@
         "en": "Total Words",
         "tr": "Toplam Kelime",
         "de": "Gesamtwörter",
-        "fr": "Total Words",
-        "es": "Total Words",
+        "fr": "Total des mots",
+        "es": "Total de palabras",
         "ar": "Total Words"
       },
       "businessContext_i18n": {
         "en": "Total number of words in the text to analyze.",
         "tr": "Analiz edilecek metindeki toplam kelime sayısı.",
-        "de": "Gesamtzahl der Wörter im zu analysierenden Text."
+        "de": "Gesamtzahl der Wörter im zu analysierenden Text.",
+        "fr": "Nombre total de mots dans le texte à analyser.",
+        "es": "Número total de palabras en el texto a analizar."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Total Sentences",
         "tr": "Toplam Cümle",
         "de": "Gesamtsätze",
-        "fr": "Total Sentences",
-        "es": "Total Sentences",
+        "fr": "Total des phrases",
+        "es": "Total de oraciones",
         "ar": "Total Sentences"
       },
       "businessContext_i18n": {
         "en": "Total number of sentences in the text.",
         "tr": "Metindeki toplam cümle sayısı.",
-        "de": "Gesamtzahl der Sätze im Text."
+        "de": "Gesamtzahl der Sätze im Text.",
+        "fr": "Nombre total de phrases dans le texte.",
+        "es": "Número total de oraciones en el texto."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Total Syllables",
         "tr": "Toplam Hece",
         "de": "Gesamtsilben",
-        "fr": "Total Syllables",
-        "es": "Total Syllables",
+        "fr": "Total de syllabes",
+        "es": "Sílabas totales",
         "ar": "Total Syllables"
       },
       "businessContext_i18n": {
         "en": "Total number of syllables across all words.",
         "tr": "Tüm kelimelerdeki toplam hece sayısı.",
-        "de": "Gesamtzahl der Silben über alle Wörter hinweg."
+        "de": "Gesamtzahl der Silben über alle Wörter hinweg.",
+        "fr": "Nombre total de syllabes dans tous les mots.",
+        "es": "Número total de sílabas en todas las palabras."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Total Characters (with spaces)",
         "tr": "Toplam Karakter (boşluklu)",
         "de": "Gesamtzeichen (mit Leerzeichen)",
-        "fr": "Total Characters (with spaces)",
-        "es": "Total Characters (with spaces)",
+        "fr": "Nombre total de caractères (avec espaces)",
+        "es": "Caracteres totales (con espacios)",
         "ar": "Total Characters (with spaces)"
       },
       "businessContext_i18n": {
         "en": "Total character count including spaces; used to compute average characters per word.",
         "tr": "Boşluklar dahil toplam karakter sayısı; kelime başına ortalama karakter hesaplamak için kullanılır.",
-        "de": "Gesamtzahl der Zeichen inklusive Leerzeichen; wird zur Berechnung der durchschnittlichen Zeichen pro Wort verwendet."
+        "de": "Gesamtzahl der Zeichen inklusive Leerzeichen; wird zur Berechnung der durchschnittlichen Zeichen pro Wort verwendet.",
+        "fr": "Nombre total de caractères espaces compris ; utilisé pour calculer la moyenne de caractères par mot.",
+        "es": "Recuento total de caracteres incluyendo espacios; se usa para calcular el promedio de caracteres por palabra."
       }
     }
   ],

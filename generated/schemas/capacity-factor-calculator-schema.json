@@ -12,14 +12,16 @@
         "en": "Actual Energy Produced",
         "tr": "Gerçek Üretilen Enerji",
         "de": "Tatsächlich erzeugte Energie",
-        "fr": "Actual Energy Produced",
-        "es": "Actual Energy Produced",
+        "fr": "Énergie produite réelle",
+        "es": "Energía real producida",
         "ar": "Actual Energy Produced"
       },
       "businessContext_i18n": {
         "en": "Total energy generated in the period (megawatt-hours).",
         "tr": "Dönemde üretilen toplam enerji (megawatt-saat).",
-        "de": "Gesamte im Zeitraum erzeugte Energie (Megawattstunden)."
+        "de": "Gesamte im Zeitraum erzeugte Energie (Megawattstunden).",
+        "fr": "Énergie totale générée sur la période (mégawattheures).",
+        "es": "Energía total generada en el período (megavatios-hora)."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Installed Capacity",
         "tr": "Kurulu Güç",
         "de": "Installierte Kapazität",
-        "fr": "Installed Capacity",
-        "es": "Installed Capacity",
+        "fr": "Capacité installée",
+        "es": "Capacidad instalada",
         "ar": "Installed Capacity"
       },
       "businessContext_i18n": {
         "en": "Rated maximum power output (megawatts).",
         "tr": "Nominal maksimum güç çıkışı (megawatt).",
-        "de": "Nennleistung (Megawatt)."
+        "de": "Nennleistung (Megawatt).",
+        "fr": "Puissance nominale maximale (mégawatts).",
+        "es": "Potencia máxima nominal (megavatios)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Period Hours",
         "tr": "Dönem Saati",
         "de": "Betriebsstunden",
-        "fr": "Period Hours",
-        "es": "Period Hours",
+        "fr": "Heures de la période",
+        "es": "Horas del período",
         "ar": "Period Hours"
       },
       "businessContext_i18n": {
         "en": "Total hours in the evaluation period (e.g., 8760 for a year).",
         "tr": "Değerlendirme dönemindeki toplam saat (örneğin bir yıl için 8760).",
-        "de": "Gesamtstunden im Bewertungszeitraum (z. B. 8760 für ein Jahr)."
+        "de": "Gesamtstunden im Bewertungszeitraum (z. B. 8760 für ein Jahr).",
+        "fr": "Nombre total d'heures de la période d'évaluation (ex. 8760 pour un an).",
+        "es": "Horas totales en el período de evaluación (ej., 8760 para un año)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Availability Factor",
         "tr": "Kullanılabilirlik Faktörü",
         "de": "Verfügbarkeitsfaktor",
-        "fr": "Availability Factor",
-        "es": "Availability Factor",
+        "fr": "Facteur de disponibilité",
+        "es": "Factor de disponibilidad",
         "ar": "Availability Factor"
       },
       "businessContext_i18n": {
         "en": "Fraction of time the plant was available (0-1). Use 1 if ignoring outages.",
         "tr": "Tesisin kullanılabilir olduğu zamanın oranı (0-1). Kesintiler yok sayılıyorsa 1 kullanın.",
-        "de": "Anteil der Zeit, in der die Anlage verfügbar war (0-1). Verwenden Sie 1, wenn Ausfälle ignoriert werden."
+        "de": "Anteil der Zeit, in der die Anlage verfügbar war (0-1). Verwenden Sie 1, wenn Ausfälle ignoriert werden.",
+        "fr": "Fraction du temps où l'installation était disponible (0-1). Utiliser 1 si les arrêts sont ignorés.",
+        "es": "Fracción de tiempo que la planta estuvo disponible (0-1). Use 1 si ignora paradas."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Target Capacity Factor",
         "tr": "Hedef Kapasite Faktörü",
         "de": "Ziel-Kapazitätsfaktor",
-        "fr": "Target Capacity Factor",
-        "es": "Target Capacity Factor",
+        "fr": "Facteur de capacité cible",
+        "es": "Factor de capacidad objetivo",
         "ar": "Target Capacity Factor"
       },
       "businessContext_i18n": {
         "en": "Target capacity factor for comparison (percentage).",
         "tr": "Karşılaştırma için hedef kapasite faktörü (yüzde).",
-        "de": "Zielkapazitätsfaktor für den Vergleich (Prozentsatz)."
+        "de": "Zielkapazitätsfaktor für den Vergleich (Prozentsatz).",
+        "fr": "Facteur de capacité cible pour comparaison (pourcentage).",
+        "es": "Factor de capacidad objetivo para comparación (porcentaje)."
       }
     }
   ],

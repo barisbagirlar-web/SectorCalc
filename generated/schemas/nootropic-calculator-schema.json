@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Caffeine (mg)",
         "tr": "Kafein (mg)",
-        "de": "Caffeine (mg)",
-        "fr": "Caffeine (mg)",
-        "es": "Caffeine (mg)",
+        "de": "Koffein (mg)",
+        "fr": "Caféine (mg)",
+        "es": "Cafeína (mg)",
         "ar": "Caffeine (mg)"
       },
       "businessContext_i18n": {
         "en": "Caffeine dosage in milligrams",
-        "tr": "Kafein dozu miligram cinsinden"
+        "tr": "Kafein dozu miligram cinsinden",
+        "de": "Koffeindosis in Milligramm",
+        "fr": "Dosage de caféine en milligrammes",
+        "es": "Dosis de cafeína en miligramos"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "L-Theanine (mg)",
         "tr": "L-Theanine (mg)",
-        "de": "L-Theanine (mg)",
-        "fr": "L-Theanine (mg)",
-        "es": "L-Theanine (mg)",
+        "de": "L-Theanin (mg)",
+        "fr": "L-Théanine (mg)",
+        "es": "L-Teanina (mg)",
         "ar": "L-Theanine (mg)"
       },
       "businessContext_i18n": {
         "en": "L-Theanine dosage in milligrams",
-        "tr": "L-Theanine dozu miligram cinsinden"
+        "tr": "L-Theanine dozu miligram cinsinden",
+        "de": "L-Theanin-Dosis in Milligramm",
+        "fr": "Dosage de L-Théanine en milligrammes",
+        "es": "Dosis de L-Teanina en miligramos"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Piracetam (mg)",
         "tr": "Piracetam (mg)",
         "de": "Piracetam (mg)",
-        "fr": "Piracetam (mg)",
+        "fr": "Piracétam (mg)",
         "es": "Piracetam (mg)",
         "ar": "Piracetam (mg)"
       },
       "businessContext_i18n": {
         "en": "Piracetam dosage in milligrams",
-        "tr": "Piracetam dozu miligram cinsinden"
+        "tr": "Piracetam dozu miligram cinsinden",
+        "de": "Piracetam-Dosis in Milligramm",
+        "fr": "Dosage de Piracétam en milligrammes",
+        "es": "Dosis de Piracetam en miligramos"
       }
     },
     {
@@ -73,12 +82,15 @@
         "tr": "Alpha-GPC (mg)",
         "de": "Alpha-GPC (mg)",
         "fr": "Alpha-GPC (mg)",
-        "es": "Alpha-GPC (mg)",
+        "es": "Alfa-GPC (mg)",
         "ar": "Alpha-GPC (mg)"
       },
       "businessContext_i18n": {
         "en": "Alpha-GPC dosage in milligrams",
-        "tr": "Alpha-GPC dozu miligram cinsinden"
+        "tr": "Alpha-GPC dozu miligram cinsinden",
+        "de": "Alpha-GPC-Dosis in Milligramm",
+        "fr": "Dosage d'Alpha-GPC en milligrammes",
+        "es": "Dosis de Alfa-GPC en miligramos"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Body Weight (kg)",
         "tr": "Vücut Ağırlığı (kg)",
         "de": "Körpergewicht (kg)",
-        "fr": "Body Weight (kg)",
-        "es": "Body Weight (kg)",
+        "fr": "Poids corporel (kg)",
+        "es": "Peso corporal (kg)",
         "ar": "Body Weight (kg)"
       },
       "businessContext_i18n": {
         "en": "User body weight for dosage normalization",
-        "tr": "Doz normalizasyonu için kullanıcı vücut ağırlığı"
+        "tr": "Doz normalizasyonu için kullanıcı vücut ağırlığı",
+        "de": "Körpergewicht des Benutzers zur Dosisnormalisierung",
+        "fr": "Poids corporel de l'utilisateur pour la normalisation du dosage",
+        "es": "Peso corporal del usuario para normalizar la dosis"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Tolerance Level",
         "tr": "Tolerans Seviyesi",
-        "de": "Tolerance Level",
-        "fr": "Tolerance Level",
-        "es": "Tolerance Level",
+        "de": "Toleranzstufe",
+        "fr": "Niveau de tolérance",
+        "es": "Nivel de tolerancia",
         "ar": "Tolerance Level"
       },
       "businessContext_i18n": {
         "en": "Individual tolerance on a scale of 1 (low) to 10 (high)",
-        "tr": "1 (düşük) ile 10 (yüksek) arasında bireysel tolerans"
+        "tr": "1 (düşük) ile 10 (yüksek) arasında bireysel tolerans",
+        "de": "Individuelle Toleranz auf einer Skala von 1 (niedrig) bis 10 (hoch)",
+        "fr": "Tolérance individuelle sur une échelle de 1 (faible) à 10 (élevée)",
+        "es": "Tolerancia individual en una escala de 1 (baja) a 10 (alta)"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Vehicle Mass",
         "tr": "Araç Kütlesi",
         "de": "Fahrzeugmasse",
-        "fr": "Vehicle Mass",
-        "es": "Vehicle Mass",
+        "fr": "Masse du véhicule",
+        "es": "Masa del vehículo",
         "ar": "Vehicle Mass"
       },
       "businessContext_i18n": {
         "en": "Weight of the vehicle including driver and fuel.",
         "tr": "Sürücü ve yakıt dahil aracın ağırlığı.",
-        "de": "Gewicht des Fahrzeugs inklusive Fahrer und Kraftstoff."
+        "de": "Gewicht des Fahrzeugs inklusive Fahrer und Kraftstoff.",
+        "fr": "Poids du véhicule incluant le conducteur et le carburant.",
+        "es": "Peso del vehículo incluyendo conductor y combustible."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Engine Power",
         "tr": "Motor Gücü",
         "de": "Motorleistung",
-        "fr": "Engine Power",
-        "es": "Engine Power",
+        "fr": "Puissance moteur",
+        "es": "Potencia del motor",
         "ar": "Engine Power"
       },
       "businessContext_i18n": {
         "en": "Maximum engine power output at the crankshaft.",
         "tr": "Krank milinde maksimum motor gücü çıkışı.",
-        "de": "Maximale Motorleistung an der Kurbelwelle."
+        "de": "Maximale Motorleistung an der Kurbelwelle.",
+        "fr": "Puissance maximale du moteur au vilebrequin.",
+        "es": "Potencia máxima del motor en el cigüeñal."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Drivetrain Efficiency",
         "tr": "Aktarma Organı Verimliliği",
         "de": "Antriebsstrang-Effizienz",
-        "fr": "Drivetrain Efficiency",
-        "es": "Drivetrain Efficiency",
+        "fr": "Rendement de la transmission",
+        "es": "Eficiencia del tren motriz",
         "ar": "Drivetrain Efficiency"
       },
       "businessContext_i18n": {
         "en": "Combined efficiency of transmission and drivetrain (0-1). Typical values: 0.8-0.9.",
         "tr": "Şanzıman ve aktarma organlarının birleşik verimliliği (0-1). Tipik değerler: 0,8-0,9.",
-        "de": "Kombinierte Effizienz von Getriebe und Antriebsstrang (0-1). Typische Werte: 0,8-0,9."
+        "de": "Kombinierte Effizienz von Getriebe und Antriebsstrang (0-1). Typische Werte: 0,8-0,9.",
+        "fr": "Rendement combiné de la transmission et de la chaîne cinématique (0-1). Valeurs typiques : 0,8-0,9.",
+        "es": "Eficiencia combinada de la transmisión y el tren motriz (0-1). Valores típicos: 0.8-0.9."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Target Speed",
         "tr": "Hedef Hız",
         "de": "Zielgeschwindigkeit",
-        "fr": "Target Speed",
-        "es": "Target Speed",
+        "fr": "Vitesse cible",
+        "es": "Velocidad objetivo",
         "ar": "Target Speed"
       },
       "businessContext_i18n": {
         "en": "Final speed to achieve from standstill. Default is 60 mph.",
         "tr": "Durağan halden ulaşılacak son hız. Varsayılan 60 mph.",
-        "de": "Endgeschwindigkeit, die aus dem Stand erreicht werden soll. Standard ist 60 mph."
+        "de": "Endgeschwindigkeit, die aus dem Stand erreicht werden soll. Standard ist 60 mph.",
+        "fr": "Vitesse finale à atteindre depuis l'arrêt. Par défaut 60 mph.",
+        "es": "Velocidad final a alcanzar desde parado. Por defecto 60 mph."
       }
     }
   ],

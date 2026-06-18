@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Race Distance",
         "tr": "Yarış Mesafesi",
-        "de": "Race Distance",
-        "fr": "Race Distance",
-        "es": "Race Distance",
+        "de": "Rennstrecke",
+        "fr": "Distance de course",
+        "es": "Distancia de la carrera",
         "ar": "Race Distance"
       },
       "businessContext_i18n": {
         "en": "The distance of the recent race used to calculate VDOT.",
-        "tr": "VDOT hesaplamasında kullanılan son yarışın mesafesi."
+        "tr": "VDOT hesaplamasında kullanılan son yarışın mesafesi.",
+        "de": "Die Distanz des letzten Rennens, die zur Berechnung des VDOT verwendet wird.",
+        "fr": "Distance de la course récente utilisée pour calculer le VDOT.",
+        "es": "Distancia de la carrera reciente utilizada para calcular el VDOT."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Race Time (minutes)",
         "tr": "Yarış Süresi (dakika)",
-        "de": "Race Time (minutes)",
-        "fr": "Race Time (minutes)",
-        "es": "Race Time (minutes)",
+        "de": "Rennzeit (Minuten)",
+        "fr": "Temps de course (minutes)",
+        "es": "Tiempo de carrera (minutos)",
         "ar": "Race Time (minutes)"
       },
       "businessContext_i18n": {
         "en": "The whole minutes component of the race time.",
-        "tr": "Yarış süresinin dakika kısmı."
+        "tr": "Yarış süresinin dakika kısmı.",
+        "de": "Die ganzen Minuten der Rennzeit.",
+        "fr": "Partie minutes entières du temps de course.",
+        "es": "Componente de minutos enteros del tiempo de carrera."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Race Time (seconds)",
         "tr": "Yarış Süresi (saniye)",
-        "de": "Race Time (seconds)",
-        "fr": "Race Time (seconds)",
-        "es": "Race Time (seconds)",
+        "de": "Rennzeit (Sekunden)",
+        "fr": "Temps de course (secondes)",
+        "es": "Tiempo de carrera (segundos)",
         "ar": "Race Time (seconds)"
       },
       "businessContext_i18n": {
         "en": "The seconds component of the race time.",
-        "tr": "Yarış süresinin saniye kısmı."
+        "tr": "Yarış süresinin saniye kısmı.",
+        "de": "Die Sekundenkomponente der Rennzeit.",
+        "fr": "Partie secondes du temps de course.",
+        "es": "Componente de segundos del tiempo de carrera."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Target Distance",
         "tr": "Hedef Mesafe",
-        "de": "Target Distance",
-        "fr": "Target Distance",
-        "es": "Target Distance",
+        "de": "Zieldistanz",
+        "fr": "Distance cible",
+        "es": "Distancia objetivo",
         "ar": "Target Distance"
       },
       "businessContext_i18n": {
         "en": "The distance for which to predict a race time using the calculated VDOT.",
-        "tr": "Hesaplanan VDOT kullanılarak yarış süresi tahmini yapılacak mesafe."
+        "tr": "Hesaplanan VDOT kullanılarak yarış süresi tahmini yapılacak mesafe.",
+        "de": "Die Distanz, für die eine Rennzeit mit dem berechneten VDOT vorhergesagt werden soll.",
+        "fr": "Distance pour laquelle prédire un temps de course en utilisant le VDOT calculé.",
+        "es": "Distancia para la cual predecir un tiempo de carrera usando el VDOT calculado."
       }
     }
   ],

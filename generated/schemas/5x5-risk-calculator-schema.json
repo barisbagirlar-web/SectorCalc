@@ -12,14 +12,16 @@
         "en": "Olasılık",
         "tr": "Olasılık",
         "de": "Wahrscheinlichkeit",
-        "fr": "Olasılık",
-        "es": "Olasılık",
+        "fr": "Probabilité",
+        "es": "Probabilidad",
         "ar": "Olasılık"
       },
       "businessContext_i18n": {
         "en": "Olayın gerçekleşme olasılığı (1–5)",
         "tr": "Olayın gerçekleşme olasılığı (1–5)",
-        "de": "Eintrittswahrscheinlichkeit des Ereignisses (1–5)"
+        "de": "Eintrittswahrscheinlichkeit des Ereignisses (1–5)",
+        "fr": "Probabilité de survenance de l'événement (1–5)",
+        "es": "Probabilidad de ocurrencia del evento (1–5)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Etki",
         "tr": "Etki",
         "de": "Auswirkung",
-        "fr": "Etki",
-        "es": "Etki",
+        "fr": "Impact",
+        "es": "Impacto",
         "ar": "Etki"
       },
       "businessContext_i18n": {
         "en": "Olayın etki derecesi (1–5)",
         "tr": "Olayın etki derecesi (1–5)",
-        "de": "Auswirkungsgrad des Ereignisses (1–5)"
+        "de": "Auswirkungsgrad des Ereignisses (1–5)",
+        "fr": "Niveau d'impact de l'événement (1–5)",
+        "es": "Grado de impacto del evento (1–5)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Olasılık Ağırlık",
         "tr": "Olasılık Ağırlık",
         "de": "Wahrscheinlichkeitsgewicht",
-        "fr": "Olasılık Ağırlık",
-        "es": "Olasılık Ağırlık",
+        "fr": "Poids de probabilité",
+        "es": "Peso de probabilidad",
         "ar": "Olasılık Ağırlık"
       },
       "businessContext_i18n": {
         "en": "Olasılık çarpanı (ör. düzeltici faktör)",
         "tr": "Olasılık çarpanı (ör. düzeltici faktör)",
-        "de": "Multiplikator für Wahrscheinlichkeit (z. B. Korrekturfaktor)"
+        "de": "Multiplikator für Wahrscheinlichkeit (z. B. Korrekturfaktor)",
+        "fr": "Multiplicateur de probabilité (ex. facteur correctif)",
+        "es": "Multiplicador de probabilidad (ej. factor correctivo)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Etki Ağırlık",
         "tr": "Etki Ağırlık",
         "de": "Auswirkungsgewicht",
-        "fr": "Etki Ağırlık",
-        "es": "Etki Ağırlık",
+        "fr": "Poids d'impact",
+        "es": "Peso de impacto",
         "ar": "Etki Ağırlık"
       },
       "businessContext_i18n": {
         "en": "Etki çarpanı (ör. tolerans faktörü)",
         "tr": "Etki çarpanı (ör. tolerans faktörü)",
-        "de": "Multiplikator für Auswirkung (z. B. Toleranzfaktor)"
+        "de": "Multiplikator für Auswirkung (z. B. Toleranzfaktor)",
+        "fr": "Multiplicateur d'impact (ex. facteur de tolérance)",
+        "es": "Multiplicador de impacto (ej. factor de tolerancia)"
       }
     }
   ],

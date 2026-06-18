@@ -12,14 +12,16 @@
         "en": "Görünür Parlaklık (m)",
         "tr": "Görünür Parlaklık (m)",
         "de": "Scheinbare Helligkeit (m)",
-        "fr": "Görünür Parlaklık (m)",
-        "es": "Görünür Parlaklık (m)",
+        "fr": "Luminosité apparente (m)",
+        "es": "Brillo aparente (m)",
         "ar": "Görünür Parlaklık (m)"
       },
       "businessContext_i18n": {
         "en": "Gök cisminin gözlemlenen parlaklık değeri",
         "tr": "Gök cisminin gözlemlenen parlaklık değeri",
-        "de": "Beobachteter Helligkeitswert des Himmelskörpers"
+        "de": "Beobachteter Helligkeitswert des Himmelskörpers",
+        "fr": "Valeur de luminosité observée de l'objet céleste",
+        "es": "Valor de brillo observado del cuerpo celeste"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Uzaklık (d)",
         "tr": "Uzaklık (d)",
         "de": "Entfernung (d)",
-        "fr": "Uzaklık (d)",
-        "es": "Uzaklık (d)",
+        "fr": "Distance (d)",
+        "es": "Distancia (d)",
         "ar": "Uzaklık (d)"
       },
       "businessContext_i18n": {
         "en": "Gök cisminin Dünya'ya olan uzaklığı (parsek cinsinden)",
         "tr": "Gök cisminin Dünya'ya olan uzaklığı (parsek cinsinden)",
-        "de": "Entfernung des Himmelskörpers von der Erde (in Parsec)"
+        "de": "Entfernung des Himmelskörpers von der Erde (in Parsec)",
+        "fr": "Distance de l'objet céleste à la Terre (en parsecs)",
+        "es": "Distancia del cuerpo celeste a la Tierra (en pársecs)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Sönümleme (A_V)",
         "tr": "Sönümleme (A_V)",
         "de": "Extinktion (A_V)",
-        "fr": "Sönümleme (A_V)",
-        "es": "Sönümleme (A_V)",
+        "fr": "Extinction (A_V)",
+        "es": "Extinción (A_V)",
         "ar": "Sönümleme (A_V)"
       },
       "businessContext_i18n": {
         "en": "Yıldızlararası toz nedeniyle parlaklık kaybı",
         "tr": "Yıldızlararası toz nedeniyle parlaklık kaybı",
-        "de": "Helligkeitsverlust durch interstellaren Staub"
+        "de": "Helligkeitsverlust durch interstellaren Staub",
+        "fr": "Perte de luminosité due à la poussière interstellaire",
+        "es": "Pérdida de brillo debido al polvo interestelar"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Bolometrik Düzeltme (BC)",
         "tr": "Bolometrik Düzeltme (BC)",
         "de": "Bolometrische Korrektur (BC)",
-        "fr": "Bolometrik Düzeltme (BC)",
-        "es": "Bolometrik Düzeltme (BC)",
+        "fr": "Correction bolométrique (BC)",
+        "es": "Corrección bolométrica (BC)",
         "ar": "Bolometrik Düzeltme (BC)"
       },
       "businessContext_i18n": {
         "en": "Görsel parlaklıktan bolometrik parlaklığa geçiş düzeltmesi",
         "tr": "Görsel parlaklıktan bolometrik parlaklığa geçiş düzeltmesi",
-        "de": "Korrektur von visueller zu bolometrischer Helligkeit"
+        "de": "Korrektur von visueller zu bolometrischer Helligkeit",
+        "fr": "Correction de passage de la luminosité visuelle à la luminosité bolométrique",
+        "es": "Corrección de transición de brillo visual a brillo bolométrico"
       }
     }
   ],

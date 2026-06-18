@@ -12,14 +12,16 @@
         "en": "Fluid Ounces",
         "tr": "Sıvı Ons",
         "de": "Flüssigunzen",
-        "fr": "Fluid Ounces",
-        "es": "Fluid Ounces",
+        "fr": "Onces liquides",
+        "es": "Onzas líquidas",
         "ar": "Fluid Ounces"
       },
       "businessContext_i18n": {
         "en": "Amount of fluid ounces to convert to milliliters",
         "tr": "Mililitreye dönüştürülecek sıvı ons miktarı",
-        "de": "Menge der Flüssigunzen zur Umrechnung in Milliliter"
+        "de": "Menge der Flüssigunzen zur Umrechnung in Milliliter",
+        "fr": "Quantité d'onces liquides à convertir en millilitres",
+        "es": "Cantidad de onzas líquidas a convertir a mililitros"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Ounce Standard (0=US, 1=UK)",
         "tr": "Ons Standardı (0=ABD, 1=İngiltere)",
         "de": "Unzen-Standard (0=US, 1=UK)",
-        "fr": "Ounce Standard (0=US, 1=UK)",
-        "es": "Ounce Standard (0=US, 1=UK)",
+        "fr": "Standard once (0=US, 1=UK)",
+        "es": "Estándar de onza (0=EE. UU., 1=Reino Unido)",
         "ar": "Ounce Standard (0=US, 1=UK)"
       },
       "businessContext_i18n": {
         "en": "Select the fluid ounce standard: 0 for US customary (29.5735 ml), 1 for Imperial (28.4131 ml)",
         "tr": "Sıvı ons standardını seçin: 0 ABD geleneksel (29.5735 ml), 1 İmparatorluk (28.4131 ml)",
-        "de": "Wählen Sie den Flüssigunzen-Standard: 0 für US-amerikanisch (29,5735 ml), 1 für Imperial (28,4131 ml)"
+        "de": "Wählen Sie den Flüssigunzen-Standard: 0 für US-amerikanisch (29,5735 ml), 1 für Imperial (28,4131 ml)",
+        "fr": "Sélectionnez le standard d'once liquide : 0 pour US (29,5735 ml), 1 pour Impérial (28,4131 ml)",
+        "es": "Seleccione el estándar de onza líquida: 0 para el sistema estadounidense (29.5735 ml), 1 para el imperial (28.4131 ml)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Round the output to this many decimal places",
         "tr": "Çıktıyı bu ondalık basamağa yuvarla",
-        "de": "Runden Sie das Ergebnis auf diese Anzahl Dezimalstellen"
+        "de": "Runden Sie das Ergebnis auf diese Anzahl Dezimalstellen",
+        "fr": "Arrondir le résultat à ce nombre de décimales",
+        "es": "Redondear el resultado a este número de decimales"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Batch Size",
         "tr": "Parti Büyüklüğü",
         "de": "Losgröße",
-        "fr": "Batch Size",
-        "es": "Batch Size",
+        "fr": "Taille de lot",
+        "es": "Tamaño de lote",
         "ar": "Batch Size"
       },
       "businessContext_i18n": {
         "en": "Number of identical volumes to convert (for total mL)",
         "tr": "Dönüştürülecek özdeş hacim sayısı (toplam mL için)",
-        "de": "Anzahl der identischen Volumen zur Umrechnung (für Gesamt-ml)"
+        "de": "Anzahl der identischen Volumen zur Umrechnung (für Gesamt-ml)",
+        "fr": "Nombre de volumes identiques à convertir (pour le total en mL)",
+        "es": "Número de volúmenes idénticos a convertir (para el total en ml)"
       }
     }
   ],

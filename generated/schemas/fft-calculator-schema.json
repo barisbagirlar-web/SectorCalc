@@ -12,14 +12,16 @@
         "en": "Shaft Speed (RPM)",
         "tr": "Mil Hızı (RPM)",
         "de": "Wellendrehzahl (U/min)",
-        "fr": "Shaft Speed (RPM)",
-        "es": "Shaft Speed (RPM)",
+        "fr": "Vitesse de l'arbre (tr/min)",
+        "es": "Velocidad del eje (RPM)",
         "ar": "Shaft Speed (RPM)"
       },
       "businessContext_i18n": {
         "en": "Rotational speed of the shaft in revolutions per minute.",
         "tr": "Milin dakikadaki devir cinsinden dönüş hızı.",
-        "de": "Rotationsgeschwindigkeit der Welle in Umdrehungen pro Minute."
+        "de": "Rotationsgeschwindigkeit der Welle in Umdrehungen pro Minute.",
+        "fr": "Vitesse de rotation de l'arbre en tours par minute.",
+        "es": "Velocidad de rotación del eje en revoluciones por minuto."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Number of Balls",
         "tr": "Bilye Sayısı",
         "de": "Anzahl der Kugeln",
-        "fr": "Number of Balls",
-        "es": "Number of Balls",
+        "fr": "Nombre de billes",
+        "es": "Número de bolas",
         "ar": "Number of Balls"
       },
       "businessContext_i18n": {
         "en": "Number of rolling elements in the bearing.",
         "tr": "Rulman içindeki yuvarlanma elemanlarının sayısı.",
-        "de": "Anzahl der Wälzkörper im Lager."
+        "de": "Anzahl der Wälzkörper im Lager.",
+        "fr": "Nombre d'éléments roulants dans le roulement.",
+        "es": "Número de elementos rodantes en el rodamiento."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Ball Diameter",
         "tr": "Bilye Çapı",
         "de": "Kugeldurchmesser",
-        "fr": "Ball Diameter",
-        "es": "Ball Diameter",
+        "fr": "Diamètre de bille",
+        "es": "Diámetro de la bola",
         "ar": "Ball Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of a single rolling element.",
         "tr": "Tek bir yuvarlanma elemanının çapı.",
-        "de": "Durchmesser eines einzelnen Wälzkörpers."
+        "de": "Durchmesser eines einzelnen Wälzkörpers.",
+        "fr": "Diamètre d'un élément roulant.",
+        "es": "Diámetro de un solo elemento rodante."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Pitch Diameter",
         "tr": "Hatve Çapı",
         "de": "Teilkreisdurchmesser",
-        "fr": "Pitch Diameter",
-        "es": "Pitch Diameter",
+        "fr": "Diamètre primitif",
+        "es": "Diámetro primitivo",
         "ar": "Pitch Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the circle passing through the centers of the rolling elements.",
         "tr": "Yuvarlanma elemanlarının merkezlerinden geçen dairenin çapı.",
-        "de": "Durchmesser des Kreises durch die Mittelpunkte der Wälzkörper."
+        "de": "Durchmesser des Kreises durch die Mittelpunkte der Wälzkörper.",
+        "fr": "Diamètre du cercle passant par les centres des éléments roulants.",
+        "es": "Diámetro del círculo que pasa por los centros de los elementos rodantes."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Contact Angle",
         "tr": "Temas Açısı",
         "de": "Eingriffswinkel",
-        "fr": "Contact Angle",
-        "es": "Contact Angle",
+        "fr": "Angle de contact",
+        "es": "Ángulo de contacto",
         "ar": "Contact Angle"
       },
       "businessContext_i18n": {
         "en": "Angular contact angle of the bearing in degrees.",
         "tr": "Rulmanın açısal temas açısı (derece cinsinden).",
-        "de": "Winkeleingriffswinkel des Lagers in Grad."
+        "de": "Winkeleingriffswinkel des Lagers in Grad.",
+        "fr": "Angle de contact du roulement en degrés.",
+        "es": "Ángulo de contacto angular del rodamiento en grados."
       }
     }
   ],

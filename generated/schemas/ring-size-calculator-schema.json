@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Inside Diameter (mm)",
         "tr": "İç Çap (mm)",
-        "de": "Inside Diameter (mm)",
-        "fr": "Inside Diameter (mm)",
+        "de": "Innendurchmesser (mm)",
+        "fr": "Diamètre intérieur (mm)",
         "es": "Inside Diameter (mm)",
         "ar": "Inside Diameter (mm)"
       },
       "businessContext_i18n": {
         "en": "The inner diameter of the ring in millimeters.",
-        "tr": "Halkanın iç çapı (milimetre cinsinden)."
+        "tr": "Halkanın iç çapı (milimetre cinsinden).",
+        "de": "Der Innendurchmesser des Rings in Millimetern.",
+        "fr": "Le diamètre intérieur de l'anneau en millimètres."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Inside Circumference (mm)",
         "tr": "İç Çevre (mm)",
-        "de": "Inside Circumference (mm)",
-        "fr": "Inside Circumference (mm)",
+        "de": "Innenumfang (mm)",
+        "fr": "Circonférence intérieure (mm)",
         "es": "Inside Circumference (mm)",
         "ar": "Inside Circumference (mm)"
       },
       "businessContext_i18n": {
         "en": "The inner circumference of the ring in millimeters.",
-        "tr": "Halkanın iç çevresi (milimetre cinsinden)."
+        "tr": "Halkanın iç çevresi (milimetre cinsinden).",
+        "de": "Der Innenumfang des Rings in Millimetern.",
+        "fr": "La circonférence intérieure de l'anneau en millimètres."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Inside Diameter (inches)",
         "tr": "İç Çap (inç)",
-        "de": "Inside Diameter (inches)",
-        "fr": "Inside Diameter (inches)",
+        "de": "Innendurchmesser (Zoll)",
+        "fr": "Diamètre intérieur (pouces)",
         "es": "Inside Diameter (inches)",
         "ar": "Inside Diameter (inches)"
       },
       "businessContext_i18n": {
         "en": "The inner diameter of the ring in inches.",
-        "tr": "Halkanın iç çapı (inç cinsinden)."
+        "tr": "Halkanın iç çapı (inç cinsinden).",
+        "de": "Der Innendurchmesser des Rings in Zoll.",
+        "fr": "Le diamètre intérieur de l'anneau en pouces."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Inside Circumference (inches)",
         "tr": "İç Çevre (inç)",
-        "de": "Inside Circumference (inches)",
-        "fr": "Inside Circumference (inches)",
+        "de": "Innenumfang (Zoll)",
+        "fr": "Circonférence intérieure (pouces)",
         "es": "Inside Circumference (inches)",
         "ar": "Inside Circumference (inches)"
       },
       "businessContext_i18n": {
         "en": "The inner circumference of the ring in inches.",
-        "tr": "Halkanın inç cinsinden iç çevresi."
+        "tr": "Halkanın inç cinsinden iç çevresi.",
+        "de": "Der Innenumfang des Rings in Zoll.",
+        "fr": "La circonférence intérieure de l'anneau en pouces."
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Calibration Factor",
         "tr": "Kalibrasyon Faktörü",
         "de": "Kalibrierfaktor",
-        "fr": "Calibration Factor",
-        "es": "Calibration Factor",
+        "fr": "Facteur d'étalonnage",
+        "es": "Factor de calibración",
         "ar": "Calibration Factor"
       },
       "businessContext_i18n": {
         "en": "A multiplier to adjust the calculated size (e.g., for different temperature or manufacturing tolerance).",
-        "tr": "Hesaplanan boyutu ayarlamak için çarpan (örneğin, farklı sıcaklık veya üretim toleransı için)."
+        "tr": "Hesaplanan boyutu ayarlamak için çarpan (örneğin, farklı sıcaklık veya üretim toleransı için).",
+        "de": "Ein Multiplikator zur Anpassung der berechneten Größe (z. B. für unterschiedliche Temperatur oder Fertigungstoleranz).",
+        "fr": "Un multiplicateur pour ajuster la taille calculée (par exemple, pour différentes températures ou tolérances de fabrication)."
       }
     }
   ],

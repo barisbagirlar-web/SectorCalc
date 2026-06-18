@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Output Power (kW)",
         "tr": "Çıkış Gücü (kW)",
-        "de": "Output Power (kW)",
-        "fr": "Output Power (kW)",
-        "es": "Output Power (kW)",
+        "de": "Ausgangsleistung (kW)",
+        "fr": "Puissance de sortie (kW)",
+        "es": "Potencia de salida (kW)",
         "ar": "Output Power (kW)"
       },
       "businessContext_i18n": {
         "en": "Desired AC output power in kilowatts",
-        "tr": "İstenen AC çıkış gücü, kilovat cinsinden"
+        "tr": "İstenen AC çıkış gücü, kilovat cinsinden",
+        "de": "Gewünschte AC-Ausgangsleistung in Kilowatt",
+        "fr": "Puissance CA de sortie souhaitée en kilowatts",
+        "es": "Potencia de salida CA deseada en kilovatios"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Input DC Voltage (V)",
         "tr": "Giriş DC Gerilimi (V)",
-        "de": "Input DC Voltage (V)",
-        "fr": "Input DC Voltage (V)",
-        "es": "Input DC Voltage (V)",
+        "de": "Eingangs-DC-Spannung (V)",
+        "fr": "Tension CC d'entrée (V)",
+        "es": "Tensión de entrada CC (V)",
         "ar": "Input DC Voltage (V)"
       },
       "businessContext_i18n": {
         "en": "Nominal DC input voltage from source",
-        "tr": "Kaynaktan gelen nominal DC giriş gerilimi"
+        "tr": "Kaynaktan gelen nominal DC giriş gerilimi",
+        "de": "Nenn-DC-Eingangsspannung von der Quelle",
+        "fr": "Tension d'entrée CC nominale de la source",
+        "es": "Tensión nominal de entrada CC de la fuente"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Output AC Voltage (V)",
         "tr": "Çıkış AC Gerilimi (V)",
-        "de": "Output AC Voltage (V)",
-        "fr": "Output AC Voltage (V)",
-        "es": "Output AC Voltage (V)",
+        "de": "Ausgangs-AC-Spannung (V)",
+        "fr": "Tension CA de sortie (V)",
+        "es": "Tensión de salida CA (V)",
         "ar": "Output AC Voltage (V)"
       },
       "businessContext_i18n": {
         "en": "Nominal AC output voltage (line-to-neutral for single-phase)",
-        "tr": "Nominal AC çıkış gerilimi (tek faz için faz-nötr)"
+        "tr": "Nominal AC çıkış gerilimi (tek faz için faz-nötr)",
+        "de": "Nenn-AC-Ausgangsspannung (Außenleiter-Null für Einphasen)",
+        "fr": "Tension CA de sortie nominale (phase-neutre pour monophasé)",
+        "es": "Tensión nominal de salida CA (fase-neutro para monofásica)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Inverter Efficiency (%)",
         "tr": "İnvertör Verimliliği (%)",
-        "de": "Inverter Efficiency (%)",
-        "fr": "Inverter Efficiency (%)",
-        "es": "Inverter Efficiency (%)",
+        "de": "Wechselrichter-Wirkungsgrad (%)",
+        "fr": "Rendement de l'onduleur (%)",
+        "es": "Eficiencia del inversor (%)",
         "ar": "Inverter Efficiency (%)"
       },
       "businessContext_i18n": {
         "en": "Typical efficiency of inverter (90-98%)",
-        "tr": "İnvertörün tipik verimliliği (%90-98)"
+        "tr": "İnvertörün tipik verimliliği (%90-98)",
+        "de": "Typischer Wirkungsgrad des Wechselrichters (90-98%)",
+        "fr": "Rendement typique de l'onduleur (90-98%)",
+        "es": "Eficiencia típica del inversor (90-98%)"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Power Factor",
         "tr": "Güç Faktörü",
         "de": "Leistungsfaktor",
-        "fr": "Power Factor",
-        "es": "Power Factor",
+        "fr": "Facteur de puissance",
+        "es": "Factor de potencia",
         "ar": "Power Factor"
       },
       "businessContext_i18n": {
         "en": "Load power factor (cos φ), typically 0.8 for motors",
-        "tr": "Yük güç faktörü (cos φ), motorlar için tipik olarak 0,8"
+        "tr": "Yük güç faktörü (cos φ), motorlar için tipik olarak 0,8",
+        "de": "Leistungsfaktor der Last (cos φ), typischerweise 0,8 für Motoren",
+        "fr": "Facteur de puissance de charge (cos φ), typiquement 0,8 pour les moteurs",
+        "es": "Factor de potencia de la carga (cos φ), típicamente 0.8 para motores"
       }
     }
   ],

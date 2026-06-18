@@ -12,14 +12,16 @@
         "en": "Nominal Size (mm)",
         "tr": "Nominal Boyut (mm)",
         "de": "Nennmaß (mm)",
-        "fr": "Nominal Size (mm)",
-        "es": "Nominal Size (mm)",
+        "fr": "Taille nominale (mm)",
+        "es": "Tamaño nominal (mm)",
         "ar": "Nominal Size (mm)"
       },
       "businessContext_i18n": {
         "en": "Basic size of the feature per drawing",
         "tr": "Çizime göre özelliğin temel boyutu",
-        "de": "Grundmaß des Merkmals gemäß Zeichnung"
+        "de": "Grundmaß des Merkmals gemäß Zeichnung",
+        "fr": "Taille de base de la caractéristique selon le dessin",
+        "es": "Tamaño básico de la característica según el dibujo"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Tolerance Value (mm)",
         "tr": "Tolerans Değeri (mm)",
         "de": "Toleranzwert (mm)",
-        "fr": "Tolerance Value (mm)",
-        "es": "Tolerance Value (mm)",
+        "fr": "Valeur de tolérance (mm)",
+        "es": "Valor de tolerancia (mm)",
         "ar": "Tolerance Value (mm)"
       },
       "businessContext_i18n": {
         "en": "Specified tolerance from GD&T callout",
         "tr": "GD&T çağrısından belirtilen tolerans",
-        "de": "Spezifizierte Toleranz aus GD&T-Angabe"
+        "de": "Spezifizierte Toleranz aus GD&T-Angabe",
+        "fr": "Tolérance spécifiée par la cotation GD&T",
+        "es": "Tolerancia especificada de la indicación GD&T"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Feature Tolerance (mm)",
         "tr": "Özellik Toleransı (mm)",
         "de": "Merkmalstoleranz (mm)",
-        "fr": "Feature Tolerance (mm)",
-        "es": "Feature Tolerance (mm)",
+        "fr": "Tolérance de caractéristique (mm)",
+        "es": "Tolerancia de la característica (mm)",
         "ar": "Feature Tolerance (mm)"
       },
       "businessContext_i18n": {
         "en": "Tolerance for the feature of size",
         "tr": "Boyut özelliği için tolerans",
-        "de": "Toleranz für das Größenmerkmal"
+        "de": "Toleranz für das Größenmerkmal",
+        "fr": "Tolérance pour la caractéristique de taille",
+        "es": "Tolerancia para la característica de tamaño"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Datum Shift (mm)",
         "tr": "Datum Kayması (mm)",
         "de": "Bezugsverschiebung (mm)",
-        "fr": "Datum Shift (mm)",
-        "es": "Datum Shift (mm)",
+        "fr": "Décalage du datum (mm)",
+        "es": "Desplazamiento del dato (mm)",
         "ar": "Datum Shift (mm)"
       },
       "businessContext_i18n": {
         "en": "Shift allowed due to datum feature size",
         "tr": "Datum özellik boyutundan kaynaklanan izin verilen kayma",
-        "de": "Verschiebung aufgrund der Bezugsmerkmalgröße"
+        "de": "Verschiebung aufgrund der Bezugsmerkmalgröße",
+        "fr": "Décalage autorisé dû à la taille de la caractéristique de référence",
+        "es": "Desplazamiento permitido debido al tamaño de la característica de referencia"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Bonus Tolerance (mm)",
         "tr": "Bonus Tolerans (mm)",
         "de": "Bonustoleranz (mm)",
-        "fr": "Bonus Tolerance (mm)",
-        "es": "Bonus Tolerance (mm)",
+        "fr": "Tolérance bonus (mm)",
+        "es": "Tolerancia adicional (mm)",
         "ar": "Bonus Tolerance (mm)"
       },
       "businessContext_i18n": {
         "en": "Additional tolerance from MMC/LMC",
         "tr": "MMC/LMC'den ek tolerans",
-        "de": "Zusätzliche Toleranz durch MMC/LMC"
+        "de": "Zusätzliche Toleranz durch MMC/LMC",
+        "fr": "Tolérance supplémentaire due au MMC/LMC",
+        "es": "Tolerancia adicional por MMC/LMC"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Angle (degrees)",
         "tr": "Açı (derece)",
         "de": "Winkel (Grad)",
-        "fr": "Angle (degrees)",
-        "es": "Angle (degrees)",
+        "fr": "Angle (degrés)",
+        "es": "Ángulo (grados)",
         "ar": "Angle (degrees)"
       },
       "businessContext_i18n": {
         "en": "Angle for angularity or orientation",
         "tr": "Açısal veya yön için açı",
-        "de": "Winkel für Winkligkeit oder Ausrichtung"
+        "de": "Winkel für Winkligkeit oder Ausrichtung",
+        "fr": "Angle pour l'angularité ou l'orientation",
+        "es": "Ángulo para angularidad u orientación"
       }
     }
   ],

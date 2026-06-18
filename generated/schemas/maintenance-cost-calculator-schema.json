@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Hourly Labor Rate",
         "tr": "Saatlik İşçilik Ücreti",
-        "de": "Hourly Labor Rate",
-        "fr": "Hourly Labor Rate",
-        "es": "Hourly Labor Rate",
+        "de": "Stündlicher Arbeitslohn",
+        "fr": "Taux horaire de main-d'œuvre",
+        "es": "Tarifa horaria de mano de obra",
         "ar": "Hourly Labor Rate"
       },
       "businessContext_i18n": {
         "en": "Cost of one technician per hour including wages and benefits.",
-        "tr": "Bir teknisyenin maaş ve yan haklar dahil saatlik maliyeti."
+        "tr": "Bir teknisyenin maaş ve yan haklar dahil saatlik maliyeti.",
+        "de": "Kosten pro Techniker pro Stunde inklusive Lohn und Nebenkosten.",
+        "fr": "Coût d'un technicien par heure, salaires et avantages compris.",
+        "es": "Costo de un técnico por hora, incluyendo salarios y beneficios."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Number of Technicians",
         "tr": "Teknisyen Sayısı",
-        "de": "Number of Technicians",
-        "fr": "Number of Technicians",
-        "es": "Number of Technicians",
+        "de": "Anzahl der Techniker",
+        "fr": "Nombre de techniciens",
+        "es": "Número de técnicos",
         "ar": "Number of Technicians"
       },
       "businessContext_i18n": {
         "en": "Number of maintenance personnel assigned per task.",
-        "tr": "Her görev için atanan bakım personeli sayısı."
+        "tr": "Her görev için atanan bakım personeli sayısı.",
+        "de": "Anzahl der pro Aufgabe eingesetzten Wartungskräfte.",
+        "fr": "Nombre d'agents de maintenance assignés par tâche.",
+        "es": "Número de personal de mantenimiento asignado por tarea."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Hours per Maintenance",
         "tr": "Bakım başına saat",
-        "de": "Hours per Maintenance",
-        "fr": "Hours per Maintenance",
-        "es": "Hours per Maintenance",
+        "de": "Stunden pro Wartung",
+        "fr": "Heures par maintenance",
+        "es": "Horas por mantenimiento",
         "ar": "Hours per Maintenance"
       },
       "businessContext_i18n": {
         "en": "Average time to complete one maintenance task.",
-        "tr": "Bir bakım görevini tamamlamak için ortalama süre."
+        "tr": "Bir bakım görevini tamamlamak için ortalama süre.",
+        "de": "Durchschnittliche Zeit für eine Wartungsaufgabe.",
+        "fr": "Temps moyen pour réaliser une tâche de maintenance.",
+        "es": "Tiempo promedio para completar una tarea de mantenimiento."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Maintenance Frequency",
         "tr": "Bakım Sıklığı",
         "de": "Wartungshäufigkeit",
-        "fr": "Maintenance Frequency",
-        "es": "Maintenance Frequency",
+        "fr": "Fréquence de maintenance",
+        "es": "Frecuencia de mantenimiento",
         "ar": "Maintenance Frequency"
       },
       "businessContext_i18n": {
         "en": "Number of maintenance tasks per year.",
-        "tr": "Yıllık bakım görevi sayısı."
+        "tr": "Yıllık bakım görevi sayısı.",
+        "de": "Anzahl der Wartungsaufgaben pro Jahr.",
+        "fr": "Nombre de tâches de maintenance par an.",
+        "es": "Número de tareas de mantenimiento por año."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Parts Cost per Maintenance",
         "tr": "Bakım başına parça maliyeti",
-        "de": "Parts Cost per Maintenance",
-        "fr": "Parts Cost per Maintenance",
-        "es": "Parts Cost per Maintenance",
+        "de": "Teilekosten pro Wartung",
+        "fr": "Coût des pièces par maintenance",
+        "es": "Coste de piezas por mantenimiento",
         "ar": "Parts Cost per Maintenance"
       },
       "businessContext_i18n": {
         "en": "Cost of spare parts and consumables per maintenance event.",
-        "tr": "Her bakım olayı için yedek parça ve sarf malzemesi maliyeti."
+        "tr": "Her bakım olayı için yedek parça ve sarf malzemesi maliyeti.",
+        "de": "Kosten für Ersatzteile und Verbrauchsmaterial pro Wartungsereignis.",
+        "fr": "Coût des pièces de rechange et consommables par événement de maintenance.",
+        "es": "Coste de piezas de repuesto y consumibles por evento de mantenimiento."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Overhead Cost per Maintenance",
         "tr": "Bakım başına genel gider maliyeti",
-        "de": "Overhead Cost per Maintenance",
-        "fr": "Overhead Cost per Maintenance",
-        "es": "Overhead Cost per Maintenance",
+        "de": "Gemeinkosten pro Wartung",
+        "fr": "Frais généraux par maintenance",
+        "es": "Coste general por mantenimiento",
         "ar": "Overhead Cost per Maintenance"
       },
       "businessContext_i18n": {
         "en": "Additional costs such as tools, facilities, and indirect expenses per event.",
-        "tr": "Her olay için alet, tesis ve dolaylı giderler gibi ek maliyetler."
+        "tr": "Her olay için alet, tesis ve dolaylı giderler gibi ek maliyetler.",
+        "de": "Zusätzliche Kosten wie Werkzeuge, Einrichtungen und indirekte Ausgaben pro Ereignis.",
+        "fr": "Coûts supplémentaires tels que outils, installations et dépenses indirectes par événement.",
+        "es": "Costes adicionales como herramientas, instalaciones y gastos indirectos por evento."
       }
     }
   ],

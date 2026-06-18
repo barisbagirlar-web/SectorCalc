@@ -12,14 +12,16 @@
         "en": "Bodrum Uzunluğu (m)",
         "tr": "Bodrum Uzunluğu (m)",
         "de": "Kellerlänge (m)",
-        "fr": "Bodrum Uzunluğu (m)",
-        "es": "Bodrum Uzunluğu (m)",
+        "fr": "Longueur du sous-sol (m)",
+        "es": "Longitud del sótano (m)",
         "ar": "Bodrum Uzunluğu (m)"
       },
       "businessContext_i18n": {
         "en": "Bodrumun uzun kenarı",
         "tr": "Bodrumun uzun kenarı",
-        "de": "Längsseite des Kellers"
+        "de": "Längsseite des Kellers",
+        "fr": "Longueur du côté long du sous-sol",
+        "es": "Lado largo del sótano"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Bodrum Genişliği (m)",
         "tr": "Bodrum Genişliği (m)",
         "de": "Bodrum Genişliği (m)",
-        "fr": "Bodrum Genişliği (m)",
-        "es": "Bodrum Genişliği (m)",
+        "fr": "Largeur du sous-sol (m)",
+        "es": "Ancho del sótano (m)",
         "ar": "Bodrum Genişliği (m)"
       },
       "businessContext_i18n": {
         "en": "Bodrumun kısa kenarı",
         "tr": "Bodrumun kısa kenarı",
-        "de": "Bodrumun kısa kenarı"
+        "de": "Bodrumun kısa kenarı",
+        "fr": "Petit côté du sous-sol",
+        "es": "Lado corto del sótano"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Bodrum Derinliği (m)",
         "tr": "Bodrum Derinliği (m)",
         "de": "Bodrum Derinliği (m)",
-        "fr": "Bodrum Derinliği (m)",
-        "es": "Bodrum Derinliği (m)",
+        "fr": "Profondeur du sous-sol (m)",
+        "es": "Profundidad del sótano (m)",
         "ar": "Bodrum Derinliği (m)"
       },
       "businessContext_i18n": {
         "en": "Bodrumun tabanından zemin seviyesine kadar olan yükseklik",
         "tr": "Bodrumun tabanından zemin seviyesine kadar olan yükseklik",
-        "de": "Bodrumun tabanından zemin seviyesine kadar olan yükseklik"
+        "de": "Bodrumun tabanından zemin seviyesine kadar olan yükseklik",
+        "fr": "Hauteur du fond du sous-sol au niveau du sol",
+        "es": "Altura desde la base del sótano hasta el nivel del suelo"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Duvar Kalınlığı (cm)",
         "tr": "Duvar Kalınlığı (cm)",
         "de": "Duvar Kalınlığı (cm)",
-        "fr": "Duvar Kalınlığı (cm)",
-        "es": "Duvar Kalınlığı (cm)",
+        "fr": "Épaisseur du mur (cm)",
+        "es": "Espesor del muro (cm)",
         "ar": "Duvar Kalınlığı (cm)"
       },
       "businessContext_i18n": {
         "en": "Beton duvar kalınlığı",
         "tr": "Beton duvar kalınlığı",
-        "de": "Beton duvar kalınlığı"
+        "de": "Beton duvar kalınlığı",
+        "fr": "Épaisseur du mur en béton",
+        "es": "Espesor del muro de hormigón"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Döşeme Kalınlığı (cm)",
         "tr": "Döşeme Kalınlığı (cm)",
         "de": "Döşeme Kalınlığı (cm)",
-        "fr": "Döşeme Kalınlığı (cm)",
-        "es": "Döşeme Kalınlığı (cm)",
+        "fr": "Épaisseur de la dalle (cm)",
+        "es": "Espesor de la losa (cm)",
         "ar": "Döşeme Kalınlığı (cm)"
       },
       "businessContext_i18n": {
         "en": "Taban döşemesi kalınlığı",
         "tr": "Taban döşemesi kalınlığı",
-        "de": "Taban döşemesi kalınlığı"
+        "de": "Taban döşemesi kalınlığı",
+        "fr": "Épaisseur de la dalle de fond",
+        "es": "Espesor de la losa de fondo"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Beton Maliyeti (TL/m³)",
         "tr": "Beton Maliyeti (TL/m³)",
         "de": "Beton Maliyeti (TL/m³)",
-        "fr": "Beton Maliyeti (TL/m³)",
-        "es": "Beton Maliyeti (TL/m³)",
+        "fr": "Coût du béton (TL/m³)",
+        "es": "Costo del hormigón (TL/m³)",
         "ar": "Beton Maliyeti (TL/m³)"
       },
       "businessContext_i18n": {
         "en": "Birim metreküp beton fiyatı",
         "tr": "Birim metreküp beton fiyatı",
-        "de": "Birim metreküp beton fiyatı"
+        "de": "Preis pro Kubikmeter Beton",
+        "fr": "Prix unitaire du béton au mètre cube",
+        "es": "Precio por metro cúbico de hormigón"
       }
     },
     {
@@ -137,15 +149,17 @@
       "label_i18n": {
         "en": "Su Yalıtım Maliyeti (TL/m²)",
         "tr": "Su Yalıtım Maliyeti (TL/m²)",
-        "de": "Su Yalıtım Maliyeti (TL/m²)",
-        "fr": "Su Yalıtım Maliyeti (TL/m²)",
-        "es": "Su Yalıtım Maliyeti (TL/m²)",
+        "de": "Abdichtungskosten (TL/m²)",
+        "fr": "Coût de l'étanchéité (TL/m²)",
+        "es": "Costo de impermeabilización (TL/m²)",
         "ar": "Su Yalıtım Maliyeti (TL/m²)"
       },
       "businessContext_i18n": {
         "en": "Birim metrekare su yalıtım fiyatı",
         "tr": "Birim metrekare su yalıtım fiyatı",
-        "de": "Birim metrekare su yalıtım fiyatı"
+        "de": "Preis pro Quadratmeter Abdichtung",
+        "fr": "Prix unitaire de l'étanchéité au mètre carré",
+        "es": "Precio por metro cuadrado de impermeabilización"
       }
     }
   ],

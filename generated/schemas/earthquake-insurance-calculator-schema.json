@@ -12,14 +12,16 @@
         "en": "Bina Değeri (TL)",
         "tr": "Bina Değeri (TL)",
         "de": "Gebäudewert (TL)",
-        "fr": "Bina Değeri (TL)",
-        "es": "Bina Değeri (TL)",
+        "fr": "Valeur du bâtiment (TL)",
+        "es": "Valor del edificio (TL)",
         "ar": "Bina Değeri (TL)"
       },
       "businessContext_i18n": {
         "en": "Sigorta edilecek binanın toplam değeri",
         "tr": "Sigorta edilecek binanın toplam değeri",
-        "de": "Gesamtwert des zu versichernden Gebäudes"
+        "de": "Gesamtwert des zu versichernden Gebäudes",
+        "fr": "Valeur totale du bâtiment à assurer",
+        "es": "Valor total del edificio a asegurar"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Deprem Bölgesi Katsayısı",
         "tr": "Deprem Bölgesi Katsayısı",
         "de": "Erdbebenzonenkoeffizient",
-        "fr": "Deprem Bölgesi Katsayısı",
-        "es": "Deprem Bölgesi Katsayısı",
+        "fr": "Coefficient de zone sismique",
+        "es": "Coeficiente de zona sísmica",
         "ar": "Deprem Bölgesi Katsayısı"
       },
       "businessContext_i18n": {
         "en": "Binanın bulunduğu deprem bölgesine göre risk katsayısı (0.5-2.0)",
         "tr": "Binanın bulunduğu deprem bölgesine göre risk katsayısı (0.5-2.0)",
-        "de": "Risikokoeffizient nach Erdbebenzone des Gebäudes (0,5-2,0)"
+        "de": "Risikokoeffizient nach Erdbebenzone des Gebäudes (0,5-2,0)",
+        "fr": "Coefficient de risque selon la zone sismique du bâtiment (0,5-2,0)",
+        "es": "Coeficiente de riesgo según la zona sísmica del edificio (0.5-2.0)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Yapı Tipi Katsayısı",
         "tr": "Yapı Tipi Katsayısı",
         "de": "Gebäudetypkoeffizient",
-        "fr": "Yapı Tipi Katsayısı",
-        "es": "Yapı Tipi Katsayısı",
+        "fr": "Coefficient de type de construction",
+        "es": "Coeficiente de tipo de estructura",
         "ar": "Yapı Tipi Katsayısı"
       },
       "businessContext_i18n": {
         "en": "Binanın yapı malzemesi ve taşıyıcı sistemine göre risk katsayısı (betonarme=1.0, çelik=0.8, ahşap=1.5, vs.)",
         "tr": "Binanın yapı malzemesi ve taşıyıcı sistemine göre risk katsayısı (betonarme=1.0, çelik=0.8, ahşap=1.5, vs.)",
-        "de": "Risikokoeffizient nach Baumaterial und Tragsystem des Gebäudes (Stahlbeton=1,0, Stahl=0,8, Holz=1,5 usw.)"
+        "de": "Risikokoeffizient nach Baumaterial und Tragsystem des Gebäudes (Stahlbeton=1,0, Stahl=0,8, Holz=1,5 usw.)",
+        "fr": "Coefficient de risque selon le matériau et le système porteur (béton armé=1,0, acier=0,8, bois=1,5, etc.)",
+        "es": "Coeficiente de riesgo según material y sistema estructural del edificio (hormigón armado=1.0, acero=0.8, madera=1.5, etc.)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Bina Yaşı (yıl)",
         "tr": "Bina Yaşı (yıl)",
         "de": "Gebäudealter (Jahre)",
-        "fr": "Bina Yaşı (yıl)",
-        "es": "Bina Yaşı (yıl)",
+        "fr": "Âge du bâtiment (ans)",
+        "es": "Edad del edificio (años)",
         "ar": "Bina Yaşı (yıl)"
       },
       "businessContext_i18n": {
         "en": "Binanın yaşı, yıpranma ve dayanıklılık faktörüne etki eder",
         "tr": "Binanın yaşı, yıpranma ve dayanıklılık faktörüne etki eder",
-        "de": "Alter des Gebäudes, beeinflusst Abnutzung und Haltbarkeitsfaktor"
+        "de": "Alter des Gebäudes, beeinflusst Abnutzung und Haltbarkeitsfaktor",
+        "fr": "Âge du bâtiment, influence l'usure et la durabilité",
+        "es": "La edad del edificio afecta el desgaste y el factor de durabilidad"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Muafiyet Oranı (%)",
         "tr": "Muafiyet Oranı (%)",
         "de": "Selbstbehaltssatz (%)",
-        "fr": "Muafiyet Oranı (%)",
-        "es": "Muafiyet Oranı (%)",
+        "fr": "Taux de franchise (%)",
+        "es": "Tasa de deducible (%)",
         "ar": "Muafiyet Oranı (%)"
       },
       "businessContext_i18n": {
         "en": "Hasar durumunda sigortalının karşılayacağı oran, prim indirimine yansır",
         "tr": "Hasar durumunda sigortalının karşılayacağı oran, prim indirimine yansır",
-        "de": "Vom Versicherungsnehmer im Schadensfall zu tragender Anteil, wirkt sich auf den Prämienrabatt aus"
+        "de": "Vom Versicherungsnehmer im Schadensfall zu tragender Anteil, wirkt sich auf den Prämienrabatt aus",
+        "fr": "Part à la charge de l'assuré en cas de sinistre, réduit la prime",
+        "es": "Porcentaje que el asegurado cubre en caso de daño, afecta el descuento en la prima"
       }
     }
   ],

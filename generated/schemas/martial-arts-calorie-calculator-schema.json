@@ -12,13 +12,16 @@
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Body Weight",
-        "es": "Body Weight",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "Your body weight in kilograms.",
-        "tr": "Vücut ağırlığınız (kg)."
+        "tr": "Vücut ağırlığınız (kg).",
+        "de": "Ihr Körpergewicht in Kilogramm.",
+        "fr": "Votre poids corporel en kilogrammes.",
+        "es": "Su peso corporal en kilogramos."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Exercise Duration",
         "tr": "Egzersiz Süresi",
         "de": "Trainingsdauer",
-        "fr": "Exercise Duration",
-        "es": "Exercise Duration",
+        "fr": "Durée de l'exercice",
+        "es": "Duración del ejercicio",
         "ar": "Exercise Duration"
       },
       "businessContext_i18n": {
         "en": "Total duration of the martial arts session.",
-        "tr": "Dövüş sanatları seansının toplam süresi."
+        "tr": "Dövüş sanatları seansının toplam süresi.",
+        "de": "Gesamtdauer der Kampfsporteinheit.",
+        "fr": "Durée totale de la séance d'arts martiaux.",
+        "es": "Duración total de la sesión de artes marciales."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "MET Value",
         "tr": "MET Değeri",
         "de": "MET-Wert",
-        "fr": "MET Value",
-        "es": "MET Value",
+        "fr": "Valeur MET",
+        "es": "Valor MET",
         "ar": "MET Value"
       },
       "businessContext_i18n": {
         "en": "Metabolic Equivalent of Task for the specific martial art (e.g., judo=10, karate=10, kickboxing=10, tai chi=4).",
-        "tr": "Belirli dövüş sanatı için metabolik eşdeğer (ör. judo=10, karate=10, kickboks=10, tai chi=4)."
+        "tr": "Belirli dövüş sanatı için metabolik eşdeğer (ör. judo=10, karate=10, kickboks=10, tai chi=4).",
+        "de": "Metabolisches Äquivalent der spezifischen Kampfsportart (z.B. Judo=10, Karate=10, Kickboxen=10, Tai Chi=4).",
+        "fr": "Équivalent métabolique de la tâche pour l'art martial spécifique (ex. judo=10, karaté=10, kickboxing=10, tai chi=4).",
+        "es": "Equivalente metabólico de la tarea para el arte marcial específico (ej., judo=10, karate=10, kickboxing=10, tai chi=4)."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Adjustment Factor",
         "tr": "Düzeltme Faktörü",
         "de": "Düzeltme Faktörü",
-        "fr": "Adjustment Factor",
-        "es": "Adjustment Factor",
+        "fr": "Facteur d'ajustement",
+        "es": "Düzeltme Faktörü",
         "ar": "Adjustment Factor"
       },
       "businessContext_i18n": {
         "en": "Personal multiplier to fine-tune calorie estimate based on individual variance.",
-        "tr": "Bireysel farklılığa göre kalori tahminini ince ayar yapmak için kişisel çarpan."
+        "tr": "Bireysel farklılığa göre kalori tahminini ince ayar yapmak için kişisel çarpan.",
+        "de": "Persönlicher Multiplikator zur Feinabstimmung der Kalorien-Schätzung basierend auf individueller Varianz.",
+        "fr": "Multiplicateur personnel pour affiner l'estimation des calories en fonction de la variance individuelle.",
+        "es": "Multiplicador personal para ajustar la estimación de calorías según la variación individual."
       }
     }
   ],

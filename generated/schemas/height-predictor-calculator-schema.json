@@ -12,14 +12,16 @@
         "en": "Mother's Height",
         "tr": "Annenin Boyu",
         "de": "Größe der Mutter",
-        "fr": "Mother's Height",
-        "es": "Mother's Height",
+        "fr": "Taille de la mère",
+        "es": "Altura de la madre",
         "ar": "Mother's Height"
       },
       "businessContext_i18n": {
         "en": "Height of the biological mother in centimeters.",
         "tr": "Biyolojik annenin santimetre cinsinden boyu.",
-        "de": "Körpergröße der leiblichen Mutter in Zentimetern."
+        "de": "Körpergröße der leiblichen Mutter in Zentimetern.",
+        "fr": "Taille de la mère biologique en centimètres.",
+        "es": "Altura de la madre biológica en centímetros."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Father's Height",
         "tr": "Babanın Boyu",
         "de": "Größe des Vaters",
-        "fr": "Father's Height",
-        "es": "Father's Height",
+        "fr": "Taille du père",
+        "es": "Altura del padre",
         "ar": "Father's Height"
       },
       "businessContext_i18n": {
         "en": "Height of the biological father in centimeters.",
         "tr": "Biyolojik babanın santimetre cinsinden boyu.",
-        "de": "Körpergröße des leiblichen Vaters in Zentimetern."
+        "de": "Körpergröße des leiblichen Vaters in Zentimetern.",
+        "fr": "Taille du père biologique en centimètres.",
+        "es": "Altura del padre biológico en centímetros."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Child's Gender",
         "tr": "Çocuğun Cinsiyeti",
         "de": "Geschlecht des Kindes",
-        "fr": "Child's Gender",
-        "es": "Child's Gender",
+        "fr": "Sexe de l'enfant",
+        "es": "Sexo del niño",
         "ar": "Child's Gender"
       },
       "businessContext_i18n": {
         "en": "0 for girl, 1 for boy. Used to apply gender-specific mid-parental height formula.",
         "tr": "Kız için 0, erkek için 1. Cinsiyete özgü ortalama ebeveyn boyu formülünü uygulamak için kullanılır.",
-        "de": "0 für Mädchen, 1 für Junge. Wird verwendet, um die geschlechtsspezifische Formel für die mittlere Elterngröße anzuwenden."
+        "de": "0 für Mädchen, 1 für Junge. Wird verwendet, um die geschlechtsspezifische Formel für die mittlere Elterngröße anzuwenden.",
+        "fr": "0 pour fille, 1 pour garçon. Utilisé pour appliquer la formule de taille parentale moyenne spécifique au sexe.",
+        "es": "0 para niña, 1 para niño. Se utiliza para aplicar la fórmula de altura parental media específica por género."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Current Height",
         "tr": "Mevcut Boy",
         "de": "Aktuelle Größe",
-        "fr": "Current Height",
-        "es": "Current Height",
+        "fr": "Taille actuelle",
+        "es": "Altura actual",
         "ar": "Current Height"
       },
       "businessContext_i18n": {
         "en": "Current measured height of the child in centimeters. Used to adjust prediction toward the mid-parental height.",
         "tr": "Çocuğun santimetre cinsinden mevcut ölçülen boyu. Tahmini ortalama ebeveyn boyuna doğru ayarlamak için kullanılır.",
-        "de": "Aktuelle gemessene Körpergröße des Kindes in Zentimetern. Wird verwendet, um die Vorhersage in Richtung der mittleren Elterngröße anzupassen."
+        "de": "Aktuelle gemessene Körpergröße des Kindes in Zentimetern. Wird verwendet, um die Vorhersage in Richtung der mittleren Elterngröße anzupassen.",
+        "fr": "Taille mesurée actuelle de l'enfant en centimètres. Utilisée pour ajuster la prédiction vers la taille parentale moyenne.",
+        "es": "Altura actual medida del niño en centímetros. Se utiliza para ajustar la predicción hacia la altura parental media."
       }
     }
   ],

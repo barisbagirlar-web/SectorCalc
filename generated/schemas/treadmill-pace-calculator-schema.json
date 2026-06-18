@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Mesafe (km)",
         "tr": "Mesafe (km)",
-        "de": "Mesafe (km)",
-        "fr": "Mesafe (km)",
-        "es": "Mesafe (km)",
+        "de": "Strecke (km)",
+        "fr": "Distance (km)",
+        "es": "Distancia (km)",
         "ar": "Mesafe (km)"
       },
       "businessContext_i18n": {
         "en": "Koşu bandında katedilen mesafe",
-        "tr": "Koşu bandında katedilen mesafe"
+        "tr": "Koşu bandında katedilen mesafe",
+        "de": "Auf dem Laufband zurückgelegte Strecke",
+        "fr": "Distance parcourue sur le tapis roulant"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Saat",
         "tr": "Saat",
-        "de": "Saat",
-        "fr": "Saat",
-        "es": "Saat",
+        "de": "Stunde",
+        "fr": "Heure",
+        "es": "Hora",
         "ar": "Saat"
       },
       "businessContext_i18n": {
         "en": "Koşu süresinin saat kısmı",
-        "tr": "Koşu süresinin saat kısmı"
+        "tr": "Koşu süresinin saat kısmı",
+        "de": "Stundenanteil der Laufzeit",
+        "fr": "Partie heures de la durée de course"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Dakika",
         "tr": "Dakika",
         "de": "Minuten",
-        "fr": "Dakika",
-        "es": "Dakika",
+        "fr": "Minutes",
+        "es": "Minutos",
         "ar": "Dakika"
       },
       "businessContext_i18n": {
         "en": "Koşu süresinin dakika kısmı",
-        "tr": "Koşu süresinin dakika kısmı"
+        "tr": "Koşu süresinin dakika kısmı",
+        "de": "Minutenanteil der Laufzeit",
+        "fr": "Partie minutes de la durée de course"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Saniye",
         "tr": "Saniye",
         "de": "Sekunden",
-        "fr": "Saniye",
-        "es": "Saniye",
+        "fr": "Secondes",
+        "es": "Segundos",
         "ar": "Saniye"
       },
       "businessContext_i18n": {
         "en": "Koşu süresinin saniye kısmı",
-        "tr": "Koşu süresinin saniye kısmı"
+        "tr": "Koşu süresinin saniye kısmı",
+        "de": "Sekundenanteil der Laufzeit",
+        "fr": "Partie secondes de la durée de course"
       }
     }
   ],

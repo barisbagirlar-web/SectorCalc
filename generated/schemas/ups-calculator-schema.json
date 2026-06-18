@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Total Load",
         "tr": "Toplam Yük",
-        "de": "Total Load",
-        "fr": "Total Load",
+        "de": "Gesamtlast",
+        "fr": "Charge totale",
         "es": "Total Load",
         "ar": "Total Load"
       },
       "businessContext_i18n": {
         "en": "Total active power consumption of connected equipment (Watts)",
-        "tr": "Bağlı ekipmanın toplam aktif güç tüketimi (Watt)."
+        "tr": "Bağlı ekipmanın toplam aktif güç tüketimi (Watt).",
+        "de": "Gesamte Wirkleistungsaufnahme der angeschlossenen Geräte (Watt)",
+        "fr": "Consommation électrique active totale des équipements connectés (Watts)"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Power Factor",
         "tr": "Güç Faktörü",
         "de": "Leistungsfaktor",
-        "fr": "Power Factor",
-        "es": "Power Factor",
+        "fr": "Facteur de puissance",
+        "es": "Factor de potencia",
         "ar": "Power Factor"
       },
       "businessContext_i18n": {
         "en": "Power factor of the load (typically 0.7-0.9), ≤1",
-        "tr": "Yükün güç faktörü (tipik olarak 0.7-0.9), ≤1."
+        "tr": "Yükün güç faktörü (tipik olarak 0.7-0.9), ≤1.",
+        "de": "Leistungsfaktor der Last (typischerweise 0,7–0,9), ≤1",
+        "fr": "Facteur de puissance de la charge (généralement 0,7-0,9), ≤1"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Required Runtime",
         "tr": "Gerekli Çalışma Süresi",
-        "de": "Required Runtime",
-        "fr": "Required Runtime",
+        "de": "Erforderliche Überbrückungszeit",
+        "fr": "Autonomie requise",
         "es": "Required Runtime",
         "ar": "Required Runtime"
       },
       "businessContext_i18n": {
         "en": "Required backup time in minutes during power outage",
-        "tr": "Elektrik kesintisi sırasında gerekli yedekleme süresi (dakika)."
+        "tr": "Elektrik kesintisi sırasında gerekli yedekleme süresi (dakika).",
+        "de": "Erforderliche Backup-Zeit in Minuten bei Stromausfall",
+        "fr": "Temps de secours requis en minutes en cas de panne de courant"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Inverter Efficiency",
         "tr": "İnvertör Verimliliği",
-        "de": "Inverter Efficiency",
-        "fr": "Inverter Efficiency",
+        "de": "Wechselrichter-Wirkungsgrad",
+        "fr": "Rendement de l'onduleur",
         "es": "Inverter Efficiency",
         "ar": "Inverter Efficiency"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the UPS inverter in converting DC to AC, typically 85-95%",
-        "tr": "UPS invertörünün DC'yi AC'ye dönüştürme verimliliği, tipik olarak %85-95."
+        "tr": "UPS invertörünün DC'yi AC'ye dönüştürme verimliliği, tipik olarak %85-95.",
+        "de": "Wirkungsgrad des USV-Wechselrichters bei der Umwandlung von Gleichstrom in Wechselstrom, typischerweise 85–95 %",
+        "fr": "Rendement de l'onduleur convertissant le courant continu en courant alternatif, généralement 85-95 %"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Battery Voltage",
         "tr": "Akü Gerilimi",
-        "de": "Battery Voltage",
-        "fr": "Battery Voltage",
+        "de": "Batteriespannung",
+        "fr": "Tension de la batterie",
         "es": "Battery Voltage",
         "ar": "Battery Voltage"
       },
       "businessContext_i18n": {
         "en": "DC system voltage of the battery bank (e.g., 12V, 24V, 48V)",
-        "tr": "Akü bankasının DC sistem gerilimi (örn. 12V, 24V, 48V)."
+        "tr": "Akü bankasının DC sistem gerilimi (örn. 12V, 24V, 48V).",
+        "de": "DC-Systemspannung der Batteriebank (z. B. 12 V, 24 V, 48 V)",
+        "fr": "Tension continue du parc de batteries (ex. 12V, 24V, 48V)"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Depth of Discharge",
         "tr": "Deşarj Derinliği",
-        "de": "Depth of Discharge",
-        "fr": "Depth of Discharge",
+        "de": "Entladetiefe",
+        "fr": "Profondeur de décharge",
         "es": "Depth of Discharge",
         "ar": "Depth of Discharge"
       },
       "businessContext_i18n": {
         "en": "Maximum depth of discharge for battery, to prolong life (e.g., 50% for lead-acid)",
-        "tr": "Akü ömrünü uzatmak için maksimum deşarj derinliği (örn. kurşun-asit için %50)."
+        "tr": "Akü ömrünü uzatmak için maksimum deşarj derinliği (örn. kurşun-asit için %50).",
+        "de": "Maximale Entladetiefe der Batterie zur Verlängerung der Lebensdauer (z. B. 50 % bei Blei-Säure)",
+        "fr": "Profondeur de décharge maximale de la batterie pour prolonger sa durée de vie (ex. 50 % pour plomb-acide)"
       }
     },
     {
@@ -131,14 +143,16 @@
       "label_i18n": {
         "en": "Number of Batteries in Parallel",
         "tr": "Paralel Akü Sayısı",
-        "de": "Number of Batteries in Parallel",
-        "fr": "Number of Batteries in Parallel",
+        "de": "Anzahl parallel geschalteter Batterien",
+        "fr": "Nombre de batteries en parallèle",
         "es": "Number of Batteries in Parallel",
         "ar": "Number of Batteries in Parallel"
       },
       "businessContext_i18n": {
         "en": "Number of identical batteries connected in parallel to share load",
-        "tr": "Yükü paylaşmak için paralel bağlanan özdeş akü sayısı."
+        "tr": "Yükü paylaşmak için paralel bağlanan özdeş akü sayısı.",
+        "de": "Anzahl identischer Batterien, die parallel geschaltet sind, um die Last zu teilen",
+        "fr": "Nombre de batteries identiques connectées en parallèle pour partager la charge"
       }
     }
   ],

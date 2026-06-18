@@ -12,13 +12,15 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Patient's age in years",
-        "tr": "Hastanın yaşı (yıl)"
+        "tr": "Hastanın yaşı (yıl)",
+        "de": "Alter des Patienten in Jahren",
+        "fr": "Âge du patient en années"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Heart Rate",
         "tr": "Kalp Atış Hızı",
         "de": "Herzfrequenz",
-        "fr": "Heart Rate",
-        "es": "Heart Rate",
+        "fr": "Fréquence cardiaque",
+        "es": "Frecuencia cardíaca",
         "ar": "Heart Rate"
       },
       "businessContext_i18n": {
         "en": "Patient's heart rate in beats per minute",
-        "tr": "Hastanın kalp atış hızı (atım/dakika)"
+        "tr": "Hastanın kalp atış hızı (atım/dakika)",
+        "de": "Herzfrequenz des Patienten in Schlägen pro Minute",
+        "fr": "Fréquence cardiaque du patient en battements par minute"
       }
     },
     {
@@ -52,14 +56,16 @@
         "en": "Systolic Blood Pressure",
         "tr": "Sistolik Kan Basıncı",
         "de": "Systolischer Blutdruck",
-        "fr": "Systolic Blood Pressure",
-        "es": "Systolic Blood Pressure",
+        "fr": "Pression artérielle systolique",
+        "es": "Presión arterial sistólica",
         "ar": "Systolic Blood Pressure"
       },
       "businessContext_i18n": {
         "en": "Systolic blood pressure in mmHg",
         "tr": "Sistolik kan basıncı (mmHg)",
-        "de": "Systolischer Blutdruck in mmHg"
+        "de": "Systolischer Blutdruck in mmHg",
+        "fr": "Pression artérielle systolique en mmHg",
+        "es": "Presión arterial sistólica en mmHg"
       }
     },
     {
@@ -73,13 +79,15 @@
         "en": "Temperature",
         "tr": "Sıcaklık",
         "de": "Temperatur",
-        "fr": "Temperature",
-        "es": "Temperature",
+        "fr": "Température",
+        "es": "Temperatura",
         "ar": "Temperature"
       },
       "businessContext_i18n": {
         "en": "Body temperature in Celsius",
-        "tr": "Vücut sıcaklığı (Celsius)"
+        "tr": "Vücut sıcaklığı (Celsius)",
+        "de": "Körpertemperatur in Celsius",
+        "fr": "Température corporelle en degrés Celsius"
       }
     },
     {
@@ -92,14 +100,16 @@
       "label_i18n": {
         "en": "Mechanical Ventilation",
         "tr": "Mekanik ventilasyon",
-        "de": "Mechanical Ventilation",
-        "fr": "Mechanical Ventilation",
+        "de": "Mechanische Beatmung",
+        "fr": "Ventilation mécanique",
         "es": "Mechanical Ventilation",
         "ar": "Mechanical Ventilation"
       },
       "businessContext_i18n": {
         "en": "1 if on mechanical ventilation or CPAP, else 0",
-        "tr": "Mekanik ventilasyon veya CPAP kullanılıyorsa 1, değilse 0"
+        "tr": "Mekanik ventilasyon veya CPAP kullanılıyorsa 1, değilse 0",
+        "de": "1 bei mechanischer Beatmung oder CPAP, sonst 0",
+        "fr": "1 si ventilation mécanique ou CPAP, sinon 0"
       }
     },
     {
@@ -112,14 +122,16 @@
       "label_i18n": {
         "en": "PaO2/FiO2 Ratio",
         "tr": "PaO2/FiO2 Oranı",
-        "de": "PaO2/FiO2 Ratio",
-        "fr": "PaO2/FiO2 Ratio",
+        "de": "PaO2/FiO2-Verhältnis",
+        "fr": "Rapport PaO2/FiO2",
         "es": "PaO2/FiO2 Ratio",
         "ar": "PaO2/FiO2 Ratio"
       },
       "businessContext_i18n": {
         "en": "PaO2/FiO2 ratio in mmHg, relevant only if ventilated",
-        "tr": "PaO2/FiO2 oranı (mmHg), yalnızca ventilasyon varsa geçerlidir"
+        "tr": "PaO2/FiO2 oranı (mmHg), yalnızca ventilasyon varsa geçerlidir",
+        "de": "PaO2/FiO2-Verhältnis in mmHg, nur relevant bei Beatmung",
+        "fr": "Rapport PaO2/FiO2 en mmHg, pertinent uniquement si ventilé"
       }
     },
     {
@@ -132,14 +144,16 @@
       "label_i18n": {
         "en": "Urine Output",
         "tr": "İdrar çıkışı",
-        "de": "Urine Output",
-        "fr": "Urine Output",
+        "de": "Urinausscheidung",
+        "fr": "Débit urinaire",
         "es": "Urine Output",
         "ar": "Urine Output"
       },
       "businessContext_i18n": {
         "en": "Daily urine output in liters",
-        "tr": "Günlük idrar çıkışı (litre)"
+        "tr": "Günlük idrar çıkışı (litre)",
+        "de": "Tägliche Urinausscheidung in Litern",
+        "fr": "Débit urinaire quotidien en litres"
       }
     },
     {
@@ -152,14 +166,16 @@
       "label_i18n": {
         "en": "Serum Urea",
         "tr": "Serum üre",
-        "de": "Serum Urea",
-        "fr": "Serum Urea",
+        "de": "Serumharnstoff",
+        "fr": "Urée sérique",
         "es": "Serum Urea",
         "ar": "Serum Urea"
       },
       "businessContext_i18n": {
         "en": "Serum urea concentration in mmol/L",
-        "tr": "Serum üre konsantrasyonu (mmol/L)"
+        "tr": "Serum üre konsantrasyonu (mmol/L)",
+        "de": "Serumharnstoffkonzentration in mmol/L",
+        "fr": "Concentration d'urée sérique en mmol/L"
       }
     }
   ],

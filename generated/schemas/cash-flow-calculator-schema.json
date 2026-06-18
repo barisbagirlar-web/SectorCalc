@@ -12,14 +12,16 @@
         "en": "Initial Investment",
         "tr": "Başlangıç Yatırımı",
         "de": "Anfangsinvestition",
-        "fr": "Initial Investment",
-        "es": "Initial Investment",
+        "fr": "Investissement initial",
+        "es": "Inversión inicial",
         "ar": "Initial Investment"
       },
       "businessContext_i18n": {
         "en": "Initial cash outflow at time 0",
         "tr": "0. zamandaki ilk nakit çıkışı",
-        "de": "Anfänglicher Mittelabfluss zum Zeitpunkt 0"
+        "de": "Anfänglicher Mittelabfluss zum Zeitpunkt 0",
+        "fr": "Sortie de trésorerie initiale au temps 0",
+        "es": "Salida de efectivo inicial en el tiempo 0"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Periodic Cash Flow",
         "tr": "Dönemsel Nakit Akışı",
         "de": "Periodischer Cashflow",
-        "fr": "Periodic Cash Flow",
-        "es": "Periodic Cash Flow",
+        "fr": "Flux de trésorerie périodique",
+        "es": "Flujo de efectivo periódico",
         "ar": "Periodic Cash Flow"
       },
       "businessContext_i18n": {
         "en": "Net cash generated each period",
         "tr": "Her dönemde üretilen net nakit",
-        "de": "Netto-Cashflow pro Periode"
+        "de": "Netto-Cashflow pro Periode",
+        "fr": "Trésorerie nette générée chaque période",
+        "es": "Efectivo neto generado cada período"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Number of Periods",
         "tr": "Dönem Sayısı",
         "de": "Anzahl der Perioden",
-        "fr": "Number of Periods",
-        "es": "Number of Periods",
+        "fr": "Nombre de périodes",
+        "es": "Número de períodos",
         "ar": "Number of Periods"
       },
       "businessContext_i18n": {
         "en": "Number of time periods (e.g., years)",
         "tr": "Zaman dönemi sayısı (örneğin, yıl)",
-        "de": "Anzahl der Zeitperioden (z. B. Jahre)"
+        "de": "Anzahl der Zeitperioden (z. B. Jahre)",
+        "fr": "Nombre de périodes (ex. années)",
+        "es": "Número de períodos de tiempo (ej., años)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Discount Rate",
         "tr": "İndirim Oranı",
         "de": "Rabattsatz",
-        "fr": "Discount Rate",
-        "es": "Discount Rate",
+        "fr": "Taux de remise",
+        "es": "Tasa de descuento",
         "ar": "Discount Rate"
       },
       "businessContext_i18n": {
         "en": "Cost of capital or required rate of return",
         "tr": "Sermaye maliyeti veya gerekli getiri oranı",
-        "de": "Kapitalkosten oder erforderliche Rendite"
+        "de": "Kapitalkosten oder erforderliche Rendite",
+        "fr": "Coût du capital ou taux de rendement requis",
+        "es": "Costo de capital o tasa de rendimiento requerida"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Salvage Value",
         "tr": "Hurda Değeri",
         "de": "Restwert",
-        "fr": "Salvage Value",
-        "es": "Salvage Value",
+        "fr": "Valeur de récupération",
+        "es": "Valor de rescate",
         "ar": "Salvage Value"
       },
       "businessContext_i18n": {
         "en": "Cash value at end of project",
         "tr": "Proje sonundaki nakit değeri",
-        "de": "Barwert am Projektende"
+        "de": "Barwert am Projektende",
+        "fr": "Valeur de trésorerie en fin de projet",
+        "es": "Valor en efectivo al final del proyecto"
       }
     }
   ],

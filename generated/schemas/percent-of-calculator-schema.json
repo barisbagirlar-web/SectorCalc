@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Temel Tutar",
         "tr": "Temel Tutar",
-        "de": "Temel Tutar",
-        "fr": "Temel Tutar",
-        "es": "Temel Tutar",
+        "de": "Grundbetrag",
+        "fr": "Montant de base",
+        "es": "Monto base",
         "ar": "Temel Tutar"
       },
       "businessContext_i18n": {
         "en": "Hesaplama yapılacak temel değer.",
-        "tr": "Hesaplama yapılacak temel değer."
+        "tr": "Hesaplama yapılacak temel değer.",
+        "de": "Basiswert für die Berechnung.",
+        "fr": "Valeur de base pour le calcul.",
+        "es": "Valor base sobre el cual se realizará el cálculo."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Yüzde",
         "tr": "Yüzde",
-        "de": "Yüzde",
-        "fr": "Yüzde",
-        "es": "Yüzde",
+        "de": "Prozentsatz",
+        "fr": "Pourcentage",
+        "es": "Porcentaje",
         "ar": "Yüzde"
       },
       "businessContext_i18n": {
         "en": "Temel tutar üzerinden hesaplanacak yüzde oranı.",
-        "tr": "Temel tutar üzerinden hesaplanacak yüzde oranı."
+        "tr": "Temel tutar üzerinden hesaplanacak yüzde oranı.",
+        "de": "Prozentsatz, der auf den Grundbetrag angewendet wird.",
+        "fr": "Taux de pourcentage à calculer sur le montant de base.",
+        "es": "Porcentaje a calcular sobre el monto base."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Sabit Ek Tutar",
         "tr": "Sabit Ek Tutar",
-        "de": "Sabit Ek Tutar",
-        "fr": "Sabit Ek Tutar",
-        "es": "Sabit Ek Tutar",
+        "de": "Fester Zusatzbetrag",
+        "fr": "Montant fixe supplémentaire",
+        "es": "Monto fijo adicional",
         "ar": "Sabit Ek Tutar"
       },
       "businessContext_i18n": {
         "en": "Yüzde sonucuna eklenecek sabit miktar.",
-        "tr": "Yüzde sonucuna eklenecek sabit miktar."
+        "tr": "Yüzde sonucuna eklenecek sabit miktar.",
+        "de": "Fester Betrag, der zum prozentualen Ergebnis addiert wird.",
+        "fr": "Montant fixe à ajouter au résultat du pourcentage.",
+        "es": "Cantidad fija que se suma al resultado del porcentaje."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Ondalık Basamak",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Ondalık Basamak",
-        "es": "Ondalık Basamak",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Ondalık Basamak"
       },
       "businessContext_i18n": {
         "en": "Sonucun yuvarlanacağı ondalık basamak sayısı.",
-        "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı."
+        "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für die Rundung des Ergebnisses.",
+        "fr": "Nombre de décimales pour l'arrondi du résultat.",
+        "es": "Número de decimales para redondear el resultado."
       }
     }
   ],

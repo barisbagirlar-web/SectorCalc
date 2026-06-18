@@ -12,13 +12,16 @@
         "en": "Asset Cost",
         "tr": "Varlık Maliyeti",
         "de": "Vermögenswertkosten",
-        "fr": "Asset Cost",
-        "es": "Asset Cost",
+        "fr": "Coût de l'actif",
+        "es": "Costo del activo",
         "ar": "Asset Cost"
       },
       "businessContext_i18n": {
         "en": "Initial purchase price of the asset.",
-        "tr": "Varlığın ilk satın alma fiyatı"
+        "tr": "Varlığın ilk satın alma fiyatı",
+        "de": "Anschaffungspreis des Vermögenswerts",
+        "fr": "Prix d'achat initial de l'actif",
+        "es": "Precio de compra inicial del activo"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Residual Value",
         "tr": "Kalıntı Değer",
         "de": "Restwert",
-        "fr": "Residual Value",
-        "es": "Residual Value",
+        "fr": "Valeur résiduelle",
+        "es": "Valor residual",
         "ar": "Residual Value"
       },
       "businessContext_i18n": {
         "en": "Estimated value of the asset at end of lease.",
-        "tr": "Varlığın kiralama sonunda tahmini değeri"
+        "tr": "Varlığın kiralama sonunda tahmini değeri",
+        "de": "Geschätzter Restwert des Vermögenswerts am Ende des Leasingvertrags",
+        "fr": "Valeur estimée de l'actif en fin de location",
+        "es": "Valor estimado del activo al final del arrendamiento"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Lease Term",
         "tr": "Kira Süresi",
         "de": "Leasinglaufzeit",
-        "fr": "Lease Term",
-        "es": "Lease Term",
+        "fr": "Durée du bail",
+        "es": "Plazo de arrendamiento",
         "ar": "Lease Term"
       },
       "businessContext_i18n": {
         "en": "Duration of the lease in months.",
-        "tr": "Kiralama süresi (ay)"
+        "tr": "Kiralama süresi (ay)",
+        "de": "Laufzeit des Leasingvertrags in Monaten",
+        "fr": "Durée de la location en mois",
+        "es": "Duración del arrendamiento en meses"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
         "de": "Jährlicher Zinssatz",
-        "fr": "Annual Interest Rate",
-        "es": "Annual Interest Rate",
+        "fr": "Taux d'intérêt annuel",
+        "es": "Tasa de Interés Anual",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Annual interest rate for lease financing.",
-        "tr": "Kiralama finansmanı için yıllık faiz oranı"
+        "tr": "Kiralama finansmanı için yıllık faiz oranı",
+        "de": "Jährlicher Zinssatz für die Leasingfinanzierung",
+        "fr": "Taux d'intérêt annuel pour le financement de la location",
+        "es": "Tasa de interés anual para el financiamiento del arrendamiento"
       }
     }
   ],

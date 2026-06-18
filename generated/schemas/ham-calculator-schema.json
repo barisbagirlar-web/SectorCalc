@@ -12,14 +12,16 @@
         "en": "Raw Material Cost (per kg)",
         "tr": "Hammadde Maliyeti (kg başına)",
         "de": "Rohmaterialkosten (pro kg)",
-        "fr": "Raw Material Cost (per kg)",
-        "es": "Raw Material Cost (per kg)",
+        "fr": "Coût matière première (par kg)",
+        "es": "Costo de materia prima (por kg)",
         "ar": "Raw Material Cost (per kg)"
       },
       "businessContext_i18n": {
         "en": "Cost of raw ham per kilogram",
         "tr": "Kilogram başına çiğ jambon maliyeti",
-        "de": "Kosten für rohen Schinken pro Kilogramm"
+        "de": "Kosten für rohen Schinken pro Kilogramm",
+        "fr": "Coût du jambon cru par kilogramme",
+        "es": "Costo del jamón crudo por kilogramo"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Processing Time (per kg)",
         "tr": "İşleme Süresi (kg başına)",
         "de": "Verarbeitungszeit (pro kg)",
-        "fr": "Processing Time (per kg)",
-        "es": "Processing Time (per kg)",
+        "fr": "Temps de transformation (par kg)",
+        "es": "Tiempo de procesamiento (por kg)",
         "ar": "Processing Time (per kg)"
       },
       "businessContext_i18n": {
         "en": "Time required to process one kilogram of ham",
         "tr": "Bir kilogram jambonu işlemek için gereken süre",
-        "de": "Zeit zur Verarbeitung eines Kilogramms Schinken"
+        "de": "Zeit zur Verarbeitung eines Kilogramms Schinken",
+        "fr": "Temps nécessaire pour transformer un kilogramme de jambon",
+        "es": "Tiempo requerido para procesar un kilogramo de jamón"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Labor Cost per Hour",
         "tr": "Saatlik işçilik maliyeti",
         "de": "Arbeitskosten pro Stunde",
-        "fr": "Labor Cost per Hour",
-        "es": "Labor Cost per Hour",
+        "fr": "Coût de la main-d'œuvre par heure",
+        "es": "Costo de mano de obra por hora",
         "ar": "Labor Cost per Hour"
       },
       "businessContext_i18n": {
         "en": "Hourly wage for processing labor",
         "tr": "İşçilik için saatlik ücret",
-        "de": "Stundenlohn für Verarbeitungsarbeit"
+        "de": "Stundenlohn für Verarbeitungsarbeit",
+        "fr": "Salaire horaire de la main-d'œuvre de transformation",
+        "es": "Salario por hora para mano de obra de procesamiento"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Energy Cost per kWh",
         "tr": "kWh başına Enerji Maliyeti",
         "de": "Energiekosten pro kWh",
-        "fr": "Energy Cost per kWh",
-        "es": "Energy Cost per kWh",
+        "fr": "Coût énergétique par kWh",
+        "es": "Costo energético por kWh",
         "ar": "Energy Cost per kWh"
       },
       "businessContext_i18n": {
         "en": "Cost of electricity per kilowatt-hour",
         "tr": "Kilovatsaat başına elektrik maliyeti",
-        "de": "Stromkosten pro Kilowattstunde"
+        "de": "Stromkosten pro Kilowattstunde",
+        "fr": "Coût de l'électricité par kilowattheure",
+        "es": "Coste de la electricidad por kilovatio-hora"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Energy Consumption per kg",
         "tr": "kg başına Enerji Tüketimi",
         "de": "Energieverbrauch pro kg",
-        "fr": "Energy Consumption per kg",
-        "es": "Energy Consumption per kg",
+        "fr": "Consommation d'énergie par kg",
+        "es": "Consumo de energía por kg",
         "ar": "Energy Consumption per kg"
       },
       "businessContext_i18n": {
         "en": "Energy used to process one kilogram of ham",
         "tr": "Bir kilogram jambonu işlemek için kullanılan enerji",
-        "de": "Energie zur Verarbeitung eines Kilogramms Schinken"
+        "de": "Energie zur Verarbeitung eines Kilogramms Schinken",
+        "fr": "Énergie utilisée pour transformer un kilogramme de jambon",
+        "es": "Energía utilizada para procesar un kilogramo de jamón"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Yield Percentage",
         "tr": "Verim Yüzdesi",
         "de": "Ausbeuteprozentsatz",
-        "fr": "Yield Percentage",
-        "es": "Yield Percentage",
+        "fr": "Pourcentage de rendement",
+        "es": "Porcentaje de rendimiento",
         "ar": "Yield Percentage"
       },
       "businessContext_i18n": {
         "en": "Percentage of usable ham after processing",
         "tr": "İşlem sonrası kullanılabilir jambon yüzdesi",
-        "de": "Prozentsatz des verwertbaren Schinkens nach der Verarbeitung"
+        "de": "Prozentsatz des verwertbaren Schinkens nach der Verarbeitung",
+        "fr": "Pourcentage de jambon utilisable après transformation",
+        "es": "Porcentaje de jamón utilizable después del procesamiento"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Packaging Cost per kg",
         "tr": "kg başına Paketleme Maliyeti",
         "de": "Verpackungskosten pro kg",
-        "fr": "Packaging Cost per kg",
-        "es": "Packaging Cost per kg",
+        "fr": "Coût d'emballage par kg",
+        "es": "Costo de empaque por kg",
         "ar": "Packaging Cost per kg"
       },
       "businessContext_i18n": {
         "en": "Cost of packaging per kilogram of finished ham",
         "tr": "Bitmiş jambonun kilogramı başına paketleme maliyeti",
-        "de": "Verpackungskosten pro Kilogramm fertigen Schinken"
+        "de": "Verpackungskosten pro Kilogramm fertigen Schinken",
+        "fr": "Coût d'emballage par kilogramme de jambon fini",
+        "es": "Costo de empaque por kilogramo de jamón terminado"
       }
     },
     {
@@ -159,14 +173,16 @@
         "en": "Overhead Percentage",
         "tr": "Genel Gider Yüzdesi",
         "de": "Gemeinkostenprozentsatz",
-        "fr": "Overhead Percentage",
-        "es": "Overhead Percentage",
+        "fr": "Pourcentage de frais généraux",
+        "es": "Porcentaje de gastos generales",
         "ar": "Overhead Percentage"
       },
       "businessContext_i18n": {
         "en": "Overhead costs as a percentage of direct costs",
         "tr": "Doğrudan maliyetlerin yüzdesi olarak genel gider maliyetleri",
-        "de": "Gemeinkosten als Prozentsatz der direkten Kosten"
+        "de": "Gemeinkosten als Prozentsatz der direkten Kosten",
+        "fr": "Frais généraux en pourcentage des coûts directs",
+        "es": "Costos indirectos como porcentaje de los costos directos"
       }
     }
   ],

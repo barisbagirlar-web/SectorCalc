@@ -12,13 +12,15 @@
         "en": "Spring Constant (k)",
         "tr": "Yay Sabiti (k)",
         "de": "Federkonstante (k)",
-        "fr": "Spring Constant (k)",
-        "es": "Spring Constant (k)",
+        "fr": "Constante de raideur (k)",
+        "es": "Constante del resorte (k)",
         "ar": "Spring Constant (k)"
       },
       "businessContext_i18n": {
         "en": "Stiffness of the spring in Newtons per meter.",
-        "tr": "Yayın metre başına Newton cinsinden sertliği."
+        "tr": "Yayın metre başına Newton cinsinden sertliği.",
+        "de": "Steifigkeit der Feder in Newton pro Meter.",
+        "fr": "Raideur du ressort en Newtons par mètre."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Mass (m)",
         "tr": "Kütle (m)",
         "de": "Masse (m)",
-        "fr": "Mass (m)",
-        "es": "Mass (m)",
+        "fr": "Masse (m)",
+        "es": "Masa (m)",
         "ar": "Mass (m)"
       },
       "businessContext_i18n": {
         "en": "Mass attached to the spring in kilograms.",
-        "tr": "Kütle (m)"
+        "tr": "Kütle (m)",
+        "de": "An der Feder befestigte Masse in Kilogramm.",
+        "fr": "Masse attachée au ressort en kilogrammes."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Initial Displacement (x0)",
         "tr": "Yaya bağlı kütle kilogram cinsinden.",
-        "de": "Initial Displacement (x0)",
-        "fr": "Initial Displacement (x0)",
+        "de": "Anfangsauslenkung (x0)",
+        "fr": "Déplacement initial (x0)",
         "es": "Initial Displacement (x0)",
         "ar": "Initial Displacement (x0)"
       },
       "businessContext_i18n": {
         "en": "Initial displacement from equilibrium position in meters.",
-        "tr": "Başlangıç Yer Değiştirmesi (x0)"
+        "tr": "Başlangıç Yer Değiştirmesi (x0)",
+        "de": "Anfangsauslenkung aus der Gleichgewichtslage in Metern.",
+        "fr": "Déplacement initial par rapport à la position d'équilibre en mètres."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Initial Velocity (v0)",
         "tr": "Denge konumundan metre cinsinden başlangıç yer değiştirmesi.",
-        "de": "Initial Velocity (v0)",
-        "fr": "Initial Velocity (v0)",
+        "de": "Anfangsgeschwindigkeit (v0)",
+        "fr": "Vitesse initiale (v0)",
         "es": "Initial Velocity (v0)",
         "ar": "Initial Velocity (v0)"
       },
       "businessContext_i18n": {
         "en": "Initial velocity in meters per second.",
-        "tr": "Başlangıç Hızı (v0)"
+        "tr": "Başlangıç Hızı (v0)",
+        "de": "Anfangsgeschwindigkeit in Metern pro Sekunde.",
+        "fr": "Vitesse initiale en mètres par seconde."
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "EBIT (Faiz ve Vergi Öncesi Kar)",
         "tr": "EBIT (Faiz ve Vergi Öncesi Kar)",
-        "de": "EBIT (Faiz ve Vergi Öncesi Kar)",
-        "fr": "EBIT (Faiz ve Vergi Öncesi Kar)",
+        "de": "EBIT (Ergebnis vor Zinsen und Steuern)",
+        "fr": "EBIT (Bénéfice avant intérêts et impôts)",
         "es": "EBIT (Faiz ve Vergi Öncesi Kar)",
         "ar": "EBIT (Faiz ve Vergi Öncesi Kar)"
       },
       "businessContext_i18n": {
         "en": "Faiz ve vergi öncesi net faaliyet karıdır.",
-        "tr": "Faiz ve vergi öncesi net faaliyet karıdır."
+        "tr": "Faiz ve vergi öncesi net faaliyet karıdır.",
+        "de": "Nettoergebnis aus der Betriebstätigkeit vor Zinsen und Steuern.",
+        "fr": "Bénéfice net d'exploitation avant intérêts et impôts."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Vergi Oranı",
         "tr": "Vergi Oranı",
         "de": "Steuersatz",
-        "fr": "Vergi Oranı",
-        "es": "Vergi Oranı",
+        "fr": "Taux d'imposition",
+        "es": "Tasa impositiva",
         "ar": "Vergi Oranı"
       },
       "businessContext_i18n": {
         "en": "Kurumlar vergisi oranıdır.",
-        "tr": "Kurumlar vergisi oranıdır."
+        "tr": "Kurumlar vergisi oranıdır.",
+        "de": "Körperschaftsteuersatz.",
+        "fr": "Taux d'impôt sur les sociétés."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Toplam Borç",
         "tr": "Toplam Borç",
         "de": "Gesamtschulden",
-        "fr": "Toplam Borç",
-        "es": "Toplam Borç",
+        "fr": "Dette totale",
+        "es": "Deuda Total",
         "ar": "Toplam Borç"
       },
       "businessContext_i18n": {
         "en": "Şirketin toplam kısa ve uzun vadeli borçları.",
-        "tr": "Şirketin toplam kısa ve uzun vadeli borçları."
+        "tr": "Şirketin toplam kısa ve uzun vadeli borçları.",
+        "de": "Gesamte kurzfristige und langfristige Verbindlichkeiten des Unternehmens.",
+        "fr": "Dettes totales à court et long terme de l'entreprise."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Toplam Öz Sermaye",
         "tr": "Toplam Öz Sermaye",
-        "de": "Toplam Öz Sermaye",
-        "fr": "Toplam Öz Sermaye",
+        "de": "Gesamtes Eigenkapital",
+        "fr": "Capitaux propres totaux",
         "es": "Toplam Öz Sermaye",
         "ar": "Toplam Öz Sermaye"
       },
       "businessContext_i18n": {
         "en": "Şirketin hissedarlara ait öz sermayesi.",
-        "tr": "Şirketin hissedarlara ait öz sermayesi."
+        "tr": "Şirketin hissedarlara ait öz sermayesi.",
+        "de": "Eigenkapital der Aktionäre.",
+        "fr": "Capitaux propres appartenant aux actionnaires de l'entreprise."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Nakit ve Nakit Benzerleri",
         "tr": "Nakit ve Nakit Benzerleri",
-        "de": "Nakit ve Nakit Benzerleri",
-        "fr": "Nakit ve Nakit Benzerleri",
-        "es": "Nakit ve Nakit Benzerleri",
+        "de": "Zahlungsmittel und Zahlungsmitteläquivalente",
+        "fr": "Trésorerie et équivalents de trésorerie",
+        "es": "Efectivo y equivalentes de efectivo",
         "ar": "Nakit ve Nakit Benzerleri"
       },
       "businessContext_i18n": {
         "en": "Kasadaki nakit ve likit varlıklar.",
-        "tr": "Kasadaki nakit ve likit varlıklar."
+        "tr": "Kasadaki nakit ve likit varlıklar.",
+        "de": "Bargeld und liquide Mittel in der Kasse.",
+        "fr": "Trésorerie et actifs liquides en caisse."
       }
     }
   ],

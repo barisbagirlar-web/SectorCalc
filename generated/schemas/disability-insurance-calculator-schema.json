@@ -12,14 +12,16 @@
         "en": "Annual Income",
         "tr": "Yıllık Gelir",
         "de": "Jahreseinkommen",
-        "fr": "Annual Income",
-        "es": "Annual Income",
+        "fr": "Revenu annuel",
+        "es": "Ingreso anual",
         "ar": "Annual Income"
       },
       "businessContext_i18n": {
         "en": "Gross annual income before disability",
         "tr": "Engellilik öncesi brüt yıllık gelir",
-        "de": "Bruttojahreseinkommen vor Invalidität"
+        "de": "Bruttojahreseinkommen vor Invalidität",
+        "fr": "Revenu annuel brut avant invalidité",
+        "es": "Ingreso bruto anual antes de discapacidad"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Income Replacement Ratio",
         "tr": "Gelir Değiştirme Oranı",
         "de": "Einkommensersatzquote",
-        "fr": "Income Replacement Ratio",
-        "es": "Income Replacement Ratio",
+        "fr": "Taux de remplacement du revenu",
+        "es": "Tasa de reemplazo de ingresos",
         "ar": "Income Replacement Ratio"
       },
       "businessContext_i18n": {
         "en": "Percentage of income replaced by disability insurance",
         "tr": "Engellilik sigortası tarafından değiştirilen gelir yüzdesi",
-        "de": "Prozentsatz des Einkommens, der durch die Invaliditätsversicherung ersetzt wird"
+        "de": "Prozentsatz des Einkommens, der durch die Invaliditätsversicherung ersetzt wird",
+        "fr": "Pourcentage du revenu remplacé par l'assurance invalidité",
+        "es": "Porcentaje del ingreso reemplazado por el seguro de discapacidad"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Benefit Period",
         "tr": "Fayda Süresi",
         "de": "Leistungsdauer",
-        "fr": "Benefit Period",
-        "es": "Benefit Period",
+        "fr": "Période de prestations",
+        "es": "Período de beneficio",
         "ar": "Benefit Period"
       },
       "businessContext_i18n": {
         "en": "Duration of disability benefit payments",
         "tr": "Engellilik ödeme süresinin uzunluğu",
-        "de": "Dauer der Invaliditätsleistungen"
+        "de": "Dauer der Invaliditätsleistungen",
+        "fr": "Durée des versements de prestations d'invalidité",
+        "es": "Duración de los pagos de beneficio por discapacidad"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Waiting Period",
         "tr": "Bekleme Süresi",
         "de": "Wartezeit",
-        "fr": "Waiting Period",
-        "es": "Waiting Period",
+        "fr": "Période d'attente",
+        "es": "Período de espera",
         "ar": "Waiting Period"
       },
       "businessContext_i18n": {
         "en": "Time after disability before benefits start",
         "tr": "Engellilikten sonra faydaların başlamasından önceki süre",
-        "de": "Zeit nach Eintritt der Invalidität bis zum Beginn der Leistungen"
+        "de": "Zeit nach Eintritt der Invalidität bis zum Beginn der Leistungen",
+        "fr": "Délai après l'invalidité avant le début des prestations",
+        "es": "Tiempo después de la discapacidad antes de que comiencen los beneficios"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Annual Discount Rate",
         "tr": "Yıllık İskonto Oranı",
         "de": "Jährlicher Diskontsatz",
-        "fr": "Annual Discount Rate",
-        "es": "Annual Discount Rate",
+        "fr": "Taux d'actualisation annuel",
+        "es": "Tasa de descuento anual",
         "ar": "Annual Discount Rate"
       },
       "businessContext_i18n": {
         "en": "Rate used to calculate present value",
         "tr": "Bugünkü değeri hesaplamak için kullanılan oran",
-        "de": "Zinssatz zur Berechnung des Barwerts"
+        "de": "Zinssatz zur Berechnung des Barwerts",
+        "fr": "Taux utilisé pour calculer la valeur actuelle",
+        "es": "Tasa utilizada para calcular el valor presente"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Annual Inflation Rate",
         "tr": "Yıllık Enflasyon Oranı",
         "de": "Jährliche Inflationsrate",
-        "fr": "Annual Inflation Rate",
-        "es": "Annual Inflation Rate",
+        "fr": "Taux d'inflation annuel",
+        "es": "Tasa de inflación anual",
         "ar": "Annual Inflation Rate"
       },
       "businessContext_i18n": {
         "en": "Expected inflation rate for benefit escalation (optional)",
         "tr": "Fayda artışı için beklenen enflasyon oranı (isteğe bağlı)",
-        "de": "Erwartete Inflationsrate für Leistungssteigerung (optional)"
+        "de": "Erwartete Inflationsrate für Leistungssteigerung (optional)",
+        "fr": "Taux d'inflation attendu pour l'indexation des prestations (optionnel)",
+        "es": "Tasa de inflación esperada para la escalada de beneficios (opcional)"
       }
     }
   ],

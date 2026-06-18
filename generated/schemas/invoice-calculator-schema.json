@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Subtotal",
         "tr": "Ara Toplam",
-        "de": "Subtotal",
-        "fr": "Subtotal",
+        "de": "Zwischensumme",
+        "fr": "Sous-total",
         "es": "Subtotal",
         "ar": "Subtotal"
       },
       "businessContext_i18n": {
         "en": "The total amount of all items before any deductions or additions.",
-        "tr": "Herhangi bir kesinti veya eklemeden önceki tüm kalemlerin toplam tutarı."
+        "tr": "Herhangi bir kesinti veya eklemeden önceki tüm kalemlerin toplam tutarı.",
+        "de": "Der Gesamtbetrag aller Posten vor Abzügen oder Zuschlägen.",
+        "fr": "Montant total de tous les articles avant déductions ou ajouts.",
+        "es": "El monto total de todos los artículos antes de cualquier deducción o adición."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Discount Percentage",
         "tr": "İndirim Yüzdesi",
         "de": "Rabattprozentsatz",
-        "fr": "Discount Percentage",
-        "es": "Discount Percentage",
+        "fr": "Pourcentage de réduction",
+        "es": "Porcentaje de descuento",
         "ar": "Discount Percentage"
       },
       "businessContext_i18n": {
         "en": "Discount rate applied to the subtotal.",
-        "tr": "Ara toplama uygulanan iskonto oranı."
+        "tr": "Ara toplama uygulanan iskonto oranı.",
+        "de": "Rabattsatz auf die Zwischensumme.",
+        "fr": "Taux de remise appliqué au sous-total.",
+        "es": "Tasa de descuento aplicada al subtotal."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
         "de": "Steuersatz",
-        "fr": "Tax Rate",
-        "es": "Tax Rate",
+        "fr": "Taux de taxe",
+        "es": "Tasa de impuesto",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Tax rate applied after discount, e.g., VAT.",
-        "tr": "İskonto sonrası uygulanan vergi oranı, örn. KDV."
+        "tr": "İskonto sonrası uygulanan vergi oranı, örn. KDV.",
+        "de": "Steuersatz nach Rabatt, z. B. Mehrwertsteuer.",
+        "fr": "Taux de taxe appliqué après remise, ex. : TVA.",
+        "es": "Tasa impositiva aplicada después del descuento, ej. IVA."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Shipping Cost",
         "tr": "Kargo Ücreti",
         "de": "Versandkosten",
-        "fr": "Shipping Cost",
-        "es": "Shipping Cost",
+        "fr": "Frais d'expédition",
+        "es": "Coste de envío",
         "ar": "Shipping Cost"
       },
       "businessContext_i18n": {
         "en": "Flat shipping charge added to the invoice.",
-        "tr": "Faturaya eklenen sabit kargo ücreti."
+        "tr": "Faturaya eklenen sabit kargo ücreti.",
+        "de": "Pauschale Versandgebühr, die der Rechnung hinzugefügt wird.",
+        "fr": "Frais d'expédition forfaitaires ajoutés à la facture.",
+        "es": "Cargo de envío fijo añadido a la factura."
       }
     }
   ],

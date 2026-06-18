@@ -23,12 +23,16 @@
       "label_i18n": {
         "en": "Principal Amount",
         "tr": "Anapara Tutarı",
-        "de": "Kapitalbetrag"
+        "de": "Kapitalbetrag",
+        "fr": "Montant principal",
+        "es": "Monto principal"
       },
       "businessContext_i18n": {
         "en": "Initial investment or loan amount in base currency.",
         "tr": "Başlangıç yatırımı veya kredi tutarı (temel para birimi cinsinden).",
-        "de": "Anfangsinvestition oder Darlehensbetrag in Basiswährung."
+        "de": "Anfangsinvestition oder Darlehensbetrag in Basiswährung.",
+        "fr": "Investissement initial ou montant du prêt dans la devise de base.",
+        "es": "Inversión inicial o monto del préstamo en moneda base."
       }
     },
     {
@@ -43,12 +47,16 @@
       "label_i18n": {
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
-        "de": "Jährlicher Zinssatz"
+        "de": "Jährlicher Zinssatz",
+        "fr": "Taux d'intérêt annuel",
+        "es": "Tasa de Interés Anual"
       },
       "businessContext_i18n": {
         "en": "Nominal annual interest rate as a percentage.",
         "tr": "Nominal yıllık faiz oranı (yüzde olarak).",
-        "de": "Nominaler jährlicher Zinssatz in Prozent."
+        "de": "Nominaler jährlicher Zinssatz in Prozent.",
+        "fr": "Taux d'intérêt nominal annuel en pourcentage.",
+        "es": "Tasa de interés nominal anual como porcentaje."
       }
     },
     {
@@ -71,12 +79,16 @@
       "label_i18n": {
         "en": "Compounding Frequency",
         "tr": "Bileşik Sıklığı",
-        "de": "Zinseszinshäufigkeit"
+        "de": "Zinseszinshäufigkeit",
+        "fr": "Fréquence de capitalisation",
+        "es": "Frecuencia de capitalización"
       },
       "businessContext_i18n": {
         "en": "Number of compounding periods per year (e.g., 1=annual, 12=monthly, 365=daily).",
         "tr": "Yıllık bileşik dönem sayısı (örneğin, 1=yıllık, 12=aylık, 365=günlük).",
-        "de": "Anzahl der Zinsperioden pro Jahr (z. B. 1=jährlich, 12=monatlich, 365=täglich)."
+        "de": "Anzahl der Zinsperioden pro Jahr (z. B. 1=jährlich, 12=monatlich, 365=täglich).",
+        "fr": "Nombre de périodes de capitalisation par an (ex. : 1=annuel, 12=mensuel, 365=quotidien).",
+        "es": "Número de períodos de capitalización por año (ej., 1=anual, 12=mensual, 365=diario)."
       }
     },
     {
@@ -91,12 +103,16 @@
       "label_i18n": {
         "en": "Time Period",
         "tr": "Zaman Periyodu",
-        "de": "Zeitraum"
+        "de": "Zeitraum",
+        "fr": "Période",
+        "es": "Período de tiempo"
       },
       "businessContext_i18n": {
         "en": "Total duration of investment or loan in years.",
         "tr": "Yatırım veya kredinin toplam süresi (yıl olarak).",
-        "de": "Gesamtdauer der Anlage oder des Darlehens in Jahren."
+        "de": "Gesamtdauer der Anlage oder des Darlehens in Jahren.",
+        "fr": "Durée totale de l'investissement ou du prêt en années.",
+        "es": "Duración total de la inversión o préstamo en años."
       }
     },
     {
@@ -111,12 +127,16 @@
       "label_i18n": {
         "en": "Additional Contribution per Period",
         "tr": "Dönem Başına Ek Katkı",
-        "de": "Zusätzlicher Beitrag pro Periode"
+        "de": "Zusätzlicher Beitrag pro Periode",
+        "fr": "Apport supplémentaire par période",
+        "es": "Contribución adicional por período"
       },
       "businessContext_i18n": {
         "en": "Fixed amount added at the end of each compounding period.",
         "tr": "Her bileşik döneminin sonunda eklenen sabit tutar.",
-        "de": "Fester Betrag, der am Ende jeder Zinsperiode hinzugefügt wird."
+        "de": "Fester Betrag, der am Ende jeder Zinsperiode hinzugefügt wird.",
+        "fr": "Montant fixe ajouté à la fin de chaque période de capitalisation.",
+        "es": "Cantidad fija añadida al final de cada período de capitalización."
       }
     },
     {
@@ -131,12 +151,16 @@
       "label_i18n": {
         "en": "Inflation Rate",
         "tr": "Enflasyon Oranı",
-        "de": "Inflationsrate"
+        "de": "Inflationsrate",
+        "fr": "Taux d'inflation",
+        "es": "Tasa de inflación"
       },
       "businessContext_i18n": {
         "en": "Expected annual inflation rate for real value adjustment.",
         "tr": "Reel değer ayarlaması için beklenen yıllık enflasyon oranı.",
-        "de": "Erwartete jährliche Inflationsrate für die reale Wertanpassung."
+        "de": "Erwartete jährliche Inflationsrate für die reale Wertanpassung.",
+        "fr": "Taux d'inflation annuel attendu pour l'ajustement de la valeur réelle.",
+        "es": "Tasa de inflación anual esperada para el ajuste del valor real."
       }
     },
     {
@@ -151,12 +175,16 @@
       "label_i18n": {
         "en": "Tax Rate on Interest",
         "tr": "Faiz Üzerindeki Vergi Oranı",
-        "de": "Steuersatz auf Zinsen"
+        "de": "Steuersatz auf Zinsen",
+        "fr": "Taux d'imposition des intérêts",
+        "es": "Tasa impositiva sobre intereses"
       },
       "businessContext_i18n": {
         "en": "Percentage of interest earnings taxed annually.",
         "tr": "Yıllık olarak vergilendirilen faiz kazancının yüzdesi.",
-        "de": "Prozentsatz der Zinserträge, der jährlich besteuert wird."
+        "de": "Prozentsatz der Zinserträge, der jährlich besteuert wird.",
+        "fr": "Pourcentage des gains d'intérêts imposé annuellement.",
+        "es": "Porcentaje de ganancias por intereses gravado anualmente."
       }
     }
   ],

@@ -12,13 +12,15 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Worker's age in years",
-        "tr": "İşçinin yıl cinsinden yaşı"
+        "tr": "İşçinin yıl cinsinden yaşı",
+        "de": "Alter des Arbeiters in Jahren",
+        "fr": "Âge du travailleur en années"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Shift Type",
         "tr": "Vardiya Türü",
         "de": "Schichttyp",
-        "fr": "Shift Type",
-        "es": "Shift Type",
+        "fr": "Type de quart",
+        "es": "Tipo de turno",
         "ar": "Shift Type"
       },
       "businessContext_i18n": {
         "en": "Type of shift assignment",
-        "tr": "Vardiya atama türü"
+        "tr": "Vardiya atama türü",
+        "de": "Art der Schichtzuweisung",
+        "fr": "Type d'affectation de quart"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Sleep Quality",
         "tr": "Uyku Kalitesi",
-        "de": "Sleep Quality",
-        "fr": "Sleep Quality",
+        "de": "Schlafqualität",
+        "fr": "Qualité du sommeil",
         "es": "Sleep Quality",
         "ar": "Sleep Quality"
       },
       "businessContext_i18n": {
         "en": "Self-assessed sleep quality rating",
-        "tr": "Kendi değerlendirilen uyku kalitesi puanı"
+        "tr": "Kendi değerlendirilen uyku kalitesi puanı",
+        "de": "Selbstbewertete Schlafqualität",
+        "fr": "Évaluation de la qualité du sommeil auto-déclarée"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Desired Wake-up Time",
         "tr": "İstenen Uyanma Saati",
-        "de": "Desired Wake-up Time",
-        "fr": "Desired Wake-up Time",
+        "de": "Gewünschte Aufwachzeit",
+        "fr": "Heure de réveil souhaitée",
         "es": "Desired Wake-up Time",
         "ar": "Desired Wake-up Time"
       },
       "businessContext_i18n": {
         "en": "Desired wake-up time in minutes past midnight",
-        "tr": "Gece yarısından sonra dakika cinsinden istenen uyanma saati"
+        "tr": "Gece yarısından sonra dakika cinsinden istenen uyanma saati",
+        "de": "Gewünschte Aufwachzeit in Minuten nach Mitternacht",
+        "fr": "Heure de réveil souhaitée en minutes après minuit"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Sleep Latency",
         "tr": "Uykuya Dalma Süresi",
-        "de": "Sleep Latency",
-        "fr": "Sleep Latency",
+        "de": "Einschlafzeit",
+        "fr": "Latence d'endormissement",
         "es": "Sleep Latency",
         "ar": "Sleep Latency"
       },
       "businessContext_i18n": {
         "en": "Average time to fall asleep",
-        "tr": "Uykuya dalmak için ortalama süre"
+        "tr": "Uykuya dalmak için ortalama süre",
+        "de": "Durchschnittliche Zeit zum Einschlafen",
+        "fr": "Temps moyen pour s'endormir"
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Physical Activity",
         "tr": "Fiziksel Aktivite",
         "de": "Körperliche Aktivität",
-        "fr": "Physical Activity",
-        "es": "Physical Activity",
+        "fr": "Activité physique",
+        "es": "Actividad física",
         "ar": "Physical Activity"
       },
       "businessContext_i18n": {
         "en": "Weekly physical activity hours",
-        "tr": "Haftalık fiziksel aktivite saati"
+        "tr": "Haftalık fiziksel aktivite saati",
+        "de": "Wöchentliche Stunden körperlicher Aktivität",
+        "fr": "Heures d'activité physique hebdomadaires"
       }
     }
   ],

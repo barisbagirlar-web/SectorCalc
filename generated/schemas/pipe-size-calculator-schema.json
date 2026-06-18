@@ -12,13 +12,16 @@
         "en": "Flow Rate",
         "tr": "Debi",
         "de": "Durchflussrate",
-        "fr": "Flow Rate",
-        "es": "Flow Rate",
+        "fr": "Débit",
+        "es": "Caudal",
         "ar": "Flow Rate"
       },
       "businessContext_i18n": {
         "en": "Volumetric flow rate of the fluid",
-        "tr": "Akışkanın hacimsel debisi"
+        "tr": "Akışkanın hacimsel debisi",
+        "de": "Volumenstrom des Fluids",
+        "fr": "Débit volumétrique du fluide",
+        "es": "Caudal volumétrico del fluido"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Design Velocity",
         "tr": "Tasarım Hızı",
-        "de": "Design Velocity",
-        "fr": "Design Velocity",
-        "es": "Design Velocity",
+        "de": "Auslegungsgeschwindigkeit",
+        "fr": "Vitesse de conception",
+        "es": "Velocidad de diseño",
         "ar": "Design Velocity"
       },
       "businessContext_i18n": {
         "en": "Allowable fluid velocity based on service and material",
-        "tr": "Servis ve malzemeye bağlı olarak izin verilen akışkan hızı"
+        "tr": "Servis ve malzemeye bağlı olarak izin verilen akışkan hızı",
+        "de": "Zulässige Strömungsgeschwindigkeit basierend auf Betrieb und Material",
+        "fr": "Vitesse de fluide admissible selon le service et le matériau",
+        "es": "Velocidad de fluido admisible según servicio y material"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Operating Pressure",
         "tr": "Çalışma basıncı",
         "de": "Betriebsdruck",
-        "fr": "Operating Pressure",
-        "es": "Operating Pressure",
+        "fr": "Pression de service",
+        "es": "Presión de operación",
         "ar": "Operating Pressure"
       },
       "businessContext_i18n": {
         "en": "Internal design pressure of the pipe",
-        "tr": "Boru iç tasarım basıncı"
+        "tr": "Boru iç tasarım basıncı",
+        "de": "Innendruck des Rohres",
+        "fr": "Pression interne de conception du tuyau",
+        "es": "Presión interna de diseño de la tubería"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Allowable Stress",
         "tr": "İzin Verilen Gerilme",
-        "de": "Allowable Stress",
-        "fr": "Allowable Stress",
-        "es": "Allowable Stress",
+        "de": "Zulässige Spannung",
+        "fr": "Contrainte admissible",
+        "es": "Esfuerzo admisible",
         "ar": "Allowable Stress"
       },
       "businessContext_i18n": {
         "en": "Allowable stress of the pipe material at design temperature",
-        "tr": "Boru malzemesinin tasarım sıcaklığındaki izin verilen gerilmesi"
+        "tr": "Boru malzemesinin tasarım sıcaklığındaki izin verilen gerilmesi",
+        "de": "Zulässige Spannung des Rohrmaterials bei Auslegungstemperatur",
+        "fr": "Contrainte admissible du matériau du tuyau à la température de conception",
+        "es": "Esfuerzo admisible del material de la tubería a la temperatura de diseño"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Joint Efficiency",
         "tr": "Birleştirme Verimi",
-        "de": "Joint Efficiency",
-        "fr": "Joint Efficiency",
-        "es": "Joint Efficiency",
+        "de": "Verbindungswirkungsgrad",
+        "fr": "Efficacité du joint",
+        "es": "Eficiencia de junta",
         "ar": "Joint Efficiency"
       },
       "businessContext_i18n": {
         "en": "Longitudinal joint efficiency factor (0-1)",
-        "tr": "Boyuna birleştirme verim faktörü (0-1)"
+        "tr": "Boyuna birleştirme verim faktörü (0-1)",
+        "de": "Längsnahtwirkungsgrad (0-1)",
+        "fr": "Facteur d'efficacité du joint longitudinal (0-1)",
+        "es": "Factor de eficiencia de junta longitudinal (0-1)"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Corrosion Allowance",
         "tr": "Korozyon Payı",
-        "de": "Corrosion Allowance",
-        "fr": "Corrosion Allowance",
-        "es": "Corrosion Allowance",
+        "de": "Korrosionszugabe",
+        "fr": "Surépaisseur de corrosion",
+        "es": "Margen de corrosión",
         "ar": "Corrosion Allowance"
       },
       "businessContext_i18n": {
         "en": "Additional thickness to compensate for material loss due to corrosion",
-        "tr": "Korozyon nedeniyle malzeme kaybını telafi etmek için ek kalınlık"
+        "tr": "Korozyon nedeniyle malzeme kaybını telafi etmek için ek kalınlık",
+        "de": "Zusätzliche Dicke zum Ausgleich von Materialverlust durch Korrosion",
+        "fr": "Épaisseur supplémentaire pour compenser la perte de matériau due à la corrosion",
+        "es": "Espesor adicional para compensar la pérdida de material por corrosión"
       }
     }
   ],

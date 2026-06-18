@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Speed (m/s)",
         "tr": "Hız (m/s)",
-        "de": "Speed (m/s)",
-        "fr": "Speed (m/s)",
-        "es": "Speed (m/s)",
+        "de": "Geschwindigkeit (m/s)",
+        "fr": "Vitesse (m/s)",
+        "es": "Velocidad (m/s)",
         "ar": "Speed (m/s)"
       },
       "businessContext_i18n": {
         "en": "Speed value in meters per second to be converted to kilometers per hour.",
-        "tr": "Metre/saniye cinsinden hız değeri, kilometre/saat'e dönüştürülecek."
+        "tr": "Metre/saniye cinsinden hız değeri, kilometre/saat'e dönüştürülecek.",
+        "de": "Geschwindigkeitswert in Metern pro Sekunde, umgerechnet in Kilometer pro Stunde.",
+        "fr": "Valeur de vitesse en mètres par seconde à convertir en kilomètres par heure.",
+        "es": "Valor de velocidad en metros por segundo a convertir a kilómetros por hora."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Fixed conversion factor from m/s to km/h (1 m/s = 3.6 km/h). Default 3.6.",
-        "tr": "m/s'den km/h'ye sabit dönüşüm faktörü (1 m/s = 3.6 km/h). Varsayılan 3.6."
+        "tr": "m/s'den km/h'ye sabit dönüşüm faktörü (1 m/s = 3.6 km/h). Varsayılan 3.6.",
+        "de": "Fester Umrechnungsfaktor von m/s in km/h (1 m/s = 3,6 km/h). Standard 3,6.",
+        "fr": "Facteur de conversion fixe de m/s en km/h (1 m/s = 3,6 km/h). Par défaut 3,6.",
+        "es": "Factor de conversión fijo de m/s a km/h (1 m/s = 3.6 km/h). Por defecto 3.6."
       }
     },
     {
@@ -52,14 +58,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the output.",
         "tr": "Çıktının yuvarlanması için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen für die Rundung des Ergebnisses."
+        "de": "Anzahl der Dezimalstellen für die Rundung des Ergebnisses.",
+        "fr": "Nombre de décimales pour l'arrondi du résultat.",
+        "es": "Número de decimales para redondear el resultado."
       }
     },
     {
@@ -73,13 +81,16 @@
         "en": "Rounding Method",
         "tr": "Yuvarlama yöntemi",
         "de": "Rundungsmethode",
-        "fr": "Rounding Method",
-        "es": "Rounding Method",
+        "fr": "Méthode d'arrondi",
+        "es": "Método de redondeo",
         "ar": "Rounding Method"
       },
       "businessContext_i18n": {
         "en": "0 = normal rounding, 1 = floor, 2 = ceil. Determines how the output is rounded.",
-        "tr": "0 = normal yuvarlama, 1 = taban, 2 = tavan. Çıktının nasıl yuvarlanacağını belirler."
+        "tr": "0 = normal yuvarlama, 1 = taban, 2 = tavan. Çıktının nasıl yuvarlanacağını belirler.",
+        "de": "0 = normale Rundung, 1 = Abrunden, 2 = Aufrunden. Bestimmt, wie die Ausgabe gerundet wird.",
+        "fr": "0 = arrondi normal, 1 = plancher, 2 = plafond. Détermine comment la sortie est arrondie.",
+        "es": "0 = redondeo normal, 1 = suelo, 2 = techo. Determina cómo se redondea la salida."
       }
     },
     {
@@ -92,14 +103,17 @@
       "label_i18n": {
         "en": "Expected Output (Optional)",
         "tr": "Beklenen Çıktı (İsteğe Bağlı)",
-        "de": "Expected Output (Optional)",
-        "fr": "Expected Output (Optional)",
-        "es": "Expected Output (Optional)",
+        "de": "Erwartete Ausgabe (optional)",
+        "fr": "Sortie attendue (optionnel)",
+        "es": "Salida esperada (opcional)",
         "ar": "Expected Output (Optional)"
       },
       "businessContext_i18n": {
         "en": "Optional manual validation value to compare with computed output.",
-        "tr": "Hesaplanan çıktı ile karşılaştırmak için isteğe bağlı manuel doğrulama değeri."
+        "tr": "Hesaplanan çıktı ile karşılaştırmak için isteğe bağlı manuel doğrulama değeri.",
+        "de": "Optionaler manueller Validierungswert zum Vergleich mit der berechneten Ausgabe.",
+        "fr": "Valeur de validation manuelle optionnelle pour comparer avec la sortie calculée.",
+        "es": "Valor de validación manual opcional para comparar con la salida calculada."
       }
     }
   ],

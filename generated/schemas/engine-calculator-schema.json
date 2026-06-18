@@ -12,14 +12,16 @@
         "en": "Engine Speed",
         "tr": "Motor Devri",
         "de": "Motordrehzahl",
-        "fr": "Engine Speed",
-        "es": "Engine Speed",
+        "fr": "Régime moteur",
+        "es": "Velocidad del motor",
         "ar": "Engine Speed"
       },
       "businessContext_i18n": {
         "en": "Motor devri (dakikadaki dönüş sayısı)",
         "tr": "Motor devri (dakikadaki dönüş sayısı)",
-        "de": "Motordrehzahl (Umdrehungen pro Minute)"
+        "de": "Motordrehzahl (Umdrehungen pro Minute)",
+        "fr": "Régime moteur (tours par minute)",
+        "es": "Régimen del motor (revoluciones por minuto)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Torque",
         "tr": "Tork",
         "de": "Drehmoment",
-        "fr": "Torque",
-        "es": "Torque",
+        "fr": "Couple",
+        "es": "Par",
         "ar": "Torque"
       },
       "businessContext_i18n": {
         "en": "Motor torku",
         "tr": "Motor Torku",
-        "de": "Motordrehmoment"
+        "de": "Motordrehmoment",
+        "fr": "Couple moteur",
+        "es": "Par motor"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Fuel Consumption",
         "tr": "Yakıt Tüketimi",
         "de": "Kraftstoffverbrauch",
-        "fr": "Fuel Consumption",
-        "es": "Fuel Consumption",
+        "fr": "Consommation de carburant",
+        "es": "Consumo de combustible",
         "ar": "Fuel Consumption"
       },
       "businessContext_i18n": {
         "en": "Saatlik yakıt tüketimi",
         "tr": "Saatlik Yakıt Tüketimi",
-        "de": "Stündlicher Kraftstoffverbrauch"
+        "de": "Stündlicher Kraftstoffverbrauch",
+        "fr": "Consommation horaire de carburant",
+        "es": "Consumo de combustible por hora"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Fuel Density",
         "tr": "Yakıt Yoğunluğu",
         "de": "Kraftstoffdichte",
-        "fr": "Fuel Density",
-        "es": "Fuel Density",
+        "fr": "Densité du carburant",
+        "es": "Densidad del combustible",
         "ar": "Fuel Density"
       },
       "businessContext_i18n": {
         "en": "Yakıt yoğunluğu (dizel için tipik: 0.84 kg/L)",
         "tr": "Yakıt yoğunluğu (dizel için tipik: 0.84 kg/L)",
-        "de": "Kraftstoffdichte (typisch für Diesel: 0,84 kg/L)"
+        "de": "Kraftstoffdichte (typisch für Diesel: 0,84 kg/L)",
+        "fr": "Densité du carburant (typique pour le diesel : 0,84 kg/L)",
+        "es": "Densidad del combustible (típico diésel: 0.84 kg/L)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Fuel Heating Value",
         "tr": "Yakıt Isıl Değeri",
         "de": "Heizwert des Kraftstoffs",
-        "fr": "Fuel Heating Value",
-        "es": "Fuel Heating Value",
+        "fr": "Pouvoir calorifique du carburant",
+        "es": "Poder calorífico del combustible",
         "ar": "Fuel Heating Value"
       },
       "businessContext_i18n": {
         "en": "Yakıt alt ısıl değeri (dizel için tipik: 42.5 MJ/kg)",
         "tr": "Yakıt alt ısıl değeri (dizel için tipik: 42.5 MJ/kg)",
-        "de": "Unterer Heizwert des Kraftstoffs (typisch für Diesel: 42,5 MJ/kg)"
+        "de": "Unterer Heizwert des Kraftstoffs (typisch für Diesel: 42,5 MJ/kg)",
+        "fr": "Pouvoir calorifique inférieur du carburant (typique pour le diesel : 42,5 MJ/kg)",
+        "es": "Poder calorífico inferior del combustible (típico diésel: 42.5 MJ/kg)"
       }
     }
   ],

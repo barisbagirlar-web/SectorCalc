@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Square Rods",
         "tr": "Kare Rod",
-        "de": "Square Rods",
-        "fr": "Square Rods",
+        "de": "Quadratruten",
+        "fr": "Perches carrées",
         "es": "Square Rods",
         "ar": "Square Rods"
       },
       "businessContext_i18n": {
         "en": "Area in square rods to be converted to square meters",
-        "tr": "Metrekareye dönüştürülecek kare rod cinsinden alan"
+        "tr": "Metrekareye dönüştürülecek kare rod cinsinden alan",
+        "de": "Fläche in Quadratruten, die in Quadratmeter umgerechnet werden soll",
+        "fr": "Surface en perches carrées à convertir en mètres carrés"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Standard conversion factor from square rods to square meters",
-        "tr": "Kare roddan metrekareye standart dönüşüm faktörü"
+        "tr": "Kare roddan metrekareye standart dönüşüm faktörü",
+        "de": "Standard-Umrechnungsfaktor von Quadratruten in Quadratmeter",
+        "fr": "Facteur de conversion standard des perches carrées en mètres carrés"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the final output",
-        "tr": "Nihai çıktının yuvarlanacağı ondalık basamak sayısı"
+        "tr": "Nihai çıktının yuvarlanacağı ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen zum Runden des Endergebnisses",
+        "fr": "Nombre de décimales pour arrondir le résultat final"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Area Adjustment",
         "tr": "Alan Ayarı",
-        "de": "Area Adjustment",
-        "fr": "Area Adjustment",
+        "de": "Flächenanpassung",
+        "fr": "Ajustement de surface",
         "es": "Area Adjustment",
         "ar": "Area Adjustment"
       },
       "businessContext_i18n": {
         "en": "Optional area adjustment percentage (e.g., for cut/fill factor)",
-        "tr": "İsteğe bağlı alan ayarlama yüzdesi (örneğin, kazı/dolgu faktörü için)"
+        "tr": "İsteğe bağlı alan ayarlama yüzdesi (örneğin, kazı/dolgu faktörü için)",
+        "de": "Optionaler prozentualer Flächenanpassungsfaktor (z. B. für Abtrag/Auftrag)",
+        "fr": "Pourcentage d'ajustement de surface optionnel (par exemple, facteur de déblai/remblai)"
       }
     }
   ],

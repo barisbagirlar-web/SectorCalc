@@ -12,14 +12,16 @@
         "en": "Number of Files",
         "tr": "Dosya Sayısı",
         "de": "Anzahl der Dateien",
-        "fr": "Number of Files",
-        "es": "Number of Files",
+        "fr": "Nombre de fichiers",
+        "es": "Número de archivos",
         "ar": "Number of Files"
       },
       "businessContext_i18n": {
         "en": "Total count of files to store or transfer",
         "tr": "Depolanacak veya aktarılacak toplam dosya sayısı",
-        "de": "Gesamtzahl der zu speichernden oder zu übertragenden Dateien"
+        "de": "Gesamtzahl der zu speichernden oder zu übertragenden Dateien",
+        "fr": "Nombre total de fichiers à stocker ou transférer",
+        "es": "Número total de archivos a almacenar o transferir"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Size per File",
         "tr": "Dosya Başına Boyut",
         "de": "Größe pro Datei",
-        "fr": "Size per File",
-        "es": "Size per File",
+        "fr": "Taille par fichier",
+        "es": "Tamaño por archivo",
         "ar": "Size per File"
       },
       "businessContext_i18n": {
         "en": "Average size of each file in megabytes",
         "tr": "Her bir dosyanın megabayt cinsinden ortalama boyutu",
-        "de": "Durchschnittliche Dateigröße in Megabyte"
+        "de": "Durchschnittliche Dateigröße in Megabyte",
+        "fr": "Taille moyenne de chaque fichier en mégaoctets",
+        "es": "Tamaño promedio de cada archivo en megabytes."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Redundancy Factor",
         "tr": "Yedeklilik Faktörü",
         "de": "Redundanzfaktor",
-        "fr": "Redundancy Factor",
-        "es": "Redundancy Factor",
+        "fr": "Facteur de redondance",
+        "es": "Factor de redundancia",
         "ar": "Redundancy Factor"
       },
       "businessContext_i18n": {
         "en": "Storage overhead factor for redundancy, e.g., RAID 5 = 1.2",
         "tr": "Yedeklilik için depolama ek yükü faktörü, örn. RAID 5 = 1,2",
-        "de": "Speicher-Overhead-Faktor für Redundanz, z. B. RAID 5 = 1,2"
+        "de": "Speicher-Overhead-Faktor für Redundanz, z. B. RAID 5 = 1,2",
+        "fr": "Facteur de surcharge de stockage pour la redondance, ex. RAID 5 = 1,2",
+        "es": "Factor de sobrecarga de almacenamiento por redundancia, ej., RAID 5 = 1.2"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Compression Ratio",
         "tr": "Sıkıştırma Oranı",
         "de": "Kompressionsverhältnis",
-        "fr": "Compression Ratio",
-        "es": "Compression Ratio",
+        "fr": "Taux de compression",
+        "es": "Relación de compresión",
         "ar": "Compression Ratio"
       },
       "businessContext_i18n": {
         "en": "Expected compression ratio between 0 and 1 (1 = no compression)",
         "tr": "0 ile 1 arasında beklenen sıkıştırma oranı (1 = sıkıştırma yok)",
-        "de": "Erwartetes Kompressionsverhältnis zwischen 0 und 1 (1 = keine Kompression)"
+        "de": "Erwartetes Kompressionsverhältnis zwischen 0 und 1 (1 = keine Kompression)",
+        "fr": "Taux de compression attendu entre 0 et 1 (1 = pas de compression)",
+        "es": "Relación de compresión esperada entre 0 y 1 (1 = sin compresión)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Filesystem Overhead",
         "tr": "Dosya Sistemi Ek Yükü",
         "de": "Dateisystem-Overhead",
-        "fr": "Filesystem Overhead",
-        "es": "Filesystem Overhead",
+        "fr": "Surcharge du système de fichiers",
+        "es": "Sobrecarga del sistema de archivos",
         "ar": "Filesystem Overhead"
       },
       "businessContext_i18n": {
         "en": "Filesystem metadata overhead per file in kilobytes",
         "tr": "Dosya başına kilobayt cinsinden dosya sistemi meta veri ek yükü",
-        "de": "Dateisystem-Metadaten-Overhead pro Datei in Kilobyte"
+        "de": "Dateisystem-Metadaten-Overhead pro Datei in Kilobyte",
+        "fr": "Surcharge des métadonnées du système de fichiers par fichier en kilo-octets",
+        "es": "Sobrecarga de metadatos del sistema de archivos por archivo en kilobytes"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Network Transfer Speed",
         "tr": "Ağ Aktarım Hızı",
         "de": "Netzwerkübertragungsgeschwindigkeit",
-        "fr": "Network Transfer Speed",
-        "es": "Network Transfer Speed",
+        "fr": "Vitesse de transfert réseau",
+        "es": "Velocidad de transferencia de red",
         "ar": "Network Transfer Speed"
       },
       "businessContext_i18n": {
         "en": "Network speed in megabits per second for download/upload time estimation",
         "tr": "İndirme/yükleme süresi tahmini için megabit/saniye cinsinden ağ hızı",
-        "de": "Netzwerkgeschwindigkeit in Megabit pro Sekunde für Download-/Upload-Zeitschätzung"
+        "de": "Netzwerkgeschwindigkeit in Megabit pro Sekunde für Download-/Upload-Zeitschätzung",
+        "fr": "Vitesse réseau en mégabits par seconde pour l'estimation du temps de téléchargement/téléversement",
+        "es": "Velocidad de red en megabits por segundo para estimación de tiempo de descarga/subida"
       }
     }
   ],

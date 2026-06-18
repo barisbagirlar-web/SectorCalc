@@ -22,11 +22,15 @@
       "businessContext": "Thickness of the base metal to be welded, measured in millimeters.",
       "label_i18n": {
         "en": "Material Thickness (mm)",
-        "tr": "Malzeme Kalınlığı (mm)"
+        "tr": "Malzeme Kalınlığı (mm)",
+        "de": "Materialdicke (mm)",
+        "fr": "Épaisseur du matériau (mm)"
       },
       "businessContext_i18n": {
         "en": "Thickness of the base metal to be welded, measured in millimeters.",
-        "tr": "Kaynak yapılacak ana metalin kalınlığı, milimetre cinsinden."
+        "tr": "Kaynak yapılacak ana metalin kalınlığı, milimetre cinsinden.",
+        "de": "Dicke des zu schweißenden Grundmetalls, gemessen in Millimetern.",
+        "fr": "Épaisseur du métal de base à souder, mesurée en millimètres."
       }
     },
     {
@@ -40,11 +44,15 @@
       "businessContext": "Carbon equivalent value calculated from material composition (IIW formula).",
       "label_i18n": {
         "en": "Carbon Equivalent (CE)",
-        "tr": "Karbon Eşdeğeri (CE)"
+        "tr": "Karbon Eşdeğeri (CE)",
+        "de": "Kohlenstoffäquivalent (CE)",
+        "fr": "Carbone équivalent (CE)"
       },
       "businessContext_i18n": {
         "en": "Carbon equivalent value calculated from material composition (IIW formula).",
-        "tr": "Malzeme bileşiminden hesaplanan karbon eşdeğeri değeri (IIW formülü)."
+        "tr": "Malzeme bileşiminden hesaplanan karbon eşdeğeri değeri (IIW formülü).",
+        "de": "Aus der Materialzusammensetzung berechneter Kohlenstoffäquivalentwert (IIW-Formel).",
+        "fr": "Valeur du carbone équivalent calculée à partir de la composition du matériau (formule IIW)."
       }
     },
     {
@@ -61,11 +69,15 @@
       "businessContext": "Diffusible hydrogen content of the welding consumable, per ISO 3690.",
       "label_i18n": {
         "en": "Hydrogen Level (ml/100g weld metal)",
-        "tr": "Hidrojen Seviyesi (ml/100g kaynak metali)"
+        "tr": "Hidrojen Seviyesi (ml/100g kaynak metali)",
+        "de": "Wasserstoffgehalt (ml/100g Schweißgut)",
+        "fr": "Niveau d'hydrogène (ml/100g de métal déposé)"
       },
       "businessContext_i18n": {
         "en": "Diffusible hydrogen content of the welding consumable, per ISO 3690.",
-        "tr": "Kaynak sarf malzemesinin difüze olabilir hidrojen içeriği, ISO 3690'a göre."
+        "tr": "Kaynak sarf malzemesinin difüze olabilir hidrojen içeriği, ISO 3690'a göre.",
+        "de": "Diffusibler Wasserstoffgehalt des Schweißzusatzes nach ISO 3690.",
+        "fr": "Teneur en hydrogène diffusible du produit d'apport, selon ISO 3690."
       }
     },
     {
@@ -79,11 +91,15 @@
       "businessContext": "Arc energy per unit length of weld, calculated from voltage, current, and travel speed.",
       "label_i18n": {
         "en": "Heat Input (kJ/mm)",
-        "tr": "Isı Girdisi (kJ/mm)"
+        "tr": "Isı Girdisi (kJ/mm)",
+        "de": "Wärmeeinbringung (kJ/mm)",
+        "fr": "Apport thermique (kJ/mm)"
       },
       "businessContext_i18n": {
         "en": "Arc energy per unit length of weld, calculated from voltage, current, and travel speed.",
-        "tr": "Voltaj, akım ve ilerleme hızından hesaplanan birim kaynak uzunluğu başına ark enerjisi."
+        "tr": "Voltaj, akım ve ilerleme hızından hesaplanan birim kaynak uzunluğu başına ark enerjisi.",
+        "de": "Lichtbogenenergie pro Längeneinheit der Schweißnaht, berechnet aus Spannung, Strom und Verfahrgeschwindigkeit.",
+        "fr": "Énergie d'arc par unité de longueur de soudure, calculée à partir de la tension, du courant et de la vitesse de déplacement."
       }
     },
     {
@@ -100,11 +116,15 @@
       "businessContext": "Degree of mechanical restraint on the weld joint, affecting crack susceptibility.",
       "label_i18n": {
         "en": "Joint Restraint Factor",
-        "tr": "Birleştirme Sınırlama Faktörü"
+        "tr": "Birleştirme Sınırlama Faktörü",
+        "de": "Einspannfaktor der Verbindung",
+        "fr": "Facteur de contrainte du joint"
       },
       "businessContext_i18n": {
         "en": "Degree of mechanical restraint on the weld joint, affecting crack susceptibility.",
-        "tr": "Kaynak birleştirmesindeki mekanik sınırlama derecesi, çatlak duyarlılığını etkiler."
+        "tr": "Kaynak birleştirmesindeki mekanik sınırlama derecesi, çatlak duyarlılığını etkiler.",
+        "de": "Grad der mechanischen Einspannung der Schweißverbindung, beeinflusst die Rissanfälligkeit.",
+        "fr": "Degré de contrainte mécanique sur le joint soudé, affectant la sensibilité à la fissuration."
       }
     },
     {
@@ -121,11 +141,15 @@
       "businessContext": "Method used to apply preheat, influences heating rate and uniformity.",
       "label_i18n": {
         "en": "Preheat Method",
-        "tr": "Ön Isıtma Yöntemi"
+        "tr": "Ön Isıtma Yöntemi",
+        "de": "Vorwärmmethode",
+        "fr": "Méthode de préchauffage"
       },
       "businessContext_i18n": {
         "en": "Method used to apply preheat, influences heating rate and uniformity.",
-        "tr": "Ön ısıtmayı uygulamak için kullanılan yöntem, ısıtma hızını ve homojenliğini etkiler."
+        "tr": "Ön ısıtmayı uygulamak için kullanılan yöntem, ısıtma hızını ve homojenliğini etkiler.",
+        "de": "Methode zur Vorwärmung, beeinflusst Aufheizrate und Gleichmäßigkeit.",
+        "fr": "Méthode utilisée pour appliquer le préchauffage, influence la vitesse et l'uniformité du chauffage."
       }
     }
   ],

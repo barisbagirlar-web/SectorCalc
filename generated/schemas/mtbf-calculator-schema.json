@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Operating Hours per Unit",
         "tr": "Birim Başına Çalışma Saati",
-        "de": "Operating Hours per Unit",
-        "fr": "Operating Hours per Unit",
-        "es": "Operating Hours per Unit",
+        "de": "Betriebsstunden pro Einheit",
+        "fr": "Heures de fonctionnement par unité",
+        "es": "Horas de Operación por Unidad",
         "ar": "Operating Hours per Unit"
       },
       "businessContext_i18n": {
         "en": "Total operating hours for a single unit during the observation period",
-        "tr": "Gözlem süresi boyunca tek bir birimin toplam çalışma saati"
+        "tr": "Gözlem süresi boyunca tek bir birimin toplam çalışma saati",
+        "de": "Gesamtbetriebsstunden einer einzelnen Einheit während des Beobachtungszeitraums",
+        "fr": "Nombre total d'heures de fonctionnement pour une seule unité pendant la période d'observation",
+        "es": "Horas totales de operación para una sola unidad durante el período de observación"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Number of Units",
         "tr": "Birim Sayısı",
         "de": "Anzahl der Einheiten",
-        "fr": "Number of Units",
-        "es": "Number of Units",
+        "fr": "Nombre d'unités",
+        "es": "Número de unidades",
         "ar": "Number of Units"
       },
       "businessContext_i18n": {
         "en": "Number of identical units under observation",
-        "tr": "Gözlem altındaki özdeş birim sayısı"
+        "tr": "Gözlem altındaki özdeş birim sayısı",
+        "de": "Anzahl der identischen Einheiten unter Beobachtung",
+        "fr": "Nombre d'unités identiques sous observation",
+        "es": "Número de unidades idénticas bajo observación"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Number of Failures",
         "tr": "Arıza Sayısı",
         "de": "Anzahl der Ausfälle",
-        "fr": "Number of Failures",
-        "es": "Number of Failures",
+        "fr": "Nombre de pannes",
+        "es": "Número de fallas",
         "ar": "Number of Failures"
       },
       "businessContext_i18n": {
         "en": "Total number of failures observed across all units",
-        "tr": "Tüm birimlerde gözlemlenen toplam arıza sayısı"
+        "tr": "Tüm birimlerde gözlemlenen toplam arıza sayısı",
+        "de": "Gesamtzahl der über alle Einheiten beobachteten Ausfälle",
+        "fr": "Nombre total de défaillances observées sur toutes les unités",
+        "es": "Número total de fallas observadas en todas las unidades"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Total Repair Hours",
         "tr": "Toplam Onarım Saati",
-        "de": "Total Repair Hours",
-        "fr": "Total Repair Hours",
-        "es": "Total Repair Hours",
+        "de": "Gesamtreparaturstunden",
+        "fr": "Heures totales de réparation",
+        "es": "Horas Totales de Reparación",
         "ar": "Total Repair Hours"
       },
       "businessContext_i18n": {
         "en": "Total time spent on repairs for all failures",
-        "tr": "Tüm arızalar için onarımlara harcanan toplam süre"
+        "tr": "Tüm arızalar için onarımlara harcanan toplam süre",
+        "de": "Gesamtzeit für Reparaturen aller Ausfälle",
+        "fr": "Temps total passé en réparation pour toutes les défaillances",
+        "es": "Tiempo total dedicado a reparaciones de todas las fallas"
       }
     }
   ],

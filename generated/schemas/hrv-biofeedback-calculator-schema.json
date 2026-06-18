@@ -12,13 +12,16 @@
         "en": "Breathing Rate",
         "tr": "Solunum hızı",
         "de": "Atemfrequenz",
-        "fr": "Breathing Rate",
-        "es": "Breathing Rate",
+        "fr": "Fréquence respiratoire",
+        "es": "Frecuencia respiratoria",
         "ar": "Breathing Rate"
       },
       "businessContext_i18n": {
         "en": "Breathing rate in breaths per minute (typical resonance is 6 bpm)",
-        "tr": "Dakikadaki solunum sayısı (tipik rezonans 6 nefes/dk)"
+        "tr": "Dakikadaki solunum sayısı (tipik rezonans 6 nefes/dk)",
+        "de": "Atemfrequenz in Atemzügen pro Minute (typische Resonanz bei 6 bpm)",
+        "fr": "Fréquence respiratoire en respirations par minute (résonance typique à 6 rpm)",
+        "es": "Frecuencia respiratoria en respiraciones por minuto (la resonancia típica es 6 rpm)"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Heart Rate",
         "tr": "Kalp Atış Hızı",
         "de": "Herzfrequenz",
-        "fr": "Heart Rate",
-        "es": "Heart Rate",
+        "fr": "Fréquence cardiaque",
+        "es": "Frecuencia cardíaca",
         "ar": "Heart Rate"
       },
       "businessContext_i18n": {
         "en": "Resting heart rate",
-        "tr": "Dinlenme kalp atış hızı"
+        "tr": "Dinlenme kalp atış hızı",
+        "de": "Ruhepuls",
+        "fr": "Fréquence cardiaque au repos",
+        "es": "Frecuencia cardíaca en reposo"
       }
     },
     {
@@ -53,12 +59,15 @@
         "tr": "HRV RMSSD",
         "de": "HRV RMSSD",
         "fr": "HRV RMSSD",
-        "es": "HRV RMSSD",
+        "es": "VFC RMSSD",
         "ar": "HRV RMSSD"
       },
       "businessContext_i18n": {
         "en": "Root mean square of successive differences",
-        "tr": "Ardışık farkların karekök ortalaması"
+        "tr": "Ardışık farkların karekök ortalaması",
+        "de": "Quadratwurzel des Mittelwerts der quadrierten aufeinanderfolgenden Differenzen",
+        "fr": "Racine carrée de la moyenne des carrés des différences successives",
+        "es": "Raíz cuadrada de la media de las diferencias sucesivas"
       }
     },
     {
@@ -73,12 +82,15 @@
         "tr": "HRV SDNN",
         "de": "HRV SDNN",
         "fr": "HRV SDNN",
-        "es": "HRV SDNN",
+        "es": "VFC SDNN",
         "ar": "HRV SDNN"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of NN intervals",
-        "tr": "NN aralıklarının standart sapması"
+        "tr": "NN aralıklarının standart sapması",
+        "de": "Standardabweichung der NN-Intervalle",
+        "fr": "Écart type des intervalles NN",
+        "es": "Desviación estándar de los intervalos NN"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Session Duration",
         "tr": "Seans Süresi",
-        "de": "Session Duration",
-        "fr": "Session Duration",
-        "es": "Session Duration",
+        "de": "Sitzungsdauer",
+        "fr": "Durée de la session",
+        "es": "Duración de la sesión",
         "ar": "Session Duration"
       },
       "businessContext_i18n": {
         "en": "Duration of biofeedback session in minutes",
-        "tr": "Biyogeribildirim seansının dakika cinsinden süresi"
+        "tr": "Biyogeribildirim seansının dakika cinsinden süresi",
+        "de": "Dauer der Biofeedback-Sitzung in Minuten",
+        "fr": "Durée de la session de biofeedback en minutes",
+        "es": "Duración de la sesión de biorretroalimentación en minutos"
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "User age for heart rate max calculation",
-        "tr": "Maksimum kalp atış hızı hesaplaması için kullanıcı yaşı"
+        "tr": "Maksimum kalp atış hızı hesaplaması için kullanıcı yaşı",
+        "de": "Alter des Benutzers für die Berechnung der maximalen Herzfrequenz",
+        "fr": "Âge de l'utilisateur pour le calcul de la fréquence cardiaque maximale",
+        "es": "Edad del usuario para el cálculo de la frecuencia cardíaca máxima"
       }
     }
   ],

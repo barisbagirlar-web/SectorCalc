@@ -12,14 +12,16 @@
         "en": "Plasma Cotinine",
         "tr": "Plazma Kotinin",
         "de": "Plasma-Cotinin",
-        "fr": "Plasma Cotinine",
-        "es": "Plasma Cotinine",
+        "fr": "Cotinine plasmatique",
+        "es": "Cotinina plasmática",
         "ar": "Plasma Cotinine"
       },
       "businessContext_i18n": {
         "en": "Measured concentration of cotinine in plasma.",
         "tr": "Plazmada ölçülen kotinin konsantrasyonu.",
-        "de": "Gemessene Konzentration von Cotinin im Plasma."
+        "de": "Gemessene Konzentration von Cotinin im Plasma.",
+        "fr": "Concentration mesurée de cotinine dans le plasma.",
+        "es": "Concentración medida de cotinina en plasma."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Calibration Slope",
         "tr": "Kalibrasyon Eğimi",
         "de": "Kalibrationssteigung",
-        "fr": "Calibration Slope",
-        "es": "Calibration Slope",
+        "fr": "Pente d'étalonnage",
+        "es": "Pendiente de calibración",
         "ar": "Calibration Slope"
       },
       "businessContext_i18n": {
         "en": "Slope of the cotinine vs cigarettes per day linear model.",
         "tr": "Kotinin vs günlük sigara sayısı doğrusal modelinin eğimi.",
-        "de": "Steigung des linearen Modells Cotinin vs. Zigaretten pro Tag."
+        "de": "Steigung des linearen Modells Cotinin vs. Zigaretten pro Tag.",
+        "fr": "Pente du modèle linéaire cotinine vs cigarettes par jour.",
+        "es": "Pendiente del modelo lineal de cotinina vs. cigarrillos por día."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Calibration Intercept",
         "tr": "Kalibrasyon Kesişimi",
         "de": "Kalibrationsachsenabschnitt",
-        "fr": "Calibration Intercept",
-        "es": "Calibration Intercept",
+        "fr": "Ordonnée à l'origine de l'étalonnage",
+        "es": "Intersección de calibración",
         "ar": "Calibration Intercept"
       },
       "businessContext_i18n": {
         "en": "Intercept of the linear model.",
         "tr": "Doğrusal modelin kesişimi.",
-        "de": "Achsenabschnitt des linearen Modells."
+        "de": "Achsenabschnitt des linearen Modells.",
+        "fr": "Ordonnée à l'origine du modèle linéaire.",
+        "es": "Intersección del modelo lineal."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Body Weight",
-        "es": "Body Weight",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "Subject's body weight for dose normalization.",
         "tr": "Doz normalizasyonu için deneğin vücut ağırlığı.",
-        "de": "Körpergewicht des Probanden zur Dosisnormalisierung."
+        "de": "Körpergewicht des Probanden zur Dosisnormalisierung.",
+        "fr": "Poids corporel du sujet pour la normalisation de la dose.",
+        "es": "Peso corporal del sujeto para normalización de dosis."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Nicotine per Cigarette",
         "tr": "Sigara Başına Nikotin",
         "de": "Nikotin pro Zigarette",
-        "fr": "Nicotine per Cigarette",
-        "es": "Nicotine per Cigarette",
+        "fr": "Nicotine par cigarette",
+        "es": "Nicotina por cigarrillo",
         "ar": "Nicotine per Cigarette"
       },
       "businessContext_i18n": {
         "en": "Average nicotine delivered per cigarette.",
         "tr": "Sigara başına ortalama nikotin miktarı.",
-        "de": "Durchschnittlich abgegebenes Nikotin pro Zigarette."
+        "de": "Durchschnittlich abgegebenes Nikotin pro Zigarette.",
+        "fr": "Nicotine moyenne délivrée par cigarette.",
+        "es": "Nicotina promedio entregada por cigarrillo."
       }
     }
   ],

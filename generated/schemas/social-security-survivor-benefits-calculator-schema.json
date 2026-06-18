@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Ortalama Aylık Kazanç",
         "tr": "Ortalama Aylık Kazanç",
-        "de": "Ortalama Aylık Kazanç",
-        "fr": "Ortalama Aylık Kazanç",
+        "de": "Durchschnittlicher Monatsverdienst",
+        "fr": "Gain mensuel moyen",
         "es": "Ortalama Aylık Kazanç",
         "ar": "Ortalama Aylık Kazanç"
       },
       "businessContext_i18n": {
         "en": "Çalışanın ortalama aylık kazancı",
-        "tr": "Çalışanın ortalama aylık kazancı"
+        "tr": "Çalışanın ortalama aylık kazancı",
+        "de": "Durchschnittlicher Monatsverdienst des Arbeitnehmers",
+        "fr": "Gain mensuel moyen du travailleur"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Sigortalılık Süresi (Yıl)",
         "tr": "Sigortalılık Süresi (Yıl)",
-        "de": "Sigortalılık Süresi (Yıl)",
-        "fr": "Sigortalılık Süresi (Yıl)",
+        "de": "Versicherungsdauer (Jahre)",
+        "fr": "Durée d'assurance (années)",
         "es": "Sigortalılık Süresi (Yıl)",
         "ar": "Sigortalılık Süresi (Yıl)"
       },
       "businessContext_i18n": {
         "en": "Çalışanın toplam sigortalılık süresi",
-        "tr": "Çalışanın toplam sigortalılık süresi"
+        "tr": "Çalışanın toplam sigortalılık süresi",
+        "de": "Gesamte Versicherungsdauer des Arbeitnehmers",
+        "fr": "Durée totale d'assurance du travailleur"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Hak Sahibi Yaşı",
         "tr": "Hak Sahibi Yaşı",
-        "de": "Hak Sahibi Yaşı",
-        "fr": "Hak Sahibi Yaşı",
+        "de": "Alter des Anspruchsberechtigten",
+        "fr": "Âge de l'ayant droit",
         "es": "Hak Sahibi Yaşı",
         "ar": "Hak Sahibi Yaşı"
       },
       "businessContext_i18n": {
         "en": "Hak sahibinin yaşı (eş veya çocuk)",
-        "tr": "Hak sahibinin yaşı (eş veya çocuk)"
+        "tr": "Hak sahibinin yaşı (eş veya çocuk)",
+        "de": "Alter des Anspruchsberechtigten (Ehepartner oder Kind)",
+        "fr": "Âge de l'ayant droit (conjoint ou enfant)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Hak Sahibi Çocuk Sayısı",
         "tr": "Hak Sahibi Çocuk Sayısı",
-        "de": "Hak Sahibi Çocuk Sayısı",
-        "fr": "Hak Sahibi Çocuk Sayısı",
+        "de": "Anzahl der anspruchsberechtigten Kinder",
+        "fr": "Nombre d'enfants ayants droit",
         "es": "Hak Sahibi Çocuk Sayısı",
         "ar": "Hak Sahibi Çocuk Sayısı"
       },
       "businessContext_i18n": {
         "en": "Ölen sigortalının hak sahibi çocuk sayısı",
-        "tr": "Ölen sigortalının hak sahibi çocuk sayısı"
+        "tr": "Ölen sigortalının hak sahibi çocuk sayısı",
+        "de": "Anzahl der anspruchsberechtigten Kinder des verstorbenen Versicherten",
+        "fr": "Nombre d'enfants ayants droit du travailleur décédé"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Eş Hak Sahibi mi?",
         "tr": "Eş Hak Sahibi mi?",
-        "de": "Eş Hak Sahibi mi?",
-        "fr": "Eş Hak Sahibi mi?",
+        "de": "Ist der Anspruchsberechtigte der Ehepartner?",
+        "fr": "Le conjoint est-il ayant droit ?",
         "es": "Eş Hak Sahibi mi?",
         "ar": "Eş Hak Sahibi mi?"
       },
       "businessContext_i18n": {
         "en": "Hak sahibinin eş olup olmadığı (1: Evet, 0: Hayır)",
-        "tr": "Hak sahibinin eş olup olmadığı (1: Evet, 0: Hayır)"
+        "tr": "Hak sahibinin eş olup olmadığı (1: Evet, 0: Hayır)",
+        "de": "Gibt an, ob der Anspruchsberechtigte der Ehepartner ist (1: Ja, 0: Nein)",
+        "fr": "Le conjoint est-il le bénéficiaire (1: Oui, 0: Non)"
       }
     }
   ],

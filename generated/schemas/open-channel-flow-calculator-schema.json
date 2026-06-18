@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Bottom Width (b)",
         "tr": "Taban Genişliği (b)",
-        "de": "Bottom Width (b)",
-        "fr": "Bottom Width (b)",
-        "es": "Bottom Width (b)",
+        "de": "Sohlenbreite (b)",
+        "fr": "Largeur de fond (b)",
+        "es": "Ancho inferior (b)",
         "ar": "Bottom Width (b)"
       },
       "businessContext_i18n": {
         "en": "Width of the channel base",
-        "tr": "Kanal tabanının genişliği"
+        "tr": "Kanal tabanının genişliği",
+        "de": "Breite der Gerinnesohle",
+        "fr": "Largeur de la base du canal",
+        "es": "Ancho de la base del canal"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Flow Depth (y)",
         "tr": "Akış Derinliği (y)",
-        "de": "Flow Depth (y)",
-        "fr": "Flow Depth (y)",
-        "es": "Flow Depth (y)",
+        "de": "Fließtiefe (y)",
+        "fr": "Profondeur d'écoulement (y)",
+        "es": "Profundidad de flujo (y)",
         "ar": "Flow Depth (y)"
       },
       "businessContext_i18n": {
         "en": "Vertical distance from channel bottom to water surface",
-        "tr": "Kanal tabanından su yüzeyine dikey mesafe"
+        "tr": "Kanal tabanından su yüzeyine dikey mesafe",
+        "de": "Vertikaler Abstand von der Gerinnesohle zur Wasseroberfläche",
+        "fr": "Distance verticale du fond du canal à la surface de l'eau",
+        "es": "Distancia vertical desde el fondo del canal hasta la superficie del agua"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Side Slope (z)",
         "tr": "Yan Eğim (z)",
-        "de": "Side Slope (z)",
-        "fr": "Side Slope (z)",
-        "es": "Side Slope (z)",
+        "de": "Böschungsneigung (z)",
+        "fr": "Pente latérale (z)",
+        "es": "Talud lateral (z)",
         "ar": "Side Slope (z)"
       },
       "businessContext_i18n": {
         "en": "Horizontal distance per unit vertical rise of the channel bank",
-        "tr": "Kanal bankının dikey birim yükselmesi başına yatay mesafe"
+        "tr": "Kanal bankının dikey birim yükselmesi başına yatay mesafe",
+        "de": "Horizontaler Abstand pro Einheit vertikalen Anstiegs der Gerinneböschung",
+        "fr": "Distance horizontale par unité d'élévation verticale de la berge du canal",
+        "es": "Distancia horizontal por unidad de elevación vertical del talud del canal"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Manning's n",
         "tr": "Manning n",
         "de": "Manning's n",
-        "fr": "Manning's n",
-        "es": "Manning's n",
+        "fr": "n de Manning",
+        "es": "n de Manning",
         "ar": "Manning's n"
       },
       "businessContext_i18n": {
         "en": "Roughness coefficient of the channel lining",
-        "tr": "Kanal kaplamasının pürüzlülük katsayısı"
+        "tr": "Kanal kaplamasının pürüzlülük katsayısı",
+        "de": "Rauheitsbeiwert der Gerinneauskleidung",
+        "fr": "Coefficient de rugosité du revêtement du canal",
+        "es": "Coeficiente de rugosidad del revestimiento del canal"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Channel Slope (S)",
         "tr": "Channel Slope (S)",
-        "de": "Channel Slope (S)",
-        "fr": "Channel Slope (S)",
-        "es": "Channel Slope (S)",
+        "de": "Gerinnegefälle (S)",
+        "fr": "Pente du canal (S)",
+        "es": "Pendiente del canal (S)",
         "ar": "Channel Slope (S)"
       },
       "businessContext_i18n": {
         "en": "Longitudinal slope of the channel bed",
-        "tr": "Kanal tabanının boyuna eğimi"
+        "tr": "Kanal tabanının boyuna eğimi",
+        "de": "Längsgefälle der Gerinnesohle",
+        "fr": "Pente longitudinale du lit du canal",
+        "es": "Pendiente longitudinal del lecho del canal"
       }
     },
     {
@@ -112,14 +127,16 @@
         "en": "Gravity (g)",
         "tr": "Yerçekimi (g)",
         "de": "Schwerkraft (g)",
-        "fr": "Gravity (g)",
-        "es": "Gravity (g)",
+        "fr": "Gravité (g)",
+        "es": "Gravedad (g)",
         "ar": "Gravity (g)"
       },
       "businessContext_i18n": {
         "en": "Acceleration due to gravity",
         "tr": "Yerçekimi ivmesi",
-        "de": "Erdbeschleunigung"
+        "de": "Erdbeschleunigung",
+        "fr": "Accélération due à la gravité",
+        "es": "Aceleración debida a la gravedad"
       }
     }
   ],

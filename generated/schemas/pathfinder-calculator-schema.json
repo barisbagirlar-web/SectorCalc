@@ -12,13 +12,16 @@
         "en": "Mesafe (km)",
         "tr": "Mesafe (km)",
         "de": "Distanz (km)",
-        "fr": "Mesafe (km)",
-        "es": "Mesafe (km)",
+        "fr": "Distance (km)",
+        "es": "Distancia (km)",
         "ar": "Mesafe (km)"
       },
       "businessContext_i18n": {
         "en": "Kat edilecek toplam mesafe",
-        "tr": "Kat edilecek toplam mesafe"
+        "tr": "Kat edilecek toplam mesafe",
+        "de": "Zu fahrende Gesamtstrecke",
+        "fr": "Distance totale à parcourir",
+        "es": "Distancia total a recorrer"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Ortalama Hız (km/sa)",
         "tr": "Ortalama hız (km/sa)",
-        "de": "Ortalama Hız (km/sa)",
-        "fr": "Ortalama Hız (km/sa)",
-        "es": "Ortalama Hız (km/sa)",
+        "de": "Durchschnittsgeschwindigkeit (km/h)",
+        "fr": "Vitesse moyenne (km/h)",
+        "es": "Velocidad media (km/h)",
         "ar": "Ortalama Hız (km/sa)"
       },
       "businessContext_i18n": {
         "en": "Seyir hızı",
-        "tr": "Seyir hızı"
+        "tr": "Seyir hızı",
+        "de": "Reisegeschwindigkeit",
+        "fr": "Vitesse de croisière",
+        "es": "Velocidad de crucero"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Yakıt Tüketimi (L/100km)",
         "tr": "Yakıt tüketimi (L/100km)",
-        "de": "Yakıt Tüketimi (L/100km)",
-        "fr": "Yakıt Tüketimi (L/100km)",
-        "es": "Yakıt Tüketimi (L/100km)",
+        "de": "Kraftstoffverbrauch (L/100km)",
+        "fr": "Consommation de carburant (L/100km)",
+        "es": "Consumo de combustible (L/100 km)",
         "ar": "Yakıt Tüketimi (L/100km)"
       },
       "businessContext_i18n": {
         "en": "Aracın 100 km'de tükettiği yakıt",
-        "tr": "Aracın 100 km'de tükettiği yakıt"
+        "tr": "Aracın 100 km'de tükettiği yakıt",
+        "de": "Vom Fahrzeug verbrauchter Kraftstoff pro 100 km",
+        "fr": "Carburant consommé par le véhicule sur 100 km",
+        "es": "Combustible consumido por el vehículo cada 100 km"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Yakıt Birim Fiyatı (TL/L)",
         "tr": "Yakıt birim fiyatı (TL/L)",
-        "de": "Yakıt Birim Fiyatı (TL/L)",
-        "fr": "Yakıt Birim Fiyatı (TL/L)",
-        "es": "Yakıt Birim Fiyatı (TL/L)",
+        "de": "Kraftstoffeinheitspreis (TL/L)",
+        "fr": "Prix unitaire du carburant (TL/L)",
+        "es": "Precio unitario del combustible (TL/L)",
         "ar": "Yakıt Birim Fiyatı (TL/L)"
       },
       "businessContext_i18n": {
         "en": "Yakıtın litre fiyatı",
-        "tr": "Yakıtın litre fiyatı"
+        "tr": "Yakıtın litre fiyatı",
+        "de": "Literpreis des Kraftstoffs",
+        "fr": "Prix du carburant au litre",
+        "es": "Precio por litro de combustible"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Mola Sayısı",
         "tr": "Mola sayısı",
-        "de": "Mola Sayısı",
-        "fr": "Mola Sayısı",
-        "es": "Mola Sayısı",
+        "de": "Anzahl der Pausen",
+        "fr": "Nombre de pauses",
+        "es": "Número de paradas",
         "ar": "Mola Sayısı"
       },
       "businessContext_i18n": {
         "en": "Yolculuk sırasında verilen mola sayısı",
-        "tr": "Yolculuk sırasında verilen mola sayısı"
+        "tr": "Yolculuk sırasında verilen mola sayısı",
+        "de": "Anzahl der während der Fahrt eingelegten Pausen",
+        "fr": "Nombre de pauses pendant le trajet",
+        "es": "Número de paradas durante el viaje"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Mola Süresi (dk)",
         "tr": "Mola Süresi (dk)",
-        "de": "Mola Süresi (dk)",
-        "fr": "Mola Süresi (dk)",
-        "es": "Mola Süresi (dk)",
+        "de": "Pausendauer (Min.)",
+        "fr": "Temps de pause (min)",
+        "es": "Duración de la parada (min)",
         "ar": "Mola Süresi (dk)"
       },
       "businessContext_i18n": {
         "en": "Her mola için harcanan süre",
-        "tr": "Her mola için harcanan süre"
+        "tr": "Her mola için harcanan süre",
+        "de": "Zeitaufwand pro Pause",
+        "fr": "Temps passé pour chaque pause",
+        "es": "Tiempo empleado en cada parada"
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Geçiş Ücreti (TL)",
         "tr": "Geçiş Ücreti (TL)",
-        "de": "Geçiş Ücreti (TL)",
-        "fr": "Geçiş Ücreti (TL)",
-        "es": "Geçiş Ücreti (TL)",
+        "de": "Mautgebühr (TL)",
+        "fr": "Frais de péage (€)",
+        "es": "Peaje (TL)",
         "ar": "Geçiş Ücreti (TL)"
       },
       "businessContext_i18n": {
         "en": "Otoyol/geçiş ücretleri toplamı",
-        "tr": "Otoyol/geçiş ücretleri toplamı"
+        "tr": "Otoyol/geçiş ücretleri toplamı",
+        "de": "Summe der Autobahn-/Mautgebühren",
+        "fr": "Total des frais d'autoroute/péage",
+        "es": "Total de peajes/tasas de paso"
       }
     },
     {
@@ -151,14 +172,17 @@
       "label_i18n": {
         "en": "Sürücü Yevmiyesi (TL/gün)",
         "tr": "Sürücü Yevmiyesi (TL/gün)",
-        "de": "Sürücü Yevmiyesi (TL/gün)",
-        "fr": "Sürücü Yevmiyesi (TL/gün)",
-        "es": "Sürücü Yevmiyesi (TL/gün)",
+        "de": "Fahrertagegeld (TL/Tag)",
+        "fr": "Indemnité journalière du conducteur (€/jour)",
+        "es": "Dieta del conductor (TL/día)",
         "ar": "Sürücü Yevmiyesi (TL/gün)"
       },
       "businessContext_i18n": {
         "en": "Sürücünün günlük maliyeti",
-        "tr": "Sürücünün günlük maliyeti"
+        "tr": "Sürücünün günlük maliyeti",
+        "de": "Tägliche Fahrerkosten",
+        "fr": "Coût journalier du conducteur",
+        "es": "Costo diario del conductor"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Operating Pressure",
         "tr": "Çalışma basıncı",
         "de": "Betriebsdruck",
-        "fr": "Operating Pressure",
-        "es": "Operating Pressure",
+        "fr": "Pression de service",
+        "es": "Presión de operación",
         "ar": "Operating Pressure"
       },
       "businessContext_i18n": {
         "en": "System working pressure affects stress on components.",
         "tr": "Sistem çalışma basıncı bileşenler üzerindeki stresi etkiler.",
-        "de": "Der Systemarbeitsdruck beeinflusst die Belastung der Komponenten."
+        "de": "Der Systemarbeitsdruck beeinflusst die Belastung der Komponenten.",
+        "fr": "La pression de travail du système affecte les contraintes sur les composants.",
+        "es": "La presión de trabajo del sistema afecta el esfuerzo sobre los componentes."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Operating Temperature",
         "tr": "Çalışma Sıcaklığı",
         "de": "Betriebstemperatur",
-        "fr": "Operating Temperature",
-        "es": "Operating Temperature",
+        "fr": "Température de fonctionnement",
+        "es": "Temperatura de operación",
         "ar": "Operating Temperature"
       },
       "businessContext_i18n": {
         "en": "Elevated temperatures reduce material strength and increase corrosion rates.",
         "tr": "Yüksek sıcaklıklar malzeme mukavemetini azaltır ve korozyon oranlarını artırır.",
-        "de": "Erhöhte Temperaturen verringern die Materialfestigkeit und erhöhen die Korrosionsraten."
+        "de": "Erhöhte Temperaturen verringern die Materialfestigkeit und erhöhen die Korrosionsraten.",
+        "fr": "Les températures élevées réduisent la résistance des matériaux et augmentent les taux de corrosion.",
+        "es": "Las temperaturas elevadas reducen la resistencia del material y aumentan las tasas de corrosión."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Flow Rate",
         "tr": "Debi",
         "de": "Durchflussrate",
-        "fr": "Flow Rate",
-        "es": "Flow Rate",
+        "fr": "Débit",
+        "es": "Caudal",
         "ar": "Flow Rate"
       },
       "businessContext_i18n": {
         "en": "Fluid velocity contributes to erosion and vibration risks.",
         "tr": "Akışkan hızı, erozyon ve titreşim risklerine katkıda bulunur.",
-        "de": "Die Strömungsgeschwindigkeit trägt zu Erosions- und Vibrationsrisiken bei."
+        "de": "Die Strömungsgeschwindigkeit trägt zu Erosions- und Vibrationsrisiken bei.",
+        "fr": "La vitesse du fluide contribue aux risques d'érosion et de vibrations.",
+        "es": "La velocidad del fluido contribuye a riesgos de erosión y vibración."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Vibration Level",
         "tr": "Titreşim Seviyesi",
         "de": "Vibrationspegel",
-        "fr": "Vibration Level",
-        "es": "Vibration Level",
+        "fr": "Niveau de vibration",
+        "es": "Nivel de vibración",
         "ar": "Vibration Level"
       },
       "businessContext_i18n": {
         "en": "Vibration can cause fatigue and joint loosening.",
         "tr": "Titreşim, yorulma ve bağlantı gevşemesine neden olabilir.",
-        "de": "Vibrationen können Ermüdung und Lockerung von Verbindungen verursachen."
+        "de": "Vibrationen können Ermüdung und Lockerung von Verbindungen verursachen.",
+        "fr": "Les vibrations peuvent provoquer de la fatigue et un desserrage des joints.",
+        "es": "La vibración puede causar fatiga y aflojamiento de uniones."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Wall Thickness",
         "tr": "Duvar Kalınlığı (cm)",
         "de": "Duvar Kalınlığı",
-        "fr": "Wall Thickness",
-        "es": "Wall Thickness",
+        "fr": "Épaisseur du mur",
+        "es": "Espesor del muro",
         "ar": "Wall Thickness"
       },
       "businessContext_i18n": {
         "en": "Thinner walls are more susceptible to failure under pressure and corrosion.",
         "tr": "Daha ince duvarlar, basınç ve korozyon altında arızaya daha yatkındır.",
-        "de": "Dünnere Wände sind anfälliger für Versagen unter Druck und Korrosion."
+        "de": "Dünnere Wände sind anfälliger für Versagen unter Druck und Korrosion.",
+        "fr": "Les parois plus fines sont plus susceptibles de céder sous la pression et la corrosion.",
+        "es": "Paredes más delgadas son más susceptibles a fallas bajo presión y corrosión."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Corrosion Rate",
         "tr": "Korozyon Hızı",
         "de": "Korrosionsrate",
-        "fr": "Corrosion Rate",
-        "es": "Corrosion Rate",
+        "fr": "Taux de corrosion",
+        "es": "Tasa de corrosión",
         "ar": "Corrosion Rate"
       },
       "businessContext_i18n": {
         "en": "Material loss over time reduces structural integrity.",
         "tr": "Zamanla malzeme kaybı yapısal bütünlüğü azaltır.",
-        "de": "Materialverlust im Laufe der Zeit verringert die strukturelle Integrität."
+        "de": "Materialverlust im Laufe der Zeit verringert die strukturelle Integrität.",
+        "fr": "La perte de matériau au fil du temps réduit l'intégrité structurelle.",
+        "es": "La pérdida de material con el tiempo reduce la integridad estructural."
       }
     }
   ],

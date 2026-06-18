@@ -12,14 +12,16 @@
         "en": "Transaction Amount",
         "tr": "İşlem Tutarı",
         "de": "Transaktionsbetrag",
-        "fr": "Transaction Amount",
-        "es": "Transaction Amount",
+        "fr": "Montant de la transaction",
+        "es": "Monto de la transacción",
         "ar": "Transaction Amount"
       },
       "businessContext_i18n": {
         "en": "Total amount charged to the customer for the transaction.",
         "tr": "Müşteriden işlem için tahsil edilen toplam tutar.",
-        "de": "Gesamtbetrag, der dem Kunden für die Transaktion berechnet wird."
+        "de": "Gesamtbetrag, der dem Kunden für die Transaktion berechnet wird.",
+        "fr": "Montant total facturé au client pour la transaction.",
+        "es": "Monto total cobrado al cliente por la transacción."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Processing Rate",
         "tr": "İşlem Oranı",
         "de": "Verarbeitungssatz",
-        "fr": "Processing Rate",
-        "es": "Processing Rate",
+        "fr": "Taux de traitement",
+        "es": "Tasa de procesamiento",
         "ar": "Processing Rate"
       },
       "businessContext_i18n": {
         "en": "Percentage fee charged by the processor on the transaction amount.",
         "tr": "İşlemci tarafından işlem tutarı üzerinden alınan yüzde ücret.",
-        "de": "Prozentsatzgebühr, die vom Prozessor auf den Transaktionsbetrag erhoben wird."
+        "de": "Prozentsatzgebühr, die vom Prozessor auf den Transaktionsbetrag erhoben wird.",
+        "fr": "Frais en pourcentage facturés par le processeur sur le montant de la transaction.",
+        "es": "Porcentaje de comisión cobrado por el procesador sobre el monto de la transacción."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Per-Transaction Fee",
         "tr": "İşlem Başına Ücret",
         "de": "Gebühr pro Transaktion",
-        "fr": "Per-Transaction Fee",
-        "es": "Per-Transaction Fee",
+        "fr": "Frais par transaction",
+        "es": "Comisión por transacción",
         "ar": "Per-Transaction Fee"
       },
       "businessContext_i18n": {
         "en": "Fixed fee charged per transaction by the processor.",
         "tr": "İşlemci tarafından işlem başına alınan sabit ücret.",
-        "de": "Feste Gebühr pro Transaktion, die vom Prozessor erhoben wird."
+        "de": "Feste Gebühr pro Transaktion, die vom Prozessor erhoben wird.",
+        "fr": "Frais fixes facturés par transaction par le processeur.",
+        "es": "Comisión fija cobrada por transacción por el procesador."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Monthly Statement Fee",
         "tr": "Aylık Hesap Özeti Ücreti",
         "de": "Monatliche Kontoauszugsgebühr",
-        "fr": "Monthly Statement Fee",
-        "es": "Monthly Statement Fee",
+        "fr": "Frais mensuels de relevé",
+        "es": "Comisión mensual de estado de cuenta",
         "ar": "Monthly Statement Fee"
       },
       "businessContext_i18n": {
         "en": "Fixed monthly fee for account maintenance, distributed across transactions.",
         "tr": "Hesap bakımı için sabit aylık ücret, işlemlere dağıtılır.",
-        "de": "Feste monatliche Gebühr für die Kontoführung, verteilt auf Transaktionen."
+        "de": "Feste monatliche Gebühr für die Kontoführung, verteilt auf Transaktionen.",
+        "fr": "Frais mensuels fixes pour la maintenance du compte, répartis sur les transactions.",
+        "es": "Comisión fija mensual por mantenimiento de cuenta, distribuida entre las transacciones."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Number of Monthly Transactions",
         "tr": "Aylık İşlem Sayısı",
         "de": "Anzahl monatlicher Transaktionen",
-        "fr": "Number of Monthly Transactions",
-        "es": "Number of Monthly Transactions",
+        "fr": "Nombre de transactions mensuelles",
+        "es": "Número de transacciones mensuales",
         "ar": "Number of Monthly Transactions"
       },
       "businessContext_i18n": {
         "en": "Total number of transactions processed per month.",
         "tr": "Ayda işlenen toplam işlem sayısı.",
-        "de": "Gesamtzahl der pro Monat verarbeiteten Transaktionen."
+        "de": "Gesamtzahl der pro Monat verarbeiteten Transaktionen.",
+        "fr": "Nombre total de transactions traitées par mois.",
+        "es": "Número total de transacciones procesadas por mes."
       }
     }
   ],

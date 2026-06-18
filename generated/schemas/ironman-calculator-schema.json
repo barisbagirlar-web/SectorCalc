@@ -12,13 +12,16 @@
         "en": "Length",
         "tr": "Uzunluk",
         "de": "Länge",
-        "fr": "Length",
-        "es": "Length",
+        "fr": "Longueur",
+        "es": "Longitud",
         "ar": "Length"
       },
       "businessContext_i18n": {
         "en": "Length of the beam",
-        "tr": "Kiriş uzunluğu"
+        "tr": "Kiriş uzunluğu",
+        "de": "Länge des Trägers",
+        "fr": "Longueur de la poutre",
+        "es": "Longitud de la viga"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Width",
         "tr": "Genişlik",
         "de": "Breite",
-        "fr": "Width",
-        "es": "Width",
+        "fr": "Largeur",
+        "es": "Ancho",
         "ar": "Width"
       },
       "businessContext_i18n": {
         "en": "Width of the cross-section",
-        "tr": "Kesit genişliği"
+        "tr": "Kesit genişliği",
+        "de": "Breite des Querschnitts",
+        "fr": "Largeur de la section transversale",
+        "es": "Ancho de la sección transversal"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Height",
         "tr": "Boy",
         "de": "Größe",
-        "fr": "Height",
-        "es": "Height",
+        "fr": "Taille",
+        "es": "Altura",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "Height of the cross-section",
-        "tr": "Kesit yüksekliği"
+        "tr": "Kesit yüksekliği",
+        "de": "Höhe des Querschnitts",
+        "fr": "Hauteur de la section transversale",
+        "es": "Altura de la sección transversal"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Density",
         "tr": "Yoğunluk",
         "de": "Dichte",
-        "fr": "Density",
-        "es": "Density",
+        "fr": "Densité",
+        "es": "Densidad",
         "ar": "Density"
       },
       "businessContext_i18n": {
         "en": "Material density (steel: 7850 kg/m³)",
-        "tr": "Malzeme yoğunluğu (çelik: 7850 kg/m³)"
+        "tr": "Malzeme yoğunluğu (çelik: 7850 kg/m³)",
+        "de": "Materialdichte (Stahl: 7850 kg/m³)",
+        "fr": "Densité du matériau (acier : 7850 kg/m³)",
+        "es": "Densidad del material (acero: 7850 kg/m³)"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Yield Strength",
         "tr": "Akma Dayanımı",
         "de": "Streckgrenze",
-        "fr": "Yield Strength",
-        "es": "Yield Strength",
+        "fr": "Limite d'élasticité",
+        "es": "Límite elástico",
         "ar": "Yield Strength"
       },
       "businessContext_i18n": {
         "en": "Material yield strength (e.g., 250 MPa for S235)",
-        "tr": "Malzeme akma dayanımı (ör. S235 için 250 MPa)"
+        "tr": "Malzeme akma dayanımı (ör. S235 için 250 MPa)",
+        "de": "Streckgrenze des Materials (z. B. 250 MPa für S235)",
+        "fr": "Limite d'élasticité du matériau (ex. : 250 MPa pour S235)",
+        "es": "Límite elástico del material (ej. 250 MPa para S235)"
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Design safety factor (≥1.0)",
-        "tr": "Tasarım güvenlik faktörü (≥1.0)"
+        "tr": "Tasarım güvenlik faktörü (≥1.0)",
+        "de": "Sicherheitsfaktor (≥1,0)",
+        "fr": "Coefficient de sécurité de conception (≥1,0)",
+        "es": "Factor de seguridad de diseño (≥1.0)"
       }
     }
   ],

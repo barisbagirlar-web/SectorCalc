@@ -11,15 +11,17 @@
       "label_i18n": {
         "en": "Akışkan Yoğunluğu (ρ)",
         "tr": "Akışkan Yoğunluğu (ρ)",
-        "de": "Akışkan Yoğunluğu (ρ)",
-        "fr": "Akışkan Yoğunluğu (ρ)",
-        "es": "Akışkan Yoğunluğu (ρ)",
+        "de": "Flüssigkeitsdichte (ρ)",
+        "fr": "Densité du fluide (ρ)",
+        "es": "Densidad del fluido (ρ)",
         "ar": "Akışkan Yoğunluğu (ρ)"
       },
       "businessContext_i18n": {
         "en": "Akışkanın yoğunluğu (örneğin su için 1000 kg/m³)",
         "tr": "Akışkanın yoğunluğu (örneğin su için 1000 kg/m³)",
-        "de": "Dichte des Fluids (z.B. 1000 kg/m³ für Wasser)"
+        "de": "Dichte des Fluids (z.B. 1000 kg/m³ für Wasser)",
+        "fr": "Densité du fluide (ex. 1000 kg/m³ pour l'eau)",
+        "es": "Densidad del fluido (ej. 1000 kg/m³ para agua)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Yerçekimi İvmesi (g)",
         "tr": "Yerçekimi İvmesi (g)",
         "de": "Erdbeschleunigung (g)",
-        "fr": "Yerçekimi İvmesi (g)",
-        "es": "Yerçekimi İvmesi (g)",
+        "fr": "Accélération gravitationnelle (g)",
+        "es": "Aceleración gravitacional (g)",
         "ar": "Yerçekimi İvmesi (g)"
       },
       "businessContext_i18n": {
         "en": "Standart yerçekimi ivmesi; 9.81 m/s² alınır",
         "tr": "Standart yerçekimi ivmesi; 9.81 m/s² alınır",
-        "de": "Standard-Erdbeschleunigung; 9,81 m/s² angenommen"
+        "de": "Standard-Erdbeschleunigung; 9,81 m/s² angenommen",
+        "fr": "Accélération gravitationnelle standard ; prendre 9,81 m/s²",
+        "es": "Aceleración gravitacional estándar; se toma 9.81 m/s²"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "1 Noktası Basıncı (P₁)",
         "tr": "1 Noktası Basıncı (P₁)",
         "de": "Druck am Punkt 1 (P₁)",
-        "fr": "1 Noktası Basıncı (P₁)",
-        "es": "1 Noktası Basıncı (P₁)",
+        "fr": "Pression au point 1 (P₁)",
+        "es": "Presión en el punto 1 (P₁)",
         "ar": "1 Noktası Basıncı (P₁)"
       },
       "businessContext_i18n": {
         "en": "Giriş noktasındaki mutlak basınç (örneğin atmosfer basıncı 101325 Pa)",
         "tr": "Giriş noktasındaki mutlak basınç (örneğin atmosfer basıncı 101325 Pa)",
-        "de": "Absoluter Druck am Eintrittspunkt (z.B. Atmosphärendruck 101325 Pa)"
+        "de": "Absoluter Druck am Eintrittspunkt (z.B. Atmosphärendruck 101325 Pa)",
+        "fr": "Pression absolue au point d'entrée (ex. pression atmosphérique 101325 Pa)",
+        "es": "Presión absoluta en el punto de entrada (ej. presión atmosférica 101325 Pa)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "1 Noktası Hızı (v₁)",
         "tr": "1 Noktası Hızı (v₁)",
         "de": "Geschwindigkeit am Punkt 1 (v₁)",
-        "fr": "1 Noktası Hızı (v₁)",
-        "es": "1 Noktası Hızı (v₁)",
+        "fr": "Vitesse au point 1 (v₁)",
+        "es": "Velocidad en el punto 1 (v₁)",
         "ar": "1 Noktası Hızı (v₁)"
       },
       "businessContext_i18n": {
         "en": "Giriş noktasındaki akış hızı",
         "tr": "Giriş noktasındaki akış hızı",
-        "de": "Strömungsgeschwindigkeit am Eintrittspunkt"
+        "de": "Strömungsgeschwindigkeit am Eintrittspunkt",
+        "fr": "Vitesse d'écoulement au point d'entrée",
+        "es": "Velocidad del flujo en el punto de entrada"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "1 Noktası Yüksekliği (z₁)",
         "tr": "1 Noktası Yüksekliği (z₁)",
         "de": "Höhe am Punkt 1 (z₁)",
-        "fr": "1 Noktası Yüksekliği (z₁)",
-        "es": "1 Noktası Yüksekliği (z₁)",
+        "fr": "Hauteur au point 1 (z₁)",
+        "es": "Altura en el punto 1 (z₁)",
         "ar": "1 Noktası Yüksekliği (z₁)"
       },
       "businessContext_i18n": {
         "en": "Giriş noktasının referans seviyeye göre yüksekliği",
         "tr": "Giriş noktasının referans seviyeye göre yüksekliği",
-        "de": "Höhe des Eintrittspunkts relativ zum Referenzniveau"
+        "de": "Höhe des Eintrittspunkts relativ zum Referenzniveau",
+        "fr": "Hauteur du point d'entrée par rapport au niveau de référence",
+        "es": "Altura del punto de entrada respecto al nivel de referencia"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "2 Noktası Basıncı (P₂)",
         "tr": "2 Noktası Basıncı (P₂)",
         "de": "Druck am Punkt 2 (P₂)",
-        "fr": "2 Noktası Basıncı (P₂)",
-        "es": "2 Noktası Basıncı (P₂)",
+        "fr": "Pression au point 2 (P₂)",
+        "es": "Presión en el punto 2 (P₂)",
         "ar": "2 Noktası Basıncı (P₂)"
       },
       "businessContext_i18n": {
         "en": "Çıkış noktasındaki mutlak basınç",
         "tr": "Çıkış noktasındaki mutlak basınç",
-        "de": "Absoluter Druck am Austrittspunkt"
+        "de": "Absoluter Druck am Austrittspunkt",
+        "fr": "Pression absolue au point de sortie",
+        "es": "Presión absoluta en el punto de salida"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "2 Noktası Yüksekliği (z₂)",
         "tr": "2 Noktası Yüksekliği (z₂)",
         "de": "Höhe am Punkt 2 (z₂)",
-        "fr": "2 Noktası Yüksekliği (z₂)",
-        "es": "2 Noktası Yüksekliği (z₂)",
+        "fr": "Hauteur au point 2 (z₂)",
+        "es": "Altura en el punto 2 (z₂)",
         "ar": "2 Noktası Yüksekliği (z₂)"
       },
       "businessContext_i18n": {
         "en": "Çıkış noktasının referans seviyeye göre yüksekliği",
         "tr": "Çıkış noktasının referans seviyeye göre yüksekliği",
-        "de": "Höhe des Austrittspunkts relativ zum Referenzniveau"
+        "de": "Höhe des Austrittspunkts relativ zum Referenzniveau",
+        "fr": "Hauteur du point de sortie par rapport au niveau de référence",
+        "es": "Altura del punto de salida respecto al nivel de referencia"
       }
     },
     {
@@ -159,14 +173,16 @@
         "en": "Yük Kaybı (hₗ)",
         "tr": "Yük Kaybı (hₗ)",
         "de": "Druckverlust (hₗ)",
-        "fr": "Yük Kaybı (hₗ)",
-        "es": "Yük Kaybı (hₗ)",
+        "fr": "Perte de charge (hₗ)",
+        "es": "Pérdida de carga (hₗ)",
         "ar": "Yük Kaybı (hₗ)"
       },
       "businessContext_i18n": {
         "en": "İki nokta arasındaki toplam yük kaybı (sürtünme vb.), 0 girilirse kayıpsız kabul edilir",
         "tr": "İki nokta arasındaki toplam yük kaybı (sürtünme vb.), 0 girilirse kayıpsız kabul edilir",
-        "de": "Gesamtdruckverlust zwischen zwei Punkten (Reibung usw.); bei Eingabe 0 wird verlustfrei angenommen"
+        "de": "Gesamtdruckverlust zwischen zwei Punkten (Reibung usw.); bei Eingabe 0 wird verlustfrei angenommen",
+        "fr": "Perte de charge totale entre les deux points (frottement, etc.) ; 0 si sans perte",
+        "es": "Pérdida de carga total entre los dos puntos (fricción, etc.); si se ingresa 0, se considera sin pérdidas"
       }
     }
   ],

@@ -12,13 +12,15 @@
         "en": "Number of Weeks",
         "tr": "Hafta Sayısı",
         "de": "Anzahl der Wochen",
-        "fr": "Number of Weeks",
-        "es": "Number of Weeks",
+        "fr": "Nombre de semaines",
+        "es": "Número de semanas",
         "ar": "Number of Weeks"
       },
       "businessContext_i18n": {
         "en": "Total weeks to convert",
-        "tr": "Dönüştürülecek toplam hafta"
+        "tr": "Dönüştürülecek toplam hafta",
+        "de": "Gesamtzahl der umzurechnenden Wochen",
+        "fr": "Nombre total de semaines à convertir"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Days per Week",
         "tr": "Gün/Hafta",
         "de": "Tage pro Woche",
-        "fr": "Days per Week",
-        "es": "Days per Week",
+        "fr": "Jours par semaine",
+        "es": "Días por semana",
         "ar": "Days per Week"
       },
       "businessContext_i18n": {
         "en": "Calendar days per week (typically 7)",
-        "tr": "Hafta başına takvim günü (genellikle 7)"
+        "tr": "Hafta başına takvim günü (genellikle 7)",
+        "de": "Kalendertage pro Woche (typischerweise 7)",
+        "fr": "Jours calendaires par semaine (généralement 7)"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Days per Month",
         "tr": "Aylık Gün Sayısı",
         "de": "Tage pro Monat",
-        "fr": "Days per Month",
-        "es": "Days per Month",
+        "fr": "Jours par mois",
+        "es": "Días por mes",
         "ar": "Days per Month"
       },
       "businessContext_i18n": {
         "en": "Average days per month for calendar conversion (e.g., 30.44 for average, 30 for financial)",
-        "tr": "Takvim dönüşümü için ay başına ortalama gün (ör. ortalama için 30,44, finansal için 30)"
+        "tr": "Takvim dönüşümü için ay başına ortalama gün (ör. ortalama için 30,44, finansal için 30)",
+        "de": "Durchschnittliche Tage pro Monat für die Kalenderumrechnung (z. B. 30,44 für Durchschnitt, 30 für Finanzen)",
+        "fr": "Nombre moyen de jours par mois pour la conversion calendaire (ex. 30,44 pour la moyenne, 30 pour le financier)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Work Days per Week",
         "tr": "Haftalık Çalışma Günü",
-        "de": "Work Days per Week",
-        "fr": "Work Days per Week",
+        "de": "Arbeitstage pro Woche",
+        "fr": "Jours ouvrés par semaine",
         "es": "Work Days per Week",
         "ar": "Work Days per Week"
       },
       "businessContext_i18n": {
         "en": "Working days per week (typically 5)",
-        "tr": "Haftalık çalışma günü (genellikle 5)"
+        "tr": "Haftalık çalışma günü (genellikle 5)",
+        "de": "Arbeitstage pro Woche (typischerweise 5)",
+        "fr": "Jours ouvrés par semaine (généralement 5)"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Work Days per Month",
         "tr": "Aylık Çalışma Günü",
-        "de": "Work Days per Month",
-        "fr": "Work Days per Month",
+        "de": "Arbeitstage pro Monat",
+        "fr": "Jours ouvrés par mois",
         "es": "Work Days per Month",
         "ar": "Work Days per Month"
       },
       "businessContext_i18n": {
         "en": "Average working days per month for business conversion (e.g., 22)",
-        "tr": "İş dönüşümü için aylık ortalama çalışma günü (ör. 22)"
+        "tr": "İş dönüşümü için aylık ortalama çalışma günü (ör. 22)",
+        "de": "Durchschnittliche Arbeitstage pro Monat für die Geschäftsumrechnung (z. B. 22)",
+        "fr": "Nombre moyen de jours ouvrés par mois pour la conversion professionnelle (ex. 22)"
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the primary output",
-        "tr": "Birincil çıktı için ondalık basamak sayısı"
+        "tr": "Birincil çıktı için ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen für die primäre Ausgabe",
+        "fr": "Nombre de décimales pour le résultat principal"
       }
     }
   ],

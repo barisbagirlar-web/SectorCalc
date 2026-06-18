@@ -12,14 +12,16 @@
         "en": "Weight (kg)",
         "tr": "Ağırlık (kg)",
         "de": "Gewicht (kg)",
-        "fr": "Weight (kg)",
-        "es": "Weight (kg)",
+        "fr": "Poids (kg)",
+        "es": "Peso (kg)",
         "ar": "Weight (kg)"
       },
       "businessContext_i18n": {
         "en": "User body weight in kilograms",
         "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı",
-        "de": "Körpergewicht des Benutzers in Kilogramm"
+        "de": "Körpergewicht des Benutzers in Kilogramm",
+        "fr": "Poids corporel de l'utilisateur en kilogrammes",
+        "es": "Peso corporal del usuario en kilogramos"
       }
     },
     {
@@ -33,13 +35,16 @@
         "en": "Height (cm)",
         "tr": "Boy (cm)",
         "de": "Größe (cm)",
-        "fr": "Height (cm)",
-        "es": "Height (cm)",
+        "fr": "Taille (cm)",
+        "es": "Altura (cm)",
         "ar": "Height (cm)"
       },
       "businessContext_i18n": {
         "en": "User height in centimeters",
-        "tr": "Kullanıcının santimetre cinsinden boyu"
+        "tr": "Kullanıcının santimetre cinsinden boyu",
+        "de": "Körpergröße des Benutzers in Zentimetern",
+        "fr": "Taille de l'utilisateur en centimètres",
+        "es": "Altura del usuario en centímetros"
       }
     },
     {
@@ -53,13 +58,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "User age in years",
-        "tr": "Kullanıcının yıl cinsinden yaşı"
+        "tr": "Kullanıcının yıl cinsinden yaşı",
+        "de": "Alter des Benutzers in Jahren",
+        "fr": "Âge de l'utilisateur en années",
+        "es": "Edad del usuario en años"
       }
     },
     {
@@ -73,13 +81,16 @@
         "en": "Gender (0: Female, 1: Male)",
         "tr": "Cinsiyet (0: Kadın, 1: Erkek)",
         "de": "Geschlecht (0: Weiblich, 1: Männlich)",
-        "fr": "Gender (0: Female, 1: Male)",
-        "es": "Gender (0: Female, 1: Male)",
+        "fr": "Sexe (0 : Femme, 1 : Homme)",
+        "es": "Género (0: Mujer, 1: Hombre)",
         "ar": "Gender (0: Female, 1: Male)"
       },
       "businessContext_i18n": {
         "en": "Biological gender for BMR formula (0 for female, 1 for male)",
-        "tr": "BMR formülü için biyolojik cinsiyet (0 kadın, 1 erkek)"
+        "tr": "BMR formülü için biyolojik cinsiyet (0 kadın, 1 erkek)",
+        "de": "Biologisches Geschlecht für die BMR-Formel (0 = weiblich, 1 = männlich)",
+        "fr": "Sexe biologique pour la formule BMR (0 pour femme, 1 pour homme)",
+        "es": "Género biológico para la fórmula de TMB (0 para mujer, 1 para hombre)"
       }
     },
     {
@@ -93,13 +104,16 @@
         "en": "Activity Level",
         "tr": "Aktivite Seviyesi",
         "de": "Aktivitätsniveau",
-        "fr": "Activity Level",
-        "es": "Activity Level",
+        "fr": "Niveau d'activité",
+        "es": "Nivel de actividad",
         "ar": "Activity Level"
       },
       "businessContext_i18n": {
         "en": "Physical activity multiplier: 1.2=sedentary, 1.375=light, 1.55=moderate, 1.725=very active, 1.9=extra active",
-        "tr": "Fiziksel aktivite çarpanı: 1.2=hareketsiz, 1.375=hafif, 1.55=orta, 1.725=çok aktif, 1.9=ekstra aktif"
+        "tr": "Fiziksel aktivite çarpanı: 1.2=hareketsiz, 1.375=hafif, 1.55=orta, 1.725=çok aktif, 1.9=ekstra aktif",
+        "de": "Multiplikator für körperliche Aktivität: 1,2 = sitzend, 1,375 = leicht, 1,55 = moderat, 1,725 = sehr aktiv, 1,9 = extra aktiv",
+        "fr": "Multiplicateur d'activité physique : 1,2=sédentaire, 1,375=léger, 1,55=modéré, 1,725=très actif, 1,9=extra actif",
+        "es": "Multiplicador de actividad física: 1.2=sedentario, 1.375=ligero, 1.55=moderado, 1.725=muy activo, 1.9=extra activo"
       }
     },
     {
@@ -112,14 +126,17 @@
       "label_i18n": {
         "en": "Goal Factor",
         "tr": "Hedef Faktörü",
-        "de": "Goal Factor",
-        "fr": "Goal Factor",
-        "es": "Goal Factor",
+        "de": "Zielfaktor",
+        "fr": "Facteur d'objectif",
+        "es": "Factor de objetivo",
         "ar": "Goal Factor"
       },
       "businessContext_i18n": {
         "en": "Calorie adjustment factor: 0.8 for weight loss, 1.0 for maintenance, 1.2 for muscle gain",
-        "tr": "Kalori ayarlama faktörü: 0.8 kilo kaybı, 1.0 koruma, 1.2 kas kazanımı"
+        "tr": "Kalori ayarlama faktörü: 0.8 kilo kaybı, 1.0 koruma, 1.2 kas kazanımı",
+        "de": "Kalorienanpassungsfaktor: 0,8 für Gewichtsverlust, 1,0 für Erhaltung, 1,2 für Muskelaufbau",
+        "fr": "Facteur d'ajustement calorique : 0,8 pour perte de poids, 1,0 pour maintien, 1,2 pour gain musculaire",
+        "es": "Factor de ajuste calórico: 0.8 para pérdida de peso, 1.0 para mantenimiento, 1.2 para ganancia muscular"
       }
     }
   ],

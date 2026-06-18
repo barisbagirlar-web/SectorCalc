@@ -22,11 +22,15 @@
       "businessContext": "Total time from last good piece of previous run to first good piece of next run. Measured per SMED standard.",
       "label_i18n": {
         "en": "Current Changeover Time (minutes)",
-        "tr": "Mevcut Değişim Süresi (dakika)"
+        "tr": "Mevcut Değişim Süresi (dakika)",
+        "de": "Aktuelle Rüstzeit (Minuten)",
+        "fr": "Temps de changement de série actuel (minutes)"
       },
       "businessContext_i18n": {
         "en": "Total time from last good piece of previous run to first good piece of next run. Measured per SMED standard.",
-        "tr": "Önceki partinin son iyi parçasından sonraki partinin ilk iyi parçasına kadar geçen toplam süre. SMED standardına göre ölçülür."
+        "tr": "Önceki partinin son iyi parçasından sonraki partinin ilk iyi parçasına kadar geçen toplam süre. SMED standardına göre ölçülür.",
+        "de": "Gesamtzeit vom letzten guten Teil des vorherigen Laufs bis zum ersten guten Teil des nächsten Laufs. Gemessen nach SMED-Standard.",
+        "fr": "Temps total entre la dernière bonne pièce du lot précédent et la première bonne pièce du lot suivant. Mesuré selon la norme SMED."
       }
     },
     {
@@ -40,11 +44,15 @@
       "businessContext": "Percentage of changeover time where machine is stopped. Target is to convert internal to external.",
       "label_i18n": {
         "en": "Internal Operations (% of total time)",
-        "tr": "Dahili Operasyonlar (toplam sürenin %'si)"
+        "tr": "Dahili Operasyonlar (toplam sürenin %'si)",
+        "de": "Interne Tätigkeiten (% der Gesamtzeit)",
+        "fr": "Opérations internes (% du temps total)"
       },
       "businessContext_i18n": {
         "en": "Percentage of changeover time where machine is stopped. Target is to convert internal to external.",
-        "tr": "Makinenin durduğu değişim süresinin yüzdesi. Hedef, dahiliyi hariciye dönüştürmektir."
+        "tr": "Makinenin durduğu değişim süresinin yüzdesi. Hedef, dahiliyi hariciye dönüştürmektir.",
+        "de": "Prozentsatz der Rüstzeit, in dem die Maschine stillsteht. Ziel ist es, interne in externe Tätigkeiten umzuwandeln.",
+        "fr": "Pourcentage du temps de changement de série où la machine est arrêtée. L'objectif est de convertir l'interne en externe."
       }
     },
     {
@@ -58,11 +66,15 @@
       "businessContext": "Number of operators directly involved in the changeover process.",
       "label_i18n": {
         "en": "Setup Team Size (operators)",
-        "tr": "Kurulum Ekibi Büyüklüğü (operatör)"
+        "tr": "Kurulum Ekibi Büyüklüğü (operatör)",
+        "de": "Rüstteamgröße (Operateure)",
+        "fr": "Taille de l'équipe de changement de série (opérateurs)"
       },
       "businessContext_i18n": {
         "en": "Number of operators directly involved in the changeover process.",
-        "tr": "Değişim sürecine doğrudan dahil olan operatör sayısı."
+        "tr": "Değişim sürecine doğrudan dahil olan operatör sayısı.",
+        "de": "Anzahl der direkt am Rüstprozess beteiligten Operateure.",
+        "fr": "Nombre d'opérateurs directement impliqués dans le processus de changement de série."
       }
     },
     {
@@ -76,11 +88,15 @@
       "businessContext": "Indicates if tasks can be performed simultaneously by multiple operators (SMED principle).",
       "label_i18n": {
         "en": "Parallel Work Possible",
-        "tr": "Paralel Çalışma Mümkün"
+        "tr": "Paralel Çalışma Mümkün",
+        "de": "Parallelarbeit möglich",
+        "fr": "Travail parallèle possible"
       },
       "businessContext_i18n": {
         "en": "Indicates if tasks can be performed simultaneously by multiple operators (SMED principle).",
-        "tr": "Görevlerin birden fazla operatör tarafından eşzamanlı olarak gerçekleştirilip gerçekleştirilemeyeceğini belirtir (SMED prensibi)."
+        "tr": "Görevlerin birden fazla operatör tarafından eşzamanlı olarak gerçekleştirilip gerçekleştirilemeyeceğini belirtir (SMED prensibi).",
+        "de": "Gibt an, ob Aufgaben von mehreren Operateuren gleichzeitig ausgeführt werden können (SMED-Prinzip).",
+        "fr": "Indique si les tâches peuvent être effectuées simultanément par plusieurs opérateurs (principe SMED)."
       }
     },
     {
@@ -99,11 +115,15 @@
       "businessContext": "Degree of standardized work instructions, tooling, and die design. High = minimal adjustments.",
       "label_i18n": {
         "en": "Standardization Level",
-        "tr": "Standardizasyon Seviyesi"
+        "tr": "Standardizasyon Seviyesi",
+        "de": "Standardisierungsgrad",
+        "fr": "Niveau de standardisation"
       },
       "businessContext_i18n": {
         "en": "Degree of standardized work instructions, tooling, and die design. High = minimal adjustments.",
-        "tr": "Standartlaştırılmış iş talimatları, takım ve kalıp tasarımı derecesi. Yüksek = minimum ayar."
+        "tr": "Standartlaştırılmış iş talimatları, takım ve kalıp tasarımı derecesi. Yüksek = minimum ayar.",
+        "de": "Grad der standardisierten Arbeitsanweisungen, Werkzeuge und Werkzeugkonstruktion. Hoch = minimale Anpassungen.",
+        "fr": "Degré de standardisation des instructions de travail, de l'outillage et de la conception des matrices. Élevé = ajustements minimaux."
       }
     },
     {
@@ -117,11 +137,15 @@
       "businessContext": "Subjective assessment of unnecessary movement, searching, and walking during changeover. 1 = optimal, 10 = extreme waste.",
       "label_i18n": {
         "en": "Waste Motion Score (1-10)",
-        "tr": "Atık Hareket Puanı (1-10)"
+        "tr": "Atık Hareket Puanı (1-10)",
+        "de": "Verschwendungsbewertung Bewegung (1-10)",
+        "fr": "Score de mouvement gaspillé (1-10)"
       },
       "businessContext_i18n": {
         "en": "Subjective assessment of unnecessary movement, searching, and walking during changeover. 1 = optimal, 10 = extreme waste.",
-        "tr": "Değişim sırasında gereksiz hareket, arama ve yürümenin subjektif değerlendirmesi. 1 = optimal, 10 = aşırı atık."
+        "tr": "Değişim sırasında gereksiz hareket, arama ve yürümenin subjektif değerlendirmesi. 1 = optimal, 10 = aşırı atık.",
+        "de": "Subjektive Bewertung unnötiger Bewegungen, Suchens und Gehens während des Rüstens. 1 = optimal, 10 = extreme Verschwendung.",
+        "fr": "Évaluation subjective des mouvements inutiles, des recherches et des déplacements pendant le changement. 1 = optimal, 10 = gaspillage extrême."
       }
     }
   ],

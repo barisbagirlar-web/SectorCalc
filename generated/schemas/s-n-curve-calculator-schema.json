@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Gerilim Genliği (σ_a)",
         "tr": "Gerilim Genliği (σ_a)",
-        "de": "Gerilim Genliği (σ_a)",
+        "de": "Spannungsamplitude (σ_a)",
         "fr": "Gerilim Genliği (σ_a)",
         "es": "Gerilim Genliği (σ_a)",
         "ar": "Gerilim Genliği (σ_a)"
       },
       "businessContext_i18n": {
         "en": "Parçaya uygulanan alternatif gerilim genliği",
-        "tr": "Parçaya uygulanan alternatif gerilim genliği"
+        "tr": "Parçaya uygulanan alternatif gerilim genliği",
+        "de": "Auf das Bauteil wirkende Wechselspannungsamplitude",
+        "fr": "Parçaya uygulanan alternatif gerilim genliği"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Ortalama Gerilim (σ_m)",
         "tr": "Ortalama Gerilim (σ_m)",
-        "de": "Ortalama Gerilim (σ_m)",
+        "de": "Mittelspannung (σ_m)",
         "fr": "Ortalama Gerilim (σ_m)",
         "es": "Ortalama Gerilim (σ_m)",
         "ar": "Ortalama Gerilim (σ_m)"
       },
       "businessContext_i18n": {
         "en": "Çevrimdeki ortalama statik gerilim",
-        "tr": "Çevrimdeki ortalama statik gerilim"
+        "tr": "Çevrimdeki ortalama statik gerilim",
+        "de": "Mittlere statische Spannung im Zyklus",
+        "fr": "Çevrimdeki ortalama statik gerilim"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Çekme Dayanımı (σ_u)",
         "tr": "Çekme Dayanımı (σ_u)",
-        "de": "Çekme Dayanımı (σ_u)",
+        "de": "Zugfestigkeit (σ_u)",
         "fr": "Çekme Dayanımı (σ_u)",
         "es": "Çekme Dayanımı (σ_u)",
         "ar": "Çekme Dayanımı (σ_u)"
       },
       "businessContext_i18n": {
         "en": "Malzemenin kopma (çekme) dayanımı",
-        "tr": "Malzemenin kopma (çekme) dayanımı"
+        "tr": "Malzemenin kopma (çekme) dayanımı",
+        "de": "Bruchfestigkeit (Zugfestigkeit) des Materials",
+        "fr": "Malzemenin kopma (çekme) dayanımı"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Yorulma Dayanım Katsayısı (σ_f')",
         "tr": "Yorulma Dayanım Katsayısı (σ_f')",
-        "de": "Yorulma Dayanım Katsayısı (σ_f')",
+        "de": "Ermüdungsfestigkeitskoeffizient (σ_f')",
         "fr": "Yorulma Dayanım Katsayısı (σ_f')",
         "es": "Yorulma Dayanım Katsayısı (σ_f')",
         "ar": "Yorulma Dayanım Katsayısı (σ_f')"
       },
       "businessContext_i18n": {
         "en": "Basquin denklemindeki yorulma dayanım katsayısı",
-        "tr": "Basquin denklemindeki yorulma dayanım katsayısı"
+        "tr": "Basquin denklemindeki yorulma dayanım katsayısı",
+        "de": "Ermüdungsfestigkeitskoeffizient in der Basquin-Gleichung",
+        "fr": "Basquin denklemindeki yorulma dayanım katsayısı"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Yorulma Dayanım Üsteli (b)",
         "tr": "Yorulma Dayanım Üsteli (b)",
-        "de": "Yorulma Dayanım Üsteli (b)",
+        "de": "Ermüdungsexponent (b)",
         "fr": "Yorulma Dayanım Üsteli (b)",
         "es": "Yorulma Dayanım Üsteli (b)",
         "ar": "Yorulma Dayanım Üsteli (b)"
       },
       "businessContext_i18n": {
         "en": "Basquin denklemindeki yorulma dayanım üsteli (genellikle negatif)",
-        "tr": "Basquin denklemindeki yorulma dayanım üsteli (genellikle negatif)"
+        "tr": "Basquin denklemindeki yorulma dayanım üsteli (genellikle negatif)",
+        "de": "Ermüdungsexponent in der Basquin-Gleichung (normalerweise negativ)",
+        "fr": "Basquin denklemindeki yorulma dayanım üsteli (genellikle negatif)"
       }
     }
   ],

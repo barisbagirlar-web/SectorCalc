@@ -12,14 +12,16 @@
         "en": "Equipment Age",
         "tr": "Ekipman yaşı",
         "de": "Anlagenalter",
-        "fr": "Equipment Age",
-        "es": "Equipment Age",
+        "fr": "Âge de l'équipement",
+        "es": "Edad del equipo",
         "ar": "Equipment Age"
       },
       "businessContext_i18n": {
         "en": "Age of the equipment in years",
         "tr": "Ekipmanın yıl cinsinden yaşı",
-        "de": "Alter der Anlage in Jahren"
+        "de": "Alter der Anlage in Jahren",
+        "fr": "Âge de l'équipement en années",
+        "es": "Antigüedad del equipo en años"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Daily Utilization",
         "tr": "Günlük Kullanım",
         "de": "Tägliche Nutzung",
-        "fr": "Daily Utilization",
-        "es": "Daily Utilization",
+        "fr": "Utilisation quotidienne",
+        "es": "Utilización diaria",
         "ar": "Daily Utilization"
       },
       "businessContext_i18n": {
         "en": "Average daily operating hours",
         "tr": "Ortalama günlük çalışma saati",
-        "de": "Durchschnittliche tägliche Betriebsstunden"
+        "de": "Durchschnittliche tägliche Betriebsstunden",
+        "fr": "Heures de fonctionnement quotidiennes moyennes",
+        "es": "Horas de operación diarias promedio"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Maintenance Interval",
         "tr": "Bakım Aralığı",
         "de": "Wartungsintervall",
-        "fr": "Maintenance Interval",
-        "es": "Maintenance Interval",
+        "fr": "Intervalle de maintenance",
+        "es": "Intervalo de mantenimiento",
         "ar": "Maintenance Interval"
       },
       "businessContext_i18n": {
         "en": "Scheduled maintenance interval in days",
         "tr": "Planlı bakım aralığı (gün cinsinden)",
-        "de": "Geplantes Wartungsintervall in Tagen"
+        "de": "Geplantes Wartungsintervall in Tagen",
+        "fr": "Intervalle de maintenance programmée en jours",
+        "es": "Intervalo de mantenimiento programado en días"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Environment Severity",
         "tr": "Ortam Şiddeti",
         "de": "Umgebungsschwere",
-        "fr": "Environment Severity",
-        "es": "Environment Severity",
+        "fr": "Sévérité de l'environnement",
+        "es": "Severidad del entorno",
         "ar": "Environment Severity"
       },
       "businessContext_i18n": {
         "en": "Environmental condition severity (1=clean, 5=harsh)",
         "tr": "Çevresel koşul şiddeti (1=temiz, 5=sert)",
-        "de": "Schweregrad der Umgebungsbedingungen (1=sauber, 5=rau)"
+        "de": "Schweregrad der Umgebungsbedingungen (1=sauber, 5=rau)",
+        "fr": "Sévérité des conditions environnementales (1=propre, 5=sévère)",
+        "es": "Severidad de las condiciones ambientales (1=limpio, 5=agresivo)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Last Inspection Score",
         "tr": "Son Denetim Puanı",
         "de": "Letzter Inspektionswert",
-        "fr": "Last Inspection Score",
-        "es": "Last Inspection Score",
+        "fr": "Score de la dernière inspection",
+        "es": "Puntuación de la última inspección",
         "ar": "Last Inspection Score"
       },
       "businessContext_i18n": {
         "en": "Score from the last inspection (0-100)",
         "tr": "Son denetimden alınan puan (0-100)",
-        "de": "Wert der letzten Inspektion (0-100)"
+        "de": "Wert der letzten Inspektion (0-100)",
+        "fr": "Score de la dernière inspection (0-100)",
+        "es": "Puntuación de la última inspección (0-100)"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Operator Experience",
         "tr": "Operatör Deneyimi",
         "de": "Bedienungserfahrung",
-        "fr": "Operator Experience",
-        "es": "Operator Experience",
+        "fr": "Expérience de l'opérateur",
+        "es": "Experiencia del operador",
         "ar": "Operator Experience"
       },
       "businessContext_i18n": {
         "en": "Operator experience in years",
         "tr": "Operatör deneyimi (yıl cinsinden)",
-        "de": "Bedienungserfahrung in Jahren"
+        "de": "Bedienungserfahrung in Jahren",
+        "fr": "Expérience de l'opérateur en années",
+        "es": "Experiencia del operador en años"
       }
     }
   ],

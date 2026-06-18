@@ -12,13 +12,15 @@
         "en": "Frequency",
         "tr": "Frekans",
         "de": "Frequenz",
-        "fr": "Frequency",
-        "es": "Frequency",
+        "fr": "Fréquence",
+        "es": "Frecuencia",
         "ar": "Frequency"
       },
       "businessContext_i18n": {
         "en": "Operating frequency of the transmission line (e.g., 50/60 Hz for power lines, 1-30 MHz for RF).",
-        "tr": "İletim hattının çalışma frekansı (örn. güç hatları için 50/60 Hz, RF için 1-30 MHz)."
+        "tr": "İletim hattının çalışma frekansı (örn. güç hatları için 50/60 Hz, RF için 1-30 MHz).",
+        "de": "Betriebsfrequenz der Übertragungsleitung (z. B. 50/60 Hz für Stromleitungen, 1-30 MHz für HF).",
+        "fr": "Fréquence de fonctionnement de la ligne de transmission (ex. 50/60 Hz pour les lignes électriques, 1-30 MHz pour RF)."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Inductance per unit length",
         "tr": "Birim uzunluk başına endüktans",
-        "de": "Inductance per unit length",
-        "fr": "Inductance per unit length",
+        "de": "Induktivität pro Längeneinheit",
+        "fr": "Inductance par unité de longueur",
         "es": "Inductance per unit length",
         "ar": "Inductance per unit length"
       },
       "businessContext_i18n": {
         "en": "Inductance per unit length (H/m). Typical values: overhead lines ~1e-6 H/m, cables ~0.2e-6 H/m.",
-        "tr": "Birim uzunluk başına endüktans (H/m). Tipik değerler: havai hatlar ~1e-6 H/m, kablolar ~0.2e-6 H/m."
+        "tr": "Birim uzunluk başına endüktans (H/m). Tipik değerler: havai hatlar ~1e-6 H/m, kablolar ~0.2e-6 H/m.",
+        "de": "Induktivität pro Längeneinheit (H/m). Typische Werte: Freileitungen ~1e-6 H/m, Kabel ~0,2e-6 H/m.",
+        "fr": "Inductance par unité de longueur (H/m). Valeurs typiques : lignes aériennes ~1e-6 H/m, câbles ~0,2e-6 H/m."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Capacitance per unit length",
         "tr": "Birim uzunluk başına kapasitans",
-        "de": "Capacitance per unit length",
-        "fr": "Capacitance per unit length",
+        "de": "Kapazität pro Längeneinheit",
+        "fr": "Capacité par unité de longueur",
         "es": "Capacitance per unit length",
         "ar": "Capacitance per unit length"
       },
       "businessContext_i18n": {
         "en": "Capacitance per unit length (F/m). Typical values: overhead lines ~10e-12 F/m, cables ~50e-12 F/m.",
-        "tr": "Birim uzunluk başına kapasitans (F/m). Tipik değerler: havai hatlar ~10e-12 F/m, kablolar ~50e-12 F/m."
+        "tr": "Birim uzunluk başına kapasitans (F/m). Tipik değerler: havai hatlar ~10e-12 F/m, kablolar ~50e-12 F/m.",
+        "de": "Kapazität pro Längeneinheit (F/m). Typische Werte: Freileitungen ~10e-12 F/m, Kabel ~50e-12 F/m.",
+        "fr": "Capacité par unité de longueur (F/m). Valeurs typiques : lignes aériennes ~10e-12 F/m, câbles ~50e-12 F/m."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Resistance per unit length",
         "tr": "Birim uzunluk başına direnç",
-        "de": "Resistance per unit length",
-        "fr": "Resistance per unit length",
+        "de": "Widerstand pro Längeneinheit",
+        "fr": "Résistance par unité de longueur",
         "es": "Resistance per unit length",
         "ar": "Resistance per unit length"
       },
       "businessContext_i18n": {
         "en": "Resistance per unit length (Ω/m). For lossless approximation, set to 0.",
-        "tr": "Birim uzunluk başına direnç (Ω/m). Kayıpsız yaklaşım için 0 olarak ayarlayın."
+        "tr": "Birim uzunluk başına direnç (Ω/m). Kayıpsız yaklaşım için 0 olarak ayarlayın.",
+        "de": "Widerstand pro Längeneinheit (Ω/m). Für verlustlose Näherung auf 0 setzen.",
+        "fr": "Résistance par unité de longueur (Ω/m). Pour une approximation sans pertes, définir à 0."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Conductance per unit length",
         "tr": "Birim uzunluk başına iletkenlik",
-        "de": "Conductance per unit length",
-        "fr": "Conductance per unit length",
+        "de": "Leitwert pro Längeneinheit",
+        "fr": "Conductance par unité de longueur",
         "es": "Conductance per unit length",
         "ar": "Conductance per unit length"
       },
       "businessContext_i18n": {
         "en": "Conductance per unit length (S/m). For lossless approximation, set to 0.",
-        "tr": "Birim uzunluk başına iletkenlik (S/m). Kayıpsız yaklaşım için 0 olarak ayarlayın."
+        "tr": "Birim uzunluk başına iletkenlik (S/m). Kayıpsız yaklaşım için 0 olarak ayarlayın.",
+        "de": "Leitwert pro Längeneinheit (S/m). Für verlustlose Näherung auf 0 setzen.",
+        "fr": "Conductance par unité de longueur (S/m). Pour une approximation sans pertes, définir à 0."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Line length",
         "tr": "Hat uzunluğu",
-        "de": "Line length",
-        "fr": "Line length",
+        "de": "Leitungslänge",
+        "fr": "Longueur de la ligne",
         "es": "Line length",
         "ar": "Line length"
       },
       "businessContext_i18n": {
         "en": "Total length of the transmission line (m).",
-        "tr": "İletim hattının toplam uzunluğu (m)."
+        "tr": "İletim hattının toplam uzunluğu (m).",
+        "de": "Gesamtlänge der Übertragungsleitung (m).",
+        "fr": "Longueur totale de la ligne de transmission (m)."
       }
     }
   ],

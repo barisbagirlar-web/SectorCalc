@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Testing Distance",
         "tr": "Test Mesafesi",
-        "de": "Testing Distance",
-        "fr": "Testing Distance",
+        "de": "Testentfernung",
+        "fr": "Distance de test",
         "es": "Testing Distance",
         "ar": "Testing Distance"
       },
       "businessContext_i18n": {
         "en": "Distance between patient and eye chart in feet.",
-        "tr": "Hasta ile göz tablosu arasındaki mesafe (feet)."
+        "tr": "Hasta ile göz tablosu arasındaki mesafe (feet).",
+        "de": "Abstand zwischen Patient und Sehtafel in Fuß.",
+        "fr": "Distance entre le patient et le tableau de vision en pieds."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Letter Height",
         "tr": "Harf Yüksekliği",
-        "de": "Letter Height",
-        "fr": "Letter Height",
+        "de": "Buchstabenhöhe",
+        "fr": "Hauteur de la lettre",
         "es": "Letter Height",
         "ar": "Letter Height"
       },
       "businessContext_i18n": {
         "en": "Height of the smallest readable Snellen letter in millimeters.",
-        "tr": "Okunabilen en küçük Snellen harfinin milimetre cinsinden yüksekliği."
+        "tr": "Okunabilen en küçük Snellen harfinin milimetre cinsinden yüksekliği.",
+        "de": "Höhe des kleinsten lesbaren Snellen-Buchstabens in Millimetern.",
+        "fr": "Hauteur de la plus petite lettre Snellen lisible en millimètres."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Snellen Numerator",
         "tr": "Snellen Payı",
-        "de": "Snellen Numerator",
-        "fr": "Snellen Numerator",
+        "de": "Snellen-Zähler",
+        "fr": "Numérateur Snellen",
         "es": "Snellen Numerator",
         "ar": "Snellen Numerator"
       },
       "businessContext_i18n": {
         "en": "Standard testing distance numerator, typically 20 for feet or 6 for meters.",
-        "tr": "Standart test mesafesi payı, genellikle feet için 20 veya metre için 6."
+        "tr": "Standart test mesafesi payı, genellikle feet için 20 veya metre için 6.",
+        "de": "Standard-Testentfernungszähler, typischerweise 20 für Fuß oder 6 für Meter.",
+        "fr": "Numérateur de distance de test standard, généralement 20 pour les pieds ou 6 pour les mètres."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Override Denominator",
         "tr": "Paydayı Geçersiz Kıl",
-        "de": "Override Denominator",
-        "fr": "Override Denominator",
+        "de": "Nenner überschreiben",
+        "fr": "Remplacer le dénominateur",
         "es": "Override Denominator",
         "ar": "Override Denominator"
       },
       "businessContext_i18n": {
         "en": "If known, directly set the Snellen denominator; otherwise calculated from distance and letter height.",
-        "tr": "Biliniyorsa Snellen paydasını doğrudan ayarlayın; aksi halde mesafe ve harf yüksekliğinden hesaplanır."
+        "tr": "Biliniyorsa Snellen paydasını doğrudan ayarlayın; aksi halde mesafe ve harf yüksekliğinden hesaplanır.",
+        "de": "Falls bekannt, Snellen-Nenner direkt festlegen; sonst aus Entfernung und Buchstabenhöhe berechnet.",
+        "fr": "Si connu, définir directement le dénominateur Snellen ; sinon calculé à partir de la distance et de la hauteur de la lettre."
       }
     }
   ],

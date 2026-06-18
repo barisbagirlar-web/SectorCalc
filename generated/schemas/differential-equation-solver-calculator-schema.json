@@ -12,14 +12,16 @@
         "en": "Initial value y₀",
         "tr": "Başlangıç değeri y₀",
         "de": "Anfangswert y₀",
-        "fr": "Initial value y₀",
-        "es": "Initial value y₀",
+        "fr": "Valeur initiale y₀",
+        "es": "Valor inicial y₀",
         "ar": "Initial value y₀"
       },
       "businessContext_i18n": {
         "en": "Value of y at initial time t₀",
         "tr": "y'nin başlangıç zamanı t₀'daki değeri",
-        "de": "Wert von y zum Anfangszeitpunkt t₀"
+        "de": "Wert von y zum Anfangszeitpunkt t₀",
+        "fr": "Valeur de y au temps initial t₀",
+        "es": "Valor de y en el tiempo inicial t₀"
       }
     },
     {
@@ -34,13 +36,15 @@
         "tr": "Katsayı a",
         "de": "Koeffizient a",
         "fr": "Coefficient a",
-        "es": "Coefficient a",
+        "es": "Coeficiente a",
         "ar": "Coefficient a"
       },
       "businessContext_i18n": {
         "en": "Growth (positive) or decay (negative) rate in dy/dt = a·y + b",
         "tr": "dy/dt = a·y + b'de büyüme (pozitif) veya azalma (negatif) oranı",
-        "de": "Wachstums- (positiv) oder Zerfallsrate (negativ) in dy/dt = a·y + b"
+        "de": "Wachstums- (positiv) oder Zerfallsrate (negativ) in dy/dt = a·y + b",
+        "fr": "Taux de croissance (positif) ou de décroissance (négatif) dans dy/dt = a·y + b",
+        "es": "Tasa de crecimiento (positiva) o decrecimiento (negativa) en dy/dt = a·y + b"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Constant b",
         "tr": "Sabit b",
         "de": "Konstante b",
-        "fr": "Constant b",
-        "es": "Constant b",
+        "fr": "Constante b",
+        "es": "Constante b",
         "ar": "Constant b"
       },
       "businessContext_i18n": {
         "en": "Constant forcing term in dy/dt = a·y + b",
         "tr": "dy/dt = a·y + b'de sabit zorlama terimi",
-        "de": "Konstanter Antriebsterm in dy/dt = a·y + b"
+        "de": "Konstanter Antriebsterm in dy/dt = a·y + b",
+        "fr": "Terme de forçage constant dans dy/dt = a·y + b",
+        "es": "Término forzante constante en dy/dt = a·y + b"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Initial time t₀",
         "tr": "Başlangıç zamanı t₀",
         "de": "Anfangszeit t₀",
-        "fr": "Initial time t₀",
-        "es": "Initial time t₀",
+        "fr": "Temps initial t₀",
+        "es": "Tiempo inicial t₀",
         "ar": "Initial time t₀"
       },
       "businessContext_i18n": {
         "en": "Time at which initial condition y₀ is given",
         "tr": "Başlangıç koşulu y₀'nın verildiği zaman",
-        "de": "Zeitpunkt, zu dem die Anfangsbedingung y₀ gegeben ist"
+        "de": "Zeitpunkt, zu dem die Anfangsbedingung y₀ gegeben ist",
+        "fr": "Temps auquel la condition initiale y₀ est donnée",
+        "es": "Tiempo en el que se da la condición inicial y₀"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Time t",
         "tr": "Zaman t",
         "de": "Zeit t",
-        "fr": "Time t",
-        "es": "Time t",
+        "fr": "Temps t",
+        "es": "Tiempo t",
         "ar": "Time t"
       },
       "businessContext_i18n": {
         "en": "Time at which to compute y(t)",
         "tr": "y(t)'nin hesaplanacağı zaman",
-        "de": "Zeitpunkt, zu dem y(t) berechnet werden soll"
+        "de": "Zeitpunkt, zu dem y(t) berechnet werden soll",
+        "fr": "Temps auquel calculer y(t)",
+        "es": "Tiempo en el que calcular y(t)"
       }
     }
   ],

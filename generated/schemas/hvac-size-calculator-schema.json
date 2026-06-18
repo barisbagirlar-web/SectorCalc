@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Room Area",
         "tr": "Oda Alanı",
-        "de": "Room Area",
-        "fr": "Room Area",
-        "es": "Room Area",
+        "de": "Raumfläche",
+        "fr": "Surface de la pièce",
+        "es": "Área de la habitación",
         "ar": "Room Area"
       },
       "businessContext_i18n": {
         "en": "Total floor area of the room to be conditioned",
-        "tr": "İklimlendirilecek odanın toplam taban alanı"
+        "tr": "İklimlendirilecek odanın toplam taban alanı",
+        "de": "Gesamtgrundfläche des zu klimatisierenden Raums",
+        "fr": "Surface totale au sol de la pièce à climatiser",
+        "es": "Superficie total del suelo de la habitación a climatizar"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Ceiling Height",
         "tr": "Tavan Yüksekliği",
         "de": "Deckenhöhe",
-        "fr": "Ceiling Height",
-        "es": "Ceiling Height",
+        "fr": "Hauteur sous plafond",
+        "es": "Altura del techo",
         "ar": "Ceiling Height"
       },
       "businessContext_i18n": {
         "en": "Average ceiling height of the room",
-        "tr": "Odanın ortalama tavan yüksekliği"
+        "tr": "Odanın ortalama tavan yüksekliği",
+        "de": "Durchschnittliche Raumhöhe",
+        "fr": "Hauteur moyenne sous plafond de la pièce",
+        "es": "Altura media del techo de la habitación"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Number of Occupants",
         "tr": "Kişi Sayısı",
         "de": "Anzahl der Personen",
-        "fr": "Number of Occupants",
-        "es": "Number of Occupants",
+        "fr": "Nombre d'occupants",
+        "es": "Número de ocupantes",
         "ar": "Number of Occupants"
       },
       "businessContext_i18n": {
         "en": "Maximum number of people typically present in the room",
-        "tr": "Odada tipik olarak bulunan maksimum kişi sayısı"
+        "tr": "Odada tipik olarak bulunan maksimum kişi sayısı",
+        "de": "Maximale Anzahl typischerweise anwesender Personen",
+        "fr": "Nombre maximum de personnes habituellement présentes dans la pièce",
+        "es": "Número máximo de personas normalmente presentes en la habitación"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Window Area",
         "tr": "Pencere Alanı",
         "de": "Fensterfläche",
-        "fr": "Window Area",
-        "es": "Window Area",
+        "fr": "Surface des fenêtres",
+        "es": "Área de ventanas",
         "ar": "Window Area"
       },
       "businessContext_i18n": {
         "en": "Total glazed area of windows and external doors",
-        "tr": "Pencerelerin ve dış kapıların toplam cam alanı"
+        "tr": "Pencerelerin ve dış kapıların toplam cam alanı",
+        "de": "Gesamtverglasungsfläche von Fenstern und Außentüren",
+        "fr": "Surface vitrée totale des fenêtres et portes extérieures",
+        "es": "Superficie total acristalada de ventanas y puertas exteriores"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Insulation Quality",
         "tr": "Yalıtım Kalitesi",
-        "de": "Insulation Quality",
-        "fr": "Insulation Quality",
-        "es": "Insulation Quality",
+        "de": "Dämmqualität",
+        "fr": "Qualité de l'isolation",
+        "es": "Calidad del aislamiento",
         "ar": "Insulation Quality"
       },
       "businessContext_i18n": {
         "en": "Insulation level: 1=Good, 2=Average, 3=Poor",
-        "tr": "Yalıtım seviyesi: 1=İyi, 2=Orta, 3=Kötü"
+        "tr": "Yalıtım seviyesi: 1=İyi, 2=Orta, 3=Kötü",
+        "de": "Dämmniveau: 1=Gut, 2=Mittel, 3=Schlecht",
+        "fr": "Niveau d'isolation : 1=Bon, 2=Moyen, 3=Mauvais",
+        "es": "Nivel de aislamiento: 1=Bueno, 2=Medio, 3=Malo"
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Outdoor Temperature",
         "tr": "Dış Ortam Sıcaklığı",
         "de": "Außentemperatur",
-        "fr": "Outdoor Temperature",
-        "es": "Outdoor Temperature",
+        "fr": "Température extérieure",
+        "es": "Temperatura exterior",
         "ar": "Outdoor Temperature"
       },
       "businessContext_i18n": {
         "en": "Design outdoor air temperature (summer peak)",
-        "tr": "Tasarım dış hava sıcaklığı (yaz zirvesi)"
+        "tr": "Tasarım dış hava sıcaklığı (yaz zirvesi)",
+        "de": "Auslegungs-Außenlufttemperatur (Sommerspitze)",
+        "fr": "Température extérieure de conception (pic estival)",
+        "es": "Temperatura exterior de diseño (pico de verano)"
       }
     },
     {
@@ -132,13 +150,16 @@
         "en": "Indoor Temperature",
         "tr": "İç Ortam Sıcaklığı",
         "de": "Innentemperatur",
-        "fr": "Indoor Temperature",
-        "es": "Indoor Temperature",
+        "fr": "Température intérieure",
+        "es": "Temperatura interior",
         "ar": "Indoor Temperature"
       },
       "businessContext_i18n": {
         "en": "Desired indoor set-point temperature",
-        "tr": "İstenen iç ortam ayar sıcaklığı"
+        "tr": "İstenen iç ortam ayar sıcaklığı",
+        "de": "Gewünschte Raum-Solltemperatur",
+        "fr": "Température intérieure de consigne souhaitée",
+        "es": "Temperatura interior deseada"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Appearance (Skin Color)",
         "tr": "Görünüm (Cilt Rengi)",
         "de": "Erscheinungsbild (Hautfarbe)",
-        "fr": "Appearance (Skin Color)",
-        "es": "Appearance (Skin Color)",
+        "fr": "Apparence (couleur de la peau)",
+        "es": "Apariencia (color de piel)",
         "ar": "Appearance (Skin Color)"
       },
       "businessContext_i18n": {
         "en": "0: Blue/pale all over; 1: Blue at extremities; 2: No blue",
         "tr": "0: Her yerde mavi/soluk; 1: Ekstremitelerde mavi; 2: Mavi yok",
-        "de": "0: Überall blau/blass; 1: Blau an Extremitäten; 2: Kein Blau"
+        "de": "0: Überall blau/blass; 1: Blau an Extremitäten; 2: Kein Blau",
+        "fr": "0 : Bleu/pâle partout ; 1 : Bleu aux extrémités ; 2 : Pas de bleu",
+        "es": "0: Azul/pálido en todo el cuerpo; 1: Azul en extremidades; 2: Sin azul"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Pulse (Heart Rate)",
         "tr": "Nabız (Kalp Atış Hızı)",
         "de": "Puls (Herzfrequenz)",
-        "fr": "Pulse (Heart Rate)",
-        "es": "Pulse (Heart Rate)",
+        "fr": "Pouls (fréquence cardiaque)",
+        "es": "Pulso (frecuencia cardíaca)",
         "ar": "Pulse (Heart Rate)"
       },
       "businessContext_i18n": {
         "en": "0: Absent; 1: Below 100 bpm; 2: Over 100 bpm",
         "tr": "0: Yok; 1: 100 bpm altı; 2: 100 bpm üstü",
-        "de": "0: Kein Puls; 1: Unter 100 bpm; 2: Über 100 bpm"
+        "de": "0: Kein Puls; 1: Unter 100 bpm; 2: Über 100 bpm",
+        "fr": "0 : Absent ; 1 : Moins de 100 bpm ; 2 : Plus de 100 bpm",
+        "es": "0: Ausente; 1: Menos de 100 lpm; 2: Más de 100 lpm"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Grimace (Reflex Irritability)",
         "tr": "Yüz Buruşturma (Refleks İrritabilite)",
         "de": "Grimasse (Reflexreizbarkeit)",
-        "fr": "Grimace (Reflex Irritability)",
-        "es": "Grimace (Reflex Irritability)",
+        "fr": "Grimace (irritabilité réflexe)",
+        "es": "Mueca (irritabilidad refleja)",
         "ar": "Grimace (Reflex Irritability)"
       },
       "businessContext_i18n": {
         "en": "0: No response; 1: Grimace/feeble cry; 2: Vigorous cry/sneeze",
         "tr": "0: Yanıt yok; 1: Yüz buruşturma/zayıf ağlama; 2: Güçlü ağlama/hapşırma",
-        "de": "0: Keine Reaktion; 1: Grimasse/schwacher Schrei; 2: Kräftiger Schrei/Niesen"
+        "de": "0: Keine Reaktion; 1: Grimasse/schwacher Schrei; 2: Kräftiger Schrei/Niesen",
+        "fr": "0 : Aucune réponse ; 1 : Grimace/faible cri ; 2 : Cri vigoureux/éternuement",
+        "es": "0: Sin respuesta; 1: Mueca/llanto débil; 2: Llanto vigoroso/estornudo"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Activity (Muscle Tone)",
         "tr": "Aktivite (Kas Tonusu)",
         "de": "Aktivität (Muskeltonus)",
-        "fr": "Activity (Muscle Tone)",
-        "es": "Activity (Muscle Tone)",
+        "fr": "Activité (tonus musculaire)",
+        "es": "Actividad (tono muscular)",
         "ar": "Activity (Muscle Tone)"
       },
       "businessContext_i18n": {
         "en": "0: Limp; 1: Some flexion; 2: Active motion",
         "tr": "0: Gevşek; 1: Biraz fleksiyon; 2: Aktif hareket",
-        "de": "0: Schlaff; 1: Etwas Beugung; 2: Aktive Bewegung"
+        "de": "0: Schlaff; 1: Etwas Beugung; 2: Aktive Bewegung",
+        "fr": "0 : Flasque ; 1 : Légère flexion ; 2 : Mouvement actif",
+        "es": "0: Flácido; 1: Alguna flexión; 2: Movimiento activo"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Respiration (Breathing)",
         "tr": "Solunum (Nefes Alma)",
         "de": "Atmung (Atmung)",
-        "fr": "Respiration (Breathing)",
-        "es": "Respiration (Breathing)",
+        "fr": "Respiration (respiration)",
+        "es": "Respiración",
         "ar": "Respiration (Breathing)"
       },
       "businessContext_i18n": {
         "en": "0: Absent; 1: Weak/irregular; 2: Good/crying",
         "tr": "0: Yok; 1: Zayıf/düzensiz; 2: İyi/ağlama",
-        "de": "0: Fehlend; 1: Schwach/unregelmäßig; 2: Gut/schreiend"
+        "de": "0: Fehlend; 1: Schwach/unregelmäßig; 2: Gut/schreiend",
+        "fr": "0: Absent; 1: Faible/irrégulier; 2: Bon/pleurs",
+        "es": "0: Ausente; 1: Débil/irregular; 2: Bueno/llorando"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Trade Size (Lots)",
         "tr": "İşlem Büyüklüğü (Lot)",
         "de": "Handelsgröße (Lots)",
-        "fr": "Trade Size (Lots)",
-        "es": "Trade Size (Lots)",
+        "fr": "Taille de la transaction (lots)",
+        "es": "Tamaño de la operación (lotes)",
         "ar": "Trade Size (Lots)"
       },
       "businessContext_i18n": {
         "en": "Trade size in standard lots (1 lot = 100,000 units typically)",
         "tr": "Standart lot cinsinden işlem büyüklüğü (1 lot = genellikle 100.000 birim)",
-        "de": "Handelsgröße in Standard-Lots (1 Lot = 100.000 Einheiten typischerweise)"
+        "de": "Handelsgröße in Standard-Lots (1 Lot = 100.000 Einheiten typischerweise)",
+        "fr": "Taille de la transaction en lots standard (1 lot = 100 000 unités généralement)",
+        "es": "Tamaño de la operación en lotes estándar (1 lote = 100.000 unidades normalmente)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Contract Size (Units per Lot)",
         "tr": "Sözleşme Büyüklüğü (Lot Başına Birim)",
         "de": "Kontraktgröße (Einheiten pro Lot)",
-        "fr": "Contract Size (Units per Lot)",
-        "es": "Contract Size (Units per Lot)",
+        "fr": "Taille du contrat (unités par lot)",
+        "es": "Tamaño del contrato (unidades por lote)",
         "ar": "Contract Size (Units per Lot)"
       },
       "businessContext_i18n": {
         "en": "Number of base currency units per standard lot",
         "tr": "Standart lot başına baz para birimi sayısı",
-        "de": "Anzahl der Basiswährungseinheiten pro Standard-Lot"
+        "de": "Anzahl der Basiswährungseinheiten pro Standard-Lot",
+        "fr": "Nombre d'unités de devise de base par lot standard",
+        "es": "Número de unidades de la moneda base por lote estándar"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Pip Size (Quote Currency)",
         "tr": "Pip Boyutu (Karşıt Para Birimi)",
         "de": "Pip-Größe (Kurswährung)",
-        "fr": "Pip Size (Quote Currency)",
-        "es": "Pip Size (Quote Currency)",
+        "fr": "Taille du pip (devise de cotation)",
+        "es": "Tamaño del pip (moneda de cotización)",
         "ar": "Pip Size (Quote Currency)"
       },
       "businessContext_i18n": {
         "en": "Pip definition in quote currency (e.g., 0.0001 for most pairs, 0.01 for JPY pairs)",
         "tr": "Karşıt para biriminde pip tanımı (ör. çoğu parite için 0.0001, JPY pariteleri için 0.01)",
-        "de": "Pip-Definition in Kurswährung (z. B. 0,0001 für die meisten Paare, 0,01 für JPY-Paare)"
+        "de": "Pip-Definition in Kurswährung (z. B. 0,0001 für die meisten Paare, 0,01 für JPY-Paare)",
+        "fr": "Définition du pip dans la devise de cotation (ex. 0,0001 pour la plupart des paires, 0,01 pour les paires JPY)",
+        "es": "Definición del pip en la moneda de cotización (p. ej., 0.0001 para la mayoría de pares, 0.01 para pares JPY)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Quote to Account Currency Rate",
         "tr": "Karşıt Para Biriminden Hesap Para Birimine Kur",
         "de": "Kurs Kurswährung zu Kontowährung",
-        "fr": "Quote to Account Currency Rate",
-        "es": "Quote to Account Currency Rate",
+        "fr": "Taux de change devise de cotation vers devise du compte",
+        "es": "Tipo de cambio de la moneda de cotización a la moneda de la cuenta",
         "ar": "Quote to Account Currency Rate"
       },
       "businessContext_i18n": {
         "en": "Exchange rate from quote currency to account currency (amount of account currency per 1 unit of quote currency)",
         "tr": "Karşıt para biriminden hesap para birimine döviz kuru (1 birim karşıt para birimi başına hesap para birimi miktarı)",
-        "de": "Wechselkurs von Kurswährung zu Kontowährung (Betrag der Kontowährung pro 1 Einheit Kurswährung)"
+        "de": "Wechselkurs von Kurswährung zu Kontowährung (Betrag der Kontowährung pro 1 Einheit Kurswährung)",
+        "fr": "Taux de change de la devise de cotation vers la devise du compte (montant de devise du compte pour 1 unité de devise de cotation)",
+        "es": "Tipo de cambio de la moneda de cotización a la moneda de la cuenta (cantidad de moneda de la cuenta por 1 unidad de moneda de cotización)"
       }
     }
   ],

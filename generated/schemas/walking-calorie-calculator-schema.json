@@ -12,13 +12,15 @@
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Body Weight",
-        "es": "Body Weight",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "Weight of the person in kilograms.",
-        "tr": "Kişinin kilogram cinsinden ağırlığı."
+        "tr": "Kişinin kilogram cinsinden ağırlığı.",
+        "de": "Gewicht der Person in Kilogramm.",
+        "fr": "Poids de la personne en kilogrammes."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Walking Duration",
         "tr": "Yürüme Süresi",
-        "de": "Walking Duration",
-        "fr": "Walking Duration",
+        "de": "Gehdauer",
+        "fr": "Durée de marche",
         "es": "Walking Duration",
         "ar": "Walking Duration"
       },
       "businessContext_i18n": {
         "en": "Duration of walking activity in minutes.",
-        "tr": "Yürüme aktivitesinin dakika cinsinden süresi."
+        "tr": "Yürüme aktivitesinin dakika cinsinden süresi.",
+        "de": "Dauer der Gehaktivität in Minuten.",
+        "fr": "Durée de l'activité de marche en minutes."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Walking Speed",
         "tr": "Yürüme Hızı",
-        "de": "Walking Speed",
-        "fr": "Walking Speed",
+        "de": "Gehgeschwindigkeit",
+        "fr": "Vitesse de marche",
         "es": "Walking Speed",
         "ar": "Walking Speed"
       },
       "businessContext_i18n": {
         "en": "Average walking speed in kilometers per hour.",
-        "tr": "Kilometre/saat cinsinden ortalama yürüme hızı."
+        "tr": "Kilometre/saat cinsinden ortalama yürüme hızı.",
+        "de": "Durchschnittliche Gehgeschwindigkeit in Kilometern pro Stunde.",
+        "fr": "Vitesse moyenne de marche en kilomètres par heure."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Incline Grade",
         "tr": "Eğim Derecesi",
-        "de": "Incline Grade",
-        "fr": "Incline Grade",
+        "de": "Steigungsgrad",
+        "fr": "Pente",
         "es": "Incline Grade",
         "ar": "Incline Grade"
       },
       "businessContext_i18n": {
         "en": "Incline grade of the walking surface as a percentage (0% for flat).",
-        "tr": "Yürüme yüzeyinin yüzde cinsinden eğim derecesi (%0 düz)."
+        "tr": "Yürüme yüzeyinin yüzde cinsinden eğim derecesi (%0 düz).",
+        "de": "Steigungsgrad der Gehfläche in Prozent (0% für flach).",
+        "fr": "Pente de la surface de marche en pourcentage (0 % pour le plat)."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Projectile Mass (m)",
         "tr": "Mermi Kütlesi (m)",
         "de": "Projektilmasse (m)",
-        "fr": "Projectile Mass (m)",
-        "es": "Projectile Mass (m)",
+        "fr": "Masse du projectile (m)",
+        "es": "Masa del proyectil (m)",
         "ar": "Projectile Mass (m)"
       },
       "businessContext_i18n": {
         "en": "Mass of the projectile (e.g., bullet) in kilograms",
         "tr": "Merminin kütlesi (örneğin kurşun) kilogram cinsinden",
-        "de": "Masse des Projektils (z. B. Kugel) in Kilogramm"
+        "de": "Masse des Projektils (z. B. Kugel) in Kilogramm",
+        "fr": "Masse du projectile (ex: balle) en kilogrammes",
+        "es": "Masa del proyectil (ej. bala) en kilogramos"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Pendulum Mass (M)",
         "tr": "Sarkaç Kütlesi (M)",
         "de": "Pendelmasse (M)",
-        "fr": "Pendulum Mass (M)",
-        "es": "Pendulum Mass (M)",
+        "fr": "Masse du pendule (M)",
+        "es": "Masa del péndulo (M)",
         "ar": "Pendulum Mass (M)"
       },
       "businessContext_i18n": {
         "en": "Mass of the pendulum bob in kilograms",
         "tr": "Sarkaç topuzunun kütlesi kilogram cinsinden",
-        "de": "Masse des Pendelkörpers in Kilogramm"
+        "de": "Masse des Pendelkörpers in Kilogramm",
+        "fr": "Masse de la masse du pendule en kilogrammes",
+        "es": "Masa de la lenteja del péndulo en kilogramos"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Pendulum Length (L)",
         "tr": "Sarkaç Uzunluğu (L)",
         "de": "Pendellänge (L)",
-        "fr": "Pendulum Length (L)",
-        "es": "Pendulum Length (L)",
+        "fr": "Longueur du pendule (L)",
+        "es": "Longitud del péndulo (L)",
         "ar": "Pendulum Length (L)"
       },
       "businessContext_i18n": {
         "en": "Length of the pendulum arm from pivot to center of mass in meters",
         "tr": "Sarkaç kolunun pivot noktasından kütle merkezine kadar olan uzunluğu metre cinsinden",
-        "de": "Länge des Pendelarms vom Drehpunkt zum Massenschwerpunkt in Metern"
+        "de": "Länge des Pendelarms vom Drehpunkt zum Massenschwerpunkt in Metern",
+        "fr": "Longueur du bras du pendule du pivot au centre de masse en mètres",
+        "es": "Longitud del brazo del péndulo desde el pivote al centro de masa en metros"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Maximum Swing Angle (θ)",
         "tr": "Maksimum Salınım Açısı (θ)",
         "de": "Maximaler Ausschlagwinkel (θ)",
-        "fr": "Maximum Swing Angle (θ)",
-        "es": "Maximum Swing Angle (θ)",
+        "fr": "Angle d'oscillation maximal (θ)",
+        "es": "Ángulo máximo de oscilación (θ)",
         "ar": "Maximum Swing Angle (θ)"
       },
       "businessContext_i18n": {
         "en": "Maximum angle of swing from the vertical, in degrees",
         "tr": "Dikeyden itibaren maksimum salınım açısı, derece cinsinden",
-        "de": "Maximaler Ausschlagwinkel von der Senkrechten in Grad"
+        "de": "Maximaler Ausschlagwinkel von der Senkrechten in Grad",
+        "fr": "Angle maximal d'oscillation par rapport à la verticale, en degrés",
+        "es": "Ángulo máximo de oscilación desde la vertical, en grados"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Gravity (g)",
         "tr": "Yerçekimi (g)",
         "de": "Schwerkraft (g)",
-        "fr": "Gravity (g)",
-        "es": "Gravity (g)",
+        "fr": "Gravité (g)",
+        "es": "Gravedad (g)",
         "ar": "Gravity (g)"
       },
       "businessContext_i18n": {
         "en": "Acceleration due to gravity, typically 9.81 m/s²",
         "tr": "Yerçekimi ivmesi, tipik olarak 9.81 m/s²",
-        "de": "Erdbeschleunigung, typischerweise 9,81 m/s²"
+        "de": "Erdbeschleunigung, typischerweise 9,81 m/s²",
+        "fr": "Accélération due à la gravité, généralement 9,81 m/s²",
+        "es": "Aceleración debida a la gravedad, típicamente 9.81 m/s²"
       }
     }
   ],

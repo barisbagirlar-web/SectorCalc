@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Travel Distance",
         "tr": "Seyahat Mesafesi",
-        "de": "Travel Distance",
-        "fr": "Travel Distance",
+        "de": "Fahrstrecke",
+        "fr": "Distance de déplacement",
         "es": "Travel Distance",
         "ar": "Travel Distance"
       },
       "businessContext_i18n": {
         "en": "Total linear distance to be covered during the transition",
-        "tr": "Geçiş sırasında katedilecek toplam doğrusal mesafe"
+        "tr": "Geçiş sırasında katedilecek toplam doğrusal mesafe",
+        "de": "Gesamte lineare Strecke, die während des Übergangs zurückgelegt wird",
+        "fr": "Distance linéaire totale à parcourir pendant la transition"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Acceleration Capability",
         "tr": "Hızlanma Kapasitesi",
-        "de": "Acceleration Capability",
-        "fr": "Acceleration Capability",
+        "de": "Beschleunigungsfähigkeit",
+        "fr": "Capacité d'accélération",
         "es": "Acceleration Capability",
         "ar": "Acceleration Capability"
       },
       "businessContext_i18n": {
         "en": "Maximum acceleration the system can achieve",
-        "tr": "Sistemin ulaşabileceği maksimum ivme"
+        "tr": "Sistemin ulaşabileceği maksimum ivme",
+        "de": "Maximale Beschleunigung, die das System erreichen kann",
+        "fr": "Accélération maximale que le système peut atteindre"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Max Velocity Limit",
         "tr": "Maksimum Hız Limiti",
-        "de": "Max Velocity Limit",
-        "fr": "Max Velocity Limit",
+        "de": "Maximale Geschwindigkeitsbegrenzung",
+        "fr": "Limite de vitesse maximale",
         "es": "Max Velocity Limit",
         "ar": "Max Velocity Limit"
       },
       "businessContext_i18n": {
         "en": "Maximum velocity the system can sustain",
-        "tr": "Sistemin sürdürebileceği maksimum hız"
+        "tr": "Sistemin sürdürebileceği maksimum hız",
+        "de": "Maximale Geschwindigkeit, die das System aufrechterhalten kann",
+        "fr": "Vitesse maximale que le système peut maintenir"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Pre-Motion Delay",
         "tr": "Hareket Öncesi Gecikme",
-        "de": "Pre-Motion Delay",
-        "fr": "Pre-Motion Delay",
+        "de": "Verzögerung vor Bewegung",
+        "fr": "Délai avant mouvement",
         "es": "Pre-Motion Delay",
         "ar": "Pre-Motion Delay"
       },
       "businessContext_i18n": {
         "en": "Delay before motion starts (e.g., signal processing, grip activation)",
-        "tr": "Hareket başlamadan önceki gecikme (örn. sinyal işleme, tutucu aktivasyonu)"
+        "tr": "Hareket başlamadan önceki gecikme (örn. sinyal işleme, tutucu aktivasyonu)",
+        "de": "Verzögerung vor Bewegungsbeginn (z. B. Signalverarbeitung, Greiferaktivierung)",
+        "fr": "Délai avant le début du mouvement (ex. traitement du signal, activation de la pince)"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Post-Motion Settling Time",
         "tr": "Hareket Sonrası Yerleşme Süresi",
-        "de": "Post-Motion Settling Time",
-        "fr": "Post-Motion Settling Time",
+        "de": "Nachlaufzeit",
+        "fr": "Temps de stabilisation après mouvement",
         "es": "Post-Motion Settling Time",
         "ar": "Post-Motion Settling Time"
       },
       "businessContext_i18n": {
         "en": "Time required after reaching position for stabilization (vibration, settling)",
-        "tr": "Pozisyona ulaştıktan sonra stabilizasyon için gereken süre (titreşim, yerleşme)"
+        "tr": "Pozisyona ulaştıktan sonra stabilizasyon için gereken süre (titreşim, yerleşme)",
+        "de": "Erforderliche Zeit nach Erreichen der Position zur Stabilisierung (Vibration, Beruhigung)",
+        "fr": "Temps nécessaire après avoir atteint la position pour la stabilisation (vibrations, mise en place)"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Magnitude (r)",
         "tr": "Büyüklük (r)",
         "de": "Betrag (r)",
-        "fr": "Magnitude (r)",
-        "es": "Magnitude (r)",
+        "fr": "Module (r)",
+        "es": "Magnitud (r)",
         "ar": "Magnitude (r)"
       },
       "businessContext_i18n": {
         "en": "Polar form magnitude of complex number",
         "tr": "Karmaşık sayının kutupsal form büyüklüğü",
-        "de": "Betrag der komplexen Zahl in Polarform"
+        "de": "Betrag der komplexen Zahl in Polarform",
+        "fr": "Module du nombre complexe en forme polaire",
+        "es": "Magnitud en forma polar del número complejo"
       }
     },
     {
@@ -34,13 +36,15 @@
         "tr": "Açı (θ)",
         "de": "Winkel (θ)",
         "fr": "Angle (θ)",
-        "es": "Angle (θ)",
+        "es": "Ángulo (θ)",
         "ar": "Angle (θ)"
       },
       "businessContext_i18n": {
         "en": "Angle from positive real axis",
         "tr": "Pozitif reel eksenden açı",
-        "de": "Winkel von der positiven reellen Achse"
+        "de": "Winkel von der positiven reellen Achse",
+        "fr": "Angle par rapport à l'axe réel positif",
+        "es": "Ángulo desde el eje real positivo"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Angle unit (0=rad, 1=deg)",
         "tr": "Açı birimi (0=radyan, 1=derece)",
         "de": "Winkeleinheit (0=rad, 1=deg)",
-        "fr": "Angle unit (0=rad, 1=deg)",
-        "es": "Angle unit (0=rad, 1=deg)",
+        "fr": "Unité d'angle (0=rad, 1=deg)",
+        "es": "Unidad del ángulo (0=rad, 1=grados)",
         "ar": "Angle unit (0=rad, 1=deg)"
       },
       "businessContext_i18n": {
         "en": "Select 0 for radians or 1 for degrees",
         "tr": "Radyan için 0, derece için 1 seçin",
-        "de": "Wählen Sie 0 für Bogenmaß oder 1 für Grad"
+        "de": "Wählen Sie 0 für Bogenmaß oder 1 für Grad",
+        "fr": "Sélectionnez 0 pour radians ou 1 pour degrés",
+        "es": "Seleccione 0 para radianes o 1 para grados"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Exponent (n)",
         "tr": "Üs (n)",
         "de": "Exponent (n)",
-        "fr": "Exponent (n)",
-        "es": "Exponent (n)",
+        "fr": "Exposant (n)",
+        "es": "Exponente (n)",
         "ar": "Exponent (n)"
       },
       "businessContext_i18n": {
         "en": "Power to which the complex number is raised",
         "tr": "Karmaşık sayının yükseltildiği kuvvet",
-        "de": "Potenz, mit der die komplexe Zahl potenziert wird"
+        "de": "Potenz, mit der die komplexe Zahl potenziert wird",
+        "fr": "Puissance à laquelle le nombre complexe est élevé",
+        "es": "Potencia a la que se eleva el número complejo"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Decimal places",
         "tr": "Ondalık basamaklar",
         "de": "Dezimalstellen",
-        "fr": "Decimal places",
-        "es": "Decimal places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output",
         "tr": "Çıktı için ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen für die Ausgabe"
+        "de": "Anzahl der Dezimalstellen für die Ausgabe",
+        "fr": "Nombre de décimales pour le résultat",
+        "es": "Número de decimales para la salida"
       }
     }
   ],

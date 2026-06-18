@@ -12,14 +12,16 @@
         "en": "Pressure",
         "tr": "Basınç",
         "de": "Druck",
-        "fr": "Pressure",
-        "es": "Pressure",
+        "fr": "Pression",
+        "es": "Presión",
         "ar": "Pressure"
       },
       "businessContext_i18n": {
         "en": "Actual pressure of the gas",
         "tr": "Gazın gerçek basıncı",
-        "de": "Tatsächlicher Druck des Gases"
+        "de": "Tatsächlicher Druck des Gases",
+        "fr": "Pression réelle du gaz",
+        "es": "Presión real del gas"
       }
     },
     {
@@ -34,13 +36,15 @@
         "tr": "Hacim",
         "de": "Volumen",
         "fr": "Volume",
-        "es": "Volume",
+        "es": "Volumen",
         "ar": "Volume"
       },
       "businessContext_i18n": {
         "en": "Actual volume of the gas",
         "tr": "Gazın gerçek hacmi",
-        "de": "Tatsächliches Volumen des Gases"
+        "de": "Tatsächliches Volumen des Gases",
+        "fr": "Volume réel du gaz",
+        "es": "Volumen real del gas"
       }
     },
     {
@@ -61,7 +65,9 @@
       "businessContext_i18n": {
         "en": "Amount of gas in moles",
         "tr": "Gaz miktarı (mol cinsinden)",
-        "de": "Gasmenge in Mol"
+        "de": "Gasmenge in Mol",
+        "fr": "Quantité de gaz en moles",
+        "es": "Cantidad de gas en moles"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Temperature",
         "tr": "Sıcaklık",
         "de": "Temperatur",
-        "fr": "Temperature",
-        "es": "Temperature",
+        "fr": "Température",
+        "es": "Temperatura",
         "ar": "Temperature"
       },
       "businessContext_i18n": {
         "en": "Absolute temperature",
         "tr": "Mutlak sıcaklık",
-        "de": "Absolute Temperatur"
+        "de": "Absolute Temperatur",
+        "fr": "Température absolue",
+        "es": "Temperatura absoluta"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Gas Constant",
         "tr": "Gaz Sabiti",
         "de": "Gaskonstante",
-        "fr": "Gas Constant",
-        "es": "Gas Constant",
+        "fr": "Constante des gaz",
+        "es": "Constante de los gases",
         "ar": "Gas Constant"
       },
       "businessContext_i18n": {
         "en": "Universal gas constant, adjust for units",
         "tr": "Evrensel gaz sabiti, birimlere göre ayarlayın",
-        "de": "Universelle Gaskonstante, an Einheiten anpassen"
+        "de": "Universelle Gaskonstante, an Einheiten anpassen",
+        "fr": "Constante universelle des gaz, à ajuster selon les unités",
+        "es": "Constante universal de los gases, ajustar según unidades"
       }
     }
   ],

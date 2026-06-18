@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Total Rise",
         "tr": "Toplam Yükseklik",
-        "de": "Total Rise",
-        "fr": "Total Rise",
+        "de": "Toplam Yükseklik",
+        "fr": "Hauteur totale",
         "es": "Total Rise",
         "ar": "Total Rise"
       },
       "businessContext_i18n": {
         "en": "floor-to-floor height",
-        "tr": "Katlar arası döşeme yüksekliği"
+        "tr": "Katlar arası döşeme yüksekliği",
+        "de": "kattan kata yükseklik",
+        "fr": "Hauteur sol à sol"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Number of Risers",
         "tr": "Rıht Sayısı",
-        "de": "Number of Risers",
-        "fr": "Number of Risers",
+        "de": "Basamak Sayısı",
+        "fr": "Nombre de contremarches",
         "es": "Number of Risers",
         "ar": "Number of Risers"
       },
       "businessContext_i18n": {
         "en": "desired number of steps (risers)",
-        "tr": "İstenen basamak (rıht) sayısı"
+        "tr": "İstenen basamak (rıht) sayısı",
+        "de": "istenen basamak (rıht) sayısı",
+        "fr": "Nombre de marches (contremarches) souhaité"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Tread Depth",
         "tr": "Basamak Derinliği",
-        "de": "Tread Depth",
-        "fr": "Tread Depth",
+        "de": "Basamak Derinliği",
+        "fr": "Profondeur de marche",
         "es": "Tread Depth",
         "ar": "Tread Depth"
       },
       "businessContext_i18n": {
         "en": "horizontal depth of each tread",
-        "tr": "Her bir basamağın yatay derinliği"
+        "tr": "Her bir basamağın yatay derinliği",
+        "de": "her bir basamağın yatay derinliği",
+        "fr": "Profondeur horizontale de chaque marche"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Stair Width",
         "tr": "Merdiven Genişliği",
-        "de": "Stair Width",
-        "fr": "Stair Width",
+        "de": "Merdiven Genişliği",
+        "fr": "Largeur de l'escalier",
         "es": "Stair Width",
         "ar": "Stair Width"
       },
       "businessContext_i18n": {
         "en": "width of the staircase",
-        "tr": "Merdiven kolunun genişliği"
+        "tr": "Merdiven kolunun genişliği",
+        "de": "merdivenin genişliği",
+        "fr": "Largeur de la cage d'escalier"
       }
     }
   ],

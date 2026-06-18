@@ -22,11 +22,15 @@
       "businessContext": "Magnitude of the first force/velocity vector in Newtons (N) or m/s. Typical range for industrial applications: 0.1–100,000 N.",
       "label_i18n": {
         "en": "Vector 1 Magnitude",
-        "tr": "Vektör 1 Büyüklüğü"
+        "tr": "Vektör 1 Büyüklüğü",
+        "de": "Vektor 1 Betrag",
+        "fr": "Ampleur du vecteur 1"
       },
       "businessContext_i18n": {
         "en": "Magnitude of the first force/velocity vector in Newtons (N) or m/s. Typical range for industrial applications: 0.1–100,000 N.",
-        "tr": "Birinci kuvvet/hız vektörünün Newton (N) veya m/s cinsinden büyüklüğü. Endüstriyel uygulamalar için tipik aralık: 0,1–100.000 N."
+        "tr": "Birinci kuvvet/hız vektörünün Newton (N) veya m/s cinsinden büyüklüğü. Endüstriyel uygulamalar için tipik aralık: 0,1–100.000 N.",
+        "de": "Betrag des ersten Kraft-/Geschwindigkeitsvektors in Newton (N) oder m/s. Typischer Bereich für industrielle Anwendungen: 0,1–100.000 N.",
+        "fr": "Ampleur du premier vecteur de force/vitesse en Newtons (N) ou m/s. Plage typique pour applications industrielles : 0,1–100 000 N."
       }
     },
     {
@@ -40,11 +44,15 @@
       "businessContext": "Direction of the first vector measured from positive x-axis (0° to 360°). Used in force analysis per ISO 80000-2.",
       "label_i18n": {
         "en": "Vector 1 Angle",
-        "tr": "Vektör 1 Açısı"
+        "tr": "Vektör 1 Açısı",
+        "de": "Vektor 1 Winkel",
+        "fr": "Angle du vecteur 1"
       },
       "businessContext_i18n": {
         "en": "Direction of the first vector measured from positive x-axis (0° to 360°). Used in force analysis per ISO 80000-2.",
-        "tr": "Pozitif x ekseninden ölçülen birinci vektörün yönü (0° ila 360°). ISO 80000-2'ye göre kuvvet analizinde kullanılır."
+        "tr": "Pozitif x ekseninden ölçülen birinci vektörün yönü (0° ila 360°). ISO 80000-2'ye göre kuvvet analizinde kullanılır.",
+        "de": "Richtung des ersten Vektors, gemessen von der positiven x-Achse (0° bis 360°). Wird in der Kraftanalyse gemäß ISO 80000-2 verwendet.",
+        "fr": "Direction du premier vecteur mesurée à partir de l'axe x positif (0° à 360°). Utilisé dans l'analyse des forces selon ISO 80000-2."
       }
     },
     {
@@ -58,11 +66,15 @@
       "businessContext": "Magnitude of the second vector. Common in multi-force systems (e.g., conveyor belt tensions, robotic arm loads).",
       "label_i18n": {
         "en": "Vector 2 Magnitude",
-        "tr": "Vektör 2 Büyüklüğü"
+        "tr": "Vektör 2 Büyüklüğü",
+        "de": "Vektor 2 Betrag",
+        "fr": "Ampleur du vecteur 2"
       },
       "businessContext_i18n": {
         "en": "Magnitude of the second vector. Common in multi-force systems (e.g., conveyor belt tensions, robotic arm loads).",
-        "tr": "İkinci vektörün büyüklüğü. Çoklu kuvvet sistemlerinde yaygındır (örneğin, konveyör bant gerilimleri, robot kol yükleri)."
+        "tr": "İkinci vektörün büyüklüğü. Çoklu kuvvet sistemlerinde yaygındır (örneğin, konveyör bant gerilimleri, robot kol yükleri).",
+        "de": "Betrag des zweiten Vektors. Üblich in Mehrkräftesystemen (z. B. Förderbandspannungen, Roboterarmlasten).",
+        "fr": "Ampleur du second vecteur. Courant dans les systèmes multi-forces (ex. tensions de convoyeur, charges de bras robotique)."
       }
     },
     {
@@ -76,11 +88,15 @@
       "businessContext": "Direction of the second vector. Typical angles: 0° (horizontal), 90° (vertical), 180° (opposite).",
       "label_i18n": {
         "en": "Vector 2 Angle",
-        "tr": "Vektör 2 Açısı"
+        "tr": "Vektör 2 Açısı",
+        "de": "Vektor 2 Winkel",
+        "fr": "Angle du vecteur 2"
       },
       "businessContext_i18n": {
         "en": "Direction of the second vector. Typical angles: 0° (horizontal), 90° (vertical), 180° (opposite).",
-        "tr": "İkinci vektörün yönü. Tipik açılar: 0° (yatay), 90° (dikey), 180° (zıt)."
+        "tr": "İkinci vektörün yönü. Tipik açılar: 0° (yatay), 90° (dikey), 180° (zıt).",
+        "de": "Richtung des zweiten Vektors. Typische Winkel: 0° (horizontal), 90° (vertikal), 180° (entgegengesetzt).",
+        "fr": "Direction du second vecteur. Angles typiques : 0° (horizontal), 90° (vertical), 180° (opposé)."
       }
     },
     {
@@ -98,11 +114,15 @@
       ],
       "label_i18n": {
         "en": "Unit System",
-        "tr": "Birim Sistemi"
+        "tr": "Birim Sistemi",
+        "de": "Einheitensystem",
+        "fr": "Système d'unités"
       },
       "businessContext_i18n": {
         "en": "Select SI (metric) or Imperial (lb, ft/s) for output consistency. ISO 1000 recommends SI for engineering calculations.",
-        "tr": "Tutarlılık için SI (metrik) veya Imperial (lb, ft/s) seçin. ISO 1000, mühendislik hesaplamaları için SI'yı önerir."
+        "tr": "Tutarlılık için SI (metrik) veya Imperial (lb, ft/s) seçin. ISO 1000, mühendislik hesaplamaları için SI'yı önerir.",
+        "de": "Wählen Sie SI (metrisch) oder Imperial (lb, ft/s) für konsistente Ausgabe. ISO 1000 empfiehlt SI für technische Berechnungen.",
+        "fr": "Sélectionnez SI (métrique) ou Impérial (lb, ft/s) pour la cohérence des résultats. ISO 1000 recommande le SI pour les calculs d'ingénierie."
       }
     },
     {
@@ -117,11 +137,15 @@
       "label_i18n": {
         "en": "Data Confidence Level",
         "tr": "Veri Güven Düzeyi",
-        "de": "Datenvertrauensniveau"
+        "de": "Datenvertrauensniveau",
+        "fr": "Niveau de confiance des données",
+        "es": "Nivel de confianza de los datos"
       },
       "businessContext_i18n": {
         "en": "Confidence in input measurement accuracy (e.g., from sensor calibration). Used for Six Sigma risk adjustment.",
-        "tr": "Giriş ölçüm doğruluğuna güven (örneğin, sensör kalibrasyonundan). Altı Sigma risk ayarlaması için kullanılır."
+        "tr": "Giriş ölçüm doğruluğuna güven (örneğin, sensör kalibrasyonundan). Altı Sigma risk ayarlaması için kullanılır.",
+        "de": "Vertrauen in die Genauigkeit der Eingabemessung (z. B. aus Sensorkalibrierung). Wird für die Six Sigma-Risikoanpassung verwendet.",
+        "fr": "Confiance dans la précision de la mesure d'entrée (ex. étalonnage du capteur). Utilisé pour l'ajustement du risque Six Sigma."
       }
     }
   ],

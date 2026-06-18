@@ -12,14 +12,16 @@
         "en": "Child Gender (0=Boy, 1=Girl)",
         "tr": "Çocuk Cinsiyeti (0=Erkek, 1=Kız)",
         "de": "Geschlecht des Kindes (0=Junge, 1=Mädchen)",
-        "fr": "Child Gender (0=Boy, 1=Girl)",
-        "es": "Child Gender (0=Boy, 1=Girl)",
+        "fr": "Sexe de l'enfant (0=Garçon, 1=Fille)",
+        "es": "Género del niño (0=Niño, 1=Niña)",
         "ar": "Child Gender (0=Boy, 1=Girl)"
       },
       "businessContext_i18n": {
         "en": "Select 0 for a boy, 1 for a girl. Used to apply correct formula (+13 cm for boys, -13 cm for girls).",
         "tr": "Erkek için 0, kız için 1 seçin. Doğru formülü uygulamak için kullanılır (erkeklerde +13 cm, kızlarda -13 cm).",
-        "de": "Wählen Sie 0 für einen Jungen, 1 für ein Mädchen. Wird verwendet, um die korrekte Formel anzuwenden (+13 cm für Jungen, -13 cm für Mädchen)."
+        "de": "Wählen Sie 0 für einen Jungen, 1 für ein Mädchen. Wird verwendet, um die korrekte Formel anzuwenden (+13 cm für Jungen, -13 cm für Mädchen).",
+        "fr": "Sélectionnez 0 pour un garçon, 1 pour une fille. Utilisé pour appliquer la formule correcte (+13 cm pour les garçons, -13 cm pour les filles).",
+        "es": "Seleccione 0 para niño, 1 para niña. Se utiliza para aplicar la fórmula correcta (+13 cm para niños, -13 cm para niñas)."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Father's Height (cm)",
         "tr": "Baba Boyu (cm)",
         "de": "Größe des Vaters (cm)",
-        "fr": "Father's Height (cm)",
-        "es": "Father's Height (cm)",
+        "fr": "Taille du père (cm)",
+        "es": "Altura del padre (cm)",
         "ar": "Father's Height (cm)"
       },
       "businessContext_i18n": {
         "en": "Biological father's adult height in centimeters.",
         "tr": "Biyolojik babanın santimetre cinsinden yetişkin boyu.",
-        "de": "Körpergröße des leiblichen Vaters im Erwachsenenalter in Zentimetern."
+        "de": "Körpergröße des leiblichen Vaters im Erwachsenenalter in Zentimetern.",
+        "fr": "Taille adulte du père biologique en centimètres.",
+        "es": "Altura adulta del padre biológico en centímetros."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Mother's Height (cm)",
         "tr": "Anne Boyu (cm)",
         "de": "Größe der Mutter (cm)",
-        "fr": "Mother's Height (cm)",
-        "es": "Mother's Height (cm)",
+        "fr": "Taille de la mère (cm)",
+        "es": "Altura de la madre (cm)",
         "ar": "Mother's Height (cm)"
       },
       "businessContext_i18n": {
         "en": "Biological mother's adult height in centimeters.",
         "tr": "Biyolojik annenin santimetre cinsinden yetişkin boyu.",
-        "de": "Körpergröße der leiblichen Mutter im Erwachsenenalter in Zentimetern."
+        "de": "Körpergröße der leiblichen Mutter im Erwachsenenalter in Zentimetern.",
+        "fr": "Taille adulte de la mère biologique en centimètres.",
+        "es": "Altura adulta de la madre biológica en centímetros."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Child's Current Height (cm)",
         "tr": "Çocuğun Mevcut Boyu (cm)",
         "de": "Aktuelle Größe des Kindes (cm)",
-        "fr": "Child's Current Height (cm)",
-        "es": "Child's Current Height (cm)",
+        "fr": "Taille actuelle de l'enfant (cm)",
+        "es": "Altura actual del niño (cm)",
         "ar": "Child's Current Height (cm)"
       },
       "businessContext_i18n": {
         "en": "Optional: current measured height of the child. Not used in prediction formula.",
         "tr": "İsteğe bağlı: çocuğun mevcut ölçülen boyu. Tahmin formülünde kullanılmaz.",
-        "de": "Optional: aktuell gemessene Größe des Kindes. Wird nicht in der Vorhersageformel verwendet."
+        "de": "Optional: aktuell gemessene Größe des Kindes. Wird nicht in der Vorhersageformel verwendet.",
+        "fr": "Optionnel : taille mesurée actuelle de l'enfant. Non utilisée dans la formule de prédiction.",
+        "es": "Opcional: altura medida actual del niño. No se utiliza en la fórmula de predicción."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Child's Age (years)",
         "tr": "Çocuğun Yaşı (yıl)",
         "de": "Alter des Kindes (Jahre)",
-        "fr": "Child's Age (years)",
-        "es": "Child's Age (years)",
+        "fr": "Âge de l'enfant (années)",
+        "es": "Edad del niño (años)",
         "ar": "Child's Age (years)"
       },
       "businessContext_i18n": {
         "en": "Optional: exact age of the child in years. Not used in prediction formula.",
         "tr": "İsteğe bağlı: çocuğun yıl cinsinden tam yaşı. Tahmin formülünde kullanılmaz.",
-        "de": "Optional: genaues Alter des Kindes in Jahren. Wird nicht in der Vorhersageformel verwendet."
+        "de": "Optional: genaues Alter des Kindes in Jahren. Wird nicht in der Vorhersageformel verwendet.",
+        "fr": "Optionnel : âge exact de l'enfant en années. Non utilisé dans la formule de prédiction.",
+        "es": "Opcional: edad exacta del niño en años. No se utiliza en la fórmula de predicción."
       }
     }
   ],

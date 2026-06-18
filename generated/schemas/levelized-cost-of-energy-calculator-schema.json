@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Capital Cost",
         "tr": "Sermaye Maliyeti",
-        "de": "Capital Cost",
-        "fr": "Capital Cost",
-        "es": "Capital Cost",
+        "de": "Kapitalkosten",
+        "fr": "Coût en capital",
+        "es": "Costo de capital",
         "ar": "Capital Cost"
       },
       "businessContext_i18n": {
         "en": "Total upfront capital expenditure including equipment and installation",
-        "tr": "Ekipman ve kurulum dahil toplam başlangıç sermaye harcaması"
+        "tr": "Ekipman ve kurulum dahil toplam başlangıç sermaye harcaması",
+        "de": "Gesamte anfängliche Kapitalausgaben einschließlich Ausrüstung und Installation",
+        "fr": "Dépenses d'investissement totales incluant équipement et installation",
+        "es": "Gasto de capital total inicial, incluyendo equipo e instalación"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Annual O&M Cost",
         "tr": "Yıllık İşletme ve Bakım Maliyeti",
-        "de": "Annual O&M Cost",
-        "fr": "Annual O&M Cost",
-        "es": "Annual O&M Cost",
+        "de": "Jährliche Betriebs- und Wartungskosten",
+        "fr": "Coût annuel d'exploitation et de maintenance",
+        "es": "Costo anual de operación y mantenimiento",
         "ar": "Annual O&M Cost"
       },
       "businessContext_i18n": {
         "en": "Annual fixed operation and maintenance costs",
-        "tr": "Yıllık sabit işletme ve bakım maliyetleri"
+        "tr": "Yıllık sabit işletme ve bakım maliyetleri",
+        "de": "Jährliche feste Betriebs- und Wartungskosten",
+        "fr": "Coûts fixes annuels d'exploitation et de maintenance",
+        "es": "Costos fijos anuales de operación y mantenimiento"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Annual Energy Production",
         "tr": "Yıllık Enerji Üretimi",
-        "de": "Annual Energy Production",
-        "fr": "Annual Energy Production",
-        "es": "Annual Energy Production",
+        "de": "Jährliche Energieproduktion",
+        "fr": "Production annuelle d'énergie",
+        "es": "Producción anual de energía",
         "ar": "Annual Energy Production"
       },
       "businessContext_i18n": {
         "en": "Annual net electricity output of the plant",
-        "tr": "Santralin yıllık net elektrik çıktısı"
+        "tr": "Santralin yıllık net elektrik çıktısı",
+        "de": "Jährliche Netto-Stromabgabe der Anlage",
+        "fr": "Production nette annuelle d'électricité de l'installation",
+        "es": "Producción neta anual de electricidad de la planta"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Discount Rate",
         "tr": "İndirim Oranı",
         "de": "Rabattsatz",
-        "fr": "Discount Rate",
-        "es": "Discount Rate",
+        "fr": "Taux de remise",
+        "es": "Tasa de descuento",
         "ar": "Discount Rate"
       },
       "businessContext_i18n": {
         "en": "Discount rate reflecting cost of capital or hurdle rate",
-        "tr": "Sermaye maliyetini veya engel oranını yansıtan iskonto oranı"
+        "tr": "Sermaye maliyetini veya engel oranını yansıtan iskonto oranı",
+        "de": "Diskontsatz, der die Kapitalkosten oder die Mindestrendite widerspiegelt",
+        "fr": "Taux d'actualisation reflétant le coût du capital ou le taux de rendement minimal",
+        "es": "Tasa de descuento que refleja el costo de capital o tasa de rentabilidad mínima"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Project Lifetime",
         "tr": "Proje Ömrü",
         "de": "Projektlaufzeit",
-        "fr": "Project Lifetime",
-        "es": "Project Lifetime",
+        "fr": "Durée de vie du projet",
+        "es": "Vida del proyecto",
         "ar": "Project Lifetime"
       },
       "businessContext_i18n": {
         "en": "Expected operational lifetime of the energy project",
-        "tr": "Enerji projesinin beklenen işletme ömrü"
+        "tr": "Enerji projesinin beklenen işletme ömrü",
+        "de": "Erwartete Betriebsdauer des Energieprojekts",
+        "fr": "Durée de vie opérationnelle attendue du projet énergétique",
+        "es": "Vida operativa esperada del proyecto energético"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Decommissioning Cost",
         "tr": "Devreden Çıkarma Maliyeti",
-        "de": "Decommissioning Cost",
-        "fr": "Decommissioning Cost",
-        "es": "Decommissioning Cost",
+        "de": "Stilllegungskosten",
+        "fr": "Coût de démantèlement",
+        "es": "Costo de desmantelamiento",
         "ar": "Decommissioning Cost"
       },
       "businessContext_i18n": {
         "en": "Cost of dismantling and site restoration at end of project life",
-        "tr": "Proje ömrü sonunda söküm ve saha restorasyon maliyeti"
+        "tr": "Proje ömrü sonunda söküm ve saha restorasyon maliyeti",
+        "de": "Kosten für Rückbau und Standortsanierung am Ende der Projektlaufzeit",
+        "fr": "Coût de démantèlement et de remise en état du site en fin de vie du projet",
+        "es": "Costo de desmantelamiento y restauración del sitio al final de la vida del proyecto"
       }
     }
   ],

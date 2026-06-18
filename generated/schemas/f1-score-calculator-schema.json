@@ -12,14 +12,16 @@
         "en": "True Positives (TP)",
         "tr": "Gerçek Pozitif (TP)",
         "de": "Richtig Positive (TP)",
-        "fr": "True Positives (TP)",
-        "es": "True Positives (TP)",
+        "fr": "Vrais positifs (VP)",
+        "es": "Verdaderos positivos (VP)",
         "ar": "True Positives (TP)"
       },
       "businessContext_i18n": {
         "en": "Number of correctly predicted positive instances.",
         "tr": "Doğru tahmin edilen pozitif örnek sayısı.",
-        "de": "Anzahl korrekt vorhergesagter positiver Instanzen."
+        "de": "Anzahl korrekt vorhergesagter positiver Instanzen.",
+        "fr": "Nombre d'instances positives correctement prédites.",
+        "es": "Número de instancias positivas correctamente predichas."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "False Positives (FP)",
         "tr": "Yanlış Pozitif (FP)",
         "de": "Falsch Positive (FP)",
-        "fr": "False Positives (FP)",
-        "es": "False Positives (FP)",
+        "fr": "Faux positifs (FP)",
+        "es": "Falsos Positivos (FP)",
         "ar": "False Positives (FP)"
       },
       "businessContext_i18n": {
         "en": "Number of incorrectly predicted positive instances.",
         "tr": "Yanlış pozitif olarak tahmin edilen örnek sayısı.",
-        "de": "Anzahl falsch vorhergesagter positiver Instanzen."
+        "de": "Anzahl falsch vorhergesagter positiver Instanzen.",
+        "fr": "Nombre de prédictions positives incorrectes.",
+        "es": "Número de instancias positivas incorrectamente predichas."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "False Negatives (FN)",
         "tr": "Yanlış Negatif (FN)",
         "de": "Falsch Negative (FN)",
-        "fr": "False Negatives (FN)",
-        "es": "False Negatives (FN)",
+        "fr": "Faux négatifs (FN)",
+        "es": "Falsos Negativos (FN)",
         "ar": "False Negatives (FN)"
       },
       "businessContext_i18n": {
         "en": "Number of incorrectly predicted negative instances.",
         "tr": "Yanlış negatif olarak tahmin edilen örnek sayısı.",
-        "de": "Anzahl falsch vorhergesagter negativer Instanzen."
+        "de": "Anzahl falsch vorhergesagter negativer Instanzen.",
+        "fr": "Nombre de prédictions négatives incorrectes.",
+        "es": "Número de instancias negativas incorrectamente predichas."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "True Negatives (TN)",
         "tr": "Gerçek Negatif (TN)",
         "de": "Richtig Negative (TN)",
-        "fr": "True Negatives (TN)",
-        "es": "True Negatives (TN)",
+        "fr": "Vrais négatifs (VN)",
+        "es": "Verdaderos Negativos (VN)",
         "ar": "True Negatives (TN)"
       },
       "businessContext_i18n": {
         "en": "Number of correctly predicted negative instances. Optional for F1 but useful for other metrics.",
         "tr": "Doğru negatif olarak tahmin edilen örnek sayısı. F1 için isteğe bağlı ancak diğer metrikler için kullanışlıdır.",
-        "de": "Anzahl korrekt vorhergesagter negativer Instanzen. Optional für F1, aber nützlich für andere Metriken."
+        "de": "Anzahl korrekt vorhergesagter negativer Instanzen. Optional für F1, aber nützlich für andere Metriken.",
+        "fr": "Nombre de prédictions négatives correctes. Optionnel pour F1 mais utile pour d'autres métriques.",
+        "es": "Número de instancias negativas correctamente predichas. Opcional para F1 pero útil para otras métricas."
       }
     }
   ],

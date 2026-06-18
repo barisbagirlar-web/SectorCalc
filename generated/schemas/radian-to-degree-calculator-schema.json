@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Radyan Değeri",
         "tr": "Radyan Değeri",
-        "de": "Radyan Değeri",
-        "fr": "Radyan Değeri",
-        "es": "Radyan Değeri",
+        "de": "Bogenmaß",
+        "fr": "Valeur en radians",
+        "es": "Valor en radianes",
         "ar": "Radyan Değeri"
       },
       "businessContext_i18n": {
         "en": "Dönüştürülecek açının radyan cinsinden değeri",
-        "tr": "Dönüştürülecek açının radyan cinsinden değeri"
+        "tr": "Dönüştürülecek açının radyan cinsinden değeri",
+        "de": "Wert des umzurechnenden Winkels in Radiant",
+        "fr": "Valeur de l'angle à convertir en radians",
+        "es": "Valor del ángulo en radianes a convertir"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Dönüşüm Faktörü",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Dönüşüm Faktörü",
-        "es": "Dönüşüm Faktörü",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Dönüşüm Faktörü"
       },
       "businessContext_i18n": {
         "en": "Radyandan dereceye dönüşüm sabiti (180/π)",
-        "tr": "Radyandan dereceye dönüşüm sabiti (180/π)"
+        "tr": "Radyandan dereceye dönüşüm sabiti (180/π)",
+        "de": "Umrechnungskonstante von Radiant in Grad (180/π)",
+        "fr": "Constante de conversion radians en degrés (180/π)",
+        "es": "Constante de conversión de radianes a grados (180/π)"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Derece Ofseti",
         "tr": "Derece Ofseti",
-        "de": "Derece Ofseti",
-        "fr": "Derece Ofseti",
-        "es": "Derece Ofseti",
+        "de": "Grad-Offset",
+        "fr": "Décalage en degrés",
+        "es": "Desplazamiento en grados",
         "ar": "Derece Ofseti"
       },
       "businessContext_i18n": {
         "en": "Dönüşüm sonucuna eklenecek ek derece miktarı",
-        "tr": "Dönüşüm sonucuna eklenecek ek derece miktarı"
+        "tr": "Dönüşüm sonucuna eklenecek ek derece miktarı",
+        "de": "Zusätzlicher Gradbetrag, der zum Umrechnungsergebnis addiert wird",
+        "fr": "Degrés supplémentaires à ajouter au résultat de la conversion",
+        "es": "Cantidad adicional de grados a añadir al resultado de la conversión"
       }
     },
     {
@@ -72,14 +81,16 @@
         "en": "Ondalık Basamak",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Ondalık Basamak",
-        "es": "Ondalık Basamak",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Ondalık Basamak"
       },
       "businessContext_i18n": {
         "en": "Sonuçta gösterilecek ondalık basamak sayısı",
         "tr": "Sonuçta gösterilecek ondalık basamak sayısı",
-        "de": "Anzahl der im Ergebnis anzuzeigenden Dezimalstellen"
+        "de": "Anzahl der im Ergebnis anzuzeigenden Dezimalstellen",
+        "fr": "Nombre de décimales à afficher dans le résultat",
+        "es": "Número de decimales a mostrar en el resultado"
       }
     }
   ],

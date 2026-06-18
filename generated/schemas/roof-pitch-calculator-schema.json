@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Rise",
         "tr": "Yükselti",
-        "de": "Rise",
-        "fr": "Rise",
+        "de": "Steigung",
+        "fr": "Hauteur",
         "es": "Rise",
         "ar": "Rise"
       },
       "businessContext_i18n": {
         "en": "Vertical height from top of wall plate to ridge.",
-        "tr": "Duvar levhasının üstünden mahyaya kadar dikey yükseklik."
+        "tr": "Duvar levhasının üstünden mahyaya kadar dikey yükseklik.",
+        "de": "Vertikale Höhe von der Oberkante der Wandplatte bis zum First.",
+        "fr": "Hauteur verticale du dessus de la sablière au faîte."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Span (Building Width)",
         "tr": "Açıklık (Bina Genişliği)",
-        "de": "Span (Building Width)",
-        "fr": "Span (Building Width)",
+        "de": "Spannweite (Gebäudebreite)",
+        "fr": "Portée (largeur du bâtiment)",
         "es": "Span (Building Width)",
         "ar": "Span (Building Width)"
       },
       "businessContext_i18n": {
         "en": "Total horizontal width of the building (from outside of one wall to outside of opposite wall), equal to 2 × run.",
-        "tr": "Binanın toplam yatay genişliği (bir duvarın dışından karşı duvarın dışına), 2 × koşuya eşit."
+        "tr": "Binanın toplam yatay genişliği (bir duvarın dışından karşı duvarın dışına), 2 × koşuya eşit.",
+        "de": "Gesamte horizontale Breite des Gebäudes (von Außenkante einer Wand bis Außenkante der gegenüberliegenden Wand), entspricht 2 × Sparrenlänge.",
+        "fr": "Largeur horizontale totale du bâtiment (d'un mur extérieur à l'autre), égale à 2 × la demi-portée."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Roof Length",
         "tr": "Çatı Uzunluğu",
         "de": "Dachlänge",
-        "fr": "Roof Length",
-        "es": "Roof Length",
+        "fr": "Longueur du toit",
+        "es": "Longitud del techo",
         "ar": "Roof Length"
       },
       "businessContext_i18n": {
         "en": "Length of the roof along the ridge (perpendicular to the span).",
-        "tr": "Mahya boyunca çatı uzunluğu (açıklığa dik)."
+        "tr": "Mahya boyunca çatı uzunluğu (açıklığa dik).",
+        "de": "Länge des Daches entlang des Firsts (senkrecht zur Spannweite).",
+        "fr": "Longueur du toit le long du faîte (perpendiculaire à la portée)."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Eave Overhang",
         "tr": "Saçak çıkıntısı",
         "de": "Traufüberstand",
-        "fr": "Eave Overhang",
-        "es": "Eave Overhang",
+        "fr": "Débord d'avant-toit",
+        "es": "Voladizo del alero",
         "ar": "Eave Overhang"
       },
       "businessContext_i18n": {
         "en": "Additional horizontal projection of the roof beyond the wall.",
-        "tr": "Çatının duvarın ötesindeki ek yatay çıkıntısı."
+        "tr": "Çatının duvarın ötesindeki ek yatay çıkıntısı.",
+        "de": "Zusätzlicher horizontaler Überstand des Daches über die Wand hinaus.",
+        "fr": "Projection horizontale supplémentaire du toit au-delà du mur."
       }
     }
   ],

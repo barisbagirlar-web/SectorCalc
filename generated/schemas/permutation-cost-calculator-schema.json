@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Total Distinct Items",
         "tr": "Toplam Farklı Öğe",
-        "de": "Total Distinct Items",
-        "fr": "Total Distinct Items",
-        "es": "Total Distinct Items",
+        "de": "Gesamtzahl unterschiedlicher Elemente",
+        "fr": "Total des éléments distincts",
+        "es": "Total de elementos distintos",
         "ar": "Total Distinct Items"
       },
       "businessContext_i18n": {
         "en": "Number of distinct items to be arranged.",
-        "tr": "Düzenlenecek farklı öğe sayısı."
+        "tr": "Düzenlenecek farklı öğe sayısı.",
+        "de": "Anzahl der unterschiedlichen anzuordnenden Elemente.",
+        "fr": "Nombre d'éléments distincts à organiser.",
+        "es": "Número de elementos distintos a ordenar."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Items to Arrange",
         "tr": "Düzenlenecek Öğeler",
-        "de": "Items to Arrange",
-        "fr": "Items to Arrange",
-        "es": "Items to Arrange",
+        "de": "Anzuordnende Elemente",
+        "fr": "Éléments à organiser",
+        "es": "Elementos a ordenar",
         "ar": "Items to Arrange"
       },
       "businessContext_i18n": {
         "en": "Number of items to select for arrangement.",
-        "tr": "Düzenleme için seçilecek öğe sayısı."
+        "tr": "Düzenleme için seçilecek öğe sayısı.",
+        "de": "Anzahl der für die Anordnung auszuwählenden Elemente.",
+        "fr": "Nombre d'éléments à sélectionner pour l'organisation.",
+        "es": "Número de elementos a seleccionar para la ordenación."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Cost per Permutation",
         "tr": "Permütasyon Başına Maliyet",
-        "de": "Cost per Permutation",
-        "fr": "Cost per Permutation",
-        "es": "Cost per Permutation",
+        "de": "Kosten pro Permutation",
+        "fr": "Coût par permutation",
+        "es": "Coste por permutación",
         "ar": "Cost per Permutation"
       },
       "businessContext_i18n": {
         "en": "Cost incurred for each possible permutation (e.g., changeover cost).",
-        "tr": "Her olası permütasyon için katlanılan maliyet (örneğin, değişim maliyeti)."
+        "tr": "Her olası permütasyon için katlanılan maliyet (örneğin, değişim maliyeti).",
+        "de": "Kosten, die für jede mögliche Permutation anfallen (z. B. Rüstkosten).",
+        "fr": "Coût encouru pour chaque permutation possible (par exemple, coût de changement).",
+        "es": "Coste incurrido por cada permutación posible (ej. coste de cambio)."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Setup Cost",
         "tr": "Kurulum Maliyeti",
-        "de": "Setup Cost",
-        "fr": "Setup Cost",
-        "es": "Setup Cost",
+        "de": "Rüstkosten",
+        "fr": "Coût de configuration",
+        "es": "Coste de preparación",
         "ar": "Setup Cost"
       },
       "businessContext_i18n": {
         "en": "Fixed setup cost independent of permutations.",
-        "tr": "Permütasyonlardan bağımsız sabit kurulum maliyeti."
+        "tr": "Permütasyonlardan bağımsız sabit kurulum maliyeti.",
+        "de": "Feste Rüstkosten, unabhängig von Permutationen.",
+        "fr": "Coût de configuration fixe indépendant des permutations.",
+        "es": "Coste fijo de preparación independiente de las permutaciones."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Discount Percentage",
         "tr": "İndirim Yüzdesi",
         "de": "Rabattprozentsatz",
-        "fr": "Discount Percentage",
-        "es": "Discount Percentage",
+        "fr": "Pourcentage de réduction",
+        "es": "Porcentaje de descuento",
         "ar": "Discount Percentage"
       },
       "businessContext_i18n": {
         "en": "Discount on total cost (0-100).",
-        "tr": "Toplam maliyette indirim (0-100)."
+        "tr": "Toplam maliyette indirim (0-100).",
+        "de": "Rabatt auf Gesamtkosten (0-100).",
+        "fr": "Remise sur le coût total (0-100).",
+        "es": "Descuento sobre el coste total (0-100)."
       }
     }
   ],

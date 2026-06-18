@@ -12,13 +12,15 @@
         "en": "Pipe Inner Diameter",
         "tr": "Boru İç Çapı",
         "de": "Rohrinnendurchmesser",
-        "fr": "Pipe Inner Diameter",
-        "es": "Pipe Inner Diameter",
+        "fr": "Diamètre intérieur du tuyau",
+        "es": "Diámetro interior de la tubería",
         "ar": "Pipe Inner Diameter"
       },
       "businessContext_i18n": {
         "en": "Internal diameter of the pipe conveying the fluid.",
-        "tr": "Akışkanı taşıyan borunun iç çapı."
+        "tr": "Akışkanı taşıyan borunun iç çapı.",
+        "de": "Innendurchmesser des Rohrs, das das Fluid fördert.",
+        "fr": "Diamètre intérieur du tuyau transportant le fluide."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Fluid Velocity",
         "tr": "Akışkan Hızı",
-        "de": "Fluid Velocity",
-        "fr": "Fluid Velocity",
+        "de": "Strömungsgeschwindigkeit",
+        "fr": "Vitesse du fluide",
         "es": "Fluid Velocity",
         "ar": "Fluid Velocity"
       },
       "businessContext_i18n": {
         "en": "Average velocity of the fluid flow in the pipe.",
-        "tr": "Boru içindeki akışkan akışının ortalama hızı."
+        "tr": "Boru içindeki akışkan akışının ortalama hızı.",
+        "de": "Mittlere Strömungsgeschwindigkeit des Fluids im Rohr.",
+        "fr": "Vitesse moyenne de l'écoulement du fluide dans la conduite."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Fluid Density",
         "tr": "Akışkan Yoğunluğu",
         "de": "Flüssigkeitsdichte",
-        "fr": "Fluid Density",
-        "es": "Fluid Density",
+        "fr": "Densité du fluide",
+        "es": "Densidad del fluido",
         "ar": "Fluid Density"
       },
       "businessContext_i18n": {
         "en": "Density of the fluid (e.g., water = 1000 kg/m³).",
-        "tr": "Akışkanın yoğunluğu (örneğin, su = 1000 kg/m³)."
+        "tr": "Akışkanın yoğunluğu (örneğin, su = 1000 kg/m³).",
+        "de": "Dichte des Fluids (z. B. Wasser = 1000 kg/m³).",
+        "fr": "Masse volumique du fluide (ex. eau = 1000 kg/m³)."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Dynamic Viscosity",
         "tr": "Dinamik viskozite",
         "de": "Dynamische Viskosität",
-        "fr": "Dynamic Viscosity",
-        "es": "Dynamic Viscosity",
+        "fr": "Viscosité dynamique",
+        "es": "Viscosidad dinámica",
         "ar": "Dynamic Viscosity"
       },
       "businessContext_i18n": {
         "en": "Dynamic viscosity of the fluid (e.g., water at 20°C ≈ 0.001 Pa·s).",
-        "tr": "Akışkanın dinamik viskozitesi (örneğin, 20°C'de su ≈ 0,001 Pa·s)."
+        "tr": "Akışkanın dinamik viskozitesi (örneğin, 20°C'de su ≈ 0,001 Pa·s).",
+        "de": "Dynamische Viskosität des Fluids (z. B. Wasser bei 20°C ≈ 0,001 Pa·s).",
+        "fr": "Viscosité dynamique du fluide (ex. eau à 20°C ≈ 0,001 Pa·s)."
       }
     }
   ],

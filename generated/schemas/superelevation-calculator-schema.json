@@ -12,13 +12,15 @@
         "en": "Design Speed",
         "tr": "Tasarım Hızı",
         "de": "Entwurfsgeschwindigkeit",
-        "fr": "Design Speed",
-        "es": "Design Speed",
+        "fr": "Vitesse de conception",
+        "es": "Velocidad de diseño",
         "ar": "Design Speed"
       },
       "businessContext_i18n": {
         "en": "The design speed of the road section.",
-        "tr": "Yol bölümünün tasarım hızı."
+        "tr": "Yol bölümünün tasarım hızı.",
+        "de": "Die Ausbaugeschwindigkeit des Straßenabschnitts.",
+        "fr": "Vitesse de conception de la section de route."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Curve Radius",
         "tr": "Eğri Yarıçapı",
-        "de": "Curve Radius",
-        "fr": "Curve Radius",
+        "de": "Kurvenradius",
+        "fr": "Rayon de courbe",
         "es": "Curve Radius",
         "ar": "Curve Radius"
       },
       "businessContext_i18n": {
         "en": "The radius of the horizontal curve.",
-        "tr": "Yatay eğrinin yarıçapı."
+        "tr": "Yatay eğrinin yarıçapı.",
+        "de": "Der Radius der horizontalen Kurve.",
+        "fr": "Le rayon de la courbe horizontale."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Side Friction Factor",
         "tr": "Yanal Sürtünme Katsayısı",
         "de": "Seitenreibungsbeiwert",
-        "fr": "Side Friction Factor",
-        "es": "Side Friction Factor",
+        "fr": "Coefficient de frottement latéral",
+        "es": "Factor de fricción lateral",
         "ar": "Side Friction Factor"
       },
       "businessContext_i18n": {
         "en": "The coefficient of side friction assumed for design.",
-        "tr": "Tasarım için varsayılan yanal sürtünme katsayısı."
+        "tr": "Tasarım için varsayılan yanal sürtünme katsayısı.",
+        "de": "Der für die Bemessung angenommene Seitenreibungsbeiwert.",
+        "fr": "Le coefficient de frottement latéral supposé pour la conception."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Maximum Superelevation",
         "tr": "Maksimum Dever",
-        "de": "Maximum Superelevation",
-        "fr": "Maximum Superelevation",
+        "de": "Maximale Überhöhung",
+        "fr": "Dévers maximal",
         "es": "Maximum Superelevation",
         "ar": "Maximum Superelevation"
       },
       "businessContext_i18n": {
         "en": "Maximum allowable superelevation rate per design standards.",
-        "tr": "Tasarım standartlarına göre izin verilen maksimum dever oranı."
+        "tr": "Tasarım standartlarına göre izin verilen maksimum dever oranı.",
+        "de": "Maximal zulässiger Überhöhungssatz gemäß Bemessungsnormen.",
+        "fr": "Taux de dévers maximal autorisé selon les normes de conception."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Acceleration due to Gravity",
         "tr": "Yerçekimi İvmesi",
-        "de": "Acceleration due to Gravity",
-        "fr": "Acceleration due to Gravity",
+        "de": "Erdbeschleunigung",
+        "fr": "Accélération due à la gravité",
         "es": "Acceleration due to Gravity",
         "ar": "Acceleration due to Gravity"
       },
       "businessContext_i18n": {
         "en": "Gravitational acceleration constant.",
-        "tr": "Yerçekimi ivmesi sabiti."
+        "tr": "Yerçekimi ivmesi sabiti.",
+        "de": "Konstante der Erdbeschleunigung.",
+        "fr": "Constante d'accélération gravitationnelle."
       }
     }
   ],

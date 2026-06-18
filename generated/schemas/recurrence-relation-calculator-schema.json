@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Terim indeksi (n)",
         "tr": "Terim indeksi (n)",
-        "de": "Terim indeksi (n)",
-        "fr": "Terim indeksi (n)",
-        "es": "Terim indeksi (n)",
+        "de": "Termindex (n)",
+        "fr": "Indice du terme (n)",
+        "es": "Índice del término (n)",
         "ar": "Terim indeksi (n)"
       },
       "businessContext_i18n": {
         "en": "Hesaplanacak terimin sıra numarası (0'dan başlar).",
-        "tr": "Hesaplanacak terimin sıra numarası (0'dan başlar)."
+        "tr": "Hesaplanacak terimin sıra numarası (0'dan başlar).",
+        "de": "Ordnungsnummer des zu berechnenden Terms (beginnt bei 0).",
+        "fr": "Numéro d'ordre du terme à calculer (commence à 0).",
+        "es": "Número de orden del término a calcular (comienza desde 0)."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Başlangıç değeri a0",
         "tr": "Başlangıç değeri a0",
-        "de": "Başlangıç değeri a0",
-        "fr": "Başlangıç değeri a0",
-        "es": "Başlangıç değeri a0",
+        "de": "Startwert a0",
+        "fr": "Valeur initiale a0",
+        "es": "Valor inicial a0",
         "ar": "Başlangıç değeri a0"
       },
       "businessContext_i18n": {
         "en": "n=0 için dizi değeri.",
-        "tr": "n=0 için dizi değeri."
+        "tr": "n=0 için dizi değeri.",
+        "de": "Wert der Folge für n=0.",
+        "fr": "Valeur de la suite pour n=0.",
+        "es": "Valor de la secuencia para n=0."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Başlangıç değeri a1",
         "tr": "Başlangıç değeri a1",
-        "de": "Başlangıç değeri a1",
-        "fr": "Başlangıç değeri a1",
-        "es": "Başlangıç değeri a1",
+        "de": "Startwert a1",
+        "fr": "Valeur initiale a1",
+        "es": "Valor inicial a1",
         "ar": "Başlangıç değeri a1"
       },
       "businessContext_i18n": {
         "en": "n=1 için dizi değeri.",
-        "tr": "n=1 için dizi değeri."
+        "tr": "n=1 için dizi değeri.",
+        "de": "Wert der Folge für n=1.",
+        "fr": "Valeur de la suite pour n=1.",
+        "es": "Valor de la secuencia para n=1."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Katsayı c1 (önceki terimin çarpanı)",
         "tr": "Katsayı c1 (önceki terimin çarpanı)",
-        "de": "Katsayı c1 (önceki terimin çarpanı)",
-        "fr": "Katsayı c1 (önceki terimin çarpanı)",
-        "es": "Katsayı c1 (önceki terimin çarpanı)",
+        "de": "Koeffizient c1 (Multiplikator des vorherigen Terms)",
+        "fr": "Coefficient c1 (multiplicateur du terme précédent)",
+        "es": "Coeficiente c1 (multiplicador del término anterior)",
         "ar": "Katsayı c1 (önceki terimin çarpanı)"
       },
       "businessContext_i18n": {
         "en": "a_{n-1} teriminin katsayısı.",
-        "tr": "a_{n-1} teriminin katsayısı."
+        "tr": "a_{n-1} teriminin katsayısı.",
+        "de": "Koeffizient des Terms a_{n-1}.",
+        "fr": "Coefficient du terme a_{n-1}.",
+        "es": "Coeficiente del término a_{n-1}."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Katsayı c2 (iki önceki terimin çarpanı)",
         "tr": "Katsayı c2 (iki önceki terimin çarpanı)",
-        "de": "Katsayı c2 (iki önceki terimin çarpanı)",
-        "fr": "Katsayı c2 (iki önceki terimin çarpanı)",
-        "es": "Katsayı c2 (iki önceki terimin çarpanı)",
+        "de": "Koeffizient c2 (Multiplikator des vorletzten Terms)",
+        "fr": "Coefficient c2 (multiplicateur du terme deux précédents)",
+        "es": "Coeficiente c2 (multiplicador del término dos posiciones anterior)",
         "ar": "Katsayı c2 (iki önceki terimin çarpanı)"
       },
       "businessContext_i18n": {
         "en": "a_{n-2} teriminin katsayısı.",
-        "tr": "a_{n-2} teriminin katsayısı."
+        "tr": "a_{n-2} teriminin katsayısı.",
+        "de": "Koeffizient des Terms a_{n-2}.",
+        "fr": "Coefficient du terme a_{n-2}.",
+        "es": "Coeficiente del término a_{n-2}."
       }
     }
   ],

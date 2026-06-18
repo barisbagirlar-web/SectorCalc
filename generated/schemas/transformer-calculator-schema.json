@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Primary Voltage (V)",
         "tr": "Primer Gerilim (V)",
-        "de": "Primary Voltage (V)",
-        "fr": "Primary Voltage (V)",
+        "de": "Primärspannung (V)",
+        "fr": "Tension primaire (V)",
         "es": "Primary Voltage (V)",
         "ar": "Primary Voltage (V)"
       },
       "businessContext_i18n": {
         "en": "The voltage applied to the primary winding of the transformer.",
-        "tr": "Transformatörün primer sargısına uygulanan gerilim."
+        "tr": "Transformatörün primer sargısına uygulanan gerilim.",
+        "de": "Die an die Primärwicklung des Transformators angelegte Spannung.",
+        "fr": "La tension appliquée à l'enroulement primaire du transformateur."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Secondary Voltage (V)",
         "tr": "Sekonder Gerilim (V)",
-        "de": "Secondary Voltage (V)",
-        "fr": "Secondary Voltage (V)",
+        "de": "Sekundärspannung (V)",
+        "fr": "Tension secondaire (V)",
         "es": "Secondary Voltage (V)",
         "ar": "Secondary Voltage (V)"
       },
       "businessContext_i18n": {
         "en": "The desired or measured voltage at the secondary winding.",
-        "tr": "Sekonder sargıda istenen veya ölçülen gerilim."
+        "tr": "Sekonder sargıda istenen veya ölçülen gerilim.",
+        "de": "Die gewünschte oder gemessene Spannung an der Sekundärwicklung.",
+        "fr": "La tension souhaitée ou mesurée à l'enroulement secondaire."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Power Rating (VA)",
         "tr": "Güç Değeri (VA)",
-        "de": "Power Rating (VA)",
-        "fr": "Power Rating (VA)",
+        "de": "Nennleistung (VA)",
+        "fr": "Puissance nominale (VA)",
         "es": "Power Rating (VA)",
         "ar": "Power Rating (VA)"
       },
       "businessContext_i18n": {
         "en": "The apparent power (volt-ampere) rating of the transformer.",
-        "tr": "Transformatörün görünür güç (volt-amper) değeri."
+        "tr": "Transformatörün görünür güç (volt-amper) değeri.",
+        "de": "Die Scheinleistung (Volt-Ampere) des Transformators.",
+        "fr": "Puissance apparente (volt-ampère) nominale du transformateur."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Primary Turns",
         "tr": "Primer Sarım Sayısı",
-        "de": "Primary Turns",
-        "fr": "Primary Turns",
+        "de": "Primärwindungen",
+        "fr": "Spires primaires",
         "es": "Primary Turns",
         "ar": "Primary Turns"
       },
       "businessContext_i18n": {
         "en": "Number of turns in the primary winding.",
-        "tr": "Primer sargıdaki sarım sayısı."
+        "tr": "Primer sargıdaki sarım sayısı.",
+        "de": "Anzahl der Windungen der Primärwicklung.",
+        "fr": "Nombre de spires de l'enroulement primaire."
       }
     }
   ],

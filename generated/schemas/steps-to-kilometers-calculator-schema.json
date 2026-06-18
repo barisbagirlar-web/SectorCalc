@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Number of Steps",
         "tr": "Adım Sayısı",
-        "de": "Number of Steps",
-        "fr": "Number of Steps",
-        "es": "Number of Steps",
+        "de": "Anzahl der Schritte",
+        "fr": "Nombre d'étapes",
+        "es": "Número de pasos",
         "ar": "Number of Steps"
       },
       "businessContext_i18n": {
         "en": "Total step count recorded by a pedometer, fitness tracker, or manual counting.",
-        "tr": "Bir adımsayar, fitness takip cihazı veya manuel sayma ile kaydedilen toplam adım sayısı."
+        "tr": "Bir adımsayar, fitness takip cihazı veya manuel sayma ile kaydedilen toplam adım sayısı.",
+        "de": "Gesamtschrittzahl, aufgezeichnet von einem Schrittzähler, Fitness-Tracker oder manueller Zählung.",
+        "fr": "Nombre total de pas enregistré par un podomètre, un tracker d'activité ou un comptage manuel."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Step Length",
         "tr": "Adım Uzunluğu",
-        "de": "Step Length",
-        "fr": "Step Length",
+        "de": "Schrittlänge",
+        "fr": "Longueur de pas",
         "es": "Step Length",
         "ar": "Step Length"
       },
       "businessContext_i18n": {
         "en": "Measured length of one step in centimeters. Average adult walking step is ~76.2 cm. Used when height-based estimation is disabled.",
-        "tr": "Bir adımın santimetre cinsinden ölçülen uzunluğu. Ortalama yetişkin yürüme adımı ~76.2 cm'dir. Boy bazlı tahmin devre dışı bırakıldığında kullanılır."
+        "tr": "Bir adımın santimetre cinsinden ölçülen uzunluğu. Ortalama yetişkin yürüme adımı ~76.2 cm'dir. Boy bazlı tahmin devre dışı bırakıldığında kullanılır.",
+        "de": "Gemessene Länge eines Schrittes in Zentimetern. Durchschnittlicher Erwachsenenschritt beträgt ~76,2 cm. Wird verwendet, wenn die Schätzung auf Körpergröße deaktiviert ist.",
+        "fr": "Longueur mesurée d'un pas en centimètres. La longueur moyenne d'un pas adulte est d'environ 76,2 cm. Utilisé lorsque l'estimation basée sur la taille est désactivée."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Height",
         "tr": "Boy",
         "de": "Größe",
-        "fr": "Height",
-        "es": "Height",
+        "fr": "Taille",
+        "es": "Altura",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "Body height in centimeters. Used as the basis for estimating step length (when height estimation is toggled on).",
-        "tr": "Santimetre cinsinden vücut boyu. Adım uzunluğunu tahmin etmek için temel olarak kullanılır (boy tahmini açık olduğunda)."
+        "tr": "Santimetre cinsinden vücut boyu. Adım uzunluğunu tahmin etmek için temel olarak kullanılır (boy tahmini açık olduğunda).",
+        "de": "Körpergröße in Zentimetern. Wird als Grundlage zur Schätzung der Schrittlänge verwendet (wenn Größenschätzung aktiviert ist).",
+        "fr": "Taille du corps en centimètres. Utilisée comme base pour estimer la longueur du pas (lorsque l'estimation par la taille est activée)."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Estimate from Height",
         "tr": "Boydan Tahmin Et",
-        "de": "Estimate from Height",
-        "fr": "Estimate from Height",
+        "de": "Schätzung aus Körpergröße",
+        "fr": "Estimation à partir de la taille",
         "es": "Estimate from Height",
         "ar": "Estimate from Height"
       },
       "businessContext_i18n": {
         "en": "Set to 1 to calculate step length automatically from height (stride ratio * height); set to 0 to use the manual step length.",
-        "tr": "Adım uzunluğunu otomatik olarak boydan hesaplamak için 1'e ayarlayın (adım oranı * boy); manuel adım uzunluğu kullanmak için 0'a ayarlayın."
+        "tr": "Adım uzunluğunu otomatik olarak boydan hesaplamak için 1'e ayarlayın (adım oranı * boy); manuel adım uzunluğu kullanmak için 0'a ayarlayın.",
+        "de": "Auf 1 setzen, um die Schrittlänge automatisch aus der Körpergröße zu berechnen (Schrittverhältnis * Größe); auf 0 setzen, um die manuelle Schrittlänge zu verwenden.",
+        "fr": "Mettre à 1 pour calculer automatiquement la longueur du pas à partir de la taille (rapport de foulée * taille) ; mettre à 0 pour utiliser la longueur de pas manuelle."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Stride-to-Height Ratio",
         "tr": "Adım Boyu-Boy Oranı",
-        "de": "Stride-to-Height Ratio",
-        "fr": "Stride-to-Height Ratio",
+        "de": "Schritt-zu-Größen-Verhältnis",
+        "fr": "Rapport longueur de foulée / taille",
         "es": "Stride-to-Height Ratio",
         "ar": "Stride-to-Height Ratio"
       },
       "businessContext_i18n": {
         "en": "Ratio of step length to height. Typical range: 0.40–0.50. 0.46 is a commonly accepted average for walking.",
-        "tr": "Adım uzunluğunun boya oranı. Tipik aralık: 0.40–0.50. Yürüyüş için genel kabul gören ortalama 0.46'dır."
+        "tr": "Adım uzunluğunun boya oranı. Tipik aralık: 0.40–0.50. Yürüyüş için genel kabul gören ortalama 0.46'dır.",
+        "de": "Verhältnis von Schrittlänge zu Körpergröße. Typischer Bereich: 0,40–0,50. 0,46 ist ein allgemein akzeptierter Durchschnitt für Gehen.",
+        "fr": "Rapport entre la longueur du pas et la taille. Plage typique : 0,40–0,50. 0,46 est une moyenne couramment acceptée pour la marche."
       }
     }
   ],

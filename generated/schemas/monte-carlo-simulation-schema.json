@@ -12,13 +12,16 @@
         "en": "Mean (μ)",
         "tr": "Ortalama (μ)",
         "de": "Mittelwert (μ)",
-        "fr": "Mean (μ)",
-        "es": "Mean (μ)",
+        "fr": "Moyenne (μ)",
+        "es": "Media (μ)",
         "ar": "Mean (μ)"
       },
       "businessContext_i18n": {
         "en": "Expected value of the process output",
-        "tr": "Süreç çıktısının beklenen değeri"
+        "tr": "Süreç çıktısının beklenen değeri",
+        "de": "Erwartungswert des Prozessergebnisses",
+        "fr": "Valeur attendue de la sortie du processus",
+        "es": "Valor esperado de la salida del proceso"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Standard Deviation (σ)",
         "tr": "Standart Sapma (σ)",
         "de": "Standardabweichung (σ)",
-        "fr": "Standard Deviation (σ)",
-        "es": "Standard Deviation (σ)",
+        "fr": "Écart type (σ)",
+        "es": "Desviación estándar (σ)",
         "ar": "Standard Deviation (σ)"
       },
       "businessContext_i18n": {
         "en": "Variability of the process output",
-        "tr": "Süreç çıktısının değişkenliği"
+        "tr": "Süreç çıktısının değişkenliği",
+        "de": "Variabilität des Prozessergebnisses",
+        "fr": "Variabilité de la sortie du processus",
+        "es": "Variabilidad de la salida del proceso"
       }
     },
     {
@@ -51,15 +57,17 @@
       "label_i18n": {
         "en": "Lower Specification Limit (LSL)",
         "tr": "Alt Spesifikasyon Limiti (LSL)",
-        "de": "Lower Specification Limit (LSL)",
-        "fr": "Lower Specification Limit (LSL)",
-        "es": "Lower Specification Limit (LSL)",
+        "de": "Untere Spezifikationsgrenze (USG)",
+        "fr": "Limite de spécification inférieure (LSL)",
+        "es": "Límite de especificación inferior (LSL)",
         "ar": "Lower Specification Limit (LSL)"
       },
       "businessContext_i18n": {
         "en": "Minimum acceptable value",
         "tr": "Minimum kabul edilebilir değer",
-        "de": "Minimal akzeptabler Wert"
+        "de": "Minimal akzeptabler Wert",
+        "fr": "Valeur minimale acceptable",
+        "es": "Valor mínimo aceptable"
       }
     },
     {
@@ -72,15 +80,17 @@
       "label_i18n": {
         "en": "Upper Specification Limit (USL)",
         "tr": "Üst Spesifikasyon Limiti (USL)",
-        "de": "Upper Specification Limit (USL)",
-        "fr": "Upper Specification Limit (USL)",
-        "es": "Upper Specification Limit (USL)",
+        "de": "Obere Spezifikationsgrenze (OSG)",
+        "fr": "Limite de spécification supérieure (USL)",
+        "es": "Límite superior de especificación (LSE)",
         "ar": "Upper Specification Limit (USL)"
       },
       "businessContext_i18n": {
         "en": "Maximum acceptable value",
         "tr": "Maksimum kabul edilebilir değer",
-        "de": "Maximal akzeptabler Wert"
+        "de": "Maximal akzeptabler Wert",
+        "fr": "Valeur maximale acceptable",
+        "es": "Valor máximo aceptable"
       }
     },
     {
@@ -93,14 +103,17 @@
       "label_i18n": {
         "en": "Number of Samples",
         "tr": "Örnek Sayısı",
-        "de": "Number of Samples",
-        "fr": "Number of Samples",
-        "es": "Number of Samples",
+        "de": "Anzahl der Stichproben",
+        "fr": "Nombre d'échantillons",
+        "es": "Número de muestras",
         "ar": "Number of Samples"
       },
       "businessContext_i18n": {
         "en": "Number of Monte Carlo iterations",
-        "tr": "Monte Carlo iterasyon sayısı"
+        "tr": "Monte Carlo iterasyon sayısı",
+        "de": "Anzahl der Monte-Carlo-Iterationen",
+        "fr": "Nombre d'itérations Monte Carlo",
+        "es": "Número de iteraciones Monte Carlo"
       }
     },
     {
@@ -114,13 +127,16 @@
         "en": "Random Seed",
         "tr": "Rastgele Tohum",
         "de": "Zufallssaat",
-        "fr": "Random Seed",
-        "es": "Random Seed",
+        "fr": "Graine aléatoire",
+        "es": "Semilla aleatoria",
         "ar": "Random Seed"
       },
       "businessContext_i18n": {
         "en": "Seed for reproducible random numbers",
-        "tr": "Tekrarlanabilir rastgele sayılar için tohum"
+        "tr": "Tekrarlanabilir rastgele sayılar için tohum",
+        "de": "Seed für reproduzierbare Zufallszahlen",
+        "fr": "Graine pour nombres aléatoires reproductibles",
+        "es": "Semilla para números aleatorios reproducibles"
       }
     }
   ],

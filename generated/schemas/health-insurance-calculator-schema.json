@@ -12,14 +12,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Age of the primary insured",
         "tr": "Ana sigortalının yaşı",
-        "de": "Alter der versicherten Hauptperson"
+        "de": "Alter der versicherten Hauptperson",
+        "fr": "Âge de l'assuré principal",
+        "es": "Edad del asegurado principal"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Sum Insured",
         "tr": "Sigorta Tutarı",
         "de": "Versicherungssumme",
-        "fr": "Sum Insured",
-        "es": "Sum Insured",
+        "fr": "Somme assurée",
+        "es": "Suma asegurada",
         "ar": "Sum Insured"
       },
       "businessContext_i18n": {
         "en": "Total coverage amount",
         "tr": "Toplam teminat miktarı",
-        "de": "Gesamtdeckungssumme"
+        "de": "Gesamtdeckungssumme",
+        "fr": "Montant total de la couverture",
+        "es": "Monto total de cobertura"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Number of Family Members",
         "tr": "Aile Üyesi Sayısı",
         "de": "Anzahl der Familienmitglieder",
-        "fr": "Number of Family Members",
-        "es": "Number of Family Members",
+        "fr": "Nombre de membres de la famille",
+        "es": "Número de miembros de la familia",
         "ar": "Number of Family Members"
       },
       "businessContext_i18n": {
         "en": "Total insured family members including primary",
         "tr": "Birincil dahil toplam sigortalı aile üyeleri",
-        "de": "Versicherte Familienmitglieder insgesamt, einschließlich Hauptperson"
+        "de": "Versicherte Familienmitglieder insgesamt, einschließlich Hauptperson",
+        "fr": "Total des membres de la famille assurés, y compris le titulaire",
+        "es": "Total de miembros de la familia asegurados, incluido el principal"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Smoker Status",
         "tr": "Sigara İçme Durumu",
         "de": "Raucherstatus",
-        "fr": "Smoker Status",
-        "es": "Smoker Status",
+        "fr": "Statut tabagique",
+        "es": "Estado de fumador",
         "ar": "Smoker Status"
       },
       "businessContext_i18n": {
         "en": "0 for non-smoker, 1 for smoker",
         "tr": "0 içmiyor, 1 içiyor",
-        "de": "0 für Nichtraucher, 1 für Raucher"
+        "de": "0 für Nichtraucher, 1 für Raucher",
+        "fr": "0 pour non-fumeur, 1 pour fumeur",
+        "es": "0 para no fumador, 1 para fumador"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Pre-existing Conditions",
         "tr": "Önceden Var Olan Hastalıklar",
         "de": "Vorerkrankungen",
-        "fr": "Pre-existing Conditions",
-        "es": "Pre-existing Conditions",
+        "fr": "Affections préexistantes",
+        "es": "Condiciones preexistentes",
         "ar": "Pre-existing Conditions"
       },
       "businessContext_i18n": {
         "en": "0 for none, 1 for pre-existing conditions",
         "tr": "0 yok, 1 var",
-        "de": "0 für keine, 1 für Vorerkrankungen"
+        "de": "0 für keine, 1 für Vorerkrankungen",
+        "fr": "0 pour aucune, 1 pour affections préexistantes",
+        "es": "0 para ninguna, 1 para condiciones preexistentes"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Occupation Risk Factor",
         "tr": "Meslek Risk Faktörü",
         "de": "Berufsrisikofaktor",
-        "fr": "Occupation Risk Factor",
-        "es": "Occupation Risk Factor",
+        "fr": "Facteur de risque professionnel",
+        "es": "Factor de riesgo ocupacional",
         "ar": "Occupation Risk Factor"
       },
       "businessContext_i18n": {
         "en": "Risk factor based on occupation (1.0 = low risk, up to 2.0 high risk)",
         "tr": "Mesleğe göre risk faktörü (1.0 = düşük risk, 2.0'a kadar yüksek risk)",
-        "de": "Risikofaktor basierend auf dem Beruf (1,0 = niedriges Risiko, bis zu 2,0 hohes Risiko)"
+        "de": "Risikofaktor basierend auf dem Beruf (1,0 = niedriges Risiko, bis zu 2,0 hohes Risiko)",
+        "fr": "Facteur de risque basé sur la profession (1,0 = faible risque, jusqu'à 2,0 risque élevé)",
+        "es": "Factor de riesgo basado en la ocupación (1.0 = bajo riesgo, hasta 2.0 alto riesgo)"
       }
     }
   ],

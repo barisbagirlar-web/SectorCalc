@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Current Wear (mm)",
         "tr": "Mevcut Aşınma (mm)",
-        "de": "Current Wear (mm)",
-        "fr": "Current Wear (mm)",
+        "de": "Aktueller Verschleiß (mm)",
+        "fr": "Usure actuelle (mm)",
         "es": "Current Wear (mm)",
         "ar": "Current Wear (mm)"
       },
       "businessContext_i18n": {
         "en": "Measured wear depth on the cutting tooth",
-        "tr": "Kesici diş üzerinde ölçülen aşınma derinliği"
+        "tr": "Kesici diş üzerinde ölçülen aşınma derinliği",
+        "de": "Gemessene Verschleißtiefe an der Schneidzahn.",
+        "fr": "Profondeur d'usure mesurée sur la dent de coupe"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Applied Load (kN)",
         "tr": "Uygulanan Yük (kN)",
-        "de": "Applied Load (kN)",
-        "fr": "Applied Load (kN)",
+        "de": "Angewandte Last (kN)",
+        "fr": "Charge appliquée (kN)",
         "es": "Applied Load (kN)",
         "ar": "Applied Load (kN)"
       },
       "businessContext_i18n": {
         "en": "Force applied on the tooth during operation",
-        "tr": "Çalışma sırasında dişe uygulanan kuvvet"
+        "tr": "Çalışma sırasında dişe uygulanan kuvvet",
+        "de": "Kraft, die während des Betriebs auf den Zahn ausgeübt wird.",
+        "fr": "Force appliquée sur la dent pendant l'opération"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Rotation Speed (rpm)",
         "tr": "Dönüş Hızı (dev/dak)",
-        "de": "Rotation Speed (rpm)",
-        "fr": "Rotation Speed (rpm)",
+        "de": "Drehzahl (U/min)",
+        "fr": "Vitesse de rotation (tr/min)",
         "es": "Rotation Speed (rpm)",
         "ar": "Rotation Speed (rpm)"
       },
       "businessContext_i18n": {
         "en": "Rotational speed of the cutter head",
-        "tr": "Kesici kafanın dönüş hızı"
+        "tr": "Kesici kafanın dönüş hızı",
+        "de": "Drehzahl des Fräskopfes.",
+        "fr": "Vitesse de rotation de la tête de coupe"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Material Hardness (HB)",
         "tr": "Malzeme Sertliği (HB)",
-        "de": "Material Hardness (HB)",
-        "fr": "Material Hardness (HB)",
+        "de": "Materialhärte (HB)",
+        "fr": "Dureté du matériau (HB)",
         "es": "Material Hardness (HB)",
         "ar": "Material Hardness (HB)"
       },
       "businessContext_i18n": {
         "en": "Brinell hardness of the material being cut",
-        "tr": "Kesilen malzemenin Brinell sertliği"
+        "tr": "Kesilen malzemenin Brinell sertliği",
+        "de": "Brinellhärte des zu schneidenden Materials.",
+        "fr": "Dureté Brinell du matériau usiné"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Wear Limit (mm)",
         "tr": "Aşınma Sınırı (mm)",
-        "de": "Wear Limit (mm)",
-        "fr": "Wear Limit (mm)",
+        "de": "Verschleißgrenze (mm)",
+        "fr": "Limite d'usure (mm)",
         "es": "Wear Limit (mm)",
         "ar": "Wear Limit (mm)"
       },
       "businessContext_i18n": {
         "en": "Maximum permissible wear before tooth replacement",
-        "tr": "Diş değişiminden önce izin verilen maksimum aşınma"
+        "tr": "Diş değişiminden önce izin verilen maksimum aşınma",
+        "de": "Maximal zulässiger Verschleiß vor Zahnwechsel.",
+        "fr": "Usure maximale admissible avant remplacement de la dent"
       }
     }
   ],

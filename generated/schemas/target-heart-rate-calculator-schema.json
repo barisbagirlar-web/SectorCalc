@@ -12,14 +12,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "User's age in years",
         "tr": "Kullanıcının yıl cinsinden yaşı",
-        "de": "Alter des Benutzers in Jahren"
+        "de": "Alter des Benutzers in Jahren",
+        "fr": "Âge de l'utilisateur en années",
+        "es": "Edad del usuario en años"
       }
     },
     {
@@ -33,13 +35,15 @@
         "en": "Resting Heart Rate",
         "tr": "Dinlenme Kalp Atış Hızı",
         "de": "Ruhepuls",
-        "fr": "Resting Heart Rate",
-        "es": "Resting Heart Rate",
+        "fr": "Fréquence cardiaque au repos",
+        "es": "Frecuencia cardíaca en reposo",
         "ar": "Resting Heart Rate"
       },
       "businessContext_i18n": {
         "en": "User's resting heart rate in beats per minute",
-        "tr": "Kullanıcının dinlenme kalp atış hızı (dakikadaki atım sayısı)"
+        "tr": "Kullanıcının dinlenme kalp atış hızı (dakikadaki atım sayısı)",
+        "de": "Ruhepuls des Benutzers in Schlägen pro Minute",
+        "fr": "Fréquence cardiaque au repos de l'utilisateur en battements par minute"
       }
     },
     {
@@ -52,14 +56,16 @@
       "label_i18n": {
         "en": "Minimum Intensity",
         "tr": "Minimum Yoğunluk",
-        "de": "Minimum Intensity",
-        "fr": "Minimum Intensity",
-        "es": "Minimum Intensity",
+        "de": "Minimale Intensität",
+        "fr": "Intensité minimale",
+        "es": "Intensidad mínima",
         "ar": "Minimum Intensity"
       },
       "businessContext_i18n": {
         "en": "Lower bound of desired training intensity as a percentage",
-        "tr": "İstenen egzersiz yoğunluğunun alt sınırı (yüzde olarak)"
+        "tr": "İstenen egzersiz yoğunluğunun alt sınırı (yüzde olarak)",
+        "de": "Untere Grenze der gewünschten Trainingsintensität in Prozent",
+        "fr": "Limite inférieure de l'intensité d'entraînement souhaitée en pourcentage"
       }
     },
     {
@@ -72,14 +78,16 @@
       "label_i18n": {
         "en": "Maximum Intensity",
         "tr": "Maksimum Yoğunluk",
-        "de": "Maximum Intensity",
-        "fr": "Maximum Intensity",
-        "es": "Maximum Intensity",
+        "de": "Maximale Intensität",
+        "fr": "Intensité maximale",
+        "es": "Intensidad máxima",
         "ar": "Maximum Intensity"
       },
       "businessContext_i18n": {
         "en": "Upper bound of desired training intensity as a percentage",
-        "tr": "İstenen egzersiz yoğunluğunun üst sınırı (yüzde olarak)"
+        "tr": "İstenen egzersiz yoğunluğunun üst sınırı (yüzde olarak)",
+        "de": "Obergrenze der gewünschten Trainingsintensität in Prozent",
+        "fr": "Limite supérieure de l'intensité d'entraînement souhaitée en pourcentage"
       }
     }
   ],

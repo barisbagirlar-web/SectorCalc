@@ -12,13 +12,15 @@
         "en": "Yıllık Talep",
         "tr": "Yıllık Talep",
         "de": "Jährliche Nachfrage",
-        "fr": "Yıllık Talep",
-        "es": "Yıllık Talep",
+        "fr": "Demande annuelle",
+        "es": "Demanda anual",
         "ar": "Yıllık Talep"
       },
       "businessContext_i18n": {
         "en": "Ürünün yıllık talep miktarı",
-        "tr": "Ürünün yıllık talep miktarı"
+        "tr": "Ürünün yıllık talep miktarı",
+        "de": "Jährliche Nachfragemenge des Produkts",
+        "fr": "Demande annuelle du produit"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Sipariş Maliyeti",
         "tr": "Sipariş Maliyeti",
         "de": "Bestellkosten",
-        "fr": "Sipariş Maliyeti",
-        "es": "Sipariş Maliyeti",
+        "fr": "Coût de commande",
+        "es": "Costo de pedido",
         "ar": "Sipariş Maliyeti"
       },
       "businessContext_i18n": {
         "en": "Her sipariş için sabit maliyet",
-        "tr": "Her sipariş için sabit maliyet"
+        "tr": "Her sipariş için sabit maliyet",
+        "de": "Fixe Kosten pro Bestellung",
+        "fr": "Coût fixe par commande"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Stokta Tutma Maliyeti",
         "tr": "Stokta Tutma Maliyeti",
         "de": "Lagerhaltungskosten",
-        "fr": "Stokta Tutma Maliyeti",
-        "es": "Stokta Tutma Maliyeti",
+        "fr": "Coût de détention des stocks",
+        "es": "Costo de mantenimiento de inventario",
         "ar": "Stokta Tutma Maliyeti"
       },
       "businessContext_i18n": {
         "en": "Bir adet ürünü bir yıl stokta tutma maliyeti",
-        "tr": "Bir adet ürünü bir yıl stokta tutma maliyeti"
+        "tr": "Bir adet ürünü bir yıl stokta tutma maliyeti",
+        "de": "Lagerhaltungskosten pro Stück und Jahr",
+        "fr": "Coût de détention d'un produit en stock pendant un an"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Birim Maliyet",
         "tr": "Birim Maliyet",
         "de": "Stückkosten",
-        "fr": "Birim Maliyet",
-        "es": "Birim Maliyet",
+        "fr": "Coût unitaire",
+        "es": "Costo unitario",
         "ar": "Birim Maliyet"
       },
       "businessContext_i18n": {
         "en": "Ürün başına satın alma maliyeti (opsiyonel)",
-        "tr": "Ürün başına satın alma maliyeti (opsiyonel)"
+        "tr": "Ürün başına satın alma maliyeti (opsiyonel)",
+        "de": "Einkaufskosten pro Stück (optional)",
+        "fr": "Coût d'achat par produit (optionnel)"
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Tedarik Süresi",
         "tr": "Tedarik Süresi",
         "de": "Lieferzeit",
-        "fr": "Tedarik Süresi",
-        "es": "Tedarik Süresi",
+        "fr": "Délai d'approvisionnement",
+        "es": "Plazo de entrega",
         "ar": "Tedarik Süresi"
       },
       "businessContext_i18n": {
         "en": "Sipariş verilmesi ile teslim alınması arasındaki süre (gün)",
-        "tr": "Sipariş verilmesi ile teslim alınması arasındaki süre (gün)"
+        "tr": "Sipariş verilmesi ile teslim alınması arasındaki süre (gün)",
+        "de": "Lieferzeit zwischen Bestellung und Erhalt (Tage)",
+        "fr": "Délai entre la commande et la réception (jours)"
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Yıllık Çalışma Günü",
         "tr": "Yıllık Çalışma Günü",
         "de": "Jährliche Arbeitstage",
-        "fr": "Yıllık Çalışma Günü",
-        "es": "Yıllık Çalışma Günü",
+        "fr": "Jours ouvrables par an",
+        "es": "Días laborables al año",
         "ar": "Yıllık Çalışma Günü"
       },
       "businessContext_i18n": {
         "en": "Yıldaki çalışma günü sayısı",
-        "tr": "Yıldaki çalışma günü sayısı"
+        "tr": "Yıldaki çalışma günü sayısı",
+        "de": "Anzahl der Arbeitstage pro Jahr",
+        "fr": "Nombre de jours ouvrables par an"
       }
     }
   ],

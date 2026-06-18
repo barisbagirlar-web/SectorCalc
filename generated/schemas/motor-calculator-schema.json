@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Voltage",
         "tr": "Voltaj",
-        "de": "Voltage",
-        "fr": "Voltage",
-        "es": "Voltage",
+        "de": "Spannung",
+        "fr": "Tension",
+        "es": "Tensión",
         "ar": "Voltage"
       },
       "businessContext_i18n": {
         "en": "Nominal supply voltage",
-        "tr": "Nominal besleme gerilimi"
+        "tr": "Nominal besleme gerilimi",
+        "de": "Nennversorgungsspannung",
+        "fr": "Tension d'alimentation nominale",
+        "es": "Tensión nominal de alimentación"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Current",
         "tr": "Akım",
         "de": "Strom",
-        "fr": "Current",
-        "es": "Current",
+        "fr": "Courant",
+        "es": "Corriente",
         "ar": "Current"
       },
       "businessContext_i18n": {
         "en": "Measured line current",
-        "tr": "Ölçülen hat akımı"
+        "tr": "Ölçülen hat akımı",
+        "de": "Gemessener Leiterstrom",
+        "fr": "Courant de ligne mesuré",
+        "es": "Corriente de línea medida"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Power Factor (cos φ)",
         "tr": "Güç Faktörü (cos φ)",
-        "de": "Power Factor (cos φ)",
-        "fr": "Power Factor (cos φ)",
-        "es": "Power Factor (cos φ)",
+        "de": "Leistungsfaktor (cos φ)",
+        "fr": "Facteur de puissance (cos φ)",
+        "es": "Factor de potencia (cos φ)",
         "ar": "Power Factor (cos φ)"
       },
       "businessContext_i18n": {
         "en": "Motor nameplate power factor",
-        "tr": "Motor etiket güç faktörü"
+        "tr": "Motor etiket güç faktörü",
+        "de": "Leistungsfaktor laut Motortypenschild",
+        "fr": "Facteur de puissance nominal du moteur",
+        "es": "Factor de potencia nominal del motor"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Efficiency",
         "tr": "Verim",
         "de": "Wirkungsgrad",
-        "fr": "Efficiency",
-        "es": "Efficiency",
+        "fr": "Rendement",
+        "es": "Eficiencia",
         "ar": "Efficiency"
       },
       "businessContext_i18n": {
         "en": "Motor efficiency at load point",
-        "tr": "Yük noktasında motor verimliliği"
+        "tr": "Yük noktasında motor verimliliği",
+        "de": "Motorwirkungsgrad am Lastpunkt",
+        "fr": "Rendement du moteur au point de charge",
+        "es": "Eficiencia del motor en el punto de carga"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Rotational Speed",
         "tr": "Dönüş Hızı",
-        "de": "Rotational Speed",
-        "fr": "Rotational Speed",
-        "es": "Rotational Speed",
+        "de": "Drehzahl",
+        "fr": "Vitesse de rotation",
+        "es": "Velocidad de rotación",
         "ar": "Rotational Speed"
       },
       "businessContext_i18n": {
         "en": "Shaft rotational speed",
-        "tr": "Mil dönüş hızı"
+        "tr": "Mil dönüş hızı",
+        "de": "Wellendrehzahl",
+        "fr": "Vitesse de rotation de l'arbre",
+        "es": "Velocidad de rotación del eje"
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Number of Phases",
         "tr": "Faz Sayısı",
         "de": "Anzahl der Phasen",
-        "fr": "Number of Phases",
-        "es": "Number of Phases",
+        "fr": "Nombre de phases",
+        "es": "Número de fases",
         "ar": "Number of Phases"
       },
       "businessContext_i18n": {
         "en": "Motor phase configuration (1 or 3)",
-        "tr": "Motor faz konfigürasyonu (1 veya 3)"
+        "tr": "Motor faz konfigürasyonu (1 veya 3)",
+        "de": "Motorphasenkonfiguration (1 oder 3)",
+        "fr": "Configuration de phase du moteur (1 ou 3)",
+        "es": "Configuración de fase del motor (1 o 3)"
       }
     }
   ],

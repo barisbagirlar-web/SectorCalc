@@ -12,14 +12,16 @@
         "en": "Number of Original Dimensions",
         "tr": "Orijinal boyut sayısı",
         "de": "Anzahl der ursprünglichen Dimensionen",
-        "fr": "Number of Original Dimensions",
-        "es": "Number of Original Dimensions",
+        "fr": "Nombre de dimensions originales",
+        "es": "Número de dimensiones originales",
         "ar": "Number of Original Dimensions"
       },
       "businessContext_i18n": {
         "en": "Total number of features or variables in the original dataset.",
         "tr": "Orijinal veri kümesindeki toplam özellik veya değişken sayısı.",
-        "de": "Gesamtzahl der Merkmale oder Variablen im ursprünglichen Datensatz."
+        "de": "Gesamtzahl der Merkmale oder Variablen im ursprünglichen Datensatz.",
+        "fr": "Nombre total de caractéristiques ou variables dans l'ensemble de données original.",
+        "es": "Número total de características o variables en el conjunto de datos original."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Eigenvalue Decay Rate",
         "tr": "Özdeğer azalma oranı",
         "de": "Eigenwert-Abfallrate",
-        "fr": "Eigenvalue Decay Rate",
-        "es": "Eigenvalue Decay Rate",
+        "fr": "Taux de décroissance des valeurs propres",
+        "es": "Tasa de decaimiento de valores propios",
         "ar": "Eigenvalue Decay Rate"
       },
       "businessContext_i18n": {
         "en": "Rate at which eigenvalues decrease in a geometric progression model (0 < r < 1).",
         "tr": "Geometrik dizi modelinde özdeğerlerin azalma hızı (0 < r < 1).",
-        "de": "Rate, mit der Eigenwerte in einem geometrischen Progressionsmodell abnehmen (0 < r < 1)."
+        "de": "Rate, mit der Eigenwerte in einem geometrischen Progressionsmodell abnehmen (0 < r < 1).",
+        "fr": "Taux auquel les valeurs propres diminuent dans un modèle de progression géométrique (0 < r < 1).",
+        "es": "Tasa a la que los valores propios disminuyen en un modelo de progresión geométrica (0 < r < 1)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Initial Eigenvalue",
         "tr": "Başlangıç özdeğeri",
         "de": "Anfänglicher Eigenwert",
-        "fr": "Initial Eigenvalue",
-        "es": "Initial Eigenvalue",
+        "fr": "Valeur propre initiale",
+        "es": "Valor propio inicial",
         "ar": "Initial Eigenvalue"
       },
       "businessContext_i18n": {
         "en": "Magnitude of the largest eigenvalue.",
         "tr": "En büyük özdeğerin büyüklüğü.",
-        "de": "Größe des größten Eigenwerts."
+        "de": "Größe des größten Eigenwerts.",
+        "fr": "Ampleur de la plus grande valeur propre.",
+        "es": "Magnitud del valor propio más grande."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Cumulative Variance Threshold",
         "tr": "Kümülatif varyans eşiği",
         "de": "Kumulative Varianzschwelle",
-        "fr": "Cumulative Variance Threshold",
-        "es": "Cumulative Variance Threshold",
+        "fr": "Seuil de variance cumulée",
+        "es": "Umbral de varianza acumulada",
         "ar": "Cumulative Variance Threshold"
       },
       "businessContext_i18n": {
         "en": "Target proportion of total variance to be retained (0 to 1).",
         "tr": "Korunacak toplam varyansın hedef oranı (0 ile 1 arasında).",
-        "de": "Zielanteil der Gesamtvarianz, der beibehalten werden soll (0 bis 1)."
+        "de": "Zielanteil der Gesamtvarianz, der beibehalten werden soll (0 bis 1).",
+        "fr": "Proportion cible de la variance totale à conserver (0 à 1).",
+        "es": "Proporción objetivo de varianza total a retener (0 a 1)."
       }
     }
   ],

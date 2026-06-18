@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Total Height (floor-to-floor)",
         "tr": "Toplam Yükseklik (döşemeden döşemeye)",
-        "de": "Total Height (floor-to-floor)",
-        "fr": "Total Height (floor-to-floor)",
+        "de": "Gesamthöhe (Geschoss zu Geschoss)",
+        "fr": "Hauteur totale (sol à sol)",
         "es": "Total Height (floor-to-floor)",
         "ar": "Total Height (floor-to-floor)"
       },
       "businessContext_i18n": {
         "en": "Floor-to-floor vertical distance in centimeters",
-        "tr": "Döşemeden döşemeye dikey mesafe (santimetre cinsinden)"
+        "tr": "Döşemeden döşemeye dikey mesafe (santimetre cinsinden)",
+        "de": "Vertikaler Abstand von Geschoss zu Geschoss in Zentimetern",
+        "fr": "Distance verticale sol à sol en centimètres"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Desired Step Height (Riser)",
         "tr": "İstenen Basamak Yüksekliği (Rıht)",
-        "de": "Desired Step Height (Riser)",
-        "fr": "Desired Step Height (Riser)",
+        "de": "Gewünschte Stufenhöhe (Setzstufe)",
+        "fr": "Hauteur de marche souhaitée (contremarche)",
         "es": "Desired Step Height (Riser)",
         "ar": "Desired Step Height (Riser)"
       },
       "businessContext_i18n": {
         "en": "Preferred riser height, typically 15-20 cm",
-        "tr": "Tercih edilen rıht yüksekliği, genellikle 15-20 cm"
+        "tr": "Tercih edilen rıht yüksekliği, genellikle 15-20 cm",
+        "de": "Bevorzugte Setzstufenhöhe, typischerweise 15–20 cm",
+        "fr": "Hauteur de contremarche préférée, généralement 15-20 cm"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Step Depth (Tread)",
         "tr": "Basamak Derinliği (Lastik)",
-        "de": "Step Depth (Tread)",
-        "fr": "Step Depth (Tread)",
+        "de": "Stufentiefe (Auftritt)",
+        "fr": "Profondeur de marche (giron)",
         "es": "Step Depth (Tread)",
         "ar": "Step Depth (Tread)"
       },
       "businessContext_i18n": {
         "en": "Horizontal depth of each step, typically 25-30 cm",
-        "tr": "Her basamağın yatay derinliği, genellikle 25-30 cm"
+        "tr": "Her basamağın yatay derinliği, genellikle 25-30 cm",
+        "de": "Horizontale Tiefe jeder Stufe, typischerweise 25–30 cm",
+        "fr": "Profondeur horizontale de chaque marche, généralement 25-30 cm"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Landing Width",
         "tr": "Sahanlık Genişliği",
-        "de": "Landing Width",
-        "fr": "Landing Width",
+        "de": "Podestbreite",
+        "fr": "Largeur du palier",
         "es": "Landing Width",
         "ar": "Landing Width"
       },
       "businessContext_i18n": {
         "en": "Width of any intermediate landing, or 0 if none",
-        "tr": "Varsa ara sahanlığın genişliği, yoksa 0"
+        "tr": "Varsa ara sahanlığın genişliği, yoksa 0",
+        "de": "Breite eines Zwischenpodests, oder 0 wenn keines vorhanden",
+        "fr": "Largeur de tout palier intermédiaire, ou 0 si aucun"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Headroom Height",
         "tr": "Baş Yüksekliği",
-        "de": "Headroom Height",
-        "fr": "Headroom Height",
+        "de": "Kopfhöhe",
+        "fr": "Hauteur sous plafond",
         "es": "Headroom Height",
         "ar": "Headroom Height"
       },
       "businessContext_i18n": {
         "en": "Vertical clearance above stairs for safety compliance",
-        "tr": "Güvenlik yönetmeliklerine uygunluk için merdiven üzerindeki dikey boşluk"
+        "tr": "Güvenlik yönetmeliklerine uygunluk için merdiven üzerindeki dikey boşluk",
+        "de": "Vertikaler Freiraum über der Treppe für Sicherheitsvorschriften",
+        "fr": "Dégagement vertical au-dessus des escaliers pour la conformité de sécurité"
       }
     }
   ],

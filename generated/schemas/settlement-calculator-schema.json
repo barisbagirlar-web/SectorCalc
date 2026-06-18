@@ -12,13 +12,15 @@
         "en": "Gross Monthly Salary",
         "tr": "Brüt Aylık Maaş",
         "de": "Bruttomonatsgehalt",
-        "fr": "Gross Monthly Salary",
-        "es": "Gross Monthly Salary",
+        "fr": "Salaire Mensuel Brut",
+        "es": "Salario Bruto Mensual",
         "ar": "Gross Monthly Salary"
       },
       "businessContext_i18n": {
         "en": "Employee's last gross monthly salary before termination",
-        "tr": "Çalışanın işten çıkarılmadan önceki son brüt aylık maaşı"
+        "tr": "Çalışanın işten çıkarılmadan önceki son brüt aylık maaşı",
+        "de": "Letztes Bruttomonatsgehalt des Mitarbeiters vor Kündigung",
+        "fr": "Dernier salaire mensuel brut de l'employé avant licenciement"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Years of Service",
         "tr": "Hizmet Yılı",
         "de": "Dienstjahre",
-        "fr": "Years of Service",
-        "es": "Years of Service",
+        "fr": "Années de service",
+        "es": "Años de servicio",
         "ar": "Years of Service"
       },
       "businessContext_i18n": {
         "en": "Total tenure in years with the employer",
-        "tr": "İşverende toplam çalışma süresi (yıl)"
+        "tr": "İşverende toplam çalışma süresi (yıl)",
+        "de": "Gesamte Betriebszugehörigkeit in Jahren",
+        "fr": "Ancienneté totale en années chez l'employeur"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Unused Annual Leave Days",
         "tr": "Kullanılmayan Yıllık İzin Günleri",
-        "de": "Unused Annual Leave Days",
-        "fr": "Unused Annual Leave Days",
+        "de": "Nicht genutzte Urlaubstage",
+        "fr": "Jours de congé annuel non utilisés",
         "es": "Unused Annual Leave Days",
         "ar": "Unused Annual Leave Days"
       },
       "businessContext_i18n": {
         "en": "Accumulated but unused paid annual leave days",
-        "tr": "Birikmiş ancak kullanılmamış ücretli yıllık izin günleri"
+        "tr": "Birikmiş ancak kullanılmamış ücretli yıllık izin günleri",
+        "de": "Angesammelte, aber nicht genutzte bezahlte Urlaubstage",
+        "fr": "Jours de congé annuel payé accumulés mais non utilisés"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Notice Period (Days)",
         "tr": "İhbar Süresi (Gün)",
-        "de": "Notice Period (Days)",
-        "fr": "Notice Period (Days)",
+        "de": "Kündigungsfrist (Tage)",
+        "fr": "Délai de préavis (jours)",
         "es": "Notice Period (Days)",
         "ar": "Notice Period (Days)"
       },
       "businessContext_i18n": {
         "en": "Statutory notice period that was not worked",
-        "tr": "Çalışılmayan yasal ihbar süresi"
+        "tr": "Çalışılmayan yasal ihbar süresi",
+        "de": "Gesetzliche Kündigungsfrist, die nicht gearbeitet wurde",
+        "fr": "Délai de préavis légal non travaillé"
       }
     }
   ],

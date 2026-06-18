@@ -23,12 +23,16 @@
       "label_i18n": {
         "en": "Temperature in Celsius",
         "tr": "Santigrat cinsinden sıcaklık",
-        "de": "Temperatur in Celsius"
+        "de": "Temperatur in Celsius",
+        "fr": "Température en degrés Celsius",
+        "es": "Temperatura en grados Celsius"
       },
       "businessContext_i18n": {
         "en": "Process temperature reading from sensor or manual measurement. Must be above absolute zero.",
         "tr": "Sensörden veya manuel ölçümden alınan proses sıcaklığı okuması. Mutlak sıfırın üzerinde olmalıdır.",
-        "de": "Prozesstemperaturmessung vom Sensor oder manuell. Muss über dem absoluten Nullpunkt liegen."
+        "de": "Prozesstemperaturmessung vom Sensor oder manuell. Muss über dem absoluten Nullpunkt liegen.",
+        "fr": "Lecture de température du capteur ou mesure manuelle. Doit être supérieure au zéro absolu.",
+        "es": "Lectura de temperatura del proceso, desde sensor o medición manual. Debe estar por encima del cero absoluto."
       }
     },
     {
@@ -43,12 +47,16 @@
       "label_i18n": {
         "en": "Sensor Accuracy (±°C)",
         "tr": "Sensör Doğruluğu (±°C)",
-        "de": "Sensorgenauigkeit (±°C)"
+        "de": "Sensorgenauigkeit (±°C)",
+        "fr": "Précision du capteur (±°C)",
+        "es": "Precisión del sensor (±°C)"
       },
       "businessContext_i18n": {
         "en": "Manufacturer-specified accuracy of the temperature sensor (ISO 17025 calibration standard).",
         "tr": "Sıcaklık sensörünün üretici tarafından belirtilen doğruluğu (ISO 17025 kalibrasyon standardı).",
-        "de": "Vom Hersteller angegebene Genauigkeit des Temperatursensors (ISO 17025 Kalibrierstandard)."
+        "de": "Vom Hersteller angegebene Genauigkeit des Temperatursensors (ISO 17025 Kalibrierstandard).",
+        "fr": "Précision spécifiée par le fabricant du capteur de température (norme d'étalonnage ISO 17025).",
+        "es": "Precisión especificada por el fabricante del sensor de temperatura (estándar de calibración ISO 17025)."
       }
     },
     {
@@ -63,12 +71,16 @@
       "label_i18n": {
         "en": "Calibration Offset",
         "tr": "Kalibrasyon Ofseti",
-        "de": "Kalibrierungsversatz"
+        "de": "Kalibrierungsversatz",
+        "fr": "Décalage d'étalonnage",
+        "es": "Desviación de calibración"
       },
       "businessContext_i18n": {
         "en": "Field calibration adjustment to align sensor with reference standard (NIST traceable).",
         "tr": "Sensörü referans standarda (NIST izlenebilir) hizalamak için saha kalibrasyon ayarı.",
-        "de": "Feldkalibrierungsanpassung zur Angleichung des Sensors an den Referenzstandard (NIST-rückführbar)."
+        "de": "Feldkalibrierungsanpassung zur Angleichung des Sensors an den Referenzstandard (NIST-rückführbar).",
+        "fr": "Ajustement d'étalonnage sur site pour aligner le capteur sur un étalon de référence (traçable NIST).",
+        "es": "Ajuste de calibración en campo para alinear el sensor con el estándar de referencia (trazable NIST)."
       }
     },
     {
@@ -86,12 +98,16 @@
       "label_i18n": {
         "en": "Target Unit System",
         "tr": "Hedef Birim Sistemi",
-        "de": "Ziel-Einheitensystem"
+        "de": "Ziel-Einheitensystem",
+        "fr": "Système d'unités cible",
+        "es": "Sistema de unidades objetivo"
       },
       "businessContext_i18n": {
         "en": "Select output temperature scale for downstream process or reporting (ISO 80000-5).",
         "tr": "Alt süreç veya raporlama için çıktı sıcaklık ölçeğini seçin (ISO 80000-5).",
-        "de": "Ausgabe-Temperaturskala für nachgelagerte Prozesse oder Berichterstattung (ISO 80000-5)."
+        "de": "Ausgabe-Temperaturskala für nachgelagerte Prozesse oder Berichterstattung (ISO 80000-5).",
+        "fr": "Sélectionnez l'échelle de température de sortie pour le processus aval ou le rapport (ISO 80000-5).",
+        "es": "Seleccione la escala de temperatura de salida para el proceso posterior o informe (ISO 80000-5)."
       }
     },
     {
@@ -104,12 +120,16 @@
       "label_i18n": {
         "en": "Enable Process Alerts",
         "tr": "Proses Uyarılarını Etkinleştir",
-        "de": "Prozessalarme aktivieren"
+        "de": "Prozessalarme aktivieren",
+        "fr": "Activer les alertes de processus",
+        "es": "Habilitar alertas de proceso"
       },
       "businessContext_i18n": {
         "en": "Toggle threshold-based alerts for out-of-spec temperature conditions (Six Sigma control limits).",
         "tr": "Spesifikasyon dışı sıcaklık koşulları için eşik tabanlı uyarıları aç/kapat (Altı Sigma kontrol limitleri).",
-        "de": "Schwellenwertbasierte Alarme für außerspezifikationstemperaturbedingungen umschalten (Six Sigma-Regelgrenzen)."
+        "de": "Schwellenwertbasierte Alarme für außerspezifikationstemperaturbedingungen umschalten (Six Sigma-Regelgrenzen).",
+        "fr": "Activer les alertes basées sur des seuils pour les conditions de température hors spécifications (limites de contrôle Six Sigma).",
+        "es": "Activar alertas basadas en umbral para condiciones de temperatura fuera de especificación (límites de control Seis Sigma)."
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Area to Paint",
         "tr": "Boyanacak Alan",
-        "de": "Area to Paint",
-        "fr": "Area to Paint",
-        "es": "Area to Paint",
+        "de": "Zu streichende Fläche",
+        "fr": "Surface à peindre",
+        "es": "Área a pintar",
         "ar": "Area to Paint"
       },
       "businessContext_i18n": {
         "en": "Total area to be painted in square meters.",
-        "tr": "Metrekare cinsinden boyanacak toplam alan."
+        "tr": "Metrekare cinsinden boyanacak toplam alan.",
+        "de": "Gesamtfläche in Quadratmetern, die gestrichen werden soll.",
+        "fr": "Surface totale à peindre en mètres carrés.",
+        "es": "Área total a pintar en metros cuadrados."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Number of Coats",
         "tr": "Kat Sayısı",
         "de": "Anzahl der Anstriche",
-        "fr": "Number of Coats",
-        "es": "Number of Coats",
+        "fr": "Nombre de couches",
+        "es": "Número de capas",
         "ar": "Number of Coats"
       },
       "businessContext_i18n": {
         "en": "Number of paint coats to apply.",
-        "tr": "Uygulanacak boya kat sayısı."
+        "tr": "Uygulanacak boya kat sayısı.",
+        "de": "Anzahl der aufzutragenden Farbschichten.",
+        "fr": "Nombre de couches de peinture à appliquer.",
+        "es": "Número de capas de pintura a aplicar."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Coverage per Liter",
         "tr": "Litre Başına Kaplama",
         "de": "Abdeckung pro Liter",
-        "fr": "Coverage per Liter",
-        "es": "Coverage per Liter",
+        "fr": "Couverture par litre",
+        "es": "Cobertura por litro",
         "ar": "Coverage per Liter"
       },
       "businessContext_i18n": {
         "en": "Manufacturer's stated coverage in m² per liter.",
-        "tr": "Üreticinin belirttiği, m²/litre cinsinden kaplama alanı."
+        "tr": "Üreticinin belirttiği, m²/litre cinsinden kaplama alanı.",
+        "de": "Vom Hersteller angegebene Ergiebigkeit in m² pro Liter.",
+        "fr": "Rendement déclaré par le fabricant en m² par litre.",
+        "es": "Rendimiento declarado por el fabricante en m² por litro."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
         "de": "Abfallfaktor",
-        "fr": "Waste Factor",
-        "es": "Waste Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Expected paint wastage as percentage (e.g., overspray, spillage).",
-        "tr": "Beklenen boya israfı yüzdesi (örneğin, fazla püskürtme, dökülme)."
+        "tr": "Beklenen boya israfı yüzdesi (örneğin, fazla püskürtme, dökülme).",
+        "de": "Erwarteter Farbverlust in Prozent (z. B. Overspray, Verschütten).",
+        "fr": "Pourcentage de perte de peinture prévu (ex. surpulvérisation, déversement).",
+        "es": "Porcentaje de desperdicio de pintura esperado (p. ej., sobrepulverización, derrames)."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Surface Roughness Factor",
         "tr": "Yüzey Pürüzlülük Faktörü",
-        "de": "Surface Roughness Factor",
-        "fr": "Surface Roughness Factor",
-        "es": "Surface Roughness Factor",
+        "de": "Oberflächenrauheitsfaktor",
+        "fr": "Facteur de rugosité de surface",
+        "es": "Factor de rugosidad de la superficie",
         "ar": "Surface Roughness Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier for rough surfaces (1.0=smooth, 1.5=rough).",
-        "tr": "Pürüzlü yüzeyler için çarpan (1.0=pürüzsüz, 1.5=pürüzlü)."
+        "tr": "Pürüzlü yüzeyler için çarpan (1.0=pürüzsüz, 1.5=pürüzlü).",
+        "de": "Multiplikator für raue Oberflächen (1,0 = glatt, 1,5 = rau).",
+        "fr": "Multiplicateur pour surfaces rugueuses (1,0=lisse, 1,5=rugueux).",
+        "es": "Multiplicador para superficies rugosas (1.0=lisa, 1.5=rugosa)."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Paint Price per Liter",
         "tr": "Litre Başına Boya Fiyatı",
-        "de": "Paint Price per Liter",
-        "fr": "Paint Price per Liter",
-        "es": "Paint Price per Liter",
+        "de": "Farbpreis pro Liter",
+        "fr": "Prix de la peinture au litre",
+        "es": "Precio de la pintura por litro",
         "ar": "Paint Price per Liter"
       },
       "businessContext_i18n": {
         "en": "Cost of paint per liter in local currency.",
-        "tr": "Yerel para birimi cinsinden litre başına boya maliyeti."
+        "tr": "Yerel para birimi cinsinden litre başına boya maliyeti.",
+        "de": "Farbkosten pro Liter in lokaler Währung.",
+        "fr": "Coût de la peinture par litre en devise locale.",
+        "es": "Costo de la pintura por litro en moneda local."
       }
     }
   ],

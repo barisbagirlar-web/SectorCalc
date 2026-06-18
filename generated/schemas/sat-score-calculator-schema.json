@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Reading Raw Score",
         "tr": "Okuma Ham Puanı",
-        "de": "Reading Raw Score",
-        "fr": "Reading Raw Score",
+        "de": "Rohpunktzahl Lesen",
+        "fr": "Score brut de lecture",
         "es": "Reading Raw Score",
         "ar": "Reading Raw Score"
       },
       "businessContext_i18n": {
         "en": "Number of correct answers in the Reading section (max 52)",
-        "tr": "Okuma bölümünde doğru cevap sayısı (maks. 52)"
+        "tr": "Okuma bölümünde doğru cevap sayısı (maks. 52)",
+        "de": "Anzahl der richtigen Antworten im Leseteil (max. 52)",
+        "fr": "Nombre de réponses correctes dans la section Lecture (max 52)"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Writing & Language Raw Score",
         "tr": "Yazma ve Dil Ham Puanı",
-        "de": "Writing & Language Raw Score",
-        "fr": "Writing & Language Raw Score",
+        "de": "Rohpunktzahl Schreiben & Sprache",
+        "fr": "Score brut d'écriture et de langue",
         "es": "Writing & Language Raw Score",
         "ar": "Writing & Language Raw Score"
       },
       "businessContext_i18n": {
         "en": "Number of correct answers in the Writing & Language section (max 44)",
-        "tr": "Yazma ve Dil bölümünde doğru cevap sayısı (maks. 44)"
+        "tr": "Yazma ve Dil bölümünde doğru cevap sayısı (maks. 44)",
+        "de": "Anzahl der richtigen Antworten im Schreiben & Sprache-Teil (max. 44)",
+        "fr": "Nombre de réponses correctes dans la section Écriture et Langue (max 44)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Math No Calculator Raw Score",
         "tr": "Matematik Hesap Makinesiz Ham Puanı",
-        "de": "Math No Calculator Raw Score",
-        "fr": "Math No Calculator Raw Score",
+        "de": "Rohpunktzahl Mathematik ohne Taschenrechner",
+        "fr": "Score brut de mathématiques sans calculatrice",
         "es": "Math No Calculator Raw Score",
         "ar": "Math No Calculator Raw Score"
       },
       "businessContext_i18n": {
         "en": "Number of correct answers in the Math No Calculator section (max 20)",
-        "tr": "Matematik Hesap Makinesiz bölümünde doğru cevap sayısı (maks. 20)"
+        "tr": "Matematik Hesap Makinesiz bölümünde doğru cevap sayısı (maks. 20)",
+        "de": "Anzahl der richtigen Antworten im Mathematik ohne Taschenrechner-Teil (max. 20)",
+        "fr": "Nombre de réponses correctes dans la section Mathématiques sans calculatrice (max 20)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Math Calculator Raw Score",
         "tr": "Matematik Hesap Makineli Ham Puanı",
-        "de": "Math Calculator Raw Score",
-        "fr": "Math Calculator Raw Score",
+        "de": "Rohpunktzahl Mathematik mit Taschenrechner",
+        "fr": "Score brut de mathématiques avec calculatrice",
         "es": "Math Calculator Raw Score",
         "ar": "Math Calculator Raw Score"
       },
       "businessContext_i18n": {
         "en": "Number of correct answers in the Math Calculator section (max 38)",
-        "tr": "Matematik Hesap Makineli bölümünde doğru cevap sayısı (maks. 38)"
+        "tr": "Matematik Hesap Makineli bölümünde doğru cevap sayısı (maks. 38)",
+        "de": "Anzahl der richtigen Antworten im Mathematik mit Taschenrechner-Teil (max. 38)",
+        "fr": "Nombre de réponses correctes dans la section Mathématiques avec calculatrice (max 38)"
       }
     }
   ],

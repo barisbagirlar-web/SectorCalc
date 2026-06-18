@@ -12,13 +12,16 @@
         "en": "Spindle Speed",
         "tr": "İş Mili Hızı",
         "de": "Spindeldrehzahl",
-        "fr": "Spindle Speed",
-        "es": "Spindle Speed",
+        "fr": "Vitesse de broche",
+        "es": "Velocidad del husillo",
         "ar": "Spindle Speed"
       },
       "businessContext_i18n": {
         "en": "Rotational speed of the spindle",
-        "tr": "İş milinin dönüş hızı"
+        "tr": "İş milinin dönüş hızı",
+        "de": "Drehzahl der Spindel",
+        "fr": "Vitesse de rotation de la broche",
+        "es": "Velocidad de rotación del husillo"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Tool Diameter",
         "tr": "Takım Çapı",
-        "de": "Tool Diameter",
-        "fr": "Tool Diameter",
-        "es": "Tool Diameter",
+        "de": "Werkzeugdurchmesser",
+        "fr": "Diamètre de l'outil",
+        "es": "Diámetro de la herramienta",
         "ar": "Tool Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the cutting tool",
-        "tr": "Kesici takımın çapı"
+        "tr": "Kesici takımın çapı",
+        "de": "Durchmesser des Schneidwerkzeugs",
+        "fr": "Diamètre de l'outil de coupe",
+        "es": "Diámetro de la herramienta de corte"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Number of Flutes",
         "tr": "Kanallı Uç Sayısı",
-        "de": "Number of Flutes",
-        "fr": "Number of Flutes",
-        "es": "Number of Flutes",
+        "de": "Anzahl der Schneiden",
+        "fr": "Nombre de dents",
+        "es": "Número de filos",
         "ar": "Number of Flutes"
       },
       "businessContext_i18n": {
         "en": "Number of cutting flutes on the tool",
-        "tr": "Takımdaki kesici kanalların sayısı"
+        "tr": "Takımdaki kesici kanalların sayısı",
+        "de": "Anzahl der Schneidzähne am Werkzeug",
+        "fr": "Nombre de dents de coupe sur l'outil",
+        "es": "Número de filos de corte en la herramienta"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Chip Load",
         "tr": "Talaş Yükü",
-        "de": "Chip Load",
-        "fr": "Chip Load",
-        "es": "Chip Load",
+        "de": "Spanbelastung",
+        "fr": "Avance par dent",
+        "es": "Carga de viruta",
         "ar": "Chip Load"
       },
       "businessContext_i18n": {
         "en": "Thickness of material removed per tooth per revolution",
-        "tr": "Diş başına devir başına kaldırılan malzeme kalınlığı"
+        "tr": "Diş başına devir başına kaldırılan malzeme kalınlığı",
+        "de": "Dicke des pro Zahn und Umdrehung abgetragenen Materials",
+        "fr": "Épaisseur de matière enlevée par dent par révolution",
+        "es": "Espesor del material eliminado por diente por revolución"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Axial Depth of Cut",
         "tr": "Eksenel Kesme Derinliği",
-        "de": "Axial Depth of Cut",
-        "fr": "Axial Depth of Cut",
-        "es": "Axial Depth of Cut",
+        "de": "Axiale Schnitttiefe",
+        "fr": "Profondeur de coupe axiale",
+        "es": "Profundidad de corte axial",
         "ar": "Axial Depth of Cut"
       },
       "businessContext_i18n": {
         "en": "Depth of material removal along the tool axis",
-        "tr": "Takım ekseni boyunca malzeme kaldırma derinliği"
+        "tr": "Takım ekseni boyunca malzeme kaldırma derinliği",
+        "de": "Tiefe des Materialabtrags entlang der Werkzeugachse",
+        "fr": "Profondeur d'enlèvement de matière le long de l'axe de l'outil",
+        "es": "Profundidad de eliminación de material a lo largo del eje de la herramienta"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Radial Width of Cut",
         "tr": "Radyal Kesme Genişliği",
-        "de": "Radial Width of Cut",
-        "fr": "Radial Width of Cut",
-        "es": "Radial Width of Cut",
+        "de": "Radiale Schnittbreite",
+        "fr": "Largeur radiale de coupe",
+        "es": "Ancho radial de corte",
         "ar": "Radial Width of Cut"
       },
       "businessContext_i18n": {
         "en": "Width of material engagement perpendicular to tool axis",
-        "tr": "Takım eksenine dik malzeme temas genişliği"
+        "tr": "Takım eksenine dik malzeme temas genişliği",
+        "de": "Breite des Materialeingriffs senkrecht zur Werkzeugachse",
+        "fr": "Largeur d'engagement de la matière perpendiculaire à l'axe de l'outil",
+        "es": "Ancho de compromiso del material perpendicular al eje de la herramienta"
       }
     }
   ],

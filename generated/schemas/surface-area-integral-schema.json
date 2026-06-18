@@ -12,13 +12,15 @@
         "en": "Radius (r)",
         "tr": "Yarıçap (r)",
         "de": "Radius (r)",
-        "fr": "Radius (r)",
-        "es": "Radius (r)",
+        "fr": "Rayon (r)",
+        "es": "Radio (r)",
         "ar": "Radius (r)"
       },
       "businessContext_i18n": {
         "en": "Radius of the sphere or cylinder",
-        "tr": "Küre veya silindirin yarıçapı"
+        "tr": "Küre veya silindirin yarıçapı",
+        "de": "Radius der Kugel oder des Zylinders",
+        "fr": "Rayon de la sphère ou du cylindre"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Height (h)",
         "tr": "Yükseklik (h)",
         "de": "Höhe (h)",
-        "fr": "Height (h)",
-        "es": "Height (h)",
+        "fr": "Hauteur (h)",
+        "es": "Altura (h)",
         "ar": "Height (h)"
       },
       "businessContext_i18n": {
         "en": "Height for cylindrical surface area",
-        "tr": "Silindirik yüzey alanı için yükseklik"
+        "tr": "Silindirik yüzey alanı için yükseklik",
+        "de": "Höhe für die Zylinderoberfläche",
+        "fr": "Hauteur pour la surface latérale du cylindre"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Shape (0=sphere, 1=cylinder)",
         "tr": "Şekil (0=küre, 1=silindir)",
-        "de": "Shape (0=sphere, 1=cylinder)",
-        "fr": "Shape (0=sphere, 1=cylinder)",
+        "de": "Form (0=Kugel, 1=Zylinder)",
+        "fr": "Forme (0=sphère, 1=cylindre)",
         "es": "Shape (0=sphere, 1=cylinder)",
         "ar": "Shape (0=sphere, 1=cylinder)"
       },
       "businessContext_i18n": {
         "en": "0 for sphere, 1 for cylinder (lateral surface)",
-        "tr": "0 küre, 1 silindir (yan yüzey) için"
+        "tr": "0 küre, 1 silindir (yan yüzey) için",
+        "de": "0 für Kugel, 1 für Zylinder (Mantelfläche)",
+        "fr": "0 pour sphère, 1 pour cylindre (surface latérale)"
       }
     },
     {
@@ -78,7 +84,9 @@
       },
       "businessContext_i18n": {
         "en": "Lower bound of polar angle for sphere",
-        "tr": "Küre için kutup açısının alt sınırı"
+        "tr": "Küre için kutup açısının alt sınırı",
+        "de": "Untere Grenze des Polarwinkels für Kugel",
+        "fr": "Borne inférieure de l'angle polaire pour la sphère"
       }
     },
     {
@@ -98,7 +106,9 @@
       },
       "businessContext_i18n": {
         "en": "Upper bound of polar angle for sphere (π)",
-        "tr": "Küre için kutup açısının üst sınırı (π)"
+        "tr": "Küre için kutup açısının üst sınırı (π)",
+        "de": "Obere Grenze des Polarwinkels für Kugel (π)",
+        "fr": "Borne supérieure de l'angle polaire pour la sphère (π)"
       }
     },
     {
@@ -118,7 +128,9 @@
       },
       "businessContext_i18n": {
         "en": "Lower bound of azimuthal angle",
-        "tr": "Azimut açısının alt sınırı"
+        "tr": "Azimut açısının alt sınırı",
+        "de": "Untere Grenze des Azimutwinkels",
+        "fr": "Borne inférieure de l'angle azimutal"
       }
     },
     {
@@ -138,7 +150,9 @@
       },
       "businessContext_i18n": {
         "en": "Upper bound of azimuthal angle (2π)",
-        "tr": "Azimut açısının üst sınırı (2π)"
+        "tr": "Azimut açısının üst sınırı (2π)",
+        "de": "Obere Grenze des Azimutwinkels (2π)",
+        "fr": "Borne supérieure de l'angle azimutal (2π)"
       }
     }
   ],

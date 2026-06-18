@@ -12,13 +12,16 @@
         "en": "Principal Amount",
         "tr": "Anapara Tutarı",
         "de": "Kapitalbetrag",
-        "fr": "Principal Amount",
-        "es": "Principal Amount",
+        "fr": "Montant principal",
+        "es": "Monto principal",
         "ar": "Principal Amount"
       },
       "businessContext_i18n": {
         "en": "Initial lump sum investment or loan amount",
-        "tr": "Başlangıçtaki toplu yatırım veya kredi tutarı"
+        "tr": "Başlangıçtaki toplu yatırım veya kredi tutarı",
+        "de": "Anfängliche Einmalanlage oder Kreditbetrag",
+        "fr": "Investissement initial forfaitaire ou montant du prêt",
+        "es": "Inversión o monto del préstamo inicial único"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
         "de": "Jährlicher Zinssatz",
-        "fr": "Annual Interest Rate",
-        "es": "Annual Interest Rate",
+        "fr": "Taux d'intérêt annuel",
+        "es": "Tasa de Interés Anual",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Nominal annual interest rate (percentage)",
-        "tr": "Nominal yıllık faiz oranı (yüzde)"
+        "tr": "Nominal yıllık faiz oranı (yüzde)",
+        "de": "Nominaler jährlicher Zinssatz (Prozent)",
+        "fr": "Taux d'intérêt annuel nominal (pourcentage)",
+        "es": "Tasa de interés anual nominal (porcentaje)"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Term",
         "tr": "Vade",
-        "de": "Term",
-        "fr": "Term",
-        "es": "Term",
+        "de": "Laufzeit",
+        "fr": "Durée",
+        "es": "Plazo",
         "ar": "Term"
       },
       "businessContext_i18n": {
         "en": "Total duration in years",
-        "tr": "Toplam süre (yıl)"
+        "tr": "Toplam süre (yıl)",
+        "de": "Gesamtdauer in Jahren",
+        "fr": "Durée totale en années",
+        "es": "Duración total en años"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Monthly Contribution",
         "tr": "Aylık Katkı",
         "de": "Monatlicher Beitrag",
-        "fr": "Monthly Contribution",
-        "es": "Monthly Contribution",
+        "fr": "Cotisation mensuelle",
+        "es": "Aporte mensual",
         "ar": "Monthly Contribution"
       },
       "businessContext_i18n": {
         "en": "Additional fixed amount added each month (0 if none)",
-        "tr": "Her ay eklenen sabit ek miktar (yoksa 0)"
+        "tr": "Her ay eklenen sabit ek miktar (yoksa 0)",
+        "de": "Zusätzlicher fester Betrag, der monatlich hinzugefügt wird (0 falls keiner)",
+        "fr": "Montant fixe supplémentaire ajouté chaque mois (0 si aucun)",
+        "es": "Cantidad fija adicional agregada cada mes (0 si no hay)"
       }
     }
   ],

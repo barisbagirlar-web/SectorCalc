@@ -12,13 +12,15 @@
         "en": "Asset Cost",
         "tr": "Varlık Maliyeti",
         "de": "Vermögenswertkosten",
-        "fr": "Asset Cost",
-        "es": "Asset Cost",
+        "fr": "Coût de l'actif",
+        "es": "Costo del activo",
         "ar": "Asset Cost"
       },
       "businessContext_i18n": {
         "en": "Asset cost (purchase price)",
-        "tr": "Varlık maliyeti (satın alma fiyatı)"
+        "tr": "Varlık maliyeti (satın alma fiyatı)",
+        "de": "Anlagenkosten (Kaufpreis)",
+        "fr": "Coût de l'actif (prix d'achat)"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Salvage Value",
         "tr": "Hurda Değeri",
         "de": "Restwert",
-        "fr": "Salvage Value",
-        "es": "Salvage Value",
+        "fr": "Valeur de récupération",
+        "es": "Valor de rescate",
         "ar": "Salvage Value"
       },
       "businessContext_i18n": {
         "en": "Estimated salvage value at end of useful life",
-        "tr": "Faydalı ömür sonunda tahmini hurda değeri"
+        "tr": "Faydalı ömür sonunda tahmini hurda değeri",
+        "de": "Geschätzter Restwert am Ende der Nutzungsdauer",
+        "fr": "Valeur de récupération estimée en fin de vie utile"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Useful Life (years)",
         "tr": "Faydalı Ömür (yıl)",
-        "de": "Useful Life (years)",
-        "fr": "Useful Life (years)",
+        "de": "Nutzungsdauer (Jahre)",
+        "fr": "Durée de vie utile (années)",
         "es": "Useful Life (years)",
         "ar": "Useful Life (years)"
       },
       "businessContext_i18n": {
         "en": "Useful life of the asset in years",
-        "tr": "Varlığın faydalı ömrü yıl olarak"
+        "tr": "Varlığın faydalı ömrü yıl olarak",
+        "de": "Nutzungsdauer der Anlage in Jahren",
+        "fr": "Durée de vie utile de l'actif en années"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Year Number",
         "tr": "Yıl Numarası",
-        "de": "Year Number",
-        "fr": "Year Number",
+        "de": "Jahresnummer",
+        "fr": "Numéro de l'année",
         "es": "Year Number",
         "ar": "Year Number"
       },
       "businessContext_i18n": {
         "en": "Year for which to calculate depreciation (1-based)",
-        "tr": "Amortismanın hesaplanacağı yıl (1 tabanlı)"
+        "tr": "Amortismanın hesaplanacağı yıl (1 tabanlı)",
+        "de": "Jahr, für das die Abschreibung berechnet wird (1-basiert)",
+        "fr": "Année pour laquelle calculer l'amortissement (base 1)"
       }
     }
   ],

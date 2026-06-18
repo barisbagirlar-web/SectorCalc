@@ -12,13 +12,16 @@
         "en": "Span Length",
         "tr": "Açıklık Uzunluğu",
         "de": "Stützweite",
-        "fr": "Span Length",
-        "es": "Span Length",
+        "fr": "Longueur de la portée",
+        "es": "Longitud del vano",
         "ar": "Span Length"
       },
       "businessContext_i18n": {
         "en": "Clear span of the beam between supports",
-        "tr": "Destekler arasındaki kirişin açıklığı"
+        "tr": "Destekler arasındaki kirişin açıklığı",
+        "de": "Lichte Spannweite des Trägers zwischen den Auflagern",
+        "fr": "Portée libre de la poutre entre les supports",
+        "es": "Luz libre de la viga entre apoyos"
       }
     },
     {
@@ -31,14 +34,16 @@
       "label_i18n": {
         "en": "Uniform Load",
         "tr": "Düzgün yayılı yük",
-        "de": "Uniform Load",
-        "fr": "Uniform Load",
-        "es": "Uniform Load",
+        "de": "Gleichmäßige Last",
+        "fr": "Charge uniforme",
+        "es": "Carga uniforme",
         "ar": "Uniform Load"
       },
       "businessContext_i18n": {
         "en": "Total uniformly distributed load (dead + live)",
-        "tr": "Toplam düzgün yayılı yük (ölü + hareketli)"
+        "tr": "Toplam düzgün yayılı yük (ölü + hareketli)",
+        "de": "Gesamte gleichmäßig verteilte Last (Eigenlast + Nutzlast)",
+        "fr": "Charge totale uniformément répartie (permanente + d'exploitation)"
       }
     },
     {
@@ -52,13 +57,15 @@
         "en": "Beam Width",
         "tr": "Kiriş Genişliği",
         "de": "Balkenbreite",
-        "fr": "Beam Width",
-        "es": "Beam Width",
+        "fr": "Largeur de la poutre",
+        "es": "Ancho de la viga",
         "ar": "Beam Width"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional width of the beam",
-        "tr": "Kirişin enine kesit genişliği"
+        "tr": "Kirişin enine kesit genişliği",
+        "de": "Querschnittsbreite des Balkens",
+        "fr": "Largeur de la section transversale de la poutre"
       }
     },
     {
@@ -71,14 +78,16 @@
       "label_i18n": {
         "en": "Beam Depth",
         "tr": "Kiriş yüksekliği",
-        "de": "Beam Depth",
-        "fr": "Beam Depth",
-        "es": "Beam Depth",
+        "de": "Balkenhöhe",
+        "fr": "Hauteur de la poutre",
+        "es": "Profundidad de la viga",
         "ar": "Beam Depth"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional depth of the beam",
-        "tr": "Kirişin enine kesit derinliği"
+        "tr": "Kirişin enine kesit derinliği",
+        "de": "Querschnittshöhe des Balkens",
+        "fr": "Hauteur de la section transversale de la poutre"
       }
     },
     {
@@ -92,13 +101,15 @@
         "en": "Modulus of Elasticity (E)",
         "tr": "Elastisite Modülü (E)",
         "de": "Elastizitätsmodul (E)",
-        "fr": "Modulus of Elasticity (E)",
-        "es": "Modulus of Elasticity (E)",
+        "fr": "Module d'élasticité (E)",
+        "es": "Módulo de elasticidad (E)",
         "ar": "Modulus of Elasticity (E)"
       },
       "businessContext_i18n": {
         "en": "Modulus of elasticity of the wood species",
-        "tr": "Ahşap türünün elastisite modülü"
+        "tr": "Ahşap türünün elastisite modülü",
+        "de": "Elastizitätsmodul der Holzart",
+        "fr": "Module d'élasticité de l'essence de bois"
       }
     },
     {
@@ -111,14 +122,16 @@
       "label_i18n": {
         "en": "Allowable Bending Stress (Fb)",
         "tr": "İzin Verilen Eğilme Gerilmesi (Fb)",
-        "de": "Allowable Bending Stress (Fb)",
-        "fr": "Allowable Bending Stress (Fb)",
+        "de": "Zulässige Biegespannung (Fb)",
+        "fr": "Contrainte de flexion admissible (Fb)",
         "es": "Allowable Bending Stress (Fb)",
         "ar": "Allowable Bending Stress (Fb)"
       },
       "businessContext_i18n": {
         "en": "Allowable bending stress for the wood beam",
-        "tr": "Ahşap kiriş için izin verilen eğilme gerilmesi"
+        "tr": "Ahşap kiriş için izin verilen eğilme gerilmesi",
+        "de": "Zulässige Biegespannung für den Holzbalken",
+        "fr": "Contrainte de flexion admissible pour la poutre en bois"
       }
     }
   ],

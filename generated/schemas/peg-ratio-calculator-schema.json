@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Stock Price",
         "tr": "Hisse Senedi Fiyatı",
-        "de": "Stock Price",
-        "fr": "Stock Price",
-        "es": "Stock Price",
+        "de": "Aktienkurs",
+        "fr": "Cours de l'action",
+        "es": "Precio de la acción",
         "ar": "Stock Price"
       },
       "businessContext_i18n": {
         "en": "Current market price per share",
-        "tr": "Hisse başına güncel piyasa fiyatı"
+        "tr": "Hisse başına güncel piyasa fiyatı",
+        "de": "Aktueller Marktpreis pro Aktie",
+        "fr": "Prix actuel du marché par action",
+        "es": "Precio actual de mercado por acción"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Earnings Per Share (EPS)",
         "tr": "Hisse Başına Kâr (EPS)",
-        "de": "Earnings Per Share (EPS)",
-        "fr": "Earnings Per Share (EPS)",
-        "es": "Earnings Per Share (EPS)",
+        "de": "Gewinn pro Aktie (EPS)",
+        "fr": "Bénéfice par action (BPA)",
+        "es": "Ganancias por acción (EPS)",
         "ar": "Earnings Per Share (EPS)"
       },
       "businessContext_i18n": {
         "en": "Trailing twelve-month earnings per share",
-        "tr": "Son on iki aylık hisse başına kâr"
+        "tr": "Son on iki aylık hisse başına kâr",
+        "de": "Gewinn pro Aktie der letzten zwölf Monate",
+        "fr": "Bénéfice par action des douze derniers mois",
+        "es": "Ganancias por acción de los últimos doce meses"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Earnings Growth Rate",
         "tr": "Kâr Büyüme Oranı",
-        "de": "Earnings Growth Rate",
-        "fr": "Earnings Growth Rate",
-        "es": "Earnings Growth Rate",
+        "de": "Gewinnwachstumsrate",
+        "fr": "Taux de croissance des bénéfices",
+        "es": "Tasa de crecimiento de ganancias",
         "ar": "Earnings Growth Rate"
       },
       "businessContext_i18n": {
         "en": "Expected annual EPS growth rate (percentage)",
-        "tr": "Beklenen yıllık EPS büyüme oranı (yüzde)"
+        "tr": "Beklenen yıllık EPS büyüme oranı (yüzde)",
+        "de": "Erwartete jährliche EPS-Wachstumsrate (Prozent)",
+        "fr": "Taux de croissance annuel attendu du BPA (pourcentage)",
+        "es": "Tasa de crecimiento anual esperada de EPS (porcentaje)"
       }
     }
   ],

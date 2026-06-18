@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Ounces per Unit",
         "tr": "Birim Başına Ons",
-        "de": "Ounces per Unit",
-        "fr": "Ounces per Unit",
-        "es": "Ounces per Unit",
+        "de": "Unzen pro Einheit",
+        "fr": "Onces par unité",
+        "es": "Onzas por unidad",
         "ar": "Ounces per Unit"
       },
       "businessContext_i18n": {
         "en": "The weight of a single item in ounces.",
-        "tr": "Tek bir öğenin ons cinsinden ağırlığı."
+        "tr": "Tek bir öğenin ons cinsinden ağırlığı.",
+        "de": "Gewicht eines einzelnen Artikels in Unzen.",
+        "fr": "Le poids d'un seul article en onces.",
+        "es": "El peso de un solo artículo en onzas."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Quantity",
         "tr": "Miktar",
         "de": "Menge",
-        "fr": "Quantity",
-        "es": "Quantity",
+        "fr": "Quantité",
+        "es": "Cantidad",
         "ar": "Quantity"
       },
       "businessContext_i18n": {
         "en": "Number of identical items.",
-        "tr": "Özdeş öğe sayısı."
+        "tr": "Özdeş öğe sayısı.",
+        "de": "Anzahl identischer Artikel.",
+        "fr": "Nombre d'articles identiques.",
+        "es": "Número de artículos idénticos."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Packaging Weight",
         "tr": "Ambalaj Ağırlığı",
-        "de": "Packaging Weight",
-        "fr": "Packaging Weight",
-        "es": "Packaging Weight",
+        "de": "Verpackungsgewicht",
+        "fr": "Poids de l'emballage",
+        "es": "Peso del embalaje",
         "ar": "Packaging Weight"
       },
       "businessContext_i18n": {
         "en": "Additional packaging weight in ounces.",
-        "tr": "Ons cinsinden ek paketleme ağırlığı."
+        "tr": "Ons cinsinden ek paketleme ağırlığı.",
+        "de": "Zusätzliches Verpackungsgewicht in Unzen.",
+        "fr": "Poids d'emballage supplémentaire en onces.",
+        "es": "Peso adicional del embalaje en onzas."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Ounces per pound. Standard is 16. Override only if using a different standard.",
-        "tr": "Pound başına ons. Standart 16'dır. Yalnızca farklı bir standart kullanıyorsanız geçersiz kılın."
+        "tr": "Pound başına ons. Standart 16'dır. Yalnızca farklı bir standart kullanıyorsanız geçersiz kılın.",
+        "de": "Unzen pro Pfund. Standard ist 16. Nur bei Verwendung eines anderen Standards überschreiben.",
+        "fr": "Onces par livre. La valeur standard est 16. Surcharger uniquement si vous utilisez une norme différente.",
+        "es": "Onzas por libra. El estándar es 16. Sobrescriba solo si usa un estándar diferente."
       }
     }
   ],

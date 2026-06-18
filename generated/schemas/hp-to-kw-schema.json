@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Horsepower (HP)",
         "tr": "Beygir Gücü (HP)",
-        "de": "Horsepower (HP)",
-        "fr": "Horsepower (HP)",
-        "es": "Horsepower (HP)",
+        "de": "Leistung (PS)",
+        "fr": "Puissance (HP)",
+        "es": "Caballos de fuerza (HP)",
         "ar": "Horsepower (HP)"
       },
       "businessContext_i18n": {
         "en": "Motor gücü beygir gücü cinsinden",
-        "tr": "Motor gücü beygir gücü cinsinden"
+        "tr": "Motor gücü beygir gücü cinsinden",
+        "de": "Motorleistung in PS",
+        "fr": "Puissance du moteur en chevaux-vapeur",
+        "es": "Potencia del motor en caballos de fuerza"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Motor Efficiency (%)",
         "tr": "Motor Verimliliği (%)",
-        "de": "Motor Efficiency (%)",
-        "fr": "Motor Efficiency (%)",
-        "es": "Motor Efficiency (%)",
+        "de": "Motorwirkungsgrad (%)",
+        "fr": "Rendement du moteur (%)",
+        "es": "Eficiencia del motor (%)",
         "ar": "Motor Efficiency (%)"
       },
       "businessContext_i18n": {
         "en": "Motor verimliliği yüzde olarak",
-        "tr": "Motor verimliliği yüzde olarak"
+        "tr": "Motor verimliliği yüzde olarak",
+        "de": "Motorwirkungsgrad in Prozent",
+        "fr": "Rendement du moteur en pourcentage",
+        "es": "Eficiencia del motor en porcentaje"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Power Factor",
         "tr": "Güç Faktörü",
         "de": "Leistungsfaktor",
-        "fr": "Power Factor",
-        "es": "Power Factor",
+        "fr": "Facteur de puissance",
+        "es": "Factor de potencia",
         "ar": "Power Factor"
       },
       "businessContext_i18n": {
         "en": "Güç faktörü (0-1 arası)",
-        "tr": "Güç faktörü (0-1 arası)"
+        "tr": "Güç faktörü (0-1 arası)",
+        "de": "Leistungsfaktor (0-1)",
+        "fr": "Facteur de puissance (0-1)",
+        "es": "Factor de potencia (0-1)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Voltage (V)",
         "tr": "Gerilim (V)",
-        "de": "Voltage (V)",
-        "fr": "Voltage (V)",
-        "es": "Voltage (V)",
+        "de": "Spannung (V)",
+        "fr": "Tension (V)",
+        "es": "Voltaje (V)",
         "ar": "Voltage (V)"
       },
       "businessContext_i18n": {
         "en": "Motor besleme gerilimi",
-        "tr": "Motor besleme gerilimi"
+        "tr": "Motor besleme gerilimi",
+        "de": "Motorversorgungsspannung",
+        "fr": "Tension d'alimentation du moteur",
+        "es": "Tensión de alimentación del motor"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Current (A)",
         "tr": "Akım (A)",
         "de": "Strom (A)",
-        "fr": "Current (A)",
-        "es": "Current (A)",
+        "fr": "Courant (A)",
+        "es": "Corriente (A)",
         "ar": "Current (A)"
       },
       "businessContext_i18n": {
         "en": "Motor akımı",
-        "tr": "Motor akımı"
+        "tr": "Motor akımı",
+        "de": "Motorstrom",
+        "fr": "Courant du moteur",
+        "es": "Corriente del motor"
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Number of Phases",
         "tr": "Faz Sayısı",
         "de": "Anzahl der Phasen",
-        "fr": "Number of Phases",
-        "es": "Number of Phases",
+        "fr": "Nombre de phases",
+        "es": "Número de fases",
         "ar": "Number of Phases"
       },
       "businessContext_i18n": {
         "en": "Faz sayısı (1 veya 3)",
-        "tr": "Faz sayısı (1 veya 3)"
+        "tr": "Faz sayısı (1 veya 3)",
+        "de": "Phasenzahl (1 oder 3)",
+        "fr": "Nombre de phases (1 ou 3)",
+        "es": "Número de fases (1 o 3)"
       }
     }
   ],

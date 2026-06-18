@@ -12,13 +12,16 @@
         "en": "Transaction Amount",
         "tr": "İşlem Tutarı",
         "de": "Transaktionsbetrag",
-        "fr": "Transaction Amount",
-        "es": "Transaction Amount",
+        "fr": "Montant de la transaction",
+        "es": "Monto de la transacción",
         "ar": "Transaction Amount"
       },
       "businessContext_i18n": {
         "en": "Total sales amount before fees",
-        "tr": "Ücretler öncesi toplam satış tutarı"
+        "tr": "Ücretler öncesi toplam satış tutarı",
+        "de": "Gesamtumsatz vor Gebühren",
+        "fr": "Montant total des ventes avant frais",
+        "es": "Monto total de ventas antes de comisiones"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Fee Percentage",
         "tr": "Ücret Yüzdesi",
-        "de": "Fee Percentage",
-        "fr": "Fee Percentage",
-        "es": "Fee Percentage",
+        "de": "Gebührenprozentsatz",
+        "fr": "Pourcentage de frais",
+        "es": "Porcentaje de comisión",
         "ar": "Fee Percentage"
       },
       "businessContext_i18n": {
         "en": "Percentage fee charged by payment processor",
-        "tr": "Ödeme işlemcisi tarafından alınan yüzde ücret"
+        "tr": "Ödeme işlemcisi tarafından alınan yüzde ücret",
+        "de": "Prozentsatz der vom Zahlungsabwickler erhobenen Gebühr",
+        "fr": "Pourcentage de frais facturé par le processeur de paiement",
+        "es": "Porcentaje de comisión cobrado por el procesador de pagos"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Fixed Fee",
         "tr": "Sabit Ücret",
         "de": "Feste Gebühr",
-        "fr": "Fixed Fee",
-        "es": "Fixed Fee",
+        "fr": "Frais fixes",
+        "es": "Tarifa fija",
         "ar": "Fixed Fee"
       },
       "businessContext_i18n": {
         "en": "Fixed transaction fee per transaction",
-        "tr": "İşlem başına sabit işlem ücreti"
+        "tr": "İşlem başına sabit işlem ücreti",
+        "de": "Feste Transaktionsgebühr pro Transaktion",
+        "fr": "Frais de transaction fixes par transaction",
+        "es": "Comisión fija por transacción"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Tax Rate",
         "tr": "Vergi Oranı",
         "de": "Steuersatz",
-        "fr": "Tax Rate",
-        "es": "Tax Rate",
+        "fr": "Taux de taxe",
+        "es": "Tasa de impuesto",
         "ar": "Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Tax rate applied on the fee amount",
-        "tr": "Ücret tutarına uygulanan vergi oranı"
+        "tr": "Ücret tutarına uygulanan vergi oranı",
+        "de": "Steuersatz, der auf den Gebührenbetrag angewendet wird",
+        "fr": "Taux de taxe appliqué sur le montant des frais",
+        "es": "Tasa impositiva aplicada sobre el monto de la comisión"
       }
     }
   ],

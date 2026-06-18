@@ -12,14 +12,16 @@
         "en": "Temperature (°F)",
         "tr": "Sıcaklık (°F)",
         "de": "Temperatur (°F)",
-        "fr": "Temperature (°F)",
-        "es": "Temperature (°F)",
+        "fr": "Température (°F)",
+        "es": "Temperatura (°F)",
         "ar": "Temperature (°F)"
       },
       "businessContext_i18n": {
         "en": "Measured temperature in Fahrenheit",
         "tr": "Fahrenheit cinsinden ölçülen sıcaklık",
-        "de": "Gemessene Temperatur in Fahrenheit"
+        "de": "Gemessene Temperatur in Fahrenheit",
+        "fr": "Température mesurée en degrés Fahrenheit",
+        "es": "Temperatura medida en Fahrenheit"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Subtract Offset",
         "tr": "Çıkarılacak Ofset",
         "de": "Subtrahieren Offset",
-        "fr": "Subtract Offset",
-        "es": "Subtract Offset",
+        "fr": "Soustraire le décalage",
+        "es": "Restar desplazamiento",
         "ar": "Subtract Offset"
       },
       "businessContext_i18n": {
         "en": "Offset to subtract for zero-point alignment (freezing point of water in °F)",
         "tr": "Sıfır noktası hizalaması için çıkarılacak ofset (Fahrenheit cinsinden suyun donma noktası)",
-        "de": "Offset zur Nullpunktanpassung (Gefrierpunkt von Wasser in °F)"
+        "de": "Offset zur Nullpunktanpassung (Gefrierpunkt von Wasser in °F)",
+        "fr": "Décalage à soustraire pour l'alignement du point zéro (point de congélation de l'eau en °F)",
+        "es": "Desplazamiento a restar para la alineación del punto cero (punto de congelación del agua en °F)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Multiply Factor",
         "tr": "Çarpım Faktörü",
         "de": "Multiplikationsfaktor",
-        "fr": "Multiply Factor",
-        "es": "Multiply Factor",
+        "fr": "Facteur de multiplication",
+        "es": "Factor de multiplicación",
         "ar": "Multiply Factor"
       },
       "businessContext_i18n": {
         "en": "Conversion factor from Fahrenheit difference to Kelvin difference (5/9)",
         "tr": "Fahrenheit farkından Kelvin farkına dönüşüm faktörü (5/9)",
-        "de": "Umrechnungsfaktor von Fahrenheit-Differenz zu Kelvin-Differenz (5/9)"
+        "de": "Umrechnungsfaktor von Fahrenheit-Differenz zu Kelvin-Differenz (5/9)",
+        "fr": "Facteur de conversion de la différence Fahrenheit en différence Kelvin (5/9)",
+        "es": "Factor de conversión de diferencia Fahrenheit a diferencia Kelvin (5/9)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Add Offset",
         "tr": "Eklenecek Ofset",
         "de": "Addieren Offset",
-        "fr": "Add Offset",
-        "es": "Add Offset",
+        "fr": "Ajouter le décalage",
+        "es": "Agregar desplazamiento",
         "ar": "Add Offset"
       },
       "businessContext_i18n": {
         "en": "Absolute zero offset in Kelvin",
         "tr": "Mutlak sıfır ofseti (Kelvin cinsinden)",
-        "de": "Absoluter Nullpunkt-Offset in Kelvin"
+        "de": "Absoluter Nullpunkt-Offset in Kelvin",
+        "fr": "Décalage du zéro absolu en Kelvin",
+        "es": "Desplazamiento del cero absoluto en Kelvin"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounded output",
         "tr": "Yuvarlatılmış çıktı için ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen für die gerundete Ausgabe"
+        "de": "Anzahl der Dezimalstellen für die gerundete Ausgabe",
+        "fr": "Nombre de décimales pour le résultat arrondi",
+        "es": "Número de decimales para la salida redondeada"
       }
     }
   ],

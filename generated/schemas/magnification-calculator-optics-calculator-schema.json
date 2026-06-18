@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Focal Length (f)",
         "tr": "Odak Uzaklığı (f)",
-        "de": "Focal Length (f)",
-        "fr": "Focal Length (f)",
-        "es": "Focal Length (f)",
+        "de": "Brennweite (f)",
+        "fr": "Longueur focale (f)",
+        "es": "Distancia focal (f)",
         "ar": "Focal Length (f)"
       },
       "businessContext_i18n": {
         "en": "Focal length of the lens. Positive for converging, negative for diverging.",
-        "tr": "Merceğin odak uzaklığı. Yakınsak için pozitif, ıraksak için negatif."
+        "tr": "Merceğin odak uzaklığı. Yakınsak için pozitif, ıraksak için negatif.",
+        "de": "Brennweite der Linse. Positiv für Sammellinsen, negativ für Zerstreuungslinsen.",
+        "fr": "Distance focale de la lentille. Positive pour convergente, négative pour divergente.",
+        "es": "Distancia focal de la lente. Positiva para convergente, negativa para divergente."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Object Distance (do)",
         "tr": "Nesne Mesafesi (do)",
-        "de": "Object Distance (do)",
-        "fr": "Object Distance (do)",
-        "es": "Object Distance (do)",
+        "de": "Gegenstandsweite (do)",
+        "fr": "Distance objet (do)",
+        "es": "Distancia del objeto (do)",
         "ar": "Object Distance (do)"
       },
       "businessContext_i18n": {
         "en": "Distance from the object to the lens. Positive if on the incoming light side.",
-        "tr": "Nesneden merceğe olan mesafe. Gelen ışık tarafında ise pozitif."
+        "tr": "Nesneden merceğe olan mesafe. Gelen ışık tarafında ise pozitif.",
+        "de": "Abstand vom Objekt zur Linse. Positiv, wenn auf der Seite des einfallenden Lichts.",
+        "fr": "Distance de l'objet à la lentille. Positive si du côté de la lumière entrante.",
+        "es": "Distancia del objeto a la lente. Positiva si está en el lado de la luz incidente."
       }
     },
     {
@@ -48,8 +54,8 @@
         "en": "auto_input_3",
         "tr": "Otomatik girdi 3",
         "de": "auto_input_3",
-        "fr": "auto_input_3",
-        "es": "auto_input_3",
+        "fr": "Entrée automatique 3",
+        "es": "entrada_automática_3",
         "ar": "auto_input_3"
       },
       "type": "number",
@@ -60,8 +66,8 @@
         "en": "Auto-generated input 3.",
         "tr": "Otomatik oluşturulan girdi 3.",
         "de": "Automatisch generierte Eingabe 3.",
-        "fr": "Auto-generated input 3.",
-        "es": "Auto-generated input 3.",
+        "fr": "Entrée générée automatiquement 3.",
+        "es": "Entrada generada automáticamente 3.",
         "ar": "Auto-generated input 3."
       }
     }

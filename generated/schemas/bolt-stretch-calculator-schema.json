@@ -12,14 +12,16 @@
         "en": "Preload Force",
         "tr": "Ön Yükleme Kuvveti",
         "de": "Vorspannkraft",
-        "fr": "Preload Force",
-        "es": "Preload Force",
+        "fr": "Force de précharge",
+        "es": "Fuerza de precarga",
         "ar": "Preload Force"
       },
       "businessContext_i18n": {
         "en": "The tensile force applied to the bolt during tightening, typically achieved by torque or tension.",
         "tr": "Sıkma sırasında cıvataya uygulanan çekme kuvveti, genellikle tork veya gerilim ile elde edilir.",
-        "de": "Die während des Anziehens auf die Schraube ausgeübte Zugkraft, typischerweise durch Drehmoment oder Spannung erreicht."
+        "de": "Die während des Anziehens auf die Schraube ausgeübte Zugkraft, typischerweise durch Drehmoment oder Spannung erreicht.",
+        "fr": "Force de traction appliquée au boulon lors du serrage, généralement obtenue par couple ou tension.",
+        "es": "Fuerza de tracción aplicada al perno durante el apriete, generalmente lograda mediante par de apriete o tensión."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Grip Length",
         "tr": "Kavrama Uzunluğu",
         "de": "Klemmspannungslänge",
-        "fr": "Grip Length",
-        "es": "Grip Length",
+        "fr": "Longueur de serrage",
+        "es": "Longitud de agarre",
         "ar": "Grip Length"
       },
       "businessContext_i18n": {
         "en": "The length of the bolt between the nut and the bolt head, or the clamped length.",
         "tr": "Somun ile cıvata başı arasındaki cıvata uzunluğu veya sıkıştırılan uzunluk.",
-        "de": "Die Länge des Bolzens zwischen Mutter und Kopf oder die Klemmspannungslänge."
+        "de": "Die Länge des Bolzens zwischen Mutter und Kopf oder die Klemmspannungslänge.",
+        "fr": "Longueur du boulon entre l'écrou et la tête du boulon, ou longueur bridée.",
+        "es": "Longitud del perno entre la tuerca y la cabeza del perno, o la longitud sujeta."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Tensile Stress Area",
         "tr": "Çekme Gerilme Alanı",
         "de": "Spannungsquerschnitt",
-        "fr": "Tensile Stress Area",
-        "es": "Tensile Stress Area",
+        "fr": "Section résistante en traction",
+        "es": "Área de esfuerzo de tracción",
         "ar": "Tensile Stress Area"
       },
       "businessContext_i18n": {
         "en": "The effective cross-sectional area of the bolt thread under tension.",
         "tr": "Cıvata dişinin çekme altındaki etkili kesit alanı.",
-        "de": "Der effektive Querschnitt des Bolzengewindes unter Zug."
+        "de": "Der effektive Querschnitt des Bolzengewindes unter Zug.",
+        "fr": "Section transversale effective du filetage du boulon sous tension.",
+        "es": "Área transversal efectiva de la rosca del perno bajo tensión."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Modulus of Elasticity",
         "tr": "Elastisite Modülü",
         "de": "Elastizitätsmodul",
-        "fr": "Modulus of Elasticity",
-        "es": "Modulus of Elasticity",
+        "fr": "Module d'élasticité",
+        "es": "Módulo de elasticidad",
         "ar": "Modulus of Elasticity"
       },
       "businessContext_i18n": {
         "en": "Young's modulus of the bolt material, e.g., 200,000 N/mm² for steel.",
         "tr": "Cıvata malzemesinin Young modülü, örn. çelik için 200.000 N/mm².",
-        "de": "Elastizitätsmodul des Bolzenmaterials, z. B. 200.000 N/mm² für Stahl."
+        "de": "Elastizitätsmodul des Bolzenmaterials, z. B. 200.000 N/mm² für Stahl.",
+        "fr": "Module de Young du matériau du boulon, par exemple 200 000 N/mm² pour l'acier.",
+        "es": "Módulo de Young del material del perno, por ejemplo, 200.000 N/mm² para acero."
       }
     }
   ],

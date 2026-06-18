@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Asit Konsantrasyonu",
         "tr": "Asit Konsantrasyonu",
-        "de": "Asit Konsantrasyonu",
-        "fr": "Asit Konsantrasyonu",
-        "es": "Asit Konsantrasyonu",
+        "de": "Säurekonzentration",
+        "fr": "Concentration de l'acide",
+        "es": "Concentración de Ácido",
         "ar": "Asit Konsantrasyonu"
       },
       "businessContext_i18n": {
         "en": "Zayıf asidin başlangıç konsantrasyonu",
-        "tr": "Zayıf asidin başlangıç konsantrasyonu"
+        "tr": "Zayıf asidin başlangıç konsantrasyonu",
+        "de": "Anfangskonzentration der schwachen Säure",
+        "fr": "Concentration initiale de l'acide faible",
+        "es": "Concentración inicial del ácido débil"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Ölçülen pH",
         "tr": "Ölçülen pH",
-        "de": "Ölçülen pH",
-        "fr": "Ölçülen pH",
-        "es": "Ölçülen pH",
+        "de": "Gemessener pH-Wert",
+        "fr": "pH mesuré",
+        "es": "pH Medido",
         "ar": "Ölçülen pH"
       },
       "businessContext_i18n": {
         "en": "Çözeltinin ölçülen pH değeri",
-        "tr": "Çözeltinin ölçülen pH değeri"
+        "tr": "Çözeltinin ölçülen pH değeri",
+        "de": "Gemessener pH-Wert der Lösung",
+        "fr": "Valeur de pH mesurée de la solution",
+        "es": "Valor de pH medido de la solución"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Bilinen Ka Değeri",
         "tr": "Bilinen Ka Değeri",
-        "de": "Bilinen Ka Değeri",
-        "fr": "Bilinen Ka Değeri",
-        "es": "Bilinen Ka Değeri",
+        "de": "Bekannter Ka-Wert",
+        "fr": "Ka connu",
+        "es": "Ka Conocido",
         "ar": "Bilinen Ka Değeri"
       },
       "businessContext_i18n": {
         "en": "Asit ayrışma sabiti biliniyorsa, doğrudan hesaplama için girin (opsiyonel)",
-        "tr": "Asit ayrışma sabiti biliniyorsa, doğrudan hesaplama için girin (opsiyonel)"
+        "tr": "Asit ayrışma sabiti biliniyorsa, doğrudan hesaplama için girin (opsiyonel)",
+        "de": "Wenn die Säuredissoziationskonstante bekannt ist, für direkte Berechnung eingeben (optional)",
+        "fr": "Si la constante de dissociation de l'acide est connue, saisissez-la pour un calcul direct (optionnel)",
+        "es": "Si se conoce la constante de disociación del ácido, ingrese para cálculo directo (opcional)"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Sıcaklık",
         "tr": "Sıcaklık",
         "de": "Temperatur",
-        "fr": "Sıcaklık",
-        "es": "Sıcaklık",
+        "fr": "Température",
+        "es": "Temperatura",
         "ar": "Sıcaklık"
       },
       "businessContext_i18n": {
         "en": "Çözelti sıcaklığı (hesaplamayı etkilemez, kayıt amaçlı)",
-        "tr": "Çözelti sıcaklığı (hesaplamayı etkilemez, kayıt amaçlı)"
+        "tr": "Çözelti sıcaklığı (hesaplamayı etkilemez, kayıt amaçlı)",
+        "de": "Lösungstemperatur (beeinflusst Berechnung nicht, nur für Aufzeichnungszwecke)",
+        "fr": "Température de la solution (n'affecte pas le calcul, à des fins d'enregistrement)",
+        "es": "Temperatura de la solución (no afecta el cálculo, solo para registro)"
       }
     }
   ],

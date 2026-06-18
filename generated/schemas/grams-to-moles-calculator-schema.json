@@ -12,14 +12,16 @@
         "en": "Mass (g)",
         "tr": "Kütle (g)",
         "de": "Masse (g)",
-        "fr": "Mass (g)",
-        "es": "Mass (g)",
+        "fr": "Masse (g)",
+        "es": "Masa (g)",
         "ar": "Mass (g)"
       },
       "businessContext_i18n": {
         "en": "Mass of the substance in grams. Ensure unit consistency; if using kg or mg, convert to g first.",
         "tr": "Maddenin gram cinsinden kütlesi. Birim tutarlılığını sağlayın; kg veya mg kullanılıyorsa önce g'ye dönüştürün.",
-        "de": "Masse der Substanz in Gramm. Achten Sie auf Einheitenkonsistenz; bei Verwendung von kg oder mg zuerst in g umrechnen."
+        "de": "Masse der Substanz in Gramm. Achten Sie auf Einheitenkonsistenz; bei Verwendung von kg oder mg zuerst in g umrechnen.",
+        "fr": "Masse de la substance en grammes. Assurez-vous de la cohérence des unités ; si vous utilisez kg ou mg, convertissez d'abord en g.",
+        "es": "Masa de la sustancia en gramos. Asegure la consistencia de unidades; si usa kg o mg, convierta a g primero."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Molecular Weight",
         "tr": "Molekül Ağırlığı",
         "de": "Molekulargewicht",
-        "fr": "Molecular Weight",
-        "es": "Molecular Weight",
+        "fr": "Masse moléculaire",
+        "es": "Peso molecular",
         "ar": "Molecular Weight"
       },
       "businessContext_i18n": {
         "en": "Molar mass in grams per mole. Obtain from periodic table or material datasheet. Default: water (18.015 g/mol).",
         "tr": "Gram/mol cinsinden molar kütle. Periyodik tablodan veya malzeme veri sayfasından alın. Varsayılan: su (18,015 g/mol).",
-        "de": "Molmasse in Gramm pro Mol. Aus dem Periodensystem oder dem Datenblatt des Materials entnehmen. Standard: Wasser (18,015 g/mol)."
+        "de": "Molmasse in Gramm pro Mol. Aus dem Periodensystem oder dem Datenblatt des Materials entnehmen. Standard: Wasser (18,015 g/mol).",
+        "fr": "Masse molaire en grammes par mole. Obtenez-la à partir du tableau périodique ou de la fiche technique du matériau. Par défaut : eau (18,015 g/mol).",
+        "es": "Masa molar en gramos por mol. Obténgala de la tabla periódica o ficha técnica del material. Valor predeterminado: agua (18.015 g/mol)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Purity (%)",
         "tr": "Saflık (%)",
         "de": "Reinheit (%)",
-        "fr": "Purity (%)",
-        "es": "Purity (%)",
+        "fr": "Pureté (%)",
+        "es": "Pureza (%)",
         "ar": "Purity (%)"
       },
       "businessContext_i18n": {
         "en": "Substance purity as percentage. Adjust for impure samples; 100% ideal. Used to calculate effective mass.",
         "tr": "Yüzde olarak madde saflığı. Saf olmayan numuneler için ayarlayın; %100 idealdir. Efektif kütleyi hesaplamak için kullanılır.",
-        "de": "Reinheit der Substanz in Prozent. Für unreine Proben anpassen; 100 % ideal. Wird zur Berechnung der effektiven Masse verwendet."
+        "de": "Reinheit der Substanz in Prozent. Für unreine Proben anpassen; 100 % ideal. Wird zur Berechnung der effektiven Masse verwendet.",
+        "fr": "Pureté de la substance en pourcentage. Ajustez pour les échantillons impurs ; 100 % idéal. Utilisé pour calculer la masse effective.",
+        "es": "Pureza de la sustancia en porcentaje. Ajuste para muestras impuras; 100% ideal. Se usa para calcular la masa efectiva."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Process Yield (%)",
         "tr": "Proses Verimi (%)",
         "de": "Prozessausbeute (%)",
-        "fr": "Process Yield (%)",
-        "es": "Process Yield (%)",
+        "fr": "Rendement du procédé (%)",
+        "es": "Rendimiento del proceso (%)",
         "ar": "Process Yield (%)"
       },
       "businessContext_i18n": {
         "en": "Process yield efficiency (actual output / theoretical). 100% means no loss. Affects final mole quantity.",
         "tr": "Proses verimliliği (gerçek çıktı / teorik). %100 kayıp yok demektir. Nihai mol miktarını etkiler.",
-        "de": "Prozessausbeute (tatsächliche Ausgabe / theoretische). 100 % bedeutet kein Verlust. Beeinflusst die endgültige Molmenge."
+        "de": "Prozessausbeute (tatsächliche Ausgabe / theoretische). 100 % bedeutet kein Verlust. Beeinflusst die endgültige Molmenge.",
+        "fr": "Efficacité du rendement du procédé (sortie réelle / théorique). 100 % signifie aucune perte. Affecte la quantité molaire finale.",
+        "es": "Eficiencia del rendimiento del proceso (salida real / teórica). 100% significa sin pérdida. Afecta la cantidad molar final."
       }
     }
   ],

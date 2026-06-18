@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Torque Reading",
         "tr": "Tork Okuması",
-        "de": "Torque Reading",
-        "fr": "Torque Reading",
-        "es": "Torque Reading",
+        "de": "Drehmomentmesswert",
+        "fr": "Lecture du couple",
+        "es": "Lectura de par",
         "ar": "Torque Reading"
       },
       "businessContext_i18n": {
         "en": "Measured torque in Newton-meters",
-        "tr": "Newton-metre cinsinden ölçülen tork"
+        "tr": "Newton-metre cinsinden ölçülen tork",
+        "de": "Gemessenes Drehmoment in Newtonmetern",
+        "fr": "Couple mesuré en Newton-mètres",
+        "es": "Par medido en Newton-metros"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Angle Reading",
         "tr": "Açı Okuması",
-        "de": "Angle Reading",
-        "fr": "Angle Reading",
-        "es": "Angle Reading",
+        "de": "Winkelmesswert",
+        "fr": "Lecture de l'angle",
+        "es": "Lectura de ángulo",
         "ar": "Angle Reading"
       },
       "businessContext_i18n": {
         "en": "Off-axis angle in degrees",
-        "tr": "Derece cinsinden eksen dışı açı"
+        "tr": "Derece cinsinden eksen dışı açı",
+        "de": "Abweichungswinkel in Grad",
+        "fr": "Angle hors axe en degrés",
+        "es": "Ángulo fuera del eje en grados"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Vibration Level",
         "tr": "Titreşim Seviyesi",
         "de": "Vibrationspegel",
-        "fr": "Vibration Level",
-        "es": "Vibration Level",
+        "fr": "Niveau de vibration",
+        "es": "Nivel de vibración",
         "ar": "Vibration Level"
       },
       "businessContext_i18n": {
         "en": "Vibration RMS velocity",
-        "tr": "Titreşim RMS hızı"
+        "tr": "Titreşim RMS hızı",
+        "de": "Schwingungs-RMS-Geschwindigkeit",
+        "fr": "Vitesse RMS des vibrations",
+        "es": "Velocidad RMS de vibración"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Defect Count",
         "tr": "Kusur Sayısı",
-        "de": "Defect Count",
-        "fr": "Defect Count",
-        "es": "Defect Count",
+        "de": "Fehleranzahl",
+        "fr": "Nombre de défauts",
+        "es": "Recuento de defectos",
         "ar": "Defect Count"
       },
       "businessContext_i18n": {
         "en": "Number of quality defects detected",
-        "tr": "Tespit edilen kalite kusurlarının sayısı"
+        "tr": "Tespit edilen kalite kusurlarının sayısı",
+        "de": "Anzahl der erkannten Qualitätsfehler",
+        "fr": "Nombre de défauts de qualité détectés",
+        "es": "Número de defectos de calidad detectados"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Calibration Factor",
         "tr": "Kalibrasyon Faktörü",
         "de": "Kalibrierfaktor",
-        "fr": "Calibration Factor",
-        "es": "Calibration Factor",
+        "fr": "Facteur d'étalonnage",
+        "es": "Factor de calibración",
         "ar": "Calibration Factor"
       },
       "businessContext_i18n": {
         "en": "Equipment calibration multiplier",
-        "tr": "Ekipman kalibrasyon çarpanı"
+        "tr": "Ekipman kalibrasyon çarpanı",
+        "de": "Gerätekalibrierungsmultiplikator",
+        "fr": "Multiplicateur d'étalonnage de l'équipement",
+        "es": "Multiplicador de calibración del equipo"
       }
     }
   ],

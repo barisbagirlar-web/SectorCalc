@@ -13,13 +13,15 @@
         "tr": "Ahır",
         "de": "Barn",
         "fr": "Barns",
-        "es": "Barns",
+        "es": "Graneros",
         "ar": "Barns"
       },
       "businessContext_i18n": {
         "en": "The number of barns to convert.",
         "tr": "Dönüştürülecek ahır sayısı.",
-        "de": "Die Anzahl der umzurechnenden Barn."
+        "de": "Die Anzahl der umzurechnenden Barn.",
+        "fr": "Le nombre de barns à convertir.",
+        "es": "El número de barns a convertir."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Scale Factor",
         "tr": "Ölçek Faktörü",
         "de": "Skalierungsfaktor",
-        "fr": "Scale Factor",
-        "es": "Scale Factor",
+        "fr": "Facteur d'échelle",
+        "es": "Factor de escala",
         "ar": "Scale Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier to apply after conversion.",
         "tr": "Dönüşümden sonra uygulanacak çarpan.",
-        "de": "Multiplikator, der nach der Umrechnung angewendet wird."
+        "de": "Multiplikator, der nach der Umrechnung angewendet wird.",
+        "fr": "Multiplicateur à appliquer après conversion.",
+        "es": "Multiplicador a aplicar después de la conversión."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Offset",
         "tr": "Ofset",
         "de": "Offset",
-        "fr": "Offset",
-        "es": "Offset",
+        "fr": "Décalage",
+        "es": "Desplazamiento",
         "ar": "Offset"
       },
       "businessContext_i18n": {
         "en": "Additive constant in square meters.",
         "tr": "Metrekare cinsinden toplamsal sabit.",
-        "de": "Additive Konstante in Quadratmetern."
+        "de": "Additive Konstante in Quadratmetern.",
+        "fr": "Constante additive en mètres carrés.",
+        "es": "Constante aditiva en metros cuadrados."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding.",
         "tr": "Yuvarlama için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen für die Rundung."
+        "de": "Anzahl der Dezimalstellen für die Rundung.",
+        "fr": "Nombre de décimales pour l'arrondi.",
+        "es": "Número de decimales para redondear."
       }
     }
   ],

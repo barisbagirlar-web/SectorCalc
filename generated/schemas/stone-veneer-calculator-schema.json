@@ -12,13 +12,15 @@
         "en": "Wall Width",
         "tr": "Duvar genişliği",
         "de": "Wandbreite",
-        "fr": "Wall Width",
-        "es": "Wall Width",
+        "fr": "Largeur du mur",
+        "es": "Ancho del muro",
         "ar": "Wall Width"
       },
       "businessContext_i18n": {
         "en": "The total width of the wall to be covered",
-        "tr": "Kaplanacak duvarın toplam genişliği"
+        "tr": "Kaplanacak duvarın toplam genişliği",
+        "de": "Gesamtbreite der zu bedeckenden Wand",
+        "fr": "La largeur totale du mur à couvrir"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Wall Height",
         "tr": "Duvar Yüksekliği",
         "de": "Wandhöhe",
-        "fr": "Wall Height",
-        "es": "Wall Height",
+        "fr": "Hauteur du mur",
+        "es": "Altura del muro",
         "ar": "Wall Height"
       },
       "businessContext_i18n": {
         "en": "The total height of the wall to be covered",
-        "tr": "Kaplanacak duvarın toplam yüksekliği"
+        "tr": "Kaplanacak duvarın toplam yüksekliği",
+        "de": "Gesamthöhe der zu bedeckenden Wand",
+        "fr": "La hauteur totale du mur à couvrir"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Stone Length",
         "tr": "Taş Uzunluğu",
-        "de": "Stone Length",
-        "fr": "Stone Length",
+        "de": "Steinlänge",
+        "fr": "Longueur de la pierre",
         "es": "Stone Length",
         "ar": "Stone Length"
       },
       "businessContext_i18n": {
         "en": "Length of a single stone veneer piece",
-        "tr": "Tek bir taş kaplama parçasının uzunluğu"
+        "tr": "Tek bir taş kaplama parçasının uzunluğu",
+        "de": "Länge eines einzelnen Steinverkleidungsstücks",
+        "fr": "Longueur d'une pièce de parement en pierre"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Stone Height",
         "tr": "Taş Yüksekliği",
-        "de": "Stone Height",
-        "fr": "Stone Height",
+        "de": "Steinhöhe",
+        "fr": "Hauteur de la pierre",
         "es": "Stone Height",
         "ar": "Stone Height"
       },
       "businessContext_i18n": {
         "en": "Height of a single stone veneer piece",
-        "tr": "Tek bir taş kaplama parçasının yüksekliği"
+        "tr": "Tek bir taş kaplama parçasının yüksekliği",
+        "de": "Höhe eines einzelnen Steinverkleidungsstücks",
+        "fr": "Hauteur d'une pièce de parement en pierre"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Joint Gap",
         "tr": "Derz Aralığı",
-        "de": "Joint Gap",
-        "fr": "Joint Gap",
-        "es": "Joint Gap",
+        "de": "Fugenabstand",
+        "fr": "Espacement des joints",
+        "es": "Junta",
         "ar": "Joint Gap"
       },
       "businessContext_i18n": {
         "en": "Gap between stones (grout joint)",
-        "tr": "Taşlar arası boşluk (derz)"
+        "tr": "Taşlar arası boşluk (derz)",
+        "de": "Fugenabstand zwischen den Steinen",
+        "fr": "Espace entre les pierres (joint de mortier)"
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
         "de": "Abfallfaktor",
-        "fr": "Waste Factor",
-        "es": "Waste Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Percentage of extra material for cuts and breakage",
-        "tr": "Kesim ve kırılma için ekstra malzeme yüzdesi"
+        "tr": "Kesim ve kırılma için ekstra malzeme yüzdesi",
+        "de": "Prozentsatz für Verschnitt und Bruch",
+        "fr": "Pourcentage de matériel supplémentaire pour les coupes et la casse"
       }
     },
     {
@@ -131,14 +143,16 @@
       "label_i18n": {
         "en": "Cost per Square Foot",
         "tr": "Metrekare Başına Maliyet",
-        "de": "Cost per Square Foot",
-        "fr": "Cost per Square Foot",
+        "de": "Kosten pro Quadratfuß",
+        "fr": "Coût par pied carré",
         "es": "Cost per Square Foot",
         "ar": "Cost per Square Foot"
       },
       "businessContext_i18n": {
         "en": "Material cost per square foot of stone",
-        "tr": "Taşın metrekare başına malzeme maliyeti"
+        "tr": "Taşın metrekare başına malzeme maliyeti",
+        "de": "Materialkosten pro Quadratfuß Stein",
+        "fr": "Coût du matériau par pied carré de pierre"
       }
     }
   ],

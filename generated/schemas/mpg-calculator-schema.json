@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Distance Traveled",
         "tr": "Kat Edilen Mesafe",
-        "de": "Distance Traveled",
-        "fr": "Distance Traveled",
-        "es": "Distance Traveled",
+        "de": "Zurückgelegte Strecke",
+        "fr": "Distance parcourue",
+        "es": "Distancia Recorrida",
         "ar": "Distance Traveled"
       },
       "businessContext_i18n": {
         "en": "Total distance driven in miles between fill-ups or over a period.",
-        "tr": "Dolumlar arasında veya bir dönem boyunca mil cinsinden kat edilen toplam mesafe."
+        "tr": "Dolumlar arasında veya bir dönem boyunca mil cinsinden kat edilen toplam mesafe.",
+        "de": "Gesamte gefahrene Strecke in Meilen zwischen Tankfüllungen oder über einen Zeitraum.",
+        "fr": "Distance totale parcourue en miles entre les pleins ou sur une période.",
+        "es": "Distancia total recorrida en millas entre llenados o durante un período."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Fuel Used",
         "tr": "Kullanılan Yakıt",
         "de": "Verbrauchter Kraftstoff",
-        "fr": "Fuel Used",
-        "es": "Fuel Used",
+        "fr": "Carburant utilisé",
+        "es": "Combustible utilizado",
         "ar": "Fuel Used"
       },
       "businessContext_i18n": {
         "en": "Total fuel consumed in gallons over the same distance.",
-        "tr": "Aynı mesafe boyunca galon cinsinden tüketilen toplam yakıt."
+        "tr": "Aynı mesafe boyunca galon cinsinden tüketilen toplam yakıt.",
+        "de": "Gesamter Kraftstoffverbrauch in Gallonen über dieselbe Strecke.",
+        "fr": "Carburant total consommé en gallons sur la même distance.",
+        "es": "Combustible total consumido en galones en la misma distancia."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Fuel Cost per Gallon",
         "tr": "Galon Başına Yakıt Maliyeti",
-        "de": "Fuel Cost per Gallon",
-        "fr": "Fuel Cost per Gallon",
-        "es": "Fuel Cost per Gallon",
+        "de": "Kraftstoffpreis pro Gallone",
+        "fr": "Coût du carburant par gallon",
+        "es": "Coste del Combustible por Galón",
         "ar": "Fuel Cost per Gallon"
       },
       "businessContext_i18n": {
         "en": "Current price of fuel per gallon for cost calculations.",
-        "tr": "Maliyet hesaplamaları için galon başına güncel yakıt fiyatı."
+        "tr": "Maliyet hesaplamaları için galon başına güncel yakıt fiyatı.",
+        "de": "Aktueller Kraftstoffpreis pro Gallone für Kostenberechnungen.",
+        "fr": "Prix actuel du carburant par gallon pour les calculs de coût.",
+        "es": "Precio actual del combustible por galón para cálculos de coste."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Number of Trips",
         "tr": "Seyir Sayısı",
         "de": "Anzahl der Fahrten",
-        "fr": "Number of Trips",
-        "es": "Number of Trips",
+        "fr": "Nombre de trajets",
+        "es": "Número de viajes",
         "ar": "Number of Trips"
       },
       "businessContext_i18n": {
         "en": "Number of trips or fill-ups this calculation averages over.",
-        "tr": "Bu hesaplamanın ortalamasını aldığı sefer veya dolum sayısı."
+        "tr": "Bu hesaplamanın ortalamasını aldığı sefer veya dolum sayısı.",
+        "de": "Anzahl der Fahrten oder Tankfüllungen, über die diese Berechnung mittelt.",
+        "fr": "Nombre de trajets ou de pleins sur lesquels cette moyenne est calculée.",
+        "es": "Número de viajes o llenados que promedia este cálculo."
       }
     }
   ],

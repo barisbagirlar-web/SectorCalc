@@ -12,13 +12,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Age for estimating maximum heart rate (220 - age) if max HR is not directly measured",
-        "tr": "Maksimum kalp atış hızını tahmin etmek için yaş (220 - yaş); maksimum kalp atış hızı doğrudan ölçülmemişse kullanılır"
+        "tr": "Maksimum kalp atış hızını tahmin etmek için yaş (220 - yaş); maksimum kalp atış hızı doğrudan ölçülmemişse kullanılır",
+        "de": "Alter zur Schätzung der maximalen Herzfrequenz (220 - Alter), wenn die maximale HF nicht direkt gemessen wird",
+        "fr": "Âge pour estimer la fréquence cardiaque maximale (220 - âge) si la FC max n'est pas mesurée directement",
+        "es": "Edad para estimar la frecuencia cardíaca máxima (220 - edad) si la FC máxima no se mide directamente"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Resting Heart Rate",
         "tr": "Dinlenme Kalp Atış Hızı",
         "de": "Ruhepuls",
-        "fr": "Resting Heart Rate",
-        "es": "Resting Heart Rate",
+        "fr": "Fréquence cardiaque au repos",
+        "es": "Frecuencia cardíaca en reposo",
         "ar": "Resting Heart Rate"
       },
       "businessContext_i18n": {
         "en": "Resting heart rate measured in the morning",
-        "tr": "Sabah ölçülen dinlenme kalp atış hızı"
+        "tr": "Sabah ölçülen dinlenme kalp atış hızı",
+        "de": "Morgendlicher Ruhepuls",
+        "fr": "Fréquence cardiaque au repos mesurée le matin",
+        "es": "Frecuencia cardíaca en reposo medida por la mañana"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Maximum Heart Rate",
         "tr": "Maksimum Kalp Atış Hızı",
         "de": "Maximale Herzfrequenz",
-        "fr": "Maximum Heart Rate",
-        "es": "Maximum Heart Rate",
+        "fr": "Fréquence cardiaque maximale",
+        "es": "Frecuencia cardíaca máxima",
         "ar": "Maximum Heart Rate"
       },
       "businessContext_i18n": {
         "en": "Maximum heart rate; if unknown, use 220 - age",
-        "tr": "Maksimum kalp atış hızı; bilinmiyorsa 220 - yaş kullanın"
+        "tr": "Maksimum kalp atış hızı; bilinmiyorsa 220 - yaş kullanın",
+        "de": "Maximale Herzfrequenz; falls unbekannt, 220 - Alter verwenden",
+        "fr": "Fréquence cardiaque maximale ; si inconnue, utiliser 220 - âge",
+        "es": "Frecuencia cardíaca máxima; si se desconoce, use 220 - edad"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Intensity Lower Limit",
         "tr": "Yoğunluk Alt Sınırı",
-        "de": "Intensity Lower Limit",
-        "fr": "Intensity Lower Limit",
-        "es": "Intensity Lower Limit",
+        "de": "Intensitätsuntergrenze",
+        "fr": "Limite inférieure d'intensité",
+        "es": "Límite inferior de intensidad",
         "ar": "Intensity Lower Limit"
       },
       "businessContext_i18n": {
         "en": "Lower percentage of heart rate reserve for the target training zone",
-        "tr": "Hedef antrenman bölgesi için kalp atış hızı rezervinin alt yüzdesi"
+        "tr": "Hedef antrenman bölgesi için kalp atış hızı rezervinin alt yüzdesi",
+        "de": "Unterer Prozentsatz der Herzfrequenzreserve für die Ziel-Trainingszone",
+        "fr": "Pourcentage inférieur de la réserve de fréquence cardiaque pour la zone d'entraînement cible",
+        "es": "Porcentaje inferior de la reserva de frecuencia cardíaca para la zona de entrenamiento objetivo"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Intensity Upper Limit",
         "tr": "Yoğunluk Üst Sınırı",
-        "de": "Intensity Upper Limit",
-        "fr": "Intensity Upper Limit",
-        "es": "Intensity Upper Limit",
+        "de": "Intensitätsobergrenze",
+        "fr": "Limite supérieure d'intensité",
+        "es": "Límite superior de intensidad",
         "ar": "Intensity Upper Limit"
       },
       "businessContext_i18n": {
         "en": "Upper percentage of heart rate reserve for the target training zone",
-        "tr": "Hedef antrenman bölgesi için kalp atış hızı rezervinin üst yüzdesi"
+        "tr": "Hedef antrenman bölgesi için kalp atış hızı rezervinin üst yüzdesi",
+        "de": "Oberer Prozentsatz der Herzfrequenzreserve für die Ziel-Trainingszone",
+        "fr": "Pourcentage supérieur de la réserve de fréquence cardiaque pour la zone d'entraînement cible",
+        "es": "Porcentaje superior de la reserva de frecuencia cardíaca para la zona de entrenamiento objetivo"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Material Hardness",
         "tr": "Malzeme Sertliği",
-        "de": "Material Hardness",
-        "fr": "Material Hardness",
-        "es": "Material Hardness",
+        "de": "Materialhärte",
+        "fr": "Dureté du matériau",
+        "es": "Dureza del material",
         "ar": "Material Hardness"
       },
       "businessContext_i18n": {
         "en": "Material hardness measured in Vickers (HV).",
-        "tr": "Vickers (HV) cinsinden malzeme sertliği."
+        "tr": "Vickers (HV) cinsinden malzeme sertliği.",
+        "de": "Materialhärte gemessen in Vickers (HV).",
+        "fr": "Dureté du matériau mesurée en Vickers (HV).",
+        "es": "Dureza del material medida en Vickers (HV)."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Surface Roughness",
         "tr": "Yüzey Pürüzlülüğü",
-        "de": "Surface Roughness",
-        "fr": "Surface Roughness",
-        "es": "Surface Roughness",
+        "de": "Oberflächenrauheit",
+        "fr": "Rugosité de surface",
+        "es": "Rugosidad superficial",
         "ar": "Surface Roughness"
       },
       "businessContext_i18n": {
         "en": "Average surface roughness (Ra) in micrometers.",
-        "tr": "Mikrometre cinsinden ortalama yüzey pürüzlülüğü (Ra)."
+        "tr": "Mikrometre cinsinden ortalama yüzey pürüzlülüğü (Ra).",
+        "de": "Durchschnittliche Oberflächenrauheit (Ra) in Mikrometern.",
+        "fr": "Rugosité moyenne de surface (Ra) en micromètres.",
+        "es": "Rugosidad superficial media (Ra) en micrómetros."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Cutting Speed",
         "tr": "Kesme Hızı",
         "de": "Schnittgeschwindigkeit",
-        "fr": "Cutting Speed",
-        "es": "Cutting Speed",
+        "fr": "Vitesse de coupe",
+        "es": "Velocidad de corte",
         "ar": "Cutting Speed"
       },
       "businessContext_i18n": {
         "en": "Linear speed of the cutting tool relative to the workpiece.",
-        "tr": "Kesici takımın iş parçasına göre doğrusal hızı."
+        "tr": "Kesici takımın iş parçasına göre doğrusal hızı.",
+        "de": "Lineargeschwindigkeit des Schneidwerkzeugs relativ zum Werkstück.",
+        "fr": "Vitesse linéaire de l'outil de coupe par rapport à la pièce.",
+        "es": "Velocidad lineal de la herramienta de corte respecto a la pieza de trabajo."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Feed Rate",
         "tr": "İlerleme Hızı",
         "de": "Vorschubgeschwindigkeit",
-        "fr": "Feed Rate",
-        "es": "Feed Rate",
+        "fr": "Avance",
+        "es": "Avance",
         "ar": "Feed Rate"
       },
       "businessContext_i18n": {
         "en": "Distance the tool advances per revolution.",
-        "tr": "Takımın devir başına ilerleme mesafesi."
+        "tr": "Takımın devir başına ilerleme mesafesi.",
+        "de": "Vorschub des Werkzeugs pro Umdrehung.",
+        "fr": "Distance d'avance de l'outil par tour.",
+        "es": "Distancia que avanza la herramienta por revolución."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Depth of Cut",
         "tr": "Kesme Derinliği",
         "de": "Schnitttiefe",
-        "fr": "Depth of Cut",
-        "es": "Depth of Cut",
+        "fr": "Profondeur de passe",
+        "es": "Profundidad de corte",
         "ar": "Depth of Cut"
       },
       "businessContext_i18n": {
         "en": "Thickness of material removed in a single pass.",
-        "tr": "Tek pasoda kaldırılan malzeme kalınlığı."
+        "tr": "Tek pasoda kaldırılan malzeme kalınlığı.",
+        "de": "Dicke des in einem Durchgang abgetragenen Materials.",
+        "fr": "Épaisseur de matière enlevée en une seule passe.",
+        "es": "Espesor del material eliminado en una sola pasada."
       }
     }
   ],

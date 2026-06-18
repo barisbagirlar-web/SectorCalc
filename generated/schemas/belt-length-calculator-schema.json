@@ -12,14 +12,16 @@
         "en": "Large Pulley Diameter",
         "tr": "Büyük Kasnak Çapı",
         "de": "Großer Riemenscheibendurchmesser",
-        "fr": "Large Pulley Diameter",
-        "es": "Large Pulley Diameter",
+        "fr": "Diamètre de la grande poulie",
+        "es": "Diámetro de la polea grande",
         "ar": "Large Pulley Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the larger pulley. Use pitch diameter if available.",
         "tr": "Büyük kasnağın çapı. Mümkünse adım çapını kullanın.",
-        "de": "Durchmesser der größeren Riemenscheibe. Wenn verfügbar, Teilkreisdurchmesser verwenden."
+        "de": "Durchmesser der größeren Riemenscheibe. Wenn verfügbar, Teilkreisdurchmesser verwenden.",
+        "fr": "Diamètre de la grande poulie. Utiliser le diamètre primitif si disponible.",
+        "es": "Diámetro de la polea más grande. Use el diámetro primitivo si está disponible."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Small Pulley Diameter",
         "tr": "Küçük Kasnak Çapı",
         "de": "Kleiner Riemenscheibendurchmesser",
-        "fr": "Small Pulley Diameter",
-        "es": "Small Pulley Diameter",
+        "fr": "Diamètre de la petite poulie",
+        "es": "Diámetro de la polea pequeña",
         "ar": "Small Pulley Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the smaller pulley.",
         "tr": "Küçük kasnağın çapı.",
-        "de": "Durchmesser der kleineren Riemenscheibe."
+        "de": "Durchmesser der kleineren Riemenscheibe.",
+        "fr": "Diamètre de la petite poulie.",
+        "es": "Diámetro de la polea más pequeña."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Center Distance",
         "tr": "Merkez Mesafesi",
         "de": "Achsabstand",
-        "fr": "Center Distance",
-        "es": "Center Distance",
+        "fr": "Entraxe",
+        "es": "Distancia entre centros",
         "ar": "Center Distance"
       },
       "businessContext_i18n": {
         "en": "Distance between the centers of the two pulleys.",
         "tr": "İki kasnağın merkezleri arasındaki mesafe.",
-        "de": "Abstand zwischen den Mittelpunkten der beiden Riemenscheiben."
+        "de": "Abstand zwischen den Mittelpunkten der beiden Riemenscheiben.",
+        "fr": "Distance entre les centres des deux poulies.",
+        "es": "Distancia entre los centros de las dos poleas."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Belt Configuration",
         "tr": "Kayış Konfigürasyonu",
         "de": "Riemenkonfiguration",
-        "fr": "Belt Configuration",
-        "es": "Belt Configuration",
+        "fr": "Configuration de la courroie",
+        "es": "Configuración de la correa",
         "ar": "Belt Configuration"
       },
       "businessContext_i18n": {
         "en": "0 for open belt drive (pulleys rotate same direction), 1 for crossed belt drive (pulleys rotate opposite directions).",
         "tr": "0 açık kayış tahriki (kasnaklar aynı yönde döner), 1 çapraz kayış tahriki (kasnaklar zıt yönde döner).",
-        "de": "0 für offenen Riemenantrieb (Riemenscheiben drehen in gleiche Richtung), 1 für gekreuzten Riemenantrieb (Riemenscheiben drehen in entgegengesetzte Richtungen)."
+        "de": "0 für offenen Riemenantrieb (Riemenscheiben drehen in gleiche Richtung), 1 für gekreuzten Riemenantrieb (Riemenscheiben drehen in entgegengesetzte Richtungen).",
+        "fr": "0 pour courroie ouverte (poulies tournant dans le même sens), 1 pour courroie croisée (poulies tournant en sens inverse).",
+        "es": "0 para transmisión abierta (poleas giran en el mismo sentido), 1 para transmisión cruzada (poleas giran en sentidos opuestos)."
       }
     }
   ],

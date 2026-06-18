@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Speed in knots",
         "tr": "Knot cinsinden hız",
-        "de": "Speed in knots",
-        "fr": "Speed in knots",
-        "es": "Speed in knots",
+        "de": "Geschwindigkeit in Knoten",
+        "fr": "Vitesse en nœuds",
+        "es": "Velocidad en nudos",
         "ar": "Speed in knots"
       },
       "businessContext_i18n": {
         "en": "The speed value in knots to be converted to miles per hour.",
-        "tr": "Mil/saat'e dönüştürülecek knot cinsinden hız değeri."
+        "tr": "Mil/saat'e dönüştürülecek knot cinsinden hız değeri.",
+        "de": "Der Geschwindigkeitswert in Knoten, der in Meilen pro Stunde umgerechnet werden soll.",
+        "fr": "La valeur de vitesse en nœuds à convertir en miles par heure.",
+        "es": "El valor de velocidad en nudos a convertir a millas por hora."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Calibration factor",
         "tr": "Kalibrasyon faktörü",
-        "de": "Calibration factor",
-        "fr": "Calibration factor",
-        "es": "Calibration factor",
+        "de": "Kalibrierungsfaktor",
+        "fr": "Facteur d'étalonnage",
+        "es": "Factor de calibración",
         "ar": "Calibration factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier for instrument calibration (dimensionless).",
-        "tr": "Enstrüman kalibrasyonu için çarpan (boyutsuz)."
+        "tr": "Enstrüman kalibrasyonu için çarpan (boyutsuz).",
+        "de": "Multiplikator für die Instrumentenkalibrierung (dimensionslos).",
+        "fr": "Multiplicateur pour l'étalonnage de l'instrument (sans dimension).",
+        "es": "Multiplicador para calibración del instrumento (adimensional)."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Calibration offset",
         "tr": "Kalibrasyon ofseti",
-        "de": "Calibration offset",
-        "fr": "Calibration offset",
-        "es": "Calibration offset",
+        "de": "Kalibrierungs-Offset",
+        "fr": "Décalage d'étalonnage",
+        "es": "Desplazamiento de calibración",
         "ar": "Calibration offset"
       },
       "businessContext_i18n": {
         "en": "Additive offset in knots for instrument calibration.",
-        "tr": "Alet kalibrasyonu için düğüm cinsinden ekleme ofseti."
+        "tr": "Alet kalibrasyonu için düğüm cinsinden ekleme ofseti.",
+        "de": "Additiver Offset in Knoten für die Instrumentenkalibrierung.",
+        "fr": "Décalage additif en nœuds pour l'étalonnage de l'instrument.",
+        "es": "Desplazamiento aditivo en nudos para calibración del instrumento."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Precision mode",
         "tr": "Hassasiyet modu",
-        "de": "Precision mode",
-        "fr": "Precision mode",
-        "es": "Precision mode",
+        "de": "Genauigkeitsmodus",
+        "fr": "Mode de précision",
+        "es": "Modo de precisión",
         "ar": "Precision mode"
       },
       "businessContext_i18n": {
         "en": "1 = Standard (1.15078), 2 = High Precision (1.15077945).",
-        "tr": "1 = Standart (1,15078), 2 = Yüksek Hassasiyet (1,15077945)."
+        "tr": "1 = Standart (1,15078), 2 = Yüksek Hassasiyet (1,15077945).",
+        "de": "1 = Standard (1,15078), 2 = Hohe Genauigkeit (1,15077945).",
+        "fr": "1 = Standard (1,15078), 2 = Haute précision (1,15077945).",
+        "es": "1 = Estándar (1.15078), 2 = Alta precisión (1.15077945)."
       }
     }
   ],

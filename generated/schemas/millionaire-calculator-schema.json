@@ -12,13 +12,16 @@
         "en": "Initial Investment",
         "tr": "Başlangıç Yatırımı",
         "de": "Anfangsinvestition",
-        "fr": "Initial Investment",
-        "es": "Initial Investment",
+        "fr": "Investissement initial",
+        "es": "Inversión inicial",
         "ar": "Initial Investment"
       },
       "businessContext_i18n": {
         "en": "Lump sum amount already invested",
-        "tr": "Halihazırda yatırılmış toplu miktar"
+        "tr": "Halihazırda yatırılmış toplu miktar",
+        "de": "Bereits investierter Pauschalbetrag",
+        "fr": "Montant forfaitaire déjà investi",
+        "es": "Cantidad global ya invertida"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Monthly Contribution",
         "tr": "Aylık Katkı",
         "de": "Monatlicher Beitrag",
-        "fr": "Monthly Contribution",
-        "es": "Monthly Contribution",
+        "fr": "Cotisation mensuelle",
+        "es": "Aporte mensual",
         "ar": "Monthly Contribution"
       },
       "businessContext_i18n": {
         "en": "Amount contributed each month to the investment",
-        "tr": "Yatırıma her ay eklenen miktar"
+        "tr": "Yatırıma her ay eklenen miktar",
+        "de": "Monatlicher Sparbeitrag",
+        "fr": "Montant contribué chaque mois à l'investissement",
+        "es": "Cantidad aportada cada mes a la inversión"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
         "de": "Jährlicher Zinssatz",
-        "fr": "Annual Interest Rate",
-        "es": "Annual Interest Rate",
+        "fr": "Taux d'intérêt annuel",
+        "es": "Tasa de Interés Anual",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Expected annual rate of return on investment (e.g., 7 for 7%)",
-        "tr": "Yatırımdan beklenen yıllık getiri oranı (örneğin %7 için 7)"
+        "tr": "Yatırımdan beklenen yıllık getiri oranı (örneğin %7 için 7)",
+        "de": "Erwartete jährliche Rendite der Investition (z.B. 7 für 7%)",
+        "fr": "Taux de rendement annuel attendu de l'investissement (ex. 7 pour 7%)",
+        "es": "Tasa de rendimiento anual esperada de la inversión (ej., 7 para 7%)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Investment Horizon",
         "tr": "Yatırım Süresi",
-        "de": "Investment Horizon",
-        "fr": "Investment Horizon",
-        "es": "Investment Horizon",
+        "de": "Anlagehorizont",
+        "fr": "Horizon d'investissement",
+        "es": "Horizonte de inversión",
         "ar": "Investment Horizon"
       },
       "businessContext_i18n": {
         "en": "Number of years the money will be invested",
-        "tr": "Paranın yatırılacağı yıl sayısı"
+        "tr": "Paranın yatırılacağı yıl sayısı",
+        "de": "Anzahl der Jahre, in denen das Geld investiert wird",
+        "fr": "Nombre d'années pendant lesquelles l'argent sera investi",
+        "es": "Número de años que el dinero estará invertido"
       }
     }
   ],

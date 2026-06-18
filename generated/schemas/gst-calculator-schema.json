@@ -12,14 +12,16 @@
         "en": "Amount (excl. GST)",
         "tr": "Tutar (KDV hariç)",
         "de": "Betrag (exkl. MwSt.)",
-        "fr": "Amount (excl. GST)",
-        "es": "Amount (excl. GST)",
+        "fr": "Montant (hors TVA)",
+        "es": "Importe (sin IVA)",
         "ar": "Amount (excl. GST)"
       },
       "businessContext_i18n": {
         "en": "Original price before GST",
         "tr": "KDV öncesi orijinal fiyat",
-        "de": "Ursprünglicher Preis vor MwSt."
+        "de": "Ursprünglicher Preis vor MwSt.",
+        "fr": "Prix original avant TVA",
+        "es": "Precio original antes de IVA"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "GST Rate (%)",
         "tr": "KDV Oranı (%)",
         "de": "MwSt.-Satz (%)",
-        "fr": "GST Rate (%)",
-        "es": "GST Rate (%)",
+        "fr": "Taux de TVA (%)",
+        "es": "Tasa de IVA (%)",
         "ar": "GST Rate (%)"
       },
       "businessContext_i18n": {
         "en": "Applicable GST percentage (e.g., 5, 10, 12, 18)",
         "tr": "Geçerli KDV yüzdesi (ör. 5, 10, 12, 18)",
-        "de": "Anwendbarer MwSt.-Prozentsatz (z. B. 5, 10, 12, 18)"
+        "de": "Anwendbarer MwSt.-Prozentsatz (z. B. 5, 10, 12, 18)",
+        "fr": "Pourcentage de TVA applicable (ex. : 5, 10, 12, 18)",
+        "es": "Porcentaje de IVA aplicable (ej. 5, 10, 12, 18)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Country",
         "tr": "Ülke",
         "de": "Land",
-        "fr": "Country",
-        "es": "Country",
+        "fr": "Pays",
+        "es": "País",
         "ar": "Country"
       },
       "businessContext_i18n": {
         "en": "1=Australia, 2=Canada, 3=India",
         "tr": "1=Avustralya, 2=Kanada, 3=Hindistan",
-        "de": "1=Australien, 2=Kanada, 3=Indien"
+        "de": "1=Australien, 2=Kanada, 3=Indien",
+        "fr": "1=Australie, 2=Canada, 3=Inde",
+        "es": "1=Australia, 2=Canadá, 3=India"
       }
     }
   ],

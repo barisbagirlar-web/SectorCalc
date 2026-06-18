@@ -12,14 +12,16 @@
         "en": "Başlangıç İndeksi",
         "tr": "Başlangıç indeksi",
         "de": "Startindex",
-        "fr": "Başlangıç İndeksi",
-        "es": "Başlangıç İndeksi",
+        "fr": "Indice de départ",
+        "es": "Índice inicial",
         "ar": "Başlangıç İndeksi"
       },
       "businessContext_i18n": {
         "en": "Dizinin ilk teriminin indeksi.",
         "tr": "Dizinin ilk teriminin indeksi.",
-        "de": "Index des ersten Terms der Folge."
+        "de": "Index des ersten Terms der Folge.",
+        "fr": "Indice du premier terme de la suite.",
+        "es": "Índice del primer término de la secuencia."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "İlk Terim (F₀)",
         "tr": "İlk terim (F₀)",
         "de": "Erster Term (F₀)",
-        "fr": "İlk Terim (F₀)",
-        "es": "İlk Terim (F₀)",
+        "fr": "Premier terme (F₀)",
+        "es": "Primer término (F₀)",
         "ar": "İlk Terim (F₀)"
       },
       "businessContext_i18n": {
         "en": "Dizinin başlangıç indeksindeki değeri.",
         "tr": "Dizinin başlangıç indeksindeki değeri.",
-        "de": "Wert der Folge am Startindex."
+        "de": "Wert der Folge am Startindex.",
+        "fr": "Valeur à l'indice de départ de la suite.",
+        "es": "Valor de la secuencia en el índice inicial."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "İkinci Terim (F₁)",
         "tr": "İkinci terim (F₁)",
         "de": "Zweiter Term (F₁)",
-        "fr": "İkinci Terim (F₁)",
-        "es": "İkinci Terim (F₁)",
+        "fr": "Deuxième terme (F₁)",
+        "es": "Segundo término (F₁)",
         "ar": "İkinci Terim (F₁)"
       },
       "businessContext_i18n": {
         "en": "Dizinin başlangıç indeksi + 1'deki değeri.",
         "tr": "Dizinin başlangıç indeksi + 1'deki değeri.",
-        "de": "Wert der Folge am Startindex + 1."
+        "de": "Wert der Folge am Startindex + 1.",
+        "fr": "Valeur à l'indice de départ + 1 de la suite.",
+        "es": "Valor de la secuencia en el índice inicial + 1."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Çarpan a",
         "tr": "Çarpan a",
         "de": "Multiplikator a",
-        "fr": "Çarpan a",
-        "es": "Çarpan a",
+        "fr": "Multiplicateur a",
+        "es": "Multiplicador a",
         "ar": "Çarpan a"
       },
       "businessContext_i18n": {
         "en": "Bir önceki terim için katsayı (F(n-1)).",
         "tr": "Bir önceki terim için katsayı (F(n-1)).",
-        "de": "Koeffizient für den vorherigen Term (F(n-1))."
+        "de": "Koeffizient für den vorherigen Term (F(n-1)).",
+        "fr": "Coefficient pour le terme précédent (F(n-1)).",
+        "es": "Coeficiente para el término anterior (F(n-1))."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Çarpan b",
         "tr": "Çarpan b",
         "de": "Multiplikator b",
-        "fr": "Çarpan b",
-        "es": "Çarpan b",
+        "fr": "Multiplicateur b",
+        "es": "Multiplicador b",
         "ar": "Çarpan b"
       },
       "businessContext_i18n": {
         "en": "İki önceki terim için katsayı (F(n-2)).",
         "tr": "İki önceki terim için katsayı (F(n-2)).",
-        "de": "Koeffizient für den zwei vorherigen Term (F(n-2))."
+        "de": "Koeffizient für den zwei vorherigen Term (F(n-2)).",
+        "fr": "Coefficient pour le terme deux précédents (F(n-2)).",
+        "es": "Coeficiente para el término dos anteriores (F(n-2))."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Terim Sayısı",
         "tr": "Terim Sayısı",
         "de": "Anzahl der Terme",
-        "fr": "Terim Sayısı",
-        "es": "Terim Sayısı",
+        "fr": "Nombre de termes",
+        "es": "Número de términos",
         "ar": "Terim Sayısı"
       },
       "businessContext_i18n": {
         "en": "Oluşturulacak toplam terim sayısı.",
         "tr": "Oluşturulacak toplam terim sayısı.",
-        "de": "Gesamtzahl der zu erzeugenden Terme."
+        "de": "Gesamtzahl der zu erzeugenden Terme.",
+        "fr": "Nombre total de termes à générer.",
+        "es": "Número total de términos a generar."
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Ondalık Basamak",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Ondalık Basamak",
-        "es": "Ondalık Basamak",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Ondalık Basamak"
       },
       "businessContext_i18n": {
         "en": "Yuvarlama için ondalık basamak sayısı (0 tam sayı).",
         "tr": "Yuvarlama için ondalık basamak sayısı (0 tam sayı).",
-        "de": "Dezimalstellen für Rundung (0 = ganze Zahl)."
+        "de": "Dezimalstellen für Rundung (0 = ganze Zahl).",
+        "fr": "Nombre de décimales pour l'arrondi (0 pour entier).",
+        "es": "Número de decimales para redondeo (0 para entero)."
       }
     }
   ],

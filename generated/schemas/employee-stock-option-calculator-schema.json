@@ -12,14 +12,16 @@
         "en": "Grant Price (Strike Price)",
         "tr": "Hisse Senedi Kullanım Fiyatı (Kullanım Fiyatı)",
         "de": "Zuteilungspreis (Basispreis)",
-        "fr": "Grant Price (Strike Price)",
-        "es": "Grant Price (Strike Price)",
+        "fr": "Prix d'attribution (prix d'exercice)",
+        "es": "Precio de concesión (precio de ejercicio)",
         "ar": "Grant Price (Strike Price)"
       },
       "businessContext_i18n": {
         "en": "The price at which the employee can purchase the stock.",
         "tr": "Çalışanın hisse senedini satın alabileceği fiyat.",
-        "de": "Der Preis, zu dem der Mitarbeiter die Aktie kaufen kann."
+        "de": "Der Preis, zu dem der Mitarbeiter die Aktie kaufen kann.",
+        "fr": "Le prix auquel l'employé peut acheter l'action.",
+        "es": "Precio al que el empleado puede comprar la acción."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Current Stock Price",
         "tr": "Mevcut Hisse Senedi Fiyatı",
         "de": "Aktueller Aktienkurs",
-        "fr": "Current Stock Price",
-        "es": "Current Stock Price",
+        "fr": "Cours actuel de l'action",
+        "es": "Precio actual de la acción",
         "ar": "Current Stock Price"
       },
       "businessContext_i18n": {
         "en": "Current market price of the company stock.",
         "tr": "Şirket hissesinin güncel piyasa fiyatı.",
-        "de": "Aktueller Marktpreis der Unternehmensaktie."
+        "de": "Aktueller Marktpreis der Unternehmensaktie.",
+        "fr": "Prix actuel du marché de l'action de l'entreprise.",
+        "es": "Precio actual de mercado de la acción de la empresa."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Number of Options Granted",
         "tr": "Verilen Opsiyon Sayısı",
         "de": "Anzahl der gewährten Optionen",
-        "fr": "Number of Options Granted",
-        "es": "Number of Options Granted",
+        "fr": "Options Attribuées",
+        "es": "Número de opciones concedidas",
         "ar": "Number of Options Granted"
       },
       "businessContext_i18n": {
         "en": "Total number of stock options granted to the employee.",
         "tr": "Çalışana verilen toplam hisse senedi opsiyonu sayısı.",
-        "de": "Gesamtzahl der dem Mitarbeiter gewährten Aktienoptionen."
+        "de": "Gesamtzahl der dem Mitarbeiter gewährten Aktienoptionen.",
+        "fr": "Nombre total d'options sur actions attribuées à l'employé.",
+        "es": "Número total de opciones sobre acciones concedidas al empleado."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Vested Options",
         "tr": "Hak Edilen Opsiyonlar",
         "de": "Unverfallbare Optionen",
-        "fr": "Vested Options",
-        "es": "Vested Options",
+        "fr": "Options Acquis",
+        "es": "Opciones Adquiridas",
         "ar": "Vested Options"
       },
       "businessContext_i18n": {
         "en": "Number of options that have vested and are exercisable.",
         "tr": "Hak edilmiş ve kullanılabilir opsiyon sayısı.",
-        "de": "Anzahl der Optionen, die unverfallbar und ausübbar sind."
+        "de": "Anzahl der Optionen, die unverfallbar und ausübbar sind.",
+        "fr": "Nombre d'options qui ont été acquises et sont exerçables.",
+        "es": "Número de opciones que se han adquirido y son ejercitables."
       }
     }
   ],

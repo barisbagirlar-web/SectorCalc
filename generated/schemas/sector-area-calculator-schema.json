@@ -12,13 +12,15 @@
         "en": "Radius",
         "tr": "Yarıçap",
         "de": "Radius",
-        "fr": "Radius",
-        "es": "Radius",
+        "fr": "Rayon",
+        "es": "Radio",
         "ar": "Radius"
       },
       "businessContext_i18n": {
         "en": "Enter radius (in meters). Leave 0 if using diameter.",
-        "tr": "Yarıçapı girin (metre cinsinden). Çap kullanılıyorsa 0 bırakın."
+        "tr": "Yarıçapı girin (metre cinsinden). Çap kullanılıyorsa 0 bırakın.",
+        "de": "Radius eingeben (in Metern). 0 lassen, wenn Durchmesser verwendet wird.",
+        "fr": "Entrez le rayon (en mètres). Laissez 0 si vous utilisez le diamètre."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Diameter",
         "tr": "Çap",
         "de": "Durchmesser",
-        "fr": "Diameter",
-        "es": "Diameter",
+        "fr": "Diamètre",
+        "es": "Diámetro",
         "ar": "Diameter"
       },
       "businessContext_i18n": {
         "en": "Enter diameter (in meters). Leave 0 if using radius.",
-        "tr": "Çapı girin (metre cinsinden). Yarıçap kullanılıyorsa 0 bırakın."
+        "tr": "Çapı girin (metre cinsinden). Yarıçap kullanılıyorsa 0 bırakın.",
+        "de": "Durchmesser eingeben (in Metern). 0 lassen, wenn Radius verwendet wird.",
+        "fr": "Entrez le diamètre (en mètres). Laissez 0 si vous utilisez le rayon."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Central Angle (degrees)",
         "tr": "Merkez Açısı (derece)",
-        "de": "Central Angle (degrees)",
-        "fr": "Central Angle (degrees)",
+        "de": "Zentralwinkel (Grad)",
+        "fr": "Angle central (degrés)",
         "es": "Central Angle (degrees)",
         "ar": "Central Angle (degrees)"
       },
       "businessContext_i18n": {
         "en": "Enter angle in degrees. Leave 0 if using radians.",
-        "tr": "Açıyı derece cinsinden girin. Radyan kullanıyorsanız 0 bırakın."
+        "tr": "Açıyı derece cinsinden girin. Radyan kullanıyorsanız 0 bırakın.",
+        "de": "Winkel in Grad eingeben. 0 lassen, wenn Bogenmaß verwendet wird.",
+        "fr": "Entrez l'angle en degrés. Laissez 0 si vous utilisez les radians."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Central Angle (radians)",
         "tr": "Merkez Açı (radyan)",
-        "de": "Central Angle (radians)",
-        "fr": "Central Angle (radians)",
+        "de": "Zentralwinkel (Bogenmaß)",
+        "fr": "Angle central (radians)",
         "es": "Central Angle (radians)",
         "ar": "Central Angle (radians)"
       },
       "businessContext_i18n": {
         "en": "Enter angle in radians. Leave 0 if using degrees.",
-        "tr": "Açıyı radyan cinsinden girin. Derece kullanıyorsanız 0 bırakın."
+        "tr": "Açıyı radyan cinsinden girin. Derece kullanıyorsanız 0 bırakın.",
+        "de": "Winkel in Bogenmaß eingeben. 0 lassen, wenn Grad verwendet wird.",
+        "fr": "Entrez l'angle en radians. Laissez 0 si vous utilisez les degrés."
       }
     }
   ],

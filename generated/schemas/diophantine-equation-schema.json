@@ -13,13 +13,15 @@
         "tr": "Katsayı a",
         "de": "Koeffizient a",
         "fr": "Coefficient a",
-        "es": "Coefficient a",
+        "es": "Coeficiente a",
         "ar": "Coefficient a"
       },
       "businessContext_i18n": {
         "en": "Coefficient of x in the linear Diophantine equation ax + by = c",
         "tr": "ax + by = c lineer Diophantine denkleminde x'in katsayısı",
-        "de": "Koeffizient von x in der linearen diophantischen Gleichung ax + by = c"
+        "de": "Koeffizient von x in der linearen diophantischen Gleichung ax + by = c",
+        "fr": "Coefficient de x dans l'équation diophantienne linéaire ax + by = c",
+        "es": "Coeficiente de x en la ecuación diofántica lineal ax + by = c"
       }
     },
     {
@@ -34,13 +36,15 @@
         "tr": "Katsayı b",
         "de": "Koeffizient b",
         "fr": "Coefficient b",
-        "es": "Coefficient b",
+        "es": "Coeficiente b",
         "ar": "Coefficient b"
       },
       "businessContext_i18n": {
         "en": "Coefficient of y in the linear Diophantine equation ax + by = c",
         "tr": "ax + by = c lineer Diophantine denkleminde y'nin katsayısı",
-        "de": "Koeffizient von y in der linearen diophantischen Gleichung ax + by = c"
+        "de": "Koeffizient von y in der linearen diophantischen Gleichung ax + by = c",
+        "fr": "Coefficient de y dans l'équation diophantienne linéaire ax + by = c",
+        "es": "Coeficiente de y en la ecuación diofántica lineal ax + by = c"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Constant c",
         "tr": "Sabit c",
         "de": "Konstante c",
-        "fr": "Constant c",
-        "es": "Constant c",
+        "fr": "Constante c",
+        "es": "Constante c",
         "ar": "Constant c"
       },
       "businessContext_i18n": {
         "en": "Right-hand side constant of the equation ax + by = c",
         "tr": "ax + by = c denkleminin sağ taraf sabiti",
-        "de": "Rechte Seite der Gleichung ax + by = c"
+        "de": "Rechte Seite der Gleichung ax + by = c",
+        "fr": "Constante du membre de droite de l'équation ax + by = c",
+        "es": "Constante del lado derecho de la ecuación ax + by = c"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Initial x (particular solution)",
         "tr": "Başlangıç x (özel çözüm)",
         "de": "Anfangs-x (partikuläre Lösung)",
-        "fr": "Initial x (particular solution)",
-        "es": "Initial x (particular solution)",
+        "fr": "x initial (solution particulière)",
+        "es": "x inicial (solución particular)",
         "ar": "Initial x (particular solution)"
       },
       "businessContext_i18n": {
         "en": "A particular integer solution for x, used to generate general solution",
         "tr": "Genel çözümü oluşturmak için kullanılan x için belirli bir tamsayı çözümü",
-        "de": "Eine partikuläre ganzzahlige Lösung für x, zur Erzeugung der allgemeinen Lösung"
+        "de": "Eine partikuläre ganzzahlige Lösung für x, zur Erzeugung der allgemeinen Lösung",
+        "fr": "Une solution entière particulière pour x, utilisée pour générer la solution générale",
+        "es": "Una solución entera particular para x, usada para generar la solución general"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Initial y (particular solution)",
         "tr": "Başlangıç y (özel çözüm)",
         "de": "Anfangs-y (partikuläre Lösung)",
-        "fr": "Initial y (particular solution)",
-        "es": "Initial y (particular solution)",
+        "fr": "y initial (solution particulière)",
+        "es": "y inicial (solución particular)",
         "ar": "Initial y (particular solution)"
       },
       "businessContext_i18n": {
         "en": "A particular integer solution for y, used to generate general solution",
         "tr": "Genel çözümü oluşturmak için kullanılan y için belirli bir tamsayı çözümü",
-        "de": "Eine partikuläre ganzzahlige Lösung für y, zur Erzeugung der allgemeinen Lösung"
+        "de": "Eine partikuläre ganzzahlige Lösung für y, zur Erzeugung der allgemeinen Lösung",
+        "fr": "Une solution entière particulière pour y, utilisée pour générer la solution générale",
+        "es": "Una solución entera particular para y, usada para generar la solución general"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Parameter k",
         "tr": "Parametre k",
         "de": "Parameter k",
-        "fr": "Parameter k",
-        "es": "Parameter k",
+        "fr": "Paramètre k",
+        "es": "Parámetro k",
         "ar": "Parameter k"
       },
       "businessContext_i18n": {
         "en": "Integer parameter to generate infinite family of solutions",
         "tr": "Sonsuz çözüm ailesi oluşturmak için tamsayı parametre",
-        "de": "Ganzzahliger Parameter zur Erzeugung einer unendlichen Familie von Lösungen"
+        "de": "Ganzzahliger Parameter zur Erzeugung einer unendlichen Familie von Lösungen",
+        "fr": "Paramètre entier pour générer une famille infinie de solutions",
+        "es": "Parámetro entero para generar una familia infinita de soluciones"
       }
     }
   ],

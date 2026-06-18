@@ -12,13 +12,15 @@
         "en": "Net Income",
         "tr": "Net Gelir",
         "de": "Nettogewinn",
-        "fr": "Net Income",
-        "es": "Net Income",
+        "fr": "Résultat net",
+        "es": "Ingreso neto",
         "ar": "Net Income"
       },
       "businessContext_i18n": {
         "en": "Annual net income from income statement",
-        "tr": "Gelir tablosundan yıllık net gelir"
+        "tr": "Gelir tablosundan yıllık net gelir",
+        "de": "Jährliches Nettoeinkommen aus der Gewinn- und Verlustrechnung",
+        "fr": "Résultat net annuel du compte de résultat"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Beginning Total Assets",
         "tr": "Dönem Başı Toplam Varlıklar",
-        "de": "Beginning Total Assets",
-        "fr": "Beginning Total Assets",
+        "de": "Anfängliches Gesamtvermögen",
+        "fr": "Total d'actif de début",
         "es": "Beginning Total Assets",
         "ar": "Beginning Total Assets"
       },
       "businessContext_i18n": {
         "en": "Total assets at the start of the period",
-        "tr": "Dönem başındaki toplam varlıklar"
+        "tr": "Dönem başındaki toplam varlıklar",
+        "de": "Gesamtvermögen zu Beginn des Zeitraums",
+        "fr": "Total des actifs au début de la période"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Ending Total Assets",
         "tr": "Dönem Sonu Toplam Varlıklar",
-        "de": "Ending Total Assets",
-        "fr": "Ending Total Assets",
+        "de": "Endgültiges Gesamtvermögen",
+        "fr": "Total des actifs de clôture",
         "es": "Ending Total Assets",
         "ar": "Ending Total Assets"
       },
       "businessContext_i18n": {
         "en": "Total assets at the end of the period",
-        "tr": "Dönem sonundaki toplam varlıklar"
+        "tr": "Dönem sonundaki toplam varlıklar",
+        "de": "Gesamtvermögen am Ende des Zeitraums",
+        "fr": "Total des actifs à la fin de la période"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Average Assets Override",
         "tr": "Ortalama Varlıklar Geçersiz Kılma",
-        "de": "Average Assets Override",
-        "fr": "Average Assets Override",
+        "de": "Durchschnittliches Vermögen Überschreibung",
+        "fr": "Remplacement de la moyenne des actifs",
         "es": "Average Assets Override",
         "ar": "Average Assets Override"
       },
       "businessContext_i18n": {
         "en": "If provided, use as average total assets instead of computing from beginning and ending",
-        "tr": "Sağlanırsa, başlangıç ve bitişten hesaplamak yerine ortalama toplam varlık olarak kullanılır"
+        "tr": "Sağlanırsa, başlangıç ve bitişten hesaplamak yerine ortalama toplam varlık olarak kullanılır",
+        "de": "Falls angegeben, als durchschnittliches Gesamtvermögen verwenden, anstatt aus Anfangs- und Endwert zu berechnen",
+        "fr": "Si fourni, utilisé comme actif total moyen au lieu de calculer à partir du début et de la fin"
       }
     }
   ],

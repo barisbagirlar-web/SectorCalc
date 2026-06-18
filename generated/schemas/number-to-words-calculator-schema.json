@@ -12,13 +12,16 @@
         "en": "Number",
         "tr": "Sayı",
         "de": "Anzahl",
-        "fr": "Number",
-        "es": "Number",
+        "fr": "Nombre",
+        "es": "Número",
         "ar": "Number"
       },
       "businessContext_i18n": {
         "en": "The number to convert to words",
-        "tr": "Yazıya dönüştürülecek sayı"
+        "tr": "Yazıya dönüştürülecek sayı",
+        "de": "Die in Wörter umzuwandelnde Zahl",
+        "fr": "Le nombre à convertir en lettres",
+        "es": "El número a convertir en palabras"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Language Code",
         "tr": "Dil Kodu",
-        "de": "Language Code",
-        "fr": "Language Code",
-        "es": "Language Code",
+        "de": "Sprachcode",
+        "fr": "Code de langue",
+        "es": "Código de idioma",
         "ar": "Language Code"
       },
       "businessContext_i18n": {
         "en": "Numeric language code (1=English, 2=Turkish, etc.)",
-        "tr": "Sayısal dil kodu (1=İngilizce, 2=Türkçe, vb.)"
+        "tr": "Sayısal dil kodu (1=İngilizce, 2=Türkçe, vb.)",
+        "de": "Numerischer Sprachcode (1=Englisch, 2=Türkisch, usw.)",
+        "fr": "Code numérique de la langue (1=Anglais, 2=Turc, etc.)",
+        "es": "Código de idioma numérico (1=Inglés, 2=Turco, etc.)"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to spell out",
-        "tr": "Yazıyla ifade edilecek ondalık basamak sayısı"
+        "tr": "Yazıyla ifade edilecek ondalık basamak sayısı",
+        "de": "Anzahl der auszuschreibenden Dezimalstellen",
+        "fr": "Nombre de décimales à épeler",
+        "es": "Número de decimales a escribir"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Case Format",
         "tr": "Büyük/Küçük Harf Biçimi",
-        "de": "Case Format",
-        "fr": "Case Format",
-        "es": "Case Format",
+        "de": "Groß-/Kleinschreibung",
+        "fr": "Format de casse",
+        "es": "Formato de mayúsculas",
         "ar": "Case Format"
       },
       "businessContext_i18n": {
         "en": "0=lowercase, 1=Title Case, 2=UPPERCASE",
-        "tr": "0=küçük harf, 1=Başlık Harfi, 2=TÜMÜ BÜYÜK HARF"
+        "tr": "0=küçük harf, 1=Başlık Harfi, 2=TÜMÜ BÜYÜK HARF",
+        "de": "0=Kleinbuchstaben, 1=Großschreibung, 2=GROSSBUCHSTABEN",
+        "fr": "0=minuscules, 1=Première lettre en majuscule, 2=MAJUSCULES",
+        "es": "0=minúsculas, 1=Mayúscula inicial, 2=MAYÚSCULAS"
       }
     }
   ],

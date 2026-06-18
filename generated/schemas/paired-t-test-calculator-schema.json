@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Mean of Differences",
         "tr": "Farkların Ortalaması",
-        "de": "Mean of Differences",
-        "fr": "Mean of Differences",
-        "es": "Mean of Differences",
+        "de": "Mittelwert der Differenzen",
+        "fr": "Moyenne des différences",
+        "es": "Media de las diferencias",
         "ar": "Mean of Differences"
       },
       "businessContext_i18n": {
         "en": "The average of the differences between the paired observations.",
-        "tr": "Eşleştirilmiş gözlemler arasındaki farkların ortalaması."
+        "tr": "Eşleştirilmiş gözlemler arasındaki farkların ortalaması.",
+        "de": "Der Durchschnitt der Differenzen zwischen den gepaarten Beobachtungen.",
+        "fr": "La moyenne des différences entre les observations appariées.",
+        "es": "El promedio de las diferencias entre las observaciones pareadas."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Standard Deviation of Differences",
         "tr": "Farkların Standart Sapması",
-        "de": "Standard Deviation of Differences",
-        "fr": "Standard Deviation of Differences",
-        "es": "Standard Deviation of Differences",
+        "de": "Standardabweichung der Differenzen",
+        "fr": "Écart-type des différences",
+        "es": "Desviación estándar de las diferencias",
         "ar": "Standard Deviation of Differences"
       },
       "businessContext_i18n": {
         "en": "The standard deviation of the differences between the paired observations.",
-        "tr": "Eşleştirilmiş gözlemler arasındaki farkların standart sapması."
+        "tr": "Eşleştirilmiş gözlemler arasındaki farkların standart sapması.",
+        "de": "Die Standardabweichung der Differenzen zwischen den gepaarten Beobachtungen.",
+        "fr": "L'écart-type des différences entre les observations appariées.",
+        "es": "La desviación estándar de las diferencias entre las observaciones pareadas."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Sample Size (Number of Pairs)",
         "tr": "Örneklem Büyüklüğü (Çift Sayısı)",
-        "de": "Sample Size (Number of Pairs)",
-        "fr": "Sample Size (Number of Pairs)",
-        "es": "Sample Size (Number of Pairs)",
+        "de": "Stichprobengröße (Anzahl der Paare)",
+        "fr": "Taille de l'échantillon (nombre de paires)",
+        "es": "Tamaño de la muestra (número de pares)",
         "ar": "Sample Size (Number of Pairs)"
       },
       "businessContext_i18n": {
         "en": "The number of paired observations in the sample.",
-        "tr": "Örneklemdeki eşleştirilmiş gözlem sayısı."
+        "tr": "Örneklemdeki eşleştirilmiş gözlem sayısı.",
+        "de": "Die Anzahl der gepaarten Beobachtungen in der Stichprobe.",
+        "fr": "Le nombre d'observations appariées dans l'échantillon.",
+        "es": "El número de observaciones pareadas en la muestra."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Hypothesized Difference (μ₀)",
         "tr": "Hipotez Edilen Fark (μ₀)",
-        "de": "Hypothesized Difference (μ₀)",
-        "fr": "Hypothesized Difference (μ₀)",
-        "es": "Hypothesized Difference (μ₀)",
+        "de": "Hypothetische Differenz (μ₀)",
+        "fr": "Différence hypothétique (μ₀)",
+        "es": "Diferencia hipotética (μ₀)",
         "ar": "Hypothesized Difference (μ₀)"
       },
       "businessContext_i18n": {
         "en": "The hypothesized mean difference under the null hypothesis (commonly 0).",
-        "tr": "Sıfır hipotezi altında hipotez edilen ortalama fark (genellikle 0)."
+        "tr": "Sıfır hipotezi altında hipotez edilen ortalama fark (genellikle 0).",
+        "de": "Die hypothetische mittlere Differenz unter der Nullhypothese (üblicherweise 0).",
+        "fr": "La différence moyenne hypothétique sous l'hypothèse nulle (généralement 0).",
+        "es": "La diferencia media hipotética bajo la hipótesis nula (comúnmente 0)."
       }
     }
   ],

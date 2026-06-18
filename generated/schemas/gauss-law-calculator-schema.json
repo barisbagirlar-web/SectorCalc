@@ -12,14 +12,16 @@
         "en": "Total Charge (Q)",
         "tr": "Toplam Yük (Q)",
         "de": "Gesamtladung (Q)",
-        "fr": "Total Charge (Q)",
-        "es": "Total Charge (Q)",
+        "fr": "Charge totale (Q)",
+        "es": "Carga total (Q)",
         "ar": "Total Charge (Q)"
       },
       "businessContext_i18n": {
         "en": "Total electric charge enclosed by the Gaussian surface",
         "tr": "Gauss yüzeyi tarafından çevrelenen toplam elektrik yükü",
-        "de": "Gesamte elektrische Ladung, die von der Gaußschen Oberfläche eingeschlossen wird"
+        "de": "Gesamte elektrische Ladung, die von der Gaußschen Oberfläche eingeschlossen wird",
+        "fr": "Charge électrique totale enfermée par la surface gaussienne",
+        "es": "Carga eléctrica total encerrada por la superficie gaussiana"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Permittivity (ε)",
         "tr": "Geçirgenlik (ε)",
         "de": "Permittivität (ε)",
-        "fr": "Permittivity (ε)",
-        "es": "Permittivity (ε)",
+        "fr": "Permittivité (ε)",
+        "es": "Permitividad (ε)",
         "ar": "Permittivity (ε)"
       },
       "businessContext_i18n": {
         "en": "Permittivity of the medium (vacuum default)",
         "tr": "Ortamın geçirgenliği (varsayılan vakum)",
-        "de": "Permittivität des Mediums (Standard Vakuum)"
+        "de": "Permittivität des Mediums (Standard Vakuum)",
+        "fr": "Permittivité du milieu (vide par défaut)",
+        "es": "Permitividad del medio (vacío por defecto)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Radius (r)",
         "tr": "Yarıçap (r)",
         "de": "Radius (r)",
-        "fr": "Radius (r)",
-        "es": "Radius (r)",
+        "fr": "Rayon (r)",
+        "es": "Radio (r)",
         "ar": "Radius (r)"
       },
       "businessContext_i18n": {
         "en": "Radius of the spherical Gaussian surface",
         "tr": "Küresel Gauss yüzeyinin yarıçapı",
-        "de": "Radius der kugelförmigen Gaußschen Oberfläche"
+        "de": "Radius der kugelförmigen Gaußschen Oberfläche",
+        "fr": "Rayon de la surface gaussienne sphérique",
+        "es": "Radio de la superficie gaussiana esférica"
       }
     },
     {
@@ -76,13 +82,15 @@
         "tr": "Açı (θ)",
         "de": "Winkel (θ)",
         "fr": "Angle (θ)",
-        "es": "Angle (θ)",
+        "es": "Ángulo (θ)",
         "ar": "Angle (θ)"
       },
       "businessContext_i18n": {
         "en": "Angle between electric field and area vector (0 for perpendicular)",
         "tr": "Elektrik alanı ile alan vektörü arasındaki açı (dik için 0)",
-        "de": "Winkel zwischen elektrischem Feld und Flächenvektor (0 für senkrecht)"
+        "de": "Winkel zwischen elektrischem Feld und Flächenvektor (0 für senkrecht)",
+        "fr": "Angle entre le champ électrique et le vecteur surface (0 pour perpendiculaire)",
+        "es": "Ángulo entre el campo eléctrico y el vector de área (0 para perpendicular)"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Pressure (kgf/cm²)",
         "tr": "Basınç (kgf/cm²)",
-        "de": "Pressure (kgf/cm²)",
-        "fr": "Pressure (kgf/cm²)",
-        "es": "Pressure (kgf/cm²)",
+        "de": "Druck (kgf/cm²)",
+        "fr": "Pression (kgf/cm²)",
+        "es": "Presión (kgf/cm²)",
         "ar": "Pressure (kgf/cm²)"
       },
       "businessContext_i18n": {
         "en": "The pressure value to convert, in kilogram-force per square centimeter.",
-        "tr": "Dönüştürülecek basınç değeri, kilogram-kuvvet bölü santimetrekare cinsinden."
+        "tr": "Dönüştürülecek basınç değeri, kilogram-kuvvet bölü santimetrekare cinsinden.",
+        "de": "Der umzurechnende Druckwert in Kilogramm-Kraft pro Quadratzentimeter.",
+        "fr": "Valeur de pression à convertir, en kilogramme-force par centimètre carré.",
+        "es": "El valor de presión a convertir, en kilogramo-fuerza por centímetro cuadrado."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "The conversion factor from kgf/cm² to psi (1 kgf/cm² = 14.2233 psi). This is a fixed physical constant; do not modify.",
-        "tr": "kgf/cm²'den psi'ye dönüşüm faktörü (1 kgf/cm² = 14.2233 psi). Bu sabit fiziksel bir sabittir; değiştirmeyin."
+        "tr": "kgf/cm²'den psi'ye dönüşüm faktörü (1 kgf/cm² = 14.2233 psi). Bu sabit fiziksel bir sabittir; değiştirmeyin.",
+        "de": "Der Umrechnungsfaktor von kgf/cm² in psi (1 kgf/cm² = 14,2233 psi). Dies ist eine feste physikalische Konstante; nicht ändern.",
+        "fr": "Facteur de conversion de kgf/cm² en psi (1 kgf/cm² = 14,2233 psi). Constante physique fixe ; ne pas modifier.",
+        "es": "El factor de conversión de kgf/cm² a psi (1 kgf/cm² = 14.2233 psi). Esta es una constante física fija; no modificar."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output psi value.",
-        "tr": "Çıktı psi değeri için ondalık basamak sayısı."
+        "tr": "Çıktı psi değeri için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für den psi-Ausgabewert.",
+        "fr": "Nombre de décimales pour la valeur de sortie en psi.",
+        "es": "Número de decimales para el valor de salida en psi."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Output Scale",
         "tr": "Çıktı Ölçeği",
-        "de": "Output Scale",
-        "fr": "Output Scale",
-        "es": "Output Scale",
+        "de": "Ausgabeskalierung",
+        "fr": "Échelle de sortie",
+        "es": "Escala de salida",
         "ar": "Output Scale"
       },
       "businessContext_i18n": {
         "en": "Multiplier for the converted result (e.g., use 1 for actual value, 1000 for display in kilopounds).",
-        "tr": "Dönüştürülen sonuç için çarpan (örneğin, gerçek değer için 1, kilopound cinsinden görüntüleme için 1000 kullanın)."
+        "tr": "Dönüştürülen sonuç için çarpan (örneğin, gerçek değer için 1, kilopound cinsinden görüntüleme için 1000 kullanın).",
+        "de": "Multiplikator für das umgerechnete Ergebnis (z. B. 1 für tatsächlichen Wert, 1000 für Anzeige in Kilopound).",
+        "fr": "Multiplicateur pour le résultat converti (ex. : 1 pour la valeur réelle, 1000 pour un affichage en kilopounds).",
+        "es": "Multiplicador para el resultado convertido (ej. usar 1 para valor real, 1000 para mostrar en kilolibras)."
       }
     }
   ],

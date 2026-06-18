@@ -12,14 +12,16 @@
         "en": "Gender",
         "tr": "Cinsiyet",
         "de": "Geschlecht",
-        "fr": "Gender",
-        "es": "Gender",
+        "fr": "Genre",
+        "es": "Género",
         "ar": "Gender"
       },
       "businessContext_i18n": {
         "en": "0 for Male, 1 for Female",
         "tr": "0 Erkek, 1 Kadın",
-        "de": "0 für männlich, 1 für weiblich"
+        "de": "0 für männlich, 1 für weiblich",
+        "fr": "0 pour Homme, 1 pour Femme",
+        "es": "0 para hombre, 1 para mujer"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Height",
         "tr": "Boy",
         "de": "Größe",
-        "fr": "Height",
-        "es": "Height",
+        "fr": "Taille",
+        "es": "Altura",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "Body height in centimeters",
         "tr": "Santimetre cinsinden vücut boyu",
-        "de": "Körpergröße in Zentimetern"
+        "de": "Körpergröße in Zentimetern",
+        "fr": "Taille du corps en centimètres",
+        "es": "Altura del cuerpo en centímetros"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Weight",
         "tr": "Ağırlık",
         "de": "Gewicht",
-        "fr": "Weight",
-        "es": "Weight",
+        "fr": "Poids",
+        "es": "Peso",
         "ar": "Weight"
       },
       "businessContext_i18n": {
         "en": "Body weight in kilograms",
         "tr": "Vücut ağırlığı (kilogram cinsinden).",
-        "de": "Körpergewicht in Kilogramm"
+        "de": "Körpergewicht in Kilogramm",
+        "fr": "Poids corporel en kilogrammes",
+        "es": "Peso corporal en kilogramos"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Neck Circumference",
         "tr": "Boyun Çevresi",
         "de": "Halsumfang",
-        "fr": "Neck Circumference",
-        "es": "Neck Circumference",
+        "fr": "Tour de cou",
+        "es": "Circunferencia del cuello",
         "ar": "Neck Circumference"
       },
       "businessContext_i18n": {
         "en": "Neck circumference measured just below the larynx",
         "tr": "Gırtlağın hemen altında boyun çevresi",
-        "de": "Halsumfang gemessen direkt unterhalb des Kehlkopfes"
+        "de": "Halsumfang gemessen direkt unterhalb des Kehlkopfes",
+        "fr": "Tour de cou mesuré juste sous le larynx",
+        "es": "Circunferencia del cuello medida justo debajo de la laringe"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Waist Circumference",
         "tr": "Bel Çevresi",
         "de": "Taillenumfang",
-        "fr": "Waist Circumference",
-        "es": "Waist Circumference",
+        "fr": "Tour de taille",
+        "es": "Circunferencia de cintura",
         "ar": "Waist Circumference"
       },
       "businessContext_i18n": {
         "en": "Waist circumference measured at the level of the navel",
         "tr": "Göbek hizasında bel çevresi",
-        "de": "Taillenumfang gemessen auf Nabelhöhe"
+        "de": "Taillenumfang gemessen auf Nabelhöhe",
+        "fr": "Tour de taille mesuré au niveau du nombril",
+        "es": "Circunferencia de cintura medida a la altura del ombligo"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Hip Circumference",
         "tr": "Kalça Çevresi",
         "de": "Hüftumfang",
-        "fr": "Hip Circumference",
-        "es": "Hip Circumference",
+        "fr": "Tour de hanches",
+        "es": "Circunferencia de cadera",
         "ar": "Hip Circumference"
       },
       "businessContext_i18n": {
         "en": "Hip circumference at the widest point (only for females, set 0 for males)",
         "tr": "En geniş noktada kalça çevresi (sadece kadınlar için, erkekler için 0 girin)",
-        "de": "Hüftumfang an der breitesten Stelle (nur für Frauen, bei Männern 0 setzen)"
+        "de": "Hüftumfang an der breitesten Stelle (nur für Frauen, bei Männern 0 setzen)",
+        "fr": "Tour de hanches au point le plus large (uniquement pour les femmes, mettre 0 pour les hommes)",
+        "es": "Circunferencia de cadera en el punto más ancho (solo para mujeres, establecer 0 para hombres)"
       }
     }
   ],

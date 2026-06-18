@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Başlangıç Performansı",
         "tr": "Başlangıç Performansı",
-        "de": "Başlangıç Performansı",
-        "fr": "Başlangıç Performansı",
-        "es": "Başlangıç Performansı",
+        "de": "Anfangsleistung",
+        "fr": "Performance initiale",
+        "es": "Rendimiento inicial",
         "ar": "Başlangıç Performansı"
       },
       "businessContext_i18n": {
         "en": "Öğrenme eğrisinin başlangıç noktasındaki saatlik çıktı miktarı",
-        "tr": "Öğrenme eğrisinin başlangıç noktasındaki saatlik çıktı miktarı."
+        "tr": "Öğrenme eğrisinin başlangıç noktasındaki saatlik çıktı miktarı.",
+        "de": "Stündliche Ausbringungsmenge zu Beginn der Lernkurve",
+        "fr": "Quantité de production horaire au point de départ de la courbe d'apprentissage.",
+        "es": "Cantidad de producción por hora al inicio de la curva de aprendizaje"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Öğrenme Sonrası Performans",
         "tr": "Öğrenme Sonrası Performans",
-        "de": "Öğrenme Sonrası Performans",
-        "fr": "Öğrenme Sonrası Performans",
-        "es": "Öğrenme Sonrası Performans",
+        "de": "Leistung nach Lernen",
+        "fr": "Performance après apprentissage",
+        "es": "Rendimiento después del aprendizaje",
         "ar": "Öğrenme Sonrası Performans"
       },
       "businessContext_i18n": {
         "en": "Belirli bir öğrenme süresi sonunda ulaşılan saatlik çıktı",
-        "tr": "Belirli bir öğrenme süresi sonunda ulaşılan saatlik çıktı."
+        "tr": "Belirli bir öğrenme süresi sonunda ulaşılan saatlik çıktı.",
+        "de": "Stündliche Ausbringungsmenge nach einer bestimmten Lernzeit",
+        "fr": "Production horaire atteinte après une période d'apprentissage donnée.",
+        "es": "Producción por hora alcanzada después de un período de aprendizaje específico"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Öğrenme Süresi",
         "tr": "Öğrenme Süresi",
-        "de": "Öğrenme Süresi",
-        "fr": "Öğrenme Süresi",
-        "es": "Öğrenme Süresi",
+        "de": "Lernzeit",
+        "fr": "Durée d'apprentissage",
+        "es": "Duración del aprendizaje",
         "ar": "Öğrenme Süresi"
       },
       "businessContext_i18n": {
         "en": "Performans ölçümleri arasındaki geçen hafta sayısı",
-        "tr": "Performans ölçümleri arasındaki geçen hafta sayısı."
+        "tr": "Performans ölçümleri arasındaki geçen hafta sayısı.",
+        "de": "Anzahl der Wochen zwischen den Leistungsmessungen",
+        "fr": "Nombre de semaines entre les mesures de performance.",
+        "es": "Número de semanas transcurridas entre mediciones de rendimiento"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Öğrenme Hızı Sabiti",
         "tr": "Öğrenme Hızı Sabiti",
-        "de": "Öğrenme Hızı Sabiti",
-        "fr": "Öğrenme Hızı Sabiti",
-        "es": "Öğrenme Hızı Sabiti",
+        "de": "Lernratenkonstante",
+        "fr": "Constante de vitesse d'apprentissage",
+        "es": "Constante de velocidad de aprendizaje",
         "ar": "Öğrenme Hızı Sabiti"
       },
       "businessContext_i18n": {
         "en": "Öğrenme eğrisinin diklik katsayısı, üstel yaklaşım modeli için",
-        "tr": "Öğrenme eğrisinin diklik katsayısı, üstel yaklaşım modeli için."
+        "tr": "Öğrenme eğrisinin diklik katsayısı, üstel yaklaşım modeli için.",
+        "de": "Steigungskoeffizient der Lernkurve für das exponentielle Näherungsmodell",
+        "fr": "Coefficient de pente de la courbe d'apprentissage pour le modèle d'approximation exponentielle.",
+        "es": "Coeficiente de pendiente de la curva de aprendizaje, para el modelo de aproximación exponencial"
       }
     }
   ],

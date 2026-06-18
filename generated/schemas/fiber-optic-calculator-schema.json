@@ -12,14 +12,16 @@
         "en": "Fiber Length",
         "tr": "Fiber Uzunluğu",
         "de": "Faserlänge",
-        "fr": "Fiber Length",
-        "es": "Fiber Length",
+        "fr": "Longueur de fibre",
+        "es": "Longitud de fibra",
         "ar": "Fiber Length"
       },
       "businessContext_i18n": {
         "en": "Total cable length of the fiber optic link.",
         "tr": "Fiber optik bağlantının toplam kablo uzunluğu.",
-        "de": "Gesamtkabellänge der Glasfaserverbindung."
+        "de": "Gesamtkabellänge der Glasfaserverbindung.",
+        "fr": "Longueur totale du câble de la liaison fibre optique.",
+        "es": "Longitud total del cable del enlace de fibra óptica."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Attenuation Coefficient",
         "tr": "Zayıflama Katsayısı",
         "de": "Dämpfungskoeffizient",
-        "fr": "Attenuation Coefficient",
-        "es": "Attenuation Coefficient",
+        "fr": "Coefficient d'atténuation",
+        "es": "Coeficiente de atenuación",
         "ar": "Attenuation Coefficient"
       },
       "businessContext_i18n": {
         "en": "Attenuation per kilometer at the operating wavelength (e.g., 1550 nm for single-mode).",
         "tr": "Çalışma dalga boyunda kilometre başına zayıflama (örneğin tek mod için 1550 nm).",
-        "de": "Dämpfung pro Kilometer bei der Betriebswellenlänge (z. B. 1550 nm für Singlemode)."
+        "de": "Dämpfung pro Kilometer bei der Betriebswellenlänge (z. B. 1550 nm für Singlemode).",
+        "fr": "Atténuation par kilomètre à la longueur d'onde de fonctionnement (ex. 1550 nm pour monomode).",
+        "es": "Atenuación por kilómetro a la longitud de onda de operación (ej. 1550 nm para monomodo)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Input Power",
         "tr": "Giriş gücü",
         "de": "Eingangsleistung",
-        "fr": "Input Power",
-        "es": "Input Power",
+        "fr": "Puissance d'entrée",
+        "es": "Potencia de entrada",
         "ar": "Input Power"
       },
       "businessContext_i18n": {
         "en": "Transmitter output power in dBm.",
         "tr": "Verici çıkış gücü dBm cinsinden.",
-        "de": "Sendeausgangsleistung in dBm."
+        "de": "Sendeausgangsleistung in dBm.",
+        "fr": "Puissance de sortie de l'émetteur en dBm.",
+        "es": "Potencia de salida del transmisor en dBm."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Number of Splices",
         "tr": "Ek Sayısı",
         "de": "Anzahl der Spleiße",
-        "fr": "Number of Splices",
-        "es": "Number of Splices",
+        "fr": "Nombre d'épissures",
+        "es": "Número de empalmes",
         "ar": "Number of Splices"
       },
       "businessContext_i18n": {
         "en": "Count of fusion splices along the fiber path.",
         "tr": "Fiber yolu boyunca füzyon ek sayısı.",
-        "de": "Anzahl der Fusionsspleiße entlang des Glasfaserpfads."
+        "de": "Anzahl der Fusionsspleiße entlang des Glasfaserpfads.",
+        "fr": "Nombre d'épissures par fusion le long du chemin de la fibre.",
+        "es": "Cantidad de empalmes por fusión a lo largo de la trayectoria de la fibra."
       }
     },
     {
@@ -97,13 +105,15 @@
         "tr": "Eklem kaybı",
         "de": "Spleißdämpfung",
         "fr": "Splice Loss",
-        "es": "Splice Loss",
+        "es": "Pérdida por empalme",
         "ar": "Splice Loss"
       },
       "businessContext_i18n": {
         "en": "Average loss per fusion splice.",
         "tr": "Füzyon ek başına ortalama kayıp.",
-        "de": "Durchschnittlicher Verlust pro Fusionsspleiß."
+        "de": "Durchschnittlicher Verlust pro Fusionsspleiß.",
+        "fr": "Perte moyenne par épissure par fusion.",
+        "es": "Pérdida promedio por empalme por fusión."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Number of Connectors",
         "tr": "Konnektör Sayısı",
         "de": "Anzahl der Steckverbinder",
-        "fr": "Number of Connectors",
-        "es": "Number of Connectors",
+        "fr": "Nombre de connecteurs",
+        "es": "Número de conectores",
         "ar": "Number of Connectors"
       },
       "businessContext_i18n": {
         "en": "Number of connector pairs (e.g., at patch panels, equipment interfaces).",
         "tr": "Konnektör çifti sayısı (örneğin patch panellerde, ekipman arayüzlerinde).",
-        "de": "Anzahl der Steckverbinderpaare (z. B. an Patchfeldern, Geräteschnittstellen)."
+        "de": "Anzahl der Steckverbinderpaare (z. B. an Patchfeldern, Geräteschnittstellen).",
+        "fr": "Nombre de paires de connecteurs (ex. aux panneaux de brassage, interfaces équipement).",
+        "es": "Número de pares de conectores (ej. en paneles de conexión, interfaces de equipo)."
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Connector Loss",
         "tr": "Konnektör Kaybı",
         "de": "Steckverbinderdämpfung",
-        "fr": "Connector Loss",
-        "es": "Connector Loss",
+        "fr": "Perte par connecteur",
+        "es": "Pérdida por conector",
         "ar": "Connector Loss"
       },
       "businessContext_i18n": {
         "en": "Loss per connector pair.",
         "tr": "Konnektör çifti başına kayıp.",
-        "de": "Verlust pro Steckverbinderpaar."
+        "de": "Verlust pro Steckverbinderpaar.",
+        "fr": "Perte par paire de connecteurs.",
+        "es": "Pérdida por par de conectores."
       }
     }
   ],

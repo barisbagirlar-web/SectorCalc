@@ -12,14 +12,16 @@
         "en": "Span Length",
         "tr": "Açıklık Uzunluğu",
         "de": "Stützweite",
-        "fr": "Span Length",
-        "es": "Span Length",
+        "fr": "Longueur de la portée",
+        "es": "Longitud del vano",
         "ar": "Span Length"
       },
       "businessContext_i18n": {
         "en": "The distance between the supports of the bridge beam.",
         "tr": "Köprü kirişinin mesnetleri arasındaki mesafe.",
-        "de": "Der Abstand zwischen den Auflagern des Brückenträgers."
+        "de": "Der Abstand zwischen den Auflagern des Brückenträgers.",
+        "fr": "La distance entre les supports de la poutre du pont.",
+        "es": "La distancia entre los apoyos de la viga del puente."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Beam Width",
         "tr": "Kiriş Genişliği",
         "de": "Balkenbreite",
-        "fr": "Beam Width",
-        "es": "Beam Width",
+        "fr": "Largeur de la poutre",
+        "es": "Ancho de la viga",
         "ar": "Beam Width"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional width of the bridge beam.",
         "tr": "Köprü kirişinin kesit genişliği.",
-        "de": "Querschnittsbreite des Brückenträgers."
+        "de": "Querschnittsbreite des Brückenträgers.",
+        "fr": "Largeur de la section transversale de la poutre du pont.",
+        "es": "Ancho de la sección transversal de la viga del puente."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Beam Height",
         "tr": "Kiriş Yüksekliği",
         "de": "Balkenhöhe",
-        "fr": "Beam Height",
-        "es": "Beam Height",
+        "fr": "Hauteur de la poutre",
+        "es": "Altura de la viga",
         "ar": "Beam Height"
       },
       "businessContext_i18n": {
         "en": "Cross-sectional height (depth) of the bridge beam.",
         "tr": "Köprü kirişinin kesit yüksekliği (derinlik).",
-        "de": "Querschnittshöhe (Tiefe) des Brückenträgers."
+        "de": "Querschnittshöhe (Tiefe) des Brückenträgers.",
+        "fr": "Hauteur transversale (profondeur) de la poutre du pont.",
+        "es": "Altura transversal (profundidad) de la viga del puente."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Material Ultimate Tensile Strength",
         "tr": "Malzeme Nihai Çekme Dayanımı",
         "de": "Zugfestigkeit des Materials",
-        "fr": "Material Ultimate Tensile Strength",
-        "es": "Material Ultimate Tensile Strength",
+        "fr": "Résistance ultime à la traction du matériau",
+        "es": "Resistencia última a la tracción del material",
         "ar": "Material Ultimate Tensile Strength"
       },
       "businessContext_i18n": {
         "en": "Ultimate tensile strength of the beam material.",
         "tr": "Kiriş malzemesinin nihai çekme dayanımı.",
-        "de": "Zugfestigkeit des Balkenmaterials."
+        "de": "Zugfestigkeit des Balkenmaterials.",
+        "fr": "Résistance ultime à la traction du matériau de la poutre.",
+        "es": "Resistencia última a la tracción del material de la viga."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Factor of safety applied to material strength for allowable stress.",
         "tr": "İzin verilen gerilme için malzeme dayanımına uygulanan güvenlik faktörü.",
-        "de": "Sicherheitsfaktor für die zulässige Spannung."
+        "de": "Sicherheitsfaktor für die zulässige Spannung.",
+        "fr": "Coefficient de sécurité appliqué à la résistance du matériau pour la contrainte admissible.",
+        "es": "Factor de seguridad aplicado a la resistencia del material para la tensión admisible."
       }
     }
   ],

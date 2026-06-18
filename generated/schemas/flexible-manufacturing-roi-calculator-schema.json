@@ -24,12 +24,16 @@
       "label_i18n": {
         "en": "Annual Production Volume",
         "tr": "Yıllık Üretim Hacmi",
-        "de": "Jährliches Produktionsvolumen"
+        "de": "Jährliches Produktionsvolumen",
+        "fr": "Volume de production annuel",
+        "es": "Volumen de producción anual"
       },
       "businessContext_i18n": {
         "en": "Total number of units produced per year across all product variants.",
         "tr": "Tüm ürün varyantlarında yılda üretilen toplam birim sayısı.",
-        "de": "Gesamtzahl der pro Jahr produzierten Einheiten über alle Produktvarianten hinweg."
+        "de": "Gesamtzahl der pro Jahr produzierten Einheiten über alle Produktvarianten hinweg.",
+        "fr": "Nombre total d'unités produites par an toutes variantes de produit confondues.",
+        "es": "Número total de unidades producidas por año en todas las variantes de producto."
       }
     },
     {
@@ -44,12 +48,16 @@
       "label_i18n": {
         "en": "Average Batch Size",
         "tr": "Ortalama Toplu İşlem Boyutu",
-        "de": "Durchschnittliche Batch-Größe"
+        "de": "Durchschnittliche Batch-Größe",
+        "fr": "Taille moyenne du lot",
+        "es": "Tamaño de lote promedio"
       },
       "businessContext_i18n": {
         "en": "Average number of units produced per production run before changeover.",
         "tr": "Değişim öncesi üretim partisi başına üretilen ortalama birim sayısı.",
-        "de": "Durchschnittliche Anzahl der pro Produktionslauf produzierten Einheiten vor dem Rüstwechsel."
+        "de": "Durchschnittliche Anzahl der pro Produktionslauf produzierten Einheiten vor dem Rüstwechsel.",
+        "fr": "Nombre moyen d'unités produites par série de production avant changement.",
+        "es": "Número promedio de unidades producidas por lote de producción antes del cambio de referencia."
       }
     },
     {
@@ -64,12 +72,16 @@
       "label_i18n": {
         "en": "Current Setup Time per Changeover",
         "tr": "Mevcut Değişim Süresi (her değişim için)",
-        "de": "Aktuelle Rüstzeit pro Rüstwechsel"
+        "de": "Aktuelle Rüstzeit pro Rüstwechsel",
+        "fr": "Temps de réglage actuel par changement",
+        "es": "Tiempo actual de preparación por cambio de referencia"
       },
       "businessContext_i18n": {
         "en": "Time required to change from one product to another in the current system.",
         "tr": "Mevcut sistemde bir üründen diğerine geçiş için gereken süre.",
-        "de": "Zeit, die benötigt wird, um im aktuellen System von einem Produkt auf ein anderes umzustellen."
+        "de": "Zeit, die benötigt wird, um im aktuellen System von einem Produkt auf ein anderes umzustellen.",
+        "fr": "Temps nécessaire pour passer d'un produit à un autre dans le système actuel.",
+        "es": "Tiempo requerido para cambiar de un producto a otro en el sistema actual."
       }
     },
     {
@@ -84,12 +96,16 @@
       "label_i18n": {
         "en": "Target Setup Time per Changeover (after FMS)",
         "tr": "Hedef Değişim Süresi (FMS sonrası)",
-        "de": "Ziel-Rüstzeit pro Rüstwechsel (nach FMS)"
+        "de": "Ziel-Rüstzeit pro Rüstwechsel (nach FMS)",
+        "fr": "Temps de réglage cible par changement (après FMS)",
+        "es": "Tiempo objetivo de preparación por cambio de referencia (después del FMS)"
       },
       "businessContext_i18n": {
         "en": "Expected setup time after implementing flexible manufacturing system (e.g., SMED).",
         "tr": "Esnek üretim sistemi (örneğin SMED) uygulandıktan sonra beklenen değişim süresi.",
-        "de": "Erwartete Rüstzeit nach Implementierung eines flexiblen Fertigungssystems (z. B. SMED)."
+        "de": "Erwartete Rüstzeit nach Implementierung eines flexiblen Fertigungssystems (z. B. SMED).",
+        "fr": "Temps de réglage attendu après la mise en œuvre d'un système de fabrication flexible (ex. SMED).",
+        "es": "Tiempo de preparación esperado después de implementar el sistema de fabricación flexible (ej. SMED)."
       }
     },
     {
@@ -104,12 +120,16 @@
       "label_i18n": {
         "en": "Hourly Operating Cost (labor + overhead)",
         "tr": "Saatlik İşletme Maliyeti (işçilik + genel giderler)",
-        "de": "Stündliche Betriebskosten (Arbeit + Gemeinkosten)"
+        "de": "Stündliche Betriebskosten (Arbeit + Gemeinkosten)",
+        "fr": "Coût horaire d'exploitation (main-d'œuvre + frais généraux)",
+        "es": "Costo operativo por hora (mano de obra + gastos generales)"
       },
       "businessContext_i18n": {
         "en": "Fully burdened hourly cost of production labor and overhead.",
         "tr": "Tam yüklü saatlik üretim işçiliği ve genel gider maliyeti.",
-        "de": "Voll belastete stündliche Kosten für Produktionsarbeit und Gemeinkosten."
+        "de": "Voll belastete stündliche Kosten für Produktionsarbeit und Gemeinkosten.",
+        "fr": "Coût horaire complet de la main-d'œuvre de production et des frais généraux.",
+        "es": "Costo horario totalmente cargado de mano de obra de producción y gastos generales."
       }
     },
     {
@@ -124,12 +144,16 @@
       "label_i18n": {
         "en": "Changeover Cost per Hour (downtime + labor)",
         "tr": "Değişim Başına Saatlik Maliyet (duruş + işçilik)",
-        "de": "Rüstkosten pro Stunde (Ausfallzeit + Arbeit)"
+        "de": "Rüstkosten pro Stunde (Ausfallzeit + Arbeit)",
+        "fr": "Coût de changement par heure (temps d'arrêt + main-d'œuvre)",
+        "es": "Costo de cambio de referencia por hora (tiempo de inactividad + mano de obra)"
       },
       "businessContext_i18n": {
         "en": "Total cost incurred per hour of changeover, including lost production and labor.",
         "tr": "Kayıp üretim ve işçilik dahil olmak üzere değişim saati başına toplam maliyet.",
-        "de": "Gesamtkosten pro Stunde Rüstzeit, einschließlich Produktionsausfall und Arbeit."
+        "de": "Gesamtkosten pro Stunde Rüstzeit, einschließlich Produktionsausfall und Arbeit.",
+        "fr": "Coût total encouru par heure de changement, incluant la perte de production et la main-d'œuvre.",
+        "es": "Costo total incurrido por hora de cambio de referencia, incluyendo producción perdida y mano de obra."
       }
     },
     {
@@ -144,12 +168,16 @@
       "label_i18n": {
         "en": "Inventory Holding Cost Rate",
         "tr": "Envanter Bulundurma Maliyet Oranı",
-        "de": "Lagerhaltungskostensatz"
+        "de": "Lagerhaltungskostensatz",
+        "fr": "Taux de coût de détention des stocks",
+        "es": "Tasa de costo de mantenimiento de inventario"
       },
       "businessContext_i18n": {
         "en": "Annual cost to hold inventory as a percentage of inventory value (includes storage, insurance, obsolescence).",
         "tr": "Envanter değerinin yüzdesi olarak yıllık envanter bulundurma maliyeti (depolama, sigorta, eskime dahil).",
-        "de": "Jährliche Kosten für die Lagerhaltung als Prozentsatz des Lagerwerts (inklusive Lagerung, Versicherung, Veralterung)."
+        "de": "Jährliche Kosten für die Lagerhaltung als Prozentsatz des Lagerwerts (inklusive Lagerung, Versicherung, Veralterung).",
+        "fr": "Coût annuel de détention des stocks en pourcentage de la valeur des stocks (inclut stockage, assurance, obsolescence).",
+        "es": "Costo anual de mantener inventario como porcentaje del valor del inventario (incluye almacenamiento, seguros, obsolescencia)."
       }
     },
     {
@@ -164,12 +192,16 @@
       "label_i18n": {
         "en": "Average Inventory Value (current)",
         "tr": "Ortalama Envanter Değeri (mevcut)",
-        "de": "Durchschnittlicher Lagerwert (aktuell)"
+        "de": "Durchschnittlicher Lagerwert (aktuell)",
+        "fr": "Valeur moyenne des stocks (actuelle)",
+        "es": "Valor promedio del inventario (actual)"
       },
       "businessContext_i18n": {
         "en": "Current average value of raw materials, WIP, and finished goods inventory.",
         "tr": "Hammadde, YDİ ve mamul envanterinin mevcut ortalama değeri.",
-        "de": "Aktueller Durchschnittswert der Rohmaterial-, Umlauf- und Fertigwarenbestände."
+        "de": "Aktueller Durchschnittswert der Rohmaterial-, Umlauf- und Fertigwarenbestände.",
+        "fr": "Valeur moyenne actuelle des matières premières, des encours et des produits finis.",
+        "es": "Valor promedio actual de materias primas, productos en proceso y productos terminados."
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Target Nicotine Strength",
         "tr": "Hedef nikotin gücü",
-        "de": "Target Nicotine Strength",
-        "fr": "Target Nicotine Strength",
-        "es": "Target Nicotine Strength",
+        "de": "Ziel-Nikotinstärke",
+        "fr": "Force de nicotine cible",
+        "es": "Concentración de nicotina objetivo",
         "ar": "Target Nicotine Strength"
       },
       "businessContext_i18n": {
         "en": "Desired nicotine concentration in the final e-liquid",
-        "tr": "Nihai e-sıvıda istenen nikotin konsantrasyonu"
+        "tr": "Nihai e-sıvıda istenen nikotin konsantrasyonu",
+        "de": "Gewünschte Nikotinkonzentration im fertigen E-Liquid",
+        "fr": "Concentration de nicotine souhaitée dans le e-liquide final",
+        "es": "Concentración de nicotina deseada en el líquido final"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Final Volume",
         "tr": "Son Hacim",
         "de": "Endvolumen",
-        "fr": "Final Volume",
-        "es": "Final Volume",
+        "fr": "Volume final",
+        "es": "Volumen final",
         "ar": "Final Volume"
       },
       "businessContext_i18n": {
         "en": "Total volume of e-liquid to prepare",
-        "tr": "Hazırlanacak toplam e-sıvı hacmi"
+        "tr": "Hazırlanacak toplam e-sıvı hacmi",
+        "de": "Gesamtvolumen des herzustellenden E-Liquids",
+        "fr": "Volume total de e-liquide à préparer",
+        "es": "Volumen total de líquido a preparar"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Nicotine Base Concentration",
         "tr": "Nikotin baz konsantrasyonu",
-        "de": "Nicotine Base Concentration",
-        "fr": "Nicotine Base Concentration",
-        "es": "Nicotine Base Concentration",
+        "de": "Nikotin-Basiskonzentration",
+        "fr": "Concentration de la base de nicotine",
+        "es": "Concentración de la base de nicotina",
         "ar": "Nicotine Base Concentration"
       },
       "businessContext_i18n": {
         "en": "Nicotine concentration of the base liquid",
-        "tr": "Baz sıvının nikotin konsantrasyonu"
+        "tr": "Baz sıvının nikotin konsantrasyonu",
+        "de": "Nikotinkonzentration der Basisflüssigkeit",
+        "fr": "Concentration de nicotine de la base liquide",
+        "es": "Concentración de nicotina de la base líquida"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Base VG%",
         "tr": "Baz VG%",
-        "de": "Base VG%",
-        "fr": "Base VG%",
-        "es": "Base VG%",
+        "de": "VG-Anteil der Basis",
+        "fr": "Pourcentage VG de la base",
+        "es": "% VG base",
         "ar": "Base VG%"
       },
       "businessContext_i18n": {
         "en": "VG percentage in nicotine base (rest is PG)",
-        "tr": "Nikotin bazındaki VG yüzdesi (geri kalanı PG'dir)"
+        "tr": "Nikotin bazındaki VG yüzdesi (geri kalanı PG'dir)",
+        "de": "VG-Prozentsatz in der Nikotinbasis (Rest ist PG)",
+        "fr": "Pourcentage de VG dans la base de nicotine (le reste est PG)",
+        "es": "Porcentaje de VG en la base de nicotina (el resto es PG)"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Desired VG%",
         "tr": "İstenen VG%",
-        "de": "Desired VG%",
-        "fr": "Desired VG%",
-        "es": "Desired VG%",
+        "de": "Gewünschter VG-Anteil",
+        "fr": "% VG souhaité",
+        "es": "% VG deseado",
         "ar": "Desired VG%"
       },
       "businessContext_i18n": {
         "en": "Target VG percentage in the final mix",
-        "tr": "Nihai karışımdaki hedef VG yüzdesi"
+        "tr": "Nihai karışımdaki hedef VG yüzdesi",
+        "de": "Ziel-VG-Prozentsatz in der fertigen Mischung",
+        "fr": "Pourcentage de VG cible dans le mélange final",
+        "es": "Porcentaje de VG objetivo en la mezcla final"
       }
     }
   ],

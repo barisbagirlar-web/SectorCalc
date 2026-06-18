@@ -22,11 +22,17 @@
       "businessContext": "Total observed defects in the sample or process period.",
       "label_i18n": {
         "en": "Number of Defects",
-        "tr": "Kusur Sayısı"
+        "tr": "Kusur Sayısı",
+        "de": "Anzahl der Fehler",
+        "fr": "Nombre de défauts",
+        "es": "Número de defectos"
       },
       "businessContext_i18n": {
         "en": "Total observed defects in the sample or process period.",
-        "tr": "Numunede veya proses periyodunda gözlemlenen toplam kusur sayısı."
+        "tr": "Numunede veya proses periyodunda gözlemlenen toplam kusur sayısı.",
+        "de": "Gesamtzahl der beobachteten Fehler in der Stichprobe oder im Prozesszeitraum.",
+        "fr": "Nombre total de défauts observés dans l'échantillon ou la période de processus.",
+        "es": "Total de defectos observados en la muestra o período del proceso."
       }
     },
     {
@@ -41,11 +47,16 @@
       "label_i18n": {
         "en": "Sample Size",
         "tr": "Örneklem büyüklüğü",
-        "de": "Stichprobengröße"
+        "de": "Stichprobengröße",
+        "fr": "Taille de l'échantillon",
+        "es": "Tamaño de la muestra"
       },
       "businessContext_i18n": {
         "en": "Total number of units inspected or trials performed.",
-        "tr": "İncelenen toplam birim sayısı veya yapılan deneme sayısı."
+        "tr": "İncelenen toplam birim sayısı veya yapılan deneme sayısı.",
+        "de": "Gesamtzahl der geprüften Einheiten oder durchgeführten Versuche.",
+        "fr": "Nombre total d'unités inspectées ou d'essais effectués.",
+        "es": "Número total de unidades inspeccionadas o ensayos realizados."
       }
     },
     {
@@ -59,11 +70,17 @@
       "businessContext": "Standard shift to convert short-term capability to long-term (commonly 1.5).",
       "label_i18n": {
         "en": "Sigma Shift (1.5 for long-term)",
-        "tr": "Sigma Kayması (Uzun dönem için 1.5)"
+        "tr": "Sigma Kayması (Uzun dönem için 1.5)",
+        "de": "Sigma-Verschiebung (1,5 für Langzeit)",
+        "fr": "Décalage sigma (1,5 pour long terme)",
+        "es": "Desplazamiento sigma (1.5 para largo plazo)"
       },
       "businessContext_i18n": {
         "en": "Standard shift to convert short-term capability to long-term (commonly 1.5).",
-        "tr": "Kısa dönem yeteneğini uzun döneme dönüştürmek için standart kayma (yaygın olarak 1.5)."
+        "tr": "Kısa dönem yeteneğini uzun döneme dönüştürmek için standart kayma (yaygın olarak 1.5).",
+        "de": "Standardverschiebung zur Umrechnung von Kurzzeit- in Langzeitfähigkeit (üblich 1,5).",
+        "fr": "Décalage standard pour convertir la capabilité court terme en long terme (généralement 1,5).",
+        "es": "Desplazamiento estándar para convertir capacidad a corto plazo en largo plazo (comúnmente 1.5)."
       }
     },
     {
@@ -83,11 +100,16 @@
       "label_i18n": {
         "en": "Distribution Type",
         "tr": "Dağılım Türü",
-        "de": "Verteilungstyp"
+        "de": "Verteilungstyp",
+        "fr": "Type de distribution",
+        "es": "Tipo de Distribución"
       },
       "businessContext_i18n": {
         "en": "Underlying statistical distribution for probability calculation.",
-        "tr": "Olasılık hesaplaması için temel istatistiksel dağılım."
+        "tr": "Olasılık hesaplaması için temel istatistiksel dağılım.",
+        "de": "Zugrunde liegende statistische Verteilung für die Wahrscheinlichkeitsberechnung.",
+        "fr": "Distribution statistique sous-jacente pour le calcul de probabilité.",
+        "es": "Distribución estadística subyacente para el cálculo de probabilidad."
       }
     },
     {
@@ -107,11 +129,16 @@
       "label_i18n": {
         "en": "Confidence Level",
         "tr": "Güven Düzeyi",
-        "de": "Konfidenzniveau"
+        "de": "Konfidenzniveau",
+        "fr": "Niveau de confiance",
+        "es": "Nivel de confianza"
       },
       "businessContext_i18n": {
         "en": "Desired confidence level for interval estimates.",
-        "tr": "Aralık tahminleri için istenen güven düzeyi."
+        "tr": "Aralık tahminleri için istenen güven düzeyi.",
+        "de": "Gewünschtes Konfidenzniveau für Intervallschätzungen.",
+        "fr": "Niveau de confiance souhaité pour les estimations par intervalle.",
+        "es": "Nivel de confianza deseado para estimaciones de intervalo."
       }
     },
     {
@@ -125,11 +152,17 @@
       "businessContext": "If true, applies a correction factor based on past process performance.",
       "label_i18n": {
         "en": "Apply Historical Bias Correction",
-        "tr": "Geçmiş Yanlılık Düzeltmesi Uygula"
+        "tr": "Geçmiş Yanlılık Düzeltmesi Uygula",
+        "de": "Historische Bias-Korrektur anwenden",
+        "fr": "Appliquer la correction de biais historique",
+        "es": "Aplicar corrección de sesgo histórico"
       },
       "businessContext_i18n": {
         "en": "If true, applies a correction factor based on past process performance.",
-        "tr": "Doğruysa, geçmiş proses performansına dayalı bir düzeltme faktörü uygular."
+        "tr": "Doğruysa, geçmiş proses performansına dayalı bir düzeltme faktörü uygular.",
+        "de": "Wenn wahr, wird ein Korrekturfaktor basierend auf der bisherigen Prozessleistung angewendet.",
+        "fr": "Si vrai, applique un facteur de correction basé sur les performances passées du processus.",
+        "es": "Si es verdadero, aplica un factor de corrección basado en el rendimiento pasado del proceso."
       }
     }
   ],

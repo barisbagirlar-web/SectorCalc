@@ -12,14 +12,16 @@
         "en": "Cables",
         "tr": "Kablolar",
         "de": "Kabel",
-        "fr": "Cables",
+        "fr": "Câbles",
         "es": "Cables",
         "ar": "Cables"
       },
       "businessContext_i18n": {
         "en": "Length in cables (1 standard cable = 0.1 nautical miles).",
         "tr": "Kablolarda uzunluk (1 standart kablo = 0,1 deniz mili).",
-        "de": "Länge in Kabeln (1 Standardkabel = 0,1 Seemeilen)."
+        "de": "Länge in Kabeln (1 Standardkabel = 0,1 Seemeilen).",
+        "fr": "Longueur en câbles (1 câble standard = 0,1 mille nautique).",
+        "es": "Longitud en cables (1 cable estándar = 0.1 millas náuticas)."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Nautical miles per cable. Standard is 0.1. Adjust for non-standard cable definitions.",
         "tr": "Kablo başına deniz mili. Standart 0,1'dir. Standart olmayan kablo tanımları için ayarlayın.",
-        "de": "Seemeilen pro Kabel. Standard ist 0,1. Bei nicht standardmäßigen Kabeldefinitionen anpassen."
+        "de": "Seemeilen pro Kabel. Standard ist 0,1. Bei nicht standardmäßigen Kabeldefinitionen anpassen.",
+        "fr": "Milles nautiques par câble. La valeur standard est 0,1. Ajuster pour les définitions de câble non standard.",
+        "es": "Millas náuticas por cable. El estándar es 0.1. Ajuste para definiciones de cable no estándar."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Measurement Uncertainty",
         "tr": "Ölçüm Belirsizliği",
         "de": "Messunsicherheit",
-        "fr": "Measurement Uncertainty",
-        "es": "Measurement Uncertainty",
+        "fr": "Incertitude de mesure",
+        "es": "Incertidumbre de medición",
         "ar": "Measurement Uncertainty"
       },
       "businessContext_i18n": {
         "en": "± uncertainty in the cable measurement.",
         "tr": "Kablo ölçümünde ± belirsizlik.",
-        "de": "± Unsicherheit bei der Kabelmessung."
+        "de": "± Unsicherheit bei der Kabelmessung.",
+        "fr": "± incertitude dans la mesure du câble.",
+        "es": "± incertidumbre en la medición del cable."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output.",
         "tr": "Çıktı için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen für die Ausgabe."
+        "de": "Anzahl der Dezimalstellen für die Ausgabe.",
+        "fr": "Nombre de décimales pour le résultat.",
+        "es": "Número de decimales para la salida."
       }
     }
   ],

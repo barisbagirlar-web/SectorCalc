@@ -25,11 +25,15 @@
       "label_i18n": {
         "en": "Length (cm)",
         "tr": "Boy (cm)",
-        "de": "Länge (cm)"
+        "de": "Länge (cm)",
+        "fr": "Longueur (cm)",
+        "es": "Longitud (cm)"
       },
       "businessContext_i18n": {
         "en": "Physical length of the package in centimeters. ISO 1:2016 standard for geometric product specifications.",
-        "tr": "Paketin fiziksel uzunluğu (cm). Geometrik ürün özellikleri için ISO 1:2016 standardı."
+        "tr": "Paketin fiziksel uzunluğu (cm). Geometrik ürün özellikleri için ISO 1:2016 standardı.",
+        "de": "Physische Länge der Verpackung in Zentimetern. ISO 1:2016-Norm für geometrische Produktspezifikationen.",
+        "fr": "Longueur physique du colis en centimètres. Norme ISO 1:2016 pour les spécifications géométriques des produits."
       }
     },
     {
@@ -43,11 +47,15 @@
       "businessContext": "Physical width of the package in centimeters.",
       "label_i18n": {
         "en": "Width (cm)",
-        "tr": "Genişlik (cm)"
+        "tr": "Genişlik (cm)",
+        "de": "Breite (cm)",
+        "fr": "Largeur (cm)"
       },
       "businessContext_i18n": {
         "en": "Physical width of the package in centimeters.",
-        "tr": "Paketin fiziksel genişliği (cm)."
+        "tr": "Paketin fiziksel genişliği (cm).",
+        "de": "Physische Breite der Verpackung in Zentimetern.",
+        "fr": "Largeur physique du colis en centimètres."
       }
     },
     {
@@ -62,11 +70,15 @@
       "label_i18n": {
         "en": "Height (cm)",
         "tr": "Boy (cm)",
-        "de": "Größe (cm)"
+        "de": "Größe (cm)",
+        "fr": "Taille (cm)",
+        "es": "Altura (cm)"
       },
       "businessContext_i18n": {
         "en": "Physical height of the package in centimeters.",
-        "tr": "Paketin fiziksel yüksekliği (cm)."
+        "tr": "Paketin fiziksel yüksekliği (cm).",
+        "de": "Physische Höhe der Verpackung in Zentimetern.",
+        "fr": "Hauteur physique du colis en centimètres."
       }
     },
     {
@@ -80,11 +92,15 @@
       "businessContext": "Gross weight of the package including packaging. Per ISO 80000-4:2006.",
       "label_i18n": {
         "en": "Actual Weight (kg)",
-        "tr": "Gerçek ağırlık (kg)"
+        "tr": "Gerçek ağırlık (kg)",
+        "de": "Tatsächliches Gewicht (kg)",
+        "fr": "Poids réel (kg)"
       },
       "businessContext_i18n": {
         "en": "Gross weight of the package including packaging. Per ISO 80000-4:2006.",
-        "tr": "Paketleme dahil brüt ağırlık. ISO 80000-4:2006 standardına göre."
+        "tr": "Paketleme dahil brüt ağırlık. ISO 80000-4:2006 standardına göre.",
+        "de": "Bruttogewicht der Verpackung inklusive Verpackungsmaterial. Gemäß ISO 80000-4:2006.",
+        "fr": "Poids brut du colis, emballage inclus. Selon ISO 80000-4:2006."
       }
     },
     {
@@ -104,11 +120,15 @@
       ],
       "label_i18n": {
         "en": "Carrier DIM Factor",
-        "tr": "Taşıyıcı DIM Faktörü"
+        "tr": "Taşıyıcı DIM Faktörü",
+        "de": "Volumengewichtsfaktor des Frachtführers",
+        "fr": "Facteur DIM du transporteur"
       },
       "businessContext_i18n": {
         "en": "Volumetric divisor used by carrier (e.g., FedEx/UPS: 5000, DHL: 5000, Air freight: 6000). WERC standard.",
-        "tr": "Taşıyıcı tarafından kullanılan hacimsel bölen (örn. FedEx/UPS: 5000, DHL: 5000, Hava kargo: 6000). WERC standardı."
+        "tr": "Taşıyıcı tarafından kullanılan hacimsel bölen (örn. FedEx/UPS: 5000, DHL: 5000, Hava kargo: 6000). WERC standardı.",
+        "de": "Volumengewichtsdivisor des Frachtführers (z. B. FedEx/UPS: 5000, DHL: 5000, Luftfracht: 6000). WERC-Standard.",
+        "fr": "Diviseur volumétrique utilisé par le transporteur (ex. : FedEx/UPS : 5000, DHL : 5000, Fret aérien : 6000). Norme WERC."
       }
     },
     {
@@ -128,11 +148,15 @@
       ],
       "label_i18n": {
         "en": "Package Type",
-        "tr": "Paket türü"
+        "tr": "Paket türü",
+        "de": "Verpackungsart",
+        "fr": "Type de colis"
       },
       "businessContext_i18n": {
         "en": "Type of packaging influences dimensional stability and handling. Lean packaging standard.",
-        "tr": "Paketleme türü boyutsal stabiliteyi ve taşımayı etkiler. Yalın paketleme standardı."
+        "tr": "Paketleme türü boyutsal stabiliteyi ve taşımayı etkiler. Yalın paketleme standardı.",
+        "de": "Art der Verpackung beeinflusst Dimensionsstabilität und Handhabung. Lean-Verpackungsstandard.",
+        "fr": "Le type d'emballage influence la stabilité dimensionnelle et la manutention. Norme d'emballage Lean."
       }
     },
     {
@@ -146,11 +170,15 @@
       "businessContext": "Indicates if package can be stacked. Affects storage density and handling cost. Six Sigma material flow optimization.",
       "label_i18n": {
         "en": "Stackable",
-        "tr": "İstiflenebilir"
+        "tr": "İstiflenebilir",
+        "de": "Stapelbar",
+        "fr": "Empilable"
       },
       "businessContext_i18n": {
         "en": "Indicates if package can be stacked. Affects storage density and handling cost. Six Sigma material flow optimization.",
-        "tr": "Paketin istiflenip istiflenemeyeceğini belirtir. Depolama yoğunluğunu ve taşıma maliyetini etkiler. Altı Sigma malzeme akışı optimizasyonu."
+        "tr": "Paketin istiflenip istiflenemeyeceğini belirtir. Depolama yoğunluğunu ve taşıma maliyetini etkiler. Altı Sigma malzeme akışı optimizasyonu.",
+        "de": "Gibt an, ob die Verpackung gestapelt werden kann. Beeinflusst Lagerdichte und Handhabungskosten. Six Sigma-Materialflussoptimierung.",
+        "fr": "Indique si le colis peut être empilé. Affecte la densité de stockage et le coût de manutention. Optimisation du flux de matières Six Sigma."
       }
     },
     {
@@ -165,11 +193,15 @@
       "label_i18n": {
         "en": "Hazardous Material",
         "tr": "Tehlikeli Madde",
-        "de": "Gefahrgut"
+        "de": "Gefahrgut",
+        "fr": "Matière dangereuse",
+        "es": "Material peligroso"
       },
       "businessContext_i18n": {
         "en": "Indicates if contents are hazardous (IMO/ADR/IATA). Affects surcharges and handling restrictions.",
-        "tr": "İçeriğin tehlikeli olup olmadığını belirtir (IMO/ADR/IATA). Ek ücretleri ve taşıma kısıtlamalarını etkiler."
+        "tr": "İçeriğin tehlikeli olup olmadığını belirtir (IMO/ADR/IATA). Ek ücretleri ve taşıma kısıtlamalarını etkiler.",
+        "de": "Gefahrgut (IMO/ADR/IATA). Beeinflusst Zuschläge und Handhabungsbeschränkungen.",
+        "fr": "Indique si le contenu est dangereux (IMO/ADR/IATA). Affecte les surtaxes et les restrictions de manutention."
       }
     }
   ],

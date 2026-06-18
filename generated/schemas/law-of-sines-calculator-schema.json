@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Side a",
         "tr": "Kenar a",
-        "de": "Side a",
-        "fr": "Side a",
-        "es": "Side a",
+        "de": "Seite a",
+        "fr": "Côté a",
+        "es": "Lado a",
         "ar": "Side a"
       },
       "businessContext_i18n": {
         "en": "Length of side opposite angle A (in meters)",
-        "tr": "A açısının karşısındaki kenarın uzunluğu (metre cinsinden)"
+        "tr": "A açısının karşısındaki kenarın uzunluğu (metre cinsinden)",
+        "de": "Länge der Seite gegenüber Winkel A (in Metern)",
+        "fr": "Longueur du côté opposé à l'angle A (en mètres)",
+        "es": "Longitud del lado opuesto al ángulo A (en metros)"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Angle A",
         "tr": "Açı A",
-        "de": "Angle A",
+        "de": "Winkel A",
         "fr": "Angle A",
-        "es": "Angle A",
+        "es": "Ángulo A",
         "ar": "Angle A"
       },
       "businessContext_i18n": {
         "en": "Angle opposite side a (in degrees)",
-        "tr": "a kenarının karşısındaki açı (derece cinsinden)"
+        "tr": "a kenarının karşısındaki açı (derece cinsinden)",
+        "de": "Winkel gegenüber Seite a (in Grad)",
+        "fr": "Angle opposé au côté a (en degrés)",
+        "es": "Ángulo opuesto al lado a (en grados)"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Angle B",
         "tr": "Açı B",
-        "de": "Angle B",
+        "de": "Winkel B",
         "fr": "Angle B",
-        "es": "Angle B",
+        "es": "Ángulo B",
         "ar": "Angle B"
       },
       "businessContext_i18n": {
         "en": "Angle opposite side b (target side, in degrees)",
-        "tr": "b kenarının karşısındaki açı (hedef kenar, derece cinsinden)"
+        "tr": "b kenarının karşısındaki açı (hedef kenar, derece cinsinden)",
+        "de": "Winkel gegenüber Seite b (Zielseite, in Grad)",
+        "fr": "Angle opposé au côté b (cible, en degrés)",
+        "es": "Ángulo opuesto al lado b (lado objetivo, en grados)"
       }
     },
     {
@@ -72,14 +81,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for output rounding",
         "tr": "Çıktı yuvarlama için ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen für die Ausgaberundung"
+        "de": "Anzahl der Dezimalstellen für die Ausgaberundung",
+        "fr": "Nombre de décimales pour l'arrondi du résultat",
+        "es": "Número de decimales para el redondeo de salida"
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Cost of Qualifying Property",
         "tr": "Nitelikli Varlık Maliyeti",
-        "de": "Cost of Qualifying Property",
-        "fr": "Cost of Qualifying Property",
+        "de": "Kosten des qualifizierten Eigentums",
+        "fr": "Coût des biens éligibles",
         "es": "Cost of Qualifying Property",
         "ar": "Cost of Qualifying Property"
       },
       "businessContext_i18n": {
         "en": "The purchase price of the asset (equipment, software, etc.)",
-        "tr": "Varlığın (ekipman, yazılım vb.) satın alma fiyatı"
+        "tr": "Varlığın (ekipman, yazılım vb.) satın alma fiyatı",
+        "de": "Der Kaufpreis des Vermögenswerts (Ausrüstung, Software usw.)",
+        "fr": "Prix d'achat de l'actif (équipement, logiciel, etc.)"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Business Use Percentage",
         "tr": "İşletme Kullanım Yüzdesi",
         "de": "Geschäftlicher Nutzungsanteil",
-        "fr": "Business Use Percentage",
-        "es": "Business Use Percentage",
+        "fr": "Pourcentage d'utilisation professionnelle",
+        "es": "Porcentaje de uso empresarial",
         "ar": "Business Use Percentage"
       },
       "businessContext_i18n": {
         "en": "Percentage of the asset used for business purposes (0-100)",
-        "tr": "Varlığın iş amaçlı kullanım yüzdesi (0-100)"
+        "tr": "Varlığın iş amaçlı kullanım yüzdesi (0-100)",
+        "de": "Prozentsatz des Vermögenswerts, der für geschäftliche Zwecke genutzt wird (0-100)",
+        "fr": "Pourcentage de l'actif utilisé à des fins professionnelles (0-100)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Section 179 Deduction Limit",
         "tr": "Bölüm 179 İndirim Limiti",
-        "de": "Section 179 Deduction Limit",
-        "fr": "Section 179 Deduction Limit",
+        "de": "Section 179 Abzugsgrenze",
+        "fr": "Limite de déduction Section 179",
         "es": "Section 179 Deduction Limit",
         "ar": "Section 179 Deduction Limit"
       },
       "businessContext_i18n": {
         "en": "Maximum annual Section 179 deduction allowed by IRS (2025 limit)",
-        "tr": "IRS tarafından izin verilen maksimum yıllık Bölüm 179 indirimi (2025 limiti)"
+        "tr": "IRS tarafından izin verilen maksimum yıllık Bölüm 179 indirimi (2025 limiti)",
+        "de": "Maximaler jährlicher Section 179 Abzug gemäß IRS (Grenze 2025)",
+        "fr": "Déduction annuelle maximale autorisée par l'IRS (limite 2025)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Phase-Out Threshold",
         "tr": "Aşamalı Sona Erme Eşiği",
-        "de": "Phase-Out Threshold",
-        "fr": "Phase-Out Threshold",
+        "de": "Phasen-Aus-Schwellenwert",
+        "fr": "Seuil de suppression progressive",
         "es": "Phase-Out Threshold",
         "ar": "Phase-Out Threshold"
       },
       "businessContext_i18n": {
         "en": "Total asset additions above which the Section 179 deduction is reduced dollar-for-dollar",
-        "tr": "Bölüm 179 indiriminin dolar bazında azaltıldığı toplam varlık eklemeleri"
+        "tr": "Bölüm 179 indiriminin dolar bazında azaltıldığı toplam varlık eklemeleri",
+        "de": "Gesamte Vermögenszugänge, ab denen der Section 179 Abzug Dollar-für-Dollar reduziert wird",
+        "fr": "Total des ajouts d'actifs au-delà duquel la déduction Section 179 est réduite dollar pour dollar"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Total Asset Additions",
         "tr": "Toplam Varlık Eklemeleri",
-        "de": "Total Asset Additions",
-        "fr": "Total Asset Additions",
+        "de": "Gesamte Vermögenszugänge",
+        "fr": "Total des ajouts d'actifs",
         "es": "Total Asset Additions",
         "ar": "Total Asset Additions"
       },
       "businessContext_i18n": {
         "en": "Total cost of all qualifying property placed in service during the tax year (for phase-out calculation)",
-        "tr": "Vergi yılı boyunca hizmete alınan tüm nitelikli varlıkların toplam maliyeti (aşamalı sona erme hesaplaması için)"
+        "tr": "Vergi yılı boyunca hizmete alınan tüm nitelikli varlıkların toplam maliyeti (aşamalı sona erme hesaplaması için)",
+        "de": "Gesamtkosten aller qualifizierten Vermögenswerte, die im Steuerjahr in Betrieb genommen wurden (für Phasen-Aus-Berechnung)",
+        "fr": "Coût total de tous les biens éligibles mis en service au cours de l'année fiscale (pour le calcul de la suppression progressive)"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Distance in Light-Years",
         "tr": "Mesafe (ışık yılı)",
-        "de": "Distance in Light-Years",
-        "fr": "Distance in Light-Years",
-        "es": "Distance in Light-Years",
+        "de": "Entfernung in Lichtjahren",
+        "fr": "Distance en années-lumière",
+        "es": "Distancia en años luz",
         "ar": "Distance in Light-Years"
       },
       "businessContext_i18n": {
         "en": "Astronomical distance input",
-        "tr": "Astronomik mesafe girişi"
+        "tr": "Astronomik mesafe girişi",
+        "de": "Astronomische Entfernungseingabe",
+        "fr": "Saisie de distance astronomique",
+        "es": "Entrada de distancia astronómica"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Significant Digits",
         "tr": "Anlamlı Basamaklar",
-        "de": "Significant Digits",
-        "fr": "Significant Digits",
-        "es": "Significant Digits",
+        "de": "Signifikante Stellen",
+        "fr": "Chiffres significatifs",
+        "es": "Dígitos significativos",
         "ar": "Significant Digits"
       },
       "businessContext_i18n": {
         "en": "Precision for output formatting",
-        "tr": "Çıktı biçimlendirme hassasiyeti"
+        "tr": "Çıktı biçimlendirme hassasiyeti",
+        "de": "Genauigkeit für die Ausgabeformatierung",
+        "fr": "Précision pour le formatage de la sortie",
+        "es": "Precisión para el formato de salida"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Output Format",
         "tr": "Çıktı Formatı",
-        "de": "Output Format",
-        "fr": "Output Format",
-        "es": "Output Format",
+        "de": "Ausgabeformat",
+        "fr": "Format de sortie",
+        "es": "Formato de salida",
         "ar": "Output Format"
       },
       "businessContext_i18n": {
         "en": "0 = standard, 1 = scientific notation",
-        "tr": "0 = standart, 1 = bilimsel gösterim"
+        "tr": "0 = standart, 1 = bilimsel gösterim",
+        "de": "0 = Standard, 1 = wissenschaftliche Notation",
+        "fr": "0 = standard, 1 = notation scientifique",
+        "es": "0 = estándar, 1 = notación científica"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Rounding Mode",
         "tr": "Yuvarlama Modu",
         "de": "Rundungsmodus",
-        "fr": "Rounding Mode",
-        "es": "Rounding Mode",
+        "fr": "Mode d'arrondi",
+        "es": "Modo de redondeo",
         "ar": "Rounding Mode"
       },
       "businessContext_i18n": {
         "en": "0 = half-up, 1 = floor, 2 = ceiling",
-        "tr": "0 = yarım yukarı, 1 = taban, 2 = tavan"
+        "tr": "0 = yarım yukarı, 1 = taban, 2 = tavan",
+        "de": "0 = kaufmännisch runden, 1 = abrunden, 2 = aufrunden",
+        "fr": "0 = demi supérieur, 1 = plancher, 2 = plafond",
+        "es": "0 = redondeo mitad hacia arriba, 1 = redondeo hacia abajo, 2 = redondeo hacia arriba"
       }
     }
   ],

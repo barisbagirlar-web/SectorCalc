@@ -12,13 +12,15 @@
         "en": "Sample Size (n)",
         "tr": "Örneklem Büyüklüğü (n)",
         "de": "Stichprobengröße (n)",
-        "fr": "Sample Size (n)",
-        "es": "Sample Size (n)",
+        "fr": "Taille de l'échantillon (n)",
+        "es": "Tamaño de la muestra (n)",
         "ar": "Sample Size (n)"
       },
       "businessContext_i18n": {
         "en": "Total number of paired observations with non-zero differences.",
-        "tr": "Sıfırdan farklı farklara sahip toplam eşleştirilmiş gözlem sayısı."
+        "tr": "Sıfırdan farklı farklara sahip toplam eşleştirilmiş gözlem sayısı.",
+        "de": "Gesamtzahl der gepaarten Beobachtungen mit Differenzen ungleich Null.",
+        "fr": "Nombre total d'observations appariées avec des différences non nulles."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Number of Positive Signs",
         "tr": "Pozitif İşaret Sayısı",
-        "de": "Number of Positive Signs",
-        "fr": "Number of Positive Signs",
+        "de": "Anzahl positiver Vorzeichen",
+        "fr": "Nombre de signes positifs",
         "es": "Number of Positive Signs",
         "ar": "Number of Positive Signs"
       },
       "businessContext_i18n": {
         "en": "Count of observations where the difference is positive.",
-        "tr": "Farkın pozitif olduğu gözlem sayısı."
+        "tr": "Farkın pozitif olduğu gözlem sayısı.",
+        "de": "Anzahl der Beobachtungen, bei denen die Differenz positiv ist.",
+        "fr": "Nombre d'observations où la différence est positive."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Hypothesized Probability",
         "tr": "Varsayılan Olasılık",
-        "de": "Hypothesized Probability",
-        "fr": "Hypothesized Probability",
+        "de": "Hypothetische Wahrscheinlichkeit",
+        "fr": "Probabilité hypothétique",
         "es": "Hypothesized Probability",
         "ar": "Hypothesized Probability"
       },
       "businessContext_i18n": {
         "en": "Under null hypothesis, probability of a positive sign (typically 0.5 for median test).",
-        "tr": "Sıfır hipotezi altında, pozitif işaret olasılığı (medyan testi için tipik olarak 0,5)."
+        "tr": "Sıfır hipotezi altında, pozitif işaret olasılığı (medyan testi için tipik olarak 0,5).",
+        "de": "Unter der Nullhypothese Wahrscheinlichkeit eines positiven Vorzeichens (typischerweise 0,5 für Mediantest).",
+        "fr": "Sous l'hypothèse nulle, probabilité d'un signe positif (généralement 0,5 pour le test de médiane)."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Significance Level (α)",
         "tr": "Anlamlılık Düzeyi (α)",
-        "de": "Significance Level (α)",
-        "fr": "Significance Level (α)",
-        "es": "Significance Level (α)",
+        "de": "Signifikanzniveau (α)",
+        "fr": "Niveau de signification (α)",
+        "es": "Nivel de significancia (α)",
         "ar": "Significance Level (α)"
       },
       "businessContext_i18n": {
         "en": "Type I error probability threshold.",
-        "tr": "Tip I hata olasılığı eşiği."
+        "tr": "Tip I hata olasılığı eşiği.",
+        "de": "Schwellenwert für die Wahrscheinlichkeit eines Fehlers 1. Art.",
+        "fr": "Seuil de probabilité d'erreur de type I."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Alternative Hypothesis",
         "tr": "Alternatif Hipotez",
-        "de": "Alternative Hypothesis",
-        "fr": "Alternative Hypothesis",
+        "de": "Alternativhypothese",
+        "fr": "Hypothèse alternative",
         "es": "Alternative Hypothesis",
         "ar": "Alternative Hypothesis"
       },
       "businessContext_i18n": {
         "en": "Specifies the direction of the test: 1 for two-tailed, 2 for upper-tailed, 3 for lower-tailed.",
-        "tr": "Testin yönünü belirtir: 1 çift kuyruklu, 2 üst kuyruklu, 3 alt kuyruklu."
+        "tr": "Testin yönünü belirtir: 1 çift kuyruklu, 2 üst kuyruklu, 3 alt kuyruklu.",
+        "de": "Gibt die Richtung des Tests an: 1 für zweiseitig, 2 für einseitig oben, 3 für einseitig unten.",
+        "fr": "Spécifie la direction du test : 1 pour bilatéral, 2 pour unilatéral supérieur, 3 pour unilatéral inférieur."
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Number of Lanes",
         "tr": "Şerit Sayısı",
-        "de": "Number of Lanes",
-        "fr": "Number of Lanes",
-        "es": "Number of Lanes",
+        "de": "Anzahl der Spuren",
+        "fr": "Nombre de voies",
+        "es": "Número de carriles",
         "ar": "Number of Lanes"
       },
       "businessContext_i18n": {
         "en": "Total number of traffic lanes in one direction.",
-        "tr": "Bir yöndeki toplam trafik şeridi sayısı."
+        "tr": "Bir yöndeki toplam trafik şeridi sayısı.",
+        "de": "Gesamtzahl der Fahrspuren in eine Richtung.",
+        "fr": "Nombre total de voies de circulation dans une direction."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Average Traffic Speed",
         "tr": "Ortalama Trafik Hızı",
-        "de": "Average Traffic Speed",
-        "fr": "Average Traffic Speed",
+        "de": "Durchschnittliche Verkehrsgeschwindigkeit",
+        "fr": "Vitesse moyenne du trafic",
         "es": "Average Traffic Speed",
         "ar": "Average Traffic Speed"
       },
       "businessContext_i18n": {
         "en": "Average speed of vehicles in the traffic stream.",
-        "tr": "Trafik akışındaki araçların ortalama hızı."
+        "tr": "Trafik akışındaki araçların ortalama hızı.",
+        "de": "Durchschnittsgeschwindigkeit der Fahrzeuge im Verkehrsstrom.",
+        "fr": "Vitesse moyenne des véhicules dans le flux de circulation."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Average Vehicle Length",
         "tr": "Ortalama Araç Uzunluğu",
-        "de": "Average Vehicle Length",
-        "fr": "Average Vehicle Length",
+        "de": "Durchschnittliche Fahrzeuglänge",
+        "fr": "Longueur moyenne des véhicules",
         "es": "Average Vehicle Length",
         "ar": "Average Vehicle Length"
       },
       "businessContext_i18n": {
         "en": "Typical effective length of a vehicle including safety margin.",
-        "tr": "Güvenlik payı dahil bir aracın tipik etkin uzunluğu."
+        "tr": "Güvenlik payı dahil bir aracın tipik etkin uzunluğu.",
+        "de": "Typische effektive Fahrzeuglänge inklusive Sicherheitsabstand.",
+        "fr": "Longueur effective typique d'un véhicule incluant la marge de sécurité."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Time Headway",
         "tr": "Zaman Aralığı",
-        "de": "Time Headway",
-        "fr": "Time Headway",
+        "de": "Zeitlücke",
+        "fr": "Intervalle de temps",
         "es": "Time Headway",
         "ar": "Time Headway"
       },
       "businessContext_i18n": {
         "en": "Average time gap between consecutive vehicles (time headway).",
-        "tr": "Ardışık araçlar arasındaki ortalama zaman boşluğu (zaman aralığı)."
+        "tr": "Ardışık araçlar arasındaki ortalama zaman boşluğu (zaman aralığı).",
+        "de": "Durchschnittlicher zeitlicher Abstand zwischen aufeinanderfolgenden Fahrzeugen (Zeitlücke).",
+        "fr": "Intervalle de temps moyen entre véhicules consécutifs (temps de suivi)."
       }
     }
   ],

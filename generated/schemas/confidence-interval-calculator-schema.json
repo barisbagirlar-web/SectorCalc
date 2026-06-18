@@ -12,14 +12,16 @@
         "en": "Sample Mean (x̄)",
         "tr": "Örneklem ortalaması (x̄)",
         "de": "Stichprobenmittelwert (x̄)",
-        "fr": "Sample Mean (x̄)",
-        "es": "Sample Mean (x̄)",
+        "fr": "Moyenne de l'échantillon (x̄)",
+        "es": "Media muestral (x̄)",
         "ar": "Sample Mean (x̄)"
       },
       "businessContext_i18n": {
         "en": "The arithmetic average of your sample observations.",
         "tr": "Örneklem gözlemlerinizin aritmetik ortalaması.",
-        "de": "Der arithmetische Mittelwert Ihrer Stichprobenbeobachtungen."
+        "de": "Der arithmetische Mittelwert Ihrer Stichprobenbeobachtungen.",
+        "fr": "La moyenne arithmétique de vos observations d'échantillon.",
+        "es": "Promedio aritmético de las observaciones de su muestra."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Standard Deviation (σ or s)",
         "tr": "Standart sapma (σ veya s)",
         "de": "Standardabweichung (σ oder s)",
-        "fr": "Standard Deviation (σ or s)",
-        "es": "Standard Deviation (σ or s)",
+        "fr": "Écart type (σ ou s)",
+        "es": "Desviación estándar (σ o s)",
         "ar": "Standard Deviation (σ or s)"
       },
       "businessContext_i18n": {
         "en": "Population or sample standard deviation, measuring data dispersion.",
         "tr": "Veri dağılımını ölçen anakütle veya örneklem standart sapması.",
-        "de": "Standardabweichung der Grundgesamtheit oder Stichprobe, misst die Streuung der Daten."
+        "de": "Standardabweichung der Grundgesamtheit oder Stichprobe, misst die Streuung der Daten.",
+        "fr": "Écart type de la population ou de l'échantillon, mesurant la dispersion des données.",
+        "es": "Desviación estándar poblacional o muestral, que mide la dispersión de los datos."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Sample Size (n)",
         "tr": "Örneklem Büyüklüğü (n)",
         "de": "Stichprobengröße (n)",
-        "fr": "Sample Size (n)",
-        "es": "Sample Size (n)",
+        "fr": "Taille de l'échantillon (n)",
+        "es": "Tamaño de la muestra (n)",
         "ar": "Sample Size (n)"
       },
       "businessContext_i18n": {
         "en": "Number of independent observations in the sample.",
         "tr": "Örneklemdeki bağımsız gözlem sayısı.",
-        "de": "Anzahl der unabhängigen Beobachtungen in der Stichprobe."
+        "de": "Anzahl der unabhängigen Beobachtungen in der Stichprobe.",
+        "fr": "Nombre d'observations indépendantes dans l'échantillon.",
+        "es": "Número de observaciones independientes en la muestra."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Critical Value (z or t)",
         "tr": "Kritik değer (z veya t)",
         "de": "Kritischer Wert (z oder t)",
-        "fr": "Critical Value (z or t)",
-        "es": "Critical Value (z or t)",
+        "fr": "Valeur critique (z ou t)",
+        "es": "Valor crítico (z o t)",
         "ar": "Critical Value (z or t)"
       },
       "businessContext_i18n": {
         "en": "Z-score or t-score corresponding to the desired confidence level (e.g., 1.96 for 95% confidence).",
         "tr": "İstenen güven düzeyine karşılık gelen Z-skoru veya t-skoru (ör. %95 güven için 1,96).",
-        "de": "Z-Wert oder t-Wert entsprechend dem gewünschten Konfidenzniveau (z. B. 1,96 für 95 % Konfidenz)."
+        "de": "Z-Wert oder t-Wert entsprechend dem gewünschten Konfidenzniveau (z. B. 1,96 für 95 % Konfidenz).",
+        "fr": "Score z ou t correspondant au niveau de confiance souhaité (ex. 1,96 pour 95 % de confiance).",
+        "es": "Puntuación z o t correspondiente al nivel de confianza deseado (ej., 1.96 para 95% de confianza)."
       }
     }
   ],

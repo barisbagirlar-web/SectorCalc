@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Karakter Sayısı",
         "tr": "Karakter Sayısı",
-        "de": "Karakter Sayısı",
-        "fr": "Karakter Sayısı",
+        "de": "Zeichenanzahl",
+        "fr": "Nombre de caractères",
         "es": "Karakter Sayısı",
         "ar": "Karakter Sayısı"
       },
       "businessContext_i18n": {
         "en": "İşlenecek toplam Unicode karakter sayısı",
-        "tr": "İşlenecek toplam Unicode karakter sayısı"
+        "tr": "İşlenecek toplam Unicode karakter sayısı",
+        "de": "Gesamtzahl der zu verarbeitenden Unicode-Zeichen",
+        "fr": "Nombre total de caractères Unicode à traiter"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Kodlama Seçimi",
         "tr": "Kodlama Seçimi",
-        "de": "Kodlama Seçimi",
-        "fr": "Kodlama Seçimi",
+        "de": "Kodierungsauswahl",
+        "fr": "Choix d'encodage",
         "es": "Kodlama Seçimi",
         "ar": "Kodlama Seçimi"
       },
       "businessContext_i18n": {
         "en": "1: UTF-8 (ortalama 2 byte), 2: UTF-16 (2 byte), 3: UTF-32 (4 byte)",
-        "tr": "1: UTF-8 (ortalama 2 byte), 2: UTF-16 (2 byte), 3: UTF-32 (4 byte)"
+        "tr": "1: UTF-8 (ortalama 2 byte), 2: UTF-16 (2 byte), 3: UTF-32 (4 byte)",
+        "de": "1: UTF-8 (durchschnittlich 2 Byte), 2: UTF-16 (2 Byte), 3: UTF-32 (4 Byte)",
+        "fr": "1: UTF-8 (2 octets en moyenne), 2: UTF-16 (2 octets), 3: UTF-32 (4 octets)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Ek Yük",
         "tr": "Ek Yük",
-        "de": "Ek Yük",
-        "fr": "Ek Yük",
+        "de": "Overhead",
+        "fr": "Surcharge",
         "es": "Ek Yük",
         "ar": "Ek Yük"
       },
       "businessContext_i18n": {
         "en": "Her bir metin öbeği için ek protokol/metadata byte",
-        "tr": "Her bir metin öbeği için ek protokol/metadata byte"
+        "tr": "Her bir metin öbeği için ek protokol/metadata byte",
+        "de": "Zusätzliche Protokoll-/Metadaten-Bytes pro Textblock",
+        "fr": "Octets de protocole/métadonnées supplémentaires par bloc de texte"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Öbek Sayısı",
         "tr": "Öbek Sayısı",
-        "de": "Öbek Sayısı",
-        "fr": "Öbek Sayısı",
+        "de": "Anzahl der Blöcke",
+        "fr": "Nombre de blocs",
         "es": "Öbek Sayısı",
         "ar": "Öbek Sayısı"
       },
       "businessContext_i18n": {
         "en": "Kaç ayrı metin öbeği (satır/parça) olduğu",
-        "tr": "Kaç ayrı metin öbeği (satır/parça) olduğu"
+        "tr": "Kaç ayrı metin öbeği (satır/parça) olduğu",
+        "de": "Anzahl der separaten Textblöcke (Zeilen/Teile)",
+        "fr": "Nombre de blocs de texte distincts (lignes/segments)"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "MB Maliyeti",
         "tr": "MB Maliyeti",
-        "de": "MB Maliyeti",
-        "fr": "MB Maliyeti",
+        "de": "MB-Kosten",
+        "fr": "Coût par Mo",
         "es": "MB Maliyeti",
         "ar": "MB Maliyeti"
       },
       "businessContext_i18n": {
         "en": "1 MB veri depolama veya iletim maliyeti",
-        "tr": "1 MB veri depolama veya iletim maliyeti"
+        "tr": "1 MB veri depolama veya iletim maliyeti",
+        "de": "Kosten für Speicherung oder Übertragung von 1 MB Daten",
+        "fr": "Coût de stockage ou de transmission pour 1 Mo de données"
       }
     }
   ],

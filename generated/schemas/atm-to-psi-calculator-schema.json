@@ -12,14 +12,16 @@
         "en": "Pressure (atm)",
         "tr": "Basınç (atm)",
         "de": "Druck (atm)",
-        "fr": "Pressure (atm)",
-        "es": "Pressure (atm)",
+        "fr": "Pression (atm)",
+        "es": "Presión (atm)",
         "ar": "Pressure (atm)"
       },
       "businessContext_i18n": {
         "en": "Input pressure value in standard atmospheres",
         "tr": "Standart atmosfer cinsinden giriş basınç değeri",
-        "de": "Eingangsdruckwert in Standardatmosphären"
+        "de": "Eingangsdruckwert in Standardatmosphären",
+        "fr": "Valeur de pression d'entrée en atmosphères standard",
+        "es": "Valor de presión de entrada en atmósferas estándar"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Conversion factor from atm to psi (industry standard 14.6959)",
         "tr": "Atm'den psi'ye dönüşüm faktörü (endüstri standardı 14.6959)",
-        "de": "Umrechnungsfaktor von atm in psi (Industriestandard 14,6959)"
+        "de": "Umrechnungsfaktor von atm in psi (Industriestandard 14,6959)",
+        "fr": "Facteur de conversion d'atm en psi (standard industriel 14,6959)",
+        "es": "Factor de conversión de atm a psi (estándar industrial 14.6959)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the result",
         "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses"
+        "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses",
+        "fr": "Nombre de décimales pour arrondir le résultat",
+        "es": "Número de decimales para redondear el resultado"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Offset (psi)",
         "tr": "Ofset (psi)",
         "de": "Offset (psi)",
-        "fr": "Offset (psi)",
-        "es": "Offset (psi)",
+        "fr": "Décalage (psi)",
+        "es": "Compensación (psi)",
         "ar": "Offset (psi)"
       },
       "businessContext_i18n": {
         "en": "Optional additive offset in psi for calibration or correction",
         "tr": "Kalibrasyon veya düzeltme için psi cinsinden isteğe bağlı ek ofset",
-        "de": "Optionaler additiver Offset in psi zur Kalibrierung oder Korrektur"
+        "de": "Optionaler additiver Offset in psi zur Kalibrierung oder Korrektur",
+        "fr": "Décalage additif optionnel en psi pour l'étalonnage ou la correction",
+        "es": "Compensación aditiva opcional en psi para calibración o corrección"
       }
     }
   ],

@@ -20,11 +20,17 @@
       "businessContext": "Standard time to produce the first unit, typically from historical data or pilot run.",
       "label_i18n": {
         "en": "First Unit Time (hours)",
-        "tr": "İlk Birim Süresi (saat)"
+        "tr": "İlk Birim Süresi (saat)",
+        "de": "Zeit für erste Einheit (Stunden)",
+        "fr": "Temps de la première unité (heures)",
+        "es": "Tiempo de la primera unidad (horas)"
       },
       "businessContext_i18n": {
         "en": "Standard time to produce the first unit, typically from historical data or pilot run.",
-        "tr": "İlk birimi üretmek için standart süre, genellikle geçmiş verilerden veya pilot çalışmadan."
+        "tr": "İlk birimi üretmek için standart süre, genellikle geçmiş verilerden veya pilot çalışmadan.",
+        "de": "Standardzeit zur Herstellung der ersten Einheit, typischerweise aus historischen Daten oder einem Pilotlauf.",
+        "fr": "Temps standard pour produire la première unité, généralement issu de données historiques ou d'un essai pilote.",
+        "es": "Tiempo estándar para producir la primera unidad, generalmente de datos históricos o prueba piloto."
       }
     },
     {
@@ -38,11 +44,17 @@
       "businessContext": "Percentage reduction in time per doubling of cumulative units. Typical range 70-95% for manual tasks.",
       "label_i18n": {
         "en": "Learning Rate (%)",
-        "tr": "Öğrenme Oranı (%)"
+        "tr": "Öğrenme Oranı (%)",
+        "de": "Lernrate (%)",
+        "fr": "Taux d'apprentissage (%)",
+        "es": "Tasa de aprendizaje (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage reduction in time per doubling of cumulative units. Typical range 70-95% for manual tasks.",
-        "tr": "Kümülatif birimlerin iki katına çıkması başına süredeki yüzde azalma. Manuel görevler için tipik aralık %70-95."
+        "tr": "Kümülatif birimlerin iki katına çıkması başına süredeki yüzde azalma. Manuel görevler için tipik aralık %70-95.",
+        "de": "Prozentuale Reduzierung der Zeit pro Verdopplung der kumulierten Einheiten. Typischer Bereich 70-95 % für manuelle Tätigkeiten.",
+        "fr": "Pourcentage de réduction du temps par doublement des unités cumulées. Plage typique de 70 à 95 % pour les tâches manuelles.",
+        "es": "Porcentaje de reducción en tiempo por cada duplicación de unidades acumuladas. Rango típico 70-95% para tareas manuales."
       }
     },
     {
@@ -56,11 +68,17 @@
       "businessContext": "Total number of units produced to date, used to estimate current and future unit times.",
       "label_i18n": {
         "en": "Cumulative Units Produced",
-        "tr": "Üretilen Kümülatif Birimler"
+        "tr": "Üretilen Kümülatif Birimler",
+        "de": "Kumulierte produzierte Einheiten",
+        "fr": "Unités cumulées produites",
+        "es": "Unidades acumuladas producidas"
       },
       "businessContext_i18n": {
         "en": "Total number of units produced to date, used to estimate current and future unit times.",
-        "tr": "Bugüne kadar üretilen toplam birim sayısı, mevcut ve gelecekteki birim sürelerini tahmin etmek için kullanılır."
+        "tr": "Bugüne kadar üretilen toplam birim sayısı, mevcut ve gelecekteki birim sürelerini tahmin etmek için kullanılır.",
+        "de": "Gesamtzahl der bisher produzierten Einheiten, zur Schätzung aktueller und zukünftiger Einheitenzeiten.",
+        "fr": "Nombre total d'unités produites à ce jour, utilisé pour estimer les temps unitaires actuels et futurs.",
+        "es": "Número total de unidades producidas hasta la fecha, utilizado para estimar tiempos actuales y futuros."
       }
     },
     {
@@ -74,11 +92,17 @@
       "businessContext": "The specific unit number for which the time estimate is required.",
       "label_i18n": {
         "en": "Target Units for Estimate",
-        "tr": "Tahmin için Hedef Birim"
+        "tr": "Tahmin için Hedef Birim",
+        "de": "Zieleinheiten für Schätzung",
+        "fr": "Unités cibles pour l'estimation",
+        "es": "Unidades objetivo para la estimación"
       },
       "businessContext_i18n": {
         "en": "The specific unit number for which the time estimate is required.",
-        "tr": "Süre tahmininin gerektiği belirli birim numarası."
+        "tr": "Süre tahmininin gerektiği belirli birim numarası.",
+        "de": "Die spezifische Einheitennummer, für die die Zeitschätzung erforderlich ist.",
+        "fr": "Le numéro d'unité spécifique pour lequel l'estimation de temps est requise.",
+        "es": "Número de unidad específico para el cual se requiere la estimación de tiempo."
       }
     },
     {
@@ -92,11 +116,17 @@
       "businessContext": "Standard working shift duration for converting time to calendar days.",
       "label_i18n": {
         "en": "Shift Length (hours)",
-        "tr": "Vardiya Süresi (saat)"
+        "tr": "Vardiya Süresi (saat)",
+        "de": "Schichtlänge (Stunden)",
+        "fr": "Durée du poste (heures)",
+        "es": "Duración del turno (horas)"
       },
       "businessContext_i18n": {
         "en": "Standard working shift duration for converting time to calendar days.",
-        "tr": "Süreyi takvim günlerine dönüştürmek için standart çalışma vardiyası süresi."
+        "tr": "Süreyi takvim günlerine dönüştürmek için standart çalışma vardiyası süresi.",
+        "de": "Standard-Arbeitsschichtdauer zur Umrechnung der Zeit in Kalendertage.",
+        "fr": "Durée standard d'un poste de travail pour convertir le temps en jours calendaires.",
+        "es": "Duración estándar del turno de trabajo para convertir tiempo a días calendario."
       }
     },
     {
@@ -115,11 +145,17 @@
       ],
       "label_i18n": {
         "en": "Learning Curve Model",
-        "tr": "Öğrenme Eğrisi Modeli"
+        "tr": "Öğrenme Eğrisi Modeli",
+        "de": "Lernkurvenmodell",
+        "fr": "Modèle de courbe d'apprentissage",
+        "es": "Modelo de curva de aprendizaje"
       },
       "businessContext_i18n": {
         "en": "Select the theoretical model: Wright (standard), Crawford (unit), or DeJong (plateau).",
-        "tr": "Teorik modeli seçin: Wright (standart), Crawford (birim) veya DeJong (plato)."
+        "tr": "Teorik modeli seçin: Wright (standart), Crawford (birim) veya DeJong (plato).",
+        "de": "Wählen Sie das theoretische Modell: Wright (Standard), Crawford (Einheit) oder DeJong (Plateau).",
+        "fr": "Sélectionnez le modèle théorique : Wright (standard), Crawford (unité) ou DeJong (plateau).",
+        "es": "Seleccione el modelo teórico: Wright (estándar), Crawford (unidad) o DeJong (meseta)."
       }
     },
     {
@@ -133,11 +169,17 @@
       "businessContext": "If true, applies a penalty factor for production interruptions (e.g., after holidays or retooling).",
       "label_i18n": {
         "en": "Include Break-In Effect",
-        "tr": "Ara Verme Etkisini Dahil Et"
+        "tr": "Ara Verme Etkisini Dahil Et",
+        "de": "Wiedereinarbeitungseffekt einbeziehen",
+        "fr": "Inclure l'effet de reprise",
+        "es": "Incluir efecto de reinicio"
       },
       "businessContext_i18n": {
         "en": "If true, applies a penalty factor for production interruptions (e.g., after holidays or retooling).",
-        "tr": "Doğruysa, üretim kesintileri için bir ceza faktörü uygular (örneğin, tatillerden veya yeniden takımdan sonra)."
+        "tr": "Doğruysa, üretim kesintileri için bir ceza faktörü uygular (örneğin, tatillerden veya yeniden takımdan sonra).",
+        "de": "Wenn wahr, wird ein Strafzuschlag für Produktionsunterbrechungen angewendet (z. B. nach Feiertagen oder Umrüstung).",
+        "fr": "Si vrai, applique un facteur de pénalité pour les interruptions de production (par exemple, après les congés ou un réoutillage).",
+        "es": "Si es verdadero, aplica un factor de penalización por interrupciones en la producción (por ejemplo, después de vacaciones o cambio de herramientas)."
       }
     },
     {
@@ -151,11 +193,17 @@
       "businessContext": "Percentage increase in time for the first unit after a break, applied only if break-in is enabled.",
       "label_i18n": {
         "en": "Break-In Penalty (%)",
-        "tr": "Ara Verme Cezası (%)"
+        "tr": "Ara Verme Cezası (%)",
+        "de": "Wiedereinarbeitungsstrafe (%)",
+        "fr": "Pénalité de reprise (%)",
+        "es": "Penalización por reinicio (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage increase in time for the first unit after a break, applied only if break-in is enabled.",
-        "tr": "Bir aradan sonra ilk birim için süredeki yüzde artış, yalnızca ara verme etkinleştirilmişse uygulanır."
+        "tr": "Bir aradan sonra ilk birim için süredeki yüzde artış, yalnızca ara verme etkinleştirilmişse uygulanır.",
+        "de": "Prozentuale Zeitsteigerung für die erste Einheit nach einer Unterbrechung, nur angewendet, wenn Wiedereinarbeitung aktiviert ist.",
+        "fr": "Pourcentage d'augmentation du temps pour la première unité après une interruption, appliqué uniquement si la reprise est activée.",
+        "es": "Porcentaje de aumento en tiempo para la primera unidad después de una pausa, aplicado solo si el reinicio está habilitado."
       }
     }
   ],

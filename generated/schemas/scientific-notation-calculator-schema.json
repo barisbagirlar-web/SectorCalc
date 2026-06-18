@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Coefficient (a)",
         "tr": "Katsayı (a)",
-        "de": "Coefficient (a)",
+        "de": "Koeffizient (a)",
         "fr": "Coefficient (a)",
-        "es": "Coefficient (a)",
+        "es": "Coeficiente (a)",
         "ar": "Coefficient (a)"
       },
       "businessContext_i18n": {
         "en": "The significant digits of the number, typically between 1 and 10.",
-        "tr": "Sayının anlamlı basamakları, genellikle 1 ile 10 arasında."
+        "tr": "Sayının anlamlı basamakları, genellikle 1 ile 10 arasında.",
+        "de": "Die signifikanten Stellen der Zahl, typischerweise zwischen 1 und 10.",
+        "fr": "Les chiffres significatifs du nombre, généralement entre 1 et 10."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Exponent (b)",
         "tr": "Üs (b)",
         "de": "Exponent (b)",
-        "fr": "Exponent (b)",
+        "fr": "Exposant (b)",
         "es": "Exponent (b)",
         "ar": "Exponent (b)"
       },
       "businessContext_i18n": {
         "en": "The power of 10 multiplier.",
-        "tr": "10'un kuvveti çarpanı."
+        "tr": "10'un kuvveti çarpanı.",
+        "de": "Der Multiplikator als Zehnerpotenz.",
+        "fr": "Le multiplicateur de puissance de 10."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Value (optional)",
         "tr": "Değer (isteğe bağlı)",
-        "de": "Value (optional)",
-        "fr": "Value (optional)",
+        "de": "Wert (optional)",
+        "fr": "Valeur (optionnelle)",
         "es": "Value (optional)",
         "ar": "Value (optional)"
       },
       "businessContext_i18n": {
         "en": "If provided, the calculator will convert this value to scientific notation.",
-        "tr": "Sağlanırsa, hesap aracı bu değeri bilimsel gösterime dönüştürür."
+        "tr": "Sağlanırsa, hesap aracı bu değeri bilimsel gösterime dönüştürür.",
+        "de": "Wenn angegeben, konvertiert der Rechner diesen Wert in wissenschaftliche Notation.",
+        "fr": "Si fourni, le calculateur convertira cette valeur en notation scientifique."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the coefficient.",
-        "tr": "Katsayı için ondalık basamak sayısı."
+        "tr": "Katsayı için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für den Koeffizienten.",
+        "fr": "Nombre de décimales pour le coefficient."
       }
     }
   ],

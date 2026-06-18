@@ -13,13 +13,15 @@
         "tr": "Mesafe",
         "de": "Entfernung",
         "fr": "Distance",
-        "es": "Distance",
+        "es": "Distancia",
         "ar": "Distance"
       },
       "businessContext_i18n": {
         "en": "Distance from flash to subject",
         "tr": "Özneden flaşa mesafe",
-        "de": "Abstand vom Blitz zum Motiv"
+        "de": "Abstand vom Blitz zum Motiv",
+        "fr": "Distance du flash au sujet",
+        "es": "Distancia del flash al sujeto"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Aperture",
         "tr": "Diyafram",
         "de": "Blende",
-        "fr": "Aperture",
-        "es": "Aperture",
+        "fr": "Ouverture",
+        "es": "Apertura",
         "ar": "Aperture"
       },
       "businessContext_i18n": {
         "en": "Lens aperture f-number",
         "tr": "Lens diyafram f-sayısı",
-        "de": "Blendenwert (f-Zahl) des Objektivs"
+        "de": "Blendenwert (f-Zahl) des Objektivs",
+        "fr": "Nombre d'ouverture de l'objectif",
+        "es": "Número f de apertura del lente"
       }
     },
     {
@@ -61,7 +65,9 @@
       "businessContext_i18n": {
         "en": "ISO sensitivity",
         "tr": "ISO hassasiyeti",
-        "de": "ISO-Empfindlichkeit"
+        "de": "ISO-Empfindlichkeit",
+        "fr": "Sensibilité ISO",
+        "es": "Sensibilidad ISO"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Flash Power Fraction",
         "tr": "Flaş Güç Kesri",
         "de": "Blitzleistungsanteil",
-        "fr": "Flash Power Fraction",
-        "es": "Flash Power Fraction",
+        "fr": "Fraction de puissance du flash",
+        "es": "Fracción de potencia del flash",
         "ar": "Flash Power Fraction"
       },
       "businessContext_i18n": {
         "en": "Flash power fraction (1 = full, 0.5 = half)",
         "tr": "Flaş güç kesri (1 = tam, 0.5 = yarım)",
-        "de": "Blitzleistungsanteil (1 = voll, 0,5 = halb)"
+        "de": "Blitzleistungsanteil (1 = voll, 0,5 = halb)",
+        "fr": "Fraction de puissance du flash (1 = plein, 0,5 = moitié)",
+        "es": "Fracción de potencia del flash (1 = completo, 0.5 = medio)"
       }
     }
   ],

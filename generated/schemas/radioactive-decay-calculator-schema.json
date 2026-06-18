@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Initial Mass",
         "tr": "Başlangıç Kütlesi",
-        "de": "Initial Mass",
-        "fr": "Initial Mass",
-        "es": "Initial Mass",
+        "de": "Anfangsmasse",
+        "fr": "Masse initiale",
+        "es": "Masa inicial",
         "ar": "Initial Mass"
       },
       "businessContext_i18n": {
         "en": "Initial mass of the radioactive substance in grams",
-        "tr": "Radyoaktif maddenin başlangıç kütlesi (gram cinsinden)"
+        "tr": "Radyoaktif maddenin başlangıç kütlesi (gram cinsinden)",
+        "de": "Anfangsmasse der radioaktiven Substanz in Gramm",
+        "fr": "Masse initiale de la substance radioactive en grammes",
+        "es": "Masa inicial de la sustancia radiactiva en gramos"
       }
     },
     {
@@ -32,14 +35,16 @@
         "en": "Half-Life",
         "tr": "Yarılanma Süresi",
         "de": "Halbwertszeit",
-        "fr": "Half-Life",
-        "es": "Half-Life",
+        "fr": "Demi-vie",
+        "es": "Vida media",
         "ar": "Half-Life"
       },
       "businessContext_i18n": {
         "en": "Time required for half of the substance to decay",
         "tr": "Maddenin yarısının bozunması için gereken süre",
-        "de": "Zeit, die benötigt wird, damit die Hälfte des Stoffes zerfällt"
+        "de": "Zeit, die benötigt wird, damit die Hälfte des Stoffes zerfällt",
+        "fr": "Temps nécessaire pour que la moitié de la substance se désintègre",
+        "es": "Tiempo requerido para que la mitad de la sustancia se desintegre"
       }
     },
     {
@@ -52,14 +57,17 @@
       "label_i18n": {
         "en": "Start Time",
         "tr": "Başlangıç Zamanı",
-        "de": "Start Time",
-        "fr": "Start Time",
-        "es": "Start Time",
+        "de": "Startzeit",
+        "fr": "Heure de début",
+        "es": "Tiempo de inicio",
         "ar": "Start Time"
       },
       "businessContext_i18n": {
         "en": "Starting point of the decay period",
-        "tr": "Bozunma periyodunun başlangıç noktası"
+        "tr": "Bozunma periyodunun başlangıç noktası",
+        "de": "Startpunkt der Abklingperiode",
+        "fr": "Point de départ de la période de désintégration",
+        "es": "Punto de inicio del período de descomposición"
       }
     },
     {
@@ -72,14 +80,17 @@
       "label_i18n": {
         "en": "End Time",
         "tr": "Bitiş Zamanı",
-        "de": "End Time",
-        "fr": "End Time",
-        "es": "End Time",
+        "de": "Endzeit",
+        "fr": "Heure de fin",
+        "es": "Hora de finalización",
         "ar": "End Time"
       },
       "businessContext_i18n": {
         "en": "Ending point of the decay period",
-        "tr": "Bozunma periyodunun bitiş noktası"
+        "tr": "Bozunma periyodunun bitiş noktası",
+        "de": "Endpunkt der Abklingperiode",
+        "fr": "Point de fin de la période de désintégration",
+        "es": "Punto final del período de descomposición"
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Building Width (Span)",
         "tr": "Bina Genişliği (Açıklık)",
-        "de": "Building Width (Span)",
-        "fr": "Building Width (Span)",
-        "es": "Building Width (Span)",
+        "de": "Gebäudebreite (Spannweite)",
+        "fr": "Largeur du bâtiment (portée)",
+        "es": "Ancho del edificio (luz)",
         "ar": "Building Width (Span)"
       },
       "businessContext_i18n": {
         "en": "Horizontal distance between outer walls, defines truss bottom chord length.",
-        "tr": "Dış duvarlar arasındaki yatay mesafe, kiriş alt kiriş uzunluğunu belirler."
+        "tr": "Dış duvarlar arasındaki yatay mesafe, kiriş alt kiriş uzunluğunu belirler.",
+        "de": "Horizontaler Abstand zwischen den Außenwänden, definiert die Länge des Untergurts des Dachstuhls.",
+        "fr": "Distance horizontale entre les murs extérieurs, définit la longueur de la membrure inférieure de la ferme."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Roof Rise",
         "tr": "Çatı Yükseltisi",
-        "de": "Roof Rise",
-        "fr": "Roof Rise",
+        "de": "Dachhöhe",
+        "fr": "Hauteur du toit",
         "es": "Roof Rise",
         "ar": "Roof Rise"
       },
       "businessContext_i18n": {
         "en": "Vertical height from top of wall plate to ridge peak, determines roof slope.",
-        "tr": "Duvar levhasının üstünden mahya tepesine kadar dikey yükseklik, çatı eğimini belirler."
+        "tr": "Duvar levhasının üstünden mahya tepesine kadar dikey yükseklik, çatı eğimini belirler.",
+        "de": "Vertikale Höhe von der Oberkante der Mauerlatte bis zum First, bestimmt die Dachneigung.",
+        "fr": "Hauteur verticale du dessus de la sablière au faîte, détermine la pente du toit."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Eave Overhang",
         "tr": "Saçak çıkıntısı",
         "de": "Traufüberstand",
-        "fr": "Eave Overhang",
-        "es": "Eave Overhang",
+        "fr": "Débord d'avant-toit",
+        "es": "Voladizo del alero",
         "ar": "Eave Overhang"
       },
       "businessContext_i18n": {
         "en": "Horizontal projection of roof beyond exterior wall, extends rafter length.",
-        "tr": "Çatının dış duvarın ötesindeki yatay çıkıntısı, kiriş uzunluğunu uzatır."
+        "tr": "Çatının dış duvarın ötesindeki yatay çıkıntısı, kiriş uzunluğunu uzatır.",
+        "de": "Horizontaler Überstand des Daches über die Außenwand hinaus, verlängert die Sparrenlänge.",
+        "fr": "Projection horizontale du toit au-delà du mur extérieur, prolonge la longueur du chevron."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Building Length",
         "tr": "Bina Uzunluğu",
         "de": "Gebäudelänge",
-        "fr": "Building Length",
-        "es": "Building Length",
+        "fr": "Longueur du bâtiment",
+        "es": "Largo del edificio",
         "ar": "Building Length"
       },
       "businessContext_i18n": {
         "en": "Building length along ridge direction, used with spacing to calculate total truss quantity.",
-        "tr": "Mahya yönünde bina uzunluğu, toplam kiriş miktarını hesaplamak için aralıkla birlikte kullanılır."
+        "tr": "Mahya yönünde bina uzunluğu, toplam kiriş miktarını hesaplamak için aralıkla birlikte kullanılır.",
+        "de": "Gebäudelänge entlang der Firstrichtung, wird zusammen mit dem Abstand zur Berechnung der Gesamtzahl der Dachstühle verwendet.",
+        "fr": "Longueur du bâtiment dans la direction du faîte, utilisée avec l'espacement pour calculer la quantité totale de fermes."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Truss Spacing",
         "tr": "Kiriş Aralığı",
-        "de": "Truss Spacing",
-        "fr": "Truss Spacing",
+        "de": "Dachstuhlabstand",
+        "fr": "Espacement des fermes",
         "es": "Truss Spacing",
         "ar": "Truss Spacing"
       },
       "businessContext_i18n": {
         "en": "Center-to-center distance between consecutive trusses, typical range 0.4–1.2 m.",
-        "tr": "Ardışık kirişler arasındaki merkezden merkeze mesafe, tipik aralık 0.4–1.2 m."
+        "tr": "Ardışık kirişler arasındaki merkezden merkeze mesafe, tipik aralık 0.4–1.2 m.",
+        "de": "Mittenabstand zwischen aufeinanderfolgenden Dachstühlen, typischer Bereich 0,4–1,2 m.",
+        "fr": "Distance centre à centre entre les fermes consécutives, plage typique 0,4–1,2 m."
       }
     }
   ],

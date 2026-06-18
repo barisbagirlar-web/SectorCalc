@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Width in Pixels",
         "tr": "Piksel cinsinden Genişlik",
-        "de": "Width in Pixels",
-        "fr": "Width in Pixels",
-        "es": "Width in Pixels",
+        "de": "Breite in Pixeln",
+        "fr": "Largeur en pixels",
+        "es": "Ancho en píxeles",
         "ar": "Width in Pixels"
       },
       "businessContext_i18n": {
         "en": "Horizontal pixel count of the digital image or screen, used to calculate physical width.",
-        "tr": "Dijital görüntü veya ekranın yatay piksel sayısı, fiziksel genişliği hesaplamak için kullanılır."
+        "tr": "Dijital görüntü veya ekranın yatay piksel sayısı, fiziksel genişliği hesaplamak için kullanılır.",
+        "de": "Horizontale Pixelanzahl des digitalen Bildes oder Bildschirms, zur Berechnung der physischen Breite.",
+        "fr": "Nombre de pixels horizontaux de l'image numérique ou de l'écran, utilisé pour calculer la largeur physique.",
+        "es": "Recuento horizontal de píxeles de la imagen digital o pantalla, utilizado para calcular el ancho físico."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Height in Pixels",
         "tr": "Yükseklik (piksel)",
-        "de": "Height in Pixels",
-        "fr": "Height in Pixels",
-        "es": "Height in Pixels",
+        "de": "Höhe in Pixeln",
+        "fr": "Hauteur en pixels",
+        "es": "Alto en píxeles",
         "ar": "Height in Pixels"
       },
       "businessContext_i18n": {
         "en": "Vertical pixel count of the digital image or screen, used to calculate physical height.",
-        "tr": "Dijital görüntü veya ekranın dikey piksel sayısı, fiziksel yüksekliği hesaplamak için kullanılır."
+        "tr": "Dijital görüntü veya ekranın dikey piksel sayısı, fiziksel yüksekliği hesaplamak için kullanılır.",
+        "de": "Vertikale Pixelanzahl des digitalen Bildes oder Bildschirms, zur Berechnung der physischen Höhe.",
+        "fr": "Nombre de pixels verticaux de l'image numérique ou de l'écran, utilisé pour calculer la hauteur physique.",
+        "es": "Recuento vertical de píxeles de la imagen digital o pantalla, utilizado para calcular el alto físico."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Pixels Per Inch (PPI)",
         "tr": "İnç Başına Piksel (PPI)",
-        "de": "Pixels Per Inch (PPI)",
-        "fr": "Pixels Per Inch (PPI)",
-        "es": "Pixels Per Inch (PPI)",
+        "de": "Pixel pro Zoll (PPI)",
+        "fr": "Pixels par pouce (PPP)",
+        "es": "Píxeles por pulgada (PPI)",
         "ar": "Pixels Per Inch (PPI)"
       },
       "businessContext_i18n": {
         "en": "The image resolution, typically the screen's pixel density, determining the inches per pixel.",
-        "tr": "Görüntü çözünürlüğü, genellikle ekranın piksel yoğunluğu, inç başına düşen piksel sayısını belirler."
+        "tr": "Görüntü çözünürlüğü, genellikle ekranın piksel yoğunluğu, inç başına düşen piksel sayısını belirler.",
+        "de": "Die Bildauflösung, typischerweise die Pixeldichte des Bildschirms, die die Zoll pro Pixel bestimmt.",
+        "fr": "La résolution de l'image, généralement la densité de pixels de l'écran, déterminant les pouces par pixel.",
+        "es": "La resolución de la imagen, típicamente la densidad de píxeles de la pantalla, que determina las pulgadas por píxel."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output dimensions, ensuring manufacturing or design tolerances.",
-        "tr": "Çıktı boyutları için ondalık basamak sayısı, üretim veya tasarım toleranslarını sağlar."
+        "tr": "Çıktı boyutları için ondalık basamak sayısı, üretim veya tasarım toleranslarını sağlar.",
+        "de": "Anzahl der Dezimalstellen für die Ausgabemaße, um Fertigungs- oder Designtoleranzen zu gewährleisten.",
+        "fr": "Nombre de décimales pour les dimensions de sortie, garantissant les tolérances de fabrication ou de conception.",
+        "es": "Número de decimales para las dimensiones de salida, asegurando tolerancias de fabricación o diseño."
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Gross Pay per Period",
         "tr": "Dönem Brüt Ücreti",
-        "de": "Gross Pay per Period",
-        "fr": "Gross Pay per Period",
+        "de": "Bruttovergütung pro Abrechnungszeitraum",
+        "fr": "Salaire brut par période",
         "es": "Gross Pay per Period",
         "ar": "Gross Pay per Period"
       },
       "businessContext_i18n": {
         "en": "Enter the gross pay for the pay period",
-        "tr": "Ödeme dönemi için brüt ücreti girin"
+        "tr": "Ödeme dönemi için brüt ücreti girin",
+        "de": "Geben Sie das Bruttogehalt für den Abrechnungszeitraum ein",
+        "fr": "Saisissez le salaire brut pour la période de paie"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Employee SS Rate (%)",
         "tr": "Çalışan SS Oranı (%)",
-        "de": "Employee SS Rate (%)",
-        "fr": "Employee SS Rate (%)",
+        "de": "Mitarbeiter-SV-Satz (%)",
+        "fr": "Taux de cotisation salariale SS (%)",
         "es": "Employee SS Rate (%)",
         "ar": "Employee SS Rate (%)"
       },
       "businessContext_i18n": {
         "en": "Social security tax rate for employee (e.g., 6.2%)",
-        "tr": "Çalışan için sosyal güvenlik vergisi oranı (örn. %6,2)"
+        "tr": "Çalışan için sosyal güvenlik vergisi oranı (örn. %6,2)",
+        "de": "Sozialversicherungssatz für Arbeitnehmer (z. B. 6,2 %)",
+        "fr": "Taux d'imposition de la sécurité sociale pour l'employé (ex. 6,2%)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Employer SS Rate (%)",
         "tr": "İşveren SS Oranı (%)",
-        "de": "Employer SS Rate (%)",
-        "fr": "Employer SS Rate (%)",
+        "de": "Arbeitgeber-SV-Satz (%)",
+        "fr": "Taux de cotisation patronale SS (%)",
         "es": "Employer SS Rate (%)",
         "ar": "Employer SS Rate (%)"
       },
       "businessContext_i18n": {
         "en": "Social security tax rate for employer (e.g., 6.2%)",
-        "tr": "İşveren için sosyal güvenlik vergisi oranı (örn. %6,2)"
+        "tr": "İşveren için sosyal güvenlik vergisi oranı (örn. %6,2)",
+        "de": "Sozialversicherungssatz für Arbeitgeber (z. B. 6,2 %)",
+        "fr": "Taux d'imposition de la sécurité sociale pour l'employeur (ex. 6,2%)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Annual Wage Ceiling",
         "tr": "Yıllık Ücret Tavanı",
-        "de": "Annual Wage Ceiling",
-        "fr": "Annual Wage Ceiling",
+        "de": "Jahresgehaltsobergrenze",
+        "fr": "Plafond annuel des salaires",
         "es": "Annual Wage Ceiling",
         "ar": "Annual Wage Ceiling"
       },
       "businessContext_i18n": {
         "en": "Maximum amount of annual earnings subject to social security tax",
-        "tr": "Sosyal güvenlik vergisine tabi yıllık kazancın azami tutarı"
+        "tr": "Sosyal güvenlik vergisine tabi yıllık kazancın azami tutarı",
+        "de": "Maximaler Jahresverdienst, der der Sozialversicherung unterliegt",
+        "fr": "Montant maximum des gains annuels soumis à la taxe de sécurité sociale"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Pay Periods per Year",
         "tr": "Yıllık Ödeme Dönemi Sayısı",
-        "de": "Pay Periods per Year",
-        "fr": "Pay Periods per Year",
+        "de": "Auszahlungen pro Jahr",
+        "fr": "Périodes de paie par an",
         "es": "Pay Periods per Year",
         "ar": "Pay Periods per Year"
       },
       "businessContext_i18n": {
         "en": "Number of pay periods per year (e.g., 12 for monthly, 26 for bi-weekly)",
-        "tr": "Yıllık ödeme dönemi sayısı (örn. aylık için 12, iki haftada bir için 26)"
+        "tr": "Yıllık ödeme dönemi sayısı (örn. aylık için 12, iki haftada bir için 26)",
+        "de": "Anzahl der Auszahlungen pro Jahr (z. B. 12 monatlich, 26 zweiwöchentlich)",
+        "fr": "Nombre de périodes de paie par an (ex. 12 pour mensuel, 26 pour bimensuel)"
       }
     }
   ],

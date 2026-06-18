@@ -12,13 +12,16 @@
         "en": "Weight Lifted",
         "tr": "Kaldırılan Ağırlık",
         "de": "Gehobenes Gewicht",
-        "fr": "Weight Lifted",
-        "es": "Weight Lifted",
+        "fr": "Poids soulevé",
+        "es": "Peso levantado",
         "ar": "Weight Lifted"
       },
       "businessContext_i18n": {
         "en": "The weight used for the lift, in kilograms.",
-        "tr": "Kaldırma için kullanılan ağırlık (kilogram)"
+        "tr": "Kaldırma için kullanılan ağırlık (kilogram)",
+        "de": "Das für den Lift verwendete Gewicht in Kilogramm.",
+        "fr": "Poids utilisé pour le levage, en kilogrammes.",
+        "es": "El peso utilizado para la elevación, en kilogramos."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Repetitions",
         "tr": "Tekrar Sayısı",
         "de": "Wiederholungen",
-        "fr": "Repetitions",
-        "es": "Repetitions",
+        "fr": "Répétitions",
+        "es": "Repeticiones",
         "ar": "Repetitions"
       },
       "businessContext_i18n": {
         "en": "Number of repetitions performed to failure or near failure.",
-        "tr": "Başarısızlığa veya başarısızlığa yakın gerçekleştirilen tekrar sayısı"
+        "tr": "Başarısızlığa veya başarısızlığa yakın gerçekleştirilen tekrar sayısı",
+        "de": "Anzahl der Wiederholungen bis zum Versagen oder nahezu Versagen.",
+        "fr": "Nombre de répétitions effectuées jusqu'à l'échec ou presque.",
+        "es": "Número de repeticiones realizadas hasta el fallo o cerca del fallo."
       }
     },
     {
@@ -48,8 +54,8 @@
         "en": "auto_input_3",
         "tr": "Otomatik girdi 3",
         "de": "auto_input_3",
-        "fr": "auto_input_3",
-        "es": "auto_input_3",
+        "fr": "Entrée automatique 3",
+        "es": "entrada_automática_3",
         "ar": "auto_input_3"
       },
       "type": "number",
@@ -60,8 +66,8 @@
         "en": "Auto-generated input 3.",
         "tr": "Otomatik oluşturulan girdi 3.",
         "de": "Automatisch generierte Eingabe 3.",
-        "fr": "Auto-generated input 3.",
-        "es": "Auto-generated input 3.",
+        "fr": "Entrée générée automatiquement 3.",
+        "es": "Entrada generada automáticamente 3.",
         "ar": "Auto-generated input 3."
       }
     }

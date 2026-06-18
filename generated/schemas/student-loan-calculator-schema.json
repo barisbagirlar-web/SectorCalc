@@ -12,13 +12,15 @@
         "en": "Loan Amount",
         "tr": "Kredi Tutarı",
         "de": "Darlehensbetrag",
-        "fr": "Loan Amount",
-        "es": "Loan Amount",
+        "fr": "Montant du prêt",
+        "es": "Monto del préstamo",
         "ar": "Loan Amount"
       },
       "businessContext_i18n": {
         "en": "Total principal amount borrowed for education expenses",
-        "tr": "Eğitim masrafları için borçlanılan toplam anapara tutarı"
+        "tr": "Eğitim masrafları için borçlanılan toplam anapara tutarı",
+        "de": "Gesamter geliehener Kapitalbetrag für Bildungskosten",
+        "fr": "Montant total du principal emprunté pour les frais d'études"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
         "de": "Jährlicher Zinssatz",
-        "fr": "Annual Interest Rate",
-        "es": "Annual Interest Rate",
+        "fr": "Taux d'intérêt annuel",
+        "es": "Tasa de Interés Anual",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Fixed annual interest rate on the student loan",
-        "tr": "Öğrenci kredisine uygulanan sabit yıllık faiz oranı"
+        "tr": "Öğrenci kredisine uygulanan sabit yıllık faiz oranı",
+        "de": "Fester jährlicher Zinssatz des Studienkredits",
+        "fr": "Taux d'intérêt annuel fixe du prêt étudiant"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Loan Term",
         "tr": "Kredi Vadesi",
         "de": "Darlehenslaufzeit",
-        "fr": "Loan Term",
-        "es": "Loan Term",
+        "fr": "Durée du prêt",
+        "es": "Plazo del préstamo",
         "ar": "Loan Term"
       },
       "businessContext_i18n": {
         "en": "Repayment period in years after any deferment ends",
-        "tr": "Herhangi bir erteleme dönemi sonrası geri ödeme süresi (yıl olarak)"
+        "tr": "Herhangi bir erteleme dönemi sonrası geri ödeme süresi (yıl olarak)",
+        "de": "Rückzahlungszeitraum in Jahren nach Ende der Stundung",
+        "fr": "Période de remboursement en années après la fin de tout différé"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Deferment Period",
         "tr": "Erteleme Dönemi",
-        "de": "Deferment Period",
-        "fr": "Deferment Period",
+        "de": "Stundungszeitraum",
+        "fr": "Période de différé",
         "es": "Deferment Period",
         "ar": "Deferment Period"
       },
       "businessContext_i18n": {
         "en": "Number of months before repayment starts, during which interest accrues and capitalizes",
-        "tr": "Geri ödeme başlamadan önceki ay sayısı; bu sürede faiz tahakkuk eder ve anaparaya eklenir."
+        "tr": "Geri ödeme başlamadan önceki ay sayısı; bu sürede faiz tahakkuk eder ve anaparaya eklenir.",
+        "de": "Anzahl der Monate vor Beginn der Rückzahlung, in denen Zinsen anfallen und kapitalisiert werden",
+        "fr": "Nombre de mois avant le début du remboursement, durant lesquels les intérêts courent et se capitalisent"
       }
     }
   ],

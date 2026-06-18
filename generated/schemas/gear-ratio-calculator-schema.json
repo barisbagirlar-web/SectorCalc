@@ -12,14 +12,16 @@
         "en": "Driving Gear Teeth",
         "tr": "Tahrik Eden Dişli Diş Sayısı",
         "de": "Treibende Zähnezahl",
-        "fr": "Driving Gear Teeth",
-        "es": "Driving Gear Teeth",
+        "fr": "Dents de la roue menante",
+        "es": "Dientes del engranaje conductor",
         "ar": "Driving Gear Teeth"
       },
       "businessContext_i18n": {
         "en": "Number of teeth on the driving (input) gear.",
         "tr": "Tahrik eden (giriş) dişlideki diş sayısı.",
-        "de": "Anzahl der Zähne des treibenden (Eingangs-)Zahnrads."
+        "de": "Anzahl der Zähne des treibenden (Eingangs-)Zahnrads.",
+        "fr": "Nombre de dents de la roue menante (entrée).",
+        "es": "Número de dientes del engranaje conductor (entrada)."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Driven Gear Teeth",
         "tr": "Tahrik Edilen Dişli Diş Sayısı",
         "de": "Getriebene Zähnezahl",
-        "fr": "Driven Gear Teeth",
-        "es": "Driven Gear Teeth",
+        "fr": "Dents de la roue menée",
+        "es": "Dientes del Engranaje Conducido",
         "ar": "Driven Gear Teeth"
       },
       "businessContext_i18n": {
         "en": "Number of teeth on the driven (output) gear.",
         "tr": "Tahrik edilen (çıkış) dişlideki diş sayısı.",
-        "de": "Anzahl der Zähne des getriebenen (Ausgangs-)Zahnrads."
+        "de": "Anzahl der Zähne des getriebenen (Ausgangs-)Zahnrads.",
+        "fr": "Nombre de dents de la roue menée (sortie).",
+        "es": "Número de dientes del engranaje conducido (salida)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Input Speed",
         "tr": "Giriş Hızı",
         "de": "Eingangsdrehzahl",
-        "fr": "Input Speed",
-        "es": "Input Speed",
+        "fr": "Vitesse d'entrée",
+        "es": "Velocidad de Entrada",
         "ar": "Input Speed"
       },
       "businessContext_i18n": {
         "en": "Rotational speed of the driving gear in revolutions per minute.",
         "tr": "Tahrik eden dişlinin dakikadaki devir cinsinden dönüş hızı.",
-        "de": "Drehzahl des treibenden Zahnrads in Umdrehungen pro Minute."
+        "de": "Drehzahl des treibenden Zahnrads in Umdrehungen pro Minute.",
+        "fr": "Vitesse de rotation de la roue menante en tours par minute.",
+        "es": "Velocidad de rotación del engranaje conductor en revoluciones por minuto."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Input Torque",
         "tr": "Giriş Torku",
         "de": "Eingangsdrehmoment",
-        "fr": "Input Torque",
-        "es": "Input Torque",
+        "fr": "Couple d'entrée",
+        "es": "Par de Entrada",
         "ar": "Input Torque"
       },
       "businessContext_i18n": {
         "en": "Torque applied to the driving gear in Newton-meters.",
         "tr": "Tahrik eden dişliye uygulanan Newton-metre cinsinden tork.",
-        "de": "Auf das treibende Zahnrad wirkendes Drehmoment in Newtonmetern."
+        "de": "Auf das treibende Zahnrad wirkendes Drehmoment in Newtonmetern.",
+        "fr": "Couple appliqué à la roue menante en Newton-mètres.",
+        "es": "Par aplicado al engranaje conductor en Newton-metros."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Efficiency",
         "tr": "Verim",
         "de": "Wirkungsgrad",
-        "fr": "Efficiency",
-        "es": "Efficiency",
+        "fr": "Rendement",
+        "es": "Eficiencia",
         "ar": "Efficiency"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the gear pair in percentage (0-100). If not provided, assumes 100% (ideal).",
         "tr": "Dişli çiftinin yüzde cinsinden verimi (0-100). Belirtilmezse %100 (ideal) varsayılır.",
-        "de": "Wirkungsgrad des Zahnradpaares in Prozent (0-100). Falls nicht angegeben, wird 100 % (ideal) angenommen."
+        "de": "Wirkungsgrad des Zahnradpaares in Prozent (0-100). Falls nicht angegeben, wird 100 % (ideal) angenommen.",
+        "fr": "Rendement de la paire d'engrenages en pourcentage (0-100). Si non fourni, suppose 100% (idéal).",
+        "es": "Eficiencia del par de engranajes en porcentaje (0-100). Si no se proporciona, asume 100% (ideal)."
       }
     }
   ],

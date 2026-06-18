@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Total Batch Weight",
         "tr": "Toplam Parti Ağırlığı",
-        "de": "Total Batch Weight",
-        "fr": "Total Batch Weight",
+        "de": "Gesamtchargengewicht",
+        "fr": "Poids total du lot",
         "es": "Total Batch Weight",
         "ar": "Total Batch Weight"
       },
       "businessContext_i18n": {
         "en": "Total weight of the entire batch or recipe in grams.",
-        "tr": "Tüm parti veya tarifin gram cinsinden toplam ağırlığı."
+        "tr": "Tüm parti veya tarifin gram cinsinden toplam ağırlığı.",
+        "de": "Gesamtgewicht der gesamten Charge oder des Rezepts in Gramm.",
+        "fr": "Poids total du lot ou de la recette en grammes."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Number of Servings",
         "tr": "Porsiyon Sayısı",
         "de": "Anzahl der Portionen",
-        "fr": "Number of Servings",
-        "es": "Number of Servings",
+        "fr": "Nombre de portions",
+        "es": "Número de porciones",
         "ar": "Number of Servings"
       },
       "businessContext_i18n": {
         "en": "Number of servings the batch yields.",
-        "tr": "Partinin verdiği porsiyon sayısı."
+        "tr": "Partinin verdiği porsiyon sayısı.",
+        "de": "Anzahl der Portionen, die die Charge ergibt.",
+        "fr": "Nombre de portions du lot."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Desired Servings",
         "tr": "İstenen Porsiyon",
-        "de": "Desired Servings",
-        "fr": "Desired Servings",
-        "es": "Desired Servings",
+        "de": "Gewünschte Portionen",
+        "fr": "Portions souhaitées",
+        "es": "Porciones deseadas",
         "ar": "Desired Servings"
       },
       "businessContext_i18n": {
         "en": "Target number of servings for scaling.",
-        "tr": "Ölçeklendirme için hedef porsiyon sayısı."
+        "tr": "Ölçeklendirme için hedef porsiyon sayısı.",
+        "de": "Zielanzahl der Portionen für die Skalierung.",
+        "fr": "Nombre cible de portions pour le changement d'échelle."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Total Batch Cost",
         "tr": "Toplam Parti Maliyeti",
-        "de": "Total Batch Cost",
-        "fr": "Total Batch Cost",
+        "de": "Gesamtkosten der Charge",
+        "fr": "Coût total du lot",
         "es": "Total Batch Cost",
         "ar": "Total Batch Cost"
       },
       "businessContext_i18n": {
         "en": "Total cost of ingredients for the batch.",
-        "tr": "Parti için malzemelerin toplam maliyeti."
+        "tr": "Parti için malzemelerin toplam maliyeti.",
+        "de": "Gesamtkosten der Zutaten für die Charge.",
+        "fr": "Coût total des ingrédients pour le lot."
       }
     }
   ],

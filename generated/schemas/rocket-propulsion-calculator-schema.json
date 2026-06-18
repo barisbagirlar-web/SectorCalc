@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Initial Mass",
         "tr": "Başlangıç Kütlesi",
-        "de": "Initial Mass",
-        "fr": "Initial Mass",
-        "es": "Initial Mass",
+        "de": "Anfangsmasse",
+        "fr": "Masse initiale",
+        "es": "Masa inicial",
         "ar": "Initial Mass"
       },
       "businessContext_i18n": {
         "en": "Total initial mass of the rocket including propellant.",
-        "tr": "Roketin yakıt dahil toplam başlangıç kütlesi."
+        "tr": "Roketin yakıt dahil toplam başlangıç kütlesi.",
+        "de": "Gesamte Anfangsmasse der Rakete einschließlich Treibstoff.",
+        "fr": "Masse initiale totale de la fusée incluant le propergol."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Final Mass",
         "tr": "Son Kütle",
-        "de": "Final Mass",
-        "fr": "Final Mass",
+        "de": "Endmasse",
+        "fr": "Masse finale",
         "es": "Final Mass",
         "ar": "Final Mass"
       },
       "businessContext_i18n": {
         "en": "Final mass after propellant burnout (dry mass).",
-        "tr": "Yakıt tükenmesinden sonraki son kütle (kuru kütle)."
+        "tr": "Yakıt tükenmesinden sonraki son kütle (kuru kütle).",
+        "de": "Endmasse nach Treibstoffausbrand (Trockenmasse).",
+        "fr": "Masse finale après épuisement du propergol (masse sèche)."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Specific Impulse (Isp)",
         "tr": "Özgül İtki (Isp)",
         "de": "Spezifischer Impuls (Isp)",
-        "fr": "Specific Impulse (Isp)",
-        "es": "Specific Impulse (Isp)",
+        "fr": "Impulsion spécifique (Isp)",
+        "es": "Impulso específico (Isp)",
         "ar": "Specific Impulse (Isp)"
       },
       "businessContext_i18n": {
         "en": "Specific impulse of the rocket engine, a measure of efficiency.",
-        "tr": "Roket motorunun özgül itkisi, bir verimlilik ölçüsü."
+        "tr": "Roket motorunun özgül itkisi, bir verimlilik ölçüsü.",
+        "de": "Spezifischer Impuls des Raketentriebwerks, ein Maß für die Effizienz.",
+        "fr": "Impulsion spécifique du moteur-fusée, mesure de l'efficacité."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Gravitational Acceleration",
         "tr": "Yerçekimi İvmesi",
         "de": "Erdbeschleunigung",
-        "fr": "Gravitational Acceleration",
-        "es": "Gravitational Acceleration",
+        "fr": "Accélération gravitationnelle",
+        "es": "Aceleración gravitacional",
         "ar": "Gravitational Acceleration"
       },
       "businessContext_i18n": {
         "en": "Standard gravitational acceleration at Earth's surface.",
-        "tr": "Dünya yüzeyindeki standart yerçekimi ivmesi."
+        "tr": "Dünya yüzeyindeki standart yerçekimi ivmesi.",
+        "de": "Standard-Erdbeschleunigung an der Erdoberfläche.",
+        "fr": "Accélération gravitationnelle standard à la surface terrestre."
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Mass Flow Rate",
         "tr": "Kütlesel Debi",
         "de": "Massenstrom",
-        "fr": "Mass Flow Rate",
-        "es": "Mass Flow Rate",
+        "fr": "Débit massique",
+        "es": "Caudal másico",
         "ar": "Mass Flow Rate"
       },
       "businessContext_i18n": {
         "en": "Propellant mass flow rate through the engine.",
-        "tr": "Motordan geçen yakıt kütle debisi."
+        "tr": "Motordan geçen yakıt kütle debisi.",
+        "de": "Massenstrom des Treibstoffs durch das Triebwerk.",
+        "fr": "Débit massique du propergol à travers le moteur."
       }
     }
   ],

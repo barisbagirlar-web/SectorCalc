@@ -12,13 +12,15 @@
         "en": "Initial Velocity",
         "tr": "Başlangıç Hızı",
         "de": "Anfangsgeschwindigkeit",
-        "fr": "Initial Velocity",
-        "es": "Initial Velocity",
+        "fr": "Vitesse initiale",
+        "es": "Velocidad inicial",
         "ar": "Initial Velocity"
       },
       "businessContext_i18n": {
         "en": "The initial speed of the projectile at launch",
-        "tr": "Merminin fırlatma anındaki başlangıç hızı"
+        "tr": "Merminin fırlatma anındaki başlangıç hızı",
+        "de": "Die Anfangsgeschwindigkeit des Projektils beim Abschuss",
+        "fr": "Vitesse initiale du projectile au lancement"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Launch Angle",
         "tr": "Çıkış Açısı",
         "de": "Abflugwinkel",
-        "fr": "Launch Angle",
-        "es": "Launch Angle",
+        "fr": "Angle de lancement",
+        "es": "Ángulo de lanzamiento",
         "ar": "Launch Angle"
       },
       "businessContext_i18n": {
         "en": "The angle of launch relative to horizontal",
-        "tr": "Yataya göre fırlatma açısı"
+        "tr": "Yataya göre fırlatma açısı",
+        "de": "Der Abwurfwinkel relativ zur Horizontalen",
+        "fr": "Angle de lancement par rapport à l'horizontale"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Projectile Mass",
         "tr": "Mermi Kütlesi",
-        "de": "Projectile Mass",
-        "fr": "Projectile Mass",
+        "de": "Projektilmasse",
+        "fr": "Masse du projectile",
         "es": "Projectile Mass",
         "ar": "Projectile Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the projectile, used for kinetic energy calculation",
-        "tr": "Merminin kütlesi, kinetik enerji hesaplaması için kullanılır"
+        "tr": "Merminin kütlesi, kinetik enerji hesaplaması için kullanılır",
+        "de": "Masse des Projektils, wird für die kinetische Energieberechnung verwendet",
+        "fr": "Masse du projectile, utilisée pour le calcul de l'énergie cinétique"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Gravitational Acceleration",
         "tr": "Yerçekimi İvmesi",
         "de": "Erdbeschleunigung",
-        "fr": "Gravitational Acceleration",
-        "es": "Gravitational Acceleration",
+        "fr": "Accélération gravitationnelle",
+        "es": "Aceleración gravitacional",
         "ar": "Gravitational Acceleration"
       },
       "businessContext_i18n": {
         "en": "Standard gravity, usually 9.81 m/s²",
-        "tr": "Standart yerçekimi, genellikle 9,81 m/s²"
+        "tr": "Standart yerçekimi, genellikle 9,81 m/s²",
+        "de": "Standard-Erdbeschleunigung, normalerweise 9,81 m/s²",
+        "fr": "Gravité standard, généralement 9,81 m/s²"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Launch Height",
         "tr": "Fırlatma Yüksekliği",
-        "de": "Launch Height",
-        "fr": "Launch Height",
+        "de": "Abwurfhöhe",
+        "fr": "Hauteur de lancement",
         "es": "Launch Height",
         "ar": "Launch Height"
       },
       "businessContext_i18n": {
         "en": "Height above ground from which projectile is launched. 0 for ground level.",
-        "tr": "Merminin fırlatıldığı yerden yüksekliği. Zemin seviyesi için 0."
+        "tr": "Merminin fırlatıldığı yerden yüksekliği. Zemin seviyesi için 0.",
+        "de": "Höhe über dem Boden, von der das Projektil abgeworfen wird. 0 für Bodenhöhe.",
+        "fr": "Hauteur au-dessus du sol à partir de laquelle le projectile est lancé. 0 pour le niveau du sol."
       }
     }
   ],

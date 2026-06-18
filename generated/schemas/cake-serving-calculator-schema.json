@@ -12,14 +12,16 @@
         "en": "Cake Shape",
         "tr": "Kek Şekli",
         "de": "Kuchenform",
-        "fr": "Cake Shape",
-        "es": "Cake Shape",
+        "fr": "Forme du gâteau",
+        "es": "Forma de la torta",
         "ar": "Cake Shape"
       },
       "businessContext_i18n": {
         "en": "0 for round, 1 for rectangular",
         "tr": "0 yuvarlak, 1 dikdörtgen",
-        "de": "0 für rund, 1 für rechteckig"
+        "de": "0 für rund, 1 für rechteckig",
+        "fr": "0 pour rond, 1 pour rectangulaire",
+        "es": "0 para redonda, 1 para rectangular"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Diameter (round) / Length (rectangular)",
         "tr": "Çap (yuvarlak) / Uzunluk (dikdörtgen)",
         "de": "Durchmesser (rund) / Länge (rechteckig)",
-        "fr": "Diameter (round) / Length (rectangular)",
-        "es": "Diameter (round) / Length (rectangular)",
+        "fr": "Diamètre (rond) / Longueur (rectangulaire)",
+        "es": "Diámetro (redonda) / Largo (rectangular)",
         "ar": "Diameter (round) / Length (rectangular)"
       },
       "businessContext_i18n": {
         "en": "Primary dimension of the cake",
         "tr": "Kekin ana boyutu",
-        "de": "Primäre Abmessung des Kuchens"
+        "de": "Primäre Abmessung des Kuchens",
+        "fr": "Dimension principale du gâteau",
+        "es": "Dimensión principal de la torta"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Width (rectangular, enter 0 for round)",
         "tr": "Genişlik (dikdörtgen, yuvarlak için 0 girin)",
         "de": "Breite (rechteckig, bei rund 0 eingeben)",
-        "fr": "Width (rectangular, enter 0 for round)",
-        "es": "Width (rectangular, enter 0 for round)",
+        "fr": "Largeur (rectangulaire, entrer 0 pour rond)",
+        "es": "Ancho (rectangular, ingrese 0 para redonda)",
         "ar": "Width (rectangular, enter 0 for round)"
       },
       "businessContext_i18n": {
         "en": "Secondary dimension, only for rectangular cakes",
         "tr": "Sadece dikdörtgen kekler için ikincil boyut",
-        "de": "Sekundäre Abmessung, nur bei rechteckigen Kuchen"
+        "de": "Sekundäre Abmessung, nur bei rechteckigen Kuchen",
+        "fr": "Dimension secondaire, uniquement pour les gâteaux rectangulaires",
+        "es": "Dimensión secundaria, solo para tortas rectangulares"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Area per Serving",
         "tr": "Porsiyon Başına Alan",
         "de": "Fläche pro Portion",
-        "fr": "Area per Serving",
-        "es": "Area per Serving",
+        "fr": "Surface par portion",
+        "es": "Área por porción",
         "ar": "Area per Serving"
       },
       "businessContext_i18n": {
         "en": "Typical area per serving (e.g., 25 cm²)",
         "tr": "Porsiyon başına tipik alan (örn. 25 cm²)",
-        "de": "Typische Fläche pro Portion (z.B. 25 cm²)"
+        "de": "Typische Fläche pro Portion (z.B. 25 cm²)",
+        "fr": "Surface typique par portion (ex. 25 cm²)",
+        "es": "Área típica por porción (ej. 25 cm²)"
       }
     }
   ],

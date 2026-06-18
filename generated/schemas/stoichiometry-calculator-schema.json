@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Mass of Known Substance",
         "tr": "Bilinen Maddenin Kütlesi",
-        "de": "Mass of Known Substance",
-        "fr": "Mass of Known Substance",
+        "de": "Masse der bekannten Substanz",
+        "fr": "Masse de la substance connue",
         "es": "Mass of Known Substance",
         "ar": "Mass of Known Substance"
       },
       "businessContext_i18n": {
         "en": "The mass of the substance whose amount is known.",
-        "tr": "Miktarı bilinen maddenin kütlesi."
+        "tr": "Miktarı bilinen maddenin kütlesi.",
+        "de": "Die Masse der Substanz, deren Menge bekannt ist.",
+        "fr": "Masse de la substance dont la quantité est connue."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Molar Mass of Known Substance",
         "tr": "Bilinen Maddenin Molar Kütlesi",
-        "de": "Molar Mass of Known Substance",
-        "fr": "Molar Mass of Known Substance",
+        "de": "Molmasse der bekannten Substanz",
+        "fr": "Masse molaire de la substance connue",
         "es": "Molar Mass of Known Substance",
         "ar": "Molar Mass of Known Substance"
       },
       "businessContext_i18n": {
         "en": "Molar mass (molecular weight) of the known substance.",
-        "tr": "Bilinen maddenin molar kütlesi (molekül ağırlığı)."
+        "tr": "Bilinen maddenin molar kütlesi (molekül ağırlığı).",
+        "de": "Molmasse (Molekulargewicht) der bekannten Substanz.",
+        "fr": "Masse molaire (poids moléculaire) de la substance connue."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Molar Mass of Unknown Substance",
         "tr": "Bilinmeyen Maddenin Molar Kütlesi",
-        "de": "Molar Mass of Unknown Substance",
-        "fr": "Molar Mass of Unknown Substance",
+        "de": "Molmasse der unbekannten Substanz",
+        "fr": "Masse molaire de la substance inconnue",
         "es": "Molar Mass of Unknown Substance",
         "ar": "Molar Mass of Unknown Substance"
       },
       "businessContext_i18n": {
         "en": "Molar mass of the substance whose mass is to be calculated.",
-        "tr": "Kütlesi hesaplanacak maddenin molar kütlesi."
+        "tr": "Kütlesi hesaplanacak maddenin molar kütlesi.",
+        "de": "Molmasse der Substanz, deren Masse berechnet werden soll.",
+        "fr": "Masse molaire de la substance dont la masse doit être calculée."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Coefficient of Known Substance",
         "tr": "Bilinen Maddenin Katsayısı",
-        "de": "Coefficient of Known Substance",
-        "fr": "Coefficient of Known Substance",
+        "de": "Koeffizient der bekannten Substanz",
+        "fr": "Coefficient de la substance connue",
         "es": "Coefficient of Known Substance",
         "ar": "Coefficient of Known Substance"
       },
       "businessContext_i18n": {
         "en": "Stoichiometric coefficient of the known substance in the balanced equation.",
-        "tr": "Denklemdeki bilinen maddenin stokiyometrik katsayısı."
+        "tr": "Denklemdeki bilinen maddenin stokiyometrik katsayısı.",
+        "de": "Stöchiometrischer Koeffizient der bekannten Substanz in der ausgeglichenen Gleichung.",
+        "fr": "Coefficient stœchiométrique de la substance connue dans l'équation équilibrée."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Coefficient of Unknown Substance",
         "tr": "Bilinmeyen Maddenin Katsayısı",
-        "de": "Coefficient of Unknown Substance",
-        "fr": "Coefficient of Unknown Substance",
+        "de": "Koeffizient der unbekannten Substanz",
+        "fr": "Coefficient de la substance inconnue",
         "es": "Coefficient of Unknown Substance",
         "ar": "Coefficient of Unknown Substance"
       },
       "businessContext_i18n": {
         "en": "Stoichiometric coefficient of the unknown substance in the balanced equation.",
-        "tr": "Denklemdeki bilinmeyen maddenin stokiyometrik katsayısı."
+        "tr": "Denklemdeki bilinmeyen maddenin stokiyometrik katsayısı.",
+        "de": "Stöchiometrischer Koeffizient der unbekannten Substanz in der ausgeglichenen Gleichung.",
+        "fr": "Coefficient stœchiométrique de la substance inconnue dans l'équation équilibrée."
       }
     }
   ],

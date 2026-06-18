@@ -26,12 +26,16 @@
       "label_i18n": {
         "en": "Shipment Weight (kg)",
         "tr": "Gönderi Ağırlığı (kg)",
-        "de": "Sendungsgewicht (kg)"
+        "de": "Sendungsgewicht (kg)",
+        "fr": "Poids de l'envoi (kg)",
+        "es": "Peso del envío (kg)"
       },
       "businessContext_i18n": {
         "en": "Total weight of the shipment, including packaging. Used for rate base and dimensional weight calculations.",
         "tr": "Ambalaj dahil gönderinin toplam ağırlığı. Oran tabanı ve hacimsel ağırlık hesaplamaları için kullanılır.",
-        "de": "Gesamtgewicht der Sendung inklusive Verpackung. Wird für die Tarifbasis und die Berechnung des Volumengewichts verwendet."
+        "de": "Gesamtgewicht der Sendung inklusive Verpackung. Wird für die Tarifbasis und die Berechnung des Volumengewichts verwendet.",
+        "fr": "Poids total de l'envoi, emballage inclus. Utilisé pour le taux de base et le calcul du poids volumétrique.",
+        "es": "Peso total del envío, incluido el embalaje. Se utiliza para la tarifa base y cálculos de peso volumétrico."
       }
     },
     {
@@ -46,12 +50,16 @@
       "label_i18n": {
         "en": "Shipment Volume (cbm)",
         "tr": "Gönderi Hacmi (m³)",
-        "de": "Sendungsvolumen (m³)"
+        "de": "Sendungsvolumen (m³)",
+        "fr": "Volume de l'envoi (m³)",
+        "es": "Volumen del envío (m³)"
       },
       "businessContext_i18n": {
         "en": "Total cubic meters of the shipment. Used for dimensional weight factor and space utilization analysis.",
         "tr": "Gönderinin toplam metreküpü. Hacimsel ağırlık faktörü ve alan kullanım analizi için kullanılır.",
-        "de": "Gesamtvolumen der Sendung in Kubikmetern. Wird für den Volumengewichtsfaktor und die Raumnutzungsanalyse verwendet."
+        "de": "Gesamtvolumen der Sendung in Kubikmetern. Wird für den Volumengewichtsfaktor und die Raumnutzungsanalyse verwendet.",
+        "fr": "Mètres cubes totaux de l'envoi. Utilisé pour le facteur de poids volumétrique et l'analyse de l'utilisation de l'espace.",
+        "es": "Metros cúbicos totales del envío. Se utiliza para el factor de peso volumétrico y análisis de utilización del espacio."
       }
     },
     {
@@ -66,12 +74,16 @@
       "label_i18n": {
         "en": "Distance (km)",
         "tr": "Mesafe (km)",
-        "de": "Strecke (km)"
+        "de": "Strecke (km)",
+        "fr": "Distance (km)",
+        "es": "Distancia (km)"
       },
       "businessContext_i18n": {
         "en": "Total transport distance from origin to destination. Influences fuel surcharge and time-based costs.",
         "tr": "Menşeiden varış noktasına toplam taşıma mesafesi. Yakıt ek ücretini ve zamana dayalı maliyetleri etkiler.",
-        "de": "Gesamttransportdistanz vom Ursprung zum Ziel. Beeinflusst den Treibstoffzuschlag und die zeitbasierten Kosten."
+        "de": "Gesamttransportdistanz vom Ursprung zum Ziel. Beeinflusst den Treibstoffzuschlag und die zeitbasierten Kosten.",
+        "fr": "Distance totale de transport de l'origine à la destination. Influence la surcharge carburant et les coûts basés sur le temps.",
+        "es": "Distancia total de transporte desde el origen hasta el destino. Influye en el recargo de combustible y costes basados en tiempo."
       }
     },
     {
@@ -91,12 +103,16 @@
       "label_i18n": {
         "en": "Transport Mode",
         "tr": "Taşıma Modu",
-        "de": "Transportart"
+        "de": "Transportart",
+        "fr": "Mode de transport",
+        "es": "Modo de transporte"
       },
       "businessContext_i18n": {
         "en": "Mode of transport. Each mode has distinct cost structures, risk profiles, and carbon impact.",
         "tr": "Taşıma modu. Her modun farklı maliyet yapıları, risk profilleri ve karbon etkisi vardır.",
-        "de": "Transportart. Jede Art hat unterschiedliche Kostenstrukturen, Risikoprofile und CO₂-Auswirkungen."
+        "de": "Transportart. Jede Art hat unterschiedliche Kostenstrukturen, Risikoprofile und CO₂-Auswirkungen.",
+        "fr": "Mode de transport. Chaque mode a des structures de coûts, des profils de risque et un impact carbone distincts.",
+        "es": "Modo de transporte. Cada modo tiene estructuras de coste, perfiles de riesgo e impacto de carbono distintos."
       }
     },
     {
@@ -111,12 +127,16 @@
       "label_i18n": {
         "en": "Fuel Surcharge (%)",
         "tr": "Yakıt Ek Ücreti (%)",
-        "de": "Treibstoffzuschlag (%)"
+        "de": "Treibstoffzuschlag (%)",
+        "fr": "Surcharge carburant (%)",
+        "es": "Recargo de combustible (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage applied to base freight rate to account for fuel price variability. Typically indexed to DOE or IATA.",
         "tr": "Yakıt fiyatı değişkenliğini hesaba katmak için temel navlun oranına uygulanan yüzde. Genellikle DOE veya IATA'ya endekslenir.",
-        "de": "Prozentsatz, der auf den Basisfrachtsatz angewendet wird, um die Treibstoffpreisschwankungen zu berücksichtigen. Typischerweise an DOE oder IATA indexiert."
+        "de": "Prozentsatz, der auf den Basisfrachtsatz angewendet wird, um die Treibstoffpreisschwankungen zu berücksichtigen. Typischerweise an DOE oder IATA indexiert.",
+        "fr": "Pourcentage appliqué au tarif de base pour tenir compte de la variabilité du prix du carburant. Généralement indexé sur le DOE ou l'IATA.",
+        "es": "Porcentaje aplicado a la tarifa de flete base para tener en cuenta la variabilidad del precio del combustible. Generalmente indexado al DOE o IATA."
       }
     },
     {
@@ -131,12 +151,16 @@
       "label_i18n": {
         "en": "Accessorial Charges (USD)",
         "tr": "Ek Hizmet Ücretleri (USD)",
-        "de": "Nebengebühren (USD)"
+        "de": "Nebengebühren (USD)",
+        "fr": "Frais accessoires (USD)",
+        "es": "Cargos accesorios (USD)"
       },
       "businessContext_i18n": {
         "en": "Additional fees for liftgate, residential delivery, inside delivery, detention, etc.",
         "tr": "Arka kapı asansörü, konut teslimatı, iç teslimat, alıkoyma vb. için ek ücretler.",
-        "de": "Zusätzliche Gebühren für Hebebühne, Zustellung an Wohnadresse, Innenzustellung, Standgeld usw."
+        "de": "Zusätzliche Gebühren für Hebebühne, Zustellung an Wohnadresse, Innenzustellung, Standgeld usw.",
+        "fr": "Frais supplémentaires pour hayon, livraison résidentielle, livraison à l'intérieur, surestaries, etc.",
+        "es": "Tarifas adicionales por plataforma elevadora, entrega residencial, entrega interior, detención, etc."
       }
     },
     {
@@ -151,12 +175,16 @@
       "label_i18n": {
         "en": "Density Factor (kg/cbm)",
         "tr": "Yoğunluk Faktörü (kg/m³)",
-        "de": "Dichtefaktor (kg/m³)"
+        "de": "Dichtefaktor (kg/m³)",
+        "fr": "Facteur de densité (kg/m³)",
+        "es": "Factor de densidad (kg/m³)"
       },
       "businessContext_i18n": {
         "en": "Actual density of the shipment. Used to compare against breakpoints for LTL class or airfreight chargeable weight.",
         "tr": "Gönderinin gerçek yoğunluğu. LTL sınıfı veya hava kargo ücrete tabi ağırlığı için kırılma noktalarına karşı karşılaştırmada kullanılır.",
-        "de": "Tatsächliche Dichte der Sendung. Wird verwendet, um mit Grenzwerten für LTL-Klasse oder Luftfracht-berechnungsgewicht zu vergleichen."
+        "de": "Tatsächliche Dichte der Sendung. Wird verwendet, um mit Grenzwerten für LTL-Klasse oder Luftfracht-berechnungsgewicht zu vergleichen.",
+        "fr": "Densité réelle de l'envoi. Utilisée pour comparer aux seuils de classe LTL ou au poids taxable du fret aérien.",
+        "es": "Densidad real del envío. Se utiliza para comparar con puntos de referencia para clase LTL o peso facturable de carga aérea."
       }
     },
     {
@@ -169,12 +197,16 @@
       "label_i18n": {
         "en": "Hazardous Material",
         "tr": "Tehlikeli Madde",
-        "de": "Gefahrgut"
+        "de": "Gefahrgut",
+        "fr": "Matière dangereuse",
+        "es": "Material peligroso"
       },
       "businessContext_i18n": {
         "en": "Indicates if shipment contains dangerous goods. Triggers additional compliance and handling fees.",
         "tr": "Gönderinin tehlikeli madde içerdiğini belirtir. Ek uyumluluk ve elleçleme ücretlerini tetikler.",
-        "de": "Gibt an, ob die Sendung gefährliche Güter enthält. Löst zusätzliche Compliance- und Handhabungsgebühren aus."
+        "de": "Gibt an, ob die Sendung gefährliche Güter enthält. Löst zusätzliche Compliance- und Handhabungsgebühren aus.",
+        "fr": "Indique si l'envoi contient des marchandises dangereuses. Déclenche des frais de conformité et de manutention supplémentaires.",
+        "es": "Indica si el envío contiene mercancías peligrosas. Activa tarifas adicionales de cumplimiento y manipulación."
       }
     }
   ],

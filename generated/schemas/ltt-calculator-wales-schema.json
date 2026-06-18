@@ -13,12 +13,15 @@
         "tr": "Mesafe (km)",
         "de": "Strecke (km)",
         "fr": "Distance (km)",
-        "es": "Distance (km)",
+        "es": "Distancia (km)",
         "ar": "Distance (km)"
       },
       "businessContext_i18n": {
         "en": "Total distance of the transport route in Wales.",
-        "tr": "Galler'deki nakliye rotasının toplam mesafesi."
+        "tr": "Galler'deki nakliye rotasının toplam mesafesi.",
+        "de": "Gesamtstrecke der Transportroute in Wales.",
+        "fr": "Distance totale de l'itinéraire de transport au Pays de Galles.",
+        "es": "Distancia total de la ruta de transporte en Gales."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Fuel Consumption (L/100km)",
         "tr": "Yakıt Tüketimi (L/100km)",
         "de": "Kraftstoffverbrauch (L/100km)",
-        "fr": "Fuel Consumption (L/100km)",
-        "es": "Fuel Consumption (L/100km)",
+        "fr": "Consommation de carburant (L/100km)",
+        "es": "Consumo de combustible (L/100km)",
         "ar": "Fuel Consumption (L/100km)"
       },
       "businessContext_i18n": {
         "en": "Average fuel consumption of the vehicle per 100 km.",
-        "tr": "Aracın 100 km başına ortalama yakıt tüketimi."
+        "tr": "Aracın 100 km başına ortalama yakıt tüketimi.",
+        "de": "Durchschnittlicher Kraftstoffverbrauch des Fahrzeugs pro 100 km.",
+        "fr": "Consommation moyenne de carburant du véhicule aux 100 km.",
+        "es": "Consumo medio de combustible del vehículo por cada 100 km."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Fuel Price (GBP/L)",
         "tr": "Yakıt Fiyatı (GBP/L)",
-        "de": "Fuel Price (GBP/L)",
-        "fr": "Fuel Price (GBP/L)",
-        "es": "Fuel Price (GBP/L)",
+        "de": "Kraftstoffpreis (GBP/L)",
+        "fr": "Prix du carburant (GBP/L)",
+        "es": "Precio del combustible (GBP/L)",
         "ar": "Fuel Price (GBP/L)"
       },
       "businessContext_i18n": {
         "en": "Current price of diesel or petrol per litre in Wales.",
-        "tr": "Galler'de litre başına güncel dizel veya benzin fiyatı."
+        "tr": "Galler'de litre başına güncel dizel veya benzin fiyatı.",
+        "de": "Aktueller Preis für Diesel oder Benzin pro Liter in Wales.",
+        "fr": "Prix actuel du diesel ou de l'essence par litre au Pays de Galles.",
+        "es": "Precio actual del diésel o gasolina por litro en Gales."
       }
     },
     {
@@ -71,15 +80,17 @@
       "label_i18n": {
         "en": "Driver Wage (GBP/hour)",
         "tr": "Sürücü Ücreti (GBP/saat)",
-        "de": "Driver Wage (GBP/hour)",
-        "fr": "Driver Wage (GBP/hour)",
-        "es": "Driver Wage (GBP/hour)",
+        "de": "Fahrerlohn (GBP/Stunde)",
+        "fr": "Salaire du conducteur (GBP/heure)",
+        "es": "Salario del conductor (GBP/hora)",
         "ar": "Driver Wage (GBP/hour)"
       },
       "businessContext_i18n": {
         "en": "Hourly wage of the driver.",
         "tr": "Sürücünün saatlik ücreti.",
-        "de": "Stundenlohn des Fahrers."
+        "de": "Stundenlohn des Fahrers.",
+        "fr": "Salaire horaire du conducteur.",
+        "es": "Salario por hora del conductor."
       }
     },
     {
@@ -93,13 +104,16 @@
         "en": "Average Speed (km/h)",
         "tr": "Ortalama Hız (km/s)",
         "de": "Durchschnittsgeschwindigkeit (km/h)",
-        "fr": "Average Speed (km/h)",
-        "es": "Average Speed (km/h)",
+        "fr": "Vitesse moyenne (km/h)",
+        "es": "Velocidad media (km/h)",
         "ar": "Average Speed (km/h)"
       },
       "businessContext_i18n": {
         "en": "Average speed of the vehicle during the journey.",
-        "tr": "Aracın yolculuk sırasındaki ortalama hızı."
+        "tr": "Aracın yolculuk sırasındaki ortalama hızı.",
+        "de": "Durchschnittsgeschwindigkeit des Fahrzeugs während der Fahrt.",
+        "fr": "Vitesse moyenne du véhicule pendant le trajet.",
+        "es": "Velocidad media del vehículo durante el trayecto."
       }
     },
     {
@@ -112,14 +126,17 @@
       "label_i18n": {
         "en": "Load (tonnes)",
         "tr": "Yük (ton)",
-        "de": "Load (tonnes)",
-        "fr": "Load (tonnes)",
-        "es": "Load (tonnes)",
+        "de": "Last (Tonnen)",
+        "fr": "Charge (tonnes)",
+        "es": "Carga (toneladas)",
         "ar": "Load (tonnes)"
       },
       "businessContext_i18n": {
         "en": "Weight of the cargo being transported.",
-        "tr": "Taşınan kargonun ağırlığı."
+        "tr": "Taşınan kargonun ağırlığı.",
+        "de": "Gewicht der transportierten Fracht.",
+        "fr": "Poids de la cargaison transportée.",
+        "es": "Peso de la carga que se transporta."
       }
     },
     {
@@ -132,14 +149,17 @@
       "label_i18n": {
         "en": "CO2 Emission Factor (kg/L)",
         "tr": "CO2 Emisyon Faktörü (kg/L)",
-        "de": "CO2 Emission Factor (kg/L)",
-        "fr": "CO2 Emission Factor (kg/L)",
-        "es": "CO2 Emission Factor (kg/L)",
+        "de": "CO₂-Emissionsfaktor (kg/L)",
+        "fr": "Facteur d'émission de CO2 (kg/L)",
+        "es": "Factor de emisión de CO2 (kg/L)",
         "ar": "CO2 Emission Factor (kg/L)"
       },
       "businessContext_i18n": {
         "en": "CO2 emissions per litre of fuel consumed.",
-        "tr": "Tüketilen litre yakıt başına CO2 emisyonu."
+        "tr": "Tüketilen litre yakıt başına CO2 emisyonu.",
+        "de": "CO₂-Emissionen pro Liter verbrauchtem Kraftstoff.",
+        "fr": "Émissions de CO2 par litre de carburant consommé.",
+        "es": "Emisiones de CO2 por litro de combustible consumido."
       }
     }
   ],

@@ -12,13 +12,16 @@
         "en": "Current Age",
         "tr": "Mevcut Yaş",
         "de": "Aktuelles Alter",
-        "fr": "Current Age",
-        "es": "Current Age",
+        "fr": "Âge actuel",
+        "es": "Edad actual",
         "ar": "Current Age"
       },
       "businessContext_i18n": {
         "en": "Your current age for determining the investment horizon until retirement.",
-        "tr": "Yatırım ufkunu emekliliğe kadar belirlemek için mevcut yaşınız."
+        "tr": "Yatırım ufkunu emekliliğe kadar belirlemek için mevcut yaşınız.",
+        "de": "Ihr aktuelles Alter zur Bestimmung des Anlagehorizonts bis zur Rente.",
+        "fr": "Votre âge actuel pour déterminer l'horizon d'investissement jusqu'à la retraite.",
+        "es": "Su edad actual para determinar el horizonte de inversión hasta la jubilación."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Annual Contribution",
         "tr": "Yıllık Katkı",
         "de": "Jährlicher Beitrag",
-        "fr": "Annual Contribution",
-        "es": "Annual Contribution",
+        "fr": "Cotisation annuelle",
+        "es": "Contribución anual",
         "ar": "Annual Contribution"
       },
       "businessContext_i18n": {
         "en": "Amount you contribute annually to your HSA from your own funds.",
-        "tr": "Kendi fonlarınızdan HSA'ya yıllık katkı tutarı."
+        "tr": "Kendi fonlarınızdan HSA'ya yıllık katkı tutarı.",
+        "de": "Betrag, den Sie jährlich aus eigenen Mitteln in Ihr HSA einzahlen.",
+        "fr": "Montant que vous cotisez annuellement à votre HSA sur vos propres fonds.",
+        "es": "Cantidad que aporta anualmente a su HSA de sus propios fondos."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Initial Balance",
         "tr": "Başlangıç bakiyesi",
-        "de": "Initial Balance",
-        "fr": "Initial Balance",
-        "es": "Initial Balance",
+        "de": "Anfangsguthaben",
+        "fr": "Solde initial",
+        "es": "Saldo inicial",
         "ar": "Initial Balance"
       },
       "businessContext_i18n": {
         "en": "Current balance already in the HSA account.",
-        "tr": "HSA hesabında halihazırda bulunan bakiye."
+        "tr": "HSA hesabında halihazırda bulunan bakiye.",
+        "de": "Aktuelles Guthaben auf dem HSA-Konto.",
+        "fr": "Solde actuel déjà dans le compte HSA.",
+        "es": "Saldo actual ya en la cuenta HSA."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
         "de": "Jährlicher Zinssatz",
-        "fr": "Annual Interest Rate",
-        "es": "Annual Interest Rate",
+        "fr": "Taux d'intérêt annuel",
+        "es": "Tasa de Interés Anual",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Expected average annual rate of return on HSA investments (before inflation).",
-        "tr": "HSA yatırımlarında beklenen yıllık ortalama getiri oranı (enflasyon öncesi)."
+        "tr": "HSA yatırımlarında beklenen yıllık ortalama getiri oranı (enflasyon öncesi).",
+        "de": "Erwartete durchschnittliche jährliche Rendite der HSA-Anlagen (vor Inflation).",
+        "fr": "Taux de rendement annuel moyen attendu des investissements HSA (avant inflation).",
+        "es": "Tasa de rendimiento anual promedio esperada de las inversiones HSA (antes de inflación)."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Marginal Tax Rate",
         "tr": "Marjinal Vergi Oranı",
         "de": "Grenzsteuersatz",
-        "fr": "Marginal Tax Rate",
-        "es": "Marginal Tax Rate",
+        "fr": "Taux d'imposition marginal",
+        "es": "Tasa impositiva marginal",
         "ar": "Marginal Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Your federal marginal income tax rate used to estimate tax savings on contributions.",
-        "tr": "Katkılardaki vergi tasarrufunu tahmin etmek için federal marjinal gelir vergisi oranınız."
+        "tr": "Katkılardaki vergi tasarrufunu tahmin etmek için federal marjinal gelir vergisi oranınız.",
+        "de": "Ihr bundesstaatlicher Grenzsteuersatz zur Schätzung der Steuerersparnis bei Einzahlungen.",
+        "fr": "Votre taux marginal d'imposition fédéral utilisé pour estimer les économies d'impôt sur les cotisations.",
+        "es": "Su tasa impositiva marginal federal utilizada para estimar el ahorro fiscal en las contribuciones."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Years Until Retirement",
         "tr": "Emekliliğe kalan yıl",
-        "de": "Years Until Retirement",
-        "fr": "Years Until Retirement",
-        "es": "Years Until Retirement",
+        "de": "Jahre bis zur Rente",
+        "fr": "Années avant la retraite",
+        "es": "Años hasta la jubilación",
         "ar": "Years Until Retirement"
       },
       "businessContext_i18n": {
         "en": "Number of years you plan to contribute before retirement.",
-        "tr": "Emeklilik öncesi katkı yapmayı planladığınız yıl sayısı."
+        "tr": "Emeklilik öncesi katkı yapmayı planladığınız yıl sayısı.",
+        "de": "Anzahl der Jahre, in denen Sie vor der Rente einzahlen möchten.",
+        "fr": "Nombre d'années pendant lesquelles vous prévoyez cotiser avant la retraite.",
+        "es": "Número de años que planea contribuir antes de la jubilación."
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Employer Contribution",
         "tr": "İşveren katkısı",
-        "de": "Employer Contribution",
-        "fr": "Employer Contribution",
-        "es": "Employer Contribution",
+        "de": "Arbeitgeberbeitrag",
+        "fr": "Cotisation employeur",
+        "es": "Contribución del empleador",
         "ar": "Employer Contribution"
       },
       "businessContext_i18n": {
         "en": "Annual contribution from your employer to your HSA, if any.",
-        "tr": "Varsa, işvereninizin HSA'ya yıllık katkısı."
+        "tr": "Varsa, işvereninizin HSA'ya yıllık katkısı.",
+        "de": "Jährlicher Beitrag Ihres Arbeitgebers zu Ihrem HSA, falls vorhanden.",
+        "fr": "Cotisation annuelle de votre employeur à votre HSA, le cas échéant.",
+        "es": "Contribución anual de su empleador a su HSA, si corresponde."
       }
     }
   ],

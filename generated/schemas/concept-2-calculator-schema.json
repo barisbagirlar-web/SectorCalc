@@ -12,14 +12,16 @@
         "en": "Beam Length",
         "tr": "Kiriş Uzunluğu",
         "de": "Balkenlänge",
-        "fr": "Beam Length",
-        "es": "Beam Length",
+        "fr": "Longueur de la poutre",
+        "es": "Longitud de la viga",
         "ar": "Beam Length"
       },
       "businessContext_i18n": {
         "en": "Length of the beam between supports in meters.",
         "tr": "Destekler arasındaki kiriş uzunluğu, metre cinsinden.",
-        "de": "Länge des Trägers zwischen den Stützen in Metern."
+        "de": "Länge des Trägers zwischen den Stützen in Metern.",
+        "fr": "Longueur de la poutre entre les supports en mètres.",
+        "es": "Longitud de la viga entre apoyos en metros."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Cross-Section Width",
         "tr": "Kesit Genişliği",
         "de": "Querschnittsbreite",
-        "fr": "Cross-Section Width",
-        "es": "Cross-Section Width",
+        "fr": "Largeur de la section transversale",
+        "es": "Ancho de la Sección Transversal",
         "ar": "Cross-Section Width"
       },
       "businessContext_i18n": {
         "en": "Width of the beam rectangular cross-section in meters.",
         "tr": "Dikdörtgen kiriş kesitinin genişliği, metre cinsinden.",
-        "de": "Breite des rechteckigen Querschnitts des Trägers in Metern."
+        "de": "Breite des rechteckigen Querschnitts des Trägers in Metern.",
+        "fr": "Largeur de la section rectangulaire de la poutre en mètres.",
+        "es": "Ancho de la sección transversal rectangular de la viga en metros."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Cross-Section Height",
         "tr": "Kesit Yüksekliği",
         "de": "Querschnittshöhe",
-        "fr": "Cross-Section Height",
-        "es": "Cross-Section Height",
+        "fr": "Hauteur de la section transversale",
+        "es": "Altura de la Sección Transversal",
         "ar": "Cross-Section Height"
       },
       "businessContext_i18n": {
         "en": "Height of the beam rectangular cross-section in meters.",
         "tr": "Dikdörtgen kiriş kesitinin yüksekliği, metre cinsinden.",
-        "de": "Höhe des rechteckigen Querschnitts des Trägers in Metern."
+        "de": "Höhe des rechteckigen Querschnitts des Trägers in Metern.",
+        "fr": "Hauteur de la section rectangulaire de la poutre en mètres.",
+        "es": "Altura de la sección transversal rectangular de la viga en metros."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Distributed Load",
         "tr": "Yayılı Yük",
         "de": "Streckenlast",
-        "fr": "Distributed Load",
-        "es": "Distributed Load",
+        "fr": "Charge répartie",
+        "es": "Carga Distribuida",
         "ar": "Distributed Load"
       },
       "businessContext_i18n": {
         "en": "Uniformly distributed load applied along the beam length in Newtons per meter.",
         "tr": "Kiriş boyunca düzgün yayılı yük, Newton/metre cinsinden.",
-        "de": "Gleichmäßig verteilte Last entlang der Trägerlänge in Newton pro Meter."
+        "de": "Gleichmäßig verteilte Last entlang der Trägerlänge in Newton pro Meter.",
+        "fr": "Charge uniformément répartie appliquée sur la longueur de la poutre en Newtons par mètre.",
+        "es": "Carga uniformemente distribuida aplicada a lo largo de la viga en Newtons por metro."
       }
     }
   ],

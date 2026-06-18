@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Total Production",
         "tr": "Toplam Üretim",
-        "de": "Total Production",
-        "fr": "Total Production",
+        "de": "Gesamtproduktion",
+        "fr": "Production totale",
         "es": "Total Production",
         "ar": "Total Production"
       },
       "businessContext_i18n": {
         "en": "Total number of units produced in the period.",
-        "tr": "Dönemde üretilen toplam birim sayısı."
+        "tr": "Dönemde üretilen toplam birim sayısı.",
+        "de": "Gesamtzahl der im Zeitraum produzierten Einheiten",
+        "fr": "Nombre total d'unités produites sur la période."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Defective Units",
         "tr": "Hatalı Birimler",
-        "de": "Defective Units",
-        "fr": "Defective Units",
-        "es": "Defective Units",
+        "de": "Fehlerhafte Einheiten",
+        "fr": "Unités défectueuses",
+        "es": "Unidades defectuosas",
         "ar": "Defective Units"
       },
       "businessContext_i18n": {
         "en": "Number of defective or non-conforming units.",
-        "tr": "Hatalı veya uygun olmayan birim sayısı."
+        "tr": "Hatalı veya uygun olmayan birim sayısı.",
+        "de": "Anzahl fehlerhafter oder nicht konformer Einheiten.",
+        "fr": "Nombre d'unités défectueuses ou non conformes."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Material Input",
         "tr": "Malzeme Girdisi",
-        "de": "Material Input",
-        "fr": "Material Input",
+        "de": "Materialeinsatz",
+        "fr": "Entrée de matière",
         "es": "Material Input",
         "ar": "Material Input"
       },
       "businessContext_i18n": {
         "en": "Total raw material consumed.",
-        "tr": "Tüketilen toplam hammadde."
+        "tr": "Tüketilen toplam hammadde.",
+        "de": "Gesamter Rohstoffverbrauch.",
+        "fr": "Quantité totale de matière première consommée."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Waste Material",
         "tr": "Atık Malzeme",
-        "de": "Waste Material",
-        "fr": "Waste Material",
-        "es": "Waste Material",
+        "de": "Abfallmaterial",
+        "fr": "Déchets",
+        "es": "Material de desperdicio",
         "ar": "Waste Material"
       },
       "businessContext_i18n": {
         "en": "Material wasted as scrap, trimmings, rejects.",
-        "tr": "Fire, kırpıntı, reddedilenler olarak israf edilen malzeme."
+        "tr": "Fire, kırpıntı, reddedilenler olarak israf edilen malzeme.",
+        "de": "Als Ausschuss, Verschnitt oder Ausschuss verschwendetes Material.",
+        "fr": "Matière gaspillée (rebut, chutes, rejets)."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Material Cost per kg",
         "tr": "Malzeme Maliyeti (kg başına)",
-        "de": "Material Cost per kg",
-        "fr": "Material Cost per kg",
-        "es": "Material Cost per kg",
+        "de": "Materialkosten pro kg",
+        "fr": "Coût matière par kg",
+        "es": "Coste del material por kg",
         "ar": "Material Cost per kg"
       },
       "businessContext_i18n": {
         "en": "Unit cost of raw material.",
-        "tr": "Hammadde birim maliyeti."
+        "tr": "Hammadde birim maliyeti.",
+        "de": "Stückkosten des Rohmaterials.",
+        "fr": "Coût unitaire de la matière première."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Defect Reduction Target",
         "tr": "Hata Azaltma Hedefi",
-        "de": "Defect Reduction Target",
-        "fr": "Defect Reduction Target",
+        "de": "Fehlerreduktionsziel",
+        "fr": "Objectif de réduction des défauts",
         "es": "Defect Reduction Target",
         "ar": "Defect Reduction Target"
       },
       "businessContext_i18n": {
         "en": "Target percentage reduction in defect units (e.g., 20% means reduce defective units by one fifth).",
-        "tr": "Hatalı birimlerde hedeflenen yüzde azalma (örneğin, %20, hatalı birimleri beşte bir oranında azaltmak anlamına gelir)."
+        "tr": "Hatalı birimlerde hedeflenen yüzde azalma (örneğin, %20, hatalı birimleri beşte bir oranında azaltmak anlamına gelir).",
+        "de": "Zielprozentuale Reduzierung der Fehlereinheiten (z. B. 20 % bedeutet Reduzierung der fehlerhaften Einheiten um ein Fünftel).",
+        "fr": "Pourcentage cible de réduction des unités défectueuses (ex. : 20% signifie réduire d'un cinquième)."
       }
     }
   ],

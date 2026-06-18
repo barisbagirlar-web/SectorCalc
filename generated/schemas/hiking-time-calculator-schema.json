@@ -13,12 +13,15 @@
         "tr": "Mesafe (km)",
         "de": "Strecke (km)",
         "fr": "Distance (km)",
-        "es": "Distance (km)",
+        "es": "Distancia (km)",
         "ar": "Distance (km)"
       },
       "businessContext_i18n": {
         "en": "Total hiking distance in kilometers",
-        "tr": "Toplam yürüyüş mesafesi (km)"
+        "tr": "Toplam yürüyüş mesafesi (km)",
+        "de": "Total hiking distance in kilometers",
+        "fr": "Distance totale de randonnée en kilomètres",
+        "es": "Distancia total de caminata en kilómetros"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Elevation Gain (m)",
         "tr": "İrtifa Kazancı (m)",
         "de": "Elevation Gain (m)",
-        "fr": "Elevation Gain (m)",
-        "es": "Elevation Gain (m)",
+        "fr": "Gain d'altitude (m)",
+        "es": "Ganancia de altitud (m)",
         "ar": "Elevation Gain (m)"
       },
       "businessContext_i18n": {
         "en": "Total ascent in meters",
-        "tr": "Toplam tırmanış (metre)"
+        "tr": "Toplam tırmanış (metre)",
+        "de": "Total ascent in meters",
+        "fr": "Ascension totale en mètres",
+        "es": "Ascenso total en metros"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Walking Pace (min/km)",
         "tr": "Yürüyüş Hızı (dak/km)",
         "de": "Walking Pace (min/km)",
-        "fr": "Walking Pace (min/km)",
-        "es": "Walking Pace (min/km)",
+        "fr": "Allure de marche (min/km)",
+        "es": "Ritmo de marcha (min/km)",
         "ar": "Walking Pace (min/km)"
       },
       "businessContext_i18n": {
         "en": "Flat walking pace in minutes per kilometer",
-        "tr": "Düz zeminde yürüyüş hızı (dakika/kilometre)"
+        "tr": "Düz zeminde yürüyüş hızı (dakika/kilometre)",
+        "de": "Flat walking pace in minutes per kilometer",
+        "fr": "Allure de marche sur terrain plat en minutes par kilomètre",
+        "es": "Ritmo de marcha en llano en minutos por kilómetro"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Terrain Factor",
         "tr": "Arazi Faktörü",
         "de": "Terrain Factor",
-        "fr": "Terrain Factor",
-        "es": "Terrain Factor",
+        "fr": "Facteur de terrain",
+        "es": "Factor de terreno",
         "ar": "Terrain Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier for rough terrain (1 = easy, 1.5 = moderate, 2 = difficult)",
-        "tr": "Engebeli arazi çarpanı (1 = kolay, 1.5 = orta, 2 = zor)"
+        "tr": "Engebeli arazi çarpanı (1 = kolay, 1.5 = orta, 2 = zor)",
+        "de": "Multiplier for rough terrain (1 = easy, 1.5 = moderate, 2 = difficult)",
+        "fr": "Multiplicateur pour terrain accidenté (1 = facile, 1,5 = modéré, 2 = difficile)",
+        "es": "Multiplicador por terreno accidentado (1 = fácil, 1.5 = moderado, 2 = difícil)"
       }
     }
   ],

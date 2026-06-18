@@ -12,13 +12,15 @@
         "en": "Length",
         "tr": "Uzunluk",
         "de": "Länge",
-        "fr": "Length",
-        "es": "Length",
+        "fr": "Longueur",
+        "es": "Longitud",
         "ar": "Length"
       },
       "businessContext_i18n": {
         "en": "Length of the object in meters",
-        "tr": "Nesnenin metre cinsinden uzunluğu"
+        "tr": "Nesnenin metre cinsinden uzunluğu",
+        "de": "Länge des Objekts in Metern",
+        "fr": "Longueur de l'objet en mètres"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Width",
         "tr": "Genişlik",
         "de": "Breite",
-        "fr": "Width",
-        "es": "Width",
+        "fr": "Largeur",
+        "es": "Ancho",
         "ar": "Width"
       },
       "businessContext_i18n": {
         "en": "Width of the object in meters",
-        "tr": "Nesnenin metre cinsinden genişliği"
+        "tr": "Nesnenin metre cinsinden genişliği",
+        "de": "Breite des Objekts in Metern",
+        "fr": "Largeur de l'objet en mètres"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Height",
         "tr": "Boy",
         "de": "Größe",
-        "fr": "Height",
-        "es": "Height",
+        "fr": "Taille",
+        "es": "Altura",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "Height of the object in meters",
-        "tr": "Nesnenin metre cinsinden yüksekliği"
+        "tr": "Nesnenin metre cinsinden yüksekliği",
+        "de": "Höhe des Objekts in Metern",
+        "fr": "Hauteur de l'objet en mètres"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Shape Factor",
         "tr": "Şekil Faktörü",
-        "de": "Shape Factor",
-        "fr": "Shape Factor",
-        "es": "Shape Factor",
+        "de": "Formfaktor",
+        "fr": "Facteur de forme",
+        "es": "Factor de forma",
         "ar": "Shape Factor"
       },
       "businessContext_i18n": {
         "en": "1 for rectangular, 0.5236 for spherical (4/3*pi/8), etc.",
-        "tr": "Dikdörtgen için 1, küresel için 0,5236 (4/3*pi/8), vb."
+        "tr": "Dikdörtgen için 1, küresel için 0,5236 (4/3*pi/8), vb.",
+        "de": "1 für rechteckig, 0,5236 für kugelförmig (4/3*pi/8), usw.",
+        "fr": "1 pour rectangulaire, 0,5236 pour sphérique (4/3*pi/8), etc."
       }
     }
   ],

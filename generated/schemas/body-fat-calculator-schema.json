@@ -28,12 +28,16 @@
       "label_i18n": {
         "en": "Gender",
         "tr": "Cinsiyet",
-        "de": "Geschlecht"
+        "de": "Geschlecht",
+        "fr": "Genre",
+        "es": "Género"
       },
       "businessContext_i18n": {
         "en": "Biological sex used in anthropometric regression models (ISO 7250-1).",
         "tr": "Antropometrik regresyon modellerinde kullanılan biyolojik cinsiyet (ISO 7250-1).",
-        "de": "Biologisches Geschlecht, verwendet in anthropometrischen Regressionsmodellen (ISO 7250-1)."
+        "de": "Biologisches Geschlecht, verwendet in anthropometrischen Regressionsmodellen (ISO 7250-1).",
+        "fr": "Sexe biologique utilisé dans les modèles de régression anthropométrique (ISO 7250-1).",
+        "es": "Sexo biológico utilizado en modelos de regresión antropométrica (ISO 7250-1)."
       }
     },
     {
@@ -48,12 +52,16 @@
       "label_i18n": {
         "en": "Age",
         "tr": "Yaş",
-        "de": "Alter"
+        "de": "Alter",
+        "fr": "Âge",
+        "es": "Edad"
       },
       "businessContext_i18n": {
         "en": "Age affects body composition and metabolic rate (Six Sigma DMAIC phase: Measure).",
         "tr": "Yaş, vücut kompozisyonunu ve metabolizma hızını etkiler (Altı Sigma DMAIC aşaması: Ölç).",
-        "de": "Alter beeinflusst Körperzusammensetzung und Stoffwechselrate (Six Sigma DMAIC-Phase: Messen)."
+        "de": "Alter beeinflusst Körperzusammensetzung und Stoffwechselrate (Six Sigma DMAIC-Phase: Messen).",
+        "fr": "L'âge affecte la composition corporelle et le métabolisme (phase Mesurer du Six Sigma).",
+        "es": "La edad afecta la composición corporal y la tasa metabólica (fase Medir de Seis Sigma DMAIC)."
       }
     },
     {
@@ -68,12 +76,16 @@
       "label_i18n": {
         "en": "Height",
         "tr": "Boy",
-        "de": "Größe"
+        "de": "Größe",
+        "fr": "Taille",
+        "es": "Altura"
       },
       "businessContext_i18n": {
         "en": "Stature measurement per ISO 7250-1 for normalization.",
         "tr": "Normalizasyon için ISO 7250-1'e göre boy ölçümü.",
-        "de": "Körpergröße gemäß ISO 7250-1 zur Normalisierung."
+        "de": "Körpergröße gemäß ISO 7250-1 zur Normalisierung.",
+        "fr": "Mesure de la stature selon ISO 7250-1 pour la normalisation.",
+        "es": "Medición de estatura según ISO 7250-1 para normalización."
       }
     },
     {
@@ -88,12 +100,16 @@
       "label_i18n": {
         "en": "Weight",
         "tr": "Ağırlık",
-        "de": "Gewicht"
+        "de": "Gewicht",
+        "fr": "Poids",
+        "es": "Peso"
       },
       "businessContext_i18n": {
         "en": "Body mass for BMI and fat mass calculations.",
         "tr": "Vücut kütlesi, BMI ve yağ kütlesi hesaplamaları için.",
-        "de": "Körpermasse für BMI und Fettmassenberechnungen."
+        "de": "Körpermasse für BMI und Fettmassenberechnungen.",
+        "fr": "Masse corporelle pour les calculs d'IMC et de masse grasse.",
+        "es": "Masa corporal para cálculos de IMC y masa grasa."
       }
     },
     {
@@ -108,12 +124,16 @@
       "label_i18n": {
         "en": "Neck Circumference",
         "tr": "Boyun Çevresi",
-        "de": "Halsumfang"
+        "de": "Halsumfang",
+        "fr": "Tour de cou",
+        "es": "Circunferencia del cuello"
       },
       "businessContext_i18n": {
         "en": "Key input for body density estimation (Navy method, Lean Six Sigma MSA).",
         "tr": "Vücut yoğunluğu tahmini için ana girdi (Navy yöntemi, Yalın Altı Sigma MSA).",
-        "de": "Schlüsseleingabe für die Schätzung der Körperdichte (Navy-Methode, Lean Six Sigma MSA)."
+        "de": "Schlüsseleingabe für die Schätzung der Körperdichte (Navy-Methode, Lean Six Sigma MSA).",
+        "fr": "Entrée clé pour l'estimation de la densité corporelle (méthode de la Marine, MSA Lean Six Sigma).",
+        "es": "Entrada clave para la estimación de densidad corporal (método de la Armada, MSA de Lean Seis Sigma)."
       }
     },
     {
@@ -128,12 +148,16 @@
       "label_i18n": {
         "en": "Waist Circumference",
         "tr": "Bel Çevresi",
-        "de": "Taillenumfang"
+        "de": "Taillenumfang",
+        "fr": "Tour de taille",
+        "es": "Circunferencia de cintura"
       },
       "businessContext_i18n": {
         "en": "Abdominal girth for visceral fat risk (WERC ergonomic guidelines).",
         "tr": "Visseral yağ riski için karın çevresi (WERC ergonomi kılavuzu).",
-        "de": "Bauchumfang für viszerales Fettrisiko (WERC-ergonomische Richtlinien)."
+        "de": "Bauchumfang für viszerales Fettrisiko (WERC-ergonomische Richtlinien).",
+        "fr": "Circonférence abdominale pour le risque de graisse viscérale (directives ergonomiques WERC).",
+        "es": "Perímetro abdominal para riesgo de grasa visceral (directrices ergonómicas WERC)."
       }
     },
     {
@@ -148,12 +172,16 @@
       "label_i18n": {
         "en": "Hip Circumference",
         "tr": "Kalça Çevresi",
-        "de": "Hüftumfang"
+        "de": "Hüftumfang",
+        "fr": "Tour de hanches",
+        "es": "Circunferencia de cadera"
       },
       "businessContext_i18n": {
         "en": "Required for female body fat calculation (ISO 20685).",
         "tr": "Kadın vücut yağ hesaplaması için gereklidir (ISO 20685).",
-        "de": "Erforderlich für die weibliche Körperfettberechnung (ISO 20685)."
+        "de": "Erforderlich für die weibliche Körperfettberechnung (ISO 20685).",
+        "fr": "Requis pour le calcul de la graisse corporelle féminine (ISO 20685).",
+        "es": "Requerido para el cálculo de grasa corporal femenina (ISO 20685)."
       }
     },
     {
@@ -175,12 +203,16 @@
       "label_i18n": {
         "en": "Activity Level",
         "tr": "Aktivite Seviyesi",
-        "de": "Aktivitätsniveau"
+        "de": "Aktivitätsniveau",
+        "fr": "Niveau d'activité",
+        "es": "Nivel de actividad"
       },
       "businessContext_i18n": {
         "en": "Physical activity multiplier for energy expenditure (Lean Kaizen continuous improvement).",
         "tr": "Enerji harcaması için fiziksel aktivite çarpanı (Yalın Kaizen sürekli iyileştirme).",
-        "de": "Multiplikator für körperliche Aktivität zur Energieverbrauchsberechnung (Lean Kaizen kontinuierliche Verbesserung)."
+        "de": "Multiplikator für körperliche Aktivität zur Energieverbrauchsberechnung (Lean Kaizen kontinuierliche Verbesserung).",
+        "fr": "Multiplicateur d'activité physique pour la dépense énergétique (amélioration continue Lean Kaizen).",
+        "es": "Multiplicador de actividad física para el gasto energético (mejora continua Lean Kaizen)."
       }
     }
   ],

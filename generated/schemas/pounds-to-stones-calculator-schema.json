@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Pounds",
         "tr": "Pound",
-        "de": "Pounds",
-        "fr": "Pounds",
-        "es": "Pounds",
+        "de": "Pfund",
+        "fr": "Livres",
+        "es": "Libras",
         "ar": "Pounds"
       },
       "businessContext_i18n": {
         "en": "The weight in pounds to convert to stones",
-        "tr": "Ston'a dönüştürülecek pound cinsinden ağırlık"
+        "tr": "Ston'a dönüştürülecek pound cinsinden ağırlık",
+        "de": "Das Gewicht in Pfund zur Umrechnung in Stone",
+        "fr": "Le poids en livres à convertir en stones",
+        "es": "El peso en libras a convertir a stones"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Ounces",
         "tr": "Ons",
-        "de": "Ounces",
-        "fr": "Ounces",
-        "es": "Ounces",
+        "de": "Unzen",
+        "fr": "Onces",
+        "es": "Onzas",
         "ar": "Ounces"
       },
       "businessContext_i18n": {
         "en": "Additional ounces to add to the pounds before conversion; 16 ounces = 1 pound",
-        "tr": "Dönüşümden önce pound'a eklenecek ek ons; 16 ons = 1 pound"
+        "tr": "Dönüşümden önce pound'a eklenecek ek ons; 16 ons = 1 pound",
+        "de": "Zusätzliche Unzen, die vor der Umrechnung zu den Pfund addiert werden; 16 Unzen = 1 Pfund",
+        "fr": "Onces supplémentaires à ajouter aux livres avant conversion ; 16 onces = 1 livre",
+        "es": "Onzas adicionales para añadir a las libras antes de la conversión; 16 onzas = 1 libra"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the primary decimal stones output",
-        "tr": "Birincil ondalık ston çıktısı için ondalık basamak sayısı"
+        "tr": "Birincil ondalık ston çıktısı için ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen für die primäre Dezimalausgabe in Stone",
+        "fr": "Nombre de décimales pour le résultat principal en stones",
+        "es": "Número de decimales para la salida decimal primaria en stones"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Stone Definition (lb)",
         "tr": "Ston Tanımı (lb)",
-        "de": "Stone Definition (lb)",
-        "fr": "Stone Definition (lb)",
-        "es": "Stone Definition (lb)",
+        "de": "Stone-Definition (lb)",
+        "fr": "Définition de la stone (lb)",
+        "es": "Definición de stone (lb)",
         "ar": "Stone Definition (lb)"
       },
       "businessContext_i18n": {
         "en": "Number of pounds in one stone (commonly 14), allows for historical or contextual variations",
-        "tr": "Bir stondaki pound sayısı (genellikle 14), tarihsel veya bağlamsal farklılıklara izin verir"
+        "tr": "Bir stondaki pound sayısı (genellikle 14), tarihsel veya bağlamsal farklılıklara izin verir",
+        "de": "Anzahl der Pfund in einem Stone (üblich 14), ermöglicht historische oder kontextuelle Abweichungen",
+        "fr": "Nombre de livres dans une stone (généralement 14), permet des variations historiques ou contextuelles",
+        "es": "Número de libras en un stone (comúnmente 14), permite variaciones históricas o contextuales"
       }
     }
   ],

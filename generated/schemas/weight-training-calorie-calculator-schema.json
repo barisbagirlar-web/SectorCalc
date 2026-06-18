@@ -12,13 +12,16 @@
         "en": "Vücut Ağırlığı",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Vücut Ağırlığı",
-        "es": "Vücut Ağırlığı",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Vücut Ağırlığı"
       },
       "businessContext_i18n": {
         "en": "Kullanıcının vücut ağırlığı (kg)",
-        "tr": "Kullanıcının vücut ağırlığı (kg)"
+        "tr": "Kullanıcının vücut ağırlığı (kg)",
+        "de": "Körpergewicht des Benutzers (kg)",
+        "fr": "Poids corporel de l'utilisateur (kg)",
+        "es": "Peso corporal del usuario (kg)"
       }
     },
     {
@@ -32,13 +35,15 @@
         "en": "Süre (Saat)",
         "tr": "Süre (Saat)",
         "de": "Süre (Saat)",
-        "fr": "Süre (Saat)",
+        "fr": "Durée (heures)",
         "es": "Süre (Saat)",
         "ar": "Süre (Saat)"
       },
       "businessContext_i18n": {
         "en": "Antrenman süresi saat cinsinden",
-        "tr": "Antrenman süresi saat cinsinden"
+        "tr": "Antrenman süresi saat cinsinden",
+        "de": "Trainingsdauer in Stunden",
+        "fr": "Durée d'entraînement en heures"
       }
     },
     {
@@ -52,13 +57,15 @@
         "en": "Süre (Dakika)",
         "tr": "Süre (Dakika)",
         "de": "Süre (Dakika)",
-        "fr": "Süre (Dakika)",
+        "fr": "Durée (minutes)",
         "es": "Süre (Dakika)",
         "ar": "Süre (Dakika)"
       },
       "businessContext_i18n": {
         "en": "Antrenman süresi dakika cinsinden",
-        "tr": "Antrenman süresi dakika cinsinden"
+        "tr": "Antrenman süresi dakika cinsinden",
+        "de": "Trainingsdauer in Minuten",
+        "fr": "Durée d'entraînement en minutes"
       }
     },
     {
@@ -71,14 +78,16 @@
       "label_i18n": {
         "en": "MET Değeri",
         "tr": "MET Değeri",
-        "de": "MET Değeri",
-        "fr": "MET Değeri",
-        "es": "MET Değeri",
+        "de": "MET-Wert",
+        "fr": "Valeur MET",
+        "es": "Valor MET",
         "ar": "MET Değeri"
       },
       "businessContext_i18n": {
         "en": "Aktivitenin MET (Metabolik Eşdeğer) değeri. Ağırlık antrenmanı için genellikle 3-6 arası",
-        "tr": "Aktivitenin MET (Metabolik Eşdeğer) değeri. Ağırlık antrenmanı için genellikle 3-6 arası"
+        "tr": "Aktivitenin MET (Metabolik Eşdeğer) değeri. Ağırlık antrenmanı için genellikle 3-6 arası",
+        "de": "MET-Wert (Metabolisches Äquivalent) der Aktivität. Für Krafttraining typischerweise zwischen 3 und 6",
+        "fr": "Valeur MET (équivalent métabolique) de l'activité. Pour l'entraînement en force, généralement entre 3 et 6"
       }
     }
   ],

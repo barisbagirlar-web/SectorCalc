@@ -19,7 +19,9 @@
       "businessContext_i18n": {
         "en": "The base number to be raised to a power.",
         "tr": "Üs alınacak taban sayı.",
-        "de": "Die Basis, die potenziert wird."
+        "de": "Die Basis, die potenziert wird.",
+        "fr": "Nombre de base à élever à une puissance.",
+        "es": "Número base que se eleva a una potencia."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Exponent",
         "tr": "Üs",
         "de": "Exponent",
-        "fr": "Exponent",
-        "es": "Exponent",
+        "fr": "Exposant",
+        "es": "Exponente",
         "ar": "Exponent"
       },
       "businessContext_i18n": {
         "en": "The power to which the base is raised.",
         "tr": "Tabanın yükseltileceği üs.",
-        "de": "Der Exponent, mit dem die Basis potenziert wird."
+        "de": "Der Exponent, mit dem die Basis potenziert wird.",
+        "fr": "Puissance à laquelle la base est élevée.",
+        "es": "Potencia a la que se eleva la base."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Multiplier",
         "tr": "Çarpan",
         "de": "Multiplikator",
-        "fr": "Multiplier",
-        "es": "Multiplier",
+        "fr": "Multiplicateur",
+        "es": "Multiplicador",
         "ar": "Multiplier"
       },
       "businessContext_i18n": {
         "en": "Multiply the power result by this factor.",
         "tr": "Üs sonucunu bu faktörle çarpın.",
-        "de": "Multipliziert das Potenzergebnis mit diesem Faktor."
+        "de": "Multipliziert das Potenzergebnis mit diesem Faktor.",
+        "fr": "Multiplier le résultat de la puissance par ce facteur.",
+        "es": "Multiplica el resultado de la potencia por este factor."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Constant Addition",
         "tr": "Sabit Ekleme",
         "de": "Konstante Addition",
-        "fr": "Constant Addition",
-        "es": "Constant Addition",
+        "fr": "Addition constante",
+        "es": "Suma constante",
         "ar": "Constant Addition"
       },
       "businessContext_i18n": {
         "en": "Add a constant to the result after multiplication.",
         "tr": "Çarpma işleminden sonra sonuca bir sabit ekleyin.",
-        "de": "Addiert eine Konstante zum Ergebnis nach der Multiplikation."
+        "de": "Addiert eine Konstante zum Ergebnis nach der Multiplikation.",
+        "fr": "Ajouter une constante au résultat après multiplication.",
+        "es": "Agrega una constante al resultado después de la multiplicación."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Modulus",
         "tr": "Modül",
         "de": "Modul",
-        "fr": "Modulus",
-        "es": "Modulus",
+        "fr": "Modulo",
+        "es": "Módulo",
         "ar": "Modulus"
       },
       "businessContext_i18n": {
         "en": "If greater than 0, the result is taken modulo this value.",
         "tr": "0'dan büyükse, sonuç bu değere göre mod alınır.",
-        "de": "Wenn größer als 0, wird das Ergebnis modulo diesem Wert genommen."
+        "de": "Wenn größer als 0, wird das Ergebnis modulo diesem Wert genommen.",
+        "fr": "Si supérieur à 0, le résultat est pris modulo cette valeur.",
+        "es": "Si es mayor que 0, el resultado se toma módulo este valor."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for final rounding.",
         "tr": "Son yuvarlama için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen für die finale Rundung."
+        "de": "Anzahl der Dezimalstellen für die finale Rundung.",
+        "fr": "Nombre de décimales pour l'arrondi final.",
+        "es": "Número de decimales para el redondeo final."
       }
     }
   ],

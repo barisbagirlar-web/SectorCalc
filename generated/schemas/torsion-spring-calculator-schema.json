@@ -12,13 +12,15 @@
         "en": "Wire Diameter",
         "tr": "Tel Çapı",
         "de": "Drahtdurchmesser",
-        "fr": "Wire Diameter",
-        "es": "Wire Diameter",
+        "fr": "Diamètre du fil",
+        "es": "Diámetro del alambre",
         "ar": "Wire Diameter"
       },
       "businessContext_i18n": {
         "en": "Wire diameter of the torsion spring (mm).",
-        "tr": "Burulma yayının tel çapı (mm)."
+        "tr": "Burulma yayının tel çapı (mm).",
+        "de": "Drahtdurchmesser der Torsionsfeder (mm).",
+        "fr": "Diamètre du fil du ressort de torsion (mm)"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Mean Coil Diameter",
         "tr": "Ortalama bobin çapı",
         "de": "Mittlerer Windungsdurchmesser",
-        "fr": "Mean Coil Diameter",
-        "es": "Mean Coil Diameter",
+        "fr": "Diamètre moyen de la spire",
+        "es": "Diámetro medio de la bobina",
         "ar": "Mean Coil Diameter"
       },
       "businessContext_i18n": {
         "en": "Mean diameter of the spring coil (mm).",
-        "tr": "Yay sarımının ortalama çapı (mm)."
+        "tr": "Yay sarımının ortalama çapı (mm).",
+        "de": "Mittlerer Durchmesser der Federwindung (mm).",
+        "fr": "Diamètre moyen de la spire du ressort (mm)"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Active Coils",
         "tr": "Aktif Sarımlar",
-        "de": "Active Coils",
-        "fr": "Active Coils",
+        "de": "Aktive Windungen",
+        "fr": "Spires actives",
         "es": "Active Coils",
         "ar": "Active Coils"
       },
       "businessContext_i18n": {
         "en": "Number of active coils in the spring.",
-        "tr": "Yaydaki aktif sarım sayısı."
+        "tr": "Yaydaki aktif sarım sayısı.",
+        "de": "Anzahl der aktiven Windungen der Feder.",
+        "fr": "Nombre de spires actives du ressort."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Deflection Angle",
         "tr": "Sapma Açısı",
-        "de": "Deflection Angle",
-        "fr": "Deflection Angle",
+        "de": "Auslenkungswinkel",
+        "fr": "Angle de déflexion",
         "es": "Deflection Angle",
         "ar": "Deflection Angle"
       },
       "businessContext_i18n": {
         "en": "Angular deflection from free position (degrees).",
-        "tr": "Serbest konumdan açısal sapma (derece)."
+        "tr": "Serbest konumdan açısal sapma (derece).",
+        "de": "Winkelauslenkung aus der freien Position (Grad).",
+        "fr": "Déflexion angulaire depuis la position libre (degrés)."
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Shear Modulus",
         "tr": "Kayma modülü",
         "de": "Schubmodul",
-        "fr": "Shear Modulus",
-        "es": "Shear Modulus",
+        "fr": "Module de cisaillement",
+        "es": "Módulo de corte",
         "ar": "Shear Modulus"
       },
       "businessContext_i18n": {
         "en": "Shear modulus of the spring material (e.g., steel ≈ 79 300 MPa).",
-        "tr": "Yay malzemesinin kayma modülü (örneğin çelik ≈ 79 300 MPa)."
+        "tr": "Yay malzemesinin kayma modülü (örneğin çelik ≈ 79 300 MPa).",
+        "de": "Schubmodul des Federwerkstoffs (z. B. Stahl ≈ 79.300 MPa).",
+        "fr": "Module de cisaillement du matériau du ressort (ex. acier ≈ 79 300 MPa)."
       }
     }
   ],

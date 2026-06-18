@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Value (x)",
         "tr": "Değer (x)",
-        "de": "Value (x)",
-        "fr": "Value (x)",
-        "es": "Value (x)",
+        "de": "Wert (x)",
+        "fr": "Valeur (x)",
+        "es": "Valor (x)",
         "ar": "Value (x)"
       },
       "businessContext_i18n": {
         "en": "The primary numeric value for which the base-10 logarithm is computed.",
-        "tr": "10 tabanında logaritması hesaplanan birincil sayısal değer."
+        "tr": "10 tabanında logaritması hesaplanan birincil sayısal değer.",
+        "de": "Der primäre numerische Wert, für den der Logarithmus zur Basis 10 berechnet wird.",
+        "fr": "La valeur numérique principale pour laquelle le logarithme en base 10 est calculé.",
+        "es": "El valor numérico principal para el cual se calcula el logaritmo en base 10."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Second Value (y)",
         "tr": "İkinci Değer (y)",
-        "de": "Second Value (y)",
-        "fr": "Second Value (y)",
-        "es": "Second Value (y)",
+        "de": "Zweiter Wert (y)",
+        "fr": "Deuxième valeur (y)",
+        "es": "Segundo valor (y)",
         "ar": "Second Value (y)"
       },
       "businessContext_i18n": {
         "en": "A secondary numeric value used in product and quotient rule calculations to demonstrate logarithmic properties.",
-        "tr": "Logaritma özelliklerini göstermek için çarpım ve bölüm kuralı hesaplamalarında kullanılan ikincil sayısal değer."
+        "tr": "Logaritma özelliklerini göstermek için çarpım ve bölüm kuralı hesaplamalarında kullanılan ikincil sayısal değer.",
+        "de": "Ein sekundärer numerischer Wert, der in Produkt- und Quotientenregel-Berechnungen verwendet wird, um logarithmische Eigenschaften zu demonstrieren.",
+        "fr": "Une valeur numérique secondaire utilisée dans les calculs de règle du produit et du quotient pour démontrer les propriétés logarithmiques.",
+        "es": "Un valor numérico secundario utilizado en cálculos de regla del producto y del cociente para demostrar propiedades logarítmicas."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Exponent (n)",
         "tr": "Üs (n)",
         "de": "Exponent (n)",
-        "fr": "Exponent (n)",
-        "es": "Exponent (n)",
+        "fr": "Exposant (n)",
+        "es": "Exponente (n)",
         "ar": "Exponent (n)"
       },
       "businessContext_i18n": {
         "en": "The exponent applied to the primary value in the power rule (log10(x^n) = n·log10(x)).",
-        "tr": "Kuvvet kuralında birincil değere uygulanan üs (log10(x^n) = n·log10(x))."
+        "tr": "Kuvvet kuralında birincil değere uygulanan üs (log10(x^n) = n·log10(x)).",
+        "de": "Der Exponent, der auf den primären Wert in der Potenzregel angewendet wird (log10(x^n) = n·log10(x)).",
+        "fr": "L'exposant appliqué à la valeur principale dans la règle de puissance (log10(x^n) = n·log10(x)).",
+        "es": "El exponente aplicado al valor principal en la regla de la potencia (log10(x^n) = n·log10(x))."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Custom Base (b)",
         "tr": "Özel Taban (b)",
-        "de": "Custom Base (b)",
-        "fr": "Custom Base (b)",
-        "es": "Custom Base (b)",
+        "de": "Benutzerdefinierte Basis (b)",
+        "fr": "Base personnalisée (b)",
+        "es": "Base personalizada (b)",
         "ar": "Custom Base (b)"
       },
       "businessContext_i18n": {
         "en": "An alternative logarithm base for change-of-base demonstration (log_b(x) = log10(x)/log10(b)).",
-        "tr": "Taban değiştirme gösterimi için alternatif logaritma tabanı (log_b(x) = log10(x)/log10(b))."
+        "tr": "Taban değiştirme gösterimi için alternatif logaritma tabanı (log_b(x) = log10(x)/log10(b)).",
+        "de": "Eine alternative Logarithmusbasis für die Demonstration des Basiswechsels (log_b(x) = log10(x)/log10(b)).",
+        "fr": "Une base de logarithme alternative pour la démonstration du changement de base (log_b(x) = log10(x)/log10(b)).",
+        "es": "Una base de logaritmo alternativa para demostración de cambio de base (log_b(x) = log10(x)/log10(b))."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "The number of decimal places to which all outputs are rounded for readability and engineering precision.",
-        "tr": "Tüm çıktıların okunabilirlik ve mühendislik hassasiyeti için yuvarlandığı ondalık basamak sayısı."
+        "tr": "Tüm çıktıların okunabilirlik ve mühendislik hassasiyeti için yuvarlandığı ondalık basamak sayısı.",
+        "de": "Die Anzahl der Dezimalstellen, auf die alle Ausgaben zur Lesbarkeit und technischen Genauigkeit gerundet werden.",
+        "fr": "Le nombre de décimales auxquelles toutes les sorties sont arrondies pour la lisibilité et la précision technique.",
+        "es": "El número de decimales al que se redondean todas las salidas para legibilidad y precisión técnica."
       }
     }
   ],

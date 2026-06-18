@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "System Cost",
         "tr": "Sistem Maliyeti",
-        "de": "System Cost",
-        "fr": "System Cost",
+        "de": "Systemkosten",
+        "fr": "Coût du système",
         "es": "System Cost",
         "ar": "System Cost"
       },
       "businessContext_i18n": {
         "en": "Total upfront cost of solar system installation",
-        "tr": "Güneş enerjisi sistemi kurulumunun toplam peşin maliyeti."
+        "tr": "Güneş enerjisi sistemi kurulumunun toplam peşin maliyeti.",
+        "de": "Gesamte Vorabkosten der Solaranlageninstallation",
+        "fr": "Coût total initial de l'installation solaire."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Annual Production",
         "tr": "Yıllık Üretim",
-        "de": "Annual Production",
-        "fr": "Annual Production",
+        "de": "Jährliche Produktion",
+        "fr": "Production annuelle",
         "es": "Annual Production",
         "ar": "Annual Production"
       },
       "businessContext_i18n": {
         "en": "Estimated annual electricity generation from the solar system",
-        "tr": "Güneş enerjisi sisteminden tahmini yıllık elektrik üretimi."
+        "tr": "Güneş enerjisi sisteminden tahmini yıllık elektrik üretimi.",
+        "de": "Geschätzte jährliche Stromerzeugung der Solaranlage",
+        "fr": "Estimation de la production annuelle d'électricité du système solaire."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Electricity Price",
         "tr": "Elektrik Fiyatı",
         "de": "Strompreis",
-        "fr": "Electricity Price",
-        "es": "Electricity Price",
+        "fr": "Prix de l'électricité",
+        "es": "Precio de la electricidad",
         "ar": "Electricity Price"
       },
       "businessContext_i18n": {
         "en": "Current electricity price per kWh",
-        "tr": "kWh başına mevcut elektrik fiyatı."
+        "tr": "kWh başına mevcut elektrik fiyatı.",
+        "de": "Aktueller Strompreis pro kWh",
+        "fr": "Prix actuel de l'électricité par kWh"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Annual Maintenance Cost",
         "tr": "Yıllık Bakım Maliyeti",
         "de": "Jährliche Wartungskosten",
-        "fr": "Annual Maintenance Cost",
-        "es": "Annual Maintenance Cost",
+        "fr": "Coût d'entretien annuel",
+        "es": "Costo de mantenimiento anual",
         "ar": "Annual Maintenance Cost"
       },
       "businessContext_i18n": {
         "en": "Annual maintenance and operation cost",
-        "tr": "Yıllık bakım ve işletme maliyeti."
+        "tr": "Yıllık bakım ve işletme maliyeti.",
+        "de": "Jährliche Wartungs- und Betriebskosten",
+        "fr": "Coût annuel de maintenance et d'exploitation"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Tax Credit",
         "tr": "Vergi Kredisi",
-        "de": "Tax Credit",
-        "fr": "Tax Credit",
+        "de": "Steuergutschrift",
+        "fr": "Crédit d'impôt",
         "es": "Tax Credit",
         "ar": "Tax Credit"
       },
       "businessContext_i18n": {
         "en": "Applicable tax credit percentage (e.g., 26% federal ITC in the US)",
-        "tr": "Uygulanabilir vergi kredisi yüzdesi (örneğin, ABD'de %26 federal ITC)."
+        "tr": "Uygulanabilir vergi kredisi yüzdesi (örneğin, ABD'de %26 federal ITC).",
+        "de": "Anwendbarer Steuergutschriftsprozentsatz (z. B. 26 % bundesstaatliche ITC in den USA)",
+        "fr": "Pourcentage de crédit d'impôt applicable (ex. 26% ITC fédéral aux États-Unis)."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Degradation Rate",
         "tr": "Bozunma Oranı",
-        "de": "Degradation Rate",
-        "fr": "Degradation Rate",
+        "de": "Degradationsrate",
+        "fr": "Taux de dégradation",
         "es": "Degradation Rate",
         "ar": "Degradation Rate"
       },
       "businessContext_i18n": {
         "en": "Annual degradation rate of solar panels (e.g., 0.005 for 0.5%)",
-        "tr": "Güneş panellerinin yıllık bozunma oranı (örneğin, %0,5 için 0,005)."
+        "tr": "Güneş panellerinin yıllık bozunma oranı (örneğin, %0,5 için 0,005).",
+        "de": "Jährliche Degradationsrate der Solarmodule (z. B. 0,005 für 0,5 %)",
+        "fr": "Taux de dégradation annuel des panneaux solaires (ex. 0,005 pour 0,5%)."
       }
     },
     {
@@ -131,14 +143,16 @@
       "label_i18n": {
         "en": "Escalation Rate",
         "tr": "Artış Oranı",
-        "de": "Escalation Rate",
-        "fr": "Escalation Rate",
+        "de": "Steigerungsrate",
+        "fr": "Taux d'escalade",
         "es": "Escalation Rate",
         "ar": "Escalation Rate"
       },
       "businessContext_i18n": {
         "en": "Annual electricity price escalation rate (e.g., 0.03 for 3%)",
-        "tr": "Yıllık elektrik fiyat artış oranı (örneğin, %3 için 0.03)"
+        "tr": "Yıllık elektrik fiyat artış oranı (örneğin, %3 için 0.03)",
+        "de": "Jährliche Strompreissteigerungsrate (z. B. 0,03 für 3 %)",
+        "fr": "Taux d'augmentation annuelle du prix de l'électricité (ex. 0,03 pour 3%)"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Number of Campers",
         "tr": "Kampçı Sayısı",
         "de": "Anzahl der Camper",
-        "fr": "Number of Campers",
-        "es": "Number of Campers",
+        "fr": "Nombre de campeurs",
+        "es": "Número de campistas",
         "ar": "Number of Campers"
       },
       "businessContext_i18n": {
         "en": "Total number of people on the camping trip",
         "tr": "Kamp gezisindeki toplam kişi sayısı",
-        "de": "Gesamtzahl der Personen auf dem Campingausflug"
+        "de": "Gesamtzahl der Personen auf dem Campingausflug",
+        "fr": "Nombre total de personnes participant au camping",
+        "es": "Número total de personas en el viaje de campamento"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Number of Nights",
         "tr": "Gece Sayısı",
         "de": "Anzahl der Nächte",
-        "fr": "Number of Nights",
-        "es": "Number of Nights",
+        "fr": "Nombre de nuits",
+        "es": "Número de noches",
         "ar": "Number of Nights"
       },
       "businessContext_i18n": {
         "en": "Duration of the camping trip in nights",
         "tr": "Kamp gezisinin gece olarak süresi",
-        "de": "Dauer des Campingausflugs in Nächten"
+        "de": "Dauer des Campingausflugs in Nächten",
+        "fr": "Durée du séjour en camping en nuits",
+        "es": "Duración del viaje de campamento en noches"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Daily Water per Person",
         "tr": "Kişi Başı Günlük Su",
         "de": "Täglicher Wasserbedarf pro Person",
-        "fr": "Daily Water per Person",
-        "es": "Daily Water per Person",
+        "fr": "Eau quotidienne par personne",
+        "es": "Agua diaria por persona",
         "ar": "Daily Water per Person"
       },
       "businessContext_i18n": {
         "en": "Recommended water per person per day for drinking, cooking, and hygiene",
         "tr": "İçme, yemek pişirme ve hijyen için kişi başı günlük önerilen su",
-        "de": "Empfohlener Wasserbedarf pro Person und Tag für Trinken, Kochen und Hygiene"
+        "de": "Empfohlener Wasserbedarf pro Person und Tag für Trinken, Kochen und Hygiene",
+        "fr": "Quantité d'eau recommandée par personne et par jour pour boire, cuisiner et l'hygiène",
+        "es": "Agua recomendada por persona al día para beber, cocinar e higiene"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Daily Food Energy per Person",
         "tr": "Kişi Başı Günlük Gıda Enerjisi",
         "de": "Täglicher Nahrungsenergiebedarf pro Person",
-        "fr": "Daily Food Energy per Person",
-        "es": "Daily Food Energy per Person",
+        "fr": "Énergie alimentaire quotidienne par personne",
+        "es": "Energía alimentaria diaria por persona",
         "ar": "Daily Food Energy per Person"
       },
       "businessContext_i18n": {
         "en": "Average daily calorie intake per person",
         "tr": "Kişi başı ortalama günlük kalori alımı",
-        "de": "Durchschnittliche tägliche Kalorienaufnahme pro Person"
+        "de": "Durchschnittliche tägliche Kalorienaufnahme pro Person",
+        "fr": "Apport calorique quotidien moyen par personne",
+        "es": "Ingesta calórica media diaria por persona"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Firewood per Night",
         "tr": "Gece Başına Odun",
         "de": "Brennholz pro Nacht",
-        "fr": "Firewood per Night",
-        "es": "Firewood per Night",
+        "fr": "Bois de chauffage par nuit",
+        "es": "Leña por noche",
         "ar": "Firewood per Night"
       },
       "businessContext_i18n": {
         "en": "Estimated firewood needed per evening campfire",
         "tr": "Akşam kamp ateşi için tahmini odun ihtiyacı",
-        "de": "Geschätzter Brennholzbedarf pro abendlichem Lagerfeuer"
+        "de": "Geschätzter Brennholzbedarf pro abendlichem Lagerfeuer",
+        "fr": "Estimation du bois nécessaire pour un feu de camp en soirée",
+        "es": "Leña estimada necesaria para la fogata nocturna"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Temperature Adjustment Factor",
         "tr": "Sıcaklık Ayarlama Faktörü",
         "de": "Temperaturanpassungsfaktor",
-        "fr": "Temperature Adjustment Factor",
-        "es": "Temperature Adjustment Factor",
+        "fr": "Facteur d'ajustement de température",
+        "es": "Factor de ajuste de temperatura",
         "ar": "Temperature Adjustment Factor"
       },
       "businessContext_i18n": {
         "en": "Adjust water needs: 0 for normal, positive for hot (e.g., 0.2 for >30°C), negative for cold",
         "tr": "Su ihtiyacını ayarlayın: normal için 0, sıcak için pozitif (örn. >30°C için 0.2), soğuk için negatif",
-        "de": "Wasserbedarf anpassen: 0 für normal, positiv für heiß (z.B. 0,2 bei >30°C), negativ für kalt"
+        "de": "Wasserbedarf anpassen: 0 für normal, positiv für heiß (z.B. 0,2 bei >30°C), negativ für kalt",
+        "fr": "Ajuster les besoins en eau : 0 pour normal, positif pour chaud (ex. 0,2 pour >30°C), négatif pour froid",
+        "es": "Ajustar necesidades de agua: 0 para normal, positivo para calor (ej. 0.2 para >30°C), negativo para frío"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Safety Margin",
         "tr": "Güvenlik Marjı",
         "de": "Sicherheitsmarge",
-        "fr": "Safety Margin",
-        "es": "Safety Margin",
+        "fr": "Marge de sécurité",
+        "es": "Margen de seguridad",
         "ar": "Safety Margin"
       },
       "businessContext_i18n": {
         "en": "Percentage of extra supplies for unforeseen circumstances",
         "tr": "Öngörülemeyen durumlar için ekstra malzeme yüzdesi",
-        "de": "Prozentsatz zusätzlicher Vorräte für unvorhergesehene Umstände"
+        "de": "Prozentsatz zusätzlicher Vorräte für unvorhergesehene Umstände",
+        "fr": "Pourcentage de fournitures supplémentaires pour imprévus",
+        "es": "Porcentaje de suministros extra para imprevistos"
       }
     }
   ],

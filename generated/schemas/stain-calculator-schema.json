@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Yüzey Alanı",
         "tr": "Yüzey Alanı",
-        "de": "Yüzey Alanı",
-        "fr": "Yüzey Alanı",
+        "de": "Oberfläche",
+        "fr": "Surface",
         "es": "Yüzey Alanı",
         "ar": "Yüzey Alanı"
       },
       "businessContext_i18n": {
         "en": "Stain-affected area in square meters.",
-        "tr": "Lekeden etkilenen alan (metrekare)."
+        "tr": "Lekeden etkilenen alan (metrekare).",
+        "de": "Von Flecken betroffene Fläche in Quadratmetern.",
+        "fr": "Surface affectée par la tache en mètres carrés."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Leke Yoğunluğu",
         "tr": "Leke Yoğunluğu",
-        "de": "Leke Yoğunluğu",
-        "fr": "Leke Yoğunluğu",
+        "de": "Fleckenintensität",
+        "fr": "Intensité de la tache",
         "es": "Leke Yoğunluğu",
         "ar": "Leke Yoğunluğu"
       },
       "businessContext_i18n": {
         "en": "Stain intensity percentage (0-100). A higher value indicates a more concentrated stain.",
-        "tr": "Leke yoğunluğu yüzdesi (0-100). Daha yüksek değer daha konsantre lekeyi gösterir."
+        "tr": "Leke yoğunluğu yüzdesi (0-100). Daha yüksek değer daha konsantre lekeyi gösterir.",
+        "de": "Fleckenintensität in Prozent (0-100). Ein höherer Wert bedeutet einen konzentrierteren Fleck.",
+        "fr": "Pourcentage d'intensité de la tache (0-100). Une valeur plus élevée indique une tache plus concentrée."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Kaplama Oranı",
         "tr": "Kaplama Oranı",
-        "de": "Kaplama Oranı",
-        "fr": "Kaplama Oranı",
+        "de": "Abdeckungsrate",
+        "fr": "Taux de couverture",
         "es": "Kaplama Oranı",
         "ar": "Kaplama Oranı"
       },
       "businessContext_i18n": {
         "en": "Surface area that 1 liter of cleaning solution can cover under ideal conditions.",
-        "tr": "1 litre temizlik solüsyonunun ideal koşullarda kaplayabileceği yüzey alanı."
+        "tr": "1 litre temizlik solüsyonunun ideal koşullarda kaplayabileceği yüzey alanı.",
+        "de": "Oberfläche, die 1 Liter Reinigungslösung unter idealen Bedingungen bedecken kann.",
+        "fr": "Surface qu'un litre de solution de nettoyage peut couvrir dans des conditions idéales."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Temizlik Verimliliği",
         "tr": "Temizlik Verimliliği",
-        "de": "Temizlik Verimliliği",
-        "fr": "Temizlik Verimliliği",
+        "de": "Reinigungseffizienz",
+        "fr": "Efficacité de nettoyage",
         "es": "Temizlik Verimliliği",
         "ar": "Temizlik Verimliliği"
       },
       "businessContext_i18n": {
         "en": "Real-world cleaning efficiency, accounting for losses like overspray or absorption.",
-        "tr": "Püskürtme kaybı veya emilim gibi kayıpları hesaba katan gerçek dünya temizlik verimliliği."
+        "tr": "Püskürtme kaybı veya emilim gibi kayıpları hesaba katan gerçek dünya temizlik verimliliği.",
+        "de": "Reale Reinigungseffizienz unter Berücksichtigung von Verlusten wie Sprühnebel oder Absorption.",
+        "fr": "Efficacité de nettoyage réelle, tenant compte des pertes comme les surprojections ou l'absorption."
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Uygulama Katmanı",
         "tr": "Uygulama Katmanı",
         "de": "Uygulama Katmanı",
-        "fr": "Uygulama Katmanı",
+        "fr": "Couche d'application",
         "es": "Uygulama Katmanı",
         "ar": "Uygulama Katmanı"
       },
       "businessContext_i18n": {
         "en": "Number of application coats required to remove the stain completely.",
-        "tr": "Lekeyi tamamen çıkarmak için gereken uygulama katmanı sayısı."
+        "tr": "Lekeyi tamamen çıkarmak için gereken uygulama katmanı sayısı.",
+        "de": "Lekeyi tamamen çıkarmak için gereken uygulama katmanı sayısı.",
+        "fr": "Nombre de couches d'application nécessaires pour éliminer complètement la tache."
       }
     }
   ],

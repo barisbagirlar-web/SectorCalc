@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Radicand",
         "tr": "Kök içi",
-        "de": "Radicand",
-        "fr": "Radicand",
-        "es": "Radicand",
+        "de": "Radikand",
+        "fr": "Radicande",
+        "es": "Radicando",
         "ar": "Radicand"
       },
       "businessContext_i18n": {
         "en": "The number for which the square root is computed.",
-        "tr": "Karekökü hesaplanacak sayı."
+        "tr": "Karekökü hesaplanacak sayı.",
+        "de": "Die Zahl, für die die Quadratwurzel berechnet wird.",
+        "fr": "Nombre dont on calcule la racine carrée."
       }
     },
     {
@@ -32,13 +34,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the result.",
-        "tr": "Sonucu yuvarlamak için ondalık basamak sayısı."
+        "tr": "Sonucu yuvarlamak için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses.",
+        "fr": "Nombre de décimales pour arrondir le résultat.",
+        "es": "Número de decimales para redondear el resultado."
       }
     },
     {
@@ -51,14 +56,16 @@
       "label_i18n": {
         "en": "Initial Guess",
         "tr": "İlk tahmin",
-        "de": "Initial Guess",
-        "fr": "Initial Guess",
-        "es": "Initial Guess",
+        "de": "Anfangsschätzung",
+        "fr": "Estimation initiale",
+        "es": "Estimación inicial",
         "ar": "Initial Guess"
       },
       "businessContext_i18n": {
         "en": "Optional starting value for iterative methods (if applicable).",
-        "tr": "Yinelemeli yöntemler için isteğe bağlı başlangıç değeri (varsa)."
+        "tr": "Yinelemeli yöntemler için isteğe bağlı başlangıç değeri (varsa).",
+        "de": "Optionaler Startwert für iterative Verfahren (falls zutreffend).",
+        "fr": "Valeur de départ optionnelle pour les méthodes itératives (si applicable)."
       }
     },
     {
@@ -72,13 +79,15 @@
         "en": "Tolerance",
         "tr": "Tolerans",
         "de": "Toleranz",
-        "fr": "Tolerance",
-        "es": "Tolerance",
+        "fr": "Tolérance",
+        "es": "Tolerancia",
         "ar": "Tolerance"
       },
       "businessContext_i18n": {
         "en": "Convergence tolerance for iterative methods.",
-        "tr": "Yinelemeli yöntemler için yakınsama toleransı."
+        "tr": "Yinelemeli yöntemler için yakınsama toleransı.",
+        "de": "Konvergenztoleranz für iterative Verfahren.",
+        "fr": "Tolérance de convergence pour les méthodes itératives."
       }
     },
     {
@@ -92,13 +101,15 @@
         "en": "Max Iterations",
         "tr": "Maksimum İterasyon",
         "de": "Maximale Iterationen",
-        "fr": "Max Iterations",
-        "es": "Max Iterations",
+        "fr": "Itérations maximales",
+        "es": "Máximo de iteraciones",
         "ar": "Max Iterations"
       },
       "businessContext_i18n": {
         "en": "Maximum number of iterations allowed for iterative methods.",
-        "tr": "Yinelemeli yöntemler için izin verilen maksimum yineleme sayısı."
+        "tr": "Yinelemeli yöntemler için izin verilen maksimum yineleme sayısı.",
+        "de": "Maximale Anzahl von Iterationen für iterative Verfahren.",
+        "fr": "Nombre maximal d'itérations autorisé pour les méthodes itératives."
       }
     }
   ],

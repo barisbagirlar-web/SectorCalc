@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Pet Age (Years)",
         "tr": "Evcil Hayvan Yaşı (Yıl)",
-        "de": "Pet Age (Years)",
-        "fr": "Pet Age (Years)",
-        "es": "Pet Age (Years)",
+        "de": "Alter des Haustiers (Jahre)",
+        "fr": "Âge de l'animal (années)",
+        "es": "Edad de la mascota (años)",
         "ar": "Pet Age (Years)"
       },
       "businessContext_i18n": {
         "en": "The age of the pet in completed years.",
-        "tr": "Evcil hayvanın tamamlanmış yıl cinsinden yaşı."
+        "tr": "Evcil hayvanın tamamlanmış yıl cinsinden yaşı.",
+        "de": "Das Alter des Haustiers in vollendeten Jahren.",
+        "fr": "L'âge de l'animal en années révolues.",
+        "es": "La edad de la mascota en años cumplidos."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Pet Age (Months)",
         "tr": "Evcil Hayvan Yaşı (Ay)",
-        "de": "Pet Age (Months)",
-        "fr": "Pet Age (Months)",
-        "es": "Pet Age (Months)",
+        "de": "Alter des Haustiers (Monate)",
+        "fr": "Âge de l'animal (mois)",
+        "es": "Edad de la mascota (meses)",
         "ar": "Pet Age (Months)"
       },
       "businessContext_i18n": {
         "en": "Additional months beyond years, from 0 to 11.",
-        "tr": "Yılların ötesindeki ek aylar, 0 ile 11 arası."
+        "tr": "Yılların ötesindeki ek aylar, 0 ile 11 arası.",
+        "de": "Zusätzliche Monate über die Jahre hinaus, von 0 bis 11.",
+        "fr": "Mois supplémentaires au-delà des années, de 0 à 11.",
+        "es": "Meses adicionales más allá de los años, de 0 a 11."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Pet Type",
         "tr": "Evcil Hayvan Türü",
-        "de": "Pet Type",
-        "fr": "Pet Type",
-        "es": "Pet Type",
+        "de": "Haustiertyp",
+        "fr": "Type d'animal",
+        "es": "Tipo de mascota",
         "ar": "Pet Type"
       },
       "businessContext_i18n": {
         "en": "1 for Dog, 2 for Cat.",
-        "tr": "Köpek için 1, Kedi için 2."
+        "tr": "Köpek için 1, Kedi için 2.",
+        "de": "1 für Hund, 2 für Katze.",
+        "fr": "1 pour Chien, 2 pour Chat.",
+        "es": "1 para Perro, 2 para Gato."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Dog Size (if applicable)",
         "tr": "Köpek Boyutu (varsa)",
-        "de": "Dog Size (if applicable)",
-        "fr": "Dog Size (if applicable)",
-        "es": "Dog Size (if applicable)",
+        "de": "Hundegröße (falls zutreffend)",
+        "fr": "Taille du chien (si applicable)",
+        "es": "Tamaño del perro (si aplica)",
         "ar": "Dog Size (if applicable)"
       },
       "businessContext_i18n": {
         "en": "1 for Small (<10 kg), 2 for Medium (10-25 kg), 3 for Large (>25 kg). Only used for dogs.",
-        "tr": "Küçük (<10 kg) için 1, Orta (10-25 kg) için 2, Büyük (>25 kg) için 3. Sadece köpekler için kullanılır."
+        "tr": "Küçük (<10 kg) için 1, Orta (10-25 kg) için 2, Büyük (>25 kg) için 3. Sadece köpekler için kullanılır.",
+        "de": "1 für klein (<10 kg), 2 für mittel (10-25 kg), 3 für groß (>25 kg). Nur für Hunde verwendet.",
+        "fr": "1 pour Petit (<10 kg), 2 pour Moyen (10-25 kg), 3 pour Grand (>25 kg). Utilisé uniquement pour les chiens.",
+        "es": "1 para Pequeño (<10 kg), 2 para Mediano (10-25 kg), 3 para Grande (>25 kg). Solo se usa para perros."
       }
     }
   ],

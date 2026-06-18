@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Büyük Yarıçap (R)",
         "tr": "Büyük Yarıçap (R)",
-        "de": "Büyük Yarıçap (R)",
-        "fr": "Büyük Yarıçap (R)",
+        "de": "Großer Radius (R)",
+        "fr": "Grand rayon (R)",
         "es": "Büyük Yarıçap (R)",
         "ar": "Büyük Yarıçap (R)"
       },
       "businessContext_i18n": {
         "en": "Torusun merkezinden tüp merkezine olan mesafe",
-        "tr": "Torusun merkezinden tüp merkezine olan mesafe"
+        "tr": "Torusun merkezinden tüp merkezine olan mesafe",
+        "de": "Abstand vom Torusmittelpunkt zur Rohrmitte",
+        "fr": "Distance du centre du tore au centre du tube"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Küçük Yarıçap (r)",
         "tr": "Küçük Yarıçap (r)",
-        "de": "Küçük Yarıçap (r)",
-        "fr": "Küçük Yarıçap (r)",
+        "de": "Kleiner Radius (r)",
+        "fr": "Petit rayon (r)",
         "es": "Küçük Yarıçap (r)",
         "ar": "Küçük Yarıçap (r)"
       },
       "businessContext_i18n": {
         "en": "Tüpün yarıçapı",
-        "tr": "Tüpün yarıçapı"
+        "tr": "Tüpün yarıçapı",
+        "de": "Radius des Rohrs",
+        "fr": "Rayon du tube"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Malzeme Yoğunluğu",
         "tr": "Malzeme Yoğunluğu",
         "de": "Materialdichte",
-        "fr": "Malzeme Yoğunluğu",
-        "es": "Malzeme Yoğunluğu",
+        "fr": "Densité du matériau",
+        "es": "Densidad del material",
         "ar": "Malzeme Yoğunluğu"
       },
       "businessContext_i18n": {
         "en": "Ağırlık hesabı için opsiyonel; 0 ise atlanır",
-        "tr": "Ağırlık hesabı için opsiyonel; 0 ise atlanır"
+        "tr": "Ağırlık hesabı için opsiyonel; 0 ise atlanır",
+        "de": "Optional für Gewichtsberechnung; bei 0 wird es übersprungen",
+        "fr": "Optionnel pour le calcul du poids ; ignoré si 0"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Ondalık Basamak",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Ondalık Basamak",
-        "es": "Ondalık Basamak",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Ondalık Basamak"
       },
       "businessContext_i18n": {
         "en": "Sonuçlarda gösterilecek ondalık basamak sayısı",
-        "tr": "Sonuçlarda gösterilecek ondalık basamak sayısı"
+        "tr": "Sonuçlarda gösterilecek ondalık basamak sayısı",
+        "de": "Anzahl der in den Ergebnissen anzuzeigenden Dezimalstellen",
+        "fr": "Nombre de décimales à afficher dans les résultats"
       }
     }
   ],

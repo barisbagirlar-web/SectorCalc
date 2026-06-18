@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Serving Size",
         "tr": "Porsiyon Boyutu",
-        "de": "Serving Size",
-        "fr": "Serving Size",
-        "es": "Serving Size",
+        "de": "Portionsgröße",
+        "fr": "Taille de portion",
+        "es": "Tamaño de la porción",
         "ar": "Serving Size"
       },
       "businessContext_i18n": {
         "en": "Standard serving size in grams as stated on the nutrition label.",
-        "tr": "Besin etiketinde belirtilen gram cinsinden standart porsiyon boyutu."
+        "tr": "Besin etiketinde belirtilen gram cinsinden standart porsiyon boyutu.",
+        "de": "Standard-Portionsgröße in Gramm gemäß Nährwertkennzeichnung.",
+        "fr": "Taille de portion standard en grammes telle qu'indiquée sur l'étiquette nutritionnelle.",
+        "es": "Tamaño de porción estándar en gramos según la etiqueta nutricional."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Calories per Serving",
         "tr": "Porsiyon Başına Kalori",
-        "de": "Calories per Serving",
-        "fr": "Calories per Serving",
-        "es": "Calories per Serving",
+        "de": "Kalorien pro Portion",
+        "fr": "Calories par portion",
+        "es": "Calorías por porción",
         "ar": "Calories per Serving"
       },
       "businessContext_i18n": {
         "en": "Total caloric content per serving.",
-        "tr": "Porsiyon başına toplam kalori içeriği."
+        "tr": "Porsiyon başına toplam kalori içeriği.",
+        "de": "Gesamtkaloriengehalt pro Portion.",
+        "fr": "Contenu calorique total par portion.",
+        "es": "Contenido calórico total por porción."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Total Fat",
         "tr": "Toplam Yağ",
-        "de": "Total Fat",
-        "fr": "Total Fat",
-        "es": "Total Fat",
+        "de": "Gesamtfett",
+        "fr": "Matières grasses totales",
+        "es": "Grasa total",
         "ar": "Total Fat"
       },
       "businessContext_i18n": {
         "en": "Amount of total fat per serving in grams.",
-        "tr": "Porsiyon başına gram cinsinden toplam yağ miktarı."
+        "tr": "Porsiyon başına gram cinsinden toplam yağ miktarı.",
+        "de": "Menge an Gesamtfett pro Portion in Gramm.",
+        "fr": "Quantité de matières grasses totales par portion en grammes.",
+        "es": "Cantidad de grasa total por porción en gramos."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Sodium",
         "tr": "Sodyum",
-        "de": "Sodium",
+        "de": "Natrium",
         "fr": "Sodium",
-        "es": "Sodium",
+        "es": "Sodio",
         "ar": "Sodium"
       },
       "businessContext_i18n": {
         "en": "Sodium content per serving in milligrams.",
-        "tr": "Porsiyon başına miligram cinsinden sodyum içeriği."
+        "tr": "Porsiyon başına miligram cinsinden sodyum içeriği.",
+        "de": "Natriumgehalt pro Portion in Milligramm.",
+        "fr": "Teneur en sodium par portion en milligrammes.",
+        "es": "Contenido de sodio por porción en miligramos."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Total Carbohydrates",
         "tr": "Toplam Karbonhidrat",
         "de": "Gesamtkohlenhydrate",
-        "fr": "Total Carbohydrates",
-        "es": "Total Carbohydrates",
+        "fr": "Glucides totaux",
+        "es": "Carbohidratos totales",
         "ar": "Total Carbohydrates"
       },
       "businessContext_i18n": {
         "en": "Amount of total carbohydrates per serving in grams.",
-        "tr": "Toplam karbonhidrat miktarı (gram/porsiyon)"
+        "tr": "Toplam karbonhidrat miktarı (gram/porsiyon)",
+        "de": "Menge an Gesamtkohlenhydraten pro Portion in Gramm.",
+        "fr": "Glucides totaux",
+        "es": "Cantidad de carbohidratos totales por porción en gramos."
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Protein",
         "tr": "Protein",
         "de": "Protein",
-        "fr": "Protein",
-        "es": "Protein",
+        "fr": "Protéines",
+        "es": "Proteína",
         "ar": "Protein"
       },
       "businessContext_i18n": {
         "en": "Protein content per serving in grams.",
-        "tr": "Porsiyon başına gram cinsinden protein içeriği."
+        "tr": "Porsiyon başına gram cinsinden protein içeriği.",
+        "de": "Proteingehalt pro Portion in Gramm.",
+        "fr": "Protéines",
+        "es": "Contenido de proteína por porción en gramos."
       }
     }
   ],

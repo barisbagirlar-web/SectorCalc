@@ -12,13 +12,15 @@
         "en": "Mass",
         "tr": "Kütle",
         "de": "Masse",
-        "fr": "Mass",
-        "es": "Mass",
+        "fr": "Masse",
+        "es": "Masa",
         "ar": "Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the falling object",
-        "tr": "Düşen cismin kütlesi"
+        "tr": "Düşen cismin kütlesi",
+        "de": "Masse des fallenden Objekts",
+        "fr": "Masse de l'objet en chute"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Cross-sectional Area",
         "tr": "Kesit Alanı",
         "de": "Querschnittsfläche",
-        "fr": "Cross-sectional Area",
-        "es": "Cross-sectional Area",
+        "fr": "Section transversale",
+        "es": "Área de la sección transversal",
         "ar": "Cross-sectional Area"
       },
       "businessContext_i18n": {
         "en": "Effective cross-sectional area perpendicular to the direction of fall",
-        "tr": "Düşüş yönüne dik etkili kesit alanı"
+        "tr": "Düşüş yönüne dik etkili kesit alanı",
+        "de": "Effektive Querschnittsfläche senkrecht zur Fallrichtung",
+        "fr": "Section efficace perpendiculaire à la direction de chute"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Drag Coefficient",
         "tr": "Sürükleme Katsayısı",
         "de": "Widerstandsbeiwert",
-        "fr": "Drag Coefficient",
-        "es": "Drag Coefficient",
+        "fr": "Coefficient de traînée",
+        "es": "Coeficiente de arrastre",
         "ar": "Drag Coefficient"
       },
       "businessContext_i18n": {
         "en": "Aerodynamic drag coefficient of the object's shape",
-        "tr": "Cismin şekline bağlı aerodinamik sürükleme katsayısı"
+        "tr": "Cismin şekline bağlı aerodinamik sürükleme katsayısı",
+        "de": "Aerodynamischer Widerstandsbeiwert der Objektform",
+        "fr": "Coefficient de traînée aérodynamique de la forme de l'objet"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Fluid Density",
         "tr": "Akışkan Yoğunluğu",
         "de": "Flüssigkeitsdichte",
-        "fr": "Fluid Density",
-        "es": "Fluid Density",
+        "fr": "Densité du fluide",
+        "es": "Densidad del fluido",
         "ar": "Fluid Density"
       },
       "businessContext_i18n": {
         "en": "Density of the fluid through which the object falls (e.g., air at sea level ≈ 1.225 kg/m³)",
-        "tr": "Cismin içinden düştüğü akışkanın yoğunluğu (örneğin deniz seviyesinde hava ≈ 1,225 kg/m³)"
+        "tr": "Cismin içinden düştüğü akışkanın yoğunluğu (örneğin deniz seviyesinde hava ≈ 1,225 kg/m³)",
+        "de": "Dichte des Fluids, durch das das Objekt fällt (z. B. Luft auf Meereshöhe ≈ 1,225 kg/m³)",
+        "fr": "Densité du fluide dans lequel l'objet tombe (ex. air au niveau de la mer ≈ 1,225 kg/m³)"
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Gravity",
         "tr": "Yerçekimi",
         "de": "Schwerkraft",
-        "fr": "Gravity",
-        "es": "Gravity",
+        "fr": "Gravité",
+        "es": "Gravedad",
         "ar": "Gravity"
       },
       "businessContext_i18n": {
         "en": "Acceleration due to gravity (standard Earth gravity = 9.81 m/s²)",
-        "tr": "Yerçekimi ivmesi (standart Dünya yerçekimi = 9,81 m/s²)"
+        "tr": "Yerçekimi ivmesi (standart Dünya yerçekimi = 9,81 m/s²)",
+        "de": "Erdbeschleunigung (Standard-Erdschwerkraft = 9,81 m/s²)",
+        "fr": "Accélération due à la gravité (gravité terrestre standard = 9,81 m/s²)"
       }
     }
   ],

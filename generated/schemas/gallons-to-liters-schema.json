@@ -13,13 +13,15 @@
         "tr": "Galon (ABD)",
         "de": "Gallonen (US)",
         "fr": "Gallons (US)",
-        "es": "Gallons (US)",
+        "es": "Galones (EE. UU.)",
         "ar": "Gallons (US)"
       },
       "businessContext_i18n": {
         "en": "Volume in US gallons to be converted to liters.",
         "tr": "Litreye dönüştürülecek ABD galonu cinsinden hacim.",
-        "de": "Volumen in US-Gallonen, das in Liter umgerechnet werden soll."
+        "de": "Volumen in US-Gallonen, das in Liter umgerechnet werden soll.",
+        "fr": "Volume en gallons US à convertir en litres.",
+        "es": "Volumen en galones estadounidenses a convertir a litros."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the result.",
         "tr": "Sonuç için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen für das Ergebnis."
+        "de": "Anzahl der Dezimalstellen für das Ergebnis.",
+        "fr": "Nombre de décimales pour le résultat.",
+        "es": "Número de decimales para el resultado."
       }
     },
     {
@@ -50,8 +54,8 @@
         "en": "auto_input_3",
         "tr": "Otomatik girdi 3",
         "de": "auto_input_3",
-        "fr": "auto_input_3",
-        "es": "auto_input_3",
+        "fr": "Entrée automatique 3",
+        "es": "entrada_automática_3",
         "ar": "auto_input_3"
       },
       "type": "number",
@@ -62,8 +66,8 @@
         "en": "Auto-generated input 3.",
         "tr": "Otomatik oluşturulan girdi 3.",
         "de": "Automatisch generierte Eingabe 3.",
-        "fr": "Auto-generated input 3.",
-        "es": "Auto-generated input 3.",
+        "fr": "Entrée générée automatiquement 3.",
+        "es": "Entrada generada automáticamente 3.",
         "ar": "Auto-generated input 3."
       }
     }

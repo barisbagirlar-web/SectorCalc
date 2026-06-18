@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Current Bulb Wattage",
         "tr": "Mevcut Ampul Watt Değeri",
-        "de": "Current Bulb Wattage",
-        "fr": "Current Bulb Wattage",
-        "es": "Current Bulb Wattage",
+        "de": "Aktuelle Lampenleistung",
+        "fr": "Puissance actuelle de l'ampoule",
+        "es": "Vatiaje actual de la bombilla",
         "ar": "Current Bulb Wattage"
       },
       "businessContext_i18n": {
         "en": "Power consumption of existing bulb",
-        "tr": "Mevcut ampulün güç tüketimi"
+        "tr": "Mevcut ampulün güç tüketimi",
+        "de": "Stromverbrauch der vorhandenen Lampe",
+        "fr": "Consommation électrique de l'ampoule existante",
+        "es": "Consumo de energía de la bombilla existente"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "LED Bulb Wattage",
         "tr": "LED Ampul Watt Değeri",
-        "de": "LED Bulb Wattage",
-        "fr": "LED Bulb Wattage",
-        "es": "LED Bulb Wattage",
+        "de": "LED-Lampenleistung",
+        "fr": "Puissance de l'ampoule LED",
+        "es": "Vatiaje de la bombilla LED",
         "ar": "LED Bulb Wattage"
       },
       "businessContext_i18n": {
         "en": "Power consumption of LED replacement",
-        "tr": "LED değişimin güç tüketimi"
+        "tr": "LED değişimin güç tüketimi",
+        "de": "Stromverbrauch des LED-Ersatzes",
+        "fr": "Consommation électrique du remplacement LED",
+        "es": "Consumo de energía del reemplazo LED"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Number of Bulbs",
         "tr": "Ampul Sayısı",
-        "de": "Number of Bulbs",
-        "fr": "Number of Bulbs",
-        "es": "Number of Bulbs",
+        "de": "Anzahl der Lampen",
+        "fr": "Nombre d'ampoules",
+        "es": "Número de bombillas",
         "ar": "Number of Bulbs"
       },
       "businessContext_i18n": {
         "en": "Total count of bulbs to replace",
-        "tr": "Değiştirilecek toplam ampul sayısı"
+        "tr": "Değiştirilecek toplam ampul sayısı",
+        "de": "Gesamtzahl der auszutauschenden Lampen",
+        "fr": "Nombre total d'ampoules à remplacer",
+        "es": "Cantidad total de bombillas a reemplazar"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Daily Usage Hours",
         "tr": "Günlük Kullanım Saati",
-        "de": "Daily Usage Hours",
-        "fr": "Daily Usage Hours",
-        "es": "Daily Usage Hours",
+        "de": "Tägliche Nutzungsstunden",
+        "fr": "Heures d'utilisation quotidiennes",
+        "es": "Horas de uso diarias",
         "ar": "Daily Usage Hours"
       },
       "businessContext_i18n": {
         "en": "Average hours per day bulbs are on",
-        "tr": "Ampullerin günde ortalama açık olduğu saat"
+        "tr": "Ampullerin günde ortalama açık olduğu saat",
+        "de": "Durchschnittliche Stunden pro Tag, in denen Lampen eingeschaltet sind",
+        "fr": "Nombre moyen d'heures par jour où les ampoules sont allumées",
+        "es": "Promedio de horas al día que las bombillas están encendidas"
       }
     },
     {
@@ -92,14 +104,16 @@
         "en": "Electricity Rate",
         "tr": "Elektrik Tarifesi",
         "de": "Stromtarif",
-        "fr": "Electricity Rate",
-        "es": "Electricity Rate",
+        "fr": "Tarif électrique",
+        "es": "Tarifa eléctrica",
         "ar": "Electricity Rate"
       },
       "businessContext_i18n": {
         "en": "Cost of electricity per kilowatt-hour",
         "tr": "Kilovatsaat başına elektrik maliyeti",
-        "de": "Stromkosten pro Kilowattstunde"
+        "de": "Stromkosten pro Kilowattstunde",
+        "fr": "Coût de l'électricité par kilowattheure",
+        "es": "Coste de la electricidad por kilovatio-hora"
       }
     },
     {
@@ -112,14 +126,17 @@
       "label_i18n": {
         "en": "Days of Operation per Year",
         "tr": "Yıllık Çalışma Günü",
-        "de": "Days of Operation per Year",
-        "fr": "Days of Operation per Year",
-        "es": "Days of Operation per Year",
+        "de": "Betriebstage pro Jahr",
+        "fr": "Jours de fonctionnement par an",
+        "es": "Días de operación por año",
         "ar": "Days of Operation per Year"
       },
       "businessContext_i18n": {
         "en": "Number of days bulbs are used annually",
-        "tr": "Ampullerin yıllık kullanıldığı gün sayısı"
+        "tr": "Ampullerin yıllık kullanıldığı gün sayısı",
+        "de": "Anzahl der Tage, an denen Lampen jährlich genutzt werden",
+        "fr": "Nombre de jours d'utilisation des ampoules par an",
+        "es": "Número de días al año que se utilizan las bombillas"
       }
     },
     {
@@ -132,14 +149,17 @@
       "label_i18n": {
         "en": "Current Bulb Cost",
         "tr": "Mevcut Ampul Maliyeti",
-        "de": "Current Bulb Cost",
-        "fr": "Current Bulb Cost",
-        "es": "Current Bulb Cost",
+        "de": "Aktuelle Lampenkosten",
+        "fr": "Coût de l'ampoule actuelle",
+        "es": "Costo de la bombilla actual",
         "ar": "Current Bulb Cost"
       },
       "businessContext_i18n": {
         "en": "Cost of one existing bulb",
-        "tr": "Bir mevcut ampulün maliyeti"
+        "tr": "Bir mevcut ampulün maliyeti",
+        "de": "Kosten einer vorhandenen Lampe",
+        "fr": "Coût d'une ampoule existante",
+        "es": "Costo de una bombilla existente"
       }
     },
     {
@@ -152,14 +172,17 @@
       "label_i18n": {
         "en": "LED Bulb Cost",
         "tr": "LED Ampul Maliyeti",
-        "de": "LED Bulb Cost",
-        "fr": "LED Bulb Cost",
-        "es": "LED Bulb Cost",
+        "de": "LED-Lampenkosten",
+        "fr": "Coût de l'ampoule LED",
+        "es": "Costo de la bombilla LED",
         "ar": "LED Bulb Cost"
       },
       "businessContext_i18n": {
         "en": "Cost of one LED bulb",
-        "tr": "Bir LED ampulün maliyeti"
+        "tr": "Bir LED ampulün maliyeti",
+        "de": "Kosten einer LED-Lampe",
+        "fr": "Coût d'une ampoule LED",
+        "es": "Costo de una bombilla LED"
       }
     }
   ],

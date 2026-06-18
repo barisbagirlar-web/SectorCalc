@@ -12,13 +12,15 @@
         "en": "Weight Lifted",
         "tr": "Kaldırılan Ağırlık",
         "de": "Gehobenes Gewicht",
-        "fr": "Weight Lifted",
-        "es": "Weight Lifted",
+        "fr": "Poids soulevé",
+        "es": "Peso levantado",
         "ar": "Weight Lifted"
       },
       "businessContext_i18n": {
         "en": "The weight you can lift for the given number of reps with good form.",
-        "tr": "Verilen tekrar sayısı için iyi formda kaldırabileceğiniz ağırlık."
+        "tr": "Verilen tekrar sayısı için iyi formda kaldırabileceğiniz ağırlık.",
+        "de": "Das Gewicht, das Sie mit guter Form für die angegebene Wiederholungszahl heben können.",
+        "fr": "Le poids que vous pouvez soulever pour le nombre de répétitions donné avec une bonne forme."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Reps Performed",
         "tr": "Yapılan Tekrar Sayısı",
-        "de": "Reps Performed",
-        "fr": "Reps Performed",
+        "de": "Ausgeführte Wiederholungen",
+        "fr": "Répétitions effectuées",
         "es": "Reps Performed",
         "ar": "Reps Performed"
       },
       "businessContext_i18n": {
         "en": "Number of consecutive repetitions performed with the given weight.",
-        "tr": "Verilen ağırlıkla art arda yapılan tekrar sayısı."
+        "tr": "Verilen ağırlıkla art arda yapılan tekrar sayısı.",
+        "de": "Anzahl der aufeinanderfolgenden Wiederholungen mit dem angegebenen Gewicht.",
+        "fr": "Nombre de répétitions consécutives effectuées avec le poids donné."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Starting Percentage",
         "tr": "Başlangıç Yüzdesi",
-        "de": "Starting Percentage",
-        "fr": "Starting Percentage",
+        "de": "Startprozentsatz",
+        "fr": "Pourcentage de départ",
         "es": "Starting Percentage",
         "ar": "Starting Percentage"
       },
       "businessContext_i18n": {
         "en": "Percentage of estimated 1RM to use as starting weight for the program.",
-        "tr": "Program için başlangıç ağırlığı olarak kullanılacak tahmini 1TM'nin yüzdesi."
+        "tr": "Program için başlangıç ağırlığı olarak kullanılacak tahmini 1TM'nin yüzdesi.",
+        "de": "Prozentsatz des geschätzten 1RM als Startgewicht für das Programm.",
+        "fr": "Pourcentage de la 1RM estimée à utiliser comme poids de départ pour le programme."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Bodyweight",
         "tr": "Vücut Ağırlığı",
-        "de": "Bodyweight",
-        "fr": "Bodyweight",
+        "de": "Körpergewicht",
+        "fr": "Poids corporel",
         "es": "Bodyweight",
         "ar": "Bodyweight"
       },
       "businessContext_i18n": {
         "en": "Your current bodyweight, used for reference and progression context.",
-        "tr": "Mevcut vücut ağırlığınız, referans ve ilerleme bağlamı için kullanılır."
+        "tr": "Mevcut vücut ağırlığınız, referans ve ilerleme bağlamı için kullanılır.",
+        "de": "Ihr aktuelles Körpergewicht, dient als Referenz und für den Fortschrittskontext.",
+        "fr": "Votre poids corporel actuel, utilisé comme référence et contexte de progression."
       }
     }
   ],

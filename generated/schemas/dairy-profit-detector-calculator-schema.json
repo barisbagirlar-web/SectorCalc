@@ -21,12 +21,16 @@
       "label_i18n": {
         "en": "Milk Volume (Liters per day)",
         "tr": "Süt Hacmi (Litre/gün)",
-        "de": "Milchvolumen (Liter pro Tag)"
+        "de": "Milchvolumen (Liter pro Tag)",
+        "fr": "Volume de lait (litres par jour)",
+        "es": "Volumen de leche (litros por día)"
       },
       "businessContext_i18n": {
         "en": "Total raw milk received daily from suppliers or own herd.",
         "tr": "Tedarikçilerden veya kendi sürüden günlük alınan toplam çiğ süt.",
-        "de": "Tägliche Rohmilchmenge von Lieferanten oder eigener Herde."
+        "de": "Tägliche Rohmilchmenge von Lieferanten oder eigener Herde.",
+        "fr": "Total de lait cru reçu quotidiennement des fournisseurs ou du propre troupeau.",
+        "es": "Leche cruda total recibida diariamente de proveedores o del propio rebaño."
       }
     },
     {
@@ -41,12 +45,16 @@
       "label_i18n": {
         "en": "Fat Content (%)",
         "tr": "Yağ Oranı (%)",
-        "de": "Fettgehalt (%)"
+        "de": "Fettgehalt (%)",
+        "fr": "Teneur en matière grasse (%)",
+        "es": "Contenido de grasa (%)"
       },
       "businessContext_i18n": {
         "en": "Average butterfat content of incoming milk, critical for yield calculations.",
         "tr": "Gelen sütün ortalama tereyağı içeriği, verim hesaplamaları için kritiktir.",
-        "de": "Durchschnittlicher Butterfettgehalt der eingehenden Milch, entscheidend für die Ausbeuteberechnung."
+        "de": "Durchschnittlicher Butterfettgehalt der eingehenden Milch, entscheidend für die Ausbeuteberechnung.",
+        "fr": "Teneur moyenne en matière grasse du lait entrant, critique pour les calculs de rendement.",
+        "es": "Contenido promedio de grasa butírica de la leche entrante, crítico para cálculos de rendimiento."
       }
     },
     {
@@ -61,12 +69,16 @@
       "label_i18n": {
         "en": "Protein Content (%)",
         "tr": "Protein Oranı (%)",
-        "de": "Proteingehalt (%)"
+        "de": "Proteingehalt (%)",
+        "fr": "Teneur en protéines (%)",
+        "es": "Contenido de proteína (%)"
       },
       "businessContext_i18n": {
         "en": "Average protein content, affects cheese and powder yields.",
         "tr": "Ortalama protein içeriği, peynir ve toz verimini etkiler.",
-        "de": "Durchschnittlicher Proteingehalt, beeinflusst Käse- und Pulverausbeute."
+        "de": "Durchschnittlicher Proteingehalt, beeinflusst Käse- und Pulverausbeute.",
+        "fr": "Teneur moyenne en protéines, affecte les rendements du fromage et de la poudre.",
+        "es": "Contenido promedio de proteína, afecta el rendimiento de queso y polvo."
       }
     },
     {
@@ -81,12 +93,16 @@
       "label_i18n": {
         "en": "Selling Price (per Liter)",
         "tr": "Satış Fiyatı (Litre başına)",
-        "de": "Verkaufspreis (pro Liter)"
+        "de": "Verkaufspreis (pro Liter)",
+        "fr": "Prix de vente (par litre)",
+        "es": "Precio de venta (por litro)"
       },
       "businessContext_i18n": {
         "en": "Average revenue per liter of raw milk sold to processor or retail.",
         "tr": "İşlenmiş veya perakende satılan çiğ sütün litre başına ortalama geliri.",
-        "de": "Durchschnittlicher Erlös pro Liter Rohmilch beim Verkauf an Verarbeiter oder im Einzelhandel."
+        "de": "Durchschnittlicher Erlös pro Liter Rohmilch beim Verkauf an Verarbeiter oder im Einzelhandel.",
+        "fr": "Revenu moyen par litre de lait cru vendu au transformateur ou au détail.",
+        "es": "Ingreso promedio por litro de leche cruda vendida al procesador o al por menor."
       }
     },
     {
@@ -101,12 +117,16 @@
       "label_i18n": {
         "en": "Production Cost (per Liter)",
         "tr": "Üretim Maliyeti (Litre başına)",
-        "de": "Produktionskosten (pro Liter)"
+        "de": "Produktionskosten (pro Liter)",
+        "fr": "Coût de production (par litre)",
+        "es": "Costo de producción (por litro)"
       },
       "businessContext_i18n": {
         "en": "Includes feed, labor, utilities, veterinary, and overhead per liter.",
         "tr": "Litre başına yem, işçilik, enerji, veteriner ve genel giderleri içerir.",
-        "de": "Umfasst Futter, Arbeit, Betriebskosten, Tierarzt und Gemeinkosten pro Liter."
+        "de": "Umfasst Futter, Arbeit, Betriebskosten, Tierarzt und Gemeinkosten pro Liter.",
+        "fr": "Inclut l'alimentation, la main-d'œuvre, les services publics, les soins vétérinaires et les frais généraux par litre.",
+        "es": "Incluye alimentación, mano de obra, servicios públicos, veterinaria y gastos generales por litro."
       }
     },
     {
@@ -121,12 +141,16 @@
       "label_i18n": {
         "en": "Waste / Shrinkage (%)",
         "tr": "Fire / Kayıp (%)",
-        "de": "Ausschuss / Schwund (%)"
+        "de": "Ausschuss / Schwund (%)",
+        "fr": "Pertes / Réduction (%)",
+        "es": "Desperdicio / Merma (%)"
       },
       "businessContext_i18n": {
         "en": "Milk lost due to spoilage, spillage, or quality rejection.",
         "tr": "Bozulma, dökülme veya kalite reddi nedeniyle kaybedilen süt.",
-        "de": "Milchverlust durch Verderb, Verschütten oder Qualitätsablehnung."
+        "de": "Milchverlust durch Verderb, Verschütten oder Qualitätsablehnung.",
+        "fr": "Lait perdu en raison de l'altération, des déversements ou du rejet de qualité.",
+        "es": "Leche perdida por deterioro, derrame o rechazo de calidad."
       }
     },
     {
@@ -141,12 +165,16 @@
       "label_i18n": {
         "en": "Labor Hours per Day",
         "tr": "Günlük İşçilik Saati",
-        "de": "Arbeitsstunden pro Tag"
+        "de": "Arbeitsstunden pro Tag",
+        "fr": "Heures de main-d'œuvre par jour",
+        "es": "Horas de mano de obra por día"
       },
       "businessContext_i18n": {
         "en": "Total direct labor hours used in milk production and handling.",
         "tr": "Süt üretimi ve işlemede kullanılan toplam doğrudan işçilik saati.",
-        "de": "Gesamte direkte Arbeitsstunden in der Milchproduktion und -handhabung."
+        "de": "Gesamte direkte Arbeitsstunden in der Milchproduktion und -handhabung.",
+        "fr": "Total des heures de main-d'œuvre directe utilisées dans la production et la manipulation du lait.",
+        "es": "Total de horas de mano de obra directa utilizadas en la producción y manejo de leche."
       }
     },
     {
@@ -161,12 +189,16 @@
       "label_i18n": {
         "en": "Labor Rate (per Hour)",
         "tr": "İşçilik Ücreti (Saat başına)",
-        "de": "Stundensatz (pro Stunde)"
+        "de": "Stundensatz (pro Stunde)",
+        "fr": "Taux horaire de main-d'œuvre",
+        "es": "Tarifa de mano de obra (por hora)"
       },
       "businessContext_i18n": {
         "en": "Average hourly wage including benefits.",
         "tr": "Yan haklar dahil ortalama saatlik ücret.",
-        "de": "Durchschnittlicher Stundenlohn inklusive Zusatzleistungen."
+        "de": "Durchschnittlicher Stundenlohn inklusive Zusatzleistungen.",
+        "fr": "Salaire horaire moyen incluant les avantages sociaux.",
+        "es": "Salario promedio por hora incluyendo beneficios."
       }
     }
   ],

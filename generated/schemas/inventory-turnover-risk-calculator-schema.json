@@ -22,11 +22,17 @@
       "businessContext": "Total average value of inventory over the period (e.g., monthly average of COGS-based inventory).",
       "label_i18n": {
         "en": "Average Inventory Value (USD)",
-        "tr": "Ortalama Stok Değeri (USD)"
+        "tr": "Ortalama Stok Değeri (USD)",
+        "de": "Durchschnittlicher Lagerwert (USD)",
+        "fr": "Valeur moyenne des stocks (USD)",
+        "es": "Valor promedio del inventario (USD)"
       },
       "businessContext_i18n": {
         "en": "Total average value of inventory over the period (e.g., monthly average of COGS-based inventory).",
-        "tr": "Dönem boyunca envanterin toplam ortalama değeri (örneğin, SMM bazlı envanterin aylık ortalaması)."
+        "tr": "Dönem boyunca envanterin toplam ortalama değeri (örneğin, SMM bazlı envanterin aylık ortalaması).",
+        "de": "Gesamter durchschnittlicher Lagerwert über den Zeitraum (z. B. monatlicher Durchschnitt des auf COGS basierenden Lagerbestands).",
+        "fr": "Valeur totale moyenne des stocks sur la période (par exemple, moyenne mensuelle des stocks basée sur le COGS).",
+        "es": "Valor total promedio del inventario durante el período (ej.: promedio mensual del inventario basado en COGS)."
       }
     },
     {
@@ -40,11 +46,17 @@
       "businessContext": "Total cost of goods sold over the last 12 months.",
       "label_i18n": {
         "en": "Annual Cost of Goods Sold (USD)",
-        "tr": "Yıllık Satılan Malın Maliyeti (USD)"
+        "tr": "Yıllık Satılan Malın Maliyeti (USD)",
+        "de": "Jährliche Kosten der verkauften Waren (USD)",
+        "fr": "Coût annuel des marchandises vendues (USD)",
+        "es": "Costo anual de los bienes vendidos (USD)"
       },
       "businessContext_i18n": {
         "en": "Total cost of goods sold over the last 12 months.",
-        "tr": "Son 12 aydaki satılan malın toplam maliyeti."
+        "tr": "Son 12 aydaki satılan malın toplam maliyeti.",
+        "de": "Gesamtkosten der verkauften Waren in den letzten 12 Monaten.",
+        "fr": "Coût total des marchandises vendues au cours des 12 derniers mois.",
+        "es": "Costo total de los bienes vendidos en los últimos 12 meses."
       }
     },
     {
@@ -58,11 +70,17 @@
       "businessContext": "Coefficient of variation of monthly demand (standard deviation / mean). Higher values indicate greater unpredictability.",
       "label_i18n": {
         "en": "Demand Variability Coefficient (CV)",
-        "tr": "Talep Değişkenlik Katsayısı (CV)"
+        "tr": "Talep Değişkenlik Katsayısı (CV)",
+        "de": "Nachfragevariabilitätskoeffizient (CV)",
+        "fr": "Coefficient de variabilité de la demande (CV)",
+        "es": "Coeficiente de variabilidad de la demanda (CV)"
       },
       "businessContext_i18n": {
         "en": "Coefficient of variation of monthly demand (standard deviation / mean). Higher values indicate greater unpredictability.",
-        "tr": "Aylık talebin varyasyon katsayısı (standart sapma / ortalama). Daha yüksek değerler daha fazla öngörülemezliği gösterir."
+        "tr": "Aylık talebin varyasyon katsayısı (standart sapma / ortalama). Daha yüksek değerler daha fazla öngörülemezliği gösterir.",
+        "de": "Variationskoeffizient der monatlichen Nachfrage (Standardabweichung / Mittelwert). Höhere Werte bedeuten größere Unvorhersagbarkeit.",
+        "fr": "Coefficient de variation de la demande mensuelle (écart type / moyenne). Des valeurs plus élevées indiquent une plus grande imprévisibilité.",
+        "es": "Coeficiente de variación de la demanda mensual (desviación estándar / media). Valores más altos indican mayor imprevisibilidad."
       }
     },
     {
@@ -76,11 +94,17 @@
       "businessContext": "Annual percentage of inventory value that becomes obsolete or expired.",
       "label_i18n": {
         "en": "Obsolescence Rate (% per year)",
-        "tr": "Eskime Oranı (%/yıl)"
+        "tr": "Eskime Oranı (%/yıl)",
+        "de": "Veralterungsrate (% pro Jahr)",
+        "fr": "Taux d'obsolescence (% par an)",
+        "es": "Tasa de obsolescencia (% anual)"
       },
       "businessContext_i18n": {
         "en": "Annual percentage of inventory value that becomes obsolete or expired.",
-        "tr": "Eskiyen veya son kullanma tarihi geçen envanter değerinin yıllık yüzdesi."
+        "tr": "Eskiyen veya son kullanma tarihi geçen envanter değerinin yıllık yüzdesi.",
+        "de": "Jährlicher Prozentsatz des Lagerwerts, der veraltet oder abläuft.",
+        "fr": "Pourcentage annuel de la valeur des stocks qui devient obsolète ou périmé.",
+        "es": "Porcentaje anual del valor del inventario que se vuelve obsoleto o vence."
       }
     },
     {
@@ -94,11 +118,17 @@
       "businessContext": "Annual cost to hold inventory (storage, insurance, capital, etc.) as a percentage of inventory value.",
       "label_i18n": {
         "en": "Inventory Carrying Cost Rate (% per year)",
-        "tr": "Envanter Taşıma Maliyeti Oranı (%/yıl)"
+        "tr": "Envanter Taşıma Maliyeti Oranı (%/yıl)",
+        "de": "Lagerhaltungskostensatz (% pro Jahr)",
+        "fr": "Taux de coût de possession des stocks (% par an)",
+        "es": "Tasa de costo de mantenimiento de inventario (% anual)"
       },
       "businessContext_i18n": {
         "en": "Annual cost to hold inventory (storage, insurance, capital, etc.) as a percentage of inventory value.",
-        "tr": "Envanteri elde tutmanın yıllık maliyeti (depolama, sigorta, sermaye vb.) envanter değerinin yüzdesi olarak."
+        "tr": "Envanteri elde tutmanın yıllık maliyeti (depolama, sigorta, sermaye vb.) envanter değerinin yüzdesi olarak.",
+        "de": "Jährliche Kosten für die Lagerhaltung (Lagerung, Versicherung, Kapital usw.) als Prozentsatz des Lagerwerts.",
+        "fr": "Coût annuel de détention des stocks (stockage, assurance, capital, etc.) en pourcentage de la valeur des stocks.",
+        "es": "Costo anual de mantener inventario (almacenamiento, seguros, capital, etc.) como porcentaje del valor del inventario."
       }
     },
     {
@@ -112,11 +142,17 @@
       "businessContext": "Average replenishment lead time from order placement to receipt.",
       "label_i18n": {
         "en": "Average Lead Time (Days)",
-        "tr": "Ortalama Tedarik Süresi (Gün)"
+        "tr": "Ortalama Tedarik Süresi (Gün)",
+        "de": "Durchschnittliche Vorlaufzeit (Tage)",
+        "fr": "Délai moyen d'approvisionnement (jours)",
+        "es": "Tiempo de entrega promedio (días)"
       },
       "businessContext_i18n": {
         "en": "Average replenishment lead time from order placement to receipt.",
-        "tr": "Sipariş vermeden teslim almaya kadar geçen ortalama tedarik süresi."
+        "tr": "Sipariş vermeden teslim almaya kadar geçen ortalama tedarik süresi.",
+        "de": "Durchschnittliche Wiederbeschaffungszeit von Bestellung bis Eingang.",
+        "fr": "Délai moyen de réapprovisionnement entre la passation de commande et la réception.",
+        "es": "Tiempo de entrega promedio de reabastecimiento desde la colocación del pedido hasta la recepción."
       }
     },
     {
@@ -130,11 +166,17 @@
       "businessContext": "Target fill rate or cycle service level (e.g., 95% = 0.95).",
       "label_i18n": {
         "en": "Service Level Target (%)",
-        "tr": "Hizmet Seviyesi Hedefi (%)"
+        "tr": "Hizmet Seviyesi Hedefi (%)",
+        "de": "Servicegrad-Ziel (%)",
+        "fr": "Objectif de niveau de service (%)",
+        "es": "Objetivo de nivel de servicio (%)"
       },
       "businessContext_i18n": {
         "en": "Target fill rate or cycle service level (e.g., 95% = 0.95).",
-        "tr": "Hedef doluluk oranı veya çevrim hizmet seviyesi (örneğin, %95 = 0,95)."
+        "tr": "Hedef doluluk oranı veya çevrim hizmet seviyesi (örneğin, %95 = 0,95).",
+        "de": "Ziel-Lieferfähigkeit oder Servicegrad (z. B. 95 % = 0,95).",
+        "fr": "Taux de service cible ou niveau de service cycle (ex. 95% = 0.95).",
+        "es": "Tasa de llenado objetivo o nivel de servicio del ciclo (ej., 95% = 0.95)."
       }
     },
     {
@@ -148,11 +190,17 @@
       "businessContext": "Percentage of inventory records matching physical counts (cycle count accuracy).",
       "label_i18n": {
         "en": "Inventory Record Accuracy (%)",
-        "tr": "Envanter Kayıt Doğruluğu (%)"
+        "tr": "Envanter Kayıt Doğruluğu (%)",
+        "de": "Bestandsgenauigkeit (%)",
+        "fr": "Précision des enregistrements de stocks (%)",
+        "es": "Precisión del registro de inventario (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of inventory records matching physical counts (cycle count accuracy).",
-        "tr": "Fiziksel sayımlarla eşleşen envanter kayıtlarının yüzdesi (döngü sayım doğruluğu)."
+        "tr": "Fiziksel sayımlarla eşleşen envanter kayıtlarının yüzdesi (döngü sayım doğruluğu).",
+        "de": "Prozentsatz der Bestandsaufzeichnungen, die mit physischen Zählungen übereinstimmen (Zykluszählgenauigkeit).",
+        "fr": "Pourcentage des enregistrements de stocks correspondant aux inventaires physiques (précision du comptage cyclique).",
+        "es": "Porcentaje de registros de inventario que coinciden con los conteos físicos (precisión del conteo cíclico)."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Kiriş Uzunluğu",
         "tr": "Kiriş Uzunluğu",
         "de": "Trägerlänge",
-        "fr": "Kiriş Uzunluğu",
-        "es": "Kiriş Uzunluğu",
+        "fr": "Longueur de la poutre",
+        "es": "Longitud de la viga",
         "ar": "Kiriş Uzunluğu"
       },
       "businessContext_i18n": {
         "en": "Basit mesnetli kirişin toplam açıklık uzunluğu (m).",
         "tr": "Basit mesnetli kirişin toplam açıklık uzunluğu (m).",
-        "de": "Gesamtstützweite des einfach gelagerten Trägers (m)."
+        "de": "Gesamtstützweite des einfach gelagerten Trägers (m).",
+        "fr": "Longueur totale de la portée de la poutre simplement appuyée (m).",
+        "es": "Longitud total del vano de la viga simplemente apoyada (m)."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Yük 1",
         "tr": "Yük 1",
         "de": "Last 1",
-        "fr": "Yük 1",
-        "es": "Yük 1",
+        "fr": "Charge 1",
+        "es": "Carga 1",
         "ar": "Yük 1"
       },
       "businessContext_i18n": {
         "en": "Birinci tekil yükün şiddeti (kN). Kullanılmıyorsa 0 girin.",
         "tr": "Birinci tekil yükün şiddeti (kN). Kullanılmıyorsa 0 girin.",
-        "de": "Größe der ersten Einzellast (kN). Bei Nichtgebrauch 0 eingeben."
+        "de": "Größe der ersten Einzellast (kN). Bei Nichtgebrauch 0 eingeben.",
+        "fr": "Intensité de la première charge ponctuelle (kN). Entrez 0 si non utilisée.",
+        "es": "Magnitud de la primera carga puntual (kN). Ingrese 0 si no se utiliza."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Konum 1",
         "tr": "Konum 1",
         "de": "Position 1",
-        "fr": "Konum 1",
-        "es": "Konum 1",
+        "fr": "Position 1",
+        "es": "Posición 1",
         "ar": "Konum 1"
       },
       "businessContext_i18n": {
         "en": "Yük 1'in sol mesnetten uzaklığı (m).",
         "tr": "Yük 1'in sol mesnetten uzaklığı (m).",
-        "de": "Abstand der Last 1 vom linken Auflager (m)."
+        "de": "Abstand der Last 1 vom linken Auflager (m).",
+        "fr": "Distance de la charge 1 depuis l'appui gauche (m).",
+        "es": "Distancia de la carga 1 desde el apoyo izquierdo (m)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Yük 2",
         "tr": "Yük 2",
         "de": "Last 2",
-        "fr": "Yük 2",
-        "es": "Yük 2",
+        "fr": "Charge 2",
+        "es": "Carga 2",
         "ar": "Yük 2"
       },
       "businessContext_i18n": {
         "en": "İkinci tekil yükün şiddeti (kN). Kullanılmıyorsa 0 girin.",
         "tr": "İkinci tekil yükün şiddeti (kN). Kullanılmıyorsa 0 girin.",
-        "de": "Größe der zweiten Einzellast (kN). Bei Nichtgebrauch 0 eingeben."
+        "de": "Größe der zweiten Einzellast (kN). Bei Nichtgebrauch 0 eingeben.",
+        "fr": "Intensité de la deuxième charge ponctuelle (kN). Entrez 0 si non utilisée.",
+        "es": "Magnitud de la segunda carga puntual (kN). Ingrese 0 si no se utiliza."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Konum 2",
         "tr": "Konum 2",
         "de": "Position 2",
-        "fr": "Konum 2",
-        "es": "Konum 2",
+        "fr": "Position 2",
+        "es": "Posición 2",
         "ar": "Konum 2"
       },
       "businessContext_i18n": {
         "en": "Yük 2'nin sol mesnetten uzaklığı (m).",
         "tr": "Yük 2'nin sol mesnetten uzaklığı (m).",
-        "de": "Abstand der Last 2 vom linken Auflager (m)."
+        "de": "Abstand der Last 2 vom linken Auflager (m).",
+        "fr": "Distance de la charge 2 depuis l'appui gauche (m).",
+        "es": "Distancia de la carga 2 desde el soporte izquierdo (m)."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Yük 3",
         "tr": "Yük 3",
         "de": "Last 3",
-        "fr": "Yük 3",
-        "es": "Yük 3",
+        "fr": "Charge 3",
+        "es": "Carga 3",
         "ar": "Yük 3"
       },
       "businessContext_i18n": {
         "en": "Üçüncü tekil yükün şiddeti (kN). Kullanılmıyorsa 0 girin.",
         "tr": "Üçüncü tekil yükün şiddeti (kN). Kullanılmıyorsa 0 girin.",
-        "de": "Größe der dritten Einzellast (kN). Bei Nichtgebrauch 0 eingeben."
+        "de": "Größe der dritten Einzellast (kN). Bei Nichtgebrauch 0 eingeben.",
+        "fr": "Intensité de la troisième charge ponctuelle (kN). Entrez 0 si non utilisée.",
+        "es": "Magnitud de la tercera carga puntual (kN). Ingrese 0 si no se utiliza."
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Konum 3",
         "tr": "Konum 3",
         "de": "Position 3",
-        "fr": "Konum 3",
-        "es": "Konum 3",
+        "fr": "Position 3",
+        "es": "Posición 3",
         "ar": "Konum 3"
       },
       "businessContext_i18n": {
         "en": "Yük 3'ün sol mesnetten uzaklığı (m).",
         "tr": "Yük 3'ün sol mesnetten uzaklığı (m).",
-        "de": "Abstand der Last 3 vom linken Auflager (m)."
+        "de": "Abstand der Last 3 vom linken Auflager (m).",
+        "fr": "Distance de la charge 3 depuis l'appui gauche (m).",
+        "es": "Distancia de la carga 3 desde el soporte izquierdo (m)."
       }
     }
   ],

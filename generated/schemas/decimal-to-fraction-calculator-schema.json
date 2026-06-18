@@ -12,14 +12,16 @@
         "en": "Ondalıklı Değer",
         "tr": "Ondalıklı Değer",
         "de": "Dezimalwert",
-        "fr": "Ondalıklı Değer",
-        "es": "Ondalıklı Değer",
+        "fr": "Valeur décimale",
+        "es": "Valor Decimal",
         "ar": "Ondalıklı Değer"
       },
       "businessContext_i18n": {
         "en": "Kesire dönüştürülecek ondalıklı sayı",
         "tr": "Kesire dönüştürülecek ondalıklı sayı",
-        "de": "Dezimalzahl, die in einen Bruch umgewandelt werden soll"
+        "de": "Dezimalzahl, die in einen Bruch umgewandelt werden soll",
+        "fr": "Nombre décimal à convertir en fraction",
+        "es": "Número decimal a convertir en fracción"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Maksimum Payda",
         "tr": "Maksimum Payda",
         "de": "Maximaler Nenner",
-        "fr": "Maksimum Payda",
-        "es": "Maksimum Payda",
+        "fr": "Dénominateur maximum",
+        "es": "Denominador Máximo",
         "ar": "Maksimum Payda"
       },
       "businessContext_i18n": {
         "en": "Kesir yaklaşımı için izin verilen en büyük payda",
         "tr": "Kesir yaklaşımı için izin verilen en büyük payda",
-        "de": "Größter zulässiger Nenner für die Bruchnäherung"
+        "de": "Größter zulässiger Nenner für die Bruchnäherung",
+        "fr": "Plus grand dénominateur autorisé pour l'approximation fractionnaire",
+        "es": "Denominador más grande permitido para la aproximación de la fracción"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Sadeleştirme",
         "tr": "Sadeleştirme",
         "de": "Vereinfachen",
-        "fr": "Sadeleştirme",
-        "es": "Sadeleştirme",
+        "fr": "Simplification",
+        "es": "Simplificación",
         "ar": "Sadeleştirme"
       },
       "businessContext_i18n": {
         "en": "Kesirin en sade haline getirilmesi (1: Evet, 0: Hayır)",
         "tr": "Kesirin en sade haline getirilmesi (1: Evet, 0: Hayır)",
-        "de": "Bruch auf einfachste Form reduzieren (1: Ja, 0: Nein)"
+        "de": "Bruch auf einfachste Form reduzieren (1: Ja, 0: Nein)",
+        "fr": "Réduire la fraction à sa forme la plus simple (1 : Oui, 0 : Non)",
+        "es": "Reducir la fracción a su forma más simple (1: Sí, 0: No)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Kesir Formatı",
         "tr": "Kesir Formatı",
         "de": "Bruchformat",
-        "fr": "Kesir Formatı",
-        "es": "Kesir Formatı",
+        "fr": "Format de fraction",
+        "es": "Formato de Fracción",
         "ar": "Kesir Formatı"
       },
       "businessContext_i18n": {
         "en": "0: Basit Kesir, 1: Tam Sayılı Kesir, 2: Bileşik Kesir",
         "tr": "0: Basit Kesir, 1: Tam Sayılı Kesir, 2: Bileşik Kesir",
-        "de": "0: Einfacher Bruch, 1: Gemischter Bruch, 2: Unechter Bruch"
+        "de": "0: Einfacher Bruch, 1: Gemischter Bruch, 2: Unechter Bruch",
+        "fr": "0: Fraction simple, 1: Fraction mixte, 2: Fraction impropre",
+        "es": "0: Fracción Propia, 1: Fracción Mixta, 2: Fracción Impropia"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Yuvarlama Modu",
         "tr": "Yuvarlama Modu",
         "de": "Rundungsmodus",
-        "fr": "Yuvarlama Modu",
-        "es": "Yuvarlama Modu",
+        "fr": "Mode d'arrondi",
+        "es": "Modo de Redondeo",
         "ar": "Yuvarlama Modu"
       },
       "businessContext_i18n": {
         "en": "0: En Yakın, 1: Aşağı, 2: Yukarı",
         "tr": "0: En Yakın, 1: Aşağı, 2: Yukarı",
-        "de": "0: Nächster, 1: Abrunden, 2: Aufrunden"
+        "de": "0: Nächster, 1: Abrunden, 2: Aufrunden",
+        "fr": "0: Au plus proche, 1: Inférieur, 2: Supérieur",
+        "es": "0: Más cercano, 1: Redondear hacia abajo, 2: Redondear hacia arriba"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Tolerans",
         "tr": "Tolerans",
         "de": "Toleranz",
-        "fr": "Tolerans",
-        "es": "Tolerans",
+        "fr": "Tolérance",
+        "es": "Tolerancia",
         "ar": "Tolerans"
       },
       "businessContext_i18n": {
         "en": "Ondalıklı sayının kesir eşleşmesi için tolerans",
         "tr": "Ondalıklı sayının kesir eşleşmesi için tolerans",
-        "de": "Toleranz für die Bruchübereinstimmung der Dezimalzahl"
+        "de": "Toleranz für die Bruchübereinstimmung der Dezimalzahl",
+        "fr": "Tolérance pour la correspondance fractionnaire d'un nombre décimal",
+        "es": "Tolerancia para la coincidencia de fracciones de un número decimal"
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Saatlik İşçilik Ücreti",
         "tr": "Saatlik İşçilik Ücreti",
-        "de": "Saatlik İşçilik Ücreti",
-        "fr": "Saatlik İşçilik Ücreti",
+        "de": "Stündlicher Arbeitslohn",
+        "fr": "Taux horaire de main-d'œuvre",
         "es": "Saatlik İşçilik Ücreti",
         "ar": "Saatlik İşçilik Ücreti"
       },
       "businessContext_i18n": {
         "en": "Bir işçinin saatlik maliyeti (brüt)",
-        "tr": "Bir işçinin saatlik maliyeti (brüt)"
+        "tr": "Bir işçinin saatlik maliyeti (brüt)",
+        "de": "Stündliche Kosten eines Arbeiters (brutto)",
+        "fr": "Coût horaire brut d'un opérateur"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Makine Saatlik Maliyeti",
         "tr": "Makine Saatlik Maliyeti",
-        "de": "Makine Saatlik Maliyeti",
-        "fr": "Makine Saatlik Maliyeti",
+        "de": "Stündliche Maschinenkosten",
+        "fr": "Coût horaire machine",
         "es": "Makine Saatlik Maliyeti",
         "ar": "Makine Saatlik Maliyeti"
       },
       "businessContext_i18n": {
         "en": "Makinenin amortisman, enerji, bakım dahil saatlik maliyeti",
-        "tr": "Makinenin amortisman, enerji, bakım dahil saatlik maliyeti"
+        "tr": "Makinenin amortisman, enerji, bakım dahil saatlik maliyeti",
+        "de": "Stündliche Maschinenkosten inkl. Abschreibung, Energie, Wartung",
+        "fr": "Coût horaire machine incluant amortissement, énergie et maintenance"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Birim Çevrim Süresi",
         "tr": "Birim Çevrim Süresi",
-        "de": "Birim Çevrim Süresi",
-        "fr": "Birim Çevrim Süresi",
+        "de": "Zykluszeit pro Einheit",
+        "fr": "Temps de cycle unitaire",
         "es": "Birim Çevrim Süresi",
         "ar": "Birim Çevrim Süresi"
       },
       "businessContext_i18n": {
         "en": "Bir birim ürünün işlenme süresi (operasyon süresi)",
-        "tr": "Bir birim ürünün işlenme süresi (operasyon süresi)"
+        "tr": "Bir birim ürünün işlenme süresi (operasyon süresi)",
+        "de": "Bearbeitungszeit pro Einheit (Operationszeit)",
+        "fr": "Temps d'usinage d'une unité de produit (temps opératoire)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Parti Büyüklüğü",
         "tr": "Parti Büyüklüğü",
-        "de": "Parti Büyüklüğü",
-        "fr": "Parti Büyüklüğü",
-        "es": "Parti Büyüklüğü",
+        "de": "Losgröße",
+        "fr": "Taille de lot",
+        "es": "Tamaño de lote",
         "ar": "Parti Büyüklüğü"
       },
       "businessContext_i18n": {
         "en": "Bir partide üretilen toplam ürün sayısı",
-        "tr": "Bir partide üretilen toplam ürün sayısı"
+        "tr": "Bir partide üretilen toplam ürün sayısı",
+        "de": "Gesamtzahl der produzierten Einheiten pro Charge",
+        "fr": "Nombre total de produits fabriqués dans un lot"
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Birim Malzeme Maliyeti",
         "tr": "Birim Malzeme Maliyeti",
         "de": "Materialkosten pro Einheit",
-        "fr": "Birim Malzeme Maliyeti",
-        "es": "Birim Malzeme Maliyeti",
+        "fr": "Coût matière par unité",
+        "es": "Unit Material Cost",
         "ar": "Birim Malzeme Maliyeti"
       },
       "businessContext_i18n": {
         "en": "Ürün başına hammadde ve sarf malzeme maliyeti",
-        "tr": "Ürün başına hammadde ve sarf malzeme maliyeti"
+        "tr": "Ürün başına hammadde ve sarf malzeme maliyeti",
+        "de": "Material- und Verbrauchsmaterialkosten pro Einheit",
+        "fr": "Coût des matières premières et consommables par produit"
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Genel Gider Oranı",
         "tr": "Genel Gider Oranı",
         "de": "Gemeinkostensatz",
-        "fr": "Genel Gider Oranı",
-        "es": "Genel Gider Oranı",
+        "fr": "Taux de frais généraux",
+        "es": "Tasa de gastos generales",
         "ar": "Genel Gider Oranı"
       },
       "businessContext_i18n": {
         "en": "İşçilik üzerinden hesaplanan genel üretim giderleri yüzdesi",
-        "tr": "İşçilik üzerinden hesaplanan genel üretim giderleri yüzdesi"
+        "tr": "İşçilik üzerinden hesaplanan genel üretim giderleri yüzdesi",
+        "de": "Gemeinkostenprozentsatz basierend auf Arbeitskosten",
+        "fr": "Pourcentage de frais généraux de production calculé sur la main-d'œuvre"
       }
     }
   ],

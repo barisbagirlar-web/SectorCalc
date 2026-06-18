@@ -12,13 +12,15 @@
         "en": "Time",
         "tr": "Zaman",
         "de": "Zeit",
-        "fr": "Time",
-        "es": "Time",
+        "fr": "Temps",
+        "es": "Tiempo",
         "ar": "Time"
       },
       "businessContext_i18n": {
         "en": "Total workout time in seconds",
-        "tr": "Saniye cinsinden toplam antrenman süresi"
+        "tr": "Saniye cinsinden toplam antrenman süresi",
+        "de": "Gesamte Trainingszeit in Sekunden",
+        "fr": "Temps total d'entraînement en secondes"
       }
     },
     {
@@ -33,12 +35,14 @@
         "tr": "Mesafe",
         "de": "Entfernung",
         "fr": "Distance",
-        "es": "Distance",
+        "es": "Distancia",
         "ar": "Distance"
       },
       "businessContext_i18n": {
         "en": "Total distance rowed in meters",
-        "tr": "Metre cinsinden toplam kürek çekme mesafesi"
+        "tr": "Metre cinsinden toplam kürek çekme mesafesi",
+        "de": "Gesamte zurückgelegte Strecke in Metern",
+        "fr": "Distance totale parcourue en mètres"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Weight",
         "tr": "Ağırlık",
         "de": "Gewicht",
-        "fr": "Weight",
-        "es": "Weight",
+        "fr": "Poids",
+        "es": "Peso",
         "ar": "Weight"
       },
       "businessContext_i18n": {
         "en": "Rower's body weight in kilograms",
-        "tr": "Kürekçinin kilogram cinsinden vücut ağırlığı"
+        "tr": "Kürekçinin kilogram cinsinden vücut ağırlığı",
+        "de": "Körpergewicht des Ruderers in Kilogramm",
+        "fr": "Poids corporel du rameur en kilogrammes"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Stroke Rate",
         "tr": "Strok Hızı",
-        "de": "Stroke Rate",
-        "fr": "Stroke Rate",
+        "de": "Schlagfrequenz",
+        "fr": "Fréquence de coup",
         "es": "Stroke Rate",
         "ar": "Stroke Rate"
       },
       "businessContext_i18n": {
         "en": "Average strokes per minute during the session",
-        "tr": "Seans sırasında dakikadaki ortalama strok sayısı"
+        "tr": "Seans sırasında dakikadaki ortalama strok sayısı",
+        "de": "Durchschnittliche Schläge pro Minute während der Einheit",
+        "fr": "Nombre moyen de coups par minute pendant la séance"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Drag Factor",
         "tr": "Sürükleme Faktörü",
-        "de": "Drag Factor",
-        "fr": "Drag Factor",
+        "de": "Widerstandsfaktor",
+        "fr": "Facteur de traînée",
         "es": "Drag Factor",
         "ar": "Drag Factor"
       },
       "businessContext_i18n": {
         "en": "The damper setting and overall drag factor of the rowing ergometer",
-        "tr": "Kürek ergometresinin damper ayarı ve genel sürükleme faktörü"
+        "tr": "Kürek ergometresinin damper ayarı ve genel sürükleme faktörü",
+        "de": "Die Dämpfereinstellung und der gesamte Widerstandsfaktor des Ruderergometers",
+        "fr": "Réglage du volet et facteur de traînée global de l'ergomètre d'aviron"
       }
     }
   ],

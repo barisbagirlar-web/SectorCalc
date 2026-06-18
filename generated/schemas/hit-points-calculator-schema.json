@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Initial Hit Points",
         "tr": "Başlangıç Can Puanı",
-        "de": "Initial Hit Points",
-        "fr": "Initial Hit Points",
-        "es": "Initial Hit Points",
+        "de": "Anfängliche Trefferpunkte",
+        "fr": "Points de vie initiaux",
+        "es": "Puntos de golpe iniciales",
         "ar": "Initial Hit Points"
       },
       "businessContext_i18n": {
         "en": "The total life capacity of the equipment or component when new.",
-        "tr": "Ekipmanın veya bileşenin yeni halindeki toplam ömür kapasitesi."
+        "tr": "Ekipmanın veya bileşenin yeni halindeki toplam ömür kapasitesi.",
+        "de": "Die gesamte Lebensdauerkapazität des Geräts oder Bauteils im Neuzustand.",
+        "fr": "Capacité de vie totale de l'équipement ou du composant à neuf.",
+        "es": "Capacidad de vida total del equipo o componente cuando es nuevo."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Damage per Cycle",
         "tr": "Çevrim başına hasar",
-        "de": "Damage per Cycle",
-        "fr": "Damage per Cycle",
-        "es": "Damage per Cycle",
+        "de": "Schaden pro Zyklus",
+        "fr": "Dommages par cycle",
+        "es": "Daño por ciclo",
         "ar": "Damage per Cycle"
       },
       "businessContext_i18n": {
         "en": "The average damage incurred per operation cycle.",
-        "tr": "İşletme çevrimi başına oluşan ortalama hasar."
+        "tr": "İşletme çevrimi başına oluşan ortalama hasar.",
+        "de": "Der durchschnittliche Schaden, der pro Betriebszyklus entsteht.",
+        "fr": "Dommages moyens subis par cycle d'opération.",
+        "es": "Daño promedio incurrido por ciclo de operación."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Number of Cycles",
         "tr": "Döngü Sayısı",
         "de": "Anzahl der Zyklen",
-        "fr": "Number of Cycles",
-        "es": "Number of Cycles",
+        "fr": "Nombre de cycles",
+        "es": "Número de ciclos",
         "ar": "Number of Cycles"
       },
       "businessContext_i18n": {
         "en": "Number of operation cycles performed.",
-        "tr": "Gerçekleştirilen işletme çevrimi sayısı."
+        "tr": "Gerçekleştirilen işletme çevrimi sayısı.",
+        "de": "Anzahl der durchgeführten Betriebszyklen.",
+        "fr": "Nombre de cycles d'opération effectués.",
+        "es": "Número de ciclos de operación realizados."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier to account for variability and ensure conservative estimates.",
-        "tr": "Değişkenliği hesaba katmak ve muhafazakar tahminler sağlamak için çarpan."
+        "tr": "Değişkenliği hesaba katmak ve muhafazakar tahminler sağlamak için çarpan.",
+        "de": "Multiplikator zur Berücksichtigung von Variabilität und zur Sicherstellung konservativer Schätzungen.",
+        "fr": "Multiplicateur pour tenir compte de la variabilité et garantir des estimations prudentes.",
+        "es": "Multiplicador para tener en cuenta la variabilidad y garantizar estimaciones conservadoras."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Repair HP Gain",
         "tr": "Onarım Can Puanı Kazancı",
-        "de": "Repair HP Gain",
-        "fr": "Repair HP Gain",
-        "es": "Repair HP Gain",
+        "de": "Reparatur-TP-Gewinn",
+        "fr": "Gain de PV par réparation",
+        "es": "Ganancia de HP de reparación",
         "ar": "Repair HP Gain"
       },
       "businessContext_i18n": {
         "en": "Hit points regained after maintenance, if any.",
-        "tr": "Varsa bakım sonrası kazanılan can puanı."
+        "tr": "Varsa bakım sonrası kazanılan can puanı.",
+        "de": "Nach Wartung zurückgewonnene Trefferpunkte, falls vorhanden.",
+        "fr": "Points de vie regagnés après maintenance, le cas échéant.",
+        "es": "Puntos de golpe recuperados después del mantenimiento, si corresponde."
       }
     }
   ],

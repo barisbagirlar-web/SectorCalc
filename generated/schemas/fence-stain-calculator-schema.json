@@ -12,14 +12,16 @@
         "en": "Fence Length",
         "tr": "Çit Uzunluğu",
         "de": "Zaunlänge",
-        "fr": "Fence Length",
-        "es": "Fence Length",
+        "fr": "Longueur de clôture",
+        "es": "Longitud de la cerca",
         "ar": "Fence Length"
       },
       "businessContext_i18n": {
         "en": "Total horizontal length of the fence line (meters).",
         "tr": "Çit hattının toplam yatay uzunluğu (metre).",
-        "de": "Gesamte horizontale Länge der Zaunlinie (Meter)"
+        "de": "Gesamte horizontale Länge der Zaunlinie (Meter)",
+        "fr": "Longueur horizontale totale de la clôture (mètres).",
+        "es": "Longitud horizontal total de la línea de la cerca (metros)."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Fence Height",
         "tr": "Çit Yüksekliği",
         "de": "Zaunhöhe",
-        "fr": "Fence Height",
-        "es": "Fence Height",
+        "fr": "Hauteur de la clôture",
+        "es": "Altura de la valla",
         "ar": "Fence Height"
       },
       "businessContext_i18n": {
         "en": "Height of the fence from ground to top (meters).",
         "tr": "Çitin yerden tepeye kadar olan yüksekliği (metre).",
-        "de": "Höhe des Zauns vom Boden bis zur Oberkante (Meter)"
+        "de": "Höhe des Zauns vom Boden bis zur Oberkante (Meter)",
+        "fr": "Hauteur de la clôture du sol au sommet (mètres).",
+        "es": "Altura de la valla desde el suelo hasta la parte superior (metros)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Picket Width",
         "tr": "Çıta Genişliği",
         "de": "Lattenbreite",
-        "fr": "Picket Width",
-        "es": "Picket Width",
+        "fr": "Largeur de la latte",
+        "es": "Ancho del listón",
         "ar": "Picket Width"
       },
       "businessContext_i18n": {
         "en": "Width of each individual fence board or picket (meters).",
         "tr": "Her bir çit tahtasının veya çıtanın genişliği (metre).",
-        "de": "Breite jedes einzelnen Zaunbretts oder jeder Latte (Meter)"
+        "de": "Breite jedes einzelnen Zaunbretts oder jeder Latte (Meter)",
+        "fr": "Largeur de chaque planche ou latte de clôture (mètres).",
+        "es": "Ancho de cada tabla o listón individual de la valla (metros)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Picket Spacing",
         "tr": "Çıta Aralığı",
         "de": "Lattenabstand",
-        "fr": "Picket Spacing",
-        "es": "Picket Spacing",
+        "fr": "Espacement des lattes",
+        "es": "Separación entre listones",
         "ar": "Picket Spacing"
       },
       "businessContext_i18n": {
         "en": "Gap between adjacent pickets (meters). Use 0 for solid fence.",
         "tr": "Bitişik çıtalar arasındaki boşluk (metre). Dolu çit için 0 kullanın.",
-        "de": "Abstand zwischen benachbarten Latten (Meter). Verwenden Sie 0 für einen geschlossenen Zaun."
+        "de": "Abstand zwischen benachbarten Latten (Meter). Verwenden Sie 0 für einen geschlossenen Zaun.",
+        "fr": "Écart entre les lattes adjacentes (mètres). Utilisez 0 pour une clôture pleine.",
+        "es": "Espacio entre listones adyacentes (metros). Use 0 para valla sólida."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Coverage per Liter",
         "tr": "Litre Başına Kaplama",
         "de": "Abdeckung pro Liter",
-        "fr": "Coverage per Liter",
-        "es": "Coverage per Liter",
+        "fr": "Couverture par litre",
+        "es": "Cobertura por litro",
         "ar": "Coverage per Liter"
       },
       "businessContext_i18n": {
         "en": "Stain coverage area per liter as per manufacturer data (m² per L).",
         "tr": "Üretici verilerine göre litre başına vernik kaplama alanı (m²/L).",
-        "de": "Abdeckungsfläche der Lasur pro Liter gemäß Herstellerangaben (m² pro L)"
+        "de": "Abdeckungsfläche der Lasur pro Liter gemäß Herstellerangaben (m² pro L)",
+        "fr": "Surface couverte par litre de lasure selon les données du fabricant (m² par L).",
+        "es": "Área de cobertura de la mancha por litro según datos del fabricante (m² por L)."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Number of Coats",
         "tr": "Kat Sayısı",
         "de": "Anzahl der Anstriche",
-        "fr": "Number of Coats",
-        "es": "Number of Coats",
+        "fr": "Nombre de couches",
+        "es": "Número de capas",
         "ar": "Number of Coats"
       },
       "businessContext_i18n": {
         "en": "Number of stain coats to apply (typ. 2 for durability).",
         "tr": "Uygulanacak vernik kat sayısı (dayanıklılık için tipik olarak 2).",
-        "de": "Anzahl der aufzutragenden Lasurschichten (typ. 2 für Haltbarkeit)"
+        "de": "Anzahl der aufzutragenden Lasurschichten (typ. 2 für Haltbarkeit)",
+        "fr": "Nombre de couches de lasure à appliquer (généralement 2 pour la durabilité).",
+        "es": "Número de capas de mancha a aplicar (típ. 2 para durabilidad)."
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "First Value",
         "tr": "Birinci Değer",
-        "de": "First Value",
-        "fr": "First Value",
-        "es": "First Value",
+        "de": "Erster Wert",
+        "fr": "Première valeur",
+        "es": "Primer Valor",
         "ar": "First Value"
       },
       "businessContext_i18n": {
         "en": "First measurement value for comparison",
-        "tr": "Karşılaştırma için ilk ölçüm değeri"
+        "tr": "Karşılaştırma için ilk ölçüm değeri",
+        "de": "Erster Messwert für den Vergleich",
+        "fr": "Première mesure pour la comparaison",
+        "es": "Primer valor de medición para comparación"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Second Value",
         "tr": "İkinci Değer",
-        "de": "Second Value",
-        "fr": "Second Value",
-        "es": "Second Value",
+        "de": "Zweiter Wert",
+        "fr": "Deuxième valeur",
+        "es": "Segundo Valor",
         "ar": "Second Value"
       },
       "businessContext_i18n": {
         "en": "Second measurement value for comparison",
-        "tr": "Karşılaştırma için ikinci ölçüm değeri"
+        "tr": "Karşılaştırma için ikinci ölçüm değeri",
+        "de": "Zweiter Messwert für den Vergleich",
+        "fr": "Deuxième mesure pour la comparaison",
+        "es": "Segundo valor de medición para comparación"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Reference Value",
         "tr": "Referans Değer",
         "de": "Referenzwert",
-        "fr": "Reference Value",
-        "es": "Reference Value",
+        "fr": "Valeur de référence",
+        "es": "Valor de referencia",
         "ar": "Reference Value"
       },
       "businessContext_i18n": {
         "en": "Optimal theoretical value; if >0, percent error is calculated instead of percent difference",
-        "tr": "Optimal teorik değer; >0 ise yüzde fark yerine yüzde hata hesaplanır"
+        "tr": "Optimal teorik değer; >0 ise yüzde fark yerine yüzde hata hesaplanır",
+        "de": "Optimaler theoretischer Wert; wenn >0, wird die prozentuale Abweichung anstelle der prozentualen Differenz berechnet",
+        "fr": "Valeur théorique optimale ; si >0, l'erreur en pourcentage est calculée au lieu de la différence en pourcentage",
+        "es": "Valor teórico óptimo; si >0, se calcula el error porcentual en lugar de la diferencia porcentual"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Tolerance Threshold",
         "tr": "Tolerans Eşiği",
-        "de": "Tolerance Threshold",
-        "fr": "Tolerance Threshold",
-        "es": "Tolerance Threshold",
+        "de": "Toleranzschwellenwert",
+        "fr": "Seuil de tolérance",
+        "es": "Umbral de Tolerancia",
         "ar": "Tolerance Threshold"
       },
       "businessContext_i18n": {
         "en": "Maximum acceptable percent deviation before flagging a quality issue",
-        "tr": "Kalite sorununu işaretlemeden önce izin verilen maksimum yüzde sapma"
+        "tr": "Kalite sorununu işaretlemeden önce izin verilen maksimum yüzde sapma",
+        "de": "Maximal akzeptable prozentuale Abweichung, bevor ein Qualitätsproblem gemeldet wird",
+        "fr": "Écart maximal acceptable en pourcentage avant de signaler un problème de qualité",
+        "es": "Desviación porcentual máxima aceptable antes de marcar un problema de calidad"
       }
     }
   ],

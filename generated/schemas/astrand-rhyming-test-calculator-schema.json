@@ -12,14 +12,16 @@
         "en": "Sex",
         "tr": "Cinsiyet",
         "de": "Geschlecht",
-        "fr": "Sex",
-        "es": "Sex",
+        "fr": "Sexe",
+        "es": "Sexo",
         "ar": "Sex"
       },
       "businessContext_i18n": {
         "en": "0 for female, 1 for male",
         "tr": "0 kadın, 1 erkek",
-        "de": "0 für weiblich, 1 für männlich"
+        "de": "0 für weiblich, 1 für männlich",
+        "fr": "0 pour femme, 1 pour homme",
+        "es": "0 para mujer, 1 para hombre"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Age in years (typically 20–65)",
         "tr": "Yaş (yıl olarak, tipik olarak 20–65)",
-        "de": "Alter in Jahren (typischerweise 20–65)"
+        "de": "Alter in Jahren (typischerweise 20–65)",
+        "fr": "Âge en années (généralement 20–65)",
+        "es": "Edad en años (típicamente 20–65)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Body Weight",
-        "es": "Body Weight",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "Body weight in kilograms",
         "tr": "Vücut ağırlığı (kilogram cinsinden).",
-        "de": "Körpergewicht in Kilogramm"
+        "de": "Körpergewicht in Kilogramm",
+        "fr": "Poids corporel en kilogrammes",
+        "es": "Peso corporal en kilogramos"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Work Rate",
         "tr": "Çalışma Hızı",
         "de": "Arbeitsrate",
-        "fr": "Work Rate",
-        "es": "Work Rate",
+        "fr": "Taux de travail",
+        "es": "Tasa de trabajo",
         "ar": "Work Rate"
       },
       "businessContext_i18n": {
         "en": "Work rate in watts during steady-state cycling at 50 rpm",
         "tr": "50 rpm'de sabit bisiklet sürüşü sırasında watt cinsinden çalışma hızı",
-        "de": "Arbeitsrate in Watt während konstantem Radfahren bei 50 U/min"
+        "de": "Arbeitsrate in Watt während konstantem Radfahren bei 50 U/min",
+        "fr": "Taux de travail en watts pendant un cyclisme en régime permanent à 50 tr/min",
+        "es": "Tasa de trabajo en vatios durante ciclismo en estado estable a 50 rpm"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Steady-State Heart Rate",
         "tr": "Kararlı Durum Kalp Atış Hızı",
         "de": "Steady-State Heart Rate",
-        "fr": "Steady-State Heart Rate",
-        "es": "Steady-State Heart Rate",
+        "fr": "Fréquence cardiaque stable",
+        "es": "Frecuencia cardíaca en estado estable",
         "ar": "Steady-State Heart Rate"
       },
       "businessContext_i18n": {
         "en": "Average heart rate during the last minute of the 6-minute test (range 125–170 bpm)",
         "tr": "6 dakikalık testin son dakikasındaki ortalama kalp atış hızı (aralık 125–170 bpm)",
-        "de": "Durchschnittliche Herzfrequenz während der letzten Minute des 6-Minuten-Tests (Bereich 125–170 bpm)"
+        "de": "Durchschnittliche Herzfrequenz während der letzten Minute des 6-Minuten-Tests (Bereich 125–170 bpm)",
+        "fr": "Fréquence cardiaque moyenne durant la dernière minute du test de 6 minutes (plage 125–170 bpm)",
+        "es": "Frecuencia cardíaca promedio durante el último minuto de la prueba de 6 minutos (rango 125–170 lpm)"
       }
     }
   ],

@@ -12,13 +12,15 @@
         "en": "Flow Velocity",
         "tr": "Akış Hızı",
         "de": "Strömungsgeschwindigkeit",
-        "fr": "Flow Velocity",
-        "es": "Flow Velocity",
+        "fr": "Vitesse d'écoulement",
+        "es": "Velocidad de flujo",
         "ar": "Flow Velocity"
       },
       "businessContext_i18n": {
         "en": "Flow velocity of the fluid relative to the object, in meters per second. Typical aircraft speeds are around 250 m/s.",
-        "tr": "Akışkanın cisme göre akış hızı, metre/saniye cinsinden. Tipik uçak hızları yaklaşık 250 m/s'dir."
+        "tr": "Akışkanın cisme göre akış hızı, metre/saniye cinsinden. Tipik uçak hızları yaklaşık 250 m/s'dir.",
+        "de": "Strömungsgeschwindigkeit des Fluids relativ zum Objekt, in Metern pro Sekunde. Typische Flugzeuggeschwindigkeiten liegen bei etwa 250 m/s.",
+        "fr": "Vitesse d'écoulement du fluide par rapport à l'objet, en mètres par seconde. Les vitesses typiques d'un avion sont d'environ 250 m/s."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Characteristic Length",
         "tr": "Karakteristik Uzunluk",
-        "de": "Characteristic Length",
-        "fr": "Characteristic Length",
+        "de": "Charakteristische Länge",
+        "fr": "Longueur caractéristique",
         "es": "Characteristic Length",
         "ar": "Characteristic Length"
       },
       "businessContext_i18n": {
         "en": "Characteristic length of the body (e.g., chord length of an airfoil or diameter of a pipe), in meters.",
-        "tr": "Cismin karakteristik uzunluğu (ör. kanat profili veter uzunluğu veya boru çapı), metre cinsinden."
+        "tr": "Cismin karakteristik uzunluğu (ör. kanat profili veter uzunluğu veya boru çapı), metre cinsinden.",
+        "de": "Charakteristische Länge des Körpers (z. B. Sehnenlänge eines Tragflügels oder Durchmesser eines Rohrs), in Metern.",
+        "fr": "Longueur caractéristique du corps (ex. longueur de corde d'un profil aérodynamique ou diamètre d'un tuyau), en mètres."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Kinematic Viscosity",
         "tr": "Kinematik Viskozite",
         "de": "Kinematische Viskosität",
-        "fr": "Kinematic Viscosity",
-        "es": "Kinematic Viscosity",
+        "fr": "Viscosité cinématique",
+        "es": "Viscosidad cinemática",
         "ar": "Kinematic Viscosity"
       },
       "businessContext_i18n": {
         "en": "Kinematic viscosity of the fluid. For air at sea level conditions (15°C), this is approximately 1.5 × 10⁻⁵ m²/s.",
-        "tr": "Akışkanın kinematik viskozitesi. Deniz seviyesi koşullarında (15°C) hava için yaklaşık 1.5 × 10⁻⁵ m²/s'dir."
+        "tr": "Akışkanın kinematik viskozitesi. Deniz seviyesi koşullarında (15°C) hava için yaklaşık 1.5 × 10⁻⁵ m²/s'dir.",
+        "de": "Kinematische Viskosität des Fluids. Für Luft unter Meeresbedingungen (15 °C) beträgt sie etwa 1,5 × 10⁻⁵ m²/s.",
+        "fr": "Viscosité cinématique du fluide. Pour l'air au niveau de la mer (15 °C), elle est d'environ 1,5 × 10⁻⁵ m²/s."
       }
     }
   ],

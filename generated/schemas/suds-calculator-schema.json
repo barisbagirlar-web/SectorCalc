@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Catchment Area",
         "tr": "Toplama Alanı",
-        "de": "Catchment Area",
-        "fr": "Catchment Area",
+        "de": "Einzugsgebiet",
+        "fr": "Zone de captage",
         "es": "Catchment Area",
         "ar": "Catchment Area"
       },
       "businessContext_i18n": {
         "en": "Total impervious area draining to the SUDS feature.",
-        "tr": "SUDS yapısına drene olan toplam geçirimsiz alan."
+        "tr": "SUDS yapısına drene olan toplam geçirimsiz alan.",
+        "de": "Gesamte undurchlässige Fläche, die zur SUDS-Anlage entwässert.",
+        "fr": "Surface imperméable totale drainant vers l'élément SUDS."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Design Rainfall Intensity",
         "tr": "Tasarım Yağmur Şiddeti",
-        "de": "Design Rainfall Intensity",
-        "fr": "Design Rainfall Intensity",
+        "de": "Bemessungsregenintensität",
+        "fr": "Intensité de pluie de conception",
         "es": "Design Rainfall Intensity",
         "ar": "Design Rainfall Intensity"
       },
       "businessContext_i18n": {
         "en": "Intensity for the design storm event, typically from IDF curves.",
-        "tr": "Genellikle IDF eğrilerinden alınan tasarım fırtına olayı için şiddet."
+        "tr": "Genellikle IDF eğrilerinden alınan tasarım fırtına olayı için şiddet.",
+        "de": "Intensität für das Bemessungsregenereignis, typischerweise aus IDF-Kurven.",
+        "fr": "Intensité pour l'événement de tempête de conception, typiquement à partir de courbes IDF."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Runoff Coefficient",
         "tr": "Akış Katsayısı",
         "de": "Abflussbeiwert",
-        "fr": "Runoff Coefficient",
-        "es": "Runoff Coefficient",
+        "fr": "Coefficient de ruissellement",
+        "es": "Coeficiente de escorrentía",
         "ar": "Runoff Coefficient"
       },
       "businessContext_i18n": {
         "en": "Ratio of runoff to rainfall, based on surface type.",
-        "tr": "Yüzey tipine bağlı olarak yağışın akışa oranı."
+        "tr": "Yüzey tipine bağlı olarak yağışın akışa oranı.",
+        "de": "Verhältnis von Abfluss zu Niederschlag, basierend auf der Oberflächenart.",
+        "fr": "Rapport entre le ruissellement et les précipitations, selon le type de surface."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Storm Duration",
         "tr": "Fırtına Süresi",
-        "de": "Storm Duration",
-        "fr": "Storm Duration",
+        "de": "Sturmdauer",
+        "fr": "Durée de l'orage",
         "es": "Storm Duration",
         "ar": "Storm Duration"
       },
       "businessContext_i18n": {
         "en": "Duration of the design storm event.",
-        "tr": "Tasarım fırtına olayının süresi."
+        "tr": "Tasarım fırtına olayının süresi.",
+        "de": "Dauer des Bemessungsregenereignisses.",
+        "fr": "Durée de l'événement pluvieux de conception."
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Factor of safety to account for uncertainties.",
-        "tr": "Belirsizlikleri hesaba katmak için güvenlik faktörü."
+        "tr": "Belirsizlikleri hesaba katmak için güvenlik faktörü.",
+        "de": "Sicherheitsfaktor zur Berücksichtigung von Unsicherheiten.",
+        "fr": "Facteur de sécurité pour tenir compte des incertitudes."
       }
     }
   ],

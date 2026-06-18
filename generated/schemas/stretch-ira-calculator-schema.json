@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Initial IRA Balance",
         "tr": "Başlangıç IRA Bakiyesi",
-        "de": "Initial IRA Balance",
-        "fr": "Initial IRA Balance",
+        "de": "Anfänglicher IRA-Kontostand",
+        "fr": "Solde IRA initial",
         "es": "Initial IRA Balance",
         "ar": "Initial IRA Balance"
       },
       "businessContext_i18n": {
         "en": "Current total balance of the inherited IRA.",
-        "tr": "Miras alınan IRA'nın mevcut toplam bakiyesi."
+        "tr": "Miras alınan IRA'nın mevcut toplam bakiyesi.",
+        "de": "Aktueller Gesamtsaldo des geerbten IRA.",
+        "fr": "Solde total actuel de l'IRA hérité."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Expected Annual Return Rate",
         "tr": "Beklenen Yıllık Getiri Oranı",
-        "de": "Expected Annual Return Rate",
-        "fr": "Expected Annual Return Rate",
-        "es": "Expected Annual Return Rate",
+        "de": "Erwartete jährliche Rendite",
+        "fr": "Taux de rendement annuel attendu",
+        "es": "Tasa de rendimiento anual esperada",
         "ar": "Expected Annual Return Rate"
       },
       "businessContext_i18n": {
         "en": "Expected annual percentage return on investments.",
-        "tr": "Yatırımlardan beklenen yıllık yüzde getiri."
+        "tr": "Yatırımlardan beklenen yıllık yüzde getiri.",
+        "de": "Erwartete jährliche prozentuale Rendite auf Investitionen.",
+        "fr": "Pourcentage de rendement annuel attendu sur les investissements."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Beneficiary Age",
         "tr": "Yararlanıcı Yaşı",
-        "de": "Beneficiary Age",
-        "fr": "Beneficiary Age",
+        "de": "Alter des Begünstigten",
+        "fr": "Âge du bénéficiaire",
         "es": "Beneficiary Age",
         "ar": "Beneficiary Age"
       },
       "businessContext_i18n": {
         "en": "Age of the beneficiary in the current year.",
-        "tr": "Yararlanıcının içinde bulunulan yıldaki yaşı."
+        "tr": "Yararlanıcının içinde bulunulan yıldaki yaşı.",
+        "de": "Alter des Begünstigten im laufenden Jahr.",
+        "fr": "Âge du bénéficiaire dans l'année en cours."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Life Expectancy Factor",
         "tr": "Yaşam Beklentisi Faktörü",
-        "de": "Life Expectancy Factor",
-        "fr": "Life Expectancy Factor",
-        "es": "Life Expectancy Factor",
+        "de": "Lebenserwartungsfaktor",
+        "fr": "Facteur d'espérance de vie",
+        "es": "Factor de esperanza de vida",
         "ar": "Life Expectancy Factor"
       },
       "businessContext_i18n": {
         "en": "IRS Single Life Expectancy factor from Table I for the beneficiary's age. E.g., for age 50, factor is 36.2.",
-        "tr": "Yararlanıcının yaşına göre IRS Tablo I'den Beklenen Yaşam Süresi faktörü. Örn., 50 yaş için faktör 36,2'dir."
+        "tr": "Yararlanıcının yaşına göre IRS Tablo I'den Beklenen Yaşam Süresi faktörü. Örn., 50 yaş için faktör 36,2'dir.",
+        "de": "IRS Single Life Expectancy Faktor aus Tabelle I für das Alter des Begünstigten. Z.B. für Alter 50 beträgt der Faktor 36,2.",
+        "fr": "Facteur d'espérance de vie unique de l'IRS de la Table I pour l'âge du bénéficiaire. Ex. : pour 50 ans, facteur = 36,2."
       }
     }
   ],

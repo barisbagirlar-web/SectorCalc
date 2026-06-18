@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Tensile Strength",
         "tr": "Çekme Dayanımı",
-        "de": "Tensile Strength",
-        "fr": "Tensile Strength",
-        "es": "Tensile Strength",
+        "de": "Zugfestigkeit",
+        "fr": "Résistance à la traction",
+        "es": "Resistencia a la tracción",
         "ar": "Tensile Strength"
       },
       "businessContext_i18n": {
         "en": "Ultimate tensile strength of material",
-        "tr": "Malzemenin nihai çekme dayanımı"
+        "tr": "Malzemenin nihai çekme dayanımı",
+        "de": "Maximale Zugfestigkeit des Materials",
+        "fr": "Résistance ultime à la traction du matériau",
+        "es": "Resistencia máxima a la tracción del material"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Material Thickness",
         "tr": "Malzeme kalınlığı",
-        "de": "Material Thickness",
-        "fr": "Material Thickness",
-        "es": "Material Thickness",
+        "de": "Materialdicke",
+        "fr": "Épaisseur du matériau",
+        "es": "Espesor del material",
         "ar": "Material Thickness"
       },
       "businessContext_i18n": {
         "en": "Thickness of the specimen",
-        "tr": "Numune Kalınlığı"
+        "tr": "Numune Kalınlığı",
+        "de": "Dicke der Probe",
+        "fr": "Épaisseur de l'éprouvette",
+        "es": "Espesor de la probeta"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Specimen Width",
         "tr": "Numune Genişliği",
-        "de": "Specimen Width",
-        "fr": "Specimen Width",
-        "es": "Specimen Width",
+        "de": "Probenbreite",
+        "fr": "Largeur de l'éprouvette",
+        "es": "Ancho de la probeta",
         "ar": "Specimen Width"
       },
       "businessContext_i18n": {
         "en": "Width of the gauge section",
-        "tr": "Kesit alanı genişliği"
+        "tr": "Kesit alanı genişliği",
+        "de": "Breite des Messbereichs",
+        "fr": "Largeur de la section calibrée",
+        "es": "Ancho de la sección calibrada"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Design safety factor per ISO 13849",
-        "tr": "ISO 13849'a göre tasarım güvenlik faktörü"
+        "tr": "ISO 13849'a göre tasarım güvenlik faktörü",
+        "de": "Auslegungssicherheitsfaktor nach ISO 13849",
+        "fr": "Facteur de sécurité de conception selon ISO 13849",
+        "es": "Factor de seguridad de diseño según ISO 13849"
       }
     }
   ],

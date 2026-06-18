@@ -12,13 +12,16 @@
         "en": "Sample Mean",
         "tr": "Örneklem ortalaması",
         "de": "Stichprobenmittelwert",
-        "fr": "Sample Mean",
-        "es": "Sample Mean",
+        "fr": "Moyenne de l'échantillon",
+        "es": "Media muestral",
         "ar": "Sample Mean"
       },
       "businessContext_i18n": {
         "en": "The average value of the sample dataset",
-        "tr": "Örnek veri setinin ortalama değeri"
+        "tr": "Örnek veri setinin ortalama değeri",
+        "de": "Der Mittelwert des Stichprobendatensatzes",
+        "fr": "La valeur moyenne de l'ensemble de données de l'échantillon",
+        "es": "El valor promedio del conjunto de datos de la muestra"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Sample Standard Deviation",
         "tr": "Örneklem standart sapması",
         "de": "Stichprobenstandardabweichung",
-        "fr": "Sample Standard Deviation",
-        "es": "Sample Standard Deviation",
+        "fr": "Écart type de l'échantillon",
+        "es": "Desviación estándar muestral",
         "ar": "Sample Standard Deviation"
       },
       "businessContext_i18n": {
         "en": "The standard deviation of the sample dataset",
-        "tr": "Örnek veri setinin standart sapması"
+        "tr": "Örnek veri setinin standart sapması",
+        "de": "Die Standardabweichung des Stichprobendatensatzes",
+        "fr": "L'écart type de l'ensemble de données de l'échantillon",
+        "es": "La desviación estándar del conjunto de datos de la muestra"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Sample Value",
         "tr": "Örnek Değer",
-        "de": "Sample Value",
-        "fr": "Sample Value",
-        "es": "Sample Value",
+        "de": "Stichprobenwert",
+        "fr": "Valeur de l'échantillon",
+        "es": "Valor de la muestra",
         "ar": "Sample Value"
       },
       "businessContext_i18n": {
         "en": "A single data point from the sample to be plotted",
-        "tr": "Grafiğe eklenecek örnekten tek bir veri noktası"
+        "tr": "Grafiğe eklenecek örnekten tek bir veri noktası",
+        "de": "Ein einzelner Datenpunkt aus der Stichprobe, der dargestellt werden soll",
+        "fr": "Un point de données unique de l'échantillon à tracer",
+        "es": "Un punto de datos individual de la muestra para graficar"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Reference Mean",
         "tr": "Referans Ortalama",
-        "de": "Reference Mean",
-        "fr": "Reference Mean",
-        "es": "Reference Mean",
+        "de": "Referenzmittelwert",
+        "fr": "Moyenne de référence",
+        "es": "Media de referencia",
         "ar": "Reference Mean"
       },
       "businessContext_i18n": {
         "en": "The mean of the reference (theoretical) distribution",
-        "tr": "Referans (teorik) dağılımın ortalaması"
+        "tr": "Referans (teorik) dağılımın ortalaması",
+        "de": "Der Mittelwert der Referenzverteilung (theoretisch)",
+        "fr": "La moyenne de la distribution de référence (théorique)",
+        "es": "La media de la distribución de referencia (teórica)"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Reference Standard Deviation",
         "tr": "Referans Standart Sapma",
-        "de": "Reference Standard Deviation",
-        "fr": "Reference Standard Deviation",
-        "es": "Reference Standard Deviation",
+        "de": "Referenzstandardabweichung",
+        "fr": "Écart type de référence",
+        "es": "Desviación estándar de referencia",
         "ar": "Reference Standard Deviation"
       },
       "businessContext_i18n": {
         "en": "The standard deviation of the reference distribution",
-        "tr": "Referans dağılımının standart sapması"
+        "tr": "Referans dağılımının standart sapması",
+        "de": "Die Standardabweichung der Referenzverteilung",
+        "fr": "L'écart type de la distribution de référence",
+        "es": "La desviación estándar de la distribución de referencia"
       }
     }
   ],

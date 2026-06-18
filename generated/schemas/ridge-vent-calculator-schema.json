@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Attic Floor Area",
         "tr": "Çatı Katı Alanı",
-        "de": "Attic Floor Area",
-        "fr": "Attic Floor Area",
+        "de": "Dachbodenfläche",
+        "fr": "Surface du plancher des combles",
         "es": "Attic Floor Area",
         "ar": "Attic Floor Area"
       },
       "businessContext_i18n": {
         "en": "Total floor area of the attic space in square feet.",
-        "tr": "Çatı katı alanının toplam taban alanı (ft² cinsinden)."
+        "tr": "Çatı katı alanının toplam taban alanı (ft² cinsinden).",
+        "de": "Gesamtfläche des Dachbodens in Quadratfuß",
+        "fr": "Superficie totale du grenier en pieds carrés."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Ventilation Ratio (1:X)",
         "tr": "Havalandırma Oranı (1:X)",
-        "de": "Ventilation Ratio (1:X)",
-        "fr": "Ventilation Ratio (1:X)",
+        "de": "Lüftungsverhältnis (1:X)",
+        "fr": "Ratio de ventilation (1:X)",
         "es": "Ventilation Ratio (1:X)",
         "ar": "Ventilation Ratio (1:X)"
       },
       "businessContext_i18n": {
         "en": "Required total net free area expressed as 1 square foot per X square feet of attic area. Common values: 150 for standard construction, 300 with certain vapor barriers.",
-        "tr": "Gerekli toplam net serbest alan, çatı katı alanının her X ft²'si için 1 ft² olarak ifade edilir. Yaygın değerler: standart yapı için 150, belirli buhar bariyerleri ile 300."
+        "tr": "Gerekli toplam net serbest alan, çatı katı alanının her X ft²'si için 1 ft² olarak ifade edilir. Yaygın değerler: standart yapı için 150, belirli buhar bariyerleri ile 300.",
+        "de": "Erforderliche gesamte Nettofreifläche, ausgedrückt als 1 Quadratfuß pro X Quadratfuß Dachbodenfläche. Übliche Werte: 150 für Standardbauweise, 300 bei bestimmten Dampfsperren.",
+        "fr": "Surface nette libre totale requise exprimée en 1 pied carré par X pieds carrés de grenier. Valeurs courantes : 150 pour construction standard, 300 avec certains pare-vapeur."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Ridge Vent NFA per Foot",
         "tr": "Mahya Havalandırması NFA/ft",
-        "de": "Ridge Vent NFA per Foot",
-        "fr": "Ridge Vent NFA per Foot",
+        "de": "Nettolüftungsfläche pro Fuß (Zoll²)",
+        "fr": "NFA de l'évent de faîte par pied",
         "es": "Ridge Vent NFA per Foot",
         "ar": "Ridge Vent NFA per Foot"
       },
       "businessContext_i18n": {
         "en": "Net free area rating of the ridge vent product, in square inches per linear foot.",
-        "tr": "Mahya havalandırma ürününün net serbest alan değeri (in²/lineer ft cinsinden)."
+        "tr": "Mahya havalandırma ürününün net serbest alan değeri (in²/lineer ft cinsinden).",
+        "de": "Bewertung der Nettolüftungsfläche des Firstlüfters in Quadratzoll pro laufendem Fuß.",
+        "fr": "Indice de surface nette libre du produit d'évent de faîte, en pouces carrés par pied linéaire."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Exhaust Split Factor",
         "tr": "Egzoz Bölme Faktörü",
-        "de": "Exhaust Split Factor",
-        "fr": "Exhaust Split Factor",
+        "de": "Aufteilungsfaktor Abluft",
+        "fr": "Facteur de répartition d'extraction",
         "es": "Exhaust Split Factor",
         "ar": "Exhaust Split Factor"
       },
       "businessContext_i18n": {
         "en": "Fraction of total ventilation area that should be provided by ridge exhaust. Typically 0.5 for balanced intake/exhaust.",
-        "tr": "Mahya egzozu tarafından sağlanması gereken toplam havalandırma alanının oranı. Dengeli giriş/egzoz için tipik olarak 0,5."
+        "tr": "Mahya egzozu tarafından sağlanması gereken toplam havalandırma alanının oranı. Dengeli giriş/egzoz için tipik olarak 0,5.",
+        "de": "Anteil der gesamten Lüftungsfläche, der durch Firstabluft bereitgestellt werden sollte. Typischerweise 0,5 für ausgewogene Zu-/Abluft.",
+        "fr": "Fraction de la surface de ventilation totale devant être fournie par l'extraction de faîte. Généralement 0,5 pour une entrée/sortie équilibrée."
       }
     }
   ],

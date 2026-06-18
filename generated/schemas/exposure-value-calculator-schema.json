@@ -12,14 +12,16 @@
         "en": "Aperture (f-stop)",
         "tr": "Diyafram (f-stop)",
         "de": "Blende (f-stop)",
-        "fr": "Aperture (f-stop)",
-        "es": "Aperture (f-stop)",
+        "fr": "Ouverture (f-stop)",
+        "es": "Apertura (f-stop)",
         "ar": "Aperture (f-stop)"
       },
       "businessContext_i18n": {
         "en": "Lens aperture setting.",
         "tr": "Lens diyafram ayarı.",
-        "de": "Einstellung der Objektivblende."
+        "de": "Einstellung der Objektivblende.",
+        "fr": "Réglage de l'ouverture de l'objectif.",
+        "es": "Configuración de apertura del lente."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Shutter Speed",
         "tr": "Enstantane Hızı",
         "de": "Verschlusszeit",
-        "fr": "Shutter Speed",
-        "es": "Shutter Speed",
+        "fr": "Vitesse d'obturation",
+        "es": "Velocidad de obturación",
         "ar": "Shutter Speed"
       },
       "businessContext_i18n": {
         "en": "Exposure time in seconds.",
         "tr": "Saniye cinsinden pozlama süresi.",
-        "de": "Belichtungszeit in Sekunden."
+        "de": "Belichtungszeit in Sekunden.",
+        "fr": "Temps d'exposition en secondes.",
+        "es": "Tiempo de exposición en segundos."
       }
     },
     {
@@ -61,7 +65,9 @@
       "businessContext_i18n": {
         "en": "Sensor sensitivity rating.",
         "tr": "Sensör hassasiyet derecesi.",
-        "de": "Sensor-Empfindlichkeit."
+        "de": "Sensor-Empfindlichkeit.",
+        "fr": "Indice de sensibilité du capteur.",
+        "es": "Clasificación de sensibilidad del sensor."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Measured EV",
         "tr": "Ölçülen EV",
         "de": "Gemessener EV",
-        "fr": "Measured EV",
-        "es": "Measured EV",
+        "fr": "EV mesuré",
+        "es": "EV medido",
         "ar": "Measured EV"
       },
       "businessContext_i18n": {
         "en": "Exposure value from light meter.",
         "tr": "Işık ölçerden pozlama değeri.",
-        "de": "Belichtungswert vom Belichtungsmesser."
+        "de": "Belichtungswert vom Belichtungsmesser.",
+        "fr": "Valeur d'exposition du posemètre.",
+        "es": "Valor de exposición del fotómetro."
       }
     }
   ],

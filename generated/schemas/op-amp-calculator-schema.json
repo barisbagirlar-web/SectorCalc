@@ -12,13 +12,16 @@
         "en": "Input Voltage (Vin)",
         "tr": "Giriş voltajı (Vin)",
         "de": "Eingangsspannung (Vin)",
-        "fr": "Input Voltage (Vin)",
-        "es": "Input Voltage (Vin)",
+        "fr": "Tension d'entrée (Vin)",
+        "es": "Voltaje de Entrada (Vin)",
         "ar": "Input Voltage (Vin)"
       },
       "businessContext_i18n": {
         "en": "Input signal voltage from sensor or source (peak or DC)",
-        "tr": "Sensörden veya kaynaktan giriş sinyali voltajı (tepe veya DC)"
+        "tr": "Sensörden veya kaynaktan giriş sinyali voltajı (tepe veya DC)",
+        "de": "Eingangssignalspannung von Sensor oder Quelle (Spitze oder DC)",
+        "fr": "Tension du signal d'entrée provenant du capteur ou de la source (crête ou continu)",
+        "es": "Tensión de señal de entrada del sensor o fuente (pico o CC)"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Input Resistance (Rin)",
         "tr": "Giriş Direnci (Rin)",
-        "de": "Input Resistance (Rin)",
-        "fr": "Input Resistance (Rin)",
-        "es": "Input Resistance (Rin)",
+        "de": "Eingangswiderstand (Rin)",
+        "fr": "Résistance d'entrée (Rin)",
+        "es": "Resistencia de entrada (Rin)",
         "ar": "Input Resistance (Rin)"
       },
       "businessContext_i18n": {
         "en": "Resistance from non-inverting terminal to ground; sets input impedance",
-        "tr": "Evirmeyen terminalden toprağa direnç; giriş empedansını belirler"
+        "tr": "Evirmeyen terminalden toprağa direnç; giriş empedansını belirler",
+        "de": "Widerstand vom nichtinvertierenden Anschluss gegen Masse; bestimmt die Eingangsimpedanz",
+        "fr": "Résistance de la borne non inverseuse à la masse ; définit l'impédance d'entrée",
+        "es": "Resistencia desde el terminal no inversor a tierra; establece la impedancia de entrada"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Feedback Resistance (Rf)",
         "tr": "Geri Besleme Direnci (Rf)",
-        "de": "Feedback Resistance (Rf)",
-        "fr": "Feedback Resistance (Rf)",
-        "es": "Feedback Resistance (Rf)",
+        "de": "Rückkopplungswiderstand (Rf)",
+        "fr": "Résistance de contre-réaction (Rf)",
+        "es": "Resistencia de realimentación (Rf)",
         "ar": "Feedback Resistance (Rf)"
       },
       "businessContext_i18n": {
         "en": "Feedback resistor between output and inverting input for gain setting",
-        "tr": "Kazanç ayarı için çıkış ile eviren giriş arasındaki geri besleme direnci"
+        "tr": "Kazanç ayarı için çıkış ile eviren giriş arasındaki geri besleme direnci",
+        "de": "Rückkopplungswiderstand zwischen Ausgang und invertierendem Eingang zur Verstärkungseinstellung",
+        "fr": "Résistance de contre-réaction entre la sortie et l'entrée inverseuse pour le réglage du gain",
+        "es": "Resistor de realimentación entre la salida y la entrada inversora para ajuste de ganancia"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Positive Supply (Vcc)",
         "tr": "Pozitif Besleme (Vcc)",
-        "de": "Positive Supply (Vcc)",
-        "fr": "Positive Supply (Vcc)",
-        "es": "Positive Supply (Vcc)",
+        "de": "Positive Versorgung (Vcc)",
+        "fr": "Alimentation positive (Vcc)",
+        "es": "Alimentación positiva (Vcc)",
         "ar": "Positive Supply (Vcc)"
       },
       "businessContext_i18n": {
         "en": "Positive supply rail; output cannot exceed Vcc - 1.5V (typical)",
-        "tr": "Pozitif besleme rayı; çıkış tipik olarak Vcc - 1.5V'u aşamaz"
+        "tr": "Pozitif besleme rayı; çıkış tipik olarak Vcc - 1.5V'u aşamaz",
+        "de": "Positive Versorgungsschiene; Ausgang kann Vcc - 1,5 V (typisch) nicht überschreiten",
+        "fr": "Rail d'alimentation positive ; la sortie ne peut pas dépasser Vcc - 1,5 V (typique)",
+        "es": "Riel de alimentación positiva; la salida no puede exceder Vcc - 1.5V (típico)"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Negative Supply (Vee)",
         "tr": "Negatif Besleme (Vee)",
-        "de": "Negative Supply (Vee)",
-        "fr": "Negative Supply (Vee)",
-        "es": "Negative Supply (Vee)",
+        "de": "Negative Versorgung (Vee)",
+        "fr": "Alimentation négative (Vee)",
+        "es": "Alimentación negativa (Vee)",
         "ar": "Negative Supply (Vee)"
       },
       "businessContext_i18n": {
         "en": "Negative supply rail; for single supply this is ground (0V)",
-        "tr": "Negatif besleme rayı; tek besleme için bu topraktır (0V)"
+        "tr": "Negatif besleme rayı; tek besleme için bu topraktır (0V)",
+        "de": "Negative Versorgungsschiene; bei Einzelversorgung ist dies Masse (0 V)",
+        "fr": "Rail d'alimentation négative ; pour une alimentation simple, il s'agit de la masse (0 V)",
+        "es": "Riel de alimentación negativa; para alimentación simple es tierra (0V)"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Known Cards",
         "tr": "Bilinen Kartlar",
-        "de": "Known Cards",
-        "fr": "Known Cards",
-        "es": "Known Cards",
+        "de": "Bekannte Karten",
+        "fr": "Cartes connues",
+        "es": "Cartas conocidas",
         "ar": "Known Cards"
       },
       "businessContext_i18n": {
         "en": "Number of cards you have seen, including your hole cards and any community cards.",
-        "tr": "Gördüğünüz kart sayısı, kapalı kartlarınız ve topluluk kartları dahil."
+        "tr": "Gördüğünüz kart sayısı, kapalı kartlarınız ve topluluk kartları dahil.",
+        "de": "Anzahl der gesehenen Karten, einschließlich Ihrer Hole Cards und aller Gemeinschaftskarten.",
+        "fr": "Nombre de cartes que vous avez vues, incluant vos cartes fermées et les cartes communes.",
+        "es": "Número de cartas que has visto, incluyendo tus cartas privadas y cualquier carta comunitaria."
       }
     },
     {
@@ -32,14 +35,16 @@
         "en": "Deck Size",
         "tr": "Deste Boyutu",
         "de": "Kartensatzgröße",
-        "fr": "Deck Size",
-        "es": "Deck Size",
+        "fr": "Taille du jeu",
+        "es": "Tamaño del mazo",
         "ar": "Deck Size"
       },
       "businessContext_i18n": {
         "en": "Total number of cards in the deck.",
         "tr": "Destedeki toplam kart sayısı.",
-        "de": "Gesamtzahl der Karten im Kartensatz."
+        "de": "Gesamtzahl der Karten im Kartensatz.",
+        "fr": "Nombre total de cartes dans le jeu.",
+        "es": "Número total de cartas en el mazo."
       }
     },
     {
@@ -59,7 +64,10 @@
       },
       "businessContext_i18n": {
         "en": "Number of cards in the remaining deck that will improve your hand to a winner.",
-        "tr": "Kalan destede elinizi kazanan yapacak kart sayısı."
+        "tr": "Kalan destede elinizi kazanan yapacak kart sayısı.",
+        "de": "Anzahl der Karten im verbleibenden Deck, die Ihre Hand zu einem Gewinner verbessern.",
+        "fr": "Nombre de cartes dans le paquet restant qui amélioreront votre main pour gagner.",
+        "es": "Número de cartas en el mazo restante que mejorarán tu mano para ganar."
       }
     },
     {
@@ -72,14 +80,17 @@
       "label_i18n": {
         "en": "Cards to Draw",
         "tr": "Çekilecek Kartlar",
-        "de": "Cards to Draw",
-        "fr": "Cards to Draw",
-        "es": "Cards to Draw",
+        "de": "Zu ziehende Karten",
+        "fr": "Cartes à tirer",
+        "es": "Cartas por repartir",
         "ar": "Cards to Draw"
       },
       "businessContext_i18n": {
         "en": "Number of upcoming community cards to be dealt (e.g., 1 for turn only, 2 for turn and river).",
-        "tr": "Dağıtılacak gelecek topluluk kartı sayısı (örneğin, sadece dönüş için 1, dönüş ve nehir için 2)."
+        "tr": "Dağıtılacak gelecek topluluk kartı sayısı (örneğin, sadece dönüş için 1, dönüş ve nehir için 2).",
+        "de": "Anzahl der noch auszuteilenden Gemeinschaftskarten (z.B. 1 nur für Turn, 2 für Turn und River).",
+        "fr": "Nombre de cartes communes à venir (par exemple, 1 pour seulement le turn, 2 pour le turn et la river).",
+        "es": "Número de próximas cartas comunitarias a repartir (ej., 1 solo para el turn, 2 para turn y river)."
       }
     }
   ],

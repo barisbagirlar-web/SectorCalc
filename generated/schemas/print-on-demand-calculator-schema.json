@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Ürün Maliyeti (Adet)",
         "tr": "Ürün Maliyeti (Adet)",
-        "de": "Ürün Maliyeti (Adet)",
-        "fr": "Ürün Maliyeti (Adet)",
-        "es": "Ürün Maliyeti (Adet)",
+        "de": "Produktkosten (pro Stück)",
+        "fr": "Coût du produit (pièce)",
+        "es": "Costo del producto (por unidad)",
         "ar": "Ürün Maliyeti (Adet)"
       },
       "businessContext_i18n": {
         "en": "Print-on-demand ürün başına üretim maliyeti",
-        "tr": "Print-on-demand ürün başına üretim maliyeti"
+        "tr": "Print-on-demand ürün başına üretim maliyeti",
+        "de": "Produktionskosten pro Print-on-Demand-Artikel",
+        "fr": "Coût de production par pièce en impression à la demande",
+        "es": "Costo de producción por unidad en print-on-demand"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Satış Fiyatı (Adet)",
         "tr": "Satış Fiyatı (Adet)",
-        "de": "Satış Fiyatı (Adet)",
-        "fr": "Satış Fiyatı (Adet)",
-        "es": "Satış Fiyatı (Adet)",
+        "de": "Verkaufspreis (pro Stück)",
+        "fr": "Prix de vente (pièce)",
+        "es": "Precio de venta (por unidad)",
         "ar": "Satış Fiyatı (Adet)"
       },
       "businessContext_i18n": {
         "en": "Müşteriye satılan birim fiyat",
-        "tr": "Müşteriye satılan birim fiyat"
+        "tr": "Müşteriye satılan birim fiyat",
+        "de": "Stückpreis, zu dem an den Kunden verkauft wird",
+        "fr": "Prix unitaire vendu au client",
+        "es": "Precio unitario vendido al cliente"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Sipariş Adedi",
         "tr": "Sipariş Adedi",
-        "de": "Sipariş Adedi",
-        "fr": "Sipariş Adedi",
-        "es": "Sipariş Adedi",
+        "de": "Bestellmenge",
+        "fr": "Quantité commandée",
+        "es": "Cantidad de pedido",
         "ar": "Sipariş Adedi"
       },
       "businessContext_i18n": {
         "en": "Satılan toplam ürün adedi",
-        "tr": "Satılan toplam ürün adedi"
+        "tr": "Satılan toplam ürün adedi",
+        "de": "Gesamtzahl verkaufter Artikel",
+        "fr": "Nombre total de produits vendus",
+        "es": "Número total de productos vendidos"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Kargo Maliyeti (Adet)",
         "tr": "Kargo Maliyeti (Adet)",
-        "de": "Kargo Maliyeti (Adet)",
-        "fr": "Kargo Maliyeti (Adet)",
-        "es": "Kargo Maliyeti (Adet)",
+        "de": "Versandkosten (pro Stück)",
+        "fr": "Coût de transport (par unité)",
+        "es": "Costo de envío (por unidad)",
         "ar": "Kargo Maliyeti (Adet)"
       },
       "businessContext_i18n": {
         "en": "Ürün başına ortalama kargo maliyeti",
-        "tr": "Ürün başına ortalama kargo maliyeti"
+        "tr": "Ürün başına ortalama kargo maliyeti",
+        "de": "Durchschnittliche Versandkosten pro Artikel",
+        "fr": "Coût de transport moyen par produit",
+        "es": "Costo de envío promedio por unidad"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Platform Komisyon Oranı",
         "tr": "Platform Komisyon Oranı",
-        "de": "Platform Komisyon Oranı",
-        "fr": "Platform Komisyon Oranı",
-        "es": "Platform Komisyon Oranı",
+        "de": "Plattform-Provision in Prozent",
+        "fr": "Taux de commission de la plateforme",
+        "es": "Tasa de comisión de la plataforma",
         "ar": "Platform Komisyon Oranı"
       },
       "businessContext_i18n": {
         "en": "Satış platformunun aldığı yüzdesel komisyon",
-        "tr": "Satış platformunun aldığı yüzdesel komisyon"
+        "tr": "Satış platformunun aldığı yüzdesel komisyon",
+        "de": "Prozentuale Provision der Verkaufsplattform",
+        "fr": "Commission en pourcentage prélevée par la plateforme de vente",
+        "es": "Comisión porcentual que cobra la plataforma de ventas"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Diğer Sabit Giderler",
         "tr": "Diğer Sabit Giderler",
-        "de": "Diğer Sabit Giderler",
-        "fr": "Diğer Sabit Giderler",
-        "es": "Diğer Sabit Giderler",
+        "de": "Sonstige Fixkosten",
+        "fr": "Autres frais fixes",
+        "es": "Otros gastos fijos",
         "ar": "Diğer Sabit Giderler"
       },
       "businessContext_i18n": {
         "en": "Tasarım, listeleme gibi toplam ek sabit maliyetler",
-        "tr": "Tasarım, listeleme gibi toplam ek sabit maliyetler"
+        "tr": "Tasarım, listeleme gibi toplam ek sabit maliyetler",
+        "de": "Zusätzliche Fixkosten für Design, Listung usw.",
+        "fr": "Coûts fixes supplémentaires totaux tels que conception, référencement",
+        "es": "Costes fijos adicionales totales como diseño, listado"
       }
     }
   ],

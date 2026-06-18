@@ -12,14 +12,16 @@
         "en": "Nominal Bolt Diameter",
         "tr": "Nominal Cıvata Çapı",
         "de": "Nenndurchmesser des Bolzens",
-        "fr": "Nominal Bolt Diameter",
-        "es": "Nominal Bolt Diameter",
+        "fr": "Diamètre nominal du boulon",
+        "es": "Diámetro nominal del perno",
         "ar": "Nominal Bolt Diameter"
       },
       "businessContext_i18n": {
         "en": "The nominal diameter of the bolt's thread.",
         "tr": "Cıvata dişinin nominal çapı.",
-        "de": "Der Nenndurchmesser des Bolzengewindes."
+        "de": "Der Nenndurchmesser des Bolzengewindes.",
+        "fr": "Le diamètre nominal du filetage du boulon.",
+        "es": "El diámetro nominal de la rosca del perno."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Thread Pitch",
         "tr": "Diş Adımı",
         "de": "Gewindesteigung",
-        "fr": "Thread Pitch",
-        "es": "Thread Pitch",
+        "fr": "Pas de filetage",
+        "es": "Paso de rosca",
         "ar": "Thread Pitch"
       },
       "businessContext_i18n": {
         "en": "The distance between adjacent thread crests. For standard coarse threads, refer to ISO 724.",
         "tr": "Ardışık diş tepeleri arasındaki mesafe. Standart kaba dişler için ISO 724'e bakın.",
-        "de": "Der Abstand zwischen benachbarten Gewindespitzen. Für Standard-Regelgewinde siehe ISO 724."
+        "de": "Der Abstand zwischen benachbarten Gewindespitzen. Für Standard-Regelgewinde siehe ISO 724.",
+        "fr": "La distance entre deux crêtes de filet adjacentes. Pour les filetages standard à pas gros, se référer à l'ISO 724.",
+        "es": "La distancia entre crestas de rosca adyacentes. Para roscas gruesas estándar, consulte ISO 724."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Material Yield Strength",
         "tr": "Malzeme Akma Dayanımı",
         "de": "Streckgrenze des Materials",
-        "fr": "Material Yield Strength",
-        "es": "Material Yield Strength",
+        "fr": "Limite d'élasticité du matériau",
+        "es": "Límite elástico del material",
         "ar": "Material Yield Strength"
       },
       "businessContext_i18n": {
         "en": "Yield strength of the bolt material (e.g., 640 MPa for Grade 8.8).",
         "tr": "Cıvata malzemesinin akma dayanımı (örn. 8.8 kalite için 640 MPa).",
-        "de": "Streckgrenze des Bolzenmaterials (z. B. 640 MPa für Güte 8.8)."
+        "de": "Streckgrenze des Bolzenmaterials (z. B. 640 MPa für Güte 8.8).",
+        "fr": "Limite d'élasticité du matériau du boulon (ex. : 640 MPa pour la classe 8.8).",
+        "es": "Límite elástico del material del perno (ej., 640 MPa para grado 8.8)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Design safety factor to ensure the bolt remains below yield under service loads.",
         "tr": "Cıvatanın servis yükleri altında akma sınırının altında kalmasını sağlayan tasarım güvenlik faktörü.",
-        "de": "Sicherheitsfaktor, um sicherzustellen, dass der Bolzen unter Betriebslast unterhalb der Streckgrenze bleibt."
+        "de": "Sicherheitsfaktor, um sicherzustellen, dass der Bolzen unter Betriebslast unterhalb der Streckgrenze bleibt.",
+        "fr": "Coefficient de sécurité de conception pour garantir que le boulon reste sous la limite d'élasticité en service.",
+        "es": "Factor de seguridad de diseño para asegurar que el perno permanezca por debajo del límite elástico bajo cargas de servicio."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Nut Factor (K)",
         "tr": "Somun Faktörü (K)",
         "de": "Mutterfaktor (K)",
-        "fr": "Nut Factor (K)",
-        "es": "Nut Factor (K)",
+        "fr": "Coefficient d'écrou (K)",
+        "es": "Factor de tuerca (K)",
         "ar": "Nut Factor (K)"
       },
       "businessContext_i18n": {
         "en": "Empirical factor accounting for thread friction and underhead friction. Typical dry steel: 0.2.",
         "tr": "Diş sürtünmesi ve baş altı sürtünmesini hesaba katan ampirik faktör. Tipik kuru çelik: 0,2.",
-        "de": "Empirischer Faktor für Reibung im Gewinde und unter dem Kopf. Typisch für trockenen Stahl: 0,2."
+        "de": "Empirischer Faktor für Reibung im Gewinde und unter dem Kopf. Typisch für trockenen Stahl: 0,2.",
+        "fr": "Facteur empirique tenant compte du frottement du filet et du frottement sous la tête. Acier sec typique : 0,2.",
+        "es": "Factor empírico que tiene en cuenta la fricción de la rosca y la fricción bajo la cabeza. Acero seco típico: 0.2."
       }
     }
   ],

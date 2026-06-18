@@ -12,14 +12,16 @@
         "en": "Number of Tasks",
         "tr": "Görev Sayısı",
         "de": "Anzahl der Aufgaben",
-        "fr": "Number of Tasks",
-        "es": "Number of Tasks",
+        "fr": "Nombre de tâches",
+        "es": "Número de tareas",
         "ar": "Number of Tasks"
       },
       "businessContext_i18n": {
         "en": "Toplam görev sayısı. Artan görevler proje süresini uzatabilir.",
         "tr": "Toplam görev sayısı. Artan görevler proje süresini uzatabilir.",
-        "de": "Gesamtzahl der Aufgaben. Mehr Aufgaben können die Projektdauer verlängern."
+        "de": "Gesamtzahl der Aufgaben. Mehr Aufgaben können die Projektdauer verlängern.",
+        "fr": "Nombre total de tâches. L'augmentation des tâches peut allonger la durée du projet.",
+        "es": "Número total de tareas. Aumentar las tareas puede alargar la duración del proyecto."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Duration per Task",
         "tr": "Görev Başına Süre",
         "de": "Dauer pro Aufgabe",
-        "fr": "Duration per Task",
-        "es": "Duration per Task",
+        "fr": "Durée par tâche",
+        "es": "Duración por tarea",
         "ar": "Duration per Task"
       },
       "businessContext_i18n": {
         "en": "Her bir görevin tamamlanması için gereken süre (gün).",
         "tr": "Her bir görevin tamamlanması için gereken süre (gün).",
-        "de": "Zeit, die für die Fertigstellung jeder Aufgabe benötigt wird (in Tagen)."
+        "de": "Zeit, die für die Fertigstellung jeder Aufgabe benötigt wird (in Tagen).",
+        "fr": "Temps nécessaire pour terminer chaque tâche (en jours).",
+        "es": "Tiempo requerido para completar cada tarea (días)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Overlap Percentage",
         "tr": "Örtüşme Yüzdesi",
         "de": "Überlappungsprozentsatz",
-        "fr": "Overlap Percentage",
-        "es": "Overlap Percentage",
+        "fr": "Pourcentage de chevauchement",
+        "es": "Porcentaje de superposición",
         "ar": "Overlap Percentage"
       },
       "businessContext_i18n": {
         "en": "Ardışık görevler arasındaki örtüşme yüzdesi (fast-tracking). %0-100 arası.",
         "tr": "Ardışık görevler arasındaki örtüşme yüzdesi (fast-tracking). %0-100 arası.",
-        "de": "Prozentsatz der Überlappung zwischen aufeinanderfolgenden Aufgaben (Fast-Tracking). 0-100%."
+        "de": "Prozentsatz der Überlappung zwischen aufeinanderfolgenden Aufgaben (Fast-Tracking). 0-100%.",
+        "fr": "Pourcentage de chevauchement entre les tâches consécutives (fast-tracking). Entre 0 et 100 %.",
+        "es": "Porcentaje de superposición entre tareas consecutivas (fast-tracking). Entre 0% y 100%."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Start Delay",
         "tr": "Başlangıç Gecikmesi",
         "de": "Startverzögerung",
-        "fr": "Start Delay",
-        "es": "Start Delay",
+        "fr": "Délai de démarrage",
+        "es": "Retraso inicial",
         "ar": "Start Delay"
       },
       "businessContext_i18n": {
         "en": "İlk göreve başlamadan önceki gecikme süresi.",
         "tr": "İlk göreve başlamadan önceki gecikme süresi.",
-        "de": "Verzögerung vor Beginn der ersten Aufgabe."
+        "de": "Verzögerung vor Beginn der ersten Aufgabe.",
+        "fr": "Temps de retard avant la première tâche.",
+        "es": "Tiempo de retraso antes de comenzar la primera tarea."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Indicated Airspeed",
         "tr": "Gösterge Hava Hızı",
         "de": "Angezeigte Fluggeschwindigkeit",
-        "fr": "Indicated Airspeed",
-        "es": "Indicated Airspeed",
+        "fr": "Vitesse indiquée",
+        "es": "Velocidad indicada",
         "ar": "Indicated Airspeed"
       },
       "businessContext_i18n": {
         "en": "Airspeed shown on the airspeed indicator",
         "tr": "Hava hızı göstergesinde görünen hava hızı",
-        "de": "Auf dem Fahrtmesser angezeigte Fluggeschwindigkeit"
+        "de": "Auf dem Fahrtmesser angezeigte Fluggeschwindigkeit",
+        "fr": "Vitesse affichée sur l'indicateur de vitesse",
+        "es": "Velocidad mostrada en el indicador de velocidad"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Indicated Altitude",
         "tr": "Gösterge İrtifası",
         "de": "Angezeigte Höhe",
-        "fr": "Indicated Altitude",
-        "es": "Indicated Altitude",
+        "fr": "Altitude indiquée",
+        "es": "Altitud indicada",
         "ar": "Indicated Altitude"
       },
       "businessContext_i18n": {
         "en": "Altitude shown on the altimeter with a given altimeter setting",
         "tr": "Belirli bir altimetre ayarı ile altimetrede görünen irtifa",
-        "de": "Höhe, die auf dem Höhenmesser bei einer bestimmten Höhenmessereinstellung angezeigt wird"
+        "de": "Höhe, die auf dem Höhenmesser bei einer bestimmten Höhenmessereinstellung angezeigt wird",
+        "fr": "Altitude affichée sur l'altimètre avec un réglage altimétrique donné",
+        "es": "Altitud mostrada en el altímetro con un ajuste de altímetro dado"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Altimeter Setting",
         "tr": "Altimetre Ayarı",
         "de": "Höhenmessereinstellung",
-        "fr": "Altimeter Setting",
-        "es": "Altimeter Setting",
+        "fr": "Réglage altimétrique",
+        "es": "Ajuste del altímetro",
         "ar": "Altimeter Setting"
       },
       "businessContext_i18n": {
         "en": "Current altimeter setting from weather station",
         "tr": "Hava istasyonundan güncel altimetre ayarı",
-        "de": "Aktuelle Höhenmessereinstellung von der Wetterstation"
+        "de": "Aktuelle Höhenmessereinstellung von der Wetterstation",
+        "fr": "Réglage altimétrique actuel de la station météo",
+        "es": "Ajuste actual del altímetro desde la estación meteorológica"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Outside Air Temperature",
         "tr": "Dış Hava Sıcaklığı",
         "de": "Außenlufttemperatur",
-        "fr": "Outside Air Temperature",
-        "es": "Outside Air Temperature",
+        "fr": "Température extérieure",
+        "es": "Temperatura del aire exterior",
         "ar": "Outside Air Temperature"
       },
       "businessContext_i18n": {
         "en": "OAT measured in Celsius",
         "tr": "Santigrat cinsinden ölçülen DHS",
-        "de": "OAT gemessen in Celsius"
+        "de": "OAT gemessen in Celsius",
+        "fr": "Température extérieure mesurée en Celsius",
+        "es": "OAT medida en grados Celsius"
       }
     }
   ],

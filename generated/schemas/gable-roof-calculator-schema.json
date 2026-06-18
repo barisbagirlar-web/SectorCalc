@@ -12,14 +12,16 @@
         "en": "Building Width",
         "tr": "Bina Genişliği",
         "de": "Gebäudebreite",
-        "fr": "Building Width",
-        "es": "Building Width",
+        "fr": "Largeur du bâtiment",
+        "es": "Ancho del edificio",
         "ar": "Building Width"
       },
       "businessContext_i18n": {
         "en": "Width of the building (gable end span)",
         "tr": "Binanın genişliği (beşik duvar açıklığı)",
-        "de": "Breite des Gebäudes (Giebelspannweite)"
+        "de": "Breite des Gebäudes (Giebelspannweite)",
+        "fr": "Largeur du bâtiment (portée du pignon)",
+        "es": "Ancho del edificio (luz del hastial)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Building Length",
         "tr": "Bina Uzunluğu",
         "de": "Gebäudelänge",
-        "fr": "Building Length",
-        "es": "Building Length",
+        "fr": "Longueur du bâtiment",
+        "es": "Largo del edificio",
         "ar": "Building Length"
       },
       "businessContext_i18n": {
         "en": "Length of the building (ridge direction)",
         "tr": "Binanın uzunluğu (mahya yönü)",
-        "de": "Länge des Gebäudes (Firstrichtung)"
+        "de": "Länge des Gebäudes (Firstrichtung)",
+        "fr": "Longueur du bâtiment (direction du faîtage)",
+        "es": "Largo del edificio (dirección de la cumbrera)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Roof Pitch",
         "tr": "Çatı Eğimi",
         "de": "Dachneigung",
-        "fr": "Roof Pitch",
-        "es": "Roof Pitch",
+        "fr": "Pente du toit",
+        "es": "Pendiente del techo",
         "ar": "Roof Pitch"
       },
       "businessContext_i18n": {
         "en": "Angle of roof slope from horizontal in degrees",
         "tr": "Çatı eğiminin yataydan derece cinsinden açısı",
-        "de": "Dachneigungswinkel von der Horizontalen in Grad"
+        "de": "Dachneigungswinkel von der Horizontalen in Grad",
+        "fr": "Angle de la pente du toit par rapport à l'horizontale (en degrés)",
+        "es": "Ángulo de inclinación del techo desde la horizontal en grados"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Eave Overhang",
         "tr": "Saçak çıkıntısı",
         "de": "Traufüberstand",
-        "fr": "Eave Overhang",
-        "es": "Eave Overhang",
+        "fr": "Débord d'avant-toit",
+        "es": "Voladizo del alero",
         "ar": "Eave Overhang"
       },
       "businessContext_i18n": {
         "en": "Horizontal projection of eaves beyond wall",
         "tr": "Duvar ötesindeki saçağın yatay izdüşümü",
-        "de": "Horizontaler Überstand der Traufe über die Wand"
+        "de": "Horizontaler Überstand der Traufe über die Wand",
+        "fr": "Projection horizontale des avant-toits au-delà du mur",
+        "es": "Proyección horizontal de los aleros más allá de la pared"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Rafter Spacing",
         "tr": "Kiriş aralığı",
         "de": "Sparrenabstand",
-        "fr": "Rafter Spacing",
-        "es": "Rafter Spacing",
+        "fr": "Entraxe des chevrons",
+        "es": "Separación entre vigas",
         "ar": "Rafter Spacing"
       },
       "businessContext_i18n": {
         "en": "Center-to-center distance between rafters",
         "tr": "Kirişler arası merkezden merkeze mesafe",
-        "de": "Mittenabstand zwischen den Sparren"
+        "de": "Mittenabstand zwischen den Sparren",
+        "fr": "Distance centre à centre entre les chevrons",
+        "es": "Distancia centro a centro entre vigas"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
         "de": "Abfallfaktor",
-        "fr": "Waste Factor",
-        "es": "Waste Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Additional percentage for material waste",
         "tr": "Malzeme fire yüzdesi",
-        "de": "Zusätzlicher Prozentsatz für Materialverschnitt"
+        "de": "Zusätzlicher Prozentsatz für Materialverschnitt",
+        "fr": "Pourcentage supplémentaire pour les déchets de matériaux",
+        "es": "Porcentaje adicional por desperdicio de material"
       }
     }
   ],

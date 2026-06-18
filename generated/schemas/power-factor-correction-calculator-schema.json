@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Aktif Güç (kW)",
         "tr": "Aktif Güç (kW)",
-        "de": "Aktif Güç (kW)",
-        "fr": "Aktif Güç (kW)",
-        "es": "Aktif Güç (kW)",
+        "de": "Wirkleistung (kW)",
+        "fr": "Puissance active (kW)",
+        "es": "Potencia activa (kW)",
         "ar": "Aktif Güç (kW)"
       },
       "businessContext_i18n": {
         "en": "Tesisteki toplam gerçek güç tüketimi",
-        "tr": "Tesisteki toplam gerçek güç tüketimi"
+        "tr": "Tesisteki toplam gerçek güç tüketimi",
+        "de": "Gesamte Wirkleistungsaufnahme der Anlage",
+        "fr": "Consommation totale de puissance réelle dans l'installation",
+        "es": "Consumo total de potencia real en la instalación"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Mevcut Güç Faktörü",
         "tr": "Mevcut Güç Faktörü",
-        "de": "Mevcut Güç Faktörü",
-        "fr": "Mevcut Güç Faktörü",
-        "es": "Mevcut Güç Faktörü",
+        "de": "Aktueller Leistungsfaktor",
+        "fr": "Facteur de puissance actuel",
+        "es": "Factor de potencia actual",
         "ar": "Mevcut Güç Faktörü"
       },
       "businessContext_i18n": {
         "en": "Düzeltme öncesi mevcut cos φ değeri",
-        "tr": "Düzeltme öncesi mevcut cos φ değeri"
+        "tr": "Düzeltme öncesi mevcut cos φ değeri",
+        "de": "Aktueller cos φ vor der Korrektur",
+        "fr": "Valeur actuelle du cos φ avant correction",
+        "es": "Valor actual de cos φ antes de la corrección"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Hedef Güç Faktörü",
         "tr": "Hedef Güç Faktörü",
-        "de": "Hedef Güç Faktörü",
-        "fr": "Hedef Güç Faktörü",
-        "es": "Hedef Güç Faktörü",
+        "de": "Ziel-Leistungsfaktor",
+        "fr": "Facteur de puissance cible",
+        "es": "Factor de potencia objetivo",
         "ar": "Hedef Güç Faktörü"
       },
       "businessContext_i18n": {
         "en": "Ulaşılmak istenen cos φ değeri",
-        "tr": "Ulaşılmak istenen cos φ değeri"
+        "tr": "Ulaşılmak istenen cos φ değeri",
+        "de": "Angestrebter cos φ-Wert",
+        "fr": "Valeur cible du cos φ",
+        "es": "Valor de cos φ que se desea alcanzar"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Elektrik Tarifesi",
         "tr": "Elektrik Tarifesi",
-        "de": "Elektrik Tarifesi",
-        "fr": "Elektrik Tarifesi",
-        "es": "Elektrik Tarifesi",
+        "de": "Stromtarif",
+        "fr": "Tarif électrique",
+        "es": "Tarifa eléctrica",
         "ar": "Elektrik Tarifesi"
       },
       "businessContext_i18n": {
         "en": "Reaktif enerji ceza bedelini hesaplamak için",
-        "tr": "Reaktif enerji ceza bedelini hesaplamak için"
+        "tr": "Reaktif enerji ceza bedelini hesaplamak için",
+        "de": "Zur Berechnung der Blindenergie-Strafgebühr",
+        "fr": "Pour calculer la pénalité d'énergie réactive",
+        "es": "Para calcular el costo de penalización por energía reactiva"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Günlük Çalışma Saati",
         "tr": "Günlük Çalışma Saati",
         "de": "Günlük Çalışma Saati",
-        "fr": "Günlük Çalışma Saati",
-        "es": "Günlük Çalışma Saati",
+        "fr": "Heures de travail par jour",
+        "es": "Horas de trabajo diarias",
         "ar": "Günlük Çalışma Saati"
       },
       "businessContext_i18n": {
         "en": "Yıllık kullanım süresini belirlemek için",
-        "tr": "Yıllık kullanım süresini belirlemek için"
+        "tr": "Yıllık kullanım süresini belirlemek için",
+        "de": "Zur Bestimmung der jährlichen Nutzungsdauer",
+        "fr": "Pour déterminer la durée d'utilisation annuelle",
+        "es": "Para determinar el tiempo de uso anual"
       }
     }
   ],

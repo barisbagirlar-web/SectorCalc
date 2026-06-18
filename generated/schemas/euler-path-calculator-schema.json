@@ -12,14 +12,16 @@
         "en": "Toplam Düğüm Sayısı",
         "tr": "Toplam Düğüm Sayısı",
         "de": "Gesamtzahl der Knoten",
-        "fr": "Toplam Düğüm Sayısı",
-        "es": "Toplam Düğüm Sayısı",
+        "fr": "Nombre total de nœuds",
+        "es": "Número total de nodos",
         "ar": "Toplam Düğüm Sayısı"
       },
       "businessContext_i18n": {
         "en": "Grafikteki toplam düğüm (vertex) sayısı",
         "tr": "Grafikteki toplam düğüm (vertex) sayısı",
-        "de": "Gesamtzahl der Knoten (Vertices) im Graphen"
+        "de": "Gesamtzahl der Knoten (Vertices) im Graphen",
+        "fr": "Nombre total de nœuds (sommets) dans le graphe",
+        "es": "Número total de nodos (vértices) en el grafo"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Toplam Kenar Sayısı",
         "tr": "Toplam Kenar Sayısı",
         "de": "Gesamtzahl der Kanten",
-        "fr": "Toplam Kenar Sayısı",
-        "es": "Toplam Kenar Sayısı",
+        "fr": "Nombre total d'arêtes",
+        "es": "Número total de aristas",
         "ar": "Toplam Kenar Sayısı"
       },
       "businessContext_i18n": {
         "en": "Grafikteki toplam kenar (edge) sayısı",
         "tr": "Grafikteki toplam kenar (edge) sayısı",
-        "de": "Gesamtzahl der Kanten (Edges) im Graphen"
+        "de": "Gesamtzahl der Kanten (Edges) im Graphen",
+        "fr": "Nombre total d'arêtes dans le graphe",
+        "es": "Número total de aristas (edges) en el grafo"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Tek Dereceli Düğüm Sayısı",
         "tr": "Tek Dereceli Düğüm Sayısı",
         "de": "Anzahl der Knoten mit ungeradem Grad",
-        "fr": "Tek Dereceli Düğüm Sayısı",
-        "es": "Tek Dereceli Düğüm Sayısı",
+        "fr": "Nombre de nœuds de degré impair",
+        "es": "Número de nodos de grado impar",
         "ar": "Tek Dereceli Düğüm Sayısı"
       },
       "businessContext_i18n": {
         "en": "Derecesi tek olan düğümlerin sayısı",
         "tr": "Derecesi tek olan düğümlerin sayısı",
-        "de": "Anzahl der Knoten mit ungeradem Grad"
+        "de": "Anzahl der Knoten mit ungeradem Grad",
+        "fr": "Nombre de nœuds dont le degré est impair",
+        "es": "Número de nodos con grado impar"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Bağlantılı Grafik",
         "tr": "Bağlantılı Grafik",
         "de": "Zusammenhängender Graph",
-        "fr": "Bağlantılı Grafik",
-        "es": "Bağlantılı Grafik",
+        "fr": "Graphe connexe",
+        "es": "Grafo conexo",
         "ar": "Bağlantılı Grafik"
       },
       "businessContext_i18n": {
         "en": "Grafik bağlı ise 1, değilse 0",
         "tr": "Grafik bağlı ise 1, değilse 0",
-        "de": "1, wenn der Graph zusammenhängend ist, sonst 0"
+        "de": "1, wenn der Graph zusammenhängend ist, sonst 0",
+        "fr": "1 si le graphe est connexe, 0 sinon",
+        "es": "1 si el grafo es conexo, 0 si no"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Minimum Derece",
         "tr": "Minimum Derece",
         "de": "Minimaler Grad",
-        "fr": "Minimum Derece",
-        "es": "Minimum Derece",
+        "fr": "Degré minimum",
+        "es": "Grado mínimo",
         "ar": "Minimum Derece"
       },
       "businessContext_i18n": {
         "en": "Grafikteki en küçük düğüm derecesi",
         "tr": "Grafikteki en küçük düğüm derecesi",
-        "de": "Kleinster Knotengrad im Graphen"
+        "de": "Kleinster Knotengrad im Graphen",
+        "fr": "Plus petit degré de nœud dans le graphe",
+        "es": "Grado de nodo más pequeño en el grafo"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Maksimum Derece",
         "tr": "Maksimum Derece",
         "de": "Maximaler Grad",
-        "fr": "Maksimum Derece",
-        "es": "Maksimum Derece",
+        "fr": "Degré maximum",
+        "es": "Grado máximo",
         "ar": "Maksimum Derece"
       },
       "businessContext_i18n": {
         "en": "Grafikteki en büyük düğüm derecesi",
         "tr": "Grafikteki en büyük düğüm derecesi",
-        "de": "Größter Knotengrad im Graphen"
+        "de": "Größter Knotengrad im Graphen",
+        "fr": "Plus grand degré de nœud dans le graphe",
+        "es": "Grado de nodo más grande en el grafo"
       }
     }
   ],

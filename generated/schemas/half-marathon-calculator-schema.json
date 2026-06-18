@@ -13,13 +13,15 @@
         "tr": "Mesafe",
         "de": "Entfernung",
         "fr": "Distance",
-        "es": "Distance",
+        "es": "Distancia",
         "ar": "Distance"
       },
       "businessContext_i18n": {
         "en": "Race distance (default 21.1 km for half marathon)",
         "tr": "Yarış mesafesi (varsayılan yarı maraton için 21,1 km)",
-        "de": "Rennstrecke (Standard 21,1 km für Halbmarathon)"
+        "de": "Rennstrecke (Standard 21,1 km für Halbmarathon)",
+        "fr": "Distance de course (par défaut 21,1 km pour le semi-marathon)",
+        "es": "Distancia de la carrera (por defecto 21.1 km para medio maratón)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Hours",
         "tr": "Saat",
         "de": "Stunden",
-        "fr": "Hours",
-        "es": "Hours",
+        "fr": "Heures",
+        "es": "Horas",
         "ar": "Hours"
       },
       "businessContext_i18n": {
         "en": "Target finish time - hours part",
         "tr": "Hedef bitiş süresi - saat kısmı",
-        "de": "Zielzeit - Stundenanteil"
+        "de": "Zielzeit - Stundenanteil",
+        "fr": "Temps d'arrivée cible - partie heures",
+        "es": "Tiempo objetivo de finalización - parte de horas"
       }
     },
     {
@@ -55,13 +59,15 @@
         "tr": "Dakika",
         "de": "Minuten",
         "fr": "Minutes",
-        "es": "Minutes",
+        "es": "Minutos",
         "ar": "Minutes"
       },
       "businessContext_i18n": {
         "en": "Target finish time - minutes part",
         "tr": "Hedef bitiş süresi - dakika kısmı",
-        "de": "Zielendzeit - Minutenanteil"
+        "de": "Zielendzeit - Minutenanteil",
+        "fr": "Temps d'arrivée cible - partie minutes",
+        "es": "Tiempo objetivo de finalización - parte de minutos"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Seconds",
         "tr": "Saniye",
         "de": "Sekunden",
-        "fr": "Seconds",
-        "es": "Seconds",
+        "fr": "Secondes",
+        "es": "Segundos",
         "ar": "Seconds"
       },
       "businessContext_i18n": {
         "en": "Target finish time - seconds part",
         "tr": "Hedef bitiş süresi - saniye kısmı",
-        "de": "Zielendzeit - Sekundenanteil"
+        "de": "Zielendzeit - Sekundenanteil",
+        "fr": "Temps d'arrivée cible - partie secondes",
+        "es": "Tiempo objetivo de finalización - parte de segundos"
       }
     }
   ],

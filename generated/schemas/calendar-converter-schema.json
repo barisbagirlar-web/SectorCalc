@@ -12,14 +12,16 @@
         "en": "Gregorian Year",
         "tr": "Miladi Yıl",
         "de": "Gregorianisches Jahr",
-        "fr": "Gregorian Year",
-        "es": "Gregorian Year",
+        "fr": "Année grégorienne",
+        "es": "Año gregoriano",
         "ar": "Gregorian Year"
       },
       "businessContext_i18n": {
         "en": "Gregorian calendar year to convert",
         "tr": "Dönüştürülecek miladi takvim yılı",
-        "de": "Umzurechnendes gregorianisches Kalenderjahr"
+        "de": "Umzurechnendes gregorianisches Kalenderjahr",
+        "fr": "Année du calendrier grégorien à convertir",
+        "es": "Año del calendario gregoriano a convertir"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Gregorian Month",
         "tr": "Miladi Ay",
         "de": "Gregorianischer Monat",
-        "fr": "Gregorian Month",
-        "es": "Gregorian Month",
+        "fr": "Mois grégorien",
+        "es": "Mes gregoriano",
         "ar": "Gregorian Month"
       },
       "businessContext_i18n": {
         "en": "Gregorian calendar month (1-12)",
         "tr": "Miladi takvim ayı (1-12)",
-        "de": "Gregorianischer Kalendermonat (1-12)"
+        "de": "Gregorianischer Kalendermonat (1-12)",
+        "fr": "Mois du calendrier grégorien (1-12)",
+        "es": "Mes del calendario gregoriano (1-12)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Gregorian Day",
         "tr": "Miladi Gün",
         "de": "Gregorianischer Tag",
-        "fr": "Gregorian Day",
-        "es": "Gregorian Day",
+        "fr": "Jour grégorien",
+        "es": "Día gregoriano",
         "ar": "Gregorian Day"
       },
       "businessContext_i18n": {
         "en": "Gregorian calendar day (1-31)",
         "tr": "Miladi takvim günü (1-31)",
-        "de": "Gregorianischer Kalendertag (1-31)"
+        "de": "Gregorianischer Kalendertag (1-31)",
+        "fr": "Jour du calendrier grégorien (1-31)",
+        "es": "Día del calendario gregoriano (1-31)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Target Calendar (0=Julian, 1=Islamic, 2=Hebrew)",
         "tr": "Hedef Takvim (0=Jülyen, 1=İslami, 2=İbrani)",
         "de": "Zielkalender (0=Julianisch, 1=Islamisch, 2=Hebräisch)",
-        "fr": "Target Calendar (0=Julian, 1=Islamic, 2=Hebrew)",
-        "es": "Target Calendar (0=Julian, 1=Islamic, 2=Hebrew)",
+        "fr": "Calendrier cible (0=Julien, 1=Islamique, 2=Hébreu)",
+        "es": "Calendario destino (0=Juliano, 1=Islámico, 2=Hebreo)",
         "ar": "Target Calendar (0=Julian, 1=Islamic, 2=Hebrew)"
       },
       "businessContext_i18n": {
         "en": "0 for Julian, 1 for Islamic, 2 for Hebrew",
         "tr": "0 Jülyen, 1 İslami, 2 İbrani",
-        "de": "0 für Julianisch, 1 für Islamisch, 2 für Hebräisch"
+        "de": "0 für Julianisch, 1 für Islamisch, 2 für Hebräisch",
+        "fr": "0 pour Julien, 1 pour Islamique, 2 pour Hébreu",
+        "es": "0 para Juliano, 1 para Islámico, 2 para Hebreo"
       }
     }
   ],

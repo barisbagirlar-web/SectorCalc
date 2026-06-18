@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Principal Quantum Number",
         "tr": "Baş Kuantum Sayısı",
-        "de": "Principal Quantum Number",
-        "fr": "Principal Quantum Number",
-        "es": "Principal Quantum Number",
+        "de": "Hauptquantenzahl",
+        "fr": "Nombre quantique principal",
+        "es": "Número cuántico principal",
         "ar": "Principal Quantum Number"
       },
       "businessContext_i18n": {
         "en": "Principal quantum number, positive integer (n = 1, 2, 3, ...)",
-        "tr": "Baş kuantum sayısı, pozitif tam sayı (n = 1, 2, 3, ...)"
+        "tr": "Baş kuantum sayısı, pozitif tam sayı (n = 1, 2, 3, ...)",
+        "de": "Hauptquantenzahl, positive ganze Zahl (n = 1, 2, 3, ...)",
+        "fr": "Nombre quantique principal, entier positif (n = 1, 2, 3, ...)",
+        "es": "Número cuántico principal, entero positivo (n = 1, 2, 3, ...)"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Azimuthal Quantum Number",
         "tr": "Açısal Kuantum Sayısı",
-        "de": "Azimuthal Quantum Number",
-        "fr": "Azimuthal Quantum Number",
-        "es": "Azimuthal Quantum Number",
+        "de": "Nebenquantenzahl",
+        "fr": "Nombre quantique azimutal",
+        "es": "Número cuántico azimutal",
         "ar": "Azimuthal Quantum Number"
       },
       "businessContext_i18n": {
         "en": "Azimuthal quantum number, integer from 0 to n-1",
-        "tr": "Azimuthal kuantum sayısı, 0'dan n-1'e kadar tam sayı"
+        "tr": "Azimuthal kuantum sayısı, 0'dan n-1'e kadar tam sayı",
+        "de": "Nebenquantenzahl, ganze Zahl von 0 bis n-1",
+        "fr": "Nombre quantique azimutal, entier de 0 à n-1",
+        "es": "Número cuántico azimutal, entero de 0 a n-1"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Magnetic Quantum Number",
         "tr": "Manyetik Kuantum Sayısı",
-        "de": "Magnetic Quantum Number",
-        "fr": "Magnetic Quantum Number",
-        "es": "Magnetic Quantum Number",
+        "de": "Magnetquantenzahl",
+        "fr": "Nombre quantique magnétique",
+        "es": "Número cuántico magnético",
         "ar": "Magnetic Quantum Number"
       },
       "businessContext_i18n": {
         "en": "Magnetic quantum number, integer from -l to +l",
-        "tr": "Manyetik kuantum sayısı, -l'den +l'ye kadar tam sayı"
+        "tr": "Manyetik kuantum sayısı, -l'den +l'ye kadar tam sayı",
+        "de": "Magnetquantenzahl, ganze Zahl von -l bis +l",
+        "fr": "Nombre quantique magnétique, entier de -l à +l",
+        "es": "Número cuántico magnético, entero de -l a +l"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Spin Quantum Number",
         "tr": "Spin Kuantum Sayısı",
-        "de": "Spin Quantum Number",
-        "fr": "Spin Quantum Number",
-        "es": "Spin Quantum Number",
+        "de": "Spin-Quantenzahl",
+        "fr": "Nombre quantique de spin",
+        "es": "Número cuántico de espín",
         "ar": "Spin Quantum Number"
       },
       "businessContext_i18n": {
         "en": "Spin quantum number, +1/2 or -1/2",
-        "tr": "Spin kuantum sayısı, +1/2 veya -1/2"
+        "tr": "Spin kuantum sayısı, +1/2 veya -1/2",
+        "de": "Spin-Quantenzahl, +1/2 oder -1/2",
+        "fr": "Nombre quantique de spin, +1/2 ou -1/2",
+        "es": "Número cuántico de espín, +1/2 o -1/2"
       }
     }
   ],

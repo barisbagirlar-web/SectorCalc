@@ -22,11 +22,17 @@
       "businessContext": "Total number of office supply units (e.g., reams of paper, pens) consumed per year.",
       "label_i18n": {
         "en": "Annual Usage (units)",
-        "tr": "Yıllık Kullanım (birim)"
+        "tr": "Yıllık Kullanım (birim)",
+        "de": "Jährlicher Verbrauch (Einheiten)",
+        "fr": "Utilisation annuelle (unités)",
+        "es": "Uso anual (unidades)"
       },
       "businessContext_i18n": {
         "en": "Total number of office supply units (e.g., reams of paper, pens) consumed per year.",
-        "tr": "Yılda tüketilen toplam ofis malzemesi birimi sayısı (ör. top kağıt, kalem)."
+        "tr": "Yılda tüketilen toplam ofis malzemesi birimi sayısı (ör. top kağıt, kalem).",
+        "de": "Gesamtzahl der Büromaterialeinheiten (z.B. Papierriese, Stifte), die pro Jahr verbraucht werden.",
+        "fr": "Nombre total d'unités de fournitures de bureau (ex. rames de papier, stylos) consommées par an.",
+        "es": "Número total de unidades de suministros de oficina (ej., resmas de papel, bolígrafos) consumidas por año."
       }
     },
     {
@@ -41,11 +47,16 @@
       "label_i18n": {
         "en": "Unit Cost",
         "tr": "Birim Maliyet",
-        "de": "Stückkosten"
+        "de": "Stückkosten",
+        "fr": "Coût unitaire",
+        "es": "Costo unitario"
       },
       "businessContext_i18n": {
         "en": "Average purchase cost per unit of the office supply item.",
-        "tr": "Ofis malzemesi birimi başına ortalama satın alma maliyeti."
+        "tr": "Ofis malzemesi birimi başına ortalama satın alma maliyeti.",
+        "de": "Durchschnittliche Anschaffungskosten pro Einheit des Büromaterialartikels.",
+        "fr": "Coût d'achat moyen par unité de l'article de fourniture de bureau.",
+        "es": "Costo de compra promedio por unidad del artículo de suministro de oficina."
       }
     },
     {
@@ -59,11 +70,17 @@
       "businessContext": "Fixed cost associated with placing a single purchase order (labor, processing, etc.).",
       "label_i18n": {
         "en": "Order Cost per Purchase Order",
-        "tr": "Satın Alma Siparişi Başına Sipariş Maliyeti"
+        "tr": "Satın Alma Siparişi Başına Sipariş Maliyeti",
+        "de": "Bestellkosten pro Bestellung",
+        "fr": "Coût de commande par bon de commande",
+        "es": "Costo de pedido por orden de compra"
       },
       "businessContext_i18n": {
         "en": "Fixed cost associated with placing a single purchase order (labor, processing, etc.).",
-        "tr": "Tek bir satın alma siparişi vermekle ilgili sabit maliyet (işçilik, işlem vb.)."
+        "tr": "Tek bir satın alma siparişi vermekle ilgili sabit maliyet (işçilik, işlem vb.).",
+        "de": "Fixkosten für die Aufgabe einer einzelnen Bestellung (Arbeitsaufwand, Bearbeitung usw.).",
+        "fr": "Coût fixe associé à la passation d'un seul bon de commande (main-d'œuvre, traitement, etc.).",
+        "es": "Costo fijo asociado con la realización de una sola orden de compra (mano de obra, procesamiento, etc.)."
       }
     },
     {
@@ -77,11 +94,17 @@
       "businessContext": "Annual inventory holding cost as a percentage of unit cost (storage, insurance, obsolescence).",
       "label_i18n": {
         "en": "Holding Cost Rate",
-        "tr": "Elde Tutma Maliyeti Oranı"
+        "tr": "Elde Tutma Maliyeti Oranı",
+        "de": "Lagerhaltungskostensatz",
+        "fr": "Taux de coût de possession",
+        "es": "Tasa de costo de mantenimiento"
       },
       "businessContext_i18n": {
         "en": "Annual inventory holding cost as a percentage of unit cost (storage, insurance, obsolescence).",
-        "tr": "Birim maliyetin yüzdesi olarak yıllık stok bulundurma maliyeti (depolama, sigorta, eskime)."
+        "tr": "Birim maliyetin yüzdesi olarak yıllık stok bulundurma maliyeti (depolama, sigorta, eskime).",
+        "de": "Jährliche Lagerhaltungskosten als Prozentsatz der Einheitskosten (Lagerung, Versicherung, Veralterung).",
+        "fr": "Coût annuel de possession des stocks en pourcentage du coût unitaire (stockage, assurance, obsolescence).",
+        "es": "Costo anual de mantenimiento de inventario como porcentaje del costo unitario (almacenamiento, seguro, obsolescencia)."
       }
     },
     {
@@ -96,11 +119,16 @@
       "label_i18n": {
         "en": "Waste Percentage",
         "tr": "Fire Yüzdesi",
-        "de": "Abfallprozentsatz"
+        "de": "Abfallprozentsatz",
+        "fr": "Pourcentage de déchets",
+        "es": "Porcentaje de desperdicio"
       },
       "businessContext_i18n": {
         "en": "Estimated percentage of supplies wasted due to over-ordering, expiration, or damage.",
-        "tr": "Aşırı sipariş, son kullanma veya hasar nedeniyle israf edilen malzeme yüzdesi tahmini."
+        "tr": "Aşırı sipariş, son kullanma veya hasar nedeniyle israf edilen malzeme yüzdesi tahmini.",
+        "de": "Geschätzter Prozentsatz der durch Überbestellung, Verfall oder Beschädigung verschwendeten Materialien.",
+        "fr": "Pourcentage estimé de fournitures gaspillées en raison de surcommandes, d'expiration ou de dommages.",
+        "es": "Porcentaje estimado de suministros desperdiciados debido a pedidos excesivos, vencimiento o daños."
       }
     },
     {
@@ -119,11 +147,17 @@
       "businessContext": "How often orders are placed, affecting order size and inventory levels.",
       "label_i18n": {
         "en": "Order Frequency",
-        "tr": "Sipariş Sıklığı"
+        "tr": "Sipariş Sıklığı",
+        "de": "Bestellhäufigkeit",
+        "fr": "Fréquence de commande",
+        "es": "Frecuencia de pedido"
       },
       "businessContext_i18n": {
         "en": "How often orders are placed, affecting order size and inventory levels.",
-        "tr": "Siparişlerin ne sıklıkta verildiği, sipariş büyüklüğünü ve stok seviyelerini etkiler."
+        "tr": "Siparişlerin ne sıklıkta verildiği, sipariş büyüklüğünü ve stok seviyelerini etkiler.",
+        "de": "Wie oft Bestellungen aufgegeben werden, beeinflusst Bestellmenge und Lagerbestände.",
+        "fr": "Fréquence à laquelle les commandes sont passées, affectant la taille des commandes et les niveaux de stock.",
+        "es": "Con qué frecuencia se realizan los pedidos, afectando el tamaño del pedido y los niveles de inventario."
       }
     },
     {
@@ -135,11 +169,17 @@
       "businessContext": "If enabled, applies just-in-time ordering to reduce holding costs and waste.",
       "label_i18n": {
         "en": "Use Lean Inventory Principles",
-        "tr": "Yalın Stok İlkelerini Kullan"
+        "tr": "Yalın Stok İlkelerini Kullan",
+        "de": "Lean-Inventarprinzipien anwenden",
+        "fr": "Utiliser les principes d'inventaire Lean",
+        "es": "Usar principios de inventario Lean"
       },
       "businessContext_i18n": {
         "en": "If enabled, applies just-in-time ordering to reduce holding costs and waste.",
-        "tr": "Etkinleştirilirse, stok taşıma maliyetlerini ve israfı azaltmak için tam zamanında sipariş uygulanır."
+        "tr": "Etkinleştirilirse, stok taşıma maliyetlerini ve israfı azaltmak için tam zamanında sipariş uygulanır.",
+        "de": "Wenn aktiviert, wird Just-in-Time-Bestellung angewendet, um Lagerkosten und Verschwendung zu reduzieren.",
+        "fr": "Si activé, applique une commande juste-à-temps pour réduire les coûts de stockage et les déchets.",
+        "es": "Si está habilitado, aplica pedidos justo a tiempo para reducir los costos de mantenimiento y el desperdicio."
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Point Size (pt)",
         "tr": "Punto Boyutu (pt)",
-        "de": "Point Size (pt)",
-        "fr": "Point Size (pt)",
+        "de": "Punktgröße (pt)",
+        "fr": "Taille de police (pt)",
         "es": "Point Size (pt)",
         "ar": "Point Size (pt)"
       },
       "businessContext_i18n": {
         "en": "Font size in points, typically used in print design.",
-        "tr": "Punto cinsinden font boyutu, genellikle baskı tasarımında kullanılır."
+        "tr": "Punto cinsinden font boyutu, genellikle baskı tasarımında kullanılır.",
+        "de": "Schriftgröße in Punkt, typisch für Druckdesign.",
+        "fr": "Taille de police en points, généralement utilisée en conception imprimée."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Pixels Per Inch (PPI)",
         "tr": "İnç Başına Piksel (PPI)",
-        "de": "Pixels Per Inch (PPI)",
-        "fr": "Pixels Per Inch (PPI)",
-        "es": "Pixels Per Inch (PPI)",
+        "de": "Pixel pro Zoll (PPI)",
+        "fr": "Pixels par pouce (PPP)",
+        "es": "Píxeles por pulgada (PPI)",
         "ar": "Pixels Per Inch (PPI)"
       },
       "businessContext_i18n": {
         "en": "Screen resolution; common values: 72 (Mac), 96 (Windows), 300 (print).",
-        "tr": "Ekran çözünürlüğü; yaygın değerler: 72 (Mac), 96 (Windows), 300 (baskı)."
+        "tr": "Ekran çözünürlüğü; yaygın değerler: 72 (Mac), 96 (Windows), 300 (baskı).",
+        "de": "Bildschirmauflösung; übliche Werte: 72 (Mac), 96 (Windows), 300 (Druck).",
+        "fr": "Résolution d'écran ; valeurs courantes : 72 (Mac), 96 (Windows), 300 (impression)."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Base Font Size (px)",
         "tr": "Temel Font Boyutu (px)",
-        "de": "Base Font Size (px)",
-        "fr": "Base Font Size (px)",
+        "de": "Basis-Schriftgröße (px)",
+        "fr": "Taille de police de base (px)",
         "es": "Base Font Size (px)",
         "ar": "Base Font Size (px)"
       },
       "businessContext_i18n": {
         "en": "Reference pixel size for relative conversions (e.g., em/rem).",
-        "tr": "Göreli dönüşümler için referans piksel boyutu (örn. em/rem)."
+        "tr": "Göreli dönüşümler için referans piksel boyutu (örn. em/rem).",
+        "de": "Referenz-Pixelgröße für relative Umrechnungen (z. B. em/rem).",
+        "fr": "Taille de pixel de référence pour les conversions relatives (ex. em/rem)."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Scale Factor",
         "tr": "Ölçek Faktörü",
         "de": "Skalierungsfaktor",
-        "fr": "Scale Factor",
-        "es": "Scale Factor",
+        "fr": "Facteur d'échelle",
+        "es": "Factor de escala",
         "ar": "Scale Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier for responsive scaling (e.g., 1.25 for major third).",
-        "tr": "Duyarlı ölçekleme çarpanı (ör. majör üçlü için 1.25)."
+        "tr": "Duyarlı ölçekleme çarpanı (ör. majör üçlü için 1.25).",
+        "de": "Multiplikator für responsives Skalieren (z. B. 1,25 für große Terz).",
+        "fr": "Multiplicateur pour mise à l'échelle réactive (ex. 1,25 pour une tierce majeure)."
       }
     }
   ],

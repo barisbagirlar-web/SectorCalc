@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Nanometre Değeri",
         "tr": "Nanometre Değeri",
-        "de": "Nanometre Değeri",
-        "fr": "Nanometre Değeri",
-        "es": "Nanometre Değeri",
+        "de": "Nanometer-Wert",
+        "fr": "Valeur en nanomètres",
+        "es": "Valor en nanómetros",
         "ar": "Nanometre Değeri"
       },
       "businessContext_i18n": {
         "en": "Dönüştürülecek nanometre miktarı",
-        "tr": "Dönüştürülecek nanometre miktarı"
+        "tr": "Dönüştürülecek nanometre miktarı",
+        "de": "Umzurechnende Nanometer-Menge",
+        "fr": "Quantité de nanomètres à convertir",
+        "es": "Cantidad de nanómetros a convertir"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Dönüşüm Çarpanı",
         "tr": "Dönüşüm Çarpanı",
-        "de": "Dönüşüm Çarpanı",
-        "fr": "Dönüşüm Çarpanı",
-        "es": "Dönüşüm Çarpanı",
+        "de": "Umrechnungsfaktor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Dönüşüm Çarpanı"
       },
       "businessContext_i18n": {
         "en": "1 metrenin kaç nanometre olduğu; standart 1.000.000.000",
-        "tr": "1 metrenin kaç nanometre olduğu; standart 1.000.000.000"
+        "tr": "1 metrenin kaç nanometre olduğu; standart 1.000.000.000",
+        "de": "Anzahl Nanometer in einem Meter; Standard 1.000.000.000",
+        "fr": "Nombre de nanomètres dans un mètre ; standard 1 000 000 000",
+        "es": "Cuántos nanómetros hay en 1 metro; estándar 1.000.000.000"
       }
     },
     {
@@ -51,15 +57,17 @@
       "label_i18n": {
         "en": "Hassasiyet (Ondalık)",
         "tr": "Hassasiyet (Ondalık)",
-        "de": "Hassasiyet (Ondalık)",
-        "fr": "Hassasiyet (Ondalık)",
-        "es": "Hassasiyet (Ondalık)",
+        "de": "Genauigkeit (Dezimalstellen)",
+        "fr": "Précision (décimales)",
+        "es": "Precisión (decimales)",
         "ar": "Hassasiyet (Ondalık)"
       },
       "businessContext_i18n": {
         "en": "Sonuçta gösterilecek ondalık basamak sayısı",
         "tr": "Sonuçta gösterilecek ondalık basamak sayısı",
-        "de": "Anzahl der im Ergebnis anzuzeigenden Dezimalstellen"
+        "de": "Anzahl der im Ergebnis anzuzeigenden Dezimalstellen",
+        "fr": "Nombre de décimales à afficher dans le résultat",
+        "es": "Número de decimales a mostrar en el resultado"
       }
     },
     {
@@ -72,14 +80,17 @@
       "label_i18n": {
         "en": "Ölçekleme",
         "tr": "Ölçekleme",
-        "de": "Ölçekleme",
-        "fr": "Ölçekleme",
-        "es": "Ölçekleme",
+        "de": "Skalierung",
+        "fr": "Mise à l'échelle",
+        "es": "Escalado",
         "ar": "Ölçekleme"
       },
       "businessContext_i18n": {
         "en": "Sonuç değerini ölçeklendirme katsayısı",
-        "tr": "Sonuç değerini ölçeklendirme katsayısı"
+        "tr": "Sonuç değerini ölçeklendirme katsayısı",
+        "de": "Skalierungsfaktor für den Ergebniswert",
+        "fr": "Coefficient de mise à l'échelle de la valeur de résultat",
+        "es": "Factor de escalado para el valor resultante"
       }
     },
     {
@@ -92,14 +103,17 @@
       "label_i18n": {
         "en": "Ofset",
         "tr": "Ofset",
-        "de": "Ofset",
-        "fr": "Ofset",
-        "es": "Ofset",
+        "de": "Offset",
+        "fr": "Décalage",
+        "es": "Desplazamiento",
         "ar": "Ofset"
       },
       "businessContext_i18n": {
         "en": "Sonuca eklenecek sabit değer",
-        "tr": "Sonuca eklenecek sabit değer"
+        "tr": "Sonuca eklenecek sabit değer",
+        "de": "Konstanter Wert, der zum Ergebnis addiert wird",
+        "fr": "Valeur constante à ajouter au résultat",
+        "es": "Valor constante a añadir al resultado"
       }
     },
     {
@@ -112,14 +126,17 @@
       "label_i18n": {
         "en": "Hedef Birim Çarpanı",
         "tr": "Hedef Birim Çarpanı",
-        "de": "Hedef Birim Çarpanı",
-        "fr": "Hedef Birim Çarpanı",
-        "es": "Hedef Birim Çarpanı",
+        "de": "Zieleinheiten-Faktor",
+        "fr": "Facteur de l'unité cible",
+        "es": "Factor de unidad destino",
         "ar": "Hedef Birim Çarpanı"
       },
       "businessContext_i18n": {
         "en": "Metreden istenen birime dönüşüm çarpanı (ör. cm için 100, km için 0.001)",
-        "tr": "Metreden istenen birime dönüşüm çarpanı (ör. cm için 100, km için 0.001)"
+        "tr": "Metreden istenen birime dönüşüm çarpanı (ör. cm için 100, km için 0.001)",
+        "de": "Umrechnungsfaktor von Meter in gewünschte Einheit (z. B. 100 für cm, 0,001 für km)",
+        "fr": "Facteur de conversion du mètre vers l'unité souhaitée (ex. 100 pour cm, 0,001 pour km)",
+        "es": "Factor de conversión de metros a la unidad deseada (ej. 100 para cm, 0.001 para km)"
       }
     },
     {
@@ -132,14 +149,17 @@
       "label_i18n": {
         "en": "Bilimsel Gösterim",
         "tr": "Bilimsel Gösterim",
-        "de": "Bilimsel Gösterim",
-        "fr": "Bilimsel Gösterim",
-        "es": "Bilimsel Gösterim",
+        "de": "Wissenschaftliche Notation",
+        "fr": "Notation scientifique",
+        "es": "Notación científica",
         "ar": "Bilimsel Gösterim"
       },
       "businessContext_i18n": {
         "en": "1 ise sonuç bilimsel notasyonda gösterilir, 0 ise normal",
-        "tr": "1 ise sonuç bilimsel notasyonda gösterilir, 0 ise normal"
+        "tr": "1 ise sonuç bilimsel notasyonda gösterilir, 0 ise normal",
+        "de": "1 zeigt Ergebnis in wissenschaftlicher Notation, 0 normal",
+        "fr": "1 ise sonuç bilimsel notasyonda gösterilir, 0 ise normal",
+        "es": "1 para mostrar resultado en notación científica, 0 para normal"
       }
     }
   ],

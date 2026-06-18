@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Leg A Length",
         "tr": "A Kenar Uzunluğu",
-        "de": "Leg A Length",
-        "fr": "Leg A Length",
-        "es": "Leg A Length",
+        "de": "Schenkel A Länge",
+        "fr": "Longueur du côté A",
+        "es": "Longitud del cateto A",
         "ar": "Leg A Length"
       },
       "businessContext_i18n": {
         "en": "Length of first leg of a right triangle (adjacent to the right angle).",
-        "tr": "Dik üçgenin birinci kenarının uzunluğu (dik açıya bitişik)."
+        "tr": "Dik üçgenin birinci kenarının uzunluğu (dik açıya bitişik).",
+        "de": "Länge des ersten Schenkels eines rechtwinkligen Dreiecks (an den rechten Winkel angrenzend).",
+        "fr": "Longueur du premier côté d'un triangle rectangle (adjacent à l'angle droit).",
+        "es": "Longitud del primer cateto de un triángulo rectángulo (adyacente al ángulo recto)."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Leg B Length",
         "tr": "B Kenar Uzunluğu",
-        "de": "Leg B Length",
-        "fr": "Leg B Length",
-        "es": "Leg B Length",
+        "de": "Schenkel B Länge",
+        "fr": "Longueur du côté B",
+        "es": "Longitud del cateto B",
         "ar": "Leg B Length"
       },
       "businessContext_i18n": {
         "en": "Length of second leg of a right triangle (adjacent to the right angle).",
-        "tr": "Dik üçgenin ikinci kenarının uzunluğu (dik açıya bitişik)."
+        "tr": "Dik üçgenin ikinci kenarının uzunluğu (dik açıya bitişik).",
+        "de": "Länge des zweiten Schenkels eines rechtwinkligen Dreiecks (an den rechten Winkel angrenzend).",
+        "fr": "Longueur du second côté d'un triangle rectangle (adjacent à l'angle droit).",
+        "es": "Longitud del segundo cateto de un triángulo rectángulo (adyacente al ángulo recto)."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for rounding the computed hypotenuse.",
-        "tr": "Hesaplanan hipotenüsün yuvarlanması için ondalık basamak sayısı."
+        "tr": "Hesaplanan hipotenüsün yuvarlanması için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen zum Runden der berechneten Hypotenuse.",
+        "fr": "Nombre de décimales pour l'arrondi de l'hypoténuse calculée.",
+        "es": "Número de decimales para redondear la hipotenusa calculada."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Tolerance (±)",
         "tr": "Tolerans (±)",
-        "de": "Tolerance (±)",
-        "fr": "Tolerance (±)",
-        "es": "Tolerance (±)",
+        "de": "Toleranz (±)",
+        "fr": "Tolérance (±)",
+        "es": "Tolerancia (±)",
         "ar": "Tolerance (±)"
       },
       "businessContext_i18n": {
         "en": "Acceptable tolerance for verifying right triangle when checking existing measurements.",
-        "tr": "Mevcut ölçümler kontrol edilirken dik üçgeni doğrulamak için kabul edilebilir tolerans."
+        "tr": "Mevcut ölçümler kontrol edilirken dik üçgeni doğrulamak için kabul edilebilir tolerans.",
+        "de": "Akzeptable Toleranz zur Überprüfung des rechtwinkligen Dreiecks bei der Überprüfung vorhandener Messungen.",
+        "fr": "Tolérance acceptable pour vérifier un triangle rectangle lors du contrôle de mesures existantes.",
+        "es": "Tolerancia aceptable para verificar el triángulo rectángulo al comprobar medidas existentes."
       }
     }
   ],

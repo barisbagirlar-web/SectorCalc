@@ -12,14 +12,16 @@
         "en": "Filter Order (n)",
         "tr": "Filtre Derecesi (n)",
         "de": "Filterordnung (n)",
-        "fr": "Filter Order (n)",
-        "es": "Filter Order (n)",
+        "fr": "Ordre du filtre (n)",
+        "es": "Orden del filtro (n)",
         "ar": "Filter Order (n)"
       },
       "businessContext_i18n": {
         "en": "Order of the Butterworth filter (positive integer). Higher order gives steeper roll-off.",
         "tr": "Butterworth filtresinin derecesi (pozitif tam sayı). Yüksek derece daha dik geçiş sağlar.",
-        "de": "Ordnung des Butterworth-Filters (positive ganze Zahl). Höhere Ordnung ergibt steileren Abfall."
+        "de": "Ordnung des Butterworth-Filters (positive ganze Zahl). Höhere Ordnung ergibt steileren Abfall.",
+        "fr": "Ordre du filtre Butterworth (entier positif). Un ordre plus élevé donne une pente plus raide.",
+        "es": "Orden del filtro Butterworth (entero positivo). Un orden mayor proporciona una caída más pronunciada."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Cutoff Frequency",
         "tr": "Kesme Frekansı",
         "de": "Grenzfrequenz",
-        "fr": "Cutoff Frequency",
-        "es": "Cutoff Frequency",
+        "fr": "Fréquence de coupure",
+        "es": "Frecuencia de corte",
         "ar": "Cutoff Frequency"
       },
       "businessContext_i18n": {
         "en": "Cutoff frequency at -3 dB point.",
         "tr": "-3 dB noktasındaki kesme frekansı.",
-        "de": "Grenzfrequenz am -3 dB-Punkt."
+        "de": "Grenzfrequenz am -3 dB-Punkt.",
+        "fr": "Fréquence de coupure au point -3 dB.",
+        "es": "Frecuencia de corte en el punto de -3 dB."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Frequency of Interest",
         "tr": "İlgi Frekansı",
         "de": "Frequenz von Interesse",
-        "fr": "Frequency of Interest",
-        "es": "Frequency of Interest",
+        "fr": "Fréquence d'intérêt",
+        "es": "Frecuencia de interés",
         "ar": "Frequency of Interest"
       },
       "businessContext_i18n": {
         "en": "Frequency at which to evaluate the filter response.",
         "tr": "Filtre yanıtının değerlendirileceği frekans.",
-        "de": "Frequenz, bei der die Filterantwort ausgewertet wird."
+        "de": "Frequenz, bei der die Filterantwort ausgewertet wird.",
+        "fr": "Fréquence à laquelle évaluer la réponse du filtre.",
+        "es": "Frecuencia a la que se evalúa la respuesta del filtro."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Passband Gain",
         "tr": "Geçiş Bandı Kazancı",
         "de": "Durchlassverstärkung",
-        "fr": "Passband Gain",
-        "es": "Passband Gain",
+        "fr": "Gain de la bande passante",
+        "es": "Ganancia de banda de paso",
         "ar": "Passband Gain"
       },
       "businessContext_i18n": {
         "en": "Linear gain in the passband (for active filters). Typically 1 for unity-gain Sallen-Key.",
         "tr": "Geçiş bandındaki doğrusal kazanç (aktif filtreler için). Sallen-Key birim kazanç için tipik olarak 1.",
-        "de": "Lineare Verstärkung im Durchlassbereich (für aktive Filter). Typischerweise 1 für Sallen-Key mit Einheitsverstärkung."
+        "de": "Lineare Verstärkung im Durchlassbereich (für aktive Filter). Typischerweise 1 für Sallen-Key mit Einheitsverstärkung.",
+        "fr": "Gain linéaire dans la bande passante (pour filtres actifs). Généralement 1 pour Sallen-Key à gain unitaire.",
+        "es": "Ganancia lineal en la banda de paso (para filtros activos). Normalmente 1 para Sallen-Key de ganancia unitaria."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Total Duration",
         "tr": "Toplam Süre",
         "de": "Gesamtdauer",
-        "fr": "Total Duration",
-        "es": "Total Duration",
+        "fr": "Durée totale",
+        "es": "Duración total",
         "ar": "Total Duration"
       },
       "businessContext_i18n": {
         "en": "The total allocated time for completion, e.g., planned maintenance duration.",
         "tr": "Tamamlanması için ayrılan toplam süre, örn. planlı bakım süresi.",
-        "de": "Die gesamte zugewiesene Zeit für die Fertigstellung, z. B. geplante Wartungsdauer."
+        "de": "Die gesamte zugewiesene Zeit für die Fertigstellung, z. B. geplante Wartungsdauer.",
+        "fr": "Temps total alloué pour l'achèvement, par exemple durée de maintenance planifiée.",
+        "es": "Tiempo total asignado para completar, ej., duración de mantenimiento planificado."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Elapsed Duration",
         "tr": "Geçen Süre",
         "de": "Verstrichene Dauer",
-        "fr": "Elapsed Duration",
-        "es": "Elapsed Duration",
+        "fr": "Durée écoulée",
+        "es": "Duración transcurrida",
         "ar": "Elapsed Duration"
       },
       "businessContext_i18n": {
         "en": "The time already passed since the start.",
         "tr": "Başlangıçtan bu yana geçen süre.",
-        "de": "Die seit dem Start bereits vergangene Zeit."
+        "de": "Die seit dem Start bereits vergangene Zeit.",
+        "fr": "Temps déjà écoulé depuis le début.",
+        "es": "Tiempo ya pasado desde el inicio."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Buffer Time",
         "tr": "Tampon Süre",
         "de": "Pufferzeit",
-        "fr": "Buffer Time",
-        "es": "Buffer Time",
+        "fr": "Temps tampon",
+        "es": "Tiempo de reserva",
         "ar": "Buffer Time"
       },
       "businessContext_i18n": {
         "en": "Additional safety margin added to total duration.",
         "tr": "Toplam süreye eklenen ek güvenlik marjı.",
-        "de": "Zusätzliche Sicherheitsmarge, die zur Gesamtdauer hinzugefügt wird."
+        "de": "Zusätzliche Sicherheitsmarge, die zur Gesamtdauer hinzugefügt wird.",
+        "fr": "Marge de sécurité supplémentaire ajoutée à la durée totale.",
+        "es": "Margen de seguridad adicional añadido a la duración total."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Warning Threshold",
         "tr": "Uyarı Eşiği",
         "de": "Warngrenze",
-        "fr": "Warning Threshold",
-        "es": "Warning Threshold",
+        "fr": "Seuil d'avertissement",
+        "es": "Umbral de advertencia",
         "ar": "Warning Threshold"
       },
       "businessContext_i18n": {
         "en": "When remaining time falls below this percent, trigger warning.",
         "tr": "Kalan süre bu yüzdenin altına düştüğünde uyarı tetiklenir.",
-        "de": "Wenn die verbleibende Zeit unter diesen Prozentsatz fällt, Warnung auslösen."
+        "de": "Wenn die verbleibende Zeit unter diesen Prozentsatz fällt, Warnung auslösen.",
+        "fr": "Lorsque le temps restant tombe en dessous de ce pourcentage, déclencher un avertissement.",
+        "es": "Cuando el tiempo restante cae por debajo de este porcentaje, activar advertencia."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Critical Threshold",
         "tr": "Kritik Eşik",
         "de": "Kritischer Schwellenwert",
-        "fr": "Critical Threshold",
-        "es": "Critical Threshold",
+        "fr": "Seuil critique",
+        "es": "Umbral crítico",
         "ar": "Critical Threshold"
       },
       "businessContext_i18n": {
         "en": "When remaining time falls below this percent, trigger critical alert.",
         "tr": "Kalan süre bu yüzdenin altına düştüğünde kritik uyarı tetiklenir.",
-        "de": "Wenn die verbleibende Zeit unter diesen Prozentsatz fällt, kritischen Alarm auslösen."
+        "de": "Wenn die verbleibende Zeit unter diesen Prozentsatz fällt, kritischen Alarm auslösen.",
+        "fr": "Lorsque le temps restant tombe en dessous de ce pourcentage, déclencher une alerte critique.",
+        "es": "Cuando el tiempo restante cae por debajo de este porcentaje, activar alerta crítica."
       }
     }
   ],

@@ -12,13 +12,15 @@
         "en": "Initial Investment",
         "tr": "Başlangıç Yatırımı",
         "de": "Anfangsinvestition",
-        "fr": "Initial Investment",
-        "es": "Initial Investment",
+        "fr": "Investissement initial",
+        "es": "Inversión inicial",
         "ar": "Initial Investment"
       },
       "businessContext_i18n": {
         "en": "Initial amount invested (negative for outflow).",
-        "tr": "Yatırılan başlangıç tutarı (çıkış için negatif)."
+        "tr": "Yatırılan başlangıç tutarı (çıkış için negatif).",
+        "de": "Anfänglicher Anlagebetrag (negativ für Auszahlung)",
+        "fr": "Montant initial investi (négatif pour sortie de fonds)."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Initial Date (days from start)",
         "tr": "Başlangıç Tarihi (başlangıçtan itibaren gün)",
-        "de": "Initial Date (days from start)",
-        "fr": "Initial Date (days from start)",
+        "de": "Startdatum (Tage ab Beginn)",
+        "fr": "Date initiale (jours depuis le début)",
         "es": "Initial Date (days from start)",
         "ar": "Initial Date (days from start)"
       },
       "businessContext_i18n": {
         "en": "Number of days from the start date to the initial investment date.",
-        "tr": "Başlangıç tarihinden ilk yatırım tarihine kadar geçen gün sayısı."
+        "tr": "Başlangıç tarihinden ilk yatırım tarihine kadar geçen gün sayısı.",
+        "de": "Anzahl der Tage vom Startdatum bis zum Datum der Erstanlage",
+        "fr": "Nombre de jours depuis la date de début jusqu'à la date d'investissement initial."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Cash Flow 1 Amount",
         "tr": "Nakit Akışı 1 Tutarı",
-        "de": "Cash Flow 1 Amount",
-        "fr": "Cash Flow 1 Amount",
+        "de": "Cashflow 1 Betrag",
+        "fr": "Montant du flux de trésorerie 1",
         "es": "Cash Flow 1 Amount",
         "ar": "Cash Flow 1 Amount"
       },
       "businessContext_i18n": {
         "en": "Amount of the first intermediate cash flow (positive for inflow, negative for outflow).",
-        "tr": "İlk ara nakit akışının tutarı (giriş için pozitif, çıkış için negatif)."
+        "tr": "İlk ara nakit akışının tutarı (giriş için pozitif, çıkış için negatif).",
+        "de": "Betrag des ersten mittleren Cashflows (positiv für Zufluss, negativ für Abfluss).",
+        "fr": "Montant du premier flux de trésorerie intermédiaire (positif pour une entrée, négatif pour une sortie)."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Cash Flow 1 Days",
         "tr": "Nakit Akışı 1 Gün",
-        "de": "Cash Flow 1 Days",
-        "fr": "Cash Flow 1 Days",
+        "de": "Cashflow 1 Tage",
+        "fr": "Jours du flux de trésorerie 1",
         "es": "Cash Flow 1 Days",
         "ar": "Cash Flow 1 Days"
       },
       "businessContext_i18n": {
         "en": "Number of days to the first intermediate cash flow.",
-        "tr": "İlk ara nakit akışına kalan gün sayısı."
+        "tr": "İlk ara nakit akışına kalan gün sayısı.",
+        "de": "Anzahl der Tage bis zum ersten mittleren Cashflow.",
+        "fr": "Nombre de jours jusqu'au premier flux de trésorerie intermédiaire."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Cash Flow 2 Amount",
         "tr": "Nakit Akışı 2 Tutarı",
-        "de": "Cash Flow 2 Amount",
-        "fr": "Cash Flow 2 Amount",
+        "de": "Cashflow 2 Betrag",
+        "fr": "Montant du flux de trésorerie 2",
         "es": "Cash Flow 2 Amount",
         "ar": "Cash Flow 2 Amount"
       },
       "businessContext_i18n": {
         "en": "Amount of the second intermediate cash flow.",
-        "tr": "İkinci ara nakit akışının tutarı."
+        "tr": "İkinci ara nakit akışının tutarı.",
+        "de": "Betrag des zweiten mittleren Cashflows.",
+        "fr": "Montant du deuxième flux de trésorerie intermédiaire."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Cash Flow 2 Days",
         "tr": "Nakit Akışı 2 Gün",
-        "de": "Cash Flow 2 Days",
-        "fr": "Cash Flow 2 Days",
+        "de": "Cashflow 2 Tage",
+        "fr": "Jours du flux de trésorerie 2",
         "es": "Cash Flow 2 Days",
         "ar": "Cash Flow 2 Days"
       },
       "businessContext_i18n": {
         "en": "Number of days to the second intermediate cash flow.",
-        "tr": "İkinci ara nakit akışına kalan gün sayısı."
+        "tr": "İkinci ara nakit akışına kalan gün sayısı.",
+        "de": "Anzahl der Tage bis zum zweiten mittleren Cashflow.",
+        "fr": "Nombre de jours jusqu'au deuxième flux de trésorerie intermédiaire."
       }
     },
     {
@@ -132,13 +144,15 @@
         "en": "Final Value",
         "tr": "Nihai Değer",
         "de": "Endwert",
-        "fr": "Final Value",
-        "es": "Final Value",
+        "fr": "Valeur finale",
+        "es": "Valor final",
         "ar": "Final Value"
       },
       "businessContext_i18n": {
         "en": "Final value or cash flow at the end of the investment (typically positive).",
-        "tr": "Yatırım sonundaki nihai değer veya nakit akışı (genellikle pozitif)."
+        "tr": "Yatırım sonundaki nihai değer veya nakit akışı (genellikle pozitif).",
+        "de": "Endwert oder Cashflow am Ende der Investition (typischerweise positiv).",
+        "fr": "Valeur finale ou flux de trésorerie à la fin de l'investissement (généralement positif)."
       }
     },
     {
@@ -151,14 +165,16 @@
       "label_i18n": {
         "en": "Final Days",
         "tr": "Son Gün",
-        "de": "Final Days",
-        "fr": "Final Days",
+        "de": "Endtage",
+        "fr": "Jours finaux",
         "es": "Final Days",
         "ar": "Final Days"
       },
       "businessContext_i18n": {
         "en": "Number of days from start to the final cash flow.",
-        "tr": "Başlangıçtan son nakit akışına kadar geçen gün sayısı."
+        "tr": "Başlangıçtan son nakit akışına kadar geçen gün sayısı.",
+        "de": "Anzahl der Tage vom Start bis zum letzten Cashflow.",
+        "fr": "Nombre de jours du début au flux de trésorerie final."
       }
     }
   ],

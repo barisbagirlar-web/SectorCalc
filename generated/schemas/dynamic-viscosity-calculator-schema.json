@@ -12,14 +12,16 @@
         "en": "Reference Temperature",
         "tr": "Referans Sıcaklık",
         "de": "Referenztemperatur",
-        "fr": "Reference Temperature",
-        "es": "Reference Temperature",
+        "fr": "Température de référence",
+        "es": "Temperatura de referencia",
         "ar": "Reference Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature at which the reference viscosity is known (Kelvin)",
         "tr": "Referans viskozitenin bilindiği sıcaklık (Kelvin)",
-        "de": "Temperatur, bei der die Referenzviskosität bekannt ist (Kelvin)"
+        "de": "Temperatur, bei der die Referenzviskosität bekannt ist (Kelvin)",
+        "fr": "Température à laquelle la viscosité de référence est connue (Kelvin)",
+        "es": "Temperatura a la que se conoce la viscosidad de referencia (Kelvin)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Reference Viscosity",
         "tr": "Referans Viskozite",
         "de": "Referenzviskosität",
-        "fr": "Reference Viscosity",
-        "es": "Reference Viscosity",
+        "fr": "Viscosité de référence",
+        "es": "Viscosidad de referencia",
         "ar": "Reference Viscosity"
       },
       "businessContext_i18n": {
         "en": "Dynamic viscosity at reference temperature (Pascal-seconds)",
         "tr": "Referans sıcaklıktaki dinamik viskozite (Pascal-saniye)",
-        "de": "Dynamische Viskosität bei Referenztemperatur (Pascal-Sekunden)"
+        "de": "Dynamische Viskosität bei Referenztemperatur (Pascal-Sekunden)",
+        "fr": "Viscosité dynamique à la température de référence (Pascal-secondes)",
+        "es": "Viscosidad dinámica a la temperatura de referencia (Pascal-segundo)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Activation Energy",
         "tr": "Aktivasyon Enerjisi",
         "de": "Aktivierungsenergie",
-        "fr": "Activation Energy",
-        "es": "Activation Energy",
+        "fr": "Énergie d'activation",
+        "es": "Energía de activación",
         "ar": "Activation Energy"
       },
       "businessContext_i18n": {
         "en": "Activation energy for viscous flow (Joules per mole)",
         "tr": "Viskoz akış için aktivasyon enerjisi (Joule/mol)",
-        "de": "Aktivierungsenergie für viskoses Fließen (Joule pro Mol)"
+        "de": "Aktivierungsenergie für viskoses Fließen (Joule pro Mol)",
+        "fr": "Énergie d'activation pour l'écoulement visqueux (Joules par mole)",
+        "es": "Energía de activación para el flujo viscoso (Julios por mol)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Temperature",
         "tr": "Sıcaklık",
         "de": "Temperatur",
-        "fr": "Temperature",
-        "es": "Temperature",
+        "fr": "Température",
+        "es": "Temperatura",
         "ar": "Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature at which to calculate viscosity (Kelvin)",
         "tr": "Viskozitenin hesaplanacağı sıcaklık (Kelvin)",
-        "de": "Temperatur, bei der die Viskosität berechnet werden soll (Kelvin)"
+        "de": "Temperatur, bei der die Viskosität berechnet werden soll (Kelvin)",
+        "fr": "Température à laquelle calculer la viscosité (Kelvin)",
+        "es": "Temperatura a la que calcular la viscosidad (Kelvin)"
       }
     }
   ],

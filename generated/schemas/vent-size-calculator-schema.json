@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Oda Hacmi",
         "tr": "Oda Hacmi",
-        "de": "Oda Hacmi",
-        "fr": "Oda Hacmi",
+        "de": "Raumvolumen",
+        "fr": "Volume de la pièce",
         "es": "Oda Hacmi",
         "ar": "Oda Hacmi"
       },
       "businessContext_i18n": {
         "en": "Havalandırma yapılacak odanın toplam iç hacmi",
-        "tr": "Havalandırma yapılacak odanın toplam iç hacmi"
+        "tr": "Havalandırma yapılacak odanın toplam iç hacmi",
+        "de": "Gesamtes Innenvolumen des zu belüftenden Raums",
+        "fr": "Volume intérieur total de la pièce à ventiler"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Hava Değişim Sayısı (ACH)",
         "tr": "Hava Değişim Sayısı (ACH)",
-        "de": "Hava Değişim Sayısı (ACH)",
-        "fr": "Hava Değişim Sayısı (ACH)",
+        "de": "Luftwechselrate (ACH)",
+        "fr": "Taux de renouvellement d'air (ACH)",
         "es": "Hava Değişim Sayısı (ACH)",
         "ar": "Hava Değişim Sayısı (ACH)"
       },
       "businessContext_i18n": {
         "en": "Saatte istenen hava değişim sayısı",
-        "tr": "Saatte istenen hava değişim sayısı"
+        "tr": "Saatte istenen hava değişim sayısı",
+        "de": "Gewünschte Anzahl von Luftwechseln pro Stunde",
+        "fr": "Nombre de renouvellements d'air souhaité par heure"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Hava Hızı",
         "tr": "Hava Hızı",
         "de": "Luftgeschwindigkeit",
-        "fr": "Hava Hızı",
-        "es": "Hava Hızı",
+        "fr": "Vitesse de l'air",
+        "es": "Velocidad del aire",
         "ar": "Hava Hızı"
       },
       "businessContext_i18n": {
         "en": "Menfezden geçen havanın ortalama hızı",
-        "tr": "Menfezden geçen havanın ortalama hızı"
+        "tr": "Menfezden geçen havanın ortalama hızı",
+        "de": "Durchschnittliche Luftgeschwindigkeit durch die Öffnung",
+        "fr": "Vitesse moyenne de l'air à travers la bouche"
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Emniyet Katsayısı",
         "tr": "Emniyet Katsayısı",
         "de": "Sicherheitsfaktor",
-        "fr": "Emniyet Katsayısı",
-        "es": "Emniyet Katsayısı",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Emniyet Katsayısı"
       },
       "businessContext_i18n": {
         "en": "Hesaplamaya eklenen emniyet payı",
-        "tr": "Hesaplamaya eklenen emniyet payı"
+        "tr": "Hesaplamaya eklenen emniyet payı",
+        "de": "Sicherheitszuschlag zur Berechnung",
+        "fr": "Marge de sécurité ajoutée au calcul"
       }
     }
   ],

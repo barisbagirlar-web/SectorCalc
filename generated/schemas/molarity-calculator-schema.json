@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Solute Mass",
         "tr": "Çözünen Kütlesi",
-        "de": "Solute Mass",
-        "fr": "Solute Mass",
-        "es": "Solute Mass",
+        "de": "Masse des gelösten Stoffs",
+        "fr": "Masse du soluté",
+        "es": "Masa del soluto",
         "ar": "Solute Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of solute in grams",
-        "tr": "Çözünenin gram cinsinden kütlesi"
+        "tr": "Çözünenin gram cinsinden kütlesi",
+        "de": "Masse des gelösten Stoffs in Gramm",
+        "fr": "Masse du soluté en grammes",
+        "es": "Masa del soluto en gramos"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Molar Mass",
         "tr": "Molar Kütle",
         "de": "Molmasse",
-        "fr": "Molar Mass",
-        "es": "Molar Mass",
+        "fr": "Masse molaire",
+        "es": "Masa molar",
         "ar": "Molar Mass"
       },
       "businessContext_i18n": {
         "en": "Molar mass of the solute",
-        "tr": "Çözünenin molar kütlesi"
+        "tr": "Çözünenin molar kütlesi",
+        "de": "Molmasse des gelösten Stoffs",
+        "fr": "Masse molaire du soluté",
+        "es": "Masa molar del soluto"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Solution Volume",
         "tr": "Çözelti Hacmi",
         "de": "Lösungsvolumen",
-        "fr": "Solution Volume",
-        "es": "Solution Volume",
+        "fr": "Volume de solution",
+        "es": "Volumen de solución",
         "ar": "Solution Volume"
       },
       "businessContext_i18n": {
         "en": "Total volume of the solution in liters",
-        "tr": "Çözeltinin litre cinsinden toplam hacmi"
+        "tr": "Çözeltinin litre cinsinden toplam hacmi",
+        "de": "Gesamtvolumen der Lösung in Litern",
+        "fr": "Volume total de la solution en litres",
+        "es": "Volumen total de la solución en litros"
       }
     }
   ],

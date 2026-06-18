@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Volume of Wine 1",
         "tr": "Şarap 1 Hacmi",
-        "de": "Volume of Wine 1",
-        "fr": "Volume of Wine 1",
+        "de": "Volumen von Wein 1",
+        "fr": "Volume du vin 1",
         "es": "Volume of Wine 1",
         "ar": "Volume of Wine 1"
       },
       "businessContext_i18n": {
         "en": "Volume of the first wine, typically the one with higher ABV",
-        "tr": "Genellikle daha yüksek alkol oranına sahip olan ilk şarabın hacmi"
+        "tr": "Genellikle daha yüksek alkol oranına sahip olan ilk şarabın hacmi",
+        "de": "Volumen des ersten Weins, typischerweise der mit höherem Alkoholgehalt",
+        "fr": "Volume du premier vin, généralement celui avec le titre alcoométrique le plus élevé"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "ABV of Wine 1",
         "tr": "Şarap 1 Alkol Oranı",
-        "de": "ABV of Wine 1",
-        "fr": "ABV of Wine 1",
+        "de": "Alkoholgehalt von Wein 1",
+        "fr": "Titre alcoométrique du vin 1",
         "es": "ABV of Wine 1",
         "ar": "ABV of Wine 1"
       },
       "businessContext_i18n": {
         "en": "Alcohol by volume percentage of the first wine",
-        "tr": "İlk şarabın hacimce alkol yüzdesi"
+        "tr": "İlk şarabın hacimce alkol yüzdesi",
+        "de": "Alkoholvolumenprozent des ersten Weins",
+        "fr": "Pourcentage d'alcool par volume du premier vin"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "ABV of Wine 2",
         "tr": "2. Şarabın ABV'si",
-        "de": "ABV of Wine 2",
-        "fr": "ABV of Wine 2",
+        "de": "ABV von Wein 2",
+        "fr": "Teneur en alcool du vin 2",
         "es": "ABV of Wine 2",
         "ar": "ABV of Wine 2"
       },
       "businessContext_i18n": {
         "en": "Alcohol by volume percentage of the second wine, lower than target ABV",
-        "tr": "İkinci şarabın hacimce alkol yüzdesi, hedef ABV'den düşük"
+        "tr": "İkinci şarabın hacimce alkol yüzdesi, hedef ABV'den düşük",
+        "de": "Alkoholgehalt in Volumenprozent des zweiten Weins, niedriger als Ziel-ABV",
+        "fr": "Pourcentage d'alcool par volume du second vin, inférieur à l'ABV cible"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Target ABV",
         "tr": "Hedef ABV",
-        "de": "Target ABV",
-        "fr": "Target ABV",
+        "de": "Ziel-ABV",
+        "fr": "ABV cible",
         "es": "Target ABV",
         "ar": "Target ABV"
       },
       "businessContext_i18n": {
         "en": "Desired alcohol by volume percentage of the final blend",
-        "tr": "Nihai karışımın istenen hacimce alkol yüzdesi"
+        "tr": "Nihai karışımın istenen hacimce alkol yüzdesi",
+        "de": "Gewünschter Alkoholgehalt in Volumenprozent der endgültigen Mischung",
+        "fr": "Pourcentage d'alcool par volume souhaité du mélange final"
       }
     }
   ],

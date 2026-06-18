@@ -12,14 +12,16 @@
         "en": "Baby Weight",
         "tr": "Bebek Ağırlığı",
         "de": "Babygewicht",
-        "fr": "Baby Weight",
-        "es": "Baby Weight",
+        "fr": "Poids du bébé",
+        "es": "Peso del bebé",
         "ar": "Baby Weight"
       },
       "businessContext_i18n": {
         "en": "The weight of the baby in kilograms, used to estimate daily milk intake requirement.",
         "tr": "Bebeğin kilogram cinsinden ağırlığı, günlük süt ihtiyacını tahmin etmek için kullanılır.",
-        "de": "Das Gewicht des Babys in Kilogramm, verwendet zur Schätzung des täglichen Milchbedarfs."
+        "de": "Das Gewicht des Babys in Kilogramm, verwendet zur Schätzung des täglichen Milchbedarfs.",
+        "fr": "Poids du bébé en kilogrammes, utilisé pour estimer les besoins quotidiens en lait.",
+        "es": "El peso del bebé en kilogramos, utilizado para estimar el requerimiento diario de ingesta de leche."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Feeds per Day",
         "tr": "Günlük besleme sayısı",
         "de": "Fütterungen pro Tag",
-        "fr": "Feeds per Day",
-        "es": "Feeds per Day",
+        "fr": "Tétées par jour",
+        "es": "Tomas por día",
         "ar": "Feeds per Day"
       },
       "businessContext_i18n": {
         "en": "Number of times the baby feeds per day, used to divide total daily volume.",
         "tr": "Bebeğin günlük beslenme sayısı, toplam günlük hacmi bölmek için kullanılır.",
-        "de": "Anzahl der Fütterungen des Babys pro Tag, verwendet zur Aufteilung des täglichen Gesamtvolumens."
+        "de": "Anzahl der Fütterungen des Babys pro Tag, verwendet zur Aufteilung des täglichen Gesamtvolumens.",
+        "fr": "Nombre de tétées par jour, utilisé pour diviser le volume quotidien total.",
+        "es": "Número de veces que el bebé se alimenta al día, utilizado para dividir el volumen diario total."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Milk Density",
         "tr": "Süt yoğunluğu",
         "de": "Milchdichte",
-        "fr": "Milk Density",
-        "es": "Milk Density",
+        "fr": "Densité du lait",
+        "es": "Densidad de la leche",
         "ar": "Milk Density"
       },
       "businessContext_i18n": {
         "en": "Density of breast milk, typically 1.03 g/mL, for mass conversion.",
         "tr": "Anne sütünün yoğunluğu, tipik olarak 1.03 g/mL, kütle dönüşümü için.",
-        "de": "Dichte der Muttermilch, typischerweise 1,03 g/mL, für die Massenumrechnung."
+        "de": "Dichte der Muttermilch, typischerweise 1,03 g/mL, für die Massenumrechnung.",
+        "fr": "Densité du lait maternel, généralement 1,03 g/mL, pour la conversion massique.",
+        "es": "Densidad de la leche materna, típicamente 1.03 g/mL, para conversión de masa."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Wastage Factor",
         "tr": "İsraf faktörü",
         "de": "Verlustfaktor",
-        "fr": "Wastage Factor",
-        "es": "Wastage Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Wastage Factor"
       },
       "businessContext_i18n": {
         "en": "Estimated percentage of milk lost due to spillage or storage inefficiencies.",
         "tr": "Dökülme veya depolama verimsizlikleri nedeniyle kaybedilen sütün tahmini yüzdesi.",
-        "de": "Geschätzter Prozentsatz der Milch, der durch Verschütten oder Lagerungsineffizienzen verloren geht."
+        "de": "Geschätzter Prozentsatz der Milch, der durch Verschütten oder Lagerungsineffizienzen verloren geht.",
+        "fr": "Pourcentage estimé de lait perdu à cause de renversements ou de stockage inefficace.",
+        "es": "Porcentaje estimado de leche perdida por derrame o ineficiencias de almacenamiento."
       }
     }
   ],

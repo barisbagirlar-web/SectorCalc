@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Column Height",
         "tr": "Kolon Yüksekliği",
-        "de": "Column Height",
-        "fr": "Column Height",
-        "es": "Column Height",
+        "de": "Stützenhöhe",
+        "fr": "Hauteur de colonne",
+        "es": "Altura de columna",
         "ar": "Column Height"
       },
       "businessContext_i18n": {
         "en": "Effective height of the lally column from base to top anchorage (unbraced length).",
-        "tr": "Lally kolonun tabandan üst ankraja kadar etkin yüksekliği (desteklenmeyen uzunluk)."
+        "tr": "Lally kolonun tabandan üst ankraja kadar etkin yüksekliği (desteklenmeyen uzunluk).",
+        "de": "Effektive Höhe der Stahlstütze von der Basis bis zur oberen Verankerung (knicklänge).",
+        "fr": "Hauteur effective de la colonne lally de la base à l'ancrage supérieur (longueur libre).",
+        "es": "Altura efectiva de la columna lally desde la base hasta el anclaje superior (longitud no arriostrada)."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Outer Diameter",
         "tr": "Dış Çap",
-        "de": "Outer Diameter",
-        "fr": "Outer Diameter",
-        "es": "Outer Diameter",
+        "de": "Außendurchmesser",
+        "fr": "Diamètre extérieur",
+        "es": "Diámetro exterior",
         "ar": "Outer Diameter"
       },
       "businessContext_i18n": {
         "en": "Outer diameter of the steel pipe column.",
-        "tr": "Çelik boru kolonun dış çapı."
+        "tr": "Çelik boru kolonun dış çapı.",
+        "de": "Außendurchmesser der Stahlrohrstütze.",
+        "fr": "Diamètre extérieur du tube en acier de la colonne.",
+        "es": "Diámetro exterior del tubo de acero de la columna."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Wall Thickness",
         "tr": "Duvar Kalınlığı (cm)",
         "de": "Duvar Kalınlığı",
-        "fr": "Wall Thickness",
-        "es": "Wall Thickness",
+        "fr": "Épaisseur du mur",
+        "es": "Espesor del muro",
         "ar": "Wall Thickness"
       },
       "businessContext_i18n": {
         "en": "Thickness of the steel pipe wall.",
-        "tr": "Çelik boru et kalınlığı."
+        "tr": "Çelik boru et kalınlığı.",
+        "de": "Wanddicke des Stahlrohrs.",
+        "fr": "Épaisseur de la paroi du tube en acier.",
+        "es": "Espesor de la pared del tubo de acero."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Steel Yield Strength",
         "tr": "Çelik Akma Dayanımı",
-        "de": "Steel Yield Strength",
-        "fr": "Steel Yield Strength",
-        "es": "Steel Yield Strength",
+        "de": "Streckgrenze des Stahls",
+        "fr": "Limite d'élasticité de l'acier",
+        "es": "Límite elástico del acero",
         "ar": "Steel Yield Strength"
       },
       "businessContext_i18n": {
         "en": "Minimum guaranteed yield stress of the steel material.",
-        "tr": "Çelik malzemenin minimum garanti edilen akma gerilmesi."
+        "tr": "Çelik malzemenin minimum garanti edilen akma gerilmesi.",
+        "de": "Mindestgarantierte Streckgrenze des Stahlmaterials.",
+        "fr": "Contrainte d'élasticité minimale garantie du matériau en acier.",
+        "es": "Tensión de fluencia mínima garantizada del material de acero."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Effective Length Factor K",
         "tr": "Etkin Uzunluk Faktörü K",
         "de": "Knicklängenbeiwert K",
-        "fr": "Effective Length Factor K",
-        "es": "Effective Length Factor K",
+        "fr": "Coefficient de longueur effective K",
+        "es": "Factor de longitud efectiva K",
         "ar": "Effective Length Factor K"
       },
       "businessContext_i18n": {
         "en": "Buckling length coefficient depending on end conditions (1.0 for pinned-pinned, 0.5 for fixed-fixed, 2.0 for fixed-free).",
-        "tr": "Uç koşullarına bağlı burkulma uzunluğu katsayısı (1.0 mafsallı-mafsallı, 0.5 ankastre-ankastre, 2.0 ankastre-serbest)."
+        "tr": "Uç koşullarına bağlı burkulma uzunluğu katsayısı (1.0 mafsallı-mafsallı, 0.5 ankastre-ankastre, 2.0 ankastre-serbest).",
+        "de": "Knicklängenbeiwert abhängig von den Endbedingungen (1,0 für gelenkig-gelenkig, 0,5 für eingespannt-eingespannt, 2,0 für eingespannt-frei).",
+        "fr": "Coefficient de longueur de flambement selon les conditions d'extrémité (1,0 pour articulé-articulé, 0,5 pour encastré-encastré, 2,0 pour encastré-libre).",
+        "es": "Coeficiente de longitud de pandeo según condiciones de extremo (1.0 para articulado-articulado, 0.5 para empotrado-empotrado, 2.0 para empotrado-libre)."
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Design safety factor to ensure TÜV-compliant structural reliability.",
-        "tr": "TÜV uyumlu yapısal güvenilirlik için tasarım güvenlik faktörü."
+        "tr": "TÜV uyumlu yapısal güvenilirlik için tasarım güvenlik faktörü.",
+        "de": "Sicherheitsfaktor zur Gewährleistung der TÜV-konformen strukturellen Zuverlässigkeit.",
+        "fr": "Coefficient de sécurité de conception pour garantir une fiabilité structurelle conforme à la norme TÜV.",
+        "es": "Factor de seguridad de diseño para garantizar la fiabilidad estructural conforme a TÜV."
       }
     },
     {
@@ -131,14 +149,17 @@
       "label_i18n": {
         "en": "Young's Modulus",
         "tr": "Elastisite Modülü",
-        "de": "Young's Modulus",
-        "fr": "Young's Modulus",
-        "es": "Young's Modulus",
+        "de": "Elastizitätsmodul",
+        "fr": "Module d'Young",
+        "es": "Módulo de Young",
         "ar": "Young's Modulus"
       },
       "businessContext_i18n": {
         "en": "Modulus of elasticity of the steel (typically 200,000 MPa for structural steel).",
-        "tr": "Çeliğin elastisite modülü (yapısal çelik için tipik olarak 200.000 MPa)."
+        "tr": "Çeliğin elastisite modülü (yapısal çelik için tipik olarak 200.000 MPa).",
+        "de": "Elastizitätsmodul des Stahls (typischerweise 200.000 MPa für Baustahl).",
+        "fr": "Module d'élasticité de l'acier (généralement 200 000 MPa pour l'acier de construction).",
+        "es": "Módulo de elasticidad del acero (típicamente 200,000 MPa para acero estructural)."
       }
     }
   ],

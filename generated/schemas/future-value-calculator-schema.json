@@ -12,14 +12,16 @@
         "en": "Initial Investment (PV)",
         "tr": "Başlangıç Yatırımı (BD)",
         "de": "Anfangsinvestition (Barwert)",
-        "fr": "Initial Investment (PV)",
-        "es": "Initial Investment (PV)",
+        "fr": "Investissement initial (VA)",
+        "es": "Inversión inicial (VP)",
         "ar": "Initial Investment (PV)"
       },
       "businessContext_i18n": {
         "en": "The amount of money you start with.",
         "tr": "Başlangıçta sahip olduğunuz para miktarı.",
-        "de": "Der Geldbetrag, mit dem Sie beginnen."
+        "de": "Der Geldbetrag, mit dem Sie beginnen.",
+        "fr": "Le montant d'argent avec lequel vous commencez.",
+        "es": "La cantidad de dinero con la que comienza."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
         "de": "Jährlicher Zinssatz",
-        "fr": "Annual Interest Rate",
-        "es": "Annual Interest Rate",
+        "fr": "Taux d'intérêt annuel",
+        "es": "Tasa de Interés Anual",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "The annual nominal interest rate.",
         "tr": "Yıllık nominal faiz oranı.",
-        "de": "Der jährliche Nominalzinssatz."
+        "de": "Der jährliche Nominalzinssatz.",
+        "fr": "Le taux d'intérêt nominal annuel.",
+        "es": "La tasa de interés nominal anual."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Number of Years",
         "tr": "Yıl Sayısı",
         "de": "Anzahl der Jahre",
-        "fr": "Number of Years",
-        "es": "Number of Years",
+        "fr": "Nombre d'années",
+        "es": "Número de años",
         "ar": "Number of Years"
       },
       "businessContext_i18n": {
         "en": "The total number of years the money is invested for.",
         "tr": "Paranın yatırıldığı toplam yıl sayısı.",
-        "de": "Die Gesamtzahl der Jahre, in denen das Geld angelegt ist."
+        "de": "Die Gesamtzahl der Jahre, in denen das Geld angelegt ist.",
+        "fr": "Le nombre total d'années pendant lesquelles l'argent est investi.",
+        "es": "El número total de años que el dinero está invertido."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Compounding Frequency",
         "tr": "Bileşik Sıklığı",
         "de": "Zinseszinshäufigkeit",
-        "fr": "Compounding Frequency",
-        "es": "Compounding Frequency",
+        "fr": "Fréquence de capitalisation",
+        "es": "Frecuencia de capitalización",
         "ar": "Compounding Frequency"
       },
       "businessContext_i18n": {
         "en": "How often interest is compounded per year (e.g., 1 for annual, 12 for monthly).",
         "tr": "Faizin yılda kaç kez bileşiklendiği (örneğin, yıllık için 1, aylık için 12).",
-        "de": "Häufigkeit der Zinsgutschrift pro Jahr (z. B. 1 für jährlich, 12 für monatlich)."
+        "de": "Häufigkeit der Zinsgutschrift pro Jahr (z. B. 1 für jährlich, 12 für monatlich).",
+        "fr": "Fréquence de capitalisation par an (par exemple, 1 pour annuelle, 12 pour mensuelle).",
+        "es": "Frecuencia de capitalización por año (p. ej., 1 para anual, 12 para mensual)."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Periodic Payment (PMT)",
         "tr": "Dönemsel Ödeme (PMT)",
         "de": "Periodische Zahlung (PMT)",
-        "fr": "Periodic Payment (PMT)",
-        "es": "Periodic Payment (PMT)",
+        "fr": "Paiement périodique (PMT)",
+        "es": "Pago periódico (PMT)",
         "ar": "Periodic Payment (PMT)"
       },
       "businessContext_i18n": {
         "en": "The amount added to the investment at each compounding period. Positive for contributions.",
         "tr": "Her bileşik döneminde yatırıma eklenen miktar. Katkılar için pozitif.",
-        "de": "Der Betrag, der bei jeder Zinsperiode zur Anlage hinzugefügt wird. Positiv für Einzahlungen."
+        "de": "Der Betrag, der bei jeder Zinsperiode zur Anlage hinzugefügt wird. Positiv für Einzahlungen.",
+        "fr": "Le montant ajouté à l'investissement à chaque période de capitalisation. Positif pour les apports.",
+        "es": "La cantidad añadida a la inversión en cada período de capitalización. Positivo para contribuciones."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Focal Length",
         "tr": "Odak Uzaklığı",
         "de": "Brennweite",
-        "fr": "Focal Length",
-        "es": "Focal Length",
+        "fr": "Distance focale",
+        "es": "Distancia focal",
         "ar": "Focal Length"
       },
       "businessContext_i18n": {
         "en": "Lens focal length in millimeters",
         "tr": "Milimetre cinsinden lens odak uzaklığı",
-        "de": "Brennweite des Objektivs in Millimetern"
+        "de": "Brennweite des Objektivs in Millimetern",
+        "fr": "Distance focale de l'objectif en millimètres",
+        "es": "Distancia focal del lente en milímetros"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Aperture (f-number)",
         "tr": "Diyafram (f-sayısı)",
         "de": "Blende (f-Zahl)",
-        "fr": "Aperture (f-number)",
-        "es": "Aperture (f-number)",
+        "fr": "Ouverture (nombre f)",
+        "es": "Apertura (número f)",
         "ar": "Aperture (f-number)"
       },
       "businessContext_i18n": {
         "en": "Aperture f-number (e.g., 2.8, 5.6, 8)",
         "tr": "Diyafram f-sayısı (örn. 2.8, 5.6, 8)",
-        "de": "Blendenöffnung (z.B. 2,8, 5,6, 8)"
+        "de": "Blendenöffnung (z.B. 2,8, 5,6, 8)",
+        "fr": "Nombre d'ouverture f (ex. 2,8, 5,6, 8)",
+        "es": "Número f de apertura (ej., 2.8, 5.6, 8)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Subject Distance",
         "tr": "Nesne Mesafesi",
         "de": "Objektabstand",
-        "fr": "Subject Distance",
-        "es": "Subject Distance",
+        "fr": "Distance du sujet",
+        "es": "Distancia al sujeto",
         "ar": "Subject Distance"
       },
       "businessContext_i18n": {
         "en": "Distance from camera to subject in meters",
         "tr": "Kameradan nesneye metre cinsinden mesafe",
-        "de": "Abstand von Kamera zum Objekt in Metern"
+        "de": "Abstand von Kamera zum Objekt in Metern",
+        "fr": "Distance de l'appareil au sujet en mètres",
+        "es": "Distancia de la cámara al sujeto en metros"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Circle of Confusion",
         "tr": "Karışıklık Çemberi",
         "de": "Zerstreuungskreis",
-        "fr": "Circle of Confusion",
-        "es": "Circle of Confusion",
+        "fr": "Cercle de confusion",
+        "es": "Círculo de confusión",
         "ar": "Circle of Confusion"
       },
       "businessContext_i18n": {
         "en": "Circle of confusion in mm (0.03 for full-frame 35mm)",
         "tr": "mm cinsinden karışıklık çemberi (tam kare 35mm için 0.03)",
-        "de": "Zerstreuungskreis in mm (0,03 für Vollformat 35mm)"
+        "de": "Zerstreuungskreis in mm (0,03 für Vollformat 35mm)",
+        "fr": "Cercle de confusion en mm (0,03 pour plein format 35 mm)",
+        "es": "Círculo de confusión en mm (0.03 para full-frame 35mm)"
       }
     }
   ],

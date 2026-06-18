@@ -12,13 +12,15 @@
         "en": "Number of Servings",
         "tr": "Porsiyon Sayısı",
         "de": "Anzahl der Portionen",
-        "fr": "Number of Servings",
-        "es": "Number of Servings",
+        "fr": "Nombre de portions",
+        "es": "Número de porciones",
         "ar": "Number of Servings"
       },
       "businessContext_i18n": {
         "en": "Number of smoothie servings to prepare",
-        "tr": "Hazırlanacak smoothie porsiyon sayısı"
+        "tr": "Hazırlanacak smoothie porsiyon sayısı",
+        "de": "Anzahl der zuzubereitenden Smoothie-Portionen",
+        "fr": "Nombre de portions de smoothie à préparer"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Base Liquid per Serving",
         "tr": "Porsiyon Başına Baz Sıvı",
-        "de": "Base Liquid per Serving",
-        "fr": "Base Liquid per Serving",
+        "de": "Basisflüssigkeit pro Portion",
+        "fr": "Liquide de base par portion",
         "es": "Base Liquid per Serving",
         "ar": "Base Liquid per Serving"
       },
       "businessContext_i18n": {
         "en": "Volume of liquid base (milk, juice, etc.) per smoothie in milliliters",
-        "tr": "Mililitre cinsinden smoothie başına sıvı baz (süt, meyve suyu vb.) hacmi"
+        "tr": "Mililitre cinsinden smoothie başına sıvı baz (süt, meyve suyu vb.) hacmi",
+        "de": "Volumen der Basisflüssigkeit (Milch, Saft usw.) pro Smoothie in Millilitern",
+        "fr": "Volume de liquide de base (lait, jus, etc.) par smoothie en millilitres"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Fruit per Serving",
         "tr": "Porsiyon Başına Meyve",
-        "de": "Fruit per Serving",
-        "fr": "Fruit per Serving",
+        "de": "Obst pro Portion",
+        "fr": "Fruits par portion",
         "es": "Fruit per Serving",
         "ar": "Fruit per Serving"
       },
       "businessContext_i18n": {
         "en": "Weight of fruit per smoothie in grams",
-        "tr": "Gram cinsinden smoothie başına meyve ağırlığı"
+        "tr": "Gram cinsinden smoothie başına meyve ağırlığı",
+        "de": "Gewicht des Obstes pro Smoothie in Gramm",
+        "fr": "Poids des fruits par smoothie en grammes"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Ice per Serving",
         "tr": "Porsiyon Başına Buz",
-        "de": "Ice per Serving",
-        "fr": "Ice per Serving",
+        "de": "Eis pro Portion",
+        "fr": "Glace par portion",
         "es": "Ice per Serving",
         "ar": "Ice per Serving"
       },
       "businessContext_i18n": {
         "en": "Weight of ice per smoothie in grams",
-        "tr": "Gram cinsinden smoothie başına buz ağırlığı"
+        "tr": "Gram cinsinden smoothie başına buz ağırlığı",
+        "de": "Gewicht des Eises pro Smoothie in Gramm",
+        "fr": "Poids de la glace par smoothie en grammes"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Base Liquid Cost per Liter",
         "tr": "Litre Başına Baz Sıvı Maliyeti",
-        "de": "Base Liquid Cost per Liter",
-        "fr": "Base Liquid Cost per Liter",
+        "de": "Kosten der Basisflüssigkeit pro Liter",
+        "fr": "Coût du liquide de base par litre",
         "es": "Base Liquid Cost per Liter",
         "ar": "Base Liquid Cost per Liter"
       },
       "businessContext_i18n": {
         "en": "Cost of one liter of liquid base in USD",
-        "tr": "Bir litre sıvı bazın USD cinsinden maliyeti"
+        "tr": "Bir litre sıvı bazın USD cinsinden maliyeti",
+        "de": "Kosten eines Liters Basisflüssigkeit in USD",
+        "fr": "Coût d'un litre de liquide de base en USD"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Fruit Cost per kg",
         "tr": "kg Başına Meyve Maliyeti",
-        "de": "Fruit Cost per kg",
-        "fr": "Fruit Cost per kg",
+        "de": "Obstkosten pro kg",
+        "fr": "Coût des fruits par kg",
         "es": "Fruit Cost per kg",
         "ar": "Fruit Cost per kg"
       },
       "businessContext_i18n": {
         "en": "Cost of one kilogram of fruit in USD",
-        "tr": "Bir kilogram meyvenin USD cinsinden maliyeti"
+        "tr": "Bir kilogram meyvenin USD cinsinden maliyeti",
+        "de": "Kosten eines Kilogramms Obst in USD",
+        "fr": "Coût d'un kilogramme de fruits en USD"
       }
     },
     {
@@ -131,14 +143,16 @@
       "label_i18n": {
         "en": "Ice Cost per kg",
         "tr": "kg Başına Buz Maliyeti",
-        "de": "Ice Cost per kg",
-        "fr": "Ice Cost per kg",
+        "de": "Eiskosten pro kg",
+        "fr": "Coût de la glace par kg",
         "es": "Ice Cost per kg",
         "ar": "Ice Cost per kg"
       },
       "businessContext_i18n": {
         "en": "Cost of one kilogram of ice in USD",
-        "tr": "Bir kilogram buzun USD cinsinden maliyeti"
+        "tr": "Bir kilogram buzun USD cinsinden maliyeti",
+        "de": "Kosten eines Kilogramms Eis in USD",
+        "fr": "Coût d'un kilogramme de glace en USD"
       }
     }
   ],

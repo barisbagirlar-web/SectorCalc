@@ -21,11 +21,15 @@
       "label_i18n": {
         "en": "Number of Stops",
         "tr": "Duruş Sayısı",
-        "de": "Anzahl der Stopps"
+        "de": "Anzahl der Stopps",
+        "fr": "Nombre d'arrêts",
+        "es": "Número de paradas"
       },
       "businessContext_i18n": {
         "en": "Total delivery or service stops on the route.",
-        "tr": "Rotadaki toplam teslimat veya hizmet durağı sayısı."
+        "tr": "Rotadaki toplam teslimat veya hizmet durağı sayısı.",
+        "de": "Gesamtzahl der Liefer- oder Servicehalte auf der Route.",
+        "fr": "Nombre total d'arrêts de livraison ou de service sur la route."
       }
     },
     {
@@ -39,11 +43,15 @@
       "businessContext": "Total distance traveled for the route in kilometers.",
       "label_i18n": {
         "en": "Total Route Distance",
-        "tr": "Toplam Rota Mesafesi"
+        "tr": "Toplam Rota Mesafesi",
+        "de": "Gesamte Routenentfernung",
+        "fr": "Distance totale de la route"
       },
       "businessContext_i18n": {
         "en": "Total distance traveled for the route in kilometers.",
-        "tr": "Rota için kilometre cinsinden kat edilen toplam mesafe."
+        "tr": "Rota için kilometre cinsinden kat edilen toplam mesafe.",
+        "de": "Gesamte zurückgelegte Strecke für die Route in Kilometern.",
+        "fr": "Distance totale parcourue pour la route en kilomètres."
       }
     },
     {
@@ -58,11 +66,15 @@
       "label_i18n": {
         "en": "Average Speed",
         "tr": "Ortalama Hız",
-        "de": "Durchschnittsgeschwindigkeit"
+        "de": "Durchschnittsgeschwindigkeit",
+        "fr": "Vitesse moyenne",
+        "es": "Velocidad media"
       },
       "businessContext_i18n": {
         "en": "Average vehicle speed including traffic and stops.",
-        "tr": "Trafik ve duraklar dahil ortalama araç hızı."
+        "tr": "Trafik ve duraklar dahil ortalama araç hızı.",
+        "de": "Durchschnittliche Fahrzeuggeschwindigkeit inklusive Verkehr und Stopps.",
+        "fr": "Vitesse moyenne du véhicule incluant le trafic et les arrêts."
       }
     },
     {
@@ -76,11 +88,15 @@
       "businessContext": "Average time spent at each stop for loading/unloading.",
       "label_i18n": {
         "en": "Dwell Time per Stop",
-        "tr": "Durak Başına Bekleme Süresi"
+        "tr": "Durak Başına Bekleme Süresi",
+        "de": "Standzeit pro Halt",
+        "fr": "Temps d'immobilisation par arrêt"
       },
       "businessContext_i18n": {
         "en": "Average time spent at each stop for loading/unloading.",
-        "tr": "Yükleme/boşaltma için her durakta harcanan ortalama süre."
+        "tr": "Yükleme/boşaltma için her durakta harcanan ortalama süre.",
+        "de": "Durchschnittliche Zeit an jedem Halt für Be- und Entladung.",
+        "fr": "Temps moyen passé à chaque arrêt pour le chargement/déchargement."
       }
     },
     {
@@ -94,11 +110,16 @@
       "businessContext": "Fuel cost per kilometer driven.",
       "label_i18n": {
         "en": "Fuel Cost per km",
-        "tr": "km Başına Yakıt Maliyeti"
+        "tr": "km Başına Yakıt Maliyeti",
+        "de": "Kraftstoffkosten pro km",
+        "fr": "Coût du carburant par km",
+        "es": "Coste de combustible por km"
       },
       "businessContext_i18n": {
         "en": "Fuel cost per kilometer driven.",
-        "tr": "Sürülen kilometre başına yakıt maliyeti."
+        "tr": "Sürülen kilometre başına yakıt maliyeti.",
+        "de": "Kraftstoffkosten pro gefahrenem Kilometer.",
+        "fr": "Coût du carburant par kilomètre parcouru."
       }
     },
     {
@@ -112,11 +133,15 @@
       "businessContext": "Hourly wage cost for the driver.",
       "label_i18n": {
         "en": "Driver Hourly Rate",
-        "tr": "Sürücü Saatlik Ücreti"
+        "tr": "Sürücü Saatlik Ücreti",
+        "de": "Stundensatz Fahrer",
+        "fr": "Taux horaire du conducteur"
       },
       "businessContext_i18n": {
         "en": "Hourly wage cost for the driver.",
-        "tr": "Sürücü için saatlik ücret maliyeti."
+        "tr": "Sürücü için saatlik ücret maliyeti.",
+        "de": "Stundenlohnkosten für den Fahrer.",
+        "fr": "Coût horaire de la main-d'œuvre pour le conducteur."
       }
     },
     {
@@ -136,11 +161,15 @@
       ],
       "label_i18n": {
         "en": "Vehicle Type",
-        "tr": "Araç Türü"
+        "tr": "Araç Türü",
+        "de": "Fahrzeugtyp",
+        "fr": "Type de véhicule"
       },
       "businessContext_i18n": {
         "en": "Type of vehicle used for the route.",
-        "tr": "Rota için kullanılan araç türü."
+        "tr": "Rota için kullanılan araç türü.",
+        "de": "Art des für die Route verwendeten Fahrzeugs.",
+        "fr": "Type de véhicule utilisé pour la route."
       }
     },
     {
@@ -160,11 +189,15 @@
       "label_i18n": {
         "en": "Traffic Condition",
         "tr": "Trafik Durumu",
-        "de": "Verkehrsbedingungen"
+        "de": "Verkehrsbedingungen",
+        "fr": "Condition de circulation",
+        "es": "Condición del tráfico"
       },
       "businessContext_i18n": {
         "en": "Expected traffic condition along the route.",
-        "tr": "Rota boyunca beklenen trafik durumu."
+        "tr": "Rota boyunca beklenen trafik durumu.",
+        "de": "Erwartete Verkehrsbedingungen entlang der Route.",
+        "fr": "Condition de circulation attendue sur la route."
       }
     }
   ],

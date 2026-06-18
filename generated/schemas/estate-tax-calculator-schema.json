@@ -12,14 +12,16 @@
         "en": "Gross Estate Value",
         "tr": "Brüt Emlak Değeri",
         "de": "Brutto-Nachlasswert",
-        "fr": "Gross Estate Value",
-        "es": "Gross Estate Value",
+        "fr": "Valeur brute de la succession",
+        "es": "Valor Bruto del Patrimonio",
         "ar": "Gross Estate Value"
       },
       "businessContext_i18n": {
         "en": "Total fair market value of all assets at time of death",
         "tr": "Ölüm anındaki tüm varlıkların toplam gerçeğe uygun piyasa değeri",
-        "de": "Gesamter fairer Marktwert aller Vermögenswerte zum Todeszeitpunkt"
+        "de": "Gesamter fairer Marktwert aller Vermögenswerte zum Todeszeitpunkt",
+        "fr": "Valeur totale de marché de tous les actifs au moment du décès",
+        "es": "Valor total de mercado justo de todos los activos al momento del fallecimiento"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Standard Exemption",
         "tr": "Standart İstisna",
         "de": "Standard-Freibetrag",
-        "fr": "Standard Exemption",
-        "es": "Standard Exemption",
+        "fr": "Exonération standard",
+        "es": "Exención estándar",
         "ar": "Standard Exemption"
       },
       "businessContext_i18n": {
         "en": "Federal or jurisdictional exempt amount",
         "tr": "Federal veya yargısal muafiyet tutarı",
-        "de": "Bundes- oder gerichtlicher Freibetrag"
+        "de": "Bundes- oder gerichtlicher Freibetrag",
+        "fr": "Montant exonéré fédéral ou juridictionnel",
+        "es": "Monto exento federal o jurisdiccional"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Other Deductions",
         "tr": "Diğer Kesintiler",
         "de": "Sonstige Abzüge",
-        "fr": "Other Deductions",
-        "es": "Other Deductions",
+        "fr": "Autres déductions",
+        "es": "Otras deducciones",
         "ar": "Other Deductions"
       },
       "businessContext_i18n": {
         "en": "Charitable, marital, debts, and other allowable deductions",
         "tr": "Hayır kurumu, eş, borçlar ve diğer izin verilen kesintiler",
-        "de": "Spenden, eheliche Abzüge, Schulden und andere zulässige Abzüge"
+        "de": "Spenden, eheliche Abzüge, Schulden und andere zulässige Abzüge",
+        "fr": "Déductions caritatives, conjugales, dettes et autres déductions autorisées",
+        "es": "Deducciones por caridad, conyugales, deudas y otras permitidas"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Base Tax Rate",
         "tr": "Temel Vergi Oranı",
         "de": "Basissteuersatz",
-        "fr": "Base Tax Rate",
-        "es": "Base Tax Rate",
+        "fr": "Taux d'imposition de base",
+        "es": "Tasa impositiva base",
         "ar": "Base Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Statutory tax rate on taxable estate",
         "tr": "Vergiye tabi emlak üzerindeki yasal vergi oranı",
-        "de": "Gesetzlicher Steuersatz auf den steuerpflichtigen Nachlass"
+        "de": "Gesetzlicher Steuersatz auf den steuerpflichtigen Nachlass",
+        "fr": "Taux d'imposition légal sur la succession imposable",
+        "es": "Tasa impositiva legal sobre el patrimonio imponible"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Surcharge Threshold",
         "tr": "Ek Vergi Eşiği",
         "de": "Zuschlagsgrenze",
-        "fr": "Surcharge Threshold",
-        "es": "Surcharge Threshold",
+        "fr": "Seuil de surtaxe",
+        "es": "Umbral de recargo",
         "ar": "Surcharge Threshold"
       },
       "businessContext_i18n": {
         "en": "Taxable estate amount above which a surcharge applies",
         "tr": "Ek verginin uygulandığı vergiye tabi emlak tutarı",
-        "de": "Steuerpflichtiger Nachlassbetrag, ab dem ein Zuschlag gilt"
+        "de": "Steuerpflichtiger Nachlassbetrag, ab dem ein Zuschlag gilt",
+        "fr": "Montant de la succession imposable au-dessus duquel une surtaxe s'applique",
+        "es": "Monto del patrimonio imponible por encima del cual se aplica un recargo"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Surcharge Rate",
         "tr": "Ek Vergi Oranı",
         "de": "Zuschlagsteuersatz",
-        "fr": "Surcharge Rate",
-        "es": "Surcharge Rate",
+        "fr": "Taux de surtaxe",
+        "es": "Tasa de recargo",
         "ar": "Surcharge Rate"
       },
       "businessContext_i18n": {
         "en": "Additional tax rate applied on estate value exceeding surcharge threshold",
         "tr": "Ek vergi eşiğini aşan emlak değerine uygulanan ek vergi oranı",
-        "de": "Zusätzlicher Steuersatz auf den Nachlasswert über der Zuschlagsgrenze"
+        "de": "Zusätzlicher Steuersatz auf den Nachlasswert über der Zuschlagsgrenze",
+        "fr": "Taux d'imposition supplémentaire appliqué sur la valeur de la succession dépassant le seuil de surtaxe",
+        "es": "Tasa impositiva adicional aplicada sobre el valor del patrimonio que excede el umbral de recargo"
       }
     }
   ],

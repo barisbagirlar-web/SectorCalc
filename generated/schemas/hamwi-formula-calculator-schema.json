@@ -12,14 +12,16 @@
         "en": "Gender",
         "tr": "Cinsiyet",
         "de": "Geschlecht",
-        "fr": "Gender",
-        "es": "Gender",
+        "fr": "Genre",
+        "es": "Género",
         "ar": "Gender"
       },
       "businessContext_i18n": {
         "en": "1 for Male, 0 for Female",
         "tr": "1 Erkek, 0 Kadın",
-        "de": "1 für Männlich, 0 für Weiblich"
+        "de": "1 für Männlich, 0 für Weiblich",
+        "fr": "1 pour Homme, 0 pour Femme",
+        "es": "1 para Hombre, 0 para Mujer"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Height (ft)",
         "tr": "Yükseklik (ft)",
         "de": "Größe (ft)",
-        "fr": "Height (ft)",
-        "es": "Height (ft)",
+        "fr": "Hauteur (pi)",
+        "es": "Altura (ft)",
         "ar": "Height (ft)"
       },
       "businessContext_i18n": {
         "en": "Feet component of height",
         "tr": "Yüksekliğin fit bileşeni",
-        "de": "Fußanteil der Größe"
+        "de": "Fußanteil der Größe",
+        "fr": "Partie en pieds de la hauteur",
+        "es": "Componente de pies de la altura"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Height (in)",
         "tr": "Boy (inç)",
         "de": "Boy (inç)",
-        "fr": "Height (in)",
-        "es": "Height (in)",
+        "fr": "Taille (po)",
+        "es": "Boy (inç)",
         "ar": "Height (in)"
       },
       "businessContext_i18n": {
         "en": "Inches component of height",
         "tr": "Yüksekliğin inç bileşeni",
-        "de": "Zollanteil der Größe"
+        "de": "Zollanteil der Größe",
+        "fr": "Partie en pouces de la hauteur",
+        "es": "Componente de pulgadas de la altura"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Output Unit",
         "tr": "Çıktı Birimi",
         "de": "Ausgabeeinheit",
-        "fr": "Output Unit",
-        "es": "Output Unit",
+        "fr": "Unité de sortie",
+        "es": "Unidad de salida",
         "ar": "Output Unit"
       },
       "businessContext_i18n": {
         "en": "0 for lbs, 1 for kg",
         "tr": "0 lbs, 1 kg için",
-        "de": "0 für lbs, 1 für kg"
+        "de": "0 für lbs, 1 für kg",
+        "fr": "0 pour lb, 1 pour kg",
+        "es": "0 para lbs, 1 para kg"
       }
     }
   ],

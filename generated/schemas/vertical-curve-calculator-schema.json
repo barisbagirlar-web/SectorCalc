@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Initial Grade (%)",
         "tr": "Başlangıç Eğimi (%)",
-        "de": "Initial Grade (%)",
-        "fr": "Initial Grade (%)",
+        "de": "Anfangssteigung (%)",
+        "fr": "Pente initiale (%)",
         "es": "Initial Grade (%)",
         "ar": "Initial Grade (%)"
       },
       "businessContext_i18n": {
         "en": "Initial tangent grade in percent",
-        "tr": "Başlangıç teğet eğimi yüzde olarak"
+        "tr": "Başlangıç teğet eğimi yüzde olarak",
+        "de": "Anfängliche Tangentensteigung in Prozent",
+        "fr": "Pente initiale en pourcentage"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Final Grade (%)",
         "tr": "Bitiş Eğimi (%)",
-        "de": "Final Grade (%)",
-        "fr": "Final Grade (%)",
+        "de": "Endsteigung (%)",
+        "fr": "Pente finale (%)",
         "es": "Final Grade (%)",
         "ar": "Final Grade (%)"
       },
       "businessContext_i18n": {
         "en": "Final tangent grade in percent",
-        "tr": "Bitiş teğet eğimi yüzde olarak"
+        "tr": "Bitiş teğet eğimi yüzde olarak",
+        "de": "Endgültige Tangentensteigung in Prozent",
+        "fr": "Pente finale en pourcentage"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Curve Length (m)",
         "tr": "Eğri Uzunluğu (m)",
-        "de": "Curve Length (m)",
-        "fr": "Curve Length (m)",
+        "de": "Kurvenlänge (m)",
+        "fr": "Longueur de la courbe (m)",
         "es": "Curve Length (m)",
         "ar": "Curve Length (m)"
       },
       "businessContext_i18n": {
         "en": "Length of the vertical curve",
-        "tr": "Düşey eğrinin uzunluğu"
+        "tr": "Düşey eğrinin uzunluğu",
+        "de": "Länge der vertikalen Kurve",
+        "fr": "Longueur de la courbe verticale"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Station of PVC (m)",
         "tr": "PVC Noktası (m)",
-        "de": "Station of PVC (m)",
-        "fr": "Station of PVC (m)",
+        "de": "Station des PVC (m)",
+        "fr": "Station du PVC (m)",
         "es": "Station of PVC (m)",
         "ar": "Station of PVC (m)"
       },
       "businessContext_i18n": {
         "en": "Station of the point of vertical curvature",
-        "tr": "Düşey eğrilik noktasının istasyonu"
+        "tr": "Düşey eğrilik noktasının istasyonu",
+        "de": "Station des Scheitelpunkts der vertikalen Krümmung",
+        "fr": "Station du point de courbure verticale"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Elevation at PVC (m)",
         "tr": "PVC Kotu (m)",
-        "de": "Elevation at PVC (m)",
-        "fr": "Elevation at PVC (m)",
+        "de": "Höhe am PVC (m)",
+        "fr": "Altitude au PVC (m)",
         "es": "Elevation at PVC (m)",
         "ar": "Elevation at PVC (m)"
       },
       "businessContext_i18n": {
         "en": "Elevation at the point of vertical curvature",
-        "tr": "Düşey eğrilik noktasındaki kot"
+        "tr": "Düşey eğrilik noktasındaki kot",
+        "de": "Höhe am Scheitelpunkt der vertikalen Krümmung",
+        "fr": "Altitude au point de courbure verticale"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Target Station (m)",
         "tr": "Hedef İstasyon (m)",
-        "de": "Target Station (m)",
-        "fr": "Target Station (m)",
+        "de": "Zielstation (m)",
+        "fr": "Station cible (m)",
         "es": "Target Station (m)",
         "ar": "Target Station (m)"
       },
       "businessContext_i18n": {
         "en": "Station at which to compute the elevation",
-        "tr": "Kotun hesaplanacağı istasyon"
+        "tr": "Kotun hesaplanacağı istasyon",
+        "de": "Station, für die die Höhe berechnet werden soll",
+        "fr": "Station à laquelle calculer l'altitude"
       }
     }
   ],

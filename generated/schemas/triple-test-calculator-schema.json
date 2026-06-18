@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Specimen 1 Strength",
         "tr": "Numune 1 Dayanımı",
-        "de": "Specimen 1 Strength",
-        "fr": "Specimen 1 Strength",
+        "de": "Festigkeit Probe 1",
+        "fr": "Résistance de l'éprouvette 1",
         "es": "Specimen 1 Strength",
         "ar": "Specimen 1 Strength"
       },
       "businessContext_i18n": {
         "en": "Strength of first test specimen",
-        "tr": "İlk test numunesinin dayanımı"
+        "tr": "İlk test numunesinin dayanımı",
+        "de": "Festigkeit der ersten Prüfprobe",
+        "fr": "Résistance de la première éprouvette"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Specimen 2 Strength",
         "tr": "Numune 2 Dayanımı",
-        "de": "Specimen 2 Strength",
-        "fr": "Specimen 2 Strength",
+        "de": "Festigkeit Probe 2",
+        "fr": "Résistance de l'éprouvette 2",
         "es": "Specimen 2 Strength",
         "ar": "Specimen 2 Strength"
       },
       "businessContext_i18n": {
         "en": "Strength of second test specimen",
-        "tr": "İkinci test numunesinin dayanımı"
+        "tr": "İkinci test numunesinin dayanımı",
+        "de": "Festigkeit der zweiten Prüfprobe",
+        "fr": "Résistance de la deuxième éprouvette"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Specimen 3 Strength",
         "tr": "Numune 3 Dayanımı",
-        "de": "Specimen 3 Strength",
-        "fr": "Specimen 3 Strength",
+        "de": "Festigkeit Probe 3",
+        "fr": "Résistance de l'éprouvette 3",
         "es": "Specimen 3 Strength",
         "ar": "Specimen 3 Strength"
       },
       "businessContext_i18n": {
         "en": "Strength of third test specimen",
-        "tr": "Üçüncü test numunesinin dayanımı"
+        "tr": "Üçüncü test numunesinin dayanımı",
+        "de": "Festigkeit der dritten Prüfprobe",
+        "fr": "Résistance de la troisième éprouvette"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Target Strength",
         "tr": "Hedef Dayanım",
-        "de": "Target Strength",
-        "fr": "Target Strength",
+        "de": "Zielfestigkeit",
+        "fr": "Résistance cible",
         "es": "Target Strength",
         "ar": "Target Strength"
       },
       "businessContext_i18n": {
         "en": "Required minimum mean strength",
-        "tr": "Gerekli minimum ortalama dayanım"
+        "tr": "Gerekli minimum ortalama dayanım",
+        "de": "Erforderliche mittlere Mindestfestigkeit",
+        "fr": "Résistance moyenne minimale requise"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Acceptance CV Limit",
         "tr": "Kabul CV Sınırı",
-        "de": "Acceptance CV Limit",
-        "fr": "Acceptance CV Limit",
+        "de": "Akzeptanz-CV-Grenze",
+        "fr": "Limite CV d'acceptation",
         "es": "Acceptance CV Limit",
         "ar": "Acceptance CV Limit"
       },
       "businessContext_i18n": {
         "en": "Maximum allowed coefficient of variation",
-        "tr": "İzin verilen maksimum varyasyon katsayısı"
+        "tr": "İzin verilen maksimum varyasyon katsayısı",
+        "de": "Maximal zulässiger Variationskoeffizient",
+        "fr": "Coefficient de variation maximal autorisé"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Minimum Individual Strength",
         "tr": "Minimum Bireysel Dayanım",
-        "de": "Minimum Individual Strength",
-        "fr": "Minimum Individual Strength",
+        "de": "Minimale Einzelfestigkeit",
+        "fr": "Résistance individuelle minimale",
         "es": "Minimum Individual Strength",
         "ar": "Minimum Individual Strength"
       },
       "businessContext_i18n": {
         "en": "Lower tolerance for any single specimen",
-        "tr": "Herhangi bir numune için alt tolerans"
+        "tr": "Herhangi bir numune için alt tolerans",
+        "de": "Untere Toleranz für jede einzelne Probe",
+        "fr": "Tolérance inférieure pour toute éprouvette"
       }
     },
     {
@@ -131,14 +143,16 @@
       "label_i18n": {
         "en": "Maximum Individual Strength",
         "tr": "Maksimum Bireysel Dayanım",
-        "de": "Maximum Individual Strength",
-        "fr": "Maximum Individual Strength",
+        "de": "Maximale Einzelfestigkeit",
+        "fr": "Résistance individuelle maximale",
         "es": "Maximum Individual Strength",
         "ar": "Maximum Individual Strength"
       },
       "businessContext_i18n": {
         "en": "Upper tolerance for any single specimen",
-        "tr": "Herhangi bir numune için üst tolerans"
+        "tr": "Herhangi bir numune için üst tolerans",
+        "de": "Obere Toleranz für jede einzelne Probe",
+        "fr": "Tolérance supérieure pour toute éprouvette"
       }
     }
   ],

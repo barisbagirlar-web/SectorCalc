@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Energy Consumption (kWh)",
         "tr": "Enerji Tüketimi (kWh)",
-        "de": "Energy Consumption (kWh)",
-        "fr": "Energy Consumption (kWh)",
-        "es": "Energy Consumption (kWh)",
+        "de": "Energieverbrauch (kWh)",
+        "fr": "Consommation d'énergie (kWh)",
+        "es": "Consumo de energía (kWh)",
         "ar": "Energy Consumption (kWh)"
       },
       "businessContext_i18n": {
         "en": "Total energy used in production",
-        "tr": "Üretimde kullanılan toplam enerji"
+        "tr": "Üretimde kullanılan toplam enerji",
+        "de": "Gesamte in der Produktion verbrauchte Energie",
+        "fr": "Énergie totale utilisée en production"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Renewable Energy Share (%)",
         "tr": "Yenilenebilir Enerji Payı (%)",
-        "de": "Renewable Energy Share (%)",
-        "fr": "Renewable Energy Share (%)",
+        "de": "Anteil erneuerbarer Energien (%)",
+        "fr": "Part d'énergie renouvelable (%)",
         "es": "Renewable Energy Share (%)",
         "ar": "Renewable Energy Share (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of energy from renewable sources",
-        "tr": "Yenilenebilir kaynaklardan enerji yüzdesi"
+        "tr": "Yenilenebilir kaynaklardan enerji yüzdesi",
+        "de": "Prozentsatz der Energie aus erneuerbaren Quellen",
+        "fr": "Pourcentage d'énergie provenant de sources renouvelables"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Water Usage (m³)",
         "tr": "Su Kullanımı (m³)",
-        "de": "Water Usage (m³)",
-        "fr": "Water Usage (m³)",
+        "de": "Wasserverbrauch (m³)",
+        "fr": "Utilisation d'eau (m³)",
         "es": "Water Usage (m³)",
         "ar": "Water Usage (m³)"
       },
       "businessContext_i18n": {
         "en": "Total water consumed in process",
-        "tr": "Süreçte tüketilen toplam su"
+        "tr": "Süreçte tüketilen toplam su",
+        "de": "Gesamter im Prozess verbrauchter Wasser",
+        "fr": "Eau totale consommée dans le processus"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Waste Generated (kg)",
         "tr": "Oluşan Atık (kg)",
-        "de": "Waste Generated (kg)",
-        "fr": "Waste Generated (kg)",
+        "de": "Angefallener Abfall (kg)",
+        "fr": "Déchets générés (kg)",
         "es": "Waste Generated (kg)",
         "ar": "Waste Generated (kg)"
       },
       "businessContext_i18n": {
         "en": "Total waste produced",
-        "tr": "Üretilen toplam atık"
+        "tr": "Üretilen toplam atık",
+        "de": "Gesamter produzierter Abfall",
+        "fr": "Déchets totaux produits"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Recycled Waste (kg)",
         "tr": "Geri Dönüştürülen Atık (kg)",
-        "de": "Recycled Waste (kg)",
-        "fr": "Recycled Waste (kg)",
+        "de": "Recycelter Abfall (kg)",
+        "fr": "Déchets recyclés (kg)",
         "es": "Recycled Waste (kg)",
         "ar": "Recycled Waste (kg)"
       },
       "businessContext_i18n": {
         "en": "Waste sent for recycling",
-        "tr": "Geri dönüşüme gönderilen atık"
+        "tr": "Geri dönüşüme gönderilen atık",
+        "de": "Zum Recycling gegebener Abfall",
+        "fr": "Déchets envoyés au recyclage"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "CO2 Emissions (kg)",
         "tr": "CO2 Emisyonları (kg)",
-        "de": "CO2 Emissions (kg)",
-        "fr": "CO2 Emissions (kg)",
+        "de": "CO₂-Emissionen (kg)",
+        "fr": "Émissions de CO2 (kg)",
         "es": "CO2 Emissions (kg)",
         "ar": "CO2 Emissions (kg)"
       },
       "businessContext_i18n": {
         "en": "Total carbon dioxide emissions",
-        "tr": "Toplam karbondioksit emisyonları"
+        "tr": "Toplam karbondioksit emisyonları",
+        "de": "Gesamte Kohlendioxidemissionen",
+        "fr": "Émissions totales de dioxyde de carbone"
       }
     },
     {
@@ -131,15 +143,17 @@
       "label_i18n": {
         "en": "Production Units",
         "tr": "Üretim Birimleri",
-        "de": "Production Units",
-        "fr": "Production Units",
+        "de": "Produktionseinheiten",
+        "fr": "Unités de production",
         "es": "Production Units",
         "ar": "Production Units"
       },
       "businessContext_i18n": {
         "en": "Number of units produced",
         "tr": "Üretilen birim sayısı",
-        "de": "Anzahl der produzierten Einheiten"
+        "de": "Anzahl der produzierten Einheiten",
+        "fr": "Nombre d'unités produites",
+        "es": "Número de unidades producidas"
       }
     }
   ],

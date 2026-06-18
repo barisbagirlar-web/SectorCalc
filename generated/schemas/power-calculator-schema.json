@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Voltage",
         "tr": "Voltaj",
-        "de": "Voltage",
-        "fr": "Voltage",
-        "es": "Voltage",
+        "de": "Spannung",
+        "fr": "Tension",
+        "es": "Tensión",
         "ar": "Voltage"
       },
       "businessContext_i18n": {
         "en": "Nominal line voltage",
-        "tr": "Nominal hat gerilimi"
+        "tr": "Nominal hat gerilimi",
+        "de": "Nennspannung",
+        "fr": "Tension nominale de ligne",
+        "es": "Tensión nominal de línea"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Current",
         "tr": "Akım",
         "de": "Strom",
-        "fr": "Current",
-        "es": "Current",
+        "fr": "Courant",
+        "es": "Corriente",
         "ar": "Current"
       },
       "businessContext_i18n": {
         "en": "Operating current",
-        "tr": "İşletme akımı"
+        "tr": "İşletme akımı",
+        "de": "Betriebsstrom",
+        "fr": "Courant de fonctionnement",
+        "es": "Corriente de operación"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Power Factor",
         "tr": "Güç Faktörü",
         "de": "Leistungsfaktor",
-        "fr": "Power Factor",
-        "es": "Power Factor",
+        "fr": "Facteur de puissance",
+        "es": "Factor de potencia",
         "ar": "Power Factor"
       },
       "businessContext_i18n": {
         "en": "Power factor (cos φ)",
-        "tr": "Güç faktörü (cos φ)"
+        "tr": "Güç faktörü (cos φ)",
+        "de": "Leistungsfaktor (cos φ)",
+        "fr": "Facteur de puissance (cos φ)",
+        "es": "Factor de potencia (cos φ)"
       }
     }
   ],

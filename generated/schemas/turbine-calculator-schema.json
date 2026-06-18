@@ -12,13 +12,15 @@
         "en": "Hava Yoğunluğu",
         "tr": "Hava Yoğunluğu",
         "de": "Hava Yoğunluğu",
-        "fr": "Hava Yoğunluğu",
+        "fr": "Densité de l'air",
         "es": "Hava Yoğunluğu",
         "ar": "Hava Yoğunluğu"
       },
       "businessContext_i18n": {
         "en": "Deniz seviyesinde 15°C'de standart hava yoğunluğu. Rakım ve sıcaklığa göre değişir.",
-        "tr": "Deniz seviyesinde 15°C'de standart hava yoğunluğu. Rakım ve sıcaklığa göre değişir."
+        "tr": "Deniz seviyesinde 15°C'de standart hava yoğunluğu. Rakım ve sıcaklığa göre değişir.",
+        "de": "Standard-Luftdichte auf Meereshöhe bei 15°C. Ändert sich mit Höhe und Temperatur.",
+        "fr": "Densité de l'air standard au niveau de la mer à 15°C. Varie selon l'altitude et la température."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Rotor Çapı",
         "tr": "Rotor Çapı",
-        "de": "Rotor Çapı",
-        "fr": "Rotor Çapı",
+        "de": "Rotordurchmesser",
+        "fr": "Diamètre du rotor",
         "es": "Rotor Çapı",
         "ar": "Rotor Çapı"
       },
       "businessContext_i18n": {
         "en": "Türbin kanatlarının süpürdüğü dairenin çapı.",
-        "tr": "Türbin kanatlarının süpürdüğü dairenin çapı."
+        "tr": "Türbin kanatlarının süpürdüğü dairenin çapı.",
+        "de": "Durchmesser des Kreises, den die Turbinenblätter überstreichen.",
+        "fr": "Diamètre du cercle balayé par les pales de l'éolienne."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Rüzgar Hızı",
         "tr": "Rüzgar Hızı",
-        "de": "Rüzgar Hızı",
-        "fr": "Rüzgar Hızı",
+        "de": "Windgeschwindigkeit",
+        "fr": "Vitesse du vent",
         "es": "Rüzgar Hızı",
         "ar": "Rüzgar Hızı"
       },
       "businessContext_i18n": {
         "en": "Kanat yüksekliğindeki ortalama rüzgar hızı.",
-        "tr": "Kanat yüksekliğindeki ortalama rüzgar hızı."
+        "tr": "Kanat yüksekliğindeki ortalama rüzgar hızı.",
+        "de": "Durchschnittliche Windgeschwindigkeit in Nabenhöhe.",
+        "fr": "Vitesse moyenne du vent à la hauteur des pales."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Verimlilik",
         "tr": "Verimlilik",
         "de": "Wirkungsgrad",
-        "fr": "Verimlilik",
-        "es": "Verimlilik",
+        "fr": "Efficacité",
+        "es": "Eficiencia",
         "ar": "Verimlilik"
       },
       "businessContext_i18n": {
         "en": "Türbinin genel aerodinamik ve mekanik verimliliği. Tipik olarak %35-45 arası.",
-        "tr": "Türbinin genel aerodinamik ve mekanik verimliliği. Tipik olarak %35-45 arası."
+        "tr": "Türbinin genel aerodinamik ve mekanik verimliliği. Tipik olarak %35-45 arası.",
+        "de": "Gesamte aerodynamische und mechanische Effizienz der Turbine. Typischerweise 35-45%.",
+        "fr": "Efficacité aérodynamique et mécanique globale de l'éolienne. Typiquement entre 35 et 45 %."
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Real Length",
         "tr": "Gerçek Uzunluk",
-        "de": "Real Length",
-        "fr": "Real Length",
+        "de": "Reale Länge",
+        "fr": "Longueur réelle",
         "es": "Real Length",
         "ar": "Real Length"
       },
       "businessContext_i18n": {
         "en": "Length of the real object in the same units as other dimensions.",
-        "tr": "Gerçek nesnenin diğer boyutlarla aynı birimdeki uzunluğu."
+        "tr": "Gerçek nesnenin diğer boyutlarla aynı birimdeki uzunluğu.",
+        "de": "Länge des realen Objekts in denselben Einheiten wie andere Abmessungen.",
+        "fr": "Longueur de l'objet réel dans les mêmes unités que les autres dimensions."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Real Width",
         "tr": "Gerçek Genişlik",
-        "de": "Real Width",
-        "fr": "Real Width",
+        "de": "Reale Breite",
+        "fr": "Largeur réelle",
         "es": "Real Width",
         "ar": "Real Width"
       },
       "businessContext_i18n": {
         "en": "Width of the real object.",
-        "tr": "Gerçek nesnenin genişliği."
+        "tr": "Gerçek nesnenin genişliği.",
+        "de": "Breite des realen Objekts.",
+        "fr": "Largeur de l'objet réel."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Real Height",
         "tr": "Gerçek Yükseklik",
-        "de": "Real Height",
-        "fr": "Real Height",
+        "de": "Reale Höhe",
+        "fr": "Hauteur réelle",
         "es": "Real Height",
         "ar": "Real Height"
       },
       "businessContext_i18n": {
         "en": "Height of the real object.",
-        "tr": "Gerçek nesnenin yüksekliği."
+        "tr": "Gerçek nesnenin yüksekliği.",
+        "de": "Höhe des realen Objekts.",
+        "fr": "Hauteur de l'objet réel."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Scale Numerator",
         "tr": "Ölçek Payı",
-        "de": "Scale Numerator",
-        "fr": "Scale Numerator",
+        "de": "Maßstabszähler",
+        "fr": "Numérateur de l'échelle",
         "es": "Scale Numerator",
         "ar": "Scale Numerator"
       },
       "businessContext_i18n": {
         "en": "Numerator of the scale ratio (usually 1 for standard scales like 1:100).",
-        "tr": "Ölçek oranının payı (standart 1:100 gibi ölçeklerde genellikle 1)."
+        "tr": "Ölçek oranının payı (standart 1:100 gibi ölçeklerde genellikle 1).",
+        "de": "Zähler des Maßstabsverhältnisses (normalerweise 1 bei Standardskalen wie 1:100).",
+        "fr": "Numérateur du rapport d'échelle (généralement 1 pour les échelles standard comme 1:100)."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Scale Denominator",
         "tr": "Ölçek Paydası",
-        "de": "Scale Denominator",
-        "fr": "Scale Denominator",
+        "de": "Maßstabsnenner",
+        "fr": "Dénominateur de l'échelle",
         "es": "Scale Denominator",
         "ar": "Scale Denominator"
       },
       "businessContext_i18n": {
         "en": "Denominator of the scale ratio (e.g., 100 for 1:100).",
-        "tr": "Ölçek oranının paydası (örneğin 1:100 için 100)."
+        "tr": "Ölçek oranının paydası (örneğin 1:100 için 100).",
+        "de": "Nenner des Maßstabsverhältnisses (z. B. 100 bei 1:100).",
+        "fr": "Dénominateur du rapport d'échelle (par exemple, 100 pour 1:100)."
       }
     }
   ],

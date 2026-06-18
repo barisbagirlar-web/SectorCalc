@@ -12,13 +12,15 @@
         "en": "Weight",
         "tr": "Ağırlık",
         "de": "Gewicht",
-        "fr": "Weight",
-        "es": "Weight",
+        "fr": "Poids",
+        "es": "Peso",
         "ar": "Weight"
       },
       "businessContext_i18n": {
         "en": "User's body weight in kilograms for accurate metabolic and mechanical work calculations",
-        "tr": "Doğru metabolik ve mekanik iş hesaplamaları için kullanıcının kilogram cinsinden vücut ağırlığı"
+        "tr": "Doğru metabolik ve mekanik iş hesaplamaları için kullanıcının kilogram cinsinden vücut ağırlığı",
+        "de": "Körpergewicht des Benutzers in Kilogramm für genaue metabolische und mechanische Arbeitsberechnungen",
+        "fr": "Poids corporel de l'utilisateur en kilogrammes pour des calculs métaboliques et mécaniques précis"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Duration",
         "tr": "Süre",
         "de": "Dauer",
-        "fr": "Duration",
-        "es": "Duration",
+        "fr": "Durée",
+        "es": "Duración",
         "ar": "Duration"
       },
       "businessContext_i18n": {
         "en": "Total exercise duration in minutes",
-        "tr": "Dakika cinsinden toplam egzersiz süresi"
+        "tr": "Dakika cinsinden toplam egzersiz süresi",
+        "de": "Gesamte Trainingsdauer in Minuten",
+        "fr": "Durée totale de l'exercice en minutes"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "MET Value",
         "tr": "MET Değeri",
         "de": "MET-Wert",
-        "fr": "MET Value",
-        "es": "MET Value",
+        "fr": "Valeur MET",
+        "es": "Valor MET",
         "ar": "MET Value"
       },
       "businessContext_i18n": {
         "en": "Metabolic Equivalent of Task representing intensity; 5.5 typical for moderate stair stepping",
-        "tr": "Görevin metabolik eşdeğeri (MET); orta düzey merdiven çıkma için tipik 5.5"
+        "tr": "Görevin metabolik eşdeğeri (MET); orta düzey merdiven çıkma için tipik 5.5",
+        "de": "Metabolisches Äquivalent der Aufgabe (MET) für die Intensität; 5,5 typisch für moderates Treppensteigen",
+        "fr": "Équivalent métabolique de la tâche représentant l'intensité ; 5,5 typique pour un stepping modéré"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Step Height",
         "tr": "Basamak Yüksekliği",
-        "de": "Step Height",
-        "fr": "Step Height",
+        "de": "Stufenhöhe",
+        "fr": "Hauteur de marche",
         "es": "Step Height",
         "ar": "Step Height"
       },
       "businessContext_i18n": {
         "en": "Height of each step in meters (typical stair riser height)",
-        "tr": "Her bir basamağın metre cinsinden yüksekliği (tipik merdiven rıht yüksekliği)"
+        "tr": "Her bir basamağın metre cinsinden yüksekliği (tipik merdiven rıht yüksekliği)",
+        "de": "Höhe jeder Stufe in Metern (typische Setzstufenhöhe)",
+        "fr": "Hauteur de chaque marche en mètres (hauteur de contremarche typique)"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Steps per Minute",
         "tr": "Dakikadaki Adım Sayısı",
-        "de": "Steps per Minute",
-        "fr": "Steps per Minute",
+        "de": "Schritte pro Minute",
+        "fr": "Pas par minute",
         "es": "Steps per Minute",
         "ar": "Steps per Minute"
       },
       "businessContext_i18n": {
         "en": "Average stepping rate during exercise",
-        "tr": "Egzersiz sırasında ortalama adım atma hızı"
+        "tr": "Egzersiz sırasında ortalama adım atma hızı",
+        "de": "Durchschnittliche Schrittfrequenz während des Trainings",
+        "fr": "Cadence moyenne de stepping pendant l'exercice"
       }
     }
   ],

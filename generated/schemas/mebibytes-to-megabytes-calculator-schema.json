@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Mebibytes (MiB)",
         "tr": "Mebibayt (MiB)",
-        "de": "Mebibytes (MiB)",
-        "fr": "Mebibytes (MiB)",
+        "de": "Mebibyte (MiB)",
+        "fr": "Mébioctets (Mio)",
         "es": "Mebibytes (MiB)",
         "ar": "Mebibytes (MiB)"
       },
       "businessContext_i18n": {
         "en": "Quantity in mebibytes to be converted",
-        "tr": "Dönüştürülecek mebibayt miktarı"
+        "tr": "Dönüştürülecek mebibayt miktarı",
+        "de": "Menge in Mebibyte, die umgerechnet werden soll",
+        "fr": "Quantité en mébioctets à convertir",
+        "es": "Cantidad en mebibytes a convertir"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Binary Base Exponent (2^n)",
         "tr": "İkili Taban Üssü (2^n)",
-        "de": "Binary Base Exponent (2^n)",
-        "fr": "Binary Base Exponent (2^n)",
-        "es": "Binary Base Exponent (2^n)",
+        "de": "Binärer Basisexponent (2^n)",
+        "fr": "Exposant de base binaire (2^n)",
+        "es": "Exponente de base binaria (2^n)",
         "ar": "Binary Base Exponent (2^n)"
       },
       "businessContext_i18n": {
         "en": "Exponent for binary base; standard MiB uses 20",
-        "tr": "İkili taban üssü; standart MiB için 20 kullanılır"
+        "tr": "İkili taban üssü; standart MiB için 20 kullanılır",
+        "de": "Exponent für binäre Basis; Standard MiB verwendet 20",
+        "fr": "Exposant pour la base binaire ; un Mio standard utilise 20",
+        "es": "Exponente para base binaria; MiB estándar usa 20"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Metric Base Exponent (10^n)",
         "tr": "Metrik Taban Üssü (10^n)",
-        "de": "Metric Base Exponent (10^n)",
-        "fr": "Metric Base Exponent (10^n)",
-        "es": "Metric Base Exponent (10^n)",
+        "de": "Metrischer Basisexponent (10^n)",
+        "fr": "Exposant de base métrique (10^n)",
+        "es": "Exponente de base métrica (10^n)",
         "ar": "Metric Base Exponent (10^n)"
       },
       "businessContext_i18n": {
         "en": "Exponent for metric base; standard MB uses 6",
-        "tr": "Metrik taban üssü; standart MB için 6 kullanılır"
+        "tr": "Metrik taban üssü; standart MB için 6 kullanılır",
+        "de": "Exponent für metrische Basis; Standard MB verwendet 6",
+        "fr": "Exposant pour la base métrique ; un Mo standard utilise 6",
+        "es": "Exponente para base métrica; MB estándar usa 6"
       }
     },
     {
@@ -72,14 +81,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the result",
         "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı",
-        "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses"
+        "de": "Anzahl der Dezimalstellen zum Runden des Ergebnisses",
+        "fr": "Nombre de décimales pour arrondir le résultat",
+        "es": "Número de decimales para redondear el resultado"
       }
     }
   ],

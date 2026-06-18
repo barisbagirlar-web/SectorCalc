@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Manning's Roughness Coefficient (n)",
         "tr": "Manning's Roughness Coefficient (n)",
-        "de": "Manning's Roughness Coefficient (n)",
-        "fr": "Manning's Roughness Coefficient (n)",
-        "es": "Manning's Roughness Coefficient (n)",
+        "de": "Manning-Rauheitsbeiwert (n)",
+        "fr": "Coefficient de rugosité de Manning (n)",
+        "es": "Coeficiente de rugosidad de Manning (n)",
         "ar": "Manning's Roughness Coefficient (n)"
       },
       "businessContext_i18n": {
         "en": "Boyutsuz pürüzlülük katsayısı. Beton, toprak kanal veya doğal akarsu tipine göre seçilir.",
-        "tr": "Boyutsuz pürüzlülük katsayısı. Beton, toprak kanal veya doğal akarsu tipine göre seçilir."
+        "tr": "Boyutsuz pürüzlülük katsayısı. Beton, toprak kanal veya doğal akarsu tipine göre seçilir.",
+        "de": "Dimensionsloser Rauheitsbeiwert. Wird je nach Beton, Erdkanal oder natürlichem Fluss ausgewählt.",
+        "fr": "Coefficient de rugosité sans dimension. Choisir selon le type : béton, canal en terre ou cours d'eau naturel.",
+        "es": "Coeficiente de rugosidad adimensional. Se selecciona según el tipo de hormigón, canal de tierra o corriente natural."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Hydraulic Radius (R)",
         "tr": "Hydraulic Radius (R)",
-        "de": "Hydraulic Radius (R)",
-        "fr": "Hydraulic Radius (R)",
-        "es": "Hydraulic Radius (R)",
+        "de": "Hydraulischer Radius (R)",
+        "fr": "Rayon hydraulique (R)",
+        "es": "Radio hidráulico (R)",
         "ar": "Hydraulic Radius (R)"
       },
       "businessContext_i18n": {
         "en": "Akış kesit alanının ıslak çevreye oranı (A/P).",
-        "tr": "Akış kesit alanının ıslak çevreye oranı (A/P)."
+        "tr": "Akış kesit alanının ıslak çevreye oranı (A/P).",
+        "de": "Verhältnis von Strömungsquerschnittsfläche zu benetztem Umfang (A/P).",
+        "fr": "Rapport de la section mouillée au périmètre mouillé (A/P).",
+        "es": "Relación entre el área de la sección transversal del flujo y el perímetro mojado (A/P)."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Channel Slope (S)",
         "tr": "Channel Slope (S)",
-        "de": "Channel Slope (S)",
-        "fr": "Channel Slope (S)",
-        "es": "Channel Slope (S)",
+        "de": "Gerinnegefälle (S)",
+        "fr": "Pente du canal (S)",
+        "es": "Pendiente del canal (S)",
         "ar": "Channel Slope (S)"
       },
       "businessContext_i18n": {
         "en": "Kanal taban eğimi (düşey/yatay).",
-        "tr": "Kanal taban eğimi (düşey/yatay)."
+        "tr": "Kanal taban eğimi (düşey/yatay).",
+        "de": "Sohlgefälle des Gerinnes (vertikal/horizontal).",
+        "fr": "Pente du fond du canal (vertical/horizontal).",
+        "es": "Pendiente del fondo del canal (vertical/horizontal)."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Cross-sectional Flow Area (A)",
         "tr": "Kesit Akış Alanı (A)",
-        "de": "Cross-sectional Flow Area (A)",
-        "fr": "Cross-sectional Flow Area (A)",
-        "es": "Cross-sectional Flow Area (A)",
+        "de": "Strömungsquerschnittsfläche (A)",
+        "fr": "Section transversale d'écoulement (A)",
+        "es": "Área de la sección transversal del flujo (A)",
         "ar": "Cross-sectional Flow Area (A)"
       },
       "businessContext_i18n": {
         "en": "Akışın dolu kesit alanı.",
-        "tr": "Akışın dolu kesit alanı."
+        "tr": "Akışın dolu kesit alanı.",
+        "de": "Vollständige Querschnittsfläche der Strömung.",
+        "fr": "Section transversale pleine de l'écoulement.",
+        "es": "Área de la sección transversal llena del flujo."
       }
     }
   ],

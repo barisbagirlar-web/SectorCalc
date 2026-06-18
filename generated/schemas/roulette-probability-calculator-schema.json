@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Number of Spins",
         "tr": "Dönüş Sayısı",
-        "de": "Number of Spins",
-        "fr": "Number of Spins",
+        "de": "Anzahl der Drehungen",
+        "fr": "Nombre de tours",
         "es": "Number of Spins",
         "ar": "Number of Spins"
       },
       "businessContext_i18n": {
         "en": "Total number of roulette wheel spins to analyze.",
-        "tr": "Analiz edilecek toplam rulet çarkı dönüş sayısı."
+        "tr": "Analiz edilecek toplam rulet çarkı dönüş sayısı.",
+        "de": "Gesamtzahl der zu analysierenden Roulette-Raddrehungen.",
+        "fr": "Nombre total de tours de roue de roulette à analyser."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Numbers Covered per Spin",
         "tr": "Her Dönüşte Kapsanan Sayılar",
-        "de": "Numbers Covered per Spin",
-        "fr": "Numbers Covered per Spin",
+        "de": "Abgedeckte Zahlen pro Drehung",
+        "fr": "Numéros couverts par tour",
         "es": "Numbers Covered per Spin",
         "ar": "Numbers Covered per Spin"
       },
       "businessContext_i18n": {
         "en": "Quantity of numbers wagered on in each spin (e.g., 1 for straight-up).",
-        "tr": "Her dönüşte bahis oynanan sayı miktarı (örneğin, tek sayı için 1)."
+        "tr": "Her dönüşte bahis oynanan sayı miktarı (örneğin, tek sayı için 1).",
+        "de": "Anzahl der Zahlen, auf die bei jeder Drehung gesetzt wird (z. B. 1 für Plein).",
+        "fr": "Quantité de numéros misés à chaque tour (ex. : 1 pour un plein)."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Payout Multiplier",
         "tr": "Ödeme Çarpanı",
-        "de": "Payout Multiplier",
-        "fr": "Payout Multiplier",
+        "de": "Gewinnmultiplikator",
+        "fr": "Multiplicateur de gain",
         "es": "Payout Multiplier",
         "ar": "Payout Multiplier"
       },
       "businessContext_i18n": {
         "en": "Payout ratio for a winning spin (e.g., 35 for straight-up bet in European roulette).",
-        "tr": "Kazanan bir dönüş için ödeme oranı (örneğin, Avrupa ruletinde tek sayı bahsi için 35)."
+        "tr": "Kazanan bir dönüş için ödeme oranı (örneğin, Avrupa ruletinde tek sayı bahsi için 35).",
+        "de": "Gewinnverhältnis für eine gewinnende Drehung (z. B. 35 für Plein-Wette beim europäischen Roulette).",
+        "fr": "Ratio de gain pour un tour gagnant (ex. : 35 pour un plein à la roulette européenne)."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Bet Amount per Spin",
         "tr": "Her Dönüşte Bahis Miktarı",
-        "de": "Bet Amount per Spin",
-        "fr": "Bet Amount per Spin",
+        "de": "Einsatz pro Drehung",
+        "fr": "Montant de la mise par tour",
         "es": "Bet Amount per Spin",
         "ar": "Bet Amount per Spin"
       },
       "businessContext_i18n": {
         "en": "Wager placed on each individual spin.",
-        "tr": "Her bir dönüşe yatırılan bahis."
+        "tr": "Her bir dönüşe yatırılan bahis.",
+        "de": "Wette, die auf jede einzelne Drehung platziert wird.",
+        "fr": "Mise placée sur chaque tour individuel."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Total Numbers on Wheel",
         "tr": "Çarktaki Toplam Sayı",
-        "de": "Total Numbers on Wheel",
-        "fr": "Total Numbers on Wheel",
+        "de": "Gesamtzahlen auf dem Rad",
+        "fr": "Nombre total de numéros sur la roue",
         "es": "Total Numbers on Wheel",
         "ar": "Total Numbers on Wheel"
       },
       "businessContext_i18n": {
         "en": "Total pockets (37 for European single-zero, 38 for American double-zero).",
-        "tr": "Toplam cep sayısı (Avrupa tek sıfır için 37, Amerikan çift sıfır için 38)."
+        "tr": "Toplam cep sayısı (Avrupa tek sıfır için 37, Amerikan çift sıfır için 38).",
+        "de": "Gesamte Taschen (37 für europäisches Single-Zero, 38 für amerikanisches Double-Zero).",
+        "fr": "Total des cases (37 pour le zéro simple européen, 38 pour le double zéro américain)."
       }
     }
   ],

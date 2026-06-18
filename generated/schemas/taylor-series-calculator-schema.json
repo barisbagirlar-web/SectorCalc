@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Expansion Point (a)",
         "tr": "Genişleme Noktası (a)",
-        "de": "Expansion Point (a)",
-        "fr": "Expansion Point (a)",
+        "de": "Entwicklungspunkt (a)",
+        "fr": "Point d'expansion (a)",
         "es": "Expansion Point (a)",
         "ar": "Expansion Point (a)"
       },
       "businessContext_i18n": {
         "en": "The point about which the Taylor series is expanded.",
-        "tr": "Taylor serisinin açıldığı nokta"
+        "tr": "Taylor serisinin açıldığı nokta",
+        "de": "Der Punkt, um den die Taylor-Reihe entwickelt wird",
+        "fr": "Point autour duquel la série de Taylor est développée"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Evaluation Point (x)",
         "tr": "Değerlendirme Noktası (x)",
-        "de": "Evaluation Point (x)",
-        "fr": "Evaluation Point (x)",
+        "de": "Auswertungspunkt (x)",
+        "fr": "Point d'évaluation (x)",
         "es": "Evaluation Point (x)",
         "ar": "Evaluation Point (x)"
       },
       "businessContext_i18n": {
         "en": "The point at which the function is approximated.",
-        "tr": "Fonksiyonun yaklaşık olarak hesaplandığı nokta."
+        "tr": "Fonksiyonun yaklaşık olarak hesaplandığı nokta.",
+        "de": "Der Punkt, an dem die Funktion approximiert wird",
+        "fr": "Point auquel la fonction est approximée."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Polynomial Degree",
         "tr": "Polinom Derecesi",
-        "de": "Polynomial Degree",
-        "fr": "Polynomial Degree",
+        "de": "Polynomgrad",
+        "fr": "Degré du polynôme",
         "es": "Polynomial Degree",
         "ar": "Polynomial Degree"
       },
       "businessContext_i18n": {
         "en": "Highest order of the Taylor polynomial (0–3).",
-        "tr": "Taylor polinomunun en yüksek derecesi (0–3)."
+        "tr": "Taylor polinomunun en yüksek derecesi (0–3).",
+        "de": "Höchste Ordnung des Taylor-Polynoms (0–3).",
+        "fr": "Ordre le plus élevé du polynôme de Taylor (0–3)."
       }
     },
     {
@@ -78,7 +84,9 @@
       },
       "businessContext_i18n": {
         "en": "Function value at the expansion point.",
-        "tr": "Açılım noktasındaki fonksiyon değeri."
+        "tr": "Açılım noktasındaki fonksiyon değeri.",
+        "de": "Funktionswert am Entwicklungspunkt.",
+        "fr": "Valeur de la fonction au point d'expansion."
       }
     },
     {
@@ -98,7 +106,9 @@
       },
       "businessContext_i18n": {
         "en": "First derivative at the expansion point.",
-        "tr": "Açılım noktasındaki birinci türev."
+        "tr": "Açılım noktasındaki birinci türev.",
+        "de": "Erste Ableitung am Entwicklungspunkt.",
+        "fr": "Première dérivée au point d'expansion."
       }
     },
     {
@@ -118,7 +128,9 @@
       },
       "businessContext_i18n": {
         "en": "Second derivative at the expansion point.",
-        "tr": "Açılım noktasındaki ikinci türev."
+        "tr": "Açılım noktasındaki ikinci türev.",
+        "de": "Zweite Ableitung am Entwicklungspunkt.",
+        "fr": "Seconde dérivée au point d'expansion."
       }
     },
     {
@@ -138,7 +150,9 @@
       },
       "businessContext_i18n": {
         "en": "Third derivative at the expansion point.",
-        "tr": "Açılım noktasındaki üçüncü türev."
+        "tr": "Açılım noktasındaki üçüncü türev.",
+        "de": "Dritte Ableitung am Entwicklungspunkt.",
+        "fr": "Troisième dérivée au point d'expansion."
       }
     }
   ],

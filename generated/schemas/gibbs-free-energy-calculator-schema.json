@@ -12,14 +12,16 @@
         "en": "Temperature",
         "tr": "Sıcaklık",
         "de": "Temperatur",
-        "fr": "Temperature",
-        "es": "Temperature",
+        "fr": "Température",
+        "es": "Temperatura",
         "ar": "Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature in Kelvin",
         "tr": "Kelvin cinsinden sıcaklık",
-        "de": "Temperatur in Kelvin"
+        "de": "Temperatur in Kelvin",
+        "fr": "Température en Kelvin",
+        "es": "Temperatura en Kelvin"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Gas Constant",
         "tr": "Gaz Sabiti",
         "de": "Gaskonstante",
-        "fr": "Gas Constant",
-        "es": "Gas Constant",
+        "fr": "Constante des gaz",
+        "es": "Constante de los gases",
         "ar": "Gas Constant"
       },
       "businessContext_i18n": {
         "en": "Ideal gas constant (default 0.008314 kJ/(mol·K))",
         "tr": "İdeal gaz sabiti (varsayılan 0.008314 kJ/(mol·K))",
-        "de": "Ideale Gaskonstante (Standard 0,008314 kJ/(mol·K))"
+        "de": "Ideale Gaskonstante (Standard 0,008314 kJ/(mol·K))",
+        "fr": "Constante des gaz parfaits (par défaut 0,008314 kJ/(mol·K))",
+        "es": "Constante universal de los gases (por defecto 0.008314 kJ/(mol·K))"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Standard ΔG°",
         "tr": "Standart ΔG°",
         "de": "Standard ΔG°",
-        "fr": "Standard ΔG°",
-        "es": "Standard ΔG°",
+        "fr": "ΔG° standard",
+        "es": "ΔG° estándar",
         "ar": "Standard ΔG°"
       },
       "businessContext_i18n": {
         "en": "Standard Gibbs free energy change of reaction (ΔG°) in kJ/mol",
         "tr": "Reaksiyonun standart Gibbs serbest enerji değişimi (ΔG°) kJ/mol cinsinden",
-        "de": "Standard-Gibbs-Energieänderung der Reaktion (ΔG°) in kJ/mol"
+        "de": "Standard-Gibbs-Energieänderung der Reaktion (ΔG°) in kJ/mol",
+        "fr": "Variation d'énergie libre de Gibbs standard de la réaction (ΔG°) en kJ/mol",
+        "es": "Cambio de energía libre de Gibbs estándar de la reacción (ΔG°) en kJ/mol"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Reaction Quotient",
         "tr": "Reaksiyon bölümü",
         "de": "Reaktionsquotient",
-        "fr": "Reaction Quotient",
-        "es": "Reaction Quotient",
+        "fr": "Quotient réactionnel",
+        "es": "Cociente de reacción",
         "ar": "Reaction Quotient"
       },
       "businessContext_i18n": {
         "en": "Reaction quotient Q (dimensionless)",
         "tr": "Reaksiyon bölümü Q (boyutsuz)",
-        "de": "Reaktionsquotient Q (dimensionslos)"
+        "de": "Reaktionsquotient Q (dimensionslos)",
+        "fr": "Quotient réactionnel Q (sans dimension)",
+        "es": "Cociente de reacción Q (adimensional)"
       }
     }
   ],

@@ -12,13 +12,15 @@
         "en": "Başlangıç Günü",
         "tr": "Başlangıç Günü",
         "de": "Starttag",
-        "fr": "Başlangıç Günü",
-        "es": "Başlangıç Günü",
+        "fr": "Jour de début",
+        "es": "Día de inicio",
         "ar": "Başlangıç Günü"
       },
       "businessContext_i18n": {
         "en": "Başlangıç tarihinin gün bileşeni (1-31)",
-        "tr": "Başlangıç tarihinin gün bileşeni (1-31)"
+        "tr": "Başlangıç tarihinin gün bileşeni (1-31)",
+        "de": "Tag-Komponente des Startdatums (1-31)",
+        "fr": "Composante jour de la date de début (1-31)"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Başlangıç Ayı",
         "tr": "Başlangıç Ayı",
         "de": "Startmonat",
-        "fr": "Başlangıç Ayı",
-        "es": "Başlangıç Ayı",
+        "fr": "Mois de début",
+        "es": "Mes de inicio",
         "ar": "Başlangıç Ayı"
       },
       "businessContext_i18n": {
         "en": "Başlangıç tarihinin ay bileşeni (1-12)",
-        "tr": "Başlangıç tarihinin ay bileşeni (1-12)"
+        "tr": "Başlangıç tarihinin ay bileşeni (1-12)",
+        "de": "Monat-Komponente des Startdatums (1-12)",
+        "fr": "Composante mois de la date de début (1-12)"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Başlangıç Yılı",
         "tr": "Başlangıç Yılı",
         "de": "Startjahr",
-        "fr": "Başlangıç Yılı",
-        "es": "Başlangıç Yılı",
+        "fr": "Année de début",
+        "es": "Año de inicio",
         "ar": "Başlangıç Yılı"
       },
       "businessContext_i18n": {
         "en": "Başlangıç tarihinin yıl bileşeni",
-        "tr": "Başlangıç tarihinin yıl bileşeni"
+        "tr": "Başlangıç tarihinin yıl bileşeni",
+        "de": "Jahr-Komponente des Startdatums",
+        "fr": "Composante année de la date de début"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Bitiş Günü",
         "tr": "Bitiş Günü",
-        "de": "Bitiş Günü",
-        "fr": "Bitiş Günü",
+        "de": "Endtag",
+        "fr": "Jour de fin",
         "es": "Bitiş Günü",
         "ar": "Bitiş Günü"
       },
       "businessContext_i18n": {
         "en": "Bitiş tarihinin gün bileşeni (1-31)",
-        "tr": "Bitiş tarihinin gün bileşeni (1-31)"
+        "tr": "Bitiş tarihinin gün bileşeni (1-31)",
+        "de": "Tag-Komponente des Enddatums (1-31)",
+        "fr": "Composante jour de la date de fin (1-31)"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Bitiş Ayı",
         "tr": "Bitiş Ayı",
-        "de": "Bitiş Ayı",
-        "fr": "Bitiş Ayı",
+        "de": "Endmonat",
+        "fr": "Mois de fin",
         "es": "Bitiş Ayı",
         "ar": "Bitiş Ayı"
       },
       "businessContext_i18n": {
         "en": "Bitiş tarihinin ay bileşeni (1-12)",
-        "tr": "Bitiş tarihinin ay bileşeni (1-12)"
+        "tr": "Bitiş tarihinin ay bileşeni (1-12)",
+        "de": "Monatskomponente des Enddatums (1-12)",
+        "fr": "Composante mois de la date de fin (1-12)"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Bitiş Yılı",
         "tr": "Bitiş Yılı",
-        "de": "Bitiş Yılı",
-        "fr": "Bitiş Yılı",
+        "de": "Endjahr",
+        "fr": "Année de fin",
         "es": "Bitiş Yılı",
         "ar": "Bitiş Yılı"
       },
       "businessContext_i18n": {
         "en": "Bitiş tarihinin yıl bileşeni",
-        "tr": "Bitiş tarihinin yıl bileşeni"
+        "tr": "Bitiş tarihinin yıl bileşeni",
+        "de": "Jahreskomponente des Enddatums",
+        "fr": "Composante année de la date de fin"
       }
     }
   ],

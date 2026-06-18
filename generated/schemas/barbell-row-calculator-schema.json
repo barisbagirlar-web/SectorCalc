@@ -12,14 +12,16 @@
         "en": "Barbell Diameter",
         "tr": "Halter Çapı",
         "de": "Hanteldurchmesser",
-        "fr": "Barbell Diameter",
-        "es": "Barbell Diameter",
+        "fr": "Diamètre de la barre",
+        "es": "Diámetro de la barra",
         "ar": "Barbell Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the barbell shaft for section modulus calculation.",
         "tr": "Kesit modülü hesaplaması için halter milinin çapı.",
-        "de": "Durchmesser der Hantelstange für die Berechnung des Widerstandsmoments."
+        "de": "Durchmesser der Hantelstange für die Berechnung des Widerstandsmoments.",
+        "fr": "Diamètre de l'arbre de la barre pour le calcul du module de section.",
+        "es": "Diámetro del eje de la barra para el cálculo del módulo de sección."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Barbell Length",
         "tr": "Halter Uzunluğu",
         "de": "Hantellänge",
-        "fr": "Barbell Length",
-        "es": "Barbell Length",
+        "fr": "Longueur de la barre",
+        "es": "Longitud de la barra",
         "ar": "Barbell Length"
       },
       "businessContext_i18n": {
         "en": "Length of the barbell between supports for bending moment calculation.",
         "tr": "Eğilme momenti hesaplaması için destekler arasındaki halter uzunluğu.",
-        "de": "Länge der Hantel zwischen den Auflagern für die Berechnung des Biegemoments."
+        "de": "Länge der Hantel zwischen den Auflagern für die Berechnung des Biegemoments.",
+        "fr": "Longueur de la barre entre les supports pour le calcul du moment de flexion.",
+        "es": "Longitud de la barra entre apoyos para el cálculo del momento flector."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Load Weight",
         "tr": "Yük Ağırlığı",
         "de": "Lastgewicht",
-        "fr": "Load Weight",
-        "es": "Load Weight",
+        "fr": "Poids de la charge",
+        "es": "Peso de la carga",
         "ar": "Load Weight"
       },
       "businessContext_i18n": {
         "en": "Weight of the plates loaded on the barbell, including bar weight if not centered.",
         "tr": "Halter üzerine yüklenen plakaların ağırlığı, merkezde değilse halter ağırlığı dahil.",
-        "de": "Gewicht der auf der Hantel geladenen Scheiben, einschließlich Stangengewicht, falls nicht mittig."
+        "de": "Gewicht der auf der Hantel geladenen Scheiben, einschließlich Stangengewicht, falls nicht mittig.",
+        "fr": "Poids des disques chargés sur la barre, y compris le poids de la barre si non centré.",
+        "es": "Peso de los discos cargados en la barra, incluyendo el peso de la barra si no está centrada."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Material Yield Strength",
         "tr": "Malzeme Akma Dayanımı",
         "de": "Streckgrenze des Materials",
-        "fr": "Material Yield Strength",
-        "es": "Material Yield Strength",
+        "fr": "Limite d'élasticité du matériau",
+        "es": "Límite elástico del material",
         "ar": "Material Yield Strength"
       },
       "businessContext_i18n": {
         "en": "Yield strength of the barbell material for allowable stress calculation.",
         "tr": "İzin verilen gerilme hesaplaması için halter malzemesinin akma dayanımı.",
-        "de": "Streckgrenze des Hantelmaterials für die Berechnung der zulässigen Spannung."
+        "de": "Streckgrenze des Hantelmaterials für die Berechnung der zulässigen Spannung.",
+        "fr": "Limite d'élasticité du matériau de la barre pour le calcul de la contrainte admissible.",
+        "es": "Límite elástico del material de la barra para el cálculo de la tensión admisible."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
-        "fr": "Safety Factor",
-        "es": "Safety Factor",
+        "fr": "Coefficient de sécurité",
+        "es": "Factor de seguridad",
         "ar": "Safety Factor"
       },
       "businessContext_i18n": {
         "en": "Design safety factor to ensure safe load capacity.",
         "tr": "Güvenli yük kapasitesini sağlamak için tasarım güvenlik faktörü.",
-        "de": "Konstruktionssicherheitsfaktor zur Gewährleistung der sicheren Tragfähigkeit."
+        "de": "Konstruktionssicherheitsfaktor zur Gewährleistung der sicheren Tragfähigkeit.",
+        "fr": "Coefficient de sécurité de conception pour garantir une capacité de charge sûre.",
+        "es": "Factor de seguridad de diseño para garantizar la capacidad de carga segura."
       }
     }
   ],

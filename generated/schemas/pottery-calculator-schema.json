@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Number of Pieces",
         "tr": "Parça Sayısı",
-        "de": "Number of Pieces",
-        "fr": "Number of Pieces",
-        "es": "Number of Pieces",
+        "de": "Stückzahl",
+        "fr": "Nombre de pièces",
+        "es": "Número de piezas",
         "ar": "Number of Pieces"
       },
       "businessContext_i18n": {
         "en": "Total quantity of pottery items to produce.",
-        "tr": "Üretilecek toplam seramik ürün miktarı."
+        "tr": "Üretilecek toplam seramik ürün miktarı.",
+        "de": "Gesamtmenge der zu produzierenden Keramikartikel.",
+        "fr": "Quantité totale d'articles en poterie à produire",
+        "es": "Cantidad total de artículos de cerámica a producir."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Clay Weight per Piece",
         "tr": "Parça Başına Kil Ağırlığı",
-        "de": "Clay Weight per Piece",
-        "fr": "Clay Weight per Piece",
-        "es": "Clay Weight per Piece",
+        "de": "Tongewicht pro Stück",
+        "fr": "Poids d'argile par pièce",
+        "es": "Peso de arcilla por pieza",
         "ar": "Clay Weight per Piece"
       },
       "businessContext_i18n": {
         "en": "Amount of clay needed for one piece before firing.",
-        "tr": "Pişirmeden önce bir parça için gereken kil miktarı."
+        "tr": "Pişirmeden önce bir parça için gereken kil miktarı.",
+        "de": "Tonmenge, die vor dem Brennen für ein Stück benötigt wird.",
+        "fr": "Quantité d'argile nécessaire pour une pièce avant cuisson",
+        "es": "Cantidad de arcilla necesaria para una pieza antes de la cocción."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Clay Cost per Kg",
         "tr": "Kg Başına Kil Maliyeti",
-        "de": "Clay Cost per Kg",
-        "fr": "Clay Cost per Kg",
-        "es": "Clay Cost per Kg",
+        "de": "Tonkosten pro kg",
+        "fr": "Coût de l'argile par kg",
+        "es": "Costo de arcilla por kg",
         "ar": "Clay Cost per Kg"
       },
       "businessContext_i18n": {
         "en": "Market price of clay per kilogram.",
-        "tr": "Kilogram başına kilin piyasa fiyatı."
+        "tr": "Kilogram başına kilin piyasa fiyatı.",
+        "de": "Marktpreis für Ton pro Kilogramm.",
+        "fr": "Prix du marché de l'argile par kilogramme",
+        "es": "Precio de mercado de la arcilla por kilogramo."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Glaze Usage per Piece",
         "tr": "Parça Başına Sır Kullanımı",
-        "de": "Glaze Usage per Piece",
-        "fr": "Glaze Usage per Piece",
-        "es": "Glaze Usage per Piece",
+        "de": "Glasurverbrauch pro Stück",
+        "fr": "Utilisation de glaçure par pièce",
+        "es": "Uso de esmalte por pieza",
         "ar": "Glaze Usage per Piece"
       },
       "businessContext_i18n": {
         "en": "Volume of glaze applied on each piece.",
-        "tr": "Her bir parçaya uygulanan sır hacmi."
+        "tr": "Her bir parçaya uygulanan sır hacmi.",
+        "de": "Volumen der auf jedes Stück aufgetragenen Glasur.",
+        "fr": "Volume de glaçure appliqué sur chaque pièce.",
+        "es": "Volumen de esmalte aplicado en cada pieza."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Glaze Cost per Liter",
         "tr": "Sır Maliyeti (Litre başına)",
-        "de": "Glaze Cost per Liter",
-        "fr": "Glaze Cost per Liter",
-        "es": "Glaze Cost per Liter",
+        "de": "Glasurenkosten pro Liter",
+        "fr": "Coût de la glaçure par litre",
+        "es": "Costo de esmalte por litro",
         "ar": "Glaze Cost per Liter"
       },
       "businessContext_i18n": {
         "en": "Market price of glaze per liter.",
-        "tr": "Sırın litre başına piyasa fiyatı."
+        "tr": "Sırın litre başına piyasa fiyatı.",
+        "de": "Marktpreis für Glasur pro Liter.",
+        "fr": "Prix du marché de la glaçure par litre.",
+        "es": "Precio de mercado del esmalte por litro."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Firing Cost per Piece",
         "tr": "Parça Başına Pişirme Maliyeti",
-        "de": "Firing Cost per Piece",
-        "fr": "Firing Cost per Piece",
-        "es": "Firing Cost per Piece",
+        "de": "Brennkosten pro Stück",
+        "fr": "Coût de cuisson par pièce",
+        "es": "Coste de cocción por pieza",
         "ar": "Firing Cost per Piece"
       },
       "businessContext_i18n": {
         "en": "Energy and kiln maintenance cost for firing one piece.",
-        "tr": "Bir parçanın pişirilmesi için enerji ve fırın bakım maliyeti."
+        "tr": "Bir parçanın pişirilmesi için enerji ve fırın bakım maliyeti.",
+        "de": "Energie- und Ofenwartungskosten für das Brennen eines Stücks.",
+        "fr": "Coût énergétique et d'entretien du four pour la cuisson d'une pièce.",
+        "es": "Coste de energía y mantenimiento del horno para cocer una pieza."
       }
     },
     {
@@ -132,13 +150,16 @@
         "en": "Overhead Percentage",
         "tr": "Genel Gider Yüzdesi",
         "de": "Gemeinkostenprozentsatz",
-        "fr": "Overhead Percentage",
-        "es": "Overhead Percentage",
+        "fr": "Pourcentage de frais généraux",
+        "es": "Porcentaje de gastos generales",
         "ar": "Overhead Percentage"
       },
       "businessContext_i18n": {
         "en": "Indirect costs (labor, rent, tools) as a percentage of material and firing costs.",
-        "tr": "Malzeme ve pişirme maliyetlerinin yüzdesi olarak dolaylı maliyetler (işçilik, kira, aletler)."
+        "tr": "Malzeme ve pişirme maliyetlerinin yüzdesi olarak dolaylı maliyetler (işçilik, kira, aletler).",
+        "de": "Indirekte Kosten (Arbeit, Miete, Werkzeuge) als Prozentsatz der Material- und Brennkosten.",
+        "fr": "Coûts indirects (main-d'œuvre, loyer, outils) en pourcentage des coûts de matière et de cuisson.",
+        "es": "Costes indirectos (mano de obra, alquiler, herramientas) como porcentaje de los costes de material y cocción."
       }
     }
   ],

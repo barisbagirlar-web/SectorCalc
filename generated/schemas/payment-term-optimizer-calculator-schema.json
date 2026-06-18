@@ -20,11 +20,17 @@
       "businessContext": "Average monetary value of a single invoice issued to customers.",
       "label_i18n": {
         "en": "Average Invoice Value",
-        "tr": "Ortalama Fatura Değeri"
+        "tr": "Ortalama Fatura Değeri",
+        "de": "Durchschnittlicher Rechnungswert",
+        "fr": "Valeur moyenne des factures",
+        "es": "Valor promedio de factura"
       },
       "businessContext_i18n": {
         "en": "Average monetary value of a single invoice issued to customers.",
-        "tr": "Müşterilere kesilen tek bir faturanın ortalama parasal değeri."
+        "tr": "Müşterilere kesilen tek bir faturanın ortalama parasal değeri.",
+        "de": "Durchschnittlicher Geldwert einer einzelnen an Kunden ausgestellten Rechnung.",
+        "fr": "Valeur monétaire moyenne d'une seule facture émise aux clients.",
+        "es": "Valor monetario promedio de una sola factura emitida a los clientes."
       }
     },
     {
@@ -38,11 +44,17 @@
       "businessContext": "Total number of invoices issued per year.",
       "label_i18n": {
         "en": "Annual Invoice Count",
-        "tr": "Yıllık Fatura Sayısı"
+        "tr": "Yıllık Fatura Sayısı",
+        "de": "Jährliche Rechnungsanzahl",
+        "fr": "Nombre annuel de factures",
+        "es": "Cantidad anual de facturas"
       },
       "businessContext_i18n": {
         "en": "Total number of invoices issued per year.",
-        "tr": "Yılda kesilen toplam fatura sayısı."
+        "tr": "Yılda kesilen toplam fatura sayısı.",
+        "de": "Gesamtzahl der pro Jahr ausgestellten Rechnungen.",
+        "fr": "Nombre total de factures émises par an.",
+        "es": "Número total de facturas emitidas por año."
       }
     },
     {
@@ -56,11 +68,17 @@
       "businessContext": "Current net payment term offered to customers (e.g., Net 30).",
       "label_i18n": {
         "en": "Current Payment Terms (Days)",
-        "tr": "Mevcut Ödeme Vadesi (Gün)"
+        "tr": "Mevcut Ödeme Vadesi (Gün)",
+        "de": "Aktuelle Zahlungsbedingungen (Tage)",
+        "fr": "Conditions de paiement actuelles (jours)",
+        "es": "Plazos de pago actuales (días)"
       },
       "businessContext_i18n": {
         "en": "Current net payment term offered to customers (e.g., Net 30).",
-        "tr": "Müşterilere sunulan mevcut net ödeme vadesi (örn. Net 30)."
+        "tr": "Müşterilere sunulan mevcut net ödeme vadesi (örn. Net 30).",
+        "de": "Aktuelle Netto-Zahlungsfrist für Kunden (z. B. Netto 30).",
+        "fr": "Délai de paiement net actuel offert aux clients (par exemple, Net 30).",
+        "es": "Plazo neto de pago actual ofrecido a los clientes (ej. Neto 30)."
       }
     },
     {
@@ -74,11 +92,17 @@
       "businessContext": "New net payment term to be evaluated (e.g., Net 15).",
       "label_i18n": {
         "en": "Proposed Payment Terms (Days)",
-        "tr": "Önerilen Ödeme Vadesi (Gün)"
+        "tr": "Önerilen Ödeme Vadesi (Gün)",
+        "de": "Vorgeschlagene Zahlungsbedingungen (Tage)",
+        "fr": "Conditions de paiement proposées (jours)",
+        "es": "Plazos de pago propuestos (días)"
       },
       "businessContext_i18n": {
         "en": "New net payment term to be evaluated (e.g., Net 15).",
-        "tr": "Değerlendirilecek yeni net ödeme vadesi (örn. Net 15)."
+        "tr": "Değerlendirilecek yeni net ödeme vadesi (örn. Net 15).",
+        "de": "Neue Netto-Zahlungsfrist, die bewertet werden soll (z. B. Netto 15).",
+        "fr": "Nouveau délai de paiement net à évaluer (par exemple, Net 15).",
+        "es": "Nuevo plazo neto de pago a evaluar (ej. Neto 15)."
       }
     },
     {
@@ -92,11 +116,17 @@
       "businessContext": "Percentage discount offered for early payment (e.g., 2/10 Net 30).",
       "label_i18n": {
         "en": "Early Payment Discount (%)",
-        "tr": "Erken Ödeme İskontosu (%)"
+        "tr": "Erken Ödeme İskontosu (%)",
+        "de": "Skonto (%)",
+        "fr": "Remise pour paiement anticipé (%)",
+        "es": "Descuento por pago anticipado (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage discount offered for early payment (e.g., 2/10 Net 30).",
-        "tr": "Erken ödeme için sunulan yüzde iskonto (örn. 2/10 Net 30)."
+        "tr": "Erken ödeme için sunulan yüzde iskonto (örn. 2/10 Net 30).",
+        "de": "Prozentualer Rabatt für vorzeitige Zahlung (z. B. 2/10 Netto 30).",
+        "fr": "Pourcentage de remise offert pour paiement anticipé (par exemple, 2/10 Net 30).",
+        "es": "Porcentaje de descuento ofrecido por pago anticipado (ej. 2/10 Neto 30)."
       }
     },
     {
@@ -110,11 +140,17 @@
       "businessContext": "Number of days within which the discount can be taken (e.g., 10 days for 2/10).",
       "label_i18n": {
         "en": "Discount Window (Days)",
-        "tr": "İskonto Penceresi (Gün)"
+        "tr": "İskonto Penceresi (Gün)",
+        "de": "Skontofrist (Tage)",
+        "fr": "Fenêtre de remise (jours)",
+        "es": "Ventana de descuento (días)"
       },
       "businessContext_i18n": {
         "en": "Number of days within which the discount can be taken (e.g., 10 days for 2/10).",
-        "tr": "İskontonun kullanılabileceği gün sayısı (örn. 2/10 için 10 gün)."
+        "tr": "İskontonun kullanılabileceği gün sayısı (örn. 2/10 için 10 gün).",
+        "de": "Anzahl der Tage, innerhalb derer der Rabatt in Anspruch genommen werden kann (z. B. 10 Tage bei 2/10).",
+        "fr": "Nombre de jours pendant lesquels la remise peut être prise (par exemple, 10 jours pour 2/10).",
+        "es": "Número de días dentro de los cuales se puede aplicar el descuento (ej. 10 días para 2/10)."
       }
     },
     {
@@ -128,11 +164,17 @@
       "businessContext": "Annual weighted average cost of capital (WACC) for the company.",
       "label_i18n": {
         "en": "Cost of Capital (%)",
-        "tr": "Sermaye Maliyeti (%)"
+        "tr": "Sermaye Maliyeti (%)",
+        "de": "Kapitalkosten (%)",
+        "fr": "Coût du capital (%)",
+        "es": "Costo de capital (%)"
       },
       "businessContext_i18n": {
         "en": "Annual weighted average cost of capital (WACC) for the company.",
-        "tr": "Şirket için yıllık ağırlıklı ortalama sermaye maliyeti (WACC)."
+        "tr": "Şirket için yıllık ağırlıklı ortalama sermaye maliyeti (WACC).",
+        "de": "Jährlicher gewichteter durchschnittlicher Kapitalkostensatz (WACC) des Unternehmens.",
+        "fr": "Coût moyen pondéré du capital annuel (CMPC) de l'entreprise.",
+        "es": "Costo de capital promedio ponderado anual (WACC) de la empresa."
       }
     },
     {
@@ -146,11 +188,17 @@
       "businessContext": "Estimated percentage of customers who will take the early payment discount.",
       "label_i18n": {
         "en": "Customer Acceptance Rate (%)",
-        "tr": "Müşteri Kabul Oranı (%)"
+        "tr": "Müşteri Kabul Oranı (%)",
+        "de": "Kundenakzeptanzrate (%)",
+        "fr": "Taux d'acceptation des clients (%)",
+        "es": "Tasa de aceptación del cliente (%)"
       },
       "businessContext_i18n": {
         "en": "Estimated percentage of customers who will take the early payment discount.",
-        "tr": "Erken ödeme iskontosunu kullanacak müşterilerin tahmini yüzdesi."
+        "tr": "Erken ödeme iskontosunu kullanacak müşterilerin tahmini yüzdesi.",
+        "de": "Geschätzter Prozentsatz der Kunden, die den Skonto in Anspruch nehmen.",
+        "fr": "Pourcentage estimé de clients qui prendront la remise pour paiement anticipé.",
+        "es": "Porcentaje estimado de clientes que tomarán el descuento por pago anticipado."
       }
     }
   ],

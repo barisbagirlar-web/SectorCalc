@@ -22,11 +22,17 @@
       "businessContext": "Weight of the product or packaging before lightweighting.",
       "label_i18n": {
         "en": "Current Weight per Unit (kg)",
-        "tr": "Mevcut Birim Ağırlık (kg)"
+        "tr": "Mevcut Birim Ağırlık (kg)",
+        "de": "Aktuelles Gewicht pro Einheit (kg)",
+        "fr": "Poids actuel par unité (kg)",
+        "es": "Peso actual por unidad (kg)"
       },
       "businessContext_i18n": {
         "en": "Weight of the product or packaging before lightweighting.",
-        "tr": "Hafifletme öncesi ürün veya ambalaj ağırlığı."
+        "tr": "Hafifletme öncesi ürün veya ambalaj ağırlığı.",
+        "de": "Gewicht des Produkts oder der Verpackung vor der Gewichtsreduzierung.",
+        "fr": "Poids du produit ou de l'emballage avant allègement.",
+        "es": "Peso del producto o embalaje antes de la reducción de peso."
       }
     },
     {
@@ -40,11 +46,17 @@
       "businessContext": "Weight of the product or packaging after lightweighting.",
       "label_i18n": {
         "en": "New Weight per Unit (kg)",
-        "tr": "Yeni Birim Ağırlık (kg)"
+        "tr": "Yeni Birim Ağırlık (kg)",
+        "de": "Neues Gewicht pro Einheit (kg)",
+        "fr": "Nouveau poids par unité (kg)",
+        "es": "Nuevo peso por unidad (kg)"
       },
       "businessContext_i18n": {
         "en": "Weight of the product or packaging after lightweighting.",
-        "tr": "Hafifletme sonrası ürün veya ambalaj ağırlığı."
+        "tr": "Hafifletme sonrası ürün veya ambalaj ağırlığı.",
+        "de": "Gewicht des Produkts oder der Verpackung nach der Gewichtsreduzierung.",
+        "fr": "Poids du produit ou de l'emballage après allègement.",
+        "es": "Peso del producto o embalaje después de la reducción de peso."
       }
     },
     {
@@ -58,11 +70,17 @@
       "businessContext": "Total number of units produced or shipped per year.",
       "label_i18n": {
         "en": "Annual Volume (units)",
-        "tr": "Yıllık Hacim (adet)"
+        "tr": "Yıllık Hacim (adet)",
+        "de": "Jahresvolumen (Einheiten)",
+        "fr": "Volume annuel (unités)",
+        "es": "Volumen anual (unidades)"
       },
       "businessContext_i18n": {
         "en": "Total number of units produced or shipped per year.",
-        "tr": "Yılda üretilen veya sevk edilen toplam birim sayısı."
+        "tr": "Yılda üretilen veya sevk edilen toplam birim sayısı.",
+        "de": "Gesamtzahl der pro Jahr produzierten oder versendeten Einheiten.",
+        "fr": "Nombre total d'unités produites ou expédiées par an.",
+        "es": "Número total de unidades producidas o enviadas por año."
       }
     },
     {
@@ -76,11 +94,17 @@
       "businessContext": "Cost of raw material per kilogram.",
       "label_i18n": {
         "en": "Material Cost per kg",
-        "tr": "Malzeme Maliyeti (kg başına)"
+        "tr": "Malzeme Maliyeti (kg başına)",
+        "de": "Materialkosten pro kg",
+        "fr": "Coût matière par kg",
+        "es": "Coste del material por kg"
       },
       "businessContext_i18n": {
         "en": "Cost of raw material per kilogram.",
-        "tr": "Kilogram başına hammadde maliyeti."
+        "tr": "Kilogram başına hammadde maliyeti.",
+        "de": "Kosten des Rohmaterials pro Kilogramm.",
+        "fr": "Coût de la matière première par kilogramme.",
+        "es": "Coste de la materia prima por kilogramo."
       }
     },
     {
@@ -94,11 +118,17 @@
       "businessContext": "Average freight cost per kilogram.",
       "label_i18n": {
         "en": "Shipping Cost per kg",
-        "tr": "Nakliye Maliyeti (kg başına)"
+        "tr": "Nakliye Maliyeti (kg başına)",
+        "de": "Versandkosten pro kg",
+        "fr": "Coût d'expédition par kg",
+        "es": "Coste de envío por kg"
       },
       "businessContext_i18n": {
         "en": "Average freight cost per kilogram.",
-        "tr": "Kilogram başına ortalama navlun maliyeti."
+        "tr": "Kilogram başına ortalama navlun maliyeti.",
+        "de": "Durchschnittliche Frachtkosten pro Kilogramm.",
+        "fr": "Coût de fret moyen par kilogramme.",
+        "es": "Coste medio de flete por kilogramo."
       }
     },
     {
@@ -112,11 +142,17 @@
       "businessContext": "Percentage of material wasted during production (scrap, rework).",
       "label_i18n": {
         "en": "Waste Rate (%)",
-        "tr": "Fire Oranı (%)"
+        "tr": "Fire Oranı (%)",
+        "de": "Ausschussrate (%)",
+        "fr": "Taux de rebut (%)",
+        "es": "Tasa de desperdicio (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage of material wasted during production (scrap, rework).",
-        "tr": "Üretim sırasında israf edilen malzeme yüzdesi (fire, yeniden işleme)."
+        "tr": "Üretim sırasında israf edilen malzeme yüzdesi (fire, yeniden işleme).",
+        "de": "Prozentsatz des während der Produktion verschwendeten Materials (Ausschuss, Nacharbeit).",
+        "fr": "Pourcentage de matière gaspillée pendant la production (rebut, reprise).",
+        "es": "Porcentaje de material desperdiciado durante la producción (desperdicio, retrabajo)."
       }
     },
     {
@@ -130,11 +166,17 @@
       "businessContext": "Direct labor hours required to produce one unit.",
       "label_i18n": {
         "en": "Labor Hours per Unit",
-        "tr": "Birim Başına İşçilik Saati"
+        "tr": "Birim Başına İşçilik Saati",
+        "de": "Arbeitsstunden pro Einheit",
+        "fr": "Heures de main-d'œuvre par unité",
+        "es": "Horas de mano de obra por unidad"
       },
       "businessContext_i18n": {
         "en": "Direct labor hours required to produce one unit.",
-        "tr": "Bir birim üretmek için gereken doğrudan işçilik saati."
+        "tr": "Bir birim üretmek için gereken doğrudan işçilik saati.",
+        "de": "Direkte Arbeitsstunden, die zur Herstellung einer Einheit erforderlich sind.",
+        "fr": "Heures de travail direct nécessaires pour produire une unité.",
+        "es": "Horas de mano de obra directa requeridas para producir una unidad."
       }
     },
     {
@@ -149,11 +191,16 @@
       "label_i18n": {
         "en": "Labor Rate per Hour",
         "tr": "Saatlik İşçilik Ücreti",
-        "de": "Stundensatz"
+        "de": "Stundensatz",
+        "fr": "Taux de main-d'œuvre par heure",
+        "es": "Tarifa de mano de obra por hora"
       },
       "businessContext_i18n": {
         "en": "Hourly wage including benefits.",
-        "tr": "Yan haklar dahil saatlik ücret."
+        "tr": "Yan haklar dahil saatlik ücret.",
+        "de": "Stundenlohn inklusive Zusatzleistungen.",
+        "fr": "Salaire horaire incluant les avantages sociaux.",
+        "es": "Salario por hora incluyendo prestaciones."
       }
     }
   ],

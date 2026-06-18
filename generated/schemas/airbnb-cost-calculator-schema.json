@@ -12,14 +12,16 @@
         "en": "Nightly Rate",
         "tr": "Gecelik Ücret",
         "de": "Nächtlicher Preis",
-        "fr": "Nightly Rate",
-        "es": "Nightly Rate",
+        "fr": "Tarif nocturne",
+        "es": "Tarifa nocturna",
         "ar": "Nightly Rate"
       },
       "businessContext_i18n": {
         "en": "The base price per night for the listing",
         "tr": "İlan için gece başına taban fiyat",
-        "de": "Der Basispreis pro Nacht für die Unterkunft"
+        "de": "Der Basispreis pro Nacht für die Unterkunft",
+        "fr": "Prix de base par nuit pour l'annonce",
+        "es": "Precio base por noche del anuncio"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Number of Nights",
         "tr": "Gece Sayısı",
         "de": "Anzahl der Nächte",
-        "fr": "Number of Nights",
-        "es": "Number of Nights",
+        "fr": "Nombre de nuits",
+        "es": "Número de noches",
         "ar": "Number of Nights"
       },
       "businessContext_i18n": {
         "en": "Duration of stay",
         "tr": "Konaklama süresi",
-        "de": "Aufenthaltsdauer"
+        "de": "Aufenthaltsdauer",
+        "fr": "Durée du séjour",
+        "es": "Duración de la estancia"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Cleaning Fee",
         "tr": "Temizlik Ücreti",
         "de": "Reinigungsgebühr",
-        "fr": "Cleaning Fee",
-        "es": "Cleaning Fee",
+        "fr": "Frais de ménage",
+        "es": "Tarifa de limpieza",
         "ar": "Cleaning Fee"
       },
       "businessContext_i18n": {
         "en": "One-time cleaning fee charged per booking",
         "tr": "Rezervasyon başına alınan tek seferlik temizlik ücreti",
-        "de": "Einmalige Reinigungsgebühr pro Buchung"
+        "de": "Einmalige Reinigungsgebühr pro Buchung",
+        "fr": "Frais de ménage uniques facturés par réservation",
+        "es": "Tarifa de limpieza única cobrada por reserva"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Service Fee Rate",
         "tr": "Hizmet Ücreti Oranı",
         "de": "Servicegebühren-Satz",
-        "fr": "Service Fee Rate",
-        "es": "Service Fee Rate",
+        "fr": "Taux des frais de service",
+        "es": "Porcentaje de tarifa de servicio",
         "ar": "Service Fee Rate"
       },
       "businessContext_i18n": {
         "en": "Airbnb host service fee percentage",
         "tr": "Airbnb ev sahibi hizmet ücreti yüzdesi",
-        "de": "Prozentsatz der Airbnb-Gastgeber-Servicegebühr"
+        "de": "Prozentsatz der Airbnb-Gastgeber-Servicegebühr",
+        "fr": "Pourcentage des frais de service hôte Airbnb",
+        "es": "Porcentaje de tarifa de servicio del anfitrión de Airbnb"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Occupancy Tax Rate",
         "tr": "Konaklama Vergisi Oranı",
         "de": "Belegungssteuersatz",
-        "fr": "Occupancy Tax Rate",
-        "es": "Occupancy Tax Rate",
+        "fr": "Taux de taxe d'occupation",
+        "es": "Porcentaje de impuesto de ocupación",
         "ar": "Occupancy Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Local occupancy / transient tax percentage",
         "tr": "Yerel konaklama / geçici vergi yüzdesi",
-        "de": "Lokaler Belegungs-/Transitsteuer-Prozentsatz"
+        "de": "Lokaler Belegungs-/Transitsteuer-Prozentsatz",
+        "fr": "Pourcentage de taxe d'occupation / taxe de séjour locale",
+        "es": "Porcentaje de impuesto de ocupación / impuesto de estancia local"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Additional Guest Fee (per guest per night)",
         "tr": "Ek Misafir Ücreti (misafir başına gece başına)",
         "de": "Zusätzliche Gästekosten (pro Gast pro Nacht)",
-        "fr": "Additional Guest Fee (per guest per night)",
-        "es": "Additional Guest Fee (per guest per night)",
+        "fr": "Frais pour invité supplémentaire (par invité et par nuit)",
+        "es": "Tarifa por huésped adicional (por huésped por noche)",
         "ar": "Additional Guest Fee (per guest per night)"
       },
       "businessContext_i18n": {
         "en": "Fee per extra guest per night beyond base occupancy",
         "tr": "Temel doluluk oranını aşan her ek misafir için gece başına ücret",
-        "de": "Gebühr pro zusätzlichem Gast pro Nacht über die Basisbelegung hinaus"
+        "de": "Gebühr pro zusätzlichem Gast pro Nacht über die Basisbelegung hinaus",
+        "fr": "Frais par invité supplémentaire par nuit au-delà de l'occupation de base",
+        "es": "Tarifa por huésped extra por noche que excede la ocupación base"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Number of Extra Guests",
         "tr": "Ek Misafir Sayısı",
         "de": "Anzahl der zusätzlichen Gäste",
-        "fr": "Number of Extra Guests",
-        "es": "Number of Extra Guests",
+        "fr": "Nombre d'invités supplémentaires",
+        "es": "Número de huéspedes adicionales",
         "ar": "Number of Extra Guests"
       },
       "businessContext_i18n": {
         "en": "Number of guests exceeding the base occupancy (e.g., beyond 2)",
         "tr": "Temel doluluk oranını (ör. 2 kişi) aşan misafir sayısı",
-        "de": "Anzahl der Gäste, die die Basisbelegung überschreiten (z. B. mehr als 2)"
+        "de": "Anzahl der Gäste, die die Basisbelegung überschreiten (z. B. mehr als 2)",
+        "fr": "Nombre d'invités dépassant l'occupation de base (par exemple, au-delà de 2)",
+        "es": "Número de huéspedes que exceden la ocupación base (p. ej., más de 2)"
       }
     },
     {
@@ -159,14 +173,16 @@
         "en": "Discount Rate",
         "tr": "İndirim Oranı",
         "de": "Rabattsatz",
-        "fr": "Discount Rate",
-        "es": "Discount Rate",
+        "fr": "Taux de remise",
+        "es": "Tasa de descuento",
         "ar": "Discount Rate"
       },
       "businessContext_i18n": {
         "en": "Percentage discount applied to the total (e.g., long-stay discount)",
         "tr": "Toplam tutara uygulanan yüzde indirim (ör. uzun süreli konaklama indirimi)",
-        "de": "Prozentualer Rabatt auf die Gesamtsumme (z. B. Langzeitrabatt)"
+        "de": "Prozentualer Rabatt auf die Gesamtsumme (z. B. Langzeitrabatt)",
+        "fr": "Pourcentage de remise appliqué au total (par exemple, remise pour long séjour)",
+        "es": "Porcentaje de descuento aplicado al total (p. ej., descuento por estancia larga)"
       }
     }
   ],

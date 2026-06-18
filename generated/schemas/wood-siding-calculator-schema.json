@@ -12,13 +12,15 @@
         "en": "Wall Width",
         "tr": "Duvar genişliği",
         "de": "Wandbreite",
-        "fr": "Wall Width",
-        "es": "Wall Width",
+        "fr": "Largeur du mur",
+        "es": "Ancho del muro",
         "ar": "Wall Width"
       },
       "businessContext_i18n": {
         "en": "The horizontal length of the wall to cover.",
-        "tr": "Kaplanacak duvarın yatay uzunluğu."
+        "tr": "Kaplanacak duvarın yatay uzunluğu.",
+        "de": "Die horizontale Länge der zu bedeckenden Wand.",
+        "fr": "Longueur horizontale du mur à couvrir."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Wall Height",
         "tr": "Duvar Yüksekliği",
         "de": "Wandhöhe",
-        "fr": "Wall Height",
-        "es": "Wall Height",
+        "fr": "Hauteur du mur",
+        "es": "Altura del muro",
         "ar": "Wall Height"
       },
       "businessContext_i18n": {
         "en": "The vertical height of the wall.",
-        "tr": "Duvarın dikey yüksekliği."
+        "tr": "Duvarın dikey yüksekliği.",
+        "de": "Die vertikale Höhe der Wand.",
+        "fr": "Hauteur verticale du mur."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Exposed Face",
         "tr": "Görünen Yüz",
-        "de": "Exposed Face",
-        "fr": "Exposed Face",
+        "de": "Sichtfläche",
+        "fr": "Face exposée",
         "es": "Exposed Face",
         "ar": "Exposed Face"
       },
       "businessContext_i18n": {
         "en": "The visible height of each siding board after overlapping, typically 4-8 inches.",
-        "tr": "Her bir cephe kaplama levhasının bindirmeden sonra görünen yüksekliği, tipik olarak 4-8 inç."
+        "tr": "Her bir cephe kaplama levhasının bindirmeden sonra görünen yüksekliği, tipik olarak 4-8 inç.",
+        "de": "Die sichtbare Höhe jeder Verkleidungsplatte nach Überlappung, typischerweise 4-8 Zoll.",
+        "fr": "Hauteur visible de chaque planche de bardage après recouvrement, généralement 4 à 8 pouces."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Board Length",
         "tr": "Tahta Uzunluğu",
         "de": "Brettlänge",
-        "fr": "Board Length",
-        "es": "Board Length",
+        "fr": "Longueur de la lame",
+        "es": "Longitud de la tabla",
         "ar": "Board Length"
       },
       "businessContext_i18n": {
         "en": "The length of each siding board.",
-        "tr": "Her bir cephe kaplama levhasının uzunluğu."
+        "tr": "Her bir cephe kaplama levhasının uzunluğu.",
+        "de": "Die Länge jeder Verkleidungsplatte.",
+        "fr": "Longueur de chaque planche de bardage."
       }
     },
     {
@@ -92,13 +100,15 @@
         "en": "Waste Factor",
         "tr": "Atık Faktörü",
         "de": "Abfallfaktor",
-        "fr": "Waste Factor",
-        "es": "Waste Factor",
+        "fr": "Facteur de perte",
+        "es": "Factor de desperdicio",
         "ar": "Waste Factor"
       },
       "businessContext_i18n": {
         "en": "Extra material percentage to account for cuts and errors.",
-        "tr": "Kesim ve hatalar için ekstra malzeme yüzdesi."
+        "tr": "Kesim ve hatalar için ekstra malzeme yüzdesi.",
+        "de": "Zusätzlicher Materialanteil für Schnitte und Fehler.",
+        "fr": "Pourcentage de matière supplémentaire pour tenir compte des coupes et des erreurs."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Price per Board",
         "tr": "Levha Başına Fiyat",
-        "de": "Price per Board",
-        "fr": "Price per Board",
+        "de": "Preis pro Brett",
+        "fr": "Prix par panneau",
         "es": "Price per Board",
         "ar": "Price per Board"
       },
       "businessContext_i18n": {
         "en": "Cost of one board.",
-        "tr": "Bir levhanın maliyeti."
+        "tr": "Bir levhanın maliyeti.",
+        "de": "Kosten eines Brettes.",
+        "fr": "Coût d'un panneau."
       }
     }
   ],

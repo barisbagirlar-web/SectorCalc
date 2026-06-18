@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Primary Earner's PIA",
         "tr": "Birincil Kazananın PIA'sı",
-        "de": "Primary Earner's PIA",
-        "fr": "Primary Earner's PIA",
+        "de": "PIA des Hauptverdieners",
+        "fr": "MAP du principal salarié",
         "es": "Primary Earner's PIA",
         "ar": "Primary Earner's PIA"
       },
       "businessContext_i18n": {
         "en": "The primary insurance amount (PIA) of the worker whose earnings record the spousal benefit is claimed on.",
-        "tr": "Eş faydasının talep edildiği çalışanın temel sigorta tutarı (PIA)."
+        "tr": "Eş faydasının talep edildiği çalışanın temel sigorta tutarı (PIA).",
+        "de": "Der primäre Versicherungsbetrag (PIA) des Arbeitnehmers, auf dessen Einkommensnachweis die Hinterbliebenenleistung beansprucht wird.",
+        "fr": "Montant de l'assurance primaire (MAP) du travailleur sur la base duquel la prestation de conjoint est demandée."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Spouse's Own PIA",
         "tr": "Eşin Kendi PIA'sı",
-        "de": "Spouse's Own PIA",
-        "fr": "Spouse's Own PIA",
+        "de": "Eigene PIA des Ehepartners",
+        "fr": "MAP propre du conjoint",
         "es": "Spouse's Own PIA",
         "ar": "Spouse's Own PIA"
       },
       "businessContext_i18n": {
         "en": "The spouse's own retirement benefit if they filed based on their own earnings record.",
-        "tr": "Eşin kendi kazanç kaydına dayanarak dosyaladığı kendi emeklilik faydası."
+        "tr": "Eşin kendi kazanç kaydına dayanarak dosyaladığı kendi emeklilik faydası.",
+        "de": "Die eigene Altersrente des Ehepartners, wenn dieser auf Basis seines eigenen Einkommens einen Antrag gestellt hat.",
+        "fr": "Prestation de retraite propre du conjoint s'il a demandé sur la base de ses propres revenus."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Spouse's Filing Age",
         "tr": "Eşin Başvuru Yaşı",
-        "de": "Spouse's Filing Age",
-        "fr": "Spouse's Filing Age",
+        "de": "Antragsalter des Ehepartners",
+        "fr": "Âge de demande du conjoint",
         "es": "Spouse's Filing Age",
         "ar": "Spouse's Filing Age"
       },
       "businessContext_i18n": {
         "en": "The age at which the spouse applies for spousal benefits.",
-        "tr": "Eşin eş faydası için başvurduğu yaş."
+        "tr": "Eşin eş faydası için başvurduğu yaş.",
+        "de": "Das Alter, in dem der Ehepartner Hinterbliebenenleistungen beantragt.",
+        "fr": "Âge auquel le conjoint demande les prestations de conjoint."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Spouse's Full Retirement Age",
         "tr": "Eşin Tam Emeklilik Yaşı",
-        "de": "Spouse's Full Retirement Age",
-        "fr": "Spouse's Full Retirement Age",
+        "de": "Volles Rentenalter des Ehepartners",
+        "fr": "Âge de retraite à taux plein du conjoint",
         "es": "Spouse's Full Retirement Age",
         "ar": "Spouse's Full Retirement Age"
       },
       "businessContext_i18n": {
         "en": "The age at which the spouse can receive unreduced benefits. Typically 66-67 depending on birth year.",
-        "tr": "Eşin indirimsiz fayda alabileceği yaş. Doğum yılına bağlı olarak genellikle 66-67."
+        "tr": "Eşin indirimsiz fayda alabileceği yaş. Doğum yılına bağlı olarak genellikle 66-67.",
+        "de": "Das Alter, in dem der Ehepartner ungekürzte Leistungen erhalten kann. In der Regel 66–67, abhängig vom Geburtsjahr.",
+        "fr": "Âge auquel le conjoint peut percevoir des prestations non réduites. Généralement 66-67 selon l'année de naissance."
       }
     }
   ],

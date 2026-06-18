@@ -12,14 +12,16 @@
         "en": "Mass (m)",
         "tr": "Kütle (m)",
         "de": "Masse (m)",
-        "fr": "Mass (m)",
-        "es": "Mass (m)",
+        "fr": "Masse (m)",
+        "es": "Masa (m)",
         "ar": "Mass (m)"
       },
       "businessContext_i18n": {
         "en": "Mass of the oscillating body.",
         "tr": "Salınım yapan cismin kütlesi.",
-        "de": "Masse des schwingenden Körpers."
+        "de": "Masse des schwingenden Körpers.",
+        "fr": "Masse du corps oscillant.",
+        "es": "Masa del cuerpo oscilante."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Damping Coefficient (c)",
         "tr": "Sönüm Katsayısı (c)",
         "de": "Dämpfungskoeffizient (c)",
-        "fr": "Damping Coefficient (c)",
-        "es": "Damping Coefficient (c)",
+        "fr": "Coefficient d'amortissement (c)",
+        "es": "Coeficiente de amortiguamiento (c)",
         "ar": "Damping Coefficient (c)"
       },
       "businessContext_i18n": {
         "en": "Viscous damping coefficient.",
         "tr": "Viskoz sönüm katsayısı.",
-        "de": "Viskoser Dämpfungskoeffizient."
+        "de": "Viskoser Dämpfungskoeffizient.",
+        "fr": "Coefficient d'amortissement visqueux.",
+        "es": "Coeficiente de amortiguamiento viscoso."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Spring Constant (k)",
         "tr": "Yay Sabiti (k)",
         "de": "Federkonstante (k)",
-        "fr": "Spring Constant (k)",
-        "es": "Spring Constant (k)",
+        "fr": "Constante de raideur (k)",
+        "es": "Constante del resorte (k)",
         "ar": "Spring Constant (k)"
       },
       "businessContext_i18n": {
         "en": "Stiffness of the spring.",
         "tr": "Yayın sertliği.",
-        "de": "Steifigkeit der Feder."
+        "de": "Steifigkeit der Feder.",
+        "fr": "Raideur du ressort.",
+        "es": "Rigidez del resorte."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Initial Displacement (x₀)",
         "tr": "Başlangıç Yer Değiştirmesi (x₀)",
         "de": "Anfangsauslenkung (x₀)",
-        "fr": "Initial Displacement (x₀)",
-        "es": "Initial Displacement (x₀)",
+        "fr": "Déplacement initial (x₀)",
+        "es": "Desplazamiento inicial (x₀)",
         "ar": "Initial Displacement (x₀)"
       },
       "businessContext_i18n": {
         "en": "Displacement at t=0.",
         "tr": "t=0 anındaki yer değiştirme.",
-        "de": "Auslenkung bei t=0."
+        "de": "Auslenkung bei t=0.",
+        "fr": "Déplacement à t=0.",
+        "es": "Desplazamiento en t=0."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Initial Velocity (v₀)",
         "tr": "Başlangıç Hızı (v₀)",
         "de": "Anfangsgeschwindigkeit (v₀)",
-        "fr": "Initial Velocity (v₀)",
-        "es": "Initial Velocity (v₀)",
+        "fr": "Vitesse initiale (v₀)",
+        "es": "Velocidad inicial (v₀)",
         "ar": "Initial Velocity (v₀)"
       },
       "businessContext_i18n": {
         "en": "Velocity at t=0.",
         "tr": "t=0 anındaki hız.",
-        "de": "Geschwindigkeit bei t=0."
+        "de": "Geschwindigkeit bei t=0.",
+        "fr": "Vitesse à t=0.",
+        "es": "Velocidad en t=0."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Time (t)",
         "tr": "Zaman (t)",
         "de": "Zeit (t)",
-        "fr": "Time (t)",
-        "es": "Time (t)",
+        "fr": "Temps (t)",
+        "es": "Tiempo (t)",
         "ar": "Time (t)"
       },
       "businessContext_i18n": {
         "en": "Time instant to evaluate displacement.",
         "tr": "Yer değiştirmenin değerlendirileceği zaman anı.",
-        "de": "Zeitpunkt zur Bewertung der Auslenkung."
+        "de": "Zeitpunkt zur Bewertung der Auslenkung.",
+        "fr": "Instant d'évaluation du déplacement.",
+        "es": "Instante de tiempo para evaluar el desplazamiento."
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Cost Price",
         "tr": "Maliyet Fiyatı",
-        "de": "Cost Price",
-        "fr": "Cost Price",
-        "es": "Cost Price",
+        "de": "Einstandspreis",
+        "fr": "Prix de revient",
+        "es": "Precio de coste",
         "ar": "Cost Price"
       },
       "businessContext_i18n": {
         "en": "The unit cost of the product or service.",
-        "tr": "Ürün veya hizmetin birim maliyeti."
+        "tr": "Ürün veya hizmetin birim maliyeti.",
+        "de": "Der Stückpreis des Produkts oder der Dienstleistung.",
+        "fr": "Le coût unitaire du produit ou service.",
+        "es": "El coste unitario del producto o servicio."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Markup Percentage",
         "tr": "Kar Marjı Yüzdesi",
-        "de": "Markup Percentage",
-        "fr": "Markup Percentage",
-        "es": "Markup Percentage",
+        "de": "Aufschlagsprozentsatz",
+        "fr": "Pourcentage de marge",
+        "es": "Porcentaje de margen",
         "ar": "Markup Percentage"
       },
       "businessContext_i18n": {
         "en": "The percentage markup applied to the cost price.",
-        "tr": "Maliyet fiyatına uygulanan yüzde kar marjı."
+        "tr": "Maliyet fiyatına uygulanan yüzde kar marjı.",
+        "de": "Der prozentuale Aufschlag auf den Einstandspreis.",
+        "fr": "Le pourcentage de marge appliqué au prix de revient.",
+        "es": "El porcentaje de margen aplicado al precio de coste."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Quantity",
         "tr": "Miktar",
         "de": "Menge",
-        "fr": "Quantity",
-        "es": "Quantity",
+        "fr": "Quantité",
+        "es": "Cantidad",
         "ar": "Quantity"
       },
       "businessContext_i18n": {
         "en": "Number of units to calculate totals for.",
-        "tr": "Toplamları hesaplamak için birim sayısı."
+        "tr": "Toplamları hesaplamak için birim sayısı.",
+        "de": "Anzahl der Einheiten zur Berechnung der Gesamtsummen.",
+        "fr": "Nombre d'unités pour calculer les totaux.",
+        "es": "Número de unidades para calcular totales."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Additional Cost per Unit",
         "tr": "Birim Başına Ek Maliyet",
-        "de": "Additional Cost per Unit",
-        "fr": "Additional Cost per Unit",
-        "es": "Additional Cost per Unit",
+        "de": "Zusätzliche Kosten pro Einheit",
+        "fr": "Coût supplémentaire par unité",
+        "es": "Coste adicional por unidad",
         "ar": "Additional Cost per Unit"
       },
       "businessContext_i18n": {
         "en": "Extra cost per unit such as shipping, packaging, or handling.",
-        "tr": "Nakliye, paketleme veya elleçleme gibi birim başına ek maliyet."
+        "tr": "Nakliye, paketleme veya elleçleme gibi birim başına ek maliyet.",
+        "de": "Zusätzliche Kosten pro Einheit wie Versand, Verpackung oder Bearbeitung.",
+        "fr": "Coût supplémentaire par unité tel que l'expédition, l'emballage ou la manutention.",
+        "es": "Coste extra por unidad como envío, embalaje o manipulación."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Focal Length (cm)",
         "tr": "Odak Uzaklığı (cm)",
         "de": "Brennweite (cm)",
-        "fr": "Focal Length (cm)",
-        "es": "Focal Length (cm)",
+        "fr": "Distance focale (cm)",
+        "es": "Distancia focal (cm)",
         "ar": "Focal Length (cm)"
       },
       "businessContext_i18n": {
         "en": "Enter focal length in centimeters to calculate diopter.",
         "tr": "Diyoptri hesaplamak için odak uzaklığını santimetre cinsinden girin.",
-        "de": "Brennweite in Zentimetern eingeben, um Dioptrien zu berechnen."
+        "de": "Brennweite in Zentimetern eingeben, um Dioptrien zu berechnen.",
+        "fr": "Entrez la distance focale en centimètres pour calculer la dioptrie.",
+        "es": "Ingrese la distancia focal en centímetros para calcular la dioptría."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Lens 1 Power",
         "tr": "Mercek 1 Gücü",
         "de": "Linsenleistung 1",
-        "fr": "Lens 1 Power",
-        "es": "Lens 1 Power",
+        "fr": "Puissance de la lentille 1",
+        "es": "Potencia de lente 1",
         "ar": "Lens 1 Power"
       },
       "businessContext_i18n": {
         "en": "Power of first thin lens in diopters.",
         "tr": "Birinci ince merceğin diyoptri cinsinden gücü.",
-        "de": "Leistung der ersten dünnen Linse in Dioptrien."
+        "de": "Leistung der ersten dünnen Linse in Dioptrien.",
+        "fr": "Puissance de la première lentille mince en dioptries.",
+        "es": "Potencia de la primera lente delgada en dioptrías."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Lens 2 Power",
         "tr": "Mercek 2 Gücü",
         "de": "Linsenleistung 2",
-        "fr": "Lens 2 Power",
-        "es": "Lens 2 Power",
+        "fr": "Puissance de la lentille 2",
+        "es": "Potencia de lente 2",
         "ar": "Lens 2 Power"
       },
       "businessContext_i18n": {
         "en": "Power of second thin lens in diopters.",
         "tr": "İkinci ince merceğin diyoptri cinsinden gücü.",
-        "de": "Leistung der zweiten dünnen Linse in Dioptrien."
+        "de": "Leistung der zweiten dünnen Linse in Dioptrien.",
+        "fr": "Puissance de la deuxième lentille mince en dioptries.",
+        "es": "Potencia de la segunda lente delgada en dioptrías."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Original Prescription",
         "tr": "Orijinal Reçete",
         "de": "Ursprüngliche Verschreibung",
-        "fr": "Original Prescription",
-        "es": "Original Prescription",
+        "fr": "Prescription d'origine",
+        "es": "Prescripción original",
         "ar": "Original Prescription"
       },
       "businessContext_i18n": {
         "en": "Lens power before vertex distance change (negative for myopia).",
         "tr": "Köşe mesafesi değişikliğinden önceki mercek gücü (miyopi için negatif).",
-        "de": "Linsenleistung vor Scheitelabstandsänderung (negativ für Myopie)."
+        "de": "Linsenleistung vor Scheitelabstandsänderung (negativ für Myopie).",
+        "fr": "Puissance de la lentille avant le changement de distance au sommet (négative pour la myopie).",
+        "es": "Potencia de la lente antes del cambio de distancia al vértice (negativa para miopía)."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Vertex Distance Change",
         "tr": "Köşe Mesafesi Değişimi",
         "de": "Scheitelabstandsänderung",
-        "fr": "Vertex Distance Change",
-        "es": "Vertex Distance Change",
+        "fr": "Changement de distance au sommet",
+        "es": "Cambio de distancia al vértice",
         "ar": "Vertex Distance Change"
       },
       "businessContext_i18n": {
         "en": "Distance the lens is moved from the eye (in mm, positive if moved away).",
         "tr": "Merceğin gözden taşındığı mesafe (mm cinsinden, gözden uzaklaşıyorsa pozitif).",
-        "de": "Abstand, um den die Linse vom Auge bewegt wird (in mm, positiv wenn vom Auge weg)."
+        "de": "Abstand, um den die Linse vom Auge bewegt wird (in mm, positiv wenn vom Auge weg).",
+        "fr": "Distance de déplacement de la lentille par rapport à l'œil (en mm, positive si éloignée).",
+        "es": "Distancia que se mueve la lente desde el ojo (en mm, positivo si se aleja)."
       }
     }
   ],

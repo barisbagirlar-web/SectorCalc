@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Total Sleep Hours",
         "tr": "Toplam Uyku Saati",
-        "de": "Total Sleep Hours",
-        "fr": "Total Sleep Hours",
+        "de": "Gesamtschlafstunden",
+        "fr": "Heures totales de sommeil",
         "es": "Total Sleep Hours",
         "ar": "Total Sleep Hours"
       },
       "businessContext_i18n": {
         "en": "Total sleep duration per night, impacts recovery and cognitive function.",
-        "tr": "Gece başına toplam uyku süresi, iyileşme ve bilişsel işlevi etkiler."
+        "tr": "Gece başına toplam uyku süresi, iyileşme ve bilişsel işlevi etkiler.",
+        "de": "Gesamte Schlafdauer pro Nacht, beeinflusst Erholung und kognitive Funktion.",
+        "fr": "Durée totale de sommeil par nuit, impacte la récupération et la fonction cognitive."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Time to Fall Asleep",
         "tr": "Uykuya Dalma Süresi",
-        "de": "Time to Fall Asleep",
-        "fr": "Time to Fall Asleep",
-        "es": "Time to Fall Asleep",
+        "de": "Einschlafzeit",
+        "fr": "Temps d'endormissement",
+        "es": "Tiempo para conciliar el sueño",
         "ar": "Time to Fall Asleep"
       },
       "businessContext_i18n": {
         "en": "Time taken to fall asleep, known as sleep onset latency, indicates ease of falling asleep.",
-        "tr": "Uykuya dalma süresi, uyku başlangıç gecikmesi olarak bilinir, uykuya dalma kolaylığını gösterir."
+        "tr": "Uykuya dalma süresi, uyku başlangıç gecikmesi olarak bilinir, uykuya dalma kolaylığını gösterir.",
+        "de": "Zeit bis zum Einschlafen, bekannt als Einschlaflatenz, gibt an, wie leicht das Einschlafen fällt.",
+        "fr": "Temps nécessaire pour s'endormir, appelé latence d'endormissement, indique la facilité à s'endormir."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Awakenings Count",
         "tr": "Uyanma Sayısı",
-        "de": "Awakenings Count",
-        "fr": "Awakenings Count",
+        "de": "Anzahl der Aufwachvorgänge",
+        "fr": "Nombre d'éveils",
         "es": "Awakenings Count",
         "ar": "Awakenings Count"
       },
       "businessContext_i18n": {
         "en": "Number of awakenings during the sleep period, affecting sleep continuity and restorative value.",
-        "tr": "Uyku dönemi sırasındaki uyanma sayısı, uyku sürekliliğini ve dinlendiriciliğini etkiler."
+        "tr": "Uyku dönemi sırasındaki uyanma sayısı, uyku sürekliliğini ve dinlendiriciliğini etkiler.",
+        "de": "Anzahl der Aufwachvorgänge während der Schlafperiode, beeinflusst Schlafkontinuität und Erholungswert.",
+        "fr": "Nombre d'éveils pendant la période de sommeil, affectant la continuité du sommeil et la valeur réparatrice."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Sleep Efficiency",
         "tr": "Uyku Verimliliği",
-        "de": "Sleep Efficiency",
-        "fr": "Sleep Efficiency",
+        "de": "Schlafeffizienz",
+        "fr": "Efficacité du sommeil",
         "es": "Sleep Efficiency",
         "ar": "Sleep Efficiency"
       },
       "businessContext_i18n": {
         "en": "Percentage of time in bed actually spent sleeping, a key metric of sleep quality.",
-        "tr": "Yatakta geçirilen sürenin fiilen uykuda geçen yüzdesi, uyku kalitesinin temel bir ölçütüdür."
+        "tr": "Yatakta geçirilen sürenin fiilen uykuda geçen yüzdesi, uyku kalitesinin temel bir ölçütüdür.",
+        "de": "Prozentsatz der im Bett verbrachten Zeit, die tatsächlich geschlafen wird, ein wichtiger Indikator für die Schlafqualität.",
+        "fr": "Pourcentage du temps au lit réellement passé à dormir, un indicateur clé de la qualité du sommeil."
       }
     }
   ],

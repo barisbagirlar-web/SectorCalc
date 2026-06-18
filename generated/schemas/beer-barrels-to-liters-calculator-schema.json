@@ -12,14 +12,16 @@
         "en": "Beer Barrels",
         "tr": "Bira Fıçıları",
         "de": "Bierfässer",
-        "fr": "Beer Barrels",
-        "es": "Beer Barrels",
+        "fr": "Barils de bière",
+        "es": "Barriles de cerveza",
         "ar": "Beer Barrels"
       },
       "businessContext_i18n": {
         "en": "Quantity of beer in barrels",
         "tr": "Fıçı cinsinden bira miktarı",
-        "de": "Menge Bier in Fässern"
+        "de": "Menge Bier in Fässern",
+        "fr": "Quantité de bière en barils",
+        "es": "Cantidad de cerveza en barriles"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Liters per Barrel",
         "tr": "Fıçı Başına Litre",
         "de": "Liter pro Fass",
-        "fr": "Liters per Barrel",
-        "es": "Liters per Barrel",
+        "fr": "Litres par baril",
+        "es": "Litros por barril",
         "ar": "Liters per Barrel"
       },
       "businessContext_i18n": {
         "en": "Conversion factor. Standard US beer barrel: 117.3478 L",
         "tr": "Dönüşüm faktörü. Standart ABD bira fıçısı: 117.3478 L",
-        "de": "Umrechnungsfaktor. Standard US-Bierfass: 117,3478 L"
+        "de": "Umrechnungsfaktor. Standard US-Bierfass: 117,3478 L",
+        "fr": "Facteur de conversion. Baril de bière standard US : 117,3478 L",
+        "es": "Factor de conversión. Barril de cerveza estándar US: 117.3478 L"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Temperature",
         "tr": "Sıcaklık",
         "de": "Temperatur",
-        "fr": "Temperature",
-        "es": "Temperature",
+        "fr": "Température",
+        "es": "Temperatura",
         "ar": "Temperature"
       },
       "businessContext_i18n": {
         "en": "Actual temperature of the beer",
         "tr": "Biranın gerçek sıcaklığı",
-        "de": "Aktuelle Temperatur des Bieres"
+        "de": "Aktuelle Temperatur des Bieres",
+        "fr": "Température réelle de la bière",
+        "es": "Temperatura real de la cerveza"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Reference Temperature",
         "tr": "Referans Sıcaklık",
         "de": "Referenztemperatur",
-        "fr": "Reference Temperature",
-        "es": "Reference Temperature",
+        "fr": "Température de référence",
+        "es": "Temperatura de referencia",
         "ar": "Reference Temperature"
       },
       "businessContext_i18n": {
         "en": "Reference temperature (standard 20°C)",
         "tr": "Referans sıcaklık (standart 20°C)",
-        "de": "Referenztemperatur (Standard 20°C)"
+        "de": "Referenztemperatur (Standard 20°C)",
+        "fr": "Température de référence (20°C standard)",
+        "es": "Temperatura de referencia (estándar 20°C)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Thermal Expansion Coefficient",
         "tr": "Termal Genleşme Katsayısı",
         "de": "Wärmeausdehnungskoeffizient",
-        "fr": "Thermal Expansion Coefficient",
-        "es": "Thermal Expansion Coefficient",
+        "fr": "Coefficient de dilatation thermique",
+        "es": "Coeficiente de expansión térmica",
         "ar": "Thermal Expansion Coefficient"
       },
       "businessContext_i18n": {
         "en": "Volumetric thermal expansion coefficient for beer (approx. 0.0003 per °C)",
         "tr": "Bira için hacimsel termal genleşme katsayısı (yaklaşık 0.0003 /°C)",
-        "de": "Volumetrischer Wärmeausdehnungskoeffizient für Bier (ca. 0,0003 pro °C)"
+        "de": "Volumetrischer Wärmeausdehnungskoeffizient für Bier (ca. 0,0003 pro °C)",
+        "fr": "Coefficient de dilatation thermique volumique de la bière (environ 0,0003 par °C)",
+        "es": "Coeficiente de expansión térmica volumétrica para cerveza (aprox. 0.0003 por °C)"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Correction Factor",
         "tr": "Düzeltme Faktörü",
         "de": "Korrekturfaktor",
-        "fr": "Correction Factor",
-        "es": "Correction Factor",
+        "fr": "Facteur de correction",
+        "es": "Factor de corrección",
         "ar": "Correction Factor"
       },
       "businessContext_i18n": {
         "en": "Manual correction factor (e.g., for foam, ullage, etc.)",
         "tr": "Manuel düzeltme faktörü (örneğin köpük, boşluk vb. için)",
-        "de": "Manueller Korrekturfaktor (z. B. für Schaum, Leerraum usw.)"
+        "de": "Manueller Korrekturfaktor (z. B. für Schaum, Leerraum usw.)",
+        "fr": "Facteur de correction manuel (ex. pour mousse, espace libre, etc.)",
+        "es": "Factor de corrección manual (p. ej., para espuma, espacio vacío, etc.)"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Input Voltage",
         "tr": "Giriş Voltajı",
-        "de": "Input Voltage",
-        "fr": "Input Voltage",
-        "es": "Input Voltage",
+        "de": "Eingangsspannung",
+        "fr": "Tension d'entrée",
+        "es": "Tensión de entrada",
         "ar": "Input Voltage"
       },
       "businessContext_i18n": {
         "en": "Input signal voltage.",
-        "tr": "Giriş sinyal voltajı."
+        "tr": "Giriş sinyal voltajı.",
+        "de": "Eingangssignal-Spannung.",
+        "fr": "Tension du signal d'entrée.",
+        "es": "Tensión de la señal de entrada."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Resistor R1",
         "tr": "Direnç R1",
         "de": "Widerstand R1",
-        "fr": "Resistor R1",
-        "es": "Resistor R1",
+        "fr": "Résistance R1",
+        "es": "Resistencia R1",
         "ar": "Resistor R1"
       },
       "businessContext_i18n": {
         "en": "Resistor from inverting input to ground.",
-        "tr": "Tersleyen girişten toprağa direnç."
+        "tr": "Tersleyen girişten toprağa direnç.",
+        "de": "Widerstand vom invertierenden Eingang gegen Masse.",
+        "fr": "Résistance de l'entrée inverseuse à la masse.",
+        "es": "Resistencia desde la entrada inversora a tierra."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Feedback Resistor R2",
         "tr": "Geri Besleme Direnci R2",
-        "de": "Feedback Resistor R2",
-        "fr": "Feedback Resistor R2",
-        "es": "Feedback Resistor R2",
+        "de": "Gegenkopplungswiderstand R2",
+        "fr": "Résistance de contre-réaction R2",
+        "es": "Resistencia de realimentación R2",
         "ar": "Feedback Resistor R2"
       },
       "businessContext_i18n": {
         "en": "Feedback resistor from output to inverting input.",
-        "tr": "Çıkıştan tersleyen girişe geri besleme direnci."
+        "tr": "Çıkıştan tersleyen girişe geri besleme direnci.",
+        "de": "Gegenkopplungswiderstand vom Ausgang zum invertierenden Eingang.",
+        "fr": "Résistance de contre-réaction de la sortie à l'entrée inverseuse.",
+        "es": "Resistencia de realimentación desde la salida a la entrada inversora."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Positive Supply Voltage",
         "tr": "Pozitif Besleme Voltajı",
-        "de": "Positive Supply Voltage",
-        "fr": "Positive Supply Voltage",
-        "es": "Positive Supply Voltage",
+        "de": "Positive Versorgungsspannung",
+        "fr": "Tension d'alimentation positive",
+        "es": "Tensión de alimentación positiva",
         "ar": "Positive Supply Voltage"
       },
       "businessContext_i18n": {
         "en": "Positive power supply voltage.",
-        "tr": "Pozitif güç kaynağı voltajı."
+        "tr": "Pozitif güç kaynağı voltajı.",
+        "de": "Positive Betriebsspannung.",
+        "fr": "Tension d'alimentation positive.",
+        "es": "Tensión de alimentación positiva."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Negative Supply Voltage",
         "tr": "Negatif Besleme Voltajı",
-        "de": "Negative Supply Voltage",
-        "fr": "Negative Supply Voltage",
-        "es": "Negative Supply Voltage",
+        "de": "Negative Versorgungsspannung",
+        "fr": "Tension d'alimentation négative",
+        "es": "Tensión de alimentación negativa",
         "ar": "Negative Supply Voltage"
       },
       "businessContext_i18n": {
         "en": "Negative power supply voltage.",
-        "tr": "Negatif güç kaynağı voltajı."
+        "tr": "Negatif güç kaynağı voltajı.",
+        "de": "Negative Betriebsspannung.",
+        "fr": "Tension d'alimentation négative.",
+        "es": "Tensión de alimentación negativa."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Output Headroom",
         "tr": "Çıkış Başlık Payı",
-        "de": "Output Headroom",
-        "fr": "Output Headroom",
-        "es": "Output Headroom",
+        "de": "Ausgangs-Headroom",
+        "fr": "Marge de sortie",
+        "es": "Margen de salida",
         "ar": "Output Headroom"
       },
       "businessContext_i18n": {
         "en": "Voltage drop from supply rails to output swing limits.",
-        "tr": "Besleme raylarından çıkış salınım sınırlarına voltaj düşüşü."
+        "tr": "Besleme raylarından çıkış salınım sınırlarına voltaj düşüşü.",
+        "de": "Spannungsabfall von den Versorgungsschienen zu den Ausgangsaussteuerungsgrenzen.",
+        "fr": "Chute de tension des rails d'alimentation aux limites de la sortie.",
+        "es": "Caída de tensión desde los rieles de alimentación hasta los límites de oscilación de salida."
       }
     }
   ],

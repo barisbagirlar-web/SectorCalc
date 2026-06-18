@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Original Unit Price",
         "tr": "Orijinal Birim Fiyatı",
-        "de": "Original Unit Price",
-        "fr": "Original Unit Price",
-        "es": "Original Unit Price",
+        "de": "Ursprünglicher Stückpreis",
+        "fr": "Prix unitaire d'origine",
+        "es": "Precio unitario original",
         "ar": "Original Unit Price"
       },
       "businessContext_i18n": {
         "en": "List price before any discount",
-        "tr": "Herhangi bir indirim öncesi liste fiyatı"
+        "tr": "Herhangi bir indirim öncesi liste fiyatı",
+        "de": "Listenpreis vor Rabatt",
+        "fr": "Prix catalogue avant remise",
+        "es": "Precio de lista antes de cualquier descuento"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Markdown Percentage",
         "tr": "İndirim Yüzdesi",
-        "de": "Markdown Percentage",
-        "fr": "Markdown Percentage",
-        "es": "Markdown Percentage",
+        "de": "Rabattprozentsatz",
+        "fr": "Pourcentage de réduction",
+        "es": "Porcentaje de rebaja",
         "ar": "Markdown Percentage"
       },
       "businessContext_i18n": {
         "en": "Discount percentage applied to original price",
-        "tr": "Orijinal fiyata uygulanan indirim yüzdesi"
+        "tr": "Orijinal fiyata uygulanan indirim yüzdesi",
+        "de": "Rabattprozentsatz auf den ursprünglichen Preis",
+        "fr": "Pourcentage de réduction appliqué au prix d'origine",
+        "es": "Porcentaje de descuento aplicado al precio original"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Fixed Discount per Unit",
         "tr": "Birim Başına Sabit İndirim",
-        "de": "Fixed Discount per Unit",
-        "fr": "Fixed Discount per Unit",
-        "es": "Fixed Discount per Unit",
+        "de": "Fester Rabatt pro Einheit",
+        "fr": "Remise fixe par unité",
+        "es": "Descuento fijo por unidad",
         "ar": "Fixed Discount per Unit"
       },
       "businessContext_i18n": {
         "en": "Fixed amount off after percentage discount",
-        "tr": "Yüzde indirimden sonra sabit tutar"
+        "tr": "Yüzde indirimden sonra sabit tutar",
+        "de": "Fester Betrag nach prozentualem Rabatt",
+        "fr": "Montant fixe après réduction en pourcentage",
+        "es": "Cantidad fija de descuento después del descuento porcentual"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Quantity",
         "tr": "Miktar",
         "de": "Menge",
-        "fr": "Quantity",
-        "es": "Quantity",
+        "fr": "Quantité",
+        "es": "Cantidad",
         "ar": "Quantity"
       },
       "businessContext_i18n": {
         "en": "Number of items purchased",
-        "tr": "Satın alınan ürün sayısı"
+        "tr": "Satın alınan ürün sayısı",
+        "de": "Anzahl der gekauften Artikel",
+        "fr": "Nombre d'articles achetés",
+        "es": "Número de artículos comprados"
       }
     },
     {
@@ -92,14 +104,16 @@
         "en": "VAT Rate",
         "tr": "KDV Oranı",
         "de": "Mehrwertsteuersatz",
-        "fr": "VAT Rate",
-        "es": "VAT Rate",
+        "fr": "Taux de TVA",
+        "es": "Tasa de IVA",
         "ar": "VAT Rate"
       },
       "businessContext_i18n": {
         "en": "Value Added Tax percentage",
         "tr": "Katma Değer Vergisi yüzdesi",
-        "de": "Mehrwertsteuerprozentsatz"
+        "de": "Mehrwertsteuerprozentsatz",
+        "fr": "Pourcentage de taxe sur la valeur ajoutée",
+        "es": "Porcentaje de IVA"
       }
     }
   ],

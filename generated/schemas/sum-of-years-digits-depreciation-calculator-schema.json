@@ -12,14 +12,16 @@
         "en": "Asset Cost",
         "tr": "Varlık Maliyeti",
         "de": "Vermögenswertkosten",
-        "fr": "Asset Cost",
-        "es": "Asset Cost",
+        "fr": "Coût de l'actif",
+        "es": "Costo del activo",
         "ar": "Asset Cost"
       },
       "businessContext_i18n": {
         "en": "Initial purchase price of the asset",
         "tr": "Varlığın ilk satın alma fiyatı",
-        "de": "Anschaffungspreis des Vermögenswerts"
+        "de": "Anschaffungspreis des Vermögenswerts",
+        "fr": "Prix d'achat initial de l'actif",
+        "es": "Precio de compra inicial del activo"
       }
     },
     {
@@ -33,13 +35,15 @@
         "en": "Salvage Value",
         "tr": "Hurda Değeri",
         "de": "Restwert",
-        "fr": "Salvage Value",
-        "es": "Salvage Value",
+        "fr": "Valeur de récupération",
+        "es": "Valor de rescate",
         "ar": "Salvage Value"
       },
       "businessContext_i18n": {
         "en": "Estimated residual value at end of useful life",
-        "tr": "Faydalı ömür sonunda tahmini kalıntı değer"
+        "tr": "Faydalı ömür sonunda tahmini kalıntı değer",
+        "de": "Geschätzter Restwert am Ende der Nutzungsdauer",
+        "fr": "Valeur résiduelle estimée en fin de vie utile"
       }
     },
     {
@@ -53,13 +57,15 @@
         "en": "Useful Life",
         "tr": "Faydalı Ömür",
         "de": "Nutzungsdauer",
-        "fr": "Useful Life",
-        "es": "Useful Life",
+        "fr": "Durée de vie utile",
+        "es": "Vida útil",
         "ar": "Useful Life"
       },
       "businessContext_i18n": {
         "en": "Total expected lifespan of the asset in years",
-        "tr": "Varlığın toplam beklenen ömrü yıl olarak"
+        "tr": "Varlığın toplam beklenen ömrü yıl olarak",
+        "de": "Gesamte erwartete Lebensdauer der Anlage in Jahren",
+        "fr": "Durée de vie totale attendue de l'actif en années"
       }
     },
     {
@@ -72,14 +78,16 @@
       "label_i18n": {
         "en": "Year of Depreciation",
         "tr": "Amortisman Yılı",
-        "de": "Year of Depreciation",
-        "fr": "Year of Depreciation",
+        "de": "Abschreibungsjahr",
+        "fr": "Année d'amortissement",
         "es": "Year of Depreciation",
         "ar": "Year of Depreciation"
       },
       "businessContext_i18n": {
         "en": "The specific year for which depreciation expense is calculated (1-indexed)",
-        "tr": "Amortisman giderinin hesaplandığı belirli yıl (1'den başlayarak)"
+        "tr": "Amortisman giderinin hesaplandığı belirli yıl (1'den başlayarak)",
+        "de": "Das spezifische Jahr, für das der Abschreibungsaufwand berechnet wird (1-indexiert)",
+        "fr": "L'année spécifique pour laquelle la charge d'amortissement est calculée (indexée à partir de 1)"
       }
     }
   ],

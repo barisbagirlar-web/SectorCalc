@@ -13,12 +13,15 @@
         "tr": "Argüman (x)",
         "de": "Argument (x)",
         "fr": "Argument (x)",
-        "es": "Argument (x)",
+        "es": "Argumento (x)",
         "ar": "Argument (x)"
       },
       "businessContext_i18n": {
         "en": "The value for which the logarithm is calculated. Must be > 0.",
-        "tr": "Logaritması hesaplanan değer. > 0 olmalıdır."
+        "tr": "Logaritması hesaplanan değer. > 0 olmalıdır.",
+        "de": "Der Wert, für den der Logarithmus berechnet wird. Muss > 0 sein.",
+        "fr": "La valeur pour laquelle le logarithme est calculé. Doit être > 0.",
+        "es": "El valor para el cual se calcula el logaritmo. Debe ser > 0."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Log Base (b)",
         "tr": "Log Tabanı (b)",
-        "de": "Log Base (b)",
-        "fr": "Log Base (b)",
-        "es": "Log Base (b)",
+        "de": "Logarithmusbasis (b)",
+        "fr": "Base du logarithme (b)",
+        "es": "Base del logaritmo (b)",
         "ar": "Log Base (b)"
       },
       "businessContext_i18n": {
         "en": "The base of the logarithm. Common bases: 10, e (Math.E), 2. Must be > 0 and ≠ 1.",
-        "tr": "Logaritmanın tabanı. Yaygın tabanlar: 10, e (Math.E), 2. > 0 ve ≠ 1 olmalıdır."
+        "tr": "Logaritmanın tabanı. Yaygın tabanlar: 10, e (Math.E), 2. > 0 ve ≠ 1 olmalıdır.",
+        "de": "Die Basis des Logarithmus. Übliche Basen: 10, e (Math.E), 2. Muss > 0 und ≠ 1 sein.",
+        "fr": "La base du logarithme. Bases courantes : 10, e (Math.E), 2. Doit être > 0 et ≠ 1.",
+        "es": "La base del logaritmo. Bases comunes: 10, e (Math.E), 2. Debe ser > 0 y ≠ 1."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Multiplier (m)",
         "tr": "Çarpan (m)",
-        "de": "Multiplier (m)",
-        "fr": "Multiplier (m)",
-        "es": "Multiplier (m)",
+        "de": "Multiplikator (m)",
+        "fr": "Multiplicateur (m)",
+        "es": "Multiplicador (m)",
         "ar": "Multiplier (m)"
       },
       "businessContext_i18n": {
         "en": "Scaling factor applied after taking the logarithm, e.g., 20 for dB conversion.",
-        "tr": "Logaritma alındıktan sonra uygulanan ölçekleme faktörü, örn. dB dönüşümü için 20."
+        "tr": "Logaritma alındıktan sonra uygulanan ölçekleme faktörü, örn. dB dönüşümü için 20.",
+        "de": "Skalierungsfaktor, der nach dem Logarithmus angewendet wird, z. B. 20 für dB-Umrechnung.",
+        "fr": "Facteur d'échelle appliqué après le logarithme, par exemple 20 pour la conversion en dB.",
+        "es": "Factor de escala aplicado después de tomar el logaritmo, por ejemplo, 20 para conversión a dB."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Offset (c)",
         "tr": "Ofset (c)",
         "de": "Offset (c)",
-        "fr": "Offset (c)",
-        "es": "Offset (c)",
+        "fr": "Décalage (c)",
+        "es": "Desplazamiento (c)",
         "ar": "Offset (c)"
       },
       "businessContext_i18n": {
         "en": "Constant added after multiplication, used in linear calibration or zero adjustment.",
-        "tr": "Çarpma işleminden sonra eklenen sabit, doğrusal kalibrasyon veya sıfır ayarında kullanılır."
+        "tr": "Çarpma işleminden sonra eklenen sabit, doğrusal kalibrasyon veya sıfır ayarında kullanılır.",
+        "de": "Konstante, die nach der Multiplikation addiert wird, verwendet für lineare Kalibrierung oder Nullpunktanpassung.",
+        "fr": "Constante ajoutée après multiplication, utilisée dans l'étalonnage linéaire ou l'ajustement du zéro.",
+        "es": "Constante añadida después de la multiplicación, utilizada en calibración lineal o ajuste a cero."
       }
     }
   ],

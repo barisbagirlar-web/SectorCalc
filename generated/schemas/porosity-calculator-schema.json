@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Bulk Density",
         "tr": "Yığın yoğunluğu",
-        "de": "Bulk Density",
-        "fr": "Bulk Density",
-        "es": "Bulk Density",
+        "de": "Schüttdichte",
+        "fr": "Densité apparente",
+        "es": "Densidad aparente",
         "ar": "Bulk Density"
       },
       "businessContext_i18n": {
         "en": "Density of the material including void spaces (mass/total volume).",
-        "tr": "Boşluklar dahil malzemenin yoğunluğu (kütle/toplam hacim)."
+        "tr": "Boşluklar dahil malzemenin yoğunluğu (kütle/toplam hacim).",
+        "de": "Dichte des Materials einschließlich Hohlräume (Masse/Gesamtvolumen).",
+        "fr": "Densité du matériau incluant les espaces vides (masse/volume total).",
+        "es": "Densidad del material incluyendo espacios vacíos (masa/volumen total)."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Particle Density",
         "tr": "Partikül yoğunluğu",
-        "de": "Particle Density",
-        "fr": "Particle Density",
-        "es": "Particle Density",
+        "de": "Partikeldichte",
+        "fr": "Densité des particules",
+        "es": "Densidad de partícula",
         "ar": "Particle Density"
       },
       "businessContext_i18n": {
         "en": "Density of the solid particles only, excluding voids.",
-        "tr": "Sadece katı partiküllerin yoğunluğu, boşluklar hariç."
+        "tr": "Sadece katı partiküllerin yoğunluğu, boşluklar hariç.",
+        "de": "Dichte der festen Partikel ohne Hohlräume.",
+        "fr": "Densité des particules solides uniquement, excluant les vides.",
+        "es": "Densidad de las partículas sólidas solamente, excluyendo vacíos."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Total Volume",
         "tr": "Toplam hacim",
-        "de": "Total Volume",
-        "fr": "Total Volume",
-        "es": "Total Volume",
+        "de": "Gesamtvolumen",
+        "fr": "Volume total",
+        "es": "Volumen total",
         "ar": "Total Volume"
       },
       "businessContext_i18n": {
         "en": "Total volume of the sample, including pore spaces.",
-        "tr": "Numunenin gözenek boşlukları dahil toplam hacmi."
+        "tr": "Numunenin gözenek boşlukları dahil toplam hacmi.",
+        "de": "Gesamtvolumen der Probe einschließlich Porenräume.",
+        "fr": "Volume total de l'échantillon, y compris les espaces poreux.",
+        "es": "Volumen total de la muestra, incluyendo espacios porosos."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Pore Volume",
         "tr": "Gözenek hacmi",
-        "de": "Pore Volume",
-        "fr": "Pore Volume",
-        "es": "Pore Volume",
+        "de": "Porenvolumen",
+        "fr": "Volume des pores",
+        "es": "Volumen de poro",
         "ar": "Pore Volume"
       },
       "businessContext_i18n": {
         "en": "Volume of void spaces within the sample.",
-        "tr": "Numune içindeki boşluk hacmi."
+        "tr": "Numune içindeki boşluk hacmi.",
+        "de": "Volumen der Hohlräume in der Probe.",
+        "fr": "Volume des espaces vides dans l'échantillon.",
+        "es": "Volumen de espacios vacíos dentro de la muestra."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Life Expectancy at Birth (years)",
         "tr": "Doğumda Beklenen Yaşam Süresi (yıl)",
         "de": "Lebenserwartung bei Geburt (Jahre)",
-        "fr": "Life Expectancy at Birth (years)",
-        "es": "Life Expectancy at Birth (years)",
+        "fr": "Espérance de vie à la naissance (années)",
+        "es": "Esperanza de vida al nacer (años)",
         "ar": "Life Expectancy at Birth (years)"
       },
       "businessContext_i18n": {
         "en": "Total expected years of life from birth based on current mortality rates.",
         "tr": "Mevcut ölüm oranlarına göre doğumdan itibaren beklenen toplam yaşam yılı.",
-        "de": "Gesamte erwartete Lebensjahre ab Geburt basierend auf aktuellen Sterblichkeitsraten."
+        "de": "Gesamte erwartete Lebensjahre ab Geburt basierend auf aktuellen Sterblichkeitsraten.",
+        "fr": "Nombre total d'années de vie attendues à partir de la naissance selon les taux de mortalité actuels.",
+        "es": "Total de años de vida esperados desde el nacimiento según las tasas de mortalidad actuales."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Prevalence of Severe Activity Limitation",
         "tr": "Şiddetli Aktivite Kısıtlılığı Yaygınlığı",
         "de": "Prävalenz schwerer Aktivitätseinschränkung",
-        "fr": "Prevalence of Severe Activity Limitation",
-        "es": "Prevalence of Severe Activity Limitation",
+        "fr": "Prévalence des limitations sévères d'activité",
+        "es": "Prevalencia de limitación grave de actividad",
         "ar": "Prevalence of Severe Activity Limitation"
       },
       "businessContext_i18n": {
         "en": "Proportion of population with severe long-standing activity limitation, expressed as a decimal (0-1).",
         "tr": "Uzun süreli şiddetli aktivite kısıtlılığı olan nüfus oranı, ondalık olarak ifade edilir (0-1).",
-        "de": "Anteil der Bevölkerung mit schwerer langfristiger Aktivitätseinschränkung, ausgedrückt als Dezimalzahl (0-1)."
+        "de": "Anteil der Bevölkerung mit schwerer langfristiger Aktivitätseinschränkung, ausgedrückt als Dezimalzahl (0-1).",
+        "fr": "Proportion de la population présentant une limitation sévère et durable de l'activité, exprimée en décimal (0-1).",
+        "es": "Proporción de la población con limitación grave de larga duración, expresada como decimal (0-1)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Prevalence of Moderate Activity Limitation",
         "tr": "Orta Dereceli Aktivite Kısıtlılığı Yaygınlığı",
         "de": "Prävalenz moderater Aktivitätseinschränkung",
-        "fr": "Prevalence of Moderate Activity Limitation",
-        "es": "Prevalence of Moderate Activity Limitation",
+        "fr": "Prévalence des limitations modérées d'activité",
+        "es": "Prevalencia de limitación moderada de actividad",
         "ar": "Prevalence of Moderate Activity Limitation"
       },
       "businessContext_i18n": {
         "en": "Proportion of population with moderate activity limitation, expressed as a decimal (0-1).",
         "tr": "Orta dereceli aktivite kısıtlılığı olan nüfus oranı, ondalık olarak ifade edilir (0-1).",
-        "de": "Anteil der Bevölkerung mit moderater Aktivitätseinschränkung, ausgedrückt als Dezimalzahl (0-1)."
+        "de": "Anteil der Bevölkerung mit moderater Aktivitätseinschränkung, ausgedrückt als Dezimalzahl (0-1).",
+        "fr": "Proportion de la population présentant une limitation modérée de l'activité, exprimée en décimal (0-1).",
+        "es": "Proporción de la población con limitación moderada de actividad, expresada como decimal (0-1)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Disability Weight for Severe Limitation",
         "tr": "Şiddetli Kısıtlılık için Engellilik Ağırlığı",
         "de": "Behinderungsgewicht für schwere Einschränkung",
-        "fr": "Disability Weight for Severe Limitation",
-        "es": "Disability Weight for Severe Limitation",
+        "fr": "Poids du handicap pour limitation sévère",
+        "es": "Peso de discapacidad para limitación grave",
         "ar": "Disability Weight for Severe Limitation"
       },
       "businessContext_i18n": {
         "en": "Health loss weight for severe state (0 = full health, 1 = worst possible health).",
         "tr": "Sağlık kaybı ağırlığı - şiddetli durum (0 = tam sağlık, 1 = mümkün olan en kötü sağlık).",
-        "de": "Gesundheitsverlustgewicht für schweren Zustand (0 = volle Gesundheit, 1 = schlechtest mögliche Gesundheit)."
+        "de": "Gesundheitsverlustgewicht für schweren Zustand (0 = volle Gesundheit, 1 = schlechtest mögliche Gesundheit).",
+        "fr": "Poids de perte de santé pour état sévère (0 = pleine santé, 1 = pire santé possible).",
+        "es": "Pérdida de salud para estado grave (0 = salud completa, 1 = peor salud posible)."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Disability Weight for Moderate Limitation",
         "tr": "Orta Dereceli Kısıtlama için Engellilik Ağırlığı",
         "de": "Behinderungsgewicht für moderate Einschränkung",
-        "fr": "Disability Weight for Moderate Limitation",
-        "es": "Disability Weight for Moderate Limitation",
+        "fr": "Poids d'incapacité pour limitation modérée",
+        "es": "Peso de discapacidad para limitación moderada",
         "ar": "Disability Weight for Moderate Limitation"
       },
       "businessContext_i18n": {
         "en": "Health loss weight for moderate state (0 = full health, 1 = worst possible health).",
         "tr": "Sağlık kaybı ağırlığı - orta durum (0 = tam sağlık, 1 = mümkün olan en kötü sağlık).",
-        "de": "Gesundheitsverlustgewicht für moderaten Zustand (0 = volle Gesundheit, 1 = schlechtest mögliche Gesundheit)."
+        "de": "Gesundheitsverlustgewicht für moderaten Zustand (0 = volle Gesundheit, 1 = schlechtest mögliche Gesundheit).",
+        "fr": "Poids de perte de santé pour état modéré (0 = pleine santé, 1 = pire santé possible).",
+        "es": "Pérdida de salud para estado moderado (0 = salud completa, 1 = peor salud posible)."
       }
     }
   ],

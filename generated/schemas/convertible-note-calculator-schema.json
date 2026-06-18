@@ -12,14 +12,16 @@
         "en": "Investment Amount",
         "tr": "Yatırım Tutarı",
         "de": "Investitionsbetrag",
-        "fr": "Investment Amount",
-        "es": "Investment Amount",
+        "fr": "Montant de l'investissement",
+        "es": "Monto de inversión",
         "ar": "Investment Amount"
       },
       "businessContext_i18n": {
         "en": "Amount invested in the convertible note.",
         "tr": "Dönüştürülebilir senede yatırılan tutar.",
-        "de": "In die Wandelanleihe investierter Betrag."
+        "de": "In die Wandelanleihe investierter Betrag.",
+        "fr": "Montant investi dans le billet convertible.",
+        "es": "Monto invertido en el pagaré convertible."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Discount Rate",
         "tr": "İndirim Oranı",
         "de": "Rabattsatz",
-        "fr": "Discount Rate",
-        "es": "Discount Rate",
+        "fr": "Taux de remise",
+        "es": "Tasa de descuento",
         "ar": "Discount Rate"
       },
       "businessContext_i18n": {
         "en": "Discount applied to next round price per share.",
         "tr": "Bir sonraki tur hisse başına fiyatına uygulanan iskonto.",
-        "de": "Rabatt auf den Aktienkurs der nächsten Runde."
+        "de": "Rabatt auf den Aktienkurs der nächsten Runde.",
+        "fr": "Remise appliquée au prix par action du prochain tour.",
+        "es": "Descuento aplicado al precio por acción de la siguiente ronda."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Valuation Cap",
         "tr": "Değerleme Tavanı",
         "de": "Bewertungsobergrenze",
-        "fr": "Valuation Cap",
-        "es": "Valuation Cap",
+        "fr": "Plafond de valorisation",
+        "es": "Tope de valoración",
         "ar": "Valuation Cap"
       },
       "businessContext_i18n": {
         "en": "Maximum company valuation for conversion price cap.",
         "tr": "Dönüşüm fiyatı tavanı için maksimum şirket değerlemesi.",
-        "de": "Maximale Unternehmensbewertung für die Umrechnungspreisobergrenze."
+        "de": "Maximale Unternehmensbewertung für die Umrechnungspreisobergrenze.",
+        "fr": "Valorisation maximale de l'entreprise pour le plafond du prix de conversion.",
+        "es": "Valoración máxima de la empresa para el límite de precio de conversión."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Next Round Price Per Share",
         "tr": "Sonraki Tur Hisse Başına Fiyat",
         "de": "Aktienkurs der nächsten Runde",
-        "fr": "Next Round Price Per Share",
-        "es": "Next Round Price Per Share",
+        "fr": "Prix par action du prochain tour",
+        "es": "Precio por acción en la siguiente ronda",
         "ar": "Next Round Price Per Share"
       },
       "businessContext_i18n": {
         "en": "Price per share in the qualified financing round.",
         "tr": "Nitelikli finansman turunda hisse başına fiyat.",
-        "de": "Aktienkurs in der qualifizierten Finanzierungsrunde."
+        "de": "Aktienkurs in der qualifizierten Finanzierungsrunde.",
+        "fr": "Prix par action lors du tour de financement qualifié.",
+        "es": "Precio por acción en la ronda de financiación calificada."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Interest Rate",
         "tr": "Faiz Oranı",
         "de": "Zinssatz",
-        "fr": "Interest Rate",
-        "es": "Interest Rate",
+        "fr": "Taux d'intérêt",
+        "es": "Tasa de interés",
         "ar": "Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Annual simple interest rate accrued on the note.",
         "tr": "Senede tahakkuk eden yıllık basit faiz oranı.",
-        "de": "Jährlicher einfacher Zinssatz, der auf die Anleihe anfällt."
+        "de": "Jährlicher einfacher Zinssatz, der auf die Anleihe anfällt.",
+        "fr": "Taux d'intérêt simple annuel couru sur le billet.",
+        "es": "Tasa de interés simple anual devengada sobre el pagaré."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Maturity",
         "tr": "Vade",
         "de": "Fälligkeit",
-        "fr": "Maturity",
-        "es": "Maturity",
+        "fr": "Échéance",
+        "es": "Vencimiento",
         "ar": "Maturity"
       },
       "businessContext_i18n": {
         "en": "Time until conversion, used to calculate accrued interest.",
         "tr": "Dönüşüme kadar geçen süre, tahakkuk eden faizi hesaplamak için kullanılır.",
-        "de": "Zeit bis zur Umwandlung, zur Berechnung der aufgelaufenen Zinsen."
+        "de": "Zeit bis zur Umwandlung, zur Berechnung der aufgelaufenen Zinsen.",
+        "fr": "Temps jusqu'à la conversion, utilisé pour calculer les intérêts courus.",
+        "es": "Tiempo hasta la conversión, utilizado para calcular el interés acumulado."
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Pre-Money Fully Diluted Shares",
         "tr": "Para Öncesi Tam Seyreltilmiş Hisse Sayısı",
         "de": "Voll verwässerte Aktien vor Geld",
-        "fr": "Pre-Money Fully Diluted Shares",
-        "es": "Pre-Money Fully Diluted Shares",
+        "fr": "Actions entièrement diluées avant le tour",
+        "es": "Acciones totalmente diluidas pre-money",
         "ar": "Pre-Money Fully Diluted Shares"
       },
       "businessContext_i18n": {
         "en": "Number of fully diluted shares before the next round.",
         "tr": "Bir sonraki tur öncesi tam seyreltilmiş hisse sayısı.",
-        "de": "Anzahl der voll verwässerten Aktien vor der nächsten Runde."
+        "de": "Anzahl der voll verwässerten Aktien vor der nächsten Runde.",
+        "fr": "Nombre d'actions entièrement diluées avant le prochain tour.",
+        "es": "Número de acciones totalmente diluidas antes de la siguiente ronda."
       }
     }
   ],

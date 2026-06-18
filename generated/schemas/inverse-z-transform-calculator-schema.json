@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "b₀ (Num. z⁰ coeff.)",
         "tr": "b₀ (Pay z⁰ katsayısı)",
-        "de": "b₀ (Num. z⁰ coeff.)",
-        "fr": "b₀ (Num. z⁰ coeff.)",
-        "es": "b₀ (Num. z⁰ coeff.)",
+        "de": "b₀ (Zähler z⁰-Koeffizient)",
+        "fr": "b₀ (Coeff. Num. z⁰)",
+        "es": "b₀ (coef. Num. z⁰)",
         "ar": "b₀ (Num. z⁰ coeff.)"
       },
       "businessContext_i18n": {
         "en": "Numerator coefficient for the constant term (z⁰)",
-        "tr": "Sabit terim (z⁰) için pay katsayısı"
+        "tr": "Sabit terim (z⁰) için pay katsayısı",
+        "de": "Zählerkoeffizient für den konstanten Term (z⁰)",
+        "fr": "Coefficient du numérateur pour le terme constant (z⁰)",
+        "es": "Coeficiente del numerador para el término constante (z⁰)"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "b₁ (Num. z⁻¹ coeff.)",
         "tr": "b₁ (Pay z⁻¹ katsayısı)",
-        "de": "b₁ (Num. z⁻¹ coeff.)",
-        "fr": "b₁ (Num. z⁻¹ coeff.)",
-        "es": "b₁ (Num. z⁻¹ coeff.)",
+        "de": "b₁ (Zähler z⁻¹-Koeffizient)",
+        "fr": "b₁ (Coeff. Num. z⁻¹)",
+        "es": "b₁ (coef. Num. z⁻¹)",
         "ar": "b₁ (Num. z⁻¹ coeff.)"
       },
       "businessContext_i18n": {
         "en": "Numerator coefficient for the z⁻¹ term",
-        "tr": "z⁻¹ terimi için pay katsayısı"
+        "tr": "z⁻¹ terimi için pay katsayısı",
+        "de": "Zählerkoeffizient für den z⁻¹-Term",
+        "fr": "Coefficient du numérateur pour le terme z⁻¹",
+        "es": "Coeficiente del numerador para el término z⁻¹"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "b₂ (Num. z⁻² coeff.)",
         "tr": "b₂ (Pay z⁻² katsayısı)",
-        "de": "b₂ (Num. z⁻² coeff.)",
-        "fr": "b₂ (Num. z⁻² coeff.)",
-        "es": "b₂ (Num. z⁻² coeff.)",
+        "de": "b₂ (Zähler z⁻²-Koeffizient)",
+        "fr": "b₂ (Coeff. Num. z⁻²)",
+        "es": "b₂ (coef. Num. z⁻²)",
         "ar": "b₂ (Num. z⁻² coeff.)"
       },
       "businessContext_i18n": {
         "en": "Numerator coefficient for the z⁻² term",
-        "tr": "z⁻² terimi için pay katsayısı"
+        "tr": "z⁻² terimi için pay katsayısı",
+        "de": "Zählerkoeffizient für den z⁻²-Term",
+        "fr": "Coefficient du numérateur pour le terme z⁻²",
+        "es": "Coeficiente del numerador para el término z⁻²"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "a₁ (Den. z⁻¹ coeff.)",
         "tr": "a₁ (Payda z⁻¹ katsayısı)",
-        "de": "a₁ (Den. z⁻¹ coeff.)",
-        "fr": "a₁ (Den. z⁻¹ coeff.)",
-        "es": "a₁ (Den. z⁻¹ coeff.)",
+        "de": "a₁ (Nenner z⁻¹-Koeffizient)",
+        "fr": "a₁ (Coeff. dénom. z⁻¹)",
+        "es": "a₁ (coef. Den. z⁻¹)",
         "ar": "a₁ (Den. z⁻¹ coeff.)"
       },
       "businessContext_i18n": {
         "en": "Denominator coefficient for the z⁻¹ term (a₀ = 1)",
-        "tr": "z⁻¹ terimi için payda katsayısı (a₀ = 1)"
+        "tr": "z⁻¹ terimi için payda katsayısı (a₀ = 1)",
+        "de": "Nennerkoeffizient für den z⁻¹-Term (a₀ = 1)",
+        "fr": "Coefficient du dénominateur pour le terme z⁻¹ (a₀ = 1)",
+        "es": "Coeficiente del denominador para el término z⁻¹ (a₀ = 1)"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "a₂ (Den. z⁻² coeff.)",
         "tr": "a₂ (Payda z⁻² katsayısı)",
-        "de": "a₂ (Den. z⁻² coeff.)",
-        "fr": "a₂ (Den. z⁻² coeff.)",
-        "es": "a₂ (Den. z⁻² coeff.)",
+        "de": "a₂ (Nenner z⁻²-Koeffizient)",
+        "fr": "a₂ (Coeff. dénom. z⁻²)",
+        "es": "a₂ (coef. Den. z⁻²)",
         "ar": "a₂ (Den. z⁻² coeff.)"
       },
       "businessContext_i18n": {
         "en": "Denominator coefficient for the z⁻² term (a₀ = 1)",
-        "tr": "z⁻² terimi için payda katsayısı (a₀ = 1)"
+        "tr": "z⁻² terimi için payda katsayısı (a₀ = 1)",
+        "de": "Nennerkoeffizient für den z⁻²-Term (a₀ = 1)",
+        "fr": "Coefficient du dénominateur pour le terme z⁻² (a₀ = 1)",
+        "es": "Coeficiente del denominador para el término z⁻² (a₀ = 1)"
       }
     }
   ],

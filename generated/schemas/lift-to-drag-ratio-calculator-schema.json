@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Lift Coefficient (CL)",
         "tr": "Kaldırma Katsayısı (CL)",
-        "de": "Lift Coefficient (CL)",
-        "fr": "Lift Coefficient (CL)",
-        "es": "Lift Coefficient (CL)",
+        "de": "Auftriebsbeiwert (CL)",
+        "fr": "Coefficient de portance (CL)",
+        "es": "Coeficiente de sustentación (CL)",
         "ar": "Lift Coefficient (CL)"
       },
       "businessContext_i18n": {
         "en": "Non-dimensional lift coefficient of the aerodynamic body.",
-        "tr": "Aerodinamik cismin boyutsuz kaldırma katsayısı."
+        "tr": "Aerodinamik cismin boyutsuz kaldırma katsayısı.",
+        "de": "Dimensionsloser Auftriebsbeiwert des aerodynamischen Körpers.",
+        "fr": "Coefficient de portance sans dimension du corps aérodynamique.",
+        "es": "Coeficiente de sustentación adimensional del cuerpo aerodinámico."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Drag Coefficient (CD)",
         "tr": "Sürükleme Katsayısı (CD)",
-        "de": "Drag Coefficient (CD)",
-        "fr": "Drag Coefficient (CD)",
-        "es": "Drag Coefficient (CD)",
+        "de": "Widerstandsbeiwert (CD)",
+        "fr": "Coefficient de traînée (CD)",
+        "es": "Coeficiente de arrastre (CD)",
         "ar": "Drag Coefficient (CD)"
       },
       "businessContext_i18n": {
         "en": "Non-dimensional drag coefficient of the aerodynamic body.",
-        "tr": "Aerodinamik cismin boyutsuz sürükleme katsayısı."
+        "tr": "Aerodinamik cismin boyutsuz sürükleme katsayısı.",
+        "de": "Dimensionsloser Widerstandsbeiwert des aerodynamischen Körpers.",
+        "fr": "Coefficient de traînée sans dimension du corps aérodynamique.",
+        "es": "Coeficiente de arrastre adimensional del cuerpo aerodinámico."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Air Density",
         "tr": "Hava Yoğunluğu",
         "de": "Luftdichte",
-        "fr": "Air Density",
-        "es": "Air Density",
+        "fr": "Densité de l'air",
+        "es": "Densidad del aire",
         "ar": "Air Density"
       },
       "businessContext_i18n": {
         "en": "Air density at current altitude and temperature (ISA sea level standard).",
-        "tr": "Mevcut irtifa ve sıcaklıkta hava yoğunluğu (ISA deniz seviyesi standardı)."
+        "tr": "Mevcut irtifa ve sıcaklıkta hava yoğunluğu (ISA deniz seviyesi standardı).",
+        "de": "Luftdichte in aktueller Höhe und Temperatur (ISA-Meeresniveau-Standard).",
+        "fr": "Densité de l'air à l'altitude et à la température actuelles (norme ISA au niveau de la mer).",
+        "es": "Densidad del aire a la altitud y temperatura actuales (estándar ISA a nivel del mar)."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Velocity",
         "tr": "Hız",
-        "de": "Velocity",
-        "fr": "Velocity",
-        "es": "Velocity",
+        "de": "Geschwindigkeit",
+        "fr": "Vitesse",
+        "es": "Velocidad",
         "ar": "Velocity"
       },
       "businessContext_i18n": {
         "en": "Relative airspeed of the body through the fluid.",
-        "tr": "Cismin akışkana göre bağıl hava hızı."
+        "tr": "Cismin akışkana göre bağıl hava hızı.",
+        "de": "Relative Fluggeschwindigkeit des Körpers durch das Fluid.",
+        "fr": "Vitesse relative du corps dans le fluide.",
+        "es": "Velocidad aerodinámica relativa del cuerpo a través del fluido."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Reference Area",
         "tr": "Referans Alanı",
         "de": "Bezugsfläche",
-        "fr": "Reference Area",
-        "es": "Reference Area",
+        "fr": "Surface de référence",
+        "es": "Área de referencia",
         "ar": "Reference Area"
       },
       "businessContext_i18n": {
         "en": "Characteristic planform area (e.g., wing area).",
-        "tr": "Karakteristik planform alanı (ör. kanat alanı)."
+        "tr": "Karakteristik planform alanı (ör. kanat alanı).",
+        "de": "Charakteristische Grundrissfläche (z. B. Flügelfläche).",
+        "fr": "Surface de référence caractéristique (par exemple, surface alaire).",
+        "es": "Área en planta característica (p. ej., área alar)."
       }
     }
   ],

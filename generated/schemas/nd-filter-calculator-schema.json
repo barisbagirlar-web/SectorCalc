@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Enstantane Pay",
         "tr": "Enstantane Pay",
-        "de": "Enstantane Pay",
+        "de": "Verschlusszeit Zähler",
         "fr": "Enstantane Pay",
-        "es": "Enstantane Pay",
+        "es": "Numerador de velocidad de obturación",
         "ar": "Enstantane Pay"
       },
       "businessContext_i18n": {
         "en": "Enstantane hızının pay değeri (genellikle 1).",
-        "tr": "Enstantane hızının pay değeri (genellikle 1)."
+        "tr": "Enstantane hızının pay değeri (genellikle 1).",
+        "de": "Zählerwert der Verschlusszeit (normalerweise 1).",
+        "fr": "Enstantane hızının pay değeri (genellikle 1).",
+        "es": "Valor del numerador de la velocidad de obturación (generalmente 1)."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Enstantane Payda",
         "tr": "Enstantane Payda",
-        "de": "Enstantane Payda",
+        "de": "Verschlusszeit Nenner",
         "fr": "Enstantane Payda",
-        "es": "Enstantane Payda",
+        "es": "Denominador de velocidad de obturación",
         "ar": "Enstantane Payda"
       },
       "businessContext_i18n": {
         "en": "Enstantane hızının payda değeri (örn. 125, 250, 500).",
-        "tr": "Enstantane hızının payda değeri (örn. 125, 250, 500)."
+        "tr": "Enstantane hızının payda değeri (örn. 125, 250, 500).",
+        "de": "Nennerwert der Verschlusszeit (z. B. 125, 250, 500).",
+        "fr": "Enstantane hızının payda değeri (örn. 125, 250, 500).",
+        "es": "Valor del denominador de la velocidad de obturación (ej. 125, 250, 500)."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "ND Stop Değeri",
         "tr": "ND Stop Değeri",
-        "de": "ND Stop Değeri",
+        "de": "ND-Stufenwert",
         "fr": "ND Stop Değeri",
-        "es": "ND Stop Değeri",
+        "es": "Valor de parada ND",
         "ar": "ND Stop Değeri"
       },
       "businessContext_i18n": {
         "en": "ND filtrenin ışık azaltma miktarı (stop cinsinden).",
-        "tr": "ND filtrenin ışık azaltma miktarı (stop cinsinden)."
+        "tr": "ND filtrenin ışık azaltma miktarı (stop cinsinden).",
+        "de": "Lichtminderungsbetrag des ND-Filters (in Stufen).",
+        "fr": "ND filtrenin ışık azaltma miktarı (stop cinsinden).",
+        "es": "Cantidad de reducción de luz del filtro ND (en paradas)."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Optik Yoğunluk (OD)",
         "tr": "Optik Yoğunluk (OD)",
-        "de": "Optik Yoğunluk (OD)",
+        "de": "Optische Dichte (OD)",
         "fr": "Optik Yoğunluk (OD)",
-        "es": "Optik Yoğunluk (OD)",
+        "es": "Densidad óptica (DO)",
         "ar": "Optik Yoğunluk (OD)"
       },
       "businessContext_i18n": {
         "en": "ND filtrenin optik yoğunluk değeri (örn. 0.3, 0.6, 0.9).",
-        "tr": "ND filtrenin optik yoğunluk değeri (örn. 0.3, 0.6, 0.9)."
+        "tr": "ND filtrenin optik yoğunluk değeri (örn. 0.3, 0.6, 0.9).",
+        "de": "Optischer Dichtewert des ND-Filters (z. B. 0,3, 0,6, 0,9).",
+        "fr": "ND filtrenin optik yoğunluk değeri (örn. 0.3, 0.6, 0.9).",
+        "es": "Valor de densidad óptica del filtro ND (ej. 0.3, 0.6, 0.9)."
       }
     }
   ],

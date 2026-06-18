@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Nanograms",
         "tr": "Nanogram",
-        "de": "Nanograms",
-        "fr": "Nanograms",
-        "es": "Nanograms",
+        "de": "Nanogramm",
+        "fr": "Nanogrammes",
+        "es": "Nanogramos",
         "ar": "Nanograms"
       },
       "businessContext_i18n": {
         "en": "Per-item mass in nanograms (1 ng = 1e-9 g)",
-        "tr": "Parça başına nanogram cinsinden kütle (1 ng = 1e-9 g)"
+        "tr": "Parça başına nanogram cinsinden kütle (1 ng = 1e-9 g)",
+        "de": "Masse pro Stück in Nanogramm (1 ng = 1e-9 g)",
+        "fr": "Masse par article en nanogrammes (1 ng = 1e-9 g)",
+        "es": "Masa por unidad en nanogramos (1 ng = 1e-9 g)"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Number of nanograms in one microgram (standard: 1000)",
-        "tr": "Bir mikrogramdaki nanogram sayısı (standart: 1000)"
+        "tr": "Bir mikrogramdaki nanogram sayısı (standart: 1000)",
+        "de": "Anzahl Nanogramm in einem Mikrogramm (Standard: 1000)",
+        "fr": "Nombre de nanogrammes dans un microgramme (standard : 1000)",
+        "es": "Número de nanogramos en un microgramo (estándar: 1000)"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the final result",
-        "tr": "Nihai sonuç için ondalık basamak sayısı"
+        "tr": "Nihai sonuç için ondalık basamak sayısı",
+        "de": "Anzahl Dezimalstellen für das Endergebnis",
+        "fr": "Nombre de décimales pour le résultat final",
+        "es": "Número de decimales para el resultado final"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Batch Size",
         "tr": "Parti Büyüklüğü",
         "de": "Losgröße",
-        "fr": "Batch Size",
-        "es": "Batch Size",
+        "fr": "Taille de lot",
+        "es": "Tamaño de lote",
         "ar": "Batch Size"
       },
       "businessContext_i18n": {
         "en": "Number of items in the batch (total mass = per-item mass × batch size)",
-        "tr": "Partideki öğe sayısı (toplam kütle = parça başına kütle × parti büyüklüğü)"
+        "tr": "Partideki öğe sayısı (toplam kütle = parça başına kütle × parti büyüklüğü)",
+        "de": "Anzahl der Stücke in der Charge (Gesamtmasse = Masse pro Stück × Chargengröße)",
+        "fr": "Nombre d'articles dans le lot (masse totale = masse par article × taille du lot)",
+        "es": "Número de unidades en el lote (masa total = masa por unidad × tamaño del lote)"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Parsecs",
         "tr": "Parsek",
-        "de": "Parsecs",
+        "de": "Parsec",
         "fr": "Parsecs",
-        "es": "Parsecs",
+        "es": "Pársecs",
         "ar": "Parsecs"
       },
       "businessContext_i18n": {
         "en": "Input distance in parsecs",
-        "tr": "Parsek cinsinden mesafe girin"
+        "tr": "Parsek cinsinden mesafe girin",
+        "de": "Entfernung in Parsec eingeben",
+        "fr": "Saisir la distance en parsecs",
+        "es": "Ingrese la distancia en pársecs"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Number of light-years per parsec",
-        "tr": "Parsek başına ışık yılı sayısı"
+        "tr": "Parsek başına ışık yılı sayısı",
+        "de": "Anzahl Lichtjahre pro Parsec",
+        "fr": "Nombre d'années-lumière par parsec",
+        "es": "Número de años luz por pársec"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for result display",
-        "tr": "Sonuç görüntüleme için ondalık basamak sayısı"
+        "tr": "Sonuç görüntüleme için ondalık basamak sayısı",
+        "de": "Anzahl Dezimalstellen für Ergebnisanzeige",
+        "fr": "Nombre de décimales pour l'affichage du résultat",
+        "es": "Número de decimales para mostrar el resultado"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Scientific Notation",
         "tr": "Bilimsel Gösterim",
-        "de": "Scientific Notation",
-        "fr": "Scientific Notation",
-        "es": "Scientific Notation",
+        "de": "Wissenschaftliche Notation",
+        "fr": "Notation scientifique",
+        "es": "Notación científica",
         "ar": "Scientific Notation"
       },
       "businessContext_i18n": {
         "en": "Use scientific notation (1 = yes, 0 = no)",
-        "tr": "Bilimsel gösterim kullan (1 = evet, 0 = hayır)"
+        "tr": "Bilimsel gösterim kullan (1 = evet, 0 = hayır)",
+        "de": "Wissenschaftliche Notation verwenden (1 = ja, 0 = nein)",
+        "fr": "Utiliser la notation scientifique (1 = oui, 0 = non)",
+        "es": "Usar notación científica (1 = sí, 0 = no)"
       }
     }
   ],

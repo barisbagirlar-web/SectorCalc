@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Kübik katsayı (a)",
         "tr": "Kübik katsayı (a)",
-        "de": "Kübik katsayı (a)",
-        "fr": "Kübik katsayı (a)",
-        "es": "Kübik katsayı (a)",
+        "de": "Kubischer Koeffizient (a)",
+        "fr": "Coefficient cubique (a)",
+        "es": "Coeficiente cúbico (a)",
         "ar": "Kübik katsayı (a)"
       },
       "businessContext_i18n": {
         "en": "Polinomun x³ terimi katsayısı",
-        "tr": "Polinomun x³ terimi katsayısı"
+        "tr": "Polinomun x³ terimi katsayısı",
+        "de": "Koeffizient des x³-Terms des Polynoms",
+        "fr": "Coefficient du terme x³ du polynôme",
+        "es": "Coeficiente del término x³ del polinomio"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Kare katsayı (b)",
         "tr": "Kare katsayı (b)",
-        "de": "Kare katsayı (b)",
-        "fr": "Kare katsayı (b)",
-        "es": "Kare katsayı (b)",
+        "de": "Quadratischer Koeffizient (b)",
+        "fr": "Coefficient quadratique (b)",
+        "es": "Coeficiente cuadrático (b)",
         "ar": "Kare katsayı (b)"
       },
       "businessContext_i18n": {
         "en": "Polinomun x² terimi katsayısı",
-        "tr": "Polinomun x² terimi katsayısı"
+        "tr": "Polinomun x² terimi katsayısı",
+        "de": "Koeffizient des x²-Terms des Polynoms",
+        "fr": "Coefficient du terme x² du polynôme",
+        "es": "Coeficiente del término x² del polinomio"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Doğrusal katsayı (c)",
         "tr": "Doğrusal katsayı (c)",
-        "de": "Doğrusal katsayı (c)",
-        "fr": "Doğrusal katsayı (c)",
-        "es": "Doğrusal katsayı (c)",
+        "de": "Linearer Koeffizient (c)",
+        "fr": "Coefficient linéaire (c)",
+        "es": "Coeficiente lineal (c)",
         "ar": "Doğrusal katsayı (c)"
       },
       "businessContext_i18n": {
         "en": "Polinomun x terimi katsayısı",
-        "tr": "Polinomun x terimi katsayısı"
+        "tr": "Polinomun x terimi katsayısı",
+        "de": "Koeffizient des x-Terms des Polynoms",
+        "fr": "Coefficient du terme x du polynôme",
+        "es": "Coeficiente del término x del polinomio"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Sabit terim (d)",
         "tr": "Sabit terim (d)",
         "de": "Konstantes Glied (d)",
-        "fr": "Sabit terim (d)",
-        "es": "Sabit terim (d)",
+        "fr": "Terme constant (d)",
+        "es": "Término constante (d)",
         "ar": "Sabit terim (d)"
       },
       "businessContext_i18n": {
         "en": "Polinomun sabit terimi",
-        "tr": "Polinomun sabit terimi"
+        "tr": "Polinomun sabit terimi",
+        "de": "Konstanter Term des Polynoms",
+        "fr": "Terme constant du polynôme",
+        "es": "Término constante del polinomio"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Alt sınır (x₁)",
         "tr": "Alt sınır (x₁)",
-        "de": "Alt sınır (x₁)",
-        "fr": "Alt sınır (x₁)",
-        "es": "Alt sınır (x₁)",
+        "de": "Untere Grenze (x₁)",
+        "fr": "Limite inférieure (x₁)",
+        "es": "Límite inferior (x₁)",
         "ar": "Alt sınır (x₁)"
       },
       "businessContext_i18n": {
         "en": "İntegral alt sınırı",
-        "tr": "İntegral alt sınırı"
+        "tr": "İntegral alt sınırı",
+        "de": "Untere Integrationsgrenze",
+        "fr": "Limite inférieure de l'intégrale",
+        "es": "Límite inferior de la integral"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Üst sınır (x₂)",
         "tr": "Üst sınır (x₂)",
-        "de": "Üst sınır (x₂)",
-        "fr": "Üst sınır (x₂)",
-        "es": "Üst sınır (x₂)",
+        "de": "Obere Grenze (x₂)",
+        "fr": "Limite supérieure (x₂)",
+        "es": "Límite superior (x₂)",
         "ar": "Üst sınır (x₂)"
       },
       "businessContext_i18n": {
         "en": "İntegral üst sınırı",
-        "tr": "İntegral üst sınırı"
+        "tr": "İntegral üst sınırı",
+        "de": "Obere Integrationsgrenze",
+        "fr": "Limite supérieure de l'intégrale",
+        "es": "Límite superior de la integral"
       }
     }
   ],

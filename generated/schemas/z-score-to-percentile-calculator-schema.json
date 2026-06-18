@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Z-score",
         "tr": "Z-skoru",
-        "de": "Z-score",
-        "fr": "Z-score",
+        "de": "Z-Wert",
+        "fr": "Score Z",
         "es": "Z-score",
         "ar": "Z-score"
       },
       "businessContext_i18n": {
         "en": "Standard normal deviate (used if rawScoreProvided is 0)",
-        "tr": "Standart normal sapma (rawScoreProvided 0 ise kullanılır)"
+        "tr": "Standart normal sapma (rawScoreProvided 0 ise kullanılır)",
+        "de": "Standardnormalverteilungswert (wird verwendet, wenn rawScoreProvided = 0)",
+        "fr": "Écart normal standard (utilisé si rawScoreProvided est 0)"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Mean",
         "tr": "Ortalama",
-        "de": "Mean",
-        "fr": "Mean",
-        "es": "Mean",
+        "de": "Mittelwert",
+        "fr": "Moyenne",
+        "es": "Media",
         "ar": "Mean"
       },
       "businessContext_i18n": {
         "en": "Population mean for raw score conversion",
-        "tr": "Ham puan dönüşümü için popülasyon ortalaması"
+        "tr": "Ham puan dönüşümü için popülasyon ortalaması",
+        "de": "Grundgesamtheitsmittelwert für die Rohwertumrechnung",
+        "fr": "Moyenne de la population pour la conversion du score brut"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Standard Deviation",
         "tr": "Standart Sapma",
-        "de": "Standard Deviation",
-        "fr": "Standard Deviation",
-        "es": "Standard Deviation",
+        "de": "Standardabweichung",
+        "fr": "Écart type",
+        "es": "Desviación estándar",
         "ar": "Standard Deviation"
       },
       "businessContext_i18n": {
         "en": "Population standard deviation (must be > 0)",
-        "tr": "Popülasyon standart sapması (> 0 olmalıdır)"
+        "tr": "Popülasyon standart sapması (> 0 olmalıdır)",
+        "de": "Standardabweichung der Grundgesamtheit (muss > 0 sein)",
+        "fr": "Écart-type de la population (doit être > 0)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Raw Score",
         "tr": "Ham Puan",
-        "de": "Raw Score",
-        "fr": "Raw Score",
+        "de": "Rohwert",
+        "fr": "Score brut",
         "es": "Raw Score",
         "ar": "Raw Score"
       },
       "businessContext_i18n": {
         "en": "Raw value to convert to Z-score",
-        "tr": "Z-puanına dönüştürülecek ham değer"
+        "tr": "Z-puanına dönüştürülecek ham değer",
+        "de": "Rohwert, der in einen Z-Wert umgerechnet werden soll",
+        "fr": "Valeur brute à convertir en score Z"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Use Raw Score?",
         "tr": "Ham Puan Kullanılsın mı?",
-        "de": "Use Raw Score?",
-        "fr": "Use Raw Score?",
+        "de": "Rohwert verwenden?",
+        "fr": "Utiliser le score brut ?",
         "es": "Use Raw Score?",
         "ar": "Use Raw Score?"
       },
       "businessContext_i18n": {
         "en": "Set to 1 to compute Z-score from raw score, mean, stdDev; 0 to use given Z-score",
-        "tr": "Z-puanını ham puan, ortalama ve standart sapmadan hesaplamak için 1; verilen Z-puanını kullanmak için 0 olarak ayarlayın."
+        "tr": "Z-puanını ham puan, ortalama ve standart sapmadan hesaplamak için 1; verilen Z-puanını kullanmak için 0 olarak ayarlayın.",
+        "de": "Auf 1 setzen, um Z-Wert aus Rohwert, Mittelwert und StdAbw zu berechnen; 0, um einen gegebenen Z-Wert zu verwenden",
+        "fr": "Mettre à 1 pour calculer le score Z à partir du score brut, de la moyenne et de l'écart-type ; 0 pour utiliser un score Z donné"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Tail",
         "tr": "Kuyruk",
-        "de": "Tail",
-        "fr": "Tail",
+        "de": "Ende",
+        "fr": "Queue",
         "es": "Tail",
         "ar": "Tail"
       },
       "businessContext_i18n": {
         "en": "0 = lower tail (cumulative), 1 = upper tail (1 - cumulative)",
-        "tr": "0 = alt kuyruk (kümülatif), 1 = üst kuyruk (1 - kümülatif)"
+        "tr": "0 = alt kuyruk (kümülatif), 1 = üst kuyruk (1 - kümülatif)",
+        "de": "0 = unteres Ende (kumulativ), 1 = oberes Ende (1 - kumulativ)",
+        "fr": "0 = queue inférieure (cumulative), 1 = queue supérieure (1 - cumulative)"
       }
     }
   ],

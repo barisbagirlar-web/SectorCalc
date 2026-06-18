@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Weight of Prime Rib",
         "tr": "Prima Kaburga Ağırlığı",
-        "de": "Weight of Prime Rib",
-        "fr": "Weight of Prime Rib",
-        "es": "Weight of Prime Rib",
+        "de": "Gewicht des Prime Rib",
+        "fr": "Poids du filet de bœuf",
+        "es": "Peso del costillar de primera",
         "ar": "Weight of Prime Rib"
       },
       "businessContext_i18n": {
         "en": "Weight of the prime rib roast in pounds",
-        "tr": "Prima kaburga rostosunun pound cinsinden ağırlığı"
+        "tr": "Prima kaburga rostosunun pound cinsinden ağırlığı",
+        "de": "Gewicht des Prime-Rib-Bratens in Pfund",
+        "fr": "Poids du filet de bœuf en livres",
+        "es": "Peso del costillar de primera en libras"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Minutes per Pound",
         "tr": "Pound Başına Dakika",
-        "de": "Minutes per Pound",
-        "fr": "Minutes per Pound",
-        "es": "Minutes per Pound",
+        "de": "Minuten pro Pfund",
+        "fr": "Minutes par livre",
+        "es": "Minutos por libra",
         "ar": "Minutes per Pound"
       },
       "businessContext_i18n": {
         "en": "Cooking time factor per pound, typically 5 for rare at 500°F",
-        "tr": "Pound başına pişirme süresi faktörü, genellikle 500°F'de az pişmiş için 5"
+        "tr": "Pound başına pişirme süresi faktörü, genellikle 500°F'de az pişmiş için 5",
+        "de": "Garzeitfaktor pro Pfund, typischerweise 5 für rare bei 260°C",
+        "fr": "Facteur de temps de cuisson par livre, typiquement 5 pour saignant à 500°F",
+        "es": "Factor de tiempo de cocción por libra, típicamente 5 para término rojo a 500°F"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Base Time",
         "tr": "Temel Süre",
-        "de": "Base Time",
-        "fr": "Base Time",
-        "es": "Base Time",
+        "de": "Basiszeit",
+        "fr": "Temps de base",
+        "es": "Tiempo base",
         "ar": "Base Time"
       },
       "businessContext_i18n": {
         "en": "Any additional base cooking time, e.g., for searing, in minutes",
-        "tr": "Örneğin mühürleme için ek temel pişirme süresi, dakika cinsinden"
+        "tr": "Örneğin mühürleme için ek temel pişirme süresi, dakika cinsinden",
+        "de": "Zusätzliche Basisgarzeit, z. B. für das Anbraten, in Minuten",
+        "fr": "Temps de cuisson de base supplémentaire, par exemple pour la saisie, en minutes",
+        "es": "Cualquier tiempo base adicional de cocción, por ejemplo, para sellar, en minutos"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Resting Time",
         "tr": "Dinlenme Süresi",
-        "de": "Resting Time",
-        "fr": "Resting Time",
-        "es": "Resting Time",
+        "de": "Ruhezeit",
+        "fr": "Temps de repos",
+        "es": "Tiempo de reposo",
         "ar": "Resting Time"
       },
       "businessContext_i18n": {
         "en": "Time to rest the roast after cooking, in minutes",
-        "tr": "Rostonun pişirme sonrası dinlenme süresi, dakika cinsinden"
+        "tr": "Rostonun pişirme sonrası dinlenme süresi, dakika cinsinden",
+        "de": "Zeit zum Ruhen des Bratens nach dem Garen, in Minuten",
+        "fr": "Temps de repos du rôti après cuisson, en minutes",
+        "es": "Tiempo para reposar el asado después de cocinar, en minutos"
       }
     }
   ],

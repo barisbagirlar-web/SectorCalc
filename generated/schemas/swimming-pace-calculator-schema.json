@@ -13,12 +13,14 @@
         "tr": "Mesafe",
         "de": "Entfernung",
         "fr": "Distance",
-        "es": "Distance",
+        "es": "Distancia",
         "ar": "Distance"
       },
       "businessContext_i18n": {
         "en": "Total distance swum in meters",
-        "tr": "Metre cinsinden yüzülen toplam mesafe"
+        "tr": "Metre cinsinden yüzülen toplam mesafe",
+        "de": "Geschwommene Gesamtdistanz in Metern",
+        "fr": "Distance totale nagée en mètres"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Time (minutes)",
         "tr": "Süre (dakika)",
         "de": "Zeit (Minuten)",
-        "fr": "Time (minutes)",
-        "es": "Time (minutes)",
+        "fr": "Temps (minutes)",
+        "es": "Tiempo (minutos)",
         "ar": "Time (minutes)"
       },
       "businessContext_i18n": {
         "en": "Total time in minutes",
-        "tr": "Dakika cinsinden toplam süre"
+        "tr": "Dakika cinsinden toplam süre",
+        "de": "Gesamtzeit in Minuten",
+        "fr": "Temps total en minutes"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Time (seconds)",
         "tr": "Süre (saniye)",
         "de": "Zeit (Sekunden)",
-        "fr": "Time (seconds)",
-        "es": "Time (seconds)",
+        "fr": "Temps (secondes)",
+        "es": "Tiempo (segundos)",
         "ar": "Time (seconds)"
       },
       "businessContext_i18n": {
         "en": "Additional seconds component of total time",
-        "tr": "Toplam sürenin ek saniye bileşeni"
+        "tr": "Toplam sürenin ek saniye bileşeni",
+        "de": "Zusätzliche Sekundenkomponente der Gesamtzeit",
+        "fr": "Secondes supplémentaires du temps total"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Pool Length",
         "tr": "Havuz Uzunluğu",
-        "de": "Pool Length",
-        "fr": "Pool Length",
-        "es": "Pool Length",
+        "de": "Beckenlänge",
+        "fr": "Longueur du bassin",
+        "es": "Largo de la piscina",
         "ar": "Pool Length"
       },
       "businessContext_i18n": {
         "en": "Length of the swimming pool in meters",
-        "tr": "Yüzme havuzunun metre cinsinden uzunluğu"
+        "tr": "Yüzme havuzunun metre cinsinden uzunluğu",
+        "de": "Länge des Schwimmbeckens in Metern",
+        "fr": "Longueur de la piscine en mètres"
       }
     }
   ],

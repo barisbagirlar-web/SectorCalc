@@ -12,14 +12,16 @@
         "en": "Total Length",
         "tr": "Toplam Uzunluk",
         "de": "Gesamtlänge",
-        "fr": "Total Length",
-        "es": "Total Length",
+        "fr": "Longueur totale",
+        "es": "Longitud total",
         "ar": "Total Length"
       },
       "businessContext_i18n": {
         "en": "The total length of the segment to be divided in golden ratio",
         "tr": "Altın orana bölünecek parçanın toplam uzunluğu",
-        "de": "Die Gesamtlänge des zu teilenden Segments im Goldenen Schnitt"
+        "de": "Die Gesamtlänge des zu teilenden Segments im Goldenen Schnitt",
+        "fr": "Longueur totale du segment à diviser selon le nombre d'or",
+        "es": "Longitud total del segmento a dividir en la proporción áurea"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Long Segment",
         "tr": "Uzun Parça",
         "de": "Langes Segment",
-        "fr": "Long Segment",
-        "es": "Long Segment",
+        "fr": "Segment long",
+        "es": "Segmento largo",
         "ar": "Long Segment"
       },
       "businessContext_i18n": {
         "en": "The longer segment (approximately 0.618 of total)",
         "tr": "Daha uzun parça (toplamın yaklaşık 0.618'i)",
-        "de": "Das längere Segment (ca. 0,618 der Gesamtlänge)"
+        "de": "Das längere Segment (ca. 0,618 der Gesamtlänge)",
+        "fr": "Le segment le plus long (environ 0,618 du total)",
+        "es": "El segmento más largo (aproximadamente 0.618 del total)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Short Segment",
         "tr": "Kısa Parça",
         "de": "Kurzes Segment",
-        "fr": "Short Segment",
-        "es": "Short Segment",
+        "fr": "Segment court",
+        "es": "Segmento corto",
         "ar": "Short Segment"
       },
       "businessContext_i18n": {
         "en": "The shorter segment (approximately 0.382 of total)",
         "tr": "Daha kısa parça (toplamın yaklaşık 0.382'si)",
-        "de": "Das kürzere Segment (ca. 0,382 der Gesamtlänge)"
+        "de": "Das kürzere Segment (ca. 0,382 der Gesamtlänge)",
+        "fr": "Le segment le plus court (environ 0,382 du total)",
+        "es": "El segmento más corto (aproximadamente 0.382 del total)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Tolerance",
         "tr": "Tolerans",
         "de": "Toleranz",
-        "fr": "Tolerance",
-        "es": "Tolerance",
+        "fr": "Tolérance",
+        "es": "Tolerancia",
         "ar": "Tolerance"
       },
       "businessContext_i18n": {
         "en": "Allowed deviation for golden ratio check",
         "tr": "Altın oran kontrolü için izin verilen sapma",
-        "de": "Zulässige Abweichung für die Prüfung des Goldenen Schnitts"
+        "de": "Zulässige Abweichung für die Prüfung des Goldenen Schnitts",
+        "fr": "Écart autorisé pour la vérification du nombre d'or",
+        "es": "Desviación permitida para la verificación de la proporción áurea"
       }
     }
   ],

@@ -12,13 +12,16 @@
         "en": "Total Kolesterol",
         "tr": "Total Kolesterol",
         "de": "Gesamtcholesterin",
-        "fr": "Total Kolesterol",
-        "es": "Total Kolesterol",
+        "fr": "Cholestérol total",
+        "es": "Colesterol total",
         "ar": "Total Kolesterol"
       },
       "businessContext_i18n": {
         "en": "Total kolesterol değeri, lipid panelinden alınır.",
-        "tr": "Total kolesterol değeri, lipid panelinden alınır."
+        "tr": "Total kolesterol değeri, lipid panelinden alınır.",
+        "de": "Gesamtcholesterinwert aus dem Lipidprofil.",
+        "fr": "Valeur du cholestérol total, issue du bilan lipidique.",
+        "es": "Valor de colesterol total, obtenido del perfil lipídico."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "HDL Kolesterol",
         "tr": "HDL Kolesterol",
         "de": "HDL-Cholesterin",
-        "fr": "HDL Kolesterol",
-        "es": "HDL Kolesterol",
+        "fr": "Cholestérol HDL",
+        "es": "Colesterol HDL",
         "ar": "HDL Kolesterol"
       },
       "businessContext_i18n": {
         "en": "HDL (iyi) kolesterol değeri.",
-        "tr": "HDL (iyi) kolesterol değeri."
+        "tr": "HDL (iyi) kolesterol değeri.",
+        "de": "HDL (gutes) Cholesterin.",
+        "fr": "Valeur du cholestérol HDL (bon).",
+        "es": "Valor de colesterol HDL (bueno)."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Trigliserit",
         "tr": "Trigliserit",
         "de": "Triglycerid",
-        "fr": "Trigliserit",
-        "es": "Trigliserit",
+        "fr": "Triglycérides",
+        "es": "Triglicéridos",
         "ar": "Trigliserit"
       },
       "businessContext_i18n": {
         "en": "Trigliserit düzeyi, lipid panelinden.",
-        "tr": "Trigliserit düzeyi, lipid panelinden."
+        "tr": "Trigliserit düzeyi, lipid panelinden.",
+        "de": "Triglyceridspiegel aus dem Lipidprofil.",
+        "fr": "Niveau de triglycérides, issu du bilan lipidique.",
+        "es": "Nivel de triglicéridos, del perfil lipídico."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "LDL Kolesterol (Opsiyonel)",
         "tr": "LDL Kolesterol (Opsiyonel)",
-        "de": "LDL Kolesterol (Opsiyonel)",
-        "fr": "LDL Kolesterol (Opsiyonel)",
-        "es": "LDL Kolesterol (Opsiyonel)",
+        "de": "LDL-Cholesterin (optional)",
+        "fr": "LDL Cholestérol (Optionnel)",
+        "es": "Colesterol LDL (Opcional)",
         "ar": "LDL Kolesterol (Opsiyonel)"
       },
       "businessContext_i18n": {
         "en": "Opsiyonel, direkt ölçülmüş LDL kolesterol. 0 verilirse Friedewald formülü ile hesaplanır.",
-        "tr": "Opsiyonel, direkt ölçülmüş LDL kolesterol. 0 verilirse Friedewald formülü ile hesaplanır."
+        "tr": "Opsiyonel, direkt ölçülmüş LDL kolesterol. 0 verilirse Friedewald formülü ile hesaplanır.",
+        "de": "Optional, direkt gemessenes LDL-Cholesterin. Bei 0 wird es mit der Friedewald-Formel berechnet.",
+        "fr": "Optionnel, LDL cholestérol mesuré directement. Si 0, calculé par la formule de Friedewald.",
+        "es": "Opcional, colesterol LDL medido directamente. Si se ingresa 0, se calcula mediante la fórmula de Friedewald."
       }
     }
   ],

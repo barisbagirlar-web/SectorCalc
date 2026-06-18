@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "First Decimal Number",
         "tr": "Birinci Ondalık Sayı",
-        "de": "First Decimal Number",
-        "fr": "First Decimal Number",
-        "es": "First Decimal Number",
+        "de": "Erste Dezimalzahl",
+        "fr": "Premier nombre décimal",
+        "es": "Primer Número Decimal",
         "ar": "First Decimal Number"
       },
       "businessContext_i18n": {
         "en": "Enter the first decimal number to multiply",
-        "tr": "Çarpmak için ilk ondalık sayıyı girin"
+        "tr": "Çarpmak için ilk ondalık sayıyı girin",
+        "de": "Geben Sie die erste Dezimalzahl zum Multiplizieren ein",
+        "fr": "Entrez le premier nombre décimal à multiplier",
+        "es": "Ingrese el primer número decimal a multiplicar"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Second Decimal Number",
         "tr": "İkinci Ondalık Sayı",
-        "de": "Second Decimal Number",
-        "fr": "Second Decimal Number",
-        "es": "Second Decimal Number",
+        "de": "Zweite Dezimalzahl",
+        "fr": "Deuxième nombre décimal",
+        "es": "Segundo Número Decimal",
         "ar": "Second Decimal Number"
       },
       "businessContext_i18n": {
         "en": "Enter the second decimal number to multiply",
-        "tr": "Çarpmak için ikinci ondalık sayıyı girin"
+        "tr": "Çarpmak için ikinci ondalık sayıyı girin",
+        "de": "Geben Sie die zweite Dezimalzahl zum Multiplizieren ein",
+        "fr": "Entrez le deuxième nombre décimal à multiplier",
+        "es": "Ingrese el segundo número decimal a multiplicar"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Multiplier Adjustment Factor",
         "tr": "Çarpan Düzeltme Faktörü",
-        "de": "Multiplier Adjustment Factor",
-        "fr": "Multiplier Adjustment Factor",
-        "es": "Multiplier Adjustment Factor",
+        "de": "Multiplikator-Anpassungsfaktor",
+        "fr": "Facteur d'ajustement du multiplicateur",
+        "es": "Factor de Ajuste del Multiplicador",
         "ar": "Multiplier Adjustment Factor"
       },
       "businessContext_i18n": {
         "en": "Optional adjustment factor (e.g., for unit conversion, set to 1 for direct multiplication)",
-        "tr": "İsteğe bağlı düzeltme faktörü (ör. birim dönüşümü için, doğrudan çarpma için 1 girin)"
+        "tr": "İsteğe bağlı düzeltme faktörü (ör. birim dönüşümü için, doğrudan çarpma için 1 girin)",
+        "de": "Optionaler Anpassungsfaktor (z. B. für Einheitenumrechnung, auf 1 setzen für direkte Multiplikation)",
+        "fr": "Facteur d'ajustement optionnel (ex. pour conversion d'unités, mettre 1 pour multiplication directe)",
+        "es": "Factor de ajuste opcional (p. ej., para conversión de unidades; establezca 1 para multiplicación directa)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Decimal Places for Rounding",
         "tr": "Yuvarlama için Ondalık Basamak Sayısı",
-        "de": "Decimal Places for Rounding",
-        "fr": "Decimal Places for Rounding",
-        "es": "Decimal Places for Rounding",
+        "de": "Dezimalstellen für Rundung",
+        "fr": "Nombre de décimales pour l'arrondi",
+        "es": "Decimales para Redondeo",
         "ar": "Decimal Places for Rounding"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the final result",
-        "tr": "Nihai sonucun yuvarlanacağı ondalık basamak sayısı"
+        "tr": "Nihai sonucun yuvarlanacağı ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen, auf die das Endergebnis gerundet wird",
+        "fr": "Nombre de décimales pour arrondir le résultat final",
+        "es": "Número de decimales para redondear el resultado final"
       }
     }
   ],

@@ -13,13 +13,15 @@
         "tr": "Gradyan",
         "de": "Gon",
         "fr": "Gradians",
-        "es": "Gradians",
+        "es": "Gradianes",
         "ar": "Gradians"
       },
       "businessContext_i18n": {
         "en": "Angle measured in gradians to be converted to degrees.",
         "tr": "Dereceye dönüştürülecek gradyan cinsinden ölçülen açı.",
-        "de": "In Grad gemessener Winkel, der in Grad umgerechnet werden soll."
+        "de": "In Grad gemessener Winkel, der in Grad umgerechnet werden soll.",
+        "fr": "Angle mesuré en gradians à convertir en degrés.",
+        "es": "Ángulo medido en gradianes que se convertirá a grados."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Instrument Gain",
         "tr": "Enstrüman Kazancı",
         "de": "Instrumentenverstärkung",
-        "fr": "Instrument Gain",
-        "es": "Instrument Gain",
+        "fr": "Gain de l'instrument",
+        "es": "Ganancia del Instrumento",
         "ar": "Instrument Gain"
       },
       "businessContext_i18n": {
         "en": "Calibration gain (multiplicative factor) for the conversion. Default 0.9 represents the standard gradians-to-degrees ratio.",
         "tr": "Dönüşüm için kalibrasyon kazancı (çarpma faktörü). Varsayılan 0.9, standart gradyan-derece oranını temsil eder.",
-        "de": "Kalibrierungsverstärkung (Multiplikationsfaktor) für die Umrechnung. Standard 0,9 repräsentiert das Standardverhältnis von Grad zu Grad."
+        "de": "Kalibrierungsverstärkung (Multiplikationsfaktor) für die Umrechnung. Standard 0,9 repräsentiert das Standardverhältnis von Grad zu Grad.",
+        "fr": "Gain d'étalonnage (facteur multiplicatif) pour la conversion. Par défaut 0,9 représente le rapport standard gradians-degrés.",
+        "es": "Ganancia de calibración (factor multiplicativo) para la conversión. El valor predeterminado 0.9 representa la relación estándar de gradianes a grados."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Instrument Offset",
         "tr": "Enstrüman Ofseti",
         "de": "Instrumentenoffset",
-        "fr": "Instrument Offset",
-        "es": "Instrument Offset",
+        "fr": "Décalage de l'instrument",
+        "es": "Desplazamiento del Instrumento",
         "ar": "Instrument Offset"
       },
       "businessContext_i18n": {
         "en": "Calibration offset in degrees added after conversion to correct systematic error.",
         "tr": "Sistematik hatayı düzeltmek için dönüşümden sonra derece cinsinden eklenen kalibrasyon ofseti.",
-        "de": "Kalibrierungsoffset in Grad, der nach der Umrechnung hinzugefügt wird, um systematische Fehler zu korrigieren."
+        "de": "Kalibrierungsoffset in Grad, der nach der Umrechnung hinzugefügt wird, um systematische Fehler zu korrigieren.",
+        "fr": "Décalage d'étalonnage en degrés ajouté après conversion pour corriger l'erreur systématique.",
+        "es": "Desplazamiento de calibración en grados añadido después de la conversión para corregir el error sistemático."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Rounding Decimals",
         "tr": "Yuvarlama Ondalık Basamakları",
         "de": "Rundungsdezimalstellen",
-        "fr": "Rounding Decimals",
-        "es": "Rounding Decimals",
+        "fr": "Arrondi décimales",
+        "es": "Redondeo de Decimales",
         "ar": "Rounding Decimals"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the final degrees output. e.g., 2 results in two decimal places.",
         "tr": "Nihai derece çıktısı için ondalık basamak sayısı. Örneğin, 2 iki ondalık basamak anlamına gelir.",
-        "de": "Anzahl der Dezimalstellen für die endgültige Gradausgabe. Z.B. 2 ergibt zwei Dezimalstellen."
+        "de": "Anzahl der Dezimalstellen für die endgültige Gradausgabe. Z.B. 2 ergibt zwei Dezimalstellen.",
+        "fr": "Nombre de décimales pour le résultat final en degrés. Ex. : 2 donne deux décimales.",
+        "es": "Número de decimales para la salida final en grados. Por ejemplo, 2 da como resultado dos decimales."
       }
     }
   ],

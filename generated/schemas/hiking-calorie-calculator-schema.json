@@ -12,14 +12,16 @@
         "en": "Vücut Ağırlığı (kg)",
         "tr": "Vücut Ağırlığı (kg)",
         "de": "Körpergewicht (kg)",
-        "fr": "Vücut Ağırlığı (kg)",
-        "es": "Vücut Ağırlığı (kg)",
+        "fr": "Poids corporel (kg)",
+        "es": "Peso corporal (kg)",
         "ar": "Vücut Ağırlığı (kg)"
       },
       "businessContext_i18n": {
         "en": "Yürüyüşçünün vücut ağırlığı (kg cinsinden)",
         "tr": "Yürüyüşçünün vücut ağırlığı (kg cinsinden)",
-        "de": "Körpergewicht des Wanderers (in kg)"
+        "de": "Körpergewicht des Wanderers (in kg)",
+        "fr": "Poids corporel du randonneur (en kg)",
+        "es": "Peso corporal del caminante (en kg)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Sırt Çantası Ağırlığı (kg)",
         "tr": "Sırt Çantası Ağırlığı (kg)",
         "de": "Rucksackgewicht (kg)",
-        "fr": "Sırt Çantası Ağırlığı (kg)",
-        "es": "Sırt Çantası Ağırlığı (kg)",
+        "fr": "Poids du sac à dos (kg)",
+        "es": "Peso de la mochila (kg)",
         "ar": "Sırt Çantası Ağırlığı (kg)"
       },
       "businessContext_i18n": {
         "en": "Sırt çantası ve ekipmanın toplam ağırlığı",
         "tr": "Sırt çantası ve ekipmanın toplam ağırlığı",
-        "de": "Gesamtgewicht von Rucksack und Ausrüstung"
+        "de": "Gesamtgewicht von Rucksack und Ausrüstung",
+        "fr": "Poids total du sac à dos et de l'équipement",
+        "es": "Peso total de la mochila y el equipo"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Mesafe (km)",
         "tr": "Mesafe (km)",
         "de": "Distanz (km)",
-        "fr": "Mesafe (km)",
-        "es": "Mesafe (km)",
+        "fr": "Distance (km)",
+        "es": "Distancia (km)",
         "ar": "Mesafe (km)"
       },
       "businessContext_i18n": {
         "en": "Toplam yürüyüş mesafesi",
         "tr": "Toplam yürüyüş mesafesi",
-        "de": "Gesamte Gehstrecke"
+        "de": "Gesamte Gehstrecke",
+        "fr": "Distance totale de marche",
+        "es": "Distancia total de caminata"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Yükseklik Kazancı (m)",
         "tr": "Yükseklik Kazancı (m)",
         "de": "Höhengewinn (m)",
-        "fr": "Yükseklik Kazancı (m)",
-        "es": "Yükseklik Kazancı (m)",
+        "fr": "Gain d'altitude (m)",
+        "es": "Ganancia de altitud (m)",
         "ar": "Yükseklik Kazancı (m)"
       },
       "businessContext_i18n": {
         "en": "Toplam pozitif yükseklik kazanımı",
         "tr": "Toplam pozitif yükseklik kazanımı",
-        "de": "Gesamter positiver Höhengewinn"
+        "de": "Gesamter positiver Höhengewinn",
+        "fr": "Gain d'altitude positif total",
+        "es": "Ganancia de altitud positiva total"
       }
     },
     {
@@ -96,13 +104,16 @@
         "en": "Arazi Zorluk Faktörü",
         "tr": "Arazi Zorluk Faktörü",
         "de": "Geländeschwierigkeitsfaktor",
-        "fr": "Arazi Zorluk Faktörü",
-        "es": "Arazi Zorluk Faktörü",
+        "fr": "Facteur de difficulté du terrain",
+        "es": "Factor de dificultad del terreno",
         "ar": "Arazi Zorluk Faktörü"
       },
       "businessContext_i18n": {
         "en": "Arazi zorluğu için çarpan: 1.0 asfalt, 1.2 çakıl, 1.5 engebeli",
-        "tr": "Arazi zorluğu için çarpan: 1.0 asfalt, 1.2 çakıl, 1.5 engebeli"
+        "tr": "Arazi zorluğu için çarpan: 1.0 asfalt, 1.2 çakıl, 1.5 engebeli",
+        "de": "Terrain multiplier: 1.0 asphalt, 1.2 gravel, 1.5 rough",
+        "fr": "Multiplicateur pour la difficulté du terrain : 1,0 asphalte, 1,2 gravier, 1,5 accidenté",
+        "es": "Multiplicador por dificultad del terreno: 1.0 asfalto, 1.2 grava, 1.5 irregular"
       }
     }
   ],

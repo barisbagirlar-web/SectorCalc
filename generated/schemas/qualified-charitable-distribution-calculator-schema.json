@@ -12,13 +12,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Age of the IRA account holder. Must be at least 70.5 for QCD eligibility.",
-        "tr": "IRA hesap sahibinin yaşı. QCD uygunluğu için en az 70,5 olmalıdır."
+        "tr": "IRA hesap sahibinin yaşı. QCD uygunluğu için en az 70,5 olmalıdır.",
+        "de": "Alter des IRA-Kontoinhabers. Muss mindestens 70,5 Jahre betragen für die QCD-Berechtigung.",
+        "fr": "Âge du titulaire du compte IRA. Doit être d'au moins 70,5 ans pour être éligible au QCD.",
+        "es": "Edad del titular de la cuenta IRA. Debe ser al menos 70.5 para ser elegible para QCD."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Distribution Amount",
         "tr": "Dağıtım Tutarı",
-        "de": "Distribution Amount",
-        "fr": "Distribution Amount",
-        "es": "Distribution Amount",
+        "de": "Auszahlungsbetrag",
+        "fr": "Montant de la distribution",
+        "es": "Monto de distribución",
         "ar": "Distribution Amount"
       },
       "businessContext_i18n": {
         "en": "Amount intended for charitable distribution directly from IRA (max $100,000 per year).",
-        "tr": "IRA'dan doğrudan hayır amaçlı dağıtım için amaçlanan tutar (yılda maksimum 100.000 $)."
+        "tr": "IRA'dan doğrudan hayır amaçlı dağıtım için amaçlanan tutar (yılda maksimum 100.000 $).",
+        "de": "Betrag, der für eine gemeinnützige Spende direkt von der IRA bestimmt ist (max. 100.000 $ pro Jahr).",
+        "fr": "Montant destiné à une distribution caritative directe depuis l'IRA (max 100 000 $ par an).",
+        "es": "Monto destinado a distribución caritativa directamente desde IRA (máximo $100,000 por año)."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Marginal Tax Rate",
         "tr": "Marjinal Vergi Oranı",
         "de": "Grenzsteuersatz",
-        "fr": "Marginal Tax Rate",
-        "es": "Marginal Tax Rate",
+        "fr": "Taux d'imposition marginal",
+        "es": "Tasa impositiva marginal",
         "ar": "Marginal Tax Rate"
       },
       "businessContext_i18n": {
         "en": "Your top marginal income tax rate, used to estimate tax savings.",
-        "tr": "Vergi tasarrufunu tahmin etmek için kullanılan en yüksek marjinal gelir vergisi oranınız."
+        "tr": "Vergi tasarrufunu tahmin etmek için kullanılan en yüksek marjinal gelir vergisi oranınız.",
+        "de": "Ihr höchster Grenzsteuersatz für die Einkommensteuer, zur Schätzung der Steuerersparnis.",
+        "fr": "Votre taux marginal d'imposition sur le revenu le plus élevé, utilisé pour estimer les économies d'impôt.",
+        "es": "Su tasa marginal de impuesto sobre la renta más alta, utilizada para estimar el ahorro fiscal."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "IRA Balance",
         "tr": "IRA Bakiyesi",
-        "de": "IRA Balance",
-        "fr": "IRA Balance",
-        "es": "IRA Balance",
+        "de": "IRA-Guthaben",
+        "fr": "Solde de l'IRA",
+        "es": "Saldo de IRA",
         "ar": "IRA Balance"
       },
       "businessContext_i18n": {
         "en": "Total value of your traditional IRA, for reference (RMD computation may apply).",
-        "tr": "Geleneksel IRA'nızın toplam değeri, referans amaçlı (RMD hesaplaması uygulanabilir)."
+        "tr": "Geleneksel IRA'nızın toplam değeri, referans amaçlı (RMD hesaplaması uygulanabilir).",
+        "de": "Gesamtwert Ihrer traditionellen IRA, als Referenz (RMD-Berechnung kann anwendbar sein).",
+        "fr": "Valeur totale de votre IRA traditionnel, pour référence (le calcul du RMD peut s'appliquer).",
+        "es": "Valor total de su IRA tradicional, como referencia (puede aplicarse el cálculo de RMD)."
       }
     }
   ],

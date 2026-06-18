@@ -12,14 +12,16 @@
         "en": "Toplam Adet",
         "tr": "Toplam Adet",
         "de": "Gesamtanzahl",
-        "fr": "Toplam Adet",
-        "es": "Toplam Adet",
+        "fr": "Quantité totale",
+        "es": "Cantidad total",
         "ar": "Toplam Adet"
       },
       "businessContext_i18n": {
         "en": "Sevk edilecek toplam birim sayısı",
         "tr": "Sevk edilecek toplam birim sayısı",
-        "de": "Gesamtzahl der zu versendenden Einheiten"
+        "de": "Gesamtzahl der zu versendenden Einheiten",
+        "fr": "Nombre total d'unités à expédier",
+        "es": "Número total de unidades a enviar"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Palet Başına Adet",
         "tr": "Palet Başına Adet",
         "de": "Einheiten pro Palette",
-        "fr": "Palet Başına Adet",
-        "es": "Palet Başına Adet",
+        "fr": "Unités par palette",
+        "es": "Unidades por palé",
         "ar": "Palet Başına Adet"
       },
       "businessContext_i18n": {
         "en": "Bir palete sığan birim sayısı",
         "tr": "Bir palete sığan birim sayısı",
-        "de": "Anzahl der Einheiten, die auf eine Palette passen"
+        "de": "Anzahl der Einheiten, die auf eine Palette passen",
+        "fr": "Nombre d'unités pouvant tenir sur une palette",
+        "es": "Número de unidades que caben en un palé"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Konteyner Başına Palet",
         "tr": "Konteyner Başına Palet",
         "de": "Paletten pro Container",
-        "fr": "Konteyner Başına Palet",
-        "es": "Konteyner Başına Palet",
+        "fr": "Palettes par conteneur",
+        "es": "Palés por contenedor",
         "ar": "Konteyner Başına Palet"
       },
       "businessContext_i18n": {
         "en": "Bir konteynere yüklenebilen palet sayısı (ör: 20 palet = TEU)",
         "tr": "Bir konteynere yüklenebilen palet sayısı (ör: 20 palet = TEU)",
-        "de": "Anzahl der Paletten, die in einen Container geladen werden können (z.B. 20 Paletten = TEU)"
+        "de": "Anzahl der Paletten, die in einen Container geladen werden können (z.B. 20 Paletten = TEU)",
+        "fr": "Nombre de palettes pouvant être chargées dans un conteneur (ex: 20 palettes = EVP)",
+        "es": "Número de palés que se pueden cargar en un contenedor (ej: 20 palés = TEU)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Yedek Oranı (%)",
         "tr": "Yedek Oranı (%)",
         "de": "Reservequote (%)",
-        "fr": "Yedek Oranı (%)",
-        "es": "Yedek Oranı (%)",
+        "fr": "Taux de réserve (%)",
+        "es": "Tasa de reserva (%)",
         "ar": "Yedek Oranı (%)"
       },
       "businessContext_i18n": {
         "en": "Hasar, kayıp vb. için ek yedek yüzdesi",
         "tr": "Hasar, kayıp vb. için ek yedek yüzdesi",
-        "de": "Zusätzlicher Prozentsatz für Ausschuss, Verlust usw."
+        "de": "Zusätzlicher Prozentsatz für Ausschuss, Verlust usw.",
+        "fr": "Pourcentage de réserve supplémentaire pour dommages, pertes, etc.",
+        "es": "Porcentaje adicional de reserva para daños, pérdidas, etc."
       }
     }
   ],

@@ -12,13 +12,15 @@
         "en": "Net Income",
         "tr": "Net Gelir",
         "de": "Nettogewinn",
-        "fr": "Net Income",
-        "es": "Net Income",
+        "fr": "Résultat net",
+        "es": "Ingreso neto",
         "ar": "Net Income"
       },
       "businessContext_i18n": {
         "en": "The company's net income from the income statement.",
-        "tr": "Şirketin gelir tablosundaki net geliri."
+        "tr": "Şirketin gelir tablosundaki net geliri.",
+        "de": "Der Nettogewinn des Unternehmens aus der Gewinn- und Verlustrechnung.",
+        "fr": "Le résultat net de l'entreprise issu du compte de résultat."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Cash Flow from Operations",
         "tr": "İşletme Faaliyetlerinden Nakit Akışı",
-        "de": "Cash Flow from Operations",
-        "fr": "Cash Flow from Operations",
+        "de": "Cashflow aus betrieblicher Tätigkeit",
+        "fr": "Flux de trésorerie liés à l'exploitation",
         "es": "Cash Flow from Operations",
         "ar": "Cash Flow from Operations"
       },
       "businessContext_i18n": {
         "en": "Net cash provided by operating activities from the cash flow statement.",
-        "tr": "Nakit akış tablosundan işletme faaliyetleri tarafından sağlanan net nakit."
+        "tr": "Nakit akış tablosundan işletme faaliyetleri tarafından sağlanan net nakit.",
+        "de": "Netto-Cashflow aus betrieblicher Tätigkeit laut Kapitalflussrechnung.",
+        "fr": "Trésorerie nette fournie par les activités opérationnelles selon le tableau des flux de trésorerie."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Cash Flow from Investing",
         "tr": "Yatırım Faaliyetlerinden Nakit Akışı",
-        "de": "Cash Flow from Investing",
-        "fr": "Cash Flow from Investing",
+        "de": "Cashflow aus Investitionstätigkeit",
+        "fr": "Flux de trésorerie liés à l'investissement",
         "es": "Cash Flow from Investing",
         "ar": "Cash Flow from Investing"
       },
       "businessContext_i18n": {
         "en": "Net cash used in investing activities from the cash flow statement.",
-        "tr": "Nakit akış tablosundan yatırım faaliyetlerinde kullanılan net nakit."
+        "tr": "Nakit akış tablosundan yatırım faaliyetlerinde kullanılan net nakit.",
+        "de": "Netto-Cashflow aus Investitionstätigkeit laut Kapitalflussrechnung.",
+        "fr": "Trésorerie nette utilisée dans les activités d'investissement selon le tableau des flux de trésorerie."
       }
     },
     {
@@ -72,13 +78,15 @@
         "en": "Total Assets",
         "tr": "Toplam Varlıklar",
         "de": "Gesamtvermögen",
-        "fr": "Total Assets",
-        "es": "Total Assets",
+        "fr": "Actif total",
+        "es": "Activos totales",
         "ar": "Total Assets"
       },
       "businessContext_i18n": {
         "en": "Total assets from the balance sheet.",
-        "tr": "Bilançodaki toplam varlıklar."
+        "tr": "Bilançodaki toplam varlıklar.",
+        "de": "Gesamtvermögen aus der Bilanz.",
+        "fr": "Total des actifs du bilan."
       }
     }
   ],

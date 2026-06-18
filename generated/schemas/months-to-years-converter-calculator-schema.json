@@ -12,13 +12,16 @@
         "en": "Months",
         "tr": "Ay",
         "de": "Monate",
-        "fr": "Months",
-        "es": "Months",
+        "fr": "Mois",
+        "es": "Meses",
         "ar": "Months"
       },
       "businessContext_i18n": {
         "en": "Total number of months to convert to years",
-        "tr": "Yıla dönüştürülecek toplam ay sayısı"
+        "tr": "Yıla dönüştürülecek toplam ay sayısı",
+        "de": "Gesamtzahl der Monate zur Umrechnung in Jahre",
+        "fr": "Nombre total de mois à convertir en années",
+        "es": "Número total de meses a convertir en años"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Months per Year",
         "tr": "Yıldaki Ay Sayısı",
-        "de": "Months per Year",
-        "fr": "Months per Year",
-        "es": "Months per Year",
+        "de": "Monate pro Jahr",
+        "fr": "Mois par an",
+        "es": "Meses por año",
         "ar": "Months per Year"
       },
       "businessContext_i18n": {
         "en": "Number of months in a year (typically 12)",
-        "tr": "Bir yıldaki ay sayısı (genellikle 12)"
+        "tr": "Bir yıldaki ay sayısı (genellikle 12)",
+        "de": "Anzahl der Monate in einem Jahr (normalerweise 12)",
+        "fr": "Nombre de mois dans une année (généralement 12)",
+        "es": "Número de meses en un año (generalmente 12)"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the years output",
-        "tr": "Yıl çıktısı için ondalık basamak sayısı"
+        "tr": "Yıl çıktısı için ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen für die Jahresausgabe",
+        "fr": "Nombre de décimales pour le résultat en années",
+        "es": "Número de decimales para la salida en años"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Output Mode",
         "tr": "Çıktı Modu",
-        "de": "Output Mode",
-        "fr": "Output Mode",
-        "es": "Output Mode",
+        "de": "Ausgabemodus",
+        "fr": "Mode de sortie",
+        "es": "Modo de salida",
         "ar": "Output Mode"
       },
       "businessContext_i18n": {
         "en": "0 = decimal years only, 1 = years and months breakdown (not used in primary)",
-        "tr": "0 = yalnızca ondalık yıl, 1 = yıl ve ay dökümü (birincilde kullanılmaz)"
+        "tr": "0 = yalnızca ondalık yıl, 1 = yıl ve ay dökümü (birincilde kullanılmaz)",
+        "de": "0 = nur Dezimaljahre, 1 = Aufschlüsselung in Jahre und Monate (nicht im primären verwendet)",
+        "fr": "0 = années décimales uniquement, 1 = décomposition années et mois (non utilisé en primaire)",
+        "es": "0 = solo años decimales, 1 = desglose en años y meses (no usado en principal)"
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Flow Rate (Q)",
         "tr": "Debi (Q)",
-        "de": "Flow Rate (Q)",
-        "fr": "Flow Rate (Q)",
-        "es": "Flow Rate (Q)",
+        "de": "Durchflussrate (Q)",
+        "fr": "Débit (Q)",
+        "es": "Caudal (Q)",
         "ar": "Flow Rate (Q)"
       },
       "businessContext_i18n": {
         "en": "Volumetric flow rate of fluid through the pipe",
-        "tr": "Borudan geçen akışkanın hacimsel debisi"
+        "tr": "Borudan geçen akışkanın hacimsel debisi",
+        "de": "Volumenstrom der Flüssigkeit durch das Rohr",
+        "fr": "Débit volumétrique du fluide dans la conduite"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Pressure Drop (ΔP)",
         "tr": "Basınç Düşüşü (ΔP)",
-        "de": "Pressure Drop (ΔP)",
-        "fr": "Pressure Drop (ΔP)",
+        "de": "Druckabfall (ΔP)",
+        "fr": "Perte de charge (ΔP)",
         "es": "Pressure Drop (ΔP)",
         "ar": "Pressure Drop (ΔP)"
       },
       "businessContext_i18n": {
         "en": "Pressure difference along the pipe length",
-        "tr": "Boru boyunca basınç farkı"
+        "tr": "Boru boyunca basınç farkı",
+        "de": "Druckdifferenz entlang der Rohrlänge",
+        "fr": "Différence de pression sur la longueur de la conduite"
       }
     },
     {
@@ -51,15 +55,17 @@
       "label_i18n": {
         "en": "Pipe Diameter (D)",
         "tr": "Boru Çapı (D)",
-        "de": "Pipe Diameter (D)",
-        "fr": "Pipe Diameter (D)",
+        "de": "Rohrdurchmesser (D)",
+        "fr": "Diamètre de la conduite (D)",
         "es": "Pipe Diameter (D)",
         "ar": "Pipe Diameter (D)"
       },
       "businessContext_i18n": {
         "en": "Internal diameter of the pipe",
         "tr": "Boru iç çapı",
-        "de": "Innendurchmesser des Rohrs"
+        "de": "Innendurchmesser des Rohrs",
+        "fr": "Diamètre intérieur du tuyau",
+        "es": "Diámetro interno de la tubería"
       }
     },
     {
@@ -72,14 +78,16 @@
       "label_i18n": {
         "en": "Pipe Length (L)",
         "tr": "Boru Uzunluğu (L)",
-        "de": "Pipe Length (L)",
-        "fr": "Pipe Length (L)",
+        "de": "Rohrlänge (L)",
+        "fr": "Longueur de la conduite (L)",
         "es": "Pipe Length (L)",
         "ar": "Pipe Length (L)"
       },
       "businessContext_i18n": {
         "en": "Length of the pipe section over which pressure drop is measured",
-        "tr": "Basınç düşüşünün ölçüldüğü boru bölümünün uzunluğu"
+        "tr": "Basınç düşüşünün ölçüldüğü boru bölümünün uzunluğu",
+        "de": "Länge des Rohrabschnitts, über den der Druckabfall gemessen wird",
+        "fr": "Longueur de la section de conduite sur laquelle la perte de charge est mesurée"
       }
     },
     {
@@ -93,14 +101,16 @@
         "en": "Fluid Density (ρ)",
         "tr": "Akışkan Yoğunluğu (ρ)",
         "de": "Fluiddichte (ρ)",
-        "fr": "Fluid Density (ρ)",
-        "es": "Fluid Density (ρ)",
+        "fr": "Densité du fluide (ρ)",
+        "es": "Densidad del fluido (ρ)",
         "ar": "Fluid Density (ρ)"
       },
       "businessContext_i18n": {
         "en": "Density of the fluid",
         "tr": "Akışkan yoğunluğu",
-        "de": "Dichte der Flüssigkeit"
+        "de": "Dichte der Flüssigkeit",
+        "fr": "Densité du fluide",
+        "es": "Densidad del fluido"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Voltage",
         "tr": "Voltaj",
-        "de": "Voltage",
-        "fr": "Voltage",
-        "es": "Voltage",
+        "de": "Spannung",
+        "fr": "Tension",
+        "es": "Tensión",
         "ar": "Voltage"
       },
       "businessContext_i18n": {
         "en": "Nominal system voltage (V)",
-        "tr": "Nominal sistem voltajı (V)"
+        "tr": "Nominal sistem voltajı (V)",
+        "de": "Nennspannung des Systems (V)",
+        "fr": "Tension nominale du système (V)",
+        "es": "Tensión nominal del sistema (V)"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Current",
         "tr": "Akım",
         "de": "Strom",
-        "fr": "Current",
-        "es": "Current",
+        "fr": "Courant",
+        "es": "Corriente",
         "ar": "Current"
       },
       "businessContext_i18n": {
         "en": "Load current in amperes (A)",
-        "tr": "Amper cinsinden yük akımı (A)"
+        "tr": "Amper cinsinden yük akımı (A)",
+        "de": "Laststrom in Ampere (A)",
+        "fr": "Courant de charge en ampères (A)",
+        "es": "Corriente de carga en amperios (A)"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Power Factor",
         "tr": "Güç Faktörü",
         "de": "Leistungsfaktor",
-        "fr": "Power Factor",
-        "es": "Power Factor",
+        "fr": "Facteur de puissance",
+        "es": "Factor de potencia",
         "ar": "Power Factor"
       },
       "businessContext_i18n": {
         "en": "Power factor of the load (0-1)",
-        "tr": "Yükün güç faktörü (0-1)"
+        "tr": "Yükün güç faktörü (0-1)",
+        "de": "Leistungsfaktor der Last (0-1)",
+        "fr": "Facteur de puissance de la charge (0-1)",
+        "es": "Factor de potencia de la carga (0-1)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Phase Count",
         "tr": "Faz Sayısı",
-        "de": "Phase Count",
-        "fr": "Phase Count",
-        "es": "Phase Count",
+        "de": "Phasenzahl",
+        "fr": "Nombre de phases",
+        "es": "Número de fases",
         "ar": "Phase Count"
       },
       "businessContext_i18n": {
         "en": "Number of phases (1 for single-phase, 3 for three-phase)",
-        "tr": "Faz sayısı (tek faz için 1, üç faz için 3)"
+        "tr": "Faz sayısı (tek faz için 1, üç faz için 3)",
+        "de": "Anzahl der Phasen (1 für Einphasen-, 3 für Dreiphasensystem)",
+        "fr": "Nombre de phases (1 pour monophasé, 3 pour triphasé)",
+        "es": "Número de fases (1 para monofásica, 3 para trifásica)"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Efficiency",
         "tr": "Verim",
         "de": "Wirkungsgrad",
-        "fr": "Efficiency",
-        "es": "Efficiency",
+        "fr": "Rendement",
+        "es": "Eficiencia",
         "ar": "Efficiency"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the load equipment in percentage (%)",
-        "tr": "Yük ekipmanının yüzde olarak verimliliği (%)"
+        "tr": "Yük ekipmanının yüzde olarak verimliliği (%)",
+        "de": "Wirkungsgrad des Lastgeräts in Prozent (%)",
+        "fr": "Rendement de l'équipement de charge en pourcentage (%)",
+        "es": "Eficiencia del equipo de carga en porcentaje (%)"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Initial Value",
         "tr": "Başlangıç Değeri",
-        "de": "Initial Value",
-        "fr": "Initial Value",
-        "es": "Initial Value",
+        "de": "Anfangswert",
+        "fr": "Valeur initiale",
+        "es": "Valor inicial",
         "ar": "Initial Value"
       },
       "businessContext_i18n": {
         "en": "The starting value before the decrease (e.g., previous period's revenue, original cost).",
-        "tr": "Azalmadan önceki başlangıç değeri (örneğin, önceki dönem geliri, orijinal maliyet)."
+        "tr": "Azalmadan önceki başlangıç değeri (örneğin, önceki dönem geliri, orijinal maliyet).",
+        "de": "Der Startwert vor der Abnahme (z. B. Umsatz der Vorperiode, ursprüngliche Kosten).",
+        "fr": "La valeur de départ avant la diminution (par exemple, le chiffre d'affaires de la période précédente, le coût d'origine).",
+        "es": "El valor inicial antes de la disminución (ej. ingresos del período anterior, costo original)."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Final Value",
         "tr": "Nihai Değer",
         "de": "Endwert",
-        "fr": "Final Value",
-        "es": "Final Value",
+        "fr": "Valeur finale",
+        "es": "Valor final",
         "ar": "Final Value"
       },
       "businessContext_i18n": {
         "en": "The resulting value after the decrease (e.g., current period's revenue, reduced cost).",
-        "tr": "Azalmadan sonraki sonuç değeri (örneğin, cari dönem geliri, azaltılmış maliyet)."
+        "tr": "Azalmadan sonraki sonuç değeri (örneğin, cari dönem geliri, azaltılmış maliyet).",
+        "de": "Der resultierende Wert nach der Abnahme (z. B. Umsatz der aktuellen Periode, reduzierte Kosten).",
+        "fr": "La valeur résultante après la diminution (par exemple, le chiffre d'affaires de la période actuelle, le coût réduit).",
+        "es": "El valor resultante después de la disminución (ej. ingresos del período actual, costo reducido)."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output percentage values.",
-        "tr": "Çıktı yüzde değerleri için ondalık basamak sayısı."
+        "tr": "Çıktı yüzde değerleri için ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen für die ausgegebenen Prozentwerte.",
+        "fr": "Nombre de décimales pour les valeurs de pourcentage en sortie.",
+        "es": "Número de decimales para los valores porcentuales de salida."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Adjustment Factor",
         "tr": "Düzeltme Faktörü",
         "de": "Düzeltme Faktörü",
-        "fr": "Adjustment Factor",
-        "es": "Adjustment Factor",
+        "fr": "Facteur d'ajustement",
+        "es": "Düzeltme Faktörü",
         "ar": "Adjustment Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier to adjust the initial value for factors like inflation or normalization. Typically 1 if no adjustment needed.",
-        "tr": "Enflasyon veya normalizasyon gibi faktörler için başlangıç değerini ayarlayan çarpan. Ayarlama gerekmiyorsa tipik olarak 1."
+        "tr": "Enflasyon veya normalizasyon gibi faktörler için başlangıç değerini ayarlayan çarpan. Ayarlama gerekmiyorsa tipik olarak 1.",
+        "de": "Multiplikator zur Anpassung des Anfangswerts für Faktoren wie Inflation oder Normalisierung. Typischerweise 1, wenn keine Anpassung erforderlich.",
+        "fr": "Multiplicateur pour ajuster la valeur initiale pour des facteurs comme l'inflation ou la normalisation. Typiquement 1 si aucun ajustement nécessaire.",
+        "es": "Multiplicador para ajustar el valor inicial por factores como inflación o normalización. Normalmente 1 si no se necesita ajuste."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Target Decrease (%)",
         "tr": "Hedef Azalma (%)",
-        "de": "Target Decrease (%)",
-        "fr": "Target Decrease (%)",
-        "es": "Target Decrease (%)",
+        "de": "Zielabnahme (%)",
+        "fr": "Diminution cible (%)",
+        "es": "Disminución Objetivo (%)",
         "ar": "Target Decrease (%)"
       },
       "businessContext_i18n": {
         "en": "Optional business goal percentage decrease to compare against the actual decrease.",
-        "tr": "Gerçek azalmayla karşılaştırmak için isteğe bağlı iş hedefi yüzde azalması."
+        "tr": "Gerçek azalmayla karşılaştırmak için isteğe bağlı iş hedefi yüzde azalması.",
+        "de": "Optionaler geschäftlicher Prozentsatz zur Abnahme, der mit der tatsächlichen Abnahme verglichen werden soll.",
+        "fr": "Objectif commercial facultatif de diminution en pourcentage à comparer avec la diminution réelle.",
+        "es": "Porcentaje de disminución objetivo opcional para comparar con la disminución real."
       }
     }
   ],

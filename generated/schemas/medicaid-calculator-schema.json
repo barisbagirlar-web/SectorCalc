@@ -12,13 +12,16 @@
         "en": "Annual Gross Income",
         "tr": "Yıllık Brüt Gelir",
         "de": "Jährliches Bruttoeinkommen",
-        "fr": "Annual Gross Income",
-        "es": "Annual Gross Income",
+        "fr": "Revenu brut annuel",
+        "es": "Ingreso bruto anual",
         "ar": "Annual Gross Income"
       },
       "businessContext_i18n": {
         "en": "Total household income before taxes",
-        "tr": "Vergi öncesi toplam hane geliri"
+        "tr": "Vergi öncesi toplam hane geliri",
+        "de": "Gesamtes Haushaltseinkommen vor Steuern",
+        "fr": "Revenu total du ménage avant impôts",
+        "es": "Ingreso total del hogar antes de impuestos"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Other Income",
         "tr": "Diğer Gelir",
-        "de": "Other Income",
-        "fr": "Other Income",
-        "es": "Other Income",
+        "de": "Sonstiges Einkommen",
+        "fr": "Autres revenus",
+        "es": "Otros ingresos",
         "ar": "Other Income"
       },
       "businessContext_i18n": {
         "en": "Additional non-taxable income",
-        "tr": "Ek vergiye tabi olmayan gelir"
+        "tr": "Ek vergiye tabi olmayan gelir",
+        "de": "Zusätzliches nicht steuerpflichtiges Einkommen",
+        "fr": "Revenus non imposables supplémentaires",
+        "es": "Ingresos adicionales no sujetos a impuestos"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Allowable Deductions",
         "tr": "İzin Verilen Kesintiler",
-        "de": "Allowable Deductions",
-        "fr": "Allowable Deductions",
-        "es": "Allowable Deductions",
+        "de": "Zulässige Abzüge",
+        "fr": "Déductions autorisées",
+        "es": "Deducciones permitidas",
         "ar": "Allowable Deductions"
       },
       "businessContext_i18n": {
         "en": "Total deductions (e.g., child care, alimony paid)",
-        "tr": "Toplam kesintiler (örneğin, çocuk bakımı, ödenen nafaka)"
+        "tr": "Toplam kesintiler (örneğin, çocuk bakımı, ödenen nafaka)",
+        "de": "Gesamtabzüge (z. B. Kinderbetreuung, gezahlter Unterhalt)",
+        "fr": "Total des déductions (ex. : garde d'enfants, pension alimentaire versée)",
+        "es": "Deducciones totales (ej., cuidado infantil, pensión alimenticia pagada)"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Household Size",
         "tr": "Hanehalkı Büyüklüğü",
         "de": "Haushaltsgröße",
-        "fr": "Household Size",
-        "es": "Household Size",
+        "fr": "Taille du ménage",
+        "es": "Tamaño del hogar",
         "ar": "Household Size"
       },
       "businessContext_i18n": {
         "en": "Number of people in household, including applicant",
-        "tr": "Başvuru sahibi dahil hanedeki kişi sayısı"
+        "tr": "Başvuru sahibi dahil hanedeki kişi sayısı",
+        "de": "Anzahl der Personen im Haushalt, einschließlich Antragsteller",
+        "fr": "Nombre de personnes dans le ménage, y compris le demandeur",
+        "es": "Número de personas en el hogar, incluido el solicitante"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Income Eligibility Threshold",
         "tr": "Gelir Uygunluk Eşiği",
-        "de": "Income Eligibility Threshold",
-        "fr": "Income Eligibility Threshold",
-        "es": "Income Eligibility Threshold",
+        "de": "Einkommensgrenze für Anspruchsberechtigung",
+        "fr": "Seuil d'éligibilité au revenu",
+        "es": "Umbral de elegibilidad de ingresos",
         "ar": "Income Eligibility Threshold"
       },
       "businessContext_i18n": {
         "en": "Maximum MAGI as percentage of Federal Poverty Level for eligibility (e.g., 138% for Medicaid expansion)",
-        "tr": "Uygunluk için Federal Yoksulluk Sınırı yüzdesi olarak maksimum MAGI (Medicaid genişlemesi için %138)"
+        "tr": "Uygunluk için Federal Yoksulluk Sınırı yüzdesi olarak maksimum MAGI (Medicaid genişlemesi için %138)",
+        "de": "Maximaler MAGI als Prozentsatz der bundesstaatlichen Armutsgrenze für die Anspruchsberechtigung (z. B. 138 % für Medicaid-Erweiterung)",
+        "fr": "MAGI maximum en pourcentage du seuil de pauvreté fédéral pour l'éligibilité (ex. : 138 % pour l'expansion Medicaid)",
+        "es": "MAGI máximo como porcentaje del nivel federal de pobreza para elegibilidad (ej., 138% para expansión de Medicaid)"
       }
     }
   ],

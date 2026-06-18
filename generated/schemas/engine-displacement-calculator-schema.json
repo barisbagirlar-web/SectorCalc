@@ -12,14 +12,16 @@
         "en": "Bore",
         "tr": "Silindir Çapı",
         "de": "Zylinderbohrung",
-        "fr": "Bore",
-        "es": "Bore",
+        "fr": "Alésage",
+        "es": "Diámetro del cilindro",
         "ar": "Bore"
       },
       "businessContext_i18n": {
         "en": "Cylinder bore diameter in millimeters",
         "tr": "Silindir çapı (mm)",
-        "de": "Zylinderbohrungsdurchmesser in Millimetern"
+        "de": "Zylinderbohrungsdurchmesser in Millimetern",
+        "fr": "Alésage du cylindre en millimètres",
+        "es": "Diámetro del cilindro en milímetros"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Stroke",
         "tr": "Strok",
         "de": "Hub",
-        "fr": "Stroke",
-        "es": "Stroke",
+        "fr": "Course",
+        "es": "Carrera",
         "ar": "Stroke"
       },
       "businessContext_i18n": {
         "en": "Piston stroke length in millimeters",
         "tr": "Piston strok uzunluğu (mm)",
-        "de": "Kolbenhublänge in Millimetern"
+        "de": "Kolbenhublänge in Millimetern",
+        "fr": "Longueur de la course du piston en millimètres",
+        "es": "Longitud de la carrera del pistón en milímetros"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Number of Cylinders",
         "tr": "Silindir sayısı",
         "de": "Anzahl der Zylinder",
-        "fr": "Number of Cylinders",
-        "es": "Number of Cylinders",
+        "fr": "Nombre de cylindres",
+        "es": "Número de cilindros",
         "ar": "Number of Cylinders"
       },
       "businessContext_i18n": {
         "en": "Total number of engine cylinders",
         "tr": "Toplam motor silindir sayısı",
-        "de": "Gesamtzahl der Motorzylinder"
+        "de": "Gesamtzahl der Motorzylinder",
+        "fr": "Nombre total de cylindres du moteur",
+        "es": "Número total de cilindros del motor"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Output Unit",
         "tr": "Çıktı Birimi",
         "de": "Ausgabeeinheit",
-        "fr": "Output Unit",
-        "es": "Output Unit",
+        "fr": "Unité de sortie",
+        "es": "Unidad de salida",
         "ar": "Output Unit"
       },
       "businessContext_i18n": {
         "en": "1 for cubic centimeters, 2 for liters, 3 for cubic inches",
         "tr": "1: cm³, 2: litre, 3: inç³",
-        "de": "1 für Kubikzentimeter, 2 für Liter, 3 für Kubikzoll"
+        "de": "1 für Kubikzentimeter, 2 für Liter, 3 für Kubikzoll",
+        "fr": "1 pour centimètres cubes, 2 pour litres, 3 pour pouces cubes",
+        "es": "1 para centímetros cúbicos, 2 para litros, 3 para pulgadas cúbicas"
       }
     }
   ],

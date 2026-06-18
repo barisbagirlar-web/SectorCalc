@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Distance (meters)",
         "tr": "Mesafe (metre)",
-        "de": "Distance (meters)",
-        "fr": "Distance (meters)",
+        "de": "Strecke (Meter)",
+        "fr": "Distance (mètres)",
         "es": "Distance (meters)",
         "ar": "Distance (meters)"
       },
       "businessContext_i18n": {
         "en": "Total swimming distance in meters.",
-        "tr": "Metre cinsinden toplam yüzme mesafesi."
+        "tr": "Metre cinsinden toplam yüzme mesafesi.",
+        "de": "Gesamte Schwimmstrecke in Metern.",
+        "fr": "Distance totale de nage en mètres."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Time (seconds)",
         "tr": "Süre (saniye)",
         "de": "Zeit (Sekunden)",
-        "fr": "Time (seconds)",
-        "es": "Time (seconds)",
+        "fr": "Temps (secondes)",
+        "es": "Tiempo (segundos)",
         "ar": "Time (seconds)"
       },
       "businessContext_i18n": {
         "en": "Total time taken to swim the distance.",
-        "tr": "Mesafeyi yüzmek için geçen toplam süre."
+        "tr": "Mesafeyi yüzmek için geçen toplam süre.",
+        "de": "Gesamtzeit für die Schwimmstrecke.",
+        "fr": "Temps total pour nager la distance."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Rest Time (seconds)",
         "tr": "Dinlenme Süresi (saniye)",
-        "de": "Rest Time (seconds)",
-        "fr": "Rest Time (seconds)",
+        "de": "Ruhezeit (Sekunden)",
+        "fr": "Temps de repos (secondes)",
         "es": "Rest Time (seconds)",
         "ar": "Rest Time (seconds)"
       },
       "businessContext_i18n": {
         "en": "Rest time between laps or intervals.",
-        "tr": "Turlar veya interval arasındaki dinlenme süresi."
+        "tr": "Turlar veya interval arasındaki dinlenme süresi.",
+        "de": "Ruhezeit zwischen Bahnen oder Intervallen.",
+        "fr": "Temps de repos entre les longueurs ou intervalles."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Number of Laps",
         "tr": "Tur Sayısı",
-        "de": "Number of Laps",
-        "fr": "Number of Laps",
+        "de": "Anzahl der Bahnen",
+        "fr": "Nombre de longueurs",
         "es": "Number of Laps",
         "ar": "Number of Laps"
       },
       "businessContext_i18n": {
         "en": "Number of laps or intervals.",
-        "tr": "Tur veya interval sayısı."
+        "tr": "Tur veya interval sayısı.",
+        "de": "Anzahl der Bahnen oder Intervalle.",
+        "fr": "Nombre de longueurs ou d'intervalles."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Pool Length (meters)",
         "tr": "Havuz Uzunluğu (metre)",
-        "de": "Pool Length (meters)",
-        "fr": "Pool Length (meters)",
+        "de": "Beckenlänge (Meter)",
+        "fr": "Longueur du bassin (mètres)",
         "es": "Pool Length (meters)",
         "ar": "Pool Length (meters)"
       },
       "businessContext_i18n": {
         "en": "Length of the swimming pool.",
-        "tr": "Yüzme havuzunun uzunluğu."
+        "tr": "Yüzme havuzunun uzunluğu.",
+        "de": "Länge des Schwimmbeckens.",
+        "fr": "Longueur de la piscine."
       }
     }
   ],

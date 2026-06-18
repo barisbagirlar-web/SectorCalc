@@ -12,14 +12,16 @@
         "en": "Raw Material Input",
         "tr": "Hammadde Girdisi",
         "de": "Rohmaterialeinsatz",
-        "fr": "Raw Material Input",
-        "es": "Raw Material Input",
+        "fr": "Entrée de matière première",
+        "es": "Entrada de materia prima",
         "ar": "Raw Material Input"
       },
       "businessContext_i18n": {
         "en": "Amount of raw material entering the process",
         "tr": "Proses giren hammadde miktarı",
-        "de": "Menge des in den Prozess eingehenden Rohmaterials"
+        "de": "Menge des in den Prozess eingehenden Rohmaterials",
+        "fr": "Quantité de matière première entrant dans le processus",
+        "es": "Cantidad de materia prima que ingresa al proceso"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Finished Product Output",
         "tr": "Bitmiş Ürün Çıktısı",
         "de": "Ausstoß an Fertigprodukten",
-        "fr": "Finished Product Output",
-        "es": "Finished Product Output",
+        "fr": "Sortie de produit fini",
+        "es": "Salida de producto terminado",
         "ar": "Finished Product Output"
       },
       "businessContext_i18n": {
         "en": "Amount of acceptable finished product output",
         "tr": "Kabul edilebilir bitmiş ürün çıktısı miktarı",
-        "de": "Menge der akzeptablen Fertigprodukte"
+        "de": "Menge der akzeptablen Fertigprodukte",
+        "fr": "Quantité de produit fini acceptable en sortie",
+        "es": "Cantidad de producto terminado aceptable"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Rework Output",
         "tr": "Yeniden İşlem Çıktısı",
         "de": "Nacharbeitsausstoß",
-        "fr": "Rework Output",
-        "es": "Rework Output",
+        "fr": "Sortie de retouche",
+        "es": "Salida de retrabajo",
         "ar": "Rework Output"
       },
       "businessContext_i18n": {
         "en": "Product that needed rework but became acceptable",
         "tr": "Yeniden işlem gerektiren ancak kabul edilebilir hale gelen ürün",
-        "de": "Produkt, das nachgearbeitet werden musste, aber akzeptabel wurde"
+        "de": "Produkt, das nachgearbeitet werden musste, aber akzeptabel wurde",
+        "fr": "Produit ayant nécessité une retouche mais devenu acceptable",
+        "es": "Producto que requirió retrabajo pero se volvió aceptable"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Scrap",
         "tr": "Fire",
         "de": "Ausschuss",
-        "fr": "Scrap",
-        "es": "Scrap",
+        "fr": "Rebut",
+        "es": "Desperdicio",
         "ar": "Scrap"
       },
       "businessContext_i18n": {
         "en": "Waste material that cannot be used",
         "tr": "Kullanılamayan atık malzeme",
-        "de": "Abfallmaterial, das nicht verwendet werden kann"
+        "de": "Abfallmaterial, das nicht verwendet werden kann",
+        "fr": "Déchet ne pouvant être utilisé",
+        "es": "Material de desecho que no se puede utilizar"
       }
     }
   ],

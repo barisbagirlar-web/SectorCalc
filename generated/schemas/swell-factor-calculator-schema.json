@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Bank/Hacim (Yerinde)",
         "tr": "Banka/Hacim (Yerinde)",
-        "de": "Bank/Hacim (Yerinde)",
-        "fr": "Bank/Hacim (Yerinde)",
+        "de": "Bank/Volumen (in situ)",
+        "fr": "Banque/Volume (sur place)",
         "es": "Bank/Hacim (Yerinde)",
         "ar": "Bank/Hacim (Yerinde)"
       },
       "businessContext_i18n": {
         "en": "Yerinde sıkışmış malzeme hacmi",
-        "tr": "Yerinde sıkışmış malzeme hacmi"
+        "tr": "Yerinde sıkışmış malzeme hacmi",
+        "de": "Volumen des in situ gebundenen Materials",
+        "fr": "Volume de matériau compacté sur place"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Kabarma Faktörü",
         "tr": "Kabarma Faktörü",
         "de": "Auflockerungsfaktor",
-        "fr": "Kabarma Faktörü",
-        "es": "Kabarma Faktörü",
+        "fr": "Facteur de foisonnement",
+        "es": "Factor de Esponjamiento",
         "ar": "Kabarma Faktörü"
       },
       "businessContext_i18n": {
         "en": "Yerinde hacme göre yüzde artış",
-        "tr": "Yerinde hacme göre yüzde artış"
+        "tr": "Yerinde hacme göre yüzde artış",
+        "de": "Prozentuale Zunahme gegenüber dem In-situ-Volumen",
+        "fr": "Pourcentage d'augmentation par rapport au volume sur place"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Fire/Zayiat Faktörü",
         "tr": "Fire/Zayiat Faktörü",
-        "de": "Fire/Zayiat Faktörü",
-        "fr": "Fire/Zayiat Faktörü",
+        "de": "Schwund-/Verlustfaktor",
+        "fr": "Facteur de perte/déchet",
         "es": "Fire/Zayiat Faktörü",
         "ar": "Fire/Zayiat Faktörü"
       },
       "businessContext_i18n": {
         "en": "Dökülme, sızıntı vb. kayıplar",
-        "tr": "Dökülme, sızıntı vb. kayıplar"
+        "tr": "Dökülme, sızıntı vb. kayıplar",
+        "de": "Verluste durch Verschütten, Auslaufen usw.",
+        "fr": "Pertes dues aux déversements, fuites, etc."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Kamyon Kapasitesi",
         "tr": "Kamyon Kapasitesi",
-        "de": "Kamyon Kapasitesi",
-        "fr": "Kamyon Kapasitesi",
+        "de": "LKW-Kapazität",
+        "fr": "Capacité du camion",
         "es": "Kamyon Kapasitesi",
         "ar": "Kamyon Kapasitesi"
       },
       "businessContext_i18n": {
         "en": "Bir kamyonun taşıma kapasitesi",
-        "tr": "Bir kamyonun taşıma kapasitesi"
+        "tr": "Bir kamyonun taşıma kapasitesi",
+        "de": "Transportkapazität eines LKWs",
+        "fr": "Capacité de transport d'un camion"
       }
     }
   ],

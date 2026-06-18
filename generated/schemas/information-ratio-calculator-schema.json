@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Portfolio Return",
         "tr": "Portföy Getirisi",
-        "de": "Portfolio Return",
-        "fr": "Portfolio Return",
-        "es": "Portfolio Return",
+        "de": "Portfoliorendite",
+        "fr": "Rendement du portefeuille",
+        "es": "Rendimiento de la cartera",
         "ar": "Portfolio Return"
       },
       "businessContext_i18n": {
         "en": "Yatırım portföyünün dönemsel getirisi.",
-        "tr": "Yatırım portföyünün dönemsel getirisi."
+        "tr": "Yatırım portföyünün dönemsel getirisi.",
+        "de": "Periodische Rendite des Anlageportfolios.",
+        "fr": "Rendement périodique du portefeuille d'investissement.",
+        "es": "Rendimiento periódico de la cartera de inversión."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Benchmark Return",
         "tr": "Karşılaştırma Ölçütü Getirisi",
-        "de": "Benchmark Return",
-        "fr": "Benchmark Return",
-        "es": "Benchmark Return",
+        "de": "Benchmark-Rendite",
+        "fr": "Rendement de l'indice de référence",
+        "es": "Rendimiento del índice de referencia",
         "ar": "Benchmark Return"
       },
       "businessContext_i18n": {
         "en": "Karşılaştırma ölçütünün dönemsel getirisi.",
-        "tr": "Karşılaştırma ölçütünün dönemsel getirisi."
+        "tr": "Karşılaştırma ölçütünün dönemsel getirisi.",
+        "de": "Periodische Rendite der Vergleichsbenchmark.",
+        "fr": "Rendement périodique de l'indice de référence.",
+        "es": "Rendimiento periódico del índice de referencia."
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Tracking Error",
         "tr": "İzleme Hatası",
         "de": "Tracking Error",
-        "fr": "Tracking Error",
-        "es": "Tracking Error",
+        "fr": "Erreur de suivi",
+        "es": "Error de seguimiento",
         "ar": "Tracking Error"
       },
       "businessContext_i18n": {
         "en": "Aktif getirinin standart sapması.",
-        "tr": "Aktif getirinin standart sapması."
+        "tr": "Aktif getirinin standart sapması.",
+        "de": "Standardabweichung der aktiven Rendite.",
+        "fr": "Écart type du rendement actif.",
+        "es": "Desviación estándar del rendimiento activo."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Annualization Factor",
         "tr": "Yıllıklandırma Faktörü",
-        "de": "Annualization Factor",
-        "fr": "Annualization Factor",
-        "es": "Annualization Factor",
+        "de": "Annualisierungsfaktor",
+        "fr": "Facteur d'annualisation",
+        "es": "Factor de anualización",
         "ar": "Annualization Factor"
       },
       "businessContext_i18n": {
         "en": "Yıllıklandırma için dönem sayısı (örn. aylık:12, günlük:252).",
-        "tr": "Yıllıklandırma için dönem sayısı (örn. aylık:12, günlük:252)."
+        "tr": "Yıllıklandırma için dönem sayısı (örn. aylık:12, günlük:252).",
+        "de": "Anzahl der Perioden für die Annualisierung (z. B. monatlich: 12, täglich: 252).",
+        "fr": "Nombre de périodes pour l'annualisation (ex. mensuel:12, quotidien:252).",
+        "es": "Número de períodos para anualizar (ej. mensual:12, diario:252)."
       }
     }
   ],

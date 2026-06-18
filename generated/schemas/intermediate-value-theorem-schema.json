@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Lower bound a",
         "tr": "Alt sınır a",
-        "de": "Lower bound a",
-        "fr": "Lower bound a",
-        "es": "Lower bound a",
+        "de": "Untere Grenze a",
+        "fr": "Borne inférieure a",
+        "es": "Límite inferior a",
         "ar": "Lower bound a"
       },
       "businessContext_i18n": {
         "en": "Left endpoint of interval",
-        "tr": "Aralığın sol uç noktası"
+        "tr": "Aralığın sol uç noktası",
+        "de": "Linker Endpunkt des Intervalls",
+        "fr": "Extrémité gauche de l'intervalle",
+        "es": "Extremo izquierdo del intervalo"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Upper bound b",
         "tr": "Üst sınır b",
-        "de": "Upper bound b",
-        "fr": "Upper bound b",
-        "es": "Upper bound b",
+        "de": "Obere Grenze b",
+        "fr": "Borne supérieure b",
+        "es": "Límite superior b",
         "ar": "Upper bound b"
       },
       "businessContext_i18n": {
         "en": "Right endpoint of interval",
-        "tr": "Aralığın sağ uç noktası"
+        "tr": "Aralığın sağ uç noktası",
+        "de": "Rechter Endpunkt des Intervalls",
+        "fr": "Extrémité droite de l'intervalle",
+        "es": "Extremo derecho del intervalo"
       }
     },
     {
@@ -58,7 +64,10 @@
       },
       "businessContext_i18n": {
         "en": "Function value at a",
-        "tr": "a'daki fonksiyon değeri"
+        "tr": "a'daki fonksiyon değeri",
+        "de": "Funktionswert bei a",
+        "fr": "Valeur de la fonction en a",
+        "es": "Valor de la función en a"
       }
     },
     {
@@ -78,7 +87,10 @@
       },
       "businessContext_i18n": {
         "en": "Function value at b",
-        "tr": "b'deki fonksiyon değeri"
+        "tr": "b'deki fonksiyon değeri",
+        "de": "Funktionswert bei b",
+        "fr": "Valeur de la fonction en b",
+        "es": "Valor de la función en b"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Target value k",
         "tr": "Hedef değer k",
-        "de": "Target value k",
-        "fr": "Target value k",
-        "es": "Target value k",
+        "de": "Zielwert k",
+        "fr": "Valeur cible k",
+        "es": "Valor objetivo k",
         "ar": "Target value k"
       },
       "businessContext_i18n": {
         "en": "Intermediate value to find",
-        "tr": "Bulunacak ara değer"
+        "tr": "Bulunacak ara değer",
+        "de": "Gesuchter Zwischenwert",
+        "fr": "Valeur intermédiaire à trouver",
+        "es": "Valor intermedio a encontrar"
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Tolerance",
         "tr": "Tolerans",
         "de": "Toleranz",
-        "fr": "Tolerance",
-        "es": "Tolerance",
+        "fr": "Tolérance",
+        "es": "Tolerancia",
         "ar": "Tolerance"
       },
       "businessContext_i18n": {
         "en": "Acceptable error for bisection",
-        "tr": "İkiye bölme için kabul edilebilir hata"
+        "tr": "İkiye bölme için kabul edilebilir hata",
+        "de": "Akzeptabler Fehler für die Bisektion",
+        "fr": "Erreur acceptable pour la bissection",
+        "es": "Error aceptable para la bisección"
       }
     }
   ],

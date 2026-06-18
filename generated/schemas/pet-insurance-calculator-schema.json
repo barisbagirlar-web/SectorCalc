@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Pet Age",
         "tr": "Evcil Hayvan Yaşı",
-        "de": "Pet Age",
-        "fr": "Pet Age",
-        "es": "Pet Age",
+        "de": "Alter des Haustiers",
+        "fr": "Âge de l'animal",
+        "es": "Edad de la mascota",
         "ar": "Pet Age"
       },
       "businessContext_i18n": {
         "en": "Age of the pet in years",
-        "tr": "Evcil hayvanın yıl cinsinden yaşı"
+        "tr": "Evcil hayvanın yıl cinsinden yaşı",
+        "de": "Alter des Haustiers in Jahren",
+        "fr": "Âge de l'animal en années",
+        "es": "Edad de la mascota en años"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Breed Risk Factor",
         "tr": "Irk Risk Faktörü",
-        "de": "Breed Risk Factor",
-        "fr": "Breed Risk Factor",
-        "es": "Breed Risk Factor",
+        "de": "Rassenrisikofaktor",
+        "fr": "Facteur de risque de la race",
+        "es": "Factor de riesgo de la raza",
         "ar": "Breed Risk Factor"
       },
       "businessContext_i18n": {
         "en": "Risk factor assigned to the breed (1 = low risk, 3 = high risk)",
-        "tr": "Irka atanan risk faktörü (1 = düşük risk, 3 = yüksek risk)"
+        "tr": "Irka atanan risk faktörü (1 = düşük risk, 3 = yüksek risk)",
+        "de": "Der Rasse zugewiesener Risikofaktor (1 = niedriges Risiko, 3 = hohes Risiko)",
+        "fr": "Facteur de risque attribué à la race (1 = faible risque, 3 = risque élevé)",
+        "es": "Factor de riesgo asignado a la raza (1 = bajo riesgo, 3 = alto riesgo)"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Base Monthly Premium",
         "tr": "Temel Aylık Prim",
-        "de": "Base Monthly Premium",
-        "fr": "Base Monthly Premium",
-        "es": "Base Monthly Premium",
+        "de": "Monatlicher Basisbeitrag",
+        "fr": "Prime mensuelle de base",
+        "es": "Prima mensual base",
         "ar": "Base Monthly Premium"
       },
       "businessContext_i18n": {
         "en": "Starting monthly premium before adjustments",
-        "tr": "Düzenlemelerden önceki başlangıç aylık primi"
+        "tr": "Düzenlemelerden önceki başlangıç aylık primi",
+        "de": "Startmonatsbeitrag vor Anpassungen",
+        "fr": "Prime mensuelle de départ avant ajustements",
+        "es": "Prima mensual inicial antes de ajustes"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Annual Coverage Limit",
         "tr": "Yıllık Teminat Limiti",
-        "de": "Annual Coverage Limit",
-        "fr": "Annual Coverage Limit",
-        "es": "Annual Coverage Limit",
+        "de": "Jährliche Deckungsgrenze",
+        "fr": "Limite de couverture annuelle",
+        "es": "Límite de cobertura anual",
         "ar": "Annual Coverage Limit"
       },
       "businessContext_i18n": {
         "en": "Maximum amount the policy will pay per year",
-        "tr": "Poliçenin yılda ödeyeceği maksimum tutar"
+        "tr": "Poliçenin yılda ödeyeceği maksimum tutar",
+        "de": "Maximaler Betrag, den die Police pro Jahr zahlt",
+        "fr": "Montant maximum que la police paiera par an",
+        "es": "Monto máximo que la póliza pagará por año"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Deductible",
         "tr": "Muafiyet",
         "de": "Selbstbehalt",
-        "fr": "Deductible",
-        "es": "Deductible",
+        "fr": "Franchise",
+        "es": "Deducible",
         "ar": "Deductible"
       },
       "businessContext_i18n": {
         "en": "Amount the owner must pay before insurance covers the rest",
-        "tr": "Sigorta kapsamına girmeden önce mal sahibinin ödemesi gereken tutar"
+        "tr": "Sigorta kapsamına girmeden önce mal sahibinin ödemesi gereken tutar",
+        "de": "Betrag, den der Besitzer zahlen muss, bevor die Versicherung den Rest übernimmt",
+        "fr": "Montant que le propriétaire doit payer avant que l'assurance ne prenne en charge le reste",
+        "es": "Monto que el dueño debe pagar antes de que el seguro cubra el resto"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Reimbursement Rate",
         "tr": "Geri Ödeme Oranı",
-        "de": "Reimbursement Rate",
-        "fr": "Reimbursement Rate",
-        "es": "Reimbursement Rate",
+        "de": "Erstattungssatz",
+        "fr": "Taux de remboursement",
+        "es": "Tasa de reembolso",
         "ar": "Reimbursement Rate"
       },
       "businessContext_i18n": {
         "en": "Percentage of covered costs paid by the insurer after deductible",
-        "tr": "Muafiyet sonrası sigortacı tarafından ödenen masrafların yüzdesi"
+        "tr": "Muafiyet sonrası sigortacı tarafından ödenen masrafların yüzdesi",
+        "de": "Prozentsatz der gedeckten Kosten, die der Versicherer nach Abzug des Selbstbehalts zahlt",
+        "fr": "Pourcentage des frais couverts payés par l'assureur après la franchise",
+        "es": "Porcentaje de los costos cubiertos que paga el asegurador después del deducible"
       }
     }
   ],

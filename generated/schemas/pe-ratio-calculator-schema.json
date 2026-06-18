@@ -12,13 +12,16 @@
         "en": "Market Price per Share",
         "tr": "Hisse Başına Piyasa Fiyatı",
         "de": "Marktpreis pro Aktie",
-        "fr": "Market Price per Share",
-        "es": "Market Price per Share",
+        "fr": "Prix de marché par action",
+        "es": "Precio de mercado por acción",
         "ar": "Market Price per Share"
       },
       "businessContext_i18n": {
         "en": "Current stock price in market currency",
-        "tr": "Piyasa para birimi cinsinden güncel hisse senedi fiyatı"
+        "tr": "Piyasa para birimi cinsinden güncel hisse senedi fiyatı",
+        "de": "Aktueller Aktienkurs in Marktwährung",
+        "fr": "Cours actuel de l'action dans la devise du marché",
+        "es": "Precio actual de la acción en moneda de mercado"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Earnings per Share (EPS)",
         "tr": "Hisse Başına Kâr (EPS)",
-        "de": "Earnings per Share (EPS)",
-        "fr": "Earnings per Share (EPS)",
-        "es": "Earnings per Share (EPS)",
+        "de": "Gewinn pro Aktie (EPS)",
+        "fr": "Bénéfice par action (BPA)",
+        "es": "Ganancias por acción (EPS)",
         "ar": "Earnings per Share (EPS)"
       },
       "businessContext_i18n": {
         "en": "Trailing twelve months (TTM) diluted EPS",
-        "tr": "Son on iki ay (TTM) seyreltilmiş EPS"
+        "tr": "Son on iki ay (TTM) seyreltilmiş EPS",
+        "de": "Verwässerter EPS der letzten zwölf Monate (TTM)",
+        "fr": "BPA dilué des douze derniers mois (TTM)",
+        "es": "EPS diluido de los últimos doce meses (TTM)"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Expected Growth Rate",
         "tr": "Beklenen Büyüme Oranı",
-        "de": "Expected Growth Rate",
-        "fr": "Expected Growth Rate",
-        "es": "Expected Growth Rate",
+        "de": "Erwartete Wachstumsrate",
+        "fr": "Taux de croissance attendu",
+        "es": "Tasa de crecimiento esperada",
         "ar": "Expected Growth Rate"
       },
       "businessContext_i18n": {
         "en": "Projected annual EPS growth rate",
-        "tr": "Projeksiyonlu yıllık EPS büyüme oranı"
+        "tr": "Projeksiyonlu yıllık EPS büyüme oranı",
+        "de": "Prognostizierte jährliche EPS-Wachstumsrate",
+        "fr": "Taux de croissance annuel projeté du BPA",
+        "es": "Tasa de crecimiento anual proyectada del EPS"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Annual Dividend per Share",
         "tr": "Hisse Başına Yıllık Temettü",
         "de": "Jährliche Dividende pro Aktie",
-        "fr": "Annual Dividend per Share",
-        "es": "Annual Dividend per Share",
+        "fr": "Dividende annuel par action",
+        "es": "Dividendo anual por acción",
         "ar": "Annual Dividend per Share"
       },
       "businessContext_i18n": {
         "en": "Dividends paid per share per year",
-        "tr": "Yıllık ödenen temettü (hisse başına)"
+        "tr": "Yıllık ödenen temettü (hisse başına)",
+        "de": "Dividenden pro Aktie pro Jahr",
+        "fr": "Dividendes versés par action par an",
+        "es": "Dividendos pagados por acción por año"
       }
     }
   ],

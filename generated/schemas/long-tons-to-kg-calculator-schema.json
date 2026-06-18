@@ -12,13 +12,16 @@
         "en": "Long Tons",
         "tr": "Uzun Ton",
         "de": "Long Tons",
-        "fr": "Long Tons",
-        "es": "Long Tons",
+        "fr": "Tonnes longues",
+        "es": "Toneladas largas",
         "ar": "Long Tons"
       },
       "businessContext_i18n": {
         "en": "Weight per item in long tons (UK, 2240 lbs)",
-        "tr": "Öğe başına ağırlık (uzun ton, 2240 lb)"
+        "tr": "Öğe başına ağırlık (uzun ton, 2240 lb)",
+        "de": "Gewicht pro Stück in Long Tons (UK, 2240 lbs)",
+        "fr": "Poids par article en tonnes longues (UK, 2240 lb)",
+        "es": "Peso por artículo en toneladas largas (Reino Unido, 2240 lb)"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Quantity",
         "tr": "Miktar",
         "de": "Menge",
-        "fr": "Quantity",
-        "es": "Quantity",
+        "fr": "Quantité",
+        "es": "Cantidad",
         "ar": "Quantity"
       },
       "businessContext_i18n": {
         "en": "Number of identical items",
-        "tr": "Özdeş öğe sayısı"
+        "tr": "Özdeş öğe sayısı",
+        "de": "Anzahl identischer Artikel",
+        "fr": "Nombre d'articles identiques",
+        "es": "Número de artículos idénticos"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
-        "fr": "Conversion Factor",
-        "es": "Conversion Factor",
+        "fr": "Facteur de conversion",
+        "es": "Factor de conversión",
         "ar": "Conversion Factor"
       },
       "businessContext_i18n": {
         "en": "Exact conversion factor: 1 long ton = 1016.0469088 kg (based on 1 lb = 0.45359237 kg). Editable for traceability.",
-        "tr": "Kesin dönüşüm faktörü: 1 uzun ton = 1016,0469088 kg (1 lb = 0,45359237 kg esas alınır). İzlenebilirlik için düzenlenebilir."
+        "tr": "Kesin dönüşüm faktörü: 1 uzun ton = 1016,0469088 kg (1 lb = 0,45359237 kg esas alınır). İzlenebilirlik için düzenlenebilir.",
+        "de": "Exakter Umrechnungsfaktor: 1 Long Ton = 1016,0469088 kg (basierend auf 1 lb = 0,45359237 kg). Für Rückverfolgbarkeit bearbeitbar.",
+        "fr": "Facteur de conversion exact : 1 tonne longue = 1016,0469088 kg (basé sur 1 lb = 0,45359237 kg). Modifiable pour traçabilité.",
+        "es": "Factor de conversión exacto: 1 tonelada larga = 1016.0469088 kg (basado en 1 lb = 0.45359237 kg). Editable para trazabilidad."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Safety Margin",
         "tr": "Güvenlik Marjı",
         "de": "Sicherheitsmarge",
-        "fr": "Safety Margin",
-        "es": "Safety Margin",
+        "fr": "Marge de sécurité",
+        "es": "Margen de seguridad",
         "ar": "Safety Margin"
       },
       "businessContext_i18n": {
         "en": "Additional safety margin percentage (e.g., 10 for 10% extra)",
-        "tr": "Ek güvenlik marjı yüzdesi (örn. %10 ek için 10)"
+        "tr": "Ek güvenlik marjı yüzdesi (örn. %10 ek için 10)",
+        "de": "Zusätzlicher Sicherheitsaufschlag in Prozent (z. B. 10 für 10 % Extra)",
+        "fr": "Pourcentage de marge de sécurité supplémentaire (ex. 10 pour 10% de plus)",
+        "es": "Porcentaje de margen de seguridad adicional (ej. 10 para 10% extra)"
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for final result",
-        "tr": "Nihai sonuç için ondalık basamak sayısı"
+        "tr": "Nihai sonuç için ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen für das Endergebnis",
+        "fr": "Nombre de décimales pour le résultat final",
+        "es": "Número de decimales para el resultado final"
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Cargo Weight",
         "tr": "Kargo Ağırlığı",
         "de": "Ladungsgewicht",
-        "fr": "Cargo Weight",
-        "es": "Cargo Weight",
+        "fr": "Poids de la cargaison",
+        "es": "Peso de la carga",
         "ar": "Cargo Weight"
       },
       "businessContext_i18n": {
         "en": "Total weight of dirty bulk cargo to be shipped.",
         "tr": "Sevk edilecek kirli dökme yükün toplam ağırlığı.",
-        "de": "Gesamtgewicht der zu verschiffenden Schüttgut-Schmutzladung."
+        "de": "Gesamtgewicht der zu verschiffenden Schüttgut-Schmutzladung.",
+        "fr": "Poids total de la cargaison en vrac sale à expédier.",
+        "es": "Peso total de la carga sucia a granel a transportar."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Shipping Distance",
         "tr": "Nakliye Mesafesi",
         "de": "Versanddistanz",
-        "fr": "Shipping Distance",
-        "es": "Shipping Distance",
+        "fr": "Distance de transport",
+        "es": "Distancia de envío",
         "ar": "Shipping Distance"
       },
       "businessContext_i18n": {
         "en": "Distance over sea route.",
         "tr": "Deniz rotası üzerindeki mesafe.",
-        "de": "Entfernung über die Seeroute."
+        "de": "Entfernung über die Seeroute.",
+        "fr": "Distance par voie maritime.",
+        "es": "Distancia por ruta marítima."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Freight Rate",
         "tr": "Navlun Oranı",
         "de": "Frachtrate",
-        "fr": "Freight Rate",
-        "es": "Freight Rate",
+        "fr": "Tarif de fret",
+        "es": "Tarifa de flete",
         "ar": "Freight Rate"
       },
       "businessContext_i18n": {
         "en": "Base freight rate per ton-km.",
         "tr": "Ton-km başına temel navlun oranı.",
-        "de": "Basis-Frachtrate pro Tonnenkilometer."
+        "de": "Basis-Frachtrate pro Tonnenkilometer.",
+        "fr": "Tarif de base du fret par tonne-km.",
+        "es": "Tarifa base de flete por tonelada-km."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Cleaning Surcharge",
         "tr": "Temizlik Ek Ücreti",
         "de": "Reinigungszuschlag",
-        "fr": "Cleaning Surcharge",
-        "es": "Cleaning Surcharge",
+        "fr": "Surcharge de nettoyage",
+        "es": "Recargo por limpieza",
         "ar": "Cleaning Surcharge"
       },
       "businessContext_i18n": {
         "en": "Additional percentage for tank cleaning after dirty cargo.",
         "tr": "Kirli yük sonrası tank temizliği için ek yüzde.",
-        "de": "Zusätzlicher Prozentsatz für Tankreinigung nach Schmutzladung."
+        "de": "Zusätzlicher Prozentsatz für Tankreinigung nach Schmutzladung.",
+        "fr": "Pourcentage supplémentaire pour le nettoyage des citernes après cargaison sale.",
+        "es": "Porcentaje adicional por limpieza del tanque después de carga sucia."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Demurrage Risk Factor",
         "tr": "Demuraj Risk Faktörü",
         "de": "Liegegeld-Risikofaktor",
-        "fr": "Demurrage Risk Factor",
-        "es": "Demurrage Risk Factor",
+        "fr": "Facteur de risque de surestarie",
+        "es": "Factor de riesgo de demora",
         "ar": "Demurrage Risk Factor"
       },
       "businessContext_i18n": {
         "en": "Expected extra days due to cargo residue requiring extra cleaning.",
         "tr": "Kargo kalıntısı nedeniyle ekstra temizlik gerektiren beklenen ek gün sayısı.",
-        "de": "Erwartete zusätzliche Tage aufgrund von Ladungsrückständen, die zusätzliche Reinigung erfordern."
+        "de": "Erwartete zusätzliche Tage aufgrund von Ladungsrückständen, die zusätzliche Reinigung erfordern.",
+        "fr": "Jours supplémentaires attendus en raison de résidus de cargaison nécessitant un nettoyage supplémentaire.",
+        "es": "Días adicionales esperados debido a residuos de carga que requieren limpieza extra."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Demurrage Rate",
         "tr": "Demuraj Oranı",
         "de": "Liegegeldsatz",
-        "fr": "Demurrage Rate",
-        "es": "Demurrage Rate",
+        "fr": "Taux de surestarie",
+        "es": "Tarifa de demora",
         "ar": "Demurrage Rate"
       },
       "businessContext_i18n": {
         "en": "Daily demurrage cost if port time exceeds allowed.",
         "tr": "Liman süresinin izin verileni aşması durumunda günlük demuraj maliyeti.",
-        "de": "Tägliche Liegegeldkosten, wenn die Hafenzeit die erlaubte überschreitet."
+        "de": "Tägliche Liegegeldkosten, wenn die Hafenzeit die erlaubte überschreitet.",
+        "fr": "Coût journalier de surestarie si le temps au port dépasse le temps autorisé.",
+        "es": "Costo diario de demora si el tiempo en puerto excede lo permitido."
       }
     }
   ],

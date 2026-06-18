@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Recipe Cost",
         "tr": "Tarif maliyeti",
-        "de": "Recipe Cost",
-        "fr": "Recipe Cost",
-        "es": "Recipe Cost",
+        "de": "Rezeptkosten",
+        "fr": "Coût de la recette",
+        "es": "Coste de la receta",
         "ar": "Recipe Cost"
       },
       "businessContext_i18n": {
         "en": "Total cost of ingredients for the batch",
-        "tr": "Parti için toplam içerik maliyeti"
+        "tr": "Parti için toplam içerik maliyeti",
+        "de": "Gesamtkosten der Zutaten für die Charge",
+        "fr": "Coût total des ingrédients pour le lot",
+        "es": "Coste total de los ingredientes para el lote"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Labor Cost",
         "tr": "İşçilik Maliyeti",
         "de": "Arbeitskosten",
-        "fr": "Labor Cost",
-        "es": "Labor Cost",
+        "fr": "Coût de main-d'œuvre",
+        "es": "Costo de mano de obra",
         "ar": "Labor Cost"
       },
       "businessContext_i18n": {
         "en": "Labor cost per batch",
-        "tr": "Parti başına işçilik maliyeti"
+        "tr": "Parti başına işçilik maliyeti",
+        "de": "Arbeitskosten pro Charge",
+        "fr": "Coût de main-d'œuvre par lot",
+        "es": "Coste de mano de obra por lote"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Other Costs",
         "tr": "Diğer Maliyetler",
         "de": "Sonstige Kosten",
-        "fr": "Other Costs",
-        "es": "Other Costs",
+        "fr": "Autres coûts",
+        "es": "Otros costes",
         "ar": "Other Costs"
       },
       "businessContext_i18n": {
         "en": "Other costs (overhead, packaging, etc.)",
-        "tr": "Diğer maliyetler (genel gider, paketleme vb.)"
+        "tr": "Diğer maliyetler (genel gider, paketleme vb.)",
+        "de": "Sonstige Kosten (Gemeinkosten, Verpackung usw.)",
+        "fr": "Autres coûts (frais généraux, emballage, etc.)",
+        "es": "Otros costes (gastos generales, empaque, etc.)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Number of Portions",
         "tr": "Porsiyon sayısı",
-        "de": "Number of Portions",
-        "fr": "Number of Portions",
-        "es": "Number of Portions",
+        "de": "Anzahl der Portionen",
+        "fr": "Nombre de portions",
+        "es": "Número de porciones",
         "ar": "Number of Portions"
       },
       "businessContext_i18n": {
         "en": "Total number of portions or servings",
-        "tr": "Toplam porsiyon veya servis sayısı"
+        "tr": "Toplam porsiyon veya servis sayısı",
+        "de": "Gesamtzahl der Portionen oder Einheiten",
+        "fr": "Nombre total de portions ou de services",
+        "es": "Número total de porciones o raciones"
       }
     },
     {
@@ -92,14 +104,16 @@
         "en": "Desired Profit Margin",
         "tr": "Hedef Kar Marjı",
         "de": "Gewünschte Gewinnspanne",
-        "fr": "Desired Profit Margin",
-        "es": "Desired Profit Margin",
+        "fr": "Marge bénéficiaire souhaitée",
+        "es": "Margen de beneficio deseado",
         "ar": "Desired Profit Margin"
       },
       "businessContext_i18n": {
         "en": "Desired profit margin percentage",
         "tr": "İstenen kâr marjı yüzdesi",
-        "de": "Gewünschter Gewinnmargenprozentsatz"
+        "de": "Gewünschter Gewinnmargenprozentsatz",
+        "fr": "Pourcentage de marge bénéficiaire souhaité",
+        "es": "Porcentaje de margen de beneficio deseado"
       }
     }
   ],

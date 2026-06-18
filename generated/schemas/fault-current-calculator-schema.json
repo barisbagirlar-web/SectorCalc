@@ -12,14 +12,16 @@
         "en": "Primary Voltage",
         "tr": "Birincil Gerilim",
         "de": "Primärspannung",
-        "fr": "Primary Voltage",
-        "es": "Primary Voltage",
+        "fr": "Tension primaire",
+        "es": "Tensión primaria",
         "ar": "Primary Voltage"
       },
       "businessContext_i18n": {
         "en": "Line-to-line voltage on the primary side of the transformer.",
         "tr": "Transformatörün birincil tarafındaki hatlar arası gerilim.",
-        "de": "Verkettete Spannung auf der Primärseite des Transformators."
+        "de": "Verkettete Spannung auf der Primärseite des Transformators.",
+        "fr": "Tension composée côté primaire du transformateur.",
+        "es": "Tensión línea a línea en el lado primario del transformador."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Secondary Voltage",
         "tr": "İkincil Gerilim",
         "de": "Sekundärspannung",
-        "fr": "Secondary Voltage",
-        "es": "Secondary Voltage",
+        "fr": "Tension secondaire",
+        "es": "Tensión secundaria",
         "ar": "Secondary Voltage"
       },
       "businessContext_i18n": {
         "en": "Line-to-line voltage on the secondary side of the transformer (fault location).",
         "tr": "Transformatörün ikincil tarafındaki (arıza konumu) hatlar arası gerilim.",
-        "de": "Verkettete Spannung auf der Sekundärseite des Transformators (Fehlerort)."
+        "de": "Verkettete Spannung auf der Sekundärseite des Transformators (Fehlerort).",
+        "fr": "Tension composée côté secondaire du transformateur (emplacement du défaut).",
+        "es": "Tensión línea a línea en el lado secundario del transformador (ubicación de la falla)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Source Short-Circuit MVA",
         "tr": "Kaynak Kısa Devre MVA",
         "de": "Kurzschlussleistung der Quelle",
-        "fr": "Source Short-Circuit MVA",
-        "es": "Source Short-Circuit MVA",
+        "fr": "MVA de court-circuit source",
+        "es": "MVA de cortocircuito de la fuente",
         "ar": "Source Short-Circuit MVA"
       },
       "businessContext_i18n": {
         "en": "Available short-circuit MVA from the upstream source at the primary voltage level.",
         "tr": "Birincil gerilim seviyesinde yukarı akış kaynağından mevcut kısa devre MVA'sı.",
-        "de": "Verfügbare Kurzschluss-MVA von der vorgelagerten Quelle auf der Primärspannungsebene."
+        "de": "Verfügbare Kurzschluss-MVA von der vorgelagerten Quelle auf der Primärspannungsebene.",
+        "fr": "MVA de court-circuit disponible depuis la source amont au niveau de tension primaire.",
+        "es": "MVA de cortocircuito disponible desde la fuente aguas arriba al nivel de tensión primaria."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Transformer Rating",
         "tr": "Transformatör Anma Gücü",
         "de": "Transformator-Nennleistung",
-        "fr": "Transformer Rating",
-        "es": "Transformer Rating",
+        "fr": "Puissance nominale du transformateur",
+        "es": "Potencia nominal del transformador",
         "ar": "Transformer Rating"
       },
       "businessContext_i18n": {
         "en": "Power rating of the transformer.",
         "tr": "Transformatörün güç değeri.",
-        "de": "Nennleistung des Transformators."
+        "de": "Nennleistung des Transformators.",
+        "fr": "Puissance nominale du transformateur.",
+        "es": "Potencia nominal del transformador."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Transformer %Z",
         "tr": "Transformatör %Z",
         "de": "Transformator %Z",
-        "fr": "Transformer %Z",
-        "es": "Transformer %Z",
+        "fr": "%Z du transformateur",
+        "es": "%Z del transformador",
         "ar": "Transformer %Z"
       },
       "businessContext_i18n": {
         "en": "Percent impedance of the transformer based on its own kVA rating.",
         "tr": "Transformatörün kendi kVA değerine göre yüzde empedansı.",
-        "de": "Prozentuale Impedanz des Transformators basierend auf seiner eigenen kVA-Nennleistung."
+        "de": "Prozentuale Impedanz des Transformators basierend auf seiner eigenen kVA-Nennleistung.",
+        "fr": "Pourcentage d'impédance du transformateur basé sur sa propre puissance nominale en kVA.",
+        "es": "Porcentaje de impedancia del transformador basado en su propia potencia nominal en kVA."
       }
     }
   ],

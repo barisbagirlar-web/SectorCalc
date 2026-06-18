@@ -12,13 +12,16 @@
         "en": "Mach Number",
         "tr": "Mach sayısı",
         "de": "Mach-Zahl",
-        "fr": "Mach Number",
-        "es": "Mach Number",
+        "fr": "Nombre de Mach",
+        "es": "Número de Mach",
         "ar": "Mach Number"
       },
       "businessContext_i18n": {
         "en": "The Mach number (ratio of speed to speed of sound).",
-        "tr": "Mach sayısı (hızın ses hızına oranı)."
+        "tr": "Mach sayısı (hızın ses hızına oranı).",
+        "de": "Die Mach-Zahl (Verhältnis von Geschwindigkeit zur Schallgeschwindigkeit).",
+        "fr": "Le nombre de Mach (rapport de la vitesse à la vitesse du son).",
+        "es": "Número de Mach (relación entre la velocidad y la velocidad del sonido)."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Air Temperature",
         "tr": "Hava Sıcaklığı",
         "de": "Lufttemperatur",
-        "fr": "Air Temperature",
-        "es": "Air Temperature",
+        "fr": "Température de l'air",
+        "es": "Temperatura del aire",
         "ar": "Air Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of the air in degrees Celsius.",
-        "tr": "Santigrat derece cinsinden hava sıcaklığı."
+        "tr": "Santigrat derece cinsinden hava sıcaklığı.",
+        "de": "Temperatur der Luft in Grad Celsius.",
+        "fr": "Température de l'air en degrés Celsius.",
+        "es": "Temperatura del aire en grados Celsius."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Adiabatic Index (γ)",
         "tr": "Adyabatik İndeks (γ)",
-        "de": "Adiabatic Index (γ)",
-        "fr": "Adiabatic Index (γ)",
-        "es": "Adiabatic Index (γ)",
+        "de": "Adiabatenexponent (γ)",
+        "fr": "Indice adiabatique (γ)",
+        "es": "Índice adiabático (γ)",
         "ar": "Adiabatic Index (γ)"
       },
       "businessContext_i18n": {
         "en": "Ratio of specific heats for air. Standard value is 1.4.",
-        "tr": "Hava için özgül ısı oranı. Standart değer 1.4'tür."
+        "tr": "Hava için özgül ısı oranı. Standart değer 1.4'tür.",
+        "de": "Verhältnis der spezifischen Wärmen für Luft. Standardwert ist 1,4.",
+        "fr": "Rapport des chaleurs spécifiques pour l'air. La valeur standard est 1,4.",
+        "es": "Relación de calores específicos para el aire. Valor estándar: 1.4."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Specific Gas Constant (R)",
         "tr": "Özgül Gaz Sabiti (R)",
-        "de": "Specific Gas Constant (R)",
-        "fr": "Specific Gas Constant (R)",
-        "es": "Specific Gas Constant (R)",
+        "de": "Spezifische Gaskonstante (R)",
+        "fr": "Constante spécifique des gaz (R)",
+        "es": "Constante específica del gas (R)",
         "ar": "Specific Gas Constant (R)"
       },
       "businessContext_i18n": {
         "en": "Specific gas constant for dry air. Standard value is 287.058 J/(kg·K).",
-        "tr": "Kuru hava için özgül gaz sabiti. Standart değer 287.058 J/(kg·K)'dir."
+        "tr": "Kuru hava için özgül gaz sabiti. Standart değer 287.058 J/(kg·K)'dir.",
+        "de": "Spezifische Gaskonstante für trockene Luft. Standardwert ist 287,058 J/(kg·K).",
+        "fr": "Constante spécifique des gaz pour l'air sec. La valeur standard est 287,058 J/(kg·K).",
+        "es": "Constante específica del gas para aire seco. El valor estándar es 287,058 J/(kg·K)."
       }
     }
   ],

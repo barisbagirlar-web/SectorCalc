@@ -12,13 +12,15 @@
         "en": "Titrant Concentration",
         "tr": "Titrant Konsantrasyonu",
         "de": "Titrantenkonzentration",
-        "fr": "Titrant Concentration",
-        "es": "Titrant Concentration",
+        "fr": "Concentration du titrant",
+        "es": "Concentración del valorante",
         "ar": "Titrant Concentration"
       },
       "businessContext_i18n": {
         "en": "Concentration of the standard solution used for titration.",
-        "tr": "Titrasyon için kullanılan standart çözeltinin konsantrasyonu."
+        "tr": "Titrasyon için kullanılan standart çözeltinin konsantrasyonu.",
+        "de": "Konzentration der für die Titration verwendeten Standardlösung.",
+        "fr": "Concentration de la solution standard utilisée pour le titrage."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Volume of Titrant",
         "tr": "Titrant Hacmi",
-        "de": "Volume of Titrant",
-        "fr": "Volume of Titrant",
+        "de": "Titriervolumen",
+        "fr": "Volume de titrant",
         "es": "Volume of Titrant",
         "ar": "Volume of Titrant"
       },
       "businessContext_i18n": {
         "en": "Volume of titrant added to reach the endpoint.",
-        "tr": "Dönüm noktasına ulaşmak için eklenen titrant hacmi."
+        "tr": "Dönüm noktasına ulaşmak için eklenen titrant hacmi.",
+        "de": "Volumen des Titriermittels, das bis zum Endpunkt zugegeben wurde.",
+        "fr": "Volume de titrant ajouté pour atteindre le point final."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Volume of Analyte",
         "tr": "Analit Hacmi",
         "de": "Volumen des Analyten",
-        "fr": "Volume of Analyte",
-        "es": "Volume of Analyte",
+        "fr": "Volume de l'analyte",
+        "es": "Volumen del analito",
         "ar": "Volume of Analyte"
       },
       "businessContext_i18n": {
         "en": "Volume of the sample solution being titrated.",
-        "tr": "Titre edilen numune çözeltisinin hacmi."
+        "tr": "Titre edilen numune çözeltisinin hacmi.",
+        "de": "Volumen der zu titrierenden Probelösung.",
+        "fr": "Volume de la solution échantillon titrée."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Stoichiometric Coefficient (Titrant)",
         "tr": "Stokiyometrik Katsayı (Titrant)",
-        "de": "Stoichiometric Coefficient (Titrant)",
-        "fr": "Stoichiometric Coefficient (Titrant)",
+        "de": "Stöchiometrischer Koeffizient (Titriermittel)",
+        "fr": "Coefficient stœchiométrique (titrant)",
         "es": "Stoichiometric Coefficient (Titrant)",
         "ar": "Stoichiometric Coefficient (Titrant)"
       },
       "businessContext_i18n": {
         "en": "Mole ratio of titrant in the balanced reaction equation.",
-        "tr": "Dengeli reaksiyon denkleminde titrantın mol oranı."
+        "tr": "Dengeli reaksiyon denkleminde titrantın mol oranı.",
+        "de": "Stoffmengenverhältnis des Titriermittels in der ausgeglichenen Reaktionsgleichung.",
+        "fr": "Rapport molaire du titrant dans l'équation de réaction équilibrée."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Stoichiometric Coefficient (Analyte)",
         "tr": "Stokiyometrik Katsayı (Analit)",
-        "de": "Stoichiometric Coefficient (Analyte)",
-        "fr": "Stoichiometric Coefficient (Analyte)",
+        "de": "Stöchiometrischer Koeffizient (Analyt)",
+        "fr": "Coefficient stœchiométrique (analyte)",
         "es": "Stoichiometric Coefficient (Analyte)",
         "ar": "Stoichiometric Coefficient (Analyte)"
       },
       "businessContext_i18n": {
         "en": "Mole ratio of analyte in the balanced reaction equation.",
-        "tr": "Dengeli reaksiyon denkleminde analitin mol oranı."
+        "tr": "Dengeli reaksiyon denkleminde analitin mol oranı.",
+        "de": "Stoffmengenverhältnis des Analyten in der ausgeglichenen Reaktionsgleichung.",
+        "fr": "Rapport molaire de l'analyte dans l'équation de réaction équilibrée."
       }
     }
   ],

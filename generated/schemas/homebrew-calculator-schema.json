@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Grain Weight",
         "tr": "Tahıl Ağırlığı",
-        "de": "Grain Weight",
-        "fr": "Grain Weight",
-        "es": "Grain Weight",
+        "de": "Malzgewicht",
+        "fr": "Poids du grain",
+        "es": "Peso del grano",
         "ar": "Grain Weight"
       },
       "businessContext_i18n": {
         "en": "Total weight of malt grain in the recipe",
-        "tr": "Tarifteki malt tahılının toplam ağırlığı."
+        "tr": "Tarifteki malt tahılının toplam ağırlığı.",
+        "de": "Gesamtgewicht des Malzes im Rezept.",
+        "fr": "Poids total du grain de malt dans la recette",
+        "es": "Peso total del grano de malta en la receta."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Hop Weight",
         "tr": "Şerbetçiotu Ağırlığı",
-        "de": "Hop Weight",
-        "fr": "Hop Weight",
-        "es": "Hop Weight",
+        "de": "Hopfenmenge",
+        "fr": "Poids du houblon",
+        "es": "Peso del lúpulo",
         "ar": "Hop Weight"
       },
       "businessContext_i18n": {
         "en": "Weight of hops added for bittering",
-        "tr": "Acılık için eklenen şerbetçiotu ağırlığı."
+        "tr": "Acılık için eklenen şerbetçiotu ağırlığı.",
+        "de": "Gewicht des Hopfens für die Bitterung.",
+        "fr": "Poids du houblon ajouté pour l'amertume",
+        "es": "Peso del lúpulo añadido para amargor."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Alpha Acid",
         "tr": "Alfa Asit",
-        "de": "Alpha Acid",
-        "fr": "Alpha Acid",
-        "es": "Alpha Acid",
+        "de": "Alphasäure",
+        "fr": "Acide alpha",
+        "es": "Alfa ácido",
         "ar": "Alpha Acid"
       },
       "businessContext_i18n": {
         "en": "Alpha acid percentage of the hops",
-        "tr": "Şerbetçiotunun alfa asit yüzdesi."
+        "tr": "Şerbetçiotunun alfa asit yüzdesi.",
+        "de": "Alphasäuregehalt des Hopfens in Prozent.",
+        "fr": "Pourcentage d'acide alpha du houblon",
+        "es": "Porcentaje de alfa ácido del lúpulo."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Boil Volume",
         "tr": "Kaynama Hacmi",
-        "de": "Boil Volume",
-        "fr": "Boil Volume",
-        "es": "Boil Volume",
+        "de": "Kochvolumen",
+        "fr": "Volume d'ébullition",
+        "es": "Volumen de ebullición",
         "ar": "Boil Volume"
       },
       "businessContext_i18n": {
         "en": "Volume of wort after boiling",
-        "tr": "Kaynama sonrası şıra hacmi."
+        "tr": "Kaynama sonrası şıra hacmi.",
+        "de": "Volumen der Würze nach dem Kochen.",
+        "fr": "Volume du moût après ébullition",
+        "es": "Volumen del mosto después de la ebullición."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Boil Time",
         "tr": "Kaynama Süresi",
-        "de": "Boil Time",
-        "fr": "Boil Time",
-        "es": "Boil Time",
+        "de": "Kochzeit",
+        "fr": "Temps d'ébullition",
+        "es": "Tiempo de ebullición",
         "ar": "Boil Time"
       },
       "businessContext_i18n": {
         "en": "Duration of the boil",
-        "tr": "Kaynama süresi"
+        "tr": "Kaynama süresi",
+        "de": "Dauer des Kochens.",
+        "fr": "Durée de l'ébullition",
+        "es": "Duración de la ebullición."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Yeast Attenuation",
         "tr": "Maya Attenüasyonu",
-        "de": "Yeast Attenuation",
-        "fr": "Yeast Attenuation",
-        "es": "Yeast Attenuation",
+        "de": "Hefevergärung",
+        "fr": "Atténuation de la levure",
+        "es": "Atenuación de la levadura",
         "ar": "Yeast Attenuation"
       },
       "businessContext_i18n": {
         "en": "Expected attenuation of the yeast strain",
-        "tr": "Maya suşunun beklenen attenuasyonu"
+        "tr": "Maya suşunun beklenen attenuasyonu",
+        "de": "Erwartete Vergärung des Hefestamms",
+        "fr": "Atténuation attendue de la souche de levure",
+        "es": "Atenuación esperada de la cepa de levadura"
       }
     },
     {
@@ -132,13 +150,16 @@
         "en": "Efficiency",
         "tr": "Verim",
         "de": "Wirkungsgrad",
-        "fr": "Efficiency",
-        "es": "Efficiency",
+        "fr": "Rendement",
+        "es": "Eficiencia",
         "ar": "Efficiency"
       },
       "businessContext_i18n": {
         "en": "Brewhouse efficiency of the system",
-        "tr": "Birahane verimliliği"
+        "tr": "Birahane verimliliği",
+        "de": "Sudhauseffizienz des Systems",
+        "fr": "Rendement de la brasserie",
+        "es": "Eficiencia de la sala de cocción del sistema"
       }
     }
   ],

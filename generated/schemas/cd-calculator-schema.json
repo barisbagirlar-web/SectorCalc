@@ -12,14 +12,16 @@
         "en": "Initial Deposit",
         "tr": "Başlangıç Mevduatı",
         "de": "Anfangseinlage",
-        "fr": "Initial Deposit",
-        "es": "Initial Deposit",
+        "fr": "Dépôt initial",
+        "es": "Depósito inicial",
         "ar": "Initial Deposit"
       },
       "businessContext_i18n": {
         "en": "Amount of money initially deposited into the CD.",
         "tr": "Mevduat hesabına başlangıçta yatırılan para miktarı.",
-        "de": "Geldbetrag, der ursprünglich auf das Festgeldkonto eingezahlt wurde."
+        "de": "Geldbetrag, der ursprünglich auf das Festgeldkonto eingezahlt wurde.",
+        "fr": "Montant d'argent initialement déposé sur le CD.",
+        "es": "Cantidad de dinero depositada inicialmente en el CD."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Annual Interest Rate",
         "tr": "Yıllık Faiz Oranı",
         "de": "Jährlicher Zinssatz",
-        "fr": "Annual Interest Rate",
-        "es": "Annual Interest Rate",
+        "fr": "Taux d'intérêt annuel",
+        "es": "Tasa de Interés Anual",
         "ar": "Annual Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Annual percentage yield (APY) offered by the CD.",
         "tr": "Mevduat sertifikası tarafından sunulan yıllık yüzde getiri (APY).",
-        "de": "Jährliche prozentuale Rendite (APY) des Festgeldkontos."
+        "de": "Jährliche prozentuale Rendite (APY) des Festgeldkontos.",
+        "fr": "Rendement annuel en pourcentage (APY) offert par le CD.",
+        "es": "Rendimiento porcentual anual (APY) ofrecido por el CD."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Term Length",
         "tr": "Vade Süresi",
         "de": "Laufzeit",
-        "fr": "Term Length",
-        "es": "Term Length",
+        "fr": "Durée du terme",
+        "es": "Plazo",
         "ar": "Term Length"
       },
       "businessContext_i18n": {
         "en": "Duration of the CD in months.",
         "tr": "Mevduat sertifikasının ay cinsinden süresi.",
-        "de": "Dauer des Festgeldkontos in Monaten."
+        "de": "Dauer des Festgeldkontos in Monaten.",
+        "fr": "Durée du CD en mois.",
+        "es": "Duración del CD en meses."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Compounding Frequency",
         "tr": "Bileşik Sıklığı",
         "de": "Zinseszinshäufigkeit",
-        "fr": "Compounding Frequency",
-        "es": "Compounding Frequency",
+        "fr": "Fréquence de capitalisation",
+        "es": "Frecuencia de capitalización",
         "ar": "Compounding Frequency"
       },
       "businessContext_i18n": {
         "en": "Number of times interest is compounded per year (e.g., 12 for monthly).",
         "tr": "Yıllık bileşik faiz sayısı (örneğin, aylık için 12).",
-        "de": "Anzahl der Zinseszinsperioden pro Jahr (z. B. 12 für monatlich)."
+        "de": "Anzahl der Zinseszinsperioden pro Jahr (z. B. 12 für monatlich).",
+        "fr": "Nombre de fois que l'intérêt est composé par an (ex. : 12 pour mensuel).",
+        "es": "Número de veces que se capitaliza el interés por año (ej., 12 para mensual)."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Additional Monthly Deposit",
         "tr": "Ek Aylık Para Yatırma",
         "de": "Zusätzliche monatliche Einzahlung",
-        "fr": "Additional Monthly Deposit",
-        "es": "Additional Monthly Deposit",
+        "fr": "Dépôt mensuel supplémentaire",
+        "es": "Depósito mensual adicional",
         "ar": "Additional Monthly Deposit"
       },
       "businessContext_i18n": {
         "en": "Optional additional deposit made each month.",
         "tr": "Her ay yatırılan isteğe bağlı ek para.",
-        "de": "Optionale zusätzliche Einzahlung, die jeden Monat getätigt wird."
+        "de": "Optionale zusätzliche Einzahlung, die jeden Monat getätigt wird.",
+        "fr": "Dépôt supplémentaire facultatif effectué chaque mois.",
+        "es": "Depósito adicional opcional realizado cada mes."
       }
     }
   ],

@@ -12,13 +12,15 @@
         "en": "Current Age",
         "tr": "Mevcut Yaş",
         "de": "Aktuelles Alter",
-        "fr": "Current Age",
-        "es": "Current Age",
+        "fr": "Âge actuel",
+        "es": "Edad actual",
         "ar": "Current Age"
       },
       "businessContext_i18n": {
         "en": "Current age of the individual",
-        "tr": "Bireyin mevcut yaşı"
+        "tr": "Bireyin mevcut yaşı",
+        "de": "Aktuelles Alter der Person",
+        "fr": "Âge actuel de l'individu"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Retirement Age",
         "tr": "Emeklilik Yaşı",
         "de": "Rentenalter",
-        "fr": "Retirement Age",
-        "es": "Retirement Age",
+        "fr": "Âge de la retraite",
+        "es": "Edad de jubilación",
         "ar": "Retirement Age"
       },
       "businessContext_i18n": {
         "en": "Planned retirement age",
-        "tr": "Planlanan emeklilik yaşı"
+        "tr": "Planlanan emeklilik yaşı",
+        "de": "Geplantes Renteneintrittsalter",
+        "fr": "Âge de retraite prévu"
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Annual Contribution",
         "tr": "Yıllık Katkı",
         "de": "Jährlicher Beitrag",
-        "fr": "Annual Contribution",
-        "es": "Annual Contribution",
+        "fr": "Cotisation annuelle",
+        "es": "Contribución anual",
         "ar": "Annual Contribution"
       },
       "businessContext_i18n": {
         "en": "Annual contribution amount",
-        "tr": "Yıllık katkı tutarı"
+        "tr": "Yıllık katkı tutarı",
+        "de": "Jährlicher Beitragsbetrag",
+        "fr": "Montant de la cotisation annuelle"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Current IRA Balance",
         "tr": "Mevcut IRA Bakiyesi",
-        "de": "Current IRA Balance",
-        "fr": "Current IRA Balance",
-        "es": "Current IRA Balance",
+        "de": "Aktueller IRA-Kontostand",
+        "fr": "Solde actuel du compte IRA",
+        "es": "Saldo actual de la IRA",
         "ar": "Current IRA Balance"
       },
       "businessContext_i18n": {
         "en": "Current IRA balance",
-        "tr": "Mevcut IRA bakiyesi"
+        "tr": "Mevcut IRA bakiyesi",
+        "de": "Aktueller IRA-Kontostand",
+        "fr": "Solde actuel du compte IRA"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Expected Annual Return (%)",
         "tr": "Beklenen Yıllık Getiri (%)",
-        "de": "Expected Annual Return (%)",
-        "fr": "Expected Annual Return (%)",
+        "de": "Erwartete jährliche Rendite (%)",
+        "fr": "Rendement annuel attendu (%)",
         "es": "Expected Annual Return (%)",
         "ar": "Expected Annual Return (%)"
       },
       "businessContext_i18n": {
         "en": "Expected average annual return rate (e.g., 7 for 7%)",
-        "tr": "Beklenen ortalama yıllık getiri oranı (ör. 7 için %7)"
+        "tr": "Beklenen ortalama yıllık getiri oranı (ör. 7 için %7)",
+        "de": "Erwartete durchschnittliche jährliche Rendite (z.B. 7 für 7%)",
+        "fr": "Taux de rendement annuel moyen attendu (ex. 7 pour 7%)"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Expected Inflation Rate (%)",
         "tr": "Beklenen Enflasyon Oranı (%)",
-        "de": "Expected Inflation Rate (%)",
-        "fr": "Expected Inflation Rate (%)",
+        "de": "Erwartete Inflationsrate (%)",
+        "fr": "Taux d'inflation attendu (%)",
         "es": "Expected Inflation Rate (%)",
         "ar": "Expected Inflation Rate (%)"
       },
       "businessContext_i18n": {
         "en": "Expected average inflation rate (e.g., 2.5 for 2.5%)",
-        "tr": "Beklenen ortalama enflasyon oranı (ör. 2,5 için %2,5)"
+        "tr": "Beklenen ortalama enflasyon oranı (ör. 2,5 için %2,5)",
+        "de": "Erwartete durchschnittliche Inflationsrate (z.B. 2,5 für 2,5%)",
+        "fr": "Taux d'inflation annuel moyen attendu (ex. 2,5 pour 2,5%)"
       }
     }
   ],

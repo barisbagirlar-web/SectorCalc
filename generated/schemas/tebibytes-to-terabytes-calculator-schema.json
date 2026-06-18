@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Tebibytes (TiB)",
         "tr": "Tebibayt (TiB)",
-        "de": "Tebibytes (TiB)",
-        "fr": "Tebibytes (TiB)",
+        "de": "Tebibyte (TiB)",
+        "fr": "Tébioctets (TiB)",
         "es": "Tebibytes (TiB)",
         "ar": "Tebibytes (TiB)"
       },
       "businessContext_i18n": {
         "en": "The data volume in tebibytes (binary prefix, 2^40 bytes).",
-        "tr": "Tebibayt cinsinden veri hacmi (ikili önek, 2^40 bayt)."
+        "tr": "Tebibayt cinsinden veri hacmi (ikili önek, 2^40 bayt).",
+        "de": "Das Datenvolumen in Tebibyte (binäres Präfix, 2^40 Bytes).",
+        "fr": "Le volume de données en tébioctets (préfixe binaire, 2^40 octets)."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Conversion Factor (TiB to TB)",
         "tr": "Dönüşüm Faktörü (TiB - TB)",
-        "de": "Conversion Factor (TiB to TB)",
-        "fr": "Conversion Factor (TiB to TB)",
+        "de": "Umrechnungsfaktor (TiB in TB)",
+        "fr": "Facteur de conversion (TiB en TB)",
         "es": "Conversion Factor (TiB to TB)",
         "ar": "Conversion Factor (TiB to TB)"
       },
       "businessContext_i18n": {
         "en": "Exact conversion factor: 1 TiB = 2^40 bytes, 1 TB = 10^12 bytes, so factor = 2^40 / 10^12 = 1.099511627776. Adjust for custom conversion if needed.",
-        "tr": "Kesin dönüşüm faktörü: 1 TiB = 2^40 bayt, 1 TB = 10^12 bayt, dolayısıyla faktör = 2^40 / 10^12 = 1.099511627776. Gerekirse özel dönüşüm için ayarlayın."
+        "tr": "Kesin dönüşüm faktörü: 1 TiB = 2^40 bayt, 1 TB = 10^12 bayt, dolayısıyla faktör = 2^40 / 10^12 = 1.099511627776. Gerekirse özel dönüşüm için ayarlayın.",
+        "de": "Exakter Umrechnungsfaktor: 1 TiB = 2^40 Bytes, 1 TB = 10^12 Bytes, also Faktor = 2^40 / 10^12 = 1,099511627776. Bei Bedarf für benutzerdefinierte Umrechnung anpassen.",
+        "fr": "Facteur de conversion exact : 1 TiB = 2^40 octets, 1 TB = 10^12 octets, donc facteur = 2^40 / 10^12 = 1,099511627776. Ajustez pour une conversion personnalisée si nécessaire."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
-        "fr": "Decimal Precision",
-        "es": "Decimal Precision",
+        "fr": "Précision décimale",
+        "es": "Precisión decimal",
         "ar": "Decimal Precision"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places to round the output terabytes.",
-        "tr": "Çıktı terabaytlarının yuvarlanacağı ondalık basamak sayısı."
+        "tr": "Çıktı terabaytlarının yuvarlanacağı ondalık basamak sayısı.",
+        "de": "Anzahl der Dezimalstellen zum Runden der Ausgabe-Terabyte.",
+        "fr": "Nombre de décimales pour arrondir les téraoctets de sortie."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Output Multiplier",
         "tr": "Çıktı Çarpanı",
-        "de": "Output Multiplier",
-        "fr": "Output Multiplier",
+        "de": "Ausgabe-Multiplikator",
+        "fr": "Multiplicateur de sortie",
         "es": "Output Multiplier",
         "ar": "Output Multiplier"
       },
       "businessContext_i18n": {
         "en": "Multiply the converted terabytes by this factor for aggregated or scaled calculations.",
-        "tr": "Toplu veya ölçekli hesaplamalar için dönüştürülen terabaytları bu faktörle çarpın."
+        "tr": "Toplu veya ölçekli hesaplamalar için dönüştürülen terabaytları bu faktörle çarpın.",
+        "de": "Multiplizieren Sie die umgerechneten Terabyte mit diesem Faktor für aggregierte oder skalierte Berechnungen.",
+        "fr": "Multipliez les téraoctets convertis par ce facteur pour des calculs agrégés ou mis à l'échelle."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Initial Velocity",
         "tr": "Başlangıç Hızı",
         "de": "Anfangsgeschwindigkeit",
-        "fr": "Initial Velocity",
-        "es": "Initial Velocity",
+        "fr": "Vitesse initiale",
+        "es": "Velocidad inicial",
         "ar": "Initial Velocity"
       },
       "businessContext_i18n": {
         "en": "Starting velocity of the object before acceleration",
         "tr": "İvmeden önce nesnenin başlangıç hızı",
-        "de": "Startgeschwindigkeit des Objekts vor Beschleunigung"
+        "de": "Startgeschwindigkeit des Objekts vor Beschleunigung",
+        "fr": "Vitesse de départ de l'objet avant l'accélération",
+        "es": "Velocidad inicial del objeto antes de la aceleración"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Final Velocity",
         "tr": "Son Hız",
         "de": "Endgeschwindigkeit",
-        "fr": "Final Velocity",
-        "es": "Final Velocity",
+        "fr": "Vitesse finale",
+        "es": "Velocidad final",
         "ar": "Final Velocity"
       },
       "businessContext_i18n": {
         "en": "Ending velocity after acceleration period",
         "tr": "İvme periyodundan sonraki bitiş hızı",
-        "de": "Endgeschwindigkeit nach Beschleunigungsphase"
+        "de": "Endgeschwindigkeit nach Beschleunigungsphase",
+        "fr": "Vitesse finale après la période d'accélération",
+        "es": "Velocidad final después del período de aceleración"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Time Interval",
         "tr": "Zaman Aralığı",
         "de": "Zeitintervall",
-        "fr": "Time Interval",
-        "es": "Time Interval",
+        "fr": "Intervalle de temps",
+        "es": "Intervalo de tiempo",
         "ar": "Time Interval"
       },
       "businessContext_i18n": {
         "en": "Duration over which velocity changes",
         "tr": "Hızın değiştiği süre",
-        "de": "Dauer der Geschwindigkeitsänderung"
+        "de": "Dauer der Geschwindigkeitsänderung",
+        "fr": "Durée pendant laquelle la vitesse change",
+        "es": "Duración durante la cual cambia la velocidad"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Applied Force",
         "tr": "Uygulanan Kuvvet",
         "de": "Angewandte Kraft",
-        "fr": "Applied Force",
-        "es": "Applied Force",
+        "fr": "Force appliquée",
+        "es": "Fuerza aplicada",
         "ar": "Applied Force"
       },
       "businessContext_i18n": {
         "en": "Net force applied to the object (optional for alternative calculation)",
         "tr": "Nesneye uygulanan net kuvvet (alternatif hesaplama için isteğe bağlı)",
-        "de": "Nettokraft auf das Objekt (optional für alternative Berechnung)"
+        "de": "Nettokraft auf das Objekt (optional für alternative Berechnung)",
+        "fr": "Force nette appliquée à l'objet (optionnel pour un calcul alternatif)",
+        "es": "Fuerza neta aplicada al objeto (opcional para cálculo alternativo)"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Mass",
         "tr": "Kütle",
         "de": "Masse",
-        "fr": "Mass",
-        "es": "Mass",
+        "fr": "Masse",
+        "es": "Masa",
         "ar": "Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the object being accelerated",
         "tr": "İvmelendirilen nesnenin kütlesi",
-        "de": "Masse des beschleunigten Objekts"
+        "de": "Masse des beschleunigten Objekts",
+        "fr": "Masse de l'objet accéléré",
+        "es": "Masa del objeto que se acelera"
       }
     }
   ],

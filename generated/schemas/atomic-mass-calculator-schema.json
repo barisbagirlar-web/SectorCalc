@@ -12,14 +12,16 @@
         "en": "Proton Sayısı",
         "tr": "Proton Sayısı",
         "de": "Anzahl der Protonen",
-        "fr": "Proton Sayısı",
-        "es": "Proton Sayısı",
+        "fr": "Nombre de protons",
+        "es": "Número de protones",
         "ar": "Proton Sayısı"
       },
       "businessContext_i18n": {
         "en": "Atomdaki proton sayısı (atom numarası)",
         "tr": "Atomdaki proton sayısı (atom numarası)",
-        "de": "Anzahl der Protonen im Atom (Ordnungszahl)"
+        "de": "Anzahl der Protonen im Atom (Ordnungszahl)",
+        "fr": "Nombre de protons dans l'atome (numéro atomique)",
+        "es": "Número de protones en el átomo (número atómico)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Nötron Sayısı",
         "tr": "Nötron Sayısı",
         "de": "Anzahl der Neutronen",
-        "fr": "Nötron Sayısı",
-        "es": "Nötron Sayısı",
+        "fr": "Nombre de neutrons",
+        "es": "Número de neutrones",
         "ar": "Nötron Sayısı"
       },
       "businessContext_i18n": {
         "en": "Atomdaki nötron sayısı",
         "tr": "Atomdaki nötron sayısı",
-        "de": "Anzahl der Neutronen im Atom"
+        "de": "Anzahl der Neutronen im Atom",
+        "fr": "Nombre de neutrons dans l'atome",
+        "es": "Número de neutrones en el átomo"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Elektron Sayısı",
         "tr": "Elektron Sayısı",
         "de": "Anzahl der Elektronen",
-        "fr": "Elektron Sayısı",
-        "es": "Elektron Sayısı",
+        "fr": "Nombre d'électrons",
+        "es": "Número de electrones",
         "ar": "Elektron Sayısı"
       },
       "businessContext_i18n": {
         "en": "Atomdaki elektron sayısı (nötr atomda proton sayısına eşit)",
         "tr": "Atomdaki elektron sayısı (nötr atomda proton sayısına eşit)",
-        "de": "Anzahl der Elektronen im Atom (bei neutralem Atom gleich der Protonenzahl)"
+        "de": "Anzahl der Elektronen im Atom (bei neutralem Atom gleich der Protonenzahl)",
+        "fr": "Nombre d'électrons dans l'atome (égal au nombre de protons pour un atome neutre)",
+        "es": "Número de electrones en el átomo (en átomo neutro, igual al número de protones)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Proton Kütlesi",
         "tr": "Proton Kütlesi",
         "de": "Masse des Protons",
-        "fr": "Proton Kütlesi",
-        "es": "Proton Kütlesi",
+        "fr": "Masse du proton",
+        "es": "Masa del protón",
         "ar": "Proton Kütlesi"
       },
       "businessContext_i18n": {
         "en": "Bir protonun atomik kütle birimi cinsinden kütlesi",
         "tr": "Bir protonun atomik kütle birimi cinsinden kütlesi",
-        "de": "Masse eines Protons in atomaren Masseneinheiten"
+        "de": "Masse eines Protons in atomaren Masseneinheiten",
+        "fr": "Masse d'un proton en unités de masse atomique",
+        "es": "Masa de un protón en unidades de masa atómica"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Nötron Kütlesi",
         "tr": "Nötron Kütlesi",
         "de": "Masse des Neutrons",
-        "fr": "Nötron Kütlesi",
-        "es": "Nötron Kütlesi",
+        "fr": "Masse du neutron",
+        "es": "Masa del neutrón",
         "ar": "Nötron Kütlesi"
       },
       "businessContext_i18n": {
         "en": "Bir nötronun atomik kütle birimi cinsinden kütlesi",
         "tr": "Bir nötronun atomik kütle birimi cinsinden kütlesi",
-        "de": "Masse eines Neutrons in atomaren Masseneinheiten"
+        "de": "Masse eines Neutrons in atomaren Masseneinheiten",
+        "fr": "Masse d'un neutron en unités de masse atomique",
+        "es": "Masa de un neutrón en unidades de masa atómica"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Elektron Kütlesi",
         "tr": "Elektron Kütlesi",
         "de": "Elektronenmasse",
-        "fr": "Elektron Kütlesi",
-        "es": "Elektron Kütlesi",
+        "fr": "Masse de l'électron",
+        "es": "Masa del electrón",
         "ar": "Elektron Kütlesi"
       },
       "businessContext_i18n": {
         "en": "Bir elektronun atomik kütle birimi cinsinden kütlesi",
         "tr": "Bir elektronun atomik kütle birimi cinsinden kütlesi",
-        "de": "Masse eines Elektrons in atomaren Masseneinheiten"
+        "de": "Masse eines Elektrons in atomaren Masseneinheiten",
+        "fr": "Masse d'un électron en unités de masse atomique",
+        "es": "Masa de un electrón en unidades de masa atómica"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Bağlanma Enerjisi",
         "tr": "Bağlanma Enerjisi",
         "de": "Bindungsenergie",
-        "fr": "Bağlanma Enerjisi",
-        "es": "Bağlanma Enerjisi",
+        "fr": "Énergie de liaison",
+        "es": "Energía de enlace",
         "ar": "Bağlanma Enerjisi"
       },
       "businessContext_i18n": {
         "en": "Çekirdeğin bağlanma enerjisi (isteğe bağlı, varsa kütle düzeltmesi için)",
         "tr": "Çekirdeğin bağlanma enerjisi (isteğe bağlı, varsa kütle düzeltmesi için)",
-        "de": "Bindungsenergie des Kerns (optional, für Massenkorrektur falls vorhanden)"
+        "de": "Bindungsenergie des Kerns (optional, für Massenkorrektur falls vorhanden)",
+        "fr": "Énergie de liaison du noyau (optionnel, pour correction de masse si disponible)",
+        "es": "Energía de enlace del núcleo (opcional, para corrección de masa si está disponible)"
       }
     }
   ],

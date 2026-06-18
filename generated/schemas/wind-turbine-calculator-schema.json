@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Rotor Diameter",
         "tr": "Rotor Çapı",
-        "de": "Rotor Diameter",
-        "fr": "Rotor Diameter",
+        "de": "Rotordurchmesser",
+        "fr": "Diamètre du rotor",
         "es": "Rotor Diameter",
         "ar": "Rotor Diameter"
       },
       "businessContext_i18n": {
         "en": "The overall diameter of the rotor swept area, a primary design parameter affecting power capture.",
-        "tr": "Rotor süpürme alanının toplam çapı, güç yakalamayı etkileyen birincil tasarım parametresi."
+        "tr": "Rotor süpürme alanının toplam çapı, güç yakalamayı etkileyen birincil tasarım parametresi.",
+        "de": "Der Gesamtdurchmesser der vom Rotor überstrichenen Fläche, ein primärer Auslegungsparameter, der die Leistungsaufnahme beeinflusst.",
+        "fr": "Diamètre total de la zone balayée par le rotor, paramètre de conception principal affectant la capture de puissance."
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Air Density",
         "tr": "Hava Yoğunluğu",
         "de": "Luftdichte",
-        "fr": "Air Density",
-        "es": "Air Density",
+        "fr": "Densité de l'air",
+        "es": "Densidad del aire",
         "ar": "Air Density"
       },
       "businessContext_i18n": {
         "en": "Standard sea-level air density; can vary with altitude and temperature.",
-        "tr": "Standart deniz seviyesi hava yoğunluğu; rakım ve sıcaklığa göre değişebilir."
+        "tr": "Standart deniz seviyesi hava yoğunluğu; rakım ve sıcaklığa göre değişebilir.",
+        "de": "Standard-Luftdichte auf Meereshöhe; kann mit Höhe und Temperatur variieren.",
+        "fr": "Densité de l'air standard au niveau de la mer ; peut varier avec l'altitude et la température."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Wind Speed",
         "tr": "Rüzgar Hızı",
         "de": "Windgeschwindigkeit",
-        "fr": "Wind Speed",
-        "es": "Wind Speed",
+        "fr": "Vitesse du vent",
+        "es": "Velocidad del viento",
         "ar": "Wind Speed"
       },
       "businessContext_i18n": {
         "en": "Mean wind speed at hub height; typically the rated wind speed of the turbine.",
-        "tr": "Göbek yüksekliğindeki ortalama rüzgar hızı; tipik olarak türbinin nominal rüzgar hızı."
+        "tr": "Göbek yüksekliğindeki ortalama rüzgar hızı; tipik olarak türbinin nominal rüzgar hızı.",
+        "de": "Mittlere Windgeschwindigkeit in Nabenhöhe; typischerweise die Nennwindgeschwindigkeit der Turbine.",
+        "fr": "Vitesse moyenne du vent à hauteur de moyeu ; généralement la vitesse nominale de l'éolienne."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Power Coefficient (Cp)",
         "tr": "Güç Katsayısı (Cp)",
-        "de": "Power Coefficient (Cp)",
-        "fr": "Power Coefficient (Cp)",
+        "de": "Leistungsbeiwert (Cp)",
+        "fr": "Coefficient de puissance (Cp)",
         "es": "Power Coefficient (Cp)",
         "ar": "Power Coefficient (Cp)"
       },
       "businessContext_i18n": {
         "en": "Turbine power coefficient, limited by the Betz limit (~0.593); accounts for aerodynamic losses.",
-        "tr": "Türbin güç katsayısı, Betz limiti (~0,593) ile sınırlıdır; aerodinamik kayıpları hesaba katar."
+        "tr": "Türbin güç katsayısı, Betz limiti (~0,593) ile sınırlıdır; aerodinamik kayıpları hesaba katar.",
+        "de": "Leistungsbeiwert der Turbine, begrenzt durch das Betz-Limit (~0,593); berücksichtigt aerodynamische Verluste.",
+        "fr": "Coefficient de puissance de l'éolienne, limité par la limite de Betz (~0,593) ; tient compte des pertes aérodynamiques."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Drive‑Train Efficiency",
         "tr": "Tahrik Sistemi Verimliliği",
-        "de": "Drive‑Train Efficiency",
-        "fr": "Drive‑Train Efficiency",
+        "de": "Antriebsstrang-Wirkungsgrad",
+        "fr": "Rendement de la transmission",
         "es": "Drive‑Train Efficiency",
         "ar": "Drive‑Train Efficiency"
       },
       "businessContext_i18n": {
         "en": "Combined mechanical and electrical efficiency of the gearbox and generator.",
-        "tr": "Dişli kutusu ve jeneratörün birleşik mekanik ve elektrik verimliliği."
+        "tr": "Dişli kutusu ve jeneratörün birleşik mekanik ve elektrik verimliliği.",
+        "de": "Kombinierter mechanischer und elektrischer Wirkungsgrad von Getriebe und Generator.",
+        "fr": "Rendement mécanique et électrique combiné du multiplicateur et de la génératrice."
       }
     }
   ],

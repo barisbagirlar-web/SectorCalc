@@ -12,14 +12,16 @@
         "en": "Brake Power",
         "tr": "Fren Gücü",
         "de": "Bremsleistung",
-        "fr": "Brake Power",
-        "es": "Brake Power",
+        "fr": "Puissance au frein",
+        "es": "Potencia al freno",
         "ar": "Brake Power"
       },
       "businessContext_i18n": {
         "en": "Measured brake power from engine dynamometer.",
         "tr": "Motor dinamometresinden ölçülen fren gücü.",
-        "de": "Gemessene Bremsleistung vom Motorprüfstand."
+        "de": "Gemessene Bremsleistung vom Motorprüfstand.",
+        "fr": "Puissance au frein mesurée sur un dynamomètre moteur.",
+        "es": "Potencia al freno medida desde el dinamómetro del motor."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Fuel Mass Flow Rate",
         "tr": "Yakıt Kütle Akış Hızı",
         "de": "Kraftstoff-Massendurchsatz",
-        "fr": "Fuel Mass Flow Rate",
-        "es": "Fuel Mass Flow Rate",
+        "fr": "Débit massique de carburant",
+        "es": "Caudal másico de combustible",
         "ar": "Fuel Mass Flow Rate"
       },
       "businessContext_i18n": {
         "en": "Fuel consumption rate measured by fuel flow meter.",
         "tr": "Yakıt akış ölçer ile ölçülen yakıt tüketim hızı.",
-        "de": "Kraftstoffverbrauch, gemessen mit Durchflussmesser."
+        "de": "Kraftstoffverbrauch, gemessen mit Durchflussmesser.",
+        "fr": "Taux de consommation de carburant mesuré par un débitmètre.",
+        "es": "Tasa de consumo de combustible medida por el caudalímetro."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Lower Heating Value",
         "tr": "Alt Isıl Değer",
         "de": "Unterer Heizwert",
-        "fr": "Lower Heating Value",
-        "es": "Lower Heating Value",
+        "fr": "Pouvoir calorifique inférieur",
+        "es": "Poder calorífico inferior",
         "ar": "Lower Heating Value"
       },
       "businessContext_i18n": {
         "en": "Lower heating value of the fuel (energy content).",
         "tr": "Yakıtın alt ısıl değeri (enerji içeriği).",
-        "de": "Unterer Heizwert des Kraftstoffs (Energiegehalt)."
+        "de": "Unterer Heizwert des Kraftstoffs (Energiegehalt).",
+        "fr": "Pouvoir calorifique inférieur du carburant (contenu énergétique).",
+        "es": "Poder calorífico inferior del combustible (contenido energético)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Efficiency Correction Factor",
         "tr": "Verim Düzeltme Faktörü",
         "de": "Wirkungsgrad-Korrekturfaktor",
-        "fr": "Efficiency Correction Factor",
-        "es": "Efficiency Correction Factor",
+        "fr": "Facteur de correction du rendement",
+        "es": "Factor de corrección de eficiencia",
         "ar": "Efficiency Correction Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier to account for environmental or measurement corrections (default 1 for no correction).",
         "tr": "Çevresel veya ölçüm düzeltmelerini hesaba katan çarpan (düzeltme yok için varsayılan 1).",
-        "de": "Multiplikator für Umgebungs- oder Messkorrekturen (Standard 1 für keine Korrektur)."
+        "de": "Multiplikator für Umgebungs- oder Messkorrekturen (Standard 1 für keine Korrektur).",
+        "fr": "Multiplicateur pour tenir compte des corrections environnementales ou de mesure (par défaut 1 pour aucune correction).",
+        "es": "Multiplicador para tener en cuenta correcciones ambientales o de medición (por defecto 1 sin corrección)."
       }
     }
   ],

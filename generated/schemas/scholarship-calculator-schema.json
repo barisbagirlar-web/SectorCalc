@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Academic Score",
         "tr": "Akademik Puan",
-        "de": "Academic Score",
-        "fr": "Academic Score",
+        "de": "Akademische Punktzahl",
+        "fr": "Score académique",
         "es": "Academic Score",
         "ar": "Academic Score"
       },
       "businessContext_i18n": {
         "en": "Student's academic performance score (0-100).",
-        "tr": "Öğrencinin akademik performans puanı (0-100)."
+        "tr": "Öğrencinin akademik performans puanı (0-100).",
+        "de": "Akademische Leistungspunktzahl des Studenten (0-100).",
+        "fr": "Score de performance académique de l'étudiant (0-100)."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Family Income",
         "tr": "Aile Geliri",
-        "de": "Family Income",
-        "fr": "Family Income",
+        "de": "Familieneinkommen",
+        "fr": "Revenu familial",
         "es": "Family Income",
         "ar": "Family Income"
       },
       "businessContext_i18n": {
         "en": "Annual family income in USD.",
-        "tr": "Yıllık aile geliri (USD)."
+        "tr": "Yıllık aile geliri (USD).",
+        "de": "Jährliches Familieneinkommen in USD.",
+        "fr": "Revenu familial annuel en USD."
       }
     },
     {
@@ -52,13 +56,15 @@
         "en": "Number of Dependents",
         "tr": "Bağımlı Sayısı",
         "de": "Anzahl der Angehörigen",
-        "fr": "Number of Dependents",
-        "es": "Number of Dependents",
+        "fr": "Nombre de personnes à charge",
+        "es": "Número de dependientes",
         "ar": "Number of Dependents"
       },
       "businessContext_i18n": {
         "en": "Number of dependents in the family (used to adjust need).",
-        "tr": "Ailedeki bakmakla yükümlü olunan kişi sayısı (ihtiyacı ayarlamak için kullanılır)."
+        "tr": "Ailedeki bakmakla yükümlü olunan kişi sayısı (ihtiyacı ayarlamak için kullanılır).",
+        "de": "Anzahl der unterhaltsberechtigten Personen in der Familie (zur Anpassung des Bedarfs).",
+        "fr": "Nombre de personnes à charge dans la famille (utilisé pour ajuster le besoin)."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Extracurricular Score",
         "tr": "Ders Dışı Etkinlik Puanı",
-        "de": "Extracurricular Score",
-        "fr": "Extracurricular Score",
+        "de": "Außerschulische Punktzahl",
+        "fr": "Score extrascolaire",
         "es": "Extracurricular Score",
         "ar": "Extracurricular Score"
       },
       "businessContext_i18n": {
         "en": "Score based on extracurricular activities (0-100).",
-        "tr": "Ders dışı etkinliklere dayalı puan (0-100)."
+        "tr": "Ders dışı etkinliklere dayalı puan (0-100).",
+        "de": "Punktzahl basierend auf außerschulischen Aktivitäten (0-100).",
+        "fr": "Score basé sur les activités extrascolaires (0-100)."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Community Service Hours",
         "tr": "Toplum Hizmeti Saatleri",
-        "de": "Community Service Hours",
-        "fr": "Community Service Hours",
+        "de": "Gemeinschaftsdienststunden",
+        "fr": "Heures de service communautaire",
         "es": "Community Service Hours",
         "ar": "Community Service Hours"
       },
       "businessContext_i18n": {
         "en": "Total community service hours.",
-        "tr": "Toplam toplum hizmeti saati."
+        "tr": "Toplam toplum hizmeti saati.",
+        "de": "Gesamtzahl der Gemeinschaftsdienststunden.",
+        "fr": "Total des heures de service communautaire."
       }
     }
   ],

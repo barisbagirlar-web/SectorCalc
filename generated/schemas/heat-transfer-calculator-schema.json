@@ -12,14 +12,16 @@
         "en": "Area",
         "tr": "Alan",
         "de": "Fläche",
-        "fr": "Area",
-        "es": "Area",
+        "fr": "Surface",
+        "es": "Área",
         "ar": "Area"
       },
       "businessContext_i18n": {
         "en": "Heat transfer surface area",
         "tr": "Isı transfer yüzey alanı",
-        "de": "Wärmeübertragungsfläche"
+        "de": "Wärmeübertragungsfläche",
+        "fr": "Surface d'échange thermique",
+        "es": "Área de superficie de transferencia de calor"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Wall Thickness",
         "tr": "Duvar Kalınlığı (cm)",
         "de": "Duvar Kalınlığı",
-        "fr": "Wall Thickness",
-        "es": "Wall Thickness",
+        "fr": "Épaisseur du mur",
+        "es": "Espesor del muro",
         "ar": "Wall Thickness"
       },
       "businessContext_i18n": {
         "en": "Thickness of the wall material",
         "tr": "Duvar malzemesinin kalınlığı",
-        "de": "Dicke des Wandmaterials"
+        "de": "Dicke des Wandmaterials",
+        "fr": "Épaisseur du matériau de la paroi",
+        "es": "Espesor del material de la pared"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Thermal Conductivity",
         "tr": "Isıl İletkenlik",
         "de": "Wärmeleitfähigkeit",
-        "fr": "Thermal Conductivity",
-        "es": "Thermal Conductivity",
+        "fr": "Conductivité thermique",
+        "es": "Conductividad térmica",
         "ar": "Thermal Conductivity"
       },
       "businessContext_i18n": {
         "en": "Thermal conductivity of wall material",
         "tr": "Duvar malzemesinin termal iletkenliği",
-        "de": "Wärmeleitfähigkeit des Wandmaterials"
+        "de": "Wärmeleitfähigkeit des Wandmaterials",
+        "fr": "Conductivité thermique du matériau de la paroi",
+        "es": "Conductividad térmica del material de la pared"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Inside Convection Coefficient",
         "tr": "İç Konveksiyon Katsayısı",
         "de": "Innerer Konvektionskoeffizient",
-        "fr": "Inside Convection Coefficient",
-        "es": "Inside Convection Coefficient",
+        "fr": "Coefficient de convection intérieur",
+        "es": "Coeficiente de convección interior",
         "ar": "Inside Convection Coefficient"
       },
       "businessContext_i18n": {
         "en": "Convective heat transfer coefficient on the hot side",
         "tr": "Sıcak taraftaki konvektif ısı transfer katsayısı",
-        "de": "Konvektiver Wärmeübergangskoeffizient auf der heißen Seite"
+        "de": "Konvektiver Wärmeübergangskoeffizient auf der heißen Seite",
+        "fr": "Coefficient de transfert thermique par convection côté chaud",
+        "es": "Coeficiente de transferencia de calor por convección en el lado caliente"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Outside Convection Coefficient",
         "tr": "Dış Konveksiyon Katsayısı",
         "de": "Äußerer Konvektionskoeffizient",
-        "fr": "Outside Convection Coefficient",
-        "es": "Outside Convection Coefficient",
+        "fr": "Coefficient de convection extérieur",
+        "es": "Coeficiente de convección exterior",
         "ar": "Outside Convection Coefficient"
       },
       "businessContext_i18n": {
         "en": "Convective heat transfer coefficient on the cold side",
         "tr": "Soğuk taraftaki konvektif ısı transfer katsayısı",
-        "de": "Konvektiver Wärmeübergangskoeffizient auf der kalten Seite"
+        "de": "Konvektiver Wärmeübergangskoeffizient auf der kalten Seite",
+        "fr": "Coefficient de transfert thermique par convection côté froid",
+        "es": "Coeficiente de transferencia de calor por convección en el lado frío"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Inside Temperature",
         "tr": "İç Sıcaklık",
         "de": "Innentemperatur",
-        "fr": "Inside Temperature",
-        "es": "Inside Temperature",
+        "fr": "Température intérieure",
+        "es": "Temperatura interior",
         "ar": "Inside Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of the hot fluid",
         "tr": "Sıcak akışkanın sıcaklığı",
-        "de": "Temperatur des heißen Fluids"
+        "de": "Temperatur des heißen Fluids",
+        "fr": "Température du fluide chaud",
+        "es": "Temperatura del fluido caliente"
       }
     },
     {
@@ -138,14 +150,16 @@
         "en": "Outside Temperature",
         "tr": "Dış Sıcaklık",
         "de": "Außentemperatur",
-        "fr": "Outside Temperature",
-        "es": "Outside Temperature",
+        "fr": "Température extérieure",
+        "es": "Temperatura exterior",
         "ar": "Outside Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of the cold fluid",
         "tr": "Soğuk akışkanın sıcaklığı",
-        "de": "Temperatur des kalten Fluids"
+        "de": "Temperatur des kalten Fluids",
+        "fr": "Température du fluide froid",
+        "es": "Temperatura del fluido frío"
       }
     }
   ],

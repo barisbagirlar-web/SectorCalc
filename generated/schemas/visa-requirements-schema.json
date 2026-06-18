@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Applicant Age",
         "tr": "Başvuru Sahibinin Yaşı",
-        "de": "Applicant Age",
-        "fr": "Applicant Age",
+        "de": "Alter des Antragstellers",
+        "fr": "Âge du demandeur",
         "es": "Applicant Age",
         "ar": "Applicant Age"
       },
       "businessContext_i18n": {
         "en": "Age of the visa applicant",
-        "tr": "Vize başvuru sahibinin yaşı"
+        "tr": "Vize başvuru sahibinin yaşı",
+        "de": "Alter des Visumantragstellers",
+        "fr": "Âge du demandeur de visa"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Passport Validity",
         "tr": "Pasaport Geçerlilik Süresi",
-        "de": "Passport Validity",
-        "fr": "Passport Validity",
+        "de": "Gültigkeit des Reisepasses",
+        "fr": "Validité du passeport",
         "es": "Passport Validity",
         "ar": "Passport Validity"
       },
       "businessContext_i18n": {
         "en": "Remaining validity of passport in months",
-        "tr": "Pasaportun kalan geçerlilik süresi (ay cinsinden)"
+        "tr": "Pasaportun kalan geçerlilik süresi (ay cinsinden)",
+        "de": "Restgültigkeit des Reisepasses in Monaten",
+        "fr": "Validité restante du passeport en mois"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Number of Previous Visas",
         "tr": "Önceki Vize Sayısı",
-        "de": "Number of Previous Visas",
-        "fr": "Number of Previous Visas",
+        "de": "Anzahl früherer Visa",
+        "fr": "Nombre de visas précédents",
         "es": "Number of Previous Visas",
         "ar": "Number of Previous Visas"
       },
       "businessContext_i18n": {
         "en": "Number of visas held in the past 5 years",
-        "tr": "Son 5 yılda sahip olunan vize sayısı"
+        "tr": "Son 5 yılda sahip olunan vize sayısı",
+        "de": "Anzahl der in den letzten 5 Jahren gehaltenen Visa",
+        "fr": "Nombre de visas détenus au cours des 5 dernières années"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Travel History Score",
         "tr": "Seyahat Geçmişi Puanı",
-        "de": "Travel History Score",
-        "fr": "Travel History Score",
+        "de": "Reiseverlaufsbewertung",
+        "fr": "Score d'historique de voyage",
         "es": "Travel History Score",
         "ar": "Travel History Score"
       },
       "businessContext_i18n": {
         "en": "Score based on travel history (0-100)",
-        "tr": "Seyahat geçmişine dayalı puan (0-100)"
+        "tr": "Seyahat geçmişine dayalı puan (0-100)",
+        "de": "Bewertung basierend auf Reiseverlauf (0-100)",
+        "fr": "Score basé sur l'historique de voyage (0-100)"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Financial Stability Score",
         "tr": "Finansal İstikrar Puanı",
-        "de": "Financial Stability Score",
-        "fr": "Financial Stability Score",
+        "de": "Finanzielle Stabilitätsbewertung",
+        "fr": "Score de stabilité financière",
         "es": "Financial Stability Score",
         "ar": "Financial Stability Score"
       },
       "businessContext_i18n": {
         "en": "Score based on financial stability (0-100)",
-        "tr": "Finansal istikrara dayalı puan (0-100)"
+        "tr": "Finansal istikrara dayalı puan (0-100)",
+        "de": "Bewertung basierend auf finanzieller Stabilität (0-100)",
+        "fr": "Score basé sur la stabilité financière (0-100)"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Employment Status Score",
         "tr": "İstihdam Durumu Puanı",
-        "de": "Employment Status Score",
-        "fr": "Employment Status Score",
+        "de": "Beschäftigungsstatusbewertung",
+        "fr": "Score de statut d'emploi",
         "es": "Employment Status Score",
         "ar": "Employment Status Score"
       },
       "businessContext_i18n": {
         "en": "Score based on employment status (0-100)",
-        "tr": "İstihdam durumuna dayalı puan (0-100)"
+        "tr": "İstihdam durumuna dayalı puan (0-100)",
+        "de": "Bewertung basierend auf Beschäftigungsstatus (0-100)",
+        "fr": "Score basé sur le statut d'emploi (0-100)"
       }
     },
     {
@@ -131,14 +143,16 @@
       "label_i18n": {
         "en": "Purpose of Visit Score",
         "tr": "Ziyaret Amacı Puanı",
-        "de": "Purpose of Visit Score",
-        "fr": "Purpose of Visit Score",
+        "de": "Besuchszweckbewertung",
+        "fr": "Score de motif de visite",
         "es": "Purpose of Visit Score",
         "ar": "Purpose of Visit Score"
       },
       "businessContext_i18n": {
         "en": "Score based on purpose of visit (0-100)",
-        "tr": "Ziyaret amacına dayalı puan (0-100)"
+        "tr": "Ziyaret amacına dayalı puan (0-100)",
+        "de": "Bewertung basierend auf Besuchszweck (0-100)",
+        "fr": "Score basé sur le motif de visite (0-100)"
       }
     },
     {
@@ -151,14 +165,16 @@
       "label_i18n": {
         "en": "Application Completeness Score",
         "tr": "Başvuru Eksiksizlik Puanı",
-        "de": "Application Completeness Score",
-        "fr": "Application Completeness Score",
+        "de": "Vollständigkeitsbewertung des Antrags",
+        "fr": "Score d'exhaustivité de la demande",
         "es": "Application Completeness Score",
         "ar": "Application Completeness Score"
       },
       "businessContext_i18n": {
         "en": "Score based on completeness of application (0-100)",
-        "tr": "Başvurunun eksiksizliğine dayalı puan (0-100)"
+        "tr": "Başvurunun eksiksizliğine dayalı puan (0-100)",
+        "de": "Bewertung basierend auf Vollständigkeit des Antrags (0-100)",
+        "fr": "Score basé sur l'exhaustivité de la demande (0-100)"
       }
     }
   ],

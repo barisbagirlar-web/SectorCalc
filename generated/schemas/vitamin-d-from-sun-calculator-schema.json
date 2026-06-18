@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "UV Index",
         "tr": "UV İndeksi",
-        "de": "UV Index",
-        "fr": "UV Index",
+        "de": "UV-Index",
+        "fr": "Indice UV",
         "es": "UV Index",
         "ar": "UV Index"
       },
       "businessContext_i18n": {
         "en": "UV Index at the location (0-11+, typically from weather service)",
-        "tr": "Konumdaki UV İndeksi (0-11+, genellikle hava durumu servisinden)"
+        "tr": "Konumdaki UV İndeksi (0-11+, genellikle hava durumu servisinden)",
+        "de": "UV-Index am Standort (0-11+, typischerweise vom Wetterdienst)",
+        "fr": "Indice UV à l'emplacement (0-11+, généralement issu des services météo)"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Exposure Time",
         "tr": "Maruziyet Süresi",
         "de": "Expositionszeit",
-        "fr": "Exposure Time",
-        "es": "Exposure Time",
+        "fr": "Temps d'exposition",
+        "es": "Tiempo de exposición",
         "ar": "Exposure Time"
       },
       "businessContext_i18n": {
         "en": "Duration of sun exposure in minutes",
-        "tr": "Güneşe maruz kalma süresi (dakika)"
+        "tr": "Güneşe maruz kalma süresi (dakika)",
+        "de": "Dauer der Sonnenexposition in Minuten",
+        "fr": "Durée d'exposition au soleil en minutes"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Body Area Exposed",
         "tr": "Maruz Kalan Vücut Alanı",
-        "de": "Body Area Exposed",
-        "fr": "Body Area Exposed",
+        "de": "Exponierte Körperfläche",
+        "fr": "Zone corporelle exposée",
         "es": "Body Area Exposed",
         "ar": "Body Area Exposed"
       },
       "businessContext_i18n": {
         "en": "Percentage of body surface area exposed (e.g., face and hands ~10%, full body ~100%)",
-        "tr": "Maruz kalan vücut yüzey alanı yüzdesi (ör. yüz ve eller ~%10, tüm vücut ~%100)"
+        "tr": "Maruz kalan vücut yüzey alanı yüzdesi (ör. yüz ve eller ~%10, tüm vücut ~%100)",
+        "de": "Prozentsatz der exponierten Körperoberfläche (z. B. Gesicht und Hände ~10 %, ganzer Körper ~100 %)",
+        "fr": "Pourcentage de surface corporelle exposée (ex. visage et mains ~10%, corps entier ~100%)"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Skin Type (Fitzpatrick)",
         "tr": "Cilt Tipi (Fitzpatrick)",
-        "de": "Skin Type (Fitzpatrick)",
-        "fr": "Skin Type (Fitzpatrick)",
+        "de": "Hauttyp (Fitzpatrick)",
+        "fr": "Type de peau (Fitzpatrick)",
         "es": "Skin Type (Fitzpatrick)",
         "ar": "Skin Type (Fitzpatrick)"
       },
       "businessContext_i18n": {
         "en": "Fitzpatrick skin type (1=very fair, 6=very dark)",
-        "tr": "Fitzpatrick cilt tipi (1=çok açık, 6=çok koyu)"
+        "tr": "Fitzpatrick cilt tipi (1=çok açık, 6=çok koyu)",
+        "de": "Fitzpatrick-Hauttyp (1=sehr hell, 6=sehr dunkel)",
+        "fr": "Type de peau Fitzpatrick (1=très claire, 6=très foncée)"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Cloud Cover",
         "tr": "Bulut Örtüsü",
-        "de": "Cloud Cover",
-        "fr": "Cloud Cover",
+        "de": "Bewölkung",
+        "fr": "Couverture nuageuse",
         "es": "Cloud Cover",
         "ar": "Cloud Cover"
       },
       "businessContext_i18n": {
         "en": "Percentage of sky covered by clouds (0=clear, 100=overcast)",
-        "tr": "Gökyüzünün bulutlarla kaplı yüzdesi (0=açık, 100=kapalı)"
+        "tr": "Gökyüzünün bulutlarla kaplı yüzdesi (0=açık, 100=kapalı)",
+        "de": "Prozentsatz des Himmels, der von Wolken bedeckt ist (0=klar, 100=bedeckt)",
+        "fr": "Pourcentage du ciel couvert par les nuages (0=dégagé, 100=couvert)"
       }
     }
   ],

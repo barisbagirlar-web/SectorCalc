@@ -12,13 +12,16 @@
         "en": "Area",
         "tr": "Alan",
         "de": "Fläche",
-        "fr": "Area",
-        "es": "Area",
+        "fr": "Surface",
+        "es": "Área",
         "ar": "Area"
       },
       "businessContext_i18n": {
         "en": "Irrigated land area in hectares",
-        "tr": "Sulanan arazi alanı (hektar)"
+        "tr": "Sulanan arazi alanı (hektar)",
+        "de": "Bewässerte Fläche in Hektar",
+        "fr": "Superficie irriguée en hectares",
+        "es": "Superficie de tierra regada en hectáreas"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Crop Water Requirement",
         "tr": "Bitki Su İhtiyacı",
-        "de": "Crop Water Requirement",
-        "fr": "Crop Water Requirement",
-        "es": "Crop Water Requirement",
+        "de": "Wasserbedarf der Kultur",
+        "fr": "Besoins en eau de la culture",
+        "es": "Requerimiento hídrico del cultivo",
         "ar": "Crop Water Requirement"
       },
       "businessContext_i18n": {
         "en": "Daily water need of the crop from evapotranspiration data",
-        "tr": "Evapotranspirasyon verilerinden bitkinin günlük su ihtiyacı"
+        "tr": "Evapotranspirasyon verilerinden bitkinin günlük su ihtiyacı",
+        "de": "Täglicher Wasserbedarf der Kultur aus Evapotranspirationsdaten",
+        "fr": "Besoin quotidien en eau de la culture à partir des données d'évapotranspiration",
+        "es": "Necesidad diaria de agua del cultivo según datos de evapotranspiración"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Application Efficiency",
         "tr": "Uygulama Verimliliği",
-        "de": "Application Efficiency",
-        "fr": "Application Efficiency",
-        "es": "Application Efficiency",
+        "de": "Ausbringungswirkungsgrad",
+        "fr": "Efficacité d'application",
+        "es": "Eficiencia de aplicación",
         "ar": "Application Efficiency"
       },
       "businessContext_i18n": {
         "en": "Application efficiency of the irrigation system (sprinkler, drip, etc.)",
-        "tr": "Sulama sisteminin uygulama verimliliği (yağmurlama, damla vb.)"
+        "tr": "Sulama sisteminin uygulama verimliliği (yağmurlama, damla vb.)",
+        "de": "Ausbringungswirkungsgrad des Bewässerungssystems (Beregnung, Tropf, etc.)",
+        "fr": "Efficacité d'application du système d'irrigation (aspersion, goutte-à-goutte, etc.)",
+        "es": "Eficiencia de aplicación del sistema de riego (aspersión, goteo, etc.)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Peak Factor",
         "tr": "Tepe Faktörü",
-        "de": "Peak Factor",
-        "fr": "Peak Factor",
-        "es": "Peak Factor",
+        "de": "Spitzenfaktor",
+        "fr": "Facteur de pointe",
+        "es": "Factor pico",
         "ar": "Peak Factor"
       },
       "businessContext_i18n": {
         "en": "Peak multiplier for hot/dry periods",
-        "tr": "Sıcak/kurak dönemler için tepe çarpanı"
+        "tr": "Sıcak/kurak dönemler için tepe çarpanı",
+        "de": "Spitzenmultiplikator für heiße/trockene Perioden",
+        "fr": "Multiplicateur de pointe pour les périodes chaudes/sèches",
+        "es": "Multiplicador pico para períodos cálidos/secos"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "System Losses",
         "tr": "Sistem Kayıpları",
-        "de": "System Losses",
-        "fr": "System Losses",
-        "es": "System Losses",
+        "de": "Systemverluste",
+        "fr": "Pertes du système",
+        "es": "Pérdidas del sistema",
         "ar": "System Losses"
       },
       "businessContext_i18n": {
         "en": "Percent water loss due to leaks, evaporation, etc.",
-        "tr": "Sızıntı, buharlaşma vb. nedeniyle su kaybı yüzdesi"
+        "tr": "Sızıntı, buharlaşma vb. nedeniyle su kaybı yüzdesi",
+        "de": "Prozentualer Wasserverlust durch Lecks, Verdunstung usw.",
+        "fr": "Pourcentage de perte d'eau due aux fuites, évaporation, etc.",
+        "es": "Porcentaje de pérdida de agua por fugas, evaporación, etc."
       }
     },
     {
@@ -112,13 +127,16 @@
         "en": "Operating Hours",
         "tr": "Çalışma Saatleri",
         "de": "Betriebsstunden",
-        "fr": "Operating Hours",
-        "es": "Operating Hours",
+        "fr": "Heures de fonctionnement",
+        "es": "Horas de operación",
         "ar": "Operating Hours"
       },
       "businessContext_i18n": {
         "en": "Hours per day the irrigation system operates",
-        "tr": "Sulama sisteminin günde çalıştığı saat"
+        "tr": "Sulama sisteminin günde çalıştığı saat",
+        "de": "Betriebsstunden des Bewässerungssystems pro Tag",
+        "fr": "Heures par jour de fonctionnement du système d'irrigation",
+        "es": "Horas por día que opera el sistema de riego"
       }
     }
   ],

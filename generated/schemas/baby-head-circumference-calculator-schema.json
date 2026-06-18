@@ -12,14 +12,16 @@
         "en": "Head Length",
         "tr": "Baş Uzunluğu",
         "de": "Kopflänge",
-        "fr": "Head Length",
-        "es": "Head Length",
+        "fr": "Longueur de la tête",
+        "es": "Longitud de la cabeza",
         "ar": "Head Length"
       },
       "businessContext_i18n": {
         "en": "Maximum front-to-back length of the baby's head in centimeters.",
         "tr": "Bebeğin başının maksimum ön-arka uzunluğu (cm).",
-        "de": "Maximale fronto-okzipitale Länge des Babykopfes in Zentimetern."
+        "de": "Maximale fronto-okzipitale Länge des Babykopfes in Zentimetern.",
+        "fr": "Longueur maximale antéro-postérieure de la tête du bébé en centimètres.",
+        "es": "Longitud máxima de adelante hacia atrás de la cabeza del bebé en centímetros."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Head Width",
         "tr": "Baş Genişliği",
         "de": "Kopfbreite",
-        "fr": "Head Width",
-        "es": "Head Width",
+        "fr": "Largeur de la tête",
+        "es": "Ancho de la cabeza",
         "ar": "Head Width"
       },
       "businessContext_i18n": {
         "en": "Maximum width of the baby's head in centimeters.",
         "tr": "Bebeğin başının maksimum genişliği (cm).",
-        "de": "Maximale Breite des Babykopfes in Zentimetern."
+        "de": "Maximale Breite des Babykopfes in Zentimetern.",
+        "fr": "Largeur maximale de la tête du bébé en centimètres.",
+        "es": "Ancho máximo de la cabeza del bebé en centímetros."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Head Height",
         "tr": "Baş Yüksekliği",
         "de": "Kopfhöhe",
-        "fr": "Head Height",
-        "es": "Head Height",
+        "fr": "Hauteur de la tête",
+        "es": "Altura de la cabeza",
         "ar": "Head Height"
       },
       "businessContext_i18n": {
         "en": "Height from crown to base of skull in centimeters.",
         "tr": "Taçtan kafatası tabanına yükseklik (cm).",
-        "de": "Höhe vom Scheitel bis zur Schädelbasis in Zentimetern."
+        "de": "Höhe vom Scheitel bis zur Schädelbasis in Zentimetern.",
+        "fr": "Hauteur du sommet à la base du crâne en centimètres.",
+        "es": "Altura desde la coronilla hasta la base del cráneo en centímetros."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Output Unit Factor",
         "tr": "Çıktı Birim Faktörü",
         "de": "Ausgabeeinheitenfaktor",
-        "fr": "Output Unit Factor",
-        "es": "Output Unit Factor",
+        "fr": "Facteur d'unité de sortie",
+        "es": "Factor de unidad de salida",
         "ar": "Output Unit Factor"
       },
       "businessContext_i18n": {
         "en": "Multiply output lengths by this factor (1 for cm, 0.3937 for inches).",
         "tr": "Çıktı uzunluklarını bu faktörle çarpın (cm için 1, inç için 0,3937).",
-        "de": "Multiplizieren Sie die Ausgabelängen mit diesem Faktor (1 für cm, 0,3937 für Zoll)."
+        "de": "Multiplizieren Sie die Ausgabelängen mit diesem Faktor (1 für cm, 0,3937 für Zoll).",
+        "fr": "Multiplier les longueurs de sortie par ce facteur (1 pour cm, 0,3937 pour pouces).",
+        "es": "Multiplicar las longitudes de salida por este factor (1 para cm, 0.3937 para pulgadas)."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Scale Factor",
         "tr": "Ölçek Faktörü",
         "de": "Skalierungsfaktor",
-        "fr": "Scale Factor",
-        "es": "Scale Factor",
+        "fr": "Facteur d'échelle",
+        "es": "Factor de escala",
         "ar": "Scale Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplier to adjust circumference for growth or fitting allowance.",
         "tr": "Büyüme veya uyum payı için çevreyi ayarlamak üzere çarpan.",
-        "de": "Multiplikator zur Anpassung des Umfangs für Wachstum oder Passformzugabe."
+        "de": "Multiplikator zur Anpassung des Umfangs für Wachstum oder Passformzugabe.",
+        "fr": "Multiplicateur pour ajuster le périmètre en fonction de la croissance ou de la marge d'ajustement.",
+        "es": "Multiplicador para ajustar el perímetro por crecimiento o margen de ajuste."
       }
     }
   ],

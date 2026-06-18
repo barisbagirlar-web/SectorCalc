@@ -12,14 +12,16 @@
         "en": "Total Pressure (Pt)",
         "tr": "Toplam Basınç (Pt)",
         "de": "Gesamtdruck (Pt)",
-        "fr": "Total Pressure (Pt)",
-        "es": "Total Pressure (Pt)",
+        "fr": "Pression totale (Pt)",
+        "es": "Presión total (Pt)",
         "ar": "Total Pressure (Pt)"
       },
       "businessContext_i18n": {
         "en": "Pitot tube total pressure reading",
         "tr": "Pitot tüpü toplam basınç okuması",
-        "de": "Pitot-Rohr Gesamtdruckmessung"
+        "de": "Pitot-Rohr Gesamtdruckmessung",
+        "fr": "Lecture de pression totale du tube de Pitot",
+        "es": "Lectura de presión total del tubo Pitot"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Static Pressure (Ps)",
         "tr": "Statik Basınç (Ps)",
         "de": "Statischer Druck (Ps)",
-        "fr": "Static Pressure (Ps)",
-        "es": "Static Pressure (Ps)",
+        "fr": "Pression statique (Ps)",
+        "es": "Presión estática (Ps)",
         "ar": "Static Pressure (Ps)"
       },
       "businessContext_i18n": {
         "en": "Static port pressure reading",
         "tr": "Statik port basınç okuması",
-        "de": "Statischer Druckanschluss"
+        "de": "Statischer Druckanschluss",
+        "fr": "Lecture de pression de la prise statique",
+        "es": "Lectura de presión del puerto estático"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Reference Pressure (P₀)",
         "tr": "Referans Basıncı (P₀)",
         "de": "Referenzdruck (P₀)",
-        "fr": "Reference Pressure (P₀)",
-        "es": "Reference Pressure (P₀)",
+        "fr": "Pression de référence (P₀)",
+        "es": "Presión de referencia (P₀)",
         "ar": "Reference Pressure (P₀)"
       },
       "businessContext_i18n": {
         "en": "Standard sea level pressure (101325 Pa) used for calibration. Adjustable for non-standard conditions.",
         "tr": "Kalibrasyon için kullanılan standart deniz seviyesi basıncı (101325 Pa). Standart dışı koşullar için ayarlanabilir.",
-        "de": "Standard-Meeresniveaudruck (101325 Pa) für Kalibrierung. Anpassbar für nicht-standard Bedingungen."
+        "de": "Standard-Meeresniveaudruck (101325 Pa) für Kalibrierung. Anpassbar für nicht-standard Bedingungen.",
+        "fr": "Pression standard au niveau de la mer (101325 Pa) utilisée pour l'étalonnage. Ajustable pour des conditions non standard.",
+        "es": "Presión estándar a nivel del mar (101325 Pa) utilizada para calibración. Ajustable para condiciones no estándar."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Air Density (ρ₀)",
         "tr": "Hava Yoğunluğu (ρ₀)",
         "de": "Luftdichte (ρ₀)",
-        "fr": "Air Density (ρ₀)",
-        "es": "Air Density (ρ₀)",
+        "fr": "Masse volumique de l'air (ρ₀)",
+        "es": "Densidad del aire (ρ₀)",
         "ar": "Air Density (ρ₀)"
       },
       "businessContext_i18n": {
         "en": "Sea level standard air density (1.225 kg/m³). Adjustable for calibration.",
         "tr": "Deniz seviyesi standart hava yoğunluğu (1,225 kg/m³). Kalibrasyon için ayarlanabilir.",
-        "de": "Standard-Luftdichte auf Meereshöhe (1,225 kg/m³). Anpassbar für Kalibrierung."
+        "de": "Standard-Luftdichte auf Meereshöhe (1,225 kg/m³). Anpassbar für Kalibrierung.",
+        "fr": "Masse volumique standard de l'air au niveau de la mer (1,225 kg/m³). Ajustable pour l'étalonnage.",
+        "es": "Densidad estándar del aire a nivel del mar (1.225 kg/m³). Ajustable para calibración."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Specific Heat Ratio (γ)",
         "tr": "Özgül Isı Oranı (γ)",
         "de": "Isentropenexponent (γ)",
-        "fr": "Specific Heat Ratio (γ)",
-        "es": "Specific Heat Ratio (γ)",
+        "fr": "Rapport des chaleurs spécifiques (γ)",
+        "es": "Relación de calores específicos (γ)",
         "ar": "Specific Heat Ratio (γ)"
       },
       "businessContext_i18n": {
         "en": "Ratio of specific heats for air (1.4 standard).",
         "tr": "Hava için özgül ısı oranı (1,4 standart).",
-        "de": "Isentropenexponent für Luft (1,4 Standard)."
+        "de": "Isentropenexponent für Luft (1,4 Standard).",
+        "fr": "Rapport des chaleurs spécifiques de l'air (1,4 standard).",
+        "es": "Relación de calores específicos del aire (1.4 estándar)."
       }
     }
   ],

@@ -23,12 +23,16 @@
       "label_i18n": {
         "en": "Planned Production Rate",
         "tr": "Planlanan Üretim Hızı",
-        "de": "Reduktionsfaktor"
+        "de": "Reduktionsfaktor",
+        "fr": "Taux de production planifié",
+        "es": "Tasa de producción planificada"
       },
       "businessContext_i18n": {
         "en": "The standard output rate per hour under normal operating conditions (ISO 22400).",
         "tr": "Normal çalışma koşullarında saat başına standart çıktı oranı (ISO 22400).",
-        "de": "Reduktionsfaktor für Bögen, Hindernisse und Installationsunvollkommenheiten."
+        "de": "Reduktionsfaktor für Bögen, Hindernisse und Installationsunvollkommenheiten.",
+        "fr": "Taux de sortie standard par heure dans des conditions de fonctionnement normales (ISO 22400).",
+        "es": "Tasa de producción estándar por hora en condiciones normales de operación (ISO 22400)."
       }
     },
     {
@@ -43,12 +47,16 @@
       "label_i18n": {
         "en": "Downtime Duration",
         "tr": "Arıza Süresi",
-        "de": "Geplante Produktionsrate"
+        "de": "Geplante Produktionsrate",
+        "fr": "Durée d'arrêt",
+        "es": "Duración de la parada"
       },
       "businessContext_i18n": {
         "en": "Total duration of the unplanned downtime event.",
         "tr": "Plansız duruş olayının toplam süresi.",
-        "de": "Die Standard-Ausbringungsrate pro Stunde unter normalen Betriebsbedingungen (ISO 22400)."
+        "de": "Die Standard-Ausbringungsrate pro Stunde unter normalen Betriebsbedingungen (ISO 22400).",
+        "fr": "Durée totale de l'événement d'arrêt non planifié.",
+        "es": "Duración total del evento de parada no planificada."
       }
     },
     {
@@ -63,12 +71,16 @@
       "label_i18n": {
         "en": "Revenue per Unit",
         "tr": "Birim Başına Gelir",
-        "de": "Stillstandszeit"
+        "de": "Stillstandszeit",
+        "fr": "Revenu par unité",
+        "es": "Ingreso por unidad"
       },
       "businessContext_i18n": {
         "en": "Selling price or standard cost per unit of output.",
         "tr": "Birim çıktı başına satış fiyatı veya standart maliyet.",
-        "de": "Verkaufspreis oder Standardkosten pro Ausgabeeinheit."
+        "de": "Verkaufspreis oder Standardkosten pro Ausgabeeinheit.",
+        "fr": "Prix de vente ou coût standard par unité de production.",
+        "es": "Precio de venta o costo estándar por unidad de producción."
       }
     },
     {
@@ -83,12 +95,16 @@
       "label_i18n": {
         "en": "Direct Labor Cost per Hour",
         "tr": "Saat Başına Doğrudan İşçilik Maliyeti",
-        "de": "Direkte Arbeitskosten pro Stunde"
+        "de": "Direkte Arbeitskosten pro Stunde",
+        "fr": "Coût de main-d'œuvre directe par heure",
+        "es": "Costo de mano de obra directa por hora"
       },
       "businessContext_i18n": {
         "en": "Average hourly wage including benefits for operators affected by downtime.",
         "tr": "Duruştan etkilenen operatörler için yan haklar dahil ortalama saatlik ücret.",
-        "de": "Durchschnittlicher Stundenlohn inkl. Zuschläge für von Ausfallzeiten betroffene Bediener."
+        "de": "Durchschnittlicher Stundenlohn inkl. Zuschläge für von Ausfallzeiten betroffene Bediener.",
+        "fr": "Salaire horaire moyen incluant les avantages pour les opérateurs affectés par l'arrêt.",
+        "es": "Salario promedio por hora, incluyendo prestaciones, de los operadores afectados por la parada."
       }
     },
     {
@@ -103,12 +119,16 @@
       "label_i18n": {
         "en": "Energy Cost per Hour",
         "tr": "Saat Başına Enerji Maliyeti",
-        "de": "Energiekosten pro Stunde"
+        "de": "Energiekosten pro Stunde",
+        "fr": "Coût énergétique par heure",
+        "es": "Coste energético por hora"
       },
       "businessContext_i18n": {
         "en": "Average cost of electricity, gas, or other energy consumed during production.",
         "tr": "Üretim sırasında tüketilen elektrik, gaz veya diğer enerjinin ortalama maliyeti.",
-        "de": "Durchschnittliche Kosten für Strom, Gas oder andere während der Produktion verbrauchte Energie."
+        "de": "Durchschnittliche Kosten für Strom, Gas oder andere während der Produktion verbrauchte Energie.",
+        "fr": "Coût moyen de l'électricité, du gaz ou autre énergie consommée pendant la production.",
+        "es": "Costo promedio de electricidad, gas u otra energía consumida durante la producción."
       }
     },
     {
@@ -123,12 +143,16 @@
       "label_i18n": {
         "en": "Scrap Rate During Downtime",
         "tr": "Duruş Sırasında Fire Oranı",
-        "de": "Ausschussrate während Ausfallzeit"
+        "de": "Ausschussrate während Ausfallzeit",
+        "fr": "Taux de rebut pendant l'arrêt",
+        "es": "Tasa de desperdicio durante la parada"
       },
       "businessContext_i18n": {
         "en": "Percentage of material wasted due to restart or instability after downtime (Six Sigma defect rate).",
         "tr": "Duruş sonrası yeniden başlatma veya istikrarsızlık nedeniyle israf edilen malzeme yüzdesi (Altı Sigma kusur oranı).",
-        "de": "Prozentsatz des Materialausschusses durch Neustart oder Instabilität nach Ausfallzeit (Six Sigma Fehlerrate)."
+        "de": "Prozentsatz des Materialausschusses durch Neustart oder Instabilität nach Ausfallzeit (Six Sigma Fehlerrate).",
+        "fr": "Pourcentage de matériaux gaspillés en raison du redémarrage ou de l'instabilité après l'arrêt (taux de défaut Six Sigma).",
+        "es": "Porcentaje de material desperdiciado debido al reinicio o inestabilidad después de la parada (tasa de defectos Seis Sigma)."
       }
     },
     {
@@ -143,12 +167,16 @@
       "label_i18n": {
         "en": "Recovery Time Factor",
         "tr": "Toparlanma Süresi Faktörü",
-        "de": "Erholungszeitfaktor"
+        "de": "Erholungszeitfaktor",
+        "fr": "Facteur de temps de récupération",
+        "es": "Factor de tiempo de recuperación"
       },
       "businessContext_i18n": {
         "en": "Multiplier for additional time needed to return to steady-state production (Lean Takt time recovery).",
         "tr": "Sabit üretime dönmek için gereken ek süre çarpanı (Yalın Takt süresi toparlanması).",
-        "de": "Multiplikator für zusätzliche Zeit zur Rückkehr in den stationären Produktionszustand (Lean Taktzeit-Erholung)."
+        "de": "Multiplikator für zusätzliche Zeit zur Rückkehr in den stationären Produktionszustand (Lean Taktzeit-Erholung).",
+        "fr": "Multiplicateur pour le temps supplémentaire nécessaire pour revenir à une production en régime permanent (récupération du temps de takt Lean).",
+        "es": "Multiplicador para el tiempo adicional necesario para volver a la producción en estado estable (recuperación del tiempo de takt Lean)."
       }
     },
     {
@@ -166,12 +194,16 @@
       "label_i18n": {
         "en": "Shift Type",
         "tr": "Vardiya Türü",
-        "de": "Schichttyp"
+        "de": "Schichttyp",
+        "fr": "Type de quart",
+        "es": "Tipo de turno"
       },
       "businessContext_i18n": {
         "en": "Shift during which downtime occurred; affects labor cost multipliers (night/weekend premiums).",
         "tr": "Duruşun meydana geldiği vardiya; işçilik maliyeti çarpanlarını etkiler (gece/hafta sonu primleri).",
-        "de": "Schicht, in der die Ausfallzeit auftrat; beeinflusst Arbeitskostenzuschläge (Nacht-/Wochenendzuschläge)."
+        "de": "Schicht, in der die Ausfallzeit auftrat; beeinflusst Arbeitskostenzuschläge (Nacht-/Wochenendzuschläge).",
+        "fr": "Quart au cours duquel l'arrêt s'est produit ; affecte les multiplicateurs de coût de main-d'œuvre (primes de nuit/week-end).",
+        "es": "Turno durante el cual ocurrió el tiempo de inactividad; afecta los multiplicadores de costos laborales (primas nocturnas/fines de semana)."
       }
     }
   ],

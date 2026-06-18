@@ -12,14 +12,16 @@
         "en": "Scale Length",
         "tr": "Skala Uzunluğu",
         "de": "Mensurlänge",
-        "fr": "Scale Length",
-        "es": "Scale Length",
+        "fr": "Longueur de la corde vibrante",
+        "es": "Longitud de escala",
         "ar": "Scale Length"
       },
       "businessContext_i18n": {
         "en": "The distance from the nut to the bridge saddle, typically measured in millimeters.",
         "tr": "Somundan köprü eşiğine olan mesafe, tipik olarak milimetre cinsinden ölçülür.",
-        "de": "Der Abstand von der Mutter zum Steg, typischerweise in Millimetern gemessen."
+        "de": "Der Abstand von der Mutter zum Steg, typischerweise in Millimetern gemessen.",
+        "fr": "Distance de l'écrou au chevalet, généralement mesurée en millimètres.",
+        "es": "Distancia desde la tuerca hasta el puente, generalmente medida en milímetros."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Fret Number",
         "tr": "Perde Numarası",
         "de": "Bundnummer",
-        "fr": "Fret Number",
-        "es": "Fret Number",
+        "fr": "Numéro de frette",
+        "es": "Número de traste",
         "ar": "Fret Number"
       },
       "businessContext_i18n": {
         "en": "The fret position to calculate (1-indexed).",
         "tr": "Hesaplanacak perde konumu (1'den başlayarak).",
-        "de": "Die zu berechnende Bundposition (1-basiert)."
+        "de": "Die zu berechnende Bundposition (1-basiert).",
+        "fr": "Position de la frette à calculer (indexée à partir de 1).",
+        "es": "Posición del traste a calcular (indexada desde 1)."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Total Frets",
         "tr": "Toplam Perde Sayısı",
         "de": "Gesamtanzahl Bünde",
-        "fr": "Total Frets",
-        "es": "Total Frets",
+        "fr": "Nombre total de frettes",
+        "es": "Trastes totales",
         "ar": "Total Frets"
       },
       "businessContext_i18n": {
         "en": "The total number of frets on the instrument fingerboard.",
         "tr": "Enstrüman klavyesindeki toplam perde sayısı.",
-        "de": "Die Gesamtzahl der Bünde auf dem Griffbrett des Instruments."
+        "de": "Die Gesamtzahl der Bünde auf dem Griffbrett des Instruments.",
+        "fr": "Nombre total de frettes sur le manche de l'instrument.",
+        "es": "Número total de trastes en el diapasón del instrumento."
       }
     },
     {
@@ -76,13 +82,15 @@
         "tr": "Dengeleme",
         "de": "Kompensation",
         "fr": "Compensation",
-        "es": "Compensation",
+        "es": "Compensación",
         "ar": "Compensation"
       },
       "businessContext_i18n": {
         "en": "Additional length added to the scale length for intonation compensation at the bridge.",
         "tr": "Köprüde entonasyon dengelemesi için skala uzunluğuna eklenen ek uzunluk.",
-        "de": "Zusätzliche Länge zur Mensurlänge für die Intonationskompensation am Steg."
+        "de": "Zusätzliche Länge zur Mensurlänge für die Intonationskompensation am Steg.",
+        "fr": "Longueur supplémentaire ajoutée à la longueur de diapason pour la compensation d'intonation au chevalet.",
+        "es": "Longitud adicional añadida a la escala para compensar la entonación en el puente."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Days",
         "tr": "Gün",
         "de": "Tage",
-        "fr": "Days",
-        "es": "Days",
+        "fr": "Jours",
+        "es": "Días",
         "ar": "Days"
       },
       "businessContext_i18n": {
         "en": "Number of days to convert.",
         "tr": "Dönüştürülecek gün sayısı.",
-        "de": "Anzahl der umzurechnenden Tage."
+        "de": "Anzahl der umzurechnenden Tage.",
+        "fr": "Nombre de jours à convertir.",
+        "es": "Número de días a convertir."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Hours per Day",
         "tr": "Saat/Gün",
         "de": "Stunden pro Tag",
-        "fr": "Hours per Day",
-        "es": "Hours per Day",
+        "fr": "Heures par jour",
+        "es": "Horas por Día",
         "ar": "Hours per Day"
       },
       "businessContext_i18n": {
         "en": "Conversion factor: hours in one day.",
         "tr": "Dönüşüm faktörü: bir gündeki saat sayısı.",
-        "de": "Umrechnungsfaktor: Stunden an einem Tag."
+        "de": "Umrechnungsfaktor: Stunden an einem Tag.",
+        "fr": "Facteur de conversion : heures dans une journée.",
+        "es": "Factor de conversión: horas en un día."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Minutes per Hour",
         "tr": "Dakika/Saat",
         "de": "Minuten pro Stunde",
-        "fr": "Minutes per Hour",
-        "es": "Minutes per Hour",
+        "fr": "Minutes par heure",
+        "es": "Minutos por hora",
         "ar": "Minutes per Hour"
       },
       "businessContext_i18n": {
         "en": "Minutes in an hour for breakdown into minutes.",
         "tr": "Dakikalara ayırmak için bir saatteki dakika sayısı.",
-        "de": "Minuten in einer Stunde für die Aufschlüsselung in Minuten."
+        "de": "Minuten in einer Stunde für die Aufschlüsselung in Minuten.",
+        "fr": "Minutes dans une heure pour la décomposition en minutes.",
+        "es": "Minutos en una hora para desglose en minutos."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Seconds per Minute",
         "tr": "Saniye/Dakika",
         "de": "Sekunden pro Minute",
-        "fr": "Seconds per Minute",
-        "es": "Seconds per Minute",
+        "fr": "Secondes par minute",
+        "es": "Segundos por minuto",
         "ar": "Seconds per Minute"
       },
       "businessContext_i18n": {
         "en": "Seconds in a minute for breakdown into seconds.",
         "tr": "Saniyelere ayırmak için bir dakikadaki saniye sayısı.",
-        "de": "Sekunden in einer Minute für die Aufschlüsselung in Sekunden."
+        "de": "Sekunden in einer Minute für die Aufschlüsselung in Sekunden.",
+        "fr": "Secondes dans une minute pour la décomposition en secondes.",
+        "es": "Segundos en un minuto para desglose en segundos."
       }
     }
   ],

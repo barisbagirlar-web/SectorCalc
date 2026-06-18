@@ -12,13 +12,15 @@
         "en": "Tank Volume",
         "tr": "Tank Hacmi",
         "de": "Tankvolumen",
-        "fr": "Tank Volume",
-        "es": "Tank Volume",
+        "fr": "Volume du réservoir",
+        "es": "Volumen del tanque",
         "ar": "Tank Volume"
       },
       "businessContext_i18n": {
         "en": "Total water volume to heat",
-        "tr": "Isıtılacak Toplam Su Hacmi"
+        "tr": "Isıtılacak Toplam Su Hacmi",
+        "de": "Gesamtes zu erwärmendes Wasservolumen",
+        "fr": "Volume total d'eau à chauffer"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Cold Water Temperature",
         "tr": "Soğuk Su Sıcaklığı",
-        "de": "Cold Water Temperature",
-        "fr": "Cold Water Temperature",
+        "de": "Kaltwassertemperatur",
+        "fr": "Température de l'eau froide",
         "es": "Cold Water Temperature",
         "ar": "Cold Water Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of cold water supply",
-        "tr": "Soğuk su besleme sıcaklığı"
+        "tr": "Soğuk su besleme sıcaklığı",
+        "de": "Temperatur der Kaltwasserzufuhr",
+        "fr": "Température de l'alimentation en eau froide"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Hot Water Temperature",
         "tr": "Sıcak su sıcaklığı",
-        "de": "Hot Water Temperature",
-        "fr": "Hot Water Temperature",
+        "de": "Heißwassertemperatur",
+        "fr": "Température de l'eau chaude",
         "es": "Hot Water Temperature",
         "ar": "Hot Water Temperature"
       },
       "businessContext_i18n": {
         "en": "Target temperature for hot water",
-        "tr": "Sıcak su için hedef sıcaklık"
+        "tr": "Sıcak su için hedef sıcaklık",
+        "de": "Zieltemperatur für Warmwasser",
+        "fr": "Température cible pour l'eau chaude"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Heater Power Rating",
         "tr": "Isıtıcı güç değeri",
-        "de": "Heater Power Rating",
-        "fr": "Heater Power Rating",
+        "de": "Heizleistung",
+        "fr": "Puissance nominale du chauffage",
         "es": "Heater Power Rating",
         "ar": "Heater Power Rating"
       },
       "businessContext_i18n": {
         "en": "Power rating of the heating element",
-        "tr": "Isıtma elemanının güç değeri"
+        "tr": "Isıtma elemanının güç değeri",
+        "de": "Leistung des Heizelements",
+        "fr": "Puissance nominale de l'élément chauffant"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Heater Efficiency",
         "tr": "Isıtıcı verimliliği",
-        "de": "Heater Efficiency",
-        "fr": "Heater Efficiency",
+        "de": "Heizungswirkungsgrad",
+        "fr": "Rendement du chauffage",
         "es": "Heater Efficiency",
         "ar": "Heater Efficiency"
       },
       "businessContext_i18n": {
         "en": "Efficiency of the heating system (0-100%)",
-        "tr": "Isıtma sisteminin verimliliği (%0-100)"
+        "tr": "Isıtma sisteminin verimliliği (%0-100)",
+        "de": "Wirkungsgrad des Heizsystems (0-100%)",
+        "fr": "Rendement du système de chauffage (0-100%)"
       }
     },
     {
@@ -112,13 +122,15 @@
         "en": "Electricity Cost",
         "tr": "Elektrik Maliyeti",
         "de": "Stromkosten",
-        "fr": "Electricity Cost",
-        "es": "Electricity Cost",
+        "fr": "Coût de l'électricité",
+        "es": "Coste de electricidad",
         "ar": "Electricity Cost"
       },
       "businessContext_i18n": {
         "en": "Cost per kilowatt-hour of electricity",
-        "tr": "Kilovatsaat başına elektrik maliyeti"
+        "tr": "Kilovatsaat başına elektrik maliyeti",
+        "de": "Kosten pro Kilowattstunde Strom",
+        "fr": "Coût par kilowattheure d'électricité"
       }
     }
   ],

@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Yüzde Değeri",
         "tr": "Yüzde Değeri",
-        "de": "Yüzde Değeri",
-        "fr": "Yüzde Değeri",
-        "es": "Yüzde Değeri",
+        "de": "Prozentwert",
+        "fr": "Valeur en pourcentage",
+        "es": "Valor porcentual",
         "ar": "Yüzde Değeri"
       },
       "businessContext_i18n": {
         "en": "Yüzde olarak girilen değer",
-        "tr": "Yüzde olarak girilen değer"
+        "tr": "Yüzde olarak girilen değer",
+        "de": "Als Prozentsatz eingegebener Wert",
+        "fr": "Valeur saisie en pourcentage",
+        "es": "Valor ingresado como porcentaje"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Sadeleştir",
         "tr": "Sadeleştir",
-        "de": "Sadeleştir",
-        "fr": "Sadeleştir",
-        "es": "Sadeleştir",
+        "de": "Vereinfachen",
+        "fr": "Simplifier",
+        "es": "Simplificar",
         "ar": "Sadeleştir"
       },
       "businessContext_i18n": {
         "en": "Kesiri sadeleştirme seçeneği (1: Evet, 0: Hayır) – not: bu sürümde sadeleştirme uygulanmamaktadır",
-        "tr": "Kesiri sadeleştirme seçeneği (1: Evet, 0: Hayır) – not: bu sürümde sadeleştirme uygulanmamaktadır"
+        "tr": "Kesiri sadeleştirme seçeneği (1: Evet, 0: Hayır) – not: bu sürümde sadeleştirme uygulanmamaktadır",
+        "de": "Option zum Kürzen des Bruchs (1: Ja, 0: Nein) – Hinweis: In dieser Version wird keine Kürzung angewendet.",
+        "fr": "Option de simplification de la fraction (1 : Oui, 0 : Non) – note : la simplification n'est pas appliquée dans cette version",
+        "es": "Opción para simplificar la fracción (1: Sí, 0: No) – nota: en esta versión no se aplica simplificación"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Tam Sayılı Kesir",
         "tr": "Tam Sayılı Kesir",
-        "de": "Tam Sayılı Kesir",
-        "fr": "Tam Sayılı Kesir",
-        "es": "Tam Sayılı Kesir",
+        "de": "Gemischter Bruch",
+        "fr": "Fraction mixte",
+        "es": "Fracción mixta",
         "ar": "Tam Sayılı Kesir"
       },
       "businessContext_i18n": {
         "en": "Kesir tam sayılı olarak gösterilsin mi? (1: Evet, 0: Hayır)",
-        "tr": "Kesir tam sayılı olarak gösterilsin mi? (1: Evet, 0: Hayır)"
+        "tr": "Kesir tam sayılı olarak gösterilsin mi? (1: Evet, 0: Hayır)",
+        "de": "Soll der Bruch als gemischte Zahl angezeigt werden? (1: Ja, 0: Nein)",
+        "fr": "Afficher la fraction sous forme de nombre mixte ? (1 : Oui, 0 : Non)",
+        "es": "¿Mostrar la fracción como número mixto? (1: Sí, 0: No)"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Ondalık Basamak",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Ondalık Basamak",
-        "es": "Ondalık Basamak",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Ondalık Basamak"
       },
       "businessContext_i18n": {
         "en": "Yüzde değerinin ondalık basamak sayısı",
-        "tr": "Yüzde değerinin ondalık basamak sayısı"
+        "tr": "Yüzde değerinin ondalık basamak sayısı",
+        "de": "Anzahl der Dezimalstellen des Prozentwerts",
+        "fr": "Nombre de décimales pour la valeur en pourcentage",
+        "es": "Número de decimales del valor porcentual"
       }
     }
   ],

@@ -12,13 +12,15 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Consumer age for nutraceutical product dosing guidelines",
-        "tr": "Nutrasötik ürün dozaj yönergeleri için tüketici yaşı"
+        "tr": "Nutrasötik ürün dozaj yönergeleri için tüketici yaşı",
+        "de": "Alter des Verbrauchers für Dosierungsrichtlinien nutrazeutischer Produkte",
+        "fr": "Âge du consommateur pour les directives de dosage des produits nutraceutiques"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Body Weight",
-        "es": "Body Weight",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "Consumer weight to adjust supplement dosage per body mass",
-        "tr": "Vücut kütlesine göre takviye dozajını ayarlamak için tüketici ağırlığı"
+        "tr": "Vücut kütlesine göre takviye dozajını ayarlamak için tüketici ağırlığı",
+        "de": "Gewicht des Verbrauchers zur Anpassung der Supplementdosierung pro Körpermasse",
+        "fr": "Poids du consommateur pour ajuster le dosage du supplément en fonction de la masse corporelle"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Current Serum Vitamin D Level",
         "tr": "Mevcut Serum D Vitamini Düzeyi",
-        "de": "Current Serum Vitamin D Level",
-        "fr": "Current Serum Vitamin D Level",
+        "de": "Aktueller Serum-Vitamin-D-Spiegel",
+        "fr": "Niveau actuel de vitamine D sérique",
         "es": "Current Serum Vitamin D Level",
         "ar": "Current Serum Vitamin D Level"
       },
       "businessContext_i18n": {
         "en": "Baseline 25(OH)D level for deficiency correction calculation",
-        "tr": "Eksiklik düzeltme hesaplaması için başlangıç 25(OH)D düzeyi"
+        "tr": "Eksiklik düzeltme hesaplaması için başlangıç 25(OH)D düzeyi",
+        "de": "Baseline-25(OH)D-Spiegel zur Berechnung der Mangelkorrektur",
+        "fr": "Niveau de base de 25(OH)D pour le calcul de correction de carence"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Target Vitamin D Level",
         "tr": "Hedef D Vitamini Seviyesi",
-        "de": "Target Vitamin D Level",
-        "fr": "Target Vitamin D Level",
+        "de": "Ziel-Vitamin-D-Spiegel",
+        "fr": "Niveau cible de vitamine D",
         "es": "Target Vitamin D Level",
         "ar": "Target Vitamin D Level"
       },
       "businessContext_i18n": {
         "en": "Desired 25(OH)D level for optimal health",
-        "tr": "Optimal sağlık için istenen 25(OH)D seviyesi"
+        "tr": "Optimal sağlık için istenen 25(OH)D seviyesi",
+        "de": "Gewünschter 25(OH)D-Spiegel für optimale Gesundheit",
+        "fr": "Taux de 25(OH)D souhaité pour une santé optimale"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Treatment Duration",
         "tr": "Tedavi Süresi",
-        "de": "Treatment Duration",
-        "fr": "Treatment Duration",
+        "de": "Behandlungsdauer",
+        "fr": "Durée du traitement",
         "es": "Treatment Duration",
         "ar": "Treatment Duration"
       },
       "businessContext_i18n": {
         "en": "Duration for gradual serum level adjustment in production planning",
-        "tr": "Üretim planlamasında kademeli serum seviyesi ayarlaması için süre"
+        "tr": "Üretim planlamasında kademeli serum seviyesi ayarlaması için süre",
+        "de": "Dauer für schrittweise Serumspiegelanpassung in der Produktionsplanung",
+        "fr": "Durée pour un ajustement progressif du taux sérique dans la planification de production"
       }
     }
   ],

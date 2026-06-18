@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Tire Width",
         "tr": "Lastik Genişliği",
-        "de": "Tire Width",
-        "fr": "Tire Width",
+        "de": "Reifenbreite",
+        "fr": "Largeur du pneu",
         "es": "Tire Width",
         "ar": "Tire Width"
       },
       "businessContext_i18n": {
         "en": "Nominal section width of the tire",
-        "tr": "Lastiğin nominal kesit genişliği"
+        "tr": "Lastiğin nominal kesit genişliği",
+        "de": "Nennquerschnittsbreite des Reifens",
+        "fr": "Largeur nominale de la section du pneu"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Aspect Ratio",
         "tr": "En-Boy Oranı",
-        "de": "Aspect Ratio",
-        "fr": "Aspect Ratio",
+        "de": "Seitenverhältnis",
+        "fr": "Rapport d'aspect",
         "es": "Aspect Ratio",
         "ar": "Aspect Ratio"
       },
       "businessContext_i18n": {
         "en": "Sidewall height as a percentage of tire width",
-        "tr": "Yanak yüksekliğinin lastik genişliğine yüzde oranı"
+        "tr": "Yanak yüksekliğinin lastik genişliğine yüzde oranı",
+        "de": "Flankenhöhe als Prozentsatz der Reifenbreite",
+        "fr": "Hauteur du flanc en pourcentage de la largeur du pneu"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Rim Diameter",
         "tr": "Jant Çapı",
-        "de": "Rim Diameter",
-        "fr": "Rim Diameter",
+        "de": "Felgendurchmesser",
+        "fr": "Diamètre de la jante",
         "es": "Rim Diameter",
         "ar": "Rim Diameter"
       },
       "businessContext_i18n": {
         "en": "Diameter of the wheel rim",
-        "tr": "Tekerlek jantının çapı"
+        "tr": "Tekerlek jantının çapı",
+        "de": "Durchmesser der Radfelge",
+        "fr": "Diamètre de la jante"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Tread Loss",
         "tr": "Diş Kaybı",
-        "de": "Tread Loss",
-        "fr": "Tread Loss",
+        "de": "Profilabnutzung",
+        "fr": "Perte de bande de roulement",
         "es": "Tread Loss",
         "ar": "Tread Loss"
       },
       "businessContext_i18n": {
         "en": "Amount of tread depth worn off, reducing overall diameter",
-        "tr": "Aşınarak kaybedilen diş derinliği miktarı, toplam çapı azaltır"
+        "tr": "Aşınarak kaybedilen diş derinliği miktarı, toplam çapı azaltır",
+        "de": "Abgenutzte Profiltiefe, die den Gesamtdurchmesser verringert",
+        "fr": "Quantité de profondeur de bande de roulement usée, réduisant le diamètre total"
       }
     }
   ],

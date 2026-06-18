@@ -20,11 +20,17 @@
       "businessContext": "Total distinct product variants offered.",
       "label_i18n": {
         "en": "Number of SKUs",
-        "tr": "SKU Sayısı"
+        "tr": "SKU Sayısı",
+        "de": "Anzahl der SKUs",
+        "fr": "Nombre d'UGS",
+        "es": "Número de SKU"
       },
       "businessContext_i18n": {
         "en": "Total distinct product variants offered.",
-        "tr": "Sunulan toplam farklı ürün çeşidi."
+        "tr": "Sunulan toplam farklı ürün çeşidi.",
+        "de": "Gesamtzahl der angebotenen unterschiedlichen Produktvarianten.",
+        "fr": "Nombre total de variantes de produits distinctes proposées.",
+        "es": "Total de variantes de producto distintas ofrecidas."
       }
     },
     {
@@ -38,11 +44,17 @@
       "businessContext": "Average annual production quantity per SKU.",
       "label_i18n": {
         "en": "Average Volume per SKU",
-        "tr": "SKU Başına Ortalama Hacim"
+        "tr": "SKU Başına Ortalama Hacim",
+        "de": "Durchschnittliches Volumen pro SKU",
+        "fr": "Volume moyen par UGS",
+        "es": "Volumen promedio por SKU"
       },
       "businessContext_i18n": {
         "en": "Average annual production quantity per SKU.",
-        "tr": "SKU başına ortalama yıllık üretim miktarı."
+        "tr": "SKU başına ortalama yıllık üretim miktarı.",
+        "de": "Durchschnittliche jährliche Produktionsmenge pro SKU.",
+        "fr": "Quantité annuelle moyenne de production par UGS.",
+        "es": "Cantidad de producción anual promedio por SKU."
       }
     },
     {
@@ -56,11 +68,17 @@
       "businessContext": "Total distinct raw materials or parts used across all SKUs.",
       "label_i18n": {
         "en": "Number of Unique Components",
-        "tr": "Benzersiz Bileşen Sayısı"
+        "tr": "Benzersiz Bileşen Sayısı",
+        "de": "Anzahl der Einzelkomponenten",
+        "fr": "Nombre de composants uniques",
+        "es": "Número de componentes únicos"
       },
       "businessContext_i18n": {
         "en": "Total distinct raw materials or parts used across all SKUs.",
-        "tr": "Tüm SKU'larda kullanılan toplam farklı hammadde veya parça."
+        "tr": "Tüm SKU'larda kullanılan toplam farklı hammadde veya parça.",
+        "de": "Gesamtzahl der unterschiedlichen Rohmaterialien oder Teile über alle SKUs hinweg.",
+        "fr": "Nombre total de matières premières ou pièces distinctes utilisées dans toutes les UGS.",
+        "es": "Total de materias primas o piezas distintas utilizadas en todos los SKU."
       }
     },
     {
@@ -74,11 +92,17 @@
       "businessContext": "Average depth of the bill of materials (number of subassembly tiers).",
       "label_i18n": {
         "en": "Average BOM Levels",
-        "tr": "Ortalama Ürün Ağacı Seviyesi"
+        "tr": "Ortalama Ürün Ağacı Seviyesi",
+        "de": "Durchschnittliche BOM-Ebenen",
+        "fr": "Niveaux moyens de nomenclature",
+        "es": "Niveles promedio de lista de materiales"
       },
       "businessContext_i18n": {
         "en": "Average depth of the bill of materials (number of subassembly tiers).",
-        "tr": "Ürün ağacının ortalama derinliği (alt montaj kademe sayısı)."
+        "tr": "Ürün ağacının ortalama derinliği (alt montaj kademe sayısı).",
+        "de": "Durchschnittliche Tiefe der Stückliste (Anzahl der Unterbaugruppenebenen).",
+        "fr": "Profondeur moyenne de la nomenclature (nombre de niveaux de sous-ensembles).",
+        "es": "Profundidad promedio de la lista de materiales (número de niveles de subensamblaje)."
       }
     },
     {
@@ -92,11 +116,17 @@
       "businessContext": "Average time to change a production line from one SKU to another.",
       "label_i18n": {
         "en": "Average Setup Time per Changeover",
-        "tr": "Değişim Başına Ortalama Kurulum Süresi"
+        "tr": "Değişim Başına Ortalama Kurulum Süresi",
+        "de": "Durchschnittliche Rüstzeit pro Umstellung",
+        "fr": "Temps moyen de réglage par changement de série",
+        "es": "Tiempo promedio de preparación por cambio"
       },
       "businessContext_i18n": {
         "en": "Average time to change a production line from one SKU to another.",
-        "tr": "Bir üretim hattını bir SKU'dan diğerine değiştirmek için ortalama süre."
+        "tr": "Bir üretim hattını bir SKU'dan diğerine değiştirmek için ortalama süre.",
+        "de": "Durchschnittliche Zeit zum Umstellen einer Produktionslinie von einer SKU auf eine andere.",
+        "fr": "Temps moyen pour changer une ligne de production d'une UGS à une autre.",
+        "es": "Tiempo promedio para cambiar una línea de producción de un SKU a otro."
       }
     },
     {
@@ -111,11 +141,16 @@
       "label_i18n": {
         "en": "Labor Rate",
         "tr": "İşçilik ücreti",
-        "de": "Stundensatz"
+        "de": "Stundensatz",
+        "fr": "Taux de main-d'œuvre",
+        "es": "Tarifa de mano de obra"
       },
       "businessContext_i18n": {
         "en": "Fully burdened hourly labor cost.",
-        "tr": "Tam yüklü saatlik işçilik maliyeti."
+        "tr": "Tam yüklü saatlik işçilik maliyeti.",
+        "de": "Voll belastete stündliche Arbeitskosten.",
+        "fr": "Coût horaire de main-d'œuvre entièrement chargé.",
+        "es": "Costo laboral por hora completamente cargado."
       }
     },
     {
@@ -130,11 +165,16 @@
       "label_i18n": {
         "en": "Overhead Rate",
         "tr": "Genel gider oranı",
-        "de": "Gemeinkostensatz"
+        "de": "Gemeinkostensatz",
+        "fr": "Taux de frais généraux",
+        "es": "Tasa de gastos generales"
       },
       "businessContext_i18n": {
         "en": "Manufacturing overhead as percentage of direct labor and material.",
-        "tr": "Direkt işçilik ve malzemenin yüzdesi olarak üretim genel gideri."
+        "tr": "Direkt işçilik ve malzemenin yüzdesi olarak üretim genel gideri.",
+        "de": "Fertigungsgemeinkosten als Prozentsatz der direkten Arbeits- und Materialkosten.",
+        "fr": "Frais généraux de fabrication en pourcentage de la main-d'œuvre directe et des matériaux.",
+        "es": "Gastos generales de fabricación como porcentaje de mano de obra directa y material."
       }
     },
     {
@@ -153,11 +193,17 @@
       ],
       "label_i18n": {
         "en": "Complexity Type",
-        "tr": "Karmaşıklık Türü"
+        "tr": "Karmaşıklık Türü",
+        "de": "Komplexitätstyp",
+        "fr": "Type de complexité",
+        "es": "Tipo de complejidad"
       },
       "businessContext_i18n": {
         "en": "Category of complexity: 'product' (high SKU count), 'process' (high setup time), 'mixed' (both).",
-        "tr": "Karmaşıklık kategorisi: 'ürün' (yüksek SKU sayısı), 'süreç' (yüksek kurulum süresi), 'karma' (her ikisi)."
+        "tr": "Karmaşıklık kategorisi: 'ürün' (yüksek SKU sayısı), 'süreç' (yüksek kurulum süresi), 'karma' (her ikisi).",
+        "de": "Kategorie der Komplexität: 'Produkt' (hohe SKU-Anzahl), 'Prozess' (hohe Rüstzeit), 'Gemischt' (beides).",
+        "fr": "Catégorie de complexité : 'produit' (nombre élevé d'UGS), 'processus' (temps de réglage élevé), 'mixte' (les deux).",
+        "es": "Categoría de complejidad: 'producto' (alto número de SKU), 'proceso' (alto tiempo de preparación), 'mixto' (ambos)."
       }
     }
   ],

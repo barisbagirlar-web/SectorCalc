@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Numerator Coefficient",
         "tr": "Pay Katsayısı",
-        "de": "Numerator Coefficient",
-        "fr": "Numerator Coefficient",
-        "es": "Numerator Coefficient",
+        "de": "Koeffizient des Zählers",
+        "fr": "Coefficient du numérateur",
+        "es": "Coeficiente del numerador",
         "ar": "Numerator Coefficient"
       },
       "businessContext_i18n": {
         "en": "Coefficient of the highest power term in the numerator polynomial.",
-        "tr": "Pay polinomundaki en yüksek dereceli terimin katsayısı."
+        "tr": "Pay polinomundaki en yüksek dereceli terimin katsayısı.",
+        "de": "Koeffizient des Terms höchster Potenz im Zählerpolynom.",
+        "fr": "Coefficient du terme de plus haut degré dans le polynôme du numérateur",
+        "es": "Coeficiente del término de mayor potencia en el polinomio del numerador."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Numerator Power",
         "tr": "Pay Derecesi",
-        "de": "Numerator Power",
-        "fr": "Numerator Power",
-        "es": "Numerator Power",
+        "de": "Potenz des Zählers",
+        "fr": "Puissance du numérateur",
+        "es": "Potencia del numerador",
         "ar": "Numerator Power"
       },
       "businessContext_i18n": {
         "en": "Exponent of x in the numerator polynomial.",
-        "tr": "Pay polinomunda x'in üssü."
+        "tr": "Pay polinomunda x'in üssü.",
+        "de": "Exponent von x im Zählerpolynom.",
+        "fr": "Exposant de x dans le polynôme du numérateur",
+        "es": "Exponente de x en el polinomio del numerador."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Denominator Coefficient",
         "tr": "Payda Katsayısı",
-        "de": "Denominator Coefficient",
-        "fr": "Denominator Coefficient",
-        "es": "Denominator Coefficient",
+        "de": "Koeffizient des Nenners",
+        "fr": "Coefficient du dénominateur",
+        "es": "Coeficiente del denominador",
         "ar": "Denominator Coefficient"
       },
       "businessContext_i18n": {
         "en": "Coefficient of the highest power term in the denominator polynomial.",
-        "tr": "Paydaki en yüksek dereceli terimin katsayısı."
+        "tr": "Paydaki en yüksek dereceli terimin katsayısı.",
+        "de": "Koeffizient des Terms höchster Potenz im Nennerpolynom.",
+        "fr": "Coefficient du terme de plus haut degré dans le polynôme du dénominateur.",
+        "es": "Coeficiente del término de mayor potencia en el polinomio del denominador."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Denominator Power",
         "tr": "Payda Derecesi",
-        "de": "Denominator Power",
-        "fr": "Denominator Power",
-        "es": "Denominator Power",
+        "de": "Potenz des Nenners",
+        "fr": "Puissance du dénominateur",
+        "es": "Potencia del denominador",
         "ar": "Denominator Power"
       },
       "businessContext_i18n": {
         "en": "Exponent of x in the denominator polynomial.",
-        "tr": "Paydadaki polinomda x'in üssü."
+        "tr": "Paydadaki polinomda x'in üssü.",
+        "de": "Exponent von x im Nennerpolynom.",
+        "fr": "Exposant de x dans le polynôme du dénominateur.",
+        "es": "Exponente de x en el polinomio del denominador."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Limit Point (x→a)",
         "tr": "Limit Noktası (x→a)",
-        "de": "Limit Point (x→a)",
-        "fr": "Limit Point (x→a)",
-        "es": "Limit Point (x→a)",
+        "de": "Grenzwert (x→a)",
+        "fr": "Point limite (x→a)",
+        "es": "Punto límite (x→a)",
         "ar": "Limit Point (x→a)"
       },
       "businessContext_i18n": {
         "en": "The value that x approaches in the limit.",
-        "tr": "Limitte x'in yaklaştığı değer."
+        "tr": "Limitte x'in yaklaştığı değer.",
+        "de": "Der Wert, dem x im Grenzwert zustrebt.",
+        "fr": "Valeur que x approche dans la limite.",
+        "es": "El valor al que se aproxima x en el límite."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "L'Hopital Iterations",
         "tr": "L'Hopital Tekrarları",
-        "de": "L'Hopital Iterations",
-        "fr": "L'Hopital Iterations",
-        "es": "L'Hopital Iterations",
+        "de": "L'Hopital-Iterationen",
+        "fr": "Itérations de L'Hôpital",
+        "es": "Iteraciones de L'Hôpital",
         "ar": "L'Hopital Iterations"
       },
       "businessContext_i18n": {
         "en": "Number of times to apply L'Hopital's rule (differentiate numerator and denominator).",
-        "tr": "L'Hopital kuralının uygulanma sayısı (pay ve paydanın türevi alınır)."
+        "tr": "L'Hopital kuralının uygulanma sayısı (pay ve paydanın türevi alınır).",
+        "de": "Anzahl der Anwendungen der Regel von L'Hopital (Zähler und Nenner ableiten).",
+        "fr": "Nombre d'applications de la règle de L'Hôpital (dériver numérateur et dénominateur).",
+        "es": "Número de veces que se aplica la regla de L'Hôpital (derivar numerador y denominador)."
       }
     }
   ],

@@ -12,14 +12,16 @@
         "en": "Weight",
         "tr": "Ağırlık",
         "de": "Gewicht",
-        "fr": "Weight",
-        "es": "Weight",
+        "fr": "Poids",
+        "es": "Peso",
         "ar": "Weight"
       },
       "businessContext_i18n": {
         "en": "Patient weight in kilograms",
         "tr": "Hasta ağırlığı (kg)",
-        "de": "Hasta ağırlığı (kg)"
+        "de": "Hasta ağırlığı (kg)",
+        "fr": "Poids du patient en kilogrammes",
+        "es": "Hasta ağırlığı (kg)"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Height",
         "tr": "Boy",
         "de": "Größe",
-        "fr": "Height",
-        "es": "Height",
+        "fr": "Taille",
+        "es": "Altura",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "Patient height in centimeters",
         "tr": "Hasta boyu (cm)",
-        "de": "Hasta boyu (cm)"
+        "de": "Hasta boyu (cm)",
+        "fr": "Taille du patient en centimètres",
+        "es": "Hasta boyu (cm)"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Formula Selection",
         "tr": "Formül Seçimi",
         "de": "Formül Seçimi",
-        "fr": "Formula Selection",
-        "es": "Formula Selection",
+        "fr": "Sélection de la formule",
+        "es": "Formül Seçimi",
         "ar": "Formula Selection"
       },
       "businessContext_i18n": {
         "en": "1=Mosteller, 2=DuBois, 3=Haycock, 4=Gehan & George",
         "tr": "1=Mosteller, 2=DuBois, 3=Haycock, 4=Gehan & George",
-        "de": "1=Mosteller, 2=DuBois, 3=Haycock, 4=Gehan & George"
+        "de": "1=Mosteller, 2=DuBois, 3=Haycock, 4=Gehan & George",
+        "fr": "1=Mosteller, 2=DuBois, 3=Haycock, 4=Gehan & George",
+        "es": "1=Mosteller, 2=DuBois, 3=Haycock, 4=Gehan & George"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Adjustment Factor",
         "tr": "Düzeltme Faktörü",
         "de": "Düzeltme Faktörü",
-        "fr": "Adjustment Factor",
-        "es": "Adjustment Factor",
+        "fr": "Facteur d'ajustement",
+        "es": "Düzeltme Faktörü",
         "ar": "Adjustment Factor"
       },
       "businessContext_i18n": {
         "en": "Multiplicative clinical adjustment (e.g., 1 for standard, 0.85 for reduced dose)",
         "tr": "Çarpımsal klinik düzeltme (örn. standart için 1, azaltılmış doz için 0.85)",
-        "de": "Çarpımsal klinik düzeltme (örn. standart için 1, azaltılmış doz için 0,85)"
+        "de": "Çarpımsal klinik düzeltme (örn. standart için 1, azaltılmış doz için 0,85)",
+        "fr": "Ajustement clinique multiplicatif (ex. 1 pour standard, 0,85 pour dose réduite)",
+        "es": "Çarpımsal klinik ayarlama (örn. standart için 1, azaltılmış doz için 0,85)"
       }
     }
   ],

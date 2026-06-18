@@ -12,14 +12,16 @@
         "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
-        "fr": "Body Weight",
-        "es": "Body Weight",
+        "fr": "Poids corporel",
+        "es": "Peso corporal",
         "ar": "Body Weight"
       },
       "businessContext_i18n": {
         "en": "User's body weight in kilograms.",
         "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı.",
-        "de": "Körpergewicht des Benutzers in Kilogramm."
+        "de": "Körpergewicht des Benutzers in Kilogramm.",
+        "fr": "Poids corporel de l'utilisateur en kilogrammes.",
+        "es": "Peso corporal del usuario en kilogramos."
       }
     },
     {
@@ -32,15 +34,17 @@
       "label_i18n": {
         "en": "Body Height",
         "tr": "Vücut Boyu",
-        "de": "Body Height",
-        "fr": "Body Height",
+        "de": "Körpergröße",
+        "fr": "Taille du corps",
         "es": "Body Height",
         "ar": "Body Height"
       },
       "businessContext_i18n": {
         "en": "User's height in centimeters.",
         "tr": "Kullanıcının santimetre cinsinden boyu.",
-        "de": "Körpergröße des Benutzers in Zentimetern."
+        "de": "Körpergröße des Benutzers in Zentimetern.",
+        "fr": "Taille de l'utilisateur en centimètres.",
+        "es": "Altura del usuario en centímetros."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "User's age in years.",
         "tr": "Kullanıcının yıl cinsinden yaşı.",
-        "de": "Alter des Benutzers in Jahren."
+        "de": "Alter des Benutzers in Jahren.",
+        "fr": "Âge de l'utilisateur en années.",
+        "es": "Edad del usuario en años."
       }
     },
     {
@@ -75,13 +81,15 @@
         "en": "Gender (0=Male, 1=Female)",
         "tr": "Cinsiyet (0=Erkek, 1=Kadın)",
         "de": "Geschlecht (0=Männlich, 1=Weiblich)",
-        "fr": "Gender (0=Male, 1=Female)",
-        "es": "Gender (0=Male, 1=Female)",
+        "fr": "Sexe (0=Homme, 1=Femme)",
+        "es": "Sexo (0=Hombre, 1=Mujer)",
         "ar": "Gender (0=Male, 1=Female)"
       },
       "businessContext_i18n": {
         "en": "Biological gender for BMR calculation: 0 for male, 1 for female.",
-        "tr": "BMR hesaplaması için biyolojik cinsiyet: 0 erkek, 1 kadın."
+        "tr": "BMR hesaplaması için biyolojik cinsiyet: 0 erkek, 1 kadın.",
+        "de": "Biologisches Geschlecht für BMR-Berechnung: 0 für männlich, 1 für weiblich.",
+        "fr": "Genre biologique pour le calcul du BMR : 0 pour homme, 1 pour femme."
       }
     },
     {
@@ -94,14 +102,16 @@
       "label_i18n": {
         "en": "Yoga Duration",
         "tr": "Yoga Süresi",
-        "de": "Yoga Duration",
-        "fr": "Yoga Duration",
+        "de": "Yoga-Dauer",
+        "fr": "Durée du yoga",
         "es": "Yoga Duration",
         "ar": "Yoga Duration"
       },
       "businessContext_i18n": {
         "en": "Duration of the yoga session in minutes.",
-        "tr": "Yoga seansının dakika cinsinden süresi."
+        "tr": "Yoga seansının dakika cinsinden süresi.",
+        "de": "Dauer der Yoga-Sitzung in Minuten.",
+        "fr": "Durée de la séance de yoga en minutes."
       }
     },
     {
@@ -115,13 +125,15 @@
         "en": "MET Value",
         "tr": "MET Değeri",
         "de": "MET-Wert",
-        "fr": "MET Value",
-        "es": "MET Value",
+        "fr": "Valeur MET",
+        "es": "Valor MET",
         "ar": "MET Value"
       },
       "businessContext_i18n": {
         "en": "Metabolic Equivalent of Task for the specific yoga style (e.g., Hatha=2.5, Power=4.0).",
-        "tr": "Belirli yoga stili için metabolik eşdeğer (ör. Hatha=2.5, Power=4.0)."
+        "tr": "Belirli yoga stili için metabolik eşdeğer (ör. Hatha=2.5, Power=4.0).",
+        "de": "Metabolisches Äquivalent für den spezifischen Yoga-Stil (z.B. Hatha=2,5, Power=4,0).",
+        "fr": "Équivalent métabolique de la tâche pour le style de yoga spécifique (ex. Hatha=2.5, Power=4.0)."
       }
     }
   ],

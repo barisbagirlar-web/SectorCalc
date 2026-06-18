@@ -13,12 +13,14 @@
         "tr": "Mesafe",
         "de": "Entfernung",
         "fr": "Distance",
-        "es": "Distance",
+        "es": "Distancia",
         "ar": "Distance"
       },
       "businessContext_i18n": {
         "en": "Total distance to be shipped",
-        "tr": "Sevk edilecek toplam mesafe."
+        "tr": "Sevk edilecek toplam mesafe.",
+        "de": "Gesamte Versandentfernung",
+        "fr": "Distance totale à expédier"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Weight",
         "tr": "Ağırlık",
         "de": "Gewicht",
-        "fr": "Weight",
-        "es": "Weight",
+        "fr": "Poids",
+        "es": "Peso",
         "ar": "Weight"
       },
       "businessContext_i18n": {
         "en": "Total weight of the shipment",
-        "tr": "Gönderinin toplam ağırlığı."
+        "tr": "Gönderinin toplam ağırlığı.",
+        "de": "Gesamtgewicht der Sendung",
+        "fr": "Poids total de l'expédition"
       }
     },
     {
@@ -53,12 +57,14 @@
         "tr": "Hacim",
         "de": "Volumen",
         "fr": "Volume",
-        "es": "Volume",
+        "es": "Volumen",
         "ar": "Volume"
       },
       "businessContext_i18n": {
         "en": "Total volume of the shipment",
-        "tr": "Gönderinin toplam hacmi"
+        "tr": "Gönderinin toplam hacmi",
+        "de": "Gesamtvolumen der Sendung",
+        "fr": "Volume total de l'expédition"
       }
     },
     {
@@ -72,14 +78,16 @@
         "en": "Fuel Price",
         "tr": "Yakıt Fiyatı",
         "de": "Kraftstoffpreis",
-        "fr": "Fuel Price",
-        "es": "Fuel Price",
+        "fr": "Prix du carburant",
+        "es": "Precio del Combustible",
         "ar": "Fuel Price"
       },
       "businessContext_i18n": {
         "en": "Current fuel price per liter",
         "tr": "Litre başına güncel yakıt fiyatı",
-        "de": "Aktueller Kraftstoffpreis pro Liter"
+        "de": "Aktueller Kraftstoffpreis pro Liter",
+        "fr": "Prix actuel du carburant par litre",
+        "es": "Precio actual del combustible por litro"
       }
     }
   ],

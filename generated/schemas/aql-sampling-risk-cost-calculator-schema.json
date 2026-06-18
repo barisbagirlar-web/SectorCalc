@@ -23,12 +23,16 @@
       "label_i18n": {
         "en": "Lot Size (N)",
         "tr": "Parti Büyüklüğü (N)",
-        "de": "Losgröße (N)"
+        "de": "Losgröße (N)",
+        "fr": "Taille du lot (N)",
+        "es": "Tamaño del lote (N)"
       },
       "businessContext_i18n": {
         "en": "Total number of items in the inspection lot per ISO 2859-1.",
         "tr": "ISO 2859-1'e göre muayene partisindeki toplam ürün sayısı.",
-        "de": "Gesamtzahl der Einheiten im Prüflos gemäß ISO 2859-1."
+        "de": "Gesamtzahl der Einheiten im Prüflos gemäß ISO 2859-1.",
+        "fr": "Nombre total d'articles dans le lot d'inspection selon ISO 2859-1.",
+        "es": "Número total de artículos en el lote de inspección según ISO 2859-1."
       }
     },
     {
@@ -43,12 +47,16 @@
       "label_i18n": {
         "en": "AQL (%)",
         "tr": "AKK (%)",
-        "de": "AQL (%)"
+        "de": "AQL (%)",
+        "fr": "NQA (%)",
+        "es": "NCA (%)"
       },
       "businessContext_i18n": {
         "en": "Acceptable Quality Level – maximum percent defective that is considered acceptable as a process average.",
         "tr": "Kabul Edilebilir Kalite Seviyesi – proses ortalaması olarak kabul edilebilir maksimum kusurlu yüzdesi.",
-        "de": "Annehmbare Qualitätsgrenzlage – maximaler Prozentsatz fehlerhafter Einheiten, der als Prozessdurchschnitt noch akzeptabel ist."
+        "de": "Annehmbare Qualitätsgrenzlage – maximaler Prozentsatz fehlerhafter Einheiten, der als Prozessdurchschnitt noch akzeptabel ist.",
+        "fr": "Niveau de qualité acceptable – pourcentage maximal de défectueux considéré comme acceptable en moyenne de processus.",
+        "es": "Nivel de Calidad Aceptable – porcentaje máximo de defectuosos que se considera aceptable como promedio del proceso."
       }
     },
     {
@@ -72,12 +80,16 @@
       "label_i18n": {
         "en": "Inspection Level",
         "tr": "Muayene Seviyesi",
-        "de": "Prüfniveau"
+        "de": "Prüfniveau",
+        "fr": "Niveau d'inspection",
+        "es": "Nivel de inspección"
       },
       "businessContext_i18n": {
         "en": "General or special inspection level per ISO 2859-1. Level II is normal.",
         "tr": "ISO 2859-1'e göre genel veya özel muayene seviyesi. Seviye II normaldir.",
-        "de": "Allgemeines oder spezielles Prüfniveau gemäß ISO 2859-1. Stufe II ist normal."
+        "de": "Allgemeines oder spezielles Prüfniveau gemäß ISO 2859-1. Stufe II ist normal.",
+        "fr": "Niveau d'inspection général ou spécial selon ISO 2859-1. Le niveau II est normal.",
+        "es": "Nivel de inspección general o especial según ISO 2859-1. El nivel II es normal."
       }
     },
     {
@@ -97,12 +109,16 @@
       "label_i18n": {
         "en": "Sampling Plan Type",
         "tr": "Numune Alma Planı Türü",
-        "de": "Stichprobenplan-Typ"
+        "de": "Stichprobenplan-Typ",
+        "fr": "Type de plan d'échantillonnage",
+        "es": "Tipo de plan de muestreo"
       },
       "businessContext_i18n": {
         "en": "Switching rules for severity of sampling per ISO 2859-1.",
         "tr": "ISO 2859-1'e göre numune alma şiddeti için geçiş kuralları.",
-        "de": "Umschaltregeln für die Schärfe der Stichprobenprüfung gemäß ISO 2859-1."
+        "de": "Umschaltregeln für die Schärfe der Stichprobenprüfung gemäß ISO 2859-1.",
+        "fr": "Règles de commutation pour la sévérité de l'échantillonnage selon ISO 2859-1.",
+        "es": "Reglas de cambio para la severidad del muestreo según ISO 2859-1."
       }
     },
     {
@@ -117,12 +133,16 @@
       "label_i18n": {
         "en": "Unit Cost",
         "tr": "Birim Maliyet",
-        "de": "Stückkosten"
+        "de": "Stückkosten",
+        "fr": "Coût unitaire",
+        "es": "Costo unitario"
       },
       "businessContext_i18n": {
         "en": "Cost per unit item (production or purchase cost).",
         "tr": "Birim başına maliyet (üretim veya satın alma maliyeti).",
-        "de": "Kosten pro Einheit (Produktions- oder Einkaufskosten)."
+        "de": "Kosten pro Einheit (Produktions- oder Einkaufskosten).",
+        "fr": "Coût unitaire de l'article (coût de production ou d'achat).",
+        "es": "Costo por unidad (costo de producción o compra)."
       }
     },
     {
@@ -137,12 +157,16 @@
       "label_i18n": {
         "en": "Defect Cost per Unit",
         "tr": "Birim Kusur Maliyeti",
-        "de": "Fehlerkosten pro Einheit"
+        "de": "Fehlerkosten pro Einheit",
+        "fr": "Coût du défaut par unité",
+        "es": "Costo por defecto por unidad"
       },
       "businessContext_i18n": {
         "en": "Cost incurred if a defective unit reaches the customer (rework, warranty, loss of goodwill).",
         "tr": "Kusurlu bir birimin müşteriye ulaşması durumunda ortaya çıkan maliyet (yeniden işleme, garanti, iyi niyet kaybı).",
-        "de": "Kosten, die entstehen, wenn eine fehlerhafte Einheit den Kunden erreicht (Nacharbeit, Garantie, Goodwill-Verlust)."
+        "de": "Kosten, die entstehen, wenn eine fehlerhafte Einheit den Kunden erreicht (Nacharbeit, Garantie, Goodwill-Verlust).",
+        "fr": "Coût encouru si une unité défectueuse atteint le client (reprise, garantie, perte de clientèle).",
+        "es": "Costo incurrido si una unidad defectuosa llega al cliente (reproceso, garantía, pérdida de buena voluntad)."
       }
     },
     {
@@ -157,12 +181,16 @@
       "label_i18n": {
         "en": "Inspection Cost per Unit",
         "tr": "Birim Muayene Maliyeti",
-        "de": "Prüfkosten pro Einheit"
+        "de": "Prüfkosten pro Einheit",
+        "fr": "Coût d'inspection par unité",
+        "es": "Costo de inspección por unidad"
       },
       "businessContext_i18n": {
         "en": "Cost to inspect one unit (labor, equipment, overhead).",
         "tr": "Bir birimi muayene etme maliyeti (işçilik, ekipman, genel giderler).",
-        "de": "Kosten für die Prüfung einer Einheit (Arbeit, Ausrüstung, Gemeinkosten)."
+        "de": "Kosten für die Prüfung einer Einheit (Arbeit, Ausrüstung, Gemeinkosten).",
+        "fr": "Coût pour inspecter une unité (main-d'œuvre, équipement, frais généraux).",
+        "es": "Costo de inspeccionar una unidad (mano de obra, equipo, gastos generales)."
       }
     },
     {
@@ -177,12 +205,16 @@
       "label_i18n": {
         "en": "Actual Defect Rate (p)",
         "tr": "Gerçek Kusur Oranı (p)",
-        "de": "Tatsächliche Fehlerrate (p)"
+        "de": "Tatsächliche Fehlerrate (p)",
+        "fr": "Taux de défauts réel (p)",
+        "es": "Tasa de defectos real (p)"
       },
       "businessContext_i18n": {
         "en": "Estimated true defect rate in the lot (from historical data or process capability).",
         "tr": "Partideki tahmini gerçek kusur oranı (geçmiş verilerden veya proses yeteneğinden).",
-        "de": "Geschätzte wahre Fehlerrate im Los (aus historischen Daten oder Prozessfähigkeit)."
+        "de": "Geschätzte wahre Fehlerrate im Los (aus historischen Daten oder Prozessfähigkeit).",
+        "fr": "Taux de défauts réel estimé dans le lot (à partir de données historiques ou de la capabilité processus).",
+        "es": "Tasa de defectos real estimada en el lote (a partir de datos históricos o capacidad del proceso)."
       }
     }
   ],

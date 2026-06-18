@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Wall Width (m)",
         "tr": "Duvar Genişliği (m)",
-        "de": "Wall Width (m)",
-        "fr": "Wall Width (m)",
+        "de": "Wandbreite (m)",
+        "fr": "Largeur du mur (m)",
         "es": "Wall Width (m)",
         "ar": "Wall Width (m)"
       },
       "businessContext_i18n": {
         "en": "Total width of the wall to be covered",
-        "tr": "Kaplanacak duvarın toplam genişliği"
+        "tr": "Kaplanacak duvarın toplam genişliği",
+        "de": "Gesamtbreite der zu bedeckenden Wand",
+        "fr": "Largeur totale du mur à couvrir"
       }
     },
     {
@@ -32,13 +34,15 @@
         "en": "Wall Height (m)",
         "tr": "Duvar Yüksekliği (m)",
         "de": "Wandhöhe (m)",
-        "fr": "Wall Height (m)",
-        "es": "Wall Height (m)",
+        "fr": "Hauteur du mur (m)",
+        "es": "Altura del muro (m)",
         "ar": "Wall Height (m)"
       },
       "businessContext_i18n": {
         "en": "Height of the wall from floor to ceiling",
-        "tr": "Duvarın yerden tavana yüksekliği"
+        "tr": "Duvarın yerden tavana yüksekliği",
+        "de": "Höhe der Wand vom Boden bis zur Decke",
+        "fr": "Hauteur du mur du sol au plafond"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Roll Width (m)",
         "tr": "Rulo Genişliği (m)",
-        "de": "Roll Width (m)",
-        "fr": "Roll Width (m)",
+        "de": "Rollenbreite (m)",
+        "fr": "Largeur du rouleau (m)",
         "es": "Roll Width (m)",
         "ar": "Roll Width (m)"
       },
       "businessContext_i18n": {
         "en": "Standard wallpaper roll width",
-        "tr": "Standart duvar kağıdı rulo genişliği"
+        "tr": "Standart duvar kağıdı rulo genişliği",
+        "de": "Standard-Rollenbreite der Tapete",
+        "fr": "Largeur standard du rouleau de papier peint"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Roll Length (m)",
         "tr": "Rulo Uzunluğu (m)",
-        "de": "Roll Length (m)",
-        "fr": "Roll Length (m)",
+        "de": "Rollenlänge (m)",
+        "fr": "Longueur du rouleau (m)",
         "es": "Roll Length (m)",
         "ar": "Roll Length (m)"
       },
       "businessContext_i18n": {
         "en": "Standard wallpaper roll length",
-        "tr": "Standart duvar kağıdı rulo uzunluğu"
+        "tr": "Standart duvar kağıdı rulo uzunluğu",
+        "de": "Standard-Rollenlänge der Tapete",
+        "fr": "Longueur standard du rouleau de papier peint"
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Pattern Repeat (m)",
         "tr": "Desen Tekrarı (m)",
-        "de": "Pattern Repeat (m)",
-        "fr": "Pattern Repeat (m)",
+        "de": "Musterrapport (m)",
+        "fr": "Raccord de motif (m)",
         "es": "Pattern Repeat (m)",
         "ar": "Pattern Repeat (m)"
       },
       "businessContext_i18n": {
         "en": "Vertical pattern repeat distance; 0 if no pattern",
-        "tr": "Dikey desen tekrar mesafesi; desen yoksa 0"
+        "tr": "Dikey desen tekrar mesafesi; desen yoksa 0",
+        "de": "Vertikaler Musterrapport; 0 bei keinem Muster",
+        "fr": "Distance verticale de répétition du motif ; 0 si pas de motif"
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Waste Percentage (%)",
         "tr": "Fire Yüzdesi (%)",
-        "de": "Waste Percentage (%)",
-        "fr": "Waste Percentage (%)",
+        "de": "Verschnittanteil (%)",
+        "fr": "Pourcentage de rebut (%)",
         "es": "Waste Percentage (%)",
         "ar": "Waste Percentage (%)"
       },
       "businessContext_i18n": {
         "en": "Estimated waste due to cutting and matching",
-        "tr": "Kesim ve eşleştirme nedeniyle tahmini fire"
+        "tr": "Kesim ve eşleştirme nedeniyle tahmini fire",
+        "de": "Geschätzter Verschnitt durch Zuschnitt und Anpassung",
+        "fr": "Rebut estimé dû à la coupe et à l'assemblage"
       }
     }
   ],

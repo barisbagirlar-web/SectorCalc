@@ -22,11 +22,15 @@
       "businessContext": "Average time to complete one production cycle. Used to estimate units produced per shift.",
       "label_i18n": {
         "en": "Process Cycle Time (minutes)",
-        "tr": "Proses Çevrim Süresi (dakika)"
+        "tr": "Proses Çevrim Süresi (dakika)",
+        "de": "Prozesszykluszeit (Minuten)",
+        "fr": "Temps de cycle (minutes)"
       },
       "businessContext_i18n": {
         "en": "Average time to complete one production cycle. Used to estimate units produced per shift.",
-        "tr": "Bir üretim çevrimini tamamlamak için ortalama süre. Vardiya başına üretilen birimleri tahmin etmek için kullanılır."
+        "tr": "Bir üretim çevrimini tamamlamak için ortalama süre. Vardiya başına üretilen birimleri tahmin etmek için kullanılır.",
+        "de": "Durchschnittliche Zeit für einen vollständigen Produktionszyklus. Wird zur Schätzung der produzierten Einheiten pro Schicht verwendet.",
+        "fr": "Temps moyen pour terminer un cycle de production. Utilisé pour estimer les unités produites par quart."
       }
     },
     {
@@ -40,11 +44,15 @@
       "businessContext": "Number of units produced in one complete cycle.",
       "label_i18n": {
         "en": "Units per Cycle",
-        "tr": "Çevrim Başına Birim"
+        "tr": "Çevrim Başına Birim",
+        "de": "Einheiten pro Zyklus",
+        "fr": "Unités par cycle"
       },
       "businessContext_i18n": {
         "en": "Number of units produced in one complete cycle.",
-        "tr": "Bir tam çevrimde üretilen birim sayısı."
+        "tr": "Bir tam çevrimde üretilen birim sayısı.",
+        "de": "Anzahl der Einheiten, die in einem vollständigen Zyklus produziert werden.",
+        "fr": "Nombre d'unités produites en un cycle complet."
       }
     },
     {
@@ -58,11 +66,15 @@
       "businessContext": "Expected defect percentage when the process is out of control (based on historical SPC data).",
       "label_i18n": {
         "en": "Defect Rate When Out of Control",
-        "tr": "Kontrol Dışıyken Hata Oranı"
+        "tr": "Kontrol Dışıyken Hata Oranı",
+        "de": "Fehlerrate bei Außerkontrolle",
+        "fr": "Taux de défauts hors contrôle"
       },
       "businessContext_i18n": {
         "en": "Expected defect percentage when the process is out of control (based on historical SPC data).",
-        "tr": "Proses kontrol dışıyken beklenen hata yüzdesi (geçmiş SPC verilerine dayanarak)."
+        "tr": "Proses kontrol dışıyken beklenen hata yüzdesi (geçmiş SPC verilerine dayanarak).",
+        "de": "Erwarteter Fehlerprozentsatz, wenn der Prozess außer Kontrolle ist (basierend auf historischen SPC-Daten).",
+        "fr": "Pourcentage de défauts attendu lorsque le processus est hors contrôle (basé sur les données SPC historiques)."
       }
     },
     {
@@ -76,11 +88,15 @@
       "businessContext": "Baseline defect percentage when the process is stable and in control.",
       "label_i18n": {
         "en": "Defect Rate When In Control",
-        "tr": "Kontrol Altındayken Hata Oranı"
+        "tr": "Kontrol Altındayken Hata Oranı",
+        "de": "Fehlerrate bei Unterkontrolle",
+        "fr": "Taux de défauts sous contrôle"
       },
       "businessContext_i18n": {
         "en": "Baseline defect percentage when the process is stable and in control.",
-        "tr": "Proses kararlı ve kontrol altındayken temel hata yüzdesi."
+        "tr": "Proses kararlı ve kontrol altındayken temel hata yüzdesi.",
+        "de": "Basis-Fehlerprozentsatz, wenn der Prozess stabil und unter Kontrolle ist.",
+        "fr": "Pourcentage de défauts de base lorsque le processus est stable et sous contrôle."
       }
     },
     {
@@ -94,11 +110,15 @@
       "businessContext": "Average cost incurred per defective unit (scrap, rework, warranty, etc.).",
       "label_i18n": {
         "en": "Cost per Defect",
-        "tr": "Hata Başına Maliyet"
+        "tr": "Hata Başına Maliyet",
+        "de": "Kosten pro Fehler",
+        "fr": "Coût par défaut"
       },
       "businessContext_i18n": {
         "en": "Average cost incurred per defective unit (scrap, rework, warranty, etc.).",
-        "tr": "Hatalı birim başına ortalama maliyet (fire, yeniden işleme, garanti vb.)."
+        "tr": "Hatalı birim başına ortalama maliyet (fire, yeniden işleme, garanti vb.).",
+        "de": "Durchschnittliche Kosten pro fehlerhafter Einheit (Ausschuss, Nacharbeit, Garantie usw.).",
+        "fr": "Coût moyen par unité défectueuse (rebut, reprise, garantie, etc.)."
       }
     },
     {
@@ -112,11 +132,15 @@
       "businessContext": "Time from when the process goes out of control until the signal is detected (e.g., sampling interval, lab delay).",
       "label_i18n": {
         "en": "Detection Delay (hours)",
-        "tr": "Tespit Gecikmesi (saat)"
+        "tr": "Tespit Gecikmesi (saat)",
+        "de": "Erkennungsverzögerung (Stunden)",
+        "fr": "Délai de détection (heures)"
       },
       "businessContext_i18n": {
         "en": "Time from when the process goes out of control until the signal is detected (e.g., sampling interval, lab delay).",
-        "tr": "Prosesin kontrolden çıkması ile sinyalin tespit edilmesi arasındaki süre (örneğin, numune alma aralığı, laboratuvar gecikmesi)."
+        "tr": "Prosesin kontrolden çıkması ile sinyalin tespit edilmesi arasındaki süre (örneğin, numune alma aralığı, laboratuvar gecikmesi).",
+        "de": "Zeit vom Außerkontrollgehen des Prozesses bis zur Signalerfassung (z. B. Probenahmeintervall, Laborverzögerung).",
+        "fr": "Temps entre le moment où le processus devient hors contrôle et la détection du signal (ex. intervalle d'échantillonnage, délai laboratoire)."
       }
     },
     {
@@ -130,11 +154,15 @@
       "businessContext": "Time from detection until corrective action is implemented (e.g., root cause analysis, adjustment).",
       "label_i18n": {
         "en": "Response Delay (hours)",
-        "tr": "Yanıt Gecikmesi (saat)"
+        "tr": "Yanıt Gecikmesi (saat)",
+        "de": "Reaktionsverzögerung (Stunden)",
+        "fr": "Délai de réponse (heures)"
       },
       "businessContext_i18n": {
         "en": "Time from detection until corrective action is implemented (e.g., root cause analysis, adjustment).",
-        "tr": "Tespitten düzeltici faaliyetin uygulanmasına kadar geçen süre (örneğin, kök neden analizi, ayarlama)."
+        "tr": "Tespitten düzeltici faaliyetin uygulanmasına kadar geçen süre (örneğin, kök neden analizi, ayarlama).",
+        "de": "Zeit von der Erkennung bis zur Umsetzung von Korrekturmaßnahmen (z. B. Ursachenanalyse, Anpassung).",
+        "fr": "Temps entre la détection et la mise en œuvre de l'action corrective (ex. analyse des causes racines, ajustement)."
       }
     },
     {
@@ -148,11 +176,15 @@
       "businessContext": "Number of production hours per shift. Used to calculate daily production volume.",
       "label_i18n": {
         "en": "Shift Hours per Day",
-        "tr": "Vardiya Saati (günlük)"
+        "tr": "Vardiya Saati (günlük)",
+        "de": "Schichtstunden pro Tag",
+        "fr": "Heures de quart par jour"
       },
       "businessContext_i18n": {
         "en": "Number of production hours per shift. Used to calculate daily production volume.",
-        "tr": "Vardiya başına üretim saati sayısı. Günlük üretim hacmini hesaplamak için kullanılır."
+        "tr": "Vardiya başına üretim saati sayısı. Günlük üretim hacmini hesaplamak için kullanılır.",
+        "de": "Anzahl der Produktionsstunden pro Schicht. Wird zur Berechnung des täglichen Produktionsvolumens verwendet.",
+        "fr": "Nombre d'heures de production par quart. Utilisé pour calculer le volume de production quotidien."
       }
     }
   ],

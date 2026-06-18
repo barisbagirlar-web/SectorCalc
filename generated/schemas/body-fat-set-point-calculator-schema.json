@@ -12,14 +12,16 @@
         "en": "Current Body Fat (%)",
         "tr": "Mevcut Vücut Yağ Oranı (%)",
         "de": "Aktueller Körperfettanteil (%)",
-        "fr": "Current Body Fat (%)",
-        "es": "Current Body Fat (%)",
+        "fr": "Graisse corporelle actuelle (%)",
+        "es": "Porcentaje de grasa corporal actual (%)",
         "ar": "Current Body Fat (%)"
       },
       "businessContext_i18n": {
         "en": "Mevcut vücut yağ yüzdesi (kaliper, DXA veya biyoempedans ile ölçülmüş).",
         "tr": "Mevcut vücut yağ yüzdesi (kaliper, DXA veya biyoempedans ile ölçülmüş).",
-        "de": "Aktueller Körperfettanteil in Prozent (gemessen mit Kaliper, DXA oder Bioimpedanz)."
+        "de": "Aktueller Körperfettanteil in Prozent (gemessen mit Kaliper, DXA oder Bioimpedanz).",
+        "fr": "Pourcentage actuel de graisse corporelle (mesuré par pied à coulisse, DXA ou bioimpédance).",
+        "es": "Porcentaje de grasa corporal actual medido con calibre, DXA o bioimpedancia."
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Desired Body Fat (%)",
         "tr": "Hedef Vücut Yağ Oranı (%)",
         "de": "Gewünschter Körperfettanteil (%)",
-        "fr": "Desired Body Fat (%)",
-        "es": "Desired Body Fat (%)",
+        "fr": "Graisse corporelle souhaitée (%)",
+        "es": "Porcentaje de grasa corporal deseado (%)",
         "ar": "Desired Body Fat (%)"
       },
       "businessContext_i18n": {
         "en": "Hedef vücut yağ yüzdesi.",
         "tr": "Hedef vücut yağ yüzdesi.",
-        "de": "Ziel-Körperfettanteil in Prozent."
+        "de": "Ziel-Körperfettanteil in Prozent.",
+        "fr": "Pourcentage de graisse corporelle cible.",
+        "es": "Porcentaje de grasa corporal objetivo."
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Current Weight",
         "tr": "Mevcut Ağırlık",
         "de": "Aktuelles Gewicht",
-        "fr": "Current Weight",
-        "es": "Current Weight",
+        "fr": "Poids actuel",
+        "es": "Peso actual",
         "ar": "Current Weight"
       },
       "businessContext_i18n": {
         "en": "Güncel vücut ağırlığı (kg).",
         "tr": "Güncel vücut ağırlığı (kg).",
-        "de": "Aktuelles Körpergewicht (kg)."
+        "de": "Aktuelles Körpergewicht (kg).",
+        "fr": "Poids corporel actuel (kg).",
+        "es": "Peso corporal actual (kg)."
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Height",
         "tr": "Boy",
         "de": "Größe",
-        "fr": "Height",
-        "es": "Height",
+        "fr": "Taille",
+        "es": "Altura",
         "ar": "Height"
       },
       "businessContext_i18n": {
         "en": "Boy uzunluğu (cm).",
         "tr": "Boy uzunluğu (cm).",
-        "de": "Körpergröße (cm)."
+        "de": "Körpergröße (cm).",
+        "fr": "Taille (cm).",
+        "es": "Altura (cm)."
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
-        "fr": "Age",
-        "es": "Age",
+        "fr": "Âge",
+        "es": "Edad",
         "ar": "Age"
       },
       "businessContext_i18n": {
         "en": "Yaş (yıl). Metabolik değişikliklerin hesaba katılması için.",
         "tr": "Yaş (yıl). Metabolik değişikliklerin hesaba katılması için.",
-        "de": "Alter (Jahre). Zur Berücksichtigung von Stoffwechselveränderungen."
+        "de": "Alter (Jahre). Zur Berücksichtigung von Stoffwechselveränderungen.",
+        "fr": "Âge (ans). Pour tenir compte des changements métaboliques.",
+        "es": "Edad (años). Para tener en cuenta cambios metabólicos."
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Activity Level",
         "tr": "Aktivite Seviyesi",
         "de": "Aktivitätsniveau",
-        "fr": "Activity Level",
-        "es": "Activity Level",
+        "fr": "Niveau d'activité",
+        "es": "Nivel de actividad",
         "ar": "Activity Level"
       },
       "businessContext_i18n": {
         "en": "Fiziksel aktivite çarpanı (1.2 sedanter, 1.375 hafif, 1.55 orta, 1.725 çok aktif, 1.9 ağır antrenman).",
         "tr": "Fiziksel aktivite çarpanı (1.2 sedanter, 1.375 hafif, 1.55 orta, 1.725 çok aktif, 1.9 ağır antrenman).",
-        "de": "Bewegungsfaktor (1,2 sitzend, 1,375 leicht, 1,55 mäßig, 1,725 sehr aktiv, 1,9 schweres Training)."
+        "de": "Bewegungsfaktor (1,2 sitzend, 1,375 leicht, 1,55 mäßig, 1,725 sehr aktiv, 1,9 schweres Training).",
+        "fr": "Coefficient d'activité physique (1,2 sédentaire, 1,375 léger, 1,55 modéré, 1,725 très actif, 1,9 entraînement intensif).",
+        "es": "Multiplicador de actividad física (1.2 sedentario, 1.375 ligero, 1.55 moderado, 1.725 muy activo, 1.9 entrenamiento intenso)."
       }
     }
   ],

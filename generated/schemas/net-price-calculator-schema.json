@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "List Price",
         "tr": "Liste Fiyatı",
-        "de": "List Price",
-        "fr": "List Price",
-        "es": "List Price",
+        "de": "Listenpreis",
+        "fr": "Prix de vente",
+        "es": "Precio de lista",
         "ar": "List Price"
       },
       "businessContext_i18n": {
         "en": "The original price before any discounts or taxes.",
-        "tr": "İndirim veya vergilerden önceki orijinal fiyat."
+        "tr": "İndirim veya vergilerden önceki orijinal fiyat.",
+        "de": "Der ursprüngliche Preis vor Abzügen oder Steuern.",
+        "fr": "Prix d'origine avant remises ou taxes.",
+        "es": "El precio original antes de descuentos o impuestos."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Discount (%)",
         "tr": "İndirim (%)",
-        "de": "Discount (%)",
-        "fr": "Discount (%)",
-        "es": "Discount (%)",
+        "de": "Rabatt (%)",
+        "fr": "Remise (%)",
+        "es": "Descuento (%)",
         "ar": "Discount (%)"
       },
       "businessContext_i18n": {
         "en": "Percentage discount applied to the list price.",
-        "tr": "Liste fiyatına uygulanan yüzde indirim."
+        "tr": "Liste fiyatına uygulanan yüzde indirim.",
+        "de": "Prozentualer Rabatt auf den Listenpreis.",
+        "fr": "Pourcentage de remise appliqué au prix de vente.",
+        "es": "Porcentaje de descuento aplicado al precio de lista."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "VAT (%)",
         "tr": "KDV (%)",
-        "de": "VAT (%)",
-        "fr": "VAT (%)",
-        "es": "VAT (%)",
+        "de": "MwSt. (%)",
+        "fr": "TVA (%)",
+        "es": "IVA (%)",
         "ar": "VAT (%)"
       },
       "businessContext_i18n": {
         "en": "Value Added Tax percentage applied to the discounted price.",
-        "tr": "İndirimli fiyata uygulanan Katma Değer Vergisi yüzdesi."
+        "tr": "İndirimli fiyata uygulanan Katma Değer Vergisi yüzdesi.",
+        "de": "Mehrwertsteuer-Prozentsatz, angewendet auf den rabattierten Preis.",
+        "fr": "Pourcentage de taxe sur la valeur ajoutée appliqué au prix remisé.",
+        "es": "Porcentaje de IVA aplicado al precio con descuento."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Extra Charges",
         "tr": "Ek Ücretler",
-        "de": "Extra Charges",
-        "fr": "Extra Charges",
-        "es": "Extra Charges",
+        "de": "Zusätzliche Gebühren",
+        "fr": "Frais supplémentaires",
+        "es": "Cargos adicionales",
         "ar": "Extra Charges"
       },
       "businessContext_i18n": {
         "en": "Any additional fixed charges (e.g., shipping, handling) added before tax.",
-        "tr": "Vergiden önce eklenen sabit ücretler (örn. nakliye, işlem ücreti)."
+        "tr": "Vergiden önce eklenen sabit ücretler (örn. nakliye, işlem ücreti).",
+        "de": "Zusätzliche Fixkosten (z. B. Versand, Bearbeitung), die vor Steuern hinzugefügt werden.",
+        "fr": "Frais fixes additionnels (p. ex., expédition, manutention) ajoutés avant la taxe.",
+        "es": "Cargos fijos adicionales (ej. envío, manipulación) añadidos antes de impuestos."
       }
     }
   ],

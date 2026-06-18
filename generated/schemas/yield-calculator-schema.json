@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Total Units Started",
         "tr": "Başlatılan Toplam Birim",
-        "de": "Total Units Started",
-        "fr": "Total Units Started",
+        "de": "Gestartete Einheiten gesamt",
+        "fr": "Total d'unités lancées",
         "es": "Total Units Started",
         "ar": "Total Units Started"
       },
       "businessContext_i18n": {
         "en": "Total number of units that entered the production process.",
-        "tr": "Üretim sürecine giren toplam birim sayısı."
+        "tr": "Üretim sürecine giren toplam birim sayısı.",
+        "de": "Gesamtzahl der Einheiten, die in den Produktionsprozess eingegangen sind.",
+        "fr": "Nombre total d'unités entrées dans le processus de production."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Good Units (First Pass)",
         "tr": "İyi Birim (İlk Geçiş)",
-        "de": "Good Units (First Pass)",
-        "fr": "Good Units (First Pass)",
+        "de": "Gute Einheiten (Erster Durchlauf)",
+        "fr": "Bonnes unités (première passe)",
         "es": "Good Units (First Pass)",
         "ar": "Good Units (First Pass)"
       },
       "businessContext_i18n": {
         "en": "Number of units that passed quality inspection on the first attempt without rework.",
-        "tr": "Yeniden işleme gerek kalmadan ilk denemede kalite kontrolünden geçen birim sayısı."
+        "tr": "Yeniden işleme gerek kalmadan ilk denemede kalite kontrolünden geçen birim sayısı.",
+        "de": "Anzahl der Einheiten, die die Qualitätsprüfung beim ersten Versuch ohne Nacharbeit bestanden haben.",
+        "fr": "Nombre d'unités ayant passé le contrôle qualité dès la première tentative sans reprise."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Reworked Units",
         "tr": "Yeniden İşlenen Birim",
-        "de": "Reworked Units",
-        "fr": "Reworked Units",
+        "de": "Nachgearbeitete Einheiten",
+        "fr": "Unités reprises",
         "es": "Reworked Units",
         "ar": "Reworked Units"
       },
       "businessContext_i18n": {
         "en": "Number of units that required rework to meet quality standards.",
-        "tr": "Kalite standartlarını karşılamak için yeniden işleme gerektiren birim sayısı."
+        "tr": "Kalite standartlarını karşılamak için yeniden işleme gerektiren birim sayısı.",
+        "de": "Anzahl der Einheiten, die nachgearbeitet werden mussten, um die Qualitätsstandards zu erfüllen.",
+        "fr": "Nombre d'unités ayant nécessité une reprise pour atteindre les normes de qualité."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Scrap Units",
         "tr": "Fire Birimler",
-        "de": "Scrap Units",
-        "fr": "Scrap Units",
-        "es": "Scrap Units",
+        "de": "Ausschuss-Einheiten",
+        "fr": "Unités de rebut",
+        "es": "Unidades de desperdicio",
         "ar": "Scrap Units"
       },
       "businessContext_i18n": {
         "en": "Number of units that were scrapped or deemed irreparable.",
-        "tr": "Hurda veya onarılamaz olarak değerlendirilen birim sayısı."
+        "tr": "Hurda veya onarılamaz olarak değerlendirilen birim sayısı.",
+        "de": "Anzahl der Einheiten, die verschrottet oder als irreparabel eingestuft wurden.",
+        "fr": "Nombre d'unités mises au rebut ou jugées irréparables."
       }
     }
   ],

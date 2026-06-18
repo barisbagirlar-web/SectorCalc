@@ -12,13 +12,16 @@
         "en": "Frequency",
         "tr": "Frekans",
         "de": "Frequenz",
-        "fr": "Frequency",
-        "es": "Frequency",
+        "fr": "Fréquence",
+        "es": "Frecuencia",
         "ar": "Frequency"
       },
       "businessContext_i18n": {
         "en": "AC supply frequency or operating frequency",
-        "tr": "AC besleme frekansı veya çalışma frekansı"
+        "tr": "AC besleme frekansı veya çalışma frekansı",
+        "de": "AC-Versorgungsfrequenz oder Betriebsfrequenz",
+        "fr": "Fréquence d'alimentation CA ou fréquence de fonctionnement",
+        "es": "Frecuencia de alimentación CA o frecuencia de operación"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Inductance",
         "tr": "Endüktans",
-        "de": "Inductance",
+        "de": "Induktivität",
         "fr": "Inductance",
-        "es": "Inductance",
+        "es": "Inductancia",
         "ar": "Inductance"
       },
       "businessContext_i18n": {
         "en": "Inductance of the coil or inductor",
-        "tr": "Bobin veya indüktörün endüktansı"
+        "tr": "Bobin veya indüktörün endüktansı",
+        "de": "Induktivität der Spule oder des Induktors",
+        "fr": "Inductance de la bobine ou de l'inducteur",
+        "es": "Inductancia de la bobina o inductor"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Measured Voltage",
         "tr": "Ölçülen Gerilim",
-        "de": "Measured Voltage",
-        "fr": "Measured Voltage",
-        "es": "Measured Voltage",
+        "de": "Gemessene Spannung",
+        "fr": "Tension mesurée",
+        "es": "Tensión medida",
         "ar": "Measured Voltage"
       },
       "businessContext_i18n": {
         "en": "RMS voltage measured across the inductor (optional for experimental verification)",
-        "tr": "İndüktör üzerinde ölçülen RMS gerilimi (deneysel doğrulama için isteğe bağlı)"
+        "tr": "İndüktör üzerinde ölçülen RMS gerilimi (deneysel doğrulama için isteğe bağlı)",
+        "de": "RMS-Spannung gemessen über der Induktivität (optional für experimentelle Überprüfung)",
+        "fr": "Tension efficace mesurée aux bornes de l'inducteur (optionnel pour vérification expérimentale)",
+        "es": "Tensión RMS medida en el inductor (opcional para verificación experimental)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Measured Current",
         "tr": "Ölçülen Akım",
-        "de": "Measured Current",
-        "fr": "Measured Current",
-        "es": "Measured Current",
+        "de": "Gemessener Strom",
+        "fr": "Courant mesuré",
+        "es": "Corriente medida",
         "ar": "Measured Current"
       },
       "businessContext_i18n": {
         "en": "RMS current through the inductor (optional for experimental verification)",
-        "tr": "İndüktörden geçen RMS akımı (deneysel doğrulama için isteğe bağlı)"
+        "tr": "İndüktörden geçen RMS akımı (deneysel doğrulama için isteğe bağlı)",
+        "de": "RMS-Strom durch die Induktivität (optional für experimentelle Überprüfung)",
+        "fr": "Courant efficace traversant l'inducteur (optionnel pour vérification expérimentale)",
+        "es": "Corriente RMS a través del inductor (opcional para verificación experimental)"
       }
     }
   ],

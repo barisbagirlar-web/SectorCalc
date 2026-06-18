@@ -13,12 +13,15 @@
         "tr": "Mesafe",
         "de": "Entfernung",
         "fr": "Distance",
-        "es": "Distance",
+        "es": "Distancia",
         "ar": "Distance"
       },
       "businessContext_i18n": {
         "en": "Distance between old and new location",
-        "tr": "Eski ve yeni konum arasındaki mesafe"
+        "tr": "Eski ve yeni konum arasındaki mesafe",
+        "de": "Entfernung zwischen altem und neuem Standort",
+        "fr": "Distance entre l'ancien et le nouveau lieu",
+        "es": "Distancia entre la ubicación antigua y la nueva"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Total Weight",
         "tr": "Toplam Ağırlık",
         "de": "Gesamtgewicht",
-        "fr": "Total Weight",
-        "es": "Total Weight",
+        "fr": "Poids total",
+        "es": "Peso total",
         "ar": "Total Weight"
       },
       "businessContext_i18n": {
         "en": "Total weight of items to move",
-        "tr": "Taşınacak eşyaların toplam ağırlığı"
+        "tr": "Taşınacak eşyaların toplam ağırlığı",
+        "de": "Gesamtgewicht der zu transportierenden Gegenstände",
+        "fr": "Poids total des objets à déplacer",
+        "es": "Peso total de los artículos a mover"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Labor Hours",
         "tr": "İşçilik Saati",
         "de": "Arbeitsstunden",
-        "fr": "Labor Hours",
-        "es": "Labor Hours",
+        "fr": "Heures de main-d'œuvre",
+        "es": "Horas de mano de obra",
         "ar": "Labor Hours"
       },
       "businessContext_i18n": {
         "en": "Estimated labor hours required",
-        "tr": "Tahmini işçilik saati"
+        "tr": "Tahmini işçilik saati",
+        "de": "Geschätzte Arbeitsstunden",
+        "fr": "Heures de travail estimées requises",
+        "es": "Horas de trabajo estimadas requeridas"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Packing Items",
         "tr": "Paketleme Eşyaları",
-        "de": "Packing Items",
-        "fr": "Packing Items",
-        "es": "Packing Items",
+        "de": "Verpackungsgegenstände",
+        "fr": "Articles à emballer",
+        "es": "Artículos de embalaje",
         "ar": "Packing Items"
       },
       "businessContext_i18n": {
         "en": "Number of items requiring special packing",
-        "tr": "Özel paketleme gerektiren eşya sayısı"
+        "tr": "Özel paketleme gerektiren eşya sayısı",
+        "de": "Anzahl der Gegenstände, die eine spezielle Verpackung erfordern",
+        "fr": "Nombre d'articles nécessitant un emballage spécial",
+        "es": "Número de artículos que requieren embalaje especial"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Rate per km",
         "tr": "Km başına ücret",
-        "de": "Rate per km",
-        "fr": "Rate per km",
-        "es": "Rate per km",
+        "de": "Satz pro km",
+        "fr": "Tarif par km",
+        "es": "Tarifa por km",
         "ar": "Rate per km"
       },
       "businessContext_i18n": {
         "en": "Transport cost rate per kilometer",
-        "tr": "Kilometre başına nakliye maliyeti oranı"
+        "tr": "Kilometre başına nakliye maliyeti oranı",
+        "de": "Transportkostensatz pro Kilometer",
+        "fr": "Coût de transport par kilomètre",
+        "es": "Tarifa de costo de transporte por kilómetro"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Rate per kg",
         "tr": "Kg başına ücret",
-        "de": "Rate per kg",
-        "fr": "Rate per kg",
-        "es": "Rate per kg",
+        "de": "Satz pro kg",
+        "fr": "Tarif par kg",
+        "es": "Tarifa por kg",
         "ar": "Rate per kg"
       },
       "businessContext_i18n": {
         "en": "Transport cost rate per kilogram",
-        "tr": "Kilogram başına nakliye maliyeti oranı"
+        "tr": "Kilogram başına nakliye maliyeti oranı",
+        "de": "Transportkostensatz pro Kilogramm",
+        "fr": "Coût de transport par kilogramme",
+        "es": "Tarifa de costo de transporte por kilogramo"
       }
     },
     {
@@ -131,15 +149,17 @@
       "label_i18n": {
         "en": "Hourly Labor Rate",
         "tr": "Saatlik İşçilik Ücreti",
-        "de": "Hourly Labor Rate",
-        "fr": "Hourly Labor Rate",
-        "es": "Hourly Labor Rate",
+        "de": "Stündlicher Arbeitslohn",
+        "fr": "Taux horaire de main-d'œuvre",
+        "es": "Tarifa horaria de mano de obra",
         "ar": "Hourly Labor Rate"
       },
       "businessContext_i18n": {
         "en": "Hourly rate for labor",
         "tr": "Saatlik işçilik ücreti",
-        "de": "Stundensatz für Arbeitskräfte"
+        "de": "Stundensatz für Arbeitskräfte",
+        "fr": "Taux horaire de la main-d'œuvre",
+        "es": "Tarifa horaria de mano de obra"
       }
     },
     {
@@ -152,14 +172,17 @@
       "label_i18n": {
         "en": "Packing Cost per Item",
         "tr": "Birim Başına Paketleme Maliyeti",
-        "de": "Packing Cost per Item",
-        "fr": "Packing Cost per Item",
-        "es": "Packing Cost per Item",
+        "de": "Verpackungskosten pro Gegenstand",
+        "fr": "Coût d'emballage par article",
+        "es": "Costo de embalaje por artículo",
         "ar": "Packing Cost per Item"
       },
       "businessContext_i18n": {
         "en": "Cost per item for special packing",
-        "tr": "Özel paketleme için birim başına maliyet"
+        "tr": "Özel paketleme için birim başına maliyet",
+        "de": "Kosten pro Gegenstand für Spezialverpackung",
+        "fr": "Coût par article pour emballage spécial",
+        "es": "Costo por artículo para embalaje especial"
       }
     }
   ],

@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Number of Rods",
         "tr": "Rod Sayısı",
-        "de": "Number of Rods",
-        "fr": "Number of Rods",
+        "de": "Anzahl der Ruten",
+        "fr": "Nombre de perches",
         "es": "Number of Rods",
         "ar": "Number of Rods"
       },
       "businessContext_i18n": {
         "en": "The quantity to convert from rods to feet.",
-        "tr": "Roddan feet'e dönüştürülecek miktar."
+        "tr": "Roddan feet'e dönüştürülecek miktar.",
+        "de": "Die Menge, die von Ruten in Fuß umgerechnet werden soll.",
+        "fr": "La quantité à convertir de perches en pieds."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Feet per Rod",
         "tr": "Feet başına Rod",
-        "de": "Feet per Rod",
-        "fr": "Feet per Rod",
+        "de": "Fuß pro Rute",
+        "fr": "Pieds par perche",
         "es": "Feet per Rod",
         "ar": "Feet per Rod"
       },
       "businessContext_i18n": {
         "en": "Conversion factor. Standard US survey rod is 16.5 feet. Adjust if using a different definition.",
-        "tr": "Dönüşüm faktörü. Standart ABD araştırma rod'u 16,5 feet'tir. Farklı bir tanım kullanılıyorsa ayarlayın."
+        "tr": "Dönüşüm faktörü. Standart ABD araştırma rod'u 16,5 feet'tir. Farklı bir tanım kullanılıyorsa ayarlayın.",
+        "de": "Umrechnungsfaktor. Die übliche US-Vermessungsrute beträgt 16,5 Fuß. Passen Sie an, wenn eine andere Definition verwendet wird.",
+        "fr": "Facteur de conversion. La perche d'arpentage US standard est de 16,5 pieds. Ajustez si vous utilisez une définition différente."
       }
     },
     {
@@ -52,14 +56,16 @@
         "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
-        "fr": "Decimal Places",
-        "es": "Decimal Places",
+        "fr": "Décimales",
+        "es": "Decimales",
         "ar": "Decimal Places"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the output.",
         "tr": "Çıktı için ondalık basamak sayısı.",
-        "de": "Anzahl der Dezimalstellen für die Ausgabe."
+        "de": "Anzahl der Dezimalstellen für die Ausgabe.",
+        "fr": "Nombre de décimales pour le résultat.",
+        "es": "Número de decimales para la salida."
       }
     },
     {
@@ -73,13 +79,15 @@
         "en": "Safety Factor (%)",
         "tr": "Güvenlik Faktörü (%)",
         "de": "Sicherheitsfaktor (%)",
-        "fr": "Safety Factor (%)",
-        "es": "Safety Factor (%)",
+        "fr": "Coefficient de sécurité (%)",
+        "es": "Factor de seguridad (%)",
         "ar": "Safety Factor (%)"
       },
       "businessContext_i18n": {
         "en": "Additional percentage to add for safety margin in engineering calculations.",
-        "tr": "Mühendislik hesaplamalarında güvenlik marjı için eklenecek ek yüzde."
+        "tr": "Mühendislik hesaplamalarında güvenlik marjı için eklenecek ek yüzde.",
+        "de": "Zusätzlicher Prozentsatz für Sicherheitsmarge in technischen Berechnungen.",
+        "fr": "Pourcentage supplémentaire à ajouter pour la marge de sécurité dans les calculs d'ingénierie."
       }
     },
     {
@@ -92,14 +100,16 @@
       "label_i18n": {
         "en": "Tolerance (± ft)",
         "tr": "Tolerans (± ft)",
-        "de": "Tolerance (± ft)",
-        "fr": "Tolerance (± ft)",
+        "de": "Toleranz (± ft)",
+        "fr": "Tolérance (± pi)",
         "es": "Tolerance (± ft)",
         "ar": "Tolerance (± ft)"
       },
       "businessContext_i18n": {
         "en": "Tolerance band for the converted length.",
-        "tr": "Dönüştürülen uzunluk için tolerans bandı."
+        "tr": "Dönüştürülen uzunluk için tolerans bandı.",
+        "de": "Toleranzband für die umgerechnete Länge.",
+        "fr": "Bande de tolérance pour la longueur convertie."
       }
     }
   ],

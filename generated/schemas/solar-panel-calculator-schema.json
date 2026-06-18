@@ -11,14 +11,16 @@
       "label_i18n": {
         "en": "Panel Area",
         "tr": "Panel Alanı",
-        "de": "Panel Area",
-        "fr": "Panel Area",
+        "de": "Panel-Fläche",
+        "fr": "Surface du panneau",
         "es": "Panel Area",
         "ar": "Panel Area"
       },
       "businessContext_i18n": {
         "en": "Area of a single solar panel in square meters.",
-        "tr": "Tek bir güneş panelinin metrekare cinsinden alanı."
+        "tr": "Tek bir güneş panelinin metrekare cinsinden alanı.",
+        "de": "Fläche eines einzelnen Solarmoduls in Quadratmetern.",
+        "fr": "Surface d'un seul panneau solaire en mètres carrés."
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Panel Efficiency",
         "tr": "Panel Verimliliği",
-        "de": "Panel Efficiency",
-        "fr": "Panel Efficiency",
+        "de": "Panel-Wirkungsgrad",
+        "fr": "Rendement du panneau",
         "es": "Panel Efficiency",
         "ar": "Panel Efficiency"
       },
       "businessContext_i18n": {
         "en": "Conversion efficiency of the solar panel under standard test conditions.",
-        "tr": "Standart test koşullarında güneş panelinin dönüşüm verimliliği."
+        "tr": "Standart test koşullarında güneş panelinin dönüşüm verimliliği.",
+        "de": "Umwandlungswirkungsgrad des Solarmoduls unter Standard-Testbedingungen.",
+        "fr": "Rendement de conversion du panneau solaire dans des conditions de test standard."
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Solar Irradiance",
         "tr": "Güneş Işınımı",
-        "de": "Solar Irradiance",
-        "fr": "Solar Irradiance",
+        "de": "Solare Einstrahlung",
+        "fr": "Irradiance solaire",
         "es": "Solar Irradiance",
         "ar": "Solar Irradiance"
       },
       "businessContext_i18n": {
         "en": "Standard test condition irradiance, typically 1000 W/m².",
-        "tr": "Standart test koşulu ışınımı, tipik olarak 1000 W/m²."
+        "tr": "Standart test koşulu ışınımı, tipik olarak 1000 W/m².",
+        "de": "Standard-Testbedingung Einstrahlung, typischerweise 1000 W/m².",
+        "fr": "Irradiance standard de test, typiquement 1000 W/m²."
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "System Losses",
         "tr": "Sistem Kayıpları",
-        "de": "System Losses",
-        "fr": "System Losses",
-        "es": "System Losses",
+        "de": "Systemverluste",
+        "fr": "Pertes du système",
+        "es": "Pérdidas del sistema",
         "ar": "System Losses"
       },
       "businessContext_i18n": {
         "en": "Total system losses including wiring, inverter, soiling, and mismatch.",
-        "tr": "Kablolama, invertör, kirlenme ve uyumsuzluk dahil toplam sistem kayıpları."
+        "tr": "Kablolama, invertör, kirlenme ve uyumsuzluk dahil toplam sistem kayıpları.",
+        "de": "Gesamtsystemverluste einschließlich Verkabelung, Wechselrichter, Verschmutzung und Fehlanpassung.",
+        "fr": "Pertes totales du système incluant câblage, onduleur, salissure et désadaptation."
       }
     },
     {
@@ -91,14 +99,16 @@
       "label_i18n": {
         "en": "Tilt Angle",
         "tr": "Eğim Açısı",
-        "de": "Tilt Angle",
-        "fr": "Tilt Angle",
+        "de": "Neigungswinkel",
+        "fr": "Angle d'inclinaison",
         "es": "Tilt Angle",
         "ar": "Tilt Angle"
       },
       "businessContext_i18n": {
         "en": "Angle of the panel relative to horizontal plane.",
-        "tr": "Panelin yatay düzleme göre açısı."
+        "tr": "Panelin yatay düzleme göre açısı.",
+        "de": "Winkel des Moduls relativ zur horizontalen Ebene.",
+        "fr": "Angle du panneau par rapport au plan horizontal."
       }
     },
     {
@@ -111,14 +121,16 @@
       "label_i18n": {
         "en": "Azimuth Angle",
         "tr": "Azimut Açısı",
-        "de": "Azimuth Angle",
-        "fr": "Azimuth Angle",
-        "es": "Azimuth Angle",
+        "de": "Azimutwinkel",
+        "fr": "Angle d'azimut",
+        "es": "Ángulo de acimut",
         "ar": "Azimuth Angle"
       },
       "businessContext_i18n": {
         "en": "Compass direction the panel faces (0 = south in northern hemisphere).",
-        "tr": "Panelin baktığı pusula yönü (kuzey yarımkürede 0 = güney)."
+        "tr": "Panelin baktığı pusula yönü (kuzey yarımkürede 0 = güney).",
+        "de": "Himmelsrichtung, in die das Modul zeigt (0 = Süden auf der Nordhalbkugel).",
+        "fr": "Orientation"
       }
     },
     {
@@ -131,14 +143,16 @@
       "label_i18n": {
         "en": "Latitude",
         "tr": "Enlem",
-        "de": "Latitude",
+        "de": "Breitengrad",
         "fr": "Latitude",
         "es": "Latitude",
         "ar": "Latitude"
       },
       "businessContext_i18n": {
         "en": "Latitude of the installation site, positive for northern hemisphere.",
-        "tr": "Kurulum sahasının enlemi, kuzey yarımküre için pozitif."
+        "tr": "Kurulum sahasının enlemi, kuzey yarımküre için pozitif.",
+        "de": "Breitengrad des Installationsorts, positiv für die Nordhalbkugel.",
+        "fr": "Latitude du site d'installation, positive pour l'hémisphère nord."
       }
     },
     {
@@ -151,14 +165,16 @@
       "label_i18n": {
         "en": "Annual Sun Hours",
         "tr": "Yıllık Güneş Saati",
-        "de": "Annual Sun Hours",
-        "fr": "Annual Sun Hours",
+        "de": "Jährliche Sonnenstunden",
+        "fr": "Heures d'ensoleillement annuelles",
         "es": "Annual Sun Hours",
         "ar": "Annual Sun Hours"
       },
       "businessContext_i18n": {
         "en": "Total equivalent full-sun hours per year at the location.",
-        "tr": "Konumda yıllık toplam eşdeğer tam güneş saati."
+        "tr": "Konumda yıllık toplam eşdeğer tam güneş saati.",
+        "de": "Gesamte äquivalente Volllaststunden pro Jahr am Standort.",
+        "fr": "Nombre total d'heures équivalent plein soleil par an à l'emplacement."
       }
     }
   ],

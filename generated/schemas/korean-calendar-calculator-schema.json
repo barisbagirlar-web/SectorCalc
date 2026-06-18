@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Doğum Yılı (Birth Year)",
         "tr": "Doğum Yılı",
-        "de": "Doğum Yılı (Birth Year)",
-        "fr": "Doğum Yılı (Birth Year)",
-        "es": "Doğum Yılı (Birth Year)",
+        "de": "Geburtsjahr",
+        "fr": "Année de naissance",
+        "es": "Año de Nacimiento",
         "ar": "Doğum Yılı (Birth Year)"
       },
       "businessContext_i18n": {
         "en": "User's birth year",
-        "tr": "Kullanıcının doğum yılı"
+        "tr": "Kullanıcının doğum yılı",
+        "de": "Geburtsjahr des Benutzers",
+        "fr": "Année de naissance de l'utilisateur",
+        "es": "Año de nacimiento del usuario"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Doğum Ayı (Birth Month)",
         "tr": "Doğum Ayı",
-        "de": "Doğum Ayı (Birth Month)",
-        "fr": "Doğum Ayı (Birth Month)",
-        "es": "Doğum Ayı (Birth Month)",
+        "de": "Geburtsmonat",
+        "fr": "Mois de naissance",
+        "es": "Mes de Nacimiento",
         "ar": "Doğum Ayı (Birth Month)"
       },
       "businessContext_i18n": {
         "en": "User's birth month (1-12)",
-        "tr": "Kullanıcının doğum ayı (1-12)"
+        "tr": "Kullanıcının doğum ayı (1-12)",
+        "de": "Geburtsmonat des Benutzers (1-12)",
+        "fr": "Mois de naissance de l'utilisateur (1-12)",
+        "es": "Mes de nacimiento del usuario (1-12)"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Doğum Günü (Birth Day)",
         "tr": "Doğum Günü",
-        "de": "Doğum Günü (Birth Day)",
-        "fr": "Doğum Günü (Birth Day)",
-        "es": "Doğum Günü (Birth Day)",
+        "de": "Geburtstag",
+        "fr": "Jour de naissance",
+        "es": "Día de Nacimiento",
         "ar": "Doğum Günü (Birth Day)"
       },
       "businessContext_i18n": {
         "en": "User's birth day (1-31)",
-        "tr": "Kullanıcının doğum günü (1-31)"
+        "tr": "Kullanıcının doğum günü (1-31)",
+        "de": "Geburtstag des Benutzers (1-31)",
+        "fr": "Jour de naissance de l'utilisateur (1-31)",
+        "es": "Día de nacimiento del usuario (1-31)"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Mevcut Yıl (Current Year)",
         "tr": "Mevcut Yıl",
-        "de": "Mevcut Yıl (Current Year)",
-        "fr": "Mevcut Yıl (Current Year)",
-        "es": "Mevcut Yıl (Current Year)",
+        "de": "Aktuelles Jahr",
+        "fr": "Année en cours",
+        "es": "Año Actual",
         "ar": "Mevcut Yıl (Current Year)"
       },
       "businessContext_i18n": {
         "en": "Current year for calculation",
-        "tr": "Hesaplama için cari yıl"
+        "tr": "Hesaplama için cari yıl",
+        "de": "Aktuelles Jahr für die Berechnung",
+        "fr": "Année en cours pour le calcul",
+        "es": "Año actual para el cálculo"
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Mevcut Ay (Current Month)",
         "tr": "Mevcut Ay",
-        "de": "Mevcut Ay (Current Month)",
-        "fr": "Mevcut Ay (Current Month)",
-        "es": "Mevcut Ay (Current Month)",
+        "de": "Aktueller Monat",
+        "fr": "Mois en cours",
+        "es": "Mes Actual",
         "ar": "Mevcut Ay (Current Month)"
       },
       "businessContext_i18n": {
         "en": "Current month (1-12)",
-        "tr": "Mevcut ay (1-12)"
+        "tr": "Mevcut ay (1-12)",
+        "de": "Aktueller Monat (1-12)",
+        "fr": "Mois en cours (1-12)",
+        "es": "Mes actual (1-12)"
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Mevcut Gün (Current Day)",
         "tr": "Mevcut Gün",
-        "de": "Mevcut Gün (Current Day)",
-        "fr": "Mevcut Gün (Current Day)",
-        "es": "Mevcut Gün (Current Day)",
+        "de": "Aktueller Tag",
+        "fr": "Jour en cours",
+        "es": "Día actual",
         "ar": "Mevcut Gün (Current Day)"
       },
       "businessContext_i18n": {
         "en": "Current day (1-31)",
-        "tr": "Mevcut gün (1-31)"
+        "tr": "Mevcut gün (1-31)",
+        "de": "Aktueller Tag (1-31)",
+        "fr": "Jour en cours (1-31)",
+        "es": "Día actual (1-31)"
       }
     }
   ],

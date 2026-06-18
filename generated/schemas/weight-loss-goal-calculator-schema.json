@@ -12,13 +12,15 @@
         "en": "Current Weight",
         "tr": "Mevcut Ağırlık",
         "de": "Aktuelles Gewicht",
-        "fr": "Current Weight",
-        "es": "Current Weight",
+        "fr": "Poids actuel",
+        "es": "Peso actual",
         "ar": "Current Weight"
       },
       "businessContext_i18n": {
         "en": "User's current body weight in kilograms",
-        "tr": "Kullanıcının kilogram cinsinden mevcut vücut ağırlığı"
+        "tr": "Kullanıcının kilogram cinsinden mevcut vücut ağırlığı",
+        "de": "Aktuelles Körpergewicht des Benutzers in Kilogramm",
+        "fr": "Poids corporel actuel de l'utilisateur en kilogrammes"
       }
     },
     {
@@ -31,14 +33,16 @@
       "label_i18n": {
         "en": "Target Weight",
         "tr": "Hedef Ağırlık",
-        "de": "Target Weight",
-        "fr": "Target Weight",
+        "de": "Zielgewicht",
+        "fr": "Poids cible",
         "es": "Target Weight",
         "ar": "Target Weight"
       },
       "businessContext_i18n": {
         "en": "User's desired body weight in kilograms",
-        "tr": "Kullanıcının kilogram cinsinden istenen vücut ağırlığı"
+        "tr": "Kullanıcının kilogram cinsinden istenen vücut ağırlığı",
+        "de": "Gewünschtes Körpergewicht des Benutzers in Kilogramm",
+        "fr": "Poids corporel souhaité de l'utilisateur en kilogrammes"
       }
     },
     {
@@ -51,14 +55,16 @@
       "label_i18n": {
         "en": "Daily Calorie Deficit",
         "tr": "Günlük Kalori Açığı",
-        "de": "Daily Calorie Deficit",
-        "fr": "Daily Calorie Deficit",
+        "de": "Tägliches Kaloriendefizit",
+        "fr": "Déficit calorique quotidien",
         "es": "Daily Calorie Deficit",
         "ar": "Daily Calorie Deficit"
       },
       "businessContext_i18n": {
         "en": "Planned daily calorie deficit",
-        "tr": "Planlanan günlük kalori açığı"
+        "tr": "Planlanan günlük kalori açığı",
+        "de": "Geplantes tägliches Kaloriendefizit",
+        "fr": "Déficit calorique quotidien prévu"
       }
     },
     {
@@ -71,14 +77,16 @@
       "label_i18n": {
         "en": "Calories per kg of weight loss",
         "tr": "Kg başına kalori",
-        "de": "Calories per kg of weight loss",
-        "fr": "Calories per kg of weight loss",
+        "de": "Kalorien pro kg Gewichtsverlust",
+        "fr": "Calories par kg de perte de poids",
         "es": "Calories per kg of weight loss",
         "ar": "Calories per kg of weight loss"
       },
       "businessContext_i18n": {
         "en": "Approximate calories needed to lose one kilogram (7700 kcal/kg)",
-        "tr": "Bir kilogram kaybetmek için gereken yaklaşık kalori (7700 kcal/kg)"
+        "tr": "Bir kilogram kaybetmek için gereken yaklaşık kalori (7700 kcal/kg)",
+        "de": "Ungefähre Kalorien, die benötigt werden, um ein Kilogramm zu verlieren (7700 kcal/kg)",
+        "fr": "Calories approximatives nécessaires pour perdre un kilogramme (7700 kcal/kg)"
       }
     }
   ],

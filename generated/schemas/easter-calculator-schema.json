@@ -12,14 +12,16 @@
         "en": "Year",
         "tr": "Yıl",
         "de": "Jahr",
-        "fr": "Year",
-        "es": "Year",
+        "fr": "Année",
+        "es": "Año",
         "ar": "Year"
       },
       "businessContext_i18n": {
         "en": "Gregorian year for which to calculate Easter date",
         "tr": "Paskalya tarihinin hesaplanacağı Gregoryen yıl",
-        "de": "Gregorianisches Jahr, für das das Osterdatum berechnet werden soll"
+        "de": "Gregorianisches Jahr, für das das Osterdatum berechnet werden soll",
+        "fr": "Année grégorienne pour laquelle calculer la date de Pâques",
+        "es": "Año gregoriano para el cual calcular la fecha de Pascua"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Days Adjustment",
         "tr": "Gün Ayarı",
         "de": "Tageanpassung",
-        "fr": "Days Adjustment",
-        "es": "Days Adjustment",
+        "fr": "Ajustement des jours",
+        "es": "Ajuste de días",
         "ar": "Days Adjustment"
       },
       "businessContext_i18n": {
         "en": "Number of days to shift the computed Easter date",
         "tr": "Hesaplanan Paskalya tarihine eklenecek gün sayısı",
-        "de": "Anzahl der Tage, um das berechnete Osterdatum zu verschieben"
+        "de": "Anzahl der Tage, um das berechnete Osterdatum zu verschieben",
+        "fr": "Nombre de jours pour décaler la date de Pâques calculée",
+        "es": "Número de días para desplazar la fecha de Pascua calculada"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Algorithm Version",
         "tr": "Algoritma Sürümü",
         "de": "Algorithmusversion",
-        "fr": "Algorithm Version",
-        "es": "Algorithm Version",
+        "fr": "Version de l'algorithme",
+        "es": "Versión del algoritmo",
         "ar": "Algorithm Version"
       },
       "businessContext_i18n": {
         "en": "Version of the computus algorithm (1 = Gregorian, 2 = Julian, not used in formula)",
         "tr": "Kullanılan hesaplama algoritmasının sürümü (1 = Gregoryen, 2 = Jülyen, formülde kullanılmaz)",
-        "de": "Version des Computus-Algorithmus (1 = gregorianisch, 2 = julianisch, nicht in Formel verwendet)"
+        "de": "Version des Computus-Algorithmus (1 = gregorianisch, 2 = julianisch, nicht in Formel verwendet)",
+        "fr": "Version de l'algorithme computiste (1 = grégorien, 2 = julien, non utilisé dans la formule)",
+        "es": "Versión del algoritmo de cómputo (1 = Gregoriano, 2 = Juliano, no usado en la fórmula)"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Moon Phase Offset",
         "tr": "Ay Fazı Ofseti",
         "de": "Mondphasenversatz",
-        "fr": "Moon Phase Offset",
-        "es": "Moon Phase Offset",
+        "fr": "Décalage de phase lunaire",
+        "es": "Desfase de fase lunar",
         "ar": "Moon Phase Offset"
       },
       "businessContext_i18n": {
         "en": "Offset in days to adjust the paschal full moon calculation",
         "tr": "Paskalya dolunayı hesaplamasını ayarlamak için gün cinsinden ofset",
-        "de": "Versatz in Tagen zur Anpassung der Berechnung des Ostervollmonds"
+        "de": "Versatz in Tagen zur Anpassung der Berechnung des Ostervollmonds",
+        "fr": "Décalage en jours pour ajuster le calcul de la pleine lune pascale",
+        "es": "Desfase en días para ajustar el cálculo de la luna llena pascual"
       }
     }
   ],

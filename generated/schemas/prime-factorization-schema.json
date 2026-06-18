@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Number to Factorize",
         "tr": "Çarpanlara Ayrılacak Sayı",
-        "de": "Number to Factorize",
-        "fr": "Number to Factorize",
-        "es": "Number to Factorize",
+        "de": "Zu faktorisierende Zahl",
+        "fr": "Nombre à factoriser",
+        "es": "Número a factorizar",
         "ar": "Number to Factorize"
       },
       "businessContext_i18n": {
         "en": "The integer to be decomposed into prime factors.",
-        "tr": "Asal çarpanlarına ayrılacak tam sayı."
+        "tr": "Asal çarpanlarına ayrılacak tam sayı.",
+        "de": "Die ganze Zahl, die in Primfaktoren zerlegt werden soll.",
+        "fr": "L'entier à décomposer en facteurs premiers.",
+        "es": "El entero a descomponer en factores primos."
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "Max Iterations",
         "tr": "Maksimum İterasyon",
         "de": "Maximale Iterationen",
-        "fr": "Max Iterations",
-        "es": "Max Iterations",
+        "fr": "Itérations maximales",
+        "es": "Máximo de iteraciones",
         "ar": "Max Iterations"
       },
       "businessContext_i18n": {
         "en": "Safety limit to prevent infinite loops for large numbers.",
-        "tr": "Büyük sayılar için sonsuz döngüyü önleyen güvenlik sınırı."
+        "tr": "Büyük sayılar için sonsuz döngüyü önleyen güvenlik sınırı.",
+        "de": "Sicherheitsgrenze, um Endlosschleifen bei großen Zahlen zu verhindern.",
+        "fr": "Limite de sécurité pour éviter les boucles infinies pour les grands nombres.",
+        "es": "Límite de seguridad para evitar bucles infinitos en números grandes."
       }
     },
     {
@@ -48,8 +54,8 @@
         "en": "auto_input_3",
         "tr": "Otomatik girdi 3",
         "de": "auto_input_3",
-        "fr": "auto_input_3",
-        "es": "auto_input_3",
+        "fr": "Entrée automatique 3",
+        "es": "entrada_automática_3",
         "ar": "auto_input_3"
       },
       "type": "number",
@@ -60,8 +66,8 @@
         "en": "Auto-generated input 3.",
         "tr": "Otomatik oluşturulan girdi 3.",
         "de": "Automatisch generierte Eingabe 3.",
-        "fr": "Auto-generated input 3.",
-        "es": "Auto-generated input 3.",
+        "fr": "Entrée générée automatiquement 3.",
+        "es": "Entrada generada automáticamente 3.",
         "ar": "Auto-generated input 3."
       }
     }

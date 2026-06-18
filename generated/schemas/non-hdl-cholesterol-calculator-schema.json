@@ -12,13 +12,16 @@
         "en": "Total Cholesterol",
         "tr": "Toplam Kolesterol",
         "de": "Gesamtcholesterin",
-        "fr": "Total Cholesterol",
-        "es": "Total Cholesterol",
+        "fr": "Cholestérol total",
+        "es": "Colesterol total",
         "ar": "Total Cholesterol"
       },
       "businessContext_i18n": {
         "en": "Serum total cholesterol level",
-        "tr": "Serum toplam kolesterol seviyesi"
+        "tr": "Serum toplam kolesterol seviyesi",
+        "de": "Serum-Gesamtcholesterinspiegel",
+        "fr": "Taux de cholestérol total sérique",
+        "es": "Nivel de colesterol total en suero"
       }
     },
     {
@@ -32,13 +35,16 @@
         "en": "HDL Cholesterol",
         "tr": "HDL Kolesterol",
         "de": "HDL-Cholesterin",
-        "fr": "HDL Cholesterol",
-        "es": "HDL Cholesterol",
+        "fr": "Cholestérol HDL",
+        "es": "Colesterol HDL",
         "ar": "HDL Cholesterol"
       },
       "businessContext_i18n": {
         "en": "Serum HDL cholesterol level",
-        "tr": "Serum HDL kolesterol seviyesi"
+        "tr": "Serum HDL kolesterol seviyesi",
+        "de": "Serum-HDL-Cholesterinspiegel",
+        "fr": "Taux de cholestérol HDL sérique",
+        "es": "Nivel de colesterol HDL en suero"
       }
     },
     {
@@ -52,13 +58,16 @@
         "en": "Triglycerides",
         "tr": "Trigliserit",
         "de": "Triglyceride",
-        "fr": "Triglycerides",
-        "es": "Triglycerides",
+        "fr": "Triglycérides",
+        "es": "Triglicéridos",
         "ar": "Triglycerides"
       },
       "businessContext_i18n": {
         "en": "Serum triglycerides level, used for LDL calculation when flag enabled",
-        "tr": "Serum trigliserit seviyesi, işaret etkinleştirildiğinde LDL hesaplaması için kullanılır"
+        "tr": "Serum trigliserit seviyesi, işaret etkinleştirildiğinde LDL hesaplaması için kullanılır",
+        "de": "Serum-Triglyceridspiegel, verwendet für LDL-Berechnung wenn Flag aktiviert",
+        "fr": "Taux de triglycérides sériques, utilisé pour le calcul du LDL lorsque l'option est activée",
+        "es": "Nivel de triglicéridos en suero, utilizado para el cálculo de LDL cuando la bandera está habilitada"
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Calculate LDL",
         "tr": "LDL hesapla",
-        "de": "Calculate LDL",
-        "fr": "Calculate LDL",
-        "es": "Calculate LDL",
+        "de": "LDL berechnen",
+        "fr": "Calculer le LDL",
+        "es": "Calcular LDL",
         "ar": "Calculate LDL"
       },
       "businessContext_i18n": {
         "en": "Set to 1 to compute LDL cholesterol using Friedewald formula (valid for triglycerides <400 mg/dL)",
-        "tr": "Friedewald formülü ile LDL kolesterolü hesaplamak için 1 olarak ayarlayın (trigliserit <400 mg/dL için geçerlidir)"
+        "tr": "Friedewald formülü ile LDL kolesterolü hesaplamak için 1 olarak ayarlayın (trigliserit <400 mg/dL için geçerlidir)",
+        "de": "Auf 1 setzen, um LDL-Cholesterin mit der Friedewald-Formel zu berechnen (gültig für Triglyceride <400 mg/dL)",
+        "fr": "Mettre à 1 pour calculer le cholestérol LDL à l'aide de la formule de Friedewald (valable pour des triglycérides <400 mg/dL)",
+        "es": "Establecer en 1 para calcular el colesterol LDL usando la fórmula de Friedewald (válida para triglicéridos <400 mg/dL)"
       }
     }
   ],

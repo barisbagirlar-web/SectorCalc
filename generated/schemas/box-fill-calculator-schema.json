@@ -12,14 +12,16 @@
         "en": "Number of 14 AWG Conductors",
         "tr": "14 AWG İletken Sayısı",
         "de": "Anzahl der 14 AWG-Leiter",
-        "fr": "Number of 14 AWG Conductors",
-        "es": "Number of 14 AWG Conductors",
+        "fr": "Nombre de conducteurs 14 AWG",
+        "es": "Número de conductores calibre 14 AWG",
         "ar": "Number of 14 AWG Conductors"
       },
       "businessContext_i18n": {
         "en": "Enter count of 14 AWG conductors",
         "tr": "14 AWG iletken sayısını girin.",
-        "de": "Anzahl der 14 AWG-Leiter eingeben"
+        "de": "Anzahl der 14 AWG-Leiter eingeben",
+        "fr": "Saisissez le nombre de conducteurs 14 AWG",
+        "es": "Ingrese la cantidad de conductores calibre 14 AWG"
       }
     },
     {
@@ -33,14 +35,16 @@
         "en": "Number of 12 AWG Conductors",
         "tr": "12 AWG İletken Sayısı",
         "de": "Anzahl der 12 AWG-Leiter",
-        "fr": "Number of 12 AWG Conductors",
-        "es": "Number of 12 AWG Conductors",
+        "fr": "Nombre de conducteurs 12 AWG",
+        "es": "Número de conductores AWG 12",
         "ar": "Number of 12 AWG Conductors"
       },
       "businessContext_i18n": {
         "en": "Enter count of 12 AWG conductors",
         "tr": "12 AWG iletken sayısını girin",
-        "de": "Anzahl der 12 AWG-Leiter eingeben"
+        "de": "Anzahl der 12 AWG-Leiter eingeben",
+        "fr": "Entrez le nombre de conducteurs 12 AWG",
+        "es": "Ingrese la cantidad de conductores AWG 12"
       }
     },
     {
@@ -54,14 +58,16 @@
         "en": "Number of 10 AWG Conductors",
         "tr": "10 AWG İletken Sayısı",
         "de": "Anzahl der 10 AWG-Leiter",
-        "fr": "Number of 10 AWG Conductors",
-        "es": "Number of 10 AWG Conductors",
+        "fr": "Nombre de conducteurs 10 AWG",
+        "es": "Número de conductores AWG 10",
         "ar": "Number of 10 AWG Conductors"
       },
       "businessContext_i18n": {
         "en": "Enter count of 10 AWG conductors",
         "tr": "10 AWG iletken sayısını girin",
-        "de": "Anzahl der 10 AWG-Leiter eingeben"
+        "de": "Anzahl der 10 AWG-Leiter eingeben",
+        "fr": "Entrez le nombre de conducteurs 10 AWG",
+        "es": "Ingrese la cantidad de conductores AWG 10"
       }
     },
     {
@@ -75,14 +81,16 @@
         "en": "Number of Devices",
         "tr": "Cihaz Sayısı",
         "de": "Anzahl der Geräte",
-        "fr": "Number of Devices",
-        "es": "Number of Devices",
+        "fr": "Nombre de dispositifs",
+        "es": "Número de dispositivos",
         "ar": "Number of Devices"
       },
       "businessContext_i18n": {
         "en": "Each device (switch/receptacle) counts as 2 of the largest conductor volume",
         "tr": "Her cihaz (anahtar/priz) en büyük iletken hacminin 2 katı olarak sayılır",
-        "de": "Jedes Gerät (Schalter/Steckdose) zählt als 2 des größten Leitervolumens"
+        "de": "Jedes Gerät (Schalter/Steckdose) zählt als 2 des größten Leitervolumens",
+        "fr": "Chaque dispositif (interrupteur/prise) compte pour 2 du volume du plus grand conducteur",
+        "es": "Cada dispositivo (interruptor/tomacorriente) cuenta como 2 del volumen del conductor más grande"
       }
     },
     {
@@ -96,14 +104,16 @@
         "en": "Number of Internal Cable Clamps",
         "tr": "Dahili Kablo Kıskacı Sayısı",
         "de": "Anzahl der internen Kabelklemmen",
-        "fr": "Number of Internal Cable Clamps",
-        "es": "Number of Internal Cable Clamps",
+        "fr": "Nombre de serre-câbles internes",
+        "es": "Número de abrazaderas internas de cable",
         "ar": "Number of Internal Cable Clamps"
       },
       "businessContext_i18n": {
         "en": "Each clamp counts as 1 of the largest conductor volume",
         "tr": "Her kıskaç en büyük iletken hacminin 1 katı olarak sayılır",
-        "de": "Jede Klemme zählt als 1 des größten Leitervolumens"
+        "de": "Jede Klemme zählt als 1 des größten Leitervolumens",
+        "fr": "Chaque serre-câble compte pour 1 du volume du plus grand conducteur",
+        "es": "Cada abrazadera cuenta como 1 del volumen del conductor más grande"
       }
     },
     {
@@ -117,14 +127,16 @@
         "en": "Equipment Ground Present",
         "tr": "Ekipman Topraklaması Var",
         "de": "Schutzleiter vorhanden",
-        "fr": "Equipment Ground Present",
-        "es": "Equipment Ground Present",
+        "fr": "Mise à la terre de l'équipement présente",
+        "es": "Conexión a tierra del equipo presente",
         "ar": "Equipment Ground Present"
       },
       "businessContext_i18n": {
         "en": "Set 1 if equipment grounding conductors are present (they count as 1 of the largest volume), else 0",
         "tr": "Ekipman topraklama iletkenleri varsa 1 (en büyük hacmin 1 katı), yoksa 0 girin",
-        "de": "Setzen Sie 1, wenn Schutzleiter vorhanden sind (sie zählen als 1 des größten Volumens), sonst 0"
+        "de": "Setzen Sie 1, wenn Schutzleiter vorhanden sind (sie zählen als 1 des größten Volumens), sonst 0",
+        "fr": "Définir 1 si des conducteurs de mise à la terre de l'équipement sont présents (ils comptent pour 1 du plus grand volume), sinon 0",
+        "es": "Establezca 1 si hay conductores de puesta a tierra del equipo (cuentan como 1 del volumen más grande), de lo contrario 0"
       }
     }
   ],

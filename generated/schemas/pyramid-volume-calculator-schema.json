@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Taban Uzunluğu",
         "tr": "Taban Uzunluğu",
-        "de": "Taban Uzunluğu",
-        "fr": "Taban Uzunluğu",
-        "es": "Taban Uzunluğu",
+        "de": "Basislänge",
+        "fr": "Longueur de la base",
+        "es": "Longitud de la base",
         "ar": "Taban Uzunluğu"
       },
       "businessContext_i18n": {
         "en": "Piramit tabanının uzun kenar ölçüsü (metre)",
-        "tr": "Piramit tabanının uzun kenar ölçüsü (metre)"
+        "tr": "Piramit tabanının uzun kenar ölçüsü (metre)",
+        "de": "Lange Seitenmaß der Pyramidenbasis (Meter)",
+        "fr": "Mesure du côté long de la base de la pyramide (mètres)",
+        "es": "Medida del lado largo de la base de la pirámide (metros)"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Taban Genişliği",
         "tr": "Taban Genişliği",
-        "de": "Taban Genişliği",
-        "fr": "Taban Genişliği",
-        "es": "Taban Genişliği",
+        "de": "Basisbreite",
+        "fr": "Largeur de la base",
+        "es": "Ancho de la base",
         "ar": "Taban Genişliği"
       },
       "businessContext_i18n": {
         "en": "Piramit tabanının kısa kenar ölçüsü (metre)",
-        "tr": "Piramit tabanının kısa kenar ölçüsü (metre)"
+        "tr": "Piramit tabanının kısa kenar ölçüsü (metre)",
+        "de": "Kurze Seitenmaß der Pyramidenbasis (Meter)",
+        "fr": "Mesure du côté court de la base de la pyramide (mètres)",
+        "es": "Medida del lado corto de la base de la pirámide (metros)"
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Yükseklik",
         "tr": "Yükseklik",
-        "de": "Yükseklik",
-        "fr": "Yükseklik",
-        "es": "Yükseklik",
+        "de": "Höhe",
+        "fr": "Hauteur",
+        "es": "Altura",
         "ar": "Yükseklik"
       },
       "businessContext_i18n": {
         "en": "Piramidin dik yüksekliği (tabandan tepe noktasına)",
-        "tr": "Yükseklik"
+        "tr": "Yükseklik",
+        "de": "Senkrechte Höhe der Pyramide (von der Basis bis zur Spitze)",
+        "fr": "Hauteur verticale de la pyramide (de la base au sommet)",
+        "es": "Altura vertical de la pirámide (desde la base hasta el vértice)"
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Adet",
         "tr": "Adet",
         "de": "Adet",
-        "fr": "Adet",
-        "es": "Adet",
+        "fr": "Quantité",
+        "es": "Cantidad",
         "ar": "Adet"
       },
       "businessContext_i18n": {
         "en": "Aynı boyutlardaki piramit sayısı (toplu hacim hesabı için)",
-        "tr": "Aynı boyutlardaki piramit sayısı (toplu hacim hesabı için)"
+        "tr": "Aynı boyutlardaki piramit sayısı (toplu hacim hesabı için)",
+        "de": "Anzahl der Pyramiden gleicher Abmessungen (für die Gesamtvolumenberechnung)",
+        "fr": "Nombre de pyramides de mêmes dimensions (pour le calcul du volume total)",
+        "es": "Número de pirámides de las mismas dimensiones (para cálculo de volumen total)"
       }
     }
   ],

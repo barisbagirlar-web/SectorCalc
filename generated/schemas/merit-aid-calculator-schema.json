@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Cost of Attendance",
         "tr": "Katılım Maliyeti",
-        "de": "Cost of Attendance",
-        "fr": "Cost of Attendance",
-        "es": "Cost of Attendance",
+        "de": "Studienkosten",
+        "fr": "Coût de présence",
+        "es": "Costo de asistencia",
         "ar": "Cost of Attendance"
       },
       "businessContext_i18n": {
         "en": "Total yearly cost of attendance including tuition, fees, room, and board.",
-        "tr": "Öğrenim ücreti, harçlar, oda ve yemek dahil yıllık toplam katılım maliyeti."
+        "tr": "Öğrenim ücreti, harçlar, oda ve yemek dahil yıllık toplam katılım maliyeti.",
+        "de": "Jährliche Gesamtkosten des Studiums einschließlich Studiengebühren, Gebühren, Unterkunft und Verpflegung.",
+        "fr": "Coût total annuel de la scolarité incluant les frais de scolarité, les frais annexes, le logement et les repas.",
+        "es": "Costo total anual de asistencia que incluye matrícula, cuotas, alojamiento y comida."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Merit Aid Cap (%)",
         "tr": "Başarı Bursu Tavanı (%)",
-        "de": "Merit Aid Cap (%)",
-        "fr": "Merit Aid Cap (%)",
-        "es": "Merit Aid Cap (%)",
+        "de": "Obergrenze für Leistungsstipendien (%)",
+        "fr": "Plafond d'aide au mérite (%)",
+        "es": "Tope de ayuda por mérito (%)",
         "ar": "Merit Aid Cap (%)"
       },
       "businessContext_i18n": {
         "en": "Maximum percentage of cost of attendance that can be covered by merit aid.",
-        "tr": "Katılım maliyetinin başarı bursu ile karşılanabilecek maksimum yüzdesi."
+        "tr": "Katılım maliyetinin başarı bursu ile karşılanabilecek maksimum yüzdesi.",
+        "de": "Maximaler Prozentsatz der Studienkosten, der durch Leistungsstipendien abgedeckt werden kann.",
+        "fr": "Pourcentage maximum du coût de la scolarité pouvant être couvert par l'aide au mérite.",
+        "es": "Porcentaje máximo del costo de asistencia que puede cubrir la ayuda por mérito."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Other Financial Aid",
         "tr": "Diğer Mali Yardımlar",
-        "de": "Other Financial Aid",
-        "fr": "Other Financial Aid",
-        "es": "Other Financial Aid",
+        "de": "Andere finanzielle Unterstützung",
+        "fr": "Autre aide financière",
+        "es": "Otras ayudas financieras",
         "ar": "Other Financial Aid"
       },
       "businessContext_i18n": {
         "en": "Total amount of other scholarships, grants, or financial aid already awarded.",
-        "tr": "Halihazırda verilmiş diğer burs, hibe veya mali yardımların toplam tutarı."
+        "tr": "Halihazırda verilmiş diğer burs, hibe veya mali yardımların toplam tutarı.",
+        "de": "Gesamtbetrag anderer bereits bewilligter Stipendien, Zuschüsse oder finanzieller Unterstützung.",
+        "fr": "Montant total des autres bourses, subventions ou aides financières déjà attribuées.",
+        "es": "Monto total de otras becas, subvenciones o ayudas financieras ya otorgadas."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Expected Family Contribution",
         "tr": "Beklenen Aile Katkısı",
-        "de": "Expected Family Contribution",
-        "fr": "Expected Family Contribution",
-        "es": "Expected Family Contribution",
+        "de": "Erwarteter Familienbeitrag",
+        "fr": "Contribution familiale attendue",
+        "es": "Contribución familiar esperada",
         "ar": "Expected Family Contribution"
       },
       "businessContext_i18n": {
         "en": "Expected family contribution as determined by financial need analysis.",
-        "tr": "Mali ihtiyaç analizine göre belirlenen beklenen aile katkısı."
+        "tr": "Mali ihtiyaç analizine göre belirlenen beklenen aile katkısı.",
+        "de": "Erwarteter Familienbeitrag, ermittelt durch die Bedarfsanalyse.",
+        "fr": "Contribution familiale attendue déterminée par l'analyse des besoins financiers.",
+        "es": "Contribución familiar esperada según el análisis de necesidad financiera."
       }
     }
   ],

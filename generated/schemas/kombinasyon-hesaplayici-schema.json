@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Toplam Eleman Sayısı (n)",
         "tr": "Toplam Eleman Sayısı (n)",
-        "de": "Toplam Eleman Sayısı (n)",
-        "fr": "Toplam Eleman Sayısı (n)",
-        "es": "Toplam Eleman Sayısı (n)",
+        "de": "Gesamtzahl der Elemente (n)",
+        "fr": "Nombre total d'éléments (n)",
+        "es": "Total de Elementos (n)",
         "ar": "Toplam Eleman Sayısı (n)"
       },
       "businessContext_i18n": {
         "en": "Kümenin toplam eleman sayısı",
-        "tr": "Kümenin toplam eleman sayısı"
+        "tr": "Kümenin toplam eleman sayısı",
+        "de": "Gesamtzahl der Elemente in der Menge",
+        "fr": "Nombre total d'éléments dans l'ensemble",
+        "es": "Número total de elementos en el conjunto"
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Seçilecek Eleman Sayısı (r)",
         "tr": "Seçilecek Eleman Sayısı (r)",
-        "de": "Seçilecek Eleman Sayısı (r)",
-        "fr": "Seçilecek Eleman Sayısı (r)",
-        "es": "Seçilecek Eleman Sayısı (r)",
+        "de": "Anzahl der auszuwählenden Elemente (r)",
+        "fr": "Nombre d'éléments à sélectionner (r)",
+        "es": "Número de Elementos a Seleccionar (r)",
         "ar": "Seçilecek Eleman Sayısı (r)"
       },
       "businessContext_i18n": {
         "en": "Kombinasyon için seçilecek eleman sayısı",
-        "tr": "Kombinasyon için seçilecek eleman sayısı"
+        "tr": "Kombinasyon için seçilecek eleman sayısı",
+        "de": "Anzahl der für die Kombination auszuwählenden Elemente",
+        "fr": "Nombre d'éléments à sélectionner pour la combinaison",
+        "es": "Número de elementos a seleccionar para la combinación"
       }
     },
     {
@@ -48,8 +54,8 @@
         "en": "auto_input_3",
         "tr": "Otomatik girdi 3",
         "de": "auto_input_3",
-        "fr": "auto_input_3",
-        "es": "auto_input_3",
+        "fr": "Entrée automatique 3",
+        "es": "entrada_automática_3",
         "ar": "auto_input_3"
       },
       "type": "number",
@@ -60,8 +66,8 @@
         "en": "Auto-generated input 3.",
         "tr": "Otomatik oluşturulan girdi 3.",
         "de": "Automatisch generierte Eingabe 3.",
-        "fr": "Auto-generated input 3.",
-        "es": "Auto-generated input 3.",
+        "fr": "Entrée générée automatiquement 3.",
+        "es": "Entrada generada automáticamente 3.",
         "ar": "Auto-generated input 3."
       }
     }

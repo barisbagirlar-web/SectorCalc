@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Reference Note MIDI Number",
         "tr": "Referans Nota MIDI Numarası",
-        "de": "Reference Note MIDI Number",
-        "fr": "Reference Note MIDI Number",
-        "es": "Reference Note MIDI Number",
+        "de": "Referenznoten-MIDI-Nummer",
+        "fr": "Numéro MIDI de la note de référence",
+        "es": "Número MIDI de nota de referencia",
         "ar": "Reference Note MIDI Number"
       },
       "businessContext_i18n": {
         "en": "MIDI note number of the reference pitch (e.g., A4 = 69).",
-        "tr": "Referans perdenin MIDI nota numarası (ör. A4 = 69)."
+        "tr": "Referans perdenin MIDI nota numarası (ör. A4 = 69).",
+        "de": "MIDI-Notennummer der Referenztonhöhe (z. B. A4 = 69).",
+        "fr": "Numéro MIDI de la note de référence (ex. : A4 = 69).",
+        "es": "Número de nota MIDI del tono de referencia (ej., A4 = 69)."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Reference Frequency",
         "tr": "Referans Frekans",
-        "de": "Reference Frequency",
-        "fr": "Reference Frequency",
-        "es": "Reference Frequency",
+        "de": "Referenzfrequenz",
+        "fr": "Fréquence de référence",
+        "es": "Frecuencia de referencia",
         "ar": "Reference Frequency"
       },
       "businessContext_i18n": {
         "en": "Standard tuning frequency of the reference note in Hertz.",
-        "tr": "Referans notanın standart akort frekansı (Hertz cinsinden)."
+        "tr": "Referans notanın standart akort frekansı (Hertz cinsinden).",
+        "de": "Standard-Stimmfrequenz der Referenznote in Hertz.",
+        "fr": "Fréquence d'accord standard de la note de référence en Hertz.",
+        "es": "Frecuencia de afinación estándar de la nota de referencia en Hertz."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Target Note MIDI Number",
         "tr": "Hedef Nota MIDI Numarası",
-        "de": "Target Note MIDI Number",
-        "fr": "Target Note MIDI Number",
-        "es": "Target Note MIDI Number",
+        "de": "Zielnoten-MIDI-Nummer",
+        "fr": "Numéro MIDI de la note cible",
+        "es": "Número MIDI de nota objetivo",
         "ar": "Target Note MIDI Number"
       },
       "businessContext_i18n": {
         "en": "MIDI note number of the key to tune.",
-        "tr": "Akort edilecek tuşun MIDI nota numarası."
+        "tr": "Akort edilecek tuşun MIDI nota numarası.",
+        "de": "MIDI-Notennummer der zu stimmenden Taste.",
+        "fr": "Numéro MIDI de la note à accorder.",
+        "es": "Número de nota MIDI de la tecla a afinar."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Detuning Offset",
         "tr": "Sapma Miktarı",
-        "de": "Detuning Offset",
-        "fr": "Detuning Offset",
-        "es": "Detuning Offset",
+        "de": "Verstimmungsoffset",
+        "fr": "Décalage de désaccord",
+        "es": "Desviación de afinación",
         "ar": "Detuning Offset"
       },
       "businessContext_i18n": {
         "en": "Tuning offset in cents (1/100 semitone) for historical temperaments or artistic adjustment.",
-        "tr": "Tarihsel mizaçlar veya sanatsal ayarlama için sent (1/100 yarım ton) cinsinden akort sapması."
+        "tr": "Tarihsel mizaçlar veya sanatsal ayarlama için sent (1/100 yarım ton) cinsinden akort sapması.",
+        "de": "Stimmungsversatz in Cent (1/100 Halbton) für historische Stimmungen oder künstlerische Anpassung.",
+        "fr": "Décalage d'accord en cents (1/100 de demi-ton) pour les tempéraments historiques ou l'ajustement artistique.",
+        "es": "Desviación de afinación en cents (1/100 de semitono) para temperamentos históricos o ajuste artístico."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Inharmonicity Coefficient (B)",
         "tr": "Armonik Olmayanlık Katsayısı (B)",
-        "de": "Inharmonicity Coefficient (B)",
-        "fr": "Inharmonicity Coefficient (B)",
-        "es": "Inharmonicity Coefficient (B)",
+        "de": "Inharmonizitätskoeffizient (B)",
+        "fr": "Coefficient d'inharmonicité (B)",
+        "es": "Coeficiente de inarmonicidad (B)",
         "ar": "Inharmonicity Coefficient (B)"
       },
       "businessContext_i18n": {
         "en": "Inharmonicity coefficient for stretch tuning. Typical for a piano: B ≈ 0.0004. Set to 0 for pure equal temperament.",
-        "tr": "Germe akort için armonik olmayanlık katsayısı. Piyano için tipik: B ≈ 0.0004. Saf eşit mizaç için 0'a ayarlayın."
+        "tr": "Germe akort için armonik olmayanlık katsayısı. Piyano için tipik: B ≈ 0.0004. Saf eşit mizaç için 0'a ayarlayın.",
+        "de": "Inharmonizitätskoeffizient für Streckstimmung. Typisch für ein Klavier: B ≈ 0,0004. Auf 0 setzen für reine gleichschwebende Stimmung.",
+        "fr": "Coefficient d'inharmonicité pour l'accord étiré. Typique pour un piano : B ≈ 0,0004. Mettre à 0 pour un tempérament égal pur.",
+        "es": "Coeficiente de inarmonicidad para afinación estirada. Típico para un piano: B ≈ 0.0004. Establecer en 0 para temperamento igual puro."
       }
     }
   ],

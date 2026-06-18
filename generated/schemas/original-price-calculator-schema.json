@@ -11,14 +11,17 @@
       "label_i18n": {
         "en": "Final Price",
         "tr": "Nihai fiyat",
-        "de": "Final Price",
-        "fr": "Final Price",
-        "es": "Final Price",
+        "de": "Endpreis",
+        "fr": "Prix final",
+        "es": "Precio final",
         "ar": "Final Price"
       },
       "businessContext_i18n": {
         "en": "Total price paid by customer including all surcharges and taxes.",
-        "tr": "Tüm ek ücretler ve vergiler dahil müşterinin ödediği toplam fiyat"
+        "tr": "Tüm ek ücretler ve vergiler dahil müşterinin ödediği toplam fiyat",
+        "de": "Vom Kunden gezahlter Gesamtpreis inklusive aller Zuschläge und Steuern.",
+        "fr": "Prix total payé par le client, incluant tous les suppléments et taxes.",
+        "es": "Precio total pagado por el cliente, incluyendo todos los recargos e impuestos."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Raw Material Surcharge",
         "tr": "Hammadde ek ücreti",
-        "de": "Raw Material Surcharge",
-        "fr": "Raw Material Surcharge",
-        "es": "Raw Material Surcharge",
+        "de": "Rohstoffzuschlag",
+        "fr": "Surcharge matière première",
+        "es": "Recargo por materia prima",
         "ar": "Raw Material Surcharge"
       },
       "businessContext_i18n": {
         "en": "Additional cost per unit for raw materials.",
-        "tr": "Birim başına hammadde için ek maliyet"
+        "tr": "Birim başına hammadde için ek maliyet",
+        "de": "Zusätzliche Kosten pro Einheit für Rohstoffe.",
+        "fr": "Coût supplémentaire par unité pour les matières premières.",
+        "es": "Costo adicional por unidad por materias primas."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Labor Surcharge",
         "tr": "İşçilik ek ücreti",
-        "de": "Labor Surcharge",
-        "fr": "Labor Surcharge",
-        "es": "Labor Surcharge",
+        "de": "Arbeitszuschlag",
+        "fr": "Surcharge main-d'œuvre",
+        "es": "Recargo por mano de obra",
         "ar": "Labor Surcharge"
       },
       "businessContext_i18n": {
         "en": "Additional labor cost per unit.",
-        "tr": "Birim başına ek işçilik maliyeti"
+        "tr": "Birim başına ek işçilik maliyeti",
+        "de": "Zusätzliche Arbeitskosten pro Einheit.",
+        "fr": "Coût supplémentaire de main-d'œuvre par unité.",
+        "es": "Costo adicional de mano de obra por unidad."
       }
     },
     {
@@ -72,13 +81,16 @@
         "en": "Overhead Percentage",
         "tr": "Genel Gider Yüzdesi",
         "de": "Gemeinkostenprozentsatz",
-        "fr": "Overhead Percentage",
-        "es": "Overhead Percentage",
+        "fr": "Pourcentage de frais généraux",
+        "es": "Porcentaje de gastos generales",
         "ar": "Overhead Percentage"
       },
       "businessContext_i18n": {
         "en": "Factory overhead as percentage of base cost.",
-        "tr": "Temel maliyetin yüzdesi olarak fabrika genel gideri"
+        "tr": "Temel maliyetin yüzdesi olarak fabrika genel gideri",
+        "de": "Gemeinkosten als Prozentsatz der Basiskosten.",
+        "fr": "Frais généraux d'usine en pourcentage du coût de base.",
+        "es": "Gastos generales de fábrica como porcentaje del costo base."
       }
     },
     {
@@ -92,13 +104,16 @@
         "en": "Profit Margin Percentage",
         "tr": "Kâr Marjı Yüzdesi",
         "de": "Gewinnmargenprozentsatz",
-        "fr": "Profit Margin Percentage",
-        "es": "Profit Margin Percentage",
+        "fr": "Pourcentage de marge bénéficiaire",
+        "es": "Porcentaje de margen de beneficio",
         "ar": "Profit Margin Percentage"
       },
       "businessContext_i18n": {
         "en": "Profit margin applied after overhead.",
-        "tr": "Genel gider sonrası uygulanan kar marjı"
+        "tr": "Genel gider sonrası uygulanan kar marjı",
+        "de": "Gewinnmarge nach Gemeinkosten.",
+        "fr": "Marge bénéficiaire appliquée après les frais généraux.",
+        "es": "Margen de beneficio aplicado después de gastos generales."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "VAT Percentage",
         "tr": "KDV yüzdesi",
-        "de": "VAT Percentage",
-        "fr": "VAT Percentage",
-        "es": "VAT Percentage",
+        "de": "Mehrwertsteuersatz",
+        "fr": "Pourcentage de TVA",
+        "es": "Porcentaje de IVA",
         "ar": "VAT Percentage"
       },
       "businessContext_i18n": {
         "en": "Value Added Tax percentage.",
-        "tr": "Katma Değer Vergisi yüzdesi"
+        "tr": "Katma Değer Vergisi yüzdesi",
+        "de": "Prozentsatz der Mehrwertsteuer.",
+        "fr": "Pourcentage de taxe sur la valeur ajoutée.",
+        "es": "Porcentaje del Impuesto al Valor Agregado."
       }
     }
   ],

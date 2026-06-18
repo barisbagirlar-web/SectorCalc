@@ -12,13 +12,16 @@
         "en": "Initial Investment",
         "tr": "Başlangıç Yatırımı",
         "de": "Anfangsinvestition",
-        "fr": "Initial Investment",
-        "es": "Initial Investment",
+        "fr": "Investissement initial",
+        "es": "Inversión inicial",
         "ar": "Initial Investment"
       },
       "businessContext_i18n": {
         "en": "The amount initially invested, used to calculate loss from the start.",
-        "tr": "Başlangıçta yatırılan tutar, kaybı başlangıçtan itibaren hesaplamak için kullanılır."
+        "tr": "Başlangıçta yatırılan tutar, kaybı başlangıçtan itibaren hesaplamak için kullanılır.",
+        "de": "Der ursprünglich investierte Betrag, der zur Berechnung des Verlusts von Anfang an verwendet wird.",
+        "fr": "Montant initial investi, utilisé pour calculer la perte depuis le début.",
+        "es": "Cantidad inicial invertida, utilizada para calcular la pérdida desde el inicio."
       }
     },
     {
@@ -31,14 +34,17 @@
       "label_i18n": {
         "en": "Peak Portfolio Value",
         "tr": "Portföy Zirve Değeri",
-        "de": "Peak Portfolio Value",
-        "fr": "Peak Portfolio Value",
-        "es": "Peak Portfolio Value",
+        "de": "Höchstwert des Portfolios",
+        "fr": "Valeur maximale du portefeuille",
+        "es": "Valor máximo de la cartera",
         "ar": "Peak Portfolio Value"
       },
       "businessContext_i18n": {
         "en": "The highest portfolio value reached before the drawdown begins.",
-        "tr": "Düşüş başlamadan önce ulaşılan en yüksek portföy değeri."
+        "tr": "Düşüş başlamadan önce ulaşılan en yüksek portföy değeri.",
+        "de": "Der höchste Portfoliowert vor Beginn des Drawdowns.",
+        "fr": "Valeur la plus élevée du portefeuille atteinte avant le début du prélèvement.",
+        "es": "El valor más alto de la cartera alcanzado antes de que comience la reducción."
       }
     },
     {
@@ -51,14 +57,17 @@
       "label_i18n": {
         "en": "Trough Portfolio Value",
         "tr": "Portföy Dip Değeri",
-        "de": "Trough Portfolio Value",
-        "fr": "Trough Portfolio Value",
-        "es": "Trough Portfolio Value",
+        "de": "Tiefstwert des Portfolios",
+        "fr": "Valeur minimale du portefeuille",
+        "es": "Valor mínimo de la cartera",
         "ar": "Trough Portfolio Value"
       },
       "businessContext_i18n": {
         "en": "The lowest value after the peak, marking the maximum drawdown.",
-        "tr": "Zirveden sonraki en düşük değer, maksimum düşüşü işaret eder."
+        "tr": "Zirveden sonraki en düşük değer, maksimum düşüşü işaret eder.",
+        "de": "Der niedrigste Wert nach dem Höchststand, der den maximalen Drawdown markiert.",
+        "fr": "Valeur la plus basse après le pic, marquant le prélèvement maximal.",
+        "es": "El valor más bajo después del pico, marcando la reducción máxima."
       }
     },
     {
@@ -71,14 +80,17 @@
       "label_i18n": {
         "en": "Time to Trough",
         "tr": "Dibe Ulaşma Süresi",
-        "de": "Time to Trough",
-        "fr": "Time to Trough",
-        "es": "Time to Trough",
+        "de": "Zeit bis zum Tiefstwert",
+        "fr": "Temps jusqu'au creux",
+        "es": "Tiempo hasta el mínimo",
         "ar": "Time to Trough"
       },
       "businessContext_i18n": {
         "en": "Number of months taken from the peak to the trough, indicating drawdown speed.",
-        "tr": "Zirveden dibe geçen ay sayısı, düşüş hızını gösterir."
+        "tr": "Zirveden dibe geçen ay sayısı, düşüş hızını gösterir.",
+        "de": "Anzahl der Monate vom Höchststand bis zum Tiefstwert, die die Drawdown-Geschwindigkeit angeben.",
+        "fr": "Nombre de mois écoulés du pic au creux, indiquant la vitesse du prélèvement.",
+        "es": "Número de meses desde el pico hasta el mínimo, indicando la velocidad de la reducción."
       }
     },
     {
@@ -91,14 +103,17 @@
       "label_i18n": {
         "en": "Recovery Value (if any)",
         "tr": "Toparlanma Değeri (varsa)",
-        "de": "Recovery Value (if any)",
-        "fr": "Recovery Value (if any)",
-        "es": "Recovery Value (if any)",
+        "de": "Erholungswert (falls vorhanden)",
+        "fr": "Valeur de récupération (le cas échéant)",
+        "es": "Valor de recuperación (si existe)",
         "ar": "Recovery Value (if any)"
       },
       "businessContext_i18n": {
         "en": "Portfolio value at eventual recovery; set to peak if fully recovered, 0 if not.",
-        "tr": "Nihai toparlanmadaki portföy değeri; tamamen toparlanmışsa zirve değerine, toparlanmamışsa 0'a ayarlayın."
+        "tr": "Nihai toparlanmadaki portföy değeri; tamamen toparlanmışsa zirve değerine, toparlanmamışsa 0'a ayarlayın.",
+        "de": "Portfoliowert bei eventueller Erholung; auf Höchstwert gesetzt, wenn vollständig erholt, 0 wenn nicht.",
+        "fr": "Valeur du portefeuille lors de la récupération éventuelle ; définir sur le pic si entièrement récupéré, 0 sinon.",
+        "es": "Valor de la cartera en la recuperación eventual; establecer como el pico si se recuperó completamente, 0 si no."
       }
     },
     {
@@ -111,14 +126,17 @@
       "label_i18n": {
         "en": "Recovery Time",
         "tr": "İyileşme Süresi",
-        "de": "Recovery Time",
-        "fr": "Recovery Time",
-        "es": "Recovery Time",
+        "de": "Erholungszeit",
+        "fr": "Temps de récupération",
+        "es": "Tiempo de recuperación",
         "ar": "Recovery Time"
       },
       "businessContext_i18n": {
         "en": "Months from trough to recovery; 0 if recovery not yet achieved.",
-        "tr": "Dipten toparlanmaya kadar geçen ay sayısı; henüz toparlanma sağlanmadıysa 0."
+        "tr": "Dipten toparlanmaya kadar geçen ay sayısı; henüz toparlanma sağlanmadıysa 0.",
+        "de": "Monate vom Tiefstwert bis zur Erholung; 0, wenn die Erholung noch nicht erreicht wurde.",
+        "fr": "Mois entre le creux et la reprise ; 0 si la reprise n'est pas encore atteinte.",
+        "es": "Meses desde el mínimo hasta la recuperación; 0 si la recuperación aún no se ha logrado."
       }
     }
   ],

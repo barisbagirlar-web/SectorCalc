@@ -21,12 +21,16 @@
       "label_i18n": {
         "en": "Fabric Width (cm)",
         "tr": "Kumaş Eni (cm)",
-        "de": "Stoffbreite (cm)"
+        "de": "Stoffbreite (cm)",
+        "fr": "Largeur du tissu (cm)",
+        "es": "Ancho de tela (cm)"
       },
       "businessContext_i18n": {
         "en": "Standard industrial fabric roll width, typically 150-320 cm for apparel and upholstery.",
         "tr": "Standart endüstriyel kumaş rulo genişliği, giyim ve döşemelik için tipik olarak 150-320 cm.",
-        "de": "Standardindustrielle Stoffrollenbreite, typischerweise 150-320 cm für Bekleidung und Polster."
+        "de": "Standardindustrielle Stoffrollenbreite, typischerweise 150-320 cm für Bekleidung und Polster.",
+        "fr": "Largeur standard d'un rouleau de tissu industriel, généralement 150-320 cm pour l'habillement et l'ameublement.",
+        "es": "Ancho estándar industrial del rollo de tela, típicamente 150-320 cm para prendas de vestir y tapicería."
       }
     },
     {
@@ -41,12 +45,16 @@
       "label_i18n": {
         "en": "Fabric Length (m)",
         "tr": "Kumaş Uzunluğu (m)",
-        "de": "Stofflänge (m)"
+        "de": "Stofflänge (m)",
+        "fr": "Longueur du tissu (m)",
+        "es": "Longitud de tela (m)"
       },
       "businessContext_i18n": {
         "en": "Total length of fabric roll or batch, used to compute total area.",
         "tr": "Kumaş rulosu veya partisinin toplam uzunluğu, toplam alanı hesaplamak için kullanılır.",
-        "de": "Gesamtlänge der Stoffrolle oder -charge, zur Berechnung der Gesamtfläche."
+        "de": "Gesamtlänge der Stoffrolle oder -charge, zur Berechnung der Gesamtfläche.",
+        "fr": "Longueur totale du rouleau ou lot de tissu, utilisée pour calculer la surface totale.",
+        "es": "Longitud total del rollo o lote de tela, utilizada para calcular el área total."
       }
     },
     {
@@ -61,12 +69,16 @@
       "label_i18n": {
         "en": "Pattern Length (cm)",
         "tr": "Kalıp Uzunluğu (cm)",
-        "de": "Schnittteillänge (cm)"
+        "de": "Schnittteillänge (cm)",
+        "fr": "Longueur du patron (cm)",
+        "es": "Longitud de patrón (cm)"
       },
       "businessContext_i18n": {
         "en": "Length of one garment or component pattern piece along the grain.",
         "tr": "Bir giysi veya bileşen kalıp parçasının damar yönü boyunca uzunluğu.",
-        "de": "Länge eines Kleidungsstücks oder Komponentenschnittteils entlang des Fadenlaufs."
+        "de": "Länge eines Kleidungsstücks oder Komponentenschnittteils entlang des Fadenlaufs.",
+        "fr": "Longueur d'une pièce de patron de vêtement ou de composant dans le sens du fil.",
+        "es": "Longitud de una pieza de prenda o componente de patrón a lo largo del hilo."
       }
     },
     {
@@ -81,12 +93,16 @@
       "label_i18n": {
         "en": "Pattern Width (cm)",
         "tr": "Kalıp Genişliği (cm)",
-        "de": "Schnittbreite (cm)"
+        "de": "Schnittbreite (cm)",
+        "fr": "Largeur du patron (cm)",
+        "es": "Ancho de patrón (cm)"
       },
       "businessContext_i18n": {
         "en": "Width of one pattern piece perpendicular to the grain.",
         "tr": "Bir kalıp parçasının damar yönüne dik genişliği.",
-        "de": "Breite eines Schnittteils senkrecht zum Fadenlauf."
+        "de": "Breite eines Schnittteils senkrecht zum Fadenlauf.",
+        "fr": "Largeur d'une pièce de patron perpendiculairement au sens du fil.",
+        "es": "Ancho de una pieza de patrón perpendicular al hilo."
       }
     },
     {
@@ -101,12 +117,16 @@
       "label_i18n": {
         "en": "Quantity to Cut",
         "tr": "Kesilecek Miktar",
-        "de": "Zuschnittmenge"
+        "de": "Zuschnittmenge",
+        "fr": "Quantité à couper",
+        "es": "Cantidad a cortar"
       },
       "businessContext_i18n": {
         "en": "Number of identical pieces to be cut from the fabric.",
         "tr": "Kumaştan kesilecek aynı parçaların sayısı.",
-        "de": "Anzahl identischer Teile, die aus dem Stoff geschnitten werden sollen."
+        "de": "Anzahl identischer Teile, die aus dem Stoff geschnitten werden sollen.",
+        "fr": "Nombre de pièces identiques à découper dans le tissu.",
+        "es": "Número de piezas idénticas a cortar de la tela."
       }
     },
     {
@@ -126,12 +146,16 @@
       "label_i18n": {
         "en": "Cutting Method",
         "tr": "Kesim Yöntemi",
-        "de": "Zuschnittverfahren"
+        "de": "Zuschnittverfahren",
+        "fr": "Méthode de coupe",
+        "es": "Método de corte"
       },
       "businessContext_i18n": {
         "en": "Method affects material utilization and labor cost. Single-ply is manual; multi-ply is automated.",
         "tr": "Yöntem, malzeme kullanımını ve işçilik maliyetini etkiler. Tek kat manuel, çok kat otomatiktir.",
-        "de": "Das Verfahren beeinflusst Materialausnutzung und Arbeitskosten. Einzellage ist manuell, Mehrlage automatisiert."
+        "de": "Das Verfahren beeinflusst Materialausnutzung und Arbeitskosten. Einzellage ist manuell, Mehrlage automatisiert.",
+        "fr": "La méthode affecte l'utilisation de la matière et le coût de main-d'œuvre. Simple épaisseur est manuelle ; multi-épaisseur est automatisée.",
+        "es": "El método afecta la utilización del material y el costo de mano de obra. Una capa es manual; multicapa es automatizado."
       }
     },
     {
@@ -146,12 +170,16 @@
       "label_i18n": {
         "en": "Material Cost per m²",
         "tr": "m² Başına Malzeme Maliyeti",
-        "de": "Materialkosten pro m²"
+        "de": "Materialkosten pro m²",
+        "fr": "Coût des matériaux par m²",
+        "es": "Coste de material por m²"
       },
       "businessContext_i18n": {
         "en": "Cost of fabric per square meter, used for financial loss calculations.",
         "tr": "Metrekare başına kumaş maliyeti, finansal kayıp hesaplamaları için kullanılır.",
-        "de": "Stoffkosten pro Quadratmeter, verwendet für finanzielle Verlustberechnungen."
+        "de": "Stoffkosten pro Quadratmeter, verwendet für finanzielle Verlustberechnungen.",
+        "fr": "Coût du tissu par mètre carré, utilisé pour les calculs de perte financière.",
+        "es": "Costo de la tela por metro cuadrado, utilizado para cálculos de pérdida financiera."
       }
     },
     {
@@ -166,12 +194,16 @@
       "label_i18n": {
         "en": "Labor Rate per Hour",
         "tr": "Saatlik İşçilik Ücreti",
-        "de": "Stundensatz"
+        "de": "Stundensatz",
+        "fr": "Taux de main-d'œuvre par heure",
+        "es": "Tarifa de mano de obra por hora"
       },
       "businessContext_i18n": {
         "en": "Hourly wage of cutting operator, used for labor cost estimation.",
         "tr": "Kesim operatörünün saatlik ücreti, işçilik maliyeti tahmini için kullanılır.",
-        "de": "Stundenlohn des Zuschneiders, verwendet für Arbeitskostenschätzung."
+        "de": "Stundenlohn des Zuschneiders, verwendet für Arbeitskostenschätzung.",
+        "fr": "Salaire horaire de l'opérateur de coupe, utilisé pour l'estimation du coût de main-d'œuvre.",
+        "es": "Salario por hora del operador de corte, utilizado para estimación de costo de mano de obra."
       }
     }
   ],
