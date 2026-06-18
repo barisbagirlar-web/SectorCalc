@@ -48,7 +48,7 @@ export function BreakdownWasteDetailModal({
             <h2 id="breakdown-waste-detail-title" className="text-base font-semibold text-premium-velvet">
               {item.name}
             </h2>
-            <p className="mt-1 text-sm text-body-charcoal">
+            <p className="sc-result-nowrap mt-1 text-sm text-body-charcoal">
               {item.displayValue} ({item.percent}%)
             </p>
           </div>
@@ -71,7 +71,7 @@ export function BreakdownWasteDetailModal({
                 className="rounded-lg border border-technical-gray bg-surface-cream px-3 py-2 text-sm"
               >
                 <p className="font-medium text-body-charcoal">{input.label}</p>
-                <p className="mt-0.5 font-mono text-xs text-body-charcoal/80">
+                <p className="sc-result-nowrap mt-0.5 font-mono text-xs text-body-charcoal/80">
                   {formatInputValue(input.value, locale)}
                 </p>
               </li>
