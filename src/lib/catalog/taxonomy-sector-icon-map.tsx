@@ -167,7 +167,7 @@ export function isTaxonomySectorIconSlug(slug: string): slug is TaxonomySectorIc
 export function getTaxonomySectorIcon(slug: string): LucideIcon {
   const icon = TAXONOMY_SECTOR_ICON_MAP[slug as TaxonomySectorIconSlug];
   if (!icon) {
-    throw new Error(`Missing taxonomy sector icon for slug: ${slug}`);
+    return TAXONOMY_SECTOR_ICON_MAP.diger;
   }
   return icon;
 }
