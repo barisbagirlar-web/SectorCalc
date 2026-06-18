@@ -20,7 +20,8 @@
         "en": "User's body weight in kilograms for accurate metabolic and mechanical work calculations",
         "tr": "Doğru metabolik ve mekanik iş hesaplamaları için kullanıcının kilogram cinsinden vücut ağırlığı",
         "de": "Körpergewicht des Benutzers in Kilogramm für genaue metabolische und mechanische Arbeitsberechnungen",
-        "fr": "Poids corporel de l'utilisateur en kilogrammes pour des calculs métaboliques et mécaniques précis"
+        "fr": "Poids corporel de l'utilisateur en kilogrammes pour des calculs métaboliques et mécaniques précis",
+        "es": "Peso corporal del usuario en kilogramos para cálculos precisos de trabajo metabólico y mecánico"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Total exercise duration in minutes",
         "tr": "Dakika cinsinden toplam egzersiz süresi",
         "de": "Gesamte Trainingsdauer in Minuten",
-        "fr": "Durée totale de l'exercice en minutes"
+        "fr": "Durée totale de l'exercice en minutes",
+        "es": "Duración total del ejercicio en minutos"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Metabolic Equivalent of Task representing intensity; 5.5 typical for moderate stair stepping",
         "tr": "Görevin metabolik eşdeğeri (MET); orta düzey merdiven çıkma için tipik 5.5",
         "de": "Metabolisches Äquivalent der Aufgabe (MET) für die Intensität; 5,5 typisch für moderates Treppensteigen",
-        "fr": "Équivalent métabolique de la tâche représentant l'intensité ; 5,5 typique pour un stepping modéré"
+        "fr": "Équivalent métabolique de la tâche représentant l'intensité ; 5,5 typique pour un stepping modéré",
+        "es": "Equivalente metabólico de la tarea que representa la intensidad; 5.5 es típico para subir escaleras moderadamente"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Basamak Yüksekliği",
         "de": "Stufenhöhe",
         "fr": "Hauteur de marche",
-        "es": "Step Height",
+        "es": "Altura del escalón",
         "ar": "Step Height"
       },
       "businessContext_i18n": {
         "en": "Height of each step in meters (typical stair riser height)",
         "tr": "Her bir basamağın metre cinsinden yüksekliği (tipik merdiven rıht yüksekliği)",
         "de": "Höhe jeder Stufe in Metern (typische Setzstufenhöhe)",
-        "fr": "Hauteur de chaque marche en mètres (hauteur de contremarche typique)"
+        "fr": "Hauteur de chaque marche en mètres (hauteur de contremarche typique)",
+        "es": "Altura de cada escalón en metros (altura típica de contrahuella de escalera)"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Dakikadaki Adım Sayısı",
         "de": "Schritte pro Minute",
         "fr": "Pas par minute",
-        "es": "Steps per Minute",
+        "es": "Pasos por minuto",
         "ar": "Steps per Minute"
       },
       "businessContext_i18n": {
         "en": "Average stepping rate during exercise",
         "tr": "Egzersiz sırasında ortalama adım atma hızı",
         "de": "Durchschnittliche Schrittfrequenz während des Trainings",
-        "fr": "Cadence moyenne de stepping pendant l'exercice"
+        "fr": "Cadence moyenne de stepping pendant l'exercice",
+        "es": "Ritmo promedio de pasos durante el ejercicio"
       }
     }
   ],
@@ -133,7 +138,7 @@
       "caloriesPerMinute": "min"
     }
   },
-  "category": "Teknik & Mühendislik",
+  "category": "İSG & Risk",
   "sector": "Sağlık & Tıp",
   "premiumRequired": false,
   "catalogCategory": "health-body",
@@ -141,7 +146,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "saglik",
   "profession": "Biyomedikal Mühendisi",
-  "categoryId": "engineering",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

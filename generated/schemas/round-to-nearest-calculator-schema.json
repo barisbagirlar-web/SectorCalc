@@ -13,14 +13,15 @@
         "tr": "Yuvarlanacak Değer",
         "de": "Zu rundender Wert",
         "fr": "Valeur à arrondir",
-        "es": "Value to Round",
+        "es": "Valor a redondear",
         "ar": "Value to Round"
       },
       "businessContext_i18n": {
         "en": "The input value that needs to be rounded to a specified multiple.",
         "tr": "Belirtilen bir kata yuvarlanması gereken girdi değeri.",
         "de": "Der Eingabewert, der auf ein bestimmtes Vielfaches gerundet werden muss.",
-        "fr": "La valeur d'entrée qui doit être arrondie à un multiple spécifié."
+        "fr": "La valeur d'entrée qui doit être arrondie à un multiple spécifié.",
+        "es": "El valor de entrada que debe redondearse a un múltiplo específico."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "En Yakına Yuvarla",
         "de": "Runden auf",
         "fr": "Arrondir au plus proche",
-        "es": "Round to Nearest",
+        "es": "Redondear al más cercano",
         "ar": "Round to Nearest"
       },
       "businessContext_i18n": {
         "en": "The multiple to round to, e.g., 0.5 for half-unit rounding, 5 for nearest 5, etc.",
         "tr": "Yuvarlama katı, örn. 0,5 yarım birim yuvarlama için, 5 en yakın 5'e yuvarlama için vb.",
         "de": "Das Vielfache, auf das gerundet wird, z. B. 0,5 für Halbeinheiten-Rundung, 5 für nächste 5 usw.",
-        "fr": "Le multiple pour arrondir, par exemple 0,5 pour un arrondi au demi, 5 pour le 5 le plus proche, etc."
+        "fr": "Le multiple pour arrondir, par exemple 0,5 pour un arrondi au demi, 5 pour le 5 le plus proche, etc.",
+        "es": "El múltiplo al que redondear, ej. 0.5 para redondeo de media unidad, 5 para el 5 más cercano, etc."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Optional offset applied before rounding. The value is shifted by this amount, rounded, then shifted back.",
         "tr": "Yuvarlamadan önce uygulanan isteğe bağlı kaydırma. Değer bu miktar kadar kaydırılır, yuvarlanır, ardından geri kaydırılır.",
         "de": "Optionaler Offset, der vor dem Runden angewendet wird. Der Wert wird um diesen Betrag verschoben, gerundet und dann zurückverschoben.",
-        "fr": "Décalage optionnel appliqué avant l'arrondi. La valeur est décalée de ce montant, arrondie, puis décalée en retour."
+        "fr": "Décalage optionnel appliqué avant l'arrondi. La valeur est décalée de ce montant, arrondie, puis décalée en retour.",
+        "es": "Desplazamiento opcional aplicado antes del redondeo. El valor se desplaza esta cantidad, se redondea y luego se desplaza de vuelta."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Çıktıdaki Ondalık Basamaklar",
         "de": "Dezimalstellen im Ergebnis",
         "fr": "Nombre de décimales en sortie",
-        "es": "Decimal Places in Output",
+        "es": "Decimales en la salida",
         "ar": "Decimal Places in Output"
       },
       "businessContext_i18n": {
         "en": "Number of decimal places for the rounded output. Ensures precision and readability.",
         "tr": "Yuvarlanmış çıktı için ondalık basamak sayısı. Hassasiyet ve okunabilirlik sağlar.",
         "de": "Anzahl der Dezimalstellen für die gerundete Ausgabe. Stellt Genauigkeit und Lesbarkeit sicher.",
-        "fr": "Nombre de décimales pour le résultat arrondi. Assure précision et lisibilité."
+        "fr": "Nombre de décimales pour le résultat arrondi. Assure précision et lisibilité.",
+        "es": "Número de decimales para la salida redondeada. Asegura precisión y legibilidad."
       }
     }
   ],
@@ -107,7 +111,7 @@
     "dataConfidenceAdjusted": "roundedValue",
     "unit": "—"
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "Finans & Yatırım",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -115,7 +119,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "conversion",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

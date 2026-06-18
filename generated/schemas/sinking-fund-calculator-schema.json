@@ -20,7 +20,8 @@
         "en": "The future value needed to be accumulated.",
         "tr": "Biriktirilmesi gereken gelecek değer.",
         "de": "Der zukünftige Wert, der angespart werden soll.",
-        "fr": "Valeur future à accumuler."
+        "fr": "Valeur future à accumuler.",
+        "es": "El valor futuro necesario a acumular"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Annual interest rate earned on the sinking fund.",
         "tr": "Biriktirme fonunda kazanılan yıllık faiz oranı.",
         "de": "Jährlicher Zinssatz, der auf den Tilgungsfonds gezahlt wird.",
-        "fr": "Taux d'intérêt annuel gagné sur le fonds d'amortissement."
+        "fr": "Taux d'intérêt annuel gagné sur le fonds d'amortissement.",
+        "es": "Tasa de interés anual ganada sobre el fondo de amortización."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "The time period over which to accumulate the target amount.",
         "tr": "Hedef tutarın biriktirileceği zaman dilimi.",
         "de": "Der Zeitraum, über den der Zielbetrag angespart werden soll.",
-        "fr": "Période de temps pour accumuler le montant cible."
+        "fr": "Période de temps pour accumuler le montant cible.",
+        "es": "Período de tiempo durante el cual acumular el monto objetivo."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Number of compounding periods per year (e.g., monthly = 12, quarterly = 4).",
         "tr": "Yıllık bileşik dönem sayısı (örneğin aylık = 12, üç aylık = 4).",
         "de": "Anzahl der Zinsperioden pro Jahr (z. B. monatlich = 12, vierteljährlich = 4).",
-        "fr": "Nombre de périodes de capitalisation par an (ex. : mensuel = 12, trimestriel = 4)."
+        "fr": "Nombre de périodes de capitalisation par an (ex. : mensuel = 12, trimestriel = 4).",
+        "es": "Número de períodos de capitalización por año (ej. mensual = 12, trimestral = 4)."
       }
     }
   ],
@@ -107,7 +111,7 @@
     "dataConfidenceAdjusted": "totalInterest",
     "unit": "currency"
   },
-  "category": "Diğer",
+  "category": "Finans & Yatırım",
   "sector": "Günlük Yaşam & Ev",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
@@ -115,7 +119,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "ev-yasam",
   "profession": "Ev Yöneticisi",
-  "categoryId": "diger",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

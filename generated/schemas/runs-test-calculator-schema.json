@@ -13,14 +13,15 @@
         "tr": "Tip A Sayısı",
         "de": "Anzahl Typ A",
         "fr": "Nombre de type A",
-        "es": "Count of Type A",
+        "es": "Recuento de Tipo A",
         "ar": "Count of Type A"
       },
       "businessContext_i18n": {
         "en": "Number of items in first category",
         "tr": "Birinci kategorideki öğe sayısı",
         "de": "Anzahl der Elemente in der ersten Kategorie",
-        "fr": "Nombre d'éléments dans la première catégorie"
+        "fr": "Nombre d'éléments dans la première catégorie",
+        "es": "Número de elementos en la primera categoría"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Tip B Sayısı",
         "de": "Anzahl Typ B",
         "fr": "Nombre de type B",
-        "es": "Count of Type B",
+        "es": "Recuento de Tipo B",
         "ar": "Count of Type B"
       },
       "businessContext_i18n": {
         "en": "Number of items in second category",
         "tr": "İkinci kategorideki öğe sayısı",
         "de": "Anzahl der Elemente in der zweiten Kategorie",
-        "fr": "Nombre d'éléments dans la deuxième catégorie"
+        "fr": "Nombre d'éléments dans la deuxième catégorie",
+        "es": "Número de elementos en la segunda categoría"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Gözlenen Dizi Sayısı",
         "de": "Beobachtete Anzahl von Läufen",
         "fr": "Nombre observé de séquences",
-        "es": "Observed Number of Runs",
+        "es": "Número observado de rachas",
         "ar": "Observed Number of Runs"
       },
       "businessContext_i18n": {
         "en": "Total number of runs in the sequence",
         "tr": "Dizideki toplam dizi sayısı",
         "de": "Gesamtzahl der Läufe in der Sequenz",
-        "fr": "Nombre total de séquences dans la série"
+        "fr": "Nombre total de séquences dans la série",
+        "es": "Número total de ejecuciones en la secuencia"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Type I error threshold for hypothesis test conclusion",
         "tr": "Hipotez testi sonucu için Tip I hata eşiği",
         "de": "Fehler 1. Art-Schwellenwert für die Schlussfolgerung des Hypothesentests",
-        "fr": "Seuil d'erreur de type I pour la conclusion du test d'hypothèse"
+        "fr": "Seuil d'erreur de type I pour la conclusion du test d'hypothèse",
+        "es": "Umbral de error tipo I para la conclusión de la prueba de hipótesis"
       }
     }
   ],
@@ -111,7 +115,7 @@
     "dataConfidenceAdjusted": "conclusion",
     "unit": "—"
   },
-  "category": "Diğer",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
@@ -119,7 +123,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "diger",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

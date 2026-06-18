@@ -20,7 +20,8 @@
         "en": "Kaykayı kullanan kişinin kütlesi",
         "tr": "Kaykayı kullanan kişinin kütlesi",
         "de": "Masse der Person, die das Skateboard benutzt",
-        "fr": "Masse de la personne utilisant le skateboard"
+        "fr": "Masse de la personne utilisant le skateboard",
+        "es": "Masa de la persona que usa el monopatín"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Kaykay Ağırlığı",
         "de": "Skateboard-Gewicht",
         "fr": "Poids du skateboard",
-        "es": "Kaykay Ağırlığı",
+        "es": "Peso del monopatín",
         "ar": "Kaykay Ağırlığı"
       },
       "businessContext_i18n": {
         "en": "Kaykay tahtasının kütlesi",
         "tr": "Kaykay tahtasının kütlesi",
         "de": "Masse des Skateboard-Decks",
-        "fr": "Masse de la planche de skateboard"
+        "fr": "Masse de la planche de skateboard",
+        "es": "Masa de la tabla del monopatín"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Düşüş Yüksekliği",
         "de": "Fallhöhe",
         "fr": "Hauteur de chute",
-        "es": "Düşüş Yüksekliği",
+        "es": "Altura de caída",
         "ar": "Düşüş Yüksekliği"
       },
       "businessContext_i18n": {
         "en": "Rampa veya engelden serbest düşüş yapılan dikey mesafe",
         "tr": "Rampa veya engelden serbest düşüş yapılan dikey mesafe",
         "de": "Vertikale Distanz des freien Falls von Rampe oder Hindernis",
-        "fr": "Distance verticale de chute libre depuis une rampe ou un obstacle"
+        "fr": "Distance verticale de chute libre depuis une rampe ou un obstacle",
+        "es": "Distancia vertical de caída libre desde una rampa u obstáculo"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Durma Mesafesi",
         "de": "Stoppstrecke",
         "fr": "Distance d'arrêt",
-        "es": "Durma Mesafesi",
+        "es": "Distancia de parada",
         "ar": "Durma Mesafesi"
       },
       "businessContext_i18n": {
         "en": "İniş anında kaykayın esneme ve tekerlek sıkışma mesafesi (enerji emilim uzaklığı)",
         "tr": "İniş anında kaykayın esneme ve tekerlek sıkışma mesafesi (enerji emilim uzaklığı)",
         "de": "Distanz der Deck-Durchbiegung und Rad-Einfederung beim Aufprall (Energieaufnahme-Strecke)",
-        "fr": "Distance de compression du skateboard et de blocage des roues à l'atterrissage (distance d'absorption d'énergie)"
+        "fr": "Distance de compression du skateboard et de blocage des roues à l'atterrissage (distance d'absorption d'énergie)",
+        "es": "Distancia de compresión de la tabla y las ruedas en el momento del aterrizaje (distancia de absorción de energía)"
       }
     }
   ],
@@ -107,7 +111,7 @@
     "dataConfidenceAdjusted": "kineticEnergy",
     "unit": "kg"
   },
-  "category": "Diğer",
+  "category": "İSG & Risk",
   "sector": "Fitness & Spor",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -115,7 +119,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "fitness-spor",
   "profession": "Antrenör",
-  "categoryId": "diger",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

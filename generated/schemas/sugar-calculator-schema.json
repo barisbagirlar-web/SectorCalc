@@ -13,14 +13,15 @@
         "tr": "Ürün Kütlesi",
         "de": "Produktmasse",
         "fr": "Masse du produit",
-        "es": "Ürün Kütlesi",
+        "es": "Masa del producto",
         "ar": "Ürün Kütlesi"
       },
       "businessContext_i18n": {
         "en": "Toplam ürün miktarı (kg)",
         "tr": "Toplam ürün miktarı (kg)",
         "de": "Gesamtproduktmenge (kg)",
-        "fr": "Quantité totale de produit (kg)"
+        "fr": "Quantité totale de produit (kg)",
+        "es": "Cantidad total de producto (kg)"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Üründe istenen şeker yüzdesi",
         "tr": "Üründe istenen şeker yüzdesi",
         "de": "Gewünschter Zuckeranteil im Produkt",
-        "fr": "Pourcentage de sucre souhaité dans le produit"
+        "fr": "Pourcentage de sucre souhaité dans le produit",
+        "es": "Porcentaje de azúcar deseado en el producto"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Şeker Saflığı",
         "de": "Zuckerreinheit",
         "fr": "Pure té du sucre",
-        "es": "Şeker Saflığı",
+        "es": "Pureza del azúcar",
         "ar": "Şeker Saflığı"
       },
       "businessContext_i18n": {
         "en": "Kullanılan şekerin saflık oranı",
         "tr": "Kullanılan şekerin saflık oranı",
         "de": "Reinheitsgrad des verwendeten Zuckers",
-        "fr": "Taux de pureté du sucre utilisé"
+        "fr": "Taux de pureté du sucre utilisé",
+        "es": "Porcentaje de pureza del azúcar utilizado"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Şeker Birim Fiyatı",
         "de": "Zuckerstückpreis",
         "fr": "Prix unitaire du sucre",
-        "es": "Şeker Birim Fiyatı",
+        "es": "Precio unitario del azúcar",
         "ar": "Şeker Birim Fiyatı"
       },
       "businessContext_i18n": {
         "en": "Şekerin kg başına maliyeti",
         "tr": "Şekerin kg başına maliyeti",
         "de": "Kosten pro kg Zucker",
-        "fr": "Coût du sucre par kg"
+        "fr": "Coût du sucre par kg",
+        "es": "Costo del azúcar por kg"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Parti Adedi",
         "de": "Anzahl Chargen",
         "fr": "Nombre de lots",
-        "es": "Parti Adedi",
+        "es": "Número de lotes",
         "ar": "Parti Adedi"
       },
       "businessContext_i18n": {
         "en": "Üretilecek parti sayısı",
         "tr": "Üretilecek parti sayısı",
         "de": "Anzahl der zu produzierenden Chargen",
-        "fr": "Nombre de lots à produire"
+        "fr": "Nombre de lots à produire",
+        "es": "Número de lotes a producir"
       }
     }
   ],
@@ -130,7 +135,7 @@
     "dataConfidenceAdjusted": "total_cost",
     "unit": "kg"
   },
-  "category": "Diğer",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Gıda & Beslenme",
   "premiumRequired": false,
   "catalogCategory": "health-body",
@@ -138,7 +143,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "gida",
   "profession": "Gıda Mühendisi",
-  "categoryId": "diger",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

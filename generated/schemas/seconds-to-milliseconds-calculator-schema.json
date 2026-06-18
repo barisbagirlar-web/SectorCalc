@@ -20,7 +20,8 @@
         "en": "Input time in seconds",
         "tr": "Saniye cinsinden giriş süresi",
         "de": "Eingabezeit in Sekunden",
-        "fr": "Saisir le temps en secondes"
+        "fr": "Saisir le temps en secondes",
+        "es": "Tiempo de entrada en segundos"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Milisaniye",
         "de": "Millisekunden",
         "fr": "Millisecondes",
-        "es": "Milliseconds",
+        "es": "Milisegundos",
         "ar": "Milliseconds"
       },
       "businessContext_i18n": {
         "en": "Output time in milliseconds",
         "tr": "Milisaniye cinsinden çıkış süresi",
         "de": "Ausgabezeit in Millisekunden",
-        "fr": "Temps de sortie en millisecondes"
+        "fr": "Temps de sortie en millisecondes",
+        "es": "Tiempo de salida en milisegundos"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Equivalent time in minutes",
         "tr": "Dakika cinsinden eşdeğer süre",
         "de": "Äquivalente Zeit in Minuten",
-        "fr": "Temps équivalent en minutes"
+        "fr": "Temps équivalent en minutes",
+        "es": "Tiempo equivalente en minutos"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Equivalent time in hours",
         "tr": "Saat cinsinden eşdeğer süre",
         "de": "Äquivalente Zeit in Stunden",
-        "fr": "Temps équivalent en heures"
+        "fr": "Temps équivalent en heures",
+        "es": "Tiempo equivalente en horas"
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Equivalent time in days",
         "tr": "Gün cinsinden eşdeğer süre",
         "de": "Äquivalente Zeit in Tagen",
-        "fr": "Temps équivalent en jours"
+        "fr": "Temps équivalent en jours",
+        "es": "Tiempo equivalente en días"
       }
     }
   ],
@@ -136,7 +141,7 @@
       "hours": "h"
     }
   },
-  "category": "Diğer",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -144,7 +149,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "ev-yasam",
   "profession": "Ev Yöneticisi",
-  "categoryId": "diger",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

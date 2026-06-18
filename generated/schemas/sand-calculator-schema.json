@@ -20,7 +20,8 @@
         "en": "Alanın uzunluğu (metre)",
         "tr": "Alanın uzunluğu (metre)",
         "de": "Länge des Bereichs (Meter)",
-        "fr": "Longueur de la zone (mètres)"
+        "fr": "Longueur de la zone (mètres)",
+        "es": "Longitud del área (metros)"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Alanın genişliği (metre)",
         "tr": "Alanın genişliği (metre)",
         "de": "Breite des Bereichs (Meter)",
-        "fr": "Largeur de la zone (mètres)"
+        "fr": "Largeur de la zone (mètres)",
+        "es": "Ancho del área (metros)"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Kum yüksekliği (santimetre)",
         "tr": "Kum yüksekliği (santimetre)",
         "de": "Sandhöhe (Zentimeter)",
-        "fr": "Hauteur du sable (centimètres)"
+        "fr": "Hauteur du sable (centimètres)",
+        "es": "Altura de arena (centímetros)"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Sıkışma ve fire için ek yüzde",
         "tr": "Sıkışma ve fire için ek yüzde",
         "de": "Zusätzlicher Prozentsatz für Verdichtung und Verschnitt",
-        "fr": "Pourcentage supplémentaire pour le tassement et les pertes"
+        "fr": "Pourcentage supplémentaire pour le tassement et les pertes",
+        "es": "Porcentaje adicional por compactación y desperdicio"
       }
     }
   ],
@@ -107,7 +111,7 @@
     "dataConfidenceAdjusted": "weight",
     "unit": "m"
   },
-  "category": "Diğer",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
@@ -115,7 +119,7 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "ev-yasam",
   "profession": "Ev Yöneticisi",
-  "categoryId": "diger",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

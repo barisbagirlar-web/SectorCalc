@@ -13,14 +13,15 @@
         "tr": "Hacim (Ster)",
         "de": "Volumen (Ster)",
         "fr": "Volume (Stère)",
-        "es": "Volume (Stere)",
+        "es": "Volumen (Estéreo)",
         "ar": "Volume (Stere)"
       },
       "businessContext_i18n": {
         "en": "The volume of wood in steres to convert",
         "tr": "Dönüştürülecek odun hacmi (ster cinsinden)",
         "de": "Das Holzvolumen in Ster, das umgerechnet werden soll",
-        "fr": "Volume de bois en stères à convertir"
+        "fr": "Volume de bois en stères à convertir",
+        "es": "El volumen de madera en estéreos a convertir"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Conversion factor, typically 1 stere = 1 m³. Adjust for specific stacking variants.",
         "tr": "Dönüşüm faktörü, tipik olarak 1 ster = 1 m³. Belirli istifleme varyantları için ayarlayın.",
         "de": "Umrechnungsfaktor, typischerweise 1 Ster = 1 m³. Für spezifische Stapelvarianten anpassen.",
-        "fr": "Facteur de conversion, généralement 1 stère = 1 m³. Ajuster pour les variantes d'empilage."
+        "fr": "Facteur de conversion, généralement 1 stère = 1 m³. Ajuster pour les variantes d'empilage.",
+        "es": "Factor de conversión, típicamente 1 estéreo = 1 m³. Ajustar para variantes de apilamiento específicas."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "1.0 for standard stacked steres. Use 0.7–0.8 for loose chainsaw chips.",
         "tr": "Standart istiflenmiş sterler için 1.0. Gevşek zincir talaşı için 0.7–0.8 kullanın.",
         "de": "1,0 für standardmäßig gestapelte Ster. 0,7–0,8 für lose Kettensägen-Hackschnitzel verwenden.",
-        "fr": "1,0 pour les stères empilés standard. Utilisez 0,7–0,8 pour les copeaux de tronçonneuse en vrac."
+        "fr": "1,0 pour les stères empilés standard. Utilisez 0,7–0,8 pour les copeaux de tronçonneuse en vrac.",
+        "es": "1.0 para estéreos apilados estándar. Usar 0.7–0.8 para astillas sueltas de motosierra."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Ster Başına Fiyat",
         "de": "Preis pro Ster",
         "fr": "Prix par stère",
-        "es": "Price per Stere",
+        "es": "Precio por estéreo",
         "ar": "Price per Stere"
       },
       "businessContext_i18n": {
         "en": "Optional: price per stere for cost calculations",
         "tr": "İsteğe bağlı: maliyet hesaplamaları için ster başına fiyat",
         "de": "Optional: Preis pro Ster für Kostenberechnungen",
-        "fr": "Optionnel : prix par stère pour les calculs de coût"
+        "fr": "Optionnel : prix par stère pour les calculs de coût",
+        "es": "Opcional: precio por estéreo para cálculos de coste"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Metreküp Başına Fiyat",
         "de": "Preis pro Kubikmeter",
         "fr": "Prix par mètre cube",
-        "es": "Price per Cubic Meter",
+        "es": "Precio por metro cúbico",
         "ar": "Price per Cubic Meter"
       },
       "businessContext_i18n": {
         "en": "Optional: price per cubic meter for cost comparison",
         "tr": "İsteğe bağlı: maliyet karşılaştırması için metreküp başına fiyat",
         "de": "Optional: Preis pro Kubikmeter für Kostenvergleich",
-        "fr": "Optionnel : prix par mètre cube pour comparaison de coût"
+        "fr": "Optionnel : prix par mètre cube pour comparaison de coût",
+        "es": "Opcional: precio por metro cúbico para comparación de costes"
       }
     },
     {

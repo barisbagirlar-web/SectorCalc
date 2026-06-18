@@ -20,7 +20,8 @@
         "en": "The current age of the individual.",
         "tr": "Bireyin mevcut yaşı.",
         "de": "Das aktuelle Alter der Person.",
-        "fr": "Âge actuel de l'individu."
+        "fr": "Âge actuel de l'individu.",
+        "es": "La edad actual del individuo."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Total amount currently saved for retirement.",
         "tr": "Emeklilik için şu ana kadar biriktirilen toplam miktar.",
         "de": "Gesamtbetrag der bisher für den Ruhestand angesparten Mittel.",
-        "fr": "Montant total actuellement épargné pour la retraite."
+        "fr": "Montant total actuellement épargné pour la retraite.",
+        "es": "Cantidad total ahorrada actualmente para la jubilación."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Amount contributed to retirement savings each month.",
         "tr": "Emeklilik birikimlerine her ay yatırılan miktar.",
         "de": "Monatlicher Beitrag zur Altersvorsorge.",
-        "fr": "Montant cotisé à l'épargne retraite chaque mois."
+        "fr": "Montant cotisé à l'épargne retraite chaque mois.",
+        "es": "Cantidad aportada al ahorro para la jubilación cada mes."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Expected average annual investment return rate.",
         "tr": "Beklenen ortalama yıllık yatırım getiri oranı.",
         "de": "Erwartete durchschnittliche jährliche Anlagerendite.",
-        "fr": "Taux de rendement annuel moyen attendu des investissements."
+        "fr": "Taux de rendement annuel moyen attendu des investissements.",
+        "es": "Tasa de rendimiento anual promedio esperada de la inversión."
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Emeklilik Hedefi",
         "de": "Angestrebter Rentenkapitalstock",
         "fr": "Corpus de retraite cible",
-        "es": "Target Retirement Corpus",
+        "es": "Fondo objetivo de jubilación",
         "ar": "Target Retirement Corpus"
       },
       "businessContext_i18n": {
         "en": "The total savings target required to retire comfortably.",
         "tr": "Rahat bir emeklilik için gereken toplam birikim hedefi.",
         "de": "Das erforderliche Gesamtsparziel für einen komfortablen Ruhestand.",
-        "fr": "Le montant total d'épargne nécessaire pour prendre sa retraite confortablement."
+        "fr": "Le montant total d'épargne nécessaire pour prendre sa retraite confortablement.",
+        "es": "El objetivo de ahorro total necesario para jubilarse cómodamente."
       }
     }
   ],
@@ -129,7 +134,7 @@
     "dataConfidenceAdjusted": "totalContributions",
     "unit": "years"
   },
-  "category": "Finans & Yatırım",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",
   "premiumRequired": false,
   "catalogCategory": "date-time",
@@ -137,7 +142,7 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "ev-yasam",
   "profession": "Ev Yöneticisi",
-  "categoryId": "finance",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

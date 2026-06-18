@@ -20,7 +20,8 @@
         "en": "Subject's body weight in kilograms",
         "tr": "Deneğin kilogram cinsinden vücut ağırlığı",
         "de": "Körpergewicht der Testperson in Kilogramm",
-        "fr": "Poids corporel du sujet en kilogrammes"
+        "fr": "Poids corporel du sujet en kilogrammes",
+        "es": "Peso corporal del sujeto en kilogramos"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Subject's age in years",
         "tr": "Deneğin yıl cinsinden yaşı",
         "de": "Alter der Testperson in Jahren",
-        "fr": "Âge du sujet en années"
+        "fr": "Âge du sujet en années",
+        "es": "Edad del sujeto en años"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Biological gender encoded as 0 for female, 1 for male",
         "tr": "Biyolojik cinsiyet: 0 kadın, 1 erkek",
         "de": "Biologisches Geschlecht, kodiert als 0 für weiblich, 1 für männlich",
-        "fr": "Sexe biologique encodé comme 0 pour femme, 1 pour homme"
+        "fr": "Sexe biologique encodé comme 0 pour femme, 1 pour homme",
+        "es": "Género biológico codificado como 0 para femenino, 1 para masculino"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "1 Mil Yürüme Süresi",
         "de": "1-Meilen-Gehzeit",
         "fr": "Temps de marche de 1 mile",
-        "es": "1-Mile Walk Time",
+        "es": "Tiempo de caminata de 1 milla",
         "ar": "1-Mile Walk Time"
       },
       "businessContext_i18n": {
         "en": "Time taken to walk 1 mile in minutes",
         "tr": "1 mil yürümek için geçen dakika cinsinden süre",
         "de": "Zeit für 1 Meile Gehen in Minuten",
-        "fr": "Temps nécessaire pour parcourir 1 mile en minutes"
+        "fr": "Temps nécessaire pour parcourir 1 mile en minutes",
+        "es": "Tiempo en minutos para caminar 1 milla"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Bitiş Kalp Atış Hızı",
         "de": "Endherzfrequenz",
         "fr": "Fréquence cardiaque finale",
-        "es": "End Heart Rate",
+        "es": "Frecuencia cardíaca final",
         "ar": "End Heart Rate"
       },
       "businessContext_i18n": {
         "en": "Heart rate immediately after completing the 1-mile walk in beats per minute",
         "tr": "1 millik yürüyüşü tamamladıktan hemen sonra dakikadaki kalp atış sayısı",
         "de": "Herzfrequenz unmittelbar nach Abschluss des 1-Meilen-Gehens in Schlägen pro Minute",
-        "fr": "Fréquence cardiaque immédiatement après avoir terminé la marche de 1 mile en battements par minute"
+        "fr": "Fréquence cardiaque immédiatement après avoir terminé la marche de 1 mile en battements par minute",
+        "es": "Frecuencia cardíaca inmediatamente después de completar la caminata de 1 milla en latidos por minuto"
       }
     }
   ],
@@ -130,7 +135,7 @@
     "dataConfidenceAdjusted": "mets",
     "unit": "kg"
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "İSG & Risk",
   "sector": "Fitness & Spor",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -138,7 +143,7 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "fitness-spor",
   "profession": "Antrenör",
-  "categoryId": "conversion",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

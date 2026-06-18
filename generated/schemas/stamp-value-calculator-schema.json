@@ -13,14 +13,15 @@
         "tr": "Belge Değeri",
         "de": "Dokumentenwert",
         "fr": "Valeur du document",
-        "es": "Document Value",
+        "es": "Valor del documento",
         "ar": "Document Value"
       },
       "businessContext_i18n": {
         "en": "The monetary value of the contract or transaction document.",
         "tr": "Sözleşme veya işlem belgesinin parasal değeri.",
         "de": "Der Geldwert des Vertrags oder der Transaktionsurkunde.",
-        "fr": "Valeur monétaire du contrat ou du document de transaction."
+        "fr": "Valeur monétaire du contrat ou du document de transaction.",
+        "es": "Valor monetario del contrato o documento de transacción."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Damga Vergisi Oranı",
         "de": "Stempelsteuersatz",
         "fr": "Taux de droit de timbre",
-        "es": "Stamp Duty Rate",
+        "es": "Tasa del impuesto de timbre",
         "ar": "Stamp Duty Rate"
       },
       "businessContext_i18n": {
         "en": "Applicable stamp duty percentage based on jurisdiction and document type.",
         "tr": "Yargı yetkisi ve belge türüne göre uygulanabilir damga vergisi yüzdesi.",
         "de": "Anwendbarer Stempelsteuersatz basierend auf Rechtsordnung und Dokumententyp.",
-        "fr": "Pourcentage de droit de timbre applicable selon la juridiction et le type de document."
+        "fr": "Pourcentage de droit de timbre applicable selon la juridiction et le type de document.",
+        "es": "Porcentaje del impuesto de timbre aplicable según la jurisdicción y el tipo de documento."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Fixed administrative fee for stamping, if any.",
         "tr": "Varsa, damgalama için sabit idari ücret.",
         "de": "Feste Verwaltungsgebühr für die Stempelung, falls vorhanden.",
-        "fr": "Frais administratifs fixes de timbre, le cas échéant."
+        "fr": "Frais administratifs fixes de timbre, le cas échéant.",
+        "es": "Tarifa administrativa fija por timbrado, si corresponde."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Muafiyet Eşiği",
         "de": "Befreiungsschwellenwert",
         "fr": "Seuil d'exemption",
-        "es": "Exemption Threshold",
+        "es": "Umbral de exención",
         "ar": "Exemption Threshold"
       },
       "businessContext_i18n": {
         "en": "Minimum document value below which no stamp duty applies.",
         "tr": "Altında damga vergisi uygulanmayan minimum belge değeri.",
         "de": "Mindestdokumentwert, unter dem keine Stempelsteuer anfällt.",
-        "fr": "Valeur minimale du document en dessous de laquelle aucun droit de timbre ne s'applique."
+        "fr": "Valeur minimale du document en dessous de laquelle aucun droit de timbre ne s'applique.",
+        "es": "Valor mínimo del documento por debajo del cual no se aplica el impuesto de timbre."
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Damga Sayısı",
         "de": "Anzahl der Stempel",
         "fr": "Nombre de timbres",
-        "es": "Number of Stamps",
+        "es": "Número de timbres",
         "ar": "Number of Stamps"
       },
       "businessContext_i18n": {
         "en": "Number of stamping instances for bulk calculations.",
         "tr": "Toplu hesaplamalar için damgalama örneği sayısı.",
         "de": "Anzahl der Stempelvorgänge für Sammelberechnungen.",
-        "fr": "Nombre d'instances de timbre pour les calculs en vrac."
+        "fr": "Nombre d'instances de timbre pour les calculs en vrac.",
+        "es": "Número de instancias de timbrado para cálculos por lote."
       }
     }
   ],
@@ -128,7 +133,7 @@
     "dataConfidenceAdjusted": "totalCost",
     "unit": "EUR"
   },
-  "category": "Diğer",
+  "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
@@ -136,7 +141,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "diger",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

@@ -20,7 +20,8 @@
         "en": "Total bill subtotal before tax and tip",
         "tr": "Vergi ve bahşiş öncesi toplam fatura ara toplamı",
         "de": "Zwischensumme der Rechnung vor Steuern und Trinkgeld",
-        "fr": "Sous-total de la facture avant taxes et pourboire"
+        "fr": "Sous-total de la facture avant taxes et pourboire",
+        "es": "Subtotal de la cuenta antes de impuestos y propina"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Tip percentage to add, e.g., 15, 18, 20",
         "tr": "Eklenecek bahşiş yüzdesi, örn. 15, 18, 20",
         "de": "Trinkgeldprozentsatz, z.B. 15, 18, 20",
-        "fr": "Pourcentage de pourboire à ajouter, ex. 15, 18, 20"
+        "fr": "Pourcentage de pourboire à ajouter, ex. 15, 18, 20",
+        "es": "Porcentaje de propina a añadir, ej. 15, 18, 20"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Sales tax percentage applied to bill",
         "tr": "Faturaya uygulanan satış vergisi yüzdesi",
         "de": "Umsatzsteuerprozentsatz, der auf die Rechnung angewendet wird",
-        "fr": "Pourcentage de taxe de vente appliqué à la facture"
+        "fr": "Pourcentage de taxe de vente appliqué à la facture",
+        "es": "Porcentaje de impuesto a las ventas aplicado a la cuenta"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Number of people splitting the bill",
         "tr": "Faturayı bölen kişi sayısı",
         "de": "Anzahl der Personen, die die Rechnung teilen",
-        "fr": "Nombre de personnes divisant la facture"
+        "fr": "Nombre de personnes divisant la facture",
+        "es": "Número de personas que dividen la cuenta"
       }
     }
   ],
@@ -113,7 +117,7 @@
     "dataConfidenceAdjusted": "totalPerPerson",
     "unit": "$"
   },
-  "category": "Finans & Yatırım",
+  "category": "Matematik & Analiz",
   "sector": "Günlük Yaşam & Ev",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -121,7 +125,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "ev-yasam",
   "profession": "Ev Yöneticisi",
-  "categoryId": "finance",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

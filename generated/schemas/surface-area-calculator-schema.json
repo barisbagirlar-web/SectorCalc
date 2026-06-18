@@ -13,14 +13,15 @@
         "tr": "Alt Uzunluk (a)",
         "de": "Bodenlänge (a)",
         "fr": "Longueur du fond (a)",
-        "es": "Bottom Length (a)",
+        "es": "Longitud inferior (a)",
         "ar": "Bottom Length (a)"
       },
       "businessContext_i18n": {
         "en": "Length of the bottom rectangle",
         "tr": "Alt dikdörtgenin uzunluğu",
         "de": "Länge des unteren Rechtecks",
-        "fr": "Longueur du rectangle du fond"
+        "fr": "Longueur du rectangle du fond",
+        "es": "Longitud del rectángulo inferior"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Width of the bottom rectangle",
         "tr": "Alt dikdörtgenin genişliği",
         "de": "Breite des unteren Rechtecks",
-        "fr": "Largeur du rectangle inférieur"
+        "fr": "Largeur du rectangle inférieur",
+        "es": "Ancho del rectángulo inferior"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Üst uzunluk (c)",
         "de": "Obere Länge (c)",
         "fr": "Longueur supérieure (c)",
-        "es": "Top Length (c)",
+        "es": "Longitud superior (c)",
         "ar": "Top Length (c)"
       },
       "businessContext_i18n": {
         "en": "Length of the top rectangle",
         "tr": "Üst dikdörtgenin uzunluğu",
         "de": "Länge des oberen Rechtecks",
-        "fr": "Longueur du rectangle supérieur"
+        "fr": "Longueur du rectangle supérieur",
+        "es": "Longitud del rectángulo superior"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Üst genişlik (d)",
         "de": "Obere Breite (d)",
         "fr": "Largeur supérieure (d)",
-        "es": "Top Width (d)",
+        "es": "Ancho superior (d)",
         "ar": "Top Width (d)"
       },
       "businessContext_i18n": {
         "en": "Width of the top rectangle",
         "tr": "Üst dikdörtgenin genişliği",
         "de": "Breite des oberen Rechtecks",
-        "fr": "Largeur du rectangle supérieur"
+        "fr": "Largeur du rectangle supérieur",
+        "es": "Ancho del rectángulo superior"
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Vertical height between bottom and top rectangles",
         "tr": "Alt ve üst dikdörtgenler arasındaki dikey yükseklik",
         "de": "Vertikaler Abstand zwischen unterem und oberem Rechteck",
-        "fr": "Hauteur verticale entre les rectangles inférieur et supérieur"
+        "fr": "Hauteur verticale entre les rectangles inférieur et supérieur",
+        "es": "Altura vertical entre los rectángulos inferior y superior"
       }
     }
   ],
@@ -131,7 +136,7 @@
     "dataConfidenceAdjusted": "totalSurfaceArea",
     "unit": "m"
   },
-  "category": "Diğer",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
@@ -139,7 +144,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "diger",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

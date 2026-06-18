@@ -13,14 +13,15 @@
         "tr": "En Küçük Değer",
         "de": "Kleinster Wert",
         "fr": "Plus petite valeur",
-        "es": "Smallest Value",
+        "es": "Valor más pequeño",
         "ar": "Smallest Value"
       },
       "businessContext_i18n": {
         "en": "Smallest sample data point (ordered)",
         "tr": "En küçük örnek veri noktası (sıralı)",
         "de": "Kleinster Datenpunkt der Stichprobe (geordnet)",
-        "fr": "Point de données le plus petit (ordonné)"
+        "fr": "Point de données le plus petit (ordonné)",
+        "es": "Punto de datos de muestra más pequeño (ordenado)"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "İkinci En Küçük",
         "de": "Zweitkleinster",
         "fr": "Deuxième plus petit",
-        "es": "Second Smallest",
+        "es": "Segundo más pequeño",
         "ar": "Second Smallest"
       },
       "businessContext_i18n": {
         "en": "Second smallest sample data point",
         "tr": "İkinci en küçük örnek veri noktası",
         "de": "Zweitkleinster Datenpunkt der Stichprobe",
-        "fr": "Deuxième point de données le plus petit"
+        "fr": "Deuxième point de données le plus petit",
+        "es": "Segundo punto de datos de muestra más pequeño"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Medyan Değer",
         "de": "Medianwert",
         "fr": "Valeur médiane",
-        "es": "Median Value",
+        "es": "Valor mediano",
         "ar": "Median Value"
       },
       "businessContext_i18n": {
         "en": "Median or third smallest sample data point",
         "tr": "Medyan veya üçüncü en küçük örnek veri noktası",
         "de": "Median oder drittkleinster Datenpunkt der Stichprobe",
-        "fr": "Point de données médian ou troisième plus petit échantillon"
+        "fr": "Point de données médian ou troisième plus petit échantillon",
+        "es": "Mediana o tercer punto de datos de muestra más pequeño"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "İkinci En Büyük",
         "de": "Zweitgrößter",
         "fr": "Deuxième plus grand",
-        "es": "Second Largest",
+        "es": "Segundo más grande",
         "ar": "Second Largest"
       },
       "businessContext_i18n": {
         "en": "Second largest sample data point",
         "tr": "İkinci en büyük örnek veri noktası",
         "de": "Zweitgrößter Stichprobendatenpunkt",
-        "fr": "Deuxième plus grand point de données de l'échantillon"
+        "fr": "Deuxième plus grand point de données de l'échantillon",
+        "es": "Segundo punto de datos de muestra más grande"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "En Büyük Değer",
         "de": "Größter Wert",
         "fr": "Valeur la plus grande",
-        "es": "Largest Value",
+        "es": "Valor más grande",
         "ar": "Largest Value"
       },
       "businessContext_i18n": {
         "en": "Largest sample data point",
         "tr": "En büyük örnek veri noktası",
         "de": "Größter Stichprobendatenpunkt",
-        "fr": "Plus grand point de données de l'échantillon"
+        "fr": "Plus grand point de données de l'échantillon",
+        "es": "Punto de datos de muestra más grande"
       }
     }
   ],
@@ -133,7 +138,7 @@
     "dataConfidenceAdjusted": "W",
     "unit": "—"
   },
-  "category": "Diğer",
+  "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -141,7 +146,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "istatistik",
   "profession": "İstatistikçi",
-  "categoryId": "diger",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

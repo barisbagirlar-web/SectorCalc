@@ -20,7 +20,8 @@
         "en": "Total workout time in seconds",
         "tr": "Saniye cinsinden toplam antrenman süresi",
         "de": "Gesamte Trainingszeit in Sekunden",
-        "fr": "Temps total d'entraînement en secondes"
+        "fr": "Temps total d'entraînement en secondes",
+        "es": "Tiempo total de entrenamiento en segundos"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Total distance rowed in meters",
         "tr": "Metre cinsinden toplam kürek çekme mesafesi",
         "de": "Gesamte zurückgelegte Strecke in Metern",
-        "fr": "Distance totale parcourue en mètres"
+        "fr": "Distance totale parcourue en mètres",
+        "es": "Distancia total remada en metros"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Rower's body weight in kilograms",
         "tr": "Kürekçinin kilogram cinsinden vücut ağırlığı",
         "de": "Körpergewicht des Ruderers in Kilogramm",
-        "fr": "Poids corporel du rameur en kilogrammes"
+        "fr": "Poids corporel du rameur en kilogrammes",
+        "es": "Peso corporal del remero en kilogramos"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Strok Hızı",
         "de": "Schlagfrequenz",
         "fr": "Fréquence de coup",
-        "es": "Stroke Rate",
+        "es": "Frecuencia de brazada",
         "ar": "Stroke Rate"
       },
       "businessContext_i18n": {
         "en": "Average strokes per minute during the session",
         "tr": "Seans sırasında dakikadaki ortalama strok sayısı",
         "de": "Durchschnittliche Schläge pro Minute während der Einheit",
-        "fr": "Nombre moyen de coups par minute pendant la séance"
+        "fr": "Nombre moyen de coups par minute pendant la séance",
+        "es": "Promedio de brazadas por minuto durante la sesión"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Sürükleme Faktörü",
         "de": "Widerstandsfaktor",
         "fr": "Facteur de traînée",
-        "es": "Drag Factor",
+        "es": "Factor de arrastre",
         "ar": "Drag Factor"
       },
       "businessContext_i18n": {
         "en": "The damper setting and overall drag factor of the rowing ergometer",
         "tr": "Kürek ergometresinin damper ayarı ve genel sürükleme faktörü",
         "de": "Die Dämpfereinstellung und der gesamte Widerstandsfaktor des Ruderergometers",
-        "fr": "Réglage du volet et facteur de traînée global de l'ergomètre d'aviron"
+        "fr": "Réglage du volet et facteur de traînée global de l'ergomètre d'aviron",
+        "es": "Ajuste del amortiguador y factor de arrastre general del ergómetro de remo"
       }
     }
   ],
@@ -136,7 +141,7 @@
     "dataConfidenceAdjusted": "powerPerWeight",
     "unit": "sec"
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "İSG & Risk",
   "sector": "Birim & Dönüşüm",
   "premiumRequired": false,
   "catalogCategory": "health-body",
@@ -144,7 +149,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "birim-donusum",
   "profession": "Mühendis",
-  "categoryId": "conversion",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

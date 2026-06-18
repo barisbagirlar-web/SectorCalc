@@ -13,14 +13,15 @@
         "tr": "Dalga Yüksekliği (H)",
         "de": "Wellenhöhe (H)",
         "fr": "Hauteur de vague (H)",
-        "es": "Wave Height (H)",
+        "es": "Altura de ola (H)",
         "ar": "Wave Height (H)"
       },
       "businessContext_i18n": {
         "en": "Significant wave height measured by buoy or wave radar.",
         "tr": "Şamandıra veya dalga radarı ile ölçülen belirgin dalga yüksekliği.",
         "de": "Signifikante Wellenhöhe gemessen durch Boje oder Wellenradar.",
-        "fr": "Hauteur significative des vagues mesurée par bouée ou radar de vagues."
+        "fr": "Hauteur significative des vagues mesurée par bouée ou radar de vagues.",
+        "es": "Altura significativa de ola medida por boya o radar de olas."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Dalga Periyodu (T)",
         "de": "Wellenperiode (T)",
         "fr": "Période de vague (T)",
-        "es": "Wave Period (T)",
+        "es": "Período de ola (T)",
         "ar": "Wave Period (T)"
       },
       "businessContext_i18n": {
         "en": "Peak wave period from spectral analysis.",
         "tr": "Spektral analizden elde edilen tepe dalga periyodu.",
         "de": "Spitzenwellenperiode aus Spektralanalyse.",
-        "fr": "Période de pic des vagues issue de l'analyse spectrale."
+        "fr": "Période de pic des vagues issue de l'analyse spectrale.",
+        "es": "Período pico de ola del análisis espectral."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Su Yoğunluğu (ρ)",
         "de": "Wasserdichte (ρ)",
         "fr": "Masse volumique de l'eau (ρ)",
-        "es": "Water Density (ρ)",
+        "es": "Densidad del agua (ρ)",
         "ar": "Water Density (ρ)"
       },
       "businessContext_i18n": {
         "en": "Density of seawater, typically 1025 kg/m³.",
         "tr": "Deniz suyunun yoğunluğu, tipik olarak 1025 kg/m³.",
         "de": "Dichte von Meerwasser, typischerweise 1025 kg/m³.",
-        "fr": "Masse volumique de l'eau de mer, typiquement 1025 kg/m³."
+        "fr": "Masse volumique de l'eau de mer, typiquement 1025 kg/m³.",
+        "es": "Densidad del agua de mar, típicamente 1025 kg/m³."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Standard gravitational acceleration.",
         "tr": "Standart yerçekimi ivmesi.",
         "de": "Standard-Erdbeschleunigung.",
-        "fr": "Accélération gravitationnelle standard."
+        "fr": "Accélération gravitationnelle standard.",
+        "es": "Aceleración gravitacional estándar."
       }
     }
   ],
@@ -113,7 +117,7 @@
       "wave_power_per_meter = numerator / denominator": "m"
     }
   },
-  "category": "Sürdürülebilirlik",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Fizik & Mekanik",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
@@ -121,7 +125,7 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "fizik",
   "profession": "Fizik Mühendisi",
-  "categoryId": "sustainability",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

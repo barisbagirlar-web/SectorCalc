@@ -13,14 +13,15 @@
         "tr": "Toplam Fatura",
         "de": "Gesamtrechnung",
         "fr": "Facture totale",
-        "es": "Total Bill",
+        "es": "Total de la cuenta",
         "ar": "Total Bill"
       },
       "businessContext_i18n": {
         "en": "The total bill amount before tax and tip.",
         "tr": "Vergi ve bahşiş öncesi toplam fatura tutarı.",
         "de": "Der gesamte Rechnungsbetrag vor Steuern und Trinkgeld.",
-        "fr": "Montant total de la facture avant taxes et pourboire."
+        "fr": "Montant total de la facture avant taxes et pourboire.",
+        "es": "Monto total de la cuenta antes de impuestos y propina."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Number of individuals sharing the bill.",
         "tr": "Faturayı paylaşan kişi sayısı.",
         "de": "Anzahl der Personen, die die Rechnung teilen.",
-        "fr": "Nombre de personnes partageant la facture."
+        "fr": "Nombre de personnes partageant la facture.",
+        "es": "Número de personas que comparten la cuenta."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Tax rate applied to the bill.",
         "tr": "Faturaya uygulanan vergi oranı.",
         "de": "Steuersatz, der auf die Rechnung angewendet wird.",
-        "fr": "Taux de taxe appliqué à la facture."
+        "fr": "Taux de taxe appliqué à la facture.",
+        "es": "Tasa de impuesto aplicada a la cuenta."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Tip percentage on the bill.",
         "tr": "Faturaya eklenecek bahşiş yüzdesi.",
         "de": "Trinkgeldprozentsatz auf die Rechnung.",
-        "fr": "Pourcentage de pourboire sur la facture."
+        "fr": "Pourcentage de pourboire sur la facture.",
+        "es": "Porcentaje de propina sobre la cuenta."
       }
     }
   ],
@@ -108,7 +112,7 @@
     "dataConfidenceAdjusted": "perPerson",
     "unit": "$"
   },
-  "category": "Finans & Yatırım",
+  "category": "Matematik & Analiz",
   "sector": "Günlük Yaşam & Ev",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -116,7 +120,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "ev-yasam",
   "profession": "Ev Yöneticisi",
-  "categoryId": "finance",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

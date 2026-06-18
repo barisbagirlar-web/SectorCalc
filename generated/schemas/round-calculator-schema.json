@@ -13,14 +13,15 @@
         "tr": "Çap",
         "de": "Durchmesser",
         "fr": "Diamètre",
-        "es": "Çap (Diameter)",
+        "es": "Diámetro",
         "ar": "Çap (Diameter)"
       },
       "businessContext_i18n": {
         "en": "Yuvarlak çubuğun çapı",
         "tr": "Yuvarlak çubuğun çapı",
         "de": "Durchmesser des Rundstabs",
-        "fr": "Diamètre de la barre ronde"
+        "fr": "Diamètre de la barre ronde",
+        "es": "Diámetro de la barra redonda"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Uzunluk",
         "de": "Länge",
         "fr": "Longueur",
-        "es": "Uzunluk (Length)",
+        "es": "Longitud",
         "ar": "Uzunluk (Length)"
       },
       "businessContext_i18n": {
         "en": "Yuvarlak çubuğun uzunluğu",
         "tr": "Yuvarlak çubuğun uzunluğu",
         "de": "Länge des Rundstabs",
-        "fr": "Longueur de la barre ronde"
+        "fr": "Longueur de la barre ronde",
+        "es": "Longitud de la barra redonda"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Yoğunluk",
         "de": "Dichte",
         "fr": "Densité",
-        "es": "Yoğunluk (Density)",
+        "es": "Densidad",
         "ar": "Yoğunluk (Density)"
       },
       "businessContext_i18n": {
         "en": "Malzeme yoğunluğu (örn. çelik: 7.85 g/cm³)",
         "tr": "Malzeme yoğunluğu (örn. çelik: 7.85 g/cm³)",
         "de": "Materialdichte (z. B. Stahl: 7,85 g/cm³)",
-        "fr": "Densité du matériau (ex. : acier : 7,85 g/cm³)"
+        "fr": "Densité du matériau (ex. : acier : 7,85 g/cm³)",
+        "es": "Densidad del material (ej. acero: 7.85 g/cm³)"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Adet",
         "de": "Stückzahl",
         "fr": "Quantité",
-        "es": "Adet (Quantity)",
+        "es": "Cantidad",
         "ar": "Adet (Quantity)"
       },
       "businessContext_i18n": {
         "en": "Çubuk sayısı",
         "tr": "Çubuk sayısı",
         "de": "Anzahl der Stäbe",
-        "fr": "Nombre de barres"
+        "fr": "Nombre de barres",
+        "es": "Número de barras"
       }
     }
   ],
@@ -114,7 +118,7 @@
     "dataConfidenceAdjusted": "totalSurfaceArea",
     "unit": "mm"
   },
-  "category": "Diğer",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Fizik & Mekanik",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
@@ -122,7 +126,7 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "fizik",
   "profession": "Fizik Mühendisi",
-  "categoryId": "diger",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

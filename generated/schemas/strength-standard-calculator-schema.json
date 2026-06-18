@@ -20,7 +20,8 @@
         "en": "The total weight used in the exercise, including barbell if applicable",
         "tr": "Egzersizde kullanılan toplam ağırlık (varsa halter dahil)",
         "de": "Gesamtgewicht der Übung, inkl. Langhantel falls zutreffend",
-        "fr": "Poids total utilisé dans l'exercice, incluant la barre si applicable"
+        "fr": "Poids total utilisé dans l'exercice, incluant la barre si applicable",
+        "es": "Peso total utilizado en el ejercicio, incluida la barra si corresponde"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Number of repetitions completed with the given weight",
         "tr": "Verilen ağırlıkla tamamlanan tekrar sayısı",
         "de": "Anzahl der Wiederholungen mit dem gegebenen Gewicht",
-        "fr": "Nombre de répétitions effectuées avec le poids donné"
+        "fr": "Nombre de répétitions effectuées avec le poids donné",
+        "es": "Número de repeticiones completadas con el peso dado"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Lifter's body weight for relative strength calculation",
         "tr": "Göreceli kuvvet hesaplaması için sporcunun vücut ağırlığı",
         "de": "Körpergewicht des Sportlers für relative Kraftberechnung",
-        "fr": "Poids corporel du sportif pour le calcul de la force relative"
+        "fr": "Poids corporel du sportif pour le calcul de la force relative",
+        "es": "Peso corporal del levantador para el cálculo de fuerza relativa"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Lifter's age (optional, for future age-adjusted standards)",
         "tr": "Sporcunun yaşı (isteğe bağlı, gelecekteki yaşa göre ayarlanmış standartlar için)",
         "de": "Alter des Sportlers (optional, für zukünftige altersangepasste Standards)",
-        "fr": "Âge du sportif (optionnel, pour les normes ajustées à l'âge)"
+        "fr": "Âge du sportif (optionnel, pour les normes ajustées à l'âge)",
+        "es": "Edad del levantador (opcional, para estándares ajustados por edad futuros)"
       }
     }
   ],
@@ -109,7 +113,7 @@
       "strengthRatio": "%"
     }
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "İSG & Risk",
   "sector": "Sağlık & Tıp",
   "premiumRequired": false,
   "categorySlug": "technology-ai-cloud-cyber",
@@ -117,7 +121,7 @@
   "sectorSlug": "cleaning",
   "sectorId": "saglik",
   "profession": "Biyomedikal Mühendisi",
-  "categoryId": "conversion",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

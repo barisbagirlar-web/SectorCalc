@@ -20,7 +20,8 @@
         "en": "Total amount of the transaction including taxes.",
         "tr": "Vergiler dahil işlemin toplam tutarı.",
         "de": "Gesamtbetrag der Transaktion inklusive Steuern.",
-        "fr": "Montant total de la transaction, taxes comprises."
+        "fr": "Montant total de la transaction, taxes comprises.",
+        "es": "Monto total de la transacción incluyendo impuestos."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "İşlem Ücreti Yüzdesi",
         "de": "Bearbeitungsgebühr in Prozent",
         "fr": "Pourcentage des frais de traitement",
-        "es": "Processing Fee Percentage",
+        "es": "Porcentaje de tarifa de procesamiento",
         "ar": "Processing Fee Percentage"
       },
       "businessContext_i18n": {
         "en": "The percentage fee for domestic card processing (e.g., 2.9% for Stripe).",
         "tr": "Yerel kart işleme için yüzde ücreti (örn., Stripe için %2,9).",
         "de": "Der prozentuale Satz für die Bearbeitung von Inlandskarten (z.B. 2,9% bei Stripe).",
-        "fr": "Pourcentage des frais pour le traitement des cartes nationales (ex. : 2,9 % pour Stripe)."
+        "fr": "Pourcentage des frais pour le traitement des cartes nationales (ex. : 2,9 % pour Stripe).",
+        "es": "El porcentaje de tarifa para procesamiento de tarjetas nacionales (ej: 2.9% para Stripe)."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "The fixed fee per transaction (e.g., $0.30 for Stripe).",
         "tr": "İşlem başına sabit ücret (örn., Stripe için $0,30).",
         "de": "Die feste Gebühr pro Transaktion (z.B. 0,30 $ bei Stripe).",
-        "fr": "Frais fixes par transaction (ex. : 0,30 $ pour Stripe)."
+        "fr": "Frais fixes par transaction (ex. : 0,30 $ pour Stripe).",
+        "es": "La tarifa fija por transacción (ej: $0.30 para Stripe)."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Ek Ücret Yüzdesi",
         "de": "Zusätzlicher Gebührensatz in Prozent",
         "fr": "Pourcentage des frais supplémentaires",
-        "es": "Additional Fee Percentage",
+        "es": "Porcentaje de tarifa adicional",
         "ar": "Additional Fee Percentage"
       },
       "businessContext_i18n": {
         "en": "Additional percentage for international cards or currency conversion (Stripe adds 1% for international, another 1% for conversion if needed).",
         "tr": "Uluslararası kartlar veya para birimi dönüşümü için ek yüzde (Stripe uluslararası için %1, gerekirse dönüşüm için ek %1 ekler).",
         "de": "Zusätzlicher Prozentsatz für internationale Karten oder Währungsumrechnung (Stripe fügt 1% für international, weitere 1% für Umrechnung hinzu, falls erforderlich).",
-        "fr": "Pourcentage supplémentaire pour les cartes internationales ou la conversion de devises (Stripe ajoute 1 % pour l'international, 1 % supplémentaire pour la conversion si nécessaire)."
+        "fr": "Pourcentage supplémentaire pour les cartes internationales ou la conversion de devises (Stripe ajoute 1 % pour l'international, 1 % supplémentaire pour la conversion si nécessaire).",
+        "es": "Porcentaje adicional para tarjetas internacionales o conversión de moneda (Stripe agrega 1% para internacional, otro 1% para conversión si es necesario)."
       }
     }
   ],
@@ -111,7 +115,7 @@
     "dataConfidenceAdjusted": "netAmount",
     "unit": "USD"
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
@@ -119,7 +123,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "conversion",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

@@ -20,7 +20,8 @@
         "en": "Total number of words in the text.",
         "tr": "Metindeki toplam kelime sayısı.",
         "de": "Gesamtzahl der Wörter im Text.",
-        "fr": "Nombre total de mots dans le texte."
+        "fr": "Nombre total de mots dans le texte.",
+        "es": "Número total de palabras en el texto."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Cümle Başına Ortalama Kelime",
         "de": "Durchschnittliche Wörter pro Satz",
         "fr": "Moyenne de mots par phrase",
-        "es": "Avg Words per Sentence",
+        "es": "Promedio de palabras por oración",
         "ar": "Avg Words per Sentence"
       },
       "businessContext_i18n": {
         "en": "Average number of words per sentence (typically 15-20).",
         "tr": "Cümle başına ortalama kelime sayısı (genellikle 15-20).",
         "de": "Durchschnittliche Anzahl von Wörtern pro Satz (typischerweise 15-20).",
-        "fr": "Nombre moyen de mots par phrase (généralement 15-20)."
+        "fr": "Nombre moyen de mots par phrase (généralement 15-20).",
+        "es": "Número promedio de palabras por oración (típicamente 15-20)."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Total number of characters including spaces.",
         "tr": "Boşluklar dahil toplam karakter sayısı.",
         "de": "Gesamtzahl der Zeichen inklusive Leerzeichen.",
-        "fr": "Nombre total de caractères espaces compris."
+        "fr": "Nombre total de caractères espaces compris.",
+        "es": "Número total de caracteres incluyendo espacios."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Cümle Başına Ortalama Karakter",
         "de": "Durchschnittliche Zeichen pro Satz",
         "fr": "Moyenne de caractères par phrase",
-        "es": "Avg Chars per Sentence",
+        "es": "Promedio de caracteres por oración",
         "ar": "Avg Chars per Sentence"
       },
       "businessContext_i18n": {
         "en": "Average characters per sentence.",
         "tr": "Cümle başına ortalama karakter sayısı.",
         "de": "Durchschnittliche Zeichen pro Satz.",
-        "fr": "Nombre moyen de caractères par phrase."
+        "fr": "Nombre moyen de caractères par phrase.",
+        "es": "Promedio de caracteres por oración."
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Toplam Paragraf",
         "de": "Gesamtzahl der Absätze",
         "fr": "Nombre total de paragraphes",
-        "es": "Total Paragraphs",
+        "es": "Total de párrafos",
         "ar": "Total Paragraphs"
       },
       "businessContext_i18n": {
         "en": "Total number of paragraphs.",
         "tr": "Toplam paragraf sayısı.",
         "de": "Gesamtzahl der Absätze.",
-        "fr": "Nombre total de paragraphes."
+        "fr": "Nombre total de paragraphes.",
+        "es": "Número total de párrafos."
       }
     },
     {
@@ -123,14 +128,15 @@
         "tr": "Paragraf Başına Ortalama Cümle",
         "de": "Durchschnittliche Sätze pro Absatz",
         "fr": "Moyenne de phrases par paragraphe",
-        "es": "Avg Sentences per Paragraph",
+        "es": "Promedio de oraciones por párrafo",
         "ar": "Avg Sentences per Paragraph"
       },
       "businessContext_i18n": {
         "en": "Average sentences per paragraph.",
         "tr": "Paragraf başına ortalama cümle sayısı.",
         "de": "Durchschnittliche Anzahl von Sätzen pro Absatz.",
-        "fr": "Nombre moyen de phrases par paragraphe."
+        "fr": "Nombre moyen de phrases par paragraphe.",
+        "es": "Promedio de oraciones por párrafo."
       }
     },
     {
@@ -145,14 +151,15 @@
         "tr": "Satır Sayısı",
         "de": "Zeilenanzahl",
         "fr": "Nombre de lignes",
-        "es": "Line Count",
+        "es": "Conteo de líneas",
         "ar": "Line Count"
       },
       "businessContext_i18n": {
         "en": "Total number of lines (if line-based formatting).",
         "tr": "Toplam satır sayısı (satır tabanlı biçimlendirme varsa).",
         "de": "Gesamtzahl der Zeilen (bei zeilenbasierter Formatierung).",
-        "fr": "Nombre total de lignes (si formatage par lignes)."
+        "fr": "Nombre total de lignes (si formatage par lignes).",
+        "es": "Número total de líneas (si el formato está basado en líneas)."
       }
     },
     {
@@ -174,7 +181,8 @@
         "en": "Average words per line.",
         "tr": "Satır başına ortalama kelime sayısı.",
         "de": "Durchschnittliche Wörter pro Zeile.",
-        "fr": "Nombre moyen de mots par ligne."
+        "fr": "Nombre moyen de mots par ligne.",
+        "es": "Promedio de palabras por línea."
       }
     }
   ],
@@ -200,7 +208,7 @@
     "dataConfidenceAdjusted": "estimatedSentenceCount",
     "unit": "words"
   },
-  "category": "Diğer",
+  "category": "İSG & Risk",
   "sector": "Kimya & Proses",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
@@ -208,7 +216,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "kimya",
   "profession": "Kimyager",
-  "categoryId": "diger",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

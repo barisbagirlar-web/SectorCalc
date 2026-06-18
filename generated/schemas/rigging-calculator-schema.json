@@ -20,7 +20,8 @@
         "en": "Kaldırılacak yükün toplam ağırlığı",
         "tr": "Kaldırılacak yükün toplam ağırlığı",
         "de": "Gesamtgewicht der zu hebenden Last",
-        "fr": "Poids total de la charge à soulever"
+        "fr": "Poids total de la charge à soulever",
+        "es": "Peso total de la carga a levantar"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Askı Açısı (yataydan)",
         "de": "Anschlagwinkel (zur Horizontalen)",
         "fr": "Angle d'élingue (par rapport à l'horizontale)",
-        "es": "Askı Açısı (yataydan)",
+        "es": "Ángulo de la eslinga (desde la horizontal)",
         "ar": "Askı Açısı (yataydan)"
       },
       "businessContext_i18n": {
         "en": "Askı açısı yatay düzlemden ölçülür (0° tam yatay, 90° dikey)",
         "tr": "Askı açısı yatay düzlemden ölçülür (0° tam yatay, 90° dikey).",
         "de": "Der Anschlagwinkel wird von der horizontalen Ebene gemessen (0° vollständig horizontal, 90° vertikal).",
-        "fr": "L'angle d'élingue est mesuré par rapport au plan horizontal (0° complètement horizontal, 90° vertical)."
+        "fr": "L'angle d'élingue est mesuré par rapport au plan horizontal (0° complètement horizontal, 90° vertical).",
+        "es": "El ángulo de la eslinga se mide desde el plano horizontal (0° completamente horizontal, 90° vertical)."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Askı Kolu Sayısı",
         "de": "Anzahl der Anschlagstränge",
         "fr": "Nombre de brins d'élingue",
-        "es": "Askı Kolu Sayısı",
+        "es": "Número de ramales de la eslinga",
         "ar": "Askı Kolu Sayısı"
       },
       "businessContext_i18n": {
         "en": "Yükü taşıyan askı kollarının sayısı (genellikle 2 veya 4)",
         "tr": "Yükü taşıyan askı kollarının sayısı (genellikle 2 veya 4).",
         "de": "Anzahl der die Last tragenden Anschlagstränge (normalerweise 2 oder 4).",
-        "fr": "Nombre de brins d'élingue supportant la charge (généralement 2 ou 4)."
+        "fr": "Nombre de brins d'élingue supportant la charge (généralement 2 ou 4).",
+        "es": "Número de ramales de la eslinga que soportan la carga (generalmente 2 o 4)."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Tasarımda kullanılan emniyet katsayısı (örn: 5:1)",
         "tr": "Tasarımda kullanılan emniyet katsayısı (örn: 5:1).",
         "de": "Sicherheitsfaktor für die Auslegung (z. B. 5:1).",
-        "fr": "Coefficient de sécurité utilisé dans la conception (ex : 5:1)."
+        "fr": "Coefficient de sécurité utilisé dans la conception (ex : 5:1).",
+        "es": "Factor de seguridad utilizado en el diseño (ej: 5:1)"
       }
     }
   ],
@@ -112,7 +116,7 @@
       "Brüt askı yükü: ${tensionGross.toFixed(2)} kg": "kg"
     }
   },
-  "category": "Diğer",
+  "category": "Teknik & Mühendislik",
   "sector": "Makine & Üretim",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
@@ -120,7 +124,7 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "makine",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "diger",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

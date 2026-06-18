@@ -13,14 +13,15 @@
         "tr": "Yıllık Faiz Oranı (%)",
         "de": "Jährlicher Zinssatz (%)",
         "fr": "Taux d'intérêt annuel (%)",
-        "es": "Yıllık Faiz Oranı (%)",
+        "es": "Tasa de interés anual (%)",
         "ar": "Yıllık Faiz Oranı (%)"
       },
       "businessContext_i18n": {
         "en": "Yatırımın yıllık nominal getiri oranı.",
         "tr": "Yatırımın yıllık nominal getiri oranı.",
         "de": "Jährliche nominale Rendite der Anlage.",
-        "fr": "Taux de rendement nominal annuel de l'investissement."
+        "fr": "Taux de rendement nominal annuel de l'investissement.",
+        "es": "Tasa de rendimiento nominal anual de la inversión."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Vergi Oranı (%)",
         "de": "Steuersatz (%)",
         "fr": "Taux d'imposition (%)",
-        "es": "Vergi Oranı (%)",
+        "es": "Tasa de impuesto (%)",
         "ar": "Vergi Oranı (%)"
       },
       "businessContext_i18n": {
         "en": "Getiri üzerinden alınan vergi oranı (0 ise vergi yok).",
         "tr": "Getiri üzerinden alınan vergi oranı (0 ise vergi yok).",
         "de": "Steuersatz auf die Rendite (0 = keine Steuer).",
-        "fr": "Taux d'imposition sur le rendement (0 si aucun impôt)."
+        "fr": "Taux d'imposition sur le rendement (0 si aucun impôt).",
+        "es": "Tasa de impuesto sobre el rendimiento (0 si no hay impuesto)."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Bileşik Dönemi (yıl başına)",
         "de": "Zinseszinsperiode (pro Jahr)",
         "fr": "Période de composition (par an)",
-        "es": "Bileşik Dönemi (yıl başına)",
+        "es": "Período de capitalización (por año)",
         "ar": "Bileşik Dönemi (yıl başına)"
       },
       "businessContext_i18n": {
         "en": "Faizin yılda kaç kez bileşiklendiği (ör. aylık için 12).",
         "tr": "Faizin yılda kaç kez bileşiklendiği (ör. aylık için 12).",
         "de": "Häufigkeit der Zinseszinsberechnung pro Jahr (z. B. 12 für monatlich).",
-        "fr": "Nombre de fois par an où les intérêts sont composés (ex. 12 pour mensuel)."
+        "fr": "Nombre de fois par an où les intérêts sont composés (ex. 12 pour mensuel).",
+        "es": "Número de veces que se capitaliza el interés por año (ej. 12 para mensual)."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Başlangıç Anapara",
         "de": "Anfangskapital",
         "fr": "Capital initial",
-        "es": "Başlangıç Anapara",
+        "es": "Capital inicial",
         "ar": "Başlangıç Anapara"
       },
       "businessContext_i18n": {
         "en": "Opsiyonel: 3 katına çıkacak başlangıç tutarı.",
         "tr": "Opsiyonel: 3 katına çıkacak başlangıç tutarı.",
         "de": "Optional: Anfangsbetrag, der verdreifacht werden soll.",
-        "fr": "Optionnel : montant initial à tripler."
+        "fr": "Optionnel : montant initial à tripler.",
+        "es": "Opcional: monto inicial para triplicar."
       }
     }
   ],
@@ -107,7 +111,7 @@
     "dataConfidenceAdjusted": "targetAmount",
     "unit": "%"
   },
-  "category": "Diğer",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
@@ -115,7 +119,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "diger",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

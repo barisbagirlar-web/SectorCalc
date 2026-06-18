@@ -13,14 +13,15 @@
         "tr": "Alt sınır (a)",
         "de": "Untere Grenze (a)",
         "fr": "Limite inférieure (a)",
-        "es": "Lower limit (a)",
+        "es": "Límite inferior (a)",
         "ar": "Lower limit (a)"
       },
       "businessContext_i18n": {
         "en": "Integration lower bound",
         "tr": "İntegral alt sınırı",
         "de": "Untere Integrationsgrenze",
-        "fr": "Borne inférieure d'intégration"
+        "fr": "Borne inférieure d'intégration",
+        "es": "Límite inferior de integración"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Üst sınır (b)",
         "de": "Obere Grenze (b)",
         "fr": "Limite supérieure (b)",
-        "es": "Upper limit (b)",
+        "es": "Límite superior (b)",
         "ar": "Upper limit (b)"
       },
       "businessContext_i18n": {
         "en": "Integration upper bound",
         "tr": "İntegral üst sınırı",
         "de": "Obere Integrationsgrenze",
-        "fr": "Borne supérieure d'intégration"
+        "fr": "Borne supérieure d'intégration",
+        "es": "Límite superior de integración"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Alt aralık sayısı (n)",
         "de": "Anzahl der Teilintervalle (n)",
         "fr": "Nombre de sous-intervalles (n)",
-        "es": "Number of subintervals (n)",
+        "es": "Número de subintervalos (n)",
         "ar": "Number of subintervals (n)"
       },
       "businessContext_i18n": {
         "en": "Must be even for Simpson's rule",
         "tr": "Simpson kuralı için çift olmalıdır",
         "de": "Muss für Simpson-Regel gerade sein",
-        "fr": "Doit être pair pour la règle de Simpson"
+        "fr": "Doit être pair pour la règle de Simpson",
+        "es": "Debe ser par para la regla de Simpson"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Fonksiyon türü",
         "de": "Funktionstyp",
         "fr": "Type de fonction",
-        "es": "Function type",
+        "es": "Tipo de función",
         "ar": "Function type"
       },
       "businessContext_i18n": {
         "en": "1: sin(x), 2: cos(x), 3: x^2, 4: sqrt(x), 5: exp(x), 6: log(x)",
         "tr": "1: sin(x), 2: cos(x), 3: x², 4: √x, 5: eˣ, 6: log(x)",
         "de": "1: sin(x), 2: cos(x), 3: x^2, 4: sqrt(x), 5: exp(x), 6: log(x)",
-        "fr": "1: sin(x), 2: cos(x), 3: x^2, 4: sqrt(x), 5: exp(x), 6: log(x)"
+        "fr": "1: sin(x), 2: cos(x), 3: x^2, 4: sqrt(x), 5: exp(x), 6: log(x)",
+        "es": "1: sin(x), 2: cos(x), 3: x^2, 4: sqrt(x), 5: exp(x), 6: log(x)"
       }
     }
   ],
@@ -111,7 +115,7 @@
     "dataConfidenceAdjusted": "h____b___a____n",
     "unit": "N"
   },
-  "category": "Diğer",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -119,7 +123,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "diger",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

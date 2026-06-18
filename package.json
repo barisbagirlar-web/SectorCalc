@@ -110,6 +110,7 @@
     "dashboard:v4-pro-batch": "bash scripts/deepseek/start-v4-dashboard.sh",
     "sync:free-catalog": "npx tsx scripts/deepseek/sync-free-catalog-from-schemas.ts",
     "assign:schema-categories": "npx tsx scripts/deepseek/assign-categories-to-schemas.ts && npm run sync:free-catalog",
+    "assign:taxonomy": "npm run assign:sector-profession-category && npm run assign:schema-categories",
     "assign:categories-v2": "npx tsx scripts/assign-categories-v2.ts && npm run assign:schema-categories",
     "assign:sector-profession-category": "npx tsx scripts/assign-sector-profession-category.ts",
     "assign:sectors": "npm run assign:sector-profession-category",

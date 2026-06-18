@@ -13,14 +13,15 @@
         "tr": "Döşeme Uzunluğu",
         "de": "Plattenlänge",
         "fr": "Longueur de la dalle",
-        "es": "Slab Length",
+        "es": "Longitud de la losa",
         "ar": "Slab Length"
       },
       "businessContext_i18n": {
         "en": "Length of slab",
         "tr": "Döşemenin uzunluğu",
         "de": "Länge der Platte",
-        "fr": "Longueur de la dalle"
+        "fr": "Longueur de la dalle",
+        "es": "Longitud de la losa"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Döşeme Genişliği",
         "de": "Plattenbreite",
         "fr": "Largeur de la dalle",
-        "es": "Slab Width",
+        "es": "Ancho de la losa",
         "ar": "Slab Width"
       },
       "businessContext_i18n": {
         "en": "Width of slab",
         "tr": "Döşemenin genişliği",
         "de": "Breite der Platte",
-        "fr": "Largeur de la dalle"
+        "fr": "Largeur de la dalle",
+        "es": "Ancho de la losa"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Döşeme Kalınlığı",
         "de": "Plattendicke",
         "fr": "Épaisseur de la dalle",
-        "es": "Slab Thickness",
+        "es": "Espesor de la losa",
         "ar": "Slab Thickness"
       },
       "businessContext_i18n": {
         "en": "Thickness of slab",
         "tr": "Döşeme kalınlığı",
         "de": "Plattendicke",
-        "fr": "Épaisseur de la dalle"
+        "fr": "Épaisseur de la dalle",
+        "es": "Espesor de la losa"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Cost of ready-mix concrete",
         "tr": "Hazır beton maliyeti",
         "de": "Kosten für Transportbeton",
-        "fr": "Coût du béton prêt à l'emploi"
+        "fr": "Coût du béton prêt à l'emploi",
+        "es": "Coste del hormigón premezclado"
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Percentage of waste",
         "tr": "Fire yüzdesi",
         "de": "Verschnittanteil in Prozent",
-        "fr": "Pourcentage de perte"
+        "fr": "Pourcentage de perte",
+        "es": "Porcentaje de desperdicio"
       }
     }
   ],
@@ -132,7 +137,7 @@
     "dataConfidenceAdjusted": "totalCost",
     "unit": "m"
   },
-  "category": "Maliyet & Bütçeleme",
+  "category": "Matematik & Analiz",
   "sector": "Eğitim & Akademik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -140,7 +145,7 @@
   "categorySlug": "project-construction-management",
   "sectorId": "egitim",
   "profession": "Öğretmen",
-  "categoryId": "cost",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

@@ -20,7 +20,8 @@
         "en": "Left endpoint of the interval [a,b]",
         "tr": "[a,b] aralığının sol uç noktası",
         "de": "Linker Endpunkt des Intervalls [a,b]",
-        "fr": "Extrémité gauche de l'intervalle [a,b]"
+        "fr": "Extrémité gauche de l'intervalle [a,b]",
+        "es": "Extremo izquierdo del intervalo [a,b]"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Right endpoint of the interval [a,b]",
         "tr": "[a,b] aralığının sağ uç noktası",
         "de": "Rechter Endpunkt des Intervalls [a,b]",
-        "fr": "Extrémité droite de l'intervalle [a,b]"
+        "fr": "Extrémité droite de l'intervalle [a,b]",
+        "es": "Extremo derecho del intervalo [a,b]"
       }
     },
     {
@@ -103,14 +105,15 @@
         "tr": "Türev katsayısı",
         "de": "Ableitungskoeffizient",
         "fr": "Coefficient de la dérivée",
-        "es": "Derivative coefficient",
+        "es": "Coeficiente de la derivada",
         "ar": "Derivative coefficient"
       },
       "businessContext_i18n": {
         "en": "Coefficient of x in derivative (e.g., for f(x)=x^2, derivative=2x, coefficient=2)",
         "tr": "Türevde x'in katsayısı (örneğin f(x)=x^2 için türev=2x, katsayı=2)",
         "de": "Koeffizient von x in der Ableitung (z.B. für f(x)=x^2, Ableitung=2x, Koeffizient=2)",
-        "fr": "Coefficient de x dans la dérivée (ex: pour f(x)=x^2, dérivée=2x, coefficient=2)"
+        "fr": "Coefficient de x dans la dérivée (ex: pour f(x)=x^2, dérivée=2x, coefficient=2)",
+        "es": "Coeficiente de x en la derivada (ej., para f(x)=x^2, derivada=2x, coeficiente=2)"
       }
     },
     {
@@ -125,14 +128,15 @@
         "tr": "Türev sabit terimi",
         "de": "Konstantes Glied der Ableitung",
         "fr": "Terme constant de la dérivée",
-        "es": "Derivative constant term",
+        "es": "Término constante de la derivada",
         "ar": "Derivative constant term"
       },
       "businessContext_i18n": {
         "en": "Constant term in derivative (e.g., for f'(x)=2x+1, constant=1)",
         "tr": "Türevdeki sabit terim (örneğin f'(x)=2x+1 için sabit=1)",
         "de": "Konstantes Glied in der Ableitung (z.B. für f'(x)=2x+1, Konstante=1)",
-        "fr": "Terme constant dans la dérivée (ex: pour f'(x)=2x+1, constante=1)"
+        "fr": "Terme constant dans la dérivée (ex: pour f'(x)=2x+1, constante=1)",
+        "es": "Término constante en la derivada (ej., para f'(x)=2x+1, constante=1)"
       }
     }
   ],
@@ -153,7 +157,7 @@
     "dataConfidenceAdjusted": "c_aux",
     "unit": "—"
   },
-  "category": "Diğer",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -161,7 +165,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "diger",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

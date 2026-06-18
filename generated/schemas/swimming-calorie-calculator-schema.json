@@ -20,7 +20,8 @@
         "en": "The weight of the swimmer in kilograms",
         "tr": "Yüzücünün kilogram cinsinden ağırlığı",
         "de": "Gewicht des Schwimmers in Kilogramm",
-        "fr": "Poids du nageur en kilogrammes"
+        "fr": "Poids du nageur en kilogrammes",
+        "es": "Peso del nadador en kilogramos"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Yüzme Süresi",
         "de": "Schwimmdauer",
         "fr": "Durée de la nage",
-        "es": "Swimming Duration",
+        "es": "Duración de la natación",
         "ar": "Swimming Duration"
       },
       "businessContext_i18n": {
         "en": "Total time spent swimming in minutes",
         "tr": "Dakika cinsinden toplam yüzme süresi",
         "de": "Gesamte Schwimmzeit in Minuten",
-        "fr": "Temps total passé à nager en minutes"
+        "fr": "Temps total passé à nager en minutes",
+        "es": "Tiempo total nadando en minutos"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Metabolic Equivalent of Task for swimming stroke (e.g., 6-10)",
         "tr": "Yüzme stili için metabolik eşdeğer (örn. 6-10)",
         "de": "Metabolisches Äquivalent für Schwimmstil (z. B. 6-10)",
-        "fr": "Équivalent métabolique de la tâche pour la nage (ex. 6-10)"
+        "fr": "Équivalent métabolique de la tâche pour la nage (ex. 6-10)",
+        "es": "Equivalente metabólico de la tarea para el estilo de natación (ej., 6-10)"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Kalori Yakma Oranı Faktörü",
         "de": "Kalorienverbrauchsfaktor",
         "fr": "Facteur de taux de brûlage calorique",
-        "es": "Calorie Burn Rate Factor",
+        "es": "Factor de tasa de quema de calorías",
         "ar": "Calorie Burn Rate Factor"
       },
       "businessContext_i18n": {
         "en": "Individual metabolism factor to adjust calorie burn (0.8-1.2, default 1)",
         "tr": "Kalori yakımını ayarlamak için bireysel metabolizma faktörü (0.8-1.2, varsayılan 1)",
         "de": "Individueller Stoffwechselfaktor zur Anpassung des Kalorienverbrauchs (0,8-1,2, Standard 1)",
-        "fr": "Facteur métabolique individuel pour ajuster la dépense calorique (0,8-1,2, défaut 1)"
+        "fr": "Facteur métabolique individuel pour ajuster la dépense calorique (0,8-1,2, défaut 1)",
+        "es": "Factor de metabolismo individual para ajustar la quema de calorías (0.8-1.2, predeterminado 1)"
       }
     }
   ],
@@ -112,7 +116,7 @@
       "caloriesPerHour": "h"
     }
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "İSG & Risk",
   "sector": "Sağlık & Tıp",
   "premiumRequired": false,
   "catalogCategory": "health-body",
@@ -120,7 +124,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "saglik",
   "profession": "Biyomedikal Mühendisi",
-  "categoryId": "conversion",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

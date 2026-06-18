@@ -13,14 +13,15 @@
         "tr": "Toplam Yükseklik",
         "de": "Toplam Yükseklik",
         "fr": "Hauteur totale",
-        "es": "Total Rise",
+        "es": "Altura total",
         "ar": "Total Rise"
       },
       "businessContext_i18n": {
         "en": "Zemin kattan bir üst katın bitmiş yüzeyine olan dikey mesafe (mm cinsinden)",
         "tr": "Zemin kattan bir üst katın bitmiş yüzeyine olan dikey mesafe (mm cinsinden)",
         "de": "Vertikaler Abstand vom fertigen Fußboden des Erdgeschosses zum fertigen Fußboden des nächsten Stockwerks (in mm)",
-        "fr": "Distance verticale du sol fini de l'étage inférieur au sol fini de l'étage supérieur (en mm)"
+        "fr": "Distance verticale du sol fini de l'étage inférieur au sol fini de l'étage supérieur (en mm)",
+        "es": "La distancia vertical desde el piso terminado de la planta baja hasta el piso terminado del siguiente nivel (en mm)"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Rıht Sayısı",
         "de": "Basamak Sayısı",
         "fr": "Nombre de contremarches",
-        "es": "Number of Risers",
+        "es": "Número de contrahuellas",
         "ar": "Number of Risers"
       },
       "businessContext_i18n": {
         "en": "Basamak sayısı (yükselen sayısı)",
         "tr": "Basamak sayısı (yükselen sayısı)",
         "de": "Anzahl der Stufen (Anzahl der Setzstufen)",
-        "fr": "Nombre de marches (nombre de contremarches)"
+        "fr": "Nombre de marches (nombre de contremarches)",
+        "es": "Número de escalones (número de contrahuellas)"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Basamak Derinliği",
         "de": "Basamak Derinliği",
         "fr": "Profondeur de marche",
-        "es": "Tread Depth",
+        "es": "Profundidad de la huella",
         "ar": "Tread Depth"
       },
       "businessContext_i18n": {
         "en": "Her bir basamağın yatay derinliği (mm cinsinden)",
         "tr": "Her bir basamağın yatay derinliği (mm cinsinden)",
         "de": "Horizontale Tiefe jeder Stufe (in mm)",
-        "fr": "Profondeur horizontale de chaque marche (en mm)"
+        "fr": "Profondeur horizontale de chaque marche (en mm)",
+        "es": "Profundidad horizontal de cada escalón (en mm)"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Kiriş Genişliği",
         "de": "Wangendicke",
         "fr": "Largeur du limon",
-        "es": "Stringer Width",
+        "es": "Ancho del larguero",
         "ar": "Stringer Width"
       },
       "businessContext_i18n": {
         "en": "Kiriş genişliği (örneğin 2x12 inç nominal kereste için gerçek genişlik ~286 mm)",
         "tr": "Kiriş genişliği (örneğin 2x12 inç nominal kereste için gerçek genişlik ~286 mm)",
         "de": "Wangendicke (z. B. tatsächliche Breite von 2x12 Zoll Nennholz ca. 286 mm)",
-        "fr": "Largeur du limon (par exemple, pour un bois nominal 2x12 pouces, la largeur réelle est d'environ 286 mm)"
+        "fr": "Largeur du limon (par exemple, pour un bois nominal 2x12 pouces, la largeur réelle est d'environ 286 mm)",
+        "es": "Ancho del larguero (por ejemplo, para madera nominal 2x12 pulgadas, el ancho real es ~286 mm)"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Basamak Taşması",
         "de": "Nasenüberstand",
         "fr": "Surplomb du nez de marche",
-        "es": "Nosing Overhang",
+        "es": "Vuelo del peldaño",
         "ar": "Nosing Overhang"
       },
       "businessContext_i18n": {
         "en": "Basamağın yükselen ön yüzeyinden taşma miktarı (mm cinsinden)",
         "tr": "Basamağın yükselen ön yüzeyinden taşma miktarı (mm cinsinden)",
         "de": "Überstand der Trittfläche über die Vorderseite der Setzstufe (in mm)",
-        "fr": "Quantité de surplomb de la marche par rapport à la face avant de la contremarche (en mm)"
+        "fr": "Quantité de surplomb de la marche par rapport à la face avant de la contremarche (en mm)",
+        "es": "Cantidad de vuelo del peldaño sobre la cara de la contrahuella (en mm)"
       }
     }
   ],
@@ -140,7 +145,7 @@
       "Stringer Length: {stringerLength.toFixed(1)} mm": "mm"
     }
   },
-  "category": "Diğer",
+  "category": "Teknik & Mühendislik",
   "sector": "İnşaat & Yapı",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
@@ -148,7 +153,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

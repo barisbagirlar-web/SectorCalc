@@ -20,7 +20,8 @@
         "en": "Ürünün yıllık talep miktarı",
         "tr": "Ürünün yıllık talep miktarı",
         "de": "Jährliche Nachfragemenge des Produkts",
-        "fr": "Demande annuelle du produit"
+        "fr": "Demande annuelle du produit",
+        "es": "Demanda anual del producto"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Her sipariş için sabit maliyet",
         "tr": "Her sipariş için sabit maliyet",
         "de": "Fixe Kosten pro Bestellung",
-        "fr": "Coût fixe par commande"
+        "fr": "Coût fixe par commande",
+        "es": "Costo fijo por pedido"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Bir adet ürünü bir yıl stokta tutma maliyeti",
         "tr": "Bir adet ürünü bir yıl stokta tutma maliyeti",
         "de": "Lagerhaltungskosten pro Stück und Jahr",
-        "fr": "Coût de détention d'un produit en stock pendant un an"
+        "fr": "Coût de détention d'un produit en stock pendant un an",
+        "es": "Costo de mantener una unidad en inventario por año"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Ürün başına satın alma maliyeti (opsiyonel)",
         "tr": "Ürün başına satın alma maliyeti (opsiyonel)",
         "de": "Einkaufskosten pro Stück (optional)",
-        "fr": "Coût d'achat par produit (optionnel)"
+        "fr": "Coût d'achat par produit (optionnel)",
+        "es": "Costo de compra por unidad (opcional)"
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Sipariş verilmesi ile teslim alınması arasındaki süre (gün)",
         "tr": "Sipariş verilmesi ile teslim alınması arasındaki süre (gün)",
         "de": "Lieferzeit zwischen Bestellung und Erhalt (Tage)",
-        "fr": "Délai entre la commande et la réception (jours)"
+        "fr": "Délai entre la commande et la réception (jours)",
+        "es": "Tiempo entre la realización del pedido y la recepción (días)"
       }
     },
     {
@@ -130,7 +135,8 @@
         "en": "Yıldaki çalışma günü sayısı",
         "tr": "Yıldaki çalışma günü sayısı",
         "de": "Anzahl der Arbeitstage pro Jahr",
-        "fr": "Nombre de jours ouvrables par an"
+        "fr": "Nombre de jours ouvrables par an",
+        "es": "Número de días laborables al año"
       }
     }
   ],
@@ -153,7 +159,7 @@
     "dataConfidenceAdjusted": "totalAnnualCost",
     "unit": "adet/yıl"
   },
-  "category": "Diğer",
+  "category": "Finans & Yatırım",
   "sector": "Lojistik & Tedarik",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
@@ -161,7 +167,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "lojistik",
   "profession": "Tedarik Zinciri Müdürü",
-  "categoryId": "diger",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

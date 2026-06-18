@@ -13,14 +13,15 @@
         "tr": "Kol çekme sayısı",
         "de": "Anzahl der Hübe",
         "fr": "Nombre de coups de bras",
-        "es": "Number of Strokes",
+        "es": "Número de brazadas",
         "ar": "Number of Strokes"
       },
       "businessContext_i18n": {
         "en": "Total stroke count during the measured interval.",
         "tr": "Ölçüm aralığındaki toplam kol çekme sayısı.",
         "de": "Gesamtzahl der Hübe während des gemessenen Intervalls.",
-        "fr": "Nombre total de coups de bras pendant l'intervalle mesuré."
+        "fr": "Nombre total de coups de bras pendant l'intervalle mesuré.",
+        "es": "Conteo total de brazadas durante el intervalo medido."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Duration of the measurement in seconds.",
         "tr": "Ölçüm süresi (saniye).",
         "de": "Dauer der Messung in Sekunden.",
-        "fr": "Durée de la mesure en secondes."
+        "fr": "Durée de la mesure en secondes.",
+        "es": "Duración de la medición en segundos."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Tur Sayısı",
         "de": "Anzahl der Bahnen",
         "fr": "Nombre de longueurs",
-        "es": "Number of Laps",
+        "es": "Número de vueltas",
         "ar": "Number of Laps"
       },
       "businessContext_i18n": {
         "en": "Number of pool lengths completed.",
         "tr": "Tamamlanan havuz boyu sayısı.",
         "de": "Anzahl der zurückgelegten Bahnen.",
-        "fr": "Nombre de longueurs de piscine effectuées."
+        "fr": "Nombre de longueurs de piscine effectuées.",
+        "es": "Número de largos de piscina completados."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Standard length of the swimming pool.",
         "tr": "Havuzun standart boyu.",
         "de": "Standardlänge des Schwimmbeckens.",
-        "fr": "Longueur standard de la piscine."
+        "fr": "Longueur standard de la piscine.",
+        "es": "Longitud estándar de la piscina."
       }
     }
   ],
@@ -116,7 +120,7 @@
     "dataConfidenceAdjusted": "speed",
     "unit": "strokes"
   },
-  "category": "Kalite & Süreç Kontrol",
+  "category": "İSG & Risk",
   "sector": "Fitness & Spor",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -124,7 +128,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "fitness-spor",
   "profession": "Antrenör",
-  "categoryId": "quality",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

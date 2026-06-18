@@ -20,7 +20,8 @@
         "en": "Radius of the sphere or cylinder",
         "tr": "Küre veya silindirin yarıçapı",
         "de": "Radius der Kugel oder des Zylinders",
-        "fr": "Rayon de la sphère ou du cylindre"
+        "fr": "Rayon de la sphère ou du cylindre",
+        "es": "Radio de la esfera o cilindro"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Height for cylindrical surface area",
         "tr": "Silindirik yüzey alanı için yükseklik",
         "de": "Höhe für die Zylinderoberfläche",
-        "fr": "Hauteur pour la surface latérale du cylindre"
+        "fr": "Hauteur pour la surface latérale du cylindre",
+        "es": "Altura para el área de superficie cilíndrica"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Şekil (0=küre, 1=silindir)",
         "de": "Form (0=Kugel, 1=Zylinder)",
         "fr": "Forme (0=sphère, 1=cylindre)",
-        "es": "Shape (0=sphere, 1=cylinder)",
+        "es": "Forma (0=esfera, 1=cilindro)",
         "ar": "Shape (0=sphere, 1=cylinder)"
       },
       "businessContext_i18n": {
         "en": "0 for sphere, 1 for cylinder (lateral surface)",
         "tr": "0 küre, 1 silindir (yan yüzey) için",
         "de": "0 für Kugel, 1 für Zylinder (Mantelfläche)",
-        "fr": "0 pour sphère, 1 pour cylindre (surface latérale)"
+        "fr": "0 pour sphère, 1 pour cylindre (surface latérale)",
+        "es": "0 para esfera, 1 para cilindro (superficie lateral)"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Teta min (θ_min)",
         "de": "Theta min (θ_min)",
         "fr": "Theta min (θ_min)",
-        "es": "Theta min (θ_min)",
+        "es": "Theta mín (θ_min)",
         "ar": "Theta min (θ_min)"
       },
       "businessContext_i18n": {
         "en": "Lower bound of polar angle for sphere",
         "tr": "Küre için kutup açısının alt sınırı",
         "de": "Untere Grenze des Polarwinkels für Kugel",
-        "fr": "Borne inférieure de l'angle polaire pour la sphère"
+        "fr": "Borne inférieure de l'angle polaire pour la sphère",
+        "es": "Límite inferior del ángulo polar para la esfera"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Teta max (θ_max)",
         "de": "Theta max (θ_max)",
         "fr": "Theta max (θ_max)",
-        "es": "Theta max (θ_max)",
+        "es": "Theta máx (θ_max)",
         "ar": "Theta max (θ_max)"
       },
       "businessContext_i18n": {
         "en": "Upper bound of polar angle for sphere (π)",
         "tr": "Küre için kutup açısının üst sınırı (π)",
         "de": "Obere Grenze des Polarwinkels für Kugel (π)",
-        "fr": "Borne supérieure de l'angle polaire pour la sphère (π)"
+        "fr": "Borne supérieure de l'angle polaire pour la sphère (π)",
+        "es": "Límite superior del ángulo polar para la esfera (π)"
       }
     },
     {
@@ -123,14 +128,15 @@
         "tr": "Fi min (φ_min)",
         "de": "Phi min (φ_min)",
         "fr": "Phi min (φ_min)",
-        "es": "Phi min (φ_min)",
+        "es": "Phi mín (φ_min)",
         "ar": "Phi min (φ_min)"
       },
       "businessContext_i18n": {
         "en": "Lower bound of azimuthal angle",
         "tr": "Azimut açısının alt sınırı",
         "de": "Untere Grenze des Azimutwinkels",
-        "fr": "Borne inférieure de l'angle azimutal"
+        "fr": "Borne inférieure de l'angle azimutal",
+        "es": "Límite inferior del ángulo azimutal"
       }
     },
     {
@@ -145,14 +151,15 @@
         "tr": "Fi max (φ_max)",
         "de": "Phi max (φ_max)",
         "fr": "Phi max (φ_max)",
-        "es": "Phi max (φ_max)",
+        "es": "Phi máx (φ_max)",
         "ar": "Phi max (φ_max)"
       },
       "businessContext_i18n": {
         "en": "Upper bound of azimuthal angle (2π)",
         "tr": "Azimut açısının üst sınırı (2π)",
         "de": "Obere Grenze des Azimutwinkels (2π)",
-        "fr": "Borne supérieure de l'angle azimutal (2π)"
+        "fr": "Borne supérieure de l'angle azimutal (2π)",
+        "es": "Límite superior del ángulo azimutal (2π)"
       }
     }
   ],
@@ -174,7 +181,7 @@
     "dataConfidenceAdjusted": "totalArea",
     "unit": "m"
   },
-  "category": "Diğer",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
@@ -182,7 +189,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "diger",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

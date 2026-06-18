@@ -13,14 +13,15 @@
         "tr": "İçki sayısı",
         "de": "Anzahl der Getränke",
         "fr": "Nombre de verres",
-        "es": "İçki sayısı",
+        "es": "Número de bebidas",
         "ar": "İçki sayısı"
       },
       "businessContext_i18n": {
         "en": "Tüketilen standart içki sayısı",
         "tr": "Tüketilen standart içki sayısı",
         "de": "Anzahl der konsumierten Standardgetränke",
-        "fr": "Nombre de verres standard consommés"
+        "fr": "Nombre de verres standard consommés",
+        "es": "Número de bebidas estándar consumidas"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Bir içkideki alkol miktarı",
         "de": "Alkoholmenge pro Getränk",
         "fr": "Quantité d'alcool dans un verre",
-        "es": "Bir içkideki alkol miktarı",
+        "es": "Cantidad de alcohol en una bebida",
         "ar": "Bir içkideki alkol miktarı"
       },
       "businessContext_i18n": {
         "en": "Bir standart içkide bulunan saf alkol gramajı (ör: bir bira yaklaşık 14 g)",
         "tr": "Bir standart içkide bulunan saf alkol gramajı (ör: bir bira yaklaşık 14 g)",
         "de": "Gramm reiner Alkohol in einem Standardgetränk (z.B. ein Bier ca. 14 g)",
-        "fr": "Grammes d'alcool pur dans un verre standard (ex: une bière environ 14 g)"
+        "fr": "Grammes d'alcool pur dans un verre standard (ex: une bière environ 14 g)",
+        "es": "Gramos de alcohol puro en una bebida estándar (ej: una cerveza aproximadamente 14 g)"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Kişinin kilogram cinsinden ağırlığı",
         "tr": "Kişinin kilogram cinsinden ağırlığı",
         "de": "Körpergewicht in Kilogramm",
-        "fr": "Poids de la personne en kilogrammes"
+        "fr": "Poids de la personne en kilogrammes",
+        "es": "Peso en kilogramos"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "0 erkek, 1 kadın dağılım katsayısı seçimi",
         "tr": "0 erkek, 1 kadın dağılım katsayısı seçimi",
         "de": "0 männlich, 1 weiblich Verteilungskoeffizient",
-        "fr": "0 homme, 1 femme coefficient de distribution"
+        "fr": "0 homme, 1 femme coefficient de distribution",
+        "es": "Selección del coeficiente de distribución: 0 para hombre, 1 para mujer"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "İlk içkiden itibaren geçen süre",
         "de": "Zeit seit dem ersten Getränk",
         "fr": "Temps écoulé depuis le premier verre",
-        "es": "İlk içkiden itibaren geçen süre",
+        "es": "Tiempo transcurrido desde la primera bebida",
         "ar": "İlk içkiden itibaren geçen süre"
       },
       "businessContext_i18n": {
         "en": "İçmeye başlandıktan sonra geçen saat cinsinden süre",
         "tr": "İçmeye başlandıktan sonra geçen saat cinsinden süre",
         "de": "Stunden seit Beginn des Trinkens",
-        "fr": "Temps écoulé après avoir commencé à boire en heures"
+        "fr": "Temps écoulé après avoir commencé à boire en heures",
+        "es": "Horas transcurridas desde que comenzó a beber"
       }
     }
   ],
@@ -130,7 +135,7 @@
     "dataConfidenceAdjusted": "timeToSober",
     "unit": "adet"
   },
-  "category": "Diğer",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",
   "premiumRequired": false,
   "catalogCategory": "health-body",
@@ -138,7 +143,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "ev-yasam",
   "profession": "Ev Yöneticisi",
-  "categoryId": "diger",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

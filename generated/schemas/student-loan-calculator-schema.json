@@ -20,7 +20,8 @@
         "en": "Total principal amount borrowed for education expenses",
         "tr": "Eğitim masrafları için borçlanılan toplam anapara tutarı",
         "de": "Gesamter geliehener Kapitalbetrag für Bildungskosten",
-        "fr": "Montant total du principal emprunté pour les frais d'études"
+        "fr": "Montant total du principal emprunté pour les frais d'études",
+        "es": "Monto total del principal prestado para gastos educativos"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Fixed annual interest rate on the student loan",
         "tr": "Öğrenci kredisine uygulanan sabit yıllık faiz oranı",
         "de": "Fester jährlicher Zinssatz des Studienkredits",
-        "fr": "Taux d'intérêt annuel fixe du prêt étudiant"
+        "fr": "Taux d'intérêt annuel fixe du prêt étudiant",
+        "es": "Tasa de interés anual fija del préstamo estudiantil"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Repayment period in years after any deferment ends",
         "tr": "Herhangi bir erteleme dönemi sonrası geri ödeme süresi (yıl olarak)",
         "de": "Rückzahlungszeitraum in Jahren nach Ende der Stundung",
-        "fr": "Période de remboursement en années après la fin de tout différé"
+        "fr": "Période de remboursement en années après la fin de tout différé",
+        "es": "Período de pago en años después de que finalice cualquier aplazamiento"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Erteleme Dönemi",
         "de": "Stundungszeitraum",
         "fr": "Période de différé",
-        "es": "Deferment Period",
+        "es": "Período de aplazamiento",
         "ar": "Deferment Period"
       },
       "businessContext_i18n": {
         "en": "Number of months before repayment starts, during which interest accrues and capitalizes",
         "tr": "Geri ödeme başlamadan önceki ay sayısı; bu sürede faiz tahakkuk eder ve anaparaya eklenir.",
         "de": "Anzahl der Monate vor Beginn der Rückzahlung, in denen Zinsen anfallen und kapitalisiert werden",
-        "fr": "Nombre de mois avant le début du remboursement, durant lesquels les intérêts courent et se capitalisent"
+        "fr": "Nombre de mois avant le début du remboursement, durant lesquels les intérêts courent et se capitalisent",
+        "es": "Número de meses antes de que comience el pago, durante los cuales los intereses se acumulan y capitalizan"
       }
     }
   ],
@@ -112,7 +116,7 @@
     "dataConfidenceAdjusted": "totalInterest",
     "unit": "USD"
   },
-  "category": "Maliyet & Bütçeleme",
+  "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
@@ -120,7 +124,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "cost",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

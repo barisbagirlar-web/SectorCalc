@@ -20,7 +20,8 @@
         "en": "The number to convert to standard form.",
         "tr": "Standart forma dönüştürülecek sayı.",
         "de": "Die Zahl, die in die Standardform umgewandelt werden soll.",
-        "fr": "Le nombre à convertir en forme standard."
+        "fr": "Le nombre à convertir en forme standard.",
+        "es": "El número a convertir a forma estándar."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Anlamlı Basamaklar",
         "de": "Signifikante Stellen",
         "fr": "Chiffres significatifs",
-        "es": "Significant Figures",
+        "es": "Cifras significativas",
         "ar": "Significant Figures"
       },
       "businessContext_i18n": {
         "en": "Number of significant figures for the coefficient.",
         "tr": "Katsayı için anlamlı basamak sayısı.",
         "de": "Anzahl signifikanter Stellen für den Koeffizienten.",
-        "fr": "Nombre de chiffres significatifs pour le coefficient."
+        "fr": "Nombre de chiffres significatifs pour le coefficient.",
+        "es": "Número de cifras significativas para el coeficiente."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Gösterim Modu",
         "de": "Notationsmodus",
         "fr": "Mode de notation",
-        "es": "Notation Mode",
+        "es": "Modo de notación",
         "ar": "Notation Mode"
       },
       "businessContext_i18n": {
         "en": "0: Scientific (A × 10^B, 1 ≤ A < 10), 1: Engineering (B multiple of 3).",
         "tr": "0: Bilimsel (A × 10^B, 1 ≤ A < 10), 1: Mühendislik (B 3'ün katı).",
         "de": "0: Wissenschaftlich (A × 10^B, 1 ≤ A < 10), 1: Technisch (B Vielfaches von 3).",
-        "fr": "0 : Scientifique (A × 10^B, 1 ≤ A < 10), 1 : Ingénierie (B multiple de 3)."
+        "fr": "0 : Scientifique (A × 10^B, 1 ≤ A < 10), 1 : Ingénierie (B multiple de 3).",
+        "es": "0: Científica (A × 10^B, 1 ≤ A < 10), 1: Ingeniería (B múltiplo de 3)."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "0: Round half up, 1: Round half to even (for precise rounding).",
         "tr": "0: Yarımı yukarı yuvarla, 1: Yarımı çifte yuvarla (hassas yuvarlama için).",
         "de": "0: Kaufmännisches Runden, 1: Mathematisches Runden (für präzises Runden).",
-        "fr": "0 : Arrondi demi supérieur, 1 : Arrondi demi pair (pour un arrondi précis)."
+        "fr": "0 : Arrondi demi supérieur, 1 : Arrondi demi pair (pour un arrondi précis).",
+        "es": "0: Redondear hacia arriba, 1: Redondear al par (para redondeo preciso)."
       }
     }
   ],
@@ -107,7 +111,7 @@
     "dataConfidenceAdjusted": "primary",
     "unit": "—"
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "Teknik & Mühendislik",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
@@ -115,7 +119,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "conversion",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

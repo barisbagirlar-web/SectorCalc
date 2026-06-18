@@ -20,7 +20,8 @@
         "en": "Length of the room in feet.",
         "tr": "Odanın fit cinsinden uzunluğu.",
         "de": "Länge des Raums in Fuß.",
-        "fr": "Longueur de la pièce en pieds."
+        "fr": "Longueur de la pièce en pieds.",
+        "es": "Longitud de la habitación en pies."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Width of the room in feet.",
         "tr": "Odanın fit cinsinden genişliği.",
         "de": "Breite des Raums in Fuß.",
-        "fr": "Largeur de la pièce en pieds."
+        "fr": "Largeur de la pièce en pieds.",
+        "es": "Ancho de la habitación en pies."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Height of the walls in feet.",
         "tr": "Duvarların fit cinsinden yüksekliği.",
         "de": "Höhe der Wände in Fuß.",
-        "fr": "Hauteur des murs en pieds."
+        "fr": "Hauteur des murs en pieds.",
+        "es": "Altura de las paredes en pies."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Levha uzunluğu",
         "de": "Plattenlänge",
         "fr": "Longueur du panneau",
-        "es": "Sheet Length",
+        "es": "Longitud de la placa",
         "ar": "Sheet Length"
       },
       "businessContext_i18n": {
         "en": "Length of a single sheetrock panel (commonly 8, 10, or 12 ft).",
         "tr": "Tek bir alçıpan panelin uzunluğu (genellikle 8, 10 veya 12 ft).",
         "de": "Länge einer einzelnen Gipskartonplatte (üblich: 8, 10 oder 12 ft).",
-        "fr": "Longueur d'un panneau de placoplâtre (généralement 8, 10 ou 12 pi)."
+        "fr": "Longueur d'un panneau de placoplâtre (généralement 8, 10 ou 12 pi).",
+        "es": "Longitud de un panel de yeso individual (comúnmente 8, 10 o 12 pies)."
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Levha genişliği",
         "de": "Plattenbreite",
         "fr": "Largeur du panneau",
-        "es": "Sheet Width",
+        "es": "Ancho de la placa",
         "ar": "Sheet Width"
       },
       "businessContext_i18n": {
         "en": "Width of a single sheetrock panel (typically 4 ft).",
         "tr": "Tek bir alçıpan panelin genişliği (genellikle 4 ft).",
         "de": "Breite einer einzelnen Gipskartonplatte (typischerweise 4 ft).",
-        "fr": "Largeur d'un panneau de placoplâtre (généralement 4 pi)."
+        "fr": "Largeur d'un panneau de placoplâtre (généralement 4 pi).",
+        "es": "Ancho de un panel de yeso individual (típicamente 4 pies)."
       }
     },
     {
@@ -130,7 +135,8 @@
         "en": "Additional material percentage to account for offcuts and damage.",
         "tr": "Kesim artıkları ve hasarı hesaba katmak için ek malzeme yüzdesi.",
         "de": "Zusätzlicher Materialanteil für Verschnitt und Beschädigung.",
-        "fr": "Pourcentage de matériau supplémentaire pour tenir compte des chutes et des dommages."
+        "fr": "Pourcentage de matériau supplémentaire pour tenir compte des chutes et des dommages.",
+        "es": "Porcentaje de material adicional para compensar recortes y daños."
       }
     },
     {
@@ -145,14 +151,15 @@
         "tr": "Kesinti alanı",
         "de": "Abzugsfläche",
         "fr": "Surface de déduction",
-        "es": "Deduction Area",
+        "es": "Área de deducción",
         "ar": "Deduction Area"
       },
       "businessContext_i18n": {
         "en": "Total area of openings (doors, windows) to be subtracted from wall area.",
         "tr": "Duvar alanından çıkarılacak toplam açıklık alanı (kapılar, pencereler).",
         "de": "Gesamtfläche der Öffnungen (Türen, Fenster), die von der Wandfläche abgezogen wird.",
-        "fr": "Surface totale des ouvertures (portes, fenêtres) à soustraire de la surface murale."
+        "fr": "Surface totale des ouvertures (portes, fenêtres) à soustraire de la surface murale.",
+        "es": "Área total de aberturas (puertas, ventanas) a restar del área de pared."
       }
     }
   ],
@@ -182,7 +189,7 @@
       "jointCompoundGallons": "lb"
     }
   },
-  "category": "Enerji & Karbon",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Yenilenebilir Enerji",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
@@ -190,7 +197,7 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "yenilenebilir",
   "profession": "Enerji Mühendisi",
-  "categoryId": "energy",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

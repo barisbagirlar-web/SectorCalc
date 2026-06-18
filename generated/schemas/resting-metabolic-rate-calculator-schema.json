@@ -13,14 +13,15 @@
         "tr": "Cinsiyet (Erkek: 1, Kadın: 0)",
         "de": "Geschlecht (Männlich: 1, Weiblich: 0)",
         "fr": "Cinsiyet (Erkek: 1, Kadın: 0)",
-        "es": "Cinsiyet (Erkek: 1, Kadın: 0)",
+        "es": "Sexo (Hombre: 1, Mujer: 0)",
         "ar": "Cinsiyet (Erkek: 1, Kadın: 0)"
       },
       "businessContext_i18n": {
         "en": "Cinsiyet kodu: 1 erkek, 0 kadın",
         "tr": "Cinsiyet kodu: 1 erkek, 0 kadın",
         "de": "Geschlechtscode: 1 männlich, 0 weiblich",
-        "fr": "Code de genre : 1 homme, 0 femme"
+        "fr": "Code de genre : 1 homme, 0 femme",
+        "es": "Código de sexo: 1 hombre, 0 mujer"
       }
     },
     {
@@ -115,7 +116,7 @@
     "dataConfidenceAdjusted": "restingMetabolicRate",
     "unit": "yıl"
   },
-  "category": "Diğer",
+  "category": "İSG & Risk",
   "sector": "Sağlık & Tıp",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -123,7 +124,7 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "saglik",
   "profession": "Biyomedikal Mühendisi",
-  "categoryId": "diger",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

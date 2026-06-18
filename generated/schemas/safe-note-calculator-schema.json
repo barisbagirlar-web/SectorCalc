@@ -20,7 +20,8 @@
         "en": "Amount of money invested via SAFE",
         "tr": "SAFE ile yatırılan para miktarı",
         "de": "Investierter Betrag über SAFE",
-        "fr": "Montant investi via SAFE"
+        "fr": "Montant investi via SAFE",
+        "es": "Cantidad de dinero invertida a través de SAFE"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Maximum valuation at which SAFE converts",
         "tr": "SAFE'nin dönüştüğü maksimum değerleme",
         "de": "Maximale Bewertung, zu der SAFE konvertiert",
-        "fr": "Valorisation maximale à laquelle le SAFE convertit"
+        "fr": "Valorisation maximale à laquelle le SAFE convertit",
+        "es": "Valoración máxima a la que se convierte el SAFE"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Discount on the next round's price per share",
         "tr": "Bir sonraki turun hisse başına fiyatındaki indirim",
         "de": "Rabatt auf den Aktienpreis der nächsten Runde",
-        "fr": "Remise sur le prix par action du prochain tour"
+        "fr": "Remise sur le prix par action du prochain tour",
+        "es": "Descuento sobre el precio por acción de la próxima ronda"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Pre-money valuation of the next funding round",
         "tr": "Bir sonraki fonlama turunun yatırım öncesi değerlemesi",
         "de": "Pre-Money-Bewertung der nächsten Finanzierungsrunde",
-        "fr": "Valorisation pré-money du prochain tour de financement"
+        "fr": "Valorisation pré-money du prochain tour de financement",
+        "es": "Valoración pre-money de la próxima ronda de financiación"
       }
     }
   ],
@@ -108,7 +112,7 @@
     "dataConfidenceAdjusted": "convType",
     "unit": "$"
   },
-  "category": "Maliyet & Bütçeleme",
+  "category": "Finans & Yatırım",
   "sector": "Perakende & Ticaret",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
@@ -116,7 +120,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "cost",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

@@ -20,7 +20,8 @@
         "en": "Angle value. If using degrees, unitRadians should be 0; if radians, set unitRadians to 1.",
         "tr": "Açı değeri. Derece kullanılıyorsa unitRadians 0 olmalı; radyan kullanılıyorsa unitRadians 1 olarak ayarlanmalıdır.",
         "de": "Winkelwert. Bei Verwendung von Grad sollte unitRadians 0 sein; bei Bogenmaß setzen Sie unitRadians auf 1.",
-        "fr": "Valeur de l'angle. Si vous utilisez des degrés, unitRadians doit être 0 ; si des radians, définissez unitRadians sur 1."
+        "fr": "Valeur de l'angle. Si vous utilisez des degrés, unitRadians doit être 0 ; si des radians, définissez unitRadians sur 1.",
+        "es": "Valor del ángulo. Si se usan grados, unitRadians debe ser 0; si se usan radianes, establezca unitRadians en 1."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Radyan Kullan",
         "de": "Bogenmaß verwenden",
         "fr": "Utiliser les radians",
-        "es": "Use Radians",
+        "es": "Usar radianes",
         "ar": "Use Radians"
       },
       "businessContext_i18n": {
         "en": "Set to 1 if the angle is in radians; set to 0 for degrees.",
         "tr": "Açı radyan cinsindense 1, derece cinsindense 0 olarak ayarlayın.",
         "de": "Auf 1 setzen, wenn der Winkel im Bogenmaß vorliegt; bei Grad auf 0 setzen.",
-        "fr": "Définir sur 1 si l'angle est en radians ; sur 0 pour les degrés."
+        "fr": "Définir sur 1 si l'angle est en radians ; sur 0 pour les degrés.",
+        "es": "Establezca en 1 si el ángulo está en radianes; en 0 para grados."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Number of decimal places for the output tangent.",
         "tr": "Çıktı tanjantı için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für den ausgegebenen Tangens.",
-        "fr": "Nombre de décimales pour la tangente de sortie."
+        "fr": "Nombre de décimales pour la tangente de sortie.",
+        "es": "Número de decimales para la tangente de salida."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "tan(2θ) hesaplansın mı?",
         "de": "tan(2θ) berechnen?",
         "fr": "Calculer tan(2θ) ?",
-        "es": "Compute tan(2θ)?",
+        "es": "¿Calcular tan(2θ)?",
         "ar": "Compute tan(2θ)?"
       },
       "businessContext_i18n": {
         "en": "Set to 1 to compute tangent of double the angle (2θ); 0 for tan(θ).",
         "tr": "Açının iki katının tanjantını (2θ) hesaplamak için 1, tan(θ) için 0 olarak ayarlayın.",
         "de": "Auf 1 setzen, um den Tangens des doppelten Winkels (2θ) zu berechnen; 0 für tan(θ).",
-        "fr": "Définir sur 1 pour calculer la tangente du double de l'angle (2θ) ; 0 pour tan(θ)."
+        "fr": "Définir sur 1 pour calculer la tangente du double de l'angle (2θ) ; 0 pour tan(θ).",
+        "es": "Establezca en 1 para calcular la tangente del doble del ángulo (2θ); 0 para tan(θ)."
       }
     }
   ],
@@ -109,7 +113,7 @@
     "dataConfidenceAdjusted": "cosValue",
     "unit": "deg or rad"
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "Matematik & Analiz",
   "sector": "Birim & Dönüşüm",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
@@ -117,7 +121,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "birim-donusum",
   "profession": "Mühendis",
-  "categoryId": "conversion",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

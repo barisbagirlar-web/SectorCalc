@@ -25,13 +25,15 @@
         "en": "Purchase Price per Unit",
         "tr": "Birim Başına Satın Alma Fiyatı",
         "de": "Kaufpreis pro Einheit",
-        "fr": "Prix d'achat unitaire"
+        "fr": "Prix d'achat unitaire",
+        "es": "Precio de compra por unidad"
       },
       "businessContext_i18n": {
         "en": "Negotiated unit price from supplier contract.",
         "tr": "Tedarikçi sözleşmesinden müzakere edilen birim fiyat.",
         "de": "Ausgehandelter Stückpreis aus dem Lieferantenvertrag.",
-        "fr": "Prix unitaire négocié dans le contrat fournisseur."
+        "fr": "Prix unitaire négocié dans le contrat fournisseur.",
+        "es": "Precio unitario negociado del contrato con el proveedor."
       }
     },
     {
@@ -47,13 +49,15 @@
         "en": "Annual Order Quantity",
         "tr": "Yıllık Sipariş Miktarı",
         "de": "Jährliche Bestellmenge",
-        "fr": "Quantité annuelle commandée"
+        "fr": "Quantité annuelle commandée",
+        "es": "Cantidad de pedido anual"
       },
       "businessContext_i18n": {
         "en": "Total units purchased per year.",
         "tr": "Yılda satın alınan toplam birim.",
         "de": "Gesamte jährlich gekaufte Einheiten.",
-        "fr": "Nombre total d'unités achetées par an."
+        "fr": "Nombre total d'unités achetées par an.",
+        "es": "Total de unidades compradas por año."
       }
     },
     {
@@ -76,7 +80,8 @@
         "en": "Parts per million defective, Six Sigma metric.",
         "tr": "Milyonda hatalı parça sayısı, Altı Sigma metriği.",
         "de": "Teile pro Million fehlerhaft, Six Sigma-Kennzahl.",
-        "fr": "Pièces par million défectueuses, métrique Six Sigma."
+        "fr": "Pièces par million défectueuses, métrique Six Sigma.",
+        "es": "Partes por millón defectuosas, métrica de Seis Sigma."
       }
     },
     {
@@ -99,7 +104,8 @@
         "en": "Cost of incoming quality inspection per unit.",
         "tr": "Birim başına gelen kalite muayene maliyeti.",
         "de": "Kosten der Eingangsqualitätsprüfung pro Einheit.",
-        "fr": "Coût de l'inspection qualité à l'arrivée par unité."
+        "fr": "Coût de l'inspection qualité à l'arrivée par unité.",
+        "es": "Costo de inspección de calidad entrante por unidad."
       }
     },
     {
@@ -115,13 +121,15 @@
         "en": "Freight Cost per Unit",
         "tr": "Birim Başına Navlun Maliyeti",
         "de": "Frachtkosten pro Einheit",
-        "fr": "Coût de fret par unité"
+        "fr": "Coût de fret par unité",
+        "es": "Costo de flete por unidad"
       },
       "businessContext_i18n": {
         "en": "Average shipping cost per unit from supplier.",
         "tr": "Tedarikçiden birim başına ortalama nakliye maliyeti.",
         "de": "Durchschnittliche Versandkosten pro Einheit vom Lieferanten.",
-        "fr": "Coût d'expédition moyen par unité depuis le fournisseur."
+        "fr": "Coût d'expédition moyen par unité depuis le fournisseur.",
+        "es": "Costo promedio de envío por unidad desde el proveedor."
       }
     },
     {
@@ -144,7 +152,8 @@
         "en": "Supplier lead time from order to delivery.",
         "tr": "Tedarikçinin siparişten teslimata kadar geçen süresi.",
         "de": "Lieferzeit vom Lieferanten von Bestellung bis Lieferung.",
-        "fr": "Délai de livraison du fournisseur de la commande à la livraison."
+        "fr": "Délai de livraison du fournisseur de la commande à la livraison.",
+        "es": "Plazo de entrega del proveedor desde el pedido hasta la entrega."
       }
     },
     {
@@ -160,13 +169,15 @@
         "en": "Inventory Carrying Cost Rate",
         "tr": "Stok Taşıma Maliyeti Oranı",
         "de": "Lagerhaltungskostensatz",
-        "fr": "Taux de coût de possession des stocks"
+        "fr": "Taux de coût de possession des stocks",
+        "es": "Tasa de costo de mantenimiento de inventario"
       },
       "businessContext_i18n": {
         "en": "Annual inventory holding cost as percentage of unit cost (Lean metric).",
         "tr": "Birim maliyetin yüzdesi olarak yıllık stok bulundurma maliyeti (Yalın metrik).",
         "de": "Jährliche Lagerhaltungskosten als Prozentsatz der Stückkosten (Lean-Kennzahl).",
-        "fr": "Coût annuel de détention des stocks en pourcentage du coût unitaire (métrique Lean)."
+        "fr": "Coût annuel de détention des stocks en pourcentage du coût unitaire (métrique Lean).",
+        "es": "Costo anual de mantenimiento de inventario como porcentaje del costo unitario (métrica Lean)."
       }
     },
     {
@@ -182,13 +193,15 @@
         "en": "Warranty Claim Rate",
         "tr": "Garanti Talep Oranı",
         "de": "Garantieanspruchsrate",
-        "fr": "Taux de réclamation sous garantie"
+        "fr": "Taux de réclamation sous garantie",
+        "es": "Tasa de reclamaciones de garantía"
       },
       "businessContext_i18n": {
         "en": "Percentage of units that result in warranty claims.",
         "tr": "Garanti talebiyle sonuçlanan birimlerin yüzdesi.",
         "de": "Prozentsatz der Einheiten, die zu Garantieansprüchen führen.",
-        "fr": "Pourcentage d'unités donnant lieu à des réclamations sous garantie."
+        "fr": "Pourcentage d'unités donnant lieu à des réclamations sous garantie.",
+        "es": "Porcentaje de unidades que resultan en reclamaciones de garantía."
       }
     }
   ],
@@ -249,9 +262,9 @@
   "catalogCategory": "everyday-life",
   "sectorSlug": "daily-renovation",
   "categorySlug": "quality-six-sigma",
-  "category": "Kalite & Süreç Kontrol",
+  "category": "Lojistik & Rota",
   "sector": "Makine & Üretim",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "quality"
+  "categoryId": "logistics"
 }

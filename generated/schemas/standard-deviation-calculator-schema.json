@@ -24,13 +24,15 @@
         "en": "Data Points (comma or space separated)",
         "tr": "Veri Noktaları (virgül veya boşlukla ayrılmış)",
         "de": "Datenpunkte (durch Komma oder Leerzeichen getrennt)",
-        "fr": "Points de données (séparés par des virgules ou des espaces)"
+        "fr": "Points de données (séparés par des virgules ou des espaces)",
+        "es": "Puntos de datos (separados por coma o espacio)"
       },
       "businessContext_i18n": {
         "en": "Raw measurements from process output, e.g., dimensions, weights, cycle times.",
         "tr": "Süreç çıktısından alınan ham ölçümler, örn. boyutlar, ağırlıklar, çevrim süreleri.",
         "de": "Rohmessungen aus dem Prozessoutput, z. B. Abmessungen, Gewichte, Zykluszeiten.",
-        "fr": "Mesures brutes de la sortie du processus, par exemple dimensions, poids, temps de cycle."
+        "fr": "Mesures brutes de la sortie du processus, par exemple dimensions, poids, temps de cycle.",
+        "es": "Mediciones brutas de la salida del proceso, p. ej., dimensiones, pesos, tiempos de ciclo."
       }
     },
     {
@@ -53,7 +55,8 @@
         "en": "Number of observations in the sample. Must be at least 2 for standard deviation calculation.",
         "tr": "Örneklemdeki gözlem sayısı. Standart sapma hesaplaması için en az 2 olmalıdır.",
         "de": "Anzahl der Beobachtungen in der Stichprobe. Für die Standardabweichungsberechnung mindestens 2 erforderlich.",
-        "fr": "Nombre d'observations dans l'échantillon. Doit être au moins 2 pour le calcul de l'écart type."
+        "fr": "Nombre d'observations dans l'échantillon. Doit être au moins 2 pour le calcul de l'écart type.",
+        "es": "Número de observaciones en la muestra. Debe ser al menos 2 para el cálculo de la desviación estándar."
       }
     },
     {
@@ -71,13 +74,15 @@
         "en": "Data Type",
         "tr": "Veri Türü",
         "de": "Datentyp",
-        "fr": "Type de données"
+        "fr": "Type de données",
+        "es": "Tipo de datos"
       },
       "businessContext_i18n": {
         "en": "Continuous data (e.g., length, time) vs discrete (e.g., count of defects). Affects interpretation.",
         "tr": "Sürekli veri (örn. uzunluk, süre) vs ayrık (örn. kusur sayısı). Yorumlamayı etkiler.",
         "de": "Kontinuierliche Daten (z. B. Länge, Zeit) vs. diskrete (z. B. Anzahl der Fehler). Beeinflusst die Interpretation.",
-        "fr": "Données continues (ex. longueur, temps) vs discrètes (ex. nombre de défauts). Affecte l'interprétation."
+        "fr": "Données continues (ex. longueur, temps) vs discrètes (ex. nombre de défauts). Affecte l'interprétation.",
+        "es": "Datos continuos (p. ej., longitud, tiempo) vs discretos (p. ej., recuento de defectos). Afecta la interpretación."
       }
     },
     {
@@ -95,13 +100,15 @@
         "en": "Population or Sample?",
         "tr": "Popülasyon mu Örneklem mi?",
         "de": "Grundgesamtheit oder Stichprobe?",
-        "fr": "Population ou échantillon ?"
+        "fr": "Population ou échantillon ?",
+        "es": "¿Población o muestra?"
       },
       "businessContext_i18n": {
         "en": "Select 'population' if data covers entire population (n=N), else 'sample' for Bessel's correction.",
         "tr": "Veriler tüm popülasyonu kapsıyorsa 'popülasyon' (n=N), aksi halde Bessel düzeltmesi için 'örneklem' seçin.",
         "de": "Wählen Sie 'Grundgesamtheit', wenn die Daten die gesamte Population abdecken (n=N), sonst 'Stichprobe' für die Bessel-Korrektur.",
-        "fr": "Sélectionnez 'population' si les données couvrent toute la population (n=N), sinon 'échantillon' pour la correction de Bessel."
+        "fr": "Sélectionnez 'population' si les données couvrent toute la population (n=N), sinon 'échantillon' pour la correction de Bessel.",
+        "es": "Seleccione 'población' si los datos cubren toda la población (n=N), si no 'muestra' para la corrección de Bessel."
       }
     },
     {
@@ -117,13 +124,15 @@
         "en": "Unit of Measure",
         "tr": "Ölçü Birimi",
         "de": "Maßeinheit",
-        "fr": "Unité de mesure"
+        "fr": "Unité de mesure",
+        "es": "Unidad de medida"
       },
       "businessContext_i18n": {
         "en": "Physical unit of the data points (e.g., mm, sec, kg). Used for output labeling.",
         "tr": "Veri noktalarının fiziksel birimi (örn. mm, sn, kg). Çıktı etiketlemesi için kullanılır.",
         "de": "Physikalische Einheit der Datenpunkte (z. B. mm, s, kg). Wird für die Ausgabebeschriftung verwendet.",
-        "fr": "Unité physique des points de données (ex. mm, s, kg). Utilisée pour l'étiquetage des résultats."
+        "fr": "Unité physique des points de données (ex. mm, s, kg). Utilisée pour l'étiquetage des résultats.",
+        "es": "Unidad física de los puntos de datos (p. ej., mm, seg, kg). Se usa para etiquetar la salida."
       }
     },
     {
@@ -146,7 +155,8 @@
         "en": "Lower bound of acceptable process output per engineering specifications.",
         "tr": "Mühendislik spesifikasyonlarına göre kabul edilebilir süreç çıktısının alt sınırı.",
         "de": "Untere Grenze des akzeptablen Prozessoutputs gemäß technischen Spezifikationen.",
-        "fr": "Limite inférieure de la sortie acceptable du processus selon les spécifications techniques."
+        "fr": "Limite inférieure de la sortie acceptable du processus selon les spécifications techniques.",
+        "es": "Límite inferior de la salida del proceso aceptable según las especificaciones de ingeniería."
       }
     },
     {
@@ -169,7 +179,8 @@
         "en": "Upper bound of acceptable process output per engineering specifications.",
         "tr": "Mühendislik spesifikasyonlarına göre kabul edilebilir süreç çıktısının üst sınırı.",
         "de": "Obere Grenze des akzeptablen Prozessoutputs gemäß technischen Spezifikationen.",
-        "fr": "Limite supérieure de la sortie acceptable du processus selon les spécifications techniques."
+        "fr": "Limite supérieure de la sortie acceptable du processus selon les spécifications techniques.",
+        "es": "Límite superior del proceso aceptable según especificaciones de ingeniería."
       }
     },
     {
@@ -185,13 +196,15 @@
         "en": "Target Value (Nominal)",
         "tr": "Hedef Değer (Nominal)",
         "de": "Zielwert (Nennwert)",
-        "fr": "Valeur cible (nominale)"
+        "fr": "Valeur cible (nominale)",
+        "es": "Valor objetivo (nominal)"
       },
       "businessContext_i18n": {
         "en": "Ideal process target, often the midpoint of specification limits.",
         "tr": "İdeal süreç hedefi, genellikle spesifikasyon limitlerinin orta noktası.",
         "de": "Ideales Prozessziel, oft der Mittelpunkt der Spezifikationsgrenzen.",
-        "fr": "Cible idéale du processus, souvent le point médian des limites de spécification."
+        "fr": "Cible idéale du processus, souvent le point médian des limites de spécification.",
+        "es": "Objetivo ideal del proceso, a menudo el punto medio de los límites de especificación."
       }
     }
   ],

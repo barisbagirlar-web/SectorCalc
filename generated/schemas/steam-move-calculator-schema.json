@@ -13,14 +13,15 @@
         "tr": "Buhar Kütle Akış Hızı",
         "de": "Dampfmassenstrom",
         "fr": "Débit massique de vapeur",
-        "es": "Steam Mass Flow Rate",
+        "es": "Caudal másico de vapor",
         "ar": "Steam Mass Flow Rate"
       },
       "businessContext_i18n": {
         "en": "The mass of steam flowing through the pipe per hour. Used to determine the required pipe size and velocity.",
         "tr": "Borudan saatte geçen buhar kütlesi. Gerekli boru boyutunu ve hızını belirlemek için kullanılır.",
         "de": "Die Masse des Dampfes, die pro Stunde durch das Rohr strömt. Wird zur Bestimmung der erforderlichen Rohrgröße und Geschwindigkeit verwendet.",
-        "fr": "Masse de vapeur traversant la conduite par heure. Utilisé pour déterminer la taille de conduite et la vitesse requises."
+        "fr": "Masse de vapeur traversant la conduite par heure. Utilisé pour déterminer la taille de conduite et la vitesse requises.",
+        "es": "Masa de vapor que fluye por la tubería por hora. Se utiliza para determinar el tamaño y la velocidad requeridos de la tubería."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "The internal diameter of the steam pipe. Critical for cross-sectional area calculation.",
         "tr": "Buhar borusunun iç çapı. Kesit alanı hesaplaması için kritiktir.",
         "de": "Der Innendurchmesser des Dampfrohrs. Entscheidend für die Querschnittsflächenberechnung.",
-        "fr": "Diamètre intérieur de la conduite de vapeur. Essentiel pour le calcul de la section transversale."
+        "fr": "Diamètre intérieur de la conduite de vapeur. Essentiel pour le calcul de la section transversale.",
+        "es": "Diámetro interno de la tubería de vapor. Crítico para el cálculo del área transversal."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Buhar Basıncı (mutlak)",
         "de": "Dampfdruck (absolut)",
         "fr": "Pression de vapeur (absolue)",
-        "es": "Steam Pressure (absolute)",
+        "es": "Presión de vapor (absoluta)",
         "ar": "Steam Pressure (absolute)"
       },
       "businessContext_i18n": {
         "en": "Absolute pressure of the steam. Required to calculate steam density via ideal gas law.",
         "tr": "Buharın mutlak basıncı. İdeal gaz yasası ile buhar yoğunluğunu hesaplamak için gereklidir.",
         "de": "Absolutdruck des Dampfes. Erforderlich zur Berechnung der Dampfdichte über das ideale Gasgesetz.",
-        "fr": "Pression absolue de la vapeur. Nécessaire pour calculer la densité de la vapeur via la loi des gaz parfaits."
+        "fr": "Pression absolue de la vapeur. Nécessaire pour calculer la densité de la vapeur via la loi des gaz parfaits.",
+        "es": "Presión absoluta del vapor. Necesaria para calcular la densidad del vapor mediante la ley de los gases ideales."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Buhar Sıcaklığı",
         "de": "Dampftemperatur",
         "fr": "Température de la vapeur",
-        "es": "Steam Temperature",
+        "es": "Temperatura del vapor",
         "ar": "Steam Temperature"
       },
       "businessContext_i18n": {
         "en": "Temperature of the steam in degrees Celsius. Used with pressure to compute density.",
         "tr": "Buharın santigrat derece cinsinden sıcaklığı. Yoğunluğu hesaplamak için basınçla birlikte kullanılır.",
         "de": "Temperatur des Dampfes in Grad Celsius. Wird zusammen mit dem Druck zur Berechnung der Dichte verwendet.",
-        "fr": "Température de la vapeur en degrés Celsius. Utilisée avec la pression pour calculer la densité."
+        "fr": "Température de la vapeur en degrés Celsius. Utilisée avec la pression pour calculer la densité.",
+        "es": "Temperatura del vapor en grados Celsius. Se usa con la presión para calcular la densidad."
       }
     }
   ],
@@ -108,7 +112,7 @@
     "dataConfidenceAdjusted": "velocity",
     "unit": "kg/h"
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
@@ -116,7 +120,7 @@
   "categorySlug": "process-chemical",
   "sectorId": "fizik",
   "profession": "Fizik Mühendisi",
-  "categoryId": "conversion",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

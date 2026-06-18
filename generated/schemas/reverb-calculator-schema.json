@@ -20,7 +20,8 @@
         "en": "Odanın uzunluğu (metre)",
         "tr": "Odanın uzunluğu (metre)",
         "de": "Raumlänge (Meter)",
-        "fr": "Longueur de la pièce (mètres)"
+        "fr": "Longueur de la pièce (mètres)",
+        "es": "Largo de la habitación (metros)"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Odanın genişliği (metre)",
         "tr": "Odanın genişliği (metre)",
         "de": "Raumbreite (Meter)",
-        "fr": "Largeur de la pièce (mètres)"
+        "fr": "Largeur de la pièce (mètres)",
+        "es": "Ancho de la habitación (metros)"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Odanın yüksekliği (metre)",
         "tr": "Odanın yüksekliği (metre)",
         "de": "Raumhöhe (Meter)",
-        "fr": "Hauteur de la pièce (mètres)"
+        "fr": "Hauteur de la pièce (mètres)",
+        "es": "Altura de la habitación (metros)"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Ortalama Emilim Katsayısı (α)",
         "de": "Mittlerer Absorptionsgrad (α)",
         "fr": "Coefficient d'absorption moyen (α)",
-        "es": "Ortalama Emilim Katsayısı (α)",
+        "es": "Coeficiente de absorción promedio (α)",
         "ar": "Ortalama Emilim Katsayısı (α)"
       },
       "businessContext_i18n": {
         "en": "Yüzeylerin ortalama ses emilim katsayısı (0–1 arası, boyutsuz)",
         "tr": "Yüzeylerin ortalama ses emilim katsayısı (0–1 arası, boyutsuz)",
         "de": "Mittlerer Schallabsorptionsgrad der Oberflächen (0–1, dimensionslos)",
-        "fr": "Coefficient d'absorption acoustique moyen des surfaces (entre 0 et 1, sans dimension)"
+        "fr": "Coefficient d'absorption acoustique moyen des surfaces (entre 0 et 1, sans dimension)",
+        "es": "Coeficiente promedio de absorción acústica de las superficies (0–1, adimensional)"
       }
     }
   ],
@@ -110,7 +114,7 @@
     "dataConfidenceAdjusted": "rt60",
     "unit": "m"
   },
-  "category": "Diğer",
+  "category": "Teknik & Mühendislik",
   "sector": "Optik & Akustik",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
@@ -118,7 +122,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "optik-akustik",
   "profession": "Akustik Mühendisi",
-  "categoryId": "diger",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

@@ -20,7 +20,8 @@
         "en": "The module is the ratio of the pitch diameter to the number of teeth. It defines the size of the gear tooth per DIN 780.",
         "tr": "Modül, adım çapının diş sayısına oranıdır. Dişli dişinin boyutunu DIN 780'e göre tanımlar.",
         "de": "Der Modul ist das Verhältnis von Teilkreisdurchmesser zur Zähnezahl. Er definiert die Größe der Verzahnung nach DIN 780.",
-        "fr": "Le module est le rapport du diamètre primitif au nombre de dents. Il définit la taille de la denture selon la norme DIN 780."
+        "fr": "Le module est le rapport du diamètre primitif au nombre de dents. Il définit la taille de la denture selon la norme DIN 780.",
+        "es": "El módulo es la relación entre el diámetro primitivo y el número de dientes. Define el tamaño del diente del engranaje según DIN 780."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Diş Sayısı (z)",
         "de": "Zähnezahl (z)",
         "fr": "Nombre de dents (z)",
-        "es": "Number of Teeth (z)",
+        "es": "Número de dientes (z)",
         "ar": "Number of Teeth (z)"
       },
       "businessContext_i18n": {
         "en": "The count of teeth on the gear. Together with module determines the pitch diameter.",
         "tr": "Dişlideki diş sayısı. Modül ile birlikte adım çapını belirler.",
         "de": "Die Anzahl der Zähne am Zahnrad. Zusammen mit dem Modul bestimmt sie den Teilkreisdurchmesser.",
-        "fr": "Le nombre de dents de l'engrenage. Avec le module, il détermine le diamètre primitif."
+        "fr": "Le nombre de dents de l'engrenage. Avec le module, il détermine le diamètre primitif.",
+        "es": "El número de dientes del engranaje. Junto con el módulo determina el diámetro primitivo."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "The angle between the tooth profile and a radial line at the pitch circle. Standard values are 14.5°, 20°, or 25°.",
         "tr": "Diş profili ile adım dairesindeki radyal çizgi arasındaki açı. Standart değerler 14,5°, 20° veya 25°'dir.",
         "de": "Der Winkel zwischen dem Zahnprofil und einer Radiallinie am Teilkreis. Standardwerte sind 14,5°, 20° oder 25°.",
-        "fr": "L'angle entre le profil de la dent et une ligne radiale au cercle primitif. Les valeurs standard sont 14,5°, 20° ou 25°."
+        "fr": "L'angle entre le profil de la dent et une ligne radiale au cercle primitif. Les valeurs standard sont 14,5°, 20° ou 25°.",
+        "es": "El ángulo entre el perfil del diente y una línea radial en el círculo primitivo. Los valores estándar son 14.5°, 20° o 25°."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Multiplier for module to determine the addendum height. Standard is 1 for full-depth teeth.",
         "tr": "Modül için adım yüksekliğini belirleyen çarpan. Tam derinlikli dişler için standart 1'dir.",
         "de": "Multiplikator für den Modul zur Bestimmung der Kopfhöhe. Standard ist 1 für Volltiefenverzahnung.",
-        "fr": "Multiplicateur du module pour déterminer la hauteur de saillie. La valeur standard est 1 pour les dents à pleine hauteur."
+        "fr": "Multiplicateur du module pour déterminer la hauteur de saillie. La valeur standard est 1 pour les dents à pleine hauteur.",
+        "es": "Multiplicador del módulo para determinar la altura de la cabeza. El estándar es 1 para dientes de altura completa."
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Multiplier for module to determine the dedendum depth. Standard is 1.25 for clearance.",
         "tr": "Modül için adım derinliğini belirleyen çarpan. Boşluk için standart 1,25'tir.",
         "de": "Multiplikator für den Modul zur Bestimmung der Fußhöhe. Standard ist 1,25 für Spiel.",
-        "fr": "Multiplicateur du module pour déterminer la profondeur de creux. La valeur standard est 1,25 pour le jeu."
+        "fr": "Multiplicateur du module pour déterminer la profondeur de creux. La valeur standard est 1,25 pour le jeu.",
+        "es": "Multiplicador del módulo para determinar la profundidad del pie. El estándar es 1.25 para holgura."
       }
     }
   ],
@@ -140,7 +145,7 @@
       "baseCircleDiameter": "m"
     }
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "Teknik & Mühendislik",
   "sector": "Makine & Üretim",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
@@ -148,7 +153,7 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

@@ -13,14 +13,15 @@
         "tr": "EBIT (Faiz ve Vergi Öncesi Kar)",
         "de": "EBIT (Ergebnis vor Zinsen und Steuern)",
         "fr": "EBIT (Bénéfice avant intérêts et impôts)",
-        "es": "EBIT (Faiz ve Vergi Öncesi Kar)",
+        "es": "EBIT (Ganancias antes de intereses e impuestos)",
         "ar": "EBIT (Faiz ve Vergi Öncesi Kar)"
       },
       "businessContext_i18n": {
         "en": "Faiz ve vergi öncesi net faaliyet karıdır.",
         "tr": "Faiz ve vergi öncesi net faaliyet karıdır.",
         "de": "Nettoergebnis aus der Betriebstätigkeit vor Zinsen und Steuern.",
-        "fr": "Bénéfice net d'exploitation avant intérêts et impôts."
+        "fr": "Bénéfice net d'exploitation avant intérêts et impôts.",
+        "es": "Utilidad operativa neta antes de intereses e impuestos."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Kurumlar vergisi oranıdır.",
         "tr": "Kurumlar vergisi oranıdır.",
         "de": "Körperschaftsteuersatz.",
-        "fr": "Taux d'impôt sur les sociétés."
+        "fr": "Taux d'impôt sur les sociétés.",
+        "es": "Tasa de impuesto corporativo."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Şirketin toplam kısa ve uzun vadeli borçları.",
         "tr": "Şirketin toplam kısa ve uzun vadeli borçları.",
         "de": "Gesamte kurzfristige und langfristige Verbindlichkeiten des Unternehmens.",
-        "fr": "Dettes totales à court et long terme de l'entreprise."
+        "fr": "Dettes totales à court et long terme de l'entreprise.",
+        "es": "Deuda total de la empresa a corto y largo plazo."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Toplam Öz Sermaye",
         "de": "Gesamtes Eigenkapital",
         "fr": "Capitaux propres totaux",
-        "es": "Toplam Öz Sermaye",
+        "es": "Patrimonio total",
         "ar": "Toplam Öz Sermaye"
       },
       "businessContext_i18n": {
         "en": "Şirketin hissedarlara ait öz sermayesi.",
         "tr": "Şirketin hissedarlara ait öz sermayesi.",
         "de": "Eigenkapital der Aktionäre.",
-        "fr": "Capitaux propres appartenant aux actionnaires de l'entreprise."
+        "fr": "Capitaux propres appartenant aux actionnaires de l'entreprise.",
+        "es": "Patrimonio neto de los accionistas de la empresa."
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Kasadaki nakit ve likit varlıklar.",
         "tr": "Kasadaki nakit ve likit varlıklar.",
         "de": "Bargeld und liquide Mittel in der Kasse.",
-        "fr": "Trésorerie et actifs liquides en caisse."
+        "fr": "Trésorerie et actifs liquides en caisse.",
+        "es": "Efectivo y activos líquidos en caja."
       }
     }
   ],
@@ -129,7 +134,7 @@
     "dataConfidenceAdjusted": "roic",
     "unit": "$"
   },
-  "category": "Diğer",
+  "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
@@ -137,7 +142,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "diger",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

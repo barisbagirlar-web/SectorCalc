@@ -13,14 +13,15 @@
         "tr": "Çatı Katı Alanı",
         "de": "Dachbodenfläche",
         "fr": "Surface du plancher des combles",
-        "es": "Attic Floor Area",
+        "es": "Área del piso del ático",
         "ar": "Attic Floor Area"
       },
       "businessContext_i18n": {
         "en": "Total floor area of the attic space in square feet.",
         "tr": "Çatı katı alanının toplam taban alanı (ft² cinsinden).",
         "de": "Gesamtfläche des Dachbodens in Quadratfuß",
-        "fr": "Superficie totale du grenier en pieds carrés."
+        "fr": "Superficie totale du grenier en pieds carrés.",
+        "es": "Área total del piso del ático en pies cuadrados."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Havalandırma Oranı (1:X)",
         "de": "Lüftungsverhältnis (1:X)",
         "fr": "Ratio de ventilation (1:X)",
-        "es": "Ventilation Ratio (1:X)",
+        "es": "Relación de ventilación (1:X)",
         "ar": "Ventilation Ratio (1:X)"
       },
       "businessContext_i18n": {
         "en": "Required total net free area expressed as 1 square foot per X square feet of attic area. Common values: 150 for standard construction, 300 with certain vapor barriers.",
         "tr": "Gerekli toplam net serbest alan, çatı katı alanının her X ft²'si için 1 ft² olarak ifade edilir. Yaygın değerler: standart yapı için 150, belirli buhar bariyerleri ile 300.",
         "de": "Erforderliche gesamte Nettofreifläche, ausgedrückt als 1 Quadratfuß pro X Quadratfuß Dachbodenfläche. Übliche Werte: 150 für Standardbauweise, 300 bei bestimmten Dampfsperren.",
-        "fr": "Surface nette libre totale requise exprimée en 1 pied carré par X pieds carrés de grenier. Valeurs courantes : 150 pour construction standard, 300 avec certains pare-vapeur."
+        "fr": "Surface nette libre totale requise exprimée en 1 pied carré par X pieds carrés de grenier. Valeurs courantes : 150 pour construction standard, 300 avec certains pare-vapeur.",
+        "es": "Área libre neta total requerida expresada como 1 pie cuadrado por cada X pies cuadrados de área de ático. Valores comunes: 150 para construcción estándar, 300 con ciertas barreras de vapor."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Mahya Havalandırması NFA/ft",
         "de": "Nettolüftungsfläche pro Fuß (Zoll²)",
         "fr": "NFA de l'évent de faîte par pied",
-        "es": "Ridge Vent NFA per Foot",
+        "es": "NFA de ventilación de cumbrera por pie",
         "ar": "Ridge Vent NFA per Foot"
       },
       "businessContext_i18n": {
         "en": "Net free area rating of the ridge vent product, in square inches per linear foot.",
         "tr": "Mahya havalandırma ürününün net serbest alan değeri (in²/lineer ft cinsinden).",
         "de": "Bewertung der Nettolüftungsfläche des Firstlüfters in Quadratzoll pro laufendem Fuß.",
-        "fr": "Indice de surface nette libre du produit d'évent de faîte, en pouces carrés par pied linéaire."
+        "fr": "Indice de surface nette libre du produit d'évent de faîte, en pouces carrés par pied linéaire.",
+        "es": "Clasificación de área libre neta del producto de ventilación de cumbrera, en pulgadas cuadradas por pie lineal."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Egzoz Bölme Faktörü",
         "de": "Aufteilungsfaktor Abluft",
         "fr": "Facteur de répartition d'extraction",
-        "es": "Exhaust Split Factor",
+        "es": "Factor de división de extracción",
         "ar": "Exhaust Split Factor"
       },
       "businessContext_i18n": {
         "en": "Fraction of total ventilation area that should be provided by ridge exhaust. Typically 0.5 for balanced intake/exhaust.",
         "tr": "Mahya egzozu tarafından sağlanması gereken toplam havalandırma alanının oranı. Dengeli giriş/egzoz için tipik olarak 0,5.",
         "de": "Anteil der gesamten Lüftungsfläche, der durch Firstabluft bereitgestellt werden sollte. Typischerweise 0,5 für ausgewogene Zu-/Abluft.",
-        "fr": "Fraction de la surface de ventilation totale devant être fournie par l'extraction de faîte. Généralement 0,5 pour une entrée/sortie équilibrée."
+        "fr": "Fraction de la surface de ventilation totale devant être fournie par l'extraction de faîte. Généralement 0,5 pour une entrée/sortie équilibrée.",
+        "es": "Fracción del área total de ventilación que debe ser proporcionada por la extracción de cumbrera. Típicamente 0.5 para entrada/extracción balanceada."
       }
     }
   ],
@@ -118,7 +122,7 @@
     "dataConfidenceAdjusted": "requiredLength",
     "unit": "sq ft"
   },
-  "category": "Diğer",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
@@ -126,7 +130,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "diger",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

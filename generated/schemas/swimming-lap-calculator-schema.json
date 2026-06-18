@@ -20,7 +20,8 @@
         "en": "Length of the swimming pool in meters.",
         "tr": "Yüzme havuzunun metre cinsinden uzunluğu.",
         "de": "Länge des Schwimmbeckens in Metern.",
-        "fr": "Longueur de la piscine en mètres."
+        "fr": "Longueur de la piscine en mètres.",
+        "es": "Longitud de la piscina en metros."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Tur Sayısı",
         "de": "Anzahl der Bahnen",
         "fr": "Nombre de longueurs",
-        "es": "Number of Laps",
+        "es": "Número de vueltas",
         "ar": "Number of Laps"
       },
       "businessContext_i18n": {
         "en": "Total number of laps to be swum.",
         "tr": "Yüzülecek toplam tur sayısı.",
         "de": "Gesamtzahl der zu schwimmenden Bahnen.",
-        "fr": "Nombre total de longueurs à nager."
+        "fr": "Nombre total de longueurs à nager.",
+        "es": "Número total de vueltas a nadar."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "100m başına tempo",
         "de": "Pace pro 100m",
         "fr": "Allure par 100m",
-        "es": "Pace per 100m",
+        "es": "Ritmo por 100 m",
         "ar": "Pace per 100m"
       },
       "businessContext_i18n": {
         "en": "Swimmer's pace in seconds per 100 meters.",
         "tr": "Yüzücünün 100 metre başına saniye cinsinden temposu.",
         "de": "Pace des Schwimmers in Sekunden pro 100 Meter.",
-        "fr": "Allure du nageur en secondes par 100 mètres."
+        "fr": "Allure du nageur en secondes par 100 mètres.",
+        "es": "Ritmo del nadador en segundos por cada 100 metros."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Turlar Arası Dinlenme",
         "de": "Pause zwischen Bahnen",
         "fr": "Repos entre les longueurs",
-        "es": "Rest Between Laps",
+        "es": "Descanso entre vueltas",
         "ar": "Rest Between Laps"
       },
       "businessContext_i18n": {
         "en": "Rest time in seconds taken after each lap (except the last).",
         "tr": "Her turdan sonra alınan dinlenme süresi (son tur hariç) (saniye).",
         "de": "Pausenzeit in Sekunden nach jeder Bahn (außer der letzten).",
-        "fr": "Temps de repos en secondes après chaque longueur (sauf la dernière)."
+        "fr": "Temps de repos en secondes après chaque longueur (sauf la dernière).",
+        "es": "Tiempo de descanso en segundos tomado después de cada vuelta (excepto la última)."
       }
     }
   ],
@@ -112,7 +116,7 @@
     "dataConfidenceAdjusted": "totalTime",
     "unit": "m"
   },
-  "category": "Diğer",
+  "category": "İSG & Risk",
   "sector": "Fitness & Spor",
   "premiumRequired": false,
   "catalogCategory": "health-body",
@@ -120,7 +124,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "fitness-spor",
   "profession": "Antrenör",
-  "categoryId": "diger",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

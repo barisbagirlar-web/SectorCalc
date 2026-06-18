@@ -20,7 +20,8 @@
         "en": "Annual net income from income statement",
         "tr": "Gelir tablosundan yıllık net gelir",
         "de": "Jährliches Nettoeinkommen aus der Gewinn- und Verlustrechnung",
-        "fr": "Résultat net annuel du compte de résultat"
+        "fr": "Résultat net annuel du compte de résultat",
+        "es": "Ingreso neto anual del estado de resultados"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Dönem Başı Toplam Varlıklar",
         "de": "Anfängliches Gesamtvermögen",
         "fr": "Total d'actif de début",
-        "es": "Beginning Total Assets",
+        "es": "Activos totales iniciales",
         "ar": "Beginning Total Assets"
       },
       "businessContext_i18n": {
         "en": "Total assets at the start of the period",
         "tr": "Dönem başındaki toplam varlıklar",
         "de": "Gesamtvermögen zu Beginn des Zeitraums",
-        "fr": "Total des actifs au début de la période"
+        "fr": "Total des actifs au début de la période",
+        "es": "Activos totales al inicio del período"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Dönem Sonu Toplam Varlıklar",
         "de": "Endgültiges Gesamtvermögen",
         "fr": "Total des actifs de clôture",
-        "es": "Ending Total Assets",
+        "es": "Activos totales finales",
         "ar": "Ending Total Assets"
       },
       "businessContext_i18n": {
         "en": "Total assets at the end of the period",
         "tr": "Dönem sonundaki toplam varlıklar",
         "de": "Gesamtvermögen am Ende des Zeitraums",
-        "fr": "Total des actifs à la fin de la période"
+        "fr": "Total des actifs à la fin de la période",
+        "es": "Activos totales al final del período"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Ortalama Varlıklar Geçersiz Kılma",
         "de": "Durchschnittliches Vermögen Überschreibung",
         "fr": "Remplacement de la moyenne des actifs",
-        "es": "Average Assets Override",
+        "es": "Anulación de activos promedio",
         "ar": "Average Assets Override"
       },
       "businessContext_i18n": {
         "en": "If provided, use as average total assets instead of computing from beginning and ending",
         "tr": "Sağlanırsa, başlangıç ve bitişten hesaplamak yerine ortalama toplam varlık olarak kullanılır",
         "de": "Falls angegeben, als durchschnittliches Gesamtvermögen verwenden, anstatt aus Anfangs- und Endwert zu berechnen",
-        "fr": "Si fourni, utilisé comme actif total moyen au lieu de calculer à partir du début et de la fin"
+        "fr": "Si fourni, utilisé comme actif total moyen au lieu de calculer à partir du début et de la fin",
+        "es": "Si se proporciona, se usa como activos totales promedio en lugar de calcular a partir del inicio y final"
       }
     }
   ],
@@ -108,7 +112,7 @@
     "dataConfidenceAdjusted": "roa",
     "unit": "USD"
   },
-  "category": "Diğer",
+  "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
@@ -116,7 +120,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "diger",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

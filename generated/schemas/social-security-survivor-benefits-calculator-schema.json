@@ -13,14 +13,15 @@
         "tr": "Ortalama Aylık Kazanç",
         "de": "Durchschnittlicher Monatsverdienst",
         "fr": "Gain mensuel moyen",
-        "es": "Ortalama Aylık Kazanç",
+        "es": "Ganancia mensual promedio",
         "ar": "Ortalama Aylık Kazanç"
       },
       "businessContext_i18n": {
         "en": "Çalışanın ortalama aylık kazancı",
         "tr": "Çalışanın ortalama aylık kazancı",
         "de": "Durchschnittlicher Monatsverdienst des Arbeitnehmers",
-        "fr": "Gain mensuel moyen du travailleur"
+        "fr": "Gain mensuel moyen du travailleur",
+        "es": "La ganancia mensual promedio del empleado"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Sigortalılık Süresi (Yıl)",
         "de": "Versicherungsdauer (Jahre)",
         "fr": "Durée d'assurance (années)",
-        "es": "Sigortalılık Süresi (Yıl)",
+        "es": "Duración del Seguro (Años)",
         "ar": "Sigortalılık Süresi (Yıl)"
       },
       "businessContext_i18n": {
         "en": "Çalışanın toplam sigortalılık süresi",
         "tr": "Çalışanın toplam sigortalılık süresi",
         "de": "Gesamte Versicherungsdauer des Arbeitnehmers",
-        "fr": "Durée totale d'assurance du travailleur"
+        "fr": "Durée totale d'assurance du travailleur",
+        "es": "Duración total del seguro del empleado"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Hak Sahibi Yaşı",
         "de": "Alter des Anspruchsberechtigten",
         "fr": "Âge de l'ayant droit",
-        "es": "Hak Sahibi Yaşı",
+        "es": "Edad del Beneficiario",
         "ar": "Hak Sahibi Yaşı"
       },
       "businessContext_i18n": {
         "en": "Hak sahibinin yaşı (eş veya çocuk)",
         "tr": "Hak sahibinin yaşı (eş veya çocuk)",
         "de": "Alter des Anspruchsberechtigten (Ehepartner oder Kind)",
-        "fr": "Âge de l'ayant droit (conjoint ou enfant)"
+        "fr": "Âge de l'ayant droit (conjoint ou enfant)",
+        "es": "Edad del beneficiario (cónyuge o hijo)"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Hak Sahibi Çocuk Sayısı",
         "de": "Anzahl der anspruchsberechtigten Kinder",
         "fr": "Nombre d'enfants ayants droit",
-        "es": "Hak Sahibi Çocuk Sayısı",
+        "es": "Número de Hijos Beneficiarios",
         "ar": "Hak Sahibi Çocuk Sayısı"
       },
       "businessContext_i18n": {
         "en": "Ölen sigortalının hak sahibi çocuk sayısı",
         "tr": "Ölen sigortalının hak sahibi çocuk sayısı",
         "de": "Anzahl der anspruchsberechtigten Kinder des verstorbenen Versicherten",
-        "fr": "Nombre d'enfants ayants droit du travailleur décédé"
+        "fr": "Nombre d'enfants ayants droit du travailleur décédé",
+        "es": "Número de hijos beneficiarios del asegurado fallecido"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Eş Hak Sahibi mi?",
         "de": "Ist der Anspruchsberechtigte der Ehepartner?",
         "fr": "Le conjoint est-il ayant droit ?",
-        "es": "Eş Hak Sahibi mi?",
+        "es": "¿El cónyuge es beneficiario?",
         "ar": "Eş Hak Sahibi mi?"
       },
       "businessContext_i18n": {
         "en": "Hak sahibinin eş olup olmadığı (1: Evet, 0: Hayır)",
         "tr": "Hak sahibinin eş olup olmadığı (1: Evet, 0: Hayır)",
         "de": "Gibt an, ob der Anspruchsberechtigte der Ehepartner ist (1: Ja, 0: Nein)",
-        "fr": "Le conjoint est-il le bénéficiaire (1: Oui, 0: Non)"
+        "fr": "Le conjoint est-il le bénéficiaire (1: Oui, 0: Non)",
+        "es": "Indica si el beneficiario es el cónyuge (1: Sí, 0: No)"
       }
     }
   ],
@@ -132,7 +137,7 @@
     "dataConfidenceAdjusted": "totalMonthlyBenefit",
     "unit": "TL"
   },
-  "category": "İK & Personel",
+  "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -140,7 +145,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "hr",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

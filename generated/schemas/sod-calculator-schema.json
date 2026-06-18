@@ -20,7 +20,8 @@
         "en": "Length of the area to be covered with sod in feet.",
         "tr": "Çim serilecek alanın fit cinsinden uzunluğu.",
         "de": "Länge der mit Rasen zu bedeckenden Fläche in Fuß.",
-        "fr": "Longueur de la zone à couvrir de gazon en pieds."
+        "fr": "Longueur de la zone à couvrir de gazon en pieds.",
+        "es": "Largo del área a cubrir con césped en pies."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Width of the area to be covered with sod in feet.",
         "tr": "Çim serilecek alanın fit cinsinden genişliği.",
         "de": "Breite der mit Rasen zu bedeckenden Fläche in Fuß.",
-        "fr": "Largeur de la zone à couvrir de gazon en pieds."
+        "fr": "Largeur de la zone à couvrir de gazon en pieds.",
+        "es": "Ancho del área a cubrir con césped en pies."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Additional percentage of sod to account for cutting and fitting waste.",
         "tr": "Kesim ve uyum kaybını karşılamak için ek çim yüzdesi.",
         "de": "Zusätzlicher Prozentsatz an Rasen für Verschnitt und Anpassung.",
-        "fr": "Pourcentage supplémentaire de gazon pour tenir compte des pertes de coupe et d'ajustement."
+        "fr": "Pourcentage supplémentaire de gazon pour tenir compte des pertes de coupe et d'ajustement.",
+        "es": "Porcentaje adicional de césped para compensar el desperdicio por corte y ajuste."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Rulo Başına Kaplama (ft²)",
         "de": "Abdeckung pro Rolle (sq ft)",
         "fr": "Couverture par rouleau (pi²)",
-        "es": "Coverage per Roll (sq ft)",
+        "es": "Cobertura por Rollo (pies cuadrados)",
         "ar": "Coverage per Roll (sq ft)"
       },
       "businessContext_i18n": {
         "en": "Area covered by a single roll of sod in square feet.",
         "tr": "Tek bir çim rulosunun fit kare cinsinden kapladığı alan.",
         "de": "Von einer Rolle abgedeckte Fläche in Quadratfuß.",
-        "fr": "Surface couverte par un seul rouleau de gazon en pieds carrés."
+        "fr": "Surface couverte par un seul rouleau de gazon en pieds carrés.",
+        "es": "Área cubierta por un solo rollo de césped en pies cuadrados."
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Rulo Fiyatı ($)",
         "de": "Preis pro Rolle ($)",
         "fr": "Prix par rouleau ($)",
-        "es": "Price per Roll ($)",
+        "es": "Precio por Rollo ($)",
         "ar": "Price per Roll ($)"
       },
       "businessContext_i18n": {
         "en": "Unit cost of one roll of sod in dollars.",
         "tr": "Bir rulo çimin dolar cinsinden birim maliyeti.",
         "de": "Stückkosten einer Rolle in Dollar.",
-        "fr": "Coût unitaire d'un rouleau de gazon en dollars."
+        "fr": "Coût unitaire d'un rouleau de gazon en dollars.",
+        "es": "Costo unitario de un rollo de césped en dólares."
       }
     }
   ],
@@ -133,7 +138,7 @@
     "dataConfidenceAdjusted": "totalCost",
     "unit": "ft"
   },
-  "category": "Maliyet & Bütçeleme",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
@@ -141,7 +146,7 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "cost",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

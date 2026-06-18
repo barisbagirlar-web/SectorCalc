@@ -20,7 +20,8 @@
         "en": "Density of string material (e.g., steel: 7850 kg/m³)",
         "tr": "Tel malzemesinin yoğunluğu (örn., çelik: 7850 kg/m³)",
         "de": "Dichte des Saitenmaterials (z.B. Stahl: 7850 kg/m³)",
-        "fr": "Densité du matériau de la corde (ex. : acier : 7850 kg/m³)"
+        "fr": "Densité du matériau de la corde (ex. : acier : 7850 kg/m³)",
+        "es": "Densidad del material de la cuerda (ej: acero: 7850 kg/m³)"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Diameter of the string in millimeters",
         "tr": "Telin milimetre cinsinden çapı",
         "de": "Durchmesser der Saite in Millimetern",
-        "fr": "Diamètre de la corde en millimètres"
+        "fr": "Diamètre de la corde en millimètres",
+        "es": "Diámetro de la cuerda en milímetros"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Tel Uzunluğu",
         "de": "Saitenlänge",
         "fr": "Longueur de la corde",
-        "es": "String Length",
+        "es": "Longitud de la cuerda",
         "ar": "String Length"
       },
       "businessContext_i18n": {
         "en": "Vibrating length of the string in centimeters",
         "tr": "Telin santimetre cinsinden titreşim uzunluğu",
         "de": "Schwingende Länge der Saite in Zentimetern",
-        "fr": "Longueur vibrante de la corde en centimètres"
+        "fr": "Longueur vibrante de la corde en centimètres",
+        "es": "Longitud vibrante de la cuerda en centímetros"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Fundamental frequency of vibration (e.g., A4 = 440 Hz)",
         "tr": "Temel titreşim frekansı (örn., A4 = 440 Hz)",
         "de": "Grundfrequenz der Schwingung (z.B. A4 = 440 Hz)",
-        "fr": "Fréquence fondamentale de vibration (ex. : La4 = 440 Hz)"
+        "fr": "Fréquence fondamentale de vibration (ex. : La4 = 440 Hz)",
+        "es": "Frecuencia fundamental de vibración (ej: A4 = 440 Hz)"
       }
     }
   ],
@@ -108,7 +112,7 @@
     "dataConfidenceAdjusted": "tension",
     "unit": "kg/m³"
   },
-  "category": "Diğer",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
@@ -116,7 +120,7 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "birim-donusum",
   "profession": "Mühendis",
-  "categoryId": "diger",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

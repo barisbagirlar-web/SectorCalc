@@ -20,7 +20,8 @@
         "en": "The total width of the wall to be covered",
         "tr": "Kaplanacak duvarın toplam genişliği",
         "de": "Gesamtbreite der zu bedeckenden Wand",
-        "fr": "La largeur totale du mur à couvrir"
+        "fr": "La largeur totale du mur à couvrir",
+        "es": "Ancho total del muro a cubrir"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "The total height of the wall to be covered",
         "tr": "Kaplanacak duvarın toplam yüksekliği",
         "de": "Gesamthöhe der zu bedeckenden Wand",
-        "fr": "La hauteur totale du mur à couvrir"
+        "fr": "La hauteur totale du mur à couvrir",
+        "es": "Altura total del muro a cubrir"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Taş Uzunluğu",
         "de": "Steinlänge",
         "fr": "Longueur de la pierre",
-        "es": "Stone Length",
+        "es": "Longitud de la piedra",
         "ar": "Stone Length"
       },
       "businessContext_i18n": {
         "en": "Length of a single stone veneer piece",
         "tr": "Tek bir taş kaplama parçasının uzunluğu",
         "de": "Länge eines einzelnen Steinverkleidungsstücks",
-        "fr": "Longueur d'une pièce de parement en pierre"
+        "fr": "Longueur d'une pièce de parement en pierre",
+        "es": "Longitud de una sola pieza de revestimiento de piedra"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Taş Yüksekliği",
         "de": "Steinhöhe",
         "fr": "Hauteur de la pierre",
-        "es": "Stone Height",
+        "es": "Altura de la piedra",
         "ar": "Stone Height"
       },
       "businessContext_i18n": {
         "en": "Height of a single stone veneer piece",
         "tr": "Tek bir taş kaplama parçasının yüksekliği",
         "de": "Höhe eines einzelnen Steinverkleidungsstücks",
-        "fr": "Hauteur d'une pièce de parement en pierre"
+        "fr": "Hauteur d'une pièce de parement en pierre",
+        "es": "Altura de una sola pieza de revestimiento de piedra"
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Gap between stones (grout joint)",
         "tr": "Taşlar arası boşluk (derz)",
         "de": "Fugenabstand zwischen den Steinen",
-        "fr": "Espace entre les pierres (joint de mortier)"
+        "fr": "Espace entre les pierres (joint de mortier)",
+        "es": "Espacio entre piedras (junta de mortero)"
       }
     },
     {
@@ -130,7 +135,8 @@
         "en": "Percentage of extra material for cuts and breakage",
         "tr": "Kesim ve kırılma için ekstra malzeme yüzdesi",
         "de": "Prozentsatz für Verschnitt und Bruch",
-        "fr": "Pourcentage de matériel supplémentaire pour les coupes et la casse"
+        "fr": "Pourcentage de matériel supplémentaire pour les coupes et la casse",
+        "es": "Porcentaje de material extra para cortes y roturas"
       }
     },
     {
@@ -145,14 +151,15 @@
         "tr": "Metrekare Başına Maliyet",
         "de": "Kosten pro Quadratfuß",
         "fr": "Coût par pied carré",
-        "es": "Cost per Square Foot",
+        "es": "Costo por pie cuadrado",
         "ar": "Cost per Square Foot"
       },
       "businessContext_i18n": {
         "en": "Material cost per square foot of stone",
         "tr": "Taşın metrekare başına malzeme maliyeti",
         "de": "Materialkosten pro Quadratfuß Stein",
-        "fr": "Coût du matériau par pied carré de pierre"
+        "fr": "Coût du matériau par pied carré de pierre",
+        "es": "Costo del material por pie cuadrado de piedra"
       }
     }
   ],
@@ -177,7 +184,7 @@
     "dataConfidenceAdjusted": "totalCost",
     "unit": "ft"
   },
-  "category": "Maliyet & Bütçeleme",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
@@ -185,7 +192,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "birim-donusum",
   "profession": "Mühendis",
-  "categoryId": "cost",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

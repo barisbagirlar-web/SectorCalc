@@ -20,7 +20,8 @@
         "en": "Mass of the climber including all gear carried.",
         "tr": "Tırmanıcının taşıdığı tüm ekipman dahil kütlesi.",
         "de": "Masse des Kletterers inklusive aller getragenen Ausrüstung.",
-        "fr": "Masse du grimpeur incluant tout l'équipement transporté."
+        "fr": "Masse du grimpeur incluant tout l'équipement transporté.",
+        "es": "Masa del escalador incluyendo todo el equipo transportado."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Halat Uzunluğu Dışarı",
         "de": "Ausgegebene Seillänge",
         "fr": "Longueur de corde déroulée",
-        "es": "Rope Length Out",
+        "es": "Longitud de cuerda fuera",
         "ar": "Rope Length Out"
       },
       "businessContext_i18n": {
         "en": "Total length of rope paid out from belay device to climber.",
         "tr": "Emniyet cihazından tırmanıcıya verilen toplam halat uzunluğu.",
         "de": "Gesamtlänge des vom Sicherungsgerät zum Kletterer ausgegebenen Seils.",
-        "fr": "Longueur totale de corde déroulée du dispositif d'assurage au grimpeur."
+        "fr": "Longueur totale de corde déroulée du dispositif d'assurage au grimpeur.",
+        "es": "Longitud total de cuerda pagada desde el asegurador hasta el escalador."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Düşüş Uzunluğu",
         "de": "Falllänge",
         "fr": "Longueur de chute",
-        "es": "Length of Fall",
+        "es": "Longitud de caída",
         "ar": "Length of Fall"
       },
       "businessContext_i18n": {
         "en": "Vertical distance the climber falls before rope begins to catch.",
         "tr": "Halatın tutmaya başlamadan önce tırmanıcının düştüğü dikey mesafe.",
         "de": "Vertikale Distanz, die der Kletterer fällt, bevor das Seil zu fangen beginnt.",
-        "fr": "Distance verticale parcourue par le grimpeur avant que la corde ne commence à le retenir."
+        "fr": "Distance verticale parcourue par le grimpeur avant que la corde ne commence à le retenir.",
+        "es": "Distancia vertical que cae el escalador antes de que la cuerda comience a detenerlo."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Halat Darbe Kuvveti Değeri",
         "de": "Seil-Stoßkraftbewertung",
         "fr": "Indice de force d'impact de la corde",
-        "es": "Rope Impact Force Rating",
+        "es": "Clasificación de fuerza de impacto de la cuerda",
         "ar": "Rope Impact Force Rating"
       },
       "businessContext_i18n": {
         "en": "Maximum impact force measured for a standard UIAA fall (80 kg, fall factor 1.77) as specified by the rope manufacturer.",
         "tr": "Üretici tarafından belirtilen standart UIAA düşüşü (80 kg, düşüş faktörü 1.77) için ölçülen maksimum darbe kuvveti.",
         "de": "Maximale Stoßkraft, gemessen für einen standardmäßigen UIAA-Sturz (80 kg, Fallfaktor 1,77), wie vom Seilhersteller angegeben.",
-        "fr": "Force d'impact maximale mesurée pour une chute UIAA standard (80 kg, facteur de chute 1,77) selon le fabricant de la corde."
+        "fr": "Force d'impact maximale mesurée pour une chute UIAA standard (80 kg, facteur de chute 1,77) selon le fabricant de la corde.",
+        "es": "Fuerza de impacto máxima medida para una caída UIAA estándar (80 kg, factor de caída 1.77) según lo especificado por el fabricante de la cuerda."
       }
     }
   ],
@@ -107,7 +111,7 @@
     "dataConfidenceAdjusted": "impactForce",
     "unit": "kg"
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "Teknik & Mühendislik",
   "sector": "Madencilik & Jeoloji",
   "premiumRequired": false,
   "catalogCategory": "health-body",
@@ -115,7 +119,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "madencilik",
   "profession": "Maden Mühendisi",
-  "categoryId": "conversion",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

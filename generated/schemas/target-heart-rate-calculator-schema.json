@@ -43,7 +43,8 @@
         "en": "User's resting heart rate in beats per minute",
         "tr": "Kullanıcının dinlenme kalp atış hızı (dakikadaki atım sayısı)",
         "de": "Ruhepuls des Benutzers in Schlägen pro Minute",
-        "fr": "Fréquence cardiaque au repos de l'utilisateur en battements par minute"
+        "fr": "Fréquence cardiaque au repos de l'utilisateur en battements par minute",
+        "es": "Frecuencia cardíaca en reposo del usuario en latidos por minuto"
       }
     },
     {
@@ -65,7 +66,8 @@
         "en": "Lower bound of desired training intensity as a percentage",
         "tr": "İstenen egzersiz yoğunluğunun alt sınırı (yüzde olarak)",
         "de": "Untere Grenze der gewünschten Trainingsintensität in Prozent",
-        "fr": "Limite inférieure de l'intensité d'entraînement souhaitée en pourcentage"
+        "fr": "Limite inférieure de l'intensité d'entraînement souhaitée en pourcentage",
+        "es": "Límite inferior de la intensidad de entrenamiento deseada como porcentaje"
       }
     },
     {
@@ -87,7 +89,8 @@
         "en": "Upper bound of desired training intensity as a percentage",
         "tr": "İstenen egzersiz yoğunluğunun üst sınırı (yüzde olarak)",
         "de": "Obergrenze der gewünschten Trainingsintensität in Prozent",
-        "fr": "Limite supérieure de l'intensité d'entraînement souhaitée en pourcentage"
+        "fr": "Limite supérieure de l'intensité d'entraînement souhaitée en pourcentage",
+        "es": "Límite superior de la intensidad de entrenamiento deseada como porcentaje"
       }
     }
   ],
@@ -110,7 +113,7 @@
     "dataConfidenceAdjusted": "targetMax",
     "unit": "years"
   },
-  "category": "Diğer",
+  "category": "İSG & Risk",
   "sector": "Sağlık & Tıp",
   "premiumRequired": false,
   "catalogCategory": "health-body",
@@ -118,7 +121,7 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "saglik",
   "profession": "Biyomedikal Mühendisi",
-  "categoryId": "diger",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

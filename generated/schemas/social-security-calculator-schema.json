@@ -13,14 +13,15 @@
         "tr": "Aylık Brüt Maaş",
         "de": "Monatliches Bruttogehalt",
         "fr": "Salaire brut mensuel",
-        "es": "Aylık Brüt Maaş",
+        "es": "Salario bruto mensual",
         "ar": "Aylık Brüt Maaş"
       },
       "businessContext_i18n": {
         "en": "Çalışanın aylık brüt maaşı",
         "tr": "Çalışanın aylık brüt maaşı",
         "de": "Monatliches Bruttogehalt des Arbeitnehmers",
-        "fr": "Salaire brut mensuel du salarié"
+        "fr": "Salaire brut mensuel du salarié",
+        "es": "Salario bruto mensual del empleado"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "İşçi Payı Oranı (%)",
         "de": "Arbeitnehmeranteil (%)",
         "fr": "Taux de part salariale (%)",
-        "es": "İşçi Payı Oranı (%)",
+        "es": "Tasa de contribución del trabajador (%)",
         "ar": "İşçi Payı Oranı (%)"
       },
       "businessContext_i18n": {
         "en": "SGK işçi prim oranı",
         "tr": "SGK işçi prim oranı",
         "de": "Sozialversicherungsbeitragssatz Arbeitnehmer",
-        "fr": "Taux de cotisation salariale SGK"
+        "fr": "Taux de cotisation salariale SGK",
+        "es": "Tasa de prima del trabajador al SGK"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "İşveren Payı Oranı (%)",
         "de": "Arbeitgeberanteil (%)",
         "fr": "Taux de part patronale (%)",
-        "es": "İşveren Payı Oranı (%)",
+        "es": "Tasa de contribución del empleador (%)",
         "ar": "İşveren Payı Oranı (%)"
       },
       "businessContext_i18n": {
         "en": "SGK işveren prim oranı",
         "tr": "SGK işveren prim oranı",
         "de": "Sozialversicherungsbeitragssatz Arbeitgeber",
-        "fr": "Taux de cotisation patronale SGK"
+        "fr": "Taux de cotisation patronale SGK",
+        "es": "Tasa de prima del empleador al SGK"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Tavan Ücret (TL)",
         "de": "Beitragsbemessungsgrenze (TL)",
         "fr": "Plafond (TL)",
-        "es": "Tavan Ücret (TL)",
+        "es": "Salario máximo (TL)",
         "ar": "Tavan Ücret (TL)"
       },
       "businessContext_i18n": {
         "en": "SGK primine esas kazanç üst sınırı",
         "tr": "SGK primine esas kazanç üst sınırı",
         "de": "Obergrenze des beitragspflichtigen Entgelts",
-        "fr": "Plafond de revenu soumis à cotisation SGK"
+        "fr": "Plafond de revenu soumis à cotisation SGK",
+        "es": "Límite superior de ingresos sujetos a prima del SGK"
       }
     }
   ],
@@ -107,7 +111,7 @@
     "dataConfidenceAdjusted": "toplamSGKPrimi",
     "unit": "TL"
   },
-  "category": "İSG & Risk",
+  "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
@@ -115,7 +119,7 @@
   "categorySlug": "workforce-hr",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "safety",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

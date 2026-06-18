@@ -13,14 +13,15 @@
         "tr": "Kayıt Tonu",
         "de": "Registertonnen",
         "fr": "Tonnes de registre",
-        "es": "Register Tons",
+        "es": "Toneladas de registro",
         "ar": "Register Tons"
       },
       "businessContext_i18n": {
         "en": "Volume in register tons (1 RT = 100 cubic feet)",
         "tr": "Kayıt tonu cinsinden hacim (1 RT = 100 fit küp)",
         "de": "Volumen in Registertonnen (1 RT = 100 Kubikfuß)",
-        "fr": "Volume en tonnes de registre (1 TR = 100 pieds cubes)"
+        "fr": "Volume en tonnes de registre (1 TR = 100 pieds cubes)",
+        "es": "Volumen en toneladas de registro (1 TR = 100 pies cúbicos)"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Metreküp",
         "de": "Kubikmeter",
         "fr": "Mètres cubes",
-        "es": "Cubic Meters",
+        "es": "Metros cúbicos",
         "ar": "Cubic Meters"
       },
       "businessContext_i18n": {
         "en": "Volume in cubic meters (for reverse conversion)",
         "tr": "Metreküp cinsinden hacim (ters dönüşüm için)",
         "de": "Volumen in Kubikmetern (für umgekehrte Umrechnung)",
-        "fr": "Volume en mètres cubes (pour conversion inverse)"
+        "fr": "Volume en mètres cubes (pour conversion inverse)",
+        "es": "Volumen en metros cúbicos (para conversión inversa)"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Select direction: 0 for register tons to cubic meters, 1 for cubic meters to register tons",
         "tr": "Yön seçin: 0 kayıt tondan metreküpe, 1 metreküpten kayıt tona",
         "de": "Richtung wählen: 0 für Registertonnen in Kubikmeter, 1 für Kubikmeter in Registertonnen",
-        "fr": "Sélectionnez la direction : 0 pour tonnes de registre en mètres cubes, 1 pour mètres cubes en tonnes de registre"
+        "fr": "Sélectionnez la direction : 0 pour tonnes de registre en mètres cubes, 1 pour mètres cubes en tonnes de registre",
+        "es": "Seleccione dirección: 0 para toneladas de registro a metros cúbicos, 1 para metros cúbicos a toneladas de registro"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Number of decimal places for rounding result",
         "tr": "Sonucu yuvarlamak için ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen für das gerundete Ergebnis",
-        "fr": "Nombre de décimales pour l'arrondi du résultat"
+        "fr": "Nombre de décimales pour l'arrondi du résultat",
+        "es": "Número de decimales para redondear el resultado"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Standart Faktör Kullan",
         "de": "Standardfaktor verwenden",
         "fr": "Utiliser le facteur standard",
-        "es": "Use Standard Factor",
+        "es": "Usar factor estándar",
         "ar": "Use Standard Factor"
       },
       "businessContext_i18n": {
         "en": "Use standard conversion factor (2.8316846592 m³/RT) if 1, else custom",
         "tr": "Standart dönüşüm faktörü (2,8316846592 m³/RT) kullanılıyorsa 1, aksi halde özel",
         "de": "Standard-Umrechnungsfaktor (2,8316846592 m³/RT) verwenden, wenn 1, sonst benutzerdefiniert",
-        "fr": "Utiliser le facteur de conversion standard (2,8316846592 m³/TR) si 1, sinon personnalisé"
+        "fr": "Utiliser le facteur de conversion standard (2,8316846592 m³/TR) si 1, sinon personnalisé",
+        "es": "Usar factor de conversión estándar (2.8316846592 m³/TR) si es 1, si no, personalizado"
       }
     },
     {
@@ -123,14 +128,15 @@
         "tr": "Özel Faktör",
         "de": "Benutzerdefinierter Faktor",
         "fr": "Facteur personnalisé",
-        "es": "Custom Factor",
+        "es": "Factor personalizado",
         "ar": "Custom Factor"
       },
       "businessContext_i18n": {
         "en": "Custom conversion factor when not using standard. Default is standard factor.",
         "tr": "Standart kullanılmadığında özel dönüşüm faktörü. Varsayılan standart faktördür.",
         "de": "Benutzerdefinierter Umrechnungsfaktor, wenn nicht der Standard verwendet wird. Standard ist der Standardfaktor.",
-        "fr": "Facteur de conversion personnalisé lorsque le facteur standard n'est pas utilisé. La valeur par défaut est le facteur standard."
+        "fr": "Facteur de conversion personnalisé lorsque le facteur standard n'est pas utilisé. La valeur par défaut est le facteur standard.",
+        "es": "Factor de conversión personalizado cuando no se usa el estándar. El valor predeterminado es el factor estándar."
       }
     }
   ],

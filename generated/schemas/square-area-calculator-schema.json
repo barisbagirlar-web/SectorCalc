@@ -20,7 +20,8 @@
         "en": "Nominal side length of the square in base units (typically meters).",
         "tr": "Kare şeklinin temel birimlerde (genellikle metre) nominal kenar uzunluğu.",
         "de": "Nennseitenlänge des Quadrats in Basiseinheiten (typischerweise Meter).",
-        "fr": "Longueur nominale du côté du carré en unités de base (généralement en mètres)."
+        "fr": "Longueur nominale du côté du carré en unités de base (généralement en mètres).",
+        "es": "Longitud nominal del lado del cuadrado en unidades base (generalmente metros)."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Tolerans (+)",
         "de": "Toleranz (+)",
         "fr": "Tolérance (+)",
-        "es": "Tolerance (+)",
+        "es": "Tolerancia (+)",
         "ar": "Tolerance (+)"
       },
       "businessContext_i18n": {
         "en": "Positive tolerance on side length (added to nominal).",
         "tr": "Kenar uzunluğuna eklenen pozitif tolerans (nominal değere eklenir).",
         "de": "Positive Toleranz auf die Seitenlänge (zum Nennwert addiert).",
-        "fr": "Tolérance positive sur la longueur du côté (ajoutée à la valeur nominale)."
+        "fr": "Tolérance positive sur la longueur du côté (ajoutée à la valeur nominale).",
+        "es": "Tolerancia positiva en la longitud del lado (se suma a la nominal)."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Tolerans (-)",
         "de": "Toleranz (-)",
         "fr": "Tolérance (-)",
-        "es": "Tolerance (-)",
+        "es": "Tolerancia (-)",
         "ar": "Tolerance (-)"
       },
       "businessContext_i18n": {
         "en": "Negative tolerance on side length (subtracted from nominal, entered as positive number).",
         "tr": "Kenar uzunluğundan çıkarılan negatif tolerans (pozitif sayı olarak girilir).",
         "de": "Negative Toleranz auf Seitenlänge (vom Nennwert abgezogen, als positive Zahl eingegeben).",
-        "fr": "Tolérance négative sur la longueur du côté (soustraite de la valeur nominale, saisie comme nombre positif)."
+        "fr": "Tolérance négative sur la longueur du côté (soustraite de la valeur nominale, saisie comme nombre positif).",
+        "es": "Tolerancia negativa en la longitud del lado (se resta de la nominal, ingresada como número positivo)."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Multiplier to convert square base units to desired output unit (e.g., 1 for m², 10000 for cm², 10.7639 for ft²).",
         "tr": "Kare taban birimlerini istenen çıktı birimine dönüştürmek için çarpan (örneğin, m² için 1, cm² için 10000, ft² için 10.7639).",
         "de": "Multiplikator zur Umrechnung von quadratischen Basiseinheiten in die gewünschte Ausgabeeinheit (z. B. 1 für m², 10000 für cm², 10,7639 für ft²).",
-        "fr": "Multiplicateur pour convertir les unités de base carrées en unité de sortie souhaitée (ex. : 1 pour m², 10000 pour cm², 10,7639 pour ft²)."
+        "fr": "Multiplicateur pour convertir les unités de base carrées en unité de sortie souhaitée (ex. : 1 pour m², 10000 pour cm², 10,7639 pour ft²).",
+        "es": "Multiplicador para convertir unidades base cuadradas a la unidad de salida deseada (ej. 1 para m², 10000 para cm², 10.7639 para ft²)."
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Number of decimal places for rounding results.",
         "tr": "Sonuçların yuvarlanması için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für die Rundung der Ergebnisse.",
-        "fr": "Nombre de décimales pour l'arrondi des résultats."
+        "fr": "Nombre de décimales pour l'arrondi des résultats.",
+        "es": "Número de decimales para redondear resultados."
       }
     }
   ],
@@ -129,7 +134,7 @@
     "dataConfidenceAdjusted": "maxArea",
     "unit": "m"
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
@@ -137,7 +142,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "conversion",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

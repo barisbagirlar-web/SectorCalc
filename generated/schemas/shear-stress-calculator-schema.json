@@ -13,14 +13,15 @@
         "tr": "Kesme Kuvveti (F)",
         "de": "Scherkraft (F)",
         "fr": "Effort tranchant (F)",
-        "es": "Shear Force (F)",
+        "es": "Fuerza cortante (F)",
         "ar": "Shear Force (F)"
       },
       "businessContext_i18n": {
         "en": "The total shear force applied to the cross-section.",
         "tr": "Kesite uygulanan toplam kesme kuvveti.",
         "de": "Die gesamte auf den Querschnitt wirkende Scherkraft.",
-        "fr": "L'effort tranchant total appliqué à la section transversale."
+        "fr": "L'effort tranchant total appliqué à la section transversale.",
+        "es": "Fuerza cortante total aplicada a la sección transversal."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "The effective area resisting the shear force.",
         "tr": "Kesme kuvvetine direnen etkili alan.",
         "de": "Die effektive Fläche, die der Scherkraft widersteht.",
-        "fr": "La surface effective résistant à l'effort tranchant."
+        "fr": "La surface effective résistant à l'effort tranchant.",
+        "es": "Área efectiva que resiste la fuerza cortante."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Kesme Düzlemi Sayısı",
         "de": "Anzahl der Scherebenen",
         "fr": "Nombre de plans de cisaillement",
-        "es": "Number of Shear Planes",
+        "es": "Número de planos de corte",
         "ar": "Number of Shear Planes"
       },
       "businessContext_i18n": {
         "en": "1 for single shear, 2 for double shear (e.g., bolted connections).",
         "tr": "Tek kesme için 1, çift kesme için 2 (örn. cıvatalı bağlantılar).",
         "de": "1 für einfache Scherung, 2 für doppelte Scherung (z. B. Schraubverbindungen).",
-        "fr": "1 pour cisaillement simple, 2 pour cisaillement double (ex. assemblages boulonnés)."
+        "fr": "1 pour cisaillement simple, 2 pour cisaillement double (ex. assemblages boulonnés).",
+        "es": "1 para corte simple, 2 para corte doble (por ejemplo, uniones atornilladas)."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "İzin Verilen Kesme Gerilmesi (τ_allow)",
         "de": "Zulässige Schubspannung (τ_zul)",
         "fr": "Contrainte de cisaillement admissible (τ_allow)",
-        "es": "Allowable Shear Stress (τ_allow)",
+        "es": "Esfuerzo cortante admisible (τ_allow)",
         "ar": "Allowable Shear Stress (τ_allow)"
       },
       "businessContext_i18n": {
         "en": "The material's maximum permissible shear stress as per design codes.",
         "tr": "Tasarım kodlarına göre malzemenin izin verilen maksimum kesme gerilmesi.",
         "de": "Die maximal zulässige Schubspannung des Materials gemäß den Konstruktionsnormen.",
-        "fr": "La contrainte de cisaillement maximale permise par le matériau selon les codes de conception."
+        "fr": "La contrainte de cisaillement maximale permise par le matériau selon les codes de conception.",
+        "es": "Esfuerzo cortante máximo permisible del material según códigos de diseño."
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Design safety factor to account for uncertainties in load and material properties.",
         "tr": "Yük ve malzeme özelliklerindeki belirsizlikleri hesaba katmak için tasarım güvenlik faktörü.",
         "de": "Sicherheitsfaktor zur Berücksichtigung von Unsicherheiten bei Lasten und Materialeigenschaften.",
-        "fr": "Coefficient de sécurité de conception pour tenir compte des incertitudes sur les charges et les propriétés des matériaux."
+        "fr": "Coefficient de sécurité de conception pour tenir compte des incertitudes sur les charges et les propriétés des matériaux.",
+        "es": "Factor de seguridad de diseño para considerar incertidumbres en carga y propiedades del material."
       }
     }
   ],

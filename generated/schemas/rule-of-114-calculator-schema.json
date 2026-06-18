@@ -13,14 +13,15 @@
         "tr": "Yıllık Faiz Oranı (%)",
         "de": "Jährlicher Zinssatz (%)",
         "fr": "Taux d'intérêt annuel (%)",
-        "es": "Yıllık Faiz Oranı (%)",
+        "es": "Tasa de interés anual (%)",
         "ar": "Yıllık Faiz Oranı (%)"
       },
       "businessContext_i18n": {
         "en": "Yatırımın yıllık getiri oranı",
         "tr": "Yatırımın yıllık getiri oranı",
         "de": "Jährliche Rendite der Anlage",
-        "fr": "Taux de rendement annuel de l'investissement"
+        "fr": "Taux de rendement annuel de l'investissement",
+        "es": "Tasa de rendimiento anual de la inversión"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Yatırımın başlangıç değeri",
         "tr": "Yatırımın başlangıç değeri",
         "de": "Anfangswert der Anlage",
-        "fr": "Valeur initiale de l'investissement"
+        "fr": "Valeur initiale de l'investissement",
+        "es": "Valor inicial de la inversión"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Hedef Katlama",
         "de": "Zielvervielfachung",
         "fr": "Doublement cible",
-        "es": "Hedef Katlama",
+        "es": "Multiplicación objetivo",
         "ar": "Hedef Katlama"
       },
       "businessContext_i18n": {
         "en": "Kaç katına çıkma hedefi (genelde 3)",
         "tr": "Kaç katına çıkma hedefi (genelde 3)",
         "de": "Ziel, um wie viel vervielfacht werden soll (normalerweise 3)",
-        "fr": "Objectif de multiplication (généralement 3)"
+        "fr": "Objectif de multiplication (généralement 3)",
+        "es": "Objetivo de multiplicación (generalmente 3)"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Yıllık Bileşik Faiz Sıklığı",
         "de": "Jährliche Zinseszinshäufigkeit",
         "fr": "Fréquence de composition annuelle",
-        "es": "Yıllık Bileşik Faiz Sıklığı",
+        "es": "Frecuencia de capitalización anual",
         "ar": "Yıllık Bileşik Faiz Sıklığı"
       },
       "businessContext_i18n": {
         "en": "Faizin yılda kaç kez bileşiklendiği",
         "tr": "Faizin yılda kaç kez bileşiklendiği",
         "de": "Wie oft pro Jahr der Zinseszins berechnet wird",
-        "fr": "Nombre de fois par an où les intérêts sont composés"
+        "fr": "Nombre de fois par an où les intérêts sont composés",
+        "es": "Número de veces que se capitaliza el interés por año"
       }
     }
   ],
@@ -107,7 +111,7 @@
     "dataConfidenceAdjusted": "futureValue",
     "unit": "%"
   },
-  "category": "Diğer",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
@@ -115,7 +119,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "diger",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

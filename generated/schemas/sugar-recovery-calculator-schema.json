@@ -13,14 +13,15 @@
         "tr": "Şeker Kamışı Ağırlığı",
         "de": "Rohrgewicht",
         "fr": "Poids de la canne",
-        "es": "Cane Weight",
+        "es": "Peso de caña",
         "ar": "Cane Weight"
       },
       "businessContext_i18n": {
         "en": "Total mass of sugarcane processed.",
         "tr": "İşlenen toplam şeker kamışı kütlesi.",
         "de": "Gesamtmasse des verarbeiteten Zuckerrohrs.",
-        "fr": "Masse totale de canne à sucre traitée."
+        "fr": "Masse totale de canne à sucre traitée.",
+        "es": "Masa total de caña de azúcar procesada."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Pol % Kamış",
         "de": "Pol % Rohr",
         "fr": "Pol % Canne",
-        "es": "Pol % Cane",
+        "es": "Pol % caña",
         "ar": "Pol % Cane"
       },
       "businessContext_i18n": {
         "en": "Sucrose content in sugarcane by weight.",
         "tr": "Şeker kamışındaki ağırlıkça sakkaroz içeriği.",
         "de": "Saccharosegehalt im Zuckerrohr nach Gewicht.",
-        "fr": "Teneur en saccharose de la canne à sucre en poids."
+        "fr": "Teneur en saccharose de la canne à sucre en poids.",
+        "es": "Contenido de sacarosa en la caña por peso."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Ekstraksiyon Verimliliği",
         "de": "Extraktionseffizienz",
         "fr": "Efficacité d'extraction",
-        "es": "Extraction Efficiency",
+        "es": "Eficiencia de extracción",
         "ar": "Extraction Efficiency"
       },
       "businessContext_i18n": {
         "en": "Percentage of sugar extracted from cane into juice.",
         "tr": "Şeker kamışından meyve suyuna çıkarılan şeker yüzdesi.",
         "de": "Prozentsatz des aus dem Rohr in den Saft extrahierten Zuckers.",
-        "fr": "Pourcentage de sucre extrait de la canne dans le jus."
+        "fr": "Pourcentage de sucre extrait de la canne dans le jus.",
+        "es": "Porcentaje de azúcar extraído de la caña al jugo."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Kaynatma Evi Verimliliği",
         "de": "Kocher-Effizienz",
         "fr": "Efficacité de la sucrerie",
-        "es": "Boiling House Efficiency",
+        "es": "Eficiencia de la casa de cocción",
         "ar": "Boiling House Efficiency"
       },
       "businessContext_i18n": {
         "en": "Percentage of sugar in juice that is recovered as crystal sugar.",
         "tr": "Meyve suyundaki şekerin kristal şeker olarak geri kazanılan yüzdesi.",
         "de": "Prozentsatz des Zuckers im Saft, der als Kristallzucker gewonnen wird.",
-        "fr": "Pourcentage de sucre dans le jus qui est récupéré sous forme de sucre cristallisé."
+        "fr": "Pourcentage de sucre dans le jus qui est récupéré sous forme de sucre cristallisé.",
+        "es": "Porcentaje de azúcar en el jugo que se recupera como azúcar cristal."
       }
     }
   ],
@@ -112,7 +116,7 @@
     "dataConfidenceAdjusted": "boilingLoss",
     "unit": "kg"
   },
-  "category": "Verimlilik & OEE",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Gıda & Beslenme",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -120,7 +124,7 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "gida",
   "profession": "Gıda Mühendisi",
-  "categoryId": "efficiency",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

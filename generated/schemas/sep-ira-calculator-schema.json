@@ -13,14 +13,15 @@
         "tr": "Yıllık Tazminat",
         "de": "Jahresvergütung",
         "fr": "Rémunération annuelle",
-        "es": "Annual Compensation",
+        "es": "Compensación anual",
         "ar": "Annual Compensation"
       },
       "businessContext_i18n": {
         "en": "Total compensation from employment or net earnings from self-employment (before any contribution).",
         "tr": "İstihdamdan elde edilen toplam tazminat veya serbest meslekten elde edilen net kazanç (herhangi bir katkıdan önce).",
         "de": "Gesamtvergütung aus Beschäftigung oder Nettoeinkommen aus selbstständiger Tätigkeit (vor etwaigen Beiträgen).",
-        "fr": "Rémunération totale provenant d'un emploi ou revenu net d'un travail indépendant (avant toute cotisation)."
+        "fr": "Rémunération totale provenant d'un emploi ou revenu net d'un travail indépendant (avant toute cotisation).",
+        "es": "Compensación total del empleo o ingresos netos del trabajo por cuenta propia (antes de cualquier contribución)."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Katkı Oranı (%)",
         "de": "Beitragssatz (%)",
         "fr": "Taux de cotisation (%)",
-        "es": "Contribution Rate (%)",
+        "es": "Tasa de contribución (%)",
         "ar": "Contribution Rate (%)"
       },
       "businessContext_i18n": {
         "en": "The percentage of compensation you contribute to the SEP IRA, up to 25% for employees and effectively lower for self-employed.",
         "tr": "SEP IRA'ya katkıda bulunduğunuz tazminat yüzdesi; çalışanlar için %25'e kadar, serbest meslek sahipleri için etkin olarak daha düşük.",
         "de": "Der Prozentsatz der Vergütung, den Sie in den SEP IRA einzahlen, bis zu 25 % für Arbeitnehmer und effektiv niedriger für Selbstständige.",
-        "fr": "Pourcentage de la rémunération que vous cotisez au SEP IRA, jusqu'à 25 % pour les employés et effectivement moins pour les travailleurs indépendants."
+        "fr": "Pourcentage de la rémunération que vous cotisez au SEP IRA, jusqu'à 25 % pour les employés et effectivement moins pour les travailleurs indépendants.",
+        "es": "El porcentaje de la compensación que contribuye al SEP IRA, hasta el 25% para empleados y efectivamente menor para trabajadores por cuenta propia."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Serbest Meslek (0/1)",
         "de": "Selbstständig (0/1)",
         "fr": "Travailleur indépendant (0/1)",
-        "es": "Self-Employed (0/1)",
+        "es": "Trabajador por cuenta propia (0/1)",
         "ar": "Self-Employed (0/1)"
       },
       "businessContext_i18n": {
         "en": "Enter 1 if you are self-employed (the calculation adjusts for self-employment), otherwise 0 for employee.",
         "tr": "Serbest meslek sahibiyseniz 1 girin (hesaplama serbest mesleğe göre ayarlanır), aksi halde çalışan için 0 girin.",
         "de": "Geben Sie 1 ein, wenn Sie selbstständig sind (die Berechnung passt sich an die Selbstständigkeit an), andernfalls 0 für Arbeitnehmer.",
-        "fr": "Entrez 1 si vous êtes travailleur indépendant (le calcul s'ajuste en fonction du travail indépendant), sinon 0 pour un employé."
+        "fr": "Entrez 1 si vous êtes travailleur indépendant (le calcul s'ajuste en fonction du travail indépendant), sinon 0 pour un employé.",
+        "es": "Ingrese 1 si trabaja por cuenta propia (el cálculo ajusta por trabajo por cuenta propia), de lo contrario 0 para empleado."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "IRS Katkı Limiti",
         "de": "IRS-Beitragsgrenze",
         "fr": "Plafond de cotisation IRS",
-        "es": "IRS Contribution Limit",
+        "es": "Límite de contribución del IRS",
         "ar": "IRS Contribution Limit"
       },
       "businessContext_i18n": {
         "en": "The maximum annual contribution limit set by the IRS (e.g., $66,000 for 2023).",
         "tr": "IRS tarafından belirlenen maksimum yıllık katkı limiti (örneğin, 2023 için 66.000 $).",
         "de": "Die vom IRS festgelegte maximale jährliche Beitragsgrenze (z. B. 66.000 $ für 2023).",
-        "fr": "Le plafond annuel de cotisation fixé par l'IRS (par exemple, 66 000 $ pour 2023)."
+        "fr": "Le plafond annuel de cotisation fixé par l'IRS (par exemple, 66 000 $ pour 2023).",
+        "es": "El límite máximo de contribución anual establecido por el IRS (por ejemplo, $66,000 para 2023)."
       }
     }
   ],
@@ -107,7 +111,7 @@
     "dataConfidenceAdjusted": "contributionAfterLimit",
     "unit": "$"
   },
-  "category": "İK & Personel",
+  "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
@@ -115,7 +119,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "hr",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

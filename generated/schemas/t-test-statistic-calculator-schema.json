@@ -20,7 +20,8 @@
         "en": "The average value of the sample data collected from the process.",
         "tr": "Süreçten toplanan örneklem verisinin ortalama değeri.",
         "de": "Der Durchschnittswert der aus dem Prozess gesammelten Stichprobendaten.",
-        "fr": "Valeur moyenne des données de l'échantillon collectées à partir du processus."
+        "fr": "Valeur moyenne des données de l'échantillon collectées à partir du processus.",
+        "es": "El valor promedio de los datos de la muestra recolectados del proceso."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Hipotez Edilen Ortalama",
         "de": "Hypothetischer Mittelwert",
         "fr": "Moyenne hypothétique",
-        "es": "Hypothesized Mean",
+        "es": "Media Hipotética",
         "ar": "Hypothesized Mean"
       },
       "businessContext_i18n": {
         "en": "The value of the population mean under the null hypothesis.",
         "tr": "Sıfır hipotezi altındaki popülasyon ortalamasının değeri.",
         "de": "Der Wert des Populationsmittelwerts unter der Nullhypothese.",
-        "fr": "Valeur de la moyenne de la population sous l'hypothèse nulle."
+        "fr": "Valeur de la moyenne de la population sous l'hypothèse nulle.",
+        "es": "El valor de la media poblacional bajo la hipótesis nula."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "The standard deviation of the sample data, measuring variability.",
         "tr": "Örneklem verisinin standart sapması, değişkenliği ölçer.",
         "de": "Die Standardabweichung der Stichprobendaten, ein Maß für die Variabilität.",
-        "fr": "Écart type des données de l'échantillon, mesurant la variabilité."
+        "fr": "Écart type des données de l'échantillon, mesurant la variabilité.",
+        "es": "La desviación estándar de los datos de la muestra, que mide la variabilidad."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "The number of observations in the sample (must be >1).",
         "tr": "Örneklemdeki gözlem sayısı (>1 olmalıdır).",
         "de": "Die Anzahl der Beobachtungen in der Stichprobe (muss >1 sein).",
-        "fr": "Nombre d'observations dans l'échantillon (doit être >1)."
+        "fr": "Nombre d'observations dans l'échantillon (doit être >1).",
+        "es": "El número de observaciones en la muestra (debe ser >1)."
       }
     }
   ],
@@ -113,7 +117,7 @@
       "degreesOfFreedom": "°"
     }
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -121,7 +125,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "istatistik",
   "profession": "İstatistikçi",
-  "categoryId": "conversion",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

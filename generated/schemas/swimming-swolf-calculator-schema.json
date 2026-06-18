@@ -20,7 +20,8 @@
         "en": "Minutes portion of total swim time",
         "tr": "Toplam yüzme süresinin dakika kısmı",
         "de": "Minutenanteil der Gesamtschwimmzeit",
-        "fr": "Partie minutes du temps de nage total"
+        "fr": "Partie minutes du temps de nage total",
+        "es": "Porción de minutos del tiempo total de natación"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Seconds portion of total swim time",
         "tr": "Toplam yüzme süresinin saniye kısmı",
         "de": "Sekundenanteil der Gesamtschwimmzeit",
-        "fr": "Partie secondes du temps de nage total"
+        "fr": "Partie secondes du temps de nage total",
+        "es": "Porción de segundos del tiempo total de natación"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Toplam kol çekme",
         "de": "Gesamtzahl der Hübe",
         "fr": "Total des coups de bras",
-        "es": "Total strokes",
+        "es": "Brazadas totales",
         "ar": "Total strokes"
       },
       "businessContext_i18n": {
         "en": "Total number of strokes over the entire swim",
         "tr": "Tüm yüzme boyunca toplam kol çekme sayısı",
         "de": "Gesamtzahl der Hübe während des gesamten Schwimmens",
-        "fr": "Nombre total de coups de bras sur l'ensemble de la nage"
+        "fr": "Nombre total de coups de bras sur l'ensemble de la nage",
+        "es": "Número total de brazadas durante toda la natación"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Boy sayısı",
         "de": "Anzahl der Bahnen",
         "fr": "Nombre de longueurs",
-        "es": "Number of lengths",
+        "es": "Número de largos",
         "ar": "Number of lengths"
       },
       "businessContext_i18n": {
         "en": "Number of pool lengths swam",
         "tr": "Yüzülen havuz boyu sayısı",
         "de": "Anzahl der geschwommenen Bahnen",
-        "fr": "Nombre de longueurs de piscine nagées"
+        "fr": "Nombre de longueurs de piscine nagées",
+        "es": "Número de largos de piscina nadados"
       }
     }
   ],
@@ -110,7 +114,7 @@
     "dataConfidenceAdjusted": "totalTimeSeconds",
     "unit": "min"
   },
-  "category": "Diğer",
+  "category": "İSG & Risk",
   "sector": "Fitness & Spor",
   "premiumRequired": false,
   "catalogCategory": "health-body",
@@ -118,7 +122,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "fitness-spor",
   "profession": "Antrenör",
-  "categoryId": "diger",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

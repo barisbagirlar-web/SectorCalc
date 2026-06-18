@@ -13,14 +13,15 @@
         "tr": "Bileşen Arıza Oranı",
         "de": "Komponentenausfallrate",
         "fr": "Taux de défaillance des composants",
-        "es": "Component Failure Rate",
+        "es": "Tasa de fallos del componente",
         "ar": "Component Failure Rate"
       },
       "businessContext_i18n": {
         "en": "The constant failure rate per component (λ) assuming exponential distribution.",
         "tr": "Üstel dağılım varsayımıyla bileşen başına sabit arıza oranı (λ).",
         "de": "Konstante Ausfallrate pro Komponente (λ) unter Annahme einer Exponentialverteilung.",
-        "fr": "Le taux de défaillance constant par composant (λ) supposant une distribution exponentielle."
+        "fr": "Le taux de défaillance constant par composant (λ) supposant une distribution exponentielle.",
+        "es": "Tasa de fallos constante por componente (λ) asumiendo distribución exponencial."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Görev Süresi",
         "de": "Einsatzzeit",
         "fr": "Temps de mission",
-        "es": "Mission Time",
+        "es": "Tiempo de misión",
         "ar": "Mission Time"
       },
       "businessContext_i18n": {
         "en": "The duration for which the system must operate without failure.",
         "tr": "Sistemin arızasız çalışması gereken süre.",
         "de": "Die Dauer, in der das System ohne Ausfall arbeiten muss.",
-        "fr": "Durée pendant laquelle le système doit fonctionner sans panne."
+        "fr": "Durée pendant laquelle le système doit fonctionner sans panne.",
+        "es": "La duración durante la cual el sistema debe operar sin fallos."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Serideki Bileşen Sayısı",
         "de": "Anzahl der Komponenten in Reihe",
         "fr": "Nombre de composants en série",
-        "es": "Number of Components in Series",
+        "es": "Número de componentes en serie",
         "ar": "Number of Components in Series"
       },
       "businessContext_i18n": {
         "en": "Number of identical components connected in series within each string.",
         "tr": "Her bir dizede seri bağlı özdeş bileşen sayısı.",
         "de": "Anzahl identischer Komponenten, die in jedem Strang in Reihe geschaltet sind.",
-        "fr": "Nombre de composants identiques connectés en série dans chaque chaîne."
+        "fr": "Nombre de composants identiques connectés en série dans chaque chaîne.",
+        "es": "Número de componentes idénticos conectados en serie dentro de cada cadena."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Paralel Dize Sayısı",
         "de": "Anzahl paralleler Stränge",
         "fr": "Nombre de chaînes parallèles",
-        "es": "Number of Parallel Strings",
+        "es": "Número de cadenas en paralelo",
         "ar": "Number of Parallel Strings"
       },
       "businessContext_i18n": {
         "en": "Number of identical series strings operating in parallel (active redundancy).",
         "tr": "Paralel çalışan (aktif yedekleme) özdeş seri dize sayısı.",
         "de": "Anzahl identischer in Reihe geschalteter Stränge, die parallel betrieben werden (aktive Redundanz).",
-        "fr": "Nombre de chaînes série identiques fonctionnant en parallèle (redondance active)."
+        "fr": "Nombre de chaînes série identiques fonctionnant en parallèle (redondance active).",
+        "es": "Número de cadenas en serie idénticas operando en paralelo (redundancia activa)."
       }
     }
   ],
@@ -107,7 +111,7 @@
     "dataConfidenceAdjusted": "systemReliability",
     "unit": "failures/hour"
   },
-  "category": "Diğer",
+  "category": "Finans & Yatırım",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
@@ -115,7 +119,7 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "diger",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

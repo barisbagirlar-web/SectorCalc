@@ -13,14 +13,15 @@
         "tr": "Un Ağırlığı (g)",
         "de": "Mehlgewicht (g)",
         "fr": "Poids de la farine (g)",
-        "es": "Un Ağırlığı (g)",
+        "es": "Peso de la harina (g)",
         "ar": "Un Ağırlığı (g)"
       },
       "businessContext_i18n": {
         "en": "Ana malzeme",
         "tr": "Ana malzeme",
         "de": "Hauptzutat",
-        "fr": "Farine principale"
+        "fr": "Farine principale",
+        "es": "Ingrediente principal"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Hidrasyon Oranı (%)",
         "de": "Hydratationsrate (%)",
         "fr": "Taux d'hydratation (%)",
-        "es": "Hidrasyon Oranı (%)",
+        "es": "Tasa de hidratación (%)",
         "ar": "Hidrasyon Oranı (%)"
       },
       "businessContext_i18n": {
         "en": "Su oranı",
         "tr": "Su oranı",
         "de": "Wasseranteil",
-        "fr": "Quantité d'eau"
+        "fr": "Quantité d'eau",
+        "es": "Su oranı"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Ekşi maya miktarı",
         "tr": "Ekşi maya miktarı",
         "de": "Sauerteigmenge",
-        "fr": "Quantité de levain"
+        "fr": "Quantité de levain",
+        "es": "Ekşi maya miktarı"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Tuz miktarı",
         "tr": "Tuz miktarı",
         "de": "Salzmenge",
-        "fr": "Quantité de sel"
+        "fr": "Quantité de sel",
+        "es": "Tuz miktarı"
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Üretim adedi",
         "tr": "Üretim adedi",
         "de": "Produktionsmenge",
-        "fr": "Quantité produite"
+        "fr": "Quantité produite",
+        "es": "Üretim adedi"
       }
     }
   ],
@@ -134,7 +139,7 @@
     "dataConfidenceAdjusted": "totalDough",
     "unit": "g"
   },
-  "category": "Diğer",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Gıda & Beslenme",
   "premiumRequired": false,
   "catalogCategory": "food-cooking",
@@ -142,7 +147,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "gida",
   "profession": "Üretim Mühendisi",
-  "categoryId": "diger",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

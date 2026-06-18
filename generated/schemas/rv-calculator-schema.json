@@ -13,14 +13,15 @@
         "tr": "Arıza Oranı",
         "de": "Ausfallrate",
         "fr": "Arıza Oranı",
-        "es": "Failure Rate",
+        "es": "Tasa de fallos",
         "ar": "Failure Rate"
       },
       "businessContext_i18n": {
         "en": "Number of expected failures per year for the equipment/system.",
         "tr": "Ekipman/sistem için yıllık beklenen arıza sayısı.",
         "de": "Erwartete Anzahl von Ausfällen pro Jahr für die Anlage/das System.",
-        "fr": "Ekipman/sistem için yıllık beklenen arıza sayısı."
+        "fr": "Ekipman/sistem için yıllık beklenen arıza sayısı.",
+        "es": "Número esperado de fallos por año para el equipo/sistema."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Arıza Başına Duruş Süresi",
         "de": "Ausfallzeit pro Ausfall",
         "fr": "Arıza Başına Durma Süresi",
-        "es": "Downtime per Failure",
+        "es": "Tiempo de inactividad por fallo",
         "ar": "Downtime per Failure"
       },
       "businessContext_i18n": {
         "en": "Average downtime in hours per failure event.",
         "tr": "Arıza başına ortalama duruş süresi (saat).",
         "de": "Durchschnittliche Ausfallzeit in Stunden pro Ausfallereignis.",
-        "fr": "Arıza başına ortalama durma süresi (saat)."
+        "fr": "Arıza başına ortalama durma süresi (saat).",
+        "es": "Tiempo de inactividad promedio en horas por evento de fallo."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Cost incurred per hour of downtime, including lost production, labor, etc.",
         "tr": "Duruş saati başına maliyet (kayıp üretim, işçilik vb.).",
         "de": "Kosten pro Stunde Ausfallzeit, einschließlich Produktionsausfall, Arbeitskosten usw.",
-        "fr": "Durma saati başına maliyet (kayıp üretim, işçilik vb.)."
+        "fr": "Durma saati başına maliyet (kayıp üretim, işçilik vb.).",
+        "es": "Costo incurrido por hora de inactividad, incluyendo producción perdida, mano de obra, etc."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Tespit Olasılığı",
         "de": "Erkennungswahrscheinlichkeit",
         "fr": "Algılama Olasılığı",
-        "es": "Detection Probability",
+        "es": "Probabilidad de detección",
         "ar": "Detection Probability"
       },
       "businessContext_i18n": {
         "en": "Probability of detecting a failure before it causes downtime (0 to 1).",
         "tr": "Arızanın duruşa neden olmadan önce tespit edilme olasılığı (0-1).",
         "de": "Wahrscheinlichkeit, einen Ausfall zu erkennen, bevor er zu Ausfallzeiten führt (0 bis 1).",
-        "fr": "Arızanın duruşa neden olmadan önce algılanma olasılığı (0 ile 1 arası)."
+        "fr": "Arızanın duruşa neden olmadan önce algılanma olasılığı (0 ile 1 arası).",
+        "es": "Probabilidad de detectar un fallo antes de que cause tiempo de inactividad (0 a 1)."
       }
     }
   ],

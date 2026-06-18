@@ -13,14 +13,15 @@
         "tr": "Emlak Fiyatı (£)",
         "de": "Immobilienpreis (£)",
         "fr": "Prix du bien (£)",
-        "es": "Property Price (£)",
+        "es": "Precio de la propiedad (£)",
         "ar": "Property Price (£)"
       },
       "businessContext_i18n": {
         "en": "Purchase price of the residential property",
         "tr": "Konut mülkünün satın alma fiyatı",
         "de": "Kaufpreis der Wohnimmobilie",
-        "fr": "Prix d'achat du bien résidentiel"
+        "fr": "Prix d'achat du bien résidentiel",
+        "es": "Precio de compra de la propiedad residencial"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "1 if first-time buyer, else 0",
         "tr": "İlk kez ev sahibi ise 1, değilse 0",
         "de": "1 bei Erstkäufer, sonst 0",
-        "fr": "1 si primo-accédant, sinon 0"
+        "fr": "1 si primo-accédant, sinon 0",
+        "es": "1 si es comprador por primera vez, si no 0"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Ek Mülk?",
         "de": "Zusätzliche Immobilie?",
         "fr": "Propriété supplémentaire ?",
-        "es": "Additional Property?",
+        "es": "¿Propiedad adicional?",
         "ar": "Additional Property?"
       },
       "businessContext_i18n": {
         "en": "1 if buying an additional residential property, else 0",
         "tr": "Ek bir konut mülkü satın alınıyorsa 1, değilse 0",
         "de": "1 beim Kauf einer zusätzlichen Wohnimmobilie, sonst 0",
-        "fr": "1 si achat d'une propriété résidentielle supplémentaire, sinon 0"
+        "fr": "1 si achat d'une propriété résidentielle supplémentaire, sinon 0",
+        "es": "1 si compra una propiedad residencial adicional, si no 0"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Birleşik Krallık'ta İkamet Etmeyen?",
         "de": "Nicht-UK-Bewohner?",
         "fr": "Non-résident du Royaume-Uni ?",
-        "es": "Non-UK Resident?",
+        "es": "¿No residente en el Reino Unido?",
         "ar": "Non-UK Resident?"
       },
       "businessContext_i18n": {
         "en": "1 if buyer is not a UK resident, else 0",
         "tr": "Alıcı Birleşik Krallık'ta ikamet etmiyorsa 1, değilse 0",
         "de": "1 wenn der Käufer kein UK-Bewohner ist, sonst 0",
-        "fr": "1 si l'acheteur n'est pas résident du Royaume-Uni, sinon 0"
+        "fr": "1 si l'acheteur n'est pas résident du Royaume-Uni, sinon 0",
+        "es": "1 si el comprador no es residente en el Reino Unido, si no 0"
       }
     }
   ],

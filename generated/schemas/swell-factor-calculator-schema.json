@@ -13,14 +13,15 @@
         "tr": "Banka/Hacim (Yerinde)",
         "de": "Bank/Volumen (in situ)",
         "fr": "Banque/Volume (sur place)",
-        "es": "Bank/Hacim (Yerinde)",
+        "es": "Banco/Volumen (In Situ)",
         "ar": "Bank/Hacim (Yerinde)"
       },
       "businessContext_i18n": {
         "en": "Yerinde sıkışmış malzeme hacmi",
         "tr": "Yerinde sıkışmış malzeme hacmi",
         "de": "Volumen des in situ gebundenen Materials",
-        "fr": "Volume de matériau compacté sur place"
+        "fr": "Volume de matériau compacté sur place",
+        "es": "Volumen de material compactado in situ"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Yerinde hacme göre yüzde artış",
         "tr": "Yerinde hacme göre yüzde artış",
         "de": "Prozentuale Zunahme gegenüber dem In-situ-Volumen",
-        "fr": "Pourcentage d'augmentation par rapport au volume sur place"
+        "fr": "Pourcentage d'augmentation par rapport au volume sur place",
+        "es": "Porcentaje de aumento sobre el volumen in situ"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Fire/Zayiat Faktörü",
         "de": "Schwund-/Verlustfaktor",
         "fr": "Facteur de perte/déchet",
-        "es": "Fire/Zayiat Faktörü",
+        "es": "Factor de esponjamiento/pérdida",
         "ar": "Fire/Zayiat Faktörü"
       },
       "businessContext_i18n": {
         "en": "Dökülme, sızıntı vb. kayıplar",
         "tr": "Dökülme, sızıntı vb. kayıplar",
         "de": "Verluste durch Verschütten, Auslaufen usw.",
-        "fr": "Pertes dues aux déversements, fuites, etc."
+        "fr": "Pertes dues aux déversements, fuites, etc.",
+        "es": "Pérdidas por derrames, fugas, etc."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Kamyon Kapasitesi",
         "de": "LKW-Kapazität",
         "fr": "Capacité du camion",
-        "es": "Kamyon Kapasitesi",
+        "es": "Capacidad del camión",
         "ar": "Kamyon Kapasitesi"
       },
       "businessContext_i18n": {
         "en": "Bir kamyonun taşıma kapasitesi",
         "tr": "Bir kamyonun taşıma kapasitesi",
         "de": "Transportkapazität eines LKWs",
-        "fr": "Capacité de transport d'un camion"
+        "fr": "Capacité de transport d'un camion",
+        "es": "Capacidad de carga de un camión"
       }
     }
   ],
@@ -115,7 +119,7 @@
       "swellRatio": "%"
     }
   },
-  "category": "Diğer",
+  "category": "Teknik & Mühendislik",
   "sector": "İnşaat & Yapı",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
@@ -123,7 +127,7 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

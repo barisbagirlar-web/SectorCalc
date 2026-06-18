@@ -13,14 +13,15 @@
         "tr": "Mesafe (metre)",
         "de": "Strecke (Meter)",
         "fr": "Distance (mètres)",
-        "es": "Distance (meters)",
+        "es": "Distancia (metros)",
         "ar": "Distance (meters)"
       },
       "businessContext_i18n": {
         "en": "Total swimming distance in meters.",
         "tr": "Metre cinsinden toplam yüzme mesafesi.",
         "de": "Gesamte Schwimmstrecke in Metern.",
-        "fr": "Distance totale de nage en mètres."
+        "fr": "Distance totale de nage en mètres.",
+        "es": "Distancia total de natación en metros."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Total time taken to swim the distance.",
         "tr": "Mesafeyi yüzmek için geçen toplam süre.",
         "de": "Gesamtzeit für die Schwimmstrecke.",
-        "fr": "Temps total pour nager la distance."
+        "fr": "Temps total pour nager la distance.",
+        "es": "Tiempo total para nadar la distancia."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Dinlenme Süresi (saniye)",
         "de": "Ruhezeit (Sekunden)",
         "fr": "Temps de repos (secondes)",
-        "es": "Rest Time (seconds)",
+        "es": "Tiempo de descanso (segundos)",
         "ar": "Rest Time (seconds)"
       },
       "businessContext_i18n": {
         "en": "Rest time between laps or intervals.",
         "tr": "Turlar veya interval arasındaki dinlenme süresi.",
         "de": "Ruhezeit zwischen Bahnen oder Intervallen.",
-        "fr": "Temps de repos entre les longueurs ou intervalles."
+        "fr": "Temps de repos entre les longueurs ou intervalles.",
+        "es": "Tiempo de descanso entre vueltas o intervalos."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Tur Sayısı",
         "de": "Anzahl der Bahnen",
         "fr": "Nombre de longueurs",
-        "es": "Number of Laps",
+        "es": "Número de vueltas",
         "ar": "Number of Laps"
       },
       "businessContext_i18n": {
         "en": "Number of laps or intervals.",
         "tr": "Tur veya interval sayısı.",
         "de": "Anzahl der Bahnen oder Intervalle.",
-        "fr": "Nombre de longueurs ou d'intervalles."
+        "fr": "Nombre de longueurs ou d'intervalles.",
+        "es": "Número de vueltas o intervalos."
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Havuz Uzunluğu (metre)",
         "de": "Beckenlänge (Meter)",
         "fr": "Longueur du bassin (mètres)",
-        "es": "Pool Length (meters)",
+        "es": "Longitud de la piscina (metros)",
         "ar": "Pool Length (meters)"
       },
       "businessContext_i18n": {
         "en": "Length of the swimming pool.",
         "tr": "Yüzme havuzunun uzunluğu.",
         "de": "Länge des Schwimmbeckens.",
-        "fr": "Longueur de la piscine."
+        "fr": "Longueur de la piscine.",
+        "es": "Longitud de la piscina."
       }
     }
   ],
@@ -137,7 +142,7 @@
       "speedMetersPerSecond": "m"
     }
   },
-  "category": "Diğer",
+  "category": "İSG & Risk",
   "sector": "Fitness & Spor",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
@@ -145,7 +150,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "fitness-spor",
   "profession": "Antrenör",
-  "categoryId": "diger",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

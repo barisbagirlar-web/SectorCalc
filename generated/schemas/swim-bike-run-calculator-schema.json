@@ -13,14 +13,15 @@
         "tr": "Yüzme Mesafesi",
         "de": "Schwimmdistanz",
         "fr": "Distance de natation",
-        "es": "Swim Distance",
+        "es": "Distancia de natación",
         "ar": "Swim Distance"
       },
       "businessContext_i18n": {
         "en": "Swim distance in meters",
         "tr": "Metre cinsinden yüzme mesafesi",
         "de": "Schwimmdistanz in Metern",
-        "fr": "Distance de natation en mètres"
+        "fr": "Distance de natation en mètres",
+        "es": "Distancia de natación en metros"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Bisiklet Mesafesi",
         "de": "Radstrecke",
         "fr": "Distance à vélo",
-        "es": "Bike Distance",
+        "es": "Distancia en bicicleta",
         "ar": "Bike Distance"
       },
       "businessContext_i18n": {
         "en": "Bike distance in kilometers",
         "tr": "Kilometre cinsinden bisiklet mesafesi",
         "de": "Radstrecke in Kilometern",
-        "fr": "Distance à vélo en kilomètres"
+        "fr": "Distance à vélo en kilomètres",
+        "es": "Distancia en bicicleta en kilómetros"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Koşu Mesafesi",
         "de": "Laufstrecke",
         "fr": "Distance de course",
-        "es": "Run Distance",
+        "es": "Distancia de carrera",
         "ar": "Run Distance"
       },
       "businessContext_i18n": {
         "en": "Run distance in kilometers",
         "tr": "Koşu mesafesi (kilometre)",
         "de": "Laufstrecke in Kilometern",
-        "fr": "Distance de course en kilomètres"
+        "fr": "Distance de course en kilomètres",
+        "es": "Distancia de carrera en kilómetros"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Yüzme Temposu",
         "de": "Schwimmtempo",
         "fr": "Allure de nage",
-        "es": "Swim Pace",
+        "es": "Ritmo de natación",
         "ar": "Swim Pace"
       },
       "businessContext_i18n": {
         "en": "Swim pace in seconds per 100 meters",
         "tr": "100 metrede saniye cinsinden yüzme temposu",
         "de": "Schwimmgeschwindigkeit in Sekunden pro 100 Meter",
-        "fr": "Allure de nage en secondes par 100 mètres"
+        "fr": "Allure de nage en secondes par 100 mètres",
+        "es": "Ritmo de natación en segundos por 100 metros"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Bisiklet Hızı",
         "de": "Radgeschwindigkeit",
         "fr": "Vitesse à vélo",
-        "es": "Bike Speed",
+        "es": "Velocidad en bicicleta",
         "ar": "Bike Speed"
       },
       "businessContext_i18n": {
         "en": "Average bike speed in kilometers per hour",
         "tr": "Saatte kilometre cinsinden ortalama bisiklet hızı",
         "de": "Durchschnittliche Radgeschwindigkeit in Kilometern pro Stunde",
-        "fr": "Vitesse moyenne à vélo en kilomètres par heure"
+        "fr": "Vitesse moyenne à vélo en kilomètres par heure",
+        "es": "Velocidad media en bicicleta en kilómetros por hora"
       }
     },
     {
@@ -123,14 +128,15 @@
         "tr": "Koşu Temposu",
         "de": "Lauftempo",
         "fr": "Allure de course",
-        "es": "Run Pace",
+        "es": "Ritmo de carrera",
         "ar": "Run Pace"
       },
       "businessContext_i18n": {
         "en": "Run pace in seconds per kilometer",
         "tr": "Kilometre başına saniye cinsinden koşu temposu",
         "de": "Lauftempo in Sekunden pro Kilometer",
-        "fr": "Allure de course en secondes par kilomètre"
+        "fr": "Allure de course en secondes par kilomètre",
+        "es": "Ritmo de carrera en segundos por kilómetro"
       }
     }
   ],
@@ -159,7 +165,7 @@
       "runTimeMinutes": "min"
     }
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "İSG & Risk",
   "sector": "Birim & Dönüşüm",
   "premiumRequired": false,
   "catalogCategory": "health-body",
@@ -167,7 +173,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "birim-donusum",
   "profession": "Mühendis",
-  "categoryId": "conversion",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

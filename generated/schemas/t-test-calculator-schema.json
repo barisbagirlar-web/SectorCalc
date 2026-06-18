@@ -20,7 +20,8 @@
         "en": "The average value of the sample data.",
         "tr": "Örneklem verisinin ortalama değeri.",
         "de": "Der Durchschnittswert der Stichprobendaten.",
-        "fr": "Valeur moyenne des données de l'échantillon."
+        "fr": "Valeur moyenne des données de l'échantillon.",
+        "es": "El valor promedio de los datos de la muestra."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Hipotez Edilen Ortalama (μ)",
         "de": "Hypothetischer Mittelwert (μ)",
         "fr": "Moyenne hypothétique (μ)",
-        "es": "Hypothesized Mean (μ)",
+        "es": "Media Hipotética (μ)",
         "ar": "Hypothesized Mean (μ)"
       },
       "businessContext_i18n": {
         "en": "The population mean under the null hypothesis.",
         "tr": "Sıfır hipotezi altındaki popülasyon ortalaması.",
         "de": "Der Populationsmittelwert unter der Nullhypothese.",
-        "fr": "Moyenne de la population sous l'hypothèse nulle."
+        "fr": "Moyenne de la population sous l'hypothèse nulle.",
+        "es": "La media poblacional bajo la hipótesis nula."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Örneklem Standart Sapması (s)",
         "de": "Stichproben-Standardabweichung (s)",
         "fr": "Écart type de l'échantillon (s)",
-        "es": "Sample Standard Deviation (s)",
+        "es": "Desviación Estándar de la Muestra (s)",
         "ar": "Sample Standard Deviation (s)"
       },
       "businessContext_i18n": {
         "en": "The standard deviation of the sample data.",
         "tr": "Örneklem verisinin standart sapması.",
         "de": "Die Standardabweichung der Stichprobendaten.",
-        "fr": "Écart type des données de l'échantillon."
+        "fr": "Écart type des données de l'échantillon.",
+        "es": "La desviación estándar de los datos de la muestra."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "The number of observations in the sample.",
         "tr": "Örneklemdeki gözlem sayısı.",
         "de": "Die Anzahl der Beobachtungen in der Stichprobe.",
-        "fr": "Nombre d'observations dans l'échantillon."
+        "fr": "Nombre d'observations dans l'échantillon.",
+        "es": "El número de observaciones en la muestra."
       }
     }
   ],
@@ -107,7 +111,7 @@
     "dataConfidenceAdjusted": "tStatistic",
     "unit": "count"
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
@@ -115,7 +119,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "istatistik",
   "profession": "İstatistikçi",
-  "categoryId": "conversion",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

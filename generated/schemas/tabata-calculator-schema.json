@@ -13,14 +13,15 @@
         "tr": "Çalışma Aralığı (s)",
         "de": "Arbeitsintervall (s)",
         "fr": "Intervalle de travail (s)",
-        "es": "Work Interval (s)",
+        "es": "Intervalo de trabajo (s)",
         "ar": "Work Interval (s)"
       },
       "businessContext_i18n": {
         "en": "Duration of high-intensity work interval",
         "tr": "Yüksek yoğunluklu çalışma aralığının süresi",
         "de": "Dauer des hochintensiven Arbeitsintervalls",
-        "fr": "Durée de l'intervalle de travail à haute intensité"
+        "fr": "Durée de l'intervalle de travail à haute intensité",
+        "es": "Duración del intervalo de trabajo de alta intensidad"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Dinlenme Aralığı (s)",
         "de": "Ruheintervall (s)",
         "fr": "Intervalle de repos (s)",
-        "es": "Rest Interval (s)",
+        "es": "Intervalo de descanso (s)",
         "ar": "Rest Interval (s)"
       },
       "businessContext_i18n": {
         "en": "Duration of rest interval between work intervals",
         "tr": "Çalışma aralıkları arasındaki dinlenme süresi",
         "de": "Dauer des Ruheintervalls zwischen den Arbeitsintervallen",
-        "fr": "Durée de l'intervalle de repos entre les intervalles de travail"
+        "fr": "Durée de l'intervalle de repos entre les intervalles de travail",
+        "es": "Duración del intervalo de descanso entre intervalos de trabajo"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Tur Sayısı",
         "de": "Anzahl der Runden",
         "fr": "Nombre de tours",
-        "es": "Number of Rounds",
+        "es": "Número de rondas",
         "ar": "Number of Rounds"
       },
       "businessContext_i18n": {
         "en": "Number of work-rest cycles",
         "tr": "Çalışma-dinlenme döngü sayısı",
         "de": "Anzahl der Arbeits-Ruhe-Zyklen",
-        "fr": "Nombre de cycles travail-repos"
+        "fr": "Nombre de cycles travail-repos",
+        "es": "Número de ciclos trabajo-descanso"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Hazırlık Süresi (s)",
         "de": "Vorbereitungszeit (s)",
         "fr": "Temps de préparation (s)",
-        "es": "Preparation Time (s)",
+        "es": "Tiempo de preparación (s)",
         "ar": "Preparation Time (s)"
       },
       "businessContext_i18n": {
         "en": "Time allocated before the first work interval",
         "tr": "İlk çalışma aralığından önce ayrılan süre",
         "de": "Zeit, die vor dem ersten Arbeitsintervall eingeplant wird",
-        "fr": "Temps alloué avant le premier intervalle de travail"
+        "fr": "Temps alloué avant le premier intervalle de travail",
+        "es": "Tiempo asignado antes del primer intervalo de trabajo"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Soğuma Süresi (s)",
         "de": "Abkühlzeit (s)",
         "fr": "Temps de refroidissement (s)",
-        "es": "Cool Down Time (s)",
+        "es": "Tiempo de enfriamiento (s)",
         "ar": "Cool Down Time (s)"
       },
       "businessContext_i18n": {
         "en": "Time allocated after the last rest interval",
         "tr": "Son dinlenme aralığından sonra ayrılan süre",
         "de": "Zeit nach der letzten Ruhepause",
-        "fr": "Temps alloué après le dernier intervalle de repos"
+        "fr": "Temps alloué après le dernier intervalle de repos",
+        "es": "Tiempo asignado después del último intervalo de descanso"
       }
     }
   ],
@@ -130,7 +135,7 @@
     "dataConfidenceAdjusted": "totalWorkoutTime",
     "unit": "seconds"
   },
-  "category": "Diğer",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",
   "premiumRequired": false,
   "categorySlug": "maintenance-reliability",
@@ -138,7 +143,7 @@
   "sectorSlug": "cleaning",
   "sectorId": "ev-yasam",
   "profession": "Ev Yöneticisi",
-  "categoryId": "diger",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

@@ -13,14 +13,15 @@
         "tr": "Partikül Çapı",
         "de": "Partikelgröße",
         "fr": "Diamètre des particules",
-        "es": "Partikül Çapı",
+        "es": "Diámetro de partícula",
         "ar": "Partikül Çapı"
       },
       "businessContext_i18n": {
         "en": "Tipik çap 0.1 mm",
         "tr": "Tipik çap 0.1 mm",
         "de": "Typischer Durchmesser 0,1 mm",
-        "fr": "Diamètre typique 0,1 mm"
+        "fr": "Diamètre typique 0,1 mm",
+        "es": "Diámetro típico 0.1 mm"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Partikül Yoğunluğu",
         "de": "Partikeldichte",
         "fr": "Masse volumique des particules",
-        "es": "Partikül Yoğunluğu",
+        "es": "Densidad de partícula",
         "ar": "Partikül Yoğunluğu"
       },
       "businessContext_i18n": {
         "en": "Silis kumu ≈ 2600 kg/m³",
         "tr": "Silis kumu ≈ 2600 kg/m³",
         "de": "Quarzsand ≈ 2600 kg/m³",
-        "fr": "Sable siliceux ≈ 2600 kg/m³"
+        "fr": "Sable siliceux ≈ 2600 kg/m³",
+        "es": "Arena de sílice ≈ 2600 kg/m³"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Su = 1000 kg/m³",
         "tr": "Su = 1000 kg/m³",
         "de": "Wasser = 1000 kg/m³",
-        "fr": "Eau = 1000 kg/m³"
+        "fr": "Eau = 1000 kg/m³",
+        "es": "Agua = 1000 kg/m³"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Akışkan Dinamik Viskozitesi",
         "de": "Dynamische Viskosität des Fluids",
         "fr": "Viscosité dynamique du fluide",
-        "es": "Akışkan Dinamik Viskozitesi",
+        "es": "Viscosidad dinámica del fluido",
         "ar": "Akışkan Dinamik Viskozitesi"
       },
       "businessContext_i18n": {
         "en": "Su için ≈ 0.001 Pa·s (20°C)",
         "tr": "Su için ≈ 0,001 Pa·s (20°C)",
         "de": "Für Wasser ≈ 0,001 Pa·s (20°C)",
-        "fr": "Pour l'eau ≈ 0,001 Pa·s (20°C)"
+        "fr": "Pour l'eau ≈ 0,001 Pa·s (20°C)",
+        "es": "Para agua ≈ 0.001 Pa·s (20°C)"
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Tesis tasarım debisi",
         "tr": "Tesis tasarım debisi",
         "de": "Auslegungsdurchfluss der Anlage",
-        "fr": "Débit de conception de l'installation"
+        "fr": "Débit de conception de l'installation",
+        "es": "Caudal de diseño de la planta"
       }
     },
     {
@@ -123,14 +128,15 @@
         "tr": "Havuz Uzunluğu",
         "de": "Beckenlänge",
         "fr": "Longueur du bassin",
-        "es": "Havuz Uzunluğu",
+        "es": "Longitud del tanque",
         "ar": "Havuz Uzunluğu"
       },
       "businessContext_i18n": {
         "en": "Çökeltim havuzu boyu",
         "tr": "Çökeltim havuzu boyu",
         "de": "Länge des Absetzbeckens",
-        "fr": "Longueur du bassin de décantation"
+        "fr": "Longueur du bassin de décantation",
+        "es": "Longitud del tanque de sedimentación"
       }
     },
     {
@@ -145,14 +151,15 @@
         "tr": "Havuz Genişliği",
         "de": "Beckenbreite",
         "fr": "Largeur du bassin",
-        "es": "Havuz Genişliği",
+        "es": "Ancho del tanque",
         "ar": "Havuz Genişliği"
       },
       "businessContext_i18n": {
         "en": "Çökeltim havuzu eni",
         "tr": "Çökeltim havuzu eni",
         "de": "Breite des Absetzbeckens",
-        "fr": "Largeur du bassin de décantation"
+        "fr": "Largeur du bassin de décantation",
+        "es": "Ancho del tanque de sedimentación"
       }
     },
     {
@@ -167,14 +174,15 @@
         "tr": "Havuz Derinliği",
         "de": "Beckentiefe",
         "fr": "Profondeur du bassin",
-        "es": "Havuz Derinliği",
+        "es": "Profundidad del tanque",
         "ar": "Havuz Derinliği"
       },
       "businessContext_i18n": {
         "en": "Tipik derinlik 2-4 m",
         "tr": "Tipik derinlik 2-4 m",
         "de": "Typische Tiefe 2–4 m",
-        "fr": "Profondeur typique 2-4 m"
+        "fr": "Profondeur typique 2-4 m",
+        "es": "Profundidad típica 2-4 m"
       }
     }
   ],
@@ -198,7 +206,7 @@
     "dataConfidenceAdjusted": "reynoldsNumber",
     "unit": "m"
   },
-  "category": "Diğer",
+  "category": "Teknik & Mühendislik",
   "sector": "Madencilik & Jeoloji",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
@@ -206,7 +214,7 @@
   "categorySlug": "process-chemical",
   "sectorId": "madencilik",
   "profession": "Maden Mühendisi",
-  "categoryId": "diger",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

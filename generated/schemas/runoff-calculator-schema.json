@@ -13,14 +13,15 @@
         "tr": "Toplama Alanı",
         "de": "Einzugsgebiet",
         "fr": "Zone de captage",
-        "es": "Catchment Area",
+        "es": "Área de captación",
         "ar": "Catchment Area"
       },
       "businessContext_i18n": {
         "en": "The surface area of the catchment contributing to runoff.",
         "tr": "Akışa katkıda bulunan toplama alanının yüzey alanı.",
         "de": "Die Oberfläche des Einzugsgebiets, die zum Abfluss beiträgt.",
-        "fr": "La surface de la zone de captage contribuant au ruissellement."
+        "fr": "La surface de la zone de captage contribuant au ruissellement.",
+        "es": "Superficie del área de captación que contribuye a la escorrentía."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Akış Katsayısı (C)",
         "de": "Abflussbeiwert (C)",
         "fr": "Coefficient de ruissellement (C)",
-        "es": "Runoff Coefficient (C)",
+        "es": "Coeficiente de escorrentía (C)",
         "ar": "Runoff Coefficient (C)"
       },
       "businessContext_i18n": {
         "en": "Dimensionless coefficient representing the fraction of rainfall that becomes runoff, depending on surface type and slope.",
         "tr": "Yüzey tipine ve eğime bağlı olarak yağışın akışa dönüşen kısmını temsil eden boyutsuz katsayı.",
         "de": "Dimensionsloser Beiwert, der den Anteil des Niederschlags darstellt, der zum Abfluss wird, abhängig von Oberflächentyp und Neigung.",
-        "fr": "Coefficient sans dimension représentant la fraction des précipitations qui devient ruissellement, dépendant du type de surface et de la pente."
+        "fr": "Coefficient sans dimension représentant la fraction des précipitations qui devient ruissellement, dépendant du type de surface et de la pente.",
+        "es": "Coeficiente adimensional que representa la fracción de lluvia que se convierte en escorrentía, dependiendo del tipo de superficie y pendiente."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Yağış Şiddeti (I)",
         "de": "Regenintensität (I)",
         "fr": "Intensité des précipitations (I)",
-        "es": "Rainfall Intensity (I)",
+        "es": "Intensidad de lluvia (I)",
         "ar": "Rainfall Intensity (I)"
       },
       "businessContext_i18n": {
         "en": "Design rainfall intensity in millimeters per hour, typically derived from IDF curves for the specified duration and return period.",
         "tr": "Belirtilen süre ve dönüş periyodu için genellikle IDF eğrilerinden türetilen, milimetre/saat cinsinden tasarım yağış şiddeti.",
         "de": "Bemessungsregenintensität in Millimetern pro Stunde, typischerweise aus IDF-Kurven für die angegebene Dauer und Wiederkehrperiode abgeleitet.",
-        "fr": "Intensité de précipitation de conception en millimètres par heure, généralement dérivée des courbes IDF pour la durée et la période de retour spécifiées."
+        "fr": "Intensité de précipitation de conception en millimètres par heure, généralement dérivée des courbes IDF pour la durée et la période de retour spécifiées.",
+        "es": "Intensidad de lluvia de diseño en milímetros por hora, típicamente derivada de curvas IDF para la duración y período de retorno especificados."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Multiplier applied to the calculated runoff to account for uncertainties and future changes in catchment conditions.",
         "tr": "Belirsizlikleri ve toplama alanı koşullarındaki gelecekteki değişiklikleri hesaba katmak için hesaplanan akışa uygulanan çarpan.",
         "de": "Multiplikator, der auf den berechneten Abfluss angewendet wird, um Unsicherheiten und zukünftige Änderungen der Einzugsgebietsbedingungen zu berücksichtigen.",
-        "fr": "Multiplicateur appliqué au ruissellement calculé pour tenir compte des incertitudes et des changements futurs des conditions du bassin versant."
+        "fr": "Multiplicateur appliqué au ruissellement calculé pour tenir compte des incertitudes et des changements futurs des conditions du bassin versant.",
+        "es": "Multiplicador aplicado a la escorrentía calculada para tener en cuenta incertidumbres y cambios futuros en las condiciones de la cuenca."
       }
     }
   ],
@@ -108,7 +112,7 @@
     "dataConfidenceAdjusted": "runoffM3s",
     "unit": "m²"
   },
-  "category": "İSG & Risk",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
@@ -116,7 +120,7 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "safety",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

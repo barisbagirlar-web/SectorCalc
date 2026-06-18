@@ -20,7 +20,8 @@
         "en": "Starting molar concentration of reactant A in a second-order reaction (rate = k[A]² or k[A][B] with [A]₀ = [B]₀)",
         "tr": "İkinci dereceden bir reaksiyonda A reaktanının başlangıç molar derişimi (hız = k[A]² veya k[A][B] ve [A]₀ = [B]₀)",
         "de": "Anfängliche molare Konzentration des Reaktanten A in einer Reaktion zweiter Ordnung (Geschwindigkeit = k[A]² oder k[A][B] mit [A]₀ = [B]₀)",
-        "fr": "Concentration molaire initiale du réactif A dans une réaction du second ordre (vitesse = k[A]² ou k[A][B] avec [A]₀ = [B]₀)"
+        "fr": "Concentration molaire initiale du réactif A dans une réaction du second ordre (vitesse = k[A]² ou k[A][B] avec [A]₀ = [B]₀)",
+        "es": "Concentración molar inicial del reactivo A en una reacción de segundo orden (velocidad = k[A]² o k[A][B] con [A]₀ = [B]₀)"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Second-order rate constant to quantify reaction speed",
         "tr": "Reaksiyon hızını ölçmek için ikinci derece hız sabiti",
         "de": "Geschwindigkeitskonstante zweiter Ordnung zur Quantifizierung der Reaktionsgeschwindigkeit",
-        "fr": "Constante de vitesse du second ordre pour quantifier la vitesse de réaction"
+        "fr": "Constante de vitesse du second ordre pour quantifier la vitesse de réaction",
+        "es": "Constante de velocidad de segundo orden para cuantificar la velocidad de reacción"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Geçen Süre (t)",
         "de": "Verstrichene Zeit (t)",
         "fr": "Temps écoulé (t)",
-        "es": "Elapsed Time (t)",
+        "es": "Tiempo transcurrido (t)",
         "ar": "Elapsed Time (t)"
       },
       "businessContext_i18n": {
         "en": "Time at which to calculate the concentration of A",
         "tr": "A'nın derişiminin hesaplanacağı süre",
         "de": "Zeitpunkt, zu dem die Konzentration von A berechnet werden soll",
-        "fr": "Temps auquel calculer la concentration de A"
+        "fr": "Temps auquel calculer la concentration de A",
+        "es": "Tiempo en el que calcular la concentración de A"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Hedef Derişim [A]",
         "de": "Zielkonzentration [A]",
         "fr": "Concentration cible [A]",
-        "es": "Target Concentration [A]",
+        "es": "Concentración objetivo [A]",
         "ar": "Target Concentration [A]"
       },
       "businessContext_i18n": {
         "en": "Desired concentration of A used to calculate the required reaction time",
         "tr": "Gerekli reaksiyon süresini hesaplamak için kullanılan istenen A derişimi",
         "de": "Gewünschte Konzentration von A zur Berechnung der erforderlichen Reaktionszeit",
-        "fr": "Concentration souhaitée de A utilisée pour calculer le temps de réaction requis"
+        "fr": "Concentration souhaitée de A utilisée pour calculer le temps de réaction requis",
+        "es": "Concentración deseada de A utilizada para calcular el tiempo de reacción requerido"
       }
     }
   ],
@@ -111,7 +115,7 @@
       "concentrationA": "%"
     }
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "Teknik & Mühendislik",
   "sector": "Kimya & Proses",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -119,7 +123,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "kimya",
   "profession": "Kimyager",
-  "categoryId": "conversion",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

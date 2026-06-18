@@ -13,14 +13,15 @@
         "tr": "Başlangıç Müşteri Sayısı",
         "de": "Startkunden",
         "fr": "Clients de départ",
-        "es": "Starting Customers",
+        "es": "Clientes iniciales",
         "ar": "Starting Customers"
       },
       "businessContext_i18n": {
         "en": "Number of customers at the beginning of the measurement period.",
         "tr": "Ölçüm dönemi başlangıcındaki müşteri sayısı.",
         "de": "Anzahl der Kunden zu Beginn des Messzeitraums.",
-        "fr": "Nombre de clients au début de la période de mesure."
+        "fr": "Nombre de clients au début de la période de mesure.",
+        "es": "Número de clientes al inicio del período de medición."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Bitiş Müşteri Sayısı",
         "de": "Endkunden",
         "fr": "Clients de fin",
-        "es": "Ending Customers",
+        "es": "Clientes finales",
         "ar": "Ending Customers"
       },
       "businessContext_i18n": {
         "en": "Number of customers at the end of the measurement period.",
         "tr": "Ölçüm dönemi sonundaki müşteri sayısı.",
         "de": "Anzahl der Kunden am Ende des Messzeitraums.",
-        "fr": "Nombre de clients à la fin de la période de mesure."
+        "fr": "Nombre de clients à la fin de la période de mesure.",
+        "es": "Número de clientes al final del período de medición."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Yeni Müşteri Sayısı",
         "de": "Neukunden",
         "fr": "Nouveaux clients",
-        "es": "New Customers",
+        "es": "Clientes nuevos",
         "ar": "New Customers"
       },
       "businessContext_i18n": {
         "en": "Number of new customers acquired during the measurement period.",
         "tr": "Ölçüm dönemi boyunca kazanılan yeni müşteri sayısı.",
         "de": "Anzahl der während des Messzeitraums gewonnenen Neukunden.",
-        "fr": "Nombre de nouveaux clients acquis pendant la période de mesure."
+        "fr": "Nombre de nouveaux clients acquis pendant la période de mesure.",
+        "es": "Número de clientes nuevos adquiridos durante el período de medición."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Dönem Uzunluğu",
         "de": "Zeitraumlänge",
         "fr": "Durée de la période",
-        "es": "Period Length",
+        "es": "Duración del período",
         "ar": "Period Length"
       },
       "businessContext_i18n": {
         "en": "Length of the measurement period in days (optional, can be used for annualization).",
         "tr": "Ölçüm döneminin gün cinsinden uzunluğu (isteğe bağlı, yıllıklandırma için kullanılabilir).",
         "de": "Länge des Messzeitraums in Tagen (optional, für Annualisierung).",
-        "fr": "Durée de la période de mesure en jours (optionnel, peut être utilisé pour l'annualisation)."
+        "fr": "Durée de la période de mesure en jours (optionnel, peut être utilisé pour l'annualisation).",
+        "es": "Duración del período de medición en días (opcional, puede usarse para anualización)."
       }
     }
   ],
@@ -108,7 +112,7 @@
     "dataConfidenceAdjusted": "churnRate",
     "unit": "customers"
   },
-  "category": "Kalite & Süreç Kontrol",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Perakende & Ticaret",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
@@ -116,7 +120,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "perakende",
   "profession": "Satış Müdürü",
-  "categoryId": "quality",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

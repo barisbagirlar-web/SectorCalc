@@ -20,7 +20,8 @@
         "en": "The initial speed of the projectile at launch",
         "tr": "Merminin fırlatma anındaki başlangıç hızı",
         "de": "Die Anfangsgeschwindigkeit des Projektils beim Abschuss",
-        "fr": "Vitesse initiale du projectile au lancement"
+        "fr": "Vitesse initiale du projectile au lancement",
+        "es": "Velocidad inicial del proyectil en el lanzamiento"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "The angle of launch relative to horizontal",
         "tr": "Yataya göre fırlatma açısı",
         "de": "Der Abwurfwinkel relativ zur Horizontalen",
-        "fr": "Angle de lancement par rapport à l'horizontale"
+        "fr": "Angle de lancement par rapport à l'horizontale",
+        "es": "Ángulo de lanzamiento respecto a la horizontal"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Mermi Kütlesi",
         "de": "Projektilmasse",
         "fr": "Masse du projectile",
-        "es": "Projectile Mass",
+        "es": "Masa del proyectil",
         "ar": "Projectile Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the projectile, used for kinetic energy calculation",
         "tr": "Merminin kütlesi, kinetik enerji hesaplaması için kullanılır",
         "de": "Masse des Projektils, wird für die kinetische Energieberechnung verwendet",
-        "fr": "Masse du projectile, utilisée pour le calcul de l'énergie cinétique"
+        "fr": "Masse du projectile, utilisée pour le calcul de l'énergie cinétique",
+        "es": "Masa del proyectil, utilizada para el cálculo de energía cinética"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Standard gravity, usually 9.81 m/s²",
         "tr": "Standart yerçekimi, genellikle 9,81 m/s²",
         "de": "Standard-Erdbeschleunigung, normalerweise 9,81 m/s²",
-        "fr": "Gravité standard, généralement 9,81 m/s²"
+        "fr": "Gravité standard, généralement 9,81 m/s²",
+        "es": "Gravedad estándar, usualmente 9.81 m/s²"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Fırlatma Yüksekliği",
         "de": "Abwurfhöhe",
         "fr": "Hauteur de lancement",
-        "es": "Launch Height",
+        "es": "Altura de lanzamiento",
         "ar": "Launch Height"
       },
       "businessContext_i18n": {
         "en": "Height above ground from which projectile is launched. 0 for ground level.",
         "tr": "Merminin fırlatıldığı yerden yüksekliği. Zemin seviyesi için 0.",
         "de": "Höhe über dem Boden, von der das Projektil abgeworfen wird. 0 für Bodenhöhe.",
-        "fr": "Hauteur au-dessus du sol à partir de laquelle le projectile est lancé. 0 pour le niveau du sol."
+        "fr": "Hauteur au-dessus du sol à partir de laquelle le projectile est lancé. 0 pour le niveau du sol.",
+        "es": "Altura sobre el suelo desde la que se lanza el proyectil. 0 para nivel del suelo."
       }
     }
   ],
@@ -130,7 +135,7 @@
     "dataConfidenceAdjusted": "range",
     "unit": "m/s"
   },
-  "category": "Enerji & Karbon",
+  "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",
   "premiumRequired": false,
   "catalogCategory": "health-body",
@@ -138,7 +143,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "fizik",
   "profession": "Fizik Mühendisi",
-  "categoryId": "energy",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

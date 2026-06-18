@@ -13,14 +13,15 @@
         "tr": "Yayma Oranı (ε)",
         "de": "Emissionsgrad (ε)",
         "fr": "Émissivité (ε)",
-        "es": "Yayma Oranı (ε)",
+        "es": "Emisividad (ε)",
         "ar": "Yayma Oranı (ε)"
       },
       "businessContext_i18n": {
         "en": "Yüzeyin siyah cisim idealine göre yayma oranı",
         "tr": "Yüzeyin siyah cisim idealine göre yayma oranı",
         "de": "Emissionsgrad der Oberfläche im Vergleich zum schwarzen Körper.",
-        "fr": "Rapport d'émission de la surface par rapport à l'idéal du corps noir."
+        "fr": "Rapport d'émission de la surface par rapport à l'idéal du corps noir.",
+        "es": "Emisividad de la superficie con respecto al cuerpo negro ideal."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Yüzey Alanı",
         "de": "Oberfläche",
         "fr": "Surface",
-        "es": "Yüzey Alanı",
+        "es": "Área de superficie",
         "ar": "Yüzey Alanı"
       },
       "businessContext_i18n": {
         "en": "Işınım yapan yüzeyin alanı",
         "tr": "Işınım yapan yüzeyin alanı",
         "de": "Fläche der strahlenden Oberfläche",
-        "fr": "Surface de la zone émettrice"
+        "fr": "Surface de la zone émettrice",
+        "es": "Área de la superficie que irradia."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Mutlak sıcaklık (Kelvin cinsinden)",
         "tr": "Mutlak sıcaklık (Kelvin cinsinden)",
         "de": "Absolute Temperatur (in Kelvin)",
-        "fr": "Température absolue (en Kelvin)"
+        "fr": "Température absolue (en Kelvin)",
+        "es": "Temperatura absoluta (en Kelvin)"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Stefan-Boltzmann Sabiti",
         "de": "Stefan-Boltzmann-Konstante",
         "fr": "Constante de Stefan-Boltzmann",
-        "es": "Stefan-Boltzmann Sabiti",
+        "es": "Constante de Stefan-Boltzmann",
         "ar": "Stefan-Boltzmann Sabiti"
       },
       "businessContext_i18n": {
         "en": "Temel fizik sabiti, varsayılan değer TÜV onaylıdır",
         "tr": "Temel fizik sabiti, varsayılan değer TÜV onaylıdır",
         "de": "Grundlegende physikalische Konstante, Standardwert TÜV-geprüft",
-        "fr": "Constante physique fondamentale, valeur par défaut approuvée par TÜV."
+        "fr": "Constante physique fondamentale, valeur par défaut approuvée par TÜV.",
+        "es": "Constante física fundamental, valor predeterminado aprobado por TÜV"
       }
     }
   ],
@@ -107,7 +111,7 @@
     "dataConfidenceAdjusted": "intensity",
     "unit": "boyutsuz"
   },
-  "category": "Diğer",
+  "category": "Teknik & Mühendislik",
   "sector": "Birim & Dönüşüm",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -115,7 +119,7 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "birim-donusum",
   "profession": "Mühendis",
-  "categoryId": "diger",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

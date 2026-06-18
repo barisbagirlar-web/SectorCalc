@@ -13,14 +13,15 @@
         "tr": "Ortalama Getiri",
         "de": "Durchschnittliche Rendite",
         "fr": "Rendement moyen",
-        "es": "Average Return",
+        "es": "Rendimiento promedio",
         "ar": "Average Return"
       },
       "businessContext_i18n": {
         "en": "Portfolio's average return over the period.",
         "tr": "Portföyün dönem boyunca ortalama getirisi.",
         "de": "Durchschnittliche Rendite des Portfolios über den Zeitraum.",
-        "fr": "Rendement moyen du portefeuille sur la période."
+        "fr": "Rendement moyen du portefeuille sur la période.",
+        "es": "Rendimiento promedio de la cartera durante el período."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Risk-free rate of return (e.g., government bond yield).",
         "tr": "Risksiz getiri oranı (örneğin devlet tahvili getirisi).",
         "de": "Risikofreier Zinssatz (z. B. Staatsanleiherendite).",
-        "fr": "Taux de rendement sans risque (par exemple, rendement des obligations d'État)."
+        "fr": "Taux de rendement sans risque (par exemple, rendement des obligations d'État).",
+        "es": "Tasa de rendimiento libre de riesgo (por ejemplo, rendimiento de bonos gubernamentales)."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Hedef Getiri",
         "de": "Zielrendite",
         "fr": "Rendement cible",
-        "es": "Target Return",
+        "es": "Rendimiento objetivo",
         "ar": "Target Return"
       },
       "businessContext_i18n": {
         "en": "Minimum acceptable return (often equals risk-free rate).",
         "tr": "Minimum kabul edilebilir getiri (genellikle risksiz orana eşittir).",
         "de": "Mindestakzeptable Rendite (entspricht oft dem risikofreien Zinssatz).",
-        "fr": "Rendement minimum acceptable (souvent égal au taux sans risque)."
+        "fr": "Rendement minimum acceptable (souvent égal au taux sans risque).",
+        "es": "Rendimiento mínimo aceptable (a menudo igual a la tasa libre de riesgo)."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Aşağı Yönlü Sapma",
         "de": "Abwärtsabweichung",
         "fr": "Écart à la baisse",
-        "es": "Downside Deviation",
+        "es": "Desviación a la baja",
         "ar": "Downside Deviation"
       },
       "businessContext_i18n": {
         "en": "Downside deviation (standard deviation of returns below target).",
         "tr": "Aşağı yönlü sapma (hedefin altındaki getirilerin standart sapması).",
         "de": "Abwärtsabweichung (Standardabweichung der Renditen unter dem Zielwert).",
-        "fr": "Écart à la baisse (écart-type des rendements inférieurs à la cible)."
+        "fr": "Écart à la baisse (écart-type des rendements inférieurs à la cible).",
+        "es": "Desviación a la baja (desviación estándar de rendimientos por debajo del objetivo)."
       }
     }
   ],
@@ -110,7 +114,7 @@
       "Sortino Ratio = Excess Return / Downside Deviation": "%"
     }
   },
-  "category": "Kalite & Süreç Kontrol",
+  "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
@@ -118,7 +122,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "finans",
   "profession": "Risk Uzmanı",
-  "categoryId": "quality",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

@@ -13,14 +13,15 @@
         "tr": "Çözünürlük Genişliği",
         "de": "Auflösungsbreite",
         "fr": "Largeur de résolution",
-        "es": "Resolution Width",
+        "es": "Ancho de resolución",
         "ar": "Resolution Width"
       },
       "businessContext_i18n": {
         "en": "Width of the output image in pixels for rendering.",
         "tr": "Oluşturma için çıktı görüntüsünün piksel cinsinden genişliği.",
         "de": "Breite des Ausgabebildes in Pixeln für das Rendering.",
-        "fr": "Largeur de l'image de sortie en pixels pour le rendu."
+        "fr": "Largeur de l'image de sortie en pixels pour le rendu.",
+        "es": "Ancho de la imagen de salida en píxeles para el renderizado."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Çözünürlük Yüksekliği",
         "de": "Auflösungshöhe",
         "fr": "Hauteur de résolution",
-        "es": "Resolution Height",
+        "es": "Alto de resolución",
         "ar": "Resolution Height"
       },
       "businessContext_i18n": {
         "en": "Height of the output image in pixels for rendering.",
         "tr": "Oluşturma için çıktı görüntüsünün piksel cinsinden yüksekliği.",
         "de": "Höhe des Ausgabebildes in Pixeln für das Rendering.",
-        "fr": "Hauteur de l'image de sortie en pixels pour le rendu."
+        "fr": "Hauteur de l'image de sortie en pixels pour le rendu.",
+        "es": "Alto de la imagen de salida en píxeles para el renderizado."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Piksel Başına Örnek",
         "de": "Pixel-Samples",
         "fr": "Échantillons par pixel",
-        "es": "Samples per Pixel",
+        "es": "Muestras por píxel",
         "ar": "Samples per Pixel"
       },
       "businessContext_i18n": {
         "en": "Number of samples per pixel for anti-aliasing quality.",
         "tr": "Kenar yumuşatma kalitesi için piksel başına örnek sayısı.",
         "de": "Anzahl der Samples pro Pixel für die Anti-Aliasing-Qualität.",
-        "fr": "Nombre d'échantillons par pixel pour la qualité anti-aliasing."
+        "fr": "Nombre d'échantillons par pixel pour la qualité anti-aliasing.",
+        "es": "Número de muestras por píxel para la calidad de anti-aliasing."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Kare Sayısı",
         "de": "Bildanzahl",
         "fr": "Nombre d'images",
-        "es": "Frame Count",
+        "es": "Número de fotogramas",
         "ar": "Frame Count"
       },
       "businessContext_i18n": {
         "en": "Total number of frames to render, e.g., for animation.",
         "tr": "Örn. animasyon için oluşturulacak toplam kare sayısı.",
         "de": "Gesamtzahl der zu rendernden Bilder, z. B. für Animationen.",
-        "fr": "Nombre total d'images à rendre, par exemple pour une animation."
+        "fr": "Nombre total d'images à rendre, par exemple pour une animation.",
+        "es": "Número total de fotogramas a renderizar, por ejemplo, para animación."
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Oluşturma Motoru Hızı",
         "de": "Render-Engine-Geschwindigkeit",
         "fr": "Vitesse du moteur de rendu",
-        "es": "Render Engine Speed",
+        "es": "Velocidad del motor de renderizado",
         "ar": "Render Engine Speed"
       },
       "businessContext_i18n": {
         "en": "Render engine throughput in rays per second. Adjust for hardware/software.",
         "tr": "Oluşturma motorunun saniyedeki ışın işleme hızı. Donanım/yazılıma göre ayarlayın.",
         "de": "Durchsatz der Render-Engine in Strahlen pro Sekunde. An Hardware/Software anpassen.",
-        "fr": "Débit du moteur de rendu en rayons par seconde. Ajustez selon le matériel/logiciel."
+        "fr": "Débit du moteur de rendu en rayons par seconde. Ajustez selon le matériel/logiciel.",
+        "es": "Rendimiento del motor de renderizado en rayos por segundo. Ajustar según hardware/software."
       }
     },
     {
@@ -130,7 +135,8 @@
         "en": "Scene complexity multiplier. 1 for simple, 5 for highly complex.",
         "tr": "Sahne karmaşıklık çarpanı. Basit için 1, çok karmaşık için 5.",
         "de": "Szenenkomplexitäts-Multiplikator. 1 für einfach, 5 für sehr komplex.",
-        "fr": "Multiplicateur de complexité de scène. 1 pour simple, 5 pour très complexe."
+        "fr": "Multiplicateur de complexité de scène. 1 pour simple, 5 pour très complexe.",
+        "es": "Multiplicador de complejidad de la escena. 1 para simple, 5 para altamente compleja."
       }
     },
     {
@@ -145,14 +151,15 @@
         "tr": "Maksimum Işın Sıçraması",
         "de": "Maximale Strahlreflexionen",
         "fr": "Rebonds de rayons max",
-        "es": "Max Ray Bounces",
+        "es": "Máximo de rebotes de rayos",
         "ar": "Max Ray Bounces"
       },
       "businessContext_i18n": {
         "en": "Maximum light bounces for global illumination. Higher increases realism and time.",
         "tr": "Küresel aydınlatma için maksimum ışık sıçraması. Yüksek değer gerçekçiliği ve süreyi artırır.",
         "de": "Maximale Lichtreflexionen für globale Beleuchtung. Höher erhöht Realismus und Zeit.",
-        "fr": "Rebonds lumineux maximum pour l'illumination globale. Plus élevé augmente le réalisme et le temps."
+        "fr": "Rebonds lumineux maximum pour l'illumination globale. Plus élevé augmente le réalisme et le temps.",
+        "es": "Máximo de rebotes de luz para iluminación global. Mayor aumenta realismo y tiempo."
       }
     }
   ],
@@ -181,7 +188,7 @@
       "renderTimeMinutes": "min"
     }
   },
-  "category": "Verimlilik & OEE",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Görsel & Medya",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
@@ -189,7 +196,7 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "gorsel-medya",
   "profession": "Grafik Tasarımcı",
-  "categoryId": "efficiency",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

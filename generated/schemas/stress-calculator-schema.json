@@ -20,7 +20,8 @@
         "en": "Tensile or compressive load",
         "tr": "Çekme veya basma yükü",
         "de": "Zug- oder Drucklast",
-        "fr": "Charge en traction ou compression"
+        "fr": "Charge en traction ou compression",
+        "es": "Carga de tracción o compresión"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Nominal cross-sectional area",
         "tr": "Nominal kesit alanı",
         "de": "Nennquerschnittsfläche",
-        "fr": "Section transversale nominale"
+        "fr": "Section transversale nominale",
+        "es": "Área de sección transversal nominal"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Design safety factor (≥1)",
         "tr": "Tasarım emniyet katsayısı (≥1)",
         "de": "Auslegungssicherheitsfaktor (≥1)",
-        "fr": "Coefficient de sécurité de conception (≥1)"
+        "fr": "Coefficient de sécurité de conception (≥1)",
+        "es": "Factor de seguridad de diseño (≥1)"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Material yield stress",
         "tr": "Malzeme akma gerilmesi",
         "de": "Streckgrenze des Materials",
-        "fr": "Limite d'élasticité du matériau"
+        "fr": "Limite d'élasticité du matériau",
+        "es": "Esfuerzo de fluencia del material"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Gerilme Yığılması Kt",
         "de": "Spannungskonzentration Kt",
         "fr": "Concentration de contrainte Kt",
-        "es": "Stress Concentration Kt",
+        "es": "Concentración de esfuerzo Kt",
         "ar": "Stress Concentration Kt"
       },
       "businessContext_i18n": {
         "en": "Geometric stress concentration factor",
         "tr": "Geometrik gerilme yığılma faktörü",
         "de": "Geometrischer Spannungskonzentrationsfaktor",
-        "fr": "Facteur géométrique de concentration de contrainte"
+        "fr": "Facteur géométrique de concentration de contrainte",
+        "es": "Factor geométrico de concentración de esfuerzo"
       }
     }
   ],
@@ -133,7 +138,7 @@
       "yieldUtilization": "%"
     }
   },
-  "category": "Kalite & Süreç Kontrol",
+  "category": "Teknik & Mühendislik",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
@@ -141,7 +146,7 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "quality",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

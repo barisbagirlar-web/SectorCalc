@@ -20,7 +20,8 @@
         "en": "Sakkaroz konsantrasyonu (Brix derecesi)",
         "tr": "Sakkaroz konsantrasyonu (Brix derecesi)",
         "de": "Saccharosekonzentration (Brix-Grad)",
-        "fr": "Concentration en saccharose (degré Brix)"
+        "fr": "Concentration en saccharose (degré Brix)",
+        "es": "Concentración de sacarosa (grados Brix)"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Saflık (%)",
         "de": "Reinheit (%)",
         "fr": "Pureté (%)",
-        "es": "Saflık (%)",
+        "es": "Pureza (%)",
         "ar": "Saflık (%)"
       },
       "businessContext_i18n": {
         "en": "Şeker likörünün saflığı",
         "tr": "Şeker likörünün saflığı",
         "de": "Reinheit der Zuckerlösung",
-        "fr": "Pureté de la liqueur sucrée"
+        "fr": "Pureté de la liqueur sucrée",
+        "es": "Pureza del licor de azúcar"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Kaynatma kütlesinin sıcaklığı",
         "tr": "Kaynatma kütlesinin sıcaklığı",
         "de": "Temperatur der Kochmasse",
-        "fr": "Température de la masse cuite"
+        "fr": "Température de la masse cuite",
+        "es": "Temperatura de la masa de cocción"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Tohum Kristal Boyutu (mm)",
         "de": "Keimkristallgröße (mm)",
         "fr": "Taille des cristaux d'amorçage (mm)",
-        "es": "Tohum Kristal Boyutu (mm)",
+        "es": "Tamaño del cristal semilla (mm)",
         "ar": "Tohum Kristal Boyutu (mm)"
       },
       "businessContext_i18n": {
         "en": "Eklenen tohum kristallerinin boyutu",
         "tr": "Eklenen tohum kristallerinin boyutu",
         "de": "Größe der zugegebenen Keimkristalle",
-        "fr": "Taille des cristaux d'amorçage ajoutés"
+        "fr": "Taille des cristaux d'amorçage ajoutés",
+        "es": "Tamaño de los cristales semilla añadidos"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Tohum Kristal Kütlesi (kg)",
         "de": "Keimkristallmasse (kg)",
         "fr": "Masse des cristaux d'amorçage (kg)",
-        "es": "Tohum Kristal Kütlesi (kg)",
+        "es": "Masa de cristal semilla (kg)",
         "ar": "Tohum Kristal Kütlesi (kg)"
       },
       "businessContext_i18n": {
         "en": "Eklenen tohum kristallerinin kütlesi",
         "tr": "Eklenen tohum kristallerinin kütlesi",
         "de": "Masse der zugegebenen Keimkristalle",
-        "fr": "Masse des cristaux d'amorçage ajoutés"
+        "fr": "Masse des cristaux d'amorçage ajoutés",
+        "es": "Masa de los cristales semilla añadidos"
       }
     },
     {
@@ -123,14 +128,15 @@
         "tr": "Vakum Basıncı (kPa)",
         "de": "Vakuumdruck (kPa)",
         "fr": "Pression de vide (kPa)",
-        "es": "Vakum Basıncı (kPa)",
+        "es": "Presión de vacío (kPa)",
         "ar": "Vakum Basıncı (kPa)"
       },
       "businessContext_i18n": {
         "en": "Vakum panosundaki basınç (negatif gösterge)",
         "tr": "Vakum panosundaki basınç (negatif gösterge)",
         "de": "Druck in der Vakuumpfanne (Unterdruck)",
-        "fr": "Pression dans la chambre à vide (indication négative)"
+        "fr": "Pression dans la chambre à vide (indication négative)",
+        "es": "Presión en el tacho de vacío (indicación negativa)"
       }
     },
     {
@@ -145,14 +151,15 @@
         "tr": "Bekleme Süresi (saat)",
         "de": "Haltezeit (Stunden)",
         "fr": "Temps de séjour (heures)",
-        "es": "Bekleme Süresi (saat)",
+        "es": "Tiempo de espera (hora)",
         "ar": "Bekleme Süresi (saat)"
       },
       "businessContext_i18n": {
         "en": "Kristal büyüme süresi",
         "tr": "Kristal büyüme süresi",
         "de": "Kristallwachstumszeit",
-        "fr": "Durée de croissance des cristaux"
+        "fr": "Durée de croissance des cristaux",
+        "es": "Tiempo de crecimiento del cristal"
       }
     }
   ],
@@ -181,7 +188,7 @@
       "evaporationRate": "%"
     }
   },
-  "category": "Diğer",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Gıda & Beslenme",
   "premiumRequired": false,
   "catalogCategory": "food-cooking",
@@ -189,7 +196,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "gida",
   "profession": "Gıda Mühendisi",
-  "categoryId": "diger",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

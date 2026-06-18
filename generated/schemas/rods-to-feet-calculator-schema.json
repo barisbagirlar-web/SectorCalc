@@ -13,14 +13,15 @@
         "tr": "Rod Sayısı",
         "de": "Anzahl der Ruten",
         "fr": "Nombre de perches",
-        "es": "Number of Rods",
+        "es": "Número de varas",
         "ar": "Number of Rods"
       },
       "businessContext_i18n": {
         "en": "The quantity to convert from rods to feet.",
         "tr": "Roddan feet'e dönüştürülecek miktar.",
         "de": "Die Menge, die von Ruten in Fuß umgerechnet werden soll.",
-        "fr": "La quantité à convertir de perches en pieds."
+        "fr": "La quantité à convertir de perches en pieds.",
+        "es": "La cantidad a convertir de varas a pies."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Feet başına Rod",
         "de": "Fuß pro Rute",
         "fr": "Pieds par perche",
-        "es": "Feet per Rod",
+        "es": "Pies por vara",
         "ar": "Feet per Rod"
       },
       "businessContext_i18n": {
         "en": "Conversion factor. Standard US survey rod is 16.5 feet. Adjust if using a different definition.",
         "tr": "Dönüşüm faktörü. Standart ABD araştırma rod'u 16,5 feet'tir. Farklı bir tanım kullanılıyorsa ayarlayın.",
         "de": "Umrechnungsfaktor. Die übliche US-Vermessungsrute beträgt 16,5 Fuß. Passen Sie an, wenn eine andere Definition verwendet wird.",
-        "fr": "Facteur de conversion. La perche d'arpentage US standard est de 16,5 pieds. Ajustez si vous utilisez une définition différente."
+        "fr": "Facteur de conversion. La perche d'arpentage US standard est de 16,5 pieds. Ajustez si vous utilisez une définition différente.",
+        "es": "Factor de conversión. La vara estándar de agrimensura de EE. UU. es de 16.5 pies. Ajuste si usa una definición diferente."
       }
     },
     {
@@ -87,7 +89,8 @@
         "en": "Additional percentage to add for safety margin in engineering calculations.",
         "tr": "Mühendislik hesaplamalarında güvenlik marjı için eklenecek ek yüzde.",
         "de": "Zusätzlicher Prozentsatz für Sicherheitsmarge in technischen Berechnungen.",
-        "fr": "Pourcentage supplémentaire à ajouter pour la marge de sécurité dans les calculs d'ingénierie."
+        "fr": "Pourcentage supplémentaire à ajouter pour la marge de sécurité dans les calculs d'ingénierie.",
+        "es": "Porcentaje adicional para agregar como margen de seguridad en cálculos de ingeniería."
       }
     },
     {
@@ -102,14 +105,15 @@
         "tr": "Tolerans (± ft)",
         "de": "Toleranz (± ft)",
         "fr": "Tolérance (± pi)",
-        "es": "Tolerance (± ft)",
+        "es": "Tolerancia (± ft)",
         "ar": "Tolerance (± ft)"
       },
       "businessContext_i18n": {
         "en": "Tolerance band for the converted length.",
         "tr": "Dönüştürülen uzunluk için tolerans bandı.",
         "de": "Toleranzband für die umgerechnete Länge.",
-        "fr": "Bande de tolérance pour la longueur convertie."
+        "fr": "Bande de tolérance pour la longueur convertie.",
+        "es": "Banda de tolerancia para la longitud convertida."
       }
     }
   ],

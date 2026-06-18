@@ -13,14 +13,15 @@
         "tr": "Mevcut Beceri Seviyesi",
         "de": "Aktuelles Fähigkeitsniveau",
         "fr": "Niveau de compétence actuel",
-        "es": "Current Skill Level",
+        "es": "Nivel de habilidad actual",
         "ar": "Current Skill Level"
       },
       "businessContext_i18n": {
         "en": "Current assessed skill level of the worker (0-100)",
         "tr": "Çalışanın mevcut değerlendirilen beceri seviyesi (0-100)",
         "de": "Aktuelles bewertetes Fähigkeitsniveau des Arbeitnehmers (0-100)",
-        "fr": "Niveau de compétence actuel évalué du travailleur (0-100)"
+        "fr": "Niveau de compétence actuel évalué du travailleur (0-100)",
+        "es": "Nivel de habilidad actual evaluado del trabajador (0-100)"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Eğitim Saatleri",
         "de": "Schulungsstunden",
         "fr": "Heures de formation",
-        "es": "Training Hours",
+        "es": "Horas de formación",
         "ar": "Training Hours"
       },
       "businessContext_i18n": {
         "en": "Total hours of completed training",
         "tr": "Tamamlanan toplam eğitim saati",
         "de": "Gesamte absolvierte Schulungsstunden",
-        "fr": "Nombre total d'heures de formation complétées"
+        "fr": "Nombre total d'heures de formation complétées",
+        "es": "Total de horas de formación completadas"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Deneyim Yılı",
         "de": "Berufserfahrung in Jahren",
         "fr": "Années d'expérience",
-        "es": "Years of Experience",
+        "es": "Años de experiencia",
         "ar": "Years of Experience"
       },
       "businessContext_i18n": {
         "en": "Total years of relevant work experience",
         "tr": "Toplam ilgili iş deneyimi yılı",
         "de": "Gesamte relevante Berufserfahrung in Jahren",
-        "fr": "Nombre total d'années d'expérience professionnelle pertinente"
+        "fr": "Nombre total d'années d'expérience professionnelle pertinente",
+        "es": "Total de años de experiencia laboral relevante"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Görev Karmaşıklığı",
         "de": "Aufgabenkomplexität",
         "fr": "Complexité de la tâche",
-        "es": "Task Complexity",
+        "es": "Complejidad de la tarea",
         "ar": "Task Complexity"
       },
       "businessContext_i18n": {
         "en": "Average complexity of tasks performed (1=low, 10=high)",
         "tr": "Gerçekleştirilen görevlerin ortalama karmaşıklığı (1=düşük, 10=yüksek)",
         "de": "Durchschnittliche Komplexität der ausgeführten Aufgaben (1=niedrig, 10=hoch)",
-        "fr": "Complexité moyenne des tâches effectuées (1=faible, 10=élevée)"
+        "fr": "Complexité moyenne des tâches effectuées (1=faible, 10=élevée)",
+        "es": "Complejidad promedio de las tareas realizadas (1=baja, 10=alta)"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Sertifikalar",
         "de": "Zertifizierungen",
         "fr": "Certifications",
-        "es": "Certifications",
+        "es": "Certificaciones",
         "ar": "Certifications"
       },
       "businessContext_i18n": {
         "en": "Number of relevant certifications held",
         "tr": "Sahip olunan ilgili sertifika sayısı",
         "de": "Anzahl der gehaltenen relevanten Zertifizierungen",
-        "fr": "Nombre de certifications pertinentes détenues"
+        "fr": "Nombre de certifications pertinentes détenues",
+        "es": "Número de certificaciones relevantes obtenidas"
       }
     },
     {
@@ -123,14 +128,15 @@
         "tr": "Hata Oranı",
         "de": "Fehlerrate",
         "fr": "Taux d'erreur",
-        "es": "Error Rate",
+        "es": "Tasa de error",
         "ar": "Error Rate"
       },
       "businessContext_i18n": {
         "en": "Average error rate in task execution (0-100%)",
         "tr": "Görev yürütmede ortalama hata oranı (0-100%)",
         "de": "Durchschnittliche Fehlerrate bei der Aufgabenausführung (0-100%)",
-        "fr": "Taux d'erreur moyen dans l'exécution des tâches (0-100%)"
+        "fr": "Taux d'erreur moyen dans l'exécution des tâches (0-100%)",
+        "es": "Tasa de error promedio en la ejecución de tareas (0-100%)"
       }
     }
   ],
@@ -160,7 +166,7 @@
     "dataConfidenceAdjusted": "skillPoints",
     "unit": "points"
   },
-  "category": "Diğer",
+  "category": "Lojistik & Rota",
   "sector": "Enerji & Elektrik",
   "premiumRequired": false,
   "catalogCategory": "gaming-entertainment",
@@ -168,7 +174,7 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "enerji",
   "profession": "Enerji Mühendisi",
-  "categoryId": "diger",
+  "categoryId": "logistics",
   "validation": {
     "rules": [],
     "thresholds": {}

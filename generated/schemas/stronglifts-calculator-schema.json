@@ -13,14 +13,15 @@
         "tr": "Başlangıç Ağırlığı",
         "de": "Startgewicht",
         "fr": "Poids de départ",
-        "es": "Starting Weight",
+        "es": "Peso Inicial",
         "ar": "Starting Weight"
       },
       "businessContext_i18n": {
         "en": "Initial weight lifted in the first session",
         "tr": "İlk seansta kaldırılan başlangıç ağırlığı",
         "de": "Im ersten Satz gehobenes Anfangsgewicht",
-        "fr": "Poids initial soulevé lors de la première séance"
+        "fr": "Poids initial soulevé lors de la première séance",
+        "es": "Peso inicial levantado en la primera sesión"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Seans Başına Artış",
         "de": "Steigerung pro Trainingseinheit",
         "fr": "Incrément par séance",
-        "es": "Increment per Session",
+        "es": "Incremento por Sesión",
         "ar": "Increment per Session"
       },
       "businessContext_i18n": {
         "en": "Weight added after each completed session",
         "tr": "Tamamlanan her seanstan sonra eklenen ağırlık",
         "de": "Nach jeder abgeschlossenen Einheit hinzugefügtes Gewicht",
-        "fr": "Poids ajouté après chaque séance terminée"
+        "fr": "Poids ajouté après chaque séance terminée",
+        "es": "Peso añadido después de cada sesión completada"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Haftalık Seans Sayısı",
         "de": "Trainingseinheiten pro Woche",
         "fr": "Séances par semaine",
-        "es": "Sessions per Week",
+        "es": "Sesiones por Semana",
         "ar": "Sessions per Week"
       },
       "businessContext_i18n": {
         "en": "Training frequency per week",
         "tr": "Haftalık antrenman sıklığı",
         "de": "Trainingshäufigkeit pro Woche",
-        "fr": "Fréquence d'entraînement par semaine"
+        "fr": "Fréquence d'entraînement par semaine",
+        "es": "Frecuencia de entrenamiento por semana"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Duration of training cycle",
         "tr": "Antrenman döngüsü süresi",
         "de": "Dauer des Trainingszyklus",
-        "fr": "Durée du cycle d'entraînement"
+        "fr": "Durée du cycle d'entraînement",
+        "es": "Duración del ciclo de entrenamiento"
       }
     }
   ],
@@ -108,7 +112,7 @@
     "dataConfidenceAdjusted": "estimated1RM",
     "unit": "kg"
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "Lojistik & Rota",
   "sector": "Günlük Yaşam & Ev",
   "premiumRequired": false,
   "categorySlug": "technology-ai-cloud-cyber",
@@ -116,7 +120,7 @@
   "sectorSlug": "cleaning",
   "sectorId": "ev-yasam",
   "profession": "Ev Yöneticisi",
-  "categoryId": "conversion",
+  "categoryId": "logistics",
   "validation": {
     "rules": [],
     "thresholds": {}

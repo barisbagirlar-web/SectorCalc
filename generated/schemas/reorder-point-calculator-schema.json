@@ -20,7 +20,8 @@
         "en": "Average number of units consumed per day",
         "tr": "Günlük ortalama tüketilen birim sayısı",
         "de": "Durchschnittliche Anzahl verbrauchter Einheiten pro Tag",
-        "fr": "Nombre moyen d'unités consommées par jour"
+        "fr": "Nombre moyen d'unités consommées par jour",
+        "es": "Número promedio de unidades consumidas por día"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Average time between ordering and receiving inventory",
         "tr": "Sipariş verme ile envanteri teslim alma arasındaki ortalama süre",
         "de": "Durchschnittliche Zeit zwischen Bestellung und Erhalt des Lagerbestands",
-        "fr": "Délai moyen entre la commande et la réception des stocks"
+        "fr": "Délai moyen entre la commande et la réception des stocks",
+        "es": "Tiempo promedio entre pedido y recepción de inventario"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Günlük Talep Standart Sapması",
         "de": "Standardabweichung des Tagesbedarfs",
         "fr": "Écart type de la demande quotidienne",
-        "es": "Daily Demand Std Dev",
+        "es": "Desviación estándar de la demanda diaria",
         "ar": "Daily Demand Std Dev"
       },
       "businessContext_i18n": {
         "en": "Standard deviation of daily demand, measures variability",
         "tr": "Günlük talebin standart sapması, değişkenliği ölçer",
         "de": "Standardabweichung der täglichen Nachfrage, misst die Variabilität",
-        "fr": "Écart type de la demande quotidienne, mesure la variabilité"
+        "fr": "Écart type de la demande quotidienne, mesure la variabilité",
+        "es": "Desviación estándar de la demanda diaria, mide la variabilidad"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Hizmet Seviyesi (z)",
         "de": "Servicegrad (z)",
         "fr": "Niveau de service (z)",
-        "es": "Service Level (z)",
+        "es": "Nivel de servicio (z)",
         "ar": "Service Level (z)"
       },
       "businessContext_i18n": {
         "en": "Z-score for desired service level (e.g., 1.65 for 95%)",
         "tr": "İstenen hizmet seviyesi için z-skoru (örneğin %95 için 1.65)",
         "de": "Z-Wert für den gewünschten Servicegrad (z. B. 1,65 für 95 %)",
-        "fr": "Score Z pour le niveau de service souhaité (ex. 1,65 pour 95 %)"
+        "fr": "Score Z pour le niveau de service souhaité (ex. 1,65 pour 95 %)",
+        "es": "Puntuación Z para el nivel de servicio deseado (ej. 1,65 para 95%)"
       }
     }
   ],

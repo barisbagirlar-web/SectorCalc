@@ -20,7 +20,8 @@
         "en": "The number to be rounded to the specified significant figures.",
         "tr": "Belirtilen anlamlı basamaklara yuvarlanacak sayı.",
         "de": "Die Zahl, die auf die angegebenen signifikanten Stellen gerundet werden soll.",
-        "fr": "Le nombre à arrondir au nombre de chiffres significatifs spécifié."
+        "fr": "Le nombre à arrondir au nombre de chiffres significatifs spécifié.",
+        "es": "El número que se redondeará a las cifras significativas especificadas."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Anlamlı Basamaklar",
         "de": "Signifikante Stellen",
         "fr": "Chiffres significatifs",
-        "es": "Significant Figures",
+        "es": "Cifras significativas",
         "ar": "Significant Figures"
       },
       "businessContext_i18n": {
         "en": "Number of significant digits desired in the result.",
         "tr": "Sonuçta istenen anlamlı basamak sayısı.",
         "de": "Anzahl der gewünschten signifikanten Stellen im Ergebnis.",
-        "fr": "Nombre de chiffres significatifs souhaité dans le résultat."
+        "fr": "Nombre de chiffres significatifs souhaité dans le résultat.",
+        "es": "Número de dígitos significativos deseados en el resultado."
       }
     },
     {
@@ -87,7 +89,7 @@
     "dataConfidenceAdjusted": "rounded",
     "unit": "—"
   },
-  "category": "Diğer",
+  "category": "Teknik & Mühendislik",
   "sector": "Otomotiv & Taşıt",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
@@ -95,7 +97,7 @@
   "categorySlug": "maintenance-reliability",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "diger",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

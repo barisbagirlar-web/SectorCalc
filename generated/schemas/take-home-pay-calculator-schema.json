@@ -20,7 +20,8 @@
         "en": "The total monthly salary before any deductions.",
         "tr": "Kesintiler öncesi toplam aylık maaş.",
         "de": "Monatsbruttogehalt vor Abzügen",
-        "fr": "Salaire mensuel brut avant toute déduction."
+        "fr": "Salaire mensuel brut avant toute déduction.",
+        "es": "El salario bruto mensual total antes de cualquier deducción."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Effective income tax rate applied to gross salary.",
         "tr": "Brüt maaşa uygulanan efektif gelir vergisi oranı.",
         "de": "Effektiver Einkommensteuersatz auf das Bruttogehalt",
-        "fr": "Taux d'imposition effectif appliqué au salaire brut."
+        "fr": "Taux d'imposition effectif appliqué au salaire brut.",
+        "es": "Tasa efectiva del impuesto sobre la renta aplicada al salario bruto."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Sosyal Güvenlik Katkı Oranı",
         "de": "Sozialversicherungsbeitragssatz",
         "fr": "Taux de cotisation de sécurité sociale",
-        "es": "Social Security Contribution Rate",
+        "es": "Tasa de Cotización a la Seguridad Social",
         "ar": "Social Security Contribution Rate"
       },
       "businessContext_i18n": {
         "en": "Employee's social security contribution rate.",
         "tr": "Çalışanın sosyal güvenlik katkı oranı.",
         "de": "Beitragssatz des Arbeitnehmers zur Sozialversicherung.",
-        "fr": "Taux de cotisation sociale salariale."
+        "fr": "Taux de cotisation sociale salariale.",
+        "es": "Tasa de cotización del empleado a la seguridad social."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Any other fixed monthly deductions (e.g., health insurance, union dues).",
         "tr": "Diğer sabit aylık kesintiler (ör. sağlık sigortası, sendika aidatı).",
         "de": "Sonstige feste monatliche Abzüge (z. B. Krankenversicherung, Gewerkschaftsbeiträge).",
-        "fr": "Toute autre déduction mensuelle fixe (ex. assurance santé, cotisations syndicales)."
+        "fr": "Toute autre déduction mensuelle fixe (ex. assurance santé, cotisations syndicales).",
+        "es": "Cualquier otra deducción fija mensual (por ejemplo, seguro médico, cuotas sindicales)."
       }
     }
   ],
@@ -112,7 +116,7 @@
     "dataConfidenceAdjusted": "netPay",
     "unit": "currency"
   },
-  "category": "İK & Personel",
+  "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
@@ -120,7 +124,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "hr",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

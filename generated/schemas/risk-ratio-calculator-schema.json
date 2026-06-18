@@ -13,14 +13,15 @@
         "tr": "Maruz Kalan Olay Sayısı",
         "de": "Anzahl der ausgesetzten Ereignisse",
         "fr": "Nombre d'événements exposés",
-        "es": "Maruz Kalan Olay Sayısı",
+        "es": "Número de eventos expuestos",
         "ar": "Maruz Kalan Olay Sayısı"
       },
       "businessContext_i18n": {
         "en": "Maruz kalan grupta gerçekleşen olay sayısı (ör. vaka, hata, kayıp)",
         "tr": "Maruz kalan grupta gerçekleşen olay sayısı (ör. vaka, hata, kayıp)",
         "de": "Anzahl der Ereignisse in der exponierten Gruppe (z. B. Fälle, Fehler, Verluste)",
-        "fr": "Nombre d'événements survenus dans le groupe exposé (ex. cas, erreurs, pertes)"
+        "fr": "Nombre d'événements survenus dans le groupe exposé (ex. cas, erreurs, pertes)",
+        "es": "Número de eventos ocurridos en el grupo expuesto (ej. casos, fallos, pérdidas)"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Maruz Kalan Toplam",
         "de": "Exponierte Gesamtzahl",
         "fr": "Total exposé",
-        "es": "Maruz Kalan Toplam",
+        "es": "Total expuesto",
         "ar": "Maruz Kalan Toplam"
       },
       "businessContext_i18n": {
         "en": "Maruz kalan gruptaki toplam birim/birey sayısı",
         "tr": "Maruz kalan gruptaki toplam birim/birey sayısı",
         "de": "Gesamtzahl der Einheiten/Personen in der exponierten Gruppe",
-        "fr": "Nombre total d'unités/individus dans le groupe exposé"
+        "fr": "Nombre total d'unités/individus dans le groupe exposé",
+        "es": "Número total de unidades/individuos en el grupo expuesto"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Kontrol Olay Sayısı",
         "de": "Anzahl der Ereignisse in der Kontrollgruppe",
         "fr": "Nombre d'événements de contrôle",
-        "es": "Kontrol Olay Sayısı",
+        "es": "Número de eventos de control",
         "ar": "Kontrol Olay Sayısı"
       },
       "businessContext_i18n": {
         "en": "Kontrol grubunda gerçekleşen olay sayısı",
         "tr": "Kontrol grubunda gerçekleşen olay sayısı",
         "de": "Anzahl der Ereignisse in der Kontrollgruppe",
-        "fr": "Nombre d'événements survenus dans le groupe témoin"
+        "fr": "Nombre d'événements survenus dans le groupe témoin",
+        "es": "Número de eventos ocurridos en el grupo de control"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Kontrol Toplam",
         "de": "Kontroll-Gesamtzahl",
         "fr": "Total de contrôle",
-        "es": "Kontrol Toplam",
+        "es": "Total de control",
         "ar": "Kontrol Toplam"
       },
       "businessContext_i18n": {
         "en": "Kontrol grubundaki toplam birim/birey sayısı",
         "tr": "Kontrol grubundaki toplam birim/birey sayısı",
         "de": "Gesamtzahl der Einheiten/Personen in der Kontrollgruppe",
-        "fr": "Nombre total d'unités/individus dans le groupe témoin"
+        "fr": "Nombre total d'unités/individus dans le groupe témoin",
+        "es": "Número total de unidades/individuos en el grupo de control"
       }
     }
   ],
@@ -108,7 +112,7 @@
     "dataConfidenceAdjusted": "riskRatio",
     "unit": "%"
   },
-  "category": "İSG & Risk",
+  "category": "Finans & Yatırım",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
@@ -116,7 +120,7 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "safety",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

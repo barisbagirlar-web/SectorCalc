@@ -43,7 +43,8 @@
         "en": "Kullanıcının ağırlığı (kg)",
         "tr": "Kullanıcının ağırlığı (kg)",
         "de": "Gewicht des Benutzers (kg)",
-        "fr": "Poids de l'utilisateur (kg)"
+        "fr": "Poids de l'utilisateur (kg)",
+        "es": "Kullanıcının ağırlığı (kg)"
       }
     },
     {
@@ -65,7 +66,8 @@
         "en": "Kullanıcının boyu (cm)",
         "tr": "Kullanıcının boyu (cm)",
         "de": "Größe des Benutzers (cm)",
-        "fr": "Taille de l'utilisateur (cm)"
+        "fr": "Taille de l'utilisateur (cm)",
+        "es": "Kullanıcının boyu (cm)"
       }
     },
     {
@@ -87,7 +89,8 @@
         "en": "0: Kadın, 1: Erkek",
         "tr": "0: Kadın, 1: Erkek",
         "de": "0: Weiblich, 1: Männlich",
-        "fr": "0: Femme, 1: Homme"
+        "fr": "0: Femme, 1: Homme",
+        "es": "0: Kadın, 1: Erkek"
       }
     },
     {
@@ -109,7 +112,8 @@
         "en": "Sedanter=1.2, Hafif=1.375, Orta=1.55, Aktif=1.725, Çok Aktif=1.9",
         "tr": "Sedanter=1.2, Hafif=1.375, Orta=1.55, Aktif=1.725, Çok Aktif=1.9",
         "de": "Bewegungsarm=1,2, Leicht=1,375, Mittel=1,55, Aktiv=1,725, Sehr aktiv=1,9",
-        "fr": "Sédentaire=1.2, Léger=1.375, Modéré=1.55, Actif=1.725, Très actif=1.9"
+        "fr": "Sédentaire=1.2, Léger=1.375, Modéré=1.55, Actif=1.725, Très actif=1.9",
+        "es": "Sedanter=1.2, Hafif=1.375, Orta=1.55, Aktif=1.725, Çok Aktif=1.9"
       }
     }
   ],
@@ -135,7 +139,7 @@
     "dataConfidenceAdjusted": "fatCals",
     "unit": "yıl"
   },
-  "category": "Diğer",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Gıda & Beslenme",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -143,7 +147,7 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "gida",
   "profession": "Gıda Mühendisi",
-  "categoryId": "diger",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

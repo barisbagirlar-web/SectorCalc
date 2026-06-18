@@ -13,14 +13,15 @@
         "tr": "Günlük sigara tüketimi",
         "de": "Günlük sigara tüketimi",
         "fr": "Consommation quotidienne de cigarettes",
-        "es": "Günlük sigara tüketimi",
+        "es": "Consumo diario de cigarrillos",
         "ar": "Günlük sigara tüketimi"
       },
       "businessContext_i18n": {
         "en": "Günde içilen ortalama sigara sayısı",
         "tr": "Günde içilen ortalama sigara sayısı",
         "de": "Günde içilen ortalama sigara sayısı",
-        "fr": "Nombre moyen de cigarettes fumées par jour"
+        "fr": "Nombre moyen de cigarettes fumées par jour",
+        "es": "Número promedio de cigarrillos fumados al día"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Paket fiyatı",
         "de": "Paket fiyatı",
         "fr": "Prix du paquet",
-        "es": "Paket fiyatı",
+        "es": "Precio del paquete",
         "ar": "Paket fiyatı"
       },
       "businessContext_i18n": {
         "en": "Bir paketin ortalama satın alma fiyatı",
         "tr": "Bir paketin ortalama satın alma fiyatı",
         "de": "Bir paketin ortalama satın alma fiyatı",
-        "fr": "Prix d'achat moyen d'un paquet"
+        "fr": "Prix d'achat moyen d'un paquet",
+        "es": "Precio de compra promedio de un paquete"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "İçilen yıl",
         "de": "İçilen yıl",
         "fr": "Années de tabagisme",
-        "es": "İçilen yıl",
+        "es": "Años fumando",
         "ar": "İçilen yıl"
       },
       "businessContext_i18n": {
         "en": "Kaç yıldır sigara içildiği veya incelenecek süre",
         "tr": "Kaç yıldır sigara içildiği veya incelenecek süre",
         "de": "Kaç yıldır sigara içildiği veya incelenecek süre",
-        "fr": "Depuis combien d'années la personne fume ou période étudiée"
+        "fr": "Depuis combien d'années la personne fume ou période étudiée",
+        "es": "Número de años que ha fumado o período a analizar"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Paketteki sigara sayısı",
         "de": "Paketteki sigara sayısı",
         "fr": "Nombre de cigarettes par paquet",
-        "es": "Paketteki sigara sayısı",
+        "es": "Cigarrillos por paquete",
         "ar": "Paketteki sigara sayısı"
       },
       "businessContext_i18n": {
         "en": "Bir pakette bulunan sigara adedi",
         "tr": "Bir pakette bulunan sigara adedi",
         "de": "Bir pakette bulunan sigara adedi",
-        "fr": "Nombre de cigarettes contenues dans un paquet"
+        "fr": "Nombre de cigarettes contenues dans un paquet",
+        "es": "Número de cigarrillos en un paquete"
       }
     }
   ],
@@ -108,7 +112,7 @@
     "dataConfidenceAdjusted": "totalCost",
     "unit": "adet"
   },
-  "category": "Diğer",
+  "category": "İSG & Risk",
   "sector": "Sağlık & Tıp",
   "premiumRequired": false,
   "catalogCategory": "food-cooking",
@@ -116,7 +120,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "saglik",
   "profession": "Biyomedikal Mühendisi",
-  "categoryId": "diger",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

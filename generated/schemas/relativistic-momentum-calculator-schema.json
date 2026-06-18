@@ -20,7 +20,8 @@
         "en": "Cismin durgun kütlesi",
         "tr": "Cismin durgun kütlesi",
         "de": "Ruhemasse des Objekts",
-        "fr": "Masse au repos de l'objet"
+        "fr": "Masse au repos de l'objet",
+        "es": "Masa en reposo del objeto"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Hız X bileşeni",
         "de": "Geschwindigkeitskomponente X",
         "fr": "Composante X de la vitesse",
-        "es": "Hız X bileşeni",
+        "es": "Componente X de la velocidad",
         "ar": "Hız X bileşeni"
       },
       "businessContext_i18n": {
         "en": "X yönü hız",
         "tr": "X yönü hız",
         "de": "Geschwindigkeit in X-Richtung",
-        "fr": "Vitesse en direction X"
+        "fr": "Vitesse en direction X",
+        "es": "Velocidad en dirección X"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Hız Y bileşeni",
         "de": "Geschwindigkeitskomponente Y",
         "fr": "Composante Y de la vitesse",
-        "es": "Hız Y bileşeni",
+        "es": "Componente Y de la velocidad",
         "ar": "Hız Y bileşeni"
       },
       "businessContext_i18n": {
         "en": "Y yönü hız",
         "tr": "Y yönü hız",
         "de": "Geschwindigkeit in Y-Richtung",
-        "fr": "Vitesse en direction Y"
+        "fr": "Vitesse en direction Y",
+        "es": "Velocidad en dirección Y"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Hız Z bileşeni",
         "de": "Geschwindigkeitskomponente Z",
         "fr": "Composante Z de la vitesse",
-        "es": "Hız Z bileşeni",
+        "es": "Componente Z de la velocidad",
         "ar": "Hız Z bileşeni"
       },
       "businessContext_i18n": {
         "en": "Z yönü hız",
         "tr": "Z yönü hız",
         "de": "Geschwindigkeit in Z-Richtung",
-        "fr": "Vitesse en direction Z"
+        "fr": "Vitesse en direction Z",
+        "es": "Velocidad en dirección Z"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Işık Hızı (c)",
         "de": "Lichtgeschwindigkeit (c)",
         "fr": "Vitesse de la lumière (c)",
-        "es": "Işık Hızı (c)",
+        "es": "Velocidad de la luz (c)",
         "ar": "Işık Hızı (c)"
       },
       "businessContext_i18n": {
         "en": "Vakumdaki ışık hızı, genellikle sabit",
         "tr": "Vakumdaki ışık hızı, genellikle sabit",
         "de": "Lichtgeschwindigkeit im Vakuum, üblicherweise konstant",
-        "fr": "Vitesse de la lumière dans le vide, généralement constante"
+        "fr": "Vitesse de la lumière dans le vide, généralement constante",
+        "es": "Velocidad de la luz en el vacío, generalmente constante"
       }
     }
   ],
@@ -145,7 +150,7 @@
     "dataConfidenceAdjusted": "p",
     "unit": "kg"
   },
-  "category": "Diğer",
+  "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -153,7 +158,7 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "fizik",
   "profession": "Fizik Mühendisi",
-  "categoryId": "diger",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

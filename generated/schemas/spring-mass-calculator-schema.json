@@ -20,7 +20,8 @@
         "en": "Stiffness of the spring in Newtons per meter.",
         "tr": "Yayın metre başına Newton cinsinden sertliği.",
         "de": "Steifigkeit der Feder in Newton pro Meter.",
-        "fr": "Raideur du ressort en Newtons par mètre."
+        "fr": "Raideur du ressort en Newtons par mètre.",
+        "es": "Yayın metre başına Newton cinsinden sertliği."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Mass attached to the spring in kilograms.",
         "tr": "Kütle (m)",
         "de": "An der Feder befestigte Masse in Kilogramm.",
-        "fr": "Masse attachée au ressort en kilogrammes."
+        "fr": "Masse attachée au ressort en kilogrammes.",
+        "es": "Yaya bağlı kütle (kilogram)."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Yaya bağlı kütle kilogram cinsinden.",
         "de": "Anfangsauslenkung (x0)",
         "fr": "Déplacement initial (x0)",
-        "es": "Initial Displacement (x0)",
+        "es": "Başlangıç Yer Değiştirmesi (x0)",
         "ar": "Initial Displacement (x0)"
       },
       "businessContext_i18n": {
         "en": "Initial displacement from equilibrium position in meters.",
         "tr": "Başlangıç Yer Değiştirmesi (x0)",
         "de": "Anfangsauslenkung aus der Gleichgewichtslage in Metern.",
-        "fr": "Déplacement initial par rapport à la position d'équilibre en mètres."
+        "fr": "Déplacement initial par rapport à la position d'équilibre en mètres.",
+        "es": "Denge konumundan metre cinsinden başlangıç yer değiştirmesi."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Denge konumundan metre cinsinden başlangıç yer değiştirmesi.",
         "de": "Anfangsgeschwindigkeit (v0)",
         "fr": "Vitesse initiale (v0)",
-        "es": "Initial Velocity (v0)",
+        "es": "Başlangıç Hızı (v0)",
         "ar": "Initial Velocity (v0)"
       },
       "businessContext_i18n": {
         "en": "Initial velocity in meters per second.",
         "tr": "Başlangıç Hızı (v0)",
         "de": "Anfangsgeschwindigkeit in Metern pro Sekunde.",
-        "fr": "Vitesse initiale en mètres par seconde."
+        "fr": "Vitesse initiale en mètres par seconde.",
+        "es": "Saniyede metre cinsinden başlangıç hızı."
       }
     }
   ],
@@ -114,7 +118,7 @@
       "maxAcceleration": "%"
     }
   },
-  "category": "Diğer",
+  "category": "Teknik & Mühendislik",
   "sector": "Birim & Dönüşüm",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
@@ -122,7 +126,7 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "birim-donusum",
   "profession": "Mühendis",
-  "categoryId": "diger",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

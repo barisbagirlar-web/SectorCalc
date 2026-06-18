@@ -13,14 +13,15 @@
         "tr": "Toplam Uyku Saati",
         "de": "Gesamtschlafstunden",
         "fr": "Heures totales de sommeil",
-        "es": "Total Sleep Hours",
+        "es": "Horas totales de sueño",
         "ar": "Total Sleep Hours"
       },
       "businessContext_i18n": {
         "en": "Total sleep duration per night, impacts recovery and cognitive function.",
         "tr": "Gece başına toplam uyku süresi, iyileşme ve bilişsel işlevi etkiler.",
         "de": "Gesamte Schlafdauer pro Nacht, beeinflusst Erholung und kognitive Funktion.",
-        "fr": "Durée totale de sommeil par nuit, impacte la récupération et la fonction cognitive."
+        "fr": "Durée totale de sommeil par nuit, impacte la récupération et la fonction cognitive.",
+        "es": "Duración total del sueño por noche, impacta la recuperación y la función cognitiva."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Time taken to fall asleep, known as sleep onset latency, indicates ease of falling asleep.",
         "tr": "Uykuya dalma süresi, uyku başlangıç gecikmesi olarak bilinir, uykuya dalma kolaylığını gösterir.",
         "de": "Zeit bis zum Einschlafen, bekannt als Einschlaflatenz, gibt an, wie leicht das Einschlafen fällt.",
-        "fr": "Temps nécessaire pour s'endormir, appelé latence d'endormissement, indique la facilité à s'endormir."
+        "fr": "Temps nécessaire pour s'endormir, appelé latence d'endormissement, indique la facilité à s'endormir.",
+        "es": "Tiempo para conciliar el sueño, conocido como latencia de inicio del sueño, indica la facilidad para dormirse."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Uyanma Sayısı",
         "de": "Anzahl der Aufwachvorgänge",
         "fr": "Nombre d'éveils",
-        "es": "Awakenings Count",
+        "es": "Número de despertares",
         "ar": "Awakenings Count"
       },
       "businessContext_i18n": {
         "en": "Number of awakenings during the sleep period, affecting sleep continuity and restorative value.",
         "tr": "Uyku dönemi sırasındaki uyanma sayısı, uyku sürekliliğini ve dinlendiriciliğini etkiler.",
         "de": "Anzahl der Aufwachvorgänge während der Schlafperiode, beeinflusst Schlafkontinuität und Erholungswert.",
-        "fr": "Nombre d'éveils pendant la période de sommeil, affectant la continuité du sommeil et la valeur réparatrice."
+        "fr": "Nombre d'éveils pendant la période de sommeil, affectant la continuité du sommeil et la valeur réparatrice.",
+        "es": "Número de despertares durante el período de sueño, afecta la continuidad y el valor restaurativo del sueño."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Uyku Verimliliği",
         "de": "Schlafeffizienz",
         "fr": "Efficacité du sommeil",
-        "es": "Sleep Efficiency",
+        "es": "Eficiencia del sueño",
         "ar": "Sleep Efficiency"
       },
       "businessContext_i18n": {
         "en": "Percentage of time in bed actually spent sleeping, a key metric of sleep quality.",
         "tr": "Yatakta geçirilen sürenin fiilen uykuda geçen yüzdesi, uyku kalitesinin temel bir ölçütüdür.",
         "de": "Prozentsatz der im Bett verbrachten Zeit, die tatsächlich geschlafen wird, ein wichtiger Indikator für die Schlafqualität.",
-        "fr": "Pourcentage du temps au lit réellement passé à dormir, un indicateur clé de la qualité du sommeil."
+        "fr": "Pourcentage du temps au lit réellement passé à dormir, un indicateur clé de la qualité du sommeil.",
+        "es": "Porcentaje del tiempo en cama realmente dormido, una métrica clave de la calidad del sueño."
       }
     }
   ],
@@ -113,7 +117,7 @@
       "efficiencyScore": "%"
     }
   },
-  "category": "Verimlilik & OEE",
+  "category": "İSG & Risk",
   "sector": "Sağlık & Tıp",
   "premiumRequired": false,
   "catalogCategory": "health-body",
@@ -121,7 +125,7 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "saglik",
   "profession": "Biyomedikal Mühendisi",
-  "categoryId": "efficiency",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

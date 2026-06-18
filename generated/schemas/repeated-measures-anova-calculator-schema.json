@@ -13,14 +13,15 @@
         "tr": "Koşul Sayısı (k)",
         "de": "Anzahl der Bedingungen (k)",
         "fr": "Nombre de conditions (k)",
-        "es": "Number of Conditions (k)",
+        "es": "Número de condiciones (k)",
         "ar": "Number of Conditions (k)"
       },
       "businessContext_i18n": {
         "en": "Number of repeated measurement levels or conditions.",
         "tr": "Tekrarlanan ölçüm seviyelerinin veya koşullarının sayısı.",
         "de": "Anzahl der wiederholten Messstufen oder Bedingungen.",
-        "fr": "Nombre de niveaux de mesure répétés ou conditions."
+        "fr": "Nombre de niveaux de mesure répétés ou conditions.",
+        "es": "Número de niveles o condiciones de medición repetidas."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Denek Sayısı (n)",
         "de": "Anzahl der Probanden (n)",
         "fr": "Nombre de sujets (n)",
-        "es": "Number of Subjects (n)",
+        "es": "Número de sujetos (n)",
         "ar": "Number of Subjects (n)"
       },
       "businessContext_i18n": {
         "en": "Total number of subjects (participants).",
         "tr": "Toplam denek (katılımcı) sayısı.",
         "de": "Gesamtzahl der Probanden (Teilnehmer).",
-        "fr": "Nombre total de sujets (participants)."
+        "fr": "Nombre total de sujets (participants).",
+        "es": "Número total de sujetos (participantes)."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Koşul KT",
         "de": "SS Bedingung",
         "fr": "SC Condition",
-        "es": "SS Condition",
+        "es": "SC Condición",
         "ar": "SS Condition"
       },
       "businessContext_i18n": {
         "en": "Sum of squares due to the within-subjects factor (condition).",
         "tr": "Denek içi faktörden (koşul) kaynaklanan kareler toplamı.",
         "de": "Summe der Quadrate aufgrund des Innersubjektfaktors (Bedingung).",
-        "fr": "Somme des carrés due au facteur intra-sujet (condition)."
+        "fr": "Somme des carrés due au facteur intra-sujet (condition).",
+        "es": "Suma de cuadrados debida al factor intrasujetos (condición)."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "SS Hatası",
         "de": "SS Fehler",
         "fr": "Erreur SS",
-        "es": "SS Error",
+        "es": "SC Error",
         "ar": "SS Error"
       },
       "businessContext_i18n": {
         "en": "Sum of squares error (residual) for the within-subjects factor.",
         "tr": "Denek içi faktör için kareler toplamı hatası (artık).",
         "de": "Summe der Quadrate des Fehlers (Residuum) für den Innersubjektfaktor.",
-        "fr": "Somme des carrés de l'erreur (résiduelle) pour le facteur intra-sujet."
+        "fr": "Somme des carrés de l'erreur (résiduelle) pour le facteur intra-sujet.",
+        "es": "Suma de cuadrados del error (residual) para el factor intrasujetos."
       }
     }
   ],
@@ -114,7 +118,7 @@
     "dataConfidenceAdjusted": "eta2",
     "unit": "—"
   },
-  "category": "Kalite & Süreç Kontrol",
+  "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -122,7 +126,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "istatistik",
   "profession": "İstatistikçi",
-  "categoryId": "quality",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

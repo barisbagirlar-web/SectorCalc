@@ -13,14 +13,15 @@
         "tr": "Çatı Taban Alanı",
         "de": "Dachgrundfläche",
         "fr": "Surface d'empreinte du toit",
-        "es": "Roof Footprint Area",
+        "es": "Área de la huella del techo",
         "ar": "Roof Footprint Area"
       },
       "businessContext_i18n": {
         "en": "Total horizontal area covered by the roof (length × width) in square meters.",
         "tr": "Çatının kapladığı toplam yatay alan (uzunluk × genişlik) metrekare cinsinden.",
         "de": "Gesamte horizontale Fläche des Daches (Länge × Breite) in Quadratmetern.",
-        "fr": "Surface horizontale totale couverte par le toit (longueur × largeur) en mètres carrés."
+        "fr": "Surface horizontale totale couverte par le toit (longueur × largeur) en mètres carrés.",
+        "es": "Área horizontal total cubierta por el techo (largo × ancho) en metros cuadrados."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Inclination angle of the roof from horizontal, in degrees.",
         "tr": "Çatının yataydan eğim açısı, derece cinsinden.",
         "de": "Neigungswinkel des Daches zur Horizontalen in Grad.",
-        "fr": "Angle d'inclinaison du toit par rapport à l'horizontale, en degrés."
+        "fr": "Angle d'inclinaison du toit par rapport à l'horizontale, en degrés.",
+        "es": "Ángulo de inclinación del techo desde la horizontal, en grados."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Additional material percentage for cutting, overlap, and handling losses.",
         "tr": "Kesim, bindirme ve taşıma kayıpları için ek malzeme yüzdesi.",
         "de": "Zusätzlicher Materialprozentsatz für Verschnitt, Überlappung und Handhabungsverluste.",
-        "fr": "Pourcentage de matériau supplémentaire pour les pertes de coupe, de chevauchement et de manutention."
+        "fr": "Pourcentage de matériau supplémentaire pour les pertes de coupe, de chevauchement et de manutention.",
+        "es": "Porcentaje de material adicional por pérdidas de corte, solapamiento y manipulación."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Paket Başına Shingle Kapsama Alanı",
         "de": "Schindelabdeckung pro Bündel",
         "fr": "Couverture par paquet de bardeaux",
-        "es": "Shingle Coverage per Bundle",
+        "es": "Cobertura de tejas por paquete",
         "ar": "Shingle Coverage per Bundle"
       },
       "businessContext_i18n": {
         "en": "Area covered by one bundle of field shingles, typically 3.1 m² for standard 3-tab.",
         "tr": "Bir paket düz shingle'ın kapladığı alan, standart 3-tab için tipik olarak 3,1 m².",
         "de": "Fläche, die von einem Bündel Feldschindeln abgedeckt wird, typischerweise 3,1 m² für Standard-3-Tab.",
-        "fr": "Surface couverte par un paquet de bardeaux de champ, typiquement 3,1 m² pour les bardeaux standard à 3 pattes."
+        "fr": "Surface couverte par un paquet de bardeaux de champ, typiquement 3,1 m² pour les bardeaux standard à 3 pattes.",
+        "es": "Área cubierta por un paquete de tejas de campo, típicamente 3.1 m² para tejas estándar de 3 lengüetas."
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Mahya Uzunluğu",
         "de": "Firstlänge",
         "fr": "Longueur de faîtage",
-        "es": "Ridge Length",
+        "es": "Longitud de cumbrera",
         "ar": "Ridge Length"
       },
       "businessContext_i18n": {
         "en": "Total length of ridges and hips requiring cap shingles, in meters.",
         "tr": "Kapak shingle'ı gerektiren mahya ve çatı kırım hatlarının toplam uzunluğu, metre cinsinden.",
         "de": "Gesamtlänge von Firsten und Graten, die Abschlussschindeln erfordern, in Metern.",
-        "fr": "Longueur totale des faîtes et arêtiers nécessitant des bardeaux de faîtage, en mètres."
+        "fr": "Longueur totale des faîtes et arêtiers nécessitant des bardeaux de faîtage, en mètres.",
+        "es": "Longitud total de cumbreras y limatesas que requieren tejas de cumbrera, en metros."
       }
     },
     {
@@ -123,14 +128,15 @@
         "tr": "Paket Başına Kapak Kapsama Alanı",
         "de": "Abschlussabdeckung pro Bündel",
         "fr": "Couverture par paquet de bardeaux de faîtage",
-        "es": "Cap Coverage per Bundle",
+        "es": "Cobertura por paquete de cumbrera",
         "ar": "Cap Coverage per Bundle"
       },
       "businessContext_i18n": {
         "en": "Linear ridge coverage provided by one bundle of cap shingles, typically 10 m for 3-tab caps.",
         "tr": "Bir paket kapak shingle'ının sağladığı doğrusal mahya kapsama alanı, 3-tab kapaklar için tipik olarak 10 m.",
         "de": "Lineare Firstabdeckung, die von einem Bündel Abschlussschindeln bereitgestellt wird, typischerweise 10 m für 3-Tab-Abschlüsse.",
-        "fr": "Couverture linéaire de faîtage fournie par un paquet de bardeaux de faîtage, typiquement 10 m pour les bardeaux à 3 pattes."
+        "fr": "Couverture linéaire de faîtage fournie par un paquet de bardeaux de faîtage, typiquement 10 m pour les bardeaux à 3 pattes.",
+        "es": "Cobertura lineal de cumbrera proporcionada por un paquete de tejas de cumbrera, típicamente 10 m para cumbreras de 3 lengüetas."
       }
     }
   ],
@@ -151,7 +157,7 @@
     "dataConfidenceAdjusted": "totalBundles",
     "unit": "m²"
   },
-  "category": "Sürdürülebilirlik",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
@@ -159,7 +165,7 @@
   "categorySlug": "project-construction-management",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "sustainability",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

@@ -20,7 +20,8 @@
         "en": "Kaldırılacak toplam yük ağırlığı",
         "tr": "Kaldırılacak toplam yük ağırlığı",
         "de": "Zu hebendes Gesamtlastgewicht",
-        "fr": "Poids total de la charge à soulever"
+        "fr": "Poids total de la charge à soulever",
+        "es": "Peso total de la carga a levantar"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Sapan Kol Sayısı",
         "de": "Anzahl der Anschlagmittelstränge",
         "fr": "Nombre de brins d'élingue",
-        "es": "Sapan Kol Sayısı",
+        "es": "Número de ramales de la eslinga",
         "ar": "Sapan Kol Sayısı"
       },
       "businessContext_i18n": {
         "en": "Yükü taşıyan sapan kollarının sayısı (genellikle 1,2,3 veya 4)",
         "tr": "Yükü taşıyan sapan kollarının sayısı (genellikle 1, 2, 3 veya 4)",
         "de": "Anzahl der Anschlagmittelstränge, die die Last tragen (normalerweise 1, 2, 3 oder 4)",
-        "fr": "Nombre de brins d'élingue supportant la charge (généralement 1, 2, 3 ou 4)"
+        "fr": "Nombre de brins d'élingue supportant la charge (généralement 1, 2, 3 ou 4)",
+        "es": "Número de ramales que soportan la carga (generalmente 1, 2, 3 o 4)"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Sapan Açısı (Dikeyden)",
         "de": "Anschlagwinkel (von der Senkrechten)",
         "fr": "Angle d'élingue (par rapport à la verticale)",
-        "es": "Sapan Açısı (Dikeyden)",
+        "es": "Ángulo de la eslinga (desde la vertical)",
         "ar": "Sapan Açısı (Dikeyden)"
       },
       "businessContext_i18n": {
         "en": "Dikey eksenle sapan kolu arasındaki açı (0° dikey sapan, 90° yatay sapan)",
         "tr": "Dikey eksenle sapan kolu arasındaki açı (0° dikey sapan, 90° yatay sapan)",
         "de": "Winkel zwischen der Senkrechten und dem Anschlagmittelstrang (0° senkrechter Strang, 90° waagerechter Strang)",
-        "fr": "Angle entre l'axe vertical et le brin d'élingue (0° élingue verticale, 90° élingue horizontale)"
+        "fr": "Angle entre l'axe vertical et le brin d'élingue (0° élingue verticale, 90° élingue horizontale)",
+        "es": "Ángulo entre el eje vertical y el ramal de la eslinga (0° eslinga vertical, 90° eslinga horizontal)"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Uygulanacak emniyet faktörü (örn. 5:1)",
         "tr": "Uygulanacak emniyet faktörü (örn. 5:1)",
         "de": "Anzuwendender Sicherheitsfaktor (z. B. 5:1)",
-        "fr": "Facteur de sécurité à appliquer (ex. 5:1)"
+        "fr": "Facteur de sécurité à appliquer (ex. 5:1)",
+        "es": "Factor de seguridad a aplicar (ej. 5:1)"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Dinamik Katsayı",
         "de": "Dynamikfaktor",
         "fr": "Coefficient dynamique",
-        "es": "Dinamik Katsayı",
+        "es": "Coeficiente dinámico",
         "ar": "Dinamik Katsayı"
       },
       "businessContext_i18n": {
         "en": "Dinamik yükleme etkisi (statik yükün çarpılacağı faktör)",
         "tr": "Dinamik yükleme etkisi (statik yükün çarpılacağı faktör)",
         "de": "Dynamischer Belastungseffekt (Faktor, mit dem die statische Last multipliziert wird)",
-        "fr": "Effet de charge dynamique (facteur multipliant la charge statique)"
+        "fr": "Effet de charge dynamique (facteur multipliant la charge statique)",
+        "es": "Efecto de carga dinámica (factor por el que se multiplica la carga estática)"
       }
     },
     {
@@ -130,7 +135,8 @@
         "en": "Sapanların ideal olmayan yük dağılımı için düzeltme faktörü (0-1 arası, 1 mükemmel dağılım)",
         "tr": "Sapanların ideal olmayan yük dağılımı için düzeltme faktörü (0-1 arası, 1 mükemmel dağılım)",
         "de": "Korrekturfaktor für ungleichmäßige Lastverteilung auf die Stränge (0-1, 1 = perfekte Verteilung)",
-        "fr": "Facteur de correction pour la répartition non idéale de la charge (0-1, 1 étant une répartition parfaite)"
+        "fr": "Facteur de correction pour la répartition non idéale de la charge (0-1, 1 étant une répartition parfaite)",
+        "es": "Factor de corrección por distribución no ideal de la carga en las eslingas (0-1, 1 distribución perfecta)"
       }
     }
   ],
@@ -152,7 +158,7 @@
     "dataConfidenceAdjusted": "requiredBreakingStrength",
     "unit": "kg"
   },
-  "category": "Diğer",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
@@ -160,7 +166,7 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "matematik",
   "profession": "Veri Analisti",
-  "categoryId": "diger",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

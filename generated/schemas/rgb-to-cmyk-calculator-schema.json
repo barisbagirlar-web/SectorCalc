@@ -13,14 +13,15 @@
         "tr": "Kırmızı (R)",
         "de": "Rot (R)",
         "fr": "Rouge (R)",
-        "es": "Red (R)",
+        "es": "Rojo (R)",
         "ar": "Red (R)"
       },
       "businessContext_i18n": {
         "en": "Red color component (0-255)",
         "tr": "Kırmızı renk bileşeni (0-255)",
         "de": "Rot-Farbkomponente (0-255)",
-        "fr": "Composante rouge (0-255)"
+        "fr": "Composante rouge (0-255)",
+        "es": "Componente de color rojo (0-255)"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Yeşil (G)",
         "de": "Grün (G)",
         "fr": "Vert (V)",
-        "es": "Green (G)",
+        "es": "Verde (G)",
         "ar": "Green (G)"
       },
       "businessContext_i18n": {
         "en": "Green color component (0-255)",
         "tr": "Yeşil renk bileşeni (0-255)",
         "de": "Grün-Farbkomponente (0-255)",
-        "fr": "Composante verte (0-255)"
+        "fr": "Composante verte (0-255)",
+        "es": "Componente de color verde (0-255)"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Mavi (B)",
         "de": "Blau (B)",
         "fr": "Bleu (B)",
-        "es": "Blue (B)",
+        "es": "Azul (B)",
         "ar": "Blue (B)"
       },
       "businessContext_i18n": {
         "en": "Blue color component (0-255)",
         "tr": "Mavi renk bileşeni (0-255)",
         "de": "Blau-Farbkomponente (0-255)",
-        "fr": "Composante bleue (0-255)"
+        "fr": "Composante bleue (0-255)",
+        "es": "Componente de color azul (0-255)"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Maksimum Giriş Değeri",
         "de": "Maximaler Eingabewert",
         "fr": "Valeur d'entrée maximale",
-        "es": "Max Input Value",
+        "es": "Valor máximo de entrada",
         "ar": "Max Input Value"
       },
       "businessContext_i18n": {
         "en": "Maximum value of color components (typically 255 for 8-bit)",
         "tr": "Renk bileşenlerinin maksimum değeri (8-bit için genellikle 255)",
         "de": "Maximalwert der Farbkomponenten (typischerweise 255 für 8-Bit)",
-        "fr": "Valeur maximale des composantes de couleur (généralement 255 pour 8 bits)"
+        "fr": "Valeur maximale des composantes de couleur (généralement 255 pour 8 bits)",
+        "es": "Valor máximo de los componentes de color (típicamente 255 para 8 bits)"
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Output scaling factor (100 for percentage)",
         "tr": "Çıktı ölçekleme faktörü (yüzde için 100)",
         "de": "Ausgabe-Skalierungsfaktor (100 für Prozent)",
-        "fr": "Facteur d'échelle de sortie (100 pour le pourcentage)"
+        "fr": "Facteur d'échelle de sortie (100 pour le pourcentage)",
+        "es": "Factor de escala de salida (100 para porcentaje)"
       }
     }
   ],
@@ -130,7 +135,7 @@
     "dataConfidenceAdjusted": "key",
     "unit": "value"
   },
-  "category": "Sürdürülebilirlik",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Görsel & Medya",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -138,7 +143,7 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "gorsel-medya",
   "profession": "Grafik Tasarımcı",
-  "categoryId": "sustainability",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

@@ -20,7 +20,8 @@
         "en": "Total wall surface area to be covered with stucco.",
         "tr": "Fire Oranı",
         "de": "Gesamte mit Putz zu bedeckende Wandfläche.",
-        "fr": "Surface totale du mur à couvrir d'enduit."
+        "fr": "Surface totale du mur à couvrir d'enduit.",
+        "es": "Área total de superficie de pared a cubrir con enlucido."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Uygulama sırasında oluşacak fire oranı (% cinsinden).",
         "de": "Putzstärke",
         "fr": "Épaisseur de l'enduit",
-        "es": "Stucco Thickness",
+        "es": "Espesor del estuco",
         "ar": "Stucco Thickness"
       },
       "businessContext_i18n": {
         "en": "Target thickness of the stucco layer (typically 3/4 in).",
         "tr": "Toplam duvar alanı sıva ile kaplanacak.",
         "de": "Zielstärke der Putzschicht (typischerweise 3/4 Zoll).",
-        "fr": "Épaisseur cible de la couche d'enduit (généralement 3/4 po)."
+        "fr": "Épaisseur cible de la couche d'enduit (généralement 3/4 po).",
+        "es": "Espesor objetivo de la capa de estuco (normalmente 3/4 pulg)."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Number of 94-lb cement bags per cubic yard of stucco mix (standard 1:3 mix).",
         "tr": "Sıva Kalınlığı",
         "de": "Anzahl der 94-lb-Zementsäcke pro Kubikyard Putzmischung (Standardmischung 1:3).",
-        "fr": "Nombre de sacs de ciment de 94 lb par yard cube de mélange d'enduit (mélange standard 1:3)."
+        "fr": "Nombre de sacs de ciment de 94 lb par yard cube de mélange d'enduit (mélange standard 1:3).",
+        "es": "Número de bolsas de cemento de 94 lb por yarda cúbica de mezcla de estuco (mezcla estándar 1:3)."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Additional material percentage to account for job-site waste and spillage.",
         "tr": "Sıva tabakasının hedef kalınlığı (genellikle 3/4 inç).",
         "de": "Zusätzlicher Materialprozentsatz für Baustellenabfall und Verschütten.",
-        "fr": "Pourcentage de matériau supplémentaire pour tenir compte des pertes sur le chantier."
+        "fr": "Pourcentage de matériau supplémentaire pour tenir compte des pertes sur le chantier.",
+        "es": "Porcentaje adicional de material para tener en cuenta el desperdicio y derrames en obra."
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Hourly labor cost for stucco application crew.",
         "tr": "Metreküp sıva karışımı başına 94 lb'lik çimento torbası sayısı (standart 1:3 karışım).",
         "de": "Stündliche Arbeitskosten für das Putzteam.",
-        "fr": "Coût horaire de la main-d'œuvre pour l'équipe d'application d'enduit."
+        "fr": "Coût horaire de la main-d'œuvre pour l'équipe d'application d'enduit.",
+        "es": "Costo de mano de obra por hora para el equipo de aplicación de estuco."
       }
     },
     {
@@ -123,14 +128,15 @@
         "tr": "İş yerindeki atık ve dökülmeleri hesaba katmak için ek malzeme yüzdesi.",
         "de": "Produktivität",
         "fr": "Productivité",
-        "es": "Productivity",
+        "es": "Productividad",
         "ar": "Productivity"
       },
       "businessContext_i18n": {
         "en": "Average stucco application rate per worker-hour.",
         "tr": "Sıva uygulama ekibi için saatlik işçilik maliyeti.",
         "de": "Durchschnittliche Putzauftragsrate pro Arbeiterstunde.",
-        "fr": "Taux d'application moyen de l'enduit par heure de travailleur."
+        "fr": "Taux d'application moyen de l'enduit par heure de travailleur.",
+        "es": "Tasa promedio de aplicación de estuco por hora-trabajador."
       }
     },
     {
@@ -145,14 +151,15 @@
         "tr": "Çimento Maliyeti",
         "de": "Zementkosten",
         "fr": "Coût du ciment",
-        "es": "Cement Cost",
+        "es": "Costo del cemento",
         "ar": "Cement Cost"
       },
       "businessContext_i18n": {
         "en": "Unit cost per 94-lb bag of Portland cement.",
         "tr": "94 lb'lik Portland çimentosu torbasının birim maliyeti.",
         "de": "Stückkosten pro 94-lb-Sack Portlandzement.",
-        "fr": "Coût unitaire par sac de 94 lb de ciment Portland."
+        "fr": "Coût unitaire par sac de 94 lb de ciment Portland.",
+        "es": "Costo unitario por bolsa de 94 lb de cemento Portland."
       }
     },
     {
@@ -167,14 +174,15 @@
         "tr": "Kum Maliyeti",
         "de": "Sandkosten",
         "fr": "Coût du sable",
-        "es": "Sand Cost",
+        "es": "Costo de la arena",
         "ar": "Sand Cost"
       },
       "businessContext_i18n": {
         "en": "Unit cost per ton of clean masonry sand.",
         "tr": "Temiz duvar kumunun ton başına birim maliyeti.",
         "de": "Stückkosten pro Tonne sauberen Mauersand.",
-        "fr": "Coût unitaire par tonne de sable de maçonnerie propre."
+        "fr": "Coût unitaire par tonne de sable de maçonnerie propre.",
+        "es": "Costo unitario por tonelada de arena limpia para mampostería."
       }
     }
   ],
@@ -207,7 +215,7 @@
     "dataConfidenceAdjusted": "wasteCost",
     "unit": "sq ft"
   },
-  "category": "Maliyet & Bütçeleme",
+  "category": "Teknik & Mühendislik",
   "sector": "İnşaat & Yapı",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
@@ -215,7 +223,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "cost",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

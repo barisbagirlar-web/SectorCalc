@@ -13,14 +13,15 @@
         "tr": "Yıllık Portföy Getirisi (%)",
         "de": "Jährliche Portfoliorendite (%)",
         "fr": "Rendement annualisé du portefeuille (%)",
-        "es": "Yıllık Portföy Getirisi (%)",
+        "es": "Rendimiento anual del portafolio (%)",
         "ar": "Yıllık Portföy Getirisi (%)"
       },
       "businessContext_i18n": {
         "en": "Portföyün yıllıklandırılmış getiri oranı.",
         "tr": "Portföyün yıllıklandırılmış getiri oranı.",
         "de": "Annualisierte Rendite des Portfolios",
-        "fr": "Taux de rendement annualisé du portefeuille."
+        "fr": "Taux de rendement annualisé du portefeuille.",
+        "es": "Tasa de rendimiento anualizada del portafolio."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Yıllık Risksiz Getiri (%)",
         "de": "Jährlicher risikofreier Zinssatz (%)",
         "fr": "Taux sans risque annualisé (%)",
-        "es": "Yıllık Risksiz Getiri (%)",
+        "es": "Rendimiento libre de riesgo anual (%)",
         "ar": "Yıllık Risksiz Getiri (%)"
       },
       "businessContext_i18n": {
         "en": "Genellikle aynı vadedeki devlet tahvili faizi.",
         "tr": "Genellikle aynı vadedeki devlet tahvili faizi.",
         "de": "Üblicherweise der Zinssatz für Staatsanleihen gleicher Laufzeit",
-        "fr": "Généralement le taux des obligations d'État de même échéance."
+        "fr": "Généralement le taux des obligations d'État de même échéance.",
+        "es": "Generalmente la tasa de interés del bono del gobierno con el mismo plazo."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Günlük Standart Sapma (%)",
         "de": "Tägliche Standardabweichung (%)",
         "fr": "Écart type quotidien (%)",
-        "es": "Günlük Standart Sapma (%)",
+        "es": "Desviación estándar diaria (%)",
         "ar": "Günlük Standart Sapma (%)"
       },
       "businessContext_i18n": {
         "en": "Portföyün günlük getirilerinin standart sapması.",
         "tr": "Portföyün günlük getirilerinin standart sapması.",
         "de": "Standardabweichung der täglichen Portfoliorenditen",
-        "fr": "Écart type des rendements quotidiens du portefeuille."
+        "fr": "Écart type des rendements quotidiens du portefeuille.",
+        "es": "Desviación estándar de los rendimientos diarios de la cartera."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Yıllık İşlem Günü Sayısı",
         "de": "Jährliche Handelstage",
         "fr": "Nombre de jours de bourse par an",
-        "es": "Yıllık İşlem Günü Sayısı",
+        "es": "Número de días de negociación al año",
         "ar": "Yıllık İşlem Günü Sayısı"
       },
       "businessContext_i18n": {
         "en": "Yıllık işlem günü sayısı; hisse senedi piyasaları için genellikle 252.",
         "tr": "Yıllık işlem günü sayısı; hisse senedi piyasaları için genellikle 252.",
         "de": "Anzahl der jährlichen Handelstage; für Aktienmärkte üblicherweise 252",
-        "fr": "Nombre de jours de bourse par an ; généralement 252 pour les marchés boursiers."
+        "fr": "Nombre de jours de bourse par an ; généralement 252 pour les marchés boursiers.",
+        "es": "Número de días de negociación al año; generalmente 252 para mercados de valores."
       }
     }
   ],
@@ -107,7 +111,7 @@
     "dataConfidenceAdjusted": "sharpeRatio",
     "unit": "%"
   },
-  "category": "İSG & Risk",
+  "category": "Finans & Yatırım",
   "sector": "Denizcilik & Gemi",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
@@ -115,7 +119,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "denizcilik",
   "profession": "Gemi Mühendisi",
-  "categoryId": "safety",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

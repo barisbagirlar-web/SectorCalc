@@ -13,14 +13,15 @@
         "tr": "Panel Alanı",
         "de": "Panel-Fläche",
         "fr": "Surface du panneau",
-        "es": "Panel Area",
+        "es": "Área del panel",
         "ar": "Panel Area"
       },
       "businessContext_i18n": {
         "en": "Area of a single solar panel in square meters.",
         "tr": "Tek bir güneş panelinin metrekare cinsinden alanı.",
         "de": "Fläche eines einzelnen Solarmoduls in Quadratmetern.",
-        "fr": "Surface d'un seul panneau solaire en mètres carrés."
+        "fr": "Surface d'un seul panneau solaire en mètres carrés.",
+        "es": "Área de un panel solar individual en metros cuadrados."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Panel Verimliliği",
         "de": "Panel-Wirkungsgrad",
         "fr": "Rendement du panneau",
-        "es": "Panel Efficiency",
+        "es": "Eficiencia del panel",
         "ar": "Panel Efficiency"
       },
       "businessContext_i18n": {
         "en": "Conversion efficiency of the solar panel under standard test conditions.",
         "tr": "Standart test koşullarında güneş panelinin dönüşüm verimliliği.",
         "de": "Umwandlungswirkungsgrad des Solarmoduls unter Standard-Testbedingungen.",
-        "fr": "Rendement de conversion du panneau solaire dans des conditions de test standard."
+        "fr": "Rendement de conversion du panneau solaire dans des conditions de test standard.",
+        "es": "Eficiencia de conversión del panel solar en condiciones de prueba estándar."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Güneş Işınımı",
         "de": "Solare Einstrahlung",
         "fr": "Irradiance solaire",
-        "es": "Solar Irradiance",
+        "es": "Irradiancia solar",
         "ar": "Solar Irradiance"
       },
       "businessContext_i18n": {
         "en": "Standard test condition irradiance, typically 1000 W/m².",
         "tr": "Standart test koşulu ışınımı, tipik olarak 1000 W/m².",
         "de": "Standard-Testbedingung Einstrahlung, typischerweise 1000 W/m².",
-        "fr": "Irradiance standard de test, typiquement 1000 W/m²."
+        "fr": "Irradiance standard de test, typiquement 1000 W/m².",
+        "es": "Irradiancia en condiciones de prueba estándar, típicamente 1000 W/m²."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Total system losses including wiring, inverter, soiling, and mismatch.",
         "tr": "Kablolama, invertör, kirlenme ve uyumsuzluk dahil toplam sistem kayıpları.",
         "de": "Gesamtsystemverluste einschließlich Verkabelung, Wechselrichter, Verschmutzung und Fehlanpassung.",
-        "fr": "Pertes totales du système incluant câblage, onduleur, salissure et désadaptation."
+        "fr": "Pertes totales du système incluant câblage, onduleur, salissure et désadaptation.",
+        "es": "Pérdidas totales del sistema, incluyendo cableado, inversor, suciedad y desajuste."
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Eğim Açısı",
         "de": "Neigungswinkel",
         "fr": "Angle d'inclinaison",
-        "es": "Tilt Angle",
+        "es": "Ángulo de inclinación",
         "ar": "Tilt Angle"
       },
       "businessContext_i18n": {
         "en": "Angle of the panel relative to horizontal plane.",
         "tr": "Panelin yatay düzleme göre açısı.",
         "de": "Winkel des Moduls relativ zur horizontalen Ebene.",
-        "fr": "Angle du panneau par rapport au plan horizontal."
+        "fr": "Angle du panneau par rapport au plan horizontal.",
+        "es": "Ángulo del panel respecto al plano horizontal."
       }
     },
     {
@@ -130,7 +135,8 @@
         "en": "Compass direction the panel faces (0 = south in northern hemisphere).",
         "tr": "Panelin baktığı pusula yönü (kuzey yarımkürede 0 = güney).",
         "de": "Himmelsrichtung, in die das Modul zeigt (0 = Süden auf der Nordhalbkugel).",
-        "fr": "Orientation"
+        "fr": "Orientation",
+        "es": "Dirección de la brújula que enfrenta el panel (0 = sur en el hemisferio norte)."
       }
     },
     {
@@ -145,14 +151,15 @@
         "tr": "Enlem",
         "de": "Breitengrad",
         "fr": "Latitude",
-        "es": "Latitude",
+        "es": "Latitud",
         "ar": "Latitude"
       },
       "businessContext_i18n": {
         "en": "Latitude of the installation site, positive for northern hemisphere.",
         "tr": "Kurulum sahasının enlemi, kuzey yarımküre için pozitif.",
         "de": "Breitengrad des Installationsorts, positiv für die Nordhalbkugel.",
-        "fr": "Latitude du site d'installation, positive pour l'hémisphère nord."
+        "fr": "Latitude du site d'installation, positive pour l'hémisphère nord.",
+        "es": "Latitud del lugar de instalación, positiva para el hemisferio norte."
       }
     },
     {
@@ -167,14 +174,15 @@
         "tr": "Yıllık Güneş Saati",
         "de": "Jährliche Sonnenstunden",
         "fr": "Heures d'ensoleillement annuelles",
-        "es": "Annual Sun Hours",
+        "es": "Horas de sol anuales",
         "ar": "Annual Sun Hours"
       },
       "businessContext_i18n": {
         "en": "Total equivalent full-sun hours per year at the location.",
         "tr": "Konumda yıllık toplam eşdeğer tam güneş saati.",
         "de": "Gesamte äquivalente Volllaststunden pro Jahr am Standort.",
-        "fr": "Nombre total d'heures équivalent plein soleil par an à l'emplacement."
+        "fr": "Nombre total d'heures équivalent plein soleil par an à l'emplacement.",
+        "es": "Total de horas equivalentes de sol pleno por año en la ubicación."
       }
     }
   ],
@@ -216,7 +224,7 @@
     "dataConfidenceAdjusted": "co2Reduction",
     "unit": "m²"
   },
-  "category": "Verimlilik & OEE",
+  "category": "Enerji & Karbon",
   "sector": "Yenilenebilir Enerji",
   "premiumRequired": false,
   "catalogCategory": "ecology-environment",
@@ -224,7 +232,7 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "yenilenebilir",
   "profession": "Enerji Mühendisi",
-  "categoryId": "efficiency",
+  "categoryId": "energy",
   "validation": {
     "rules": [],
     "thresholds": {}

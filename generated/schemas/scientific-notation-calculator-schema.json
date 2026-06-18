@@ -20,7 +20,8 @@
         "en": "The significant digits of the number, typically between 1 and 10.",
         "tr": "Sayının anlamlı basamakları, genellikle 1 ile 10 arasında.",
         "de": "Die signifikanten Stellen der Zahl, typischerweise zwischen 1 und 10.",
-        "fr": "Les chiffres significatifs du nombre, généralement entre 1 et 10."
+        "fr": "Les chiffres significatifs du nombre, généralement entre 1 et 10.",
+        "es": "Los dígitos significativos del número, típicamente entre 1 y 10."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Üs (b)",
         "de": "Exponent (b)",
         "fr": "Exposant (b)",
-        "es": "Exponent (b)",
+        "es": "Exponente (b)",
         "ar": "Exponent (b)"
       },
       "businessContext_i18n": {
         "en": "The power of 10 multiplier.",
         "tr": "10'un kuvveti çarpanı.",
         "de": "Der Multiplikator als Zehnerpotenz.",
-        "fr": "Le multiplicateur de puissance de 10."
+        "fr": "Le multiplicateur de puissance de 10.",
+        "es": "El multiplicador de potencia de 10."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Değer (isteğe bağlı)",
         "de": "Wert (optional)",
         "fr": "Valeur (optionnelle)",
-        "es": "Value (optional)",
+        "es": "Valor (opcional)",
         "ar": "Value (optional)"
       },
       "businessContext_i18n": {
         "en": "If provided, the calculator will convert this value to scientific notation.",
         "tr": "Sağlanırsa, hesap aracı bu değeri bilimsel gösterime dönüştürür.",
         "de": "Wenn angegeben, konvertiert der Rechner diesen Wert in wissenschaftliche Notation.",
-        "fr": "Si fourni, le calculateur convertira cette valeur en notation scientifique."
+        "fr": "Si fourni, le calculateur convertira cette valeur en notation scientifique.",
+        "es": "Si se proporciona, la calculadora convertirá este valor a notación científica."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Number of decimal places for the coefficient.",
         "tr": "Katsayı için ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für den Koeffizienten.",
-        "fr": "Nombre de décimales pour le coefficient."
+        "fr": "Nombre de décimales pour le coefficient.",
+        "es": "Número de decimales para el coeficiente."
       }
     }
   ],
@@ -108,7 +112,7 @@
     "dataConfidenceAdjusted": "fromScientific_aux",
     "unit": "digits"
   },
-  "category": "Enerji & Karbon",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
@@ -116,7 +120,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "energy",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

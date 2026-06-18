@@ -20,7 +20,8 @@
         "en": "The load lifted during training, representing the external force applied.",
         "tr": "Antrenman sırasında kaldırılan yük, uygulanan dış kuvveti temsil eder.",
         "de": "Das im Training gehobene Lastgewicht, das die äußere Kraft darstellt.",
-        "fr": "Charge soulevée pendant l'entraînement, représentant la force externe appliquée."
+        "fr": "Charge soulevée pendant l'entraînement, représentant la force externe appliquée.",
+        "es": "Carga levantada durante el entrenamiento, que representa la fuerza externa aplicada"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Number of consecutive repetitions performed with the given weight, indicating muscular endurance.",
         "tr": "Verilen ağırlıkla art arda yapılan tekrar sayısı, kas dayanıklılığını gösterir.",
         "de": "Anzahl der aufeinanderfolgenden Wiederholungen mit dem gegebenen Gewicht, Indikator für Muskelausdauer.",
-        "fr": "Nombre de répétitions consécutives effectuées avec le poids donné, indiquant l'endurance musculaire."
+        "fr": "Nombre de répétitions consécutives effectuées avec le poids donné, indiquant l'endurance musculaire.",
+        "es": "Número de repeticiones consecutivas realizadas con el peso dado, indicando resistencia muscular"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Lifter's body weight for relative strength calculations.",
         "tr": "Göreceli kuvvet hesaplamaları için sporcunun vücut ağırlığı.",
         "de": "Körpergewicht des Sportlers für relative Kraftberechnungen.",
-        "fr": "Poids corporel du sportif pour les calculs de force relative."
+        "fr": "Poids corporel du sportif pour les calculs de force relative.",
+        "es": "Peso corporal del levantador para cálculos de fuerza relativa"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Setler",
         "de": "Sätze",
         "fr": "Séries",
-        "es": "Sets",
+        "es": "Series",
         "ar": "Sets"
       },
       "businessContext_i18n": {
         "en": "Number of sets performed, influencing total training volume.",
         "tr": "Gerçekleştirilen set sayısı, toplam antrenman hacmini etkiler.",
         "de": "Anzahl der durchgeführten Sätze, beeinflusst das gesamte Trainingsvolumen.",
-        "fr": "Nombre de séries effectuées, influençant le volume d'entraînement total."
+        "fr": "Nombre de séries effectuées, influençant le volume d'entraînement total.",
+        "es": "Número de series realizadas, que influye en el volumen total de entrenamiento"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Dinlenme Süresi",
         "de": "Ruhezeit",
         "fr": "Temps de repos",
-        "es": "Rest Period",
+        "es": "Período de descanso",
         "ar": "Rest Period"
       },
       "businessContext_i18n": {
         "en": "Rest interval between sets, affecting recovery and subsequent performance.",
         "tr": "Setler arası dinlenme aralığı, toparlanmayı ve sonraki performansı etkiler.",
         "de": "Ruheintervall zwischen den Sätzen, beeinflusst Erholung und nachfolgende Leistung.",
-        "fr": "Intervalle de repos entre les séries, affectant la récupération et la performance ultérieure."
+        "fr": "Intervalle de repos entre les séries, affectant la récupération et la performance ultérieure.",
+        "es": "Intervalo de descanso entre series, que afecta la recuperación y el rendimiento posterior"
       }
     },
     {
@@ -130,7 +135,8 @@
         "en": "Estimated fatigue accumulation per set, affecting effective load capacity.",
         "tr": "Set başına tahmini yorgunluk birikimi, etkili yük kapasitesini etkiler.",
         "de": "Geschätzte Ermüdungsakkumulation pro Satz, beeinflusst die effektive Lastkapazität.",
-        "fr": "Fatigue estimée accumulée par série, affectant la capacité de charge effective."
+        "fr": "Fatigue estimée accumulée par série, affectant la capacité de charge effective.",
+        "es": "Acumulación estimada de fatiga por serie, que afecta la capacidad de carga efectiva."
       }
     }
   ],
@@ -152,7 +158,7 @@
     "dataConfidenceAdjusted": "breakdown",
     "unit": "kg"
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "İSG & Risk",
   "sector": "Fitness & Spor",
   "premiumRequired": false,
   "categorySlug": "cnc-additive-manufacturing",
@@ -160,7 +166,7 @@
   "sectorSlug": "cleaning",
   "sectorId": "fitness-spor",
   "profession": "Antrenör",
-  "categoryId": "conversion",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

@@ -31,7 +31,8 @@
         "en": "Diameter of the trap orifice; typical failed traps have orifices from 1 mm to 20 mm.",
         "tr": "Trap orifis çapı; tipik arızalı traplarda orifis 1 mm ile 20 mm arasındadır.",
         "de": "Durchmesser der Kondensatableiteröffnung; typische defekte Ableiter haben Öffnungen von 1 mm bis 20 mm.",
-        "fr": "Diamètre de l'orifice du purgeur ; les purgeurs défaillants typiques ont des orifices de 1 mm à 20 mm."
+        "fr": "Diamètre de l'orifice du purgeur ; les purgeurs défaillants typiques ont des orifices de 1 mm à 20 mm.",
+        "es": "Diámetro del orificio de la trampa; las trampas típicas falladas tienen orificios de 1 mm a 20 mm."
       }
     },
     {
@@ -47,13 +48,15 @@
         "en": "Steam Pressure (gauge)",
         "tr": "Buhar Basıncı (gösterge)",
         "de": "Dampfdruck (Überdruck)",
-        "fr": "Pression de vapeur (manométrique)"
+        "fr": "Pression de vapeur (manométrique)",
+        "es": "Presión de vapor (manométrica)"
       },
       "businessContext_i18n": {
         "en": "Gauge pressure of steam upstream of the trap. Common industrial range 3–15 bar_g.",
         "tr": "Trapin yukarı akışındaki buharın gösterge basıncı. Yaygın endüstriyel aralık 3–15 bar_g.",
         "de": "Überdruck des Dampfes vor dem Ableiter. Üblicher Industriebereich 3–15 bar_ü.",
-        "fr": "Pression manométrique de la vapeur en amont du purgeur. Plage industrielle courante 3–15 bar_g."
+        "fr": "Pression manométrique de la vapeur en amont du purgeur. Plage industrielle courante 3–15 bar_g.",
+        "es": "Presión manométrica del vapor aguas arriba de la trampa. Rango industrial común 3–15 bar_g."
       }
     },
     {
@@ -76,7 +79,8 @@
         "en": "Annual operating hours of the steam system. Typical continuous process: 8000 h/yr.",
         "tr": "Buhar sisteminin yıllık çalışma saati. Tipik sürekli proses: 8000 h/yıl.",
         "de": "Jährliche Betriebsstunden des Dampfsystems. Typischer kontinuierlicher Prozess: 8000 h/Jahr.",
-        "fr": "Heures de fonctionnement annuelles du système vapeur. Processus continu typique : 8000 h/an."
+        "fr": "Heures de fonctionnement annuelles du système vapeur. Processus continu typique : 8000 h/an.",
+        "es": "Horas anuales de operación del sistema de vapor. Proceso continuo típico: 8000 h/año."
       }
     },
     {
@@ -92,13 +96,15 @@
         "en": "Steam Cost",
         "tr": "Buhar Maliyeti",
         "de": "Dampfkosten",
-        "fr": "Coût de la vapeur"
+        "fr": "Coût de la vapeur",
+        "es": "Coste del vapor"
       },
       "businessContext_i18n": {
         "en": "Cost to generate one metric tonne of steam, including fuel, water treatment, and maintenance.",
         "tr": "Yakıt, su arıtma ve bakım dahil olmak üzere bir metrik ton buhar üretme maliyeti.",
         "de": "Kosten zur Erzeugung einer metrischen Tonne Dampf, einschließlich Brennstoff, Wasseraufbereitung und Wartung.",
-        "fr": "Coût de production d'une tonne métrique de vapeur, incluant le combustible, le traitement de l'eau et la maintenance."
+        "fr": "Coût de production d'une tonne métrique de vapeur, incluant le combustible, le traitement de l'eau et la maintenance.",
+        "es": "Coste de generar una tonelada métrica de vapor, incluyendo combustible, tratamiento de agua y mantenimiento."
       }
     },
     {
@@ -118,13 +124,15 @@
         "en": "Trap Type",
         "tr": "Trap Türü",
         "de": "Ableitertyp",
-        "fr": "Type de purgeur"
+        "fr": "Type de purgeur",
+        "es": "Tipo de trampa"
       },
       "businessContext_i18n": {
         "en": "Type of steam trap influences discharge coefficient and failure mode.",
         "tr": "Buhar trap türü, boşaltma katsayısını ve arıza modunu etkiler.",
         "de": "Der Kondensatableitertyp beeinflusst den Ausflusskoeffizienten und die Fehlerart.",
-        "fr": "Le type de purgeur influence le coefficient de décharge et le mode de défaillance."
+        "fr": "Le type de purgeur influence le coefficient de décharge et le mode de défaillance.",
+        "es": "El tipo de trampa de vapor influye en el coeficiente de descarga y el modo de fallo."
       },
       "unit": "unit"
     },
@@ -143,13 +151,15 @@
         "en": "Failure Mode",
         "tr": "Arıza Modu",
         "de": "Fehlerart",
-        "fr": "Mode de défaillance"
+        "fr": "Mode de défaillance",
+        "es": "Modo de fallo"
       },
       "businessContext_i18n": {
         "en": "Failure mode determines effective orifice area and discharge coefficient.",
         "tr": "Arıza modu, etkili orifis alanını ve boşaltma katsayısını belirler.",
         "de": "Die Fehlerart bestimmt die wirksame Öffnungsfläche und den Ausflusskoeffizienten.",
-        "fr": "Le mode de défaillance détermine la surface d'orifice effective et le coefficient de décharge."
+        "fr": "Le mode de défaillance détermine la surface d'orifice effective et le coefficient de décharge.",
+        "es": "El modo de fallo determina el área efectiva del orificio y el coeficiente de descarga."
       },
       "unit": "unit"
     },
@@ -163,13 +173,15 @@
         "en": "Condensate Recovery",
         "tr": "Kondens Geri Kazanımı",
         "de": "Kondensatrückgewinnung",
-        "fr": "Récupération des condensats"
+        "fr": "Récupération des condensats",
+        "es": "Recuperación de condensado"
       },
       "businessContext_i18n": {
         "en": "Whether condensate is recovered; affects net energy loss calculation.",
         "tr": "Kondensin geri kazanılıp kazanılmadığı; net enerji kaybı hesaplamasını etkiler.",
         "de": "Gibt an, ob Kondensat zurückgewonnen wird; beeinflusst die Berechnung des Nettoenergieverlusts.",
-        "fr": "Indique si les condensats sont récupérés ; affecte le calcul de la perte d'énergie nette."
+        "fr": "Indique si les condensats sont récupérés ; affecte le calcul de la perte d'énergie nette.",
+        "es": "Indica si se recupera el condensado; afecta el cálculo de la pérdida neta de energía."
       },
       "unit": "unit"
     }
@@ -222,9 +234,9 @@
   "catalogCategory": "energy-carbon",
   "sectorSlug": "energy-carbon",
   "categorySlug": "quality-six-sigma",
-  "category": "Enerji & Karbon",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",
   "sectorId": "birim-donusum",
   "profession": "Mühendis",
-  "categoryId": "energy"
+  "categoryId": "conversion"
 }

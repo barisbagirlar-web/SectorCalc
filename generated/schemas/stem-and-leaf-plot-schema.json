@@ -13,14 +13,15 @@
         "tr": "Veri Değerleri (virgülle ayrılmış)",
         "de": "Datenwerte (kommagetrennt)",
         "fr": "Valeurs des données (séparées par des virgules)",
-        "es": "Data Values (comma-separated)",
+        "es": "Valores de datos (separados por comas)",
         "ar": "Data Values (comma-separated)"
       },
       "businessContext_i18n": {
         "en": "Raw numerical data points for constructing the stem-and-leaf plot.",
         "tr": "Gövde-yaprak grafiği oluşturmak için ham sayısal veri noktaları.",
         "de": "Rohdatenpunkte zur Erstellung des Stamm-Blatt-Diagramms.",
-        "fr": "Points de données numériques bruts pour construire le diagramme en tige et feuilles."
+        "fr": "Points de données numériques bruts pour construire le diagramme en tige et feuilles.",
+        "es": "Puntos de datos numéricos brutos para construir el diagrama de tallo y hojas."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Yaprak Birimi",
         "de": "Blatteinheit",
         "fr": "Unité de la feuille",
-        "es": "Leaf Unit",
+        "es": "Unidad de la hoja",
         "ar": "Leaf Unit"
       },
       "businessContext_i18n": {
         "en": "The unit of the leaf digit (e.g., 1 for ones, 0.1 for tenths).",
         "tr": "Yaprak basamağının birimi (örneğin, 1 birler için, 0.1 onda birler için).",
         "de": "Die Einheit der Blattziffer (z. B. 1 für Einer, 0,1 für Zehntel).",
-        "fr": "L'unité du chiffre de la feuille (par exemple, 1 pour les unités, 0,1 pour les dixièmes)."
+        "fr": "L'unité du chiffre de la feuille (par exemple, 1 pour les unités, 0,1 pour les dixièmes).",
+        "es": "La unidad del dígito de la hoja (ej. 1 para unidades, 0.1 para décimas)."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Gövde Birimi",
         "de": "Stamm-Einheit",
         "fr": "Unité de la tige",
-        "es": "Stem Unit",
+        "es": "Unidad del tallo",
         "ar": "Stem Unit"
       },
       "businessContext_i18n": {
         "en": "The unit of the stem (e.g., 10 for tens, 100 for hundreds).",
         "tr": "Gövdenin birimi (örneğin, 10 onlar için, 100 yüzler için).",
         "de": "Die Einheit des Stamms (z. B. 10 für Zehner, 100 für Hunderter).",
-        "fr": "L'unité de la tige (par exemple, 10 pour les dizaines, 100 pour les centaines)."
+        "fr": "L'unité de la tige (par exemple, 10 pour les dizaines, 100 pour les centaines).",
+        "es": "La unidad del tallo (ej. 10 para decenas, 100 para centenas)."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Sıralama Düzeni (1=artan, -1=azalan)",
         "de": "Sortierreihenfolge (1=aufsteigend, -1=absteigend)",
         "fr": "Ordre de tri (1=croissant, -1=décroissant)",
-        "es": "Sort Order (1=ascending, -1=descending)",
+        "es": "Orden de clasificación (1=ascendente, -1=descendente)",
         "ar": "Sort Order (1=ascending, -1=descending)"
       },
       "businessContext_i18n": {
         "en": "Order to sort the leaves within each stem.",
         "tr": "Her gövde içindeki yaprakların sıralanma düzeni.",
         "de": "Reihenfolge zum Sortieren der Blätter innerhalb jedes Stamms.",
-        "fr": "Ordre de tri des feuilles dans chaque tige."
+        "fr": "Ordre de tri des feuilles dans chaque tige.",
+        "es": "Orden para clasificar las hojas dentro de cada tallo."
       }
     }
   ],

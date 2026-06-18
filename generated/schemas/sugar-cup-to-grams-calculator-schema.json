@@ -13,14 +13,15 @@
         "tr": "Bardak",
         "de": "Tassen",
         "fr": "Tasses",
-        "es": "Cups",
+        "es": "Tazas",
         "ar": "Cups"
       },
       "businessContext_i18n": {
         "en": "Number of US cups of sugar",
         "tr": "ABD bardak şeker miktarı",
         "de": "Anzahl US-Tassen Zucker",
-        "fr": "Nombre de tasses US de sucre"
+        "fr": "Nombre de tasses US de sucre",
+        "es": "Número de tazas estadounidenses de azúcar"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Yemek Kaşığı",
         "de": "Esslöffel",
         "fr": "Cuillères à soupe",
-        "es": "Tablespoons",
+        "es": "Cucharadas",
         "ar": "Tablespoons"
       },
       "businessContext_i18n": {
         "en": "Additional tablespoons of sugar",
         "tr": "Ek yemek kaşığı şeker",
         "de": "Zusätzliche Esslöffel Zucker",
-        "fr": "Cuillères à soupe supplémentaires de sucre"
+        "fr": "Cuillères à soupe supplémentaires de sucre",
+        "es": "Cucharadas adicionales de azúcar"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Çay Kaşığı",
         "de": "Teelöffel",
         "fr": "Cuillères à café",
-        "es": "Teaspoons",
+        "es": "Cucharaditas",
         "ar": "Teaspoons"
       },
       "businessContext_i18n": {
         "en": "Additional teaspoons of sugar",
         "tr": "Ek çay kaşığı şeker",
         "de": "Zusätzliche Teelöffel Zucker",
-        "fr": "Cuillères à café supplémentaires de sucre"
+        "fr": "Cuillères à café supplémentaires de sucre",
+        "es": "Cucharaditas adicionales de azúcar"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Şeker Türü",
         "de": "Zuckerart",
         "fr": "Type de sucre",
-        "es": "Sugar Type",
+        "es": "Tipo de azúcar",
         "ar": "Sugar Type"
       },
       "businessContext_i18n": {
         "en": "0 = Granulated, 1 = Powdered, 2 = Brown (packed)",
         "tr": "0 = Toz şeker, 1 = Pudra şekeri, 2 = Esmer şeker (sıkıştırılmış)",
         "de": "0 = Kristallzucker, 1 = Puderzucker, 2 = Brauner Zucker (fest)",
-        "fr": "0 = Granulé, 1 = En poudre, 2 = Brun (tassé)"
+        "fr": "0 = Granulé, 1 = En poudre, 2 = Brun (tassé)",
+        "es": "0 = Granulado, 1 = Glas, 2 = Moreno (compactado)"
       }
     }
   ],
@@ -107,7 +111,7 @@
     "dataConfidenceAdjusted": "volumeML",
     "unit": "cup"
   },
-  "category": "Diğer",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Gıda & Beslenme",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -115,7 +119,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "gida",
   "profession": "Gıda Mühendisi",
-  "categoryId": "diger",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

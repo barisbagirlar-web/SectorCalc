@@ -13,14 +13,15 @@
         "tr": "t Değeri",
         "de": "t-Wert",
         "fr": "Valeur t",
-        "es": "t Değeri",
+        "es": "Valor t",
         "ar": "t Değeri"
       },
       "businessContext_i18n": {
         "en": "Hesaplanan t istatistiği",
         "tr": "Hesaplanan t istatistiği",
         "de": "Berechnete t-Statistik",
-        "fr": "Statistique t calculée"
+        "fr": "Statistique t calculée",
+        "es": "Estadístico t calculado"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Serbestlik Derecesi",
         "de": "Freiheitsgrade",
         "fr": "Degré de liberté",
-        "es": "Serbestlik Derecesi",
+        "es": "Grados de Libertad",
         "ar": "Serbestlik Derecesi"
       },
       "businessContext_i18n": {
         "en": "Örneklem büyüklüğü eksi bir",
         "tr": "Örneklem büyüklüğü eksi bir",
         "de": "Stichprobengröße minus eins",
-        "fr": "Taille de l'échantillon moins un"
+        "fr": "Taille de l'échantillon moins un",
+        "es": "Tamaño de muestra menos uno"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Kuyruk Sayısı",
         "de": "Anzahl der Enden",
         "fr": "Nombre de queues",
-        "es": "Kuyruk Sayısı",
+        "es": "Número de Colas",
         "ar": "Kuyruk Sayısı"
       },
       "businessContext_i18n": {
         "en": "1 veya 2 kuyruklu test",
         "tr": "1 veya 2 kuyruklu test",
         "de": "1- oder 2-seitiger Test",
-        "fr": "Test à 1 ou 2 queues"
+        "fr": "Test à 1 ou 2 queues",
+        "es": "Prueba de 1 o 2 colas"
       }
     }
   ],
@@ -85,7 +88,7 @@
     "dataConfidenceAdjusted": "p_value",
     "unit": "—"
   },
-  "category": "Diğer",
+  "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
@@ -93,7 +96,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "istatistik",
   "profession": "İstatistikçi",
-  "categoryId": "diger",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

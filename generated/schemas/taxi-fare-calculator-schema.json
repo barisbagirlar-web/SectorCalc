@@ -20,7 +20,8 @@
         "en": "Initial flag-drop or starting fee for taxi.",
         "tr": "Taksi için ilk açılış ücreti veya başlangıç ücreti",
         "de": "Grundgebühr oder Startgebühr für Taxi",
-        "fr": "Frais de prise en charge ou de départ pour le taxi"
+        "fr": "Frais de prise en charge ou de départ pour le taxi",
+        "es": "Tarifa inicial o banderazo del taxi"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Kilometre Başına Maliyet",
         "de": "Kosten pro Kilometer",
         "fr": "Coût par kilomètre",
-        "es": "Cost per Kilometer",
+        "es": "Coste por kilómetro",
         "ar": "Cost per Kilometer"
       },
       "businessContext_i18n": {
         "en": "Rate charged per kilometer traveled.",
         "tr": "Seyahat edilen kilometre başına uygulanan ücret",
         "de": "Tarif pro gefahrenem Kilometer",
-        "fr": "Tarif appliqué par kilomètre parcouru"
+        "fr": "Tarif appliqué par kilomètre parcouru",
+        "es": "Tarifa cobrada por kilómetro recorrido"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Rate charged per minute for waiting or slow traffic.",
         "tr": "Bekleme veya yavaş trafik için dakika başına uygulanan ücret",
         "de": "Tarif pro Minute für Wartezeit oder langsamen Verkehr",
-        "fr": "Tarif appliqué par minute d'attente ou de circulation lente"
+        "fr": "Tarif appliqué par minute d'attente ou de circulation lente",
+        "es": "Tarifa por minuto de espera o tráfico lento"
       }
     },
     {
@@ -79,7 +82,7 @@
         "tr": "Seyahat Mesafesi",
         "de": "Fahrtstrecke",
         "fr": "Distance du trajet",
-        "es": "Trip Distance",
+        "es": "Distancia del viaje",
         "ar": "Trip Distance"
       },
       "businessContext_i18n": {
@@ -156,7 +159,7 @@
     "dataConfidenceAdjusted": "totalFare",
     "unit": "currency"
   },
-  "category": "Maliyet & Bütçeleme",
+  "category": "Lojistik & Rota",
   "sector": "Birim & Dönüşüm",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -164,7 +167,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "birim-donusum",
   "profession": "Mühendis",
-  "categoryId": "cost",
+  "categoryId": "logistics",
   "validation": {
     "rules": [],
     "thresholds": {}

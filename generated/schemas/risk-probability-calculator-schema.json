@@ -13,14 +13,15 @@
         "tr": "Arıza Oranı (λ)",
         "de": "Ausfallrate (λ)",
         "fr": "Taux de défaillance (λ)",
-        "es": "Failure Rate (λ)",
+        "es": "Tasa de fallos (λ)",
         "ar": "Failure Rate (λ)"
       },
       "businessContext_i18n": {
         "en": "Base failure rate of the component or system",
         "tr": "Bileşenin veya sistemin temel arıza oranı",
         "de": "Basisausfallrate der Komponente oder des Systems",
-        "fr": "Taux de défaillance de base du composant ou du système"
+        "fr": "Taux de défaillance de base du composant ou du système",
+        "es": "Tasa de fallo base del componente o sistema"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Görev Süresi",
         "de": "Einsatzzeit",
         "fr": "Temps de mission",
-        "es": "Mission Time",
+        "es": "Tiempo de misión",
         "ar": "Mission Time"
       },
       "businessContext_i18n": {
         "en": "Duration of operation or mission",
         "tr": "Operasyon veya görev süresi",
         "de": "Betriebsdauer oder Missionsdauer",
-        "fr": "Durée de fonctionnement ou de mission"
+        "fr": "Durée de fonctionnement ou de mission",
+        "es": "Duración de la operación o misión"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Factor increasing failure rate due to harsh conditions",
         "tr": "Zorlu koşullar nedeniyle arıza oranını artıran faktör",
         "de": "Faktor, der die Ausfallrate aufgrund rauer Bedingungen erhöht",
-        "fr": "Facteur augmentant le taux de défaillance dû à des conditions difficiles"
+        "fr": "Facteur augmentant le taux de défaillance dû à des conditions difficiles",
+        "es": "Factor que aumenta la tasa de fallo debido a condiciones adversas"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Bakım Kalite Faktörü",
         "de": "Wartungsqualitätsfaktor",
         "fr": "Facteur de qualité de maintenance",
-        "es": "Maintenance Quality Factor",
+        "es": "Factor de calidad del mantenimiento",
         "ar": "Maintenance Quality Factor"
       },
       "businessContext_i18n": {
         "en": "Factor representing maintenance effectiveness; higher reduces failure rate",
         "tr": "Bakım etkinliğini temsil eden faktör; yüksek değer arıza oranını azaltır",
         "de": "Faktor, der die Wartungseffektivität darstellt; höher reduziert die Ausfallrate",
-        "fr": "Facteur représentant l'efficacité de la maintenance ; plus élevé réduit le taux de défaillance"
+        "fr": "Facteur représentant l'efficacité de la maintenance ; plus élevé réduit le taux de défaillance",
+        "es": "Factor que representa la efectividad del mantenimiento; un valor más alto reduce la tasa de fallo"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Arıza Tespit Olasılığı",
         "de": "Fehlererkennungswahrscheinlichkeit",
         "fr": "Probabilité de détection de défaut",
-        "es": "Fault Detection Probability",
+        "es": "Probabilidad de detección de fallos",
         "ar": "Fault Detection Probability"
       },
       "businessContext_i18n": {
         "en": "Probability that a fault is detected before it leads to failure",
         "tr": "Bir arızanın hataya yol açmadan önce tespit edilme olasılığı",
         "de": "Wahrscheinlichkeit, dass ein Fehler erkannt wird, bevor er zu einem Ausfall führt",
-        "fr": "Probabilité qu'un défaut soit détecté avant qu'il n'entraîne une défaillance"
+        "fr": "Probabilité qu'un défaut soit détecté avant qu'il n'entraîne une défaillance",
+        "es": "Probabilidad de que un fallo sea detectado antes de que provoque una avería"
       }
     },
     {
@@ -123,14 +128,15 @@
         "tr": "Yedeklilik Seviyesi",
         "de": "Redundanzgrad",
         "fr": "Niveau de redondance",
-        "es": "Redundancy Level",
+        "es": "Nivel de redundancia",
         "ar": "Redundancy Level"
       },
       "businessContext_i18n": {
         "en": "Number of independent redundant components in parallel (1 means no redundancy)",
         "tr": "Paralel bağlı bağımsız yedekli bileşen sayısı (1, yedeklilik olmadığı anlamına gelir)",
         "de": "Anzahl der unabhängigen redundanten Komponenten parallel (1 bedeutet keine Redundanz)",
-        "fr": "Nombre de composants redondants indépendants en parallèle (1 signifie aucune redondance)"
+        "fr": "Nombre de composants redondants indépendants en parallèle (1 signifie aucune redondance)",
+        "es": "Número de componentes redundantes independientes en paralelo (1 significa sin redundancia)"
       }
     }
   ],
@@ -153,7 +159,7 @@
     "dataConfidenceAdjusted": "primaryResult",
     "unit": "/hour"
   },
-  "category": "Kalite & Süreç Kontrol",
+  "category": "Matematik & Analiz",
   "sector": "İstatistik & Olasılık",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
@@ -161,7 +167,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "istatistik",
   "profession": "İstatistikçi",
-  "categoryId": "quality",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

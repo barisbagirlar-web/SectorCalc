@@ -13,14 +13,15 @@
         "tr": "Test Türü",
         "de": "Testtyp",
         "fr": "Type de test",
-        "es": "Test Type",
+        "es": "Tipo de prueba",
         "ar": "Test Type"
       },
       "businessContext_i18n": {
         "en": "0 for Shuttle Run (20m), 1 for Yo-Yo Intermittent Recovery Test Level 1",
         "tr": "0 Mekik Koşusu (20m), 1 Yo-Yo Aralıklı Toparlanma Testi Seviye 1",
         "de": "0 für Pendellauf (20m), 1 für Yo-Yo Intermittent Recovery Test Level 1",
-        "fr": "0 pour Navette (20m), 1 pour Test de Récupération Intermittent Yo-Yo Niveau 1"
+        "fr": "0 pour Navette (20m), 1 pour Test de Récupération Intermittent Yo-Yo Niveau 1",
+        "es": "0 para prueba de ida y vuelta (20 m), 1 para prueba de recuperación intermitente Yo-Yo nivel 1"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Maksimum Hız",
         "de": "Maximale Geschwindigkeit",
         "fr": "Vitesse maximale",
-        "es": "Maximum Speed",
+        "es": "Velocidad máxima",
         "ar": "Maximum Speed"
       },
       "businessContext_i18n": {
         "en": "Speed at the last completed stage of the shuttle run test.",
         "tr": "Mekik koşusu testinin son tamamlanan aşamasındaki hız.",
         "de": "Geschwindigkeit in der letzten absolvierten Stufe des Pendellaufs",
-        "fr": "Vitesse au dernier palier complété du test de course navette."
+        "fr": "Vitesse au dernier palier complété du test de course navette.",
+        "es": "Velocidad en la última etapa completada de la prueba de ida y vuelta"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Age of the athlete.",
         "tr": "Sporcunun yaşı.",
         "de": "Alter des Athleten",
-        "fr": "Âge de l'athlète."
+        "fr": "Âge de l'athlète.",
+        "es": "Edad del atleta"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Katedilen Mesafe",
         "de": "Zurückgelegte Strecke",
         "fr": "Distance parcourue",
-        "es": "Distance Covered",
+        "es": "Distancia recorrida",
         "ar": "Distance Covered"
       },
       "businessContext_i18n": {
         "en": "Total distance covered during the Yo-Yo IR1 test.",
         "tr": "Yo-Yo IR1 testi sırasında katedilen toplam mesafe.",
         "de": "Gesamte während des Yo-Yo IR1-Tests zurückgelegte Strecke.",
-        "fr": "Distance totale parcourue lors du test Yo-Yo IR1."
+        "fr": "Distance totale parcourue lors du test Yo-Yo IR1.",
+        "es": "Distancia total recorrida durante la prueba Yo-Yo IR1"
       }
     }
   ],
@@ -108,7 +112,7 @@
     ],
     "dataConfidenceAdjusted": "VO2max___distance___0_0084___36_4"
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "İSG & Risk",
   "sector": "Fitness & Spor",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -116,7 +120,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "fitness-spor",
   "profession": "Antrenör",
-  "categoryId": "conversion",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

@@ -20,7 +20,8 @@
         "en": "Total purchase price of the asset",
         "tr": "Varlığın toplam satın alma fiyatı",
         "de": "Gesamtkaufpreis des Vermögenswerts",
-        "fr": "Prix d'achat total de l'actif"
+        "fr": "Prix d'achat total de l'actif",
+        "es": "Precio total de compra del activo"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Percentage of purchase price paid upfront",
         "tr": "Peşin ödenen satın alma fiyatı yüzdesi",
         "de": "Prozentsatz des Kaufpreises, der als Anzahlung gezahlt wird",
-        "fr": "Pourcentage du prix d'achat payé d'avance"
+        "fr": "Pourcentage du prix d'achat payé d'avance",
+        "es": "Porcentaje del precio de compra pagado por adelantado"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Kredi Faiz Oranı",
         "de": "Darlehenszinssatz",
         "fr": "Taux d'intérêt du prêt",
-        "es": "Loan Interest Rate",
+        "es": "Tasa de interés del préstamo",
         "ar": "Loan Interest Rate"
       },
       "businessContext_i18n": {
         "en": "Annual interest rate on the mortgage loan",
         "tr": "Mortgage kredisinin yıllık faiz oranı",
         "de": "Jährlicher Zinssatz für das Hypothekendarlehen",
-        "fr": "Taux d'intérêt annuel du prêt hypothécaire"
+        "fr": "Taux d'intérêt annuel du prêt hypothécaire",
+        "es": "Tasa de interés anual del préstamo hipotecario"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Duration of the loan in years",
         "tr": "Kredinin yıl cinsinden süresi",
         "de": "Laufzeit des Darlehens in Jahren",
-        "fr": "Durée du prêt en années"
+        "fr": "Durée du prêt en années",
+        "es": "Duración del préstamo en años"
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Current monthly rental cost",
         "tr": "Mevcut aylık kira maliyeti",
         "de": "Aktuelle monatliche Mietkosten",
-        "fr": "Coût mensuel actuel du loyer"
+        "fr": "Coût mensuel actuel du loyer",
+        "es": "Coste de alquiler mensual actual"
       }
     },
     {
@@ -123,14 +128,15 @@
         "tr": "Yıllık Kira Artışı",
         "de": "Jährliche Mieterhöhung",
         "fr": "Augmentation annuelle du loyer",
-        "es": "Annual Rent Increase",
+        "es": "Incremento anual del alquiler",
         "ar": "Annual Rent Increase"
       },
       "businessContext_i18n": {
         "en": "Yearly percentage increase in rent",
         "tr": "Kiradaki yıllık yüzde artış",
         "de": "Jährlicher prozentualer Anstieg der Miete",
-        "fr": "Pourcentage d'augmentation annuelle du loyer"
+        "fr": "Pourcentage d'augmentation annuelle du loyer",
+        "es": "Porcentaje de aumento anual del alquiler"
       }
     }
   ],
@@ -153,7 +159,7 @@
     "dataConfidenceAdjusted": "netCostDifference",
     "unit": "€"
   },
-  "category": "Maliyet & Bütçeleme",
+  "category": "Finans & Yatırım",
   "sector": "Emlak & Gayrimenkul",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
@@ -161,7 +167,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "emlak",
   "profession": "Emlak Danışmanı",
-  "categoryId": "cost",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

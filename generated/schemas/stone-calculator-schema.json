@@ -20,7 +20,8 @@
         "en": "Proje alanının uzunluğu",
         "tr": "Proje alanının uzunluğu",
         "de": "Länge des Projektbereichs",
-        "fr": "Longueur de la zone du projet"
+        "fr": "Longueur de la zone du projet",
+        "es": "Longitud del área del proyecto"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Proje alanının genişliği",
         "tr": "Proje alanının genişliği",
         "de": "Breite des Projektbereichs",
-        "fr": "Largeur de la zone du projet"
+        "fr": "Largeur de la zone du projet",
+        "es": "Ancho del área del proyecto"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Agrega tabakasının derinliği",
         "tr": "Agrega tabakasının derinliği",
         "de": "Tiefe der Aggregatschicht",
-        "fr": "Profondeur de la couche d'agrégat"
+        "fr": "Profondeur de la couche d'agrégat",
+        "es": "Profundidad de la capa de agregado"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Kullanılan taşın yoğunluğu",
         "tr": "Kullanılan taşın yoğunluğu",
         "de": "Dichte des verwendeten Steins",
-        "fr": "Densité de la pierre utilisée"
+        "fr": "Densité de la pierre utilisée",
+        "es": "Densidad de la piedra utilizada"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Ton Başına Maliyet",
         "de": "Kosten pro Tonne",
         "fr": "Coût par tonne",
-        "es": "Ton Başına Maliyet",
+        "es": "Costo por tonelada",
         "ar": "Ton Başına Maliyet"
       },
       "businessContext_i18n": {
         "en": "Agreganın ton başına satın alma maliyeti",
         "tr": "Agreganın ton başına satın alma maliyeti",
         "de": "Kaufkosten des Aggregats pro Tonne",
-        "fr": "Coût d'achat de l'agrégat par tonne"
+        "fr": "Coût d'achat de l'agrégat par tonne",
+        "es": "Costo de compra del agregado por tonelada"
       }
     },
     {
@@ -130,7 +135,8 @@
         "en": "Operasyonel fire oranı yüzdesi",
         "tr": "Operasyonel fire oranı yüzdesi",
         "de": "Betriebsausschussrate in Prozent",
-        "fr": "Pourcentage de perte opérationnelle"
+        "fr": "Pourcentage de perte opérationnelle",
+        "es": "Porcentaje de tasa de merma operativa"
       }
     }
   ],
@@ -152,7 +158,7 @@
     "dataConfidenceAdjusted": "totalCost",
     "unit": "m"
   },
-  "category": "Diğer",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
@@ -160,7 +166,7 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "birim-donusum",
   "profession": "Mühendis",
-  "categoryId": "diger",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

@@ -20,7 +20,8 @@
         "en": "Yatırımın yıllık bileşik faiz oranı.",
         "tr": "Yatırımın yıllık bileşik faiz oranı.",
         "de": "Jährlicher Zinssatz der Anlage (Zinseszins).",
-        "fr": "Taux d'intérêt composé annuel de l'investissement."
+        "fr": "Taux d'intérêt composé annuel de l'investissement.",
+        "es": "Tasa de interés compuesto anual de la inversión."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Yıllık Bileşik Dönem Sayısı",
         "de": "Anzahl der Zinseszinsperioden pro Jahr",
         "fr": "Nombre de périodes de composition par an",
-        "es": "Yıllık Bileşik Dönem Sayısı",
+        "es": "Número de períodos de capitalización por año",
         "ar": "Yıllık Bileşik Dönem Sayısı"
       },
       "businessContext_i18n": {
         "en": "Faizin yılda kaç kez bileşiklendiği.",
         "tr": "Faizin yılda kaç kez bileşiklendiği.",
         "de": "Häufigkeit der Zinseszinsberechnung pro Jahr.",
-        "fr": "Nombre de fois par an où les intérêts sont composés."
+        "fr": "Nombre de fois par an où les intérêts sont composés.",
+        "es": "Número de veces que se capitaliza el interés por año."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Başlangıçta yatırılan ana para.",
         "tr": "Başlangıçta yatırılan ana para.",
         "de": "Anfänglich investiertes Kapital.",
-        "fr": "Capital initial investi."
+        "fr": "Capital initial investi.",
+        "es": "Capital inicial invertido."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Hedef Çarpan",
         "de": "Zielmultiplikator",
         "fr": "Multiplicateur cible",
-        "es": "Hedef Çarpan",
+        "es": "Multiplicador objetivo",
         "ar": "Hedef Çarpan"
       },
       "businessContext_i18n": {
         "en": "Yatırımın kaç katına çıkmasının hedeflendiği.",
         "tr": "Yatırımın kaç katına çıkmasının hedeflendiği.",
         "de": "Das angestrebte Vielfache der Anlage.",
-        "fr": "Combien de fois l'investissement doit être multiplié."
+        "fr": "Combien de fois l'investissement doit être multiplié.",
+        "es": "Número de veces que se desea multiplicar la inversión."
       }
     }
   ],
@@ -107,7 +111,7 @@
     "dataConfidenceAdjusted": "difference",
     "unit": "%"
   },
-  "category": "Diğer",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
@@ -115,7 +119,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "diger",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

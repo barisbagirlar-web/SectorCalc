@@ -13,14 +13,15 @@
         "tr": "Yüzey Fonksiyonu f(x,y)",
         "de": "Oberflächenfunktion f(x,y)",
         "fr": "Fonction de surface f(x,y)",
-        "es": "Surface Function f(x,y)",
+        "es": "Función de superficie f(x,y)",
         "ar": "Surface Function f(x,y)"
       },
       "businessContext_i18n": {
         "en": "Scalar function value on surface",
         "tr": "Yüzeydeki skaler fonksiyon değeri",
         "de": "Skalarer Funktionswert auf der Oberfläche",
-        "fr": "Valeur de la fonction scalaire sur la surface"
+        "fr": "Valeur de la fonction scalaire sur la surface",
+        "es": "Valor de la función escalar en la superficie"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "X Alt Sınırı",
         "de": "X-Untergrenze",
         "fr": "Borne inférieure X",
-        "es": "X Lower Bound",
+        "es": "Límite inferior de X",
         "ar": "X Lower Bound"
       },
       "businessContext_i18n": {
         "en": "Lower limit of x integration",
         "tr": "x entegrasyonunun alt limiti",
         "de": "Untere Grenze der x-Integration",
-        "fr": "Limite inférieure d'intégration en x"
+        "fr": "Limite inférieure d'intégration en x",
+        "es": "Límite inferior de integración en x"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "X Üst Sınırı",
         "de": "X-Obergrenze",
         "fr": "Borne supérieure X",
-        "es": "X Upper Bound",
+        "es": "Límite superior de X",
         "ar": "X Upper Bound"
       },
       "businessContext_i18n": {
         "en": "Upper limit of x integration",
         "tr": "x entegrasyonunun üst limiti",
         "de": "Obere Grenze der x-Integration",
-        "fr": "Limite supérieure d'intégration en x"
+        "fr": "Limite supérieure d'intégration en x",
+        "es": "Límite superior de integración en x"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Y Alt Sınırı",
         "de": "Y-Untergrenze",
         "fr": "Borne inférieure Y",
-        "es": "Y Lower Bound",
+        "es": "Límite inferior de Y",
         "ar": "Y Lower Bound"
       },
       "businessContext_i18n": {
         "en": "Lower limit of y integration",
         "tr": "y entegrasyonunun alt limiti",
         "de": "Untere Grenze der y-Integration",
-        "fr": "Limite inférieure d'intégration en y"
+        "fr": "Limite inférieure d'intégration en y",
+        "es": "Límite inferior de integración en y"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Y Üst Sınırı",
         "de": "Y-Obergrenze",
         "fr": "Borne supérieure Y",
-        "es": "Y Upper Bound",
+        "es": "Límite superior de Y",
         "ar": "Y Upper Bound"
       },
       "businessContext_i18n": {
         "en": "Upper limit of y integration",
         "tr": "y entegrasyonunun üst limiti",
         "de": "Obere Grenze der y-Integration",
-        "fr": "Limite supérieure d'intégration en y"
+        "fr": "Limite supérieure d'intégration en y",
+        "es": "Límite superior de integración en y"
       }
     },
     {
@@ -123,14 +128,15 @@
         "tr": "Adım Boyutu dx",
         "de": "Schrittweite dx",
         "fr": "Pas dx",
-        "es": "Step Size dx",
+        "es": "Tamaño de paso dx",
         "ar": "Step Size dx"
       },
       "businessContext_i18n": {
         "en": "Discretization step in x",
         "tr": "x yönünde ayrıklaştırma adımı",
         "de": "Diskretisierungsschritt in x",
-        "fr": "Pas de discrétisation en x"
+        "fr": "Pas de discrétisation en x",
+        "es": "Paso de discretización en x"
       }
     },
     {
@@ -145,14 +151,15 @@
         "tr": "Adım Boyutu dy",
         "de": "Schrittweite dy",
         "fr": "Pas dy",
-        "es": "Step Size dy",
+        "es": "Tamaño de paso dy",
         "ar": "Step Size dy"
       },
       "businessContext_i18n": {
         "en": "Discretization step in y",
         "tr": "y'de ayrıklaştırma adımı",
         "de": "Diskretisierungsschritt in y",
-        "fr": "Pas de discrétisation en y"
+        "fr": "Pas de discrétisation en y",
+        "es": "Paso de discretización en y"
       }
     }
   ],
@@ -173,7 +180,7 @@
     "dataConfidenceAdjusted": "stepsX",
     "unit": "unitless"
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
@@ -181,7 +188,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "conversion",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

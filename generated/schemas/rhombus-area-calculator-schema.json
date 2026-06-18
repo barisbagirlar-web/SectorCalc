@@ -20,7 +20,8 @@
         "en": "Length of the first diagonal of the rhombus",
         "tr": "Eşkenar dörtgenin birinci köşegen uzunluğu",
         "de": "Länge der ersten Diagonale der Raute",
-        "fr": "Longueur de la première diagonale du losange"
+        "fr": "Longueur de la première diagonale du losange",
+        "es": "Longitud de la primera diagonal del rombo"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Length of the second diagonal of the rhombus",
         "tr": "Eşkenar dörtgenin ikinci köşegen uzunluğu",
         "de": "Länge der zweiten Diagonale der Raute",
-        "fr": "Longueur de la deuxième diagonale du losange"
+        "fr": "Longueur de la deuxième diagonale du losange",
+        "es": "Longitud de la segunda diagonal del rombo"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Kenar Uzunluğu (a)",
         "de": "Seitenlänge (a)",
         "fr": "Longueur du côté (a)",
-        "es": "Side Length (a)",
+        "es": "Longitud del lado (a)",
         "ar": "Side Length (a)"
       },
       "businessContext_i18n": {
         "en": "Length of one side of the rhombus",
         "tr": "Eşkenar dörtgenin bir kenarının uzunluğu",
         "de": "Länge einer Seite der Raute",
-        "fr": "Longueur d'un côté du losange"
+        "fr": "Longueur d'un côté du losange",
+        "es": "Longitud de un lado del rombo"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Perpendicular height between two sides",
         "tr": "İki kenar arasındaki dik yükseklik",
         "de": "Senkrechte Höhe zwischen zwei Seiten",
-        "fr": "Hauteur perpendiculaire entre deux côtés"
+        "fr": "Hauteur perpendiculaire entre deux côtés",
+        "es": "Altura perpendicular entre dos lados"
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Angle between two adjacent sides (in degrees)",
         "tr": "İki bitişik kenar arasındaki açı (derece cinsinden)",
         "de": "Winkel zwischen zwei benachbarten Seiten (in Grad)",
-        "fr": "Angle entre deux côtés adjacents (en degrés)"
+        "fr": "Angle entre deux côtés adjacents (en degrés)",
+        "es": "Ángulo entre dos lados adyacentes (en grados)"
       }
     }
   ],
@@ -132,7 +137,7 @@
       "perimeter": "m"
     }
   },
-  "category": "Diğer",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
@@ -140,7 +145,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "diger",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

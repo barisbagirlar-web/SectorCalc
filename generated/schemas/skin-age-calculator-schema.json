@@ -20,7 +20,8 @@
         "en": "Actual age in years",
         "tr": "Gerçek yaş (yıl)",
         "de": "Tatsächliches Alter in Jahren",
-        "fr": "Âge réel en années"
+        "fr": "Âge réel en années",
+        "es": "Edad real en años"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Günlük Güneş Maruziyeti",
         "de": "Tägliche Sonnenexposition",
         "fr": "Exposition solaire quotidienne",
-        "es": "Daily Sun Exposure",
+        "es": "Exposición solar diaria",
         "ar": "Daily Sun Exposure"
       },
       "businessContext_i18n": {
         "en": "Average hours of direct sun exposure per day",
         "tr": "Günlük ortalama doğrudan güneşe maruz kalma saati",
         "de": "Durchschnittliche Stunden direkter Sonneneinstrahlung pro Tag",
-        "fr": "Nombre moyen d'heures d'exposition directe au soleil par jour"
+        "fr": "Nombre moyen d'heures d'exposition directe au soleil par jour",
+        "es": "Horas promedio de exposición solar directa por día"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Number of years as a smoker",
         "tr": "Sigara içilen yıl sayısı",
         "de": "Anzahl der Jahre als Raucher",
-        "fr": "Nombre d'années en tant que fumeur"
+        "fr": "Nombre d'années en tant que fumeur",
+        "es": "Número de años como fumador"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Cilt Bakım Rutini Puanı",
         "de": "Hautpflege-Routine-Score",
         "fr": "Score de routine de soins de la peau",
-        "es": "Skincare Routine Score",
+        "es": "Puntuación de rutina de cuidado de la piel",
         "ar": "Skincare Routine Score"
       },
       "businessContext_i18n": {
         "en": "Effectiveness of skincare routine on a scale of 1-10",
         "tr": "Cilt bakım rutininin etkinliği (1-10 ölçeğinde)",
         "de": "Wirksamkeit der Hautpflegeroutine auf einer Skala von 1-10",
-        "fr": "Efficacité de la routine de soins de la peau sur une échelle de 1 à 10"
+        "fr": "Efficacité de la routine de soins de la peau sur une échelle de 1 à 10",
+        "es": "Efectividad de la rutina de cuidado de la piel en una escala del 1 al 10"
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Average nightly sleep in hours",
         "tr": "Ortalama gece uykusu (saat)",
         "de": "Durchschnittlicher nächtlicher Schlaf in Stunden",
-        "fr": "Nombre moyen d'heures de sommeil par nuit"
+        "fr": "Nombre moyen d'heures de sommeil par nuit",
+        "es": "Promedio de sueño nocturno en horas"
       }
     },
     {
@@ -130,7 +135,8 @@
         "en": "Perceived stress on a scale of 1-10",
         "tr": "Algılanan stres 1-10 ölçeğinde",
         "de": "Wahrgenommener Stress auf einer Skala von 1-10",
-        "fr": "Stress perçu sur une échelle de 1 à 10"
+        "fr": "Stress perçu sur une échelle de 1 à 10",
+        "es": "Estrés percibido en una escala del 1 al 10"
       }
     }
   ],
@@ -155,7 +161,7 @@
     "dataConfidenceAdjusted": "stressImpact",
     "unit": "years"
   },
-  "category": "Teknik & Mühendislik",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",
   "premiumRequired": false,
   "catalogCategory": "health-body",
@@ -163,7 +169,7 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "ev-yasam",
   "profession": "Ev Yöneticisi",
-  "categoryId": "engineering",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

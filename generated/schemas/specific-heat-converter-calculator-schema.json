@@ -13,14 +13,15 @@
         "tr": "Özgül Isı Değeri",
         "de": "Spezifischer Wärmewert",
         "fr": "Valeur de la capacité thermique spécifique",
-        "es": "Specific Heat Value",
+        "es": "Valor de calor específico",
         "ar": "Specific Heat Value"
       },
       "businessContext_i18n": {
         "en": "The specific heat capacity value in the unit selected by 'fromUnit'",
         "tr": "'fromUnit' tarafından seçilen birimdeki özgül ısı kapasitesi değeri",
         "de": "Der spezifische Wärmekapazitätswert in der durch 'fromUnit' gewählten Einheit",
-        "fr": "Valeur de la capacité thermique spécifique dans l'unité sélectionnée par 'fromUnit'"
+        "fr": "Valeur de la capacité thermique spécifique dans l'unité sélectionnée par 'fromUnit'",
+        "es": "El valor de capacidad calorífica específica en la unidad seleccionada por 'fromUnit'"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Birim Kodu (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
         "de": "Code der Ausgangseinheit (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
         "fr": "Code de l'unité source (1 : J/kgK, 2 : kJ/kgK, 3 : cal/g°C, 4 : kcal/kg°C, 5 : Btu/lb°F)",
-        "es": "From Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
+        "es": "Código de unidad de origen (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
         "ar": "From Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)"
       },
       "businessContext_i18n": {
         "en": "Numeric code representing the input unit of specific heat capacity",
         "tr": "Özgül ısı kapasitesinin giriş birimini temsil eden sayısal kod",
         "de": "Numerischer Code für die Eingabeeinheit der spezifischen Wärmekapazität",
-        "fr": "Code numérique représentant l'unité d'entrée de la capacité thermique spécifique"
+        "fr": "Code numérique représentant l'unité d'entrée de la capacité thermique spécifique",
+        "es": "Código numérico que representa la unidad de entrada de la capacidad calorífica específica"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Hedef Birim Kodu (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
         "de": "Code der Zieleinheit (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
         "fr": "Code de l'unité cible (1 : J/kgK, 2 : kJ/kgK, 3 : cal/g°C, 4 : kcal/kg°C, 5 : Btu/lb°F)",
-        "es": "To Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
+        "es": "Código de unidad de destino (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)",
         "ar": "To Unit Code (1: J/kgK, 2: kJ/kgK, 3: cal/g°C, 4: kcal/kg°C, 5: Btu/lb°F)"
       },
       "businessContext_i18n": {
         "en": "Numeric code representing the desired output unit of specific heat capacity",
         "tr": "Özgül ısı kapasitesinin istenen çıkış birimini temsil eden sayısal kod",
         "de": "Numerischer Code für die gewünschte Ausgabeeinheit der spezifischen Wärmekapazität",
-        "fr": "Code numérique représentant l'unité de sortie souhaitée de la capacité thermique spécifique"
+        "fr": "Code numérique représentant l'unité de sortie souhaitée de la capacité thermique spécifique",
+        "es": "Código numérico que representa la unidad de salida deseada de la capacidad calorífica específica"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Number of decimal places to round the converted result",
         "tr": "Dönüştürülen sonucun yuvarlanacağı ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen zum Runden des umgerechneten Ergebnisses",
-        "fr": "Nombre de décimales pour arrondir le résultat converti"
+        "fr": "Nombre de décimales pour arrondir le résultat converti",
+        "es": "Número de decimales para redondear el resultado convertido"
       }
     }
   ],

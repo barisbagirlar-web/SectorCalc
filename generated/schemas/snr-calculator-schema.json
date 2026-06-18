@@ -13,14 +13,15 @@
         "tr": "Sinyal voltajı",
         "de": "Signalspannung",
         "fr": "Tension du signal",
-        "es": "Signal Voltage",
+        "es": "Tensión de señal",
         "ar": "Signal Voltage"
       },
       "businessContext_i18n": {
         "en": "RMS voltage of the desired signal",
         "tr": "İstenen sinyalin RMS voltajı",
         "de": "Effektivspannung des gewünschten Signals",
-        "fr": "Tension RMS du signal désiré"
+        "fr": "Tension RMS du signal désiré",
+        "es": "Tensión RMS de la señal deseada"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Yük direnci",
         "de": "Lastwiderstand",
         "fr": "Résistance de charge",
-        "es": "Load Resistance",
+        "es": "Resistencia de carga",
         "ar": "Load Resistance"
       },
       "businessContext_i18n": {
         "en": "System impedance",
         "tr": "Sistem empedansı",
         "de": "Systemimpedanz",
-        "fr": "Impédance du système"
+        "fr": "Impédance du système",
+        "es": "Impedancia del sistema"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Noise bandwidth of the system",
         "tr": "Sistemin gürültü bant genişliği",
         "de": "Rauschbandbreite des Systems",
-        "fr": "Bande passante de bruit du système"
+        "fr": "Bande passante de bruit du système",
+        "es": "Ancho de banda de ruido del sistema"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Absolute temperature in Kelvin (290K ≈ 17°C)",
         "tr": "Kelvin cinsinden mutlak sıcaklık (290K ≈ 17°C)",
         "de": "Absolute Temperatur in Kelvin (290 K ≈ 17 °C)",
-        "fr": "Température absolue en Kelvin (290 K ≈ 17°C)"
+        "fr": "Température absolue en Kelvin (290 K ≈ 17°C)",
+        "es": "Temperatura absoluta en Kelvin (290 K ≈ 17 °C)"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Gürültü faktörü",
         "de": "Rauschzahl",
         "fr": "Facteur de bruit",
-        "es": "Noise Figure",
+        "es": "Figura de ruido",
         "ar": "Noise Figure"
       },
       "businessContext_i18n": {
         "en": "System noise figure, 0 dB for ideal noiseless",
         "tr": "Sistem gürültü faktörü, ideal gürültüsüz için 0 dB",
         "de": "Rauschzahl des Systems, 0 dB für ideal rauschfrei",
-        "fr": "Facteur de bruit du système, 0 dB pour un système idéal sans bruit"
+        "fr": "Facteur de bruit du système, 0 dB pour un système idéal sans bruit",
+        "es": "Figura de ruido del sistema, 0 dB para ideal sin ruido"
       }
     }
   ],
@@ -134,7 +139,7 @@
       "totalNoiseVoltage": "V"
     }
   },
-  "category": "İSG & Risk",
+  "category": "Teknik & Mühendislik",
   "sector": "Telekomünikasyon",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
@@ -142,7 +147,7 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "telekom",
   "profession": "Ağ Mühendisi",
-  "categoryId": "safety",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

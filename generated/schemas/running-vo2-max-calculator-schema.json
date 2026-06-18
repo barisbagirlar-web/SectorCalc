@@ -20,7 +20,8 @@
         "en": "Athlete's age in years for normative reference (optional)",
         "tr": "Normatif referans için sporcunun yaşı (yıl cinsinden, isteğe bağlı)",
         "de": "Alter des Athleten in Jahren für normative Referenz (optional)",
-        "fr": "Âge de l'athlète en années pour référence normative (optionnel)"
+        "fr": "Âge de l'athlète en années pour référence normative (optionnel)",
+        "es": "Edad del atleta en años para referencia normativa (opcional)"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "0 for female, 1 for male. Used for normative classification if implemented.",
         "tr": "Kadın için 0, erkek için 1. Uygulanıyorsa normatif sınıflandırma için kullanılır.",
         "de": "0 für weiblich, 1 für männlich. Wird für normative Klassifikation verwendet, falls implementiert.",
-        "fr": "0 pour femme, 1 pour homme. Utilisé pour la classification normative si implémenté."
+        "fr": "0 pour femme, 1 pour homme. Utilisé pour la classification normative si implémenté.",
+        "es": "0 para mujer, 1 para hombre. Se utiliza para clasificación normativa si está implementada."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "12 dakikada mesafe",
         "de": "Strecke in 12 Minuten",
         "fr": "Distance en 12 minutes",
-        "es": "Distance in 12 minutes",
+        "es": "Distancia en 12 minutos",
         "ar": "Distance in 12 minutes"
       },
       "businessContext_i18n": {
         "en": "Total distance covered during a 12-minute run (Cooper test).",
         "tr": "12 dakikalık koşu (Cooper testi) sırasında kat edilen toplam mesafe.",
         "de": "Gesamte zurückgelegte Strecke während eines 12-minütigen Laufs (Cooper-Test).",
-        "fr": "Distance totale parcourue lors d'une course de 12 minutes (test de Cooper)."
+        "fr": "Distance totale parcourue lors d'une course de 12 minutes (test de Cooper).",
+        "es": "Distancia total cubierta durante una carrera de 12 minutos (test de Cooper)."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Athlete's body weight in kilograms, used to compute absolute VO2 max.",
         "tr": "Sporcunun kilogram cinsinden vücut ağırlığı, mutlak VO2 max hesaplamak için kullanılır.",
         "de": "Körpergewicht des Athleten in Kilogramm, zur Berechnung der absoluten VO2max.",
-        "fr": "Poids corporel de l'athlète en kilogrammes, utilisé pour calculer la VO2 max absolue."
+        "fr": "Poids corporel de l'athlète en kilogrammes, utilisé pour calculer la VO2 max absolue.",
+        "es": "Peso corporal del atleta en kilogramos, utilizado para calcular el VO2 máximo absoluto."
       }
     }
   ],
@@ -108,7 +112,7 @@
     "dataConfidenceAdjusted": "speed",
     "unit": "years"
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "İSG & Risk",
   "sector": "Fitness & Spor",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -116,7 +120,7 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "fitness-spor",
   "profession": "Antrenör",
-  "categoryId": "conversion",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

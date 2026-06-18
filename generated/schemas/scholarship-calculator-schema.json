@@ -13,14 +13,15 @@
         "tr": "Akademik Puan",
         "de": "Akademische Punktzahl",
         "fr": "Score académique",
-        "es": "Academic Score",
+        "es": "Puntaje académico",
         "ar": "Academic Score"
       },
       "businessContext_i18n": {
         "en": "Student's academic performance score (0-100).",
         "tr": "Öğrencinin akademik performans puanı (0-100).",
         "de": "Akademische Leistungspunktzahl des Studenten (0-100).",
-        "fr": "Score de performance académique de l'étudiant (0-100)."
+        "fr": "Score de performance académique de l'étudiant (0-100).",
+        "es": "Puntaje de rendimiento académico del estudiante (0-100)."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Aile Geliri",
         "de": "Familieneinkommen",
         "fr": "Revenu familial",
-        "es": "Family Income",
+        "es": "Ingreso familiar",
         "ar": "Family Income"
       },
       "businessContext_i18n": {
         "en": "Annual family income in USD.",
         "tr": "Yıllık aile geliri (USD).",
         "de": "Jährliches Familieneinkommen in USD.",
-        "fr": "Revenu familial annuel en USD."
+        "fr": "Revenu familial annuel en USD.",
+        "es": "Ingreso familiar anual en USD."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Number of dependents in the family (used to adjust need).",
         "tr": "Ailedeki bakmakla yükümlü olunan kişi sayısı (ihtiyacı ayarlamak için kullanılır).",
         "de": "Anzahl der unterhaltsberechtigten Personen in der Familie (zur Anpassung des Bedarfs).",
-        "fr": "Nombre de personnes à charge dans la famille (utilisé pour ajuster le besoin)."
+        "fr": "Nombre de personnes à charge dans la famille (utilisé pour ajuster le besoin).",
+        "es": "Número de dependientes en la familia (utilizado para ajustar la necesidad)."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Ders Dışı Etkinlik Puanı",
         "de": "Außerschulische Punktzahl",
         "fr": "Score extrascolaire",
-        "es": "Extracurricular Score",
+        "es": "Puntaje extracurricular",
         "ar": "Extracurricular Score"
       },
       "businessContext_i18n": {
         "en": "Score based on extracurricular activities (0-100).",
         "tr": "Ders dışı etkinliklere dayalı puan (0-100).",
         "de": "Punktzahl basierend auf außerschulischen Aktivitäten (0-100).",
-        "fr": "Score basé sur les activités extrascolaires (0-100)."
+        "fr": "Score basé sur les activités extrascolaires (0-100).",
+        "es": "Puntaje basado en actividades extracurriculares (0-100)."
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Toplum Hizmeti Saatleri",
         "de": "Gemeinschaftsdienststunden",
         "fr": "Heures de service communautaire",
-        "es": "Community Service Hours",
+        "es": "Horas de servicio comunitario",
         "ar": "Community Service Hours"
       },
       "businessContext_i18n": {
         "en": "Total community service hours.",
         "tr": "Toplam toplum hizmeti saati.",
         "de": "Gesamtzahl der Gemeinschaftsdienststunden.",
-        "fr": "Total des heures de service communautaire."
+        "fr": "Total des heures de service communautaire.",
+        "es": "Total de horas de servicio comunitario."
       }
     }
   ],
@@ -130,7 +135,7 @@
     "dataConfidenceAdjusted": "extraBonus",
     "unit": "%"
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "Teknik & Mühendislik",
   "sector": "Eğitim & Akademik",
   "premiumRequired": false,
   "catalogCategory": "education-academic",
@@ -138,7 +143,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "egitim",
   "profession": "Öğretmen",
-  "categoryId": "conversion",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

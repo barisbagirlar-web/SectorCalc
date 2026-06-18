@@ -13,14 +13,15 @@
         "tr": "Parçacık Kütlesi",
         "de": "Teilchenmasse",
         "fr": "Masse de la particule",
-        "es": "Particle Mass",
+        "es": "Masa de la partícula",
         "ar": "Particle Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the particle (e.g., electron mass)",
         "tr": "Parçacığın kütlesi (örneğin, elektron kütlesi)",
         "de": "Masse des Teilchens (z. B. Elektronenmasse)",
-        "fr": "Masse de la particule (par exemple, masse de l'électron)"
+        "fr": "Masse de la particule (par exemple, masse de l'électron)",
+        "es": "Masa de la partícula (ej. masa del electrón)"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Potansiyel Enerji",
         "de": "Potentielle Energie",
         "fr": "Énergie potentielle",
-        "es": "Potential Energy",
+        "es": "Energía potencial",
         "ar": "Potential Energy"
       },
       "businessContext_i18n": {
         "en": "Constant potential energy in the region",
         "tr": "Bölgedeki sabit potansiyel enerji",
         "de": "Konstante potentielle Energie im Bereich",
-        "fr": "Énergie potentielle constante dans la région"
+        "fr": "Énergie potentielle constante dans la région",
+        "es": "Energía potencial constante en la región"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Toplam Enerji",
         "de": "Gesamtenergie",
         "fr": "Énergie totale",
-        "es": "Total Energy",
+        "es": "Energía total",
         "ar": "Total Energy"
       },
       "businessContext_i18n": {
         "en": "Total energy of the particle (e.g., 1 eV)",
         "tr": "Parçacığın toplam enerjisi (ör. 1 eV)",
         "de": "Gesamtenergie des Teilchens (z. B. 1 eV)",
-        "fr": "Énergie totale de la particule (ex. 1 eV)"
+        "fr": "Énergie totale de la particule (ex. 1 eV)",
+        "es": "Energía total de la partícula (ej. 1 eV)"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "İndirgenmiş Planck Sabiti",
         "de": "Reduziertes Plancksches Wirkungsquantum",
         "fr": "Constante de Planck réduite",
-        "es": "Reduced Planck Constant",
+        "es": "Constante reducida de Planck",
         "ar": "Reduced Planck Constant"
       },
       "businessContext_i18n": {
         "en": "Fundamental constant h/(2π)",
         "tr": "Temel sabit h/(2π)",
         "de": "Fundamentalkonstante h/(2π)",
-        "fr": "Constante fondamentale h/(2π)"
+        "fr": "Constante fondamentale h/(2π)",
+        "es": "Constante fundamental h/(2π)"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Konum",
         "de": "Position",
         "fr": "Position",
-        "es": "Position",
+        "es": "Posición",
         "ar": "Position"
       },
       "businessContext_i18n": {
         "en": "Spatial coordinate for wavefunction evaluation",
         "tr": "Dalga fonksiyonu değerlendirmesi için uzaysal koordinat",
         "de": "Räumliche Koordinate für die Wellenfunktionsauswertung",
-        "fr": "Coordonnée spatiale pour l'évaluation de la fonction d'onde"
+        "fr": "Coordonnée spatiale pour l'évaluation de la fonction d'onde",
+        "es": "Coordenada espacial para la evaluación de la función de onda"
       }
     }
   ],
@@ -130,7 +135,7 @@
     "dataConfidenceAdjusted": "probabilityDensity",
     "unit": "kg"
   },
-  "category": "Enerji & Karbon",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
@@ -138,7 +143,7 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "energy",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

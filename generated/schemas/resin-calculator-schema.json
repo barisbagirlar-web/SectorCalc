@@ -20,7 +20,8 @@
         "en": "The surface area to be coated",
         "tr": "Kaplanacak yüzey alanı",
         "de": "Zu beschichtende Oberfläche",
-        "fr": "Surface à revêtir"
+        "fr": "Surface à revêtir",
+        "es": "Superficie a recubrir"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Desired coating thickness",
         "tr": "İstenen kaplama kalınlığı",
         "de": "Gewünschte Beschichtungsdicke",
-        "fr": "Épaisseur de revêtement souhaitée"
+        "fr": "Épaisseur de revêtement souhaitée",
+        "es": "Espesor de recubrimiento deseado"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Reçine Oranı",
         "de": "Harzverhältnis",
         "fr": "Ratio de résine",
-        "es": "Resin Ratio",
+        "es": "Proporción de resina",
         "ar": "Resin Ratio"
       },
       "businessContext_i18n": {
         "en": "Parts of resin in the mix by weight",
         "tr": "Karışımdaki reçine kısımları (ağırlıkça)",
         "de": "Teile Harz im Gemisch nach Gewicht",
-        "fr": "Parties de résine dans le mélange en poids"
+        "fr": "Parties de résine dans le mélange en poids",
+        "es": "Partes de resina en la mezcla en peso"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Sertleştirici Oranı",
         "de": "Härterverhältnis",
         "fr": "Ratio de durcisseur",
-        "es": "Hardener Ratio",
+        "es": "Proporción de endurecedor",
         "ar": "Hardener Ratio"
       },
       "businessContext_i18n": {
         "en": "Parts of hardener in the mix by weight",
         "tr": "Karışımdaki sertleştirici kısımları (ağırlıkça)",
         "de": "Anteile Härter in der Mischung nach Gewicht",
-        "fr": "Parties de durcisseur dans le mélange en poids"
+        "fr": "Parties de durcisseur dans le mélange en poids",
+        "es": "Partes de endurecedor en la mezcla en peso"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Reçine Yoğunluğu",
         "de": "Harzdichte",
         "fr": "Densité de la résine",
-        "es": "Resin Density",
+        "es": "Densidad de la resina",
         "ar": "Resin Density"
       },
       "businessContext_i18n": {
         "en": "Density of resin",
         "tr": "Reçinenin yoğunluğu",
         "de": "Dichte des Harzes",
-        "fr": "Densité de la résine"
+        "fr": "Densité de la résine",
+        "es": "Densidad de la resina"
       }
     },
     {
@@ -123,14 +128,15 @@
         "tr": "Sertleştirici Yoğunluğu",
         "de": "Härterdichte",
         "fr": "Densité du durcisseur",
-        "es": "Hardener Density",
+        "es": "Densidad del endurecedor",
         "ar": "Hardener Density"
       },
       "businessContext_i18n": {
         "en": "Density of hardener",
         "tr": "Sertleştiricinin yoğunluğu",
         "de": "Dichte des Härters",
-        "fr": "Densité du durcisseur"
+        "fr": "Densité du durcisseur",
+        "es": "Densidad del endurecedor"
       }
     },
     {
@@ -152,7 +158,8 @@
         "en": "Extra material percentage for waste and spillage",
         "tr": "Atık ve dökülme için ekstra malzeme yüzdesi",
         "de": "Zusätzlicher Materialanteil für Abfall und Verschütten",
-        "fr": "Pourcentage de matière supplémentaire pour déchets et pertes"
+        "fr": "Pourcentage de matière supplémentaire pour déchets et pertes",
+        "es": "Porcentaje extra de material por desperdicio y derrames"
       }
     }
   ],
@@ -179,7 +186,7 @@
     "dataConfidenceAdjusted": "totalWeight",
     "unit": "m²"
   },
-  "category": "Sürdürülebilirlik",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
@@ -187,7 +194,7 @@
   "categorySlug": "metal-plastics-forming",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "sustainability",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

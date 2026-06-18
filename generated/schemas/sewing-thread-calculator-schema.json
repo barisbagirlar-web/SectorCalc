@@ -13,14 +13,15 @@
         "tr": "Dikiş Yeri Uzunluğu",
         "de": "Nahtlänge",
         "fr": "Longueur de couture",
-        "es": "Seam Length",
+        "es": "Longitud de costura",
         "ar": "Seam Length"
       },
       "businessContext_i18n": {
         "en": "Total length of seams in the garment (meters)",
         "tr": "Giysideki toplam dikiş uzunluğu (metre)",
         "de": "Gesamtlänge der Nähte im Kleidungsstück (Meter)",
-        "fr": "Longueur totale des coutures du vêtement (mètres)"
+        "fr": "Longueur totale des coutures du vêtement (mètres)",
+        "es": "Longitud total de costuras en la prenda (metros)"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "cm başına dikiş sayısı",
         "de": "Stiche pro cm",
         "fr": "Points par cm",
-        "es": "Stitches per cm",
+        "es": "Puntadas por cm",
         "ar": "Stitches per cm"
       },
       "businessContext_i18n": {
         "en": "Stitch density (stitches per centimeter)",
         "tr": "Dikiş yoğunluğu (santimetre başına dikiş sayısı)",
         "de": "Stichdichte (Stiche pro Zentimeter)",
-        "fr": "Densité de points (points par centimètre)"
+        "fr": "Densité de points (points par centimètre)",
+        "es": "Densidad de puntadas (puntadas por centímetro)"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Dikiş Başına İplik Tüketimi",
         "de": "Fadenverbrauch pro Stich",
         "fr": "Consommation de fil par point",
-        "es": "Thread Consumption per Stitch",
+        "es": "Consumo de hilo por puntada",
         "ar": "Thread Consumption per Stitch"
       },
       "businessContext_i18n": {
         "en": "Average thread consumed per stitch (cm)",
         "tr": "Dikiş başına ortalama iplik tüketimi (cm)",
         "de": "Durchschnittlicher Fadenverbrauch pro Stich (cm)",
-        "fr": "Fil moyen consommé par point (cm)"
+        "fr": "Fil moyen consommé par point (cm)",
+        "es": "Promedio de hilo consumido por puntada (cm)"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Giysi Sayısı",
         "de": "Anzahl der Kleidungsstücke",
         "fr": "Nombre de vêtements",
-        "es": "Number of Garments",
+        "es": "Número de prendas",
         "ar": "Number of Garments"
       },
       "businessContext_i18n": {
         "en": "Total number of garments to be produced",
         "tr": "Üretilecek toplam giysi sayısı",
         "de": "Gesamtzahl der herzustellenden Kleidungsstücke",
-        "fr": "Nombre total de vêtements à produire"
+        "fr": "Nombre total de vêtements à produire",
+        "es": "Número total de prendas a producir"
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Waste factor for thread breakage, bobbin changes, etc.",
         "tr": "İplik kopması, masura değişimi vb. için fire faktörü",
         "de": "Abfallfaktor für Fadenbruch, Spulenwechsel usw.",
-        "fr": "Facteur de déchet pour casse de fil, changements de bobine, etc."
+        "fr": "Facteur de déchet pour casse de fil, changements de bobine, etc.",
+        "es": "Factor de desperdicio por rotura de hilo, cambios de bobina, etc."
       }
     }
   ],
@@ -132,7 +137,7 @@
     "dataConfidenceAdjusted": "totalThreadWithWaste",
     "unit": "m"
   },
-  "category": "Sürdürülebilirlik",
+  "category": "Teknik & Mühendislik",
   "sector": "Makine & Üretim",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -140,7 +145,7 @@
   "categorySlug": "textile-print-lab",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "sustainability",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

@@ -20,7 +20,8 @@
         "en": "Clear span of the slab (simply supported)",
         "tr": "Döşemenin açık açıklığı (basit mesnetli)",
         "de": "Stützweite der Platte (einfach gelagert)",
-        "fr": "Portée libre de la dalle (simplement appuyée)"
+        "fr": "Portée libre de la dalle (simplement appuyée)",
+        "es": "Luz libre de la losa (simplemente apoyada)"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Imposed load (occupancy)",
         "tr": "Hareketli yük (kullanım yükü)",
         "de": "Nutzlast (Nutzung)",
-        "fr": "Charge d'exploitation (occupation)"
+        "fr": "Charge d'exploitation (occupation)",
+        "es": "Carga de uso (ocupación)"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Sabit yük (öz ağırlık hariç)",
         "de": "Eigengewicht (ohne Eigenlast)",
         "fr": "Charge permanente (hors poids propre)",
-        "es": "Dead Load (excluding self-weight)",
+        "es": "Carga muerta (excluyendo peso propio)",
         "ar": "Dead Load (excluding self-weight)"
       },
       "businessContext_i18n": {
         "en": "Superimposed dead load (finishes, services)",
         "tr": "Sabit ek yük (kaplamalar, servisler)",
         "de": "Zusätzliche ständige Last (Oberflächen, Installationen)",
-        "fr": "Charge permanente additionnelle (finition, services)"
+        "fr": "Charge permanente additionnelle (finition, services)",
+        "es": "Carga muerta superpuesta (acabados, instalaciones)"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Döşeme Kalınlığı",
         "de": "Plattendicke",
         "fr": "Épaisseur de la dalle",
-        "es": "Slab Thickness",
+        "es": "Espesor de la losa",
         "ar": "Slab Thickness"
       },
       "businessContext_i18n": {
         "en": "Total depth of slab",
         "tr": "Toplam döşeme derinliği",
         "de": "Gesamtdicke der Platte",
-        "fr": "Hauteur totale de la dalle"
+        "fr": "Hauteur totale de la dalle",
+        "es": "Canto total de la losa"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Beton Karakteristik Dayanımı (fck)",
         "de": "Charakteristische Betondruckfestigkeit (fck)",
         "fr": "Résistance caractéristique du béton (fck)",
-        "es": "Concrete Characteristic Strength (fck)",
+        "es": "Resistencia característica del hormigón (fck)",
         "ar": "Concrete Characteristic Strength (fck)"
       },
       "businessContext_i18n": {
         "en": "28-day cylinder compressive strength",
         "tr": "28 günlük silindir basınç dayanımı",
         "de": "Zylinderdruckfestigkeit nach 28 Tagen",
-        "fr": "Résistance à la compression sur cylindre à 28 jours"
+        "fr": "Résistance à la compression sur cylindre à 28 jours",
+        "es": "Resistencia a compresión cilíndrica a 28 días"
       }
     },
     {
@@ -123,14 +128,15 @@
         "tr": "Çelik Akma Dayanımı (fyk)",
         "de": "Streckgrenze des Betonstahls (fyk)",
         "fr": "Limite d'élasticité de l'acier (fyk)",
-        "es": "Steel Yield Strength (fyk)",
+        "es": "Límite elástico del acero (fyk)",
         "ar": "Steel Yield Strength (fyk)"
       },
       "businessContext_i18n": {
         "en": "Characteristic yield strength of reinforcement",
         "tr": "Donatının karakteristik akma dayanımı",
         "de": "Charakteristische Streckgrenze der Bewehrung",
-        "fr": "Limite d'élasticité caractéristique des armatures"
+        "fr": "Limite d'élasticité caractéristique des armatures",
+        "es": "Límite elástico característico de la armadura"
       }
     },
     {
@@ -145,14 +151,15 @@
         "tr": "Beton Örtüsü",
         "de": "Betondeckung",
         "fr": "Enrobage du béton",
-        "es": "Concrete Cover",
+        "es": "Recubrimiento de hormigón",
         "ar": "Concrete Cover"
       },
       "businessContext_i18n": {
         "en": "Clear cover to reinforcement",
         "tr": "Donatıya net örtü",
         "de": "Lichte Betondeckung der Bewehrung",
-        "fr": "Enrobage minimal des armatures"
+        "fr": "Enrobage minimal des armatures",
+        "es": "Recubrimiento libre de la armadura"
       }
     }
   ],
@@ -181,7 +188,7 @@
       "steel_ratio": "%"
     }
   },
-  "category": "Kalite & Süreç Kontrol",
+  "category": "Teknik & Mühendislik",
   "sector": "Yapısal Mühendislik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
@@ -189,7 +196,7 @@
   "categorySlug": "project-construction-management",
   "sectorId": "yapisal-muhendislik",
   "profession": "Yapısal Mühendis",
-  "categoryId": "quality",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

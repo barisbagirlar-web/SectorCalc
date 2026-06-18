@@ -29,7 +29,8 @@
         "en": "Total gross annual compensation before taxes and deductions.",
         "tr": "Vergi ve kesintiler öncesi toplam brüt yıllık ücret.",
         "de": "Gesamtes jährliches Bruttogehalt vor Steuern und Abzügen",
-        "fr": "Rémunération brute annuelle totale avant impôts et déductions."
+        "fr": "Rémunération brute annuelle totale avant impôts et déductions.",
+        "es": "Compensación anual total bruta antes de impuestos y deducciones."
       }
     },
     {
@@ -45,13 +46,15 @@
         "en": "Work Hours per Week",
         "tr": "Haftalık Çalışma Saati",
         "de": "Arbeitsstunden pro Woche",
-        "fr": "Heures de travail par semaine"
+        "fr": "Heures de travail par semaine",
+        "es": "Horas de trabajo por semana"
       },
       "businessContext_i18n": {
         "en": "Standard contractual weekly working hours, excluding unpaid breaks.",
         "tr": "Ücretsiz molalar hariç standart sözleşmeli haftalık çalışma saatleri.",
         "de": "Standardmäßige vertragliche Wochenarbeitszeit ohne unbezahlte Pausen",
-        "fr": "Heures hebdomadaires contractuelles standard, hors pauses non rémunérées."
+        "fr": "Heures hebdomadaires contractuelles standard, hors pauses non rémunérées.",
+        "es": "Horas semanales contractuales estándar, excluyendo descansos no remunerados."
       }
     },
     {
@@ -67,13 +70,15 @@
         "en": "Paid Weeks per Year",
         "tr": "Yıllık Ücretli Hafta",
         "de": "Bezahlte Wochen pro Jahr",
-        "fr": "Semaines payées par an"
+        "fr": "Semaines payées par an",
+        "es": "Semanas pagadas por año"
       },
       "businessContext_i18n": {
         "en": "Total weeks compensated including vacation, sick leave, and holidays.",
         "tr": "Tatil, hastalık izni ve resmi tatiller dahil toplam ücretli hafta sayısı.",
         "de": "Gesamte bezahlte Wochen inklusive Urlaub, Krankheit und Feiertage",
-        "fr": "Nombre total de semaines rémunérées, y compris les congés, arrêts maladie et jours fériés."
+        "fr": "Nombre total de semaines rémunérées, y compris les congés, arrêts maladie et jours fériés.",
+        "es": "Total de semanas compensadas incluyendo vacaciones, licencia por enfermedad y días festivos."
       }
     },
     {
@@ -96,7 +101,8 @@
         "en": "Standard overtime pay factor per FLSA or local labor law (e.g., 1.5x for >40 hrs/week).",
         "tr": "FLSA veya yerel iş kanununa göre standart fazla mesai ücret faktörü (örn. haftada >40 saat için 1,5x).",
         "de": "Standard-Überstundenfaktor gemäß FLSA oder lokalem Arbeitsrecht (z. B. 1,5x bei >40 Std./Woche)",
-        "fr": "Facteur de majoration des heures supplémentaires standard selon la loi locale (ex. 1,5x pour >40 h/semaine)."
+        "fr": "Facteur de majoration des heures supplémentaires standard selon la loi locale (ex. 1,5x pour >40 h/semaine).",
+        "es": "Factor de pago de horas extra estándar según FLSA o ley laboral local (ej., 1.5x por >40 hrs/semana)."
       }
     },
     {
@@ -112,13 +118,15 @@
         "en": "Benefits & Overhead (% of Salary)",
         "tr": "Yan Haklar & Genel Giderler (Maaşın %'si)",
         "de": "Zusatzleistungen & Gemeinkosten (% des Gehalts)",
-        "fr": "Avantages sociaux & frais généraux (% du salaire)"
+        "fr": "Avantages sociaux & frais généraux (% du salaire)",
+        "es": "Beneficios y gastos generales (% del salario)"
       },
       "businessContext_i18n": {
         "en": "Percentage of salary allocated to benefits (health, retirement, payroll taxes, training).",
         "tr": "Yan haklara (sağlık, emeklilik, bordro vergileri, eğitim) ayrılan maaş yüzdesi.",
         "de": "Prozentsatz des Gehalts für Zusatzleistungen (Krankenversicherung, Altersvorsorge, Lohnsteuer, Schulungen)",
-        "fr": "Pourcentage du salaire alloué aux avantages sociaux (santé, retraite, charges sociales, formation)."
+        "fr": "Pourcentage du salaire alloué aux avantages sociaux (santé, retraite, charges sociales, formation).",
+        "es": "Porcentaje del salario asignado a beneficios (salud, jubilación, impuestos sobre nómina, capacitación)."
       }
     },
     {
@@ -144,7 +152,8 @@
         "en": "Shift differentials affect effective hourly cost; night/rotating shifts may require premium pay.",
         "tr": "Vardiya farkları efektif saatlik maliyeti etkiler; gece/dönüşümlü vardiyalar prim gerektirebilir.",
         "de": "Schichtzulagen beeinflussen die effektiven Stundenkosten; Nacht-/Wechselschichten können Zuschläge erfordern",
-        "fr": "Les primes de poste affectent le coût horaire effectif ; les postes de nuit/rotatifs peuvent nécessiter une prime."
+        "fr": "Les primes de poste affectent le coût horaire effectif ; les postes de nuit/rotatifs peuvent nécessiter une prime.",
+        "es": "Los diferenciales de turno afectan el costo horario efectivo; los turnos nocturnos/rotativos pueden requerir pago adicional."
       }
     },
     {
@@ -158,13 +167,15 @@
         "en": "Include Productivity Factor (Lean)",
         "tr": "Verimlilik Faktörünü Dahil Et (Yalın)",
         "de": "Produktivitätsfaktor einbeziehen (Lean)",
-        "fr": "Inclure le facteur de productivité (Lean)"
+        "fr": "Inclure le facteur de productivité (Lean)",
+        "es": "Incluir factor de productividad (Lean)"
       },
       "businessContext_i18n": {
         "en": "If true, applies a productivity loss factor (e.g., 85%) based on typical industrial engineering allowances.",
         "tr": "Doğruysa, tipik endüstri mühendisliği paylarına dayalı bir verimlilik kaybı faktörü (örn. %85) uygular.",
         "de": "Wenn aktiviert, wird ein Produktivitätsverlustfaktor (z. B. 85 %) basierend auf typischen Arbeitsstudienzulagen angewendet",
-        "fr": "Si vrai, applique un facteur de perte de productivité (ex. 85 %) basé sur les tolérances typiques du génie industriel."
+        "fr": "Si vrai, applique un facteur de perte de productivité (ex. 85 %) basé sur les tolérances typiques du génie industriel.",
+        "es": "Si es verdadero, aplica un factor de pérdida de productividad (ej., 85%) basado en tolerancias típicas de ingeniería industrial."
       }
     }
   ],

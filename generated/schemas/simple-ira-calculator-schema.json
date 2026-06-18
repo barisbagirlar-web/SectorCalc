@@ -20,7 +20,8 @@
         "en": "Current age of the individual",
         "tr": "Bireyin mevcut yaşı",
         "de": "Aktuelles Alter der Person",
-        "fr": "Âge actuel de l'individu"
+        "fr": "Âge actuel de l'individu",
+        "es": "Edad actual del individuo"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Planned retirement age",
         "tr": "Planlanan emeklilik yaşı",
         "de": "Geplantes Renteneintrittsalter",
-        "fr": "Âge de retraite prévu"
+        "fr": "Âge de retraite prévu",
+        "es": "Edad de jubilación planificada"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Annual contribution amount",
         "tr": "Yıllık katkı tutarı",
         "de": "Jährlicher Beitragsbetrag",
-        "fr": "Montant de la cotisation annuelle"
+        "fr": "Montant de la cotisation annuelle",
+        "es": "Monto de contribución anual"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Current IRA balance",
         "tr": "Mevcut IRA bakiyesi",
         "de": "Aktueller IRA-Kontostand",
-        "fr": "Solde actuel du compte IRA"
+        "fr": "Solde actuel du compte IRA",
+        "es": "Saldo actual de la IRA"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Beklenen Yıllık Getiri (%)",
         "de": "Erwartete jährliche Rendite (%)",
         "fr": "Rendement annuel attendu (%)",
-        "es": "Expected Annual Return (%)",
+        "es": "Rendimiento anual esperado (%)",
         "ar": "Expected Annual Return (%)"
       },
       "businessContext_i18n": {
         "en": "Expected average annual return rate (e.g., 7 for 7%)",
         "tr": "Beklenen ortalama yıllık getiri oranı (ör. 7 için %7)",
         "de": "Erwartete durchschnittliche jährliche Rendite (z.B. 7 für 7%)",
-        "fr": "Taux de rendement annuel moyen attendu (ex. 7 pour 7%)"
+        "fr": "Taux de rendement annuel moyen attendu (ex. 7 pour 7%)",
+        "es": "Tasa de rendimiento anual promedio esperada (ej., 7 para 7%)"
       }
     },
     {
@@ -123,14 +128,15 @@
         "tr": "Beklenen Enflasyon Oranı (%)",
         "de": "Erwartete Inflationsrate (%)",
         "fr": "Taux d'inflation attendu (%)",
-        "es": "Expected Inflation Rate (%)",
+        "es": "Tasa de inflación esperada (%)",
         "ar": "Expected Inflation Rate (%)"
       },
       "businessContext_i18n": {
         "en": "Expected average inflation rate (e.g., 2.5 for 2.5%)",
         "tr": "Beklenen ortalama enflasyon oranı (ör. 2,5 için %2,5)",
         "de": "Erwartete durchschnittliche Inflationsrate (z.B. 2,5 für 2,5%)",
-        "fr": "Taux d'inflation annuel moyen attendu (ex. 2,5 pour 2,5%)"
+        "fr": "Taux d'inflation annuel moyen attendu (ex. 2,5 pour 2,5%)",
+        "es": "Tasa de inflación promedio esperada (ej., 2.5 para 2.5%)"
       }
     }
   ],
@@ -152,7 +158,7 @@
     "dataConfidenceAdjusted": "earnings",
     "unit": "years"
   },
-  "category": "Diğer",
+  "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
@@ -160,7 +166,7 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "diger",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

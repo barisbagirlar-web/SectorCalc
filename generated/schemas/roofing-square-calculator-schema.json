@@ -13,14 +13,15 @@
         "tr": "Çatı Uzunluğu",
         "de": "Dachlänge",
         "fr": "Longueur du toit",
-        "es": "Çatı Uzunluğu",
+        "es": "Longitud del techo",
         "ar": "Çatı Uzunluğu"
       },
       "businessContext_i18n": {
         "en": "Çatı taban alanının uzun kenarı",
         "tr": "Çatı taban alanının uzun kenarı",
         "de": "Lange Seite der Dachgrundfläche",
-        "fr": "Longueur du côté long de la surface de toit"
+        "fr": "Longueur du côté long de la surface de toit",
+        "es": "Lado largo del área base del techo"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Çatı Genişliği",
         "de": "Dachbreite",
         "fr": "Largeur du toit",
-        "es": "Çatı Genişliği",
+        "es": "Ancho del techo",
         "ar": "Çatı Genişliği"
       },
       "businessContext_i18n": {
         "en": "Çatı taban alanının kısa kenarı",
         "tr": "Çatı taban alanının kısa kenarı",
         "de": "Kurze Seite der Dachgrundfläche",
-        "fr": "Longueur du côté court de la surface de toit"
+        "fr": "Longueur du côté court de la surface de toit",
+        "es": "Lado corto del área base del techo"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Çatı Eğim Açısı",
         "de": "Dachneigungswinkel",
         "fr": "Angle d'inclinaison du toit",
-        "es": "Çatı Eğim Açısı",
+        "es": "Ángulo de inclinación del techo",
         "ar": "Çatı Eğim Açısı"
       },
       "businessContext_i18n": {
         "en": "Çatı eğim açısı, yatay düzleme göre",
         "tr": "Çatı eğim açısı, yatay düzleme göre",
         "de": "Dachneigungswinkel relativ zur horizontalen Ebene",
-        "fr": "Angle d'inclinaison du toit par rapport au plan horizontal"
+        "fr": "Angle d'inclinaison du toit par rapport au plan horizontal",
+        "es": "Ángulo de inclinación del techo respecto al plano horizontal"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Kesim ve hata payı için eklenen fire oranı",
         "tr": "Kesim ve hata payı için eklenen fire oranı",
         "de": "Zuschlagfaktor für Schnitt- und Fehlertoleranz",
-        "fr": "Taux de chute ajouté pour la coupe et la marge d'erreur"
+        "fr": "Taux de chute ajouté pour la coupe et la marge d'erreur",
+        "es": "Porcentaje de desperdicio adicional por corte y margen de error"
       }
     }
   ],
@@ -108,7 +112,7 @@
     "dataConfidenceAdjusted": "roofingSquares",
     "unit": "ft"
   },
-  "category": "Diğer",
+  "category": "Teknik & Mühendislik",
   "sector": "İnşaat & Yapı",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
@@ -116,7 +120,7 @@
   "categorySlug": "project-construction-management",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

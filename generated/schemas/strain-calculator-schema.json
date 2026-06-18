@@ -13,14 +13,15 @@
         "tr": "İlk Uzunluk",
         "de": "Anfangslänge",
         "fr": "Longueur initiale",
-        "es": "Initial Length",
+        "es": "Longitud inicial",
         "ar": "Initial Length"
       },
       "businessContext_i18n": {
         "en": "Original length before deformation",
         "tr": "Deformasyondan önceki orijinal uzunluk",
         "de": "Ursprüngliche Länge vor Verformung",
-        "fr": "Longueur originale avant déformation"
+        "fr": "Longueur originale avant déformation",
+        "es": "Longitud original antes de la deformación"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Son Uzunluk",
         "de": "Endlänge",
         "fr": "Longueur finale",
-        "es": "Final Length",
+        "es": "Longitud final",
         "ar": "Final Length"
       },
       "businessContext_i18n": {
         "en": "Length after deformation (e.g., under load or temperature)",
         "tr": "Deformasyon sonrası uzunluk (örneğin yük veya sıcaklık altında)",
         "de": "Länge nach Verformung (z. B. unter Last oder Temperatur)",
-        "fr": "Longueur après déformation (par exemple, sous charge ou température)"
+        "fr": "Longueur après déformation (par exemple, sous charge ou température)",
+        "es": "Longitud después de la deformación (p. ej., bajo carga o temperatura)"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Change in temperature for thermal expansion calculation",
         "tr": "Termal genleşme hesaplaması için sıcaklık değişimi",
         "de": "Temperaturänderung für die Berechnung der Wärmeausdehnung",
-        "fr": "Changement de température pour le calcul de dilatation thermique"
+        "fr": "Changement de température pour le calcul de dilatation thermique",
+        "es": "Cambio de temperatura para el cálculo de expansión térmica"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Termal Genleşme Katsayısı",
         "de": "Wärmeausdehnungskoeffizient",
         "fr": "Coefficient de dilatation thermique",
-        "es": "Coefficient of Thermal Expansion",
+        "es": "Coeficiente de expansión térmica",
         "ar": "Coefficient of Thermal Expansion"
       },
       "businessContext_i18n": {
         "en": "Material's linear thermal expansion coefficient (e.g., steel 12e-6)",
         "tr": "Malzemenin doğrusal termal genleşme katsayısı (örneğin çelik 12e-6)",
         "de": "Linearer Wärmeausdehnungskoeffizient des Materials (z. B. Stahl 12e-6)",
-        "fr": "Coefficient de dilatation thermique linéaire du matériau (ex. acier 12e-6)"
+        "fr": "Coefficient de dilatation thermique linéaire du matériau (ex. acier 12e-6)",
+        "es": "Coeficiente de expansión térmica lineal del material (p. ej., acero 12e-6)"
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Material's modulus of elasticity. Set to 0 to ignore stress",
         "tr": "Malzemenin elastisite modülü. Gerilmeyi yok saymak için 0 olarak ayarlayın",
         "de": "Elastizitätsmodul des Materials. Auf 0 setzen, um Spannung zu ignorieren",
-        "fr": "Module d'élasticité du matériau. Mettre à 0 pour ignorer la contrainte"
+        "fr": "Module d'élasticité du matériau. Mettre à 0 pour ignorer la contrainte",
+        "es": "Módulo de elasticidad del material. Establecer en 0 para ignorar la tensión"
       }
     }
   ],

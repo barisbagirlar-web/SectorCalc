@@ -13,14 +13,15 @@
         "tr": "Mil Kare",
         "de": "Quadratmeilen",
         "fr": "Milles carrés",
-        "es": "Square Miles",
+        "es": "Millas cuadradas",
         "ar": "Square Miles"
       },
       "businessContext_i18n": {
         "en": "Area in square miles to convert.",
         "tr": "Dönüştürülecek mil kare cinsinden alan.",
         "de": "Fläche in Quadratmeilen zur Umrechnung.",
-        "fr": "Surface en milles carrés à convertir."
+        "fr": "Surface en milles carrés à convertir.",
+        "es": "Área en millas cuadradas a convertir."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Override standard conversion factor if needed (international definition: 1 mile = 1.609344 km, so 1 sq mi = (1.609344)^2 = 2.589988110336 km²).",
         "tr": "Gerekirse standart dönüşüm faktörünü geçersiz kılın (uluslararası tanım: 1 mil = 1.609344 km, yani 1 sq mi = (1.609344)^2 = 2.589988110336 km²).",
         "de": "Standard-Umrechnungsfaktor überschreiben, falls erforderlich (internationale Definition: 1 Meile = 1,609344 km, also 1 sq mi = (1,609344)^2 = 2,589988110336 km²).",
-        "fr": "Remplacez le facteur de conversion standard si nécessaire (définition internationale : 1 mile = 1,609344 km, donc 1 sq mi = (1,609344)^2 = 2,589988110336 km²)."
+        "fr": "Remplacez le facteur de conversion standard si nécessaire (définition internationale : 1 mile = 1,609344 km, donc 1 sq mi = (1,609344)^2 = 2,589988110336 km²).",
+        "es": "Anular el factor de conversión estándar si es necesario (definición internacional: 1 milla = 1.609344 km, por lo que 1 mi² = (1.609344)^2 = 2.589988110336 km²)."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Number of decimal places for the output (0-10).",
         "tr": "Çıktı için ondalık basamak sayısı (0-10).",
         "de": "Anzahl der Dezimalstellen für die Ausgabe (0-10).",
-        "fr": "Nombre de décimales pour la sortie (0-10)."
+        "fr": "Nombre de décimales pour la sortie (0-10).",
+        "es": "Número de decimales para la salida (0-10)."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Multiplier for areas in terms of scaling (e.g., if input is in thousands of sq mi, use 1000).",
         "tr": "Alanlar için ölçekleme çarpanı (örneğin, girdi binlerce sq mi ise 1000 kullanın).",
         "de": "Multiplikator für Flächen in Bezug auf Skalierung (z. B. wenn die Eingabe in Tausend Quadratmeilen erfolgt, verwenden Sie 1000).",
-        "fr": "Multiplicateur pour les surfaces en termes d'échelle (ex. : si l'entrée est en milliers de sq mi, utilisez 1000)."
+        "fr": "Multiplicateur pour les surfaces en termes d'échelle (ex. : si l'entrée est en milliers de sq mi, utilisez 1000).",
+        "es": "Multiplicador para áreas en términos de escala (por ejemplo, si la entrada está en miles de mi², use 1000)."
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Kalibrasyon Sabiti",
         "de": "Kalibrierungskonstante",
         "fr": "Constante d'étalonnage",
-        "es": "Calibration Constant",
+        "es": "Constante de calibración",
         "ar": "Calibration Constant"
       },
       "businessContext_i18n": {
         "en": "Additive constant to account for systematic measurement bias (e.g., survey calibration offset).",
         "tr": "Sistematik ölçüm yanlılığını hesaba katmak için eklenen sabit (örneğin, anket kalibrasyon ofseti).",
         "de": "Additive Konstante zur Berücksichtigung systematischer Messabweichungen (z. B. Vermessungskalibrierungs-Offset).",
-        "fr": "Constante additive pour tenir compte du biais de mesure systématique (par exemple, décalage d'étalonnage d'enquête)."
+        "fr": "Constante additive pour tenir compte du biais de mesure systématique (par exemple, décalage d'étalonnage d'enquête).",
+        "es": "Constante aditiva para compensar el sesgo sistemático de medición (por ejemplo, desplazamiento de calibración topográfica)."
       }
     }
   ],

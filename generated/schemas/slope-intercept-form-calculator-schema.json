@@ -20,7 +20,8 @@
         "en": "Doğrunun eğimi, y = mx + b denklemindeki m katsayısı.",
         "tr": "Doğrunun eğimi, y = mx + b denklemindeki m katsayısı.",
         "de": "Steigung der Geraden, Koeffizient m in der Gleichung y = mx + b.",
-        "fr": "Pente de la droite, coefficient m dans l'équation y = mx + b."
+        "fr": "Pente de la droite, coefficient m dans l'équation y = mx + b.",
+        "es": "Pendiente de la recta, coeficiente m en la ecuación y = mx + b."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "y Kesişimi (b)",
         "de": "y-Achsenabschnitt (b)",
         "fr": "Ordonnée à l'origine (b)",
-        "es": "y Kesişimi (b)",
+        "es": "Intersección con el eje y (b)",
         "ar": "y Kesişimi (b)"
       },
       "businessContext_i18n": {
         "en": "Doğrunun y eksenini kestiği nokta.",
         "tr": "Doğrunun y eksenini kestiği nokta.",
         "de": "Punkt, an dem die Gerade die y-Achse schneidet.",
-        "fr": "Ordonnée à l'origine"
+        "fr": "Ordonnée à l'origine",
+        "es": "Punto donde la recta cruza el eje y."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "x Değeri",
         "de": "x-Wert",
         "fr": "Valeur de x",
-        "es": "x Değeri",
+        "es": "Valor de x",
         "ar": "x Değeri"
       },
       "businessContext_i18n": {
         "en": "y değerini hesaplamak için verilen x koordinatı.",
         "tr": "y değerini hesaplamak için verilen x koordinatı.",
         "de": "Angegebene x-Koordinate zur Berechnung des y-Werts.",
-        "fr": "Coordonnée x donnée pour calculer la valeur de y."
+        "fr": "Coordonnée x donnée pour calculer la valeur de y.",
+        "es": "Coordenada x dada para calcular el valor de y."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "y Değeri",
         "de": "y-Wert",
         "fr": "Valeur de y",
-        "es": "y Değeri",
+        "es": "Valor de y",
         "ar": "y Değeri"
       },
       "businessContext_i18n": {
         "en": "x değerini hesaplamak için verilen y koordinatı.",
         "tr": "x değerini hesaplamak için verilen y koordinatı.",
         "de": "Gegebene y-Koordinate zur Berechnung des x-Werts.",
-        "fr": "Coordonnée y donnée pour calculer la valeur de x."
+        "fr": "Coordonnée y donnée pour calculer la valeur de x.",
+        "es": "Coordenada y dada para calcular el valor de x."
       }
     }
   ],
@@ -107,7 +111,7 @@
     "dataConfidenceAdjusted": "x_calc",
     "unit": "—"
   },
-  "category": "Diğer",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -115,7 +119,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "matematik",
   "profession": "Veri Analisti",
-  "categoryId": "diger",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

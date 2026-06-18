@@ -13,14 +13,15 @@
         "tr": "Sayılan Kalp Atışı",
         "de": "Anzahl der gezählten Herzschläge",
         "fr": "Nombre de battements cardiaques comptés",
-        "es": "Heartbeats Counted",
+        "es": "Latidos contados",
         "ar": "Heartbeats Counted"
       },
       "businessContext_i18n": {
         "en": "Number of pulse beats counted over the measurement period.",
         "tr": "Ölçüm süresi boyunca sayılan nabız atım sayısı.",
         "de": "Anzahl der Pulsschläge, die über den Messzeitraum gezählt wurden.",
-        "fr": "Nombre de pulsations comptées sur la période de mesure."
+        "fr": "Nombre de pulsations comptées sur la période de mesure.",
+        "es": "Número de pulsaciones cardíacas contadas durante el período de medición."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Time in seconds over which the beats were counted.",
         "tr": "Atımların sayıldığı saniye cinsinden süre.",
         "de": "Zeit in Sekunden, über die die Schläge gezählt wurden.",
-        "fr": "Temps en secondes pendant lequel les battements ont été comptés."
+        "fr": "Temps en secondes pendant lequel les battements ont été comptés.",
+        "es": "Tiempo en segundos durante el cual se contaron los latidos."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Age of the person for reference comparison.",
         "tr": "Karşılaştırma referansı için kişinin yaşı.",
         "de": "Alter der Person zum Referenzvergleich.",
-        "fr": "Âge de la personne pour référence comparative."
+        "fr": "Âge de la personne pour référence comparative.",
+        "es": "Edad de la persona para comparación de referencia."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Self-assessed fitness level from 1 (sedentary) to 10 (elite athlete). Used for interpretation.",
         "tr": "1 (hareketsiz) ile 10 (elit atlet) arasında kendini değerlendirilen fitness seviyesi. Yorumlama için kullanılır.",
         "de": "Selbst eingeschätztes Fitnessniveau von 1 (sesshaft) bis 10 (Spitzensportler). Wird zur Interpretation verwendet.",
-        "fr": "Niveau de forme physique auto-évalué de 1 (sédentaire) à 10 (athlète d'élite). Utilisé pour l'interprétation."
+        "fr": "Niveau de forme physique auto-évalué de 1 (sédentaire) à 10 (athlète d'élite). Utilisé pour l'interprétation.",
+        "es": "Nivel de condición física autoevaluado de 1 (sedentario) a 10 (atleta de élite). Se utiliza para interpretación."
       }
     }
   ],
@@ -107,7 +111,7 @@
     "dataConfidenceAdjusted": "result",
     "unit": "beats"
   },
-  "category": "Kalite & Süreç Kontrol",
+  "category": "İSG & Risk",
   "sector": "Sağlık & Tıp",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -115,7 +119,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "saglik",
   "profession": "Biyomedikal Mühendisi",
-  "categoryId": "quality",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

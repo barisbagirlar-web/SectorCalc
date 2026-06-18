@@ -13,14 +13,15 @@
         "tr": "Saçak Uzunluğu",
         "de": "Trauflänge",
         "fr": "Longueur des avant-toits",
-        "es": "Length of Eaves",
+        "es": "Longitud de aleros",
         "ar": "Length of Eaves"
       },
       "businessContext_i18n": {
         "en": "Total linear length of eaves where soffit will be installed",
         "tr": "Saçak altına tavan kaplaması yapılacak toplam doğrusal saçak uzunluğu",
         "de": "Gesamtlänge der Traufen, an denen die Untersicht installiert wird",
-        "fr": "Longueur linéaire totale des avant-toits où le soffite sera installé"
+        "fr": "Longueur linéaire totale des avant-toits où le soffite sera installé",
+        "es": "Longitud lineal total de aleros donde se instalará el sofito"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Saçak genişliği",
         "de": "Überstandsbreite",
         "fr": "Largeur du débord",
-        "es": "Overhang Width",
+        "es": "Ancho del voladizo",
         "ar": "Overhang Width"
       },
       "businessContext_i18n": {
         "en": "Depth from fascia to wall (soffit width)",
         "tr": "Fasaddan duvara derinlik (tavan kaplaması genişliği)",
         "de": "Tiefe von der Fassade zur Wand (Untersichtbreite)",
-        "fr": "Profondeur de la frise au mur (largeur du soffite)"
+        "fr": "Profondeur de la frise au mur (largeur du soffite)",
+        "es": "Profundidad desde el borde del tejado hasta la pared (ancho del sofito)"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Length of a single soffit panel",
         "tr": "Tek bir tavan kaplama panelinin uzunluğu",
         "de": "Länge einer einzelnen Dachuntersichtsplatte",
-        "fr": "Longueur d'un seul panneau de soffite"
+        "fr": "Longueur d'un seul panneau de soffite",
+        "es": "Longitud de un panel de sofito individual"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Width of a single soffit panel (visible face)",
         "tr": "Tek bir tavan kaplama panelinin genişliği (görünen yüz)",
         "de": "Breite einer einzelnen Dachuntersichtsplatte (sichtbare Fläche)",
-        "fr": "Largeur d'un seul panneau de soffite (face visible)"
+        "fr": "Largeur d'un seul panneau de soffite (face visible)",
+        "es": "Ancho de un panel de sofito individual (cara visible)"
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Additional percentage for cuts and material waste",
         "tr": "Kesim ve malzeme fireleri için ek yüzde",
         "de": "Zusätzlicher Prozentsatz für Verschnitt und Materialabfall",
-        "fr": "Pourcentage supplémentaire pour les coupes et les pertes de matériau"
+        "fr": "Pourcentage supplémentaire pour les coupes et les pertes de matériau",
+        "es": "Porcentaje adicional para cortes y desperdicio de material"
       }
     }
   ],
@@ -132,7 +137,7 @@
     "dataConfidenceAdjusted": "total_panels",
     "unit": "m"
   },
-  "category": "Sürdürülebilirlik",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
@@ -140,7 +145,7 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "sustainability",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

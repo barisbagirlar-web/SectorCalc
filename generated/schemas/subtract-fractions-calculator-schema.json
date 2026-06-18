@@ -20,7 +20,8 @@
         "en": "Enter the numerator of the first fraction.",
         "tr": "Birinci kesrin payını girin.",
         "de": "Geben Sie den Zähler des ersten Bruchs ein.",
-        "fr": "Entrez le numérateur de la première fraction."
+        "fr": "Entrez le numérateur de la première fraction.",
+        "es": "Ingrese el numerador de la primera fracción."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Enter the denominator of the first fraction. Must not be zero.",
         "tr": "Birinci kesrin paydasını girin. Sıfır olmamalıdır.",
         "de": "Geben Sie den Nenner des ersten Bruchs ein. Darf nicht Null sein.",
-        "fr": "Entrez le dénominateur de la première fraction. Ne doit pas être zéro."
+        "fr": "Entrez le dénominateur de la première fraction. Ne doit pas être zéro.",
+        "es": "Ingrese el denominador de la primera fracción. No debe ser cero."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Enter the numerator of the second fraction.",
         "tr": "İkinci kesrin payını girin.",
         "de": "Geben Sie den Zähler des zweiten Bruchs ein.",
-        "fr": "Entrez le numérateur de la deuxième fraction."
+        "fr": "Entrez le numérateur de la deuxième fraction.",
+        "es": "Ingrese el numerador de la segunda fracción."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Enter the denominator of the second fraction. Must not be zero.",
         "tr": "İkinci kesrin paydasını girin. Sıfır olmamalıdır.",
         "de": "Geben Sie den Nenner des zweiten Bruchs ein. Darf nicht Null sein.",
-        "fr": "Entrez le dénominateur de la deuxième fraction. Ne doit pas être zéro."
+        "fr": "Entrez le dénominateur de la deuxième fraction. Ne doit pas être zéro.",
+        "es": "Ingrese el denominador de la segunda fracción. No debe ser cero."
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Sonucu Sadeleştir",
         "de": "Ergebnis vereinfachen",
         "fr": "Simplifier le résultat",
-        "es": "Simplify Result",
+        "es": "Simplificar resultado",
         "ar": "Simplify Result"
       },
       "businessContext_i18n": {
         "en": "Set to 1 to simplify the fraction to lowest terms, 0 to leave unsimplified.",
         "tr": "Kesri en düşük terimlere sadeleştirmek için 1, sadeleştirmeden bırakmak için 0.",
         "de": "Auf 1 setzen, um den Bruch auf die niedrigsten Terme zu kürzen, 0 für ungekürzt.",
-        "fr": "Mettre à 1 pour simplifier la fraction aux termes les plus bas, 0 pour laisser non simplifiée."
+        "fr": "Mettre à 1 pour simplifier la fraction aux termes les plus bas, 0 pour laisser non simplifiée.",
+        "es": "Establecer en 1 para simplificar la fracción a su mínima expresión, 0 para dejar sin simplificar."
       }
     },
     {
@@ -130,7 +135,8 @@
         "en": "Number of decimal places for decimal representation (0 for integer).",
         "tr": "Ondalık gösterim için ondalık basamak sayısı (tamsayı için 0).",
         "de": "Anzahl der Dezimalstellen für die Dezimaldarstellung (0 für ganze Zahl).",
-        "fr": "Nombre de décimales pour la représentation décimale (0 pour entier)."
+        "fr": "Nombre de décimales pour la représentation décimale (0 pour entier).",
+        "es": "Número de decimales para la representación decimal (0 para entero)."
       }
     }
   ],
@@ -157,7 +163,7 @@
     "dataConfidenceAdjusted": "decimalRounded",
     "unit": "—"
   },
-  "category": "Diğer",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
@@ -165,7 +171,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "diger",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

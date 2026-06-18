@@ -13,14 +13,15 @@
         "tr": "Mesafe (m)",
         "de": "Strecke (m)",
         "fr": "Distance (m)",
-        "es": "Distance (m)",
+        "es": "Distancia (m)",
         "ar": "Distance (m)"
       },
       "businessContext_i18n": {
         "en": "Distance rowed in meters",
         "tr": "Metre cinsinden kürek çekme mesafesi",
         "de": "Zurückgelegte Strecke in Metern",
-        "fr": "Distance parcourue en mètres"
+        "fr": "Distance parcourue en mètres",
+        "es": "Distancia remada en metros"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Minutes part of total time",
         "tr": "Toplam sürenin dakika kısmı",
         "de": "Minutenanteil der Gesamtzeit",
-        "fr": "Partie minutes du temps total"
+        "fr": "Partie minutes du temps total",
+        "es": "Parte de minutos del tiempo total"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Seconds part of total time",
         "tr": "Toplam sürenin saniye kısmı",
         "de": "Sekundenanteil der Gesamtzeit",
-        "fr": "Partie secondes du temps total"
+        "fr": "Partie secondes du temps total",
+        "es": "Parte de segundos del tiempo total"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Hedef Mesafe (m)",
         "de": "Zielstrecke (m)",
         "fr": "Distance cible (m)",
-        "es": "Target Distance (m)",
+        "es": "Distancia objetivo (m)",
         "ar": "Target Distance (m)"
       },
       "businessContext_i18n": {
         "en": "Target distance for time projection",
         "tr": "Süre tahmini için hedef mesafe",
         "de": "Zielstrecke für die Zeitprojektion",
-        "fr": "Distance cible pour la projection temporelle"
+        "fr": "Distance cible pour la projection temporelle",
+        "es": "Distancia objetivo para proyección de tiempo"
       }
     }
   ],
@@ -111,7 +115,7 @@
     "dataConfidenceAdjusted": "speed_kmh",
     "unit": "m"
   },
-  "category": "Diğer",
+  "category": "İSG & Risk",
   "sector": "Fitness & Spor",
   "premiumRequired": false,
   "catalogCategory": "health-body",
@@ -119,7 +123,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "fitness-spor",
   "profession": "Antrenör",
-  "categoryId": "diger",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

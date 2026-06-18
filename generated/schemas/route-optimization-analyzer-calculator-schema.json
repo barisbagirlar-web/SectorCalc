@@ -29,7 +29,8 @@
         "en": "Total delivery or service stops on the route.",
         "tr": "Rotadaki toplam teslimat veya hizmet durağı sayısı.",
         "de": "Gesamtzahl der Liefer- oder Servicehalte auf der Route.",
-        "fr": "Nombre total d'arrêts de livraison ou de service sur la route."
+        "fr": "Nombre total d'arrêts de livraison ou de service sur la route.",
+        "es": "Total de paradas de entrega o servicio en la ruta."
       }
     },
     {
@@ -45,13 +46,15 @@
         "en": "Total Route Distance",
         "tr": "Toplam Rota Mesafesi",
         "de": "Gesamte Routenentfernung",
-        "fr": "Distance totale de la route"
+        "fr": "Distance totale de la route",
+        "es": "Distancia total de la ruta"
       },
       "businessContext_i18n": {
         "en": "Total distance traveled for the route in kilometers.",
         "tr": "Rota için kilometre cinsinden kat edilen toplam mesafe.",
         "de": "Gesamte zurückgelegte Strecke für die Route in Kilometern.",
-        "fr": "Distance totale parcourue pour la route en kilomètres."
+        "fr": "Distance totale parcourue pour la route en kilomètres.",
+        "es": "Distancia total recorrida por la ruta en kilómetros."
       }
     },
     {
@@ -74,7 +77,8 @@
         "en": "Average vehicle speed including traffic and stops.",
         "tr": "Trafik ve duraklar dahil ortalama araç hızı.",
         "de": "Durchschnittliche Fahrzeuggeschwindigkeit inklusive Verkehr und Stopps.",
-        "fr": "Vitesse moyenne du véhicule incluant le trafic et les arrêts."
+        "fr": "Vitesse moyenne du véhicule incluant le trafic et les arrêts.",
+        "es": "Velocidad media del vehículo incluyendo tráfico y paradas."
       }
     },
     {
@@ -90,13 +94,15 @@
         "en": "Dwell Time per Stop",
         "tr": "Durak Başına Bekleme Süresi",
         "de": "Standzeit pro Halt",
-        "fr": "Temps d'immobilisation par arrêt"
+        "fr": "Temps d'immobilisation par arrêt",
+        "es": "Tiempo de permanencia por parada"
       },
       "businessContext_i18n": {
         "en": "Average time spent at each stop for loading/unloading.",
         "tr": "Yükleme/boşaltma için her durakta harcanan ortalama süre.",
         "de": "Durchschnittliche Zeit an jedem Halt für Be- und Entladung.",
-        "fr": "Temps moyen passé à chaque arrêt pour le chargement/déchargement."
+        "fr": "Temps moyen passé à chaque arrêt pour le chargement/déchargement.",
+        "es": "Tiempo medio en cada parada para carga/descarga."
       }
     },
     {
@@ -119,7 +125,8 @@
         "en": "Fuel cost per kilometer driven.",
         "tr": "Sürülen kilometre başına yakıt maliyeti.",
         "de": "Kraftstoffkosten pro gefahrenem Kilometer.",
-        "fr": "Coût du carburant par kilomètre parcouru."
+        "fr": "Coût du carburant par kilomètre parcouru.",
+        "es": "Coste de combustible por kilómetro recorrido."
       }
     },
     {
@@ -135,13 +142,15 @@
         "en": "Driver Hourly Rate",
         "tr": "Sürücü Saatlik Ücreti",
         "de": "Stundensatz Fahrer",
-        "fr": "Taux horaire du conducteur"
+        "fr": "Taux horaire du conducteur",
+        "es": "Tarifa horaria del conductor"
       },
       "businessContext_i18n": {
         "en": "Hourly wage cost for the driver.",
         "tr": "Sürücü için saatlik ücret maliyeti.",
         "de": "Stundenlohnkosten für den Fahrer.",
-        "fr": "Coût horaire de la main-d'œuvre pour le conducteur."
+        "fr": "Coût horaire de la main-d'œuvre pour le conducteur.",
+        "es": "Coste salarial por hora del conductor."
       }
     },
     {
@@ -163,13 +172,15 @@
         "en": "Vehicle Type",
         "tr": "Araç Türü",
         "de": "Fahrzeugtyp",
-        "fr": "Type de véhicule"
+        "fr": "Type de véhicule",
+        "es": "Tipo de vehículo"
       },
       "businessContext_i18n": {
         "en": "Type of vehicle used for the route.",
         "tr": "Rota için kullanılan araç türü.",
         "de": "Art des für die Route verwendeten Fahrzeugs.",
-        "fr": "Type de véhicule utilisé pour la route."
+        "fr": "Type de véhicule utilisé pour la route.",
+        "es": "Tipo de vehículo utilizado para la ruta."
       }
     },
     {
@@ -197,7 +208,8 @@
         "en": "Expected traffic condition along the route.",
         "tr": "Rota boyunca beklenen trafik durumu.",
         "de": "Erwartete Verkehrsbedingungen entlang der Route.",
-        "fr": "Condition de circulation attendue sur la route."
+        "fr": "Condition de circulation attendue sur la route.",
+        "es": "Condición de tráfico esperada a lo largo de la ruta."
       }
     }
   ],

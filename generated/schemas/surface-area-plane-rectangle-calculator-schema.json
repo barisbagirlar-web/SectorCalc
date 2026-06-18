@@ -13,14 +13,15 @@
         "tr": "X yönünde eğim (dz/dx)",
         "de": "Steigung in X-Richtung (dz/dx)",
         "fr": "Pente en X (dz/dx)",
-        "es": "Slope in X-direction (dz/dx)",
+        "es": "Pendiente en dirección X (dz/dx)",
         "ar": "Slope in X-direction (dz/dx)"
       },
       "businessContext_i18n": {
         "en": "Partial derivative of surface height with respect to X.",
         "tr": "Yüzey yüksekliğinin X'e göre kısmi türevi.",
         "de": "Partielle Ableitung der Oberflächenhöhe nach X.",
-        "fr": "Dérivée partielle de la hauteur de surface par rapport à X."
+        "fr": "Dérivée partielle de la hauteur de surface par rapport à X.",
+        "es": "Derivada parcial de la altura de la superficie con respecto a X."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Y yönünde eğim (dz/dy)",
         "de": "Steigung in Y-Richtung (dz/dy)",
         "fr": "Pente en Y (dz/dy)",
-        "es": "Slope in Y-direction (dz/dy)",
+        "es": "Pendiente en dirección Y (dz/dy)",
         "ar": "Slope in Y-direction (dz/dy)"
       },
       "businessContext_i18n": {
         "en": "Partial derivative of surface height with respect to Y.",
         "tr": "Yüzey yüksekliğinin Y'ye göre kısmi türevi.",
         "de": "Partielle Ableitung der Oberflächenhöhe nach Y.",
-        "fr": "Dérivée partielle de la hauteur de surface par rapport à Y."
+        "fr": "Dérivée partielle de la hauteur de surface par rapport à Y.",
+        "es": "Derivada parcial de la altura de la superficie con respecto a Y."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "X Başlangıç",
         "de": "X Start",
         "fr": "Début X",
-        "es": "X Start",
+        "es": "Inicio X",
         "ar": "X Start"
       },
       "businessContext_i18n": {
         "en": "Lower bound of X integration domain.",
         "tr": "X entegrasyon bölgesinin alt sınırı.",
         "de": "Untere Grenze des X-Integrationsbereichs.",
-        "fr": "Borne inférieure du domaine d'intégration en X."
+        "fr": "Borne inférieure du domaine d'intégration en X.",
+        "es": "Límite inferior del dominio de integración en X."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "X Bitiş",
         "de": "X Ende",
         "fr": "Fin X",
-        "es": "X End",
+        "es": "Fin X",
         "ar": "X End"
       },
       "businessContext_i18n": {
         "en": "Upper bound of X integration domain.",
         "tr": "X entegrasyon bölgesinin üst sınırı.",
         "de": "Obere Grenze des X-Integrationsbereichs.",
-        "fr": "Borne supérieure du domaine d'intégration en X."
+        "fr": "Borne supérieure du domaine d'intégration en X.",
+        "es": "Límite superior del dominio de integración en X."
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Y Başlangıç",
         "de": "Y Start",
         "fr": "Début Y",
-        "es": "Y Start",
+        "es": "Inicio Y",
         "ar": "Y Start"
       },
       "businessContext_i18n": {
         "en": "Lower bound of Y integration domain.",
         "tr": "Y entegrasyon bölgesinin alt sınırı.",
         "de": "Untere Grenze des Y-Integrationsbereichs.",
-        "fr": "Borne inférieure du domaine d'intégration en Y."
+        "fr": "Borne inférieure du domaine d'intégration en Y.",
+        "es": "Límite inferior del dominio de integración en Y."
       }
     },
     {
@@ -123,14 +128,15 @@
         "tr": "Y Bitiş",
         "de": "Y-Ende",
         "fr": "Fin Y",
-        "es": "Y End",
+        "es": "Fin Y",
         "ar": "Y End"
       },
       "businessContext_i18n": {
         "en": "Upper bound of Y integration domain.",
         "tr": "Y entegrasyon bölgesinin üst sınırı.",
         "de": "Obere Grenze des Y-Integrationsbereichs.",
-        "fr": "Borne supérieure du domaine d'intégration en Y."
+        "fr": "Borne supérieure du domaine d'intégration en Y.",
+        "es": "Límite superior del dominio de integración en Y."
       }
     }
   ],
@@ -151,7 +157,7 @@
     "dataConfidenceAdjusted": "surfaceArea",
     "unit": "ratio"
   },
-  "category": "Diğer",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -159,7 +165,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "diger",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

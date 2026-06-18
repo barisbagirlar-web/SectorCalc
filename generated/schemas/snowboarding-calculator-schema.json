@@ -13,14 +13,15 @@
         "tr": "Eğim Açısı",
         "de": "Neigungswinkel",
         "fr": "Angle de pente",
-        "es": "Slope Angle",
+        "es": "Ángulo de inclinación",
         "ar": "Slope Angle"
       },
       "businessContext_i18n": {
         "en": "Angle of the snowboarding slope relative to horizontal.",
         "tr": "Snowboard pistinin yataya göre eğim açısı.",
         "de": "Winkel der Snowboard-Piste relativ zur Horizontalen",
-        "fr": "Angle de la pente de snowboard par rapport à l'horizontale."
+        "fr": "Angle de la pente de snowboard par rapport à l'horizontale.",
+        "es": "Ángulo de la pendiente de snowboard respecto a la horizontal."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Pist uzunluğu",
         "de": "Pistenlänge",
         "fr": "Longueur de la pente",
-        "es": "Slope Length",
+        "es": "Longitud de la pendiente",
         "ar": "Slope Length"
       },
       "businessContext_i18n": {
         "en": "Length of the slope surface.",
         "tr": "Pist yüzeyinin uzunluğu.",
         "de": "Länge der Pistenoberfläche",
-        "fr": "Longueur de la surface de la pente."
+        "fr": "Longueur de la surface de la pente.",
+        "es": "Longitud de la superficie de la pendiente."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Coefficient of kinetic friction between snowboard and snow.",
         "tr": "Snowboard ile kar arasındaki kinetik sürtünme katsayısı.",
         "de": "Gleitreibungskoeffizient zwischen Snowboard und Schnee",
-        "fr": "Coefficient de frottement cinétique entre la planche et la neige."
+        "fr": "Coefficient de frottement cinétique entre la planche et la neige.",
+        "es": "Coeficiente de fricción cinética entre la tabla de snowboard y la nieve."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Sürücü + Tahta kütlesi",
         "de": "Masse Fahrer + Brett",
         "fr": "Masse du rider + planche",
-        "es": "Rider + Board Mass",
+        "es": "Masa del jinete + tabla",
         "ar": "Rider + Board Mass"
       },
       "businessContext_i18n": {
         "en": "Total mass of the snowboarder and equipment.",
         "tr": "Snowboardcunun ve ekipmanının toplam kütlesi.",
         "de": "Gesamtmasse des Snowboarders und der Ausrüstung",
-        "fr": "Masse totale du snowboardeur et de l'équipement."
+        "fr": "Masse totale du snowboardeur et de l'équipement.",
+        "es": "Masa total del snowboarder y el equipo."
       }
     }
   ],
@@ -111,7 +115,7 @@
       "acceleration": "%"
     }
   },
-  "category": "Diğer",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
@@ -119,7 +123,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "diger",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

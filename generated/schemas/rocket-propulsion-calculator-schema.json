@@ -20,7 +20,8 @@
         "en": "Total initial mass of the rocket including propellant.",
         "tr": "Roketin yakıt dahil toplam başlangıç kütlesi.",
         "de": "Gesamte Anfangsmasse der Rakete einschließlich Treibstoff.",
-        "fr": "Masse initiale totale de la fusée incluant le propergol."
+        "fr": "Masse initiale totale de la fusée incluant le propergol.",
+        "es": "Masa inicial total del cohete incluyendo el propelente."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Son Kütle",
         "de": "Endmasse",
         "fr": "Masse finale",
-        "es": "Final Mass",
+        "es": "Masa final",
         "ar": "Final Mass"
       },
       "businessContext_i18n": {
         "en": "Final mass after propellant burnout (dry mass).",
         "tr": "Yakıt tükenmesinden sonraki son kütle (kuru kütle).",
         "de": "Endmasse nach Treibstoffausbrand (Trockenmasse).",
-        "fr": "Masse finale après épuisement du propergol (masse sèche)."
+        "fr": "Masse finale après épuisement du propergol (masse sèche).",
+        "es": "Masa final después del agotamiento del propelente (masa seca)."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Specific impulse of the rocket engine, a measure of efficiency.",
         "tr": "Roket motorunun özgül itkisi, bir verimlilik ölçüsü.",
         "de": "Spezifischer Impuls des Raketentriebwerks, ein Maß für die Effizienz.",
-        "fr": "Impulsion spécifique du moteur-fusée, mesure de l'efficacité."
+        "fr": "Impulsion spécifique du moteur-fusée, mesure de l'efficacité.",
+        "es": "Impulso específico del motor del cohete, una medida de eficiencia."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Standard gravitational acceleration at Earth's surface.",
         "tr": "Dünya yüzeyindeki standart yerçekimi ivmesi.",
         "de": "Standard-Erdbeschleunigung an der Erdoberfläche.",
-        "fr": "Accélération gravitationnelle standard à la surface terrestre."
+        "fr": "Accélération gravitationnelle standard à la surface terrestre.",
+        "es": "Aceleración gravitacional estándar en la superficie terrestre."
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Propellant mass flow rate through the engine.",
         "tr": "Motordan geçen yakıt kütle debisi.",
         "de": "Massenstrom des Treibstoffs durch das Triebwerk.",
-        "fr": "Débit massique du propergol à travers le moteur."
+        "fr": "Débit massique du propergol à travers le moteur.",
+        "es": "Caudal másico del propelente a través del motor."
       }
     }
   ],
@@ -138,7 +143,7 @@
       "massRatio": "%"
     }
   },
-  "category": "Verimlilik & OEE",
+  "category": "Teknik & Mühendislik",
   "sector": "Havacılık & Uzay",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -146,7 +151,7 @@
   "categorySlug": "process-chemical",
   "sectorId": "havacilik",
   "profession": "Tasarım Mühendisi",
-  "categoryId": "efficiency",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

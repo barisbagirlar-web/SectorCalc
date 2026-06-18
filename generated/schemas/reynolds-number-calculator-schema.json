@@ -31,7 +31,8 @@
         "en": "Select the working fluid to auto-populate density and viscosity. Options include water, air, oil, and custom.",
         "tr": "Yoğunluk ve viskoziteyi otomatik doldurmak için çalışma akışkanını seçin. Seçenekler: su, hava, yağ ve özel.",
         "de": "Wählen Sie das Arbeitsfluid aus, um Dichte und Viskosität automatisch auszufüllen. Optionen umfassen Wasser, Luft, Öl und benutzerdefiniert.",
-        "fr": "Sélectionnez le fluide de travail pour remplir automatiquement la densité et la viscosité. Options : eau, air, huile et personnalisé."
+        "fr": "Sélectionnez le fluide de travail pour remplir automatiquement la densité et la viscosité. Options : eau, air, huile et personnalisé.",
+        "es": "Seleccione el fluido de trabajo para autocompletar densidad y viscosidad. Las opciones incluyen agua, aire, aceite y personalizado."
       }
     },
     {
@@ -54,7 +55,8 @@
         "en": "Mass density of the fluid at operating temperature. For water at 20°C: 998.2 kg/m³.",
         "tr": "Akışkanın çalışma sıcaklığındaki kütle yoğunluğu. 20°C'de su için: 998.2 kg/m³.",
         "de": "Massendichte des Fluids bei Betriebstemperatur. Für Wasser bei 20 °C: 998,2 kg/m³.",
-        "fr": "Masse volumique du fluide à la température de fonctionnement. Pour l'eau à 20 °C : 998,2 kg/m³."
+        "fr": "Masse volumique du fluide à la température de fonctionnement. Pour l'eau à 20 °C : 998,2 kg/m³.",
+        "es": "Densidad másica del fluido a temperatura de operación. Para agua a 20°C: 998.2 kg/m³."
       }
     },
     {
@@ -77,7 +79,8 @@
         "en": "Absolute viscosity of the fluid. For water at 20°C: 0.001002 Pa·s.",
         "tr": "Akışkanın mutlak viskozitesi. 20°C'de su için: 0.001002 Pa·s.",
         "de": "Absolute Viskosität des Fluids. Für Wasser bei 20 °C: 0,001002 Pa·s.",
-        "fr": "Viscosité absolue du fluide. Pour l'eau à 20 °C : 0,001002 Pa·s."
+        "fr": "Viscosité absolue du fluide. Pour l'eau à 20 °C : 0,001002 Pa·s.",
+        "es": "Viscosidad absoluta del fluido. Para agua a 20°C: 0.001002 Pa·s."
       }
     },
     {
@@ -100,7 +103,8 @@
         "en": "Average velocity of the fluid in the pipe cross-section.",
         "tr": "Boru kesitindeki akışkanın ortalama hızı.",
         "de": "Durchschnittliche Geschwindigkeit des Fluids im Rohrquerschnitt.",
-        "fr": "Vitesse moyenne du fluide dans la section transversale du tuyau."
+        "fr": "Vitesse moyenne du fluide dans la section transversale du tuyau.",
+        "es": "Velocidad promedio del fluido en la sección transversal de la tubería."
       }
     },
     {
@@ -123,7 +127,8 @@
         "en": "Internal diameter of the pipe or conduit.",
         "tr": "Boru veya kanalın iç çapı.",
         "de": "Innendurchmesser des Rohrs oder Kanals.",
-        "fr": "Diamètre intérieur du tuyau ou conduit."
+        "fr": "Diamètre intérieur du tuyau ou conduit.",
+        "es": "Diámetro interno de la tubería o conducto."
       }
     },
     {
@@ -146,7 +151,8 @@
         "en": "Average height of surface irregularities inside the pipe. For commercial steel: 0.000045 m.",
         "tr": "Boru iç yüzeyindeki pürüzlülüklerin ortalama yüksekliği. Ticari çelik için: 0.000045 m.",
         "de": "Durchschnittliche Höhe der Oberflächenunregelmäßigkeiten im Rohr. Für Baustahl: 0,000045 m.",
-        "fr": "Hauteur moyenne des irrégularités de surface à l'intérieur du tuyau. Pour l'acier commercial : 0,000045 m."
+        "fr": "Hauteur moyenne des irrégularités de surface à l'intérieur du tuyau. Pour l'acier commercial : 0,000045 m.",
+        "es": "Altura promedio de las irregularidades superficiales dentro de la tubería. Para acero comercial: 0.000045 m."
       }
     },
     {
@@ -169,7 +175,8 @@
         "en": "Fluid temperature used for viscosity and density corrections if applicable.",
         "tr": "Varsa viskozite ve yoğunluk düzeltmeleri için kullanılan akışkan sıcaklığı.",
         "de": "Fluidtemperatur, die ggf. für Viskositäts- und Dichtekorrekturen verwendet wird.",
-        "fr": "Température du fluide utilisée pour les corrections de viscosité et de densité si applicable."
+        "fr": "Température du fluide utilisée pour les corrections de viscosité et de densité si applicable.",
+        "es": "Temperatura del fluido utilizada para correcciones de viscosidad y densidad si corresponde."
       }
     },
     {
@@ -185,13 +192,15 @@
         "en": "Flow Regime Threshold",
         "tr": "Akış Rejimi Eşiği",
         "de": "Schwellenwert des Strömungsregimes",
-        "fr": "Seuil de régime d'écoulement"
+        "fr": "Seuil de régime d'écoulement",
+        "es": "Umbral del régimen de flujo"
       },
       "businessContext_i18n": {
         "en": "Select threshold standard: 'standard' (Re<2300 laminar, 2300-4000 transitional, >4000 turbulent) or 'conservative' (Re<2000 laminar, 2000-3000 transitional, >3000 turbulent).",
         "tr": "Eşik standardını seçin: 'standart' (Re<2300 laminer, 2300-4000 geçiş, >4000 türbülanslı) veya 'muhafazakar' (Re<2000 laminer, 2000-3000 geçiş, >3000 türbülanslı).",
         "de": "Wählen Sie den Schwellenwertstandard: 'Standard' (Re<2300 laminar, 2300-4000 Übergang, >4000 turbulent) oder 'Konservativ' (Re<2000 laminar, 2000-3000 Übergang, >3000 turbulent).",
-        "fr": "Sélectionnez la norme de seuil : 'standard' (Re<2300 laminaire, 2300-4000 transitionnel, >4000 turbulent) ou 'conservateur' (Re<2000 laminaire, 2000-3000 transitionnel, >3000 turbulent)."
+        "fr": "Sélectionnez la norme de seuil : 'standard' (Re<2300 laminaire, 2300-4000 transitionnel, >4000 turbulent) ou 'conservateur' (Re<2000 laminaire, 2000-3000 transitionnel, >3000 turbulent).",
+        "es": "Seleccione el estándar del umbral: 'estándar' (Re<2300 laminar, 2300-4000 transición, >4000 turbulento) o 'conservador' (Re<2000 laminar, 2000-3000 transición, >3000 turbulento)."
       }
     }
   ],

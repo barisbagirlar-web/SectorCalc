@@ -20,7 +20,8 @@
         "en": "The radius of the circle from which the segment is taken.",
         "tr": "Segmentin alındığı dairenin yarıçapı.",
         "de": "Der Radius des Kreises, aus dem das Segment entnommen wird.",
-        "fr": "Le rayon du cercle dont est issu le segment."
+        "fr": "Le rayon du cercle dont est issu le segment.",
+        "es": "El radio del círculo del cual se toma el segmento."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "The central angle of the segment in degrees.",
         "tr": "Segmentin merkez açısı (derece cinsinden).",
         "de": "Der Mittelpunktswinkel des Segments in Grad.",
-        "fr": "L'angle au centre du segment en degrés."
+        "fr": "L'angle au centre du segment en degrés.",
+        "es": "Ángulo central del segmento en grados."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Factor to account for safety or overage, e.g., 1.1 for 10% extra.",
         "tr": "Güvenlik veya fire payı faktörü, örn. %10 fazla için 1.1.",
         "de": "Faktor zur Berücksichtigung von Sicherheit oder Überbestand, z. B. 1,1 für 10 % Extra.",
-        "fr": "Facteur de sécurité ou de marge, par exemple 1,1 pour 10 % de supplément."
+        "fr": "Facteur de sécurité ou de marge, par exemple 1,1 pour 10 % de supplément.",
+        "es": "Factor para considerar seguridad o excedente, ej. 1.1 para 10% extra."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Segment Sayısı",
         "de": "Anzahl der Segmente",
         "fr": "Nombre de segments",
-        "es": "Number of Segments",
+        "es": "Número de segmentos",
         "ar": "Number of Segments"
       },
       "businessContext_i18n": {
         "en": "Number of identical segments to calculate total area.",
         "tr": "Toplam alanı hesaplamak için özdeş segment sayısı.",
         "de": "Anzahl identischer Segmente zur Berechnung der Gesamtfläche.",
-        "fr": "Nombre de segments identiques pour calculer la surface totale."
+        "fr": "Nombre de segments identiques pour calculer la surface totale.",
+        "es": "Número de segmentos idénticos para calcular el área total."
       }
     }
   ],
@@ -110,7 +114,7 @@
     "dataConfidenceAdjusted": "totalArea",
     "unit": "m"
   },
-  "category": "İSG & Risk",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "math-statistics",
@@ -118,7 +122,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "safety",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

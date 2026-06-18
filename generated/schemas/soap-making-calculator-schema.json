@@ -13,14 +13,15 @@
         "tr": "Toplam Yağ Ağırlığı",
         "de": "Gesamtölgewicht",
         "fr": "Poids total des huiles",
-        "es": "Total Oil Weight",
+        "es": "Peso total de aceite",
         "ar": "Total Oil Weight"
       },
       "businessContext_i18n": {
         "en": "Weight of all oils in the recipe",
         "tr": "Tarifteki tüm yağların ağırlığı",
         "de": "Gewicht aller Öle im Rezept",
-        "fr": "Poids de toutes les huiles dans la recette"
+        "fr": "Poids de toutes les huiles dans la recette",
+        "es": "Peso de todos los aceites en la receta"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "SAP Değeri (NaOH)",
         "de": "SAP-Wert (NaOH)",
         "fr": "Valeur SAP (NaOH)",
-        "es": "SAP Value (NaOH)",
+        "es": "Valor SAP (NaOH)",
         "ar": "SAP Value (NaOH)"
       },
       "businessContext_i18n": {
         "en": "Milligrams of NaOH required to saponify 1 gram of oil blend",
         "tr": "1 gram yağ karışımını sabunlaştırmak için gereken NaOH miligramı",
         "de": "Milligramm NaOH zur Verseifung von 1 Gramm Ölmischung",
-        "fr": "Milligrammes de NaOH nécessaires pour saponifier 1 gramme du mélange d'huiles"
+        "fr": "Milligrammes de NaOH nécessaires pour saponifier 1 gramme du mélange d'huiles",
+        "es": "Miligramos de NaOH necesarios para saponificar 1 gramo de la mezcla de aceites"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Süper Yağ Yüzdesi",
         "de": "Überfettungsprozentsatz",
         "fr": "Pourcentage de surgras",
-        "es": "Superfat Percentage",
+        "es": "Porcentaje de sobreengrasado",
         "ar": "Superfat Percentage"
       },
       "businessContext_i18n": {
         "en": "Percentage of oils left unsaponified for conditioning",
         "tr": "Bakım için sabunlaşmamış bırakılan yağların yüzdesi",
         "de": "Prozentsatz der unverseiften Öle für die Pflege",
-        "fr": "Pourcentage d'huiles laissées non saponifiées pour le conditionnement"
+        "fr": "Pourcentage d'huiles laissées non saponifiées pour le conditionnement",
+        "es": "Porcentaje de aceites no saponificados para acondicionamiento"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Yağların Yüzdesi Olarak Su",
         "de": "Wasser als % der Öle",
         "fr": "Eau en % des huiles",
-        "es": "Water as % of Oils",
+        "es": "Agua como % de los aceites",
         "ar": "Water as % of Oils"
       },
       "businessContext_i18n": {
         "en": "Weight of water relative to total oil weight",
         "tr": "Toplam yağ ağırlığına göre su ağırlığı",
         "de": "Gewicht des Wassers relativ zum Gesamtölgewicht",
-        "fr": "Poids de l'eau par rapport au poids total des huiles"
+        "fr": "Poids de l'eau par rapport au poids total des huiles",
+        "es": "Peso del agua relativo al peso total de aceite"
       }
     }
   ],
@@ -108,7 +112,7 @@
     "dataConfidenceAdjusted": "totalWeight",
     "unit": "g"
   },
-  "category": "Sürdürülebilirlik",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Makine & Üretim",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
@@ -116,7 +120,7 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "sustainability",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

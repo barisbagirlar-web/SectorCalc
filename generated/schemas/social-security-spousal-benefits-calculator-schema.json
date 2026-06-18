@@ -13,14 +13,15 @@
         "tr": "Birincil Kazananın PIA'sı",
         "de": "PIA des Hauptverdieners",
         "fr": "MAP du principal salarié",
-        "es": "Primary Earner's PIA",
+        "es": "PIA del asalariado principal",
         "ar": "Primary Earner's PIA"
       },
       "businessContext_i18n": {
         "en": "The primary insurance amount (PIA) of the worker whose earnings record the spousal benefit is claimed on.",
         "tr": "Eş faydasının talep edildiği çalışanın temel sigorta tutarı (PIA).",
         "de": "Der primäre Versicherungsbetrag (PIA) des Arbeitnehmers, auf dessen Einkommensnachweis die Hinterbliebenenleistung beansprucht wird.",
-        "fr": "Montant de l'assurance primaire (MAP) du travailleur sur la base duquel la prestation de conjoint est demandée."
+        "fr": "Montant de l'assurance primaire (MAP) du travailleur sur la base duquel la prestation de conjoint est demandée.",
+        "es": "El monto del seguro primario (PIA) del trabajador en cuyo registro de ingresos se reclama el beneficio conyugal."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Eşin Kendi PIA'sı",
         "de": "Eigene PIA des Ehepartners",
         "fr": "MAP propre du conjoint",
-        "es": "Spouse's Own PIA",
+        "es": "PIA propio del cónyuge",
         "ar": "Spouse's Own PIA"
       },
       "businessContext_i18n": {
         "en": "The spouse's own retirement benefit if they filed based on their own earnings record.",
         "tr": "Eşin kendi kazanç kaydına dayanarak dosyaladığı kendi emeklilik faydası.",
         "de": "Die eigene Altersrente des Ehepartners, wenn dieser auf Basis seines eigenen Einkommens einen Antrag gestellt hat.",
-        "fr": "Prestation de retraite propre du conjoint s'il a demandé sur la base de ses propres revenus."
+        "fr": "Prestation de retraite propre du conjoint s'il a demandé sur la base de ses propres revenus.",
+        "es": "El beneficio de jubilación propio del cónyuge si solicitó basado en su propio registro de ingresos."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Eşin Başvuru Yaşı",
         "de": "Antragsalter des Ehepartners",
         "fr": "Âge de demande du conjoint",
-        "es": "Spouse's Filing Age",
+        "es": "Edad de solicitud del cónyuge",
         "ar": "Spouse's Filing Age"
       },
       "businessContext_i18n": {
         "en": "The age at which the spouse applies for spousal benefits.",
         "tr": "Eşin eş faydası için başvurduğu yaş.",
         "de": "Das Alter, in dem der Ehepartner Hinterbliebenenleistungen beantragt.",
-        "fr": "Âge auquel le conjoint demande les prestations de conjoint."
+        "fr": "Âge auquel le conjoint demande les prestations de conjoint.",
+        "es": "La edad a la que el cónyuge solicita los beneficios conyugales."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Eşin Tam Emeklilik Yaşı",
         "de": "Volles Rentenalter des Ehepartners",
         "fr": "Âge de retraite à taux plein du conjoint",
-        "es": "Spouse's Full Retirement Age",
+        "es": "Edad de jubilación completa del cónyuge",
         "ar": "Spouse's Full Retirement Age"
       },
       "businessContext_i18n": {
         "en": "The age at which the spouse can receive unreduced benefits. Typically 66-67 depending on birth year.",
         "tr": "Eşin indirimsiz fayda alabileceği yaş. Doğum yılına bağlı olarak genellikle 66-67.",
         "de": "Das Alter, in dem der Ehepartner ungekürzte Leistungen erhalten kann. In der Regel 66–67, abhängig vom Geburtsjahr.",
-        "fr": "Âge auquel le conjoint peut percevoir des prestations non réduites. Généralement 66-67 selon l'année de naissance."
+        "fr": "Âge auquel le conjoint peut percevoir des prestations non réduites. Généralement 66-67 selon l'année de naissance.",
+        "es": "La edad a la que el cónyuge puede recibir beneficios sin reducción. Generalmente 66-67 dependiendo del año de nacimiento."
       }
     }
   ],
@@ -108,7 +112,7 @@
     "dataConfidenceAdjusted": "spousalBenefit",
     "unit": "$/month"
   },
-  "category": "İK & Personel",
+  "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -116,7 +120,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "hr",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

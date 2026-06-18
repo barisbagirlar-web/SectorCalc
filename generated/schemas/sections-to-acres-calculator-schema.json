@@ -13,14 +13,15 @@
         "tr": "Tam Bölümler",
         "de": "Vollständige Sektionen",
         "fr": "Sections complètes",
-        "es": "Full Sections",
+        "es": "Secciones completas",
         "ar": "Full Sections"
       },
       "businessContext_i18n": {
         "en": "Number of complete survey sections",
         "tr": "Tam anket bölümlerinin sayısı",
         "de": "Anzahl der vollständigen Vermessungssektionen",
-        "fr": "Nombre de sections d'arpentage complètes"
+        "fr": "Nombre de sections d'arpentage complètes",
+        "es": "Número de secciones completas de la encuesta"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Yarım Bölümler",
         "de": "Halbe Sektionen",
         "fr": "Demi-sections",
-        "es": "Half Sections",
+        "es": "Medias secciones",
         "ar": "Half Sections"
       },
       "businessContext_i18n": {
         "en": "Number of half sections (320 acres each)",
         "tr": "Yarım bölüm sayısı (her biri 320 dönüm)",
         "de": "Anzahl der halben Sektionen (je 320 Acres)",
-        "fr": "Nombre de demi-sections (320 acres chacune)"
+        "fr": "Nombre de demi-sections (320 acres chacune)",
+        "es": "Número de medias secciones (320 acres cada una)"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Çeyrek Bölümler",
         "de": "Viertelsektionen",
         "fr": "Quarts de section",
-        "es": "Quarter Sections",
+        "es": "Secciones de cuarto",
         "ar": "Quarter Sections"
       },
       "businessContext_i18n": {
         "en": "Number of quarter sections (160 acres each)",
         "tr": "Çeyrek bölüm sayısı (her biri 160 dönüm)",
         "de": "Anzahl der Viertelsektionen (je 160 Acres)",
-        "fr": "Nombre de quarts de section (160 acres chacun)"
+        "fr": "Nombre de quarts de section (160 acres chacun)",
+        "es": "Número de secciones de cuarto (160 acres cada una)"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Çeyrek-Çeyrek Bölümler",
         "de": "Viertel-Viertelsektionen",
         "fr": "Quarts de quart de section",
-        "es": "Quarter-Quarter Sections",
+        "es": "Secciones de cuarto de cuarto",
         "ar": "Quarter-Quarter Sections"
       },
       "businessContext_i18n": {
         "en": "Number of quarter-quarter sections (40 acres each)",
         "tr": "Çeyrek-çeyrek bölüm sayısı (her biri 40 dönüm)",
         "de": "Anzahl der Viertel-Viertelsektionen (je 40 Acres)",
-        "fr": "Nombre de quarts de quart de section (40 acres chacun)"
+        "fr": "Nombre de quarts de quart de section (40 acres chacun)",
+        "es": "Número de secciones de cuarto de cuarto (40 acres cada una)"
       }
     }
   ],
@@ -107,7 +111,7 @@
     "dataConfidenceAdjusted": "acres",
     "unit": "section"
   },
-  "category": "Diğer",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Birim & Dönüşüm",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -115,7 +119,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "birim-donusum",
   "profession": "Mühendis",
-  "categoryId": "diger",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

@@ -20,7 +20,8 @@
         "en": "Boyanacak toplam yüzey alanı",
         "tr": "Boyanacak toplam yüzey alanı",
         "de": "Zu streichende Gesamtfläche",
-        "fr": "Surface totale à peindre"
+        "fr": "Surface totale à peindre",
+        "es": "Boyanacak toplam yüzey alanı"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Boya kapsama oranı (üretici verisi)",
         "tr": "Boya kapsama oranı (üretici verisi)",
         "de": "Farbabdeckung (Herstellerangabe)",
-        "fr": "Taux de couverture de la peinture (donnée fabricant)"
+        "fr": "Taux de couverture de la peinture (donnée fabricant)",
+        "es": "Boya kapsama oranı (üretici verisi)"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Uygulanacak kat sayısı",
         "tr": "Uygulanacak kat sayısı",
         "de": "Anzahl der aufzutragenden Schichten",
-        "fr": "Nombre de couches à appliquer"
+        "fr": "Nombre de couches à appliquer",
+        "es": "Uygulanacak kat sayısı"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Yangın, aşırı püskürtme vb. kayıplar",
         "tr": "Yangın, aşırı püskürtme vb. kayıplar",
         "de": "Verluste durch Feuer, Overspray usw.",
-        "fr": "Pertes dues au feu, surpulvérisation, etc."
+        "fr": "Pertes dues au feu, surpulvérisation, etc.",
+        "es": "Yangın, aşırı püskürtme vb. kayıplar"
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Bir sprey boya kutusunun hacmi",
         "tr": "Bir sprey boya kutusunun hacmi",
         "de": "Volumen einer Sprühdose Farbe",
-        "fr": "Volume d'une bombe de peinture en aérosol"
+        "fr": "Volume d'une bombe de peinture en aérosol",
+        "es": "Bir sprey boya kutusunun hacmi"
       }
     }
   ],
@@ -129,7 +134,7 @@
     "dataConfidenceAdjusted": "cansRequired",
     "unit": "m²"
   },
-  "category": "Sürdürülebilirlik",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
@@ -137,7 +142,7 @@
   "categorySlug": "sustainability-resource-esg",
   "sectorId": "matematik",
   "profession": "Veri Analisti",
-  "categoryId": "sustainability",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

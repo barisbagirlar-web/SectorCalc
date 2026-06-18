@@ -20,7 +20,8 @@
         "en": "Employee monthly base salary before rewards",
         "tr": "Ödüller öncesi çalışanın aylık brüt maaşı",
         "de": "Monatliches Grundgehalt des Mitarbeiters vor Prämien",
-        "fr": "Salaire mensuel de base de l'employé avant primes"
+        "fr": "Salaire mensuel de base de l'employé avant primes",
+        "es": "Salario base mensual del empleado antes de incentivos"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Performans Puanı",
         "de": "Leistungsbewertung",
         "fr": "Score de performance",
-        "es": "Performance Score",
+        "es": "Puntuación de rendimiento",
         "ar": "Performance Score"
       },
       "businessContext_i18n": {
         "en": "Individual performance rating out of 100",
         "tr": "100 üzerinden bireysel performans değerlendirmesi",
         "de": "Individuelle Leistungsbewertung von 100",
-        "fr": "Évaluation de performance individuelle sur 100"
+        "fr": "Évaluation de performance individuelle sur 100",
+        "es": "Calificación de rendimiento individual sobre 100"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Bonus Yüzdesi",
         "de": "Bonusprozentsatz",
         "fr": "Pourcentage de bonus",
-        "es": "Bonus Percentage",
+        "es": "Porcentaje de bonificación",
         "ar": "Bonus Percentage"
       },
       "businessContext_i18n": {
         "en": "Base bonus percentage according to grade",
         "tr": "Sınıfa göre temel prim yüzdesi",
         "de": "Basis-Bonusprozentsatz gemäß Gehaltsstufe",
-        "fr": "Pourcentage de bonus de base selon le grade"
+        "fr": "Pourcentage de bonus de base selon le grade",
+        "es": "Porcentaje de bonificación base según el grado"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Takım Çarpanı",
         "de": "Team-Multiplikator",
         "fr": "Multiplicateur d'équipe",
-        "es": "Team Multiplier",
+        "es": "Multiplicador de equipo",
         "ar": "Team Multiplier"
       },
       "businessContext_i18n": {
         "en": "Team achievement multiplier (e.g., 1.0 = 100%)",
         "tr": "Takım başarı çarpanı (ör. 1.0 = %100)",
         "de": "Teamleistungs-Multiplikator (z. B. 1,0 = 100%)",
-        "fr": "Multiplicateur de réalisation d'équipe (ex. 1,0 = 100 %)"
+        "fr": "Multiplicateur de réalisation d'équipe (ex. 1,0 = 100 %)",
+        "es": "Multiplicador de logro del equipo (ej. 1.0 = 100%)"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Kıdem (Yıl)",
         "de": "Betriebszugehörigkeit (Jahre)",
         "fr": "Ancienneté (années)",
-        "es": "Tenure (Years)",
+        "es": "Antigüedad (años)",
         "ar": "Tenure (Years)"
       },
       "businessContext_i18n": {
         "en": "Years of continuous service",
         "tr": "Kesintisiz hizmet yılı",
         "de": "Jahre ununterbrochener Betriebszugehörigkeit",
-        "fr": "Années de service continu"
+        "fr": "Années de service continu",
+        "es": "Años de servicio continuo"
       }
     },
     {
@@ -123,14 +128,15 @@
         "tr": "Güvenlik Puanı",
         "de": "Sicherheitsbewertung",
         "fr": "Note de sécurité",
-        "es": "Safety Rating",
+        "es": "Calificación de seguridad",
         "ar": "Safety Rating"
       },
       "businessContext_i18n": {
         "en": "Safety performance score (0–100)",
         "tr": "Güvenlik performans puanı (0–100)",
         "de": "Sicherheitsleistungswert (0–100)",
-        "fr": "Score de performance sécurité (0–100)"
+        "fr": "Score de performance sécurité (0–100)",
+        "es": "Puntuación de desempeño en seguridad (0–100)"
       }
     }
   ],
@@ -154,7 +160,7 @@
     "dataConfidenceAdjusted": "safety",
     "unit": "USD"
   },
-  "category": "İK & Personel",
+  "category": "Matematik & Analiz",
   "sector": "Günlük Yaşam & Ev",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -162,7 +168,7 @@
   "categorySlug": "workforce-hr",
   "sectorId": "ev-yasam",
   "profession": "Ev Yöneticisi",
-  "categoryId": "hr",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

@@ -20,7 +20,8 @@
         "en": "Parçaya uygulanan kuvvet",
         "tr": "Parçaya uygulanan kuvvet",
         "de": "Auf das Bauteil wirkende Kraft",
-        "fr": "Force appliquée à la pièce"
+        "fr": "Force appliquée à la pièce",
+        "es": "Fuerza aplicada a la pieza"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Parçanın yükü taşıyan kesit alanı",
         "tr": "Parçanın yükü taşıyan kesit alanı",
         "de": "Lasttragende Querschnittsfläche des Bauteils",
-        "fr": "Section transversale de la pièce supportant la charge"
+        "fr": "Section transversale de la pièce supportant la charge",
+        "es": "Área de sección transversal de la pieza que soporta la carga"
       }
     },
     {
@@ -87,7 +89,8 @@
         "en": "Tasarım emniyet katsayısı",
         "tr": "Tasarım emniyet katsayısı",
         "de": "Auslegungssicherheitsfaktor",
-        "fr": "Coefficient de sécurité de conception"
+        "fr": "Coefficient de sécurité de conception",
+        "es": "Factor de seguridad de diseño"
       }
     }
   ],
@@ -109,7 +112,7 @@
     "dataConfidenceAdjusted": "allowableStress",
     "unit": "N"
   },
-  "category": "Diğer",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",
   "premiumRequired": false,
   "categorySlug": "quality-six-sigma",
@@ -117,7 +120,7 @@
   "sectorSlug": "cleaning",
   "sectorId": "ev-yasam",
   "profession": "Ev Yöneticisi",
-  "categoryId": "diger",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

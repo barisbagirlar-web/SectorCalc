@@ -13,14 +13,15 @@
         "tr": "Test Mesafesi (m)",
         "de": "Testabstand (m)",
         "fr": "Distance de test (m)",
-        "es": "Test Mesafesi (m)",
+        "es": "Distancia de prueba (m)",
         "ar": "Test Mesafesi (m)"
       },
       "businessContext_i18n": {
         "en": "Hastanın test edildiği mesafe, genellikle 6 m.",
         "tr": "Hastanın test edildiği mesafe, genellikle 6 m.",
         "de": "Entfernung, in der der Patient getestet wird, normalerweise 6 m.",
-        "fr": "Distance à laquelle le patient est testé, généralement 6 m."
+        "fr": "Distance à laquelle le patient est testé, généralement 6 m.",
+        "es": "Distancia a la que se prueba al paciente, generalmente 6 m."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Optotip Yüksekliği (mm)",
         "de": "Optotypenhöhe (mm)",
         "fr": "Hauteur de l'optotype (mm)",
-        "es": "Optotip Yüksekliği (mm)",
+        "es": "Altura del optotipo (mm)",
         "ar": "Optotip Yüksekliği (mm)"
       },
       "businessContext_i18n": {
         "en": "En küçük okunabilen harf veya sembolün tam yüksekliği.",
         "tr": "En küçük okunabilen harf veya sembolün tam yüksekliği.",
         "de": "Die genaue Höhe des kleinsten lesbaren Buchstabens oder Symbols.",
-        "fr": "Hauteur exacte de la plus petite lettre ou symbole lisible."
+        "fr": "Hauteur exacte de la plus petite lettre ou symbole lisible.",
+        "es": "Altura total de la letra o símbolo más pequeño legible."
       }
     },
     {
@@ -87,7 +89,7 @@
     "dataConfidenceAdjusted": "logMAR",
     "unit": "m"
   },
-  "category": "Diğer",
+  "category": "Teknik & Mühendislik",
   "sector": "Otomotiv & Taşıt",
   "premiumRequired": false,
   "catalogCategory": "health-body",
@@ -95,7 +97,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "otomotiv",
   "profession": "Üretim Mühendisi",
-  "categoryId": "diger",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

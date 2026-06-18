@@ -20,7 +20,8 @@
         "en": "The design speed of the road section.",
         "tr": "Yol bölümünün tasarım hızı.",
         "de": "Die Ausbaugeschwindigkeit des Straßenabschnitts.",
-        "fr": "Vitesse de conception de la section de route."
+        "fr": "Vitesse de conception de la section de route.",
+        "es": "Velocidad de diseño del tramo de carretera."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Eğri Yarıçapı",
         "de": "Kurvenradius",
         "fr": "Rayon de courbe",
-        "es": "Curve Radius",
+        "es": "Radio de curva",
         "ar": "Curve Radius"
       },
       "businessContext_i18n": {
         "en": "The radius of the horizontal curve.",
         "tr": "Yatay eğrinin yarıçapı.",
         "de": "Der Radius der horizontalen Kurve.",
-        "fr": "Le rayon de la courbe horizontale."
+        "fr": "Le rayon de la courbe horizontale.",
+        "es": "Radio de la curva horizontal."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "The coefficient of side friction assumed for design.",
         "tr": "Tasarım için varsayılan yanal sürtünme katsayısı.",
         "de": "Der für die Bemessung angenommene Seitenreibungsbeiwert.",
-        "fr": "Le coefficient de frottement latéral supposé pour la conception."
+        "fr": "Le coefficient de frottement latéral supposé pour la conception.",
+        "es": "Coeficiente de fricción lateral asumido para el diseño."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Maksimum Dever",
         "de": "Maximale Überhöhung",
         "fr": "Dévers maximal",
-        "es": "Maximum Superelevation",
+        "es": "Sobreelevación máxima",
         "ar": "Maximum Superelevation"
       },
       "businessContext_i18n": {
         "en": "Maximum allowable superelevation rate per design standards.",
         "tr": "Tasarım standartlarına göre izin verilen maksimum dever oranı.",
         "de": "Maximal zulässiger Überhöhungssatz gemäß Bemessungsnormen.",
-        "fr": "Taux de dévers maximal autorisé selon les normes de conception."
+        "fr": "Taux de dévers maximal autorisé selon les normes de conception.",
+        "es": "Tasa de sobreelevación máxima permitida según normas de diseño."
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Yerçekimi İvmesi",
         "de": "Erdbeschleunigung",
         "fr": "Accélération due à la gravité",
-        "es": "Acceleration due to Gravity",
+        "es": "Aceleración debida a la gravedad",
         "ar": "Acceleration due to Gravity"
       },
       "businessContext_i18n": {
         "en": "Gravitational acceleration constant.",
         "tr": "Yerçekimi ivmesi sabiti.",
         "de": "Konstante der Erdbeschleunigung.",
-        "fr": "Constante d'accélération gravitationnelle."
+        "fr": "Constante d'accélération gravitationnelle.",
+        "es": "Constante de aceleración gravitacional."
       }
     }
   ],
@@ -131,7 +136,7 @@
     "dataConfidenceAdjusted": "requiredFrictionCoefficient",
     "unit": "km/h"
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "Matematik & Analiz",
   "sector": "Fizik & Mekanik",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
@@ -139,7 +144,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "fizik",
   "profession": "Fizik Mühendisi",
-  "categoryId": "conversion",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

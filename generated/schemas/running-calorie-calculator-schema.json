@@ -13,14 +13,15 @@
         "tr": "Personel Ağırlığı (kg)",
         "de": "Körpergewicht (kg)",
         "fr": "Poids du personnel (kg)",
-        "es": "Personnel Weight (kg)",
+        "es": "Peso del personal (kg)",
         "ar": "Personnel Weight (kg)"
       },
       "businessContext_i18n": {
         "en": "Body weight of the personnel",
         "tr": "Personelin vücut ağırlığı",
         "de": "Körpergewicht der Person",
-        "fr": "Poids corporel du personnel"
+        "fr": "Poids corporel du personnel",
+        "es": "Peso corporal del personal"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Running distance covered",
         "tr": "Koşulan mesafe",
         "de": "Zurückgelegte Laufstrecke",
-        "fr": "Distance de course parcourue"
+        "fr": "Distance de course parcourue",
+        "es": "Distancia recorrida"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Total elevation gain during run",
         "tr": "Koşu sırasında kazanılan toplam yükseklik",
         "de": "Gesamter Höhengewinn während des Laufs",
-        "fr": "Dénivelé positif total pendant la course"
+        "fr": "Dénivelé positif total pendant la course",
+        "es": "Ganancia total de elevación durante la carrera"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Ek Yük (kg)",
         "de": "Zusätzliche Last (kg)",
         "fr": "Charge supplémentaire (kg)",
-        "es": "Additional Load (kg)",
+        "es": "Carga adicional (kg)",
         "ar": "Additional Load (kg)"
       },
       "businessContext_i18n": {
         "en": "Additional load carried by personnel",
         "tr": "Personel tarafından taşınan ek yük",
         "de": "Zusätzliche Last, die vom Personal getragen wird",
-        "fr": "Charge supplémentaire portée par le personnel"
+        "fr": "Charge supplémentaire portée par le personnel",
+        "es": "Carga adicional transportada por el personal"
       }
     }
   ],
@@ -110,7 +114,7 @@
     "dataConfidenceAdjusted": "total_calories",
     "unit": "kg"
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "İSG & Risk",
   "sector": "Sağlık & Tıp",
   "premiumRequired": false,
   "catalogCategory": "health-body",
@@ -118,7 +122,7 @@
   "categorySlug": "workforce-hr",
   "sectorId": "saglik",
   "profession": "Biyomedikal Mühendisi",
-  "categoryId": "conversion",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

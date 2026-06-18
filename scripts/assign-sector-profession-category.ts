@@ -5,7 +5,14 @@
  */
 import fs from "node:fs";
 import path from "node:path";
-import { CATEGORIES, SECTORS, SECTOR_SLUG_OVERRIDES, SLUG_TOKEN_SECTOR_HINTS } from "../src/lib/tools/taxonomy";
+import {
+  CATEGORIES,
+  SECTORS,
+  SECTOR_SLUG_OVERRIDES,
+  SECTOR_TO_CATEGORY,
+  SLUG_TOKEN_CATEGORY_HINTS,
+  SLUG_TOKEN_SECTOR_HINTS,
+} from "../src/lib/tools/taxonomy";
 
 const SCHEMAS_DIR = path.join(process.cwd(), "generated", "schemas");
 const FALLBACK_SECTOR_ID = "diger";
@@ -139,15 +146,41 @@ function findBestSector(text: string, fileSlug: string): { sectorId: string; sco
   return { sectorId: bestSectorId, score: bestScore };
 }
 
-function findBestCategory(text: string): { categoryId: string; score: number } {
+function scoreCategorySlugTokens(fileSlug: string): Map<string, number> {
+  const scores = new Map<string, number>();
+  const tokens = normalizeHaystack([fileSlug]).split(" ").filter(Boolean);
+  for (const token of tokens) {
+    const hintedCategory = SLUG_TOKEN_CATEGORY_HINTS[token];
+    if (hintedCategory) {
+      scores.set(hintedCategory, (scores.get(hintedCategory) ?? 0) + SLUG_TOKEN_SCORE);
+    }
+  }
+  return scores;
+}
+
+function findBestCategory(
+  text: string,
+  fileSlug: string,
+  sectorId: string,
+): { categoryId: string; score: number } {
+  const tokenScores = scoreCategorySlugTokens(fileSlug);
   let bestCategoryId = FALLBACK_CATEGORY_ID;
   let bestScore = 0;
 
   for (const category of CATEGORIES) {
-    const score = scoreKeywords(text, category.keywords);
+    const keywordScore = scoreKeywords(text, category.keywords);
+    const tokenScore = tokenScores.get(category.id) ?? 0;
+    const score = keywordScore + tokenScore;
     if (score > bestScore) {
       bestScore = score;
       bestCategoryId = category.id;
+    }
+  }
+
+  if (bestCategoryId === FALLBACK_CATEGORY_ID && sectorId !== FALLBACK_SECTOR_ID) {
+    const fromSector = SECTOR_TO_CATEGORY[sectorId];
+    if (fromSector) {
+      return { categoryId: fromSector, score: 1 };
     }
   }
 
@@ -211,6 +244,7 @@ function main(): void {
   let assigned = 0;
   let skipped = 0;
   const sectorCounts = new Map<string, number>();
+  const categoryCounts = new Map<string, number>();
 
   for (const file of files) {
     const filePath = path.join(SCHEMAS_DIR, file);
@@ -228,7 +262,7 @@ function main(): void {
     const text = extractHaystack(schema, fileSlug);
 
     const sectorResult = findBestSector(text, fileSlug);
-    const categoryResult = findBestCategory(text);
+    const categoryResult = findBestCategory(text, fileSlug, sectorResult.sectorId);
     const sectorLabel = resolveSectorLabel(sectorResult.sectorId);
     const categoryLabel = resolveCategoryLabel(categoryResult.categoryId);
     const profession = findBestProfession(text, sectorResult.sectorId);
@@ -240,6 +274,7 @@ function main(): void {
     schema.categoryId = categoryResult.categoryId;
 
     sectorCounts.set(sectorResult.sectorId, (sectorCounts.get(sectorResult.sectorId) ?? 0) + 1);
+    categoryCounts.set(categoryResult.categoryId, (categoryCounts.get(categoryResult.categoryId) ?? 0) + 1);
 
     try {
       fs.writeFileSync(filePath, `${JSON.stringify(schema, null, 2)}\n`);
@@ -257,16 +292,28 @@ function main(): void {
     console.log(`  ${sectorId}: ${count}`);
   }
 
-  const digerCount = sectorCounts.get(FALLBACK_SECTOR_ID) ?? 0;
+  console.log("");
+  console.log("Category distribution:");
+  for (const [categoryId, count] of [...categoryCounts.entries()].sort((a, b) => b[1] - a[1])) {
+    console.log(`  ${categoryId}: ${count}`);
+  }
+
+  const digerSectorCount = sectorCounts.get(FALLBACK_SECTOR_ID) ?? 0;
+  const digerCategoryCount = categoryCounts.get(FALLBACK_CATEGORY_ID) ?? 0;
   console.log("");
   console.log("Done.");
   console.log(`Assigned: ${assigned}`);
   console.log(`Skipped: ${skipped}`);
   console.log(`Total: ${files.length}`);
-  console.log(`Diğer (diger): ${digerCount}`);
+  console.log(`Diğer sector (diger): ${digerSectorCount}`);
+  console.log(`Diğer category (diger): ${digerCategoryCount}`);
 
-  if (digerCount > 0) {
-    console.error(`FAIL: Diğer count ${digerCount} must be 0.`);
+  if (digerSectorCount > 0) {
+    console.error(`FAIL: Diğer sector count ${digerSectorCount} must be 0.`);
+    process.exit(1);
+  }
+  if (digerCategoryCount > 0) {
+    console.error(`FAIL: Diğer category count ${digerCategoryCount} must be 0.`);
     process.exit(1);
   }
 }

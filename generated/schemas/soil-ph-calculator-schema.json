@@ -13,14 +13,15 @@
         "tr": "Numune mV Okuması",
         "de": "Proben-mV-Messwert",
         "fr": "Lecture mV de l'échantillon",
-        "es": "Sample mV Reading",
+        "es": "Lectura de mV de muestra",
         "ar": "Sample mV Reading"
       },
       "businessContext_i18n": {
         "en": "Millivolt reading of soil-water suspension from pH electrode",
         "tr": "pH elektrotundan toprak-su süspansiyonunun milivolt okuması",
         "de": "Millivolt-Messwert der Boden-Wasser-Suspension von der pH-Elektrode",
-        "fr": "Lecture en millivolts de la suspension sol-eau de l'électrode pH"
+        "fr": "Lecture en millivolts de la suspension sol-eau de l'électrode pH",
+        "es": "Lectura en milivoltios de la suspensión suelo-agua del electrodo de pH"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Referans mV Okuması",
         "de": "Referenz-mV-Messwert",
         "fr": "Lecture mV de référence",
-        "es": "Reference mV Reading",
+        "es": "Lectura de mV de referencia",
         "ar": "Reference mV Reading"
       },
       "businessContext_i18n": {
         "en": "Millivolt reading of known pH buffer solution",
         "tr": "Bilinen pH tampon çözeltisinin milivolt okuması",
         "de": "Millivolt-Messwert einer bekannten pH-Pufferlösung",
-        "fr": "Lecture en millivolts d'une solution tampon de pH connu"
+        "fr": "Lecture en millivolts d'une solution tampon de pH connu",
+        "es": "Lectura en milivoltios de la solución tampón de pH conocida"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Tampon pH",
         "de": "Puffer-pH",
         "fr": "pH du tampon",
-        "es": "Buffer pH",
+        "es": "pH del tampón",
         "ar": "Buffer pH"
       },
       "businessContext_i18n": {
         "en": "pH value of the reference buffer solution",
         "tr": "Referans tampon çözeltisinin pH değeri",
         "de": "pH-Wert der Referenzpufferlösung",
-        "fr": "Valeur du pH de la solution tampon de référence"
+        "fr": "Valeur du pH de la solution tampon de référence",
+        "es": "Valor de pH de la solución tampón de referencia"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Temperature of the samples and buffers (assumed equal)",
         "tr": "Numunelerin ve tamponların sıcaklığı (eşit olduğu varsayılır)",
         "de": "Temperatur der Proben und Puffer (als gleich angenommen)",
-        "fr": "Température des échantillons et des tampons (supposée égale)"
+        "fr": "Température des échantillons et des tampons (supposée égale)",
+        "es": "Temperatura de las muestras y tampones (se asume igual)"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Eğim %",
         "de": "Steigung %",
         "fr": "Pente %",
-        "es": "Slope %",
+        "es": "Pendiente %",
         "ar": "Slope %"
       },
       "businessContext_i18n": {
         "en": "Electrode slope percentage relative to theoretical Nernstian slope (100% = 59.16 mV/pH at 25°C)",
         "tr": "Elektrod eğiminin teorik Nernst eğimine göre yüzdesi (%100 = 25°C'de 59.16 mV/pH)",
         "de": "Elektrodensteigung in Prozent relativ zur theoretischen Nernst-Steigung (100% = 59,16 mV/pH bei 25°C)",
-        "fr": "Pourcentage de pente d'électrode par rapport à la pente nernstienne théorique (100 % = 59,16 mV/pH à 25 °C)"
+        "fr": "Pourcentage de pente d'électrode par rapport à la pente nernstienne théorique (100 % = 59,16 mV/pH à 25 °C)",
+        "es": "Porcentaje de pendiente del electrodo respecto a la pendiente nernstiana teórica (100% = 59,16 mV/pH a 25°C)"
       }
     }
   ],
@@ -134,7 +139,7 @@
       "sample_ph": "A"
     }
   },
-  "category": "Sürdürülebilirlik",
+  "category": "Matematik & Analiz",
   "sector": "Kimya & Proses",
   "premiumRequired": false,
   "catalogCategory": "hobbies-diy",
@@ -142,7 +147,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "kimya",
   "profession": "Kimyager",
-  "categoryId": "sustainability",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

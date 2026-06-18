@@ -20,7 +20,8 @@
         "en": "The length of the rectangular area in meters.",
         "tr": "Dikdörtgen alanın metre cinsinden uzunluğu.",
         "de": "Die Länge der rechteckigen Fläche in Metern.",
-        "fr": "La longueur de la zone rectangulaire en mètres."
+        "fr": "La longueur de la zone rectangulaire en mètres.",
+        "es": "La longitud del área rectangular en metros."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "The width of the rectangular area in meters.",
         "tr": "Dikdörtgen alanın metre cinsinden genişliği.",
         "de": "Die Breite der rechteckigen Fläche in Metern.",
-        "fr": "La largeur de la zone rectangulaire en mètres."
+        "fr": "La largeur de la zone rectangulaire en mètres.",
+        "es": "El ancho del área rectangular en metros."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Metrekare Başına Fiyat",
         "de": "Preis pro Quadratmeter",
         "fr": "Prix au mètre carré",
-        "es": "Price per Square Meter",
+        "es": "Precio por metro cuadrado",
         "ar": "Price per Square Meter"
       },
       "businessContext_i18n": {
         "en": "The cost per square meter for the area.",
         "tr": "Alan için metrekare başına maliyet.",
         "de": "Die Kosten pro Quadratmeter für die Fläche.",
-        "fr": "Le coût par mètre carré pour la zone."
+        "fr": "Le coût par mètre carré pour la zone.",
+        "es": "El coste por metro cuadrado del área."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Applicable tax rate as a percentage.",
         "tr": "Yüzde olarak uygulanabilir vergi oranı.",
         "de": "Anwendbarer Steuersatz in Prozent.",
-        "fr": "Taux de taxe applicable en pourcentage."
+        "fr": "Taux de taxe applicable en pourcentage.",
+        "es": "Tasa impositiva aplicable como porcentaje."
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Hizmet Ücreti",
         "de": "Servicegebühr",
         "fr": "Frais de service",
-        "es": "Service Fee",
+        "es": "Tarifa de servicio",
         "ar": "Service Fee"
       },
       "businessContext_i18n": {
         "en": "Fixed service charge additional to the area cost.",
         "tr": "Alan maliyetine eklenen sabit hizmet ücreti.",
         "de": "Feste Servicegebühr zusätzlich zu den Flächenkosten.",
-        "fr": "Frais de service fixes supplémentaires au coût de la zone."
+        "fr": "Frais de service fixes supplémentaires au coût de la zone.",
+        "es": "Cargo fijo de servicio adicional al coste del área."
       }
     }
   ],
@@ -134,7 +139,7 @@
     "dataConfidenceAdjusted": "totalFee",
     "unit": "m"
   },
-  "category": "Maliyet & Bütçeleme",
+  "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
@@ -142,7 +147,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "cost",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

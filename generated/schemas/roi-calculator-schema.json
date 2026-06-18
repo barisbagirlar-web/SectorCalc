@@ -24,13 +24,15 @@
         "en": "Annual Revenue (USD)",
         "tr": "Yıllık Gelir (USD)",
         "de": "Jahresumsatz (USD)",
-        "fr": "Revenu annuel (USD)"
+        "fr": "Revenu annuel (USD)",
+        "es": "Ingresos anuales (USD)"
       },
       "businessContext_i18n": {
         "en": "Total annual revenue of the facility or business unit.",
         "tr": "Tesisin veya iş biriminin toplam yıllık geliri.",
         "de": "Gesamtjahresumsatz der Anlage oder Geschäftseinheit.",
-        "fr": "Revenu annuel total de l'installation ou de l'unité commerciale."
+        "fr": "Revenu annuel total de l'installation ou de l'unité commerciale.",
+        "es": "Ingresos anuales totales de la instalación o unidad de negocio."
       }
     },
     {
@@ -46,13 +48,15 @@
         "en": "Operating Margin (%)",
         "tr": "Faaliyet Marjı (%)",
         "de": "Betriebsmarge (%)",
-        "fr": "Marge opérationnelle (%)"
+        "fr": "Marge opérationnelle (%)",
+        "es": "Margen operativo (%)"
       },
       "businessContext_i18n": {
         "en": "Current operating profit margin as a percentage of revenue.",
         "tr": "Gelirin yüzdesi olarak mevcut faaliyet kar marjı.",
         "de": "Aktuelle Betriebsgewinnmarge als Prozentsatz des Umsatzes.",
-        "fr": "Marge bénéficiaire opérationnelle actuelle en pourcentage du chiffre d'affaires."
+        "fr": "Marge bénéficiaire opérationnelle actuelle en pourcentage du chiffre d'affaires.",
+        "es": "Margen de beneficio operativo actual como porcentaje de los ingresos."
       }
     },
     {
@@ -68,13 +72,15 @@
         "en": "Total Inventory Value (USD)",
         "tr": "Toplam Stok Değeri (USD)",
         "de": "Gesamter Lagerwert (USD)",
-        "fr": "Valeur totale des stocks (USD)"
+        "fr": "Valeur totale des stocks (USD)",
+        "es": "Valor total del inventario (USD)"
       },
       "businessContext_i18n": {
         "en": "Current value of all inventory held (raw materials, WIP, finished goods).",
         "tr": "Mevcut tüm stokların değeri (hammadde, yarı mamul, mamul).",
         "de": "Aktueller Wert aller Lagerbestände (Rohstoffe, Umlaufbestand, Fertigwaren).",
-        "fr": "Valeur actuelle de tous les stocks détenus (matières premières, encours, produits finis)."
+        "fr": "Valeur actuelle de tous les stocks détenus (matières premières, encours, produits finis).",
+        "es": "Valor actual de todo el inventario mantenido (materias primas, WIP, productos terminados)."
       }
     },
     {
@@ -90,13 +96,15 @@
         "en": "Inventory Carrying Cost (% of inventory value)",
         "tr": "Stok Taşıma Maliyeti (stok değerinin %'si)",
         "de": "Lagerhaltungskosten (% des Lagerwerts)",
-        "fr": "Coût de possession des stocks (% de la valeur des stocks)"
+        "fr": "Coût de possession des stocks (% de la valeur des stocks)",
+        "es": "Costo de mantenimiento de inventario (% del valor del inventario)"
       },
       "businessContext_i18n": {
         "en": "Annual cost to hold inventory (storage, insurance, obsolescence, capital cost). Typical range 20-30%.",
         "tr": "Stok bulundurmanın yıllık maliyeti (depolama, sigorta, eskime, sermaye maliyeti). Tipik aralık %20-30.",
         "de": "Jährliche Kosten für die Lagerhaltung (Lagerung, Versicherung, Veralterung, Kapitalkosten). Typischer Bereich 20-30%.",
-        "fr": "Coût annuel de détention des stocks (stockage, assurance, obsolescence, coût du capital). Plage typique 20-30%."
+        "fr": "Coût annuel de détention des stocks (stockage, assurance, obsolescence, coût du capital). Plage typique 20-30%.",
+        "es": "Costo anual de mantener inventario (almacenamiento, seguros, obsolescencia, costo de capital). Rango típico 20-30%."
       }
     },
     {
@@ -112,13 +120,15 @@
         "en": "Annual Direct Labor Cost (USD)",
         "tr": "Yıllık Direkt İşçilik Maliyeti (USD)",
         "de": "Jährliche direkte Arbeitskosten (USD)",
-        "fr": "Coût annuel de main-d'œuvre directe (USD)"
+        "fr": "Coût annuel de main-d'œuvre directe (USD)",
+        "es": "Costo anual de mano de obra directa (USD)"
       },
       "businessContext_i18n": {
         "en": "Total annual cost of direct labor in the operation.",
         "tr": "Operasyondaki direkt işçiliğin toplam yıllık maliyeti.",
         "de": "Gesamte jährliche direkte Arbeitskosten im Betrieb.",
-        "fr": "Coût annuel total de la main-d'œuvre directe dans l'exploitation."
+        "fr": "Coût annuel total de la main-d'œuvre directe dans l'exploitation.",
+        "es": "Costo anual total de mano de obra directa en la operación."
       }
     },
     {
@@ -141,7 +151,8 @@
         "en": "Percentage of products that do not meet quality standards (Six Sigma metric).",
         "tr": "Kalite standartlarını karşılamayan ürünlerin yüzdesi (Altı Sigma metriği).",
         "de": "Prozentsatz der Produkte, die die Qualitätsstandards nicht erfüllen (Six Sigma-Kennzahl).",
-        "fr": "Pourcentage de produits ne répondant pas aux normes de qualité (métrique Six Sigma)."
+        "fr": "Pourcentage de produits ne répondant pas aux normes de qualité (métrique Six Sigma).",
+        "es": "Porcentaje de productos que no cumplen con los estándares de calidad (métrica Seis Sigma)."
       }
     },
     {
@@ -157,13 +168,15 @@
         "en": "Cost per Defect (USD)",
         "tr": "Kusur Başına Maliyet (USD)",
         "de": "Kosten pro Fehler (USD)",
-        "fr": "Coût par défaut (USD)"
+        "fr": "Coût par défaut (USD)",
+        "es": "Costo por defecto (USD)"
       },
       "businessContext_i18n": {
         "en": "Average cost incurred per defective unit (rework, scrap, warranty).",
         "tr": "Kusurlu birim başına ortalama maliyet (yeniden işleme, fire, garanti).",
         "de": "Durchschnittliche Kosten pro fehlerhafter Einheit (Nacharbeit, Ausschuss, Garantie).",
-        "fr": "Coût moyen encouru par unité défectueuse (reprise, rebut, garantie)."
+        "fr": "Coût moyen encouru par unité défectueuse (reprise, rebut, garantie).",
+        "es": "Costo promedio incurrido por unidad defectuosa (reproceso, desperdicio, garantía)."
       }
     },
     {
@@ -179,13 +192,15 @@
         "en": "Annual Energy Cost (USD)",
         "tr": "Yıllık Enerji Maliyeti (USD)",
         "de": "Jährliche Energiekosten (USD)",
-        "fr": "Coût énergétique annuel (USD)"
+        "fr": "Coût énergétique annuel (USD)",
+        "es": "Costo energético anual (USD)"
       },
       "businessContext_i18n": {
         "en": "Total annual energy expenditure for the facility.",
         "tr": "Tesis için toplam yıllık enerji harcaması.",
         "de": "Gesamte jährliche Energieausgaben für die Anlage.",
-        "fr": "Dépense énergétique annuelle totale pour l'installation."
+        "fr": "Dépense énergétique annuelle totale pour l'installation.",
+        "es": "Gasto energético anual total de la instalación."
       }
     }
   ],
@@ -250,10 +265,10 @@
   "catalogCategory": "finance-business",
   "sectorSlug": "ecommerce",
   "categorySlug": "quality-six-sigma",
-  "category": "Maliyet & Bütçeleme",
+  "category": "Matematik & Analiz",
   "sector": "Finans & Muhasebe",
   "toolName": "roi-calculator",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "cost"
+  "categoryId": "math"
 }

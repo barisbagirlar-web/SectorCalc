@@ -20,7 +20,8 @@
         "en": "Worker's age in years",
         "tr": "İşçinin yıl cinsinden yaşı",
         "de": "Alter des Arbeiters in Jahren",
-        "fr": "Âge du travailleur en années"
+        "fr": "Âge du travailleur en années",
+        "es": "Edad del trabajador en años"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Type of shift assignment",
         "tr": "Vardiya atama türü",
         "de": "Art der Schichtzuweisung",
-        "fr": "Type d'affectation de quart"
+        "fr": "Type d'affectation de quart",
+        "es": "Tipo de asignación de turno"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Uyku Kalitesi",
         "de": "Schlafqualität",
         "fr": "Qualité du sommeil",
-        "es": "Sleep Quality",
+        "es": "Calidad del sueño",
         "ar": "Sleep Quality"
       },
       "businessContext_i18n": {
         "en": "Self-assessed sleep quality rating",
         "tr": "Kendi değerlendirilen uyku kalitesi puanı",
         "de": "Selbstbewertete Schlafqualität",
-        "fr": "Évaluation de la qualité du sommeil auto-déclarée"
+        "fr": "Évaluation de la qualité du sommeil auto-déclarée",
+        "es": "Calificación de calidad del sueño autoevaluada"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "İstenen Uyanma Saati",
         "de": "Gewünschte Aufwachzeit",
         "fr": "Heure de réveil souhaitée",
-        "es": "Desired Wake-up Time",
+        "es": "Hora de despertar deseada",
         "ar": "Desired Wake-up Time"
       },
       "businessContext_i18n": {
         "en": "Desired wake-up time in minutes past midnight",
         "tr": "Gece yarısından sonra dakika cinsinden istenen uyanma saati",
         "de": "Gewünschte Aufwachzeit in Minuten nach Mitternacht",
-        "fr": "Heure de réveil souhaitée en minutes après minuit"
+        "fr": "Heure de réveil souhaitée en minutes après minuit",
+        "es": "Hora de despertar deseada en minutos pasada la medianoche"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Uykuya Dalma Süresi",
         "de": "Einschlafzeit",
         "fr": "Latence d'endormissement",
-        "es": "Sleep Latency",
+        "es": "Latencia del sueño",
         "ar": "Sleep Latency"
       },
       "businessContext_i18n": {
         "en": "Average time to fall asleep",
         "tr": "Uykuya dalmak için ortalama süre",
         "de": "Durchschnittliche Zeit zum Einschlafen",
-        "fr": "Temps moyen pour s'endormir"
+        "fr": "Temps moyen pour s'endormir",
+        "es": "Tiempo promedio para conciliar el sueño"
       }
     },
     {
@@ -130,7 +135,8 @@
         "en": "Weekly physical activity hours",
         "tr": "Haftalık fiziksel aktivite saati",
         "de": "Wöchentliche Stunden körperlicher Aktivität",
-        "fr": "Heures d'activité physique hebdomadaires"
+        "fr": "Heures d'activité physique hebdomadaires",
+        "es": "Horas de actividad física semanal"
       }
     }
   ],
@@ -160,7 +166,7 @@
       "'Sleep duration: ' + Math.round(totalSleepMinutes) + ' minutes (' + Math.round(totalSleepMinutes / 60 * 10) / 10 + ' hours)'": "%"
     }
   },
-  "category": "Kalite & Süreç Kontrol",
+  "category": "İSG & Risk",
   "sector": "Sağlık & Tıp",
   "premiumRequired": false,
   "catalogCategory": "health-body",
@@ -168,7 +174,7 @@
   "categorySlug": "workforce-hr",
   "sectorId": "saglik",
   "profession": "Biyomedikal Mühendisi",
-  "categoryId": "quality",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

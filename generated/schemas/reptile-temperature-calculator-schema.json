@@ -13,14 +13,15 @@
         "tr": "Muhafaza Uzunluğu",
         "de": "Gehäuselänge",
         "fr": "Longueur de l'enclos",
-        "es": "Enclosure Length",
+        "es": "Largo del recinto",
         "ar": "Enclosure Length"
       },
       "businessContext_i18n": {
         "en": "The length of the reptile enclosure in centimeters.",
         "tr": "Sürüngen muhafazasının santimetre cinsinden uzunluğu.",
         "de": "Die Länge des Reptiliengeheges in Zentimetern.",
-        "fr": "Longueur de l'enclos du reptile en centimètres."
+        "fr": "Longueur de l'enclos du reptile en centimètres.",
+        "es": "La longitud del recinto del reptil en centímetros."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Muhafaza Genişliği",
         "de": "Gehäusebreite",
         "fr": "Largeur de l'enclos",
-        "es": "Enclosure Width",
+        "es": "Ancho del recinto",
         "ar": "Enclosure Width"
       },
       "businessContext_i18n": {
         "en": "The width of the reptile enclosure in centimeters.",
         "tr": "Sürüngen muhafazasının santimetre cinsinden genişliği.",
         "de": "Die Breite des Reptiliengeheges in Zentimetern.",
-        "fr": "Largeur de l'enclos du reptile en centimètres."
+        "fr": "Largeur de l'enclos du reptile en centimètres.",
+        "es": "El ancho del recinto del reptil en centímetros."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Muhafaza Yüksekliği",
         "de": "Gehäusehöhe",
         "fr": "Hauteur de l'enclos",
-        "es": "Enclosure Height",
+        "es": "Altura del recinto",
         "ar": "Enclosure Height"
       },
       "businessContext_i18n": {
         "en": "The height of the reptile enclosure in centimeters.",
         "tr": "Sürüngen muhafazasının santimetre cinsinden yüksekliği.",
         "de": "Die Höhe des Reptiliengeheges in Zentimetern.",
-        "fr": "Hauteur de l'enclos du reptile en centimètres."
+        "fr": "Hauteur de l'enclos du reptile en centimètres.",
+        "es": "La altura del recinto del reptil en centímetros."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "The room temperature outside the enclosure in degrees Celsius.",
         "tr": "Muhafaza dışındaki oda sıcaklığı (°C).",
         "de": "Raumtemperatur außerhalb des Geheges in Grad Celsius.",
-        "fr": "Température ambiante"
+        "fr": "Température ambiante",
+        "es": "Temperatura ambiente fuera del recinto en grados Celsius."
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "İstenen Güneşlenme Sıcaklığı",
         "de": "Gewünschte Sonnenplatztemperatur",
         "fr": "Température de repos souhaitée",
-        "es": "Desired Basking Temperature",
+        "es": "Temperatura de asoleamiento deseada",
         "ar": "Desired Basking Temperature"
       },
       "businessContext_i18n": {
         "en": "The target temperature for the basking spot inside the enclosure in degrees Celsius.",
         "tr": "Muhafaza içindeki güneşlenme noktası için hedef sıcaklık (°C).",
         "de": "Die Zieltemperatur für den Sonnenplatz im Gehege in Grad Celsius.",
-        "fr": "Température cible pour le point de repos à l'intérieur de l'enclos en degrés Celsius."
+        "fr": "Température cible pour le point de repos à l'intérieur de l'enclos en degrés Celsius.",
+        "es": "Temperatura objetivo para el punto de asoleamiento dentro del recinto en grados Celsius."
       }
     },
     {
@@ -123,14 +128,15 @@
         "tr": "Yalıtım Faktörü (U-değeri)",
         "de": "Isolationsfaktor (U-Wert)",
         "fr": "Facteur d'isolation (valeur U)",
-        "es": "Insulation Factor (U-value)",
+        "es": "Factor de aislamiento (valor U)",
         "ar": "Insulation Factor (U-value)"
       },
       "businessContext_i18n": {
         "en": "Thermal transmittance (U-value) of enclosure material. Typical glass: 5-6, insulated: 1-2.",
         "tr": "Muhafaza malzemesinin ısıl geçirgenliği (U-değeri). Tipik cam: 5-6, yalıtımlı: 1-2.",
         "de": "Wärmedurchgangskoeffizient (U-Wert) des Gehäusematerials. Typisch Glas: 5-6, isoliert: 1-2.",
-        "fr": "Transmittance thermique (valeur U) du matériau de l'enclos. Verre typique : 5-6, isolé : 1-2."
+        "fr": "Transmittance thermique (valeur U) du matériau de l'enclos. Verre typique : 5-6, isolé : 1-2.",
+        "es": "Transmitancia térmica (valor U) del material del recinto. Vidrio típico: 5-6, aislado: 1-2."
       }
     }
   ],

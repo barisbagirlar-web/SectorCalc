@@ -13,14 +13,15 @@
         "tr": "Kargo Uzunluğu",
         "de": "Kargo Länge",
         "fr": "Longueur du colis",
-        "es": "Kargo Uzunluğu",
+        "es": "Longitud de la carga",
         "ar": "Kargo Uzunluğu"
       },
       "businessContext_i18n": {
         "en": "Gönderinin uzunluğu",
         "tr": "Gönderinin uzunluğu",
         "de": "Länge der Sendung",
-        "fr": "Longueur de l'envoi"
+        "fr": "Longueur de l'envoi",
+        "es": "Longitud del envío"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Kargo Genişliği",
         "de": "Kargo Breite",
         "fr": "Largeur du colis",
-        "es": "Kargo Genişliği",
+        "es": "Ancho de la carga",
         "ar": "Kargo Genişliği"
       },
       "businessContext_i18n": {
         "en": "Gönderinin genişliği",
         "tr": "Gönderinin genişliği",
         "de": "Breite der Sendung",
-        "fr": "Largeur de l'envoi"
+        "fr": "Largeur de l'envoi",
+        "es": "Ancho del envío"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Kargo Yüksekliği",
         "de": "Kargo Höhe",
         "fr": "Hauteur du colis",
-        "es": "Kargo Yüksekliği",
+        "es": "Altura de la carga",
         "ar": "Kargo Yüksekliği"
       },
       "businessContext_i18n": {
         "en": "Gönderinin yüksekliği",
         "tr": "Gönderinin yüksekliği",
         "de": "Höhe der Sendung",
-        "fr": "Hauteur de l'envoi"
+        "fr": "Hauteur de l'envoi",
+        "es": "Altura del envío"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Kargo Ağırlığı",
         "de": "Kargo Gewicht",
         "fr": "Poids du colis",
-        "es": "Kargo Ağırlığı",
+        "es": "Peso de la carga",
         "ar": "Kargo Ağırlığı"
       },
       "businessContext_i18n": {
         "en": "Gönderinin ağırlığı",
         "tr": "Gönderinin ağırlığı",
         "de": "Gewicht der Sendung",
-        "fr": "Poids de l'envoi"
+        "fr": "Poids de l'envoi",
+        "es": "Peso del envío"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Birim Yük Kapasitesi",
         "de": "Einheitslastkapazität",
         "fr": "Capacité de charge unitaire",
-        "es": "Birim Yük Kapasitesi",
+        "es": "Capacidad de carga por unidad",
         "ar": "Birim Yük Kapasitesi"
       },
       "businessContext_i18n": {
         "en": "Bir paletin veya konteynerin taşıma kapasitesi",
         "tr": "Bir paletin veya konteynerin taşıma kapasitesi",
         "de": "Tragfähigkeit einer Palette oder eines Containers",
-        "fr": "Capacité de charge d'une palette ou d'un conteneur"
+        "fr": "Capacité de charge d'une palette ou d'un conteneur",
+        "es": "Capacidad de carga de un palé o contenedor"
       }
     },
     {
@@ -123,14 +128,15 @@
         "tr": "Birim Yük Hacmi",
         "de": "Einheitslastvolumen",
         "fr": "Volume unitaire de charge",
-        "es": "Birim Yük Hacmi",
+        "es": "Volumen de carga por unidad",
         "ar": "Birim Yük Hacmi"
       },
       "businessContext_i18n": {
         "en": "Bir birim yükün kapladığı hacim",
         "tr": "Bir birim yükün kapladığı hacim",
         "de": "Volumen einer Einheitslast",
-        "fr": "Volume occupé par une unité de charge"
+        "fr": "Volume occupé par une unité de charge",
+        "es": "Volumen que ocupa una unidad de carga"
       }
     }
   ],
@@ -153,7 +159,7 @@
     "dataConfidenceAdjusted": "totalUnits",
     "unit": "cm"
   },
-  "category": "Diğer",
+  "category": "Teknik & Mühendislik",
   "sector": "İnşaat & Yapı",
   "premiumRequired": false,
   "catalogCategory": "health-body",
@@ -161,7 +167,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

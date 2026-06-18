@@ -13,14 +13,15 @@
         "tr": "Yemek Kaşığı",
         "de": "Esslöffel",
         "fr": "Cuillères à soupe",
-        "es": "Tablespoons",
+        "es": "Cucharadas",
         "ar": "Tablespoons"
       },
       "businessContext_i18n": {
         "en": "Number of tablespoons to convert to milliliters.",
         "tr": "Mililitreye dönüştürülecek yemek kaşığı sayısı.",
         "de": "Anzahl Esslöffel zur Umrechnung in Milliliter",
-        "fr": "Nombre de cuillères à soupe à convertir en millilitres."
+        "fr": "Nombre de cuillères à soupe à convertir en millilitres.",
+        "es": "Número de cucharadas a convertir a mililitros"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Number of identical batches (multiplier for total tablespoons).",
         "tr": "Özdeş parti sayısı (toplam yemek kaşığı için çarpan).",
         "de": "Anzahl identischer Chargen (Multiplikator für Gesamt-Esslöffel)",
-        "fr": "Nombre de lots identiques (multiplicateur pour le total de cuillères à soupe)."
+        "fr": "Nombre de lots identiques (multiplicateur pour le total de cuillères à soupe).",
+        "es": "Número de lotes idénticos (multiplicador para el total de cucharadas)"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Yemek Kaşığı Standardı",
         "de": "Esslöffel-Standard",
         "fr": "Standard de cuillère à soupe",
-        "es": "Tablespoon Standard",
+        "es": "Estándar de cucharada",
         "ar": "Tablespoon Standard"
       },
       "businessContext_i18n": {
         "en": "1=US (14.79 ml), 2=Metric (15 ml), 3=UK (17.76 ml), 4=Australian (20 ml).",
         "tr": "1=ABD (14,79 ml), 2=Metrik (15 ml), 3=İngiltere (17,76 ml), 4=Avustralya (20 ml).",
         "de": "1=USA (14,79 ml), 2=Metrisch (15 ml), 3=UK (17,76 ml), 4=Australien (20 ml)",
-        "fr": "1=US (14,79 ml), 2=Métrique (15 ml), 3=UK (17,76 ml), 4=Australien (20 ml)."
+        "fr": "1=US (14,79 ml), 2=Métrique (15 ml), 3=UK (17,76 ml), 4=Australien (20 ml).",
+        "es": "1=EE. UU. (14,79 ml), 2=Métrico (15 ml), 3=Reino Unido (17,76 ml), 4=Australiano (20 ml)"
       }
     },
     {
@@ -109,7 +112,8 @@
         "en": "Override standard conversion factor (0 to use selected standard).",
         "tr": "Standart dönüşüm faktörünü geçersiz kıl (seçilen standardı kullanmak için 0).",
         "de": "Standard-Umrechnungsfaktor überschreiben (0 für ausgewählten Standard)",
-        "fr": "Facteur de conversion standard de remplacement (0 pour utiliser le standard sélectionné)."
+        "fr": "Facteur de conversion standard de remplacement (0 pour utiliser le standard sélectionné).",
+        "es": "Anular el factor de conversión estándar (0 para usar el estándar seleccionado)"
       }
     }
   ],

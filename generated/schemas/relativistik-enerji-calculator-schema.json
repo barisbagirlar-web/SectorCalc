@@ -13,14 +13,15 @@
         "tr": "Kütle (m₀)",
         "de": "Masse (m₀)",
         "fr": "Masse (m₀)",
-        "es": "Kütle (m₀)",
+        "es": "Masa (m₀)",
         "ar": "Kütle (m₀)"
       },
       "businessContext_i18n": {
         "en": "Durgun kütle",
         "tr": "Durgun kütle",
         "de": "Ruhemasse",
-        "fr": "Masse au repos"
+        "fr": "Masse au repos",
+        "es": "Masa en reposo"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Işık Hızı (c)",
         "de": "Lichtgeschwindigkeit (c)",
         "fr": "Vitesse de la lumière (c)",
-        "es": "Işık Hızı (c)",
+        "es": "Velocidad de la luz (c)",
         "ar": "Işık Hızı (c)"
       },
       "businessContext_i18n": {
         "en": "Vakum ışık hızı, ISO 80000-7:2019 sabiti",
         "tr": "Vakum ışık hızı, ISO 80000-7:2019 sabiti",
         "de": "Vakuum-Lichtgeschwindigkeit, ISO 80000-7:2019 Konstante",
-        "fr": "Vitesse de la lumière dans le vide, constante ISO 80000-7:2019"
+        "fr": "Vitesse de la lumière dans le vide, constante ISO 80000-7:2019",
+        "es": "Velocidad de la luz en el vacío, constante ISO 80000-7:2019"
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Cismin hızı, c'den küçük olmalıdır",
         "tr": "Cismin hızı, c'den küçük olmalıdır",
         "de": "Geschwindigkeit des Objekts, muss kleiner als c sein",
-        "fr": "Vitesse de l'objet, doit être inférieure à c"
+        "fr": "Vitesse de l'objet, doit être inférieure à c",
+        "es": "La velocidad del objeto debe ser menor que c"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Enerji Birim Çarpanı",
         "de": "Energieeinheiten-Multiplikator",
         "fr": "Facteur d'unité d'énergie",
-        "es": "Enerji Birim Çarpanı",
+        "es": "Factor de conversión de energía",
         "ar": "Enerji Birim Çarpanı"
       },
       "businessContext_i18n": {
         "en": "Enerji çıktısı için birim dönüşüm çarpanı (1: Joule, 6.2415e12: MeV, 1e-6: MJ)",
         "tr": "Enerji çıktısı için birim dönüşüm çarpanı (1: Joule, 6.2415e12: MeV, 1e-6: MJ)",
         "de": "Umrechnungsfaktor für Energieausgabe (1: Joule, 6,2415e12: MeV, 1e-6: MJ)",
-        "fr": "Facteur de conversion d'unité pour la sortie d'énergie (1 : Joule, 6,2415e12 : MeV, 1e-6 : MJ)"
+        "fr": "Facteur de conversion d'unité pour la sortie d'énergie (1 : Joule, 6,2415e12 : MeV, 1e-6 : MJ)",
+        "es": "Factor de conversión de unidades para la salida de energía (1: Joule, 6.2415e12: MeV, 1e-6: MJ)"
       }
     }
   ],
@@ -107,7 +111,7 @@
     "dataConfidenceAdjusted": "kineticEnergy",
     "unit": "kg"
   },
-  "category": "Diğer",
+  "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -115,7 +119,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "fizik",
   "profession": "Fizik Mühendisi",
-  "categoryId": "diger",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

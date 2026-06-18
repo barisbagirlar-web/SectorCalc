@@ -13,14 +13,15 @@
         "tr": "İçerik Maliyeti (birim başına)",
         "de": "Zutatenkosten (pro Portion)",
         "fr": "Coût des ingrédients (par article)",
-        "es": "Ingredient Cost (per item)",
+        "es": "Costo de ingredientes (por unidad)",
         "ar": "Ingredient Cost (per item)"
       },
       "businessContext_i18n": {
         "en": "Cost of raw ingredients for one serving.",
         "tr": "Bir porsiyon için hammadde maliyeti.",
         "de": "Kosten der Rohzutaten für eine Portion.",
-        "fr": "Coût des matières premières pour une portion."
+        "fr": "Coût des matières premières pour une portion.",
+        "es": "Costo de ingredientes crudos para una porción."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "İşçilik Maliyeti (birim başına)",
         "de": "Arbeitskosten (pro Portion)",
         "fr": "Coût de la main-d'œuvre (par article)",
-        "es": "Labor Cost (per item)",
+        "es": "Costo de mano de obra (por unidad)",
         "ar": "Labor Cost (per item)"
       },
       "businessContext_i18n": {
         "en": "Direct labor cost attributed to one serving.",
         "tr": "Bir porsiyona atfedilen doğrudan işçilik maliyeti.",
         "de": "Direkte Arbeitskosten, die einer Portion zugerechnet werden.",
-        "fr": "Coût direct de la main-d'œuvre attribué à une portion."
+        "fr": "Coût direct de la main-d'œuvre attribué à une portion.",
+        "es": "Costo de mano de obra directa atribuido a una porción."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Genel Gider Maliyeti (birim başına)",
         "de": "Gemeinkosten (pro Portion)",
         "fr": "Frais généraux (par article)",
-        "es": "Overhead Cost (per item)",
+        "es": "Costo indirecto (por artículo)",
         "ar": "Overhead Cost (per item)"
       },
       "businessContext_i18n": {
         "en": "Indirect costs (rent, utilities, etc.) per serving.",
         "tr": "Porsiyon başına dolaylı maliyetler (kira, elektrik vb.).",
         "de": "Indirekte Kosten (Miete, Nebenkosten usw.) pro Portion.",
-        "fr": "Coûts indirects (loyer, services publics, etc.) par portion."
+        "fr": "Coûts indirects (loyer, services publics, etc.) par portion.",
+        "es": "Costos indirectos (alquiler, servicios públicos, etc.) por porción."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Percentage of ingredient lost to waste (trimming, spoilage).",
         "tr": "Atık (kesim, bozulma) nedeniyle kaybedilen içerik yüzdesi.",
         "de": "Prozentsatz der Zutaten, die durch Abfall verloren gehen (Trimmen, Verderb).",
-        "fr": "Pourcentage d'ingrédients perdus par déchets (parage, détérioration)."
+        "fr": "Pourcentage d'ingrédients perdus par déchets (parage, détérioration).",
+        "es": "Porcentaje de ingrediente perdido por desperdicio (recorte, deterioro)."
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "İstenen Kar Marjı",
         "de": "Gewünschter Aufschlag",
         "fr": "Marge bénéficiaire souhaitée",
-        "es": "Desired Markup",
+        "es": "Margen de beneficio deseado",
         "ar": "Desired Markup"
       },
       "businessContext_i18n": {
         "en": "Markup percentage on total cost to set selling price.",
         "tr": "Satış fiyatını belirlemek için toplam maliyet üzerine kar marjı yüzdesi.",
         "de": "Aufschlagsprozentsatz auf die Gesamtkosten zur Festlegung des Verkaufspreises.",
-        "fr": "Pourcentage de marge sur le coût total pour fixer le prix de vente."
+        "fr": "Pourcentage de marge sur le coût total pour fixer le prix de vente.",
+        "es": "Porcentaje de margen sobre el costo total para fijar el precio de venta."
       }
     }
   ],

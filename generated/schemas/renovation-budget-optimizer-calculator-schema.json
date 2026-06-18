@@ -22,13 +22,15 @@
         "en": "Total Renovation Area (sq ft)",
         "tr": "Toplam Yenileme Alanı (ft²)",
         "de": "Gesamte Renovierungsfläche (Quadratfuß)",
-        "fr": "Surface totale de rénovation (pi²)"
+        "fr": "Surface totale de rénovation (pi²)",
+        "es": "Área total de renovación (pies cuadrados)"
       },
       "businessContext_i18n": {
         "en": "Total floor area to be renovated, including all rooms and corridors.",
         "tr": "Tüm odalar ve koridorlar dahil olmak üzere yenilenecek toplam taban alanı",
         "de": "Gesamte zu renovierende Grundfläche, einschließlich aller Räume und Flure.",
-        "fr": "Surface totale au sol à rénover, y compris toutes les pièces et couloirs."
+        "fr": "Surface totale au sol à rénover, y compris toutes les pièces et couloirs.",
+        "es": "Superficie total a renovar, incluyendo todas las habitaciones y pasillos."
       }
     },
     {
@@ -49,13 +51,15 @@
         "en": "Scope Complexity",
         "tr": "Kapsam Karmaşıklığı",
         "de": "Komplexität des Umfangs",
-        "fr": "Complexité de la portée"
+        "fr": "Complexité de la portée",
+        "es": "Complejidad del alcance"
       },
       "businessContext_i18n": {
         "en": "Low: cosmetic only; Medium: structural and MEP changes; High: full gut renovation with new systems.",
         "tr": "Düşük: sadece kozmetik; Orta: yapısal ve MEP değişiklikleri; Yüksek: yeni sistemlerle tamamen boşaltma yenilemesi",
         "de": "Niedrig: nur kosmetisch; Mittel: strukturelle und MEP-Änderungen; Hoch: Komplettsanierung mit neuen Systemen.",
-        "fr": "Faible : cosmétique uniquement ; Moyen : changements structurels et MEP ; Élevé : rénovation complète avec nouveaux systèmes."
+        "fr": "Faible : cosmétique uniquement ; Moyen : changements structurels et MEP ; Élevé : rénovation complète avec nouveaux systèmes.",
+        "es": "Baja: solo cosmética; Media: cambios estructurales y MEP; Alta: renovación completa con nuevos sistemas."
       }
     },
     {
@@ -76,13 +80,15 @@
         "en": "Material Quality Tier",
         "tr": "Malzeme Kalite Seviyesi",
         "de": "Materialqualitätsstufe",
-        "fr": "Niveau de qualité des matériaux"
+        "fr": "Niveau de qualité des matériaux",
+        "es": "Nivel de calidad de materiales"
       },
       "businessContext_i18n": {
         "en": "Economy: budget finishes; Standard: mid-range; Premium: high-end, sustainable materials.",
         "tr": "Ekonomi: bütçe kaplamaları; Standart: orta sınıf; Premium: yüksek kaliteli, sürdürülebilir malzemeler",
         "de": "Economy: günstige Oberflächen; Standard: mittlere Preisklasse; Premium: hochwertige, nachhaltige Materialien.",
-        "fr": "Économique : finitions budgétaires ; Standard : milieu de gamme ; Premium : matériaux haut de gamme et durables."
+        "fr": "Économique : finitions budgétaires ; Standard : milieu de gamme ; Premium : matériaux haut de gamme et durables.",
+        "es": "Económico: acabados básicos; Estándar: gama media; Premium: materiales sostenibles de alta gama."
       }
     },
     {
@@ -98,13 +104,15 @@
         "en": "Labor Efficiency Factor",
         "tr": "İşçilik Verimlilik Faktörü",
         "de": "Arbeitseffizienzfaktor",
-        "fr": "Facteur d'efficacité de la main-d'œuvre"
+        "fr": "Facteur d'efficacité de la main-d'œuvre",
+        "es": "Factor de eficiencia laboral"
       },
       "businessContext_i18n": {
         "en": "Average labor hours per square foot based on historical data and crew productivity.",
         "tr": "Geçmiş verilere ve ekip verimliliğine dayalı olarak metrekare başına ortalama işçilik saati",
         "de": "Durchschnittliche Arbeitsstunden pro Quadratfuß basierend auf historischen Daten und Produktivität des Teams.",
-        "fr": "Heures de main-d'œuvre moyennes par pied carré basées sur les données historiques et la productivité de l'équipe."
+        "fr": "Heures de main-d'œuvre moyennes par pied carré basées sur les données historiques et la productivité de l'équipe.",
+        "es": "Horas de mano de obra promedio por pie cuadrado basadas en datos históricos y productividad del equipo."
       }
     },
     {
@@ -127,7 +135,8 @@
         "en": "Expected material waste percentage due to cutting, errors, and over-ordering.",
         "tr": "Kesim, hatalar ve fazla sipariş nedeniyle beklenen malzeme fire yüzdesi",
         "de": "Erwarteter Materialabfallprozentsatz durch Zuschnitt, Fehler und Überbestellung.",
-        "fr": "Pourcentage de déchets de matériaux attendu dû à la coupe, aux erreurs et aux surcommandes."
+        "fr": "Pourcentage de déchets de matériaux attendu dû à la coupe, aux erreurs et aux surcommandes.",
+        "es": "Porcentaje esperado de desperdicio de material debido a cortes, errores y pedidos excesivos."
       }
     },
     {
@@ -143,13 +152,15 @@
         "en": "Contingency (%)",
         "tr": "Beklenmeyen Gider Payı (%)",
         "de": "Rückstellung (%)",
-        "fr": "Contingence (%)"
+        "fr": "Contingence (%)",
+        "es": "Contingencia (%)"
       },
       "businessContext_i18n": {
         "en": "Budget reserve for unforeseen issues (e.g., hidden damage, code upgrades).",
         "tr": "Öngörülemeyen sorunlar (ör. gizli hasar, yönetmelik yükseltmeleri) için bütçe rezervi",
         "de": "Budgetreserve für unvorhergesehene Probleme (z. B. versteckte Schäden, Code-Upgrades).",
-        "fr": "Réserve budgétaire pour les imprévus (par exemple, dommages cachés, mises à niveau du code)."
+        "fr": "Réserve budgétaire pour les imprévus (par exemple, dommages cachés, mises à niveau du code).",
+        "es": "Reserva presupuestaria para imprevistos (p. ej., daños ocultos, actualizaciones de código)."
       }
     },
     {
@@ -165,13 +176,15 @@
         "en": "Regional Cost Index",
         "tr": "Bölgesel Maliyet Endeksi",
         "de": "Regionaler Kostenindex",
-        "fr": "Indice de coût régional"
+        "fr": "Indice de coût régional",
+        "es": "Índice de coste regional"
       },
       "businessContext_i18n": {
         "en": "Multiplier for local labor and material cost variations (1.0 = national average).",
         "tr": "Yerel işçilik ve malzeme maliyeti farklılıkları için çarpan (1,0 = ulusal ortalama)",
         "de": "Multiplikator für lokale Arbeits- und Materialkostenschwankungen (1,0 = nationaler Durchschnitt).",
-        "fr": "Multiplicateur pour les variations locales des coûts de main-d'œuvre et de matériaux (1,0 = moyenne nationale)."
+        "fr": "Multiplicateur pour les variations locales des coûts de main-d'œuvre et de matériaux (1,0 = moyenne nationale).",
+        "es": "Multiplicador de variaciones locales de mano de obra y materiales (1,0 = media nacional)."
       }
     },
     {
@@ -193,13 +206,15 @@
         "en": "Sustainability Target",
         "tr": "Sürdürülebilirlik Hedefi",
         "de": "Nachhaltigkeitsziel",
-        "fr": "Objectif de durabilité"
+        "fr": "Objectif de durabilité",
+        "es": "Objetivo de sostenibilidad"
       },
       "businessContext_i18n": {
         "en": "If pursuing certification, additional costs for documentation, commissioning, and materials.",
         "tr": "Sertifikasyon hedefleniyorsa, dokümantasyon, devreye alma ve malzemeler için ek maliyetler",
         "de": "Bei Zertifizierungsanstrengungen zusätzliche Kosten für Dokumentation, Inbetriebnahme und Materialien.",
-        "fr": "Si poursuite de la certification, coûts supplémentaires pour la documentation, la mise en service et les matériaux."
+        "fr": "Si poursuite de la certification, coûts supplémentaires pour la documentation, la mise en service et les matériaux.",
+        "es": "Si se busca certificación, costes adicionales por documentación, puesta en marcha y materiales."
       }
     }
   ],

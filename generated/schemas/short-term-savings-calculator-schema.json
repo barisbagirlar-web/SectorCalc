@@ -13,14 +13,15 @@
         "tr": "Başlangıç Tasarrufu",
         "de": "Anfangssparbetrag",
         "fr": "Économies initiales",
-        "es": "Initial Savings",
+        "es": "Ahorro inicial",
         "ar": "Initial Savings"
       },
       "businessContext_i18n": {
         "en": "Initial lump sum amount saved.",
         "tr": "Birikmiş toplu tasarruf miktarı.",
         "de": "Einmaliger Pauschalbetrag, der gespart wurde.",
-        "fr": "Montant forfaitaire initial économisé."
+        "fr": "Montant forfaitaire initial économisé.",
+        "es": "Monto global inicial ahorrado."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Amount added to savings each month.",
         "tr": "Her ay tasarrufa eklenen miktar.",
         "de": "Monatlich zum Sparen hinzugefügter Betrag.",
-        "fr": "Montant ajouté à l'épargne chaque mois."
+        "fr": "Montant ajouté à l'épargne chaque mois.",
+        "es": "Cantidad añadida a los ahorros cada mes."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Annual interest rate.",
         "tr": "Yıllık faiz oranı.",
         "de": "Jährlicher Zinssatz.",
-        "fr": "Taux d'intérêt annuel."
+        "fr": "Taux d'intérêt annuel.",
+        "es": "Tasa de interés anual."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Number of years.",
         "tr": "Yıl sayısı.",
         "de": "Anzahl der Jahre.",
-        "fr": "Nombre d'années."
+        "fr": "Nombre d'années.",
+        "es": "Número de años."
       }
     }
   ],
@@ -108,7 +112,7 @@
     "dataConfidenceAdjusted": "totalInterest",
     "unit": "currency"
   },
-  "category": "Diğer",
+  "category": "Finans & Yatırım",
   "sector": "Günlük Yaşam & Ev",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -116,7 +120,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "ev-yasam",
   "profession": "Ev Yöneticisi",
-  "categoryId": "diger",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

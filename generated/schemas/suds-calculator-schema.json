@@ -13,14 +13,15 @@
         "tr": "Toplama Alanı",
         "de": "Einzugsgebiet",
         "fr": "Zone de captage",
-        "es": "Catchment Area",
+        "es": "Área de captación",
         "ar": "Catchment Area"
       },
       "businessContext_i18n": {
         "en": "Total impervious area draining to the SUDS feature.",
         "tr": "SUDS yapısına drene olan toplam geçirimsiz alan.",
         "de": "Gesamte undurchlässige Fläche, die zur SUDS-Anlage entwässert.",
-        "fr": "Surface imperméable totale drainant vers l'élément SUDS."
+        "fr": "Surface imperméable totale drainant vers l'élément SUDS.",
+        "es": "Área impermeable total que drena hacia el sistema SUDS."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Tasarım Yağmur Şiddeti",
         "de": "Bemessungsregenintensität",
         "fr": "Intensité de pluie de conception",
-        "es": "Design Rainfall Intensity",
+        "es": "Intensidad de lluvia de diseño",
         "ar": "Design Rainfall Intensity"
       },
       "businessContext_i18n": {
         "en": "Intensity for the design storm event, typically from IDF curves.",
         "tr": "Genellikle IDF eğrilerinden alınan tasarım fırtına olayı için şiddet.",
         "de": "Intensität für das Bemessungsregenereignis, typischerweise aus IDF-Kurven.",
-        "fr": "Intensité pour l'événement de tempête de conception, typiquement à partir de courbes IDF."
+        "fr": "Intensité pour l'événement de tempête de conception, typiquement à partir de courbes IDF.",
+        "es": "Intensidad para el evento de tormenta de diseño, típicamente de curvas IDF."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Ratio of runoff to rainfall, based on surface type.",
         "tr": "Yüzey tipine bağlı olarak yağışın akışa oranı.",
         "de": "Verhältnis von Abfluss zu Niederschlag, basierend auf der Oberflächenart.",
-        "fr": "Rapport entre le ruissellement et les précipitations, selon le type de surface."
+        "fr": "Rapport entre le ruissellement et les précipitations, selon le type de surface.",
+        "es": "Relación de escorrentía a lluvia, según el tipo de superficie."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Fırtına Süresi",
         "de": "Sturmdauer",
         "fr": "Durée de l'orage",
-        "es": "Storm Duration",
+        "es": "Duración de la tormenta",
         "ar": "Storm Duration"
       },
       "businessContext_i18n": {
         "en": "Duration of the design storm event.",
         "tr": "Tasarım fırtına olayının süresi.",
         "de": "Dauer des Bemessungsregenereignisses.",
-        "fr": "Durée de l'événement pluvieux de conception."
+        "fr": "Durée de l'événement pluvieux de conception.",
+        "es": "Duración del evento de tormenta de diseño."
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Factor of safety to account for uncertainties.",
         "tr": "Belirsizlikleri hesaba katmak için güvenlik faktörü.",
         "de": "Sicherheitsfaktor zur Berücksichtigung von Unsicherheiten.",
-        "fr": "Facteur de sécurité pour tenir compte des incertitudes."
+        "fr": "Facteur de sécurité pour tenir compte des incertitudes.",
+        "es": "Factor de seguridad para considerar incertidumbres."
       }
     }
   ],
@@ -135,7 +140,7 @@
       "durationHours": "%"
     }
   },
-  "category": "İSG & Risk",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "health-body",
@@ -143,7 +148,7 @@
   "categorySlug": "hse-ergonomics",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "safety",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

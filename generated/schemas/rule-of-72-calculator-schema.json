@@ -20,7 +20,8 @@
         "en": "The nominal annual interest rate, before compounding effect.",
         "tr": "Bileşik etkiden önceki yıllık nominal faiz oranı.",
         "de": "Der nominale jährliche Zinssatz vor Zinseszinseffekt.",
-        "fr": "Le taux d'intérêt nominal annuel, avant effet de composition."
+        "fr": "Le taux d'intérêt nominal annuel, avant effet de composition.",
+        "es": "La tasa de interés nominal anual, antes del efecto de capitalización."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Number of compounding periods per year (e.g., 1 for annual, 12 for monthly).",
         "tr": "Yıllık bileşik dönem sayısı (ör. yıllık için 1, aylık için 12).",
         "de": "Anzahl der Zinseszinsperioden pro Jahr (z. B. 1 für jährlich, 12 für monatlich).",
-        "fr": "Nombre de périodes de composition par an (ex. 1 pour annuel, 12 pour mensuel)."
+        "fr": "Nombre de périodes de composition par an (ex. 1 pour annuel, 12 pour mensuel).",
+        "es": "Número de períodos de capitalización por año (ej. 1 para anual, 12 para mensual)."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Kural Sabiti",
         "de": "Regelkonstante",
         "fr": "Constante de la règle",
-        "es": "Rule Constant",
+        "es": "Constante de la regla",
         "ar": "Rule Constant"
       },
       "businessContext_i18n": {
         "en": "The constant used in the rule of 72 (typically 72, but can be 70 or 69.3 for more precision).",
         "tr": "72 kuralında kullanılan sabit (genelde 72, daha hassas için 70 veya 69.3).",
         "de": "Die Konstante der 72er-Regel (üblich 72, aber 70 oder 69,3 für höhere Genauigkeit).",
-        "fr": "La constante utilisée dans la règle de 72 (généralement 72, mais peut être 70 ou 69,3 pour plus de précision)."
+        "fr": "La constante utilisée dans la règle de 72 (généralement 72, mais peut être 70 ou 69,3 pour plus de précision).",
+        "es": "Constante utilizada en la regla del 72 (normalmente 72, pero puede ser 70 o 69.3 para mayor precisión)."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "The initial amount invested.",
         "tr": "Başlangıçta yatırılan tutar.",
         "de": "Der anfänglich investierte Betrag.",
-        "fr": "Le montant initial investi."
+        "fr": "Le montant initial investi.",
+        "es": "Cantidad inicial invertida."
       }
     }
   ],
@@ -110,7 +114,7 @@
     "dataConfidenceAdjusted": "finalApprox",
     "unit": "%"
   },
-  "category": "Finans & Yatırım",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
@@ -118,7 +122,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "finance",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

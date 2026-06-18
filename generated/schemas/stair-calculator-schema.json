@@ -13,14 +13,15 @@
         "tr": "Toplam Yükseklik",
         "de": "Toplam Yükseklik",
         "fr": "Hauteur totale",
-        "es": "Total Rise",
+        "es": "Altura total",
         "ar": "Total Rise"
       },
       "businessContext_i18n": {
         "en": "floor-to-floor height",
         "tr": "Katlar arası döşeme yüksekliği",
         "de": "kattan kata yükseklik",
-        "fr": "Hauteur sol à sol"
+        "fr": "Hauteur sol à sol",
+        "es": "Altura de piso a piso"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Rıht Sayısı",
         "de": "Basamak Sayısı",
         "fr": "Nombre de contremarches",
-        "es": "Number of Risers",
+        "es": "Número de contrahuellas",
         "ar": "Number of Risers"
       },
       "businessContext_i18n": {
         "en": "desired number of steps (risers)",
         "tr": "İstenen basamak (rıht) sayısı",
         "de": "istenen basamak (rıht) sayısı",
-        "fr": "Nombre de marches (contremarches) souhaité"
+        "fr": "Nombre de marches (contremarches) souhaité",
+        "es": "Número deseado de escalones (contrahuellas)"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Basamak Derinliği",
         "de": "Basamak Derinliği",
         "fr": "Profondeur de marche",
-        "es": "Tread Depth",
+        "es": "Profundidad de la huella",
         "ar": "Tread Depth"
       },
       "businessContext_i18n": {
         "en": "horizontal depth of each tread",
         "tr": "Her bir basamağın yatay derinliği",
         "de": "her bir basamağın yatay derinliği",
-        "fr": "Profondeur horizontale de chaque marche"
+        "fr": "Profondeur horizontale de chaque marche",
+        "es": "Profundidad horizontal de cada huella"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Merdiven Genişliği",
         "de": "Merdiven Genişliği",
         "fr": "Largeur de l'escalier",
-        "es": "Stair Width",
+        "es": "Ancho de la escalera",
         "ar": "Stair Width"
       },
       "businessContext_i18n": {
         "en": "width of the staircase",
         "tr": "Merdiven kolunun genişliği",
         "de": "merdivenin genişliği",
-        "fr": "Largeur de la cage d'escalier"
+        "fr": "Largeur de la cage d'escalier",
+        "es": "Ancho de la escalera"
       }
     }
   ],
@@ -109,7 +113,7 @@
     "dataConfidenceAdjusted": "stairAngle",
     "unit": "cm"
   },
-  "category": "Diğer",
+  "category": "Teknik & Mühendislik",
   "sector": "İnşaat & Yapı",
   "premiumRequired": false,
   "catalogCategory": "construction-measurement",
@@ -117,7 +121,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "insaat",
   "profession": "İnşaat Mühendisi",
-  "categoryId": "diger",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

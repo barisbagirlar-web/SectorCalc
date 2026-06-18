@@ -13,14 +13,15 @@
         "tr": "Toplam Satış",
         "de": "Gesamtumsatz",
         "fr": "Ventes totales",
-        "es": "Total Sales",
+        "es": "Ventas totales",
         "ar": "Total Sales"
       },
       "businessContext_i18n": {
         "en": "Total monetary value of sales closed in the commission period.",
         "tr": "Komisyon döneminde kapatılan satışların toplam parasal değeri.",
         "de": "Gesamter Geldwert der im Provisionszeitraum abgeschlossenen Verkäufe.",
-        "fr": "Valeur monétaire totale des ventes conclues au cours de la période de commission."
+        "fr": "Valeur monétaire totale des ventes conclues au cours de la période de commission.",
+        "es": "Valor monetario total de las ventas cerradas en el período de comisión."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Standard commission rate applied to total sales.",
         "tr": "Toplam satışlara uygulanan standart komisyon oranı.",
         "de": "Standard-Provisionssatz, angewendet auf den Gesamtumsatz.",
-        "fr": "Taux de commission standard appliqué aux ventes totales."
+        "fr": "Taux de commission standard appliqué aux ventes totales.",
+        "es": "Tasa de comisión estándar aplicada a las ventas totales."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Hedef Satış",
         "de": "Zielumsatz",
         "fr": "Objectif de ventes",
-        "es": "Target Sales",
+        "es": "Ventas objetivo",
         "ar": "Target Sales"
       },
       "businessContext_i18n": {
         "en": "Sales threshold above which a bonus is earned.",
         "tr": "Üzerinde prim kazanılan satış eşiği.",
         "de": "Umsatzschwellenwert, ab dem ein Bonus verdient wird.",
-        "fr": "Seuil de ventes au-dessus duquel une prime est gagnée."
+        "fr": "Seuil de ventes au-dessus duquel une prime est gagnée.",
+        "es": "Umbral de ventas por encima del cual se obtiene una bonificación."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Prim Oranı",
         "de": "Bonusrate",
         "fr": "Taux de prime",
-        "es": "Bonus Rate",
+        "es": "Tasa de bonificación",
         "ar": "Bonus Rate"
       },
       "businessContext_i18n": {
         "en": "Additional commission rate applied to sales above target.",
         "tr": "Hedefin üzerindeki satışlara uygulanan ek komisyon oranı.",
         "de": "Zusätzlicher Provisionssatz, angewendet auf Umsätze über dem Ziel.",
-        "fr": "Taux de commission supplémentaire appliqué aux ventes au-dessus de l'objectif."
+        "fr": "Taux de commission supplémentaire appliqué aux ventes au-dessus de l'objectif.",
+        "es": "Tasa de comisión adicional aplicada a las ventas por encima del objetivo."
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Fixed base salary regardless of sales.",
         "tr": "Satışlardan bağımsız sabit taban maaş.",
         "de": "Festes Grundgehalt unabhängig vom Umsatz.",
-        "fr": "Salaire de base fixe indépendant des ventes."
+        "fr": "Salaire de base fixe indépendant des ventes.",
+        "es": "Salario base fijo independientemente de las ventas."
       }
     }
   ],
@@ -132,7 +137,7 @@
     "dataConfidenceAdjusted": "totalCompensation",
     "unit": "currency"
   },
-  "category": "İK & Personel",
+  "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
@@ -140,7 +145,7 @@
   "categorySlug": "workforce-hr",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "hr",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

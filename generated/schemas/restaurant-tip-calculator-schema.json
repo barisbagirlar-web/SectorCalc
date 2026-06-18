@@ -13,14 +13,15 @@
         "tr": "Fatura Tutarı (Vergi Hariç)",
         "de": "Rechnungsbetrag (ohne Steuern)",
         "fr": "Montant de la facture (hors taxe)",
-        "es": "Fatura Tutarı (Vergi Hariç)",
+        "es": "Monto de la factura (sin impuestos)",
         "ar": "Fatura Tutarı (Vergi Hariç)"
       },
       "businessContext_i18n": {
         "en": "Yemek öncesi vergi hariç toplam tutar",
         "tr": "Yemek öncesi vergi hariç toplam tutar",
         "de": "Gesamtbetrag vor Steuern auf der Speisenrechnung",
-        "fr": "Montant total avant impôt du repas"
+        "fr": "Montant total avant impôt du repas",
+        "es": "Total antes de impuestos de la comida"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Vergi Tutarı",
         "de": "Steuerbetrag",
         "fr": "Montant de la taxe",
-        "es": "Vergi Tutarı",
+        "es": "Monto del impuesto",
         "ar": "Vergi Tutarı"
       },
       "businessContext_i18n": {
         "en": "Yemek faturasındaki toplam vergi miktarı",
         "tr": "Yemek faturasındaki toplam vergi miktarı",
         "de": "Gesamter Steuerbetrag auf der Speisenrechnung",
-        "fr": "Montant total de la taxe sur la facture du repas"
+        "fr": "Montant total de la taxe sur la facture du repas",
+        "es": "Monto total de impuestos en la factura de comida"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Bahşiş Oranı",
         "de": "Trinkgeldprozentsatz",
         "fr": "Taux de pourboire",
-        "es": "Bahşiş Oranı",
+        "es": "Porcentaje de propina",
         "ar": "Bahşiş Oranı"
       },
       "businessContext_i18n": {
         "en": "Vergi öncesi tutara uygulanacak bahşiş yüzdesi",
         "tr": "Vergi öncesi tutara uygulanacak bahşiş yüzdesi",
         "de": "Trinkgeldprozentsatz, der auf den Betrag vor Steuern angewendet wird",
-        "fr": "Pourcentage de pourboire à appliquer sur le montant avant impôt"
+        "fr": "Pourcentage de pourboire à appliquer sur le montant avant impôt",
+        "es": "Porcentaje de propina a aplicar sobre el monto antes de impuestos"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Hesabı paylaşacak kişi sayısı",
         "tr": "Hesabı paylaşacak kişi sayısı",
         "de": "Anzahl der Personen, die die Rechnung teilen",
-        "fr": "Nombre de personnes partageant l'addition"
+        "fr": "Nombre de personnes partageant l'addition",
+        "es": "Número de personas que dividirán la cuenta"
       }
     }
   ],
@@ -108,7 +112,7 @@
     "dataConfidenceAdjusted": "perPerson",
     "unit": "TRY"
   },
-  "category": "Diğer",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Günlük Yaşam & Ev",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -116,7 +120,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "ev-yasam",
   "profession": "Ev Yöneticisi",
-  "categoryId": "diger",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

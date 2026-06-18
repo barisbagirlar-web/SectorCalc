@@ -13,14 +13,15 @@
         "tr": "Besleme Akış Hızı",
         "de": "Zufuhrdurchsatz",
         "fr": "Débit d'alimentation",
-        "es": "Besleme Akış Hızı",
+        "es": "Caudal de alimentación",
         "ar": "Besleme Akış Hızı"
       },
       "businessContext_i18n": {
         "en": "Damıtma kolonuna beslenen toplam akış hızı.",
         "tr": "Damıtma kolonuna beslenen toplam akış hızı.",
         "de": "Gesamtdurchsatz, der der Destillationskolonne zugeführt wird.",
-        "fr": "Débit total d'alimentation de la colonne de distillation."
+        "fr": "Débit total d'alimentation de la colonne de distillation.",
+        "es": "Caudal total alimentado a la columna de destilación."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Besleme Kompozisyonu",
         "de": "Zufuhrzusammensetzung",
         "fr": "Composition de l'alimentation",
-        "es": "Besleme Kompozisyonu",
+        "es": "Composición de la alimentación",
         "ar": "Besleme Kompozisyonu"
       },
       "businessContext_i18n": {
         "en": "Besleme akımındaki hafif bileşenin mol kesri.",
         "tr": "Besleme akımındaki hafif bileşenin mol kesri.",
         "de": "Stoffmengenanteil der leichten Komponente im Zufuhrstrom.",
-        "fr": "Fraction molaire du composant léger dans le courant d'alimentation."
+        "fr": "Fraction molaire du composant léger dans le courant d'alimentation.",
+        "es": "Fracción molar del componente ligero en la corriente de alimentación."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Distilat Akış Hızı",
         "de": "Destillatdurchsatz",
         "fr": "Débit de distillat",
-        "es": "Distilat Akış Hızı",
+        "es": "Caudal de destilado",
         "ar": "Distilat Akış Hızı"
       },
       "businessContext_i18n": {
         "en": "Kolon üst ürünü olarak alınan distilat akış hızı.",
         "tr": "Kolon üst ürünü olarak alınan distilat akış hızı.",
         "de": "Destillatdurchsatz, der als Kopfprodukt der Kolonne entnommen wird.",
-        "fr": "Débit de distillat prélevé comme produit de tête de colonne."
+        "fr": "Débit de distillat prélevé comme produit de tête de colonne.",
+        "es": "Caudal de destilado extraído como producto de cabeza de la columna."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Distilat Kompozisyonu",
         "de": "Destillatzusammensetzung",
         "fr": "Composition du distillat",
-        "es": "Distilat Kompozisyonu",
+        "es": "Composición del destilado",
         "ar": "Distilat Kompozisyonu"
       },
       "businessContext_i18n": {
         "en": "Distilat akımındaki hafif bileşenin mol kesri.",
         "tr": "Distilat akımındaki hafif bileşenin mol kesri.",
         "de": "Stoffmengenanteil der leichten Komponente im Destillatstrom.",
-        "fr": "Fraction molaire du composant léger dans le courant de distillat."
+        "fr": "Fraction molaire du composant léger dans le courant de distillat.",
+        "es": "Fracción molar del componente ligero en la corriente de destilado."
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Reflü Akış Hızı",
         "de": "Rücklaufdurchsatz",
         "fr": "Débit de reflux",
-        "es": "Reflü Akış Hızı",
+        "es": "Caudal de reflujo",
         "ar": "Reflü Akış Hızı"
       },
       "businessContext_i18n": {
         "en": "Kolon içine geri döndürülen sıvı akış hızı.",
         "tr": "Kolon içine geri döndürülen sıvı akış hızı.",
         "de": "Flüssigkeitsdurchsatz, der in die Kolonne zurückgeführt wird.",
-        "fr": "Débit de liquide renvoyé dans la colonne."
+        "fr": "Débit de liquide renvoyé dans la colonne.",
+        "es": "Caudal de líquido retornado al interior de la columna."
       }
     }
   ],
@@ -136,7 +141,7 @@
       "boilUpRatio": "%"
     }
   },
-  "category": "Diğer",
+  "category": "Finans & Yatırım",
   "sector": "Kimya & Proses",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
@@ -144,7 +149,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "kimya",
   "profession": "Kimyager",
-  "categoryId": "diger",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

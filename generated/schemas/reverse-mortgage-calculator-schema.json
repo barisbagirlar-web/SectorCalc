@@ -20,7 +20,8 @@
         "en": "Current appraised value of the home.",
         "tr": "Evin güncel değerleme fiyatı.",
         "de": "Aktueller Schätzwert des Hauses.",
-        "fr": "Valeur actuelle estimée du logement."
+        "fr": "Valeur actuelle estimée du logement.",
+        "es": "Valor actual tasado de la vivienda."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Borçlu Yaşı",
         "de": "Alter des Kreditnehmers",
         "fr": "Âge de l'emprunteur",
-        "es": "Borrower Age",
+        "es": "Edad del prestatario",
         "ar": "Borrower Age"
       },
       "businessContext_i18n": {
         "en": "Age of the youngest borrower.",
         "tr": "En genç borçlunun yaşı.",
         "de": "Alter des jüngsten Kreditnehmers.",
-        "fr": "Âge de l'emprunteur le plus jeune."
+        "fr": "Âge de l'emprunteur le plus jeune.",
+        "es": "Edad del prestatario más joven."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Expected interest rate (annual).",
         "tr": "Beklenen faiz oranı (yıllık).",
         "de": "Erwarteter Zinssatz (jährlich).",
-        "fr": "Taux d'intérêt attendu (annuel)."
+        "fr": "Taux d'intérêt attendu (annuel).",
+        "es": "Tasa de interés esperada (anual)."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Borç Veren Marjı",
         "de": "Kreditgeber-Marge",
         "fr": "Marge du prêteur",
-        "es": "Lender Margin",
+        "es": "Margen del prestamista",
         "ar": "Lender Margin"
       },
       "businessContext_i18n": {
         "en": "Margin added to reference rate.",
         "tr": "Referans orana eklenen marj.",
         "de": "Marge, die zum Referenzzinssatz hinzugefügt wird.",
-        "fr": "Marge ajoutée au taux de référence."
+        "fr": "Marge ajoutée au taux de référence.",
+        "es": "Margen añadido a la tasa de referencia."
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Projected lifespan for cost calculation.",
         "tr": "Maliyet hesaplaması için öngörülen kullanım ömrü.",
         "de": "Prognostizierte Lebensdauer für die Kostenberechnung.",
-        "fr": "Durée de vie projetée pour le calcul des coûts."
+        "fr": "Durée de vie projetée pour le calcul des coûts.",
+        "es": "Vida útil proyectada para el cálculo de costes."
       }
     }
   ],
@@ -131,7 +136,7 @@
     "dataConfidenceAdjusted": "totalCost",
     "unit": "USD"
   },
-  "category": "Maliyet & Bütçeleme",
+  "category": "Finans & Yatırım",
   "sector": "Emlak & Gayrimenkul",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
@@ -139,7 +144,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "emlak",
   "profession": "Proje Geliştirici",
-  "categoryId": "cost",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

@@ -20,7 +20,8 @@
         "en": "Patient's age in years",
         "tr": "Hastanın yaşı (yıl)",
         "de": "Alter des Patienten in Jahren",
-        "fr": "Âge du patient en années"
+        "fr": "Âge du patient en années",
+        "es": "Edad del paciente en años"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Patient's heart rate in beats per minute",
         "tr": "Hastanın kalp atış hızı (atım/dakika)",
         "de": "Herzfrequenz des Patienten in Schlägen pro Minute",
-        "fr": "Fréquence cardiaque du patient en battements par minute"
+        "fr": "Fréquence cardiaque du patient en battements par minute",
+        "es": "Frecuencia cardíaca del paciente en latidos por minuto"
       }
     },
     {
@@ -87,7 +89,8 @@
         "en": "Body temperature in Celsius",
         "tr": "Vücut sıcaklığı (Celsius)",
         "de": "Körpertemperatur in Celsius",
-        "fr": "Température corporelle en degrés Celsius"
+        "fr": "Température corporelle en degrés Celsius",
+        "es": "Temperatura corporal en grados Celsius"
       }
     },
     {
@@ -102,14 +105,15 @@
         "tr": "Mekanik ventilasyon",
         "de": "Mechanische Beatmung",
         "fr": "Ventilation mécanique",
-        "es": "Mechanical Ventilation",
+        "es": "Ventilación Mecánica",
         "ar": "Mechanical Ventilation"
       },
       "businessContext_i18n": {
         "en": "1 if on mechanical ventilation or CPAP, else 0",
         "tr": "Mekanik ventilasyon veya CPAP kullanılıyorsa 1, değilse 0",
         "de": "1 bei mechanischer Beatmung oder CPAP, sonst 0",
-        "fr": "1 si ventilation mécanique ou CPAP, sinon 0"
+        "fr": "1 si ventilation mécanique ou CPAP, sinon 0",
+        "es": "1 si está en ventilación mecánica o CPAP, si no 0"
       }
     },
     {
@@ -124,14 +128,15 @@
         "tr": "PaO2/FiO2 Oranı",
         "de": "PaO2/FiO2-Verhältnis",
         "fr": "Rapport PaO2/FiO2",
-        "es": "PaO2/FiO2 Ratio",
+        "es": "Relación PaO2/FiO2",
         "ar": "PaO2/FiO2 Ratio"
       },
       "businessContext_i18n": {
         "en": "PaO2/FiO2 ratio in mmHg, relevant only if ventilated",
         "tr": "PaO2/FiO2 oranı (mmHg), yalnızca ventilasyon varsa geçerlidir",
         "de": "PaO2/FiO2-Verhältnis in mmHg, nur relevant bei Beatmung",
-        "fr": "Rapport PaO2/FiO2 en mmHg, pertinent uniquement si ventilé"
+        "fr": "Rapport PaO2/FiO2 en mmHg, pertinent uniquement si ventilé",
+        "es": "Relación PaO2/FiO2 en mmHg, relevante solo si está ventilado"
       }
     },
     {
@@ -146,14 +151,15 @@
         "tr": "İdrar çıkışı",
         "de": "Urinausscheidung",
         "fr": "Débit urinaire",
-        "es": "Urine Output",
+        "es": "Producción de orina",
         "ar": "Urine Output"
       },
       "businessContext_i18n": {
         "en": "Daily urine output in liters",
         "tr": "Günlük idrar çıkışı (litre)",
         "de": "Tägliche Urinausscheidung in Litern",
-        "fr": "Débit urinaire quotidien en litres"
+        "fr": "Débit urinaire quotidien en litres",
+        "es": "Producción diaria de orina en litros"
       }
     },
     {
@@ -168,14 +174,15 @@
         "tr": "Serum üre",
         "de": "Serumharnstoff",
         "fr": "Urée sérique",
-        "es": "Serum Urea",
+        "es": "Urea sérica",
         "ar": "Serum Urea"
       },
       "businessContext_i18n": {
         "en": "Serum urea concentration in mmol/L",
         "tr": "Serum üre konsantrasyonu (mmol/L)",
         "de": "Serumharnstoffkonzentration in mmol/L",
-        "fr": "Concentration d'urée sérique en mmol/L"
+        "fr": "Concentration d'urée sérique en mmol/L",
+        "es": "Concentración de urea sérica en mmol/L"
       }
     }
   ],
@@ -210,7 +217,7 @@
       "tempPoints": "°C"
     }
   },
-  "category": "Teknik & Mühendislik",
+  "category": "İSG & Risk",
   "sector": "Sağlık & Tıp",
   "premiumRequired": false,
   "catalogCategory": "health-body",
@@ -218,7 +225,7 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "saglik",
   "profession": "Biyomedikal Mühendisi",
-  "categoryId": "engineering",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

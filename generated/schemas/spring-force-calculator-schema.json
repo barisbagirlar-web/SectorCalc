@@ -20,7 +20,8 @@
         "en": "Doğrudan yay sabiti değeri. Sıfır bırakılırsa geometriden hesaplanır.",
         "tr": "Doğrudan yay sabiti değeri. Sıfır bırakılırsa geometriden hesaplanır.",
         "de": "Direkter Wert der Federkonstante. Bei Null wird aus Geometrie berechnet.",
-        "fr": "Valeur directe de la constante de raideur. Laisser à zéro pour calcul à partir de la géométrie."
+        "fr": "Valeur directe de la constante de raideur. Laisser à zéro pour calcul à partir de la géométrie.",
+        "es": "Doğrudan yay sabiti değeri. Sıfır bırakılırsa geometriden hesaplanır."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Yayın sıkıştırma veya uzama miktarı.",
         "tr": "Yayın sıkıştırma veya uzama miktarı.",
         "de": "Betrag der Kompression oder Ausdehnung der Feder.",
-        "fr": "Quantité de compression ou d'extension du ressort."
+        "fr": "Quantité de compression ou d'extension du ressort.",
+        "es": "Yayın sıkıştırma veya uzama miktarı."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Yay telinin çapı.",
         "tr": "Tel Çapı (d)",
         "de": "Durchmesser des Federdrahts.",
-        "fr": "Diamètre du fil du ressort."
+        "fr": "Diamètre du fil du ressort.",
+        "es": "Yay telinin çapı."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Yayın ortalama bobin çapı.",
         "tr": "Yaydaki aktif sarım sayısı.",
         "de": "Mittlerer Spulendurchmesser der Feder.",
-        "fr": "Diamètre moyen de la bobine du ressort."
+        "fr": "Diamètre moyen de la bobine du ressort.",
+        "es": "Yayın ortalama bobin çapı."
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Yaydaki aktif sarım sayısı.",
         "tr": "Malzemenin kayma modülü. Çelik için yaklaşık 80 GPa.",
         "de": "Anzahl der aktiven Windungen der Feder.",
-        "fr": "Nombre de spires actives dans le ressort."
+        "fr": "Nombre de spires actives dans le ressort.",
+        "es": "Yaydaki aktif sarım sayısı."
       }
     },
     {
@@ -130,7 +135,8 @@
         "en": "Malzemenin kayma modülü. Çelik için yaklaşık 80 GPa.",
         "tr": "Yay Sabiti (k)",
         "de": "Schubmodul des Materials. Für Stahl etwa 80 GPa.",
-        "fr": "Module de cisaillement du matériau. Pour l'acier, environ 80 GPa."
+        "fr": "Module de cisaillement du matériau. Pour l'acier, environ 80 GPa.",
+        "es": "Malzemenin kayma modülü. Çelik için yaklaşık 80 GPa."
       }
     }
   ],
@@ -151,7 +157,7 @@
     "dataConfidenceAdjusted": "displacement",
     "unit": "N/mm"
   },
-  "category": "Diğer",
+  "category": "Teknik & Mühendislik",
   "sector": "Fizik & Mekanik",
   "premiumRequired": false,
   "catalogCategory": "physics-science",
@@ -159,7 +165,7 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "fizik",
   "profession": "Fizik Mühendisi",
-  "categoryId": "diger",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}

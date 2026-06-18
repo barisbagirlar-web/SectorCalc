@@ -20,7 +20,8 @@
         "en": "The amount of money already saved.",
         "tr": "Halihazırda birikmiş para miktarı.",
         "de": "Bereits gesparter Betrag.",
-        "fr": "Le montant d'argent déjà épargné."
+        "fr": "Le montant d'argent déjà épargné.",
+        "es": "Cantidad de dinero ya ahorrada."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Amount added to savings each month.",
         "tr": "Her ay tasarrufa eklenen miktar.",
         "de": "Monatlich zum Sparen hinzugefügter Betrag.",
-        "fr": "Montant ajouté à l'épargne chaque mois."
+        "fr": "Montant ajouté à l'épargne chaque mois.",
+        "es": "Cantidad añadida a los ahorros cada mes."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Expected annual rate of return on savings.",
         "tr": "Tasarruflar için beklenen yıllık getiri oranı.",
         "de": "Erwartete jährliche Rendite auf Ersparnisse.",
-        "fr": "Taux de rendement annuel attendu sur l'épargne."
+        "fr": "Taux de rendement annuel attendu sur l'épargne.",
+        "es": "Tasa de rendimiento anual esperada sobre los ahorros."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Time horizon for savings goal.",
         "tr": "Tasarruf hedefi için zaman ufku.",
         "de": "Zeithorizont für Sparziel.",
-        "fr": "Horizon temporel pour l'objectif d'épargne."
+        "fr": "Horizon temporel pour l'objectif d'épargne.",
+        "es": "Horizonte temporal para el objetivo de ahorro."
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Hedef Miktar",
         "de": "Zielbetrag",
         "fr": "Montant objectif",
-        "es": "Goal Amount",
+        "es": "Monto objetivo",
         "ar": "Goal Amount"
       },
       "businessContext_i18n": {
         "en": "The target amount you want to save.",
         "tr": "Biriktirmek istediğiniz hedef tutar.",
         "de": "Der Zielbetrag, den Sie sparen möchten.",
-        "fr": "Le montant cible que vous souhaitez économiser."
+        "fr": "Le montant cible que vous souhaitez économiser.",
+        "es": "La cantidad objetivo que desea ahorrar."
       }
     }
   ],
@@ -133,7 +138,7 @@
     "dataConfidenceAdjusted": "goalDifference",
     "unit": "currency"
   },
-  "category": "Diğer",
+  "category": "Finans & Yatırım",
   "sector": "Günlük Yaşam & Ev",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
@@ -141,7 +146,7 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "ev-yasam",
   "profession": "Ev Yöneticisi",
-  "categoryId": "diger",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

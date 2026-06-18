@@ -20,7 +20,8 @@
         "en": "End condition factor: 1.0 for pinned-pinned, 0.5 for fixed-fixed, 0.7 for fixed-pinned, 2.0 for fixed-free.",
         "tr": "Uç durumu faktörü: 1.0 mafsallı-mafsallı, 0.5 ankastre-ankastre, 0.7 ankastre-mafsallı, 2.0 ankastre-serbest.",
         "de": "Endbedingungsfaktor: 1,0 für gelenkig-gelenkig, 0,5 für fest-fest, 0,7 für fest-gelenkig, 2,0 für fest-frei.",
-        "fr": "Facteur de condition d'extrémité : 1,0 pour articulé-articulé, 0,5 pour encastré-encastré, 0,7 pour encastré-articulé, 2,0 pour encastré-libre."
+        "fr": "Facteur de condition d'extrémité : 1,0 pour articulé-articulé, 0,5 pour encastré-encastré, 0,7 pour encastré-articulé, 2,0 pour encastré-libre.",
+        "es": "Factor de condición de extremo: 1.0 para articulado-articulado, 0.5 para empotrado-empotrado, 0.7 para empotrado-articulado, 2.0 para empotrado-libre."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Actual length between lateral supports.",
         "tr": "Yanal destekler arasındaki gerçek uzunluk.",
         "de": "Tatsächliche Länge zwischen seitlichen Abstützungen.",
-        "fr": "Longueur réelle entre les supports latéraux."
+        "fr": "Longueur réelle entre les supports latéraux.",
+        "es": "Longitud real entre soportes laterales."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Kesit Genişliği (b)",
         "de": "Querschnittsbreite (b)",
         "fr": "Largeur de la section transversale (b)",
-        "es": "Cross-Section Width (b)",
+        "es": "Ancho de la sección transversal (b)",
         "ar": "Cross-Section Width (b)"
       },
       "businessContext_i18n": {
         "en": "Width of rectangular solid section.",
         "tr": "Dikdörtgen katı kesitin genişliği.",
         "de": "Breite des rechteckigen Vollquerschnitts.",
-        "fr": "Largeur de la section rectangulaire pleine."
+        "fr": "Largeur de la section rectangulaire pleine.",
+        "es": "Ancho de la sección rectangular maciza."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Kesit Kalınlığı (t)",
         "de": "Querschnittsdicke (t)",
         "fr": "Épaisseur de la section transversale (t)",
-        "es": "Cross-Section Thickness (t)",
+        "es": "Espesor de la sección transversal (t)",
         "ar": "Cross-Section Thickness (t)"
       },
       "businessContext_i18n": {
         "en": "Thickness of rectangular solid section.",
         "tr": "Dikdörtgen katı kesitin kalınlığı.",
         "de": "Dicke des rechteckigen Vollquerschnitts.",
-        "fr": "Épaisseur de la section rectangulaire pleine."
+        "fr": "Épaisseur de la section rectangulaire pleine.",
+        "es": "Espesor de la sección rectangular maciza."
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Steel typically 200 GPa.",
         "tr": "Çelik için tipik olarak 200 GPa.",
         "de": "Stahl typischerweise 200 GPa.",
-        "fr": "L'acier fait généralement 200 GPa."
+        "fr": "L'acier fait généralement 200 GPa.",
+        "es": "El acero típicamente tiene 200 GPa."
       }
     },
     {
@@ -123,14 +128,15 @@
         "tr": "Akma Dayanımı (Fy)",
         "de": "Streckgrenze (Fy)",
         "fr": "Limite d'élasticité (Fy)",
-        "es": "Yield Strength (Fy)",
+        "es": "Límite elástico (Fy)",
         "ar": "Yield Strength (Fy)"
       },
       "businessContext_i18n": {
         "en": "Typical S235 steel yield strength.",
         "tr": "Tipik S235 çeliği akma dayanımı.",
         "de": "Typische Streckgrenze von S235-Stahl.",
-        "fr": "Limite d'élasticité typique de l'acier S235."
+        "fr": "Limite d'élasticité typique de l'acier S235.",
+        "es": "Límite elástico típico del acero S235."
       }
     },
     {
@@ -152,7 +158,8 @@
         "en": "AISC ASD typical factor of safety for compression.",
         "tr": "AISC ASD tipik basınç güvenlik faktörü.",
         "de": "AISC ASD typischer Sicherheitsfaktor für Druck.",
-        "fr": "Coefficient de sécurité typique de l'AISC ASD pour la compression."
+        "fr": "Coefficient de sécurité typique de l'AISC ASD pour la compression.",
+        "es": "Factor de seguridad típico de AISC ASD para compresión."
       }
     }
   ],

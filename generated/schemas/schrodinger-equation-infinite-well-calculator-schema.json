@@ -13,14 +13,15 @@
         "tr": "Kuantum Sayısı n",
         "de": "Quantenzahl n",
         "fr": "Nombre quantique n",
-        "es": "Quantum Number n",
+        "es": "Número cuántico n",
         "ar": "Quantum Number n"
       },
       "businessContext_i18n": {
         "en": "Principal quantum number (n = 1, 2, 3, ...) indicating the energy level of the particle.",
         "tr": "Baş kuantum sayısı (n = 1, 2, 3, ...) parçacığın enerji seviyesini belirtir.",
         "de": "Hauptquantenzahl (n = 1, 2, 3, ...), die das Energieniveau des Teilchens angibt.",
-        "fr": "Nombre quantique principal (n = 1, 2, 3, ...) indiquant le niveau d'énergie de la particule."
+        "fr": "Nombre quantique principal (n = 1, 2, 3, ...) indiquant le niveau d'énergie de la particule.",
+        "es": "Número cuántico principal (n = 1, 2, 3, ...) que indica el nivel de energía de la partícula."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Parçacık Kütlesi",
         "de": "Teilchenmasse",
         "fr": "Masse de la particule",
-        "es": "Particle Mass",
+        "es": "Masa de la partícula",
         "ar": "Particle Mass"
       },
       "businessContext_i18n": {
         "en": "Mass of the particle confined in the infinite well (e.g., electron mass).",
         "tr": "Sonsuz kuyuda hapsedilmiş parçacığın kütlesi (örneğin, elektron kütlesi).",
         "de": "Masse des im unendlichen Topf eingeschlossenen Teilchens (z. B. Elektronenmasse).",
-        "fr": "Masse de la particule confinée dans le puits infini (par exemple, masse de l'électron)."
+        "fr": "Masse de la particule confinée dans le puits infini (par exemple, masse de l'électron).",
+        "es": "Masa de la partícula confinada en el pozo infinito (por ejemplo, masa del electrón)."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Kutu Uzunluğu",
         "de": "Kastenlänge",
         "fr": "Longueur de la boîte",
-        "es": "Box Length",
+        "es": "Longitud del pozo",
         "ar": "Box Length"
       },
       "businessContext_i18n": {
         "en": "Width of the one-dimensional infinite potential well.",
         "tr": "Tek boyutlu sonsuz potansiyel kuyusunun genişliği.",
         "de": "Breite des eindimensionalen unendlichen Potentialtopfs.",
-        "fr": "Largeur du puits de potentiel unidimensionnel infini."
+        "fr": "Largeur du puits de potentiel unidimensionnel infini.",
+        "es": "Ancho del pozo de potencial infinito unidimensional."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Konum x",
         "de": "Position x",
         "fr": "Position x",
-        "es": "Position x",
+        "es": "Posición x",
         "ar": "Position x"
       },
       "businessContext_i18n": {
         "en": "Position inside the well (0 < x < L) at which the wavefunction is evaluated.",
         "tr": "Dalga fonksiyonunun değerlendirildiği kuyu içindeki konum (0 < x < L).",
         "de": "Position innerhalb des Topfes (0 < x < L), an der die Wellenfunktion ausgewertet wird.",
-        "fr": "Position à l'intérieur du puits (0 < x < L) à laquelle la fonction d'onde est évaluée."
+        "fr": "Position à l'intérieur du puits (0 < x < L) à laquelle la fonction d'onde est évaluée.",
+        "es": "Posición dentro del pozo (0 < x < L) en la que se evalúa la función de onda."
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "İndirgenmiş Planck Sabiti",
         "de": "Reduziertes Plancksches Wirkungsquantum",
         "fr": "Constante de Planck réduite",
-        "es": "Reduced Planck Constant",
+        "es": "Constante reducida de Planck",
         "ar": "Reduced Planck Constant"
       },
       "businessContext_i18n": {
         "en": "Reduced Planck constant (ħ = h/2π).",
         "tr": "İndirgenmiş Planck sabiti (ħ = h/2π).",
         "de": "Reduziertes Plancksches Wirkungsquantum (ħ = h/2π).",
-        "fr": "Constante de Planck réduite (ħ = h/2π)."
+        "fr": "Constante de Planck réduite (ħ = h/2π).",
+        "es": "Constante reducida de Planck (ħ = h/2π)."
       }
     }
   ],
@@ -129,7 +134,7 @@
     "dataConfidenceAdjusted": "probabilityDensity",
     "unit": "(dimensionless)"
   },
-  "category": "Enerji & Karbon",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -137,7 +142,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "energy",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

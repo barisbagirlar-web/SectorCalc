@@ -43,7 +43,8 @@
         "en": "Percentage of purchase price paid upfront",
         "tr": "Peşin ödenen satın alma fiyatı yüzdesi",
         "de": "Prozentsatz des Kaufpreises, der als Anzahlung gezahlt wird",
-        "fr": "Pourcentage du prix d'achat payé d'avance"
+        "fr": "Pourcentage du prix d'achat payé d'avance",
+        "es": "Porcentaje del precio de compra pagado por adelantado"
       }
     },
     {
@@ -65,7 +66,8 @@
         "en": "Annual nominal interest rate for mortgage loan",
         "tr": "Mortgage kredisi için yıllık nominal faiz oranı",
         "de": "Jährlicher Nominalzinssatz für Hypothekendarlehen",
-        "fr": "Taux d'intérêt nominal annuel du prêt hypothécaire"
+        "fr": "Taux d'intérêt nominal annuel du prêt hypothécaire",
+        "es": "Tasa de interés nominal anual del préstamo hipotecario"
       }
     },
     {
@@ -87,7 +89,8 @@
         "en": "Duration of mortgage loan in years",
         "tr": "Mortgage kredisinin yıl cinsinden süresi",
         "de": "Laufzeit des Hypothekendarlehens in Jahren",
-        "fr": "Durée du prêt hypothécaire en années"
+        "fr": "Durée du prêt hypothécaire en années",
+        "es": "Duración del préstamo hipotecario en años"
       }
     },
     {
@@ -125,14 +128,15 @@
         "tr": "Yıllık İşletme Giderleri (Kiranın %'si)",
         "de": "Jährliche Betriebskosten (% der Miete)",
         "fr": "Frais d'exploitation annuels (% du loyer)",
-        "es": "Annual Operating Expenses (% of Rent)",
+        "es": "Gastos operativos anuales (% del alquiler)",
         "ar": "Annual Operating Expenses (% of Rent)"
       },
       "businessContext_i18n": {
         "en": "Annual operating expenses as percentage of annual gross rent, including maintenance, insurance, taxes",
         "tr": "Bakım, sigorta, vergiler dahil yıllık brüt kiranın yüzdesi olarak yıllık işletme giderleri",
         "de": "Jährliche Betriebskosten als Prozentsatz der jährlichen Bruttomiete, einschließlich Instandhaltung, Versicherung, Steuern",
-        "fr": "Frais d'exploitation annuels en pourcentage du loyer brut annuel, incluant entretien, assurance, taxes"
+        "fr": "Frais d'exploitation annuels en pourcentage du loyer brut annuel, incluant entretien, assurance, taxes",
+        "es": "Gastos operativos anuales como porcentaje del alquiler bruto anual, incluyendo mantenimiento, seguros, impuestos"
       }
     },
     {
@@ -147,14 +151,15 @@
         "tr": "Boşluk Oranı (%)",
         "de": "Leerstandsrate (%)",
         "fr": "Taux d'inoccupation (%)",
-        "es": "Vacancy Rate (%)",
+        "es": "Tasa de desocupación (%)",
         "ar": "Vacancy Rate (%)"
       },
       "businessContext_i18n": {
         "en": "Estimated percentage of time the property is vacant, reducing rental income",
         "tr": "Mülkün boş olduğu tahmini süre yüzdesi, kira gelirini azaltır",
         "de": "Geschätzter Prozentsatz der Zeit, in der die Immobilie leer steht, was die Mieteinnahmen verringert",
-        "fr": "Pourcentage estimé de temps où la propriété est inoccupée, réduisant le revenu locatif"
+        "fr": "Pourcentage estimé de temps où la propriété est inoccupée, réduisant le revenu locatif",
+        "es": "Porcentaje estimado de tiempo que la propiedad está desocupada, reduciendo los ingresos por alquiler"
       }
     }
   ],
@@ -184,7 +189,7 @@
     "dataConfidenceAdjusted": "capRate",
     "unit": "EUR"
   },
-  "category": "Maliyet & Bütçeleme",
+  "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
@@ -192,7 +197,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "cost",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

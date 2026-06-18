@@ -20,7 +20,8 @@
         "en": "Average number of cigarettes smoked daily.",
         "tr": "Günde içilen ortalama sigara sayısı.",
         "de": "Durchschnittliche Anzahl täglich gerauchter Zigaretten.",
-        "fr": "Nombre moyen de cigarettes fumées par jour."
+        "fr": "Nombre moyen de cigarettes fumées par jour.",
+        "es": "Número promedio de cigarrillos fumados diariamente."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Standard pack size in your region.",
         "tr": "Bölgenizdeki standart paket boyutu.",
         "de": "Standard-Packungsgröße in Ihrer Region.",
-        "fr": "Taille standard du paquet dans votre région."
+        "fr": "Taille standard du paquet dans votre région.",
+        "es": "Tamaño de paquete estándar en su región."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Cost of a single pack in your local currency.",
         "tr": "Yerel para biriminizde tek bir paketin maliyeti.",
         "de": "Kosten einer einzelnen Packung in Ihrer Landeswährung.",
-        "fr": "Coût d'un paquet dans votre devise locale."
+        "fr": "Coût d'un paquet dans votre devise locale.",
+        "es": "Costo de un paquete individual en su moneda local."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Sigara İçme Yılı",
         "de": "Raucherjahre",
         "fr": "Années de tabagisme",
-        "es": "Years Smoking",
+        "es": "Años fumando",
         "ar": "Years Smoking"
       },
       "businessContext_i18n": {
         "en": "Total number of years the habit has persisted.",
         "tr": "Alışkanlığın sürdüğü toplam yıl sayısı.",
         "de": "Gesamtzahl der Jahre, in denen die Gewohnheit bestand.",
-        "fr": "Nombre total d'années pendant lesquelles l'habitude a persisté."
+        "fr": "Nombre total d'années pendant lesquelles l'habitude a persisté.",
+        "es": "Número total de años que ha persistido el hábito."
       }
     }
   ],
@@ -113,7 +117,7 @@
     "dataConfidenceAdjusted": "totalCost",
     "unit": "cigarettes/day"
   },
-  "category": "Maliyet & Bütçeleme",
+  "category": "İSG & Risk",
   "sector": "Sağlık & Tıp",
   "premiumRequired": false,
   "catalogCategory": "health-body",
@@ -121,7 +125,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "saglik",
   "profession": "Biyomedikal Mühendisi",
-  "categoryId": "cost",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

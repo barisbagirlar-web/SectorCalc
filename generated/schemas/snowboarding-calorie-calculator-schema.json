@@ -20,7 +20,8 @@
         "en": "User's body weight directly influences energy expenditure; heavier individuals burn more calories.",
         "tr": "Kullanıcının vücut ağırlığı enerji harcamasını doğrudan etkiler; daha ağır bireyler daha fazla kalori yakar.",
         "de": "Das Körpergewicht des Benutzers beeinflusst direkt den Energieverbrauch; schwerere Personen verbrennen mehr Kalorien.",
-        "fr": "Le poids corporel influence directement la dépense énergétique ; les personnes plus lourdes brûlent plus de calories."
+        "fr": "Le poids corporel influence directement la dépense énergétique ; les personnes plus lourdes brûlent plus de calories.",
+        "es": "El peso corporal del usuario influye directamente en el gasto energético; las personas más pesadas queman más calorías."
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "Time spent actively snowboarding; longer duration increases total calorie burn.",
         "tr": "Aktif snowboard yapılan süre; daha uzun süre toplam kalori yakımını artırır.",
         "de": "Zeit, die aktiv Snowboard gefahren wird; längere Dauer erhöht den Gesamtkalorienverbrauch.",
-        "fr": "Temps passé activement à faire du snowboard ; une durée plus longue augmente la dépense calorique totale."
+        "fr": "Temps passé activement à faire du snowboard ; une durée plus longue augmente la dépense calorique totale.",
+        "es": "Tiempo dedicado activamente al snowboard; una mayor duración aumenta la quema total de calorías."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Yoğunluk seviyesi",
         "de": "Intensitätsstufe",
         "fr": "Niveau d'intensité",
-        "es": "Intensity Level",
+        "es": "Nivel de intensidad",
         "ar": "Intensity Level"
       },
       "businessContext_i18n": {
         "en": "Perceived exertion from 1 (very light, like easy cruising) to 10 (extreme, like aggressive carving or backcountry); used to derive metabolic equivalent (MET).",
         "tr": "1 (çok hafif, kolay sürüş gibi) ile 10 (aşırı, agresif karvaj veya backcountry gibi) arasında algılanan efor; metabolik eşdeğer (MET) türetmek için kullanılır.",
         "de": "Wahrgenommene Anstrengung von 1 (sehr leicht, wie entspanntes Cruisen) bis 10 (extrem, wie aggressives Carven oder Backcountry); dient zur Ableitung des metabolischen Äquivalents (MET).",
-        "fr": "Effort perçu de 1 (très léger, comme une croisière facile) à 10 (extrême, comme du carving agressif ou du backcountry) ; utilisé pour dériver l'équivalent métabolique (MET)."
+        "fr": "Effort perçu de 1 (très léger, comme une croisière facile) à 10 (extrême, comme du carving agressif ou du backcountry) ; utilisé pour dériver l'équivalent métabolique (MET).",
+        "es": "Esfuerzo percibido de 1 (muy ligero, como crucero fácil) a 10 (extremo, como tallado agresivo o backcountry); se utiliza para derivar el equivalente metabólico (MET)."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Above sea level altitude of the snowboarding location; higher altitude increases metabolic rate due to reduced oxygen availability.",
         "tr": "Snowboard yapılan yerin deniz seviyesinden yüksekliği; daha yüksek irtifa, azalan oksijen mevcudiyeti nedeniyle metabolizma hızını artırır.",
         "de": "Höhe des Snowboardorts über dem Meeresspiegel; höhere Höhe erhöht den Stoffwechsel aufgrund reduzierter Sauerstoffverfügbarkeit.",
-        "fr": "Altitude au-dessus du niveau de la mer du lieu de snowboard ; une altitude plus élevée augmente le métabolisme en raison de la disponibilité réduite en oxygène."
+        "fr": "Altitude au-dessus du niveau de la mer du lieu de snowboard ; une altitude plus élevée augmente le métabolisme en raison de la disponibilité réduite en oxygène.",
+        "es": "Altitud sobre el nivel del mar de la ubicación de snowboard; una altitud mayor aumenta la tasa metabólica debido a la menor disponibilidad de oxígeno."
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Personal adjustment factor to account for individual metabolic variations (e.g., fitness level, genetics); typical range 0.8–1.2.",
         "tr": "Bireysel metabolik farklılıkları (örneğin, fitness seviyesi, genetik) hesaba katmak için kişisel ayar faktörü; tipik aralık 0.8–1.2.",
         "de": "Persönlicher Anpassungsfaktor zur Berücksichtigung individueller Stoffwechselvariationen (z. B. Fitnesslevel, Genetik); typischer Bereich 0,8–1,2.",
-        "fr": "Facteur d'ajustement personnel pour tenir compte des variations métaboliques individuelles (ex. niveau de forme, génétique) ; plage typique 0,8–1,2."
+        "fr": "Facteur d'ajustement personnel pour tenir compte des variations métaboliques individuelles (ex. niveau de forme, génétique) ; plage typique 0,8–1,2.",
+        "es": "Factor de ajuste personal para tener en cuenta variaciones metabólicas individuales (ej., nivel de condición física, genética); rango típico 0.8–1.2."
       }
     }
   ],
@@ -132,7 +137,7 @@
     "dataConfidenceAdjusted": "caloriesBurned",
     "unit": "kg"
   },
-  "category": "Enerji & Karbon",
+  "category": "İSG & Risk",
   "sector": "Sağlık & Tıp",
   "premiumRequired": false,
   "catalogCategory": "health-body",
@@ -140,7 +145,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "saglik",
   "profession": "Biyomedikal Mühendisi",
-  "categoryId": "energy",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

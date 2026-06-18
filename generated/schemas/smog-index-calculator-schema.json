@@ -20,7 +20,8 @@
         "en": "Analiz edilen metindeki toplam cümle sayısı",
         "tr": "Analiz edilen metindeki toplam cümle sayısı",
         "de": "Analiz edilen metindeki toplam cümle sayısı",
-        "fr": "Nombre total de phrases dans le texte analysé"
+        "fr": "Nombre total de phrases dans le texte analysé",
+        "es": "Número total de oraciones en el texto analizado"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Toplam Çok Heceli Kelime Sayısı (3+ hece)",
         "de": "Toplam Çok Heceli Kelime Sayısı (3+ hece)",
         "fr": "Nombre total de mots polysyllabiques (3+ syllabes)",
-        "es": "Toplam Çok Heceli Kelime Sayısı (3+ hece)",
+        "es": "Número total de palabras polisílabas (3+ sílabas)",
         "ar": "Toplam Çok Heceli Kelime Sayısı (3+ hece)"
       },
       "businessContext_i18n": {
         "en": "Metinde 3 veya daha fazla heceye sahip kelime sayısı",
         "tr": "Metinde 3 veya daha fazla heceye sahip kelime sayısı",
         "de": "Metinde 3 veya daha fazla heceye sahip kelime sayısı",
-        "fr": "Nombre de mots de 3 syllabes ou plus dans le texte"
+        "fr": "Nombre de mots de 3 syllabes ou plus dans le texte",
+        "es": "Número de palabras con 3 o más sílabas en el texto"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Örneklem Cümle Sayısı",
         "de": "Örneklem Cümle Sayısı",
         "fr": "Nombre de phrases de l'échantillon",
-        "es": "Örneklem Cümle Sayısı",
+        "es": "Número de oraciones de muestra",
         "ar": "Örneklem Cümle Sayısı"
       },
       "businessContext_i18n": {
         "en": "Standart SMOG hesaplamasında kullanılan örneklem cümle sayısı (genelde 30)",
         "tr": "Standart SMOG hesaplamasında kullanılan örneklem cümle sayısı (genelde 30)",
         "de": "Standart SMOG hesaplamasında kullanılan örneklem cümle sayısı (genelde 30)",
-        "fr": "Nombre de phrases de l'échantillon utilisé dans le calcul SMOG standard (généralement 30)"
+        "fr": "Nombre de phrases de l'échantillon utilisé dans le calcul SMOG standard (généralement 30)",
+        "es": "Número de oraciones de muestra utilizadas en el cálculo estándar de SMOG (generalmente 30)"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Metindeki toplam kelime sayısı (bilgi amaçlı, formülde kullanılmaz)",
         "tr": "Metindeki toplam kelime sayısı (bilgi amaçlı, formülde kullanılmaz)",
         "de": "Metindeki toplam kelime sayısı (bilgi amaçlı, formülde kullanılmaz)",
-        "fr": "Nombre total de mots dans le texte (à titre informatif, non utilisé dans la formule)"
+        "fr": "Nombre total de mots dans le texte (à titre informatif, non utilisé dans la formule)",
+        "es": "Número total de palabras en el texto (solo informativo, no se usa en la fórmula)"
       }
     }
   ],
@@ -106,7 +110,7 @@
     "dataConfidenceAdjusted": "smogGrade",
     "unit": "—"
   },
-  "category": "Diğer",
+  "category": "Sürdürülebilirlik",
   "sector": "Çevre & Sürdürülebilirlik",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -114,7 +118,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "cevre",
   "profession": "Çevre Mühendisi",
-  "categoryId": "diger",
+  "categoryId": "sustainability",
   "validation": {
     "rules": [],
     "thresholds": {}

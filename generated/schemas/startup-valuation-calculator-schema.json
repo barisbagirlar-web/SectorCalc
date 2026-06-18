@@ -13,14 +13,15 @@
         "tr": "Çıkışta Tahmini Gelir",
         "de": "Prognostizierter Umsatz beim Exit",
         "fr": "Revenu projeté à la sortie",
-        "es": "Projected Revenue at Exit",
+        "es": "Ingresos proyectados a la salida",
         "ar": "Projected Revenue at Exit"
       },
       "businessContext_i18n": {
         "en": "The projected annual revenue of the startup at the time of exit (e.g., 5 years from now).",
         "tr": "Çıkış anında (örneğin, bugünden 5 yıl sonra) girişimin tahmini yıllık geliri.",
         "de": "Der prognostizierte Jahresumsatz des Startups zum Zeitpunkt des Exits (z. B. in 5 Jahren).",
-        "fr": "Le revenu annuel projeté de la startup au moment de la sortie (par exemple, dans 5 ans)."
+        "fr": "Le revenu annuel projeté de la startup au moment de la sortie (par exemple, dans 5 ans).",
+        "es": "Ingresos anuales proyectados de la startup en el momento de la salida (ej., 5 años a partir de ahora)."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Net Kar Marjı",
         "de": "Nettogewinnmarge",
         "fr": "Marge bénéficiaire nette",
-        "es": "Net Profit Margin",
+        "es": "Margen de beneficio neto",
         "ar": "Net Profit Margin"
       },
       "businessContext_i18n": {
         "en": "Expected net profit margin at exit, expressed as a percentage.",
         "tr": "Çıkışta beklenen net kar marjı, yüzde olarak ifade edilir.",
         "de": "Erwartete Nettogewinnmarge beim Exit, ausgedrückt in Prozent.",
-        "fr": "Marge bénéficiaire nette attendue à la sortie, exprimée en pourcentage."
+        "fr": "Marge bénéficiaire nette attendue à la sortie, exprimée en pourcentage.",
+        "es": "Margen de beneficio neto esperado a la salida, expresado como porcentaje."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "F/K Oranı",
         "de": "KGV (Kurs-Gewinn-Verhältnis)",
         "fr": "Ratio P/E",
-        "es": "P/E Ratio",
+        "es": "Relación P/E",
         "ar": "P/E Ratio"
       },
       "businessContext_i18n": {
         "en": "Price-to-earnings ratio typical for comparable public companies in the sector.",
         "tr": "Sektördeki benzer halka açık şirketler için tipik fiyat-kazanç oranı.",
         "de": "Kurs-Gewinn-Verhältnis typisch für vergleichbare börsennotierte Unternehmen der Branche.",
-        "fr": "Ratio cours/bénéfice typique pour les entreprises publiques comparables du secteur."
+        "fr": "Ratio cours/bénéfice typique pour les entreprises publiques comparables du secteur.",
+        "es": "Relación precio-beneficio típica de empresas públicas comparables en el sector."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Gerekli ROI",
         "de": "Erforderlicher ROI",
         "fr": "ROI requis",
-        "es": "Required ROI",
+        "es": "ROI requerido",
         "ar": "Required ROI"
       },
       "businessContext_i18n": {
         "en": "Target return multiple for the investor (e.g., 3x means the investor aims to triple their investment).",
         "tr": "Yatırımcı için hedef getiri katı (örneğin, 3x yatırımcının yatırımını üçe katlamayı hedeflediği anlamına gelir).",
         "de": "Zielrendite-Multiple für den Investor (z. B. 3x bedeutet, der Investor strebt eine Verdreifachung seiner Investition an).",
-        "fr": "Multiple de rendement cible pour l'investisseur (par exemple, 3x signifie que l'investisseur vise à tripler son investissement)."
+        "fr": "Multiple de rendement cible pour l'investisseur (par exemple, 3x signifie que l'investisseur vise à tripler son investissement).",
+        "es": "Múltiplo de retorno objetivo para el inversor (ej., 3x significa que el inversor busca triplicar su inversión)."
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "The amount of capital being invested in the startup.",
         "tr": "Startup'a yatırılan sermaye miktarı.",
         "de": "Die Höhe des Kapitals, das in das Startup investiert wird.",
-        "fr": "Montant du capital investi dans la startup."
+        "fr": "Montant du capital investi dans la startup.",
+        "es": "Cantidad de capital invertido en la startup."
       }
     }
   ],
@@ -132,7 +137,7 @@
     "dataConfidenceAdjusted": "ownershipPercent",
     "unit": "%"
   },
-  "category": "Maliyet & Bütçeleme",
+  "category": "Finans & Yatırım",
   "sector": "Finans & Muhasebe",
   "premiumRequired": false,
   "catalogCategory": "finance-business",
@@ -140,7 +145,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "finans",
   "profession": "Finans Müdürü",
-  "categoryId": "cost",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

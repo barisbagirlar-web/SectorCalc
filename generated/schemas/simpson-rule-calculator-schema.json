@@ -20,7 +20,8 @@
         "en": "İntegrasyonun başlangıç noktası",
         "tr": "İntegrasyonun başlangıç noktası",
         "de": "Startpunkt der Integration",
-        "fr": "Point de départ de l'intégration"
+        "fr": "Point de départ de l'intégration",
+        "es": "Punto inicial de integración"
       }
     },
     {
@@ -42,7 +43,8 @@
         "en": "İntegrasyonun bitiş noktası",
         "tr": "İntegrasyonun bitiş noktası",
         "de": "Endpunkt der Integration",
-        "fr": "Point d'arrivée de l'intégration"
+        "fr": "Point d'arrivée de l'intégration",
+        "es": "Punto final de integración"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "y₀ (a noktasındaki değer)",
         "de": "y₀ (Wert an Punkt a)",
         "fr": "y₀ (valeur au point a)",
-        "es": "y₀ (a noktasındaki değer)",
+        "es": "y₀ (valor en a)",
         "ar": "y₀ (a noktasındaki değer)"
       },
       "businessContext_i18n": {
         "en": "f(a) fonksiyon değeri",
         "tr": "f(a) fonksiyon değeri",
         "de": "Funktionswert f(a)",
-        "fr": "valeur de la fonction f(a)"
+        "fr": "valeur de la fonction f(a)",
+        "es": "Valor de la función f(a)"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "y₁ (a+h noktasındaki değer)",
         "de": "y₁ (Wert an Punkt a+h)",
         "fr": "y₁ (valeur au point a+h)",
-        "es": "y₁ (a+h noktasındaki değer)",
+        "es": "y₁ (valor en a+h)",
         "ar": "y₁ (a+h noktasındaki değer)"
       },
       "businessContext_i18n": {
         "en": "f(a+h) fonksiyon değeri",
         "tr": "f(a+h) fonksiyon değeri",
         "de": "f(a+h) Funktionswert",
-        "fr": "valeur de la fonction f(a+h)"
+        "fr": "valeur de la fonction f(a+h)",
+        "es": "Valor de la función f(a+h)"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "y₂ (a+2h noktasındaki değer)",
         "de": "y₂ (Wert an a+2h)",
         "fr": "y₂ (valeur au point a+2h)",
-        "es": "y₂ (a+2h noktasındaki değer)",
+        "es": "y₂ (valor en a+2h)",
         "ar": "y₂ (a+2h noktasındaki değer)"
       },
       "businessContext_i18n": {
         "en": "f(a+2h) fonksiyon değeri",
         "tr": "f(a+2h) fonksiyon değeri",
         "de": "f(a+2h) Funktionswert",
-        "fr": "valeur de la fonction f(a+2h)"
+        "fr": "valeur de la fonction f(a+2h)",
+        "es": "Valor de la función f(a+2h)"
       }
     },
     {
@@ -123,14 +128,15 @@
         "tr": "y₃ (a+3h noktasındaki değer)",
         "de": "y₃ (Wert an a+3h)",
         "fr": "y₃ (valeur au point a+3h)",
-        "es": "y₃ (a+3h noktasındaki değer)",
+        "es": "y₃ (valor en a+3h)",
         "ar": "y₃ (a+3h noktasındaki değer)"
       },
       "businessContext_i18n": {
         "en": "f(a+3h) fonksiyon değeri",
         "tr": "f(a+3h) fonksiyon değeri",
         "de": "f(a+3h) Funktionswert",
-        "fr": "valeur de la fonction f(a+3h)"
+        "fr": "valeur de la fonction f(a+3h)",
+        "es": "Valor de la función f(a+3h)"
       }
     },
     {
@@ -145,14 +151,15 @@
         "tr": "y₄ (b noktasındaki değer)",
         "de": "y₄ (Wert an b)",
         "fr": "y₄ (valeur au point b)",
-        "es": "y₄ (b noktasındaki değer)",
+        "es": "y₄ (valor en b)",
         "ar": "y₄ (b noktasındaki değer)"
       },
       "businessContext_i18n": {
         "en": "f(b) fonksiyon değeri",
         "tr": "f(b) fonksiyon değeri",
         "de": "f(b) Funktionswert",
-        "fr": "valeur de la fonction f(b)"
+        "fr": "valeur de la fonction f(b)",
+        "es": "Valor de la función f(b)"
       }
     }
   ],
@@ -173,7 +180,7 @@
     "dataConfidenceAdjusted": "integral",
     "unit": "m"
   },
-  "category": "Diğer",
+  "category": "Matematik & Analiz",
   "sector": "Matematik & Geometri",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -181,7 +188,7 @@
   "categorySlug": "technology-ai-cloud-cyber",
   "sectorId": "matematik",
   "profession": "Matematikçi",
-  "categoryId": "diger",
+  "categoryId": "math",
   "validation": {
     "rules": [],
     "thresholds": {}

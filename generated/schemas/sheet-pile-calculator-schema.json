@@ -13,14 +13,15 @@
         "tr": "Kazık Uzunluğu",
         "de": "Spundwandlänge",
         "fr": "Longueur du palplanche",
-        "es": "Pile Length",
+        "es": "Longitud del pilote",
         "ar": "Pile Length"
       },
       "businessContext_i18n": {
         "en": "Total length of each sheet pile",
         "tr": "Her bir sac kazığın toplam uzunluğu",
         "de": "Gesamtlänge jeder Spundbohle",
-        "fr": "Longueur totale de chaque palplanche"
+        "fr": "Longueur totale de chaque palplanche",
+        "es": "Longitud total de cada tablestaca"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Kazık Genişliği",
         "de": "Spundwandbreite",
         "fr": "Largeur du palplanche",
-        "es": "Pile Width",
+        "es": "Ancho del pilote",
         "ar": "Pile Width"
       },
       "businessContext_i18n": {
         "en": "Effective width of each sheet pile",
         "tr": "Her bir sac kazığın etkili genişliği",
         "de": "Effektive Breite jeder Spundbohle",
-        "fr": "Largeur effective de chaque palplanche"
+        "fr": "Largeur effective de chaque palplanche",
+        "es": "Ancho efectivo de cada tablestaca"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Kazık Sayısı",
         "de": "Anzahl der Spundbohlen",
         "fr": "Nombre de palplanches",
-        "es": "Number of Piles",
+        "es": "Número de pilotes",
         "ar": "Number of Piles"
       },
       "businessContext_i18n": {
         "en": "Total number of sheet piles required",
         "tr": "Gerekli toplam sac kazık sayısı",
         "de": "Gesamtzahl der benötigten Spundbohlen",
-        "fr": "Nombre total de palplanches requis"
+        "fr": "Nombre total de palplanches requis",
+        "es": "Número total de tablestacas requeridas"
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Density of steel used for piles",
         "tr": "Kazıklar için kullanılan çeliğin yoğunluğu",
         "de": "Dichte des für die Spundbohlen verwendeten Stahls",
-        "fr": "Densité de l'acier utilisé pour les palplanches"
+        "fr": "Densité de l'acier utilisé pour les palplanches",
+        "es": "Densidad del acero utilizado para los pilotes"
       }
     },
     {
@@ -108,7 +112,8 @@
         "en": "Cost per kilogram of steel",
         "tr": "Kilogram başına çelik maliyeti",
         "de": "Kosten pro Kilogramm Stahl",
-        "fr": "Coût par kilogramme d'acier"
+        "fr": "Coût par kilogramme d'acier",
+        "es": "Coste por kilogramo de acero"
       }
     },
     {
@@ -123,14 +128,15 @@
         "tr": "Kazık Başına Montaj Maliyeti",
         "de": "Installationskosten pro Spundbohle",
         "fr": "Coût d'installation par palplanche",
-        "es": "Installation Cost per Pile",
+        "es": "Coste de instalación por pilote",
         "ar": "Installation Cost per Pile"
       },
       "businessContext_i18n": {
         "en": "Cost to install one pile",
         "tr": "Bir kazığı monte etme maliyeti",
         "de": "Kosten für die Installation einer Spundbohle",
-        "fr": "Coût pour installer une palplanche"
+        "fr": "Coût pour installer une palplanche",
+        "es": "Coste de instalar un pilote"
       }
     }
   ],
@@ -155,7 +161,7 @@
     "dataConfidenceAdjusted": "totalCost",
     "unit": "m"
   },
-  "category": "Maliyet & Bütçeleme",
+  "category": "Dönüşüm & Ölçüm",
   "sector": "Metal & Kaynak",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
@@ -163,7 +169,7 @@
   "categorySlug": "finance-sales-working-capital",
   "sectorId": "metal",
   "profession": "Sac Teknisyeni",
-  "categoryId": "cost",
+  "categoryId": "conversion",
   "validation": {
     "rules": [],
     "thresholds": {}

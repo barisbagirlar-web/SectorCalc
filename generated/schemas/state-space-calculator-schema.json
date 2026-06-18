@@ -13,14 +13,15 @@
         "tr": "Durum Sayısı",
         "de": "Anzahl der Zustände",
         "fr": "Nombre d'états",
-        "es": "Number of States",
+        "es": "Número de estados",
         "ar": "Number of States"
       },
       "businessContext_i18n": {
         "en": "Number of discrete states in the system",
         "tr": "Sistemdeki ayrık durum sayısı",
         "de": "Anzahl der diskreten Zustände im System",
-        "fr": "Nombre d'états discrets dans le système"
+        "fr": "Nombre d'états discrets dans le système",
+        "es": "Número de estados discretos en el sistema"
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Geçiş Olasılığı",
         "de": "Übergangswahrscheinlichkeit",
         "fr": "Probabilité de transition",
-        "es": "Transition Probability",
+        "es": "Probabilidad de transición",
         "ar": "Transition Probability"
       },
       "businessContext_i18n": {
         "en": "Probability of transitioning from one state to another",
         "tr": "Bir durumdan diğerine geçme olasılığı",
         "de": "Wahrscheinlichkeit des Übergangs von einem Zustand in einen anderen",
-        "fr": "Probabilité de passer d'un état à un autre"
+        "fr": "Probabilité de passer d'un état à un autre",
+        "es": "Probabilidad de transición de un estado a otro"
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Başlangıç Durum İndeksi",
         "de": "Startzustandsindex",
         "fr": "Indice d'état initial",
-        "es": "Initial State Index",
+        "es": "Índice del estado inicial",
         "ar": "Initial State Index"
       },
       "businessContext_i18n": {
         "en": "Starting state index (0-based)",
         "tr": "Başlangıç durum indeksi (0 tabanlı)",
         "de": "Startzustandsindex (0-basiert)",
-        "fr": "Indice d'état de départ (basé sur 0)"
+        "fr": "Indice d'état de départ (basé sur 0)",
+        "es": "Índice del estado inicial (basado en 0)"
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Zaman Adımları",
         "de": "Zeitschritte",
         "fr": "Pas de temps",
-        "es": "Time Steps",
+        "es": "Pasos de tiempo",
         "ar": "Time Steps"
       },
       "businessContext_i18n": {
         "en": "Number of time steps to simulate",
         "tr": "Simüle edilecek zaman adımı sayısı",
         "de": "Anzahl der zu simulierenden Zeitschritte",
-        "fr": "Nombre de pas de temps à simuler"
+        "fr": "Nombre de pas de temps à simuler",
+        "es": "Número de pasos de tiempo a simular"
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Durum Başına Ödül",
         "de": "Belohnung pro Zustand",
         "fr": "Récompense par état",
-        "es": "Reward per State",
+        "es": "Recompensa por estado",
         "ar": "Reward per State"
       },
       "businessContext_i18n": {
         "en": "Reward obtained when in a state",
         "tr": "Bir durumdayken elde edilen ödül",
         "de": "Belohnung, die in einem Zustand erzielt wird",
-        "fr": "Récompense obtenue dans un état"
+        "fr": "Récompense obtenue dans un état",
+        "es": "Recompensa obtenida al estar en un estado"
       }
     },
     {
@@ -123,14 +128,15 @@
         "tr": "İndirim Faktörü",
         "de": "Diskontierungsfaktor",
         "fr": "Facteur d'actualisation",
-        "es": "Discount Factor",
+        "es": "Factor de descuento",
         "ar": "Discount Factor"
       },
       "businessContext_i18n": {
         "en": "Discount factor for future rewards (0-1)",
         "tr": "Gelecekteki ödüller için indirim faktörü (0-1)",
         "de": "Diskontierungsfaktor für zukünftige Belohnungen (0-1)",
-        "fr": "Facteur d'actualisation pour les récompenses futures (0-1)"
+        "fr": "Facteur d'actualisation pour les récompenses futures (0-1)",
+        "es": "Factor de descuento para recompensas futuras (0-1)"
       }
     }
   ],
@@ -152,7 +158,7 @@
     "dataConfidenceAdjusted": "stateDistribution",
     "unit": "—"
   },
-  "category": "Matematik & Analiz",
+  "category": "İSG & Risk",
   "sector": "Kimya & Proses",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
@@ -160,7 +166,7 @@
   "categorySlug": "quality-six-sigma",
   "sectorId": "kimya",
   "profession": "Kimyager",
-  "categoryId": "math",
+  "categoryId": "safety",
   "validation": {
     "rules": [],
     "thresholds": {}

@@ -13,14 +13,15 @@
         "tr": "Hesap Bakiyesi (IRA Bakiyesi)",
         "de": "Kontostand (IRA-Kontostand)",
         "fr": "Solde du compte (solde IRA)",
-        "es": "Account Balance (IRA Balance)",
+        "es": "Saldo de la cuenta (Saldo IRA)",
         "ar": "Account Balance (IRA Balance)"
       },
       "businessContext_i18n": {
         "en": "Total balance in the retirement account as of December 31 of the previous year.",
         "tr": "Önceki yılın 31 Aralık tarihi itibarıyla emeklilik hesabındaki toplam bakiye.",
         "de": "Gesamtsaldo des Altersvorsorgekontos zum 31. Dezember des Vorjahres",
-        "fr": "Solde total du compte de retraite au 31 décembre de l'année précédente."
+        "fr": "Solde total du compte de retraite au 31 décembre de l'année précédente.",
+        "es": "Saldo total en la cuenta de jubilación al 31 de diciembre del año anterior."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Yaş (Cari Yıl Yaşı)",
         "de": "Alter (aktuelles Alter)",
         "fr": "Âge (âge de l'année en cours)",
-        "es": "Age (Current Year Age)",
+        "es": "Edad (Edad del año actual)",
         "ar": "Age (Current Year Age)"
       },
       "businessContext_i18n": {
         "en": "Age of the account owner as of the current year. Used to determine the life expectancy factor.",
         "tr": "Hesap sahibinin cari yıldaki yaşı. Yaşam beklentisi faktörünü belirlemek için kullanılır.",
         "de": "Alter des Kontoinhabers im aktuellen Jahr. Wird zur Bestimmung des Lebenserwartungsfaktors verwendet.",
-        "fr": "Âge du propriétaire du compte au cours de l'année en cours. Utilisé pour déterminer le facteur d'espérance de vie."
+        "fr": "Âge du propriétaire du compte au cours de l'année en cours. Utilisé pour déterminer le facteur d'espérance de vie.",
+        "es": "Edad del titular de la cuenta en el año actual. Se utiliza para determinar el factor de esperanza de vida."
       }
     },
     {
@@ -57,14 +59,15 @@
         "tr": "Eş Yaşı (varsa)",
         "de": "Alter des Ehepartners (falls zutreffend)",
         "fr": "Âge du conjoint (si applicable)",
-        "es": "Spouse Age (if applicable)",
+        "es": "Edad del cónyuge (si aplica)",
         "ar": "Spouse Age (if applicable)"
       },
       "businessContext_i18n": {
         "en": "Age of spouse if the account owner is married and spouse is the sole beneficiary. Used for joint life expectancy factor.",
         "tr": "Hesap sahibi evliyse ve eşi tek varis ise eşin yaşı. Ortak yaşam beklentisi faktörü için kullanılır.",
         "de": "Alter des Ehepartners, wenn der Kontoinhaber verheiratet ist und der Ehepartner der alleinige Begünstigte ist. Wird für den gemeinsamen Lebenserwartungsfaktor verwendet.",
-        "fr": "Âge du conjoint si le propriétaire du compte est marié et que le conjoint est l'unique bénéficiaire. Utilisé pour le facteur d'espérance de vie conjointe."
+        "fr": "Âge du conjoint si le propriétaire du compte est marié et que le conjoint est l'unique bénéficiaire. Utilisé pour le facteur d'espérance de vie conjointe.",
+        "es": "Edad del cónyuge si el titular está casado y el cónyuge es el único beneficiario. Se utiliza para el factor de esperanza de vida conjunta."
       }
     },
     {
@@ -79,14 +82,15 @@
         "tr": "Varis Türü",
         "de": "Begünstigter-Typ",
         "fr": "Type de bénéficiaire",
-        "es": "Beneficiary Type",
+        "es": "Tipo de beneficiario",
         "ar": "Beneficiary Type"
       },
       "businessContext_i18n": {
         "en": "1 = Spouse sole beneficiary, 2 = Non-spouse beneficiary, 3 = No designated beneficiary. Determines which life expectancy table to use.",
         "tr": "1 = Eş tek varis, 2 = Eş olmayan varis, 3 = Belirlenmiş varis yok. Hangi yaşam beklentisi tablosunun kullanılacağını belirler.",
         "de": "1 = Ehepartner alleiniger Begünstigter, 2 = Nicht-Ehepartner-Begünstigter, 3 = Kein benannter Begünstigter. Bestimmt, welche Lebenserwartungstabelle verwendet wird.",
-        "fr": "1 = Conjoint unique bénéficiaire, 2 = Bénéficiaire non conjoint, 3 = Aucun bénéficiaire désigné. Détermine la table d'espérance de vie à utiliser."
+        "fr": "1 = Conjoint unique bénéficiaire, 2 = Bénéficiaire non conjoint, 3 = Aucun bénéficiaire désigné. Détermine la table d'espérance de vie à utiliser.",
+        "es": "1 = Cónyuge único beneficiario, 2 = Beneficiario no cónyuge, 3 = Sin beneficiario designado. Determina qué tabla de esperanza de vida usar."
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Yaşam Beklentisi Faktörü (Geçersiz Kılma)",
         "de": "Lebenserwartungsfaktor (Überschreibung)",
         "fr": "Facteur d'espérance de vie (remplacement)",
-        "es": "Life Expectancy Factor (Override)",
+        "es": "Factor de esperanza de vida (Anulación)",
         "ar": "Life Expectancy Factor (Override)"
       },
       "businessContext_i18n": {
         "en": "Optional override for the life expectancy factor. If 0, the factor is calculated based on age and beneficiary type using IRS tables.",
         "tr": "Yaşam beklentisi faktörü için isteğe bağlı geçersiz kılma. 0 ise, faktör yaş ve varis türüne göre IRS tabloları kullanılarak hesaplanır.",
         "de": "Optionale Überschreibung des Lebenserwartungsfaktors. Bei 0 wird der Faktor basierend auf Alter und Begünstigten-Typ anhand der IRS-Tabellen berechnet.",
-        "fr": "Remplacement facultatif du facteur d'espérance de vie. Si 0, le facteur est calculé en fonction de l'âge et du type de bénéficiaire à l'aide des tables IRS."
+        "fr": "Remplacement facultatif du facteur d'espérance de vie. Si 0, le facteur est calculé en fonction de l'âge et du type de bénéficiaire à l'aide des tables IRS.",
+        "es": "Anulación opcional del factor de esperanza de vida. Si es 0, el factor se calcula según la edad y el tipo de beneficiario usando las tablas del IRS."
       }
     }
   ],
@@ -129,7 +134,7 @@
     "dataConfidenceAdjusted": "rmdAmount",
     "unit": "USD"
   },
-  "category": "Diğer",
+  "category": "Finans & Yatırım",
   "sector": "Günlük Yaşam & Ev",
   "premiumRequired": false,
   "catalogCategory": "everyday-life",
@@ -137,7 +142,7 @@
   "categorySlug": "electrical-power-systems",
   "sectorId": "ev-yasam",
   "profession": "Ev Yöneticisi",
-  "categoryId": "diger",
+  "categoryId": "finance",
   "validation": {
     "rules": [],
     "thresholds": {}

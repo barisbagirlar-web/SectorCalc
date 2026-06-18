@@ -20,7 +20,8 @@
         "en": "Feed per revolution in turning/milling.",
         "tr": "Tornalama/frezelemede devir başına ilerleme.",
         "de": "Vorschub pro Umdrehung beim Drehen/Fräsen.",
-        "fr": "Avance par tour en tournage/fraisage."
+        "fr": "Avance par tour en tournage/fraisage.",
+        "es": "Avance por revolución en torneado/fresado."
       }
     },
     {
@@ -35,14 +36,15 @@
         "tr": "Takım Uç Radyüsü",
         "de": "Schneidplattenradius",
         "fr": "Rayon de bec d'outil",
-        "es": "Tool Nose Radius",
+        "es": "Radio de punta de la herramienta",
         "ar": "Tool Nose Radius"
       },
       "businessContext_i18n": {
         "en": "Insert nose radius.",
         "tr": "Insert uç radyüsü.",
         "de": "Schneidplattenradius.",
-        "fr": "Rayon de bec de plaquette."
+        "fr": "Rayon de bec de plaquette.",
+        "es": "Radio de la punta del inserto."
       }
     },
     {
@@ -64,7 +66,8 @@
         "en": "Cutting speed (not directly used in roughness formula but provided for reference).",
         "tr": "Kesme hızı (pürüzlülük formülünde doğrudan kullanılmaz, referans olarak verilmiştir).",
         "de": "Schnittgeschwindigkeit (nicht direkt in der Rauheitsformel verwendet, aber als Referenz angegeben).",
-        "fr": "Vitesse de coupe (non utilisée directement dans la formule de rugosité mais fournie à titre indicatif)."
+        "fr": "Vitesse de coupe (non utilisée directement dans la formule de rugosité mais fournie à titre indicatif).",
+        "es": "Velocidad de corte (no se usa directamente en la fórmula de rugosidad, se proporciona como referencia)."
       }
     },
     {
@@ -86,7 +89,8 @@
         "en": "Depth of cut (affects forces, minor effect on finish).",
         "tr": "Kesme derinliği (kuvvetleri etkiler, yüzey kalitesine küçük etkisi vardır).",
         "de": "Schnitttiefe (beeinflusst Kräfte, geringe Auswirkung auf die Oberflächengüte).",
-        "fr": "Profondeur de passe (affecte les efforts, effet mineur sur l'état de surface)."
+        "fr": "Profondeur de passe (affecte les efforts, effet mineur sur l'état de surface).",
+        "es": "Profundidad de corte (afecta las fuerzas, efecto menor en el acabado)."
       }
     },
     {
@@ -101,14 +105,15 @@
         "tr": "Hedef Yüzey Pürüzlülüğü Ra",
         "de": "Gewünschte Oberflächenrauheit Ra",
         "fr": "Rugosité moyenne Ra souhaitée",
-        "es": "Desired Surface Roughness Ra",
+        "es": "Rugosidad superficial deseada Ra",
         "ar": "Desired Surface Roughness Ra"
       },
       "businessContext_i18n": {
         "en": "Target average roughness.",
         "tr": "Hedef ortalama pürüzlülük.",
         "de": "Zielwert der mittleren Rauheit.",
-        "fr": "Rugosité moyenne cible."
+        "fr": "Rugosité moyenne cible.",
+        "es": "Rugosidad media objetivo."
       }
     }
   ],
@@ -131,7 +136,7 @@
     "dataConfidenceAdjusted": "actualRz",
     "unit": "mm/rev"
   },
-  "category": "Dönüşüm & Ölçüm",
+  "category": "Teknik & Mühendislik",
   "sector": "Makine & Üretim",
   "premiumRequired": false,
   "catalogCategory": "engineering-science",
@@ -139,7 +144,7 @@
   "categorySlug": "cnc-additive-manufacturing",
   "sectorId": "makine",
   "profession": "CNC Operatörü",
-  "categoryId": "conversion",
+  "categoryId": "engineering",
   "validation": {
     "rules": [],
     "thresholds": {}
