@@ -71,7 +71,6 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       </head>
       <body className="min-w-0 overflow-x-hidden bg-industrial-matte font-sans text-[17px] leading-[1.47059] text-premium-velvet antialiased">
-        <SkipToMainLink />
         <JsonLd
           data={[
             buildEntityGraph(locale),
@@ -80,6 +79,7 @@ export async function LocaleDocumentLayout({ locale, children }: LocaleDocumentL
           ]}
         />
         <NextIntlClientProvider locale={locale} messages={messages}>
+          <SkipToMainLink />
           <RegionProvider region={region} source={source}>
             <AttributionBootstrap />
             <ServiceWorkerRegister />
