@@ -45,7 +45,7 @@ const nextConfig: NextConfig = {
     // Avoid SSG worker batching races (missing page.js) on large locale trees.
     workerThreads: false,
     staticGenerationMaxConcurrency: 1,
-    staticGenerationMinPagesPerWorker: 1,
+    staticGenerationMinPagesPerWorker: 50,
   },
   async headers() {
     return [

@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import Link from "@/lib/navigation/next-link";
 import type { Tool } from "@/data/tools";
 import { getIndustryBySlug, type IndustrySlug } from "@/data/industries";
@@ -10,6 +11,7 @@ type ToolDiscoveryCardProps = {
 };
 
 export function ToolDiscoveryCard({ tool, catalogVariant = "default" }: ToolDiscoveryCardProps) {
+  const t = useTranslations("toolDiscovery");
   const industry = getIndustryBySlug(tool.industrySlug as IndustrySlug);
   const isPremium = tool.tier === "premium" || catalogVariant === "premium";
   const architecture = isPremium ? getPremiumArchitectureProfile(tool.slug) : null;
@@ -28,17 +30,17 @@ export function ToolDiscoveryCard({ tool, catalogVariant = "default" }: ToolDisc
         </p>
         {architecture ? (
           <p className="mt-2 text-xs text-body-charcoal">
-            <span className="font-semibold text-premium-velvet">Measures:</span>{" "}
+            <span className="font-semibold text-premium-velvet">{t("measures")}</span>{" "}
             {architecture.whatIsMeasured}
           </p>
         ) : null}
         {verdictExample ? (
           <p className="mt-2 font-mono text-[10px] uppercase tracking-wide text-body-charcoal">
-            Example output: {verdictExample}
+            {t("exampleOutput")} {verdictExample}
           </p>
         ) : null}
         <Link href={tool.href} className="sc-craft-card__cta">
-          View calculator →
+          {t("viewCalculator")}
         </Link>
       </article>
     );
@@ -53,7 +55,7 @@ export function ToolDiscoveryCard({ tool, catalogVariant = "default" }: ToolDisc
         <h3 className="sc-craft-card__title mt-2 group-hover:text-sc-copper">{tool.name}</h3>
         <p className="sc-craft-card__body">{tool.shortDescription}</p>
       </div>
-      <span className="sc-craft-card__cta">Open calculator →</span>
+      <span className="sc-craft-card__cta">{t("openCalculator")}</span>
     </Link>
   );
 }

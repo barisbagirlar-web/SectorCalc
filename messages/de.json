@@ -4,7 +4,60 @@
     "mainContent": "Hauptinhalt",
     "mainNavigation": "Hauptnavigation",
     "logoHome": "SectorCalc Startseite",
-    "logoAlt": "SectorCalc"
+    "logoAlt": "SectorCalc",
+    "closeMenu": "Menü schließen",
+    "openMenu": "Menü öffnen",
+    "mobileNavigation": "Mobil",
+    "closeDialog": "Dialog schließen",
+    "regionLanguage": "Region und Sprache",
+    "trustCompliance": "Vertrauens- und Compliance-Signale",
+    "industrialPanel": "Industrielles Entscheidungspanel"
+  },
+  "leadCapture": {
+    "eyebrow": "Lead-Erfassung",
+    "title": "Zugang anfordern oder kontaktieren Sie uns",
+    "description": "Nur UI-Vertrag — keine Backend-Anbindung, keine API-Schlüssel, keine Geheimnisse. Übermittlungen werden nicht gespeichert.",
+    "emailLabel": "E-Mail",
+    "emailPlaceholder": "sie@firma.de",
+    "companyLabel": "Unternehmen",
+    "companyPlaceholder": "Optional",
+    "intentLabel": "Absicht",
+    "submitButton": "Frühzugang anfordern",
+    "successMessage": "Danke. Dieses Vorschauformular überträgt keine Daten. Schließen Sie Ihre Lead-Pipeline an, wenn Sie bereit sind."
+  },
+  "toolDiscovery": {
+    "sectorFallback": "Branche",
+    "measures": "Messgrößen:",
+    "exampleOutput": "Beispielausgabe:",
+    "viewCalculator": "Rechner ansehen →",
+    "openCalculator": "Rechner öffnen →"
+  },
+  "leadIntent": {
+    "closeDialog": "Dialog schließen",
+    "closeButton": "Schließen",
+    "tellUsDescription": "Teilen Sie uns mit, was Sie benötigen. Premium-Entsperrung und Export sind noch nicht live — wir erfassen Ihre Absicht für das nächste Update.",
+    "verdictUnlockDescription": "Geben Sie Ihre E-Mail ein, um Checkout-Zugang zum vollständigen Margen-Urteil zu erhalten — sicherer Preis, Verlustaufschlüsselung und empfohlene Maßnahme.",
+    "paywallDescription": "Die Premium-Berichtsentsperrung wird neu aufgebaut. Durchsuchen Sie die Preise oder fahren Sie mit kostenlosen Tools fort, bis die neuen Analyzer-Seiten live sind.",
+    "viewPricing": "Preise ansehen",
+    "successMessage": "Danke. Wir haben Ihre Berichtsanfrage aufgezeichnet. Im nächsten Release stehen Premium-Berichtsentsperrung und Export direkt in SectorCalc zur Verfügung.",
+    "continueExploring": "Tools weiter erkunden",
+    "emailLabel": "E-Mail",
+    "verdictEmailPlaceholder": "Urteil an diese E-Mail senden",
+    "redirectingToCheckout": "Weiterleitung zur Kasse…",
+    "continueToCheckout": "Zur Kasse gehen",
+    "checkoutLegalNote": "Möglicherweise müssen Sie sich vor der sicheren Zahlung anmelden. Digitalprodukt — nur Schätzungen.",
+    "nameLabel": "Name",
+    "companyLabel": "Unternehmen / Firmenname",
+    "industryLabel": "Branche",
+    "selectIndustry": "Branche auswählen",
+    "toolRequestedLabel": "Angefragtes Tool / Bericht",
+    "selectTool": "Tool oder Bericht auswählen",
+    "intendedUseLabel": "Verwendungszweck",
+    "selectIntendedUse": "Verwendungszweck auswählen",
+    "messageLabel": "Nachricht (optional)",
+    "messagePlaceholder": "Zeitplan, Kundenkontext oder Fragen (max. 500 Zeichen)",
+    "submitting": "Wird gesendet…",
+    "submitRequest": "Anfrage senden"
   },
   "nav": {
     "freeCalculators": "Kostenlose Rechner",
@@ -1810,7 +1863,11 @@
     "networkError": "Verbindung fehlgeschlagen. Netzwerk prüfen und erneut versuchen.",
     "accessDenied": "Für diesen Bericht ist Premium-Zugang erforderlich.",
     "notFound": "Seite oder Tool nicht gefunden.",
-    "generic": "Etwas ist schiefgelaufen. Bitte erneut versuchen."
+    "generic": "Etwas ist schiefgelaufen. Bitte erneut versuchen.",
+    "errorPageTitle": "Etwas ist schiefgelaufen",
+    "errorPageDescription": "Diese Seite ist auf einen unerwarteten Fehler gestoßen. Sie können es erneut versuchen oder zur Rechnerbibliothek zurückkehren.",
+    "pageTryAgain": "Erneut versuchen",
+    "calculatorLibraryLink": "Rechnerbibliothek"
   },
   "seo": {
     "homeTitle": "SectorCalc — Branchenrechner und Entscheidungsberichte",
@@ -3466,7 +3523,9 @@
       "reportClose": "Schließen",
       "reportMessageTooShort": "Bitte mindestens 10 Zeichen eingeben.",
       "reportSubmitFailed": "Meldung konnte nicht gesendet werden. Bitte erneut versuchen.",
-      "calculationStandardLabel": "Berechnungsstandard"
+      "calculationStandardLabel": "Berechnungsstandard",
+      "voteCorrectMessage": "Schnelle Bedienerbewertung: Berechnungsergebnis scheint korrekt.",
+      "voteIncorrectMessage": "Schnelle Bedienerbewertung: Berechnungsergebnis scheint fehlerhaft."
     },
     "freeForm": {
       "defaultDescription": "Schnelle Branchenrechnung — Eingaben eintragen für das Ergebnis.",
@@ -3493,7 +3552,8 @@
       "reportSuccess": "Ihre Meldung wurde übermittelt. Vielen Dank.",
       "reportClose": "Schließen",
       "reportMessageTooShort": "Bitte mindestens 10 Zeichen eingeben.",
-      "reportSubmitFailed": "Meldung konnte nicht gesendet werden. Bitte erneut versuchen."
+      "reportSubmitFailed": "Meldung konnte nicht gesendet werden. Bitte erneut versuchen.",
+      "unitSuffix": "{label} Einheit"
     },
     "aboutTool": {
       "sectionLabel": "Über dieses Tool",
@@ -66161,7 +66221,9 @@
       "high": "Hohe Zuverlässigkeit",
       "medium": "Mittlere Zuverlässigkeit",
       "low": "Niedrige Zuverlässigkeit"
-    }
+    },
+    "networkError": "Netzwerkfehler. Bitte überprüfen Sie Ihre Verbindung und versuchen Sie es erneut.",
+    "aiAnalysisLabel": "KI-gestützte technische Analyse"
   },
   "developerShowcase": {
     "meta": {
@@ -67860,6 +67922,106 @@
       "sectorSpecificCalculator": "Branchenspezifischer Rechner — Eingaben eingeben, um Ergebnisse zu sehen.",
       "calculatorModuleNotFound": "Rechnermodul nicht gefunden.",
       "failedToLoadCalculator": "Rechner konnte nicht geladen werden."
+    },
+  "toolFinder": {
+    "eyebrow": "Werkzeugfinder",
+    "title": "Finden Sie das richtige Branchenwerkzeug",
+    "subtitle": "Filtern Sie nach operativem Problem und Branche — öffnen Sie dann das passende Branchenwerkzeug oder den Entscheidungsbericht.",
+    "decisionFocus": "Entscheidungsfokus",
+    "searchLabel": "Branchenwerkzeuge durchsuchen",
+    "searchPlaceholder": "Nach Werkzeugname oder Stichwort suchen (optional)",
+    "industry": "Branche",
+    "all": "Alle",
+    "allIndustries": "Alle Branchen",
+    "emptyResults": "Keine Werkzeuge entsprechen Ihren Filtern. Versuchen Sie einen anderen Entscheidungsfokus oder eine andere Branche."
+  },
+  "terminalPanel": {
+    "numericValueRequired": "Numerischer Wert erforderlich.",
+    "mustBeGreaterThanZero": "Muss > 0 sein.",
+    "cannotBeNegative": "Darf nicht negativ sein.",
+    "calculate": "Berechnen",
+    "reset": "Zurücksetzen",
+    "variance": "Abweichung",
+    "efficiency": "Effizienz",
+    "impact": "Auswirkung",
+    "tier": "Stufe",
+    "expertLogicBreakdown": "Experten-Logik-Analyse",
+    "hiddenVariables": "Versteckte Variablen",
+    "emptyState": "Parameter eingeben und Berechnung starten."
+  },
+  "platformCapabilities": {
+    "title": "Umfassender Funktionsumfang",
+    "description": "SectorCalc kombiniert kostenlose Schnellschätzungen mit Premium-Entscheidungsberichten — validierte Eingaben, transparente Formeln, Szenarien, Risikosignale und berichtsbereite Struktur in {sectorCount} aktiven Branchen.",
+    "validatedInputs": {
+      "title": "Validierte Eingaben",
+      "summary": "Branchenwerkzeuge verwenden strukturierte Felder und Validierung, sodass Schätzungen auf konsistenten Eingaben basieren.",
+      "items": [
+        { "label": "Branchenspezifische Eingabesets", "href": "/industries" },
+        { "label": "Pflichtfeldprüfungen vor Ergebnissen" },
+        { "label": "Kostenlose Schnellschätzer", "href": "/free-tools" }
+      ]
+    },
+    "transparentFormulas": {
+      "title": "Transparente Formeln",
+      "summary": "Ergebnisse basieren auf dokumentierter Berechnungslogik — keine undurchsichtigen Bewertungen oder Black-Box-Vergleiche.",
+      "items": [
+        { "label": "Wiederverwendbare Werkzeugdefinitionen pro Branche" },
+        { "label": "Interpretationshinweise zu jedem Werkzeug" },
+        { "label": "Premium-Analysewerkzeuge", "href": "/pricing" }
+      ]
+    },
+    "riskSignals": {
+      "title": "Risikosignale",
+      "summary": "Premium-Werkzeuge zeigen Risikostufen an, sodass Teams erkennen, wann bei Margen-, Preis- oder Kapazitätsentscheidungen Vorsicht geboten ist.",
+      "items": [
+        { "label": "Strukturiertes Risikourteil" },
+        { "label": "Entscheidungsorientierte Empfehlungen" },
+        { "label": "Beispielberichtsvorschau", "href": "/reports/sample-decision-report" }
+      ]
+    },
+    "scenarioCalculation": {
+      "title": "Szenarioberechnung",
+      "summary": "Vergleichen Sie konservative, mittlere und aggressive Pfade, bevor Sie Angebote, Menüs oder Verträge vergeben.",
+      "items": [
+        { "label": "Mehrpfad-Szenariobewertung" },
+        { "label": "Premium-Entscheidungswerkzeuge", "href": "/pricing" },
+        { "label": "Branchenpakete", "href": "/industries" }
+      ]
+    },
+    "reportPreview": {
+      "title": "Berichtsvorschau",
+      "summary": "Premium-Ergebnisse verpacken Erkenntnisse für Stakeholder — Exportformate sind im MVP nur als Vorschau verfügbar.",
+      "items": [
+        { "label": "Management-Zusammenfassung" },
+        { "label": "PDF / Excel / Word Vorschaustatus" },
+        { "label": "Beispielbericht anzeigen", "href": "/reports/sample-decision-report" }
+      ]
+    },
+    "leadIntentFlow": {
+      "title": "Lead-Interaktionsfluss",
+      "summary": "Fordern Sie Premium-Berichtszugang an und helfen Sie, die Abrechnungs- und Exportfunktionen mitzugestalten — die Zahlung ist noch nicht live.",
+      "items": [
+        { "label": "Ratenbegrenzte Lead-Erfassung" },
+        { "label": "Preispläne", "href": "/pricing" },
+        { "label": "Für Berater", "href": "/for-consultants" }
+      ]
     }
-
+  },
+  "mcProductExtensions": {
+    "reportPreviewTitle": "Entscheidungsbericht-Vorschau",
+    "reportPreviewDesc": "Sehen Sie, wie Premium-Ergebnisse zu stakeholderfähigen Paketen werden.",
+    "openFullReport": "Vollständigen Beispielbericht öffnen →",
+    "freeToolsTitle": "Kostenlose Branchenwerkzeuge",
+    "freeToolsDesc": "Strukturierte Schnellschätzungen — kein Konto erforderlich.",
+    "viewAllFreeTools": "Alle kostenlosen Werkzeuge anzeigen →",
+    "premiumToolsTitle": "Premium-Entscheidungswerkzeuge",
+    "premiumToolsDesc": "Szenariobewertung, Risikosignale und paketierte Berichte, wenn die Kosten eines Fehlers real sind.",
+    "viewPricing": "Preise anzeigen →"
+  },
+  "premiumToolsGrid": {
+    "title": "Premium-Entscheidungswerkzeuge",
+    "description": "Branchenspezifische Analyzer für Preis-, Angebots- und Margenentscheidungen.",
+    "openCalculator": "Rechner öffnen",
+    "unlockPro": "Pro freischalten"
+  }
 }

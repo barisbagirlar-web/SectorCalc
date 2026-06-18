@@ -276,14 +276,14 @@ export function EngineeringInterpretationPanel({
         setState({
           status: "error",
           error: result.error ?? "Unknown error",
-          fallbackMessage: result.fallbackMessage ?? "Interpretation unavailable.",
+          fallbackMessage: result.fallbackMessage ?? t("unavailable"),
         });
       }
     } catch (err) {
       setState({
         status: "error",
         error: err instanceof Error ? err.message : String(err),
-        fallbackMessage: "Network error. Please check your connection and try again.",
+        fallbackMessage: t("networkError"),
       });
     } finally {
       fetchRef.current = false;
@@ -351,7 +351,7 @@ export function EngineeringInterpretationPanel({
           {t(`confidence.${data.confidence}`)}
         </span>
         <span className="text-[0.6875rem] text-slate-400">
-          AI-assisted engineering analysis
+          {t("aiAnalysisLabel")}
         </span>
       </div>
 

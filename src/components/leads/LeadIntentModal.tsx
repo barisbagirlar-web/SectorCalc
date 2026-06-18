@@ -2,7 +2,7 @@
 
 import Link from "@/lib/navigation/next-link";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { CheckoutLoadingOverlay } from "@/components/billing/CheckoutLoadingOverlay";
 import {
  LEAD_INDUSTRY_OPTIONS,
@@ -88,6 +88,8 @@ function modalTitle(context: LeadModalOpenContext | null, phase: "form" | "succe
 
 export function LeadIntentModal() {
  const locale = useLocale();
+ const t = useTranslations("leadIntent");
+ const a11y = useTranslations("a11y");
  const { isOpen, context, closeLeadModal } = useLeadIntent();
  const titleId = useId();
  const dialogRef = useRef<HTMLDivElement>(null);
@@ -320,7 +322,7 @@ export function LeadIntentModal() {
  <button
  type="button"
  className="absolute inset-0 bg-deep-navy/70 backdrop-blur-[2px]"
- aria-label="Close dialog"
+ aria-label={a11y("closeDialog")}
  onClick={closeLeadModal}
  />
  <div
@@ -349,21 +351,19 @@ export function LeadIntentModal() {
  {modalTitle(context, phase)}
  </h2>
  {phase === "form" && flow === "default" && (
- <p className="mt-2 text-sm leading-relaxed text-text-secondary">
- Tell us what you need. Premium unlock and export are not live yet —
- we record your intent for the next release.
+<p className="mt-2 text-sm leading-relaxed text-text-secondary">
+ {t("tellUsDescription")}
  {planName ? (
  <span className="mt-1 block font-medium text-text-primary">
  Plan interest: {planName}
  </span>
  ) : null}
- </p>
+</p>
  )}
  {phase === "form" && flow === "verdict_unlock" && (
- <p className="mt-2 text-sm leading-relaxed text-text-secondary">
- Enter your email to receive checkout access for the full margin
- verdict — safe price, leak breakdown and recommended action.
- </p>
+<p className="mt-2 text-sm leading-relaxed text-text-secondary">
+ {t("verdictUnlockDescription")}
+</p>
  )}
  </div>
  <button
@@ -374,7 +374,7 @@ export function LeadIntentModal() {
  ? "text-text-secondary hover:bg-white/10 hover:text-white"
  : "text-text-secondary hover:bg-bg-subtle hover:text-text-primary"
  }`}
- aria-label="Close"
+ aria-label={t("closeButton")}
  >
  <span aria-hidden className="text-xl leading-none">
  ×
@@ -385,49 +385,46 @@ export function LeadIntentModal() {
  <div className="overflow-y-auto px-5 py-5 sm:px-6 sm:py-6">
  {flow === "paywall" ? (
  <div className="space-y-4">
- <p className="text-sm leading-relaxed text-text-secondary sm:text-base">
- Premium report unlock is being rebuilt. Browse pricing or continue with free
- tools until the new analyzer pages are live.
- </p>
- <Link
+<p className="text-sm leading-relaxed text-text-secondary sm:text-base">
+ {t("paywallDescription")}
+</p>
+<Link
  href="/pricing"
  className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-deep-navy px-6 text-sm font-semibold text-white transition-colors hover:bg-black sm:w-auto"
- >
- View pricing
- </Link>
+>
+ {t("viewPricing")}
+</Link>
  </div>
  ) : null}
 
  {flow !== "paywall" && phase === "success" ? (
  <div className="space-y-6">
- <p className="text-sm leading-relaxed text-text-secondary sm:text-base">
- Thanks. We recorded your report request. In the next release,
- premium report unlock and export will be available directly inside
- SectorCalc.
- </p>
- <Link
+<p className="text-sm leading-relaxed text-text-secondary sm:text-base">
+ {t("successMessage")}
+</p>
+<Link
  href="/free-tools"
  onClick={closeLeadModal}
  className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-deep-navy px-6 text-sm font-semibold text-white transition-colors hover:bg-black sm:w-auto"
- >
- Continue exploring tools
- </Link>
+>
+ {t("continueExploring")}
+</Link>
  </div>
  ) : null}
 
  {flow === "verdict_unlock" && phase === "form" ? (
  <form className="space-y-5" onSubmit={handleVerdictUnlockSubmit} noValidate>
- <Field
+<Field
  id="unlock-email"
- label="Email"
+ label={t("emailLabel")}
  required
  error={unlockEmailError ?? undefined}
- >
+>
  <input
  id="unlock-email"
  type="email"
  autoComplete="email"
- placeholder="Send my verdict to this email"
+ placeholder={t("verdictEmailPlaceholder")}
  value={unlockEmail}
  onChange={(e) => {
  setUnlockEmail(e.target.value);
@@ -450,18 +447,17 @@ export function LeadIntentModal() {
  disabled={loading || checkoutPending}
  className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg border border-amber/40 bg-amber px-6 text-sm font-semibold text-deep-navy transition-colors hover:bg-amber/90 disabled:opacity-60"
  >
- {loading || checkoutPending ? "Redirecting to checkout…" : "Continue to checkout"}
+ {loading || checkoutPending ? t("redirectingToCheckout") : t("continueToCheckout")}
  </button>
- <p className="text-xs leading-relaxed text-text-secondary">
- You may be asked to sign in before secure payment. Digital product —
- estimates only.
- </p>
+<p className="text-xs leading-relaxed text-text-secondary">
+ {t("checkoutLegalNote")}
+</p>
  </form>
  ) : null}
 
  {flow === "default" && phase === "form" ? (
  <form className="space-y-5" onSubmit={handleSubmit} noValidate>
- <Field id="lead-name" label="Name" required error={errors.name}>
+ <Field id="lead-name" label={t("nameLabel")} required error={errors.name}>
  <input
  id="lead-name"
  type="text"
@@ -473,7 +469,7 @@ export function LeadIntentModal() {
  />
  </Field>
 
- <Field id="lead-email" label="Email" required error={errors.email}>
+ <Field id="lead-email" label={t("emailLabel")} required error={errors.email}>
  <input
  id="lead-email"
  type="email"
@@ -487,7 +483,7 @@ export function LeadIntentModal() {
 
  <Field
  id="lead-company"
- label="Company / Business name"
+ label={t("companyLabel")}
  required
  error={errors.company}
  >
@@ -504,7 +500,7 @@ export function LeadIntentModal() {
 
  <Field
  id="lead-industry"
- label="Industry"
+ label={t("industryLabel")}
  required
  error={errors.industry}
  >
@@ -515,7 +511,7 @@ export function LeadIntentModal() {
  aria-invalid={Boolean(errors.industry)}
  className={`${inputClass} ${errors.industry ? inputErrorClass : inputOkClass}`}
  >
- <option value="">Select industry</option>
+ <option value="">{t("selectIndustry")}</option>
  {LEAD_INDUSTRY_OPTIONS.map((opt) => (
  <option key={opt.value} value={opt.value}>
  {opt.label}
@@ -527,7 +523,7 @@ export function LeadIntentModal() {
  {toolLocked ? (
  <Field
  id="lead-tool-locked"
- label="Tool / Report requested"
+ label={t("toolRequestedLabel")}
  required
  error={errors.toolRequested}
  >
@@ -542,7 +538,7 @@ export function LeadIntentModal() {
  ) : (
  <Field
  id="lead-tool"
- label="Tool / Report requested"
+ label={t("toolRequestedLabel")}
  required
  error={errors.toolRequested}
  >
@@ -553,7 +549,7 @@ export function LeadIntentModal() {
  aria-invalid={Boolean(errors.toolRequested)}
  className={`${inputClass} ${errors.toolRequested ? inputErrorClass : inputOkClass}`}
  >
- <option value="">Select tool or report</option>
+ <option value="">{t("selectTool")}</option>
  {LEAD_TOOL_OPTIONS.map((opt) => (
  <option key={opt.value} value={opt.value}>
  {opt.label}
@@ -565,7 +561,7 @@ export function LeadIntentModal() {
 
  <Field
  id="lead-intended-use"
- label="Intended use"
+ label={t("intendedUseLabel")}
  required
  error={errors.intendedUse}
  >
@@ -576,7 +572,7 @@ export function LeadIntentModal() {
  aria-invalid={Boolean(errors.intendedUse)}
  className={`${inputClass} ${errors.intendedUse ? inputErrorClass : inputOkClass}`}
  >
- <option value="">Select intended use</option>
+ <option value="">{t("selectIntendedUse")}</option>
  {LEAD_INTENDED_USE_OPTIONS.map((opt) => (
  <option key={opt.value} value={opt.value}>
  {opt.label}
@@ -585,7 +581,7 @@ export function LeadIntentModal() {
  </select>
  </Field>
 
- <Field id="lead-message" label="Message (optional)" error={errors.message}>
+ <Field id="lead-message" label={t("messageLabel")} error={errors.message}>
  <textarea
  id="lead-message"
  rows={4}
@@ -594,7 +590,7 @@ export function LeadIntentModal() {
  onChange={(e) => updateField("message", e.target.value)}
  aria-invalid={Boolean(errors.message)}
  className={`${inputClass} min-h-[120px] resize-y py-3 ${errors.message ? inputErrorClass : inputOkClass}`}
- placeholder="Timeline, client context, or questions (max 500 characters)"
+ placeholder={t("messagePlaceholder")}
  />
  </Field>
 
@@ -612,7 +608,7 @@ export function LeadIntentModal() {
  disabled={loading}
  className="inline-flex min-h-[48px] w-full items-center justify-center rounded-lg bg-deep-navy px-6 text-sm font-semibold text-white transition-colors hover:bg-black disabled:opacity-60"
  >
- {loading ? "Submitting…" : "Submit request"}
+ {loading ? t("submitting") : t("submitRequest")}
  </button>
  </form>
  ) : null}

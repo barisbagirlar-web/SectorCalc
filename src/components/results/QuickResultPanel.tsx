@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
 
 type QuickResultPanelProps = {
@@ -17,13 +18,14 @@ export function QuickResultPanel({
   warning,
   children,
 }: QuickResultPanelProps) {
+  const t = useTranslations("generatedTool");
   return (
     <section className="space-y-3" data-quick-result-panel="true">
       {headline ? (
         <div>
-          <p className="text-xs font-medium uppercase tracking-wide text-slate-500">Result</p>
+          <p className="text-xs font-medium uppercase tracking-wide text-slate-500">{t("freeForm.resultLabel")}</p>
           <p className="text-2xl font-semibold text-slate-900">{headline}</p>
-          {unitLabel ? <p className="text-sm font-medium text-slate-600">Unit: {unitLabel}</p> : null}
+          {unitLabel ? <p className="text-sm font-medium text-slate-600">{t("resultUnit", { unit: unitLabel })}</p> : null}
         </div>
       ) : null}
       {summary ? <p className="text-sm leading-relaxed text-slate-700">{summary}</p> : null}

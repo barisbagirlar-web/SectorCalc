@@ -46,13 +46,7 @@ function formatPrimaryValue(
   if (typeof value !== "number" || !Number.isFinite(value)) {
     return "—";
   }
-  const unit = resolvePrimaryOutputUnit(schema);
-  return formatGeneratedNumericValue(
-    value,
-    key,
-    locale,
-    unit !== "—" ? unit : undefined,
-  );
+  return formatGeneratedNumericValue(value, key, locale);
 }
 
 function resolveHiddenDrivers(

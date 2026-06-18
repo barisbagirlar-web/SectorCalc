@@ -1,0 +1,50 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
+          NEXT_PUBLIC_SITE_URL: https://www.sectorcalc.com
+
+      - name: Validate build
+        run: node scripts/validate-next-build.mjs
+
+      - name: Finalize build (Firebase export stubs)
+        run: node scripts/finalize-next-build.mjs
+
+      - name: Install firebase-tools
+        run: npm install -g firebase-tools
+
+      - name: Deploy to Firebase Hosting + Firestore rules
+        run: |
+          firebase deploy \
+            --only hosting,firestore:rules \
+            --project sectorcalc-bf412 \
+            --token "${{ secrets.FIREBASE_TOKEN }}"
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
+          FIREBASE_FRAMEWORKS_BUILD_TARGET: production
+          SECTORCALC_FIREBASE_REUSE_BUILD: "1"

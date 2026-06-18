@@ -4,7 +4,60 @@
     "mainContent": "المحتوى الرئيسي",
     "mainNavigation": "التنقل الرئيسي",
     "logoHome": "الصفحة الرئيسية لـ SectorCalc",
-    "logoAlt": "SectorCalc"
+    "logoAlt": "SectorCalc",
+    "closeMenu": "إغلاق القائمة",
+    "openMenu": "فتح القائمة",
+    "mobileNavigation": "المحمول",
+    "closeDialog": "إغلاق مربع الحوار",
+    "regionLanguage": "المنطقة واللغة",
+    "trustCompliance": "إشارات الثقة والامتثال",
+    "industrialPanel": "لوحة القرار الصناعية"
+  },
+  "leadCapture": {
+    "eyebrow": "التقاط العملاء المحتملين",
+    "title": "طلب الوصول أو التحدث إلينا",
+    "description": "عقد واجهة مستخدم فقط — لا يوجد توصيل خلفي ولا مفاتيح API ولا أسرار. لا يتم تخزين الإرسالات.",
+    "emailLabel": "البريد الإلكتروني",
+    "emailPlaceholder": "أنت@شركة.com",
+    "companyLabel": "الشركة",
+    "companyPlaceholder": "اختياري",
+    "intentLabel": "القصد",
+    "submitButton": "طلب وصول مبكر",
+    "successMessage": "شكراً لك. نموذج المعاينة هذا لا ينقل البيانات. قم بتوصيل خط أنابيب العملاء المحتملين عندما تكون مستعداً."
+  },
+  "toolDiscovery": {
+    "sectorFallback": "القطاع",
+    "measures": "القياسات:",
+    "exampleOutput": "مثال على المخرجات:",
+    "viewCalculator": "عرض الآلة الحاسبة →",
+    "openCalculator": "فتح الآلة الحاسبة ←"
+  },
+  "leadIntent": {
+    "closeDialog": "إغلاق مربع الحوار",
+    "closeButton": "إغلاق",
+    "tellUsDescription": "أخبرنا بما تحتاجه. فتح Premium والتصدير ليسا متاحين بعد — نسجل نيتك للإصدار القادم.",
+    "verdictUnlockDescription": "أدخل بريدك الإلكتروني لتلقي وصول الدفع للحصول على الحكم الكامل للهامش — السعر الآمن، وتحليل التسرب، والإجراء الموصى به.",
+    "paywallDescription": "إعادة بناء فتح التقرير المميز. تصفح الأسعار أو استمر بالأدوات المجانية حتى تصبح صفحات المحلل الجديدة متاحة.",
+    "viewPricing": "عرض الأسعار",
+    "successMessage": "شكراً. سجلنا طلب التقرير الخاص بك. في الإصدار القادم، سيكون فتح التقرير المميز والتصدير متاحين مباشرة داخل SectorCalc.",
+    "continueExploring": "مواصلة استكشاف الأدوات",
+    "emailLabel": "البريد الإلكتروني",
+    "verdictEmailPlaceholder": "أرسل حكمي إلى هذا البريد الإلكتروني",
+    "redirectingToCheckout": "جاري إعادة التوجيه إلى الدفع…",
+    "continueToCheckout": "المتابعة إلى الدفع",
+    "checkoutLegalNote": "قد يُطلب منك تسجيل الدخول قبل الدفع الآمن. منتج رقمي — تقديرات فقط.",
+    "nameLabel": "الاسم",
+    "companyLabel": "الشركة / اسم النشاط التجاري",
+    "industryLabel": "الصناعة",
+    "selectIndustry": "اختيار الصناعة",
+    "toolRequestedLabel": "الأداة / التقرير المطلوب",
+    "selectTool": "اختيار أداة أو تقرير",
+    "intendedUseLabel": "الاستخدام المقصود",
+    "selectIntendedUse": "اختيار الاستخدام المقصود",
+    "messageLabel": "رسالة (اختياري)",
+    "messagePlaceholder": "الجدول الزمني أو سياق العميل أو الأسئلة (500 حرف كحد أقصى)",
+    "submitting": "جارٍ الإرسال…",
+    "submitRequest": "إرسال الطلب"
   },
   "nav": {
     "freeCalculators": "الحاسبات المجانية",
@@ -1805,7 +1858,11 @@
     "networkError": "فشل الاتصال. تحقق من الشبكة وحاول مرة أخرى.",
     "accessDenied": "تحتاج وصول Premium لهذا التقرير.",
     "notFound": "تعذّر العثور على هذه الصفحة أو الأداة.",
-    "generic": "حدث خطأ. يرجى المحاولة مجددًا."
+    "generic": "حدث خطأ. يرجى المحاولة مجددًا.",
+    "errorPageTitle": "حدث خطأ ما",
+    "errorPageDescription": "واجهت هذه الصفحة خطأ غير متوقع. يمكنك إعادة المحاولة أو العودة إلى مكتبة الآلات الحاسبة.",
+    "pageTryAgain": "حاول مرة أخرى",
+    "calculatorLibraryLink": "مكتبة الآلات الحاسبة"
   },
   "seo": {
     "homeTitle": "SectorCalc — حاسبات قطاعية وتقارير قرار",
@@ -3488,7 +3545,9 @@
       "reportClose": "إغلاق",
       "reportMessageTooShort": "يرجى إدخال 10 أحرف على الأقل.",
       "reportSubmitFailed": "تعذر إرسال البلاغ. حاول مرة أخرى.",
-      "calculationStandardLabel": "معيار الحساب"
+      "calculationStandardLabel": "معيار الحساب",
+      "voteCorrectMessage": "تصويت سريع للمشغل: نتيجة الحساب تبدو صحيحة.",
+      "voteIncorrectMessage": "تصويت سريع للمشغل: نتيجة الحساب تبدو غير صحيحة."
     },
     "freeForm": {
       "defaultDescription": "حساب قطاعي سريع — أدخل المدخلات لرؤية النتيجة.",
@@ -3515,7 +3574,8 @@
       "reportSuccess": "تم إرسال بلاغك. شكرًا لك.",
       "reportClose": "إغلاق",
       "reportMessageTooShort": "يرجى إدخال 10 أحرف على الأقل.",
-      "reportSubmitFailed": "تعذر إرسال البلاغ. حاول مرة أخرى."
+      "reportSubmitFailed": "تعذر إرسال البلاغ. حاول مرة أخرى.",
+      "unitSuffix": "{label} وحدة"
     },
     "aboutTool": {
       "sectionLabel": "حول هذه الأداة",
@@ -66153,7 +66213,9 @@
       "high": "ثقة عالية",
       "medium": "ثقة متوسطة",
       "low": "ثقة منخفضة"
-    }
+    },
+    "networkError": "خطأ في الشبكة. يرجى التحقق من اتصالك والمحاولة مرة أخرى.",
+    "aiAnalysisLabel": "تحليل هندسي مدعوم بالذكاء الاصطناعي"
   },
   "developerShowcase": {
     "meta": {
@@ -67838,6 +67900,106 @@
       "sectorSpecificCalculator": "آلة حاسبة خاصة بالقطاع — أدخل المدخلات لرؤية النتائج.",
       "calculatorModuleNotFound": "لم يتم العثور على وحدة الحساب.",
       "failedToLoadCalculator": "فشل تحميل الآلة الحاسبة."
+    },
+  "toolFinder": {
+    "eyebrow": "باحث الأدوات",
+    "title": "اعثر على الأداة القطاعية المناسبة",
+    "subtitle": "صفِّ حسب المشكلة التشغيلية والصناعة — ثم افتح الأداة القطاعية أو تقرير القرار الذي يناسب سياقك.",
+    "decisionFocus": "محور القرار",
+    "searchLabel": "البحث في الأدوات القطاعية",
+    "searchPlaceholder": "ابحث باسم الأداة أو كلمة مفتاحية (اختياري)",
+    "industry": "الصناعة",
+    "all": "الكل",
+    "allIndustries": "جميع الصناعات",
+    "emptyResults": "لا توجد أدوات تطابق عوامل التصفية الخاصة بك. جرب محور قرار أو صناعة أخرى."
+  },
+  "terminalPanel": {
+    "numericValueRequired": "قيمة رقمية مطلوبة.",
+    "mustBeGreaterThanZero": "يجب أن يكون أكبر من 0.",
+    "cannotBeNegative": "لا يمكن أن يكون سالباً.",
+    "calculate": "احسب",
+    "reset": "إعادة تعيين",
+    "variance": "التباين",
+    "efficiency": "الكفاءة",
+    "impact": "التأثير",
+    "tier": "المستوى",
+    "expertLogicBreakdown": "تحليل المنطق الخبير",
+    "hiddenVariables": "المتغيرات المخفية",
+    "emptyState": "أدخل المعاملات وشغّل الحساب."
+  },
+  "platformCapabilities": {
+    "title": "مجموعة شاملة من الميزات",
+    "description": "يجمع SectorCalc بين التقديرات السريعة المجانية وتقارير القرار المتميزة — مدخلات مُتحقق منها، صيغ شفافة، سيناريوهات، إشارات خطر وهيكل جاهز للتقرير عبر {sectorCount} قطاعاً نشطاً.",
+    "validatedInputs": {
+      "title": "مدخلات مُتحقق منها",
+      "summary": "تستخدم الأدوات القطاعية حقولاً منظمة وتحققاً بحيث تبدأ التقديرات من مدخلات متسقة.",
+      "items": [
+        { "label": "مجموعات مدخلات خاصة بالصناعة", "href": "/industries" },
+        { "label": "فحوصات الحقول الإلزامية قبل النتائج" },
+        { "label": "مقدرات سريعة مجانية", "href": "/free-tools" }
+      ]
+    },
+    "transparentFormulas": {
+      "title": "صيغ شفافة",
+      "summary": "تُبنى المخرجات من منطق حسابي موثق — لا درجات مبهمة أو معايير مرجعية صندوق أسود.",
+      "items": [
+        { "label": "تعريفات أدوات قابلة لإعادة الاستخدام لكل قطاع" },
+        { "label": "ملاحظات تفسيرية على كل أداة" },
+        { "label": "محللات متميزة", "href": "/pricing" }
+      ]
+    },
+    "riskSignals": {
+      "title": "إشارات الخطر",
+      "summary": "تكشف الأدوات المتميزة مستويات الخطر حتى ترى الفرق متى تتطلب قرارات الهامش أو التسعير أو السعة الحذر.",
+      "items": [
+        { "label": "حكم خطر منظم" },
+        { "label": "توصيات موجهة نحو القرار" },
+        { "label": "معاينة تقرير نموذجي", "href": "/reports/sample-decision-report" }
+      ]
+    },
+    "scenarioCalculation": {
+      "title": "حساب السيناريو",
+      "summary": "قارن بين المسارات المتحفظة والأساسية والعدوانية قبل الالتزام بعروض الأسعار أو القوائم أو العقود.",
+      "items": [
+        { "label": "تقييم سيناريو متعدد المسارات" },
+        { "label": "أدوات قرار متميزة", "href": "/pricing" },
+        { "label": "حزم قطاعية", "href": "/industries" }
+      ]
+    },
+    "reportPreview": {
+      "title": "معاينة التقرير",
+      "summary": "تغلف المخرجات المتميزة النتائج لأصحاب المصلحة — تنسيقات التصدير هي معاينة فقط في الإصدار الأولي.",
+      "items": [
+        { "label": "هيكل الملخص التنفيذي" },
+        { "label": "حالات معاينة PDF / Excel / Word" },
+        { "label": "عرض تقرير نموذجي", "href": "/reports/sample-decision-report" }
+      ]
+    },
+    "leadIntentFlow": {
+      "title": "تدفق نية العميل المحتمل",
+      "summary": "اطلب الوصول إلى التقرير المتميز وساعد في تشكيل نشر الفوترة والتصدير — الدفع ليس نشطاً بعد.",
+      "items": [
+        { "label": "التقاط العميل المحتمل بمعدل محدود" },
+        { "label": "خطط الأسعار", "href": "/pricing" },
+        { "label": "للاستشاريين", "href": "/for-consultants" }
+      ]
     }
-
+  },
+  "mcProductExtensions": {
+    "reportPreviewTitle": "معاينة تقرير القرار",
+    "reportPreviewDesc": "شاهد كيف تتحول المخرجات المتميزة إلى حزم جاهزة لأصحاب المصلحة.",
+    "openFullReport": "افتح التقرير النموذجي الكامل ←",
+    "freeToolsTitle": "أدوات قطاعية مجانية",
+    "freeToolsDesc": "تقديرات سريعة منظمة — لا حاجة لحساب.",
+    "viewAllFreeTools": "عرض جميع الأدوات المجانية ←",
+    "premiumToolsTitle": "أدوات قرار متميزة",
+    "premiumToolsDesc": "تقييم السيناريو وإشارات الخطر وتقارير مغلفة عندما تكون تكلفة الخطأ حقيقية.",
+    "viewPricing": "عرض الأسعار ←"
+  },
+  "premiumToolsGrid": {
+    "title": "أدوات قرار متميزة",
+    "description": "محللات قطاعية لقرارات التسعير والعروض والهوامش.",
+    "openCalculator": "فتح الآلة الحاسبة",
+    "unlockPro": "فتح النسخة المدفوعة"
+  }
 }

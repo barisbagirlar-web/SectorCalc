@@ -117,6 +117,7 @@ function FreeToolFormField({
   enterValuePlaceholder,
 }: FreeToolFormFieldProps) {
   const locale = useLocale();
+  const tFree = useTranslations("generatedTool.freeForm");
   const unitSystem = usePreferredUnitSystem();
   const display = useGeneratedToolFieldDisplay(slug, input);
   const inputId = `free-${slug}-${input.id}`;
@@ -250,7 +251,7 @@ function FreeToolFormField({
                 value={selectedUnit ?? input.unit}
                 onChange={(event) => onUnitChange?.(event.target.value)}
                 className="sc-premium-dtf-unit-select"
-                aria-label={`${display.label} unit`}
+                aria-label={tFree("unitSuffix", { label: display.label })}
               >
                 {unitOptions.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -360,8 +361,8 @@ export function FreeToolForm({
 
     const message =
       type === "up"
-        ? "Quick operator vote: calculation result appears correct."
-        : "Quick operator vote: calculation result appears incorrect.";
+        ? tFree("voteCorrectMessage")
+        : tFree("voteIncorrectMessage");
 
     const feedbackResult = await submitToolFeedback({
       kind: type === "up" ? "other" : "wrong_result",

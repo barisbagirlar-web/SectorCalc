@@ -11,7 +11,7 @@ import {
 import type { GeneratedToolInput } from "@/lib/generated-tools/types";
 import { resolveLocalizedGeneratedSelectOptions } from "@/lib/generated-tools/select-options";
 import { translateZodErrorMessage } from "@/lib/i18n/zod-error-translate";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 type PremiumDynamicToolFormFieldProps = {
   readonly input: GeneratedToolInput;
@@ -37,6 +37,7 @@ export function PremiumDynamicToolFormField({
   enterValuePlaceholder,
 }: PremiumDynamicToolFormFieldProps) {
   const locale = useLocale();
+  const t = useTranslations("generatedTool.premiumForm");
   const unitSystem = usePreferredUnitSystem();
   const fieldError = errors[input.id];
   const rawErrorMessage = fieldError?.message ? String(fieldError.message) : undefined;
@@ -156,7 +157,7 @@ export function PremiumDynamicToolFormField({
                 value={selectedUnit ?? input.unit}
                 onChange={(event) => onUnitChange?.(event.target.value)}
                 className="sc-premium-dtf-unit-select"
-                aria-label={`${label} unit`}
+                aria-label={t("unitSuffix", { label })}
               >
                 {unitOptions.map((option) => (
                   <option key={option.value} value={option.value}>

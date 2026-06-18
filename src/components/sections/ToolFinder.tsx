@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ToolsTileGrid } from "@/components/tools/ToolsTileGrid";
@@ -10,6 +11,7 @@ import type { IndustrySlug } from "@/data/industries";
 import { TOOL_FINDER_PROBLEMS } from "@/data/tool-finder-problems";
 
 export function ToolFinder() {
+ const t = useTranslations("toolFinder");
  const [query, setQuery] = useState("");
  const [industryFilter, setIndustryFilter] = useState<IndustrySlug | "all">(
  "all"
@@ -63,16 +65,16 @@ export function ToolFinder() {
  >
  <Container size="wide" className="min-w-0">
  <SectionHeader
- eyebrow="Tool finder"
- title="Find the right sector tool"
- subtitle="Filter by operational problem and industry — then open the sector tool or decision report that matches your context."
+ eyebrow={t("eyebrow")}
+ title={t("title")}
+ subtitle={t("subtitle")}
  align="center"
  />
 
  <div className="mx-auto max-w-3xl space-y-8">
  <div>
  <p className="mb-3 text-center text-[11px] font-semibold uppercase tracking-wider text-text-secondary">
- Decision focus
+ {t("decisionFocus")}
  </p>
  <div className="flex flex-wrap justify-center gap-2">
  <button
@@ -84,7 +86,7 @@ export function ToolFinder() {
  : "border border-border-subtle bg-white text-text-secondary hover:border-slate/30"
  }`}
  >
- All
+ {t("all")}
  </button>
  {TOOL_FINDER_PROBLEMS.map((problem) => (
  <button
@@ -106,12 +108,12 @@ export function ToolFinder() {
 
  <div>
  <label htmlFor="tool-search" className="sr-only">
- Search sector tools
+ {t("searchLabel")}
  </label>
  <input
  id="tool-search"
  type="search"
- placeholder="Search by tool name or keyword (optional)"
+ placeholder={t("searchPlaceholder")}
  value={query}
  onChange={(e) => setQuery(e.target.value)}
  onFocus={handleSearchFocus}
@@ -121,7 +123,7 @@ export function ToolFinder() {
 
  <div>
  <p className="mb-3 text-center text-[11px] font-semibold uppercase tracking-wider text-text-secondary">
- Industry
+ {t("industry")}
  </p>
  <div className="flex flex-wrap justify-center gap-2">
  <button
@@ -133,7 +135,7 @@ export function ToolFinder() {
  : "border border-border-subtle bg-white text-text-secondary"
  }`}
  >
- All industries
+ {t("allIndustries")}
  </button>
  {INDUSTRIES.map((industry) => (
  <button
@@ -156,7 +158,7 @@ export function ToolFinder() {
  <div id="tool-finder-results" className="mt-12">
  {results.length === 0 ? (
  <p className="rounded-sm border border-dashed border-slate/25 bg-bg-subtle py-14 text-center text-text-secondary">
- No tools match your filters. Try another decision focus or industry.
+ {t("emptyResults")}
  </p>
  ) : (
  <ToolsTileGrid tools={results} />

@@ -355,8 +355,8 @@ export function DynamicToolForm({
 
     const message =
       type === "up"
-        ? "Quick operator vote: calculation result appears correct."
-        : "Quick operator vote: calculation result appears incorrect.";
+        ? tPremium("voteCorrectMessage")
+        : tPremium("voteIncorrectMessage");
 
     const feedbackResult = await submitToolFeedback({
       kind: type === "up" ? "other" : "wrong_result",

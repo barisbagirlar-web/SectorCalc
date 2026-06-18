@@ -14,17 +14,17 @@ interface PremiumToolsGridProps {
 }
 
 export function PremiumToolsGrid({ isActive }: PremiumToolsGridProps) {
- const t = useTranslations("premiumToolsGrid");
+ const t = useTranslations("premiumTools");
  return (
  <section className="min-w-0">
  <h2 className="text-lg font-bold text-text-primary">{t("title")}</h2>
  <p className="mt-2 text-sm leading-relaxed text-text-secondary">
- {t("description")}
+ {t("subtitle")}
  </p>
  <ul className="mt-5 grid min-w-0 gap-4">
  {revenueTools.map((tool) => {
  const href = isActive ? getPremiumToolHref(tool) : getPricingHref(tool);
- const ctaLabel = isActive ? t("openCalculator") : t("unlockPro");
+ const ctaLabel = isActive ? t("openAnalyzer") : "Unlock Pro";
 
  return (
  <li key={tool.paidSlug}>

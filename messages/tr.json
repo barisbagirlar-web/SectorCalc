@@ -4,7 +4,60 @@
     "mainContent": "Ana içerik",
     "mainNavigation": "Ana menü",
     "logoHome": "SectorCalc ana sayfa",
-    "logoAlt": "SectorCalc"
+    "logoAlt": "SectorCalc",
+    "closeMenu": "Menüyü kapat",
+    "openMenu": "Menüyü aç",
+    "mobileNavigation": "Mobil",
+    "closeDialog": "İletişim kutusunu kapat",
+    "regionLanguage": "Bölge ve dil",
+    "trustCompliance": "Güven ve uyumluluk sinyalleri",
+    "industrialPanel": "Endüstriyel karar paneli"
+  },
+  "leadCapture": {
+    "eyebrow": "Lead yakalama",
+    "title": "Erişim talep edin veya bizimle iletişime geçin",
+    "description": "Yalnızca UI sözleşmesi — arka uç bağlantısı, API anahtarı veya gizli bilgi yok. Gönderimler saklanmaz.",
+    "emailLabel": "E-posta",
+    "emailPlaceholder": "ornek@sirket.com",
+    "companyLabel": "Şirket",
+    "companyPlaceholder": "İsteğe bağlı",
+    "intentLabel": "Amaç",
+    "submitButton": "Erken erişim talep et",
+    "successMessage": "Teşekkürler. Bu önizleme formu veri iletmez. Hazır olduğunuzda lead kanalınızı bağlayın."
+  },
+  "toolDiscovery": {
+    "sectorFallback": "Sektör",
+    "measures": "Ölçütler:",
+    "exampleOutput": "Örnek çıktı:",
+    "viewCalculator": "Hesap makinesini gör →",
+    "openCalculator": "Hesap makinesini aç →"
+  },
+  "leadIntent": {
+    "closeDialog": "İletişim kutusunu kapat",
+    "closeButton": "Kapat",
+    "tellUsDescription": "Bize neye ihtiyacınız olduğunu anlatın. Premium kilit açma ve dışa aktarma henüz canlı değil — niyetinizi bir sonraki sürüm için kaydediyoruz.",
+    "verdictUnlockDescription": "Tam marj kararına (güvenli fiyat, kaçak dökümü ve önerilen eylem) checkout erişimi almak için e-postanızı girin.",
+    "paywallDescription": "Premium rapor kilidi yeniden yapılandırılıyor. Yeni analizör sayfaları canlı olana kadar fiyatlandırmaya göz atın veya ücretsiz araçlarla devam edin.",
+    "viewPricing": "Fiyatlandırmayı gör",
+    "successMessage": "Teşekkürler. Rapor talebinizi kaydettik. Bir sonraki sürümde premium rapor kilidi ve dışa aktarma doğrudan SectorCalc içinde kullanılabilecek.",
+    "continueExploring": "Araçları keşfetmeye devam et",
+    "emailLabel": "E-posta",
+    "verdictEmailPlaceholder": "Kararımı bu e-postaya gönder",
+    "redirectingToCheckout": "Checkout'a yönlendiriliyor…",
+    "continueToCheckout": "Checkout'a devam et",
+    "checkoutLegalNote": "Güvenli ödeme öncesi giriş yapmanız istenebilir. Dijital ürün — yalnızca tahminler.",
+    "nameLabel": "Ad",
+    "companyLabel": "Şirket / İşletme adı",
+    "industryLabel": "Sektör",
+    "selectIndustry": "Sektör seçin",
+    "toolRequestedLabel": "Talep edilen araç / rapor",
+    "selectTool": "Araç veya rapor seçin",
+    "intendedUseLabel": "Kullanım amacı",
+    "selectIntendedUse": "Kullanım amacı seçin",
+    "messageLabel": "Mesaj (isteğe bağlı)",
+    "messagePlaceholder": "Zaman çizelgesi, müşteri bağlamı veya sorular (maksimum 500 karakter)",
+    "submitting": "Gönderiliyor…",
+    "submitRequest": "Talebi gönder"
   },
   "nav": {
     "freeCalculators": "Ücretsiz Hesaplayıcılar",
@@ -1840,7 +1893,11 @@
     "networkError": "Bağlantı kurulamadı. Ağınızı kontrol edip tekrar deneyin.",
     "accessDenied": "Bu rapor için premium erişim gerekir.",
     "notFound": "Sayfa veya araç bulunamadı.",
-    "generic": "Bir sorun oluştu. Lütfen tekrar deneyin."
+    "generic": "Bir sorun oluştu. Lütfen tekrar deneyin.",
+    "errorPageTitle": "Bir şeyler ters gitti",
+    "errorPageDescription": "Bu sayfa beklenmeyen bir hatayla karşılaştı. Yeniden deneyebilir veya hesap makinesi kütüphanesine dönebilirsiniz.",
+    "pageTryAgain": "Tekrar dene",
+    "calculatorLibraryLink": "Hesap Makinesi Kütüphanesi"
   },
   "seo": {
     "homeTitle": "SectorCalc — Sektörel hesaplama ve karar raporları",
@@ -3545,7 +3602,9 @@
       "reportClose": "Kapat",
       "reportMessageTooShort": "Lütfen en az 10 karakter girin.",
       "reportSubmitFailed": "Bildirim gönderilemedi. Lütfen tekrar deneyin.",
-      "calculationStandardLabel": "Hesaplama standardı"
+      "calculationStandardLabel": "Hesaplama standardı",
+      "voteCorrectMessage": "Hızlı operatör oyu: hesaplama sonucu doğru görünüyor.",
+      "voteIncorrectMessage": "Hızlı operatör oyu: hesaplama sonucu yanlış görünüyor."
     },
     "freeForm": {
       "defaultDescription": "Hızlı sektör hesabı — sonuç için girdileri girin.",
@@ -3572,7 +3631,8 @@
       "reportSuccess": "Bildiriminiz alındı. Teşekkürler.",
       "reportClose": "Kapat",
       "reportMessageTooShort": "Lütfen en az 10 karakter girin.",
-      "reportSubmitFailed": "Bildirim gönderilemedi. Lütfen tekrar deneyin."
+      "reportSubmitFailed": "Bildirim gönderilemedi. Lütfen tekrar deneyin.",
+      "unitSuffix": "{label} birim"
     },
     "aboutTool": {
       "sectionLabel": "Araç hakkında",
@@ -67458,7 +67518,9 @@
       "high": "Yüksek güven",
       "medium": "Orta güven",
       "low": "Düşük güven"
-    }
+    },
+    "networkError": "Ağ hatası. Lütfen bağlantınızı kontrol edin ve tekrar deneyin.",
+    "aiAnalysisLabel": "AI destekli mühendislik analizi"
   },
   "developerShowcase": {
     "meta": {
@@ -67842,6 +67904,106 @@
       "sectorSpecificCalculator": "Sektöre özel hesap makinesi — sonuçları görmek için girdileri girin.",
       "calculatorModuleNotFound": "Hesaplama modülü bulunamadı.",
       "failedToLoadCalculator": "Hesap makinesi yüklenemedi."
+    },
+  "toolFinder": {
+    "eyebrow": "Araç bulucu",
+    "title": "Doğru sektör aracını bulun",
+    "subtitle": "Operasyonel sorun ve sektöre göre filtreleyin — ardından bağlamınıza uygun sektör aracını veya karar raporunu açın.",
+    "decisionFocus": "Karar odağı",
+    "searchLabel": "Sektör araçlarını ara",
+    "searchPlaceholder": "Araç adı veya anahtar kelime ile ara (isteğe bağlı)",
+    "industry": "Sektör",
+    "all": "Tümü",
+    "allIndustries": "Tüm sektörler",
+    "emptyResults": "Hiçbir araç filtrelerinizle eşleşmiyor. Farklı bir karar odağı veya sektör deneyin."
+  },
+  "terminalPanel": {
+    "numericValueRequired": "Sayısal değer gerekli.",
+    "mustBeGreaterThanZero": "0'dan büyük olmalıdır.",
+    "cannotBeNegative": "Negatif olamaz.",
+    "calculate": "Hesapla",
+    "reset": "Sıfırla",
+    "variance": "Fark",
+    "efficiency": "Verimlilik",
+    "impact": "Etki",
+    "tier": "Seviye",
+    "expertLogicBreakdown": "Uzman mantık analizi",
+    "hiddenVariables": "Gizli değişkenler",
+    "emptyState": "Parametreleri girin ve hesaplamayı çalıştırın."
+  },
+  "platformCapabilities": {
+    "title": "Kapsamlı Özellik Seti",
+    "description": "SectorCalc, ücretsiz hızlı tahminleri premium karar raporlarıyla birleştirir — doğrulanmış girdiler, şeffaf formüller, senaryolar, risk sinyalleri ve {sectorCount} aktif sektörde rapora hazır yapı.",
+    "validatedInputs": {
+      "title": "Doğrulanmış Girdiler",
+      "summary": "Sektör araçları yapılandırılmış alanlar ve doğrulama kullanır, böylece tahminler tutarlı girdilerden başlar.",
+      "items": [
+        { "label": "Sektöre özel girdi setleri", "href": "/industries" },
+        { "label": "Sonuçlardan önce zorunlu alan kontrolleri" },
+        { "label": "Ücretsiz hızlı tahmin araçları", "href": "/free-tools" }
+      ]
+    },
+    "transparentFormulas": {
+      "title": "Şeffaf Formüller",
+      "summary": "Çıktılar belgelenmiş hesaplama mantığına dayanır — opak puanlar veya kara kutu kıyaslamaları değil.",
+      "items": [
+        { "label": "Sektör başına yeniden kullanılabilir araç tanımları" },
+        { "label": "Her araçta yorum notları" },
+        { "label": "Premium analiz araçları", "href": "/pricing" }
+      ]
+    },
+    "riskSignals": {
+      "title": "Risk Sinyalleri",
+      "summary": "Premium araçlar, ekiplerin marj, fiyatlandırma veya kapasite kararlarında ne zaman dikkatli olması gerektiğini görmesi için risk seviyelerini ortaya çıkarır.",
+      "items": [
+        { "label": "Yapılandırılmış risk değerlendirmesi" },
+        { "label": "Karar odaklı öneriler" },
+        { "label": "Örnek rapor önizlemesi", "href": "/reports/sample-decision-report" }
+      ]
+    },
+    "scenarioCalculation": {
+      "title": "Senaryo Hesaplaması",
+      "summary": "Teklif, menü veya sözleşme taahhüt etmeden önce muhafazakar, temel ve agresif yolları karşılaştırın.",
+      "items": [
+        { "label": "Çoklu yol senaryo değerlendirmesi" },
+        { "label": "Premium karar araçları", "href": "/pricing" },
+        { "label": "Sektör paketleri", "href": "/industries" }
+      ]
+    },
+    "reportPreview": {
+      "title": "Rapor Önizlemesi",
+      "summary": "Premium çıktılar, bulguları paydaşlar için paketler — MVP'de ihracat biçimleri yalnızca önizlemedir.",
+      "items": [
+        { "label": "Yönetici özeti yapısı" },
+        { "label": "PDF / Excel / Word önizleme durumları" },
+        { "label": "Örnek raporu görüntüle", "href": "/reports/sample-decision-report" }
+      ]
+    },
+    "leadIntentFlow": {
+      "title": "Potansiyel Müşteri Akışı",
+      "summary": "Premium rapor erişimi talep edin ve faturalandırma ile ihracat planlamasını şekillendirmeye yardımcı olun — ödeme henüz aktif değil.",
+      "items": [
+        { "label": "Hız sınırlı potansiyel müşteri yakalama" },
+        { "label": "Fiyatlandırma planları", "href": "/pricing" },
+        { "label": "Danışmanlar için", "href": "/for-consultants" }
+      ]
     }
-
+  },
+  "mcProductExtensions": {
+    "reportPreviewTitle": "Karar raporu önizlemesi",
+    "reportPreviewDesc": "Premium çıktıların paydaşlara hazır paketlere nasıl dönüştüğünü görün.",
+    "openFullReport": "Tam örnek raporu aç →",
+    "freeToolsTitle": "Ücretsiz sektör araçları",
+    "freeToolsDesc": "Yapılandırılmış hızlı tahminler — hesap gerekmez.",
+    "viewAllFreeTools": "Tüm ücretsiz araçları gör →",
+    "premiumToolsTitle": "Premium karar araçları",
+    "premiumToolsDesc": "Hata yapmanın maliyetli olduğu durumlarda senaryo değerlendirmesi, risk sinyalleri ve paketlenmiş raporlar.",
+    "viewPricing": "Fiyatlandırmayı gör →"
+  },
+  "premiumToolsGrid": {
+    "title": "Premium karar araçları",
+    "description": "Fiyatlandırma, teklif ve marj kararları için sektöre özel analiz araçları.",
+    "openCalculator": "Hesap makinesini aç",
+    "unlockPro": "Pro'yu Etkinleştir"
+  }
 }

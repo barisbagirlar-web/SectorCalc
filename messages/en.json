@@ -3596,7 +3596,8 @@
       "reportMessageTooShort": "Please enter at least 10 characters.",
       "reportSubmitFailed": "Could not submit your report. Please try again.",
       "voteCorrectMessage": "Quick operator vote: calculation result appears correct.",
-      "voteIncorrectMessage": "Quick operator vote: calculation result appears incorrect."
+      "voteIncorrectMessage": "Quick operator vote: calculation result appears incorrect.",
+      "unitSuffix": "{label} unit"
     },
     "freeForm": {
       "defaultDescription": "Quick sector calculation — enter inputs to see results.",
@@ -3624,6 +3625,8 @@
       "reportClose": "Close",
       "reportMessageTooShort": "Please enter at least 10 characters.",
       "reportSubmitFailed": "Could not submit your report. Please try again.",
+      "voteCorrectMessage": "Quick operator vote: calculation result appears correct.",
+      "voteIncorrectMessage": "Quick operator vote: calculation result appears incorrect.",
       "unitSuffix": "{label} unit"
     },
     "aboutTool": {
@@ -67494,5 +67497,106 @@
       "calculatorModuleNotFound": "Calculator module not found.",
       "failedToLoadCalculator": "Failed to load calculator."
     }
+  },
+  "toolFinder": {
+    "eyebrow": "Tool finder",
+    "title": "Find the right sector tool",
+    "subtitle": "Filter by operational problem and industry — then open the sector tool or decision report that matches your context.",
+    "decisionFocus": "Decision focus",
+    "searchLabel": "Search sector tools",
+    "searchPlaceholder": "Search by tool name or keyword (optional)",
+    "industry": "Industry",
+    "all": "All",
+    "allIndustries": "All industries",
+    "emptyResults": "No tools match your filters. Try another decision focus or industry."
+  },
+  "terminalPanel": {
+    "numericValueRequired": "Numeric value required.",
+    "mustBeGreaterThanZero": "Must be > 0.",
+    "cannotBeNegative": "Cannot be negative.",
+    "calculate": "Calculate",
+    "reset": "Reset",
+    "variance": "Variance",
+    "efficiency": "Efficiency",
+    "impact": "Impact",
+    "tier": "Tier",
+    "expertLogicBreakdown": "Expert logic breakdown",
+    "hiddenVariables": "Hidden variables",
+    "emptyState": "Enter parameters and run calculation."
+  },
+  "platformCapabilities": {
+    "title": "Comprehensive Set of Features",
+    "description": "SectorCalc combines free quick estimates with premium decision reports — validated inputs, transparent formulas, scenarios, risk signals and report-ready structure across {sectorCount} active sectors.",
+    "validatedInputs": {
+      "title": "Validated Inputs",
+      "summary": "Sector tools use structured fields and validation so estimates start from consistent inputs.",
+      "items": [
+        { "label": "Industry-specific input sets", "href": "/industries" },
+        { "label": "Required-field checks before results" },
+        { "label": "Free quick estimators", "href": "/free-tools" }
+      ]
+    },
+    "transparentFormulas": {
+      "title": "Transparent Formulas",
+      "summary": "Outputs are built from documented calculation logic — not opaque scores or black-box benchmarks.",
+      "items": [
+        { "label": "Reusable tool definitions per sector" },
+        { "label": "Interpretation notes on every tool" },
+        { "label": "Premium analyzers", "href": "/pricing" }
+      ]
+    },
+    "riskSignals": {
+      "title": "Risk Signals",
+      "summary": "Premium tools surface risk levels so teams see when margin, pricing or capacity decisions need caution.",
+      "items": [
+        { "label": "Structured risk verdict" },
+        { "label": "Decision-oriented recommendations" },
+        { "label": "Sample report preview", "href": "/reports/sample-decision-report" }
+      ]
+    },
+    "scenarioCalculation": {
+      "title": "Scenario calculation",
+      "summary": "Compare conservative, base and aggressive paths before committing quotes, menus or contracts.",
+      "items": [
+        { "label": "Multi-path scenario evaluation" },
+        { "label": "Premium decision tools", "href": "/pricing" },
+        { "label": "Sector packs", "href": "/industries" }
+      ]
+    },
+    "reportPreview": {
+      "title": "Report Preview",
+      "summary": "Premium outputs package findings for stakeholders — export formats are preview-only in the MVP.",
+      "items": [
+        { "label": "Executive summary structure" },
+        { "label": "PDF / Excel / Word preview states" },
+        { "label": "View sample report", "href": "/reports/sample-decision-report" }
+      ]
+    },
+    "leadIntentFlow": {
+      "title": "Lead Intent Flow",
+      "summary": "Request premium report access and help shape billing and export rollout — payment is not live yet.",
+      "items": [
+        { "label": "Rate-limited lead capture" },
+        { "label": "Pricing plans", "href": "/pricing" },
+        { "label": "For consultants", "href": "/for-consultants" }
+      ]
+    }
+  },
+  "mcProductExtensions": {
+    "reportPreviewTitle": "Decision report preview",
+    "reportPreviewDesc": "See how premium outputs become stakeholder-ready packages.",
+    "openFullReport": "Open full sample report →",
+    "freeToolsTitle": "Free sector tools",
+    "freeToolsDesc": "Structured quick estimates — no account required.",
+    "viewAllFreeTools": "View all free tools →",
+    "premiumToolsTitle": "Premium decision tools",
+    "premiumToolsDesc": "Scenario evaluation, risk signals and packaged reports when the cost of being wrong is real.",
+    "viewPricing": "View pricing →"
+  },
+  "premiumToolsGrid": {
+    "title": "Premium decision tools",
+    "description": "Sector-specific analyzers for pricing, bid and margin decisions.",
+    "openCalculator": "Open calculator",
+    "unlockPro": "Unlock Pro"
   }
 }

@@ -4,7 +4,60 @@
     "mainContent": "Contenu principal",
     "mainNavigation": "Navigation principale",
     "logoHome": "Accueil SectorCalc",
-    "logoAlt": "SectorCalc"
+    "logoAlt": "SectorCalc",
+    "closeMenu": "Fermer le menu",
+    "openMenu": "Ouvrir le menu",
+    "mobileNavigation": "Mobile",
+    "closeDialog": "Fermer la boîte de dialogue",
+    "regionLanguage": "Région et langue",
+    "trustCompliance": "Signaux de confiance et de conformité",
+    "industrialPanel": "Panneau de décision industriel"
+  },
+  "leadCapture": {
+    "eyebrow": "Capture de leads",
+    "title": "Demander l'accès ou nous contacter",
+    "description": "Contrat UI uniquement — pas de connexion backend, pas de clés API, pas de secrets. Les soumissions ne sont pas stockées.",
+    "emailLabel": "E-mail",
+    "emailPlaceholder": "vous@entreprise.com",
+    "companyLabel": "Entreprise",
+    "companyPlaceholder": "Optionnel",
+    "intentLabel": "Intention",
+    "submitButton": "Demander un accès anticipé",
+    "successMessage": "Merci. Ce formulaire d'aperçu ne transmet pas de données. Connectez votre pipeline de leads quand vous êtes prêt."
+  },
+  "toolDiscovery": {
+    "sectorFallback": "Secteur",
+    "measures": "Mesures :",
+    "exampleOutput": "Exemple de sortie :",
+    "viewCalculator": "Voir le calculateur →",
+    "openCalculator": "Ouvrir le calculateur →"
+  },
+  "leadIntent": {
+    "closeDialog": "Fermer la boîte de dialogue",
+    "closeButton": "Fermer",
+    "tellUsDescription": "Dites-nous ce dont vous avez besoin. Le déverrouillage Premium et l'exportation ne sont pas encore en ligne — nous enregistrons votre intention pour la prochaine version.",
+    "verdictUnlockDescription": "Entrez votre e-mail pour recevoir l'accès au checkout pour le verdict complet de marge — prix sûr, répartition des fuites et action recommandée.",
+    "paywallDescription": "Le déverrouillage du rapport premium est en cours de reconstruction. Parcourez les tarifs ou continuez avec les outils gratuits jusqu'à ce que les nouvelles pages d'analyse soient en ligne.",
+    "viewPricing": "Voir les tarifs",
+    "successMessage": "Merci. Nous avons enregistré votre demande de rapport. Dans la prochaine version, le déverrouillage et l'exportation des rapports premium seront disponibles directement dans SectorCalc.",
+    "continueExploring": "Continuer à explorer les outils",
+    "emailLabel": "E-mail",
+    "verdictEmailPlaceholder": "Envoyer mon verdict à cet e-mail",
+    "redirectingToCheckout": "Redirection vers le paiement…",
+    "continueToCheckout": "Continuer vers le paiement",
+    "checkoutLegalNote": "Une connexion peut être requise avant le paiement sécurisé. Produit numérique — estimations uniquement.",
+    "nameLabel": "Nom",
+    "companyLabel": "Entreprise / Nom commercial",
+    "industryLabel": "Secteur",
+    "selectIndustry": "Sélectionner un secteur",
+    "toolRequestedLabel": "Outil / Rapport demandé",
+    "selectTool": "Sélectionner un outil ou un rapport",
+    "intendedUseLabel": "Utilisation prévue",
+    "selectIntendedUse": "Sélectionner l'utilisation prévue",
+    "messageLabel": "Message (optionnel)",
+    "messagePlaceholder": "Calendrier, contexte client ou questions (max 500 caractères)",
+    "submitting": "Envoi en cours…",
+    "submitRequest": "Soumettre la demande"
   },
   "nav": {
     "freeCalculators": "Calculateurs gratuits",
@@ -1810,7 +1863,11 @@
     "networkError": "Connexion impossible. Vérifiez le réseau et réessayez.",
     "accessDenied": "Un accès premium est requis pour ce rapport.",
     "notFound": "Page ou outil introuvable.",
-    "generic": "Une erreur s'est produite. Veuillez réessayer."
+    "generic": "Une erreur s'est produite. Veuillez réessayer.",
+    "errorPageTitle": "Une erreur s'est produite",
+    "errorPageDescription": "Cette page a rencontré une erreur inattendue. Vous pouvez réessayer ou retourner à la bibliothèque de calculateurs.",
+    "pageTryAgain": "Réessayer",
+    "calculatorLibraryLink": "Bibliothèque de calculateurs"
   },
   "seo": {
     "homeTitle": "SectorCalc — Calculateurs sectoriels et rapports de décision",
@@ -3466,7 +3523,9 @@
       "reportClose": "Fermer",
       "reportMessageTooShort": "Veuillez saisir au moins 10 caractères.",
       "reportSubmitFailed": "Impossible d'envoyer le signalement. Réessayez.",
-      "calculationStandardLabel": "Norme de calcul"
+      "calculationStandardLabel": "Norme de calcul",
+      "voteCorrectMessage": "Vote rapide de l'opérateur : le résultat du calcul semble correct.",
+      "voteIncorrectMessage": "Vote rapide de l'opérateur : le résultat du calcul semble incorrect."
     },
     "freeForm": {
       "defaultDescription": "Calcul sectoriel rapide — saisissez les entrées pour voir le résultat.",
@@ -3493,7 +3552,8 @@
       "reportSuccess": "Votre signalement a été envoyé. Merci.",
       "reportClose": "Fermer",
       "reportMessageTooShort": "Veuillez saisir au moins 10 caractères.",
-      "reportSubmitFailed": "Impossible d'envoyer le signalement. Réessayez."
+      "reportSubmitFailed": "Impossible d'envoyer le signalement. Réessayez.",
+      "unitSuffix": "{label} unité"
     },
     "aboutTool": {
       "sectionLabel": "À propos de cet outil",
@@ -66158,7 +66218,9 @@
       "high": "Haute confiance",
       "medium": "Confiance moyenne",
       "low": "Faible confiance"
-    }
+    },
+    "networkError": "Erreur réseau. Veuillez vérifier votre connexion et réessayer.",
+    "aiAnalysisLabel": "Analyse technique assistée par IA"
   },
   "developerShowcase": {
     "meta": {
@@ -67843,6 +67905,106 @@
       "sectorSpecificCalculator": "Calculateur sectoriel — saisissez les données pour voir les résultats.",
       "calculatorModuleNotFound": "Module de calcul introuvable.",
       "failedToLoadCalculator": "Échec du chargement du calculateur."
+    },
+  "toolFinder": {
+    "eyebrow": "Chercheur d'outils",
+    "title": "Trouvez le bon outil sectoriel",
+    "subtitle": "Filtrez par problème opérationnel et secteur — puis ouvrez l'outil sectoriel ou le rapport de décision correspondant à votre contexte.",
+    "decisionFocus": "Focus décisionnel",
+    "searchLabel": "Rechercher des outils sectoriels",
+    "searchPlaceholder": "Rechercher par nom d'outil ou mot-clé (facultatif)",
+    "industry": "Secteur",
+    "all": "Tous",
+    "allIndustries": "Tous les secteurs",
+    "emptyResults": "Aucun outil ne correspond à vos filtres. Essayez un autre focus décisionnel ou secteur."
+  },
+  "terminalPanel": {
+    "numericValueRequired": "Valeur numérique requise.",
+    "mustBeGreaterThanZero": "Doit être > 0.",
+    "cannotBeNegative": "Ne peut pas être négatif.",
+    "calculate": "Calculer",
+    "reset": "Réinitialiser",
+    "variance": "Écart",
+    "efficiency": "Efficacité",
+    "impact": "Impact",
+    "tier": "Niveau",
+    "expertLogicBreakdown": "Analyse experte de la logique",
+    "hiddenVariables": "Variables cachées",
+    "emptyState": "Entrez les paramètres et lancez le calcul."
+  },
+  "platformCapabilities": {
+    "title": "Ensemble complet de fonctionnalités",
+    "description": "SectorCalc combine des estimations rapides gratuites avec des rapports de décision premium — entrées validées, formules transparentes, scénarios, signaux de risque et structure prête pour le rapport sur {sectorCount} secteurs actifs.",
+    "validatedInputs": {
+      "title": "Entrées Validées",
+      "summary": "Les outils sectoriels utilisent des champs structurés et une validation pour que les estimations partent d'entrées cohérentes.",
+      "items": [
+        { "label": "Ensembles d'entrées spécifiques au secteur", "href": "/industries" },
+        { "label": "Vérifications des champs obligatoires avant résultats" },
+        { "label": "Estimateurs rapides gratuits", "href": "/free-tools" }
+      ]
+    },
+    "transparentFormulas": {
+      "title": "Formules Transparentes",
+      "summary": "Les résultats sont construits à partir d'une logique de calcul documentée — pas de scores opaques ou de benchmarks boîte noire.",
+      "items": [
+        { "label": "Définitions d'outils réutilisables par secteur" },
+        { "label": "Notes d'interprétation sur chaque outil" },
+        { "label": "Analyseurs premium", "href": "/pricing" }
+      ]
+    },
+    "riskSignals": {
+      "title": "Signaux de Risque",
+      "summary": "Les outils premium révèlent les niveaux de risque afin que les équipes voient quand les décisions de marge, de prix ou de capacité nécessitent de la prudence.",
+      "items": [
+        { "label": "Verdict de risque structuré" },
+        { "label": "Recommandations orientées décision" },
+        { "label": "Aperçu du rapport exemple", "href": "/reports/sample-decision-report" }
+      ]
+    },
+    "scenarioCalculation": {
+      "title": "Calcul de Scénario",
+      "summary": "Comparez les scénarios conservateur, de base et agressif avant de vous engager sur des devis, menus ou contrats.",
+      "items": [
+        { "label": "Évaluation de scénario multi-voies" },
+        { "label": "Outils de décision premium", "href": "/pricing" },
+        { "label": "Packs sectoriels", "href": "/industries" }
+      ]
+    },
+    "reportPreview": {
+      "title": "Aperçu du Rapport",
+      "summary": "Les résultats premium emballent les conclusions pour les parties prenantes — les formats d'exportation sont en aperçu seulement dans le MVP.",
+      "items": [
+        { "label": "Structure du résumé exécutif" },
+        { "label": "États d'aperçu PDF / Excel / Word" },
+        { "label": "Voir l'exemple de rapport", "href": "/reports/sample-decision-report" }
+      ]
+    },
+    "leadIntentFlow": {
+      "title": "Flux d'Intention de Lead",
+      "summary": "Demandez l'accès aux rapports premium et aidez à façonner le déploiement de la facturation et de l'exportation — le paiement n'est pas encore en ligne.",
+      "items": [
+        { "label": "Capture de lead limitée en débit" },
+        { "label": "Plans de tarification", "href": "/pricing" },
+        { "label": "Pour les consultants", "href": "/for-consultants" }
+      ]
     }
-
+  },
+  "mcProductExtensions": {
+    "reportPreviewTitle": "Aperçu du rapport de décision",
+    "reportPreviewDesc": "Voyez comment les résultats premium deviennent des packages prêts pour les parties prenantes.",
+    "openFullReport": "Ouvrir l'exemple complet de rapport →",
+    "freeToolsTitle": "Outils sectoriels gratuits",
+    "freeToolsDesc": "Estimations rapides structurées — aucun compte requis.",
+    "viewAllFreeTools": "Voir tous les outils gratuits →",
+    "premiumToolsTitle": "Outils de décision premium",
+    "premiumToolsDesc": "Évaluation de scénario, signaux de risque et rapports packagés quand le coût de l'erreur est réel.",
+    "viewPricing": "Voir les tarifs →"
+  },
+  "premiumToolsGrid": {
+    "title": "Outils de décision premium",
+    "description": "Analyseurs sectoriels pour les décisions de prix, d'offre et de marge.",
+    "openCalculator": "Ouvrir le calculateur",
+    "unlockPro": "Débloquer Pro"
+  }
 }
