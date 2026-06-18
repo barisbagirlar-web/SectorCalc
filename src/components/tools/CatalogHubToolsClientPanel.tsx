@@ -31,10 +31,12 @@ export function CatalogHubToolsClientPanel({
   const searchParams = useSearchParams();
   const t = useTranslations("catalogExplorer");
   const sectorFilter = resolveSearchParam(searchParams?.get("sector") ?? null);
+  const categoryFilter = resolveSearchParam(searchParams?.get("category") ?? null);
   const searchQuery = resolveSearchParam(searchParams?.get("q") ?? null);
   const filteredTools = filterCatalogHubTools(tools, {
     locale,
     sectorKey: resolveCatalogHubSectorFilter(sectorFilter),
+    categoryKey: categoryFilter ?? undefined,
     searchQuery: resolveCatalogHubSearchQuery(searchQuery),
   });
   const visibleTools = limitCatalogHubTiles(filteredTools, CATALOG_HUB_MAX_TILES);

@@ -24,18 +24,30 @@ export type CategoryCard = {
   readonly freeCount: number;
 };
 
+export type TierFilter = "free" | "premium" | "all";
+
 /**
  * Build flat category cards with tool counts from the categorized index.
+ * When tierFilter is "premium", only premium/premium-schema tools are counted.
+ * When tierFilter is "free", only free tools are counted.
+ * When "all" (default), all tools are counted.
  * Only includes categories that have at least one tool mapped.
  * Categories are sorted by their `order` field.
  */
 export function buildTaxonomyCategoryCards(
   locale: string,
+  tierFilter: TierFilter = "all",
 ): CategoryCard[] {
   const index = buildCategorizedToolIndex();
 
   const categoryCounts = new Map<string, { total: number; premium: number; free: number }>();
   for (const item of index) {
+    const matchesFilter =
+      tierFilter === "all" ||
+      (tierFilter === "premium" && (item.tier === "premium" || item.tier === "premium-schema")) ||
+      (tierFilter === "free" && item.tier === "free");
+    if (!matchesFilter) continue;
+
     const entry = categoryCounts.get(item.categorySlug) ?? { total: 0, premium: 0, free: 0 };
     entry.total++;
     if (item.tier === "premium" || item.tier === "premium-schema") {
@@ -51,13 +63,8 @@ export function buildTaxonomyCategoryCards(
   for (const cat of FREE_TOOL_CATEGORIES) {
     const counts = categoryCounts.get(cat.slug) ?? { total: 0, premium: 0, free: 0 };
     if (counts.total === 0 && cat.slug !== "other") {
-      // Skip empty categories except "other"
       continue;
     }
-
-    const label =
-      cat.title[locale as keyof typeof cat.title] ??
-      cat.title.en;
 
     cards.push({
       category: cat,
@@ -69,7 +76,6 @@ export function buildTaxonomyCategoryCards(
     });
   }
 
-  // Sort by category order
   cards.sort((a, b) => a.category.order - b.category.order);
 
   return cards;

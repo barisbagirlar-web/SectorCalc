@@ -5,13 +5,15 @@
  * Compact cards: SVG icon on top, title centered, tool count + PRO badge.
  * Hover: card rises + left border highlight.
  * Search bar filters categories by title in real time.
+ * When URL has ?category=slug, auto-switches to "All Tools" tab with category filter.
  *
  * ECMI / ISO 9001 — TÜV-certifiable industrial UX.
  */
 
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/cn";
 import type { CategoryCard } from "@/lib/tools/build-taxonomy-category-cards";
@@ -26,11 +28,9 @@ type CategoryCompactGridProps = {
   readonly tools: readonly ToolData[];
   readonly variant: CatalogGridVariant;
   readonly locale: string;
-  /** Sadece CatalogHubToolsClientPanel'in hangi varyant mesajlarını kullanacağını belirtir. */
   readonly pageVariant: "free-tools" | "premium-tools" | "industries";
 };
 
-/** Underline rengi varyanta göre. */
 function underlineColor(variant: CatalogGridVariant): string {
   switch (variant) {
     case "free":
@@ -42,7 +42,6 @@ function underlineColor(variant: CatalogGridVariant): string {
   }
 }
 
-/** Focus/search border rengi. */
 function focusRingColor(variant: CatalogGridVariant): string {
   switch (variant) {
     case "free":
@@ -63,15 +62,24 @@ export function CategoryCompactGrid({
   pageVariant,
 }: CategoryCompactGridProps) {
   const t = useTranslations("catalogExplorer");
+  const searchParams = useSearchParams();
+  const urlCategory = searchParams?.get("category") ?? "";
+
   const [activeTab, setActiveTab] = useState<"categories" | "allTools">(
-    "categories",
+    urlCategory ? "allTools" : "categories",
   );
   const [searchQuery, setSearchQuery] = useState("");
+
+  // URL'de category parametresi varsa otomatik All Tools tabına geç
+  useEffect(() => {
+    if (urlCategory) {
+      setActiveTab("allTools");
+    }
+  }, [urlCategory]);
 
   const underlineClr = underlineColor(variant);
   const focusClr = focusRingColor(variant);
 
-  // Kategorileri arama sorgusuna göre filtrele
   const filteredCategories = useMemo(() => {
     if (!searchQuery) return categories;
     const q = searchQuery.toLowerCase();
@@ -97,7 +105,13 @@ export function CategoryCompactGrid({
             <button
               key={tab.id}
               type="button"
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => {
+                setActiveTab(tab.id);
+                // Kategori tabına dönerken URL'deki category parametresini temizle
+                if (tab.id === "categories" && urlCategory) {
+                  window.history.replaceState(null, "", basePath);
+                }
+              }}
               className={cn(
                 "relative pb-3 text-sm font-semibold transition-colors duration-200",
                 activeTab === tab.id
@@ -106,7 +120,6 @@ export function CategoryCompactGrid({
               )}
             >
               {tab.label}
-              {/* Smooth underline indicator */}
               <span
                 className={cn(
                   "absolute bottom-0 left-0 h-0.5 rounded-full transition-all duration-300",
@@ -175,7 +188,7 @@ export function CategoryCompactGrid({
           )}
         </>
       ) : (
-        /* ── All Tools tab — reuse existing panel ── */
+        /* ── All Tools tab — CatalogHubToolsClientPanel reads ?category from URL ── */
         <CatalogHubToolsClientPanel
           locale={locale}
           tools={tools}

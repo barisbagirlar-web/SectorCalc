@@ -27,14 +27,19 @@ export function filterCatalogHubTools(
   options: {
     readonly locale: string;
     readonly sectorKey?: string;
+    readonly categoryKey?: string;
     readonly searchQuery?: string;
   },
 ): ToolData[] {
   const sectorKey = options.sectorKey ?? "";
+  const categoryKey = options.categoryKey ?? "";
   const query = normalizeSearchText(options.searchQuery ?? "", options.locale);
 
   return tools.filter((tool) => {
     if (sectorKey && tool.sectorKey !== sectorKey) {
+      return false;
+    }
+    if (categoryKey && tool.categoryKey !== categoryKey) {
       return false;
     }
     if (!query) {

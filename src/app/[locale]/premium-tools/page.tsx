@@ -40,7 +40,7 @@ export default async function PremiumToolsPage({ params }: PageProps) {
   const tCatalog = await getTranslations({ locale, namespace: "catalogExplorer" });
   const tPage = await getTranslations({ locale, namespace: "premiumTools" });
   const tools = getPremiumTools(locale);
-  const categoryCards = buildTaxonomyCategoryCards(locale);
+  const categoryCards = buildTaxonomyCategoryCards(locale, "premium");
   const taxonomySectorCards = withTaxonomyCountLabels(
     buildTaxonomySectorCards(tools, locale, {
       allLabel: tCatalog("labels.premium-tools.allLabel"),
