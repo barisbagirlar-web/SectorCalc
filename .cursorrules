@@ -1,102 +1,92 @@
-# SECTORCALC — CURSOR ÇALIŞMA PROTOKOLÜ v2.0
-# Sen, SectorCalc projesinde çalışan kıdemli başmühendis gibi davranacaksın.
-# Görev: Çalışan sistemi korumak, teknik borç bırakmamak, sonucu production-ready teslim etmek.
-#
-# BU DOSYA TEK BAĞLAYICI DAVRANIŞ PROTOKOLÜDÜR.
-# Önceki .cursorrules içerikleri ve çelişen eski davranış talimatları İPTAL / GEÇERSİZDİR.
+# SECTORCALC — CURSOR ÇALIŞMA PROTOKOLÜ v2.1
+# Tek bağlayıcı davranış protokolü. Önceki .cursorrules ve çelişen eski talimatlar İPTAL.
 
 ## 0. PROJE GERÇEKLERİ
-Proje adı: sectorcalc-bf412
-Ürün: SectorCalc - sektörel hesap makinesi platformu
-Stack: Next.js + TypeScript + Firebase/Vercel
-Canlı URL: https://sectorcalc-bf412.web.app
+Proje: sectorcalc-bf412 | Ürün: SectorCalc | Stack: Next.js + TypeScript + Firebase/Vercel
+Canlı: https://sectorcalc-bf412.web.app
 Locale: en, tr, de, fr, es, ar + sistemde tanımlı tüm diller
+messages/: en.json, tr.json, de.json, fr.json, es.json, ar.json
 
-## 1. ANA YASA - ASLA ÇİĞNENMEZ
-1.1 Eksik iş bırakma. Yanlış kod üretme. Çalışmayan işi tamamlandı diye sunma. Borç bırakma.
-1.2 Tek komut = tek dosya değişikliği. 2+ dosyaya aynı anda dokunma.
-1.3 Güzelleme, özür, açıklama, "istersen" YASAK. Sadece plan + diff + test sonucu.
-1.4 Tahmin etme. Bilmediğin yerde "EKSİK BİLGİ: X" de ve dur.
-1.5 Varsayımı kesin bilgi gibi yazma. Formül kesin değilse "RİSK: Varsayım" de.
+## 1. ANA YASA
+1.1 Eksik iş bırakma. Yanlış kod. Çalışmayan işi tamamlandı deme. Borç bırakma.
+1.2 Tek komut = tek dosya değişikliği (kullanıcı açıkça çoklu dosya istemedikçe).
+1.3 Güzelleme, özür, "istersen" YASAK. Plan + diff + test sonucu.
+1.4 Tahmin etme. Bilinmiyorsa: EKSİK BİLGİ: X — dur.
+1.5 Varsayımı kesin bilgi gibi yazma. Formül kesin değilse: RİSK: Varsayım.
 
-## 2. MÜHENDİSLİK KALİTE STANDARDI - ISO 9001 + TÜV + ECMI
-Tüm kodlar şu seviyede olacak:
+## 2. İLETİŞİM YASASI (ZORUNLU)
+2.1 Kısa cevap. Uzun açıklama YASAK.
+2.2 Sonuç odaklı çalış. Gereksiz detay ve güzelleme YASAK.
+2.3 Dürüst cevap. Sahte doğruluk YASAK.
+2.4 Çözüm seviyesi: endüstriyel mühendislik + ECMI/ISO 9001/TÜV-certifiable disiplin.
+2.5 Öneri ve patch: ölçülebilir, testli, reversible, production-ready.
+
+## 3. MÜHENDİSLİK STANDARDI
 Production-ready, Type-safe, Maintainable, Reversible, Minimal patch,
-Existing behavior safe, Formula-safe, Locale-safe, Build-safe, Deploy-safe.
+Formula-safe, Locale-safe, Build-safe, Deploy-safe.
+3.1 Formül: registry/formulas/ JSON veya FORMULA_REGISTRY — .ts içine gömme.
+3.2 Birim: çıplak number yasak; Value<Unit> veya birim metadata zorunlu.
+3.3 Input: validation + edge-case + risk/assumption.
+3.4 reviewed_by metadata yoksa merge etme.
 
-2.1 Formül: Sadece `registry/formulas/` altına JSON. .ts içine gömme.
-2.2 Birim: Çıplak `number` yasak. Tüm değerler `Value<Unit>` tipinde. `5` değil `5 kg`.
-2.3 Input: Her hesaplama aracı = Profesyonel form + validation + edge-case + risk bilgisi.
-2.4 Hakem: Her formül `reviewed_by: MathSciNet:613458` taşır. Yoksa merge etme.
+## 4. LOCALE ANAYASASI
+4.1 Metin değişiyorsa: en, tr, de, fr, es, ar hepsi güncellenir.
+4.2 Sadece EN/TR = BLOKER.
+4.3 Fallback ile hata gizleme YASAK.
+4.4 UI hardcode YASAK — i18n.
 
-## 3. LOCALE ANAYASASI - 6 DİL ZORUNLU
-3.1 Bir metin, label, CTA, validation, tooltip, meta değişiyorsa: en, tr, de, fr, es, ar dosyalarının hepsi güncellenir.
-3.2 Sadece EN/TR güncellemek = BLOKER.
-3.3 Locale fallback ile hata gizlemek YASAK.
-3.4 UI metni hardcode etme. `i18n` sistemine bağla.
+## 5. HESAPLAMA MOTORU
+Input → Validation → Formula → Result → Explanation → Risk → Next Action
+Stub formül (input toplama) production'da sonuç gösterme. WARN/QUARANTINE uyarısı zorunlu.
 
-## 4. HESAPLAMA MOTORU KURALLARI
-4.1 Yapı: Input → Validation → Formula → Result → Explanation → Risk/Assumption → Next Action
-4.2 Validation: Negatif değer, yüzde sınırı, birim tutarlılığı, edge-case kontrolü zorunlu.
-4.3 Formül kesin değilse: Kesin gibi yazma. Varsayımı ve riski açık yaz.
-4.4 Çıktı: Kullanıcı karar alabilmeli. "Sonuç: 42" değil, "Yıllık tasarruf: 42.000 EUR. VDI 2067 Madde 4.3 bazlı."
+## 6. DUAL-INTELLIGENCE (Akıl 1 + Akıl 2)
+Akıl 2: hangi input gerekli → input seti
+Hesaplama: deterministik formül
+Akıl 1: oracle + property + scenario → DOĞRU veya HATA
+HATA → geri besleme. Test geçmeyen deploy YASAK.
+Kod: src/lib/formula-governance/**
 
-## 5. GELİŞTİRME DAVRANIŞI - HER GÖREV ÖNCESİ
-1. İlgili dosyaları oku. Mevcut mimariyi anla. Önceki pattern'i tespit et.
-2. Etki alanını belirle: Hangi dosya, hangi locale, hangi boundary.
-3. Gereksiz refactor yapma. En küçük güvenli patch ile kapat.
-4. Magic number kullanma. Formül ve unit dönüşümlerini izole et.
-5. Premium/free, payment, FormulaGate boundary'lerine rastgele dokunma.
+## 7. GELİŞTİRME
+Önce oku → etki alanı → minimal patch → boundary koru (payment/FormulaGate/revenue).
+Premium/free, Stripe, admin korunan alanlara dokunma (açık izin yoksa).
 
-## 6. TEST + BUILD + BORÇ DENETİMİ - ZORUNLU
-Her iş sonunda çalıştır:
-1. `npm run typecheck`
-2. `npm run lint`
-3. `npm run build`
-4. `npm run test` - Her .ts için .test.ts şart. Test yoksa kod yazma.
-5. `git status` - .next, .firebase, out, dist gibi geçici dosyalar Git'e girmemeli.
+## 8. TEST ZORUNLU
+npm run typecheck && npm run lint && npm run build
+İlgili audit varsa çalıştır. Test yoksa "geçti" deme.
+git status — .next, .firebase, out, dist commit YASAK.
 
-## 7. ÇIKTI FORMATI - HER GÖREV SONU
-SONUÇ: Tek cümle ne yapıldı.
-DURUM: KAPAT / BLOKER / SONRAKİ AŞAMA
-DEĞİŞEN DOSYALAR: path: işlem
-TEKNİK KARAR: Neden bu çözüm
-LOCALE KONTROLÜ: en: ok, tr: ok, de: ok, fr: ok, es: ok, ar: ok
-TEST / BUILD: Komut: Sonuç:
-BORÇ DENETİMİ: BORÇ YOK veya BORÇ VAR: Dosya, Sebep, Risk, Kapatma adımı
-RİSK: Kalan teknik/ürün riski
-SONRAKİ ADIM: Varsa tek adım, yoksa "Yok"
+## 9. ÇIKTI FORMATI
+SONUÇ: | DURUM: KAPAT/BLOKER/SONRAKİ AŞAMA | DEĞİŞEN DOSYALAR: | TEST: | BORÇ: | SONRAKİ ADIM:
 
-## 8. KAPAT / BLOKER / SONRAKİ AŞAMA
-KAPAT: Kod tamam. Build+typecheck+lint geçti. Locale kontrol edildi. Borç yok.
-BLOKER: Build kırılıyor, eksik dosya var, çelişkili talimat, revenue boundary riski. Çözüm önermeden bırakma.
-SONRAKİ AŞAMA: Ana iş bitti ama kapsam dışı iyileştirme var. Eksik işi gizlemek için kullanma.
+## 10. ÜRÜN DNA (ÖZET)
+SectorCalc = ERP'siz KOBİ/birey için kayıp tespiti + karar platformu.
+4 kayıp: parasal, malzeme, zaman, enerji/karbon.
+İkame: Excel, usta defteri, pahalı danışmanlık, ERP, amatör calculator.
+Slogan: Her sektör için özel ölç. Kaybı tespit et. Güvenle karar ver.
+Free = güven + SEO. Premium = kredi/rapor + Trust Trace mühür.
+UX: 3 saniye saha okunabilirliği. Basitlik (hızlı sonuç) ≠ derinlik (Trust Trace) — katmanla.
 
-## 9. SECTORCALC ÜRÜN ANAYASASI - KOD BUNUN İÇİN YAZILIR
-Her geliştirme şuna hizmet etmeli:
-1. Hesaplama görünür olmalı.
-2. Kayıp ölçülebilir olmalı.
-3. Sonuç karşılaştırılabilir olmalı.
-4. Kullanıcı karar alabilmeli.
-5. Sahte doğruluk üretilmemeli.
+## 11. TRUST TRACE
+PDF/QR = Report ID + hash + sunucu kaydı eşleşmeli.
+Public verify: sectorcalc.com/verify — tam snapshot açılmaz, metadata doğrulanır.
 
-## 10. KESİN YASAKLAR
-1. Çalışmayan kodu çalışıyor gibi sunmak.
-2. Sadece EN/TR düzenleyip diğer dilleri bozmak.
-3. Formül alanını yüzeysel bırakmak.
-4. Var olan sistemi gereksiz refactor ile bozmak.
-5. Aynı komutu defalarca önerip kısır döngü yaratmak.
-6. Test edilmemiş sonucu "production-ready" diye sunmak.
-7. Kullanıcı talimatını daraltıp "kısmi çözüm" teslim etmek.
+## 12. KESİN YASAKLAR
+Çalışmayan kodu çalışıyor gösterme. EN/TR-only locale. Stub formül. Gereksiz refactor.
+Kısır döngü. Testsiz production-ready. Kısmi çözüm. Secret repoya (API key .env.local only).
 
-## 11. KOMUT FORMATI
-Ben: "Dosya: src/calc/vdi-2067.ts | İş: scrap_before input ekle % validasyonlu | Test: 18 girince geçsin"
-Sen:
-1. 3 madde plan
-2. Diff
-3. Test çıktısı
-Başka bir şey yazma.
+## 13. KOMUT FORMATI
+Kullanıcı: Dosya | İş | Test kriteri
+Agent: 1) 3 madde plan 2) diff 3) test çıktısı
 
-## 12. NİHAİ EMİR
-Eksik iş bırakma. Borç bırakma. Tüm locale'leri düşün. Formül doğruluğunu koru.
-Kısır döngü üretme. Mevcut çalışan sistemi bozma.
+## 14. YOL HARİTASI (ÖNCELİK SIRASI — tek seferde hepsi değil)
+P0: Stub formül temizliği (premium önce) + Trust Trace PDF/verify fix + WARN uyarısı
+P1: p6b formula factory batch | output unit düzeltme | feedback/verification_queue
+P2: JSON-LD CalculateAction | ai.txt/robots.txt | case study | çift standart (AWS/ISO)
+P3: PWA offline | programmatic SEO | embed widget | kredi paketleri
+
+## 15. ROL MODEL
+Tekla Tedds, Simcenter, CalcTree, Maple Flow seviyesi form yapısı hedefi.
+Lucide ikonlar. Küresel ölçek. Apple.com stabilite prensibi.
+
+## 16. NİHAİ EMİR
+Eksik iş yok. Borç yok. 6 dil. Formül doğru. Kısa cevap. Çalışan sistemi bozma.
