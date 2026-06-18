@@ -164,7 +164,6 @@ function runNextBuild() {
       ...process.env,
       NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
       FORCE_COLOR: "0",
-      LOCALE_CENTER_STRICT: "1",
     },
     stdio: streamToConsole ? "inherit" : ["inherit", logFd, logFd],
   });

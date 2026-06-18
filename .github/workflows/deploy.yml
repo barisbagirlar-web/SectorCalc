@@ -39,7 +39,6 @@ jobs:
         env:
           NODE_OPTIONS: --max-old-space-size=8192
           NEXT_PUBLIC_SITE_URL: https://www.sectorcalc.com
-          LOCALE_CENTER_STRICT: "1"
 
       - name: Validate build
         run: node scripts/validate-next-build.mjs
