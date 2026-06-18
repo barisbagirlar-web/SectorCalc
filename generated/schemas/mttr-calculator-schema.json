@@ -9,7 +9,7 @@
       "default": 10,
       "businessContext": "Ekipmanın onarımında geçen aktif süre (arıza tespit, sökme, tamir, montaj, test)",
       "label_i18n": {
-        "en": "Onarım Süresi",
+        "en": "Repair Time",
         "tr": "Onarım Süresi",
         "de": "Reparaturzeit",
         "fr": "Durée de réparation",
@@ -17,7 +17,7 @@
         "ar": "وقت الإصلاح"
       },
       "businessContext_i18n": {
-        "en": "Ekipmanın onarımında geçen aktif süre (arıza tespit, sökme, tamir, montaj, test)",
+        "en": "Active time spent on equipment repair (fault detection, disassembly, repair, assembly, test)",
         "tr": "Ekipmanın onarımında geçen aktif süre (arıza tespit, sökme, tamir, montaj, test).",
         "de": "Aktive Zeit für die Reparatur der Anlage (Fehlersuche, Demontage, Reparatur, Montage, Test)",
         "fr": "Temps actif passé à réparer l'équipement (détection de panne, démontage, réparation, montage, test).",
@@ -33,7 +33,7 @@
       "default": 2,
       "businessContext": "İş emri onay, bekleme ve diğer idari süreçlerden kaynaklanan gecikmeler",
       "label_i18n": {
-        "en": "İdari Gecikme",
+        "en": "Administrative Delay",
         "tr": "İdari Gecikme",
         "de": "Administrative Verzögerung",
         "fr": "Délai administratif",
@@ -41,7 +41,7 @@
         "ar": "التأخير الإداري"
       },
       "businessContext_i18n": {
-        "en": "İş emri onay, bekleme ve diğer idari süreçlerden kaynaklanan gecikmeler",
+        "en": "Delays due to work order approval, waiting, and other administrative processes",
         "tr": "İş emri onay, bekleme ve diğer idari süreçlerden kaynaklanan gecikmeler.",
         "de": "Verzögerungen durch Auftragsbestätigung, Wartezeiten und andere administrative Prozesse",
         "fr": "Retards dus à l'approbation des ordres de travail, à l'attente et à d'autres processus administratifs.",
@@ -65,7 +65,7 @@
         "ar": "التأخير اللوجستي"
       },
       "businessContext_i18n": {
-        "en": "Yedek parça tedariki, nakliye veya personel bekleme gibi lojistik nedenlerden oluşan gecikmeler",
+        "en": "Delays due to logistics such as spare parts supply, transportation, or personnel waiting",
         "tr": "Yedek parça tedariki, nakliye veya personel bekleme gibi lojistik nedenlerden oluşan gecikmeler.",
         "de": "Verzögerungen durch Ersatzteilbeschaffung, Transport oder Personalbereitstellung",
         "fr": "Retards dus à l'approvisionnement en pièces de rechange, au transport ou à l'attente de personnel.",
@@ -81,7 +81,7 @@
       "default": 5,
       "businessContext": "Belirli bir dönemde gerçekleşen onarım olaylarının toplam sayısı",
       "label_i18n": {
-        "en": "Onarım Sayısı",
+        "en": "Number of Repairs",
         "tr": "Onarım Sayısı",
         "de": "Anzahl der Reparaturen",
         "fr": "Nombre de réparations",
@@ -89,7 +89,7 @@
         "ar": "عدد الإصلاحات"
       },
       "businessContext_i18n": {
-        "en": "Belirli bir dönemde gerçekleşen onarım olaylarının toplam sayısı",
+        "en": "Total number of repair events in a given period",
         "tr": "Belirli bir dönemde gerçekleşen onarım olaylarının toplam sayısı.",
         "de": "Gesamtzahl der Reparaturereignisse in einem bestimmten Zeitraum",
         "fr": "Nombre total d'événements de réparation sur une période donnée.",

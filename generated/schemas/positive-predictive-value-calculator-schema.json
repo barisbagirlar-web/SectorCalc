@@ -17,7 +17,7 @@
         "ar": "الإيجابيات الحقيقية (TP)"
       },
       "businessContext_i18n": {
-        "en": "Testin doğru pozitif olarak işaretlediği gerçek pozitiflerin sayısı.",
+        "en": "Number of true positives correctly identified by the test.",
         "tr": "Testin doğru pozitif olarak işaretlediği gerçek pozitiflerin sayısı.",
         "de": "Anzahl der tatsächlichen Positiven, die vom Test korrekt als positiv markiert wurden.",
         "fr": "Nombre de vrais positifs correctement identifiés par le test",
@@ -41,7 +41,7 @@
         "ar": "الإيجابيات الكاذبة (FP)"
       },
       "businessContext_i18n": {
-        "en": "Testin yanlışlıkla pozitif işaretlediği negatiflerin sayısı.",
+        "en": "Number of negatives incorrectly marked as positive by the test.",
         "tr": "Testin yanlışlıkla pozitif işaretlediği negatiflerin sayısı.",
         "de": "Anzahl der Negativen, die fälschlicherweise als positiv markiert wurden.",
         "fr": "Nombre de négatifs incorrectement marqués comme positifs par le test",
@@ -65,7 +65,7 @@
         "ar": "السلبيات الحقيقية (TN)"
       },
       "businessContext_i18n": {
-        "en": "Testin doğru negatif olarak işaretlediği gerçek negatiflerin sayısı.",
+        "en": "Number of true negatives correctly marked as negative by the test.",
         "tr": "Testin doğru negatif olarak işaretlediği gerçek negatiflerin sayısı.",
         "de": "Anzahl der korrekt als negativ markierten echten Negativen.",
         "fr": "Nombre de vrais négatifs correctement identifiés par le test",
@@ -89,7 +89,7 @@
         "ar": "السلبيات الكاذبة (FN)"
       },
       "businessContext_i18n": {
-        "en": "Testin yanlışlıkla negatif işaretlediği pozitiflerin sayısı.",
+        "en": "Number of positives incorrectly marked as negative by the test.",
         "tr": "Testin yanlışlıkla negatif işaretlediği pozitiflerin sayısı.",
         "de": "Anzahl der Positiven, die fälschlicherweise als negativ markiert wurden.",
         "fr": "Nombre de positifs incorrectement marqués comme négatifs par le test",

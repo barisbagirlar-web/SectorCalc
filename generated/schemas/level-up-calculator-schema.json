@@ -9,7 +9,7 @@
       "default": 5000,
       "businessContext": "Mevcut aylık üretim adedi (birim/ay)",
       "label_i18n": {
-        "en": "Mevcut Aylık Üretim",
+        "en": "Current monthly production",
         "tr": "Mevcut Aylık Üretim",
         "de": "Aktuelle monatliche Produktion",
         "fr": "Production mensuelle actuelle",
@@ -17,7 +17,7 @@
         "ar": "الإنتاج الشهري الحالي"
       },
       "businessContext_i18n": {
-        "en": "Mevcut aylık üretim adedi (birim/ay)",
+        "en": "Current monthly production quantity (units/month)",
         "tr": "Mevcut aylık üretim adedi (birim/ay)",
         "de": "Aktuelle monatliche Produktionsmenge (Einheiten/Monat)",
         "fr": "Quantité de production mensuelle actuelle (unités/mois)",
@@ -33,7 +33,7 @@
       "default": 100,
       "businessContext": "Birim başına satış fiyatı (TL)",
       "label_i18n": {
-        "en": "Birim Satış Fiyatı",
+        "en": "Unit Selling Price",
         "tr": "Birim Satış Fiyatı",
         "de": "Verkaufspreis pro Einheit",
         "fr": "Prix de vente unitaire",
@@ -41,7 +41,7 @@
         "ar": "سعر البيع للوحدة"
       },
       "businessContext_i18n": {
-        "en": "Birim başına satış fiyatı (TL)",
+        "en": "Sales price per unit (TL)",
         "tr": "Birim başına satış fiyatı (TL)",
         "de": "Verkaufspreis pro Einheit (EUR)",
         "fr": "Prix de vente unitaire (TL)",
@@ -57,7 +57,7 @@
       "default": 60,
       "businessContext": "Birim başına değişken maliyet (TL)",
       "label_i18n": {
-        "en": "Birim Değişken Maliyet",
+        "en": "Unit Variable Cost",
         "tr": "Birim Değişken Maliyet",
         "de": "Variable Kosten pro Einheit",
         "fr": "Coût variable unitaire",
@@ -65,7 +65,7 @@
         "ar": "التكلفة المتغيرة للوحدة"
       },
       "businessContext_i18n": {
-        "en": "Birim başına değişken maliyet (TL)",
+        "en": "Variable cost per unit (TL)",
         "tr": "Birim başına değişken maliyet (TL)",
         "de": "Variable Kosten pro Einheit (EUR)",
         "fr": "Coût variable unitaire (TL)",
@@ -89,7 +89,7 @@
         "ar": "التكاليف الثابتة الحالية"
       },
       "businessContext_i18n": {
-        "en": "Mevcut aylık sabit maliyetler (TL/ay)",
+        "en": "Current monthly fixed costs (TL/month)",
         "tr": "Mevcut aylık sabit maliyetler (TL/ay)",
         "de": "Aktuelle monatliche Fixkosten (EUR/Monat)",
         "fr": "Coûts fixes mensuels actuels (TL/mois)",
@@ -105,7 +105,7 @@
       "default": 20,
       "businessContext": "Üretim seviyesini artırma hedef yüzdesi (%)",
       "label_i18n": {
-        "en": "Üretim Artış Yüzdesi",
+        "en": "Production increase percentage",
         "tr": "Üretim Artış Yüzdesi",
         "de": "Produktionssteigerung in Prozent",
         "fr": "Pourcentage d'augmentation de la production",
@@ -113,7 +113,7 @@
         "ar": "نسبة زيادة الإنتاج"
       },
       "businessContext_i18n": {
-        "en": "Üretim seviyesini artırma hedef yüzdesi (%)",
+        "en": "Target percentage to increase production level (%)",
         "tr": "Üretim seviyesini artırma hedef yüzdesi (%)",
         "de": "Zielprozentsatz zur Steigerung des Produktionsniveaus (%)",
         "fr": "Pourcentage cible d'augmentation du niveau de production (%)",
@@ -137,7 +137,7 @@
         "ar": "تكلفة ثابتة إضافية"
       },
       "businessContext_i18n": {
-        "en": "Seviye atlama için gerekli ek aylık sabit maliyet (TL/ay)",
+        "en": "Additional monthly fixed cost required for level increase (TL/month)",
         "tr": "Seviye atlama için gerekli ek aylık sabit maliyet (TL/ay)",
         "de": "Zusätzliche monatliche Fixkosten für Niveausprung (EUR/Monat)",
         "fr": "Coût fixe mensuel supplémentaire nécessaire pour le changement de niveau (TL/mois)",

@@ -9,7 +9,7 @@
       "default": 300,
       "businessContext": "Brayton çevriminde kompresör giriş sıcaklığı",
       "label_i18n": {
-        "en": "Kompresör Giriş Sıcaklığı (T1)",
+        "en": "Compressor Inlet Temperature (T1)",
         "tr": "Kompresör Giriş Sıcaklığı (T1)",
         "de": "Kompressor-Eintrittstemperatur (T1)",
         "fr": "Température d'entrée du compresseur (T1)",
@@ -17,7 +17,7 @@
         "ar": "درجة حرارة مدخل الضاغط (T1)"
       },
       "businessContext_i18n": {
-        "en": "Brayton çevriminde kompresör giriş sıcaklığı",
+        "en": "Compressor inlet temperature in Brayton cycle",
         "tr": "Brayton çevriminde kompresör giriş sıcaklığı",
         "de": "Kompressor-Eintrittstemperatur im Brayton-Kreisprozess",
         "fr": "Température d'entrée du compresseur dans le cycle de Brayton",
@@ -33,7 +33,7 @@
       "default": 1200,
       "businessContext": "Brayton çevriminde türbin giriş sıcaklığı",
       "label_i18n": {
-        "en": "Türbin Giriş Sıcaklığı (T3)",
+        "en": "Turbine Inlet Temperature (T3)",
         "tr": "Türbin Giriş Sıcaklığı (T3)",
         "de": "Turbineneintrittstemperatur (T3)",
         "fr": "Température d'entrée de la turbine (T3)",
@@ -41,7 +41,7 @@
         "ar": "درجة حرارة مدخل التوربين (T3)"
       },
       "businessContext_i18n": {
-        "en": "Brayton çevriminde türbin giriş sıcaklığı",
+        "en": "Turbine inlet temperature in Brayton cycle",
         "tr": "Brayton çevriminde türbin giriş sıcaklığı",
         "de": "Turbineneintrittstemperatur im Brayton-Kreisprozess",
         "fr": "Température d'entrée de la turbine dans le cycle de Brayton",
@@ -57,7 +57,7 @@
       "default": 10,
       "businessContext": "Kompresör ve türbin boyunca basınç oranı",
       "label_i18n": {
-        "en": "Basınç Oranı (rp)",
+        "en": "Pressure Ratio (rp)",
         "tr": "Basınç Oranı (rp)",
         "de": "Druckverhältnis (rp)",
         "fr": "Taux de compression (rp)",
@@ -65,7 +65,7 @@
         "ar": "نسبة الضغط (rp)"
       },
       "businessContext_i18n": {
-        "en": "Kompresör ve türbin boyunca basınç oranı",
+        "en": "Pressure ratio across compressor and turbine",
         "tr": "Kompresör ve türbin boyunca basınç oranı",
         "de": "Druckverhältnis über Kompressor und Turbine",
         "fr": "Taux de compression à travers le compresseur et la turbine",
@@ -81,7 +81,7 @@
       "default": 0.85,
       "businessContext": "Kompresörün izantropik verimi (0-1 arası)",
       "label_i18n": {
-        "en": "Kompresör İzantropik Verimi (ηc)",
+        "en": "Compressor Isentropic Efficiency (ηc)",
         "tr": "Kompresör İzantropik Verimi (ηc)",
         "de": "Isentroper Wirkungsgrad des Kompressors (ηc)",
         "fr": "Rendement isentropique du compresseur (ηc)",
@@ -89,7 +89,7 @@
         "ar": "الكفاءة الأيزنتروبية للضاغط (ηc)"
       },
       "businessContext_i18n": {
-        "en": "Kompresörün izantropik verimi (0-1 arası)",
+        "en": "Isentropic efficiency of compressor (0-1)",
         "tr": "Kompresörün izantropik verimi (0-1 arası)",
         "de": "Isentroper Wirkungsgrad des Kompressors (0-1)",
         "fr": "Rendement isentropique du compresseur (0-1)",
@@ -105,7 +105,7 @@
       "default": 0.9,
       "businessContext": "Türbinin izantropik verimi (0-1 arası)",
       "label_i18n": {
-        "en": "Türbin İzantropik Verimi (ηt)",
+        "en": "Turbine Isentropic Efficiency (ηt)",
         "tr": "Türbin İzantropik Verimi (ηt)",
         "de": "Turbinen-Isentropenwirkungsgrad (ηt)",
         "fr": "Rendement isentropique de la turbine (ηt)",
@@ -113,7 +113,7 @@
         "ar": "الكفاءة الأيزنتروبية للتوربين (ηt)"
       },
       "businessContext_i18n": {
-        "en": "Türbinin izantropik verimi (0-1 arası)",
+        "en": "Isentropic efficiency of turbine (0-1)",
         "tr": "Türbinin izantropik verimi (0-1 arası)",
         "de": "Isentropenwirkungsgrad der Turbine (0-1)",
         "fr": "Rendement isentropique de la turbine (0-1)",
@@ -129,7 +129,7 @@
       "default": 1.4,
       "businessContext": "Çalışma akışkanının özgül ısı oranı (cp/cv)",
       "label_i18n": {
-        "en": "Özgül Isı Oranı (γ)",
+        "en": "Specific Heat Ratio (γ)",
         "tr": "Özgül Isı Oranı (γ)",
         "de": "Spezifisches Wärmeverhältnis (γ)",
         "fr": "Rapport des chaleurs spécifiques (γ)",
@@ -137,7 +137,7 @@
         "ar": "نسبة الحرارة النوعية (γ)"
       },
       "businessContext_i18n": {
-        "en": "Çalışma akışkanının özgül ısı oranı (cp/cv)",
+        "en": "Specific heat ratio of working fluid (cp/cv)",
         "tr": "Çalışma akışkanının özgül ısı oranı (cp/cv)",
         "de": "Spezifisches Wärmeverhältnis des Arbeitsmediums (cp/cv)",
         "fr": "Rapport des chaleurs spécifiques du fluide de travail (cp/cv)",
@@ -153,7 +153,7 @@
       "default": 1.005,
       "businessContext": "Sabit basınçta özgül ısı kapasitesi",
       "label_i18n": {
-        "en": "Sabit Basınçta Özgül Isı (cp)",
+        "en": "Specific Heat at Constant Pressure (cp)",
         "tr": "Sabit Basınçta Özgül Isı (cp)",
         "de": "Spezifische Wärmekapazität bei konstantem Druck (cp)",
         "fr": "Chaleur spécifique à pression constante (cp)",
@@ -161,7 +161,7 @@
         "ar": "الحرارة النوعية عند ضغط ثابت (cp)"
       },
       "businessContext_i18n": {
-        "en": "Sabit basınçta özgül ısı kapasitesi",
+        "en": "Specific heat capacity at constant pressure",
         "tr": "Sabit basınçta özgül ısı kapasitesi",
         "de": "Spezifische Wärmekapazität bei konstantem Druck",
         "fr": "Capacité thermique massique à pression constante",

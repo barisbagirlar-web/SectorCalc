@@ -9,7 +9,7 @@
       "default": 0,
       "businessContext": "Dönem başındaki brüt ticari alacak tutarı",
       "label_i18n": {
-        "en": "Dönem Başı Ticari Alacaklar",
+        "en": "Beginning Trade Receivables",
         "tr": "Dönem Başı Ticari Alacaklar",
         "de": "Forderungen aus Lieferungen und Leistungen (Anfang)",
         "fr": "Créances clients (début)",
@@ -17,7 +17,7 @@
         "ar": "المستحقات التجارية بداية الفترة"
       },
       "businessContext_i18n": {
-        "en": "Dönem başındaki brüt ticari alacak tutarı",
+        "en": "Gross trade receivables at the beginning of the period",
         "tr": "Dönem başındaki brüt ticari alacak tutarı",
         "de": "Bruttobetrag der Forderungen aus Lieferungen und Leistungen zu Beginn der Periode",
         "fr": "Montant brut des créances clients en début de période",
@@ -33,7 +33,7 @@
       "default": 0,
       "businessContext": "Dönem sonundaki brüt ticari alacak tutarı",
       "label_i18n": {
-        "en": "Dönem Sonu Ticari Alacaklar",
+        "en": "Ending Trade Receivables",
         "tr": "Dönem Sonu Ticari Alacaklar",
         "de": "Forderungen aus Lieferungen und Leistungen am Periodenende",
         "fr": "Créances clients (fin)",
@@ -41,7 +41,7 @@
         "ar": "المستحقات التجارية نهاية الفترة"
       },
       "businessContext_i18n": {
-        "en": "Dönem sonundaki brüt ticari alacak tutarı",
+        "en": "Gross trade receivables at the end of the period",
         "tr": "Dönem sonundaki brüt ticari alacak tutarı",
         "de": "Bruttobetrag der Forderungen aus Lieferungen und Leistungen am Periodenende",
         "fr": "Montant brut des créances clients en fin de période",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "Dönem içindeki toplam kredili satışlar (brüt satışlardan iade ve iskontolar düşülmüş)",
       "label_i18n": {
-        "en": "Net Kredili Satışlar",
+        "en": "Net Credit Sales",
         "tr": "Net Kredili Satışlar",
         "de": "Nettokreditverkäufe",
         "fr": "Ventes nettes à crédit",
@@ -65,7 +65,7 @@
         "ar": "صافي المبيعات الآجلة"
       },
       "businessContext_i18n": {
-        "en": "Dönem içindeki toplam kredili satışlar (brüt satışlardan iade ve iskontolar düşülmüş)",
+        "en": "Total credit sales during the period (gross sales less returns and discounts)",
         "tr": "Dönem içindeki toplam kredili satışlar (brüt satışlardan iade ve iskontolar düşülmüş)",
         "de": "Gesamte Kreditverkäufe der Periode (Bruttoverkäufe abzüglich Retouren und Rabatte)",
         "fr": "Total des ventes à crédit sur la période (ventes brutes moins retours et remises)",
@@ -81,7 +81,7 @@
       "default": 365,
       "businessContext": "DSO hesaplanacak dönemin gün sayısı (genellikle 365 veya 90)",
       "label_i18n": {
-        "en": "Dönem Gün Sayısı",
+        "en": "Number of Days in Period",
         "tr": "Dönem Gün Sayısı",
         "de": "Anzahl der Tage der Periode",
         "fr": "Nombre de jours dans la période",
@@ -89,7 +89,7 @@
         "ar": "عدد أيام الفترة"
       },
       "businessContext_i18n": {
-        "en": "DSO hesaplanacak dönemin gün sayısı (genellikle 365 veya 90)",
+        "en": "Number of days in the period for DSO calculation (usually 365 or 90)",
         "tr": "DSO hesaplanacak dönemin gün sayısı (genellikle 365 veya 90)",
         "de": "Anzahl der Tage der Periode für die DSO-Berechnung (normalerweise 365 oder 90)",
         "fr": "Nombre de jours de la période pour le calcul du DSO (généralement 365 ou 90)",

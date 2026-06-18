@@ -9,7 +9,7 @@
       "default": 1000,
       "businessContext": "Üretim sürecine giren toplam hammadde miktarı",
       "label_i18n": {
-        "en": "Toplam Hammadde Girişi",
+        "en": "Total Raw Material Input",
         "tr": "Toplam Hammadde Girişi",
         "de": "Gesamter Rohmaterialeinsatz",
         "fr": "Entrée totale de matière première",
@@ -17,7 +17,7 @@
         "ar": "إجمالي مدخلات المواد الخام"
       },
       "businessContext_i18n": {
-        "en": "Üretim sürecine giren toplam hammadde miktarı",
+        "en": "Total amount of raw material entering the production process",
         "tr": "Üretim sürecine giren toplam hammadde miktarı",
         "de": "Gesamte in den Produktionsprozess eingehende Rohstoffmenge",
         "fr": "Quantité totale de matière première entrant dans le processus de production",
@@ -33,7 +33,7 @@
       "default": 200,
       "businessContext": "Geri dönüştürülmüş malzemeden gelen girdi miktarı",
       "label_i18n": {
-        "en": "Geri Dönüştürülmüş Girdi",
+        "en": "Recycled Input",
         "tr": "Geri Dönüştürülmüş Girdi",
         "de": "Recycelter Input",
         "fr": "Entrée recyclée",
@@ -41,7 +41,7 @@
         "ar": "المدخلات المعاد تدويرها"
       },
       "businessContext_i18n": {
-        "en": "Geri dönüştürülmüş malzemeden gelen girdi miktarı",
+        "en": "Amount of input from recycled material",
         "tr": "Geri dönüştürülmüş malzemeden gelen girdi miktarı",
         "de": "Menge des Inputs aus recyceltem Material",
         "fr": "Quantité d'entrée provenant de matériaux recyclés",
@@ -57,7 +57,7 @@
       "default": 100,
       "businessContext": "Yeniden kullanım yoluyla sağlanan girdi miktarı",
       "label_i18n": {
-        "en": "Yeniden Kullanılan Girdi",
+        "en": "Reused Input",
         "tr": "Yeniden Kullanılan Girdi",
         "de": "Wiederverwendeter Input",
         "fr": "Entrée réutilisée",
@@ -65,7 +65,7 @@
         "ar": "المدخلات المعاد استخدامها"
       },
       "businessContext_i18n": {
-        "en": "Yeniden kullanım yoluyla sağlanan girdi miktarı",
+        "en": "Amount of input provided through reuse",
         "tr": "Yeniden kullanım yoluyla sağlanan girdi miktarı",
         "de": "Menge des Inputs durch Wiederverwendung",
         "fr": "Quantité d'entrée provenant de la réutilisation",
@@ -81,7 +81,7 @@
       "default": 300,
       "businessContext": "Üretim sürecinde oluşan toplam atık miktarı",
       "label_i18n": {
-        "en": "Toplam Atık Üretimi",
+        "en": "Total Waste Generated",
         "tr": "Toplam Atık Üretimi",
         "de": "Gesamte Abfallerzeugung",
         "fr": "Production totale de déchets",
@@ -89,7 +89,7 @@
         "ar": "إجمالي إنتاج النفايات"
       },
       "businessContext_i18n": {
-        "en": "Üretim sürecinde oluşan toplam atık miktarı",
+        "en": "Total amount of waste generated in the production process",
         "tr": "Üretim sürecinde oluşan toplam atık miktarı",
         "de": "Gesamte im Produktionsprozess anfallende Abfallmenge",
         "fr": "Quantité totale de déchets générés dans le processus de production",
@@ -105,7 +105,7 @@
       "default": 150,
       "businessContext": "Atığın geri dönüştürülen kısmı",
       "label_i18n": {
-        "en": "Geri Dönüştürülen Atık",
+        "en": "Recycled Waste",
         "tr": "Geri Dönüştürülen Atık",
         "de": "Recycelter Abfall",
         "fr": "Déchets recyclés",
@@ -113,7 +113,7 @@
         "ar": "النفايات المعاد تدويرها"
       },
       "businessContext_i18n": {
-        "en": "Atığın geri dönüştürülen kısmı",
+        "en": "Portion of waste that is recycled",
         "tr": "Atığın geri dönüştürülen kısmı",
         "de": "Recycelter Anteil des Abfalls",
         "fr": "Partie des déchets recyclée",
@@ -129,7 +129,7 @@
       "default": 50,
       "businessContext": "Atığın yeniden kullanılan kısmı",
       "label_i18n": {
-        "en": "Yeniden Kullanılan Atık",
+        "en": "Reused Waste",
         "tr": "Yeniden Kullanılan Atık",
         "de": "Wiederverwendeter Abfall",
         "fr": "Déchets réutilisés",
@@ -137,7 +137,7 @@
         "ar": "النفايات المعاد استخدامها"
       },
       "businessContext_i18n": {
-        "en": "Atığın yeniden kullanılan kısmı",
+        "en": "Portion of waste that is reused",
         "tr": "Atığın yeniden kullanılan kısmı",
         "de": "Anteil des Abfalls, der wiederverwendet wird",
         "fr": "Partie des déchets réutilisée",

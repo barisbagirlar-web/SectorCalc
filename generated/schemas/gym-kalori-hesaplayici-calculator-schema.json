@@ -9,7 +9,7 @@
       "default": 30,
       "businessContext": "Kullanıcının günlük egzersiz süresi (dakika)",
       "label_i18n": {
-        "en": "Egzersiz Süresi",
+        "en": "Exercise Duration",
         "tr": "Egzersiz Süresi",
         "de": "Trainingsdauer",
         "fr": "Durée d'exercice",
@@ -17,7 +17,7 @@
         "ar": "مدة التمرين"
       },
       "businessContext_i18n": {
-        "en": "Kullanıcının günlük egzersiz süresi (dakika)",
+        "en": "User's daily exercise duration (minutes)",
         "tr": "Kullanıcının günlük egzersiz süresi (dakika)",
         "de": "Tägliche Trainingsdauer des Benutzers (Minuten)",
         "fr": "Durée d'exercice quotidienne de l'utilisateur (minutes)",
@@ -33,7 +33,7 @@
       "default": 70,
       "businessContext": "Kullanıcının vücut ağırlığı (kilogram)",
       "label_i18n": {
-        "en": "Vücut Ağırlığı",
+        "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
         "fr": "Poids corporel",
@@ -41,7 +41,7 @@
         "ar": "وزن الجسم"
       },
       "businessContext_i18n": {
-        "en": "Kullanıcının vücut ağırlığı (kilogram)",
+        "en": "User's body weight (kg)",
         "tr": "Kullanıcının vücut ağırlığı (kilogram)",
         "de": "Körpergewicht des Benutzers (in Kilogramm)",
         "fr": "Poids corporel de l'utilisateur (en kilogrammes)",
@@ -57,7 +57,7 @@
       "default": 5,
       "businessContext": "Aktivitenin metabolik eşdeğeri (1 MET = 3.5 ml O2/kg/dk)",
       "label_i18n": {
-        "en": "Aktivite MET Değeri",
+        "en": "Activity MET Value",
         "tr": "Aktivite MET Değeri",
         "de": "Aktivitäts-MET-Wert",
         "fr": "Valeur MET de l'activité",
@@ -65,7 +65,7 @@
         "ar": "قيمة MET للنشاط"
       },
       "businessContext_i18n": {
-        "en": "Aktivitenin metabolik eşdeğeri (1 MET = 3.5 ml O2/kg/dk)",
+        "en": "Metabolic equivalent of activity (1 MET = 3.5 ml O2/kg/min)",
         "tr": "Aktivitenin metabolik eşdeğeri (1 MET = 3.5 ml O2/kg/dk)",
         "de": "Metabolisches Äquivalent der Aktivität (1 MET = 3,5 ml O2/kg/min)",
         "fr": "Équivalent métabolique de l'activité (1 MET = 3,5 ml O2/kg/min)",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "Egzersiz yoğunluğuna göre düzeltme katsayısı (1 = normal, >1 yüksek yoğunluk)",
       "label_i18n": {
-        "en": "Yoğunluk Faktörü",
+        "en": "Intensity Factor",
         "tr": "Yoğunluk Faktörü",
         "de": "Intensitätsfaktor",
         "fr": "Facteur d'intensité",
@@ -89,7 +89,7 @@
         "ar": "عامل الشدة"
       },
       "businessContext_i18n": {
-        "en": "Egzersiz yoğunluğuna göre düzeltme katsayısı (1 = normal, >1 yüksek yoğunluk)",
+        "en": "Correction coefficient based on exercise intensity (1 = normal, >1 high intensity)",
         "tr": "Egzersiz yoğunluğuna göre düzeltme katsayısı (1 = normal, >1 yüksek yoğunluk)",
         "de": "Korrekturkoeffizient für Trainingsintensität (1 = normal, >1 hohe Intensität)",
         "fr": "Coefficient de correction selon l'intensité de l'exercice (1 = normal, >1 haute intensité)",

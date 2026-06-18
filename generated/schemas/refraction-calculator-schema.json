@@ -9,7 +9,7 @@
       "default": 30,
       "businessContext": "Işığın birinci ortamdaki geliş açısı.",
       "label_i18n": {
-        "en": "Geliş Açısı",
+        "en": "Angle of Incidence",
         "tr": "Geliş Açısı",
         "de": "Einfallswinkel",
         "fr": "Angle d'incidence",
@@ -17,7 +17,7 @@
         "ar": "زاوية السقوط"
       },
       "businessContext_i18n": {
-        "en": "Işığın birinci ortamdaki geliş açısı.",
+        "en": "Angle of incidence of light in the first medium.",
         "tr": "Işığın birinci ortamdaki geliş açısı.",
         "de": "Einfallswinkel des Lichts im ersten Medium.",
         "fr": "Angle d'incidence de la lumière dans le premier milieu.",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "Birinci ortamın kırılma indisi (n1).",
       "label_i18n": {
-        "en": "Birinci Ortam Kırılma İndisi",
+        "en": "Refractive Index of First Medium",
         "tr": "Birinci Ortam Kırılma İndisi",
         "de": "Brechungsindex des ersten Mediums",
         "fr": "Indice de réfraction du premier milieu",
@@ -41,7 +41,7 @@
         "ar": "معامل انكسار الوسط الأول"
       },
       "businessContext_i18n": {
-        "en": "Birinci ortamın kırılma indisi (n1).",
+        "en": "Refractive index of the first medium (n1).",
         "tr": "Birinci ortamın kırılma indisi (n1).",
         "de": "Brechungsindex des ersten Mediums (n1).",
         "fr": "Indice de réfraction du premier milieu (n1).",
@@ -57,7 +57,7 @@
       "default": 1.5,
       "businessContext": "İkinci ortamın kırılma indisi (n2).",
       "label_i18n": {
-        "en": "İkinci Ortam Kırılma İndisi",
+        "en": "Refractive Index of Second Medium",
         "tr": "İkinci Ortam Kırılma İndisi",
         "de": "Brechungsindex des zweiten Mediums",
         "fr": "Indice de réfraction du second milieu",
@@ -65,7 +65,7 @@
         "ar": "معامل انكسار الوسط الثاني"
       },
       "businessContext_i18n": {
-        "en": "İkinci ortamın kırılma indisi (n2).",
+        "en": "Refractive index of the second medium (n2).",
         "tr": "İkinci ortamın kırılma indisi (n2).",
         "de": "Brechungsindex des zweiten Mediums (n2).",
         "fr": "Indice de réfraction du second milieu (n2).",
@@ -81,7 +81,7 @@
       "default": 10,
       "businessContext": "Işığın geçtiği ortamın kalınlığı (yan kayma hesabı için).",
       "label_i18n": {
-        "en": "Kalınlık",
+        "en": "Thickness",
         "tr": "Kalınlık",
         "de": "Dicke",
         "fr": "Épaisseur",
@@ -89,7 +89,7 @@
         "ar": "السماكة"
       },
       "businessContext_i18n": {
-        "en": "Işığın geçtiği ortamın kalınlığı (yan kayma hesabı için).",
+        "en": "Thickness of the medium through which light passes (for lateral shift calculation).",
         "tr": "Işığın geçtiği ortamın kalınlığı (yan kayma hesabı için).",
         "de": "Dicke des durchstrahlten Mediums (für die seitliche Verschiebung).",
         "fr": "Épaisseur du milieu traversé par la lumière (pour le calcul du décalage latéral).",

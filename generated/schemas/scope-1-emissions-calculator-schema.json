@@ -9,7 +9,7 @@
       "default": 0,
       "businessContext": "Yıllık doğal gaz tüketimi (metreküp)",
       "label_i18n": {
-        "en": "Doğal Gaz Tüketimi",
+        "en": "Natural Gas Consumption",
         "tr": "Doğal Gaz Tüketimi",
         "de": "Erdgasverbrauch",
         "fr": "Consommation de gaz naturel",
@@ -17,7 +17,7 @@
         "ar": "استهلاك الغاز الطبيعي"
       },
       "businessContext_i18n": {
-        "en": "Yıllık doğal gaz tüketimi (metreküp)",
+        "en": "Annual natural gas consumption (cubic meters)",
         "tr": "Yıllık doğal gaz tüketimi (metreküp)",
         "de": "Jährlicher Erdgasverbrauch (Kubikmeter)",
         "fr": "Consommation annuelle de gaz naturel (mètres cubes)",
@@ -33,7 +33,7 @@
       "default": 0,
       "businessContext": "Sabit ekipmanlarda kullanılan dizel",
       "label_i18n": {
-        "en": "Dizel Tüketimi (Sabit)",
+        "en": "Diesel Consumption (Stationary)",
         "tr": "Dizel Tüketimi (Sabit)",
         "de": "Dieselverbrauch (stationär)",
         "fr": "Consommation de diesel (fixe)",
@@ -41,7 +41,7 @@
         "ar": "استهلاك الديزل (ثابت)"
       },
       "businessContext_i18n": {
-        "en": "Sabit ekipmanlarda kullanılan dizel",
+        "en": "Diesel used in stationary equipment",
         "tr": "Sabit ekipmanlarda kullanılan dizel",
         "de": "Diesel für stationäre Anlagen",
         "fr": "Diesel utilisé dans les équipements fixes",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "Araçlarda kullanılan benzin",
       "label_i18n": {
-        "en": "Benzin Tüketimi (Mobil)",
+        "en": "Gasoline Consumption (Mobile)",
         "tr": "Benzin Tüketimi (Mobil)",
         "de": "Benzinverbrauch (mobil)",
         "fr": "Consommation d'essence (mobile)",
@@ -65,7 +65,7 @@
         "ar": "استهلاك البنزين (متحرك)"
       },
       "businessContext_i18n": {
-        "en": "Araçlarda kullanılan benzin",
+        "en": "Gasoline used in vehicles",
         "tr": "Araçlarda kullanılan benzin",
         "de": "Benzin für Fahrzeuge",
         "fr": "Essence utilisée dans les véhicules",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "Araçlarda kullanılan dizel",
       "label_i18n": {
-        "en": "Dizel Tüketimi (Mobil)",
+        "en": "Diesel Consumption (Mobile)",
         "tr": "Dizel Tüketimi (Mobil)",
         "de": "Dieselverbrauch (mobil)",
         "fr": "Consommation de diesel (mobile)",
@@ -89,7 +89,7 @@
         "ar": "استهلاك الديزل (متنقل)"
       },
       "businessContext_i18n": {
-        "en": "Araçlarda kullanılan dizel",
+        "en": "Diesel used in vehicles",
         "tr": "Araçlarda kullanılan dizel",
         "de": "In Fahrzeugen verwendeter Diesel",
         "fr": "Diesel utilisé dans les véhicules",
@@ -105,7 +105,7 @@
       "default": 0,
       "businessContext": "LPG tüketimi (kg)",
       "label_i18n": {
-        "en": "LPG Tüketimi",
+        "en": "LPG Consumption",
         "tr": "LPG Tüketimi",
         "de": "LPG-Verbrauch",
         "fr": "Consommation de GPL",
@@ -113,7 +113,7 @@
         "ar": "استهلاك غاز البترول المسال"
       },
       "businessContext_i18n": {
-        "en": "LPG tüketimi (kg)",
+        "en": "LPG consumption (kg)",
         "tr": "LPG tüketimi (kg)",
         "de": "LPG-Verbrauch (kg)",
         "fr": "Consommation de GPL (kg)",
@@ -129,7 +129,7 @@
       "default": 0,
       "businessContext": "Kömür tüketimi (ton)",
       "label_i18n": {
-        "en": "Kömür Tüketimi",
+        "en": "Coal Consumption",
         "tr": "Kömür Tüketimi",
         "de": "Kohleverbrauch",
         "fr": "Consommation de charbon",
@@ -137,7 +137,7 @@
         "ar": "استهلاك الفحم"
       },
       "businessContext_i18n": {
-        "en": "Kömür tüketimi (ton)",
+        "en": "Coal consumption (ton)",
         "tr": "Kömür tüketimi (ton)",
         "de": "Kohleverbrauch (Tonnen)",
         "fr": "Consommation de charbon (tonne)",
@@ -153,7 +153,7 @@
       "default": 0,
       "businessContext": "Soğutucu gaz kaçağı (kg, R-410A eşdeğeri)",
       "label_i18n": {
-        "en": "Soğutucu Kaçağı",
+        "en": "Refrigerant Leakage",
         "tr": "Soğutucu Kaçağı",
         "de": "Kältemittelleckage",
         "fr": "Fuite de réfrigérant",
@@ -161,7 +161,7 @@
         "ar": "تسرب المبردات"
       },
       "businessContext_i18n": {
-        "en": "Soğutucu gaz kaçağı (kg, R-410A eşdeğeri)",
+        "en": "Refrigerant gas leakage (kg, R-410A equivalent)",
         "tr": "Soğutucu gaz kaçağı (kg, R-410A eşdeğeri)",
         "de": "Kältemittelleckage (kg, R-410A-Äquivalent)",
         "fr": "Fuite de gaz réfrigérant (kg, équivalent R-410A)",
@@ -177,7 +177,7 @@
       "default": 0,
       "businessContext": "Üretim prosesinden kaynaklanan doğrudan emisyonlar (ton CO₂)",
       "label_i18n": {
-        "en": "Proses Emisyonları",
+        "en": "Process Emissions",
         "tr": "Proses Emisyonları",
         "de": "Prozessemissionen",
         "fr": "Émissions de procédé",
@@ -185,7 +185,7 @@
         "ar": "الانبعاثات التشغيلية"
       },
       "businessContext_i18n": {
-        "en": "Üretim prosesinden kaynaklanan doğrudan emisyonlar (ton CO₂)",
+        "en": "Direct emissions from production process (ton CO₂)",
         "tr": "Üretim prosesinden kaynaklanan doğrudan emisyonlar (ton CO₂)",
         "de": "Direkte Emissionen aus dem Produktionsprozess (Tonnen CO₂)",
         "fr": "Émissions directes du processus de production (tonnes CO₂)",

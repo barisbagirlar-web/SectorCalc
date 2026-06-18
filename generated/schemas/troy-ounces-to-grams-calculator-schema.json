@@ -17,7 +17,7 @@
         "ar": "أونصة تروي"
       },
       "businessContext_i18n": {
-        "en": "Dönüştürülecek ağırlık değeri (troy ons cinsinden)",
+        "en": "Weight to Convert (troy ounces)",
         "tr": "Dönüştürülecek ağırlık değeri (troy ons cinsinden)",
         "de": "Umzurechnender Gewichtswert (in Troy-Unzen)",
         "fr": "Valeur de poids à convertir (en onces troy)",
@@ -33,7 +33,7 @@
       "default": 31.1034768,
       "businessContext": "1 troy ons'un gram karşılığı. Varsayılan uluslararası standart değerdir.",
       "label_i18n": {
-        "en": "Dönüşüm Oranı",
+        "en": "Conversion Rate",
         "tr": "Dönüşüm Oranı",
         "de": "Umrechnungsfaktor",
         "fr": "Taux de conversion",
@@ -41,7 +41,7 @@
         "ar": "معدل التحويل"
       },
       "businessContext_i18n": {
-        "en": "1 troy ons'un gram karşılığı. Varsayılan uluslararası standart değerdir.",
+        "en": "Grams per Troy Ounce (default international standard)",
         "tr": "1 troy ons'un gram karşılığı. Varsayılan uluslararası standart değerdir.",
         "de": "Gramm pro Troy-Unze. Standardmäßiger internationaler Wert.",
         "fr": "Équivalent en grammes d'une once troy. Valeur standard internationale par défaut.",
@@ -57,7 +57,7 @@
       "default": 2,
       "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı",
       "label_i18n": {
-        "en": "Ondalık Basamak",
+        "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
         "fr": "Décimales",
@@ -65,7 +65,7 @@
         "ar": "المنازل العشرية"
       },
       "businessContext_i18n": {
-        "en": "Sonuçta gösterilecek ondalık basamak sayısı",
+        "en": "Number of decimal places to show in result",
         "tr": "Sonuçta gösterilecek ondalık basamak sayısı",
         "de": "Anzahl der im Ergebnis anzuzeigenden Dezimalstellen",
         "fr": "Nombre de décimales à afficher dans le résultat",
@@ -89,7 +89,7 @@
         "ar": "عدد"
       },
       "businessContext_i18n": {
-        "en": "Aynı ağırlığa sahip ürün adedi. Toplam gramı hesaplamak için kullanılır.",
+        "en": "Number of Items with Same Weight (used to calculate total grams)",
         "tr": "Aynı ağırlığa sahip ürün adedi. Toplam gramı hesaplamak için kullanılır.",
         "de": "Anzahl identischer Artikel. Wird zur Berechnung des Gesamtgewichts verwendet.",
         "fr": "Nombre d'articles de même poids. Utilisé pour calculer le poids total.",

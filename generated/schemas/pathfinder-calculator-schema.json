@@ -33,7 +33,7 @@
       "default": 80,
       "businessContext": "Seyir hızı",
       "label_i18n": {
-        "en": "Ortalama Hız (km/sa)",
+        "en": "Average Speed (km/h)",
         "tr": "Ortalama hız (km/sa)",
         "de": "Durchschnittsgeschwindigkeit (km/h)",
         "fr": "Vitesse moyenne (km/h)",
@@ -41,7 +41,7 @@
         "ar": "متوسط السرعة (كم/ساعة)"
       },
       "businessContext_i18n": {
-        "en": "Seyir hızı",
+        "en": "Cruising speed",
         "tr": "Seyir hızı",
         "de": "Reisegeschwindigkeit",
         "fr": "Vitesse de croisière",
@@ -57,7 +57,7 @@
       "default": 30,
       "businessContext": "Aracın 100 km'de tükettiği yakıt",
       "label_i18n": {
-        "en": "Yakıt Tüketimi (L/100km)",
+        "en": "Fuel Consumption (L/100km)",
         "tr": "Yakıt tüketimi (L/100km)",
         "de": "Kraftstoffverbrauch (L/100km)",
         "fr": "Consommation de carburant (L/100km)",
@@ -65,7 +65,7 @@
         "ar": "استهلاك الوقود (لتر/100 كم)"
       },
       "businessContext_i18n": {
-        "en": "Aracın 100 km'de tükettiği yakıt",
+        "en": "Fuel consumed per 100 km",
         "tr": "Aracın 100 km'de tükettiği yakıt",
         "de": "Vom Fahrzeug verbrauchter Kraftstoff pro 100 km",
         "fr": "Carburant consommé par le véhicule sur 100 km",
@@ -81,7 +81,7 @@
       "default": 25,
       "businessContext": "Yakıtın litre fiyatı",
       "label_i18n": {
-        "en": "Yakıt Birim Fiyatı (TL/L)",
+        "en": "Fuel Unit Price (TL/L)",
         "tr": "Yakıt birim fiyatı (TL/L)",
         "de": "Kraftstoffeinheitspreis (TL/L)",
         "fr": "Prix unitaire du carburant (TL/L)",
@@ -89,7 +89,7 @@
         "ar": "سعر وحدة الوقود (ليرة تركية/لتر)"
       },
       "businessContext_i18n": {
-        "en": "Yakıtın litre fiyatı",
+        "en": "Fuel price per liter",
         "tr": "Yakıtın litre fiyatı",
         "de": "Literpreis des Kraftstoffs",
         "fr": "Prix du carburant au litre",
@@ -105,7 +105,7 @@
       "default": 2,
       "businessContext": "Yolculuk sırasında verilen mola sayısı",
       "label_i18n": {
-        "en": "Mola Sayısı",
+        "en": "Number of breaks",
         "tr": "Mola sayısı",
         "de": "Anzahl der Pausen",
         "fr": "Nombre de pauses",
@@ -113,7 +113,7 @@
         "ar": "عدد فترات الراحة"
       },
       "businessContext_i18n": {
-        "en": "Yolculuk sırasında verilen mola sayısı",
+        "en": "Number of breaks taken during the trip",
         "tr": "Yolculuk sırasında verilen mola sayısı",
         "de": "Anzahl der während der Fahrt eingelegten Pausen",
         "fr": "Nombre de pauses pendant le trajet",
@@ -129,7 +129,7 @@
       "default": 30,
       "businessContext": "Her mola için harcanan süre",
       "label_i18n": {
-        "en": "Mola Süresi (dk)",
+        "en": "Break duration (min)",
         "tr": "Mola Süresi (dk)",
         "de": "Pausendauer (Min.)",
         "fr": "Temps de pause (min)",
@@ -137,7 +137,7 @@
         "ar": "مدة الراحة (دقيقة)"
       },
       "businessContext_i18n": {
-        "en": "Her mola için harcanan süre",
+        "en": "Time spent per break",
         "tr": "Her mola için harcanan süre",
         "de": "Zeitaufwand pro Pause",
         "fr": "Temps passé pour chaque pause",
@@ -153,7 +153,7 @@
       "default": 50,
       "businessContext": "Otoyol/geçiş ücretleri toplamı",
       "label_i18n": {
-        "en": "Geçiş Ücreti (TL)",
+        "en": "Toll fee (TL)",
         "tr": "Geçiş Ücreti (TL)",
         "de": "Mautgebühr (TL)",
         "fr": "Frais de péage (€)",
@@ -161,7 +161,7 @@
         "ar": "رسوم العبور (ليرة تركية)"
       },
       "businessContext_i18n": {
-        "en": "Otoyol/geçiş ücretleri toplamı",
+        "en": "Total highway/toll fees",
         "tr": "Otoyol/geçiş ücretleri toplamı",
         "de": "Summe der Autobahn-/Mautgebühren",
         "fr": "Total des frais d'autoroute/péage",
@@ -177,7 +177,7 @@
       "default": 500,
       "businessContext": "Sürücünün günlük maliyeti",
       "label_i18n": {
-        "en": "Sürücü Yevmiyesi (TL/gün)",
+        "en": "Driver daily wage (TL/day)",
         "tr": "Sürücü Yevmiyesi (TL/gün)",
         "de": "Fahrertagegeld (TL/Tag)",
         "fr": "Indemnité journalière du conducteur (€/jour)",
@@ -185,7 +185,7 @@
         "ar": "الأجر اليومي للسائق (ليرة تركية/يوم)"
       },
       "businessContext_i18n": {
-        "en": "Sürücünün günlük maliyeti",
+        "en": "Daily cost of the driver",
         "tr": "Sürücünün günlük maliyeti",
         "de": "Tägliche Fahrerkosten",
         "fr": "Coût journalier du conducteur",

@@ -9,7 +9,7 @@
       "default": 1000,
       "businessContext": "Tarifin ana bileşeni olan unun gram cinsinden ağırlığı",
       "label_i18n": {
-        "en": "Un Miktarı",
+        "en": "Flour Amount",
         "tr": "Un Miktarı",
         "de": "Mehlmenge",
         "fr": "Quantité d'unité",
@@ -17,7 +17,7 @@
         "ar": "كمية الوحدة"
       },
       "businessContext_i18n": {
-        "en": "Tarifin ana bileşeni olan unun gram cinsinden ağırlığı",
+        "en": "Weight of flour, the main ingredient of the recipe, in grams",
         "tr": "Tarifin ana bileşeni olan unun gram cinsinden ağırlığı",
         "de": "Gewicht des Hauptbestandteils Mehl in Gramm",
         "fr": "Poids de la farine en grammes, composant principal du tarif",
@@ -33,7 +33,7 @@
       "default": 70,
       "businessContext": "Un ağırlığına göre su yüzdesi",
       "label_i18n": {
-        "en": "Hidrasyon Oranı",
+        "en": "Hydration Ratio",
         "tr": "Hidrasyon Oranı",
         "de": "Hydratationsgrad",
         "fr": "Taux d'hydratation",
@@ -41,7 +41,7 @@
         "ar": "نسبة الترطيب"
       },
       "businessContext_i18n": {
-        "en": "Un ağırlığına göre su yüzdesi",
+        "en": "Water percentage relative to flour weight",
         "tr": "Un ağırlığına göre su yüzdesi",
         "de": "Wasseranteil in Prozent des Mehlgewichts",
         "fr": "Pourcentage d'eau par rapport au poids de la farine",
@@ -57,7 +57,7 @@
       "default": 1,
       "businessContext": "Un ağırlığına göre yaş maya yüzdesi",
       "label_i18n": {
-        "en": "Maya Oranı",
+        "en": "Yeast Ratio",
         "tr": "Maya Oranı",
         "de": "Hefeanteil",
         "fr": "Taux de levure",
@@ -65,7 +65,7 @@
         "ar": "نسبة الخميرة"
       },
       "businessContext_i18n": {
-        "en": "Un ağırlığına göre yaş maya yüzdesi",
+        "en": "Fresh yeast percentage relative to flour weight",
         "tr": "Un ağırlığına göre yaş maya yüzdesi",
         "de": "Frischhefeanteil in Prozent des Mehlgewichts",
         "fr": "Pourcentage de levure fraîche par rapport au poids de la farine",
@@ -81,7 +81,7 @@
       "default": 2,
       "businessContext": "Un ağırlığına göre tuz yüzdesi",
       "label_i18n": {
-        "en": "Tuz Oranı",
+        "en": "Salt Ratio",
         "tr": "Tuz Oranı",
         "de": "Salzanteil",
         "fr": "Taux de sel",
@@ -89,7 +89,7 @@
         "ar": "نسبة الملح"
       },
       "businessContext_i18n": {
-        "en": "Un ağırlığına göre tuz yüzdesi",
+        "en": "Salt percentage relative to flour weight",
         "tr": "Un ağırlığına göre tuz yüzdesi",
         "de": "Salzanteil in Prozent des Mehlgewichts",
         "fr": "Pourcentage de sel par rapport au poids de la farine",
@@ -105,7 +105,7 @@
       "default": 5,
       "businessContext": "Un ağırlığına göre şeker yüzdesi",
       "label_i18n": {
-        "en": "Şeker Oranı",
+        "en": "Sugar Ratio",
         "tr": "Şeker Oranı",
         "de": "Zuckeranteil",
         "fr": "Taux de sucre",
@@ -113,7 +113,7 @@
         "ar": "نسبة السكر"
       },
       "businessContext_i18n": {
-        "en": "Un ağırlığına göre şeker yüzdesi",
+        "en": "Sugar percentage relative to flour weight",
         "tr": "Un ağırlığına göre şeker yüzdesi",
         "de": "Zuckeranteil in Prozent des Mehlgewichts",
         "fr": "Pourcentage de sucre par rapport au poids de la farine",
@@ -129,7 +129,7 @@
       "default": 2,
       "businessContext": "Un ağırlığına göre sıvı yağ veya tereyağı yüzdesi",
       "label_i18n": {
-        "en": "Yağ Oranı",
+        "en": "Fat Ratio",
         "tr": "Yağ Oranı",
         "de": "Fettanteil",
         "fr": "Taux de matière grasse",
@@ -137,7 +137,7 @@
         "ar": "نسبة الدهن"
       },
       "businessContext_i18n": {
-        "en": "Un ağırlığına göre sıvı yağ veya tereyağı yüzdesi",
+        "en": "Oil or butter percentage relative to flour weight",
         "tr": "Un ağırlığına göre sıvı yağ veya tereyağı yüzdesi",
         "de": "Anteil an flüssigem Öl oder Butter in Prozent des Mehlgewichts",
         "fr": "Pourcentage d'huile ou de beurre par rapport au poids de la farine",

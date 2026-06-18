@@ -9,7 +9,7 @@
       "default": 100,
       "businessContext": "Bir ay içindeki toplam ACH işlem sayısı.",
       "label_i18n": {
-        "en": "Aylık İşlem Sayısı",
+        "en": "Monthly Transaction Count",
         "tr": "Aylık İşlem Sayısı",
         "de": "Monatliche Transaktionsanzahl",
         "fr": "Nombre de transactions mensuelles",
@@ -17,7 +17,7 @@
         "ar": "عدد المعاملات الشهرية"
       },
       "businessContext_i18n": {
-        "en": "Bir ay içindeki toplam ACH işlem sayısı.",
+        "en": "Total number of ACH transactions in a month.",
         "tr": "Bir ay içindeki toplam ACH işlem sayısı.",
         "de": "Gesamtzahl der ACH-Transaktionen in einem Monat.",
         "fr": "Nombre total de transactions ACH en un mois.",
@@ -33,7 +33,7 @@
       "default": 0.5,
       "businessContext": "Her işlem için ödenen sabit ücret.",
       "label_i18n": {
-        "en": "İşlem Başı Sabit Ücret",
+        "en": "Fixed Fee per Transaction",
         "tr": "İşlem Başı Sabit Ücret",
         "de": "Feste Gebühr pro Transaktion",
         "fr": "Frais fixes par transaction",
@@ -41,7 +41,7 @@
         "ar": "الرسوم الثابتة لكل معاملة"
       },
       "businessContext_i18n": {
-        "en": "Her işlem için ödenen sabit ücret.",
+        "en": "Fixed fee paid for each transaction.",
         "tr": "Her işlem için ödenen sabit ücret.",
         "de": "Feste Gebühr, die für jede Transaktion gezahlt wird.",
         "fr": "Frais fixes payés pour chaque transaction.",
@@ -57,7 +57,7 @@
       "default": 0.1,
       "businessContext": "Toplam işlem hacmi üzerinden alınan yüzdelik oran.",
       "label_i18n": {
-        "en": "İşlem Hacmi Yüzdelik Ücreti",
+        "en": "Percentage Fee on Transaction Volume",
         "tr": "İşlem Hacmi Yüzdelik Ücreti",
         "de": "Prozentuale Gebühr des Transaktionsvolumens",
         "fr": "Frais en pourcentage du volume de transactions",
@@ -65,7 +65,7 @@
         "ar": "نسبة الرسوم على حجم المعاملات"
       },
       "businessContext_i18n": {
-        "en": "Toplam işlem hacmi üzerinden alınan yüzdelik oran.",
+        "en": "Percentage rate charged on total transaction volume.",
         "tr": "Toplam işlem hacmi üzerinden alınan yüzdelik oran.",
         "de": "Prozentsatz, der auf das gesamte Transaktionsvolumen erhoben wird.",
         "fr": "Pourcentage prélevé sur le volume total des transactions.",
@@ -81,7 +81,7 @@
       "default": 50000,
       "businessContext": "Bir ay içindeki tüm ACH işlemlerinin toplam parasal hacmi.",
       "label_i18n": {
-        "en": "Aylık Toplam İşlem Hacmi",
+        "en": "Monthly Total Transaction Volume",
         "tr": "Aylık Toplam İşlem Hacmi",
         "de": "Monatliches Gesamttransaktionsvolumen",
         "fr": "Volume mensuel total des transactions",
@@ -89,7 +89,7 @@
         "ar": "إجمالي حجم المعاملات الشهري"
       },
       "businessContext_i18n": {
-        "en": "Bir ay içindeki tüm ACH işlemlerinin toplam parasal hacmi.",
+        "en": "Total monetary volume of all ACH transactions within one month.",
         "tr": "Bir ay içindeki tüm ACH işlemlerinin toplam parasal hacmi.",
         "de": "Gesamter Geldbetrag aller ACH-Transaktionen in einem Monat.",
         "fr": "Volume monétaire total de toutes les transactions ACH en un mois.",
@@ -105,7 +105,7 @@
       "default": 10,
       "businessContext": "ACH hizmeti için aylık ödenen sabit ücret.",
       "label_i18n": {
-        "en": "Aylık Sabit Ücret",
+        "en": "Monthly Fixed Fee",
         "tr": "Aylık Sabit Ücret",
         "de": "Monatliche feste Gebühr",
         "fr": "Frais fixes mensuels",
@@ -113,7 +113,7 @@
         "ar": "الرسوم الثابتة الشهرية"
       },
       "businessContext_i18n": {
-        "en": "ACH hizmeti için aylık ödenen sabit ücret.",
+        "en": "Fixed monthly fee paid for ACH service.",
         "tr": "ACH hizmeti için aylık ödenen sabit ücret.",
         "de": "Monatliche feste Gebühr für den ACH-Dienst.",
         "fr": "Frais fixes mensuels pour le service ACH.",

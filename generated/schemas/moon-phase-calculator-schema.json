@@ -9,7 +9,7 @@
       "default": 2023,
       "businessContext": "Hesaplanacak ay fazı için yıl bilgisi",
       "label_i18n": {
-        "en": "Yıl",
+        "en": "Year",
         "tr": "Yıl",
         "de": "Jahr",
         "fr": "Année",
@@ -17,7 +17,7 @@
         "ar": "السنة"
       },
       "businessContext_i18n": {
-        "en": "Hesaplanacak ay fazı için yıl bilgisi",
+        "en": "Year information for the month phase to be calculated",
         "tr": "Hesaplanacak ay fazı için yıl bilgisi",
         "de": "Jahresangabe für die zu berechnende Monatsphase",
         "fr": "Année pour le calcul de la phase lunaire",
@@ -41,7 +41,7 @@
         "ar": "الشهر"
       },
       "businessContext_i18n": {
-        "en": "Hesaplanacak ay fazı için ay bilgisi (1-12)",
+        "en": "Month information for the month phase to be calculated (1-12)",
         "tr": "Hesaplanacak ay fazı için ay bilgisi (1-12)",
         "de": "Monatsangabe für die zu berechnende Monatsphase (1-12)",
         "fr": "Mois pour le calcul de la phase lunaire (1-12)",
@@ -57,7 +57,7 @@
       "default": 1,
       "businessContext": "Hesaplanacak ay fazı için gün bilgisi",
       "label_i18n": {
-        "en": "Gün",
+        "en": "Day",
         "tr": "Gün",
         "de": "Tag",
         "fr": "Jour",
@@ -65,7 +65,7 @@
         "ar": "اليوم"
       },
       "businessContext_i18n": {
-        "en": "Hesaplanacak ay fazı için gün bilgisi",
+        "en": "Day information for the month phase to be calculated",
         "tr": "Hesaplanacak ay fazı için gün bilgisi",
         "de": "Tage für die zu berechnende Monatsphase",
         "fr": "Jour pour le calcul de la phase lunaire",
@@ -89,7 +89,7 @@
         "ar": "الساعة (UTC)"
       },
       "businessContext_i18n": {
-        "en": "Günün ondalık saat dilimi (örn: 12.5 = 12:30 UTC)",
+        "en": "Decimal hour of the day (e.g., 12.5 = 12:30 UTC)",
         "tr": "Günün ondalık saat dilimi (örn: 12.5 = 12:30 UTC)",
         "de": "Dezimale Tageszeit (z.B. 12,5 = 12:30 UTC)",
         "fr": "Fraction décimale du jour (ex: 12.5 = 12:30 UTC)",

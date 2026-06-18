@@ -9,7 +9,7 @@
       "default": 10,
       "businessContext": "Bodrumun uzun kenarı",
       "label_i18n": {
-        "en": "Bodrum Uzunluğu (m)",
+        "en": "Basement Length (m)",
         "tr": "Bodrum Uzunluğu (m)",
         "de": "Kellerlänge (m)",
         "fr": "Longueur du sous-sol (m)",
@@ -17,7 +17,7 @@
         "ar": "طول الطابق السفلي (م)"
       },
       "businessContext_i18n": {
-        "en": "Bodrumun uzun kenarı",
+        "en": "Long side of the basement",
         "tr": "Bodrumun uzun kenarı",
         "de": "Längsseite des Kellers",
         "fr": "Longueur du côté long du sous-sol",
@@ -33,7 +33,7 @@
       "default": 8,
       "businessContext": "Bodrumun kısa kenarı",
       "label_i18n": {
-        "en": "Bodrum Genişliği (m)",
+        "en": "Basement Width (m)",
         "tr": "Bodrum Genişliği (m)",
         "de": "Bodrum Genişliği (m)",
         "fr": "Largeur du sous-sol (m)",
@@ -41,7 +41,7 @@
         "ar": "عرض الأساس (م)"
       },
       "businessContext_i18n": {
-        "en": "Bodrumun kısa kenarı",
+        "en": "Short side of the basement",
         "tr": "Bodrumun kısa kenarı",
         "de": "Bodrumun kısa kenarı",
         "fr": "Petit côté du sous-sol",
@@ -57,7 +57,7 @@
       "default": 3,
       "businessContext": "Bodrumun tabanından zemin seviyesine kadar olan yükseklik",
       "label_i18n": {
-        "en": "Bodrum Derinliği (m)",
+        "en": "Basement Depth (m)",
         "tr": "Bodrum Derinliği (m)",
         "de": "Bodrum Derinliği (m)",
         "fr": "Profondeur du sous-sol (m)",
@@ -65,7 +65,7 @@
         "ar": "عمق الأساس (م)"
       },
       "businessContext_i18n": {
-        "en": "Bodrumun tabanından zemin seviyesine kadar olan yükseklik",
+        "en": "Height from basement floor to ground level",
         "tr": "Bodrumun tabanından zemin seviyesine kadar olan yükseklik",
         "de": "Bodrumun tabanından zemin seviyesine kadar olan yükseklik",
         "fr": "Hauteur du fond du sous-sol au niveau du sol",
@@ -81,7 +81,7 @@
       "default": 25,
       "businessContext": "Beton duvar kalınlığı",
       "label_i18n": {
-        "en": "Duvar Kalınlığı (cm)",
+        "en": "Wall Thickness (cm)",
         "tr": "Duvar Kalınlığı (cm)",
         "de": "Duvar Kalınlığı (cm)",
         "fr": "Épaisseur du mur (cm)",
@@ -89,7 +89,7 @@
         "ar": "سمك الجدار (سم)"
       },
       "businessContext_i18n": {
-        "en": "Beton duvar kalınlığı",
+        "en": "Concrete wall thickness",
         "tr": "Beton duvar kalınlığı",
         "de": "Beton duvar kalınlığı",
         "fr": "Épaisseur du mur en béton",
@@ -105,7 +105,7 @@
       "default": 20,
       "businessContext": "Taban döşemesi kalınlığı",
       "label_i18n": {
-        "en": "Döşeme Kalınlığı (cm)",
+        "en": "Slab Thickness (cm)",
         "tr": "Döşeme Kalınlığı (cm)",
         "de": "Döşeme Kalınlığı (cm)",
         "fr": "Épaisseur de la dalle (cm)",
@@ -113,7 +113,7 @@
         "ar": "سمك البلاطة (سم)"
       },
       "businessContext_i18n": {
-        "en": "Taban döşemesi kalınlığı",
+        "en": "Floor slab thickness",
         "tr": "Taban döşemesi kalınlığı",
         "de": "Taban döşemesi kalınlığı",
         "fr": "Épaisseur de la dalle de fond",
@@ -137,7 +137,7 @@
         "ar": "تكلفة الخرسانة (TL/m³)"
       },
       "businessContext_i18n": {
-        "en": "Birim metreküp beton fiyatı",
+        "en": "Unit price per cubic meter of concrete",
         "tr": "Birim metreküp beton fiyatı",
         "de": "Preis pro Kubikmeter Beton",
         "fr": "Prix unitaire du béton au mètre cube",
@@ -153,7 +153,7 @@
       "default": 50,
       "businessContext": "Birim metrekare su yalıtım fiyatı",
       "label_i18n": {
-        "en": "Su Yalıtım Maliyeti (TL/m²)",
+        "en": "Waterproofing Cost (TL/m²)",
         "tr": "Su Yalıtım Maliyeti (TL/m²)",
         "de": "Abdichtungskosten (TL/m²)",
         "fr": "Coût de l'étanchéité (TL/m²)",
@@ -161,7 +161,7 @@
         "ar": "تكلفة العزل المائي (TL/m²)"
       },
       "businessContext_i18n": {
-        "en": "Birim metrekare su yalıtım fiyatı",
+        "en": "Waterproofing cost per square meter",
         "tr": "Birim metrekare su yalıtım fiyatı",
         "de": "Preis pro Quadratmeter Abdichtung",
         "fr": "Prix unitaire de l'étanchéité au mètre carré",

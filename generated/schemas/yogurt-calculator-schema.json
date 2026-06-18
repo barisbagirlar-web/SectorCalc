@@ -9,7 +9,7 @@
       "default": 5,
       "businessContext": "Maliyet",
       "label_i18n": {
-        "en": "Süt Maliyeti (Litre)",
+        "en": "Milk cost (per liter)",
         "tr": "Süt Maliyeti (Litre)",
         "de": "Milchkosten (Liter)",
         "fr": "Coût du lait (Litre)",
@@ -33,7 +33,7 @@
       "default": 0.95,
       "businessContext": "Verim",
       "label_i18n": {
-        "en": "Süt Verimi (kg/L)",
+        "en": "Milk Yield (kg/L)",
         "tr": "Süt Verimi (kg/L)",
         "de": "Milchausbeute (kg/L)",
         "fr": "Rendement laitier (kg/L)",
@@ -57,7 +57,7 @@
       "default": 10,
       "businessContext": "Katkı Maliyeti",
       "label_i18n": {
-        "en": "Starter Kültür Maliyeti (Parti Başına)",
+        "en": "Starter Culture Cost (per Batch)",
         "tr": "Starter Kültür Maliyeti (Parti Başına)",
         "de": "Starterkultur-Kosten (pro Charge)",
         "fr": "Coût du levain (par lot)",
@@ -65,7 +65,7 @@
         "ar": "تكلفة المزرعة البادئة (لكل دفعة)"
       },
       "businessContext_i18n": {
-        "en": "Katkı Maliyeti",
+        "en": "Additive Cost",
         "tr": "Katkı Maliyeti",
         "de": "Zusatzkosten",
         "fr": "Coût des additifs",
@@ -81,7 +81,7 @@
       "default": 100,
       "businessContext": "Parti Büyüklüğü",
       "label_i18n": {
-        "en": "Parti Büyüklüğü (Litre)",
+        "en": "Batch Size (Liters)",
         "tr": "Parti Büyüklüğü (Litre)",
         "de": "Chargengröße (Liter)",
         "fr": "Taille du lot (Litre)",
@@ -89,7 +89,7 @@
         "ar": "حجم الدفعة (لتر)"
       },
       "businessContext_i18n": {
-        "en": "Parti Büyüklüğü",
+        "en": "Batch Size",
         "tr": "Parti Büyüklüğü",
         "de": "Losgröße",
         "fr": "Taille de lot",
@@ -105,7 +105,7 @@
       "default": 2,
       "businessContext": "Ambalaj",
       "label_i18n": {
-        "en": "Ambalaj Maliyeti (kg Başına)",
+        "en": "Packaging Cost (per kg)",
         "tr": "Ambalaj Maliyeti (kg Başına)",
         "de": "Verpackungskosten (pro kg)",
         "fr": "Coût d'emballage (par kg)",
@@ -129,7 +129,7 @@
       "default": 50,
       "businessContext": "Genel Giderler",
       "label_i18n": {
-        "en": "Genel Giderler (Parti Başına)",
+        "en": "Overhead Costs (per Batch)",
         "tr": "Genel Giderler (Parti Başına)",
         "de": "Gemeinkosten (pro Charge)",
         "fr": "Frais généraux (par lot)",

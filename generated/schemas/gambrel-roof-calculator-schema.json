@@ -9,7 +9,7 @@
       "default": 10,
       "businessContext": "Mahya ile saçak arası toplam yatay mesafe",
       "label_i18n": {
-        "en": "Bina Genişliği (Açıklık)",
+        "en": "Building Width (Span)",
         "tr": "Bina Genişliği (Açıklık)",
         "de": "Gebäudebreite (Spannweite)",
         "fr": "Largeur du bâtiment (portée)",
@@ -17,7 +17,7 @@
         "ar": "عرض المبنى (الامتداد)"
       },
       "businessContext_i18n": {
-        "en": "Mahya ile saçak arası toplam yatay mesafe",
+        "en": "Total horizontal distance from ridge to eaves",
         "tr": "Mahya ile saçak arası toplam yatay mesafe",
         "de": "Horizontaler Gesamtabstand zwischen First und Traufe",
         "fr": "Distance horizontale totale entre le faîte et l'avant-toit",
@@ -33,7 +33,7 @@
       "default": 20,
       "businessContext": "Bina boyu, mahya yönündeki uzunluk",
       "label_i18n": {
-        "en": "Bina Uzunluğu",
+        "en": "Building Length",
         "tr": "Bina Uzunluğu",
         "de": "Gebäudelänge",
         "fr": "Longueur du bâtiment",
@@ -41,7 +41,7 @@
         "ar": "طول المبنى"
       },
       "businessContext_i18n": {
-        "en": "Bina boyu, mahya yönündeki uzunluk",
+        "en": "Building length along ridge direction",
         "tr": "Bina boyu, mahya yönündeki uzunluk",
         "de": "Gebäudelänge in Firstrichtung",
         "fr": "Longueur du bâtiment dans la direction du faîte",
@@ -57,7 +57,7 @@
       "default": 60,
       "businessContext": "Saçaktan kırılma noktasına kadar olan alt yüzeyin yatayla yaptığı açı",
       "label_i18n": {
-        "en": "Alt Eğim Açısı",
+        "en": "Lower Slope Angle",
         "tr": "Alt Eğim Açısı",
         "de": "Unterer Neigungswinkel",
         "fr": "Angle de pente inférieur",
@@ -65,7 +65,7 @@
         "ar": "زاوية الميل السفلي"
       },
       "businessContext_i18n": {
-        "en": "Saçaktan kırılma noktasına kadar olan alt yüzeyin yatayla yaptığı açı",
+        "en": "Angle of lower surface from eaves to break point with horizontal",
         "tr": "Saçaktan kırılma noktasına kadar olan alt yüzeyin yatayla yaptığı açı",
         "de": "Winkel der unteren Dachfläche von der Traufe zum Knickpunkt zur Horizontalen",
         "fr": "Angle de la surface inférieure par rapport à l'horizontale, de l'avant-toit au point de rupture",
@@ -81,7 +81,7 @@
       "default": 30,
       "businessContext": "Kırılma noktasından mahyaya kadar olan üst yüzeyin yatayla yaptığı açı",
       "label_i18n": {
-        "en": "Üst Eğim Açısı",
+        "en": "Upper Slope Angle",
         "tr": "Üst Eğim Açısı",
         "de": "Oberer Neigungswinkel",
         "fr": "Angle de pente supérieure",
@@ -89,7 +89,7 @@
         "ar": "زاوية الميل العلوي"
       },
       "businessContext_i18n": {
-        "en": "Kırılma noktasından mahyaya kadar olan üst yüzeyin yatayla yaptığı açı",
+        "en": "Angle of upper surface from break point to ridge with horizontal",
         "tr": "Kırılma noktasından mahyaya kadar olan üst yüzeyin yatayla yaptığı açı",
         "de": "Winkel der oberen Dachfläche vom Knickpunkt zum First zur Horizontalen",
         "fr": "Angle entre la surface supérieure (du point de rupture au faîte) et l'horizontale",
@@ -105,7 +105,7 @@
       "default": 2,
       "businessContext": "Saçaktan kırılma noktasına kadar yatay mesafe",
       "label_i18n": {
-        "en": "Alt İz Düşüm Mesafesi",
+        "en": "Lower Horizontal Projection Distance",
         "tr": "Alt İz Düşüm Mesafesi",
         "de": "Unterer Grundrissabstand",
         "fr": "Distance horizontale inférieure",
@@ -113,7 +113,7 @@
         "ar": "المسافة الأفقية للإسقاط السفلي"
       },
       "businessContext_i18n": {
-        "en": "Saçaktan kırılma noktasına kadar yatay mesafe",
+        "en": "Horizontal distance from eaves to break point",
         "tr": "Saçaktan kırılma noktasına kadar yatay mesafe",
         "de": "Horizontaler Abstand von der Traufe zum Knickpunkt",
         "fr": "Distance horizontale de l'avant-toit au point de rupture",

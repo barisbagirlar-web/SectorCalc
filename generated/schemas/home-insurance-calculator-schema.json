@@ -9,7 +9,7 @@
       "default": 500000,
       "businessContext": "Ev sigortası için evin toplam değeri.",
       "label_i18n": {
-        "en": "Ev Değeri",
+        "en": "Home Value",
         "tr": "Ev Değeri",
         "de": "Immobilienwert",
         "fr": "Valeur du bien",
@@ -17,7 +17,7 @@
         "ar": "قيمة المنزل"
       },
       "businessContext_i18n": {
-        "en": "Ev sigortası için evin toplam değeri.",
+        "en": "Total value of the home for home insurance.",
         "tr": "Ev sigortası için evin toplam değeri.",
         "de": "Gesamtwert des Hauses für die Hausratversicherung.",
         "fr": "Valeur totale du bien pour l'assurance habitation.",
@@ -33,7 +33,7 @@
       "default": 400000,
       "businessContext": "Sigorta kapsamı altındaki tutar.",
       "label_i18n": {
-        "en": "Teminat Tutarı",
+        "en": "Collateral Amount",
         "tr": "Teminat Tutarı",
         "de": "Versicherungssumme",
         "fr": "Montant de la garantie",
@@ -41,7 +41,7 @@
         "ar": "مبلغ التغطية"
       },
       "businessContext_i18n": {
-        "en": "Sigorta kapsamı altındaki tutar.",
+        "en": "Amount covered under insurance.",
         "tr": "Sigorta kapsamı altındaki tutar.",
         "de": "Der unter die Versicherung fallende Betrag.",
         "fr": "Montant couvert par l'assurance.",
@@ -65,7 +65,7 @@
         "ar": "الخصم"
       },
       "businessContext_i18n": {
-        "en": "Hasar durumunda sigortalının ödeyeceği kısım.",
+        "en": "Portion to be paid by the insured in case of loss.",
         "tr": "Hasar durumunda sigortalının ödeyeceği kısım.",
         "de": "Der vom Versicherten im Schadensfall zu zahlende Anteil.",
         "fr": "Partie à payer par l'assuré en cas de sinistre.",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "Deprem, sel vs. riskine göre bölge katsayısı.",
       "label_i18n": {
-        "en": "Bölge Risk Faktörü",
+        "en": "Regional Risk Factor",
         "tr": "Bölge Risk Faktörü",
         "de": "Regionale Risikofaktor",
         "fr": "Facteur de risque régional",
@@ -89,7 +89,7 @@
         "ar": "عامل المخاطر الإقليمي"
       },
       "businessContext_i18n": {
-        "en": "Deprem, sel vs. riskine göre bölge katsayısı.",
+        "en": "Regional coefficient based on earthquake, flood, etc. risk.",
         "tr": "Deprem, sel vs. riskine göre bölge katsayısı.",
         "de": "Regionaler Koeffizient basierend auf Erdbeben-, Überschwemmungsrisiko usw.",
         "fr": "Coefficient régional basé sur le risque de tremblement de terre, inondation, etc.",
@@ -105,7 +105,7 @@
       "default": 5,
       "businessContext": "Evin inşa yılından itibaren geçen süre.",
       "label_i18n": {
-        "en": "Bina Yaşı",
+        "en": "Building Age",
         "tr": "Bina Yaşı",
         "de": "Gebäudealter",
         "fr": "Âge du bâtiment",
@@ -113,7 +113,7 @@
         "ar": "عمر المبنى"
       },
       "businessContext_i18n": {
-        "en": "Evin inşa yılından itibaren geçen süre.",
+        "en": "Time elapsed since the year of construction of the house.",
         "tr": "Evin inşa yılından itibaren geçen süre.",
         "de": "Jahre seit Bau des Hauses.",
         "fr": "Temps écoulé depuis l'année de construction de la maison.",
@@ -129,7 +129,7 @@
       "default": 10,
       "businessContext": "Alarm, yangın söndürme gibi güvenlik önlemlerinden alınan indirim oranı.",
       "label_i18n": {
-        "en": "Güvenlik İndirimi",
+        "en": "Safety Discount",
         "tr": "Güvenlik İndirimi",
         "de": "Sicherheitsrabatt",
         "fr": "Réduction de sécurité",
@@ -137,7 +137,7 @@
         "ar": "خصم الأمان"
       },
       "businessContext_i18n": {
-        "en": "Alarm, yangın söndürme gibi güvenlik önlemlerinden alınan indirim oranı.",
+        "en": "Discount rate from safety measures such as alarm, fire suppression.",
         "tr": "Alarm, yangın söndürme gibi güvenlik önlemlerinden alınan indirim oranı.",
         "de": "Rabattsatz für Sicherheitsmaßnahmen wie Alarmanlage, Feuerlöschsystem.",
         "fr": "Taux de réduction pour les mesures de sécurité telles que l'alarme, l'extinction d'incendie, etc.",

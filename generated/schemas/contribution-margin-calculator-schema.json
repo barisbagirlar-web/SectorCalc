@@ -9,7 +9,7 @@
       "default": 100,
       "businessContext": "Birim başına satış fiyatı",
       "label_i18n": {
-        "en": "Satış Fiyatı (Birim)",
+        "en": "Selling Price (Unit)",
         "tr": "Satış Fiyatı (Birim)",
         "de": "Verkaufspreis (pro Einheit)",
         "fr": "Prix de vente (unité)",
@@ -17,7 +17,7 @@
         "ar": "سعر البيع (للقطعة)"
       },
       "businessContext_i18n": {
-        "en": "Birim başına satış fiyatı",
+        "en": "Selling price per unit",
         "tr": "Birim başına satış fiyatı",
         "de": "Verkaufspreis pro Einheit",
         "fr": "Prix de vente par unité",
@@ -33,7 +33,7 @@
       "default": 60,
       "businessContext": "Birim başına doğrudan değişken maliyet",
       "label_i18n": {
-        "en": "Değişken Maliyet (Birim)",
+        "en": "Variable Cost (Unit)",
         "tr": "Değişken Maliyet (Birim)",
         "de": "Variable Kosten (pro Einheit)",
         "fr": "Coût variable (unité)",
@@ -41,7 +41,7 @@
         "ar": "التكلفة المتغيرة (للقطعة)"
       },
       "businessContext_i18n": {
-        "en": "Birim başına doğrudan değişken maliyet",
+        "en": "Direct variable cost per unit",
         "tr": "Birim başına doğrudan değişken maliyet",
         "de": "Direkte variable Kosten pro Einheit",
         "fr": "Coût variable direct par unité",
@@ -57,7 +57,7 @@
       "default": 1000,
       "businessContext": "Satılan toplam birim sayısı",
       "label_i18n": {
-        "en": "Satılan Miktar",
+        "en": "Quantity Sold",
         "tr": "Satılan Miktar",
         "de": "Verkaufte Menge",
         "fr": "Quantité vendue",
@@ -65,7 +65,7 @@
         "ar": "الكمية المباعة"
       },
       "businessContext_i18n": {
-        "en": "Satılan toplam birim sayısı",
+        "en": "Total number of units sold",
         "tr": "Satılan toplam birim sayısı",
         "de": "Gesamtzahl der verkauften Einheiten",
         "fr": "Nombre total d'unités vendues",
@@ -89,7 +89,7 @@
         "ar": "التكاليف الثابتة"
       },
       "businessContext_i18n": {
-        "en": "Toplam sabit maliyetler (faaliyet karı hesaplaması için isteğe bağlı)",
+        "en": "Total fixed costs (optional for operating profit calculation)",
         "tr": "Toplam sabit maliyetler (faaliyet karı hesaplaması için isteğe bağlı)",
         "de": "Gesamte Fixkosten (optional für die Berechnung des Betriebsgewinns)",
         "fr": "Coûts fixes totaux (facultatif pour le calcul du bénéfice d'exploitation)",

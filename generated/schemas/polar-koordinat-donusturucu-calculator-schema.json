@@ -9,7 +9,7 @@
       "default": 1,
       "businessContext": "Dönüşüm yönünü belirler: 1 Kartezyen'den Polar'a, 2 Polar'dan Kartezyen'e",
       "label_i18n": {
-        "en": "Dönüşüm Tipi (1: Kartezyen→Polar, 2: Polar→Kartezyen)",
+        "en": "Conversion Type (1: Cartesian→Polar, 2: Polar→Cartesian)",
         "tr": "Dönüşüm Tipi (1: Kartezyen→Polar, 2: Polar→Kartezyen)",
         "de": "Umwandlungstyp (1: Kartesisch→Polar, 2: Polar→Kartesisch)",
         "fr": "Type de conversion (1 : Cartésien→Polaire, 2 : Polaire→Cartésien)",
@@ -17,7 +17,7 @@
         "ar": "نوع التحويل (1: ديكارتي→قطبي، 2: قطبي→ديكارتي)"
       },
       "businessContext_i18n": {
-        "en": "Dönüşüm yönünü belirler: 1 Kartezyen'den Polar'a, 2 Polar'dan Kartezyen'e",
+        "en": "Determines conversion direction: 1 from Cartesian to Polar, 2 from Polar to Cartesian",
         "tr": "Dönüşüm yönünü belirler: 1 Kartezyen'den Polar'a, 2 Polar'dan Kartezyen'e",
         "de": "Bestimmt die Umwandlungsrichtung: 1 von Kartesisch zu Polar, 2 von Polar zu Kartesisch",
         "fr": "Détermine la direction de la conversion : 1 de Cartésien à Polaire, 2 de Polaire à Cartésien",
@@ -33,7 +33,7 @@
       "default": 0,
       "businessContext": "Kartezyen sistemde yatay bileşen (boyutsuz)",
       "label_i18n": {
-        "en": "X koordinatı",
+        "en": "X coordinate",
         "tr": "X koordinatı",
         "de": "X-Koordinate",
         "fr": "Coordonnée X",
@@ -41,7 +41,7 @@
         "ar": "الإحداثي X"
       },
       "businessContext_i18n": {
-        "en": "Kartezyen sistemde yatay bileşen (boyutsuz)",
+        "en": "Horizontal component in Cartesian system (dimensionless)",
         "tr": "Kartezyen sistemde yatay bileşen (boyutsuz)",
         "de": "Horizontale Komponente im kartesischen System (dimensionslos)",
         "fr": "Composante horizontale dans le système cartésien (sans dimension)",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "Kartezyen sistemde düşey bileşen (boyutsuz)",
       "label_i18n": {
-        "en": "Y koordinatı",
+        "en": "Y coordinate",
         "tr": "Y koordinatı",
         "de": "Y-Koordinate",
         "fr": "Coordonnée Y",
@@ -65,7 +65,7 @@
         "ar": "الإحداثي Y"
       },
       "businessContext_i18n": {
-        "en": "Kartezyen sistemde düşey bileşen (boyutsuz)",
+        "en": "Vertical component in Cartesian system (dimensionless)",
         "tr": "Kartezyen sistemde düşey bileşen (boyutsuz)",
         "de": "Vertikale Komponente im kartesischen System (dimensionslos)",
         "fr": "Composante verticale dans le système cartésien (sans dimension)",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "Polar koordinatlarda orijine uzaklık",
       "label_i18n": {
-        "en": "Radyal uzaklık (r)",
+        "en": "Radial distance (r)",
         "tr": "Radyal uzaklık (r)",
         "de": "Radialer Abstand (r)",
         "fr": "Distance radiale (r)",
@@ -89,7 +89,7 @@
         "ar": "المسافة الشعاعية (r)"
       },
       "businessContext_i18n": {
-        "en": "Polar koordinatlarda orijine uzaklık",
+        "en": "Distance from origin in polar coordinates",
         "tr": "Polar koordinatlarda orijine uzaklık",
         "de": "Abstand zum Ursprung in Polarkoordinaten",
         "fr": "Distance à l'origine en coordonnées polaires",
@@ -105,7 +105,7 @@
       "default": 0,
       "businessContext": "Polar açı, derece cinsinden pozitif x eksenine göre",
       "label_i18n": {
-        "en": "Açı (θ)",
+        "en": "Angle (θ)",
         "tr": "Açı (θ)",
         "de": "Winkel (θ)",
         "fr": "Angle (θ)",
@@ -113,7 +113,7 @@
         "ar": "الزاوية (θ)"
       },
       "businessContext_i18n": {
-        "en": "Polar açı, derece cinsinden pozitif x eksenine göre",
+        "en": "Polar angle in degrees relative to positive x-axis",
         "tr": "Polar açı, derece cinsinden pozitif x eksenine göre",
         "de": "Polarwinkel in Grad, bezogen auf die positive x-Achse",
         "fr": "Angle polaire, en degrés par rapport à l'axe x positif",

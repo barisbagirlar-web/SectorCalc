@@ -9,7 +9,7 @@
       "default": 1,
       "businessContext": "Integrand genlik çarpanı",
       "label_i18n": {
-        "en": "Amplitüd (A)",
+        "en": "Amplitude (A)",
         "tr": "Amplitüd (A)",
         "de": "Amplitude (A)",
         "fr": "Amplitude (A)",
@@ -17,7 +17,7 @@
         "ar": "السعة (A)"
       },
       "businessContext_i18n": {
-        "en": "Integrand genlik çarpanı",
+        "en": "Integrand amplitude multiplier",
         "tr": "İntegrand genlik çarpanı",
         "de": "Amplitudenfaktor des Integranden",
         "fr": "Multiplicateur d'amplitude de l'intégrande",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "Üstel bozunma hızı",
       "label_i18n": {
-        "en": "Bozunum katsayısı (B, >0)",
+        "en": "Decay coefficient (B, >0)",
         "tr": "Bozunum katsayısı (B, >0)",
         "de": "Dämpfungskoeffizient (B, >0)",
         "fr": "Coefficient d'amortissement (B, >0)",
@@ -41,7 +41,7 @@
         "ar": "معامل التضاؤل (B، >0)"
       },
       "businessContext_i18n": {
-        "en": "Üstel bozunma hızı",
+        "en": "Exponential decay rate",
         "tr": "Üstel bozunma hızı",
         "de": "Exponentielle Abklingrate",
         "fr": "Taux de décroissance exponentielle",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "İntegral başlangıcı",
       "label_i18n": {
-        "en": "Alt sınır (a)",
+        "en": "Lower limit (a)",
         "tr": "Alt sınır (a)",
         "de": "Untere Grenze (a)",
         "fr": "Limite inférieure (a)",
@@ -65,7 +65,7 @@
         "ar": "الحد الأدنى (a)"
       },
       "businessContext_i18n": {
-        "en": "İntegral başlangıcı",
+        "en": "Integral start",
         "tr": "İntegral başlangıcı",
         "de": "Integrationsbeginn",
         "fr": "Début de l'intégrale",
@@ -89,7 +89,7 @@
         "ar": "الإزاحة (x₀)"
       },
       "businessContext_i18n": {
-        "en": "Üssün kayma noktası",
+        "en": "Exponent shift point",
         "tr": "Üssün kayma noktası",
         "de": "Verschiebungspunkt des Exponenten",
         "fr": "Point de décalage de l'exposant",

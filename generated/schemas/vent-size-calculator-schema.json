@@ -17,7 +17,7 @@
         "ar": "حجم الغرفة"
       },
       "businessContext_i18n": {
-        "en": "Havalandırma yapılacak odanın toplam iç hacmi",
+        "en": "Total internal volume of the room to be ventilated",
         "tr": "Havalandırma yapılacak odanın toplam iç hacmi",
         "de": "Gesamtes Innenvolumen des zu belüftenden Raums",
         "fr": "Volume intérieur total de la pièce à ventiler",
@@ -33,7 +33,7 @@
       "default": 5,
       "businessContext": "Saatte istenen hava değişim sayısı",
       "label_i18n": {
-        "en": "Hava Değişim Sayısı (ACH)",
+        "en": "Air Changes per Hour (ACH)",
         "tr": "Hava Değişim Sayısı (ACH)",
         "de": "Luftwechselrate (ACH)",
         "fr": "Taux de renouvellement d'air (ACH)",
@@ -41,7 +41,7 @@
         "ar": "عدد مرات تغيير الهواء في الساعة (ACH)"
       },
       "businessContext_i18n": {
-        "en": "Saatte istenen hava değişim sayısı",
+        "en": "Desired number of air changes per hour",
         "tr": "Saatte istenen hava değişim sayısı",
         "de": "Gewünschte Anzahl von Luftwechseln pro Stunde",
         "fr": "Nombre de renouvellements d'air souhaité par heure",
@@ -57,7 +57,7 @@
       "default": 2,
       "businessContext": "Menfezden geçen havanın ortalama hızı",
       "label_i18n": {
-        "en": "Hava Hızı",
+        "en": "Air Velocity",
         "tr": "Hava Hızı",
         "de": "Luftgeschwindigkeit",
         "fr": "Vitesse de l'air",
@@ -65,7 +65,7 @@
         "ar": "سرعة الهواء"
       },
       "businessContext_i18n": {
-        "en": "Menfezden geçen havanın ortalama hızı",
+        "en": "Average velocity of air passing through the vent",
         "tr": "Menfezden geçen havanın ortalama hızı",
         "de": "Durchschnittliche Luftgeschwindigkeit durch die Öffnung",
         "fr": "Vitesse moyenne de l'air à travers la bouche",
@@ -81,7 +81,7 @@
       "default": 1.2,
       "businessContext": "Hesaplamaya eklenen emniyet payı",
       "label_i18n": {
-        "en": "Emniyet Katsayısı",
+        "en": "Safety Factor",
         "tr": "Emniyet Katsayısı",
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
@@ -89,7 +89,7 @@
         "ar": "معامل الأمان"
       },
       "businessContext_i18n": {
-        "en": "Hesaplamaya eklenen emniyet payı",
+        "en": "Safety margin added to the calculation",
         "tr": "Hesaplamaya eklenen emniyet payı",
         "de": "Sicherheitszuschlag zur Berechnung",
         "fr": "Marge de sécurité ajoutée au calcul",

@@ -9,7 +9,7 @@
       "default": 10,
       "businessContext": "Gözlem sayısı",
       "label_i18n": {
-        "en": "Veri Sayısı (n)",
+        "en": "Number of data points (n)",
         "tr": "Veri Sayısı (n)",
         "de": "Anzahl der Datenpunkte (n)",
         "fr": "Nombre de données (n)",
@@ -17,7 +17,7 @@
         "ar": "عدد البيانات (ن)"
       },
       "businessContext_i18n": {
-        "en": "Gözlem sayısı",
+        "en": "Number of observations",
         "tr": "Gözlem sayısı",
         "de": "Anzahl der Beobachtungen",
         "fr": "Nombre d'observations",
@@ -33,7 +33,7 @@
       "default": 55,
       "businessContext": "Bağımsız değişkenin toplamı",
       "label_i18n": {
-        "en": "x Toplamı (Σx)",
+        "en": "Sum of x (Σx)",
         "tr": "x Toplamı (Σx)",
         "de": "Summe von x (Σx)",
         "fr": "Somme des x (Σx)",
@@ -41,7 +41,7 @@
         "ar": "مجموع x (Σx)"
       },
       "businessContext_i18n": {
-        "en": "Bağımsız değişkenin toplamı",
+        "en": "Sum of independent variable",
         "tr": "Bağımsız değişkenin toplamı",
         "de": "Summe der unabhängigen Variablen",
         "fr": "Somme de la variable indépendante",
@@ -57,7 +57,7 @@
       "default": 100,
       "businessContext": "Bağımlı değişkenin toplamı",
       "label_i18n": {
-        "en": "y Toplamı (Σy)",
+        "en": "Sum of y (Σy)",
         "tr": "y Toplamı (Σy)",
         "de": "Summe von y (Σy)",
         "fr": "Somme des y (Σy)",
@@ -65,7 +65,7 @@
         "ar": "مجموع y (Σy)"
       },
       "businessContext_i18n": {
-        "en": "Bağımlı değişkenin toplamı",
+        "en": "Sum of dependent variable",
         "tr": "Bağımlı değişkenin toplamı",
         "de": "Summe der abhängigen Variable",
         "fr": "Somme de la variable dépendante",
@@ -81,7 +81,7 @@
       "default": 600,
       "businessContext": "Bağımsız ve bağımlı değişkenin çarpımlarının toplamı",
       "label_i18n": {
-        "en": "x·y Toplamı (Σxy)",
+        "en": "Sum of x·y (Σxy)",
         "tr": "x·y Toplamı (Σxy)",
         "de": "Summe von x·y (Σxy)",
         "fr": "Somme des x·y (Σxy)",
@@ -89,7 +89,7 @@
         "ar": "مجموع x·y (Σxy)"
       },
       "businessContext_i18n": {
-        "en": "Bağımsız ve bağımlı değişkenin çarpımlarının toplamı",
+        "en": "Sum of products of independent and dependent variables",
         "tr": "Bağımsız ve bağımlı değişkenin çarpımlarının toplamı",
         "de": "Summe der Produkte von unabhängiger und abhängiger Variable",
         "fr": "Somme des produits des variables indépendante et dépendante",
@@ -105,7 +105,7 @@
       "default": 385,
       "businessContext": "Bağımsız değişkenin karelerinin toplamı",
       "label_i18n": {
-        "en": "x² Toplamı (Σx²)",
+        "en": "Sum of x² (Σx²)",
         "tr": "x² Toplamı (Σx²)",
         "de": "Summe von x² (Σx²)",
         "fr": "Somme des x² (Σx²)",
@@ -113,7 +113,7 @@
         "ar": "مجموع مربعات x (Σx²)"
       },
       "businessContext_i18n": {
-        "en": "Bağımsız değişkenin karelerinin toplamı",
+        "en": "Sum of squares of independent variable",
         "tr": "Bağımsız değişkenin karelerinin toplamı",
         "de": "Summe der Quadrate der unabhängigen Variable",
         "fr": "Somme des carrés de la variable indépendante",

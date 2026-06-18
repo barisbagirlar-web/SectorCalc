@@ -9,7 +9,7 @@
       "default": 3000,
       "businessContext": "Katlar arası yükseklik.",
       "label_i18n": {
-        "en": "Toplam Yükseklik",
+        "en": "Total Height",
         "tr": "Toplam Yükseklik",
         "de": "Gesamthöhe",
         "fr": "Hauteur totale",
@@ -17,7 +17,7 @@
         "ar": "الارتفاع الكلي"
       },
       "businessContext_i18n": {
-        "en": "Katlar arası yükseklik.",
+        "en": "Floor-to-floor height.",
         "tr": "Katlar arası yükseklik.",
         "de": "Höhe zwischen den Geschossen.",
         "fr": "Hauteur entre les étages.",
@@ -33,7 +33,7 @@
       "default": 15,
       "businessContext": "Toplam basamak adedi.",
       "label_i18n": {
-        "en": "Basamak Sayısı",
+        "en": "Number of Steps",
         "tr": "Basamak Sayısı",
         "de": "Stufenzahl",
         "fr": "Nombre de marches",
@@ -57,7 +57,7 @@
       "default": 280,
       "businessContext": "Bir basamağın yatay derinliği.",
       "label_i18n": {
-        "en": "Basamak Derinliği",
+        "en": "Step Depth",
         "tr": "Basamak Derinliği",
         "de": "Stufentiefe",
         "fr": "Profondeur de marche",
@@ -65,7 +65,7 @@
         "ar": "عمق الدرجة"
       },
       "businessContext_i18n": {
-        "en": "Bir basamağın yatay derinliği.",
+        "en": "Horizontal depth of a step.",
         "tr": "Bir basamağın yatay derinliği.",
         "de": "Horizontale Tiefe einer Stufe.",
         "fr": "Profondeur horizontale d'une marche.",
@@ -81,7 +81,7 @@
       "default": 1000,
       "businessContext": "Merdiven kol genişliği.",
       "label_i18n": {
-        "en": "Merdiven Genişliği",
+        "en": "Stair Width",
         "tr": "Merdiven Genişliği",
         "de": "Treppenbreite",
         "fr": "Largeur de l'escalier",
@@ -89,7 +89,7 @@
         "ar": "عرض السلم"
       },
       "businessContext_i18n": {
-        "en": "Merdiven kol genişliği.",
+        "en": "Stair flight width.",
         "tr": "Merdiven kol genişliği.",
         "de": "Breite des Treppenlaufs.",
         "fr": "Largeur de la volée d'escalier.",
@@ -105,7 +105,7 @@
       "default": 150,
       "businessContext": "Taşıyıcı eğik plakanın kalınlığı.",
       "label_i18n": {
-        "en": "Eğik Döşeme Kalınlığı",
+        "en": "Slab Thickness",
         "tr": "Eğik Döşeme Kalınlığı",
         "de": "Geneigte Plattendicke",
         "fr": "Épaisseur de la dalle inclinée",
@@ -113,7 +113,7 @@
         "ar": "سمك البلاطة المائلة"
       },
       "businessContext_i18n": {
-        "en": "Taşıyıcı eğik plakanın kalınlığı.",
+        "en": "Thickness of the inclined load-bearing slab.",
         "tr": "Taşıyıcı eğik plakanın kalınlığı.",
         "de": "Dicke der tragenden geneigten Platte.",
         "fr": "Épaisseur de la dalle inclinée porteuse.",
@@ -129,7 +129,7 @@
       "default": 0,
       "businessContext": "Varsa sahanlığın uzunluğu, yoksa 0.",
       "label_i18n": {
-        "en": "Sahanlık Uzunluğu",
+        "en": "Landing Length",
         "tr": "Sahanlık Uzunluğu",
         "de": "Podestlänge",
         "fr": "Longueur du palier",
@@ -137,7 +137,7 @@
         "ar": "طول الهبوط"
       },
       "businessContext_i18n": {
-        "en": "Varsa sahanlığın uzunluğu, yoksa 0.",
+        "en": "Length of the landing, if any; otherwise 0.",
         "tr": "Varsa sahanlığın uzunluğu, yoksa 0.",
         "de": "Länge des Podests, falls vorhanden, sonst 0.",
         "fr": "Longueur du palier si présent, sinon 0.",

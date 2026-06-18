@@ -17,7 +17,7 @@
         "ar": "حجم الحمض"
       },
       "businessContext_i18n": {
-        "en": "Kullanılan asit çözeltisinin hacmi.",
+        "en": "Volume of acid solution used.",
         "tr": "Kullanılan asit çözeltisinin hacmi.",
         "de": "Volumen der verwendeten Säurelösung.",
         "fr": "Volume de la solution acide utilisée.",
@@ -33,7 +33,7 @@
       "default": 0.1,
       "businessContext": "Asit çözeltisinin konsantrasyonu.",
       "label_i18n": {
-        "en": "Asit Derişimi",
+        "en": "Acid Concentration",
         "tr": "Asit Derişimi",
         "de": "Säurekonzentration",
         "fr": "Concentration d'acide",
@@ -41,7 +41,7 @@
         "ar": "تركيز الحمض"
       },
       "businessContext_i18n": {
-        "en": "Asit çözeltisinin konsantrasyonu.",
+        "en": "Concentration of the acid solution.",
         "tr": "Asit çözeltisinin konsantrasyonu.",
         "de": "Konzentration der Säurelösung.",
         "fr": "Concentration de la solution acide.",
@@ -65,7 +65,7 @@
         "ar": "حجم القاعدة"
       },
       "businessContext_i18n": {
-        "en": "Kullanılan baz çözeltisinin hacmi.",
+        "en": "Volume of base solution used.",
         "tr": "Kullanılan baz çözeltisinin hacmi.",
         "de": "Volumen der verwendeten Basenlösung.",
         "fr": "Volume de la solution basique utilisée.",
@@ -81,7 +81,7 @@
       "default": 0.1,
       "businessContext": "Baz çözeltisinin konsantrasyonu.",
       "label_i18n": {
-        "en": "Baz Derişimi",
+        "en": "Base Concentration",
         "tr": "Baz Derişimi",
         "de": "Basenkonzentration",
         "fr": "Concentration de base",
@@ -89,7 +89,7 @@
         "ar": "تركيز القاعدة"
       },
       "businessContext_i18n": {
-        "en": "Baz çözeltisinin konsantrasyonu.",
+        "en": "Concentration of the base solution.",
         "tr": "Baz çözeltisinin konsantrasyonu.",
         "de": "Konzentration der Basenlösung.",
         "fr": "Concentration de la solution basique.",
@@ -105,7 +105,7 @@
       "default": 1e-14,
       "businessContext": "Suyun iyonlaşma sabiti, sıcaklığa bağlı değişir; 25°C için 1e-14.",
       "label_i18n": {
-        "en": "Su İyonlaşma Sabiti (Kw)",
+        "en": "Ion Product of Water (Kw)",
         "tr": "Su İyonlaşma Sabiti (Kw)",
         "de": "Ionenprodukt des Wassers (Kw)",
         "fr": "Constante d'ionisation de l'eau (Kw)",
@@ -113,7 +113,7 @@
         "ar": "ثابت تأين الماء (Kw)"
       },
       "businessContext_i18n": {
-        "en": "Suyun iyonlaşma sabiti, sıcaklığa bağlı değişir; 25°C için 1e-14.",
+        "en": "Ionization constant of water, varies with temperature; 1e-14 at 25°C.",
         "tr": "Suyun iyonlaşma sabiti, sıcaklığa bağlı değişir; 25°C için 1e-14.",
         "de": "Ionenprodukt des Wassers, temperaturabhängig; bei 25°C 1e-14.",
         "fr": "Constante d'ionisation de l'eau, varie avec la température ; 1e-14 à 25°C.",

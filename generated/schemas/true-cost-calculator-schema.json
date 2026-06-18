@@ -9,7 +9,7 @@
       "default": 100,
       "businessContext": "Üretim birim başına direkt malzeme maliyeti",
       "label_i18n": {
-        "en": "Hammadde Maliyeti (birim başına)",
+        "en": "Raw Material Cost (per unit)",
         "tr": "Hammadde Maliyeti (birim başına)",
         "de": "Rohstoffkosten (pro Einheit)",
         "fr": "Coût matière première (par unité)",
@@ -17,7 +17,7 @@
         "ar": "تكلفة المواد الخام (لكل وحدة)"
       },
       "businessContext_i18n": {
-        "en": "Üretim birim başına direkt malzeme maliyeti",
+        "en": "Direct material cost per unit of production",
         "tr": "Üretim birim başına direkt malzeme maliyeti",
         "de": "Direkte Materialkosten pro Produktionseinheit",
         "fr": "Coût direct des matériaux par unité produite",
@@ -33,7 +33,7 @@
       "default": 50,
       "businessContext": "Birim başı direkt işçilik maliyeti",
       "label_i18n": {
-        "en": "İşçilik Maliyeti (birim başına)",
+        "en": "Labor cost (per unit)",
         "tr": "İşçilik Maliyeti (birim başına)",
         "de": "Arbeitskosten (pro Einheit)",
         "fr": "Coût de main-d'œuvre (par unité)",
@@ -41,7 +41,7 @@
         "ar": "تكلفة العمالة (لكل وحدة)"
       },
       "businessContext_i18n": {
-        "en": "Birim başı direkt işçilik maliyeti",
+        "en": "Direct labor cost per unit",
         "tr": "Birim başı direkt işçilik maliyeti",
         "de": "Direkte Arbeitskosten pro Einheit",
         "fr": "Coût direct de main-d'œuvre par unité",
@@ -57,7 +57,7 @@
       "default": 20,
       "businessContext": "Üretim birim başı enerji tüketim maliyeti",
       "label_i18n": {
-        "en": "Enerji Maliyeti (birim başına)",
+        "en": "Energy cost (per unit)",
         "tr": "Enerji Maliyeti (birim başına)",
         "de": "Energiekosten (pro Einheit)",
         "fr": "Coût énergétique (par unité)",
@@ -65,7 +65,7 @@
         "ar": "تكلفة الطاقة (لكل وحدة)"
       },
       "businessContext_i18n": {
-        "en": "Üretim birim başı enerji tüketim maliyeti",
+        "en": "Energy consumption cost per unit of production",
         "tr": "Üretim birim başı enerji tüketim maliyeti",
         "de": "Energieverbrauchskosten pro Produktionseinheit",
         "fr": "Coût de consommation énergétique par unité produite",
@@ -81,7 +81,7 @@
       "default": 25,
       "businessContext": "Direkt maliyetler üzerinden uygulanan genel üretim gider yüzdesi",
       "label_i18n": {
-        "en": "Genel Üretim Gider Oranı",
+        "en": "General production overhead rate",
         "tr": "Genel Üretim Gider Oranı",
         "de": "Gemeinkostensatz Fertigung",
         "fr": "Taux de frais généraux de production",
@@ -89,7 +89,7 @@
         "ar": "نسبة التكاليف العامة للتصنيع"
       },
       "businessContext_i18n": {
-        "en": "Direkt maliyetler üzerinden uygulanan genel üretim gider yüzdesi",
+        "en": "General production overhead percentage applied on direct costs",
         "tr": "Direkt maliyetler üzerinden uygulanan genel üretim gider yüzdesi",
         "de": "Prozentsatz der Gemeinkosten, angewendet auf direkte Kosten",
         "fr": "Pourcentage de frais généraux appliqué sur les coûts directs",
@@ -105,7 +105,7 @@
       "default": 10,
       "businessContext": "Üretim sürecindeki fire oranı; etkin maliyet hesaplamasında kayıp oranı olarak kullanılır",
       "label_i18n": {
-        "en": "Fire Oranı",
+        "en": "Waste Rate",
         "tr": "Fire Oranı",
         "de": "Verschnittanteil",
         "fr": "Taux de perte",
@@ -113,7 +113,7 @@
         "ar": "نسبة الهدر"
       },
       "businessContext_i18n": {
-        "en": "Üretim sürecindeki fire oranı; etkin maliyet hesaplamasında kayıp oranı olarak kullanılır",
+        "en": "Scrap rate in the production process; used as loss rate in effective cost calculation",
         "tr": "Fire Oranı",
         "de": "Ausschussrate im Produktionsprozess; wird als Verlustrate in der effektiven Kostenberechnung verwendet",
         "fr": "Taux de rebut dans le processus de production ; utilisé comme taux de perte dans le calcul des coûts effectifs",

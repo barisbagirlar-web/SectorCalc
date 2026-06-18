@@ -9,7 +9,7 @@
       "default": 25,
       "businessContext": "Proses sıcaklığı",
       "label_i18n": {
-        "en": "Sıcaklık",
+        "en": "Temperature",
         "tr": "Sıcaklık",
         "de": "Temperatur",
         "fr": "Température",
@@ -17,7 +17,7 @@
         "ar": "درجة الحرارة"
       },
       "businessContext_i18n": {
-        "en": "Proses sıcaklığı",
+        "en": "Process Temperature",
         "tr": "Proses sıcaklığı",
         "de": "Prozess-Temperatur",
         "fr": "Température du procédé",
@@ -33,7 +33,7 @@
       "default": 10,
       "businessContext": "Akışkanın maruz kaldığı kayma hızı",
       "label_i18n": {
-        "en": "Kayma Hızı",
+        "en": "Slip Velocity",
         "tr": "Kayma Hızı",
         "de": "Schergeschwindigkeit",
         "fr": "Vitesse de cisaillement",
@@ -41,7 +41,7 @@
         "ar": "معدل القص"
       },
       "businessContext_i18n": {
-        "en": "Akışkanın maruz kaldığı kayma hızı",
+        "en": "Shear rate experienced by the fluid",
         "tr": "Akışkanın maruz kaldığı kayma hızı",
         "de": "Schergeschwindigkeit, der das Fluid ausgesetzt ist",
         "fr": "Vitesse de cisaillement à laquelle le fluide est soumis",
@@ -57,7 +57,7 @@
       "default": 0.5,
       "businessContext": "Power-law modeli tutarlılık katsayısı",
       "label_i18n": {
-        "en": "Kıvam İndisi",
+        "en": "Consistency Index",
         "tr": "Kıvam İndisi",
         "de": "Konsistenzindex",
         "fr": "Indice de consistance",
@@ -65,7 +65,7 @@
         "ar": "مؤشر القوام"
       },
       "businessContext_i18n": {
-        "en": "Power-law modeli tutarlılık katsayısı",
+        "en": "Power-law model consistency coefficient",
         "tr": "Power-law modeli tutarlılık katsayısı",
         "de": "Konsistenzkoeffizient des Power-Law-Modells",
         "fr": "Coefficient de consistance du modèle loi de puissance",
@@ -81,7 +81,7 @@
       "default": 0.8,
       "businessContext": "Power-law modeli akışkanlık katsayısı",
       "label_i18n": {
-        "en": "Akış Davranış İndisi",
+        "en": "Flow Behavior Index",
         "tr": "Akış Davranış İndisi",
         "de": "Fließverhaltensindex",
         "fr": "Indice de comportement d'écoulement",
@@ -89,7 +89,7 @@
         "ar": "مؤشر سلوك التدفق"
       },
       "businessContext_i18n": {
-        "en": "Power-law modeli akışkanlık katsayısı",
+        "en": "Power-law model fluidity coefficient",
         "tr": "Power-law modeli akışkanlık katsayısı",
         "de": "Fließfähigkeitskoeffizient des Power-Law-Modells",
         "fr": "Coefficient de consistance du modèle en loi de puissance",
@@ -105,7 +105,7 @@
       "default": 1000,
       "businessContext": "Akışkan yoğunluğu",
       "label_i18n": {
-        "en": "Yoğunluk",
+        "en": "Density",
         "tr": "Yoğunluk",
         "de": "Dichte",
         "fr": "Densité",
@@ -113,7 +113,7 @@
         "ar": "الكثافة"
       },
       "businessContext_i18n": {
-        "en": "Akışkan yoğunluğu",
+        "en": "Fluid density",
         "tr": "Akışkan yoğunluğu",
         "de": "Fluiddichte",
         "fr": "Densité du fluide",
@@ -137,7 +137,7 @@
         "ar": "معدل التدفق"
       },
       "businessContext_i18n": {
-        "en": "Hacimsel akış hızı",
+        "en": "Volumetric flow rate",
         "tr": "Hacimsel akış hızı",
         "de": "Volumenstrom",
         "fr": "Débit volumique",
@@ -153,7 +153,7 @@
       "default": 0.05,
       "businessContext": "Taşıma borusu iç çapı",
       "label_i18n": {
-        "en": "Boru Çapı",
+        "en": "Pipe diameter",
         "tr": "Boru Çapı",
         "de": "Rohrdurchmesser",
         "fr": "Diamètre du tuyau",
@@ -161,7 +161,7 @@
         "ar": "قطر الأنبوب"
       },
       "businessContext_i18n": {
-        "en": "Taşıma borusu iç çapı",
+        "en": "Transport pipe inner diameter",
         "tr": "Taşıma borusu iç çapı",
         "de": "Innendurchmesser des Förderrohrs",
         "fr": "Diamètre intérieur du tuyau de transport",

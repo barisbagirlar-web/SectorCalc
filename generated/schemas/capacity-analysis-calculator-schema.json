@@ -9,7 +9,7 @@
       "default": 10,
       "businessContext": "Üretim hattındaki toplam makine sayısı",
       "label_i18n": {
-        "en": "Makine Sayısı",
+        "en": "Number of Machines",
         "tr": "Makine Sayısı",
         "de": "Makine Sayısı",
         "fr": "Nombre de machines",
@@ -17,7 +17,7 @@
         "ar": "عدد الآلات"
       },
       "businessContext_i18n": {
-        "en": "Üretim hattındaki toplam makine sayısı",
+        "en": "Total number of machines on the production line",
         "tr": "Üretim hattındaki toplam makine sayısı",
         "de": "Üretim hattındaki toplam makine sayısı",
         "fr": "Nombre total de machines sur la ligne de production",
@@ -33,7 +33,7 @@
       "default": 8,
       "businessContext": "Vardiya başına günlük çalışma süresi",
       "label_i18n": {
-        "en": "Günlük Çalışma Saati",
+        "en": "Daily Working Hours",
         "tr": "Günlük Çalışma Saati",
         "de": "Günlük Çalışma Saati",
         "fr": "Heures de travail par jour",
@@ -41,7 +41,7 @@
         "ar": "ساعات العمل اليومية"
       },
       "businessContext_i18n": {
-        "en": "Vardiya başına günlük çalışma süresi",
+        "en": "Daily working time per shift",
         "tr": "Vardiya başına günlük çalışma süresi",
         "de": "Vardiya başına günlük çalışma süresi",
         "fr": "Durée de travail quotidienne par équipe",
@@ -57,7 +57,7 @@
       "default": 22,
       "businessContext": "Bir ayda üretimin yapıldığı iş günü sayısı",
       "label_i18n": {
-        "en": "Aylık Çalışma Günü",
+        "en": "Monthly Working Days",
         "tr": "Aylık Çalışma Günü",
         "de": "Aylık Çalışma Günü",
         "fr": "Jours ouvrables par mois",
@@ -65,7 +65,7 @@
         "ar": "أيام العمل الشهرية"
       },
       "businessContext_i18n": {
-        "en": "Bir ayda üretimin yapıldığı iş günü sayısı",
+        "en": "Number of working days in a month when production takes place",
         "tr": "Bir ayda üretimin yapıldığı iş günü sayısı",
         "de": "Bir ayda üretimin yapıldığı iş günü sayısı",
         "fr": "Nombre de jours ouvrables de production dans le mois",
@@ -89,7 +89,7 @@
         "ar": "الكفاءة"
       },
       "businessContext_i18n": {
-        "en": "Planlı duruşlar, ayar ve arızalar sonrası net verimlilik oranı",
+        "en": "Net efficiency rate after planned downtime, setup, and breakdowns",
         "tr": "Planlı duruşlar, ayar ve arızalar sonrası net verimlilik oranı",
         "de": "Planlı duruşlar, ayar ve arızalar sonrası net verimlilik oranı",
         "fr": "Taux de rendement net après arrêts planifiés, réglages et pannes",
@@ -105,7 +105,7 @@
       "default": 10000,
       "businessContext": "Müşteri siparişlerine göre aylık üretilmesi gereken ürün adedi",
       "label_i18n": {
-        "en": "Aylık Talep",
+        "en": "Monthly Demand",
         "tr": "Aylık Talep",
         "de": "Aylık Talep",
         "fr": "Demande mensuelle",
@@ -113,7 +113,7 @@
         "ar": "الطلب الشهري"
       },
       "businessContext_i18n": {
-        "en": "Müşteri siparişlerine göre aylık üretilmesi gereken ürün adedi",
+        "en": "Number of products to be produced per month based on customer orders",
         "tr": "Müşteri siparişlerine göre aylık üretilmesi gereken ürün adedi",
         "de": "Monatlich zu produzierende Stückzahl basierend auf Kundenaufträgen",
         "fr": "Quantité mensuelle à produire selon les commandes clients",
@@ -129,7 +129,7 @@
       "default": 1.5,
       "businessContext": "Bir ürünün makineden geçiş süresi (cycle time)",
       "label_i18n": {
-        "en": "Birim İşlem Süresi",
+        "en": "Unit Processing Time",
         "tr": "Birim İşlem Süresi",
         "de": "Bearbeitungszeit pro Einheit",
         "fr": "Temps de cycle unitaire",
@@ -137,7 +137,7 @@
         "ar": "وقت المعالجة للوحدة"
       },
       "businessContext_i18n": {
-        "en": "Bir ürünün makineden geçiş süresi (cycle time)",
+        "en": "Time for a product to pass through the machine (cycle time)",
         "tr": "Bir ürünün makineden geçiş süresi (cycle time)",
         "de": "Durchlaufzeit eines Produkts durch die Maschine (Zykluszeit)",
         "fr": "Temps de passage d'un produit dans la machine (cycle time)",

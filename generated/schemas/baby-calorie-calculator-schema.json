@@ -9,7 +9,7 @@
       "default": 4.5,
       "businessContext": "Bebeğin ağırlığı kilogram cinsinden.",
       "label_i18n": {
-        "en": "Bebek Ağırlığı (kg)",
+        "en": "Baby Weight (kg)",
         "tr": "Bebek Ağırlığı (kg)",
         "de": "Bebek Ağırlığı (kg)",
         "fr": "Poids du bébé (kg)",
@@ -17,7 +17,7 @@
         "ar": "وزن الطفل (كجم)"
       },
       "businessContext_i18n": {
-        "en": "Bebeğin ağırlığı kilogram cinsinden.",
+        "en": "Baby's weight in kilograms.",
         "tr": "Bebeğin ağırlığı kilogram cinsinden.",
         "de": "Bebeğin ağırlığı kilogram cinsinden.",
         "fr": "Poids du bébé en kilogrammes.",
@@ -33,7 +33,7 @@
       "default": 2,
       "businessContext": "Bebeğin tamamlanmış ay cinsinden yaşı.",
       "label_i18n": {
-        "en": "Bebek Yaşı (ay)",
+        "en": "Baby Age (months)",
         "tr": "Bebek Yaşı (ay)",
         "de": "Bebek Yaşı (ay)",
         "fr": "Âge du bébé (mois)",
@@ -41,7 +41,7 @@
         "ar": "عمر الطفل (شهر)"
       },
       "businessContext_i18n": {
-        "en": "Bebeğin tamamlanmış ay cinsinden yaşı.",
+        "en": "Baby's age in completed months.",
         "tr": "Bebeğin tamamlanmış ay cinsinden yaşı.",
         "de": "Bebeğin tamamlanmış ay cinsinden yaşı.",
         "fr": "Âge du bébé en mois révolus.",
@@ -57,7 +57,7 @@
       "default": 1,
       "businessContext": "Anne sütü için 1.0, formül için 1.05, karışık beslenme için 1.1.",
       "label_i18n": {
-        "en": "Beslenme Çarpanı",
+        "en": "Feeding Multiplier",
         "tr": "Beslenme Çarpanı",
         "de": "Beslenme Çarpanı",
         "fr": "Coefficient d'alimentation",
@@ -65,9 +65,9 @@
         "ar": "معامل التغذية"
       },
       "businessContext_i18n": {
-        "en": "Anne sütü için 1.0, formül için 1.05, karışık beslenme için 1.1.",
+        "en": "1.0 for breast milk, 1.05 for formula, 1.1 for mixed feeding.",
         "tr": "Anne sütü için 1.0, formül için 1.05, karışık beslenme için 1.1.",
-        "de": "Anne sütü için 1.0, formül için 1.05, karışık beslenme için 1.1.",
+        "de": "Anne sütü için 1.0, Formül için 1.05, Karışık beslenme için 1.1.",
         "fr": "1,0 pour lait maternel, 1,05 pour lait maternisé, 1,1 pour alimentation mixte.",
         "es": "1.0 para leche materna, 1.05 para fórmula, 1.1 para alimentación mixta.",
         "ar": "1.0 لحليب الأم، 1.05 للحليب الصناعي، 1.1 للتغذية المختلطة."
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "6 ay üstü için ek gıdalardan alınan ekstra kalori miktarı.",
       "label_i18n": {
-        "en": "Ek Gıda Kalorisi (kcal)",
+        "en": "Complementary Food Calories (kcal)",
         "tr": "Ek Gıda Kalorisi (kcal)",
         "de": "Ek Gıda Kalorisi (kcal)",
         "fr": "Calories des aliments solides (kcal)",
@@ -89,7 +89,7 @@
         "ar": "سعرات الأغذية التكميلية (كيلو كالوري)"
       },
       "businessContext_i18n": {
-        "en": "6 ay üstü için ek gıdalardan alınan ekstra kalori miktarı.",
+        "en": "Extra calories from complementary foods for infants over 6 months.",
         "tr": "6 ay üstü için ek gıdalardan alınan ekstra kalori miktarı.",
         "de": "6 ay üstü için ek gıdalardan alınan ekstra kalori miktarı.",
         "fr": "Calories supplémentaires provenant des aliments solides pour les bébés de plus de 6 mois.",

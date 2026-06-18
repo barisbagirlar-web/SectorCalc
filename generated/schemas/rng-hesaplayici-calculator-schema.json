@@ -9,7 +9,7 @@
       "default": 12345,
       "businessContext": "LCG algoritması için başlangıç tohum değeri.",
       "label_i18n": {
-        "en": "Başlangıç Değeri (Seed)",
+        "en": "Seed value",
         "tr": "Başlangıç Değeri (Seed)",
         "de": "Startwert (Seed)",
         "fr": "Valeur de départ (Seed)",
@@ -17,7 +17,7 @@
         "ar": "القيمة الأولية (Seed)"
       },
       "businessContext_i18n": {
-        "en": "LCG algoritması için başlangıç tohum değeri.",
+        "en": "Initial seed value for the LCG algorithm",
         "tr": "LCG algoritması için başlangıç tohum değeri.",
         "de": "Startwert für den LCG-Algorithmus.",
         "fr": "Valeur de départ pour l'algorithme LCG.",
@@ -33,7 +33,7 @@
       "default": 1664525,
       "businessContext": "Doğrusal eşleşik üretecin çarpan katsayısı.",
       "label_i18n": {
-        "en": "Çarpan (a)",
+        "en": "Multiplier (a)",
         "tr": "Çarpan (a)",
         "de": "Multiplikator (a)",
         "fr": "Multiplicateur (a)",
@@ -41,7 +41,7 @@
         "ar": "المضاعف (a)"
       },
       "businessContext_i18n": {
-        "en": "Doğrusal eşleşik üretecin çarpan katsayısı.",
+        "en": "Multiplier coefficient of the linear congruential generator",
         "tr": "Doğrusal eşleşik üretecin çarpan katsayısı.",
         "de": "Multiplikationskoeffizient des linearen Kongruenzgenerators.",
         "fr": "Coefficient multiplicateur du générateur congruentiel linéaire.",
@@ -57,7 +57,7 @@
       "default": 1013904223,
       "businessContext": "Doğrusal eşleşik üretecin artış sabiti.",
       "label_i18n": {
-        "en": "Artış (c)",
+        "en": "Increment (c)",
         "tr": "Artış (c)",
         "de": "Inkrement (c)",
         "fr": "Incrément (c)",
@@ -65,7 +65,7 @@
         "ar": "الزيادة (c)"
       },
       "businessContext_i18n": {
-        "en": "Doğrusal eşleşik üretecin artış sabiti.",
+        "en": "Increment constant of the linear congruential generator",
         "tr": "Doğrusal eşleşik üretecin artış sabiti.",
         "de": "Inkrementkonstante des linearen Kongruenzgenerators.",
         "fr": "Constante d'incrément du générateur congruentiel linéaire.",
@@ -81,7 +81,7 @@
       "default": 4294967296,
       "businessContext": "Modül değeri, genellikle 2^32.",
       "label_i18n": {
-        "en": "Modül (m)",
+        "en": "Module (m)",
         "tr": "Modül (m)",
         "de": "Modul (m)",
         "fr": "Module (m)",
@@ -89,7 +89,7 @@
         "ar": "الموديول (m)"
       },
       "businessContext_i18n": {
-        "en": "Modül değeri, genellikle 2^32.",
+        "en": "Modulus value, typically 2^32",
         "tr": "Modül değeri, genellikle 2^32.",
         "de": "Modulwert, normalerweise 2^32.",
         "fr": "Valeur du module, généralement 2^32.",
@@ -105,7 +105,7 @@
       "default": 0,
       "businessContext": "Ölçeklendirilmiş rastgele sayı için istenen aralığın alt sınırı.",
       "label_i18n": {
-        "en": "Çıkış Alt Sınır",
+        "en": "Output lower bound",
         "tr": "Çıkış Alt Sınır",
         "de": "Ausgabe Untergrenze",
         "fr": "Limite inférieure de sortie",
@@ -113,7 +113,7 @@
         "ar": "الحد الأدنى للإخراج"
       },
       "businessContext_i18n": {
-        "en": "Ölçeklendirilmiş rastgele sayı için istenen aralığın alt sınırı.",
+        "en": "Lower bound of the desired range for the scaled random number",
         "tr": "Ölçeklendirilmiş rastgele sayı için istenen aralığın alt sınırı.",
         "de": "Untere Grenze des gewünschten Bereichs für die skalierte Zufallszahl.",
         "fr": "Limite inférieure de la plage souhaitée pour le nombre aléatoire mis à l'échelle.",
@@ -129,7 +129,7 @@
       "default": 100,
       "businessContext": "Ölçeklendirilmiş rastgele sayı için istenen aralığın üst sınırı.",
       "label_i18n": {
-        "en": "Çıkış Üst Sınır",
+        "en": "Output upper bound",
         "tr": "Çıkış Üst Sınır",
         "de": "Ausgabe Obergrenze",
         "fr": "Limite supérieure de sortie",
@@ -137,7 +137,7 @@
         "ar": "الحد الأعلى للإخراج"
       },
       "businessContext_i18n": {
-        "en": "Ölçeklendirilmiş rastgele sayı için istenen aralığın üst sınırı.",
+        "en": "Upper limit of the desired range for the scaled random number.",
         "tr": "Ölçeklendirilmiş rastgele sayı için istenen aralığın üst sınırı.",
         "de": "Obere Grenze des gewünschten Bereichs für die skalierte Zufallszahl.",
         "fr": "Limite supérieure de la plage souhaitée pour le nombre aléatoire mis à l'échelle.",

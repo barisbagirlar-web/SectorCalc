@@ -9,7 +9,7 @@
       "default": 0,
       "businessContext": "Standart reaksiyon entalpisi, genellikle 298 K'deki değer",
       "label_i18n": {
-        "en": "Referans Sıcaklıktaki Tepkime Entalpisi (ΔH°)",
+        "en": "Reaction Enthalpy at Reference Temperature (ΔH°)",
         "tr": "Referans Sıcaklıktaki Tepkime Entalpisi (ΔH°)",
         "de": "Reaktionsenthalpie bei Referenztemperatur (ΔH°)",
         "fr": "Enthalpie de réaction à la température de référence (ΔH°)",
@@ -17,7 +17,7 @@
         "ar": "المحتوى الحراري للتفاعل عند درجة الحرارة المرجعية (ΔH°)"
       },
       "businessContext_i18n": {
-        "en": "Standart reaksiyon entalpisi, genellikle 298 K'deki değer",
+        "en": "Standard reaction enthalpy, typically at 298 K",
         "tr": "Standart reaksiyon entalpisi, genellikle 298 K'deki değer",
         "de": "Standardreaktionsenthalpie, normalerweise bei 298 K",
         "fr": "Enthalpie standard de réaction, généralement à 298 K",
@@ -33,7 +33,7 @@
       "default": 298.15,
       "businessContext": "Referans sıcaklık, genellikle 298.15 K",
       "label_i18n": {
-        "en": "Referans Sıcaklık (T_ref)",
+        "en": "Reference Temperature (T_ref)",
         "tr": "Referans Sıcaklık (T_ref)",
         "de": "Referenztemperatur (T_ref)",
         "fr": "Température de référence (T_ref)",
@@ -41,7 +41,7 @@
         "ar": "درجة الحرارة المرجعية (T_ref)"
       },
       "businessContext_i18n": {
-        "en": "Referans sıcaklık, genellikle 298.15 K",
+        "en": "Reference temperature, typically 298.15 K",
         "tr": "Referans sıcaklık, genellikle 298.15 K",
         "de": "Referenz-Temperatur, normalerweise 298,15 K",
         "fr": "Température de référence, généralement 298.15 K",
@@ -57,7 +57,7 @@
       "default": 298.15,
       "businessContext": "Reaksiyonun gerçekleştiği sıcaklık",
       "label_i18n": {
-        "en": "Hedef Sıcaklık (T)",
+        "en": "Target Temperature (T)",
         "tr": "Hedef Sıcaklık (T)",
         "de": "Zieltemperatur (T)",
         "fr": "Température cible (T)",
@@ -65,7 +65,7 @@
         "ar": "درجة الحرارة المستهدفة (T)"
       },
       "businessContext_i18n": {
-        "en": "Reaksiyonun gerçekleştiği sıcaklık",
+        "en": "Temperature at which the reaction occurs",
         "tr": "Reaksiyonun gerçekleştiği sıcaklık",
         "de": "Temperatur, bei der die Reaktion stattfindet",
         "fr": "Température à laquelle la réaction a lieu",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "Ürünlerin sabit basınçtaki ısı kapasitelerinin stokiyometrik katsayılarla çarpılmış toplamı",
       "label_i18n": {
-        "en": "Ürünlerin Isı Kapasitesi Toplamı (ΣCp_ürünler)",
+        "en": "Sum of Heat Capacities of Products (ΣCp_products)",
         "tr": "Ürünlerin Isı Kapasitesi Toplamı (ΣCp_ürünler)",
         "de": "Summe der Wärmekapazitäten der Produkte (ΣCp_Produkte)",
         "fr": "Somme des capacités thermiques des produits (ΣCp_produits)",
@@ -89,7 +89,7 @@
         "ar": "مجموع السعات الحرارية للنواتج (ΣCp_النواتج)"
       },
       "businessContext_i18n": {
-        "en": "Ürünlerin sabit basınçtaki ısı kapasitelerinin stokiyometrik katsayılarla çarpılmış toplamı",
+        "en": "Sum of heat capacities at constant pressure of products multiplied by stoichiometric coefficients",
         "tr": "Ürünlerin sabit basınçtaki ısı kapasitelerinin stokiyometrik katsayılarla çarpılmış toplamı",
         "de": "Summe der Wärmekapazitäten der Produkte bei konstantem Druck, multipliziert mit den stöchiometrischen Koeffizienten",
         "fr": "Somme des capacités thermiques à pression constante des produits multipliées par leurs coefficients stœchiométriques",
@@ -105,7 +105,7 @@
       "default": 0,
       "businessContext": "Reaktantların sabit basınçtaki ısı kapasitelerinin stokiyometrik katsayılarla çarpılmış toplamı",
       "label_i18n": {
-        "en": "Reaktantların Isı Kapasitesi Toplamı (ΣCp_reaktantlar)",
+        "en": "Sum of Heat Capacities of Reactants (ΣCp_reactants)",
         "tr": "Reaktantların Isı Kapasitesi Toplamı (ΣCp_reaktantlar)",
         "de": "Summe der Wärmekapazitäten der Reaktanten (ΣCp_Reaktanten)",
         "fr": "Somme des capacités thermiques des réactifs (ΣCp_réactifs)",
@@ -113,7 +113,7 @@
         "ar": "مجموع السعات الحرارية للمتفاعلات (ΣCp_المتفاعلات)"
       },
       "businessContext_i18n": {
-        "en": "Reaktantların sabit basınçtaki ısı kapasitelerinin stokiyometrik katsayılarla çarpılmış toplamı",
+        "en": "Sum of heat capacities at constant pressure of reactants multiplied by stoichiometric coefficients",
         "tr": "Reaktantların sabit basınçtaki ısı kapasitelerinin stokiyometrik katsayılarla çarpılmış toplamı",
         "de": "Summe der Wärmekapazitäten der Reaktanten bei konstantem Druck, multipliziert mit den stöchiometrischen Koeffizienten",
         "fr": "Somme des capacités thermiques à pression constante des réactifs multipliées par leurs coefficients stœchiométriques",
@@ -129,7 +129,7 @@
       "default": 1,
       "businessContext": "Reaksiyonun kaç mol üzerinden gerçekleştiği (ölçek faktörü)",
       "label_i18n": {
-        "en": "Mol Sayısı (n)",
+        "en": "Number of Moles (n)",
         "tr": "Mol Sayısı (n)",
         "de": "Stoffmenge (n)",
         "fr": "Nombre de moles (n)",
@@ -137,7 +137,7 @@
         "ar": "عدد المولات (n)"
       },
       "businessContext_i18n": {
-        "en": "Reaksiyonun kaç mol üzerinden gerçekleştiği (ölçek faktörü)",
+        "en": "Number of moles over which the reaction occurs (scale factor)",
         "tr": "Reaksiyonun kaç mol üzerinden gerçekleştiği (ölçek faktörü)",
         "de": "Anzahl der Mol, auf die die Reaktion bezogen wird (Skalierungsfaktor)",
         "fr": "Nombre de moles de la réaction (facteur d'échelle)",

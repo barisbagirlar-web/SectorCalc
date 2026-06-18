@@ -9,7 +9,7 @@
       "default": 100,
       "businessContext": "Sıvanacak toplam duvar alanı (m² cinsinden).",
       "label_i18n": {
-        "en": "Duvar Alanı",
+        "en": "Wall area",
         "tr": "Duvar Alanı",
         "de": "Wandfläche",
         "fr": "Surface du mur",
@@ -17,7 +17,7 @@
         "ar": "مساحة الجدار"
       },
       "businessContext_i18n": {
-        "en": "Sıvanacak toplam duvar alanı (m² cinsinden).",
+        "en": "Total wall area to be plastered (in m²).",
         "tr": "Sıvanacak toplam duvar alanı (m² cinsinden).",
         "de": "Zu verputzende Gesamtwandfläche (in m²).",
         "fr": "Surface totale du mur à enduire (en m²).",
@@ -33,7 +33,7 @@
       "default": 20,
       "businessContext": "Uygulanacak toplam sıva kalınlığı (mm cinsinden).",
       "label_i18n": {
-        "en": "Sıva Kalınlığı",
+        "en": "Plaster Thickness",
         "tr": "Sıva Kalınlığı",
         "de": "Putzstärke",
         "fr": "Épaisseur de l'enduit",
@@ -41,7 +41,7 @@
         "ar": "سمك التلييس"
       },
       "businessContext_i18n": {
-        "en": "Uygulanacak toplam sıva kalınlığı (mm cinsinden).",
+        "en": "Total plaster thickness to be applied (in mm).",
         "tr": "Sıva Kalınlığı",
         "de": "Aufzutragende Gesamtputzdicke (in mm).",
         "fr": "Épaisseur totale de l'enduit à appliquer (en mm).",
@@ -57,7 +57,7 @@
       "default": 1,
       "businessContext": "1 m² alanda 1 mm kalınlık için gereken kuru sıva karışımı ağırlığı (kg). Tipik değer 1.0 kg/(m²·mm).",
       "label_i18n": {
-        "en": "Karışım Yoğunluğu",
+        "en": "Mixture density",
         "tr": "Uygulanacak toplam sıva kalınlığı (mm cinsinden).",
         "de": "Mischungsdichte",
         "fr": "Densité du mélange",
@@ -65,7 +65,7 @@
         "ar": "كثافة الخليط"
       },
       "businessContext_i18n": {
-        "en": "1 m² alanda 1 mm kalınlık için gereken kuru sıva karışımı ağırlığı (kg). Tipik değer 1.0 kg/(m²·mm).",
+        "en": "Weight of dry plaster mixture required for 1 mm thickness on 1 m² area (kg). Typical value is 1.0 kg/(m²·mm).",
         "tr": "Karışım Yoğunluğu",
         "de": "Gewicht der trockenen Putzmischung pro 1 m² Fläche bei 1 mm Dicke (kg). Typischer Wert 1,0 kg/(m²·mm).",
         "fr": "Poids du mélange d'enduit sec nécessaire pour 1 m² sur 1 mm d'épaisseur (kg). Valeur typique : 1,0 kg/(m²·mm).",
@@ -81,7 +81,7 @@
       "default": 25,
       "businessContext": "Bir torba sıva karışımının net ağırlığı (kg).",
       "label_i18n": {
-        "en": "Torba Ağırlığı",
+        "en": "Bag weight",
         "tr": "1 m² alanda 1 mm kalınlık için gereken kuru sıva karışımı ağırlığı (kg). Tipik değer 1.0 kg/(m²·mm).",
         "de": "Sackgewicht",
         "fr": "Poids du sac",
@@ -89,7 +89,7 @@
         "ar": "وزن الكيس"
       },
       "businessContext_i18n": {
-        "en": "Bir torba sıva karışımının net ağırlığı (kg).",
+        "en": "Net weight of one bag of plaster mixture (kg).",
         "tr": "Torba Ağırlığı",
         "de": "Nettogewicht eines Sackes Putzmischung (kg).",
         "fr": "Poids net d'un sac de mélange d'enduit (kg).",
@@ -105,7 +105,7 @@
       "default": 5,
       "businessContext": "Uygulama sırasında oluşacak fire oranı (% cinsinden).",
       "label_i18n": {
-        "en": "Fire Oranı",
+        "en": "Waste Rate",
         "tr": "Fire Oranı",
         "de": "Verschnittanteil",
         "fr": "Taux de perte",
@@ -113,7 +113,7 @@
         "ar": "نسبة الهدر"
       },
       "businessContext_i18n": {
-        "en": "Uygulama sırasında oluşacak fire oranı (% cinsinden).",
+        "en": "Waste rate during application (in %).",
         "tr": "Bir torba sıva karışımının net ağırlığı (kg).",
         "de": "Abfallprozentsatz während der Anwendung (in %).",
         "fr": "Taux de perte lors de l'application (en %).",

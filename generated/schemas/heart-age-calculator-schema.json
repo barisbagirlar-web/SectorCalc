@@ -9,7 +9,7 @@
       "default": 40,
       "businessContext": "Hastanın kronolojik yaşı",
       "label_i18n": {
-        "en": "Yaş",
+        "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
         "fr": "Âge",
@@ -17,7 +17,7 @@
         "ar": "العمر"
       },
       "businessContext_i18n": {
-        "en": "Hastanın kronolojik yaşı",
+        "en": "Patient's chronological age",
         "tr": "Hastanın kronolojik yaşı",
         "de": "Chronologisches Alter des Patienten",
         "fr": "Âge chronologique du patient",
@@ -33,7 +33,7 @@
       "default": 120,
       "businessContext": "Ölçülen sistolik kan basıncı",
       "label_i18n": {
-        "en": "Sistolik Kan Basıncı",
+        "en": "Systolic Blood Pressure",
         "tr": "Sistolik Kan Basıncı",
         "de": "Systolischer Blutdruck",
         "fr": "Pression artérielle systolique",
@@ -41,7 +41,7 @@
         "ar": "ضغط الدم الانقباضي"
       },
       "businessContext_i18n": {
-        "en": "Ölçülen sistolik kan basıncı",
+        "en": "Measured systolic blood pressure (mmHg)",
         "tr": "Ölçülen sistolik kan basıncı",
         "de": "Gemessener systolischer Blutdruck",
         "fr": "Pression artérielle systolique mesurée",
@@ -65,7 +65,7 @@
         "ar": "الكوليسترول الكلي"
       },
       "businessContext_i18n": {
-        "en": "Açlık total kolesterol seviyesi",
+        "en": "Fasting total cholesterol level",
         "tr": "Açlık total kolesterol seviyesi",
         "de": "Nüchtern-Gesamtcholesterinspiegel",
         "fr": "Niveau de cholestérol total à jeun",
@@ -89,7 +89,7 @@
         "ar": "كوليسترول HDL"
       },
       "businessContext_i18n": {
-        "en": "Yüksek yoğunluklu lipoprotein seviyesi",
+        "en": "High-density lipoprotein level",
         "tr": "Yüksek yoğunluklu lipoprotein seviyesi",
         "de": "High-Density-Lipoprotein-Spiegel",
         "fr": "Niveau de lipoprotéines de haute densité",
@@ -105,7 +105,7 @@
       "default": 0,
       "businessContext": "0: İçmiyor, 1: İçiyor",
       "label_i18n": {
-        "en": "Sigara Kullanımı",
+        "en": "Smoking status",
         "tr": "Sigara Kullanımı",
         "de": "Rauchen",
         "fr": "Tabagisme",
@@ -113,7 +113,7 @@
         "ar": "التدخين"
       },
       "businessContext_i18n": {
-        "en": "0: İçmiyor, 1: İçiyor",
+        "en": "0: Non-smoker, 1: Smoker",
         "tr": "0: İçmiyor, 1: İçiyor",
         "de": "0: Nichtraucher, 1: Raucher",
         "fr": "0 : Non fumeur, 1 : Fumeur",
@@ -153,7 +153,7 @@
       "default": 0,
       "businessContext": "0: Tedavi yok, 1: Tedavi var",
       "label_i18n": {
-        "en": "Kan Basıncı Tedavisi",
+        "en": "Blood pressure treatment",
         "tr": "Kan Basıncı Tedavisi",
         "de": "Blutdruckbehandlung",
         "fr": "Traitement de la pression artérielle",

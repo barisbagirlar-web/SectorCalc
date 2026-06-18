@@ -9,7 +9,7 @@
       "default": 100,
       "businessContext": "Havzanın en uzak noktasından çıkışa kadar olan akış yolu uzunluğu (metre)",
       "label_i18n": {
-        "en": "Akış Uzunluğu",
+        "en": "Flow Length",
         "tr": "Motor çıkışından tekerleklere kadar olan toplam verim. Güvenilir ölçümlerle belirlenmiş olmalıdır.",
         "de": "Fließlänge",
         "fr": "Longueur d'écoulement",
@@ -17,7 +17,7 @@
         "ar": "طول التدفق"
       },
       "businessContext_i18n": {
-        "en": "Havzanın en uzak noktasından çıkışa kadar olan akış yolu uzunluğu (metre)",
+        "en": "Flow path length from the farthest point of the basin to the outlet (meters)",
         "tr": "Akış Uzunluğu",
         "de": "Länge des Fließwegs vom entferntesten Punkt des Einzugsgebiets bis zum Auslass (in Metern)",
         "fr": "Longueur du trajet d'écoulement du point le plus éloigné du bassin versant jusqu'à la sortie (mètres)",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "Akış yolu boyunca ortalama eğim yüzdesi (%)",
       "label_i18n": {
-        "en": "Eğim (%)",
+        "en": "Slope (%)",
         "tr": "Eğim (%)",
         "de": "Steigung (%)",
         "fr": "Pente (%)",
@@ -41,7 +41,7 @@
         "ar": "الانحدار (%)"
       },
       "businessContext_i18n": {
-        "en": "Akış yolu boyunca ortalama eğim yüzdesi (%)",
+        "en": "Average slope percentage along the flow path (%)",
         "tr": "Havzanın en uzak noktasından çıkışa kadar olan akış yolu uzunluğu (metre)",
         "de": "Durchschnittliches Gefälle entlang des Fließwegs in Prozent (%)",
         "fr": "Pente moyenne en pourcentage (%) le long du trajet d'écoulement",

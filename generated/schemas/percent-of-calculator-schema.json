@@ -17,7 +17,7 @@
         "ar": "المبلغ الأساسي"
       },
       "businessContext_i18n": {
-        "en": "Hesaplama yapılacak temel değer.",
+        "en": "Base value to calculate on.",
         "tr": "Hesaplama yapılacak temel değer.",
         "de": "Basiswert für die Berechnung.",
         "fr": "Valeur de base pour le calcul.",
@@ -33,7 +33,7 @@
       "default": 20,
       "businessContext": "Temel tutar üzerinden hesaplanacak yüzde oranı.",
       "label_i18n": {
-        "en": "Yüzde",
+        "en": "Percent",
         "tr": "Yüzde",
         "de": "Prozentsatz",
         "fr": "Pourcentage",
@@ -41,7 +41,7 @@
         "ar": "النسبة المئوية"
       },
       "businessContext_i18n": {
-        "en": "Temel tutar üzerinden hesaplanacak yüzde oranı.",
+        "en": "Percentage rate to calculate on the base amount.",
         "tr": "Temel tutar üzerinden hesaplanacak yüzde oranı.",
         "de": "Prozentsatz, der auf den Grundbetrag angewendet wird.",
         "fr": "Taux de pourcentage à calculer sur le montant de base.",
@@ -65,7 +65,7 @@
         "ar": "المبلغ الثابت الإضافي"
       },
       "businessContext_i18n": {
-        "en": "Yüzde sonucuna eklenecek sabit miktar.",
+        "en": "Fixed amount to add to the percentage result.",
         "tr": "Yüzde sonucuna eklenecek sabit miktar.",
         "de": "Fester Betrag, der zum prozentualen Ergebnis addiert wird.",
         "fr": "Montant fixe à ajouter au résultat du pourcentage.",
@@ -81,7 +81,7 @@
       "default": 2,
       "businessContext": "Sonucun yuvarlanacağı ondalık basamak sayısı.",
       "label_i18n": {
-        "en": "Ondalık Basamak",
+        "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
         "fr": "Décimales",
@@ -89,7 +89,7 @@
         "ar": "المنازل العشرية"
       },
       "businessContext_i18n": {
-        "en": "Sonucun yuvarlanacağı ondalık basamak sayısı.",
+        "en": "Number of decimal places to round the result to.",
         "tr": "Sonucun yuvarlanacağı ondalık basamak sayısı.",
         "de": "Anzahl der Dezimalstellen für die Rundung des Ergebnisses.",
         "fr": "Nombre de décimales pour l'arrondi du résultat.",

@@ -9,7 +9,7 @@
       "default": 100000,
       "businessContext": "Standart lot, genellikle 100,000 birim olarak kabul edilir.",
       "label_i18n": {
-        "en": "Lot Büyüklüğü",
+        "en": "Lot Size",
         "tr": "Lot Büyüklüğü",
         "de": "Losgröße",
         "fr": "Taille du lot",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "Alım satım yapılan lot miktarı.",
       "label_i18n": {
-        "en": "İşlem Lot Sayısı",
+        "en": "Number of Lots Traded",
         "tr": "İşlem Lot Sayısı",
         "de": "Anzahl der Handelslose",
         "fr": "Nombre de lots négociés",
@@ -41,7 +41,7 @@
         "ar": "عدد العقود المتداولة"
       },
       "businessContext_i18n": {
-        "en": "Alım satım yapılan lot miktarı.",
+        "en": "Quantity of lots bought and sold.",
         "tr": "Alım satım yapılan lot miktarı.",
         "de": "Menge der gehandelten Lose.",
         "fr": "Quantité de lots achetés ou vendus.",
@@ -57,7 +57,7 @@
       "default": 0.0001,
       "businessContext": "Çoğu döviz çiftinde 0.0001, JPY çiftlerinde 0.01.",
       "label_i18n": {
-        "en": "Pip Değeri",
+        "en": "Pip Value",
         "tr": "Pip Değeri",
         "de": "Pip-Wert",
         "fr": "Valeur du pip",
@@ -65,7 +65,7 @@
         "ar": "قيمة النقطة"
       },
       "businessContext_i18n": {
-        "en": "Çoğu döviz çiftinde 0.0001, JPY çiftlerinde 0.01.",
+        "en": "0.0001 for most currency pairs, 0.01 for JPY pairs.",
         "tr": "Çoğu döviz çiftinde 0,0001, JPY çiftlerinde 0,01.",
         "de": "Bei den meisten Währungspaaren 0,0001, bei JPY-Paaren 0,01.",
         "fr": "0,0001 pour la plupart des paires de devises, 0,01 pour les paires JPY.",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "Karşıt dövizden hesap dövizine dönüşüm oranı.",
       "label_i18n": {
-        "en": "Dönüşüm Kuru",
+        "en": "Conversion Rate",
         "tr": "Dönüşüm Kuru",
         "de": "Umrechnungskurs",
         "fr": "Taux de conversion",
@@ -89,7 +89,7 @@
         "ar": "سعر التحويل"
       },
       "businessContext_i18n": {
-        "en": "Karşıt dövizden hesap dövizine dönüşüm oranı.",
+        "en": "Conversion rate from counter currency to account currency.",
         "tr": "Karşıt dövizden hesap dövizine dönüşüm oranı.",
         "de": "Umrechnungskurs von der Gegenwährung in die Kontowährung.",
         "fr": "Taux de conversion de la devise de contrepartie à la devise du compte.",

@@ -17,7 +17,7 @@
         "ar": "معدل تدفق الهواء"
       },
       "businessContext_i18n": {
-        "en": "Sistemin taşıması gereken hava miktarı. Soğutma/ısıtma yüküne göre hesaplanır.",
+        "en": "Amount of air the system must carry. Calculated based on cooling/heating load.",
         "tr": "Sistemin taşıması gereken hava miktarı. Soğutma/ısıtma yüküne göre hesaplanır.",
         "de": "Luftmenge, die das System fördern muss. Berechnet aus Kühl-/Heizlast.",
         "fr": "Quantité d'air que le système doit transporter. Calculée en fonction de la charge de refroidissement/chauffage.",
@@ -33,7 +33,7 @@
       "default": 5,
       "businessContext": "Kanalda izin verilen maksimum hava hızı. Gürültü ve basınç kaybı limitlerine bağlıdır. Tipik konfor uygulamalarında 5-8 m/s.",
       "label_i18n": {
-        "en": "Hava Hızı",
+        "en": "Air Velocity",
         "tr": "Hava Hızı",
         "de": "Luftgeschwindigkeit",
         "fr": "Vitesse de l'air",
@@ -41,7 +41,7 @@
         "ar": "سرعة الهواء"
       },
       "businessContext_i18n": {
-        "en": "Kanalda izin verilen maksimum hava hızı. Gürültü ve basınç kaybı limitlerine bağlıdır. Tipik konfor uygulamalarında 5-8 m/s.",
+        "en": "Maximum allowable air velocity in the duct. Depends on noise and pressure loss limits. Typical comfort applications: 5-8 m/s.",
         "tr": "Kanalda izin verilen maksimum hava hızı. Gürültü ve basınç kaybı limitlerine bağlıdır. Tipik konfor uygulamalarında 5-8 m/s.",
         "de": "Maximal zulässige Luftgeschwindigkeit im Kanal. Abhängig von Lärm- und Druckverlustgrenzen. Typisch 5-8 m/s bei Komfortanwendungen.",
         "fr": "Vitesse maximale de l'air autorisée dans le conduit. Dépend des limites de bruit et de perte de charge. Typiquement 5-8 m/s pour les applications de confort.",
@@ -57,7 +57,7 @@
       "default": 1,
       "businessContext": "Dikdörtgen kanalda genişliğin yüksekliğe oranı. Alan kısıtı ve maliyet optimizasyonu için kullanılır. 1 kare kanalı verir.",
       "label_i18n": {
-        "en": "En/Boy Oranı",
+        "en": "Aspect Ratio",
         "tr": "En/Boy Oranı",
         "de": "Seitenverhältnis",
         "fr": "Rapport largeur/hauteur",
@@ -65,7 +65,7 @@
         "ar": "نسبة العرض إلى الارتفاع"
       },
       "businessContext_i18n": {
-        "en": "Dikdörtgen kanalda genişliğin yüksekliğe oranı. Alan kısıtı ve maliyet optimizasyonu için kullanılır. 1 kare kanalı verir.",
+        "en": "Ratio of width to height in a rectangular duct. Used for space constraints and cost optimization. 1 gives a square duct.",
         "tr": "Dikdörtgen kanalda genişliğin yüksekliğe oranı. Alan kısıtı ve maliyet optimizasyonu için kullanılır. 1 kare kanalı verir.",
         "de": "Verhältnis von Breite zu Höhe bei rechteckigen Kanälen. Wird für Platzoptimierung und Kostenoptimierung verwendet. 1 ergibt einen quadratischen Kanal.",
         "fr": "Rapport largeur/hauteur pour conduit rectangulaire. Utilisé pour les contraintes de surface et l'optimisation des coûts. 1 donne un conduit carré.",
@@ -81,7 +81,7 @@
       "default": 1.1,
       "businessContext": "Hesap belirsizlikleri, sızıntı veya ileride kapasite artışı için debiyi artıran faktör.",
       "label_i18n": {
-        "en": "Emniyet Katsayısı",
+        "en": "Safety Factor",
         "tr": "Emniyet Katsayısı",
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
@@ -89,7 +89,7 @@
         "ar": "معامل الأمان"
       },
       "businessContext_i18n": {
-        "en": "Hesap belirsizlikleri, sızıntı veya ileride kapasite artışı için debiyi artıran faktör.",
+        "en": "Safety Factor",
         "tr": "Hesap belirsizlikleri, sızıntı veya ileride kapasite artışı için debiyi artıran faktör.",
         "de": "Sicherheitsfaktor",
         "fr": "Facteur augmentant le débit pour les incertitudes de calcul, les fuites ou l'augmentation future de capacité.",

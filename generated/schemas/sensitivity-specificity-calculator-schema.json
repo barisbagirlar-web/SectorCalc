@@ -9,7 +9,7 @@
       "default": 80,
       "businessContext": "Testin pozitif olarak belirlediği gerçek pozitif vaka sayısı.",
       "label_i18n": {
-        "en": "Doğru Pozitif (DP)",
+        "en": "True Positive (TP)",
         "tr": "Doğru Pozitif (DP)",
         "de": "Richtig Positiv (RP)",
         "fr": "Vrai Positif (VP)",
@@ -17,7 +17,7 @@
         "ar": "إيجابي حقيقي (TP)"
       },
       "businessContext_i18n": {
-        "en": "Testin pozitif olarak belirlediği gerçek pozitif vaka sayısı.",
+        "en": "Number of actual positive cases correctly identified as positive by the test.",
         "tr": "Testin pozitif olarak belirlediği gerçek pozitif vaka sayısı.",
         "de": "Anzahl der tatsächlich positiven Fälle, die der Test als positiv identifiziert.",
         "fr": "Nombre de cas réellement positifs que le test identifie comme positifs.",
@@ -33,7 +33,7 @@
       "default": 20,
       "businessContext": "Testin pozitif olarak belirlediği fakat gerçekte negatif olan vaka sayısı.",
       "label_i18n": {
-        "en": "Yanlış Pozitif (YP)",
+        "en": "False Positive (FP)",
         "tr": "Yanlış Pozitif (YP)",
         "de": "Falsch Positiv (FP)",
         "fr": "Faux Positif (FP)",
@@ -41,7 +41,7 @@
         "ar": "إيجابي كاذب (FP)"
       },
       "businessContext_i18n": {
-        "en": "Testin pozitif olarak belirlediği fakat gerçekte negatif olan vaka sayısı.",
+        "en": "Number of actual negative cases incorrectly identified as positive by the test.",
         "tr": "Testin pozitif olarak belirlediği fakat gerçekte negatif olan vaka sayısı.",
         "de": "Anzahl der Fälle, die der Test als positiv identifiziert, die aber tatsächlich negativ sind.",
         "fr": "Nombre de cas que le test identifie comme positifs mais qui sont en réalité négatifs.",
@@ -57,7 +57,7 @@
       "default": 10,
       "businessContext": "Testin negatif olarak belirlediği fakat gerçekte pozitif olan vaka sayısı.",
       "label_i18n": {
-        "en": "Yanlış Negatif (YN)",
+        "en": "False Negative (FN)",
         "tr": "Yanlış Negatif (YN)",
         "de": "Falsch Negativ (FN)",
         "fr": "Faux Négatif (FN)",
@@ -65,7 +65,7 @@
         "ar": "سلبي كاذب (FN)"
       },
       "businessContext_i18n": {
-        "en": "Testin negatif olarak belirlediği fakat gerçekte pozitif olan vaka sayısı.",
+        "en": "Number of actual positive cases incorrectly identified as negative by the test.",
         "tr": "Testin negatif olarak belirlediği fakat gerçekte pozitif olan vaka sayısı.",
         "de": "Anzahl der Fälle, die der Test als negativ identifiziert, die aber tatsächlich positiv sind.",
         "fr": "Nombre de cas que le test identifie comme négatifs mais qui sont en réalité positifs.",
@@ -81,7 +81,7 @@
       "default": 90,
       "businessContext": "Testin negatif olarak belirlediği gerçek negatif vaka sayısı.",
       "label_i18n": {
-        "en": "Doğru Negatif (DN)",
+        "en": "True Negative (TN)",
         "tr": "Doğru Negatif (DN)",
         "de": "Richtig Negativ (RN)",
         "fr": "Vrai Négatif (VN)",
@@ -89,7 +89,7 @@
         "ar": "سلبي حقيقي (TN)"
       },
       "businessContext_i18n": {
-        "en": "Testin negatif olarak belirlediği gerçek negatif vaka sayısı.",
+        "en": "Number of actual negative cases correctly identified as negative by the test.",
         "tr": "Testin negatif olarak belirlediği gerçek negatif vaka sayısı.",
         "de": "Anzahl der tatsächlich negativen Fälle, die der Test als negativ identifiziert.",
         "fr": "Nombre de cas réellement négatifs que le test identifie comme négatifs.",

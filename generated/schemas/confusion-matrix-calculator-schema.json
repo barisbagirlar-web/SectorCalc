@@ -9,7 +9,7 @@
       "default": 50,
       "businessContext": "Doğru pozitif olarak sınıflandırılan örnek sayısı.",
       "label_i18n": {
-        "en": "Gerçek Pozitif (TP)",
+        "en": "True Positive (TP)",
         "tr": "Gerçek Pozitif (TP)",
         "de": "Wahr Positiv (TP)",
         "fr": "Vrai Positif (VP)",
@@ -17,7 +17,7 @@
         "ar": "إيجابي حقيقي (TP)"
       },
       "businessContext_i18n": {
-        "en": "Doğru pozitif olarak sınıflandırılan örnek sayısı.",
+        "en": "Number of samples classified as true positive.",
         "tr": "Doğru pozitif olarak sınıflandırılan örnek sayısı.",
         "de": "Anzahl der korrekt als positiv klassifizierten Stichproben.",
         "fr": "Nombre d'échantillons correctement classés comme positifs.",
@@ -33,7 +33,7 @@
       "default": 10,
       "businessContext": "Yanlış pozitif olarak sınıflandırılan örnek sayısı.",
       "label_i18n": {
-        "en": "Yanlış Pozitif (FP)",
+        "en": "False Positive (FP)",
         "tr": "Yanlış Pozitif (FP)",
         "de": "Falsch Positiv (FP)",
         "fr": "Faux Positif (FP)",
@@ -41,7 +41,7 @@
         "ar": "إيجابي كاذب (FP)"
       },
       "businessContext_i18n": {
-        "en": "Yanlış pozitif olarak sınıflandırılan örnek sayısı.",
+        "en": "Number of samples classified as false positive.",
         "tr": "Yanlış pozitif olarak sınıflandırılan örnek sayısı.",
         "de": "Anzahl der fälschlich als positiv klassifizierten Stichproben.",
         "fr": "Nombre d'échantillons incorrectement classés comme positifs.",
@@ -57,7 +57,7 @@
       "default": 100,
       "businessContext": "Doğru negatif olarak sınıflandırılan örnek sayısı.",
       "label_i18n": {
-        "en": "Gerçek Negatif (TN)",
+        "en": "True Negative (TN)",
         "tr": "Gerçek Negatif (TN)",
         "de": "Wahr Negativ (TN)",
         "fr": "Vrai Négatif (VN)",
@@ -65,7 +65,7 @@
         "ar": "سلبي حقيقي (TN)"
       },
       "businessContext_i18n": {
-        "en": "Doğru negatif olarak sınıflandırılan örnek sayısı.",
+        "en": "Number of samples classified as true negative.",
         "tr": "Doğru negatif olarak sınıflandırılan örnek sayısı.",
         "de": "Anzahl der korrekt als negativ klassifizierten Stichproben.",
         "fr": "Nombre d'échantillons correctement classés comme négatifs.",
@@ -81,7 +81,7 @@
       "default": 5,
       "businessContext": "Yanlış negatif olarak sınıflandırılan örnek sayısı.",
       "label_i18n": {
-        "en": "Yanlış Negatif (FN)",
+        "en": "False Negative (FN)",
         "tr": "Yanlış Negatif (FN)",
         "de": "Falsch Negativ (FN)",
         "fr": "Faux Négatif (FN)",
@@ -89,7 +89,7 @@
         "ar": "سلبي كاذب (FN)"
       },
       "businessContext_i18n": {
-        "en": "Yanlış negatif olarak sınıflandırılan örnek sayısı.",
+        "en": "Number of samples classified as false negative.",
         "tr": "Yanlış negatif olarak sınıflandırılan örnek sayısı.",
         "de": "Anzahl der fälschlich als negativ klassifizierten Stichproben.",
         "fr": "Nombre d'échantillons incorrectement classés comme négatifs.",

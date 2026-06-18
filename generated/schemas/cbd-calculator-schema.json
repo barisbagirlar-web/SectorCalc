@@ -17,7 +17,7 @@
         "ar": "تكلفة المواد لكل وحدة"
       },
       "businessContext_i18n": {
-        "en": "Ürün başına hammadde maliyeti",
+        "en": "Raw material cost per product",
         "tr": "Ürün başına hammadde maliyeti",
         "de": "Rohstoffkosten pro Produkt",
         "fr": "Coût matière première par produit",
@@ -33,7 +33,7 @@
       "default": 5,
       "businessContext": "Ürün başına direkt işçilik maliyeti",
       "label_i18n": {
-        "en": "Birim İşçilik Maliyeti",
+        "en": "Unit Labor Cost",
         "tr": "Birim İşçilik Maliyeti",
         "de": "Arbeitskosten pro Einheit",
         "fr": "Coût main-d'œuvre par unité",
@@ -41,7 +41,7 @@
         "ar": "تكلفة العمالة لكل وحدة"
       },
       "businessContext_i18n": {
-        "en": "Ürün başına direkt işçilik maliyeti",
+        "en": "Direct labor cost per product",
         "tr": "Ürün başına direkt işçilik maliyeti",
         "de": "Direkte Arbeitskosten pro Produkt",
         "fr": "Coût main-d'œuvre directe par produit",
@@ -65,7 +65,7 @@
         "ar": "التكاليف العامة للوحدة"
       },
       "businessContext_i18n": {
-        "en": "Ürün başına amortisman, enerji vb. genel üretim gideri",
+        "en": "General production overhead per product (depreciation, energy, etc.)",
         "tr": "Ürün başına amortisman, enerji vb. genel üretim gideri",
         "de": "Allgemeine Fertigungsgemeinkosten (Abschreibung, Energie usw.) pro Produkt",
         "fr": "Frais généraux de production par produit (amortissement, énergie, etc.)",
@@ -81,7 +81,7 @@
       "default": 1000,
       "businessContext": "Üretilecek toplam ürün sayısı",
       "label_i18n": {
-        "en": "Üretim Miktarı",
+        "en": "Production Quantity",
         "tr": "Üretim Miktarı",
         "de": "Produktionsmenge",
         "fr": "Quantité produite",
@@ -89,7 +89,7 @@
         "ar": "كمية الإنتاج"
       },
       "businessContext_i18n": {
-        "en": "Üretilecek toplam ürün sayısı",
+        "en": "Total number of products to be produced",
         "tr": "Üretilecek toplam ürün sayısı",
         "de": "Gesamtzahl der zu produzierenden Produkte",
         "fr": "Nombre total de produits à fabriquer",
@@ -105,7 +105,7 @@
       "default": 20,
       "businessContext": "Toplam maliyet üzerine eklenecek kar yüzdesi",
       "label_i18n": {
-        "en": "Kar Marjı (%)",
+        "en": "Profit Margin (%)",
         "tr": "Kar Marjı (%)",
         "de": "Gewinnmarge (%)",
         "fr": "Marge bénéficiaire (%)",
@@ -113,7 +113,7 @@
         "ar": "هامش الربح (%)"
       },
       "businessContext_i18n": {
-        "en": "Toplam maliyet üzerine eklenecek kar yüzdesi",
+        "en": "Profit percentage added to total cost",
         "tr": "Toplam maliyet üzerine eklenecek kar yüzdesi",
         "de": "Prozentsatz des Gewinnaufschlags auf die Gesamtkosten",
         "fr": "Pourcentage de profit ajouté au coût total",

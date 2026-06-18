@@ -9,7 +9,7 @@
       "default": 0,
       "businessContext": "Gün cinsinden süre, saniyeye çevrilecek",
       "label_i18n": {
-        "en": "Gün",
+        "en": "Day",
         "tr": "Gün",
         "de": "Tag",
         "fr": "Jour",
@@ -17,7 +17,7 @@
         "ar": "اليوم"
       },
       "businessContext_i18n": {
-        "en": "Gün cinsinden süre, saniyeye çevrilecek",
+        "en": "Duration in days, to be converted to seconds",
         "tr": "Gün cinsinden süre, saniyeye çevrilecek",
         "de": "Dauer in Tagen, umzurechnen in Sekunden",
         "fr": "Durée en jours, à convertir en secondes",
@@ -41,7 +41,7 @@
         "ar": "ساعة"
       },
       "businessContext_i18n": {
-        "en": "Saat cinsinden süre, saniyeye çevrilecek",
+        "en": "Duration in hours, to be converted to seconds",
         "tr": "Saat cinsinden süre, saniyeye çevrilecek",
         "de": "Dauer in Stunden, umzurechnen in Sekunden",
         "fr": "Durée en heures, à convertir en secondes",
@@ -65,7 +65,7 @@
         "ar": "دقيقة"
       },
       "businessContext_i18n": {
-        "en": "Dakika cinsinden süre (ana girdi), saniyeye çevrilecek",
+        "en": "Duration in minutes (primary input), to be converted to seconds",
         "tr": "Dakika cinsinden süre (ana girdi), saniyeye çevrilecek",
         "de": "Dauer in Minuten (Haupteingabe), umzurechnen in Sekunden",
         "fr": "Durée en minutes (entrée principale), à convertir en secondes",
@@ -89,7 +89,7 @@
         "ar": "ثانية"
       },
       "businessContext_i18n": {
-        "en": "Doğrudan saniye olarak eklenecek süre",
+        "en": "Time to add directly in seconds",
         "tr": "Doğrudan saniye olarak eklenecek süre",
         "de": "Direkt als Sekunden hinzuzufügende Dauer",
         "fr": "Durée à ajouter directement en secondes",
@@ -105,7 +105,7 @@
       "default": 0,
       "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı (0 tam sayıya yuvarlar, en fazla 10 önerilir)",
       "label_i18n": {
-        "en": "Ondalık Basamak",
+        "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
         "fr": "Décimales",
@@ -113,7 +113,7 @@
         "ar": "المنازل العشرية"
       },
       "businessContext_i18n": {
-        "en": "Sonuçta gösterilecek ondalık basamak sayısı (0 tam sayıya yuvarlar, en fazla 10 önerilir)",
+        "en": "Number of decimal places to show in result (0 rounds to integer, max 10 recommended)",
         "tr": "Sonuçta gösterilecek ondalık basamak sayısı (0 tam sayıya yuvarlar, en fazla 10 önerilir)",
         "de": "Anzahl der anzuzeigenden Dezimalstellen (0 rundet auf ganze Zahl, maximal 10 empfohlen)",
         "fr": "Nombre de décimales à afficher dans le résultat (0 arrondit à l'entier, max 10 recommandé)",

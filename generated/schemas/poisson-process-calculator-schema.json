@@ -9,7 +9,7 @@
       "default": 5,
       "businessContext": "Birim zamanda meydana gelen ortalama olay sayısı",
       "label_i18n": {
-        "en": "Ortalama Geliş Hızı (λ)",
+        "en": "Average Arrival Rate (λ)",
         "tr": "Ortalama Geliş Hızı (λ)",
         "de": "Mittlere Ankunftsrate (λ)",
         "fr": "Taux d'arrivée moyen (λ)",
@@ -17,7 +17,7 @@
         "ar": "متوسط معدل الوصول (λ)"
       },
       "businessContext_i18n": {
-        "en": "Birim zamanda meydana gelen ortalama olay sayısı",
+        "en": "Average number of events per unit time",
         "tr": "Birim zamanda meydana gelen ortalama olay sayısı",
         "de": "Durchschnittliche Anzahl von Ereignissen pro Zeiteinheit",
         "fr": "Nombre moyen d'événements par unité de temps",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "Olasılık hesabı için birinci zaman dilimi",
       "label_i18n": {
-        "en": "Zaman Aralığı 1 (t₁)",
+        "en": "Time Interval 1 (t₁)",
         "tr": "Zaman Aralığı 1 (t₁)",
         "de": "Zeitintervall 1 (t₁)",
         "fr": "Intervalle de temps 1 (t₁)",
@@ -41,7 +41,7 @@
         "ar": "الفاصل الزمني 1 (t₁)"
       },
       "businessContext_i18n": {
-        "en": "Olasılık hesabı için birinci zaman dilimi",
+        "en": "First time period for probability calculation",
         "tr": "Olasılık hesabı için birinci zaman dilimi",
         "de": "Erstes Zeitintervall für die Wahrscheinlichkeitsberechnung",
         "fr": "Première période de temps pour le calcul de probabilité",
@@ -57,7 +57,7 @@
       "default": 2,
       "businessContext": "Olasılık hesabı için ikinci zaman dilimi",
       "label_i18n": {
-        "en": "Zaman Aralığı 2 (t₂)",
+        "en": "Time Interval 2 (t₂)",
         "tr": "Zaman Aralığı 2 (t₂)",
         "de": "Zeitintervall 2 (t₂)",
         "fr": "Intervalle de temps 2 (t₂)",
@@ -65,7 +65,7 @@
         "ar": "الفترة الزمنية 2 (t₂)"
       },
       "businessContext_i18n": {
-        "en": "Olasılık hesabı için ikinci zaman dilimi",
+        "en": "Second time period for probability calculation",
         "tr": "Olasılık hesabı için ikinci zaman dilimi",
         "de": "Zweites Zeitintervall für die Wahrscheinlichkeitsberechnung",
         "fr": "Deuxième période de temps pour le calcul de probabilité",
@@ -81,7 +81,7 @@
       "default": 3,
       "businessContext": "Olasılık hesabı için üçüncü zaman dilimi",
       "label_i18n": {
-        "en": "Zaman Aralığı 3 (t₃)",
+        "en": "Time Interval 3 (t₃)",
         "tr": "Zaman Aralığı 3 (t₃)",
         "de": "Zeitintervall 3 (t₃)",
         "fr": "Intervalle de temps 3 (t₃)",
@@ -89,7 +89,7 @@
         "ar": "الفترة الزمنية 3 (t₃)"
       },
       "businessContext_i18n": {
-        "en": "Olasılık hesabı için üçüncü zaman dilimi",
+        "en": "Third time period for probability calculation",
         "tr": "Olasılık hesabı için üçüncü zaman dilimi",
         "de": "Drittes Zeitintervall für die Wahrscheinlichkeitsberechnung",
         "fr": "Troisième période de temps pour le calcul de probabilité",

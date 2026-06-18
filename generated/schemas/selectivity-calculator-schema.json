@@ -9,7 +9,7 @@
       "default": 100,
       "businessContext": "Reaktöre beslenen toplam reaktan kütlesi",
       "label_i18n": {
-        "en": "Reaktan Kütlesi",
+        "en": "Reactant mass",
         "tr": "Reaktan Kütlesi",
         "de": "Reaktantenmasse",
         "fr": "Masse du réactif",
@@ -17,7 +17,7 @@
         "ar": "كتلة المادة المتفاعلة"
       },
       "businessContext_i18n": {
-        "en": "Reaktöre beslenen toplam reaktan kütlesi",
+        "en": "Total reactant mass fed to reactor",
         "tr": "Reaktöre beslenen toplam reaktan kütlesi",
         "de": "Gesamtmasse des in den Reaktor eingespeisten Reaktanten",
         "fr": "Masse totale du réactif alimenté dans le réacteur",
@@ -33,7 +33,7 @@
       "default": 50,
       "businessContext": "Reaktanın molar kütlesi",
       "label_i18n": {
-        "en": "Reaktan Mol Kütlesi",
+        "en": "Reactant molar mass",
         "tr": "Reaktan Mol Kütlesi",
         "de": "Molmasse des Reaktanten",
         "fr": "Masse molaire du réactif",
@@ -41,7 +41,7 @@
         "ar": "الكتلة المولية للمادة المتفاعلة"
       },
       "businessContext_i18n": {
-        "en": "Reaktanın molar kütlesi",
+        "en": "Molar mass of reactant",
         "tr": "Reaktanın molar kütlesi",
         "de": "Molare Masse des Reaktanten",
         "fr": "Masse molaire du réactif",
@@ -57,7 +57,7 @@
       "default": 0.5,
       "businessContext": "Reaktanın fraksiyonel dönüşümü (0–1)",
       "label_i18n": {
-        "en": "Dönüşüm Oranı",
+        "en": "Conversion Rate",
         "tr": "Dönüşüm Oranı",
         "de": "Umrechnungsfaktor",
         "fr": "Taux de conversion",
@@ -65,7 +65,7 @@
         "ar": "معدل التحويل"
       },
       "businessContext_i18n": {
-        "en": "Reaktanın fraksiyonel dönüşümü (0–1)",
+        "en": "Fractional conversion of reactant (0–1)",
         "tr": "Reaktanın fraksiyonel dönüşümü (0–1)",
         "de": "Fraktionelle Umwandlung des Reaktanten (0–1)",
         "fr": "Conversion fractionnelle du réactif (0–1)",
@@ -81,7 +81,7 @@
       "default": 40,
       "businessContext": "Elde edilen istenen ürün kütlesi",
       "label_i18n": {
-        "en": "İstenen Ürün Kütlesi",
+        "en": "Desired product mass",
         "tr": "İstenen Ürün Kütlesi",
         "de": "Masse des gewünschten Produkts",
         "fr": "Masse du produit souhaité",
@@ -89,7 +89,7 @@
         "ar": "الكتلة المطلوبة للمنتج"
       },
       "businessContext_i18n": {
-        "en": "Elde edilen istenen ürün kütlesi",
+        "en": "Mass of desired product obtained",
         "tr": "Elde edilen istenen ürün kütlesi",
         "de": "Masse des gewünschten Produkts",
         "fr": "Masse du produit souhaité obtenue",
@@ -105,7 +105,7 @@
       "default": 80,
       "businessContext": "İstenen ürünün molar kütlesi",
       "label_i18n": {
-        "en": "İstenen Ürün Mol Kütlesi",
+        "en": "Molar mass of desired product",
         "tr": "İstenen Ürün Mol Kütlesi",
         "de": "Molmasse des gewünschten Produkts",
         "fr": "Masse molaire du produit souhaité",
@@ -113,7 +113,7 @@
         "ar": "الكتلة المولية للمنتج المطلوب"
       },
       "businessContext_i18n": {
-        "en": "İstenen ürünün molar kütlesi",
+        "en": "Molar mass of desired product",
         "tr": "İstenen ürünün molar kütlesi",
         "de": "Molare Masse des gewünschten Produkts",
         "fr": "Masse molaire du produit souhaité",
@@ -129,7 +129,7 @@
       "default": 20,
       "businessContext": "Oluşan istenmeyen yan ürün kütlesi",
       "label_i18n": {
-        "en": "İstenmeyen Ürün Kütlesi",
+        "en": "Mass of undesired product",
         "tr": "İstenmeyen Ürün Kütlesi",
         "de": "Masse des unerwünschten Produkts",
         "fr": "Masse du produit non souhaité",
@@ -137,7 +137,7 @@
         "ar": "كتلة المنتج غير المرغوب"
       },
       "businessContext_i18n": {
-        "en": "Oluşan istenmeyen yan ürün kütlesi",
+        "en": "Mass of undesired byproduct formed",
         "tr": "Oluşan istenmeyen yan ürün kütlesi",
         "de": "Masse des gebildeten unerwünschten Nebenprodukts",
         "fr": "Masse du sous-produit non souhaité formé",
@@ -153,7 +153,7 @@
       "default": 60,
       "businessContext": "İstenmeyen ürünün molar kütlesi",
       "label_i18n": {
-        "en": "İstenmeyen Ürün Mol Kütlesi",
+        "en": "Molar mass of undesired product",
         "tr": "İstenmeyen Ürün Mol Kütlesi",
         "de": "Molmasse des unerwünschten Produkts",
         "fr": "Masse molaire du produit non souhaité",
@@ -161,7 +161,7 @@
         "ar": "الكتلة المولية للمنتج غير المرغوب"
       },
       "businessContext_i18n": {
-        "en": "İstenmeyen ürünün molar kütlesi",
+        "en": "Molar mass of undesired product",
         "tr": "İstenmeyen ürünün molar kütlesi",
         "de": "Molare Masse des unerwünschten Produkts",
         "fr": "Masse molaire du produit non souhaité",

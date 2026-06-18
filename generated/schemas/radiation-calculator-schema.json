@@ -17,7 +17,7 @@
         "ar": "نشاط المصدر (Ci)"
       },
       "businessContext_i18n": {
-        "en": "Radyoaktif kaynağın aktivite değeri (Curie cinsinden).",
+        "en": "Activity value of the radioactive source (in Curie).",
         "tr": "Radyoaktif kaynağın aktivite değeri (Curie cinsinden).",
         "de": "Aktivitätswert der radioaktiven Quelle in Curie.",
         "fr": "Valeur d'activité de la source radioactive (en Curie).",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "Kullanılan zırh malzemesinin kalınlığı (örneğin kurşun).",
       "label_i18n": {
-        "en": "Zırhlama Kalınlığı (cm)",
+        "en": "Armor Thickness (cm)",
         "tr": "Zırhlama Kalınlığı (cm)",
         "de": "Abschirmungsdicke (cm)",
         "fr": "Épaisseur du blindage (cm)",
@@ -65,7 +65,7 @@
         "ar": "سمك التدريع (سم)"
       },
       "businessContext_i18n": {
-        "en": "Kullanılan zırh malzemesinin kalınlığı (örneğin kurşun).",
+        "en": "Thickness of the armor material (e.g., lead).",
         "tr": "Kullanılan zırh malzemesinin kalınlığı (örneğin kurşun).",
         "de": "Dicke des verwendeten Abschirmungsmaterials (z. B. Blei).",
         "fr": "Épaisseur du matériau de blindage utilisé (ex. plomb).",
@@ -81,7 +81,7 @@
       "default": 0.5,
       "businessContext": "Zırh malzemesinin radyasyonu yarıya indiren kalınlık değeri.",
       "label_i18n": {
-        "en": "Yarı Değer Kalınlığı (cm)",
+        "en": "Half-Value Thickness (cm)",
         "tr": "Yarı Değer Kalınlığı (cm)",
         "de": "Halbwertdicke (cm)",
         "fr": "Épaisseur de demi-atténuation (cm)",
@@ -89,7 +89,7 @@
         "ar": "سمك نصف القيمة (سم)"
       },
       "businessContext_i18n": {
-        "en": "Zırh malzemesinin radyasyonu yarıya indiren kalınlık değeri.",
+        "en": "Thickness value of the armor material that reduces radiation by half.",
         "tr": "Zırh malzemesinin radyasyonu yarıya indiren kalınlık değeri.",
         "de": "Dicke des Abschirmungsmaterials, die die Strahlung um die Hälfte reduziert.",
         "fr": "Épaisseur du matériau de blindage réduisant de moitié le rayonnement.",
@@ -105,7 +105,7 @@
       "default": 1,
       "businessContext": "Radyasyona maruz kalınan toplam süre.",
       "label_i18n": {
-        "en": "Maruziyet Süresi (saat)",
+        "en": "Exposure Time (hours)",
         "tr": "Maruziyet Süresi (saat)",
         "de": "Expositionsdauer (Stunden)",
         "fr": "Durée d'exposition (heures)",
@@ -113,7 +113,7 @@
         "ar": "مدة التعرض (ساعة)"
       },
       "businessContext_i18n": {
-        "en": "Radyasyona maruz kalınan toplam süre.",
+        "en": "Total time exposed to radiation.",
         "tr": "Radyasyona maruz kalınan toplam süre.",
         "de": "Gesamte Expositionsdauer.",
         "fr": "Temps total d'exposition au rayonnement.",
@@ -137,7 +137,7 @@
         "ar": "ثابت جاما (R·م²/(Ci·ساعة))"
       },
       "businessContext_i18n": {
-        "en": "Kaynağın gama ışını sabiti (örneğin Co-60 için 1.32).",
+        "en": "Gamma ray constant of the source (e.g., 1.32 for Co-60).",
         "tr": "Kaynağın gama ışını sabiti (örneğin Co-60 için 1.32).",
         "de": "Gammastrahlungskonstante der Quelle (z. B. 1,32 für Co-60).",
         "fr": "Constante gamma de la source (ex. 1,32 pour Co-60).",

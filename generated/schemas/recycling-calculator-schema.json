@@ -9,7 +9,7 @@
       "default": 1000,
       "businessContext": "Üretim sürecinde oluşan toplam atık miktarı",
       "label_i18n": {
-        "en": "Toplam Atık (kg)",
+        "en": "Total Waste (kg)",
         "tr": "Toplam Atık (kg)",
         "de": "Gesamtabfall (kg)",
         "fr": "Déchets totaux (kg)",
@@ -17,7 +17,7 @@
         "ar": "إجمالي النفايات (كجم)"
       },
       "businessContext_i18n": {
-        "en": "Üretim sürecinde oluşan toplam atık miktarı",
+        "en": "Total amount of waste generated in the production process",
         "tr": "Üretim sürecinde oluşan toplam atık miktarı",
         "de": "Gesamte im Produktionsprozess anfallende Abfallmenge",
         "fr": "Quantité totale de déchets générés dans le processus de production",
@@ -33,7 +33,7 @@
       "default": 300,
       "businessContext": "Geri dönüşüme gönderilen atık miktarı",
       "label_i18n": {
-        "en": "Geri Dönüştürülen Miktar (kg)",
+        "en": "Recycled Amount (kg)",
         "tr": "Geri Dönüştürülen Miktar (kg)",
         "de": "Recycelte Menge (kg)",
         "fr": "Quantité recyclée (kg)",
@@ -41,7 +41,7 @@
         "ar": "الكمية المعاد تدويرها (كجم)"
       },
       "businessContext_i18n": {
-        "en": "Geri dönüşüme gönderilen atık miktarı",
+        "en": "Amount of waste sent for recycling",
         "tr": "Geri dönüşüme gönderilen atık miktarı",
         "de": "Menge des zum Recycling gegebenen Abfalls",
         "fr": "Quantité de déchets envoyée au recyclage",
@@ -57,7 +57,7 @@
       "default": 5,
       "businessContext": "Geri dönüştürülen malzemedeki kirlilik oranı",
       "label_i18n": {
-        "en": "Kirlilik Oranı (%)",
+        "en": "Pollution Rate (%)",
         "tr": "Kirlilik Oranı (%)",
         "de": "Verunreinigungsrate (%)",
         "fr": "Taux d'impuretés (%)",
@@ -65,7 +65,7 @@
         "ar": "نسبة التلوث (%)"
       },
       "businessContext_i18n": {
-        "en": "Geri dönüştürülen malzemedeki kirlilik oranı",
+        "en": "Contamination rate in recycled material",
         "tr": "Geri dönüştürülen malzemedeki kirlilik oranı",
         "de": "Verunreinigungsrate im recycelten Material",
         "fr": "Taux d'impuretés dans la matière recyclée",
@@ -89,7 +89,7 @@
         "ar": "تكلفة التخلص (TL/kg)"
       },
       "businessContext_i18n": {
-        "en": "Atığın kg başına bertaraf maliyeti",
+        "en": "Disposal cost per kg of waste",
         "tr": "Atığın kg başına bertaraf maliyeti",
         "de": "Entsorgungskosten pro kg Abfall",
         "fr": "Coût d'élimination par kg de déchet",
@@ -105,7 +105,7 @@
       "default": 1.2,
       "businessContext": "Geri dönüştürülen malzemenin kg başına satış geliri",
       "label_i18n": {
-        "en": "Geri Dönüşüm Geliri (TL/kg)",
+        "en": "Recycling Revenue (TL/kg)",
         "tr": "Geri Dönüşüm Geliri (TL/kg)",
         "de": "Recyclingerlös (TL/kg)",
         "fr": "Revenu du recyclage (TL/kg)",
@@ -113,7 +113,7 @@
         "ar": "إيرادات إعادة التدوير (TL/kg)"
       },
       "businessContext_i18n": {
-        "en": "Geri dönüştürülen malzemenin kg başına satış geliri",
+        "en": "Sales revenue per kg of recycled material",
         "tr": "Geri dönüştürülen malzemenin kg başına satış geliri",
         "de": "Verkaufserlös pro kg recyceltem Material",
         "fr": "Revenu de vente par kg de matière recyclée",

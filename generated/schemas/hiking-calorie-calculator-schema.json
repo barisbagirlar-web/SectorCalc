@@ -9,7 +9,7 @@
       "default": 70,
       "businessContext": "Yürüyüşçünün vücut ağırlığı (kg cinsinden)",
       "label_i18n": {
-        "en": "Vücut Ağırlığı (kg)",
+        "en": "Body weight (kg)",
         "tr": "Vücut Ağırlığı (kg)",
         "de": "Körpergewicht (kg)",
         "fr": "Poids corporel (kg)",
@@ -17,7 +17,7 @@
         "ar": "وزن الجسم (كجم)"
       },
       "businessContext_i18n": {
-        "en": "Yürüyüşçünün vücut ağırlığı (kg cinsinden)",
+        "en": "Hiker's body weight (in kg)",
         "tr": "Yürüyüşçünün vücut ağırlığı (kg cinsinden)",
         "de": "Körpergewicht des Wanderers (in kg)",
         "fr": "Poids corporel du randonneur (en kg)",
@@ -33,7 +33,7 @@
       "default": 10,
       "businessContext": "Sırt çantası ve ekipmanın toplam ağırlığı",
       "label_i18n": {
-        "en": "Sırt Çantası Ağırlığı (kg)",
+        "en": "Backpack weight (kg)",
         "tr": "Sırt Çantası Ağırlığı (kg)",
         "de": "Rucksackgewicht (kg)",
         "fr": "Poids du sac à dos (kg)",
@@ -41,7 +41,7 @@
         "ar": "وزن حقيبة الظهر (كجم)"
       },
       "businessContext_i18n": {
-        "en": "Sırt çantası ve ekipmanın toplam ağırlığı",
+        "en": "Total weight of backpack and equipment",
         "tr": "Sırt çantası ve ekipmanın toplam ağırlığı",
         "de": "Gesamtgewicht von Rucksack und Ausrüstung",
         "fr": "Poids total du sac à dos et de l'équipement",
@@ -65,7 +65,7 @@
         "ar": "المسافة (كم)"
       },
       "businessContext_i18n": {
-        "en": "Toplam yürüyüş mesafesi",
+        "en": "Total walking distance",
         "tr": "Toplam yürüyüş mesafesi",
         "de": "Gesamte Gehstrecke",
         "fr": "Distance totale de marche",
@@ -81,7 +81,7 @@
       "default": 500,
       "businessContext": "Toplam pozitif yükseklik kazanımı",
       "label_i18n": {
-        "en": "Yükseklik Kazancı (m)",
+        "en": "Height gain (m)",
         "tr": "Yükseklik Kazancı (m)",
         "de": "Höhengewinn (m)",
         "fr": "Gain d'altitude (m)",
@@ -89,7 +89,7 @@
         "ar": "الارتفاع المكتسب (م)"
       },
       "businessContext_i18n": {
-        "en": "Toplam pozitif yükseklik kazanımı",
+        "en": "Total positive elevation gain",
         "tr": "Toplam pozitif yükseklik kazanımı",
         "de": "Gesamter positiver Höhengewinn",
         "fr": "Gain d'altitude positif total",
@@ -105,7 +105,7 @@
       "default": 1.2,
       "businessContext": "Arazi zorluğu için çarpan: 1.0 asfalt, 1.2 çakıl, 1.5 engebeli",
       "label_i18n": {
-        "en": "Arazi Zorluk Faktörü",
+        "en": "Terrain Difficulty Factor",
         "tr": "Arazi Zorluk Faktörü",
         "de": "Geländeschwierigkeitsfaktor",
         "fr": "Facteur de difficulté du terrain",
@@ -113,7 +113,7 @@
         "ar": "عامل صعوبة التضاريس"
       },
       "businessContext_i18n": {
-        "en": "Arazi zorluğu için çarpan: 1.0 asfalt, 1.2 çakıl, 1.5 engebeli",
+        "en": "Multiplier for terrain difficulty: 1.0 asphalt, 1.2 gravel, 1.5 rough",
         "tr": "Arazi zorluğu için çarpan: 1.0 asfalt, 1.2 çakıl, 1.5 engebeli",
         "de": "Terrain multiplier: 1.0 asphalt, 1.2 gravel, 1.5 rough",
         "fr": "Multiplicateur pour la difficulté du terrain : 1,0 asphalte, 1,2 gravier, 1,5 accidenté",

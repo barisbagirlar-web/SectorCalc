@@ -9,7 +9,7 @@
       "default": 0,
       "businessContext": "Ölçülecek maddenin gram cinsinden ağırlığı",
       "label_i18n": {
-        "en": "Gram Miktarı",
+        "en": "Gram Amount",
         "tr": "Gram Miktarı",
         "de": "Gramm-Menge",
         "fr": "Quantité en grammes",
@@ -17,7 +17,7 @@
         "ar": "الوزن بالجرام"
       },
       "businessContext_i18n": {
-        "en": "Ölçülecek maddenin gram cinsinden ağırlığı",
+        "en": "Weight of the substance in grams",
         "tr": "Ölçülecek maddenin gram cinsinden ağırlığı",
         "de": "Gewicht der zu messenden Substanz in Gramm",
         "fr": "Poids en grammes de la substance à mesurer",
@@ -33,7 +33,7 @@
       "default": 0.0352739619,
       "businessContext": "Gramdan onsa dönüşüm katsayısı, varsayılan uluslararası değer.",
       "label_i18n": {
-        "en": "Dönüşüm Faktörü (oz/g)",
+        "en": "Conversion Factor (oz/g)",
         "tr": "Dönüşüm Faktörü (oz/g)",
         "de": "Umrechnungsfaktor (oz/g)",
         "fr": "Facteur de conversion (oz/g)",
@@ -41,7 +41,7 @@
         "ar": "معامل التحويل (أونصة/جرام)"
       },
       "businessContext_i18n": {
-        "en": "Gramdan onsa dönüşüm katsayısı, varsayılan uluslararası değer.",
+        "en": "Conversion coefficient from grams to ounces, default international value.",
         "tr": "Gramdan onsa dönüşüm katsayısı, varsayılan uluslararası değer.",
         "de": "Umrechnungskoeffizient von Gramm in Unzen, Standard-Internationalwert.",
         "fr": "Coefficient de conversion de grammes en onces, valeur internationale par défaut.",
@@ -57,7 +57,7 @@
       "default": 1,
       "businessContext": "Aynı ağırlıkta olan parça sayısı; toplam ons hesabı için kullanılır.",
       "label_i18n": {
-        "en": "Parti Miktarı (adet)",
+        "en": "Batch Quantity (pieces)",
         "tr": "Parti Miktarı (adet)",
         "de": "Chargenmenge (Stück)",
         "fr": "Quantité de lots (pièces)",
@@ -65,7 +65,7 @@
         "ar": "كمية الدفعة (قطعة)"
       },
       "businessContext_i18n": {
-        "en": "Aynı ağırlıkta olan parça sayısı; toplam ons hesabı için kullanılır.",
+        "en": "Number of pieces of the same weight; used for total ounce calculation.",
         "tr": "Aynı ağırlıkta olan parça sayısı; toplam ons hesabı için kullanılır.",
         "de": "Anzahl der Teile mit gleichem Gewicht; wird für die Gesamt-Unzen-Berechnung verwendet.",
         "fr": "Nombre de pièces de même poids ; utilisé pour le calcul total en onces.",
@@ -81,7 +81,7 @@
       "default": 4,
       "businessContext": "Sonucun yuvarlanacağı ondalık basamak sayısı",
       "label_i18n": {
-        "en": "Ondalık Basamak",
+        "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
         "fr": "Décimales",
@@ -89,7 +89,7 @@
         "ar": "المنازل العشرية"
       },
       "businessContext_i18n": {
-        "en": "Sonucun yuvarlanacağı ondalık basamak sayısı",
+        "en": "Number of decimal places to round the result",
         "tr": "Ondalık Basamak",
         "de": "Anzahl der Dezimalstellen für die Rundung des Ergebnisses",
         "fr": "Nombre de décimales pour l'arrondi du résultat",

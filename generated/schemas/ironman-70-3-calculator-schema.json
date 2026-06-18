@@ -9,7 +9,7 @@
       "default": 2,
       "businessContext": "1.9 km yüzme için ortalama tempo.",
       "label_i18n": {
-        "en": "Yüzme Temposu (dk/100m)",
+        "en": "Swim Pace (min/100m)",
         "tr": "Yüzme Temposu (dk/100m)",
         "de": "Schwimm-Tempo (min/100m)",
         "fr": "Tempo de nage (min/100m)",
@@ -17,7 +17,7 @@
         "ar": "سرعة السباحة (دقيقة/100م)"
       },
       "businessContext_i18n": {
-        "en": "1.9 km yüzme için ortalama tempo.",
+        "en": "Average pace for 1.9 km swim.",
         "tr": "1.9 km yüzme için ortalama tempo.",
         "de": "Durchschnittliches Tempo für 1,9 km Schwimmen.",
         "fr": "Tempo moyen pour 1,9 km de nage.",
@@ -33,7 +33,7 @@
       "default": 30,
       "businessContext": "90 km bisiklet için ortalama hız.",
       "label_i18n": {
-        "en": "Bisiklet Hızı (km/sa)",
+        "en": "Bike Speed (km/h)",
         "tr": "Bisiklet Hızı (km/sa)",
         "de": "Radfahr-Geschwindigkeit (km/h)",
         "fr": "Vitesse à vélo (km/h)",
@@ -41,7 +41,7 @@
         "ar": "سرعة الدراجة (كم/ساعة)"
       },
       "businessContext_i18n": {
-        "en": "90 km bisiklet için ortalama hız.",
+        "en": "Average speed for 90 km bike.",
         "tr": "90 km bisiklet için ortalama hız.",
         "de": "Durchschnittliche Geschwindigkeit für 90 km Radfahren.",
         "fr": "Vitesse moyenne pour 90 km à vélo.",
@@ -57,7 +57,7 @@
       "default": 5.5,
       "businessContext": "21.1 km koşu için ortalama tempo.",
       "label_i18n": {
-        "en": "Koşu Temposu (dk/km)",
+        "en": "Run Pace (min/km)",
         "tr": "Koşu Temposu (dk/km)",
         "de": "Lauf-Tempo (min/km)",
         "fr": "Tempo de course (min/km)",
@@ -65,7 +65,7 @@
         "ar": "سرعة الجري (دقيقة/كم)"
       },
       "businessContext_i18n": {
-        "en": "21.1 km koşu için ortalama tempo.",
+        "en": "Average pace for 21.1 km run.",
         "tr": "21.1 km koşu için ortalama tempo.",
         "de": "Durchschnittliches Tempo für 21,1 km Laufen.",
         "fr": "Tempo moyen pour 21,1 km de course.",
@@ -81,7 +81,7 @@
       "default": 3,
       "businessContext": "Yüzmeden bisiklete geçiş süresi.",
       "label_i18n": {
-        "en": "T1 Süresi (dk)",
+        "en": "T1 Duration (min)",
         "tr": "T1 Süresi (dk)",
         "de": "T1-Zeit (min)",
         "fr": "Temps T1 (min)",
@@ -89,7 +89,7 @@
         "ar": "وقت الانتقال الأول (دقيقة)"
       },
       "businessContext_i18n": {
-        "en": "Yüzmeden bisiklete geçiş süresi.",
+        "en": "Swim to bike transition time.",
         "tr": "Yüzmeden bisiklete geçiş süresi.",
         "de": "Wechselzeit vom Schwimmen zum Radfahren.",
         "fr": "Temps de transition de la nage au vélo.",
@@ -105,7 +105,7 @@
       "default": 2,
       "businessContext": "Bisikletten koşuya geçiş süresi.",
       "label_i18n": {
-        "en": "T2 Süresi (dk)",
+        "en": "T2 Duration (min)",
         "tr": "T2 Süresi (dk)",
         "de": "T2-Zeit (min)",
         "fr": "Temps T2 (min)",
@@ -113,7 +113,7 @@
         "ar": "مدة T2 (دقيقة)"
       },
       "businessContext_i18n": {
-        "en": "Bisikletten koşuya geçiş süresi.",
+        "en": "Bike to run transition time.",
         "tr": "Bisikletten koşuya geçiş süresi.",
         "de": "Wechselzeit vom Radfahren zum Laufen.",
         "fr": "Temps de transition du vélo à la course.",

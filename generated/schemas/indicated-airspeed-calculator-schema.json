@@ -9,7 +9,7 @@
       "default": 102925,
       "businessContext": "Pitot tüpünden okunan toplam basınç değeri",
       "label_i18n": {
-        "en": "Pitot Basıncı (Pa)",
+        "en": "Pitot Pressure (Pa)",
         "tr": "Pitot Basıncı (Pa)",
         "de": "Pitot-Druck (Pa)",
         "fr": "Pression Pitot (Pa)",
@@ -17,7 +17,7 @@
         "ar": "ضغط البيتوت (Pa)"
       },
       "businessContext_i18n": {
-        "en": "Pitot tüpünden okunan toplam basınç değeri",
+        "en": "Total pressure reading from the pitot tube",
         "tr": "Pitot tüpünden okunan toplam basınç değeri",
         "de": "Gesamtdruckwert aus dem Pitot-Rohr",
         "fr": "Valeur de pression totale lue sur le tube de Pitot",
@@ -33,7 +33,7 @@
       "default": 101325,
       "businessContext": "Statik porttan alınan atmosfer basıncı",
       "label_i18n": {
-        "en": "Statik Basınç (Pa)",
+        "en": "Static Pressure (Pa)",
         "tr": "Statik Basınç (Pa)",
         "de": "Statischer Druck (Pa)",
         "fr": "Pression statique (Pa)",
@@ -41,7 +41,7 @@
         "ar": "الضغط الساكن (Pa)"
       },
       "businessContext_i18n": {
-        "en": "Statik porttan alınan atmosfer basıncı",
+        "en": "Atmospheric pressure from the static port",
         "tr": "Statik porttan alınan atmosfer basıncı",
         "de": "Atmosphärendruck vom statischen Port",
         "fr": "Pression atmosphérique prélevée sur la prise statique",
@@ -57,7 +57,7 @@
       "default": 1.225,
       "businessContext": "Uluslararası standart atmosfer (ISA) deniz seviyesi hava yoğunluğu",
       "label_i18n": {
-        "en": "Hava Yoğunluğu (kg/m³)",
+        "en": "Air Density (kg/m³)",
         "tr": "Hava Yoğunluğu (kg/m³)",
         "de": "Luftdichte (kg/m³)",
         "fr": "Densité de l'air (kg/m³)",
@@ -65,7 +65,7 @@
         "ar": "كثافة الهواء (kg/m³)"
       },
       "businessContext_i18n": {
-        "en": "Uluslararası standart atmosfer (ISA) deniz seviyesi hava yoğunluğu",
+        "en": "International Standard Atmosphere (ISA) sea level air density",
         "tr": "Uluslararası standart atmosfer (ISA) deniz seviyesi hava yoğunluğu",
         "de": "Internationale Standardatmosphäre (ISA) Luftdichte auf Meereshöhe",
         "fr": "Densité de l'air au niveau de la mer selon l'atmosphère standard internationale (ISA)",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "Pitot-statik sistem pozisyon hatası için düzeltme katsayısı, genellikle 1.0 alınır",
       "label_i18n": {
-        "en": "Pozisyon Hatası Düzeltme Faktörü",
+        "en": "Position Error Correction Factor",
         "tr": "Pozisyon Hatası Düzeltme Faktörü",
         "de": "Positionsfehler-Korrekturfaktor",
         "fr": "Facteur de correction d'erreur de position",
@@ -89,7 +89,7 @@
         "ar": "عامل تصحيح خطأ الموضع"
       },
       "businessContext_i18n": {
-        "en": "Pitot-statik sistem pozisyon hatası için düzeltme katsayısı, genellikle 1.0 alınır",
+        "en": "Correction coefficient for pitot-static system position error, typically taken as 1.0",
         "tr": "Pitot-statik sistem pozisyon hatası için düzeltme katsayısı, genellikle 1.0 alınır",
         "de": "Korrekturkoeffizient für den Positionsfehler des Pitot-Statik-Systems, normalerweise 1,0",
         "fr": "Coefficient de correction pour l'erreur de position du système Pitot-statique, généralement pris égal à 1,0",

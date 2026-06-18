@@ -9,7 +9,7 @@
       "default": 250,
       "businessContext": "The average power output measured during the cycling test.",
       "label_i18n": {
-        "en": "Ortalama Güç",
+        "en": "Average Power",
         "tr": "Ortalama Güç",
         "de": "Durchschnittsleistung",
         "fr": "Puissance moyenne",
@@ -33,7 +33,7 @@
       "default": 0.95,
       "businessContext": "FTP dönüşüm faktörü (20 dk test için 0.95).",
       "label_i18n": {
-        "en": "Faktör",
+        "en": "Factor",
         "tr": "Faktör",
         "de": "Faktor",
         "fr": "Facteur",
@@ -41,7 +41,7 @@
         "ar": "العامل"
       },
       "businessContext_i18n": {
-        "en": "FTP dönüşüm faktörü (20 dk test için 0.95).",
+        "en": "FTP conversion factor (0.95 for 20 min test).",
         "tr": "FTP dönüşüm faktörü (20 dk test için 0.95).",
         "de": "FTP-Umrechnungsfaktor (0,95 für 20-Minuten-Test).",
         "fr": "Facteur de conversion FTP (0,95 pour un test de 20 min).",
@@ -57,7 +57,7 @@
       "default": 70,
       "businessContext": "Power-to-weight ratio calculation.",
       "label_i18n": {
-        "en": "Vücut Ağırlığı",
+        "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
         "fr": "Poids corporel",
@@ -81,7 +81,7 @@
       "default": 20,
       "businessContext": "Duration of the test effort (for record).",
       "label_i18n": {
-        "en": "Test Süresi",
+        "en": "Test Duration",
         "tr": "Test Süresi",
         "de": "Testdauer",
         "fr": "Durée du test",
@@ -105,7 +105,7 @@
       "default": 30,
       "businessContext": "Rider age for reference.",
       "label_i18n": {
-        "en": "Yaş",
+        "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
         "fr": "Âge",
@@ -129,7 +129,7 @@
       "default": 20,
       "businessContext": "Ambient temperature (for record).",
       "label_i18n": {
-        "en": "Sıcaklık",
+        "en": "Temperature",
         "tr": "Sıcaklık",
         "de": "Temperatur",
         "fr": "Température",

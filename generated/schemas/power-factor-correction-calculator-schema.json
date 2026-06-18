@@ -9,7 +9,7 @@
       "default": 100,
       "businessContext": "Tesisteki toplam gerçek güç tüketimi",
       "label_i18n": {
-        "en": "Aktif Güç (kW)",
+        "en": "Active Power (kW)",
         "tr": "Aktif Güç (kW)",
         "de": "Wirkleistung (kW)",
         "fr": "Puissance active (kW)",
@@ -17,7 +17,7 @@
         "ar": "القدرة الفعلية (كيلوواط)"
       },
       "businessContext_i18n": {
-        "en": "Tesisteki toplam gerçek güç tüketimi",
+        "en": "Total real power consumption in the facility",
         "tr": "Tesisteki toplam gerçek güç tüketimi",
         "de": "Gesamte Wirkleistungsaufnahme der Anlage",
         "fr": "Consommation totale de puissance réelle dans l'installation",
@@ -33,7 +33,7 @@
       "default": 0.8,
       "businessContext": "Düzeltme öncesi mevcut cos φ değeri",
       "label_i18n": {
-        "en": "Mevcut Güç Faktörü",
+        "en": "Current Power Factor",
         "tr": "Mevcut Güç Faktörü",
         "de": "Aktueller Leistungsfaktor",
         "fr": "Facteur de puissance actuel",
@@ -41,7 +41,7 @@
         "ar": "معامل القدرة الحالي"
       },
       "businessContext_i18n": {
-        "en": "Düzeltme öncesi mevcut cos φ değeri",
+        "en": "Current cos φ value before correction",
         "tr": "Düzeltme öncesi mevcut cos φ değeri",
         "de": "Aktueller cos φ vor der Korrektur",
         "fr": "Valeur actuelle du cos φ avant correction",
@@ -57,7 +57,7 @@
       "default": 0.95,
       "businessContext": "Ulaşılmak istenen cos φ değeri",
       "label_i18n": {
-        "en": "Hedef Güç Faktörü",
+        "en": "Target Power Factor",
         "tr": "Hedef Güç Faktörü",
         "de": "Ziel-Leistungsfaktor",
         "fr": "Facteur de puissance cible",
@@ -65,7 +65,7 @@
         "ar": "معامل القدرة المستهدف"
       },
       "businessContext_i18n": {
-        "en": "Ulaşılmak istenen cos φ değeri",
+        "en": "Desired cos φ value to achieve",
         "tr": "Ulaşılmak istenen cos φ değeri",
         "de": "Angestrebter cos φ-Wert",
         "fr": "Valeur cible du cos φ",
@@ -89,7 +89,7 @@
         "ar": "التعرفة الكهربائية"
       },
       "businessContext_i18n": {
-        "en": "Reaktif enerji ceza bedelini hesaplamak için",
+        "en": "For calculating reactive energy penalty cost",
         "tr": "Reaktif enerji ceza bedelini hesaplamak için",
         "de": "Zur Berechnung der Blindenergie-Strafgebühr",
         "fr": "Pour calculer la pénalité d'énergie réactive",
@@ -105,7 +105,7 @@
       "default": 24,
       "businessContext": "Yıllık kullanım süresini belirlemek için",
       "label_i18n": {
-        "en": "Günlük Çalışma Saati",
+        "en": "Daily Working Hours",
         "tr": "Günlük Çalışma Saati",
         "de": "Günlük Çalışma Saati",
         "fr": "Heures de travail par jour",
@@ -113,7 +113,7 @@
         "ar": "ساعات العمل اليومية"
       },
       "businessContext_i18n": {
-        "en": "Yıllık kullanım süresini belirlemek için",
+        "en": "To determine the annual usage time",
         "tr": "Yıllık kullanım süresini belirlemek için",
         "de": "Zur Bestimmung der jährlichen Nutzungsdauer",
         "fr": "Pour déterminer la durée d'utilisation annuelle",

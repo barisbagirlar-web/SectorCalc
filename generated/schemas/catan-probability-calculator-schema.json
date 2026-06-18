@@ -9,7 +9,7 @@
       "default": 2,
       "businessContext": "Kullanılan zar adedi (Catan için 2)",
       "label_i18n": {
-        "en": "Zar Sayısı",
+        "en": "Number of dice",
         "tr": "Zar Sayısı",
         "de": "Anzahl der Würfel",
         "fr": "Nombre de dés",
@@ -17,7 +17,7 @@
         "ar": "عدد النرد"
       },
       "businessContext_i18n": {
-        "en": "Kullanılan zar adedi (Catan için 2)",
+        "en": "Number of dice used (2 for Catan)",
         "tr": "Kullanılan zar adedi (Catan için 2)",
         "de": "Anzahl der verwendeten Würfel (für Catan: 2)",
         "fr": "Nombre de dés utilisés (2 pour Catan)",
@@ -33,7 +33,7 @@
       "default": 6,
       "businessContext": "Her bir zarın yüz sayısı",
       "label_i18n": {
-        "en": "Zar Yüz Sayısı",
+        "en": "Number of die faces",
         "tr": "Zar Yüz Sayısı",
         "de": "Augenzahl pro Würfel",
         "fr": "Nombre de faces par dé",
@@ -41,7 +41,7 @@
         "ar": "عدد أوجه النرد"
       },
       "businessContext_i18n": {
-        "en": "Her bir zarın yüz sayısı",
+        "en": "Number of faces on each die",
         "tr": "Her bir zarın yüz sayısı",
         "de": "Anzahl der Seiten jedes Würfels",
         "fr": "Nombre de faces de chaque dé",
@@ -65,7 +65,7 @@
         "ar": "المجموع المستهدف"
       },
       "businessContext_i18n": {
-        "en": "Hangi toplamın üretim tetiklediği",
+        "en": "Which total triggers production",
         "tr": "Hangi toplamın üretim tetiklediği",
         "de": "Welche Summe die Produktion auslöst",
         "fr": "Quelle somme déclenche la production",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "Bu altıgen üzerindeki yerleşim sayısı",
       "label_i18n": {
-        "en": "Yerleşim Sayısı",
+        "en": "Number of settlements",
         "tr": "Yerleşim Sayısı",
         "de": "Anzahl der Siedlungen",
         "fr": "Nombre de colonies",
@@ -89,7 +89,7 @@
         "ar": "عدد المستوطنات"
       },
       "businessContext_i18n": {
-        "en": "Bu altıgen üzerindeki yerleşim sayısı",
+        "en": "Number of settlements on this hex",
         "tr": "Bu altıgen üzerindeki yerleşim sayısı",
         "de": "Anzahl der Siedlungen auf diesem Hexagon",
         "fr": "Nombre de colonies sur cet hexagone",
@@ -105,7 +105,7 @@
       "default": 1,
       "businessContext": "Kaç zar atışı (tur) sonrası olasılık hesaplanacak",
       "label_i18n": {
-        "en": "Tur Sayısı",
+        "en": "Number of turns",
         "tr": "Tur Sayısı",
         "de": "Anzahl der Runden",
         "fr": "Nombre de tours",
@@ -113,7 +113,7 @@
         "ar": "عدد الأدوار"
       },
       "businessContext_i18n": {
-        "en": "Kaç zar atışı (tur) sonrası olasılık hesaplanacak",
+        "en": "Number of dice rolls (turns) after which probability is calculated",
         "tr": "Kaç zar atışı (tur) sonrası olasılık hesaplanacak",
         "de": "Nach wie vielen Würfen (Runden) die Wahrscheinlichkeit berechnet wird",
         "fr": "Combien de lancers de dés (tours) pour calculer la probabilité",

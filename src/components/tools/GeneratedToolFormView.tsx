@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { ClaimReviewJsonLd } from "@/components/seo/ClaimReviewJsonLd";
 import { DynamicToolForm } from "@/components/tools/DynamicToolForm";
@@ -26,6 +26,8 @@ import {
 } from "@/lib/pdf/build-pdf-export-rows";
 import { absoluteLocalizedUrl } from "@/lib/semantic/site-url";
 import { usePathname } from "@/i18n/routing";
+import { savePrintData } from "@/lib/reports/generated-tool-print-data";
+import { PremiumResultSummary } from "@/components/reports/PremiumResultSummary";
 
 export type GeneratedToolFormViewProps = {
   readonly slug: string;
@@ -69,6 +71,17 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
     setLastInputs(values);
     setResult(runGeneratedToolCalculation(calculator, values));
   };
+
+  const handlePrintPremiumReport = useCallback(() => {
+    if (!result) return;
+    savePrintData({
+      slug,
+      inputs: lastInputs,
+      result: result as unknown as Record<string, unknown>,
+      schema: JSON.parse(JSON.stringify(schema)),
+    });
+    window.open(`/${locale}/tools/generated/${slug}/print`, "_blank");
+  }, [result, lastInputs, slug, locale, schema]);
 
   const primaryRaw = result?.[primaryOutputKey];
   const primaryUnit = resolvePrimaryOutputUnit(schema);
@@ -133,6 +146,27 @@ export function GeneratedToolFormView({ slug, schema }: GeneratedToolFormViewPro
           inputRows={pdfInputRows}
           breakdownRows={pdfBreakdownRows}
         />
+      ) : null}
+
+      {isPremium && result ? (
+        <>
+          <PremiumResultSummary
+            slug={slug}
+            schema={schema}
+            result={result}
+            inputs={lastInputs}
+            onOpenFullReport={handlePrintPremiumReport}
+          />
+          <div className="mt-4 flex justify-center">
+            <button
+              type="button"
+              onClick={handlePrintPremiumReport}
+              className="sc-cta-primary sc-ledger-cta-primary min-h-[44px] px-6"
+            >
+              ⬇ Premium PDF Raporu İndir
+            </button>
+          </div>
+        </>
       ) : null}
 
       <ToolDescription content={aboutContent} isPremium={isPremium} />

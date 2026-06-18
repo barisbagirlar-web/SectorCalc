@@ -9,7 +9,7 @@
       "default": 10000,
       "businessContext": "Yıllık olarak satılan veya üretimde kullanılan malzeme miktarı.",
       "label_i18n": {
-        "en": "Yıllık Talep Miktarı",
+        "en": "Annual Demand Quantity",
         "tr": "Yıllık Talep Miktarı",
         "de": "Jährliche Nachfragemenge",
         "fr": "Demande annuelle",
@@ -17,7 +17,7 @@
         "ar": "الطلب السنوي"
       },
       "businessContext_i18n": {
-        "en": "Yıllık olarak satılan veya üretimde kullanılan malzeme miktarı.",
+        "en": "Annual quantity of material sold or used in production",
         "tr": "Yıllık olarak satılan veya üretimde kullanılan malzeme miktarı.",
         "de": "Jährlich verkaufte oder in der Produktion verwendete Materialmenge.",
         "fr": "Quantité annuelle de matériau vendue ou utilisée dans la production.",
@@ -33,7 +33,7 @@
       "default": 50,
       "businessContext": "Bir siparişin verilme ve teslim alma ile ilgili tüm masraflar.",
       "label_i18n": {
-        "en": "Sipariş Maliyeti",
+        "en": "Ordering Cost",
         "tr": "Sipariş Maliyeti",
         "de": "Bestellkosten",
         "fr": "Coût de commande",
@@ -41,7 +41,7 @@
         "ar": "تكلفة الطلب"
       },
       "businessContext_i18n": {
-        "en": "Bir siparişin verilme ve teslim alma ile ilgili tüm masraflar.",
+        "en": "All expenses related to placing and receiving an order",
         "tr": "Bir siparişin verilmesi ve teslim alınmasıyla ilgili tüm masraflar.",
         "de": "Alle Kosten im Zusammenhang mit der Aufgabe und dem Erhalt einer Bestellung.",
         "fr": "Tous les frais liés à la passation et à la réception d'une commande.",
@@ -65,7 +65,7 @@
         "ar": "تكلفة الاحتفاظ بالمخزون"
       },
       "businessContext_i18n": {
-        "en": "Bir birim stoğun bir yıl boyunca depolanmasının maliyeti (sigorta, yıpranma, fırsat maliyeti vb.).",
+        "en": "Cost of storing one unit of inventory for one year (insurance, depreciation, opportunity cost, etc.)",
         "tr": "Bir birim stoğun bir yıl boyunca depolanmasının maliyeti (sigorta, yıpranma, fırsat maliyeti vb.).",
         "de": "Kosten für die Lagerung einer Einheit über ein Jahr (Versicherung, Schwund, Opportunitätskosten usw.).",
         "fr": "Coût de stockage d'une unité de stock pendant un an (assurance, dépréciation, coût d'opportunité, etc.).",
@@ -89,7 +89,7 @@
         "ar": "تكلفة الوحدة"
       },
       "businessContext_i18n": {
-        "en": "Satın alınan veya üretilen malzemenin birim başına maliyeti.",
+        "en": "Cost per unit of purchased or produced material",
         "tr": "Satın alınan veya üretilen malzemenin birim başına maliyeti.",
         "de": "Kosten pro Einheit des gekauften oder produzierten Materials.",
         "fr": "Coût par unité du matériau acheté ou produit.",

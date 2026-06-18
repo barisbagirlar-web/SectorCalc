@@ -9,7 +9,7 @@
       "default": 150,
       "businessContext": "Kesme hızı, malzeme ve takım özelliklerine bağlıdır.",
       "label_i18n": {
-        "en": "Kesme Hızı (Vc)",
+        "en": "Cutting Speed (Vc)",
         "tr": "Kesme Hızı (Vc)",
         "de": "Schnittgeschwindigkeit (Vc)",
         "fr": "Vitesse de coupe (Vc)",
@@ -17,7 +17,7 @@
         "ar": "سرعة القطع (Vc)"
       },
       "businessContext_i18n": {
-        "en": "Kesme hızı, malzeme ve takım özelliklerine bağlıdır.",
+        "en": "Cutting speed depends on material and tool characteristics.",
         "tr": "Kesme hızı, malzeme ve takım özelliklerine bağlıdır.",
         "de": "Schnittgeschwindigkeit, abhängig von Material- und Werkzeugeigenschaften.",
         "fr": "La vitesse de coupe dépend des propriétés du matériau et de l'outil.",
@@ -33,7 +33,7 @@
       "default": 0.15,
       "businessContext": "Takım kataloğundan seçilen değer.",
       "label_i18n": {
-        "en": "Diş Başı İlerleme (fz)",
+        "en": "Feed per Tooth (fz)",
         "tr": "Diş Başı İlerleme (fz)",
         "de": "Vorschub pro Zahn (fz)",
         "fr": "Avance par dent (fz)",
@@ -41,7 +41,7 @@
         "ar": "التغذية لكل سن (fz)"
       },
       "businessContext_i18n": {
-        "en": "Takım kataloğundan seçilen değer.",
+        "en": "Value selected from tool catalog.",
         "tr": "Takım kataloğundan seçilen değer.",
         "de": "Aus dem Werkzeugkatalog ausgewählter Wert.",
         "fr": "Valeur sélectionnée dans le catalogue d'outils.",
@@ -57,7 +57,7 @@
       "default": 4,
       "businessContext": "Kesici takımın diş sayısı.",
       "label_i18n": {
-        "en": "Diş Sayısı (z)",
+        "en": "Number of Teeth (z)",
         "tr": "Diş Sayısı (z)",
         "de": "Zähnezahl (z)",
         "fr": "Nombre de dents (z)",
@@ -65,7 +65,7 @@
         "ar": "عدد الأسنان (z)"
       },
       "businessContext_i18n": {
-        "en": "Kesici takımın diş sayısı.",
+        "en": "Number of teeth of the cutting tool.",
         "tr": "Kesici takımın diş sayısı.",
         "de": "Zähnezahl des Schneidwerkzeugs.",
         "fr": "Nombre de dents de l'outil de coupe.",
@@ -81,7 +81,7 @@
       "default": 12,
       "businessContext": "Kesici takımın çapı.",
       "label_i18n": {
-        "en": "Takım Çapı (D)",
+        "en": "Tool Diameter (D)",
         "tr": "Takım Çapı (D)",
         "de": "Werkzeugdurchmesser (D)",
         "fr": "Diamètre de l'outil (D)",
@@ -89,7 +89,7 @@
         "ar": "قطر الأداة (D)"
       },
       "businessContext_i18n": {
-        "en": "Kesici takımın çapı.",
+        "en": "Diameter of the cutting tool.",
         "tr": "Kesici takımın çapı.",
         "de": "Durchmesser des Schneidwerkzeugs.",
         "fr": "Diamètre de l'outil de coupe.",
@@ -105,7 +105,7 @@
       "default": 5,
       "businessContext": "Eksenel kesme derinliği.",
       "label_i18n": {
-        "en": "Kesme Derinliği (ap)",
+        "en": "Depth of Cut (ap)",
         "tr": "Kesme Derinliği (ap)",
         "de": "Schnitttiefe (ap)",
         "fr": "Profondeur de coupe (ap)",
@@ -113,7 +113,7 @@
         "ar": "عمق القطع (ap)"
       },
       "businessContext_i18n": {
-        "en": "Eksenel kesme derinliği.",
+        "en": "Axial depth of cut.",
         "tr": "Eksenel kesme derinliği.",
         "de": "Axiale Schnitttiefe.",
         "fr": "Profondeur de coupe axiale.",
@@ -129,7 +129,7 @@
       "default": 8,
       "businessContext": "Radyal kesme genişliği.",
       "label_i18n": {
-        "en": "Kesme Genişliği (ae)",
+        "en": "Cutting Width (ae)",
         "tr": "Kesme Genişliği (ae)",
         "de": "Schnittbreite (ae)",
         "fr": "Largeur de coupe (ae)",
@@ -137,7 +137,7 @@
         "ar": "عرض القطع (ae)"
       },
       "businessContext_i18n": {
-        "en": "Radyal kesme genişliği.",
+        "en": "Radial cutting width.",
         "tr": "Radyal kesme genişliği.",
         "de": "Radiale Schnittbreite.",
         "fr": "Largeur de coupe radiale.",

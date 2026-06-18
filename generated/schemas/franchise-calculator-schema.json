@@ -9,7 +9,7 @@
       "default": 100000,
       "businessContext": "Toplam başlangıç yatırımı (franchise bedeli, ekipman vb.)",
       "label_i18n": {
-        "en": "Başlangıç Yatırımı",
+        "en": "Initial Investment",
         "tr": "Başlangıç Yatırımı",
         "de": "Anfangsinvestition",
         "fr": "Investissement initial",
@@ -17,7 +17,7 @@
         "ar": "الاستثمار الأولي"
       },
       "businessContext_i18n": {
-        "en": "Toplam başlangıç yatırımı (franchise bedeli, ekipman vb.)",
+        "en": "Total initial investment (franchise fee, equipment, etc.)",
         "tr": "Toplam başlangıç yatırımı (franchise bedeli, ekipman vb.)",
         "de": "Gesamte Anfangsinvestition (Franchisegebühr, Ausrüstung usw.)",
         "fr": "Investissement initial total (frais de franchise, équipement, etc.)",
@@ -33,7 +33,7 @@
       "default": 50000,
       "businessContext": "Beklenen aylık brüt gelir",
       "label_i18n": {
-        "en": "Aylık Gelir",
+        "en": "Monthly Income",
         "tr": "Aylık Gelir",
         "de": "Monatliches Einkommen",
         "fr": "Revenu mensuel",
@@ -41,7 +41,7 @@
         "ar": "الدخل الشهري"
       },
       "businessContext_i18n": {
-        "en": "Beklenen aylık brüt gelir",
+        "en": "Expected monthly gross revenue",
         "tr": "Beklenen aylık brüt gelir",
         "de": "Erwarteter monatlicher Bruttoumsatz",
         "fr": "Revenu brut mensuel attendu",
@@ -57,7 +57,7 @@
       "default": 5,
       "businessContext": "Aylık gelirden yüzde olarak royalty kesintisi",
       "label_i18n": {
-        "en": "Royalty Oranı",
+        "en": "Royalty Rate",
         "tr": "Royalty Oranı",
         "de": "Lizenzgebührenanteil",
         "fr": "Taux de redevance",
@@ -65,7 +65,7 @@
         "ar": "نسبة الإتاوة"
       },
       "businessContext_i18n": {
-        "en": "Aylık gelirden yüzde olarak royalty kesintisi",
+        "en": "Royalty deduction as percentage of monthly revenue",
         "tr": "Aylık gelirden yüzde olarak royalty kesintisi",
         "de": "Lizenzgebührenabzug in Prozent des monatlichen Umsatzes",
         "fr": "Déduction de redevance en pourcentage du revenu mensuel",
@@ -81,7 +81,7 @@
       "default": 2,
       "businessContext": "Aylık gelirden yüzde olarak pazarlama fonu kesintisi",
       "label_i18n": {
-        "en": "Pazarlama Fon Oranı",
+        "en": "Marketing Fund Rate",
         "tr": "Pazarlama Fon Oranı",
         "de": "Marketingfondsanteil",
         "fr": "Taux du fonds marketing",
@@ -89,7 +89,7 @@
         "ar": "نسبة صندوق التسويق"
       },
       "businessContext_i18n": {
-        "en": "Aylık gelirden yüzde olarak pazarlama fonu kesintisi",
+        "en": "Marketing fund deduction as percentage of monthly income",
         "tr": "Aylık gelirden yüzde olarak pazarlama fonu kesintisi",
         "de": "Marketingfondsabzug in Prozent des monatlichen Umsatzes",
         "fr": "Déduction du fonds marketing en pourcentage du revenu mensuel",
@@ -113,7 +113,7 @@
         "ar": "المصاريف التشغيلية"
       },
       "businessContext_i18n": {
-        "en": "Kira, personel, malzeme vb. aylık operasyonel giderler",
+        "en": "Monthly operational expenses (rent, personnel, materials, etc.)",
         "tr": "Kira, personel, malzeme vb. aylık operasyonel giderler",
         "de": "Monatliche Betriebskosten (Miete, Personal, Material usw.)",
         "fr": "Dépenses opérationnelles mensuelles (loyer, personnel, fournitures, etc.)",
@@ -129,7 +129,7 @@
       "default": 0,
       "businessContext": "Diğer aylık sabit ücretler (lisans, yazılım vb.)",
       "label_i18n": {
-        "en": "Diğer Aylık Ücretler",
+        "en": "Other monthly fees",
         "tr": "Diğer Aylık Ücretler",
         "de": "Sonstige monatliche Gebühren",
         "fr": "Autres frais mensuels",
@@ -137,7 +137,7 @@
         "ar": "الرسوم الشهرية الأخرى"
       },
       "businessContext_i18n": {
-        "en": "Diğer aylık sabit ücretler (lisans, yazılım vb.)",
+        "en": "Other monthly fixed fees (licenses, software, etc.)",
         "tr": "Diğer aylık sabit ücretler (lisans, yazılım vb.)",
         "de": "Sonstige monatliche Fixkosten (Lizenz, Software usw.)",
         "fr": "Autres frais fixes mensuels (licence, logiciel, etc.)",

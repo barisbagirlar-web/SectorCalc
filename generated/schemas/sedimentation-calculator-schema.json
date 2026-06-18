@@ -9,7 +9,7 @@
       "default": 0.0001,
       "businessContext": "Tipik çap 0.1 mm",
       "label_i18n": {
-        "en": "Partikül Çapı",
+        "en": "Particle diameter",
         "tr": "Partikül Çapı",
         "de": "Partikelgröße",
         "fr": "Diamètre des particules",
@@ -17,7 +17,7 @@
         "ar": "قطر الجسيم"
       },
       "businessContext_i18n": {
-        "en": "Tipik çap 0.1 mm",
+        "en": "Typical diameter 0.1 mm",
         "tr": "Tipik çap 0.1 mm",
         "de": "Typischer Durchmesser 0,1 mm",
         "fr": "Diamètre typique 0,1 mm",
@@ -33,7 +33,7 @@
       "default": 2600,
       "businessContext": "Silis kumu ≈ 2600 kg/m³",
       "label_i18n": {
-        "en": "Partikül Yoğunluğu",
+        "en": "Particle density",
         "tr": "Partikül Yoğunluğu",
         "de": "Partikeldichte",
         "fr": "Masse volumique des particules",
@@ -57,7 +57,7 @@
       "default": 1000,
       "businessContext": "Su = 1000 kg/m³",
       "label_i18n": {
-        "en": "Akışkan Yoğunluğu",
+        "en": "Fluid Density",
         "tr": "Akışkan Yoğunluğu",
         "de": "Fluiddichte",
         "fr": "Masse volumique du fluide",
@@ -81,7 +81,7 @@
       "default": 0.001,
       "businessContext": "Su için ≈ 0.001 Pa·s (20°C)",
       "label_i18n": {
-        "en": "Akışkan Dinamik Viskozitesi",
+        "en": "Fluid dynamic viscosity",
         "tr": "Akışkan Dinamik Viskozitesi",
         "de": "Dynamische Viskosität des Fluids",
         "fr": "Viscosité dynamique du fluide",
@@ -89,7 +89,7 @@
         "ar": "اللزوجة الديناميكية للمائع"
       },
       "businessContext_i18n": {
-        "en": "Su için ≈ 0.001 Pa·s (20°C)",
+        "en": "For water ≈ 0.001 Pa·s (20°C)",
         "tr": "Su için ≈ 0,001 Pa·s (20°C)",
         "de": "Für Wasser ≈ 0,001 Pa·s (20°C)",
         "fr": "Pour l'eau ≈ 0,001 Pa·s (20°C)",
@@ -113,7 +113,7 @@
         "ar": "معدل التدفق"
       },
       "businessContext_i18n": {
-        "en": "Tesis tasarım debisi",
+        "en": "Plant design flow rate",
         "tr": "Tesis tasarım debisi",
         "de": "Auslegungsdurchfluss der Anlage",
         "fr": "Débit de conception de l'installation",
@@ -129,7 +129,7 @@
       "default": 20,
       "businessContext": "Çökeltim havuzu boyu",
       "label_i18n": {
-        "en": "Havuz Uzunluğu",
+        "en": "Pool length",
         "tr": "Havuz Uzunluğu",
         "de": "Beckenlänge",
         "fr": "Longueur du bassin",
@@ -137,7 +137,7 @@
         "ar": "طول الحوض"
       },
       "businessContext_i18n": {
-        "en": "Çökeltim havuzu boyu",
+        "en": "Sedimentation tank length",
         "tr": "Çökeltim havuzu boyu",
         "de": "Länge des Absetzbeckens",
         "fr": "Longueur du bassin de décantation",
@@ -153,7 +153,7 @@
       "default": 5,
       "businessContext": "Çökeltim havuzu eni",
       "label_i18n": {
-        "en": "Havuz Genişliği",
+        "en": "Pool width",
         "tr": "Havuz Genişliği",
         "de": "Beckenbreite",
         "fr": "Largeur du bassin",
@@ -161,7 +161,7 @@
         "ar": "عرض الحوض"
       },
       "businessContext_i18n": {
-        "en": "Çökeltim havuzu eni",
+        "en": "Sedimentation tank width",
         "tr": "Çökeltim havuzu eni",
         "de": "Breite des Absetzbeckens",
         "fr": "Largeur du bassin de décantation",
@@ -177,7 +177,7 @@
       "default": 3,
       "businessContext": "Tipik derinlik 2-4 m",
       "label_i18n": {
-        "en": "Havuz Derinliği",
+        "en": "Pool depth",
         "tr": "Havuz Derinliği",
         "de": "Beckentiefe",
         "fr": "Profondeur du bassin",

@@ -9,7 +9,7 @@
       "default": 50,
       "businessContext": "Print-on-demand ürün başına üretim maliyeti",
       "label_i18n": {
-        "en": "Ürün Maliyeti (Adet)",
+        "en": "Product Cost (per unit)",
         "tr": "Ürün Maliyeti (Adet)",
         "de": "Produktkosten (pro Stück)",
         "fr": "Coût du produit (pièce)",
@@ -17,7 +17,7 @@
         "ar": "تكلفة المنتج (للقطعة)"
       },
       "businessContext_i18n": {
-        "en": "Print-on-demand ürün başına üretim maliyeti",
+        "en": "Print-on-demand production cost per unit",
         "tr": "Print-on-demand ürün başına üretim maliyeti",
         "de": "Produktionskosten pro Print-on-Demand-Artikel",
         "fr": "Coût de production par pièce en impression à la demande",
@@ -33,7 +33,7 @@
       "default": 100,
       "businessContext": "Müşteriye satılan birim fiyat",
       "label_i18n": {
-        "en": "Satış Fiyatı (Adet)",
+        "en": "Selling Price (per unit)",
         "tr": "Satış Fiyatı (Adet)",
         "de": "Verkaufspreis (pro Stück)",
         "fr": "Prix de vente (pièce)",
@@ -41,7 +41,7 @@
         "ar": "سعر البيع (للقطعة)"
       },
       "businessContext_i18n": {
-        "en": "Müşteriye satılan birim fiyat",
+        "en": "Unit price sold to customer",
         "tr": "Müşteriye satılan birim fiyat",
         "de": "Stückpreis, zu dem an den Kunden verkauft wird",
         "fr": "Prix unitaire vendu au client",
@@ -57,7 +57,7 @@
       "default": 100,
       "businessContext": "Satılan toplam ürün adedi",
       "label_i18n": {
-        "en": "Sipariş Adedi",
+        "en": "Order Quantity",
         "tr": "Sipariş Adedi",
         "de": "Bestellmenge",
         "fr": "Quantité commandée",
@@ -65,7 +65,7 @@
         "ar": "كمية الطلب"
       },
       "businessContext_i18n": {
-        "en": "Satılan toplam ürün adedi",
+        "en": "Total number of products sold",
         "tr": "Satılan toplam ürün adedi",
         "de": "Gesamtzahl verkaufter Artikel",
         "fr": "Nombre total de produits vendus",
@@ -89,7 +89,7 @@
         "ar": "تكلفة الشحن (للقطعة)"
       },
       "businessContext_i18n": {
-        "en": "Ürün başına ortalama kargo maliyeti",
+        "en": "Average shipping cost per product",
         "tr": "Ürün başına ortalama kargo maliyeti",
         "de": "Durchschnittliche Versandkosten pro Artikel",
         "fr": "Coût de transport moyen par produit",
@@ -105,7 +105,7 @@
       "default": 10,
       "businessContext": "Satış platformunun aldığı yüzdesel komisyon",
       "label_i18n": {
-        "en": "Platform Komisyon Oranı",
+        "en": "Platform Commission Rate",
         "tr": "Platform Komisyon Oranı",
         "de": "Plattform-Provision in Prozent",
         "fr": "Taux de commission de la plateforme",
@@ -113,7 +113,7 @@
         "ar": "نسبة عمولة المنصة"
       },
       "businessContext_i18n": {
-        "en": "Satış platformunun aldığı yüzdesel komisyon",
+        "en": "Sales platform commission percentage (%)",
         "tr": "Satış platformunun aldığı yüzdesel komisyon",
         "de": "Prozentuale Provision der Verkaufsplattform",
         "fr": "Commission en pourcentage prélevée par la plateforme de vente",
@@ -129,7 +129,7 @@
       "default": 0,
       "businessContext": "Tasarım, listeleme gibi toplam ek sabit maliyetler",
       "label_i18n": {
-        "en": "Diğer Sabit Giderler",
+        "en": "Other Fixed Expenses",
         "tr": "Diğer Sabit Giderler",
         "de": "Sonstige Fixkosten",
         "fr": "Autres frais fixes",
@@ -137,7 +137,7 @@
         "ar": "مصروفات ثابتة أخرى"
       },
       "businessContext_i18n": {
-        "en": "Tasarım, listeleme gibi toplam ek sabit maliyetler",
+        "en": "Total additional fixed costs (design, listing, etc.)",
         "tr": "Tasarım, listeleme gibi toplam ek sabit maliyetler",
         "de": "Zusätzliche Fixkosten für Design, Listung usw.",
         "fr": "Coûts fixes supplémentaires totaux tels que conception, référencement",

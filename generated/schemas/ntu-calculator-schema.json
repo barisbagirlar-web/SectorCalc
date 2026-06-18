@@ -9,7 +9,7 @@
       "default": 15,
       "businessContext": "Ölçülen bulanıklık değeri (NTU cinsinden).",
       "label_i18n": {
-        "en": "NTU Değeri",
+        "en": "NTU Value",
         "tr": "NTU Değeri",
         "de": "NTU-Wert",
         "fr": "Valeur NTU",
@@ -17,7 +17,7 @@
         "ar": "قيمة NTU"
       },
       "businessContext_i18n": {
-        "en": "Ölçülen bulanıklık değeri (NTU cinsinden).",
+        "en": "Measured turbidity value (in NTU).",
         "tr": "Ölçülen bulanıklık değeri (NTU cinsinden).",
         "de": "Gemessener Trübungswert (in NTU).",
         "fr": "Valeur de turbidité mesurée (en NTU).",
@@ -33,7 +33,7 @@
       "default": 2.1,
       "businessContext": "Sahaya özgü kalibrasyon eğimi. TSS = a × NTU + b",
       "label_i18n": {
-        "en": "Eğim Katsayısı (a)",
+        "en": "Slope Coefficient (a)",
         "tr": "Eğim Katsayısı (a)",
         "de": "Steigungskoeffizient (a)",
         "fr": "Coefficient de pente (a)",
@@ -41,7 +41,7 @@
         "ar": "معامل الميل (a)"
       },
       "businessContext_i18n": {
-        "en": "Sahaya özgü kalibrasyon eğimi. TSS = a × NTU + b",
+        "en": "Site-specific calibration slope. TSS = a × NTU + b",
         "tr": "Sahaya özgü kalibrasyon eğimi. TSS = a × NTU + b",
         "de": "Standortspezifische Kalibrierungssteigung. TSS = a × NTU + b",
         "fr": "Pente de calibration spécifique au site. TSS = a × NTU + b",
@@ -57,7 +57,7 @@
       "default": 3.2,
       "businessContext": "Sahaya özgü kalibrasyon kesişim değeri.",
       "label_i18n": {
-        "en": "Kesişim Sabiti (b)",
+        "en": "Intercept Constant (b)",
         "tr": "Kesişim Sabiti (b)",
         "de": "Achsenabschnittskonstante (b)",
         "fr": "Constante d'intersection (b)",
@@ -65,7 +65,7 @@
         "ar": "ثابت التقاطع (b)"
       },
       "businessContext_i18n": {
-        "en": "Sahaya özgü kalibrasyon kesişim değeri.",
+        "en": "Site-specific calibration intercept value.",
         "tr": "Sahaya özgü kalibrasyon kesişim değeri.",
         "de": "Standortspezifischer Kalibrierungsachsenabschnitt.",
         "fr": "Valeur d'intersection de calibration spécifique au site.",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "Numune seyreltildiyse seyreltme oranı. Seyreltme yoksa 1.",
       "label_i18n": {
-        "en": "Seyreltme Faktörü",
+        "en": "Dilution Factor",
         "tr": "Seyreltme Faktörü",
         "de": "Verdünnungsfaktor",
         "fr": "Facteur de dilution",
@@ -89,7 +89,7 @@
         "ar": "عامل التخفيف"
       },
       "businessContext_i18n": {
-        "en": "Numune seyreltildiyse seyreltme oranı. Seyreltme yoksa 1.",
+        "en": "Dilution ratio if the sample was diluted. 1 if no dilution.",
         "tr": "Numune seyreltildiyse seyreltme oranı. Seyreltme yoksa 1.",
         "de": "Verdünnungsverhältnis, falls die Probe verdünnt wurde. 1, wenn keine Verdünnung.",
         "fr": "Rapport de dilution si l'échantillon a été dilué. 1 si non dilué.",

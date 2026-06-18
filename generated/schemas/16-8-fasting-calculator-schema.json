@@ -17,7 +17,7 @@
         "ar": "الساعة الحالية (0-23)"
       },
       "businessContext_i18n": {
-        "en": "Şu anki saat dilimi.",
+        "en": "Current time zone.",
         "tr": "Şu anki saat dilimi.",
         "de": "Aktuelle Zeitzone.",
         "fr": "Fuseau horaire actuel.",
@@ -33,7 +33,7 @@
       "default": 20,
       "businessContext": "16 saatlik oruç penceresinin başlangıç saati (örn. 20:00).",
       "label_i18n": {
-        "en": "Oruç Başlangıç Saati",
+        "en": "Fasting Start Time",
         "tr": "Oruç Başlangıç Saati",
         "de": "Fastenbeginn",
         "fr": "Heure de début du jeûne",
@@ -41,7 +41,7 @@
         "ar": "وقت بدء الصيام"
       },
       "businessContext_i18n": {
-        "en": "16 saatlik oruç penceresinin başlangıç saati (örn. 20:00).",
+        "en": "Start time of the 16-hour fasting window (e.g., 20:00).",
         "tr": "16 saatlik oruç penceresinin başlangıç saati (örn. 20:00).",
         "de": "Startzeit des 16-stündigen Fastenfensters (z.B. 20:00).",
         "fr": "Heure de début de la fenêtre de jeûne de 16 heures (ex. 20:00).",
@@ -57,7 +57,7 @@
       "default": 16,
       "businessContext": "Oruç penceresinin toplam süresi (standart 16 saat).",
       "label_i18n": {
-        "en": "Oruç Süresi",
+        "en": "Fasting Duration",
         "tr": "Oruç Süresi",
         "de": "Fastendauer",
         "fr": "Durée du jeûne",
@@ -65,7 +65,7 @@
         "ar": "مدة الصيام"
       },
       "businessContext_i18n": {
-        "en": "Oruç penceresinin toplam süresi (standart 16 saat).",
+        "en": "Total duration of the fasting window (standard 16 hours).",
         "tr": "Oruç penceresinin toplam süresi (standart 16 saat).",
         "de": "Gesamtdauer des Fastenfensters (Standard 16 Stunden).",
         "fr": "Durée totale de la fenêtre de jeûne (standard 16 heures).",
@@ -81,7 +81,7 @@
       "default": 8,
       "businessContext": "Yeme penceresi süresi (genelde 8 saat).",
       "label_i18n": {
-        "en": "Yeme Penceresi Süresi",
+        "en": "Eating Window Duration",
         "tr": "Yeme Penceresi Süresi",
         "de": "Essensfensterdauer",
         "fr": "Durée de la fenêtre alimentaire",
@@ -89,7 +89,7 @@
         "ar": "مدة نافذة الأكل"
       },
       "businessContext_i18n": {
-        "en": "Yeme penceresi süresi (genelde 8 saat).",
+        "en": "Duration of the eating window (usually 8 hours).",
         "tr": "Yeme penceresi süresi (genelde 8 saat).",
         "de": "Dauer des Essensfensters (normalerweise 8 Stunden).",
         "fr": "Durée de la fenêtre alimentaire (généralement 8 heures).",

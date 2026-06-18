@@ -9,7 +9,7 @@
       "default": 1,
       "businessContext": "Konteyner sayısı",
       "label_i18n": {
-        "en": "Konteyner Sayısı",
+        "en": "Number of Containers",
         "tr": "Konteyner Sayısı",
         "de": "Anzahl der Behälter",
         "fr": "Nombre de conteneurs",
@@ -17,7 +17,7 @@
         "ar": "عدد الحاويات"
       },
       "businessContext_i18n": {
-        "en": "Konteyner sayısı",
+        "en": "Number of containers",
         "tr": "Konteyner sayısı",
         "de": "Anzahl der Behälter",
         "fr": "Nombre de conteneurs",
@@ -33,7 +33,7 @@
       "default": 0,
       "businessContext": "Konteyner başına galon",
       "label_i18n": {
-        "en": "Konteyner Başına Galon",
+        "en": "Gallons per Container",
         "tr": "Konteyner Başına Galon",
         "de": "Gallonen pro Behälter",
         "fr": "Gallons par conteneur",
@@ -41,7 +41,7 @@
         "ar": "جالون لكل حاوية"
       },
       "businessContext_i18n": {
-        "en": "Konteyner başına galon",
+        "en": "Gallons per container",
         "tr": "Konteyner başına galon",
         "de": "Gallonen pro Behälter",
         "fr": "Gallons par conteneur",
@@ -65,7 +65,7 @@
         "ar": "نوع الجالون"
       },
       "businessContext_i18n": {
-        "en": "0: ABD galonu, 1: İngiliz galonu",
+        "en": "0: US gallon, 1: Imperial gallon",
         "tr": "0: ABD galonu, 1: İngiliz galonu",
         "de": "0: US-Gallone, 1: Britische Gallone",
         "fr": "0: Gallon US, 1: Gallon impérial",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "0 ise birim tipine göre standart faktör kullanılır",
       "label_i18n": {
-        "en": "Özel Dönüşüm Faktörü",
+        "en": "Custom Conversion Factor",
         "tr": "Özel Dönüşüm Faktörü",
         "de": "Benutzerdefinierter Umrechnungsfaktor",
         "fr": "Facteur de conversion personnalisé",
@@ -89,7 +89,7 @@
         "ar": "عامل تحويل مخصص"
       },
       "businessContext_i18n": {
-        "en": "0 ise birim tipine göre standart faktör kullanılır",
+        "en": "If 0, standard factor is used according to unit type",
         "tr": "0 ise birim tipine göre standart faktör kullanılır",
         "de": "Bei 0 wird Standardfaktor nach Einheitentyp verwendet",
         "fr": "Si 0, le facteur standard selon le type d'unité est utilisé",
@@ -105,7 +105,7 @@
       "default": 0,
       "businessContext": "Proses firesini yüzde olarak girin (ör. 5)",
       "label_i18n": {
-        "en": "Fire Yüzdesi",
+        "en": "Waste Percentage",
         "tr": "Fire Yüzdesi",
         "de": "Prozessverlust in Prozent",
         "fr": "Pourcentage de rebut",
@@ -113,7 +113,7 @@
         "ar": "نسبة الهدر"
       },
       "businessContext_i18n": {
-        "en": "Proses firesini yüzde olarak girin (ör. 5)",
+        "en": "Enter process waste as percentage (e.g., 5)",
         "tr": "Proses firesini yüzde olarak girin (ör. 5)",
         "de": "Prozessverlust in Prozent eingeben (z. B. 5)",
         "fr": "Saisir le pourcentage de rebut du processus (ex. 5)",
@@ -129,7 +129,7 @@
       "default": 2,
       "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı",
       "label_i18n": {
-        "en": "Ondalık Basamak Sayısı",
+        "en": "Number of Decimal Places",
         "tr": "Ondalık Basamak Sayısı",
         "de": "Anzahl Dezimalstellen",
         "fr": "Nombre de décimales",
@@ -137,7 +137,7 @@
         "ar": "عدد المنازل العشرية"
       },
       "businessContext_i18n": {
-        "en": "Sonuçta gösterilecek ondalık basamak sayısı",
+        "en": "Number of decimal places to show in result",
         "tr": "Sonuçta gösterilecek ondalık basamak sayısı",
         "de": "Anzahl der im Ergebnis anzuzeigenden Dezimalstellen",
         "fr": "Nombre de décimales à afficher dans le résultat",

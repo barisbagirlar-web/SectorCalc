@@ -9,7 +9,7 @@
       "default": 1,
       "businessContext": "Tüketilen standart içki sayısı",
       "label_i18n": {
-        "en": "İçki sayısı",
+        "en": "Number of drinks",
         "tr": "İçki sayısı",
         "de": "Anzahl der Getränke",
         "fr": "Nombre de verres",
@@ -17,7 +17,7 @@
         "ar": "عدد المشروبات"
       },
       "businessContext_i18n": {
-        "en": "Tüketilen standart içki sayısı",
+        "en": "Number of standard drinks consumed",
         "tr": "Tüketilen standart içki sayısı",
         "de": "Anzahl der konsumierten Standardgetränke",
         "fr": "Nombre de verres standard consommés",
@@ -33,7 +33,7 @@
       "default": 14,
       "businessContext": "Bir standart içkide bulunan saf alkol gramajı (ör: bir bira yaklaşık 14 g)",
       "label_i18n": {
-        "en": "Bir içkideki alkol miktarı",
+        "en": "Amount of alcohol in a drink",
         "tr": "Bir içkideki alkol miktarı",
         "de": "Alkoholmenge pro Getränk",
         "fr": "Quantité d'alcool dans un verre",
@@ -41,7 +41,7 @@
         "ar": "كمية الكحول في مشروب واحد"
       },
       "businessContext_i18n": {
-        "en": "Bir standart içkide bulunan saf alkol gramajı (ör: bir bira yaklaşık 14 g)",
+        "en": "Grams of pure alcohol in a standard drink (e.g., one beer approx. 14 g)",
         "tr": "Bir standart içkide bulunan saf alkol gramajı (ör: bir bira yaklaşık 14 g)",
         "de": "Gramm reiner Alkohol in einem Standardgetränk (z.B. ein Bier ca. 14 g)",
         "fr": "Grammes d'alcool pur dans un verre standard (ex: une bière environ 14 g)",
@@ -57,7 +57,7 @@
       "default": 70,
       "businessContext": "Kişinin kilogram cinsinden ağırlığı",
       "label_i18n": {
-        "en": "Vücut ağırlığı",
+        "en": "Body Weight",
         "tr": "Vücut ağırlığı",
         "de": "Körpergewicht",
         "fr": "Poids corporel",
@@ -65,7 +65,7 @@
         "ar": "وزن الجسم"
       },
       "businessContext_i18n": {
-        "en": "Kişinin kilogram cinsinden ağırlığı",
+        "en": "Weight in kilograms",
         "tr": "Kişinin kilogram cinsinden ağırlığı",
         "de": "Körpergewicht in Kilogramm",
         "fr": "Poids de la personne en kilogrammes",
@@ -89,7 +89,7 @@
         "ar": "الجنس"
       },
       "businessContext_i18n": {
-        "en": "0 erkek, 1 kadın dağılım katsayısı seçimi",
+        "en": "0 male, 1 female distribution coefficient selection",
         "tr": "0 erkek, 1 kadın dağılım katsayısı seçimi",
         "de": "0 männlich, 1 weiblich Verteilungskoeffizient",
         "fr": "0 homme, 1 femme coefficient de distribution",
@@ -105,7 +105,7 @@
       "default": 1,
       "businessContext": "İçmeye başlandıktan sonra geçen saat cinsinden süre",
       "label_i18n": {
-        "en": "İlk içkiden itibaren geçen süre",
+        "en": "Time elapsed since first drink",
         "tr": "İlk içkiden itibaren geçen süre",
         "de": "Zeit seit dem ersten Getränk",
         "fr": "Temps écoulé depuis le premier verre",
@@ -113,7 +113,7 @@
         "ar": "الوقت المنقضي منذ أول مشروب"
       },
       "businessContext_i18n": {
-        "en": "İçmeye başlandıktan sonra geçen saat cinsinden süre",
+        "en": "Time elapsed since starting to drink (hours)",
         "tr": "İçmeye başlandıktan sonra geçen saat cinsinden süre",
         "de": "Stunden seit Beginn des Trinkens",
         "fr": "Temps écoulé après avoir commencé à boire en heures",

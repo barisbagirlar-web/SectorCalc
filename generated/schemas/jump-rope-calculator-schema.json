@@ -9,7 +9,7 @@
       "default": 70,
       "businessContext": "Kullanıcının kilogram cinsinden vücut ağırlığı. Daha yüksek ağırlık, daha fazla kalori yakımına yol açar.",
       "label_i18n": {
-        "en": "Kullanıcı Ağırlığı",
+        "en": "User Weight",
         "tr": "Kullanıcı Ağırlığı",
         "de": "Benutzergewicht",
         "fr": "Poids de l'utilisateur",
@@ -17,7 +17,7 @@
         "ar": "وزن المستخدم"
       },
       "businessContext_i18n": {
-        "en": "Kullanıcının kilogram cinsinden vücut ağırlığı. Daha yüksek ağırlık, daha fazla kalori yakımına yol açar.",
+        "en": "User's body weight in kilograms. Higher weight leads to more calorie burn.",
         "tr": "Kullanıcının kilogram cinsinden vücut ağırlığı. Daha yüksek ağırlık, daha fazla kalori yakımına yol açar.",
         "de": "Körpergewicht des Benutzers in Kilogramm. Höheres Gewicht führt zu höherem Kalorienverbrauch.",
         "fr": "Poids corporel de l'utilisateur en kilogrammes. Un poids plus élevé entraîne une dépense calorique plus importante.",
@@ -33,7 +33,7 @@
       "default": 100,
       "businessContext": "Dakika başına ortalama ip atlama sayısı. Daha yüksek hız, egzersiz yoğunluğunu artırır.",
       "label_i18n": {
-        "en": "Zıplama Hızı",
+        "en": "Jumping Speed",
         "tr": "Zıplama Hızı",
         "de": "Sprunghäufigkeit",
         "fr": "Vitesse de saut",
@@ -41,7 +41,7 @@
         "ar": "سرعة القفز"
       },
       "businessContext_i18n": {
-        "en": "Dakika başına ortalama ip atlama sayısı. Daha yüksek hız, egzersiz yoğunluğunu artırır.",
+        "en": "Average number of jumps per minute. Higher speed increases exercise intensity.",
         "tr": "Dakika başına ortalama ip atlama sayısı. Daha yüksek hız, egzersiz yoğunluğunu artırır.",
         "de": "Durchschnittliche Anzahl von Seilsprüngen pro Minute. Höhere Geschwindigkeit erhöht die Trainingsintensität.",
         "fr": "Nombre moyen de sauts à la corde par minute. Une vitesse plus élevée augmente l'intensité de l'exercice.",
@@ -57,7 +57,7 @@
       "default": 30,
       "businessContext": "Toplam ip atlama egzersizi süresi (dakika). Süre arttıkça toplam kalori ve zıplama sayısı artar.",
       "label_i18n": {
-        "en": "Egzersiz Süresi",
+        "en": "Exercise Duration",
         "tr": "Egzersiz Süresi",
         "de": "Trainingsdauer",
         "fr": "Durée d'exercice",
@@ -65,7 +65,7 @@
         "ar": "مدة التمرين"
       },
       "businessContext_i18n": {
-        "en": "Toplam ip atlama egzersizi süresi (dakika). Süre arttıkça toplam kalori ve zıplama sayısı artar.",
+        "en": "Total duration of jump rope exercise (minutes). Longer duration increases total calories and jump count.",
         "tr": "Toplam ip atlama egzersizi süresi (dakika). Süre arttıkça toplam kalori ve zıplama sayısı artar.",
         "de": "Gesamtdauer des Seilsprungtrainings (Minuten). Mit zunehmender Dauer steigen Gesamtkalorien und Sprunganzahl.",
         "fr": "Durée totale de l'exercice de saut à la corde (en minutes). Plus la durée est longue, plus le nombre total de calories et de sauts est élevé.",
@@ -81,7 +81,7 @@
       "default": 11.8,
       "businessContext": "Egzersizin metabolik eşdeğeri. İp atlama için tipik değer 11.8'dir. Yoğunluğa bağlı olarak değişebilir.",
       "label_i18n": {
-        "en": "MET Değeri",
+        "en": "MET Value",
         "tr": "MET Değeri",
         "de": "MET-Wert",
         "fr": "Valeur MET",
@@ -89,7 +89,7 @@
         "ar": "قيمة MET"
       },
       "businessContext_i18n": {
-        "en": "Egzersizin metabolik eşdeğeri. İp atlama için tipik değer 11.8'dir. Yoğunluğa bağlı olarak değişebilir.",
+        "en": "Metabolic equivalent of exercise. Typical value for jump rope is 11.8. May vary depending on intensity.",
         "tr": "Egzersizin metabolik eşdeğeri. İp atlama için tipik değer 11.8'dir. Yoğunluğa bağlı olarak değişebilir.",
         "de": "Metabolisches Äquivalent der Übung. Typischer Wert für Seilspringen ist 11,8. Kann je nach Intensität variieren.",
         "fr": "Équivalent métabolique de l'exercice. La valeur typique pour le saut à la corde est de 11,8. Peut varier selon l'intensité.",

@@ -9,7 +9,7 @@
       "default": 10000,
       "businessContext": "Üretilen toplam birim sayısı",
       "label_i18n": {
-        "en": "Toplam Üretim Miktarı",
+        "en": "Total Production Quantity",
         "tr": "Toplam Üretim Miktarı",
         "de": "Gesamtproduktionsmenge",
         "fr": "Quantité totale produite",
@@ -17,7 +17,7 @@
         "ar": "إجمالي كمية الإنتاج"
       },
       "businessContext_i18n": {
-        "en": "Üretilen toplam birim sayısı",
+        "en": "Total number of units produced",
         "tr": "Üretilen toplam birim sayısı",
         "de": "Gesamtzahl der produzierten Einheiten",
         "fr": "Nombre total d'unités produites",
@@ -33,7 +33,7 @@
       "default": 0.5,
       "businessContext": "Ürünlerdeki kusurluluk oranı",
       "label_i18n": {
-        "en": "Kusur Oranı",
+        "en": "Defect Rate",
         "tr": "Kusur Oranı",
         "de": "Fehlerrate",
         "fr": "Taux de défauts",
@@ -41,7 +41,7 @@
         "ar": "نسبة العيوب"
       },
       "businessContext_i18n": {
-        "en": "Ürünlerdeki kusurluluk oranı",
+        "en": "Defect rate in products",
         "tr": "Ürünlerdeki kusurluluk oranı",
         "de": "Fehlerrate der Produkte",
         "fr": "Taux de défauts dans les produits",
@@ -57,7 +57,7 @@
       "default": 80,
       "businessContext": "Geri çağırma kampanyasının etkinliği (ulaşılabilen kusurlu ürünlerin yüzdesi)",
       "label_i18n": {
-        "en": "Geri Çağırma Etkinliği",
+        "en": "Recall Effectiveness",
         "tr": "Geri Çağırma Etkinliği",
         "de": "Rückruf-Effektivität",
         "fr": "Efficacité du rappel",
@@ -65,7 +65,7 @@
         "ar": "فعالية الاستدعاء"
       },
       "businessContext_i18n": {
-        "en": "Geri çağırma kampanyasının etkinliği (ulaşılabilen kusurlu ürünlerin yüzdesi)",
+        "en": "Effectiveness of the recall campaign (percentage of defective products reached)",
         "tr": "Geri çağırma kampanyasının etkinliği (ulaşılabilen kusurlu ürünlerin yüzdesi)",
         "de": "Effektivität der Rückrufaktion (Prozentsatz der erreichbaren fehlerhaften Produkte)",
         "fr": "Efficacité de la campagne de rappel (pourcentage de produits défectueux atteints)",
@@ -81,7 +81,7 @@
       "default": 50,
       "businessContext": "Birim başına geri çağırma işlem maliyeti (lojistik, iletişim)",
       "label_i18n": {
-        "en": "Birim Geri Çağırma Maliyeti",
+        "en": "Unit Recall Cost",
         "tr": "Birim Geri Çağırma Maliyeti",
         "de": "Rückrufkosten pro Einheit",
         "fr": "Coût unitaire de rappel",
@@ -89,7 +89,7 @@
         "ar": "تكلفة الاستدعاء لكل وحدة"
       },
       "businessContext_i18n": {
-        "en": "Birim başına geri çağırma işlem maliyeti (lojistik, iletişim)",
+        "en": "Recall processing cost per unit (logistics, communication)",
         "tr": "Birim başına geri çağırma işlem maliyeti (lojistik, iletişim)",
         "de": "Rückrufprozesskosten pro Einheit (Logistik, Kommunikation)",
         "fr": "Coût opérationnel de rappel par unité (logistique, communication)",
@@ -105,7 +105,7 @@
       "default": 5000,
       "businessContext": "Sabit yönetim ve organizasyon maliyeti",
       "label_i18n": {
-        "en": "Sabit Geri Çağırma Maliyeti",
+        "en": "Fixed Recall Cost",
         "tr": "Sabit Geri Çağırma Maliyeti",
         "de": "Feste Rückrufkosten",
         "fr": "Coût fixe de rappel",
@@ -113,7 +113,7 @@
         "ar": "تكلفة الاستدعاء الثابتة"
       },
       "businessContext_i18n": {
-        "en": "Sabit yönetim ve organizasyon maliyeti",
+        "en": "Fixed management and organization cost",
         "tr": "Sabit yönetim ve organizasyon maliyeti",
         "de": "Feste Verwaltungs- und Organisationskosten",
         "fr": "Coût fixe de gestion et d'organisation",
@@ -129,7 +129,7 @@
       "default": 30,
       "businessContext": "Birim başına değiştirme veya onarım maliyeti",
       "label_i18n": {
-        "en": "Birim Değiştirme Maliyeti",
+        "en": "Unit Replacement Cost",
         "tr": "Birim Değiştirme Maliyeti",
         "de": "Austauschkosten pro Einheit",
         "fr": "Coût unitaire de remplacement",
@@ -137,7 +137,7 @@
         "ar": "تكلفة الاستبدال لكل وحدة"
       },
       "businessContext_i18n": {
-        "en": "Birim başına değiştirme veya onarım maliyeti",
+        "en": "Replacement or repair cost per unit",
         "tr": "Birim başına değiştirme veya onarım maliyeti",
         "de": "Austausch- oder Reparaturkosten pro Einheit",
         "fr": "Coût de remplacement ou de réparation par unité",

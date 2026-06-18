@@ -9,7 +9,7 @@
       "default": 0,
       "businessContext": "Birim başına ürün edinme maliyeti",
       "label_i18n": {
-        "en": "Ürün Maliyeti (Birim)",
+        "en": "Product Cost (per unit)",
         "tr": "Ürün Maliyeti (Birim)",
         "de": "Produktkosten (pro Einheit)",
         "fr": "Coût du produit (unitaire)",
@@ -17,7 +17,7 @@
         "ar": "تكلفة المنتج (لكل وحدة)"
       },
       "businessContext_i18n": {
-        "en": "Birim başına ürün edinme maliyeti",
+        "en": "Cost to acquire the product per unit",
         "tr": "Birim başına ürün edinme maliyeti",
         "de": "Anschaffungskosten pro Einheit",
         "fr": "Coût d'acquisition du produit par unité",
@@ -33,7 +33,7 @@
       "default": 0,
       "businessContext": "Amazon'da listelenecek nihai satış fiyatı",
       "label_i18n": {
-        "en": "Satış Fiyatı (KDV Dahil)",
+        "en": "Selling Price (incl. VAT)",
         "tr": "Satış Fiyatı (KDV Dahil)",
         "de": "Verkaufspreis (inkl. MwSt.)",
         "fr": "Prix de vente (TVA incluse)",
@@ -41,7 +41,7 @@
         "ar": "سعر البيع (شامل ضريبة القيمة المضافة)"
       },
       "businessContext_i18n": {
-        "en": "Amazon'da listelenecek nihai satış fiyatı",
+        "en": "Final selling price to be listed on Amazon",
         "tr": "Amazon'da listelenecek nihai satış fiyatı",
         "de": "Endgültiger Verkaufspreis auf Amazon",
         "fr": "Prix de vente final sur Amazon",
@@ -57,7 +57,7 @@
       "default": 15,
       "businessContext": "Kategoriye göre Amazon komisyon oranı",
       "label_i18n": {
-        "en": "Amazon Referral Ücreti (%)",
+        "en": "Amazon Referral Fee (%)",
         "tr": "Amazon Referans Ücreti (%)",
         "de": "Amazon-Referral-Gebühr (%)",
         "fr": "Frais de recommandation Amazon (%)",
@@ -65,7 +65,7 @@
         "ar": "Amazon Referans Ücreti (%)"
       },
       "businessContext_i18n": {
-        "en": "Kategoriye göre Amazon komisyon oranı",
+        "en": "Amazon commission rate based on category",
         "tr": "Kategoriye göre Amazon komisyon oranı",
         "de": "Amazon-Provision nach Kategorie",
         "fr": "Taux de commission Amazon par catégorie",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "Amazon tarafından alınan depolama, paketleme ve gönderim ücreti",
       "label_i18n": {
-        "en": "FBA İşlem Ücreti (Birim)",
+        "en": "FBA Processing Fee (per unit)",
         "tr": "FBA İşlem Ücreti (Birim)",
         "de": "FBA-Abwicklungsgebühr (pro Einheit)",
         "fr": "Frais de traitement FBA (unitaire)",
@@ -89,7 +89,7 @@
         "ar": "رسوم معالجة FBA (لكل وحدة)"
       },
       "businessContext_i18n": {
-        "en": "Amazon tarafından alınan depolama, paketleme ve gönderim ücreti",
+        "en": "Fee charged by Amazon for storage, packaging, and shipping",
         "tr": "Amazon tarafından alınan depolama, paketleme ve gönderim ücreti",
         "de": "Von Amazon erhobene Gebühr für Lagerung, Verpackung und Versand",
         "fr": "Frais de stockage, emballage et expédition facturés par Amazon",
@@ -113,7 +113,7 @@
         "ar": "الشحن إلى أمازون (لكل وحدة)"
       },
       "businessContext_i18n": {
-        "en": "Ürünlerin Amazon deposuna gönderim maliyeti",
+        "en": "Cost of shipping products to Amazon warehouse",
         "tr": "Ürünlerin Amazon deposuna gönderim maliyeti",
         "de": "Kosten für den Versand der Produkte zum Amazon-Lager",
         "fr": "Coût d'expédition des produits vers l'entrepôt Amazon",
@@ -129,7 +129,7 @@
       "default": 0,
       "businessContext": "PPC reklam harcaması (birim başı dağıtılmış)",
       "label_i18n": {
-        "en": "Reklam Maliyeti (Birim Başı)",
+        "en": "Advertising Cost (Per Unit)",
         "tr": "Reklam Maliyeti (Birim Başı)",
         "de": "Werbungskosten (pro Einheit)",
         "fr": "Coût publicitaire (par unité)",
@@ -137,7 +137,7 @@
         "ar": "تكلفة الإعلان (لكل وحدة)"
       },
       "businessContext_i18n": {
-        "en": "PPC reklam harcaması (birim başı dağıtılmış)",
+        "en": "PPC advertising spend (distributed per unit)",
         "tr": "PPC reklam harcaması (birim başı dağıtılmış)",
         "de": "PPC-Werbeausgaben (auf Einheit umgelegt)",
         "fr": "Dépenses publicitaires PPC (réparties par unité)",
@@ -153,7 +153,7 @@
       "default": 0,
       "businessContext": "Aylık depolama ücreti (varsa)",
       "label_i18n": {
-        "en": "Depolama Ücreti (Birim Başı/Aylık)",
+        "en": "Storage Fee (Per Unit/Month)",
         "tr": "Depolama Ücreti (Birim Başı/Aylık)",
         "de": "Lagergebühr (pro Einheit/Monat)",
         "fr": "Frais de stockage (par unité/mois)",
@@ -161,7 +161,7 @@
         "ar": "رسوم التخزين (لكل وحدة/شهرياً)"
       },
       "businessContext_i18n": {
-        "en": "Aylık depolama ücreti (varsa)",
+        "en": "Monthly storage fee (if any)",
         "tr": "Aylık depolama ücreti (varsa)",
         "de": "Monatliche Lagergebühr (falls zutreffend)",
         "fr": "Frais de stockage mensuels (le cas échéant)",

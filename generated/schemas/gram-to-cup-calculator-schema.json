@@ -9,7 +9,7 @@
       "default": 100,
       "businessContext": "Malzemenin gram cinsinden ağırlığı.",
       "label_i18n": {
-        "en": "Ağırlık (g)",
+        "en": "Weight (g)",
         "tr": "Ağırlık (g)",
         "de": "Gewicht (g)",
         "fr": "Poids (g)",
@@ -17,7 +17,7 @@
         "ar": "الوزن (جم)"
       },
       "businessContext_i18n": {
-        "en": "Malzemenin gram cinsinden ağırlığı.",
+        "en": "Weight of the material in grams.",
         "tr": "Malzemenin gram cinsinden ağırlığı.",
         "de": "Gewicht des Materials in Gramm.",
         "fr": "Poids du matériau en grammes.",
@@ -33,7 +33,7 @@
       "default": 0.59,
       "businessContext": "Malzemenin yoğunluğu (gram/mililitre). Un için yaklaşık 0.59, şeker için 0.85, su için 1.0.",
       "label_i18n": {
-        "en": "Yoğunluk (g/mL)",
+        "en": "Density (g/mL)",
         "tr": "Yoğunluk (g/mL)",
         "de": "Dichte (g/mL)",
         "fr": "Densité (g/mL)",
@@ -41,7 +41,7 @@
         "ar": "الكثافة (جم/مل)"
       },
       "businessContext_i18n": {
-        "en": "Malzemenin yoğunluğu (gram/mililitre). Un için yaklaşık 0.59, şeker için 0.85, su için 1.0.",
+        "en": "Density of the material (grams/milliliter). Approximately 0.59 for flour, 0.85 for sugar, 1.0 for water.",
         "tr": "Malzemenin yoğunluğu (gram/mililitre). Un için yaklaşık 0.59, şeker için 0.85, su için 1.0.",
         "de": "Dichte des Materials (Gramm/Milliliter). Für Mehl etwa 0,59, für Zucker 0,85, für Wasser 1,0.",
         "fr": "Densité du matériau (grammes/millilitre). Pour la farine environ 0,59, le sucre 0,85, l'eau 1,0.",
@@ -65,7 +65,7 @@
         "ar": "حجم الكوب (مل)"
       },
       "businessContext_i18n": {
-        "en": "Kullanılan standart bardağın mililitre cinsinden hacmi. ABD'de genellikle 240 mL, metrik sistemde 250 mL.",
+        "en": "Volume of the standard cup in milliliters. Typically 240 mL in the US, 250 mL in metric system.",
         "tr": "Kullanılan standart bardağın mililitre cinsinden hacmi. ABD'de genellikle 240 mL, metrik sistemde 250 mL.",
         "de": "Volumen des verwendeten Standardbechers in Millilitern. In den USA üblich 240 mL, im metrischen System 250 mL.",
         "fr": "Volume standard du verre utilisé en millilitres. Aux États-Unis généralement 240 mL, système métrique 250 mL.",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "Malzemenin ne kadar sıkıştırıldığını gösteren faktör (1 = normal, >1 daha yoğun).",
       "label_i18n": {
-        "en": "Sıkıştırma Faktörü",
+        "en": "Compaction Factor",
         "tr": "Sıkıştırma Faktörü",
         "de": "Verdichtungsfaktor",
         "fr": "Facteur de compactage",
@@ -89,7 +89,7 @@
         "ar": "عامل الدمك"
       },
       "businessContext_i18n": {
-        "en": "Malzemenin ne kadar sıkıştırıldığını gösteren faktör (1 = normal, >1 daha yoğun).",
+        "en": "Factor indicating how much the material is compressed (1 = normal, >1 denser).",
         "tr": "Sıkıştırma Faktörü",
         "de": "Faktor, der angibt, wie stark das Material verdichtet ist (1 = normal, >1 dichter).",
         "fr": "Facteur de tassement du matériau (1 = normal, >1 plus dense).",

@@ -9,7 +9,7 @@
       "default": 30,
       "businessContext": "Bir kişinin günlük paleo diyetinde tükettiği etin toplam maliyeti",
       "label_i18n": {
-        "en": "Günlük Et Maliyeti (kişi başı)",
+        "en": "Daily Meat Cost (per person)",
         "tr": "Günlük Et Maliyeti (kişi başı)",
         "de": "Tägliche Fleischkosten (pro Person)",
         "fr": "Coût quotidien de la viande (par personne)",
@@ -17,7 +17,7 @@
         "ar": "تكلفة اللحوم اليومية (للفرد)"
       },
       "businessContext_i18n": {
-        "en": "Bir kişinin günlük paleo diyetinde tükettiği etin toplam maliyeti",
+        "en": "Total cost of meat consumed by one person on a paleo diet per day.",
         "tr": "Bir kişinin günlük paleo diyetinde tükettiği etin toplam maliyeti",
         "de": "Die Gesamtkosten für Fleisch, das eine Person bei einer täglichen Paleo-Diät verzehrt.",
         "fr": "Coût total de la viande consommée par une personne dans le cadre d'un régime paléo quotidien",
@@ -33,7 +33,7 @@
       "default": 10,
       "businessContext": "Bir kişinin günlük paleo diyetinde tükettiği sebzenin toplam maliyeti",
       "label_i18n": {
-        "en": "Günlük Sebze Maliyeti (kişi başı)",
+        "en": "Daily Vegetable Cost (per person)",
         "tr": "Günlük Sebze Maliyeti (kişi başı)",
         "de": "Tägliche Gemüsekosten (pro Person)",
         "fr": "Coût quotidien des légumes (par personne)",
@@ -41,7 +41,7 @@
         "ar": "تكلفة الخضروات اليومية (للفرد)"
       },
       "businessContext_i18n": {
-        "en": "Bir kişinin günlük paleo diyetinde tükettiği sebzenin toplam maliyeti",
+        "en": "Total cost of vegetables consumed per person per day on a paleo diet",
         "tr": "Bir kişinin günlük paleo diyetinde tükettiği sebzenin toplam maliyeti",
         "de": "Die Gesamtkosten für Gemüse, das eine Person bei einer täglichen Paleo-Diät verzehrt.",
         "fr": "Coût total des légumes consommés par une personne dans le cadre d'un régime paléo quotidien",
@@ -57,7 +57,7 @@
       "default": 5,
       "businessContext": "Bir kişinin günlük paleo diyetinde tükettiği meyvenin toplam maliyeti",
       "label_i18n": {
-        "en": "Günlük Meyve Maliyeti (kişi başı)",
+        "en": "Daily Fruit Cost (per person)",
         "tr": "Günlük Meyve Maliyeti (kişi başı)",
         "de": "Tägliche Obstkosten (pro Person)",
         "fr": "Coût quotidien des fruits (par personne)",
@@ -65,7 +65,7 @@
         "ar": "تكلفة الفواكه اليومية (للفرد)"
       },
       "businessContext_i18n": {
-        "en": "Bir kişinin günlük paleo diyetinde tükettiği meyvenin toplam maliyeti",
+        "en": "Total cost of fruit consumed per person per day on a paleo diet",
         "tr": "Bir kişinin günlük paleo diyetinde tükettiği meyvenin toplam maliyeti",
         "de": "Die Gesamtkosten für Obst, das eine Person bei einer täglichen Paleo-Diät verzehrt.",
         "fr": "Coût total des fruits consommés par une personne dans le cadre d'un régime paléo quotidien",
@@ -81,7 +81,7 @@
       "default": 5,
       "businessContext": "Bir kişinin günlük paleo diyetinde tükettiği kuruyemişin toplam maliyeti",
       "label_i18n": {
-        "en": "Günlük Kuruyemiş Maliyeti (kişi başı)",
+        "en": "Daily Nut Cost (per person)",
         "tr": "Günlük Kuruyemiş Maliyeti (kişi başı)",
         "de": "Tägliche Nusskosten (pro Person)",
         "fr": "Coût quotidien des noix (par personne)",
@@ -89,7 +89,7 @@
         "ar": "تكلفة المكسرات اليومية (للفرد)"
       },
       "businessContext_i18n": {
-        "en": "Bir kişinin günlük paleo diyetinde tükettiği kuruyemişin toplam maliyeti",
+        "en": "Total cost of nuts consumed per person per day on a paleo diet",
         "tr": "Bir kişinin günlük paleo diyetinde tükettiği kuruyemişin toplam maliyeti",
         "de": "Die Gesamtkosten für Nüsse, die eine Person bei einer täglichen Paleo-Diät verzehrt.",
         "fr": "Coût total des noix consommées par une personne dans le cadre d'un régime paléo quotidien",
@@ -105,7 +105,7 @@
       "default": 1,
       "businessContext": "Paleo diyetini uygulayan kişi sayısı",
       "label_i18n": {
-        "en": "Kişi Sayısı",
+        "en": "Number of People",
         "tr": "Kişi Sayısı",
         "de": "Anzahl der Personen",
         "fr": "Nombre de personnes",
@@ -113,7 +113,7 @@
         "ar": "عدد الأفراد"
       },
       "businessContext_i18n": {
-        "en": "Paleo diyetini uygulayan kişi sayısı",
+        "en": "Number of people following the paleo diet",
         "tr": "Paleo diyetini uygulayan kişi sayısı",
         "de": "Anzahl der Personen, die die Paleo-Diät befolgen",
         "fr": "Nombre de personnes suivant le régime paléo",
@@ -129,7 +129,7 @@
       "default": 30,
       "businessContext": "Maliyetin hesaplanacağı dönem (gün)",
       "label_i18n": {
-        "en": "Gün Sayısı",
+        "en": "Number of Days",
         "tr": "Gün Sayısı",
         "de": "Anzahl der Tage",
         "fr": "Nombre de jours",
@@ -137,7 +137,7 @@
         "ar": "عدد الأيام"
       },
       "businessContext_i18n": {
-        "en": "Maliyetin hesaplanacağı dönem (gün)",
+        "en": "Period for cost calculation (days)",
         "tr": "Maliyetin hesaplanacağı dönem (gün)",
         "de": "Zeitraum für die Kostenberechnung (Tage)",
         "fr": "Période de calcul du coût (jours)",

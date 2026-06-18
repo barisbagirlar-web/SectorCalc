@@ -9,7 +9,7 @@
       "default": 30,
       "businessContext": "Yaş, gebe kalma olasılığını etkileyen temel faktörlerden biridir.",
       "label_i18n": {
-        "en": "Yaş",
+        "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
         "fr": "Âge",
@@ -17,7 +17,7 @@
         "ar": "العمر"
       },
       "businessContext_i18n": {
-        "en": "Yaş, gebe kalma olasılığını etkileyen temel faktörlerden biridir.",
+        "en": "Age is one of the basic factors affecting the probability of conception.",
         "tr": "Yaş, gebe kalma olasılığını etkileyen temel faktörlerden biridir.",
         "de": "Alter ist einer der Hauptfaktoren, die die Wahrscheinlichkeit einer Empfängnis beeinflussen.",
         "fr": "L'âge est l'un des facteurs clés affectant la probabilité de conception.",
@@ -33,7 +33,7 @@
       "default": 28,
       "businessContext": "Ortalama adet döngüsü uzunluğu, ovulasyon gününü belirlemede kullanılır.",
       "label_i18n": {
-        "en": "Adet Döngüsü Uzunluğu",
+        "en": "Menstrual cycle length",
         "tr": "Adet Döngüsü Uzunluğu",
         "de": "Menstruationszykluslänge",
         "fr": "Longueur du cycle menstruel",
@@ -41,7 +41,7 @@
         "ar": "طول الدورة الشهرية"
       },
       "businessContext_i18n": {
-        "en": "Ortalama adet döngüsü uzunluğu, ovulasyon gününü belirlemede kullanılır.",
+        "en": "Average menstrual cycle length is used to determine the ovulation day.",
         "tr": "Ortalama adet döngüsü uzunluğu, ovulasyon gününü belirlemede kullanılır.",
         "de": "Die durchschnittliche Menstruationszykluslänge wird verwendet, um den Eisprungtag zu bestimmen.",
         "fr": "Longueur moyenne du cycle menstruel, utilisée pour déterminer le jour de l'ovulation.",
@@ -57,7 +57,7 @@
       "default": 14,
       "businessContext": "Ovulasyon sonrası luteal fazın uzunluğu, doğurganlık penceresini hesaplamak için gereklidir.",
       "label_i18n": {
-        "en": "Luteal Faz Süresi",
+        "en": "Luteal phase length",
         "tr": "Luteal Faz Süresi",
         "de": "Lutealphasenlänge",
         "fr": "Durée de la phase lutéale",
@@ -65,7 +65,7 @@
         "ar": "مدة المرحلة الأصفرية"
       },
       "businessContext_i18n": {
-        "en": "Ovulasyon sonrası luteal fazın uzunluğu, doğurganlık penceresini hesaplamak için gereklidir.",
+        "en": "The length of the luteal phase after ovulation is necessary to calculate the fertile window.",
         "tr": "Ovulasyon sonrası luteal fazın uzunluğu, doğurganlık penceresini hesaplamak için gereklidir.",
         "de": "Die Länge der Lutealphase nach dem Eisprung ist erforderlich, um das Fruchtbarkeitsfenster zu berechnen.",
         "fr": "Longueur de la phase lutéale après l'ovulation, nécessaire pour calculer la fenêtre de fertilité.",
@@ -81,7 +81,7 @@
       "default": 12,
       "businessContext": "Aktif olarak gebe kalmaya çalışılan ay sayısı, kümülatif olasılığı hesaplamak için kullanılır.",
       "label_i18n": {
-        "en": "Deneme Süresi",
+        "en": "Trial duration",
         "tr": "Deneme Süresi",
         "de": "Versuchsdauer",
         "fr": "Durée d'essai",
@@ -89,7 +89,7 @@
         "ar": "مدة التجربة"
       },
       "businessContext_i18n": {
-        "en": "Aktif olarak gebe kalmaya çalışılan ay sayısı, kümülatif olasılığı hesaplamak için kullanılır.",
+        "en": "Number of months actively trying to conceive, used to calculate cumulative probability.",
         "tr": "Aktif olarak gebe kalmaya çalışılan ay sayısı, kümülatif olasılığı hesaplamak için kullanılır.",
         "de": "Die Anzahl der Monate, in denen aktiv versucht wird, schwanger zu werden, wird verwendet, um die kumulative Wahrscheinlichkeit zu berechnen.",
         "fr": "Nombre de mois d'essai actif de conception, utilisé pour calculer la probabilité cumulative.",

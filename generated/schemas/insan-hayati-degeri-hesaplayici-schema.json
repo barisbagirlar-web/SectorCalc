@@ -9,7 +9,7 @@
       "default": 100000,
       "businessContext": "Kişinin vergi sonrası yıllık net geliri",
       "label_i18n": {
-        "en": "Yıllık Net Gelir",
+        "en": "Annual net income",
         "tr": "Yıllık Net Gelir",
         "de": "Jährliches Nettoeinkommen",
         "fr": "Revenu net annuel",
@@ -17,7 +17,7 @@
         "ar": "صافي الدخل السنوي"
       },
       "businessContext_i18n": {
-        "en": "Kişinin vergi sonrası yıllık net geliri",
+        "en": "Person's annual net income after tax",
         "tr": "Kişinin vergi sonrası yıllık net geliri",
         "de": "Das jährliche Nettoeinkommen der Person nach Steuern",
         "fr": "Revenu net annuel après impôts de la personne",
@@ -33,7 +33,7 @@
       "default": 30,
       "businessContext": "Gelirin kişisel harcamalara ayrılan yüzdesi",
       "label_i18n": {
-        "en": "Kişisel Gider Oranı",
+        "en": "Personal expense ratio",
         "tr": "Kişisel Gider Oranı",
         "de": "Persönliche Ausgabenquote",
         "fr": "Taux de dépenses personnelles",
@@ -41,7 +41,7 @@
         "ar": "نسبة الإنفاق الشخصي"
       },
       "businessContext_i18n": {
-        "en": "Gelirin kişisel harcamalara ayrılan yüzdesi",
+        "en": "Percentage of income allocated to personal expenses",
         "tr": "Gelirin kişisel harcamalara ayrılan yüzdesi",
         "de": "Prozentsatz des Einkommens, der für persönliche Ausgaben verwendet wird",
         "fr": "Pourcentage du revenu consacré aux dépenses personnelles",
@@ -57,7 +57,7 @@
       "default": 35,
       "businessContext": "Kişinin şu anki yaşı",
       "label_i18n": {
-        "en": "Mevcut Yaş",
+        "en": "Current Age",
         "tr": "Mevcut Yaş",
         "de": "Aktuelles Alter",
         "fr": "Âge actuel",
@@ -65,7 +65,7 @@
         "ar": "العمر الحالي"
       },
       "businessContext_i18n": {
-        "en": "Kişinin şu anki yaşı",
+        "en": "Person's current age",
         "tr": "Kişinin şu anki yaşı",
         "de": "Das aktuelle Alter der Person",
         "fr": "Âge actuel de la personne",
@@ -81,7 +81,7 @@
       "default": 65,
       "businessContext": "Beklenen emeklilik yaşı",
       "label_i18n": {
-        "en": "Emeklilik Yaşı",
+        "en": "Retirement Age",
         "tr": "Emeklilik Yaşı",
         "de": "Rentenalter",
         "fr": "Âge de la retraite",
@@ -89,7 +89,7 @@
         "ar": "سن التقاعد"
       },
       "businessContext_i18n": {
-        "en": "Beklenen emeklilik yaşı",
+        "en": "Expected retirement age",
         "tr": "Beklenen emeklilik yaşı",
         "de": "Erwartetes Rentenalter",
         "fr": "Âge de retraite prévu",
@@ -105,7 +105,7 @@
       "default": 5,
       "businessContext": "Gelecekteki nakit akışlarını bugüne indirgeme oranı (genellikle risksiz faiz oranı)",
       "label_i18n": {
-        "en": "İskonto Oranı",
+        "en": "Discount Rate",
         "tr": "İskonto Oranı",
         "de": "Diskontsatz",
         "fr": "Taux d'actualisation",
@@ -113,7 +113,7 @@
         "ar": "معدل الخصم"
       },
       "businessContext_i18n": {
-        "en": "Gelecekteki nakit akışlarını bugüne indirgeme oranı (genellikle risksiz faiz oranı)",
+        "en": "Discount rate for future cash flows (usually risk-free interest rate)",
         "tr": "Gelecekteki nakit akışlarını bugüne indirgeme oranı (genellikle risksiz faiz oranı)",
         "de": "Abzinsungssatz für zukünftige Cashflows (normalerweise risikofreier Zinssatz)",
         "fr": "Taux d'actualisation des flux de trésorerie futurs (généralement le taux sans risque)",
@@ -129,7 +129,7 @@
       "default": 2,
       "businessContext": "Beklenen yıllık reel gelir artış oranı",
       "label_i18n": {
-        "en": "Yıllık Gelir Artış Oranı",
+        "en": "Annual Income Growth Rate",
         "tr": "Yıllık Gelir Artış Oranı",
         "de": "Jährliche Einkommenswachstumsrate",
         "fr": "Taux de croissance annuelle du revenu",
@@ -137,7 +137,7 @@
         "ar": "معدل نمو الدخل السنوي"
       },
       "businessContext_i18n": {
-        "en": "Beklenen yıllık reel gelir artış oranı",
+        "en": "Expected annual real income growth rate",
         "tr": "Beklenen yıllık reel gelir artış oranı",
         "de": "Erwartete jährliche reale Einkommenswachstumsrate",
         "fr": "Taux de croissance annuelle réelle attendue du revenu",

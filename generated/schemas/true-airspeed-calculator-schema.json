@@ -9,7 +9,7 @@
       "default": 150,
       "businessContext": "Pitot-statik sistemden okunan hız (knot).",
       "label_i18n": {
-        "en": "Gösterge Hava Hızı (IAS)",
+        "en": "Indicated Airspeed (IAS)",
         "tr": "Gösterge Hava Hızı (IAS)",
         "de": "Angezeigte Fluggeschwindigkeit (IAS)",
         "fr": "Vitesse indiquée (IAS)",
@@ -17,7 +17,7 @@
         "ar": "سرعة الطيران المشار إليها (IAS)"
       },
       "businessContext_i18n": {
-        "en": "Pitot-statik sistemden okunan hız (knot).",
+        "en": "Speed from Pitot-static System (knots)",
         "tr": "Pitot-statik sistemden okunan hız (knot).",
         "de": "Geschwindigkeit aus dem Pitot-Statik-System (in Knoten).",
         "fr": "Vitesse lue sur le système pitot-statique (en nœuds).",
@@ -33,7 +33,7 @@
       "default": 10000,
       "businessContext": "Standart basınç ayarı (29.92 inHg) ile ölçülen irtifa (feet).",
       "label_i18n": {
-        "en": "Basınç İrtifası",
+        "en": "Pressure Altitude",
         "tr": "Basınç İrtifası",
         "de": "Druckhöhe",
         "fr": "Altitude pression",
@@ -41,7 +41,7 @@
         "ar": "ارتفاع الضغط"
       },
       "businessContext_i18n": {
-        "en": "Standart basınç ayarı (29.92 inHg) ile ölçülen irtifa (feet).",
+        "en": "Altitude Measured with Standard Pressure Setting (29.92 inHg, feet)",
         "tr": "Standart basınç ayarı (29.92 inHg) ile ölçülen irtifa (feet).",
         "de": "Höhe gemessen mit Standarddruckeinstellung (29,92 inHg) in Fuß.",
         "fr": "Altitude mesurée avec le calage standard (29,92 inHg) en pieds.",
@@ -57,7 +57,7 @@
       "default": -5,
       "businessContext": "Serbest hava sıcaklığı (°C).",
       "label_i18n": {
-        "en": "Dış Hava Sıcaklığı (OAT)",
+        "en": "Outside Air Temperature (OAT)",
         "tr": "Dış Hava Sıcaklığı (OAT)",
         "de": "Außenlufttemperatur (OAT)",
         "fr": "Température extérieure (OAT)",
@@ -65,7 +65,7 @@
         "ar": "درجة حرارة الهواء الخارجي (OAT)"
       },
       "businessContext_i18n": {
-        "en": "Serbest hava sıcaklığı (°C).",
+        "en": "Free Air Temperature (°C)",
         "tr": "Serbest hava sıcaklığı (°C).",
         "de": "Freie Lufttemperatur in °C.",
         "fr": "Température de l'air libre (°C).",

@@ -9,7 +9,7 @@
       "default": 10,
       "businessContext": "Öğrenme eğrisinin başlangıç noktasındaki saatlik çıktı miktarı",
       "label_i18n": {
-        "en": "Başlangıç Performansı",
+        "en": "Initial Performance",
         "tr": "Başlangıç Performansı",
         "de": "Anfangsleistung",
         "fr": "Performance initiale",
@@ -17,7 +17,7 @@
         "ar": "الأداء الأولي"
       },
       "businessContext_i18n": {
-        "en": "Öğrenme eğrisinin başlangıç noktasındaki saatlik çıktı miktarı",
+        "en": "Hourly output at the start of the learning curve",
         "tr": "Öğrenme eğrisinin başlangıç noktasındaki saatlik çıktı miktarı.",
         "de": "Stündliche Ausbringungsmenge zu Beginn der Lernkurve",
         "fr": "Quantité de production horaire au point de départ de la courbe d'apprentissage.",
@@ -33,7 +33,7 @@
       "default": 20,
       "businessContext": "Belirli bir öğrenme süresi sonunda ulaşılan saatlik çıktı",
       "label_i18n": {
-        "en": "Öğrenme Sonrası Performans",
+        "en": "Performance After Learning",
         "tr": "Öğrenme Sonrası Performans",
         "de": "Leistung nach Lernen",
         "fr": "Performance après apprentissage",
@@ -41,7 +41,7 @@
         "ar": "الأداء بعد التعلم"
       },
       "businessContext_i18n": {
-        "en": "Belirli bir öğrenme süresi sonunda ulaşılan saatlik çıktı",
+        "en": "Hourly output achieved after a certain learning period",
         "tr": "Belirli bir öğrenme süresi sonunda ulaşılan saatlik çıktı.",
         "de": "Stündliche Ausbringungsmenge nach einer bestimmten Lernzeit",
         "fr": "Production horaire atteinte après une période d'apprentissage donnée.",
@@ -57,7 +57,7 @@
       "default": 8,
       "businessContext": "Performans ölçümleri arasındaki geçen hafta sayısı",
       "label_i18n": {
-        "en": "Öğrenme Süresi",
+        "en": "Learning Duration",
         "tr": "Öğrenme Süresi",
         "de": "Lernzeit",
         "fr": "Durée d'apprentissage",
@@ -65,7 +65,7 @@
         "ar": "مدة التعلم"
       },
       "businessContext_i18n": {
-        "en": "Performans ölçümleri arasındaki geçen hafta sayısı",
+        "en": "Number of weeks between performance measurements",
         "tr": "Performans ölçümleri arasındaki geçen hafta sayısı.",
         "de": "Anzahl der Wochen zwischen den Leistungsmessungen",
         "fr": "Nombre de semaines entre les mesures de performance.",
@@ -81,7 +81,7 @@
       "default": 0.25,
       "businessContext": "Öğrenme eğrisinin diklik katsayısı, üstel yaklaşım modeli için",
       "label_i18n": {
-        "en": "Öğrenme Hızı Sabiti",
+        "en": "Learning Rate Constant",
         "tr": "Öğrenme Hızı Sabiti",
         "de": "Lernratenkonstante",
         "fr": "Constante de vitesse d'apprentissage",
@@ -89,7 +89,7 @@
         "ar": "ثابت سرعة التعلم"
       },
       "businessContext_i18n": {
-        "en": "Öğrenme eğrisinin diklik katsayısı, üstel yaklaşım modeli için",
+        "en": "Steepness coefficient of the learning curve, for exponential approximation model",
         "tr": "Öğrenme eğrisinin diklik katsayısı, üstel yaklaşım modeli için.",
         "de": "Steigungskoeffizient der Lernkurve für das exponentielle Näherungsmodell",
         "fr": "Coefficient de pente de la courbe d'apprentissage pour le modèle d'approximation exponentielle.",

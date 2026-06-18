@@ -9,7 +9,7 @@
       "default": 500000,
       "businessContext": "Sigorta edilecek binanın toplam değeri",
       "label_i18n": {
-        "en": "Bina Değeri (TL)",
+        "en": "Building Value (TL)",
         "tr": "Bina Değeri (TL)",
         "de": "Gebäudewert (TL)",
         "fr": "Valeur du bâtiment (TL)",
@@ -17,7 +17,7 @@
         "ar": "قيمة المبنى (ليرة تركية)"
       },
       "businessContext_i18n": {
-        "en": "Sigorta edilecek binanın toplam değeri",
+        "en": "Total value of the building to be insured.",
         "tr": "Sigorta edilecek binanın toplam değeri",
         "de": "Gesamtwert des zu versichernden Gebäudes",
         "fr": "Valeur totale du bâtiment à assurer",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "Binanın bulunduğu deprem bölgesine göre risk katsayısı (0.5-2.0)",
       "label_i18n": {
-        "en": "Deprem Bölgesi Katsayısı",
+        "en": "Earthquake Zone Coefficient",
         "tr": "Deprem Bölgesi Katsayısı",
         "de": "Erdbebenzonenkoeffizient",
         "fr": "Coefficient de zone sismique",
@@ -41,7 +41,7 @@
         "ar": "معامل منطقة الزلازل"
       },
       "businessContext_i18n": {
-        "en": "Binanın bulunduğu deprem bölgesine göre risk katsayısı (0.5-2.0)",
+        "en": "Risk coefficient based on the earthquake zone of the building (0.5-2.0).",
         "tr": "Binanın bulunduğu deprem bölgesine göre risk katsayısı (0.5-2.0)",
         "de": "Risikokoeffizient nach Erdbebenzone des Gebäudes (0,5-2,0)",
         "fr": "Coefficient de risque selon la zone sismique du bâtiment (0,5-2,0)",
@@ -57,7 +57,7 @@
       "default": 1,
       "businessContext": "Binanın yapı malzemesi ve taşıyıcı sistemine göre risk katsayısı (betonarme=1.0, çelik=0.8, ahşap=1.5, vs.)",
       "label_i18n": {
-        "en": "Yapı Tipi Katsayısı",
+        "en": "Building Type Coefficient",
         "tr": "Yapı Tipi Katsayısı",
         "de": "Gebäudetypkoeffizient",
         "fr": "Coefficient de type de construction",
@@ -65,7 +65,7 @@
         "ar": "معامل نوع المبنى"
       },
       "businessContext_i18n": {
-        "en": "Binanın yapı malzemesi ve taşıyıcı sistemine göre risk katsayısı (betonarme=1.0, çelik=0.8, ahşap=1.5, vs.)",
+        "en": "Risk coefficient based on building material and structural system (reinforced concrete=1.0, steel=0.8, wood=1.5, etc.).",
         "tr": "Binanın yapı malzemesi ve taşıyıcı sistemine göre risk katsayısı (betonarme=1.0, çelik=0.8, ahşap=1.5, vs.)",
         "de": "Risikokoeffizient nach Baumaterial und Tragsystem des Gebäudes (Stahlbeton=1,0, Stahl=0,8, Holz=1,5 usw.)",
         "fr": "Coefficient de risque selon le matériau et le système porteur (béton armé=1,0, acier=0,8, bois=1,5, etc.)",
@@ -81,7 +81,7 @@
       "default": 10,
       "businessContext": "Binanın yaşı, yıpranma ve dayanıklılık faktörüne etki eder",
       "label_i18n": {
-        "en": "Bina Yaşı (yıl)",
+        "en": "Building Age (years)",
         "tr": "Bina Yaşı (yıl)",
         "de": "Gebäudealter (Jahre)",
         "fr": "Âge du bâtiment (ans)",
@@ -89,7 +89,7 @@
         "ar": "عمر المبنى (سنة)"
       },
       "businessContext_i18n": {
-        "en": "Binanın yaşı, yıpranma ve dayanıklılık faktörüne etki eder",
+        "en": "Building age affects wear and durability factor",
         "tr": "Binanın yaşı, yıpranma ve dayanıklılık faktörüne etki eder",
         "de": "Alter des Gebäudes, beeinflusst Abnutzung und Haltbarkeitsfaktor",
         "fr": "Âge du bâtiment, influence l'usure et la durabilité",
@@ -105,7 +105,7 @@
       "default": 2,
       "businessContext": "Hasar durumunda sigortalının karşılayacağı oran, prim indirimine yansır",
       "label_i18n": {
-        "en": "Muafiyet Oranı (%)",
+        "en": "Deductible Rate (%)",
         "tr": "Muafiyet Oranı (%)",
         "de": "Selbstbehaltssatz (%)",
         "fr": "Taux de franchise (%)",
@@ -113,7 +113,7 @@
         "ar": "نسبة الإعفاء (%)"
       },
       "businessContext_i18n": {
-        "en": "Hasar durumunda sigortalının karşılayacağı oran, prim indirimine yansır",
+        "en": "Rate covered by the insured in case of damage, reflected in premium discount",
         "tr": "Hasar durumunda sigortalının karşılayacağı oran, prim indirimine yansır",
         "de": "Vom Versicherungsnehmer im Schadensfall zu tragender Anteil, wirkt sich auf den Prämienrabatt aus",
         "fr": "Part à la charge de l'assuré en cas de sinistre, réduit la prime",

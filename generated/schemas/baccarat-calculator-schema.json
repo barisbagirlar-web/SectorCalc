@@ -17,7 +17,7 @@
         "ar": "تكلفة المواد الخام"
       },
       "businessContext_i18n": {
-        "en": "Birim ürün başına düşen hammadde maliyeti.",
+        "en": "Raw material cost per unit",
         "tr": "Birim ürün başına düşen hammadde maliyeti.",
         "de": "Rohstoffkosten pro Einheit.",
         "fr": "Coût des matières premières par unité de produit.",
@@ -33,7 +33,7 @@
       "default": 50,
       "businessContext": "Bir işçinin saatlik maliyeti.",
       "label_i18n": {
-        "en": "Saatlik İşçilik Maliyeti",
+        "en": "Hourly Labor Cost",
         "tr": "Saatlik İşçilik Maliyeti",
         "de": "Stündliche Arbeitskosten",
         "fr": "Coût horaire de la main-d'œuvre",
@@ -41,7 +41,7 @@
         "ar": "تكلفة العمالة بالساعة"
       },
       "businessContext_i18n": {
-        "en": "Bir işçinin saatlik maliyeti.",
+        "en": "Cost per worker per hour",
         "tr": "Bir işçinin saatlik maliyeti.",
         "de": "Kosten pro Arbeiter pro Stunde.",
         "fr": "Coût horaire d'un travailleur.",
@@ -57,7 +57,7 @@
       "default": 0.5,
       "businessContext": "Bir birim ürün için harcanan işçilik süresi.",
       "label_i18n": {
-        "en": "Birim Başına İşçilik Süresi",
+        "en": "Labor Time per Unit",
         "tr": "Birim Başına İşçilik Süresi",
         "de": "Arbeitszeit pro Einheit",
         "fr": "Temps de main-d'œuvre par unité",
@@ -65,7 +65,7 @@
         "ar": "وقت العمالة لكل وحدة"
       },
       "businessContext_i18n": {
-        "en": "Bir birim ürün için harcanan işçilik süresi.",
+        "en": "Labor time spent per unit product",
         "tr": "Bir birim ürün için harcanan işçilik süresi.",
         "de": "Arbeitszeit, die für eine Einheit aufgewendet wird.",
         "fr": "Temps de main-d'œuvre nécessaire pour une unité de produit.",
@@ -81,7 +81,7 @@
       "default": 2,
       "businessContext": "Birim ürün başına enerji maliyeti.",
       "label_i18n": {
-        "en": "Enerji Gideri (birim başına)",
+        "en": "Energy Cost (per unit)",
         "tr": "Enerji Gideri (birim başına)",
         "de": "Energiekosten (pro Einheit)",
         "fr": "Coût énergétique (par unité)",
@@ -89,7 +89,7 @@
         "ar": "تكلفة الطاقة (لكل وحدة)"
       },
       "businessContext_i18n": {
-        "en": "Birim ürün başına enerji maliyeti.",
+        "en": "Energy cost per unit product",
         "tr": "Birim ürün başına enerji maliyeti.",
         "de": "Energiekosten pro Einheit.",
         "fr": "Coût énergétique par unité de produit.",
@@ -113,7 +113,7 @@
         "ar": "التكاليف الإضافية"
       },
       "businessContext_i18n": {
-        "en": "Ambalaj, nakliye gibi birim başı ek giderler.",
+        "en": "Additional costs per unit such as packaging, shipping",
         "tr": "Ambalaj, nakliye gibi birim başı ek giderler.",
         "de": "Zusätzliche Kosten pro Einheit wie Verpackung, Transport.",
         "fr": "Frais supplémentaires par unité, tels que l'emballage et le transport.",
@@ -129,7 +129,7 @@
       "default": 20,
       "businessContext": "Direkt maliyetler üzerine eklenen genel gider yüzdesi.",
       "label_i18n": {
-        "en": "Genel Gider Oranı",
+        "en": "Overhead Rate",
         "tr": "Genel Gider Oranı",
         "de": "Gemeinkostensatz",
         "fr": "Taux de frais généraux",
@@ -137,7 +137,7 @@
         "ar": "نسبة التكاليف العامة"
       },
       "businessContext_i18n": {
-        "en": "Direkt maliyetler üzerine eklenen genel gider yüzdesi.",
+        "en": "Overhead percentage added to direct costs",
         "tr": "Direkt maliyetler üzerine eklenen genel gider yüzdesi.",
         "de": "Prozentsatz der Gemeinkosten, der auf die direkten Kosten aufgeschlagen wird.",
         "fr": "Pourcentage de frais généraux ajouté aux coûts directs.",
@@ -153,7 +153,7 @@
       "default": 30,
       "businessContext": "Toplam maliyet üzerine uygulanan kâr yüzdesi.",
       "label_i18n": {
-        "en": "Kâr Marjı",
+        "en": "Profit Margin",
         "tr": "Kâr Marjı",
         "de": "Gewinnmarge",
         "fr": "Marge bénéficiaire",
@@ -161,7 +161,7 @@
         "ar": "هامش الربح"
       },
       "businessContext_i18n": {
-        "en": "Toplam maliyet üzerine uygulanan kâr yüzdesi.",
+        "en": "Profit percentage applied to total cost",
         "tr": "Toplam maliyet üzerine uygulanan kâr yüzdesi.",
         "de": "Prozentsatz des Gewinns, der auf die Gesamtkosten aufgeschlagen wird.",
         "fr": "Pourcentage de profit appliqué sur le coût total.",

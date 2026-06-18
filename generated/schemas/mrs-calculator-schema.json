@@ -9,7 +9,7 @@
       "default": 1000,
       "businessContext": "Üretim için toplam sipariş miktarı",
       "label_i18n": {
-        "en": "Sipariş Miktarı",
+        "en": "Order Quantity",
         "tr": "Sipariş Miktarı",
         "de": "Bestellmenge",
         "fr": "Quantité de commande",
@@ -17,7 +17,7 @@
         "ar": "كمية الطلب"
       },
       "businessContext_i18n": {
-        "en": "Üretim için toplam sipariş miktarı",
+        "en": "Total order quantity for production",
         "tr": "Üretim için toplam sipariş miktarı",
         "de": "Gesamtbestellmenge für die Produktion",
         "fr": "Quantité totale de commande pour la production",
@@ -33,7 +33,7 @@
       "default": 2.5,
       "businessContext": "Her bir ürünün ağırlığı",
       "label_i18n": {
-        "en": "Birim Ağırlık",
+        "en": "Unit Weight",
         "tr": "Birim Ağırlık",
         "de": "Stückgewicht",
         "fr": "Poids unitaire",
@@ -41,7 +41,7 @@
         "ar": "الوزن الوحدوي"
       },
       "businessContext_i18n": {
-        "en": "Her bir ürünün ağırlığı",
+        "en": "Weight of each product",
         "tr": "Her bir ürünün ağırlığı",
         "de": "Gewicht jedes Produkts",
         "fr": "Poids de chaque produit",
@@ -57,7 +57,7 @@
       "default": 5,
       "businessContext": "Üretim sürecinde beklenen fire yüzdesi",
       "label_i18n": {
-        "en": "Fire Oranı",
+        "en": "Waste Rate",
         "tr": "Fire Oranı",
         "de": "Verschnittanteil",
         "fr": "Taux de perte",
@@ -65,7 +65,7 @@
         "ar": "نسبة الهدر"
       },
       "businessContext_i18n": {
-        "en": "Üretim sürecinde beklenen fire yüzdesi",
+        "en": "Expected waste percentage in production process",
         "tr": "Üretim sürecinde beklenen fire yüzdesi",
         "de": "Erwarteter Ausschussprozentsatz im Produktionsprozess",
         "fr": "Pourcentage de rebut attendu dans le processus de production",
@@ -89,7 +89,7 @@
         "ar": "كفاءة الماكينة"
       },
       "businessContext_i18n": {
-        "en": "Makinelerin ortalama verimliliği",
+        "en": "Average machine efficiency",
         "tr": "Makinelerin ortalama verimliliği",
         "de": "Durchschnittlicher Wirkungsgrad der Maschinen",
         "fr": "Rendement moyen des machines",
@@ -113,7 +113,7 @@
         "ar": "تكلفة المواد الخام"
       },
       "businessContext_i18n": {
-        "en": "Kg başına hammadde maliyeti",
+        "en": "Raw material cost per kg (USD)",
         "tr": "Kg başına hammadde maliyeti",
         "de": "Rohstoffkosten pro kg",
         "fr": "Coût matière première par kg",

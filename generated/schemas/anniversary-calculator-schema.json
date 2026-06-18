@@ -9,7 +9,7 @@
       "default": 2020,
       "businessContext": "Tarih hesaplamasında başlangıç yılı",
       "label_i18n": {
-        "en": "Başlangıç Yılı",
+        "en": "Start Year",
         "tr": "Başlangıç Yılı",
         "de": "Startjahr",
         "fr": "Année de début",
@@ -17,7 +17,7 @@
         "ar": "سنة البداية"
       },
       "businessContext_i18n": {
-        "en": "Tarih hesaplamasında başlangıç yılı",
+        "en": "Start year for date calculation",
         "tr": "Tarih hesaplamasında başlangıç yılı",
         "de": "Startjahr für die Datumsberechnung",
         "fr": "Année de début pour le calcul de date",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "Tarih hesaplamasında başlangıç ayı (1-12)",
       "label_i18n": {
-        "en": "Başlangıç Ayı",
+        "en": "Start Month",
         "tr": "Başlangıç Ayı",
         "de": "Startmonat",
         "fr": "Mois de début",
@@ -41,7 +41,7 @@
         "ar": "شهر البداية"
       },
       "businessContext_i18n": {
-        "en": "Tarih hesaplamasında başlangıç ayı (1-12)",
+        "en": "Start month for date calculation (1-12)",
         "tr": "Tarih hesaplamasında başlangıç ayı (1-12)",
         "de": "Startmonat für die Datumsberechnung (1-12)",
         "fr": "Mois de début pour le calcul de date (1-12)",
@@ -57,7 +57,7 @@
       "default": 1,
       "businessContext": "Tarih hesaplamasında başlangıç günü",
       "label_i18n": {
-        "en": "Başlangıç Günü",
+        "en": "Start Day",
         "tr": "Başlangıç Günü",
         "de": "Starttag",
         "fr": "Jour de début",
@@ -65,7 +65,7 @@
         "ar": "يوم البداية"
       },
       "businessContext_i18n": {
-        "en": "Tarih hesaplamasında başlangıç günü",
+        "en": "Start day for date calculation",
         "tr": "Tarih hesaplamasında başlangıç günü",
         "de": "Starttag für die Datumsberechnung",
         "fr": "Jour de début pour le calcul de date",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "Başlangıç tarihine eklenecek yıl miktarı",
       "label_i18n": {
-        "en": "Eklenecek Yıl",
+        "en": "Years to Add",
         "tr": "Eklenecek Yıl",
         "de": "Hinzuzufügende Jahre",
         "fr": "Années à ajouter",
@@ -89,7 +89,7 @@
         "ar": "السنة المراد إضافتها"
       },
       "businessContext_i18n": {
-        "en": "Başlangıç tarihine eklenecek yıl miktarı",
+        "en": "Number of years to add to start date",
         "tr": "Başlangıç tarihine eklenecek yıl miktarı",
         "de": "Anzahl der Jahre, die zum Startdatum hinzugefügt werden",
         "fr": "Nombre d'années à ajouter à la date de début",
@@ -113,7 +113,7 @@
         "ar": "الشهر المراد إضافته"
       },
       "businessContext_i18n": {
-        "en": "Başlangıç tarihine eklenecek ay miktarı",
+        "en": "Number of months to add to start date",
         "tr": "Başlangıç tarihine eklenecek ay miktarı",
         "de": "Anzahl der Monate, die zum Startdatum hinzugefügt werden",
         "fr": "Nombre de mois à ajouter à la date de début",

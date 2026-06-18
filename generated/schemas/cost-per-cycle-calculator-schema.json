@@ -17,7 +17,7 @@
         "ar": "تكلفة الإعداد"
       },
       "businessContext_i18n": {
-        "en": "Üretim başına bir defalık kurulum maliyeti",
+        "en": "One-time setup cost per production",
         "tr": "Üretim başına bir defalık kurulum maliyeti",
         "de": "Einmalige Rüstkosten pro Produktion",
         "fr": "Coût d'installation unique par production",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "Toplam üretim çevrimi veya parça sayısı",
       "label_i18n": {
-        "en": "Çevrim Sayısı",
+        "en": "Number of cycles",
         "tr": "Çevrim Sayısı",
         "de": "Zyklusanzahl",
         "fr": "Nombre de cycles",
@@ -41,7 +41,7 @@
         "ar": "عدد الدورات"
       },
       "businessContext_i18n": {
-        "en": "Toplam üretim çevrimi veya parça sayısı",
+        "en": "Total production cycles or number of parts",
         "tr": "Toplam üretim çevrimi veya parça sayısı",
         "de": "Gesamtzahl der Produktionszyklen oder Teile",
         "fr": "Nombre total de cycles de production ou de pièces",
@@ -65,7 +65,7 @@
         "ar": "تكلفة المواد لكل وحدة"
       },
       "businessContext_i18n": {
-        "en": "Her çevrim başına malzeme maliyeti",
+        "en": "Material cost per cycle",
         "tr": "Her çevrim başına malzeme maliyeti",
         "de": "Materialkosten pro Zyklus",
         "fr": "Coût matière par cycle",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "Bir saatlik işçilik maliyeti",
       "label_i18n": {
-        "en": "Saatlik İşçilik Maliyeti",
+        "en": "Hourly Labor Cost",
         "tr": "Saatlik İşçilik Maliyeti",
         "de": "Stündliche Arbeitskosten",
         "fr": "Coût horaire de la main-d'œuvre",
@@ -89,7 +89,7 @@
         "ar": "تكلفة العمالة بالساعة"
       },
       "businessContext_i18n": {
-        "en": "Bir saatlik işçilik maliyeti",
+        "en": "Labor cost per hour",
         "tr": "Bir saatlik işçilik maliyeti",
         "de": "Stündliche Arbeitskosten",
         "fr": "Coût de main-d'œuvre horaire",
@@ -105,7 +105,7 @@
       "default": 0.01,
       "businessContext": "Bir çevrimin tamamlanma süresi (saat)",
       "label_i18n": {
-        "en": "Çevrim Süresi",
+        "en": "Cycle time",
         "tr": "Çevrim Süresi",
         "de": "Zykluszeit",
         "fr": "Temps de cycle",
@@ -113,7 +113,7 @@
         "ar": "زمن الدورة"
       },
       "businessContext_i18n": {
-        "en": "Bir çevrimin tamamlanma süresi (saat)",
+        "en": "Completion time of one cycle (hours)",
         "tr": "Bir çevrimin tamamlanma süresi (saat)",
         "de": "Zeit für einen vollständigen Zyklus (Stunden)",
         "fr": "Temps pour terminer un cycle (heures)",
@@ -129,7 +129,7 @@
       "default": 0,
       "businessContext": "Saatlik genel gider (enerji, amortisman vb.)",
       "label_i18n": {
-        "en": "Genel Gider Oranı",
+        "en": "Overhead Rate",
         "tr": "Genel Gider Oranı",
         "de": "Gemeinkostensatz",
         "fr": "Taux de frais généraux",

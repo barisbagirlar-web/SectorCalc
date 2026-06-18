@@ -9,7 +9,7 @@
       "default": 120,
       "businessContext": "Gönderinin uzunluğu",
       "label_i18n": {
-        "en": "Kargo Uzunluğu",
+        "en": "Cargo Length",
         "tr": "Kargo Uzunluğu",
         "de": "Kargo Länge",
         "fr": "Longueur du colis",
@@ -17,7 +17,7 @@
         "ar": "طول الشحنة"
       },
       "businessContext_i18n": {
-        "en": "Gönderinin uzunluğu",
+        "en": "Length of the shipment",
         "tr": "Gönderinin uzunluğu",
         "de": "Länge der Sendung",
         "fr": "Longueur de l'envoi",
@@ -33,7 +33,7 @@
       "default": 80,
       "businessContext": "Gönderinin genişliği",
       "label_i18n": {
-        "en": "Kargo Genişliği",
+        "en": "Cargo Width",
         "tr": "Kargo Genişliği",
         "de": "Kargo Breite",
         "fr": "Largeur du colis",
@@ -41,7 +41,7 @@
         "ar": "عرض الشحنة"
       },
       "businessContext_i18n": {
-        "en": "Gönderinin genişliği",
+        "en": "Width of the shipment",
         "tr": "Gönderinin genişliği",
         "de": "Breite der Sendung",
         "fr": "Largeur de l'envoi",
@@ -57,7 +57,7 @@
       "default": 100,
       "businessContext": "Gönderinin yüksekliği",
       "label_i18n": {
-        "en": "Kargo Yüksekliği",
+        "en": "Cargo Height",
         "tr": "Kargo Yüksekliği",
         "de": "Kargo Höhe",
         "fr": "Hauteur du colis",
@@ -65,7 +65,7 @@
         "ar": "ارتفاع الشحنة"
       },
       "businessContext_i18n": {
-        "en": "Gönderinin yüksekliği",
+        "en": "Shipment height",
         "tr": "Gönderinin yüksekliği",
         "de": "Höhe der Sendung",
         "fr": "Hauteur de l'envoi",
@@ -81,7 +81,7 @@
       "default": 500,
       "businessContext": "Gönderinin ağırlığı",
       "label_i18n": {
-        "en": "Kargo Ağırlığı",
+        "en": "Cargo weight",
         "tr": "Kargo Ağırlığı",
         "de": "Kargo Gewicht",
         "fr": "Poids du colis",
@@ -89,7 +89,7 @@
         "ar": "وزن الشحنة"
       },
       "businessContext_i18n": {
-        "en": "Gönderinin ağırlığı",
+        "en": "Shipment weight",
         "tr": "Gönderinin ağırlığı",
         "de": "Gewicht der Sendung",
         "fr": "Poids de l'envoi",
@@ -105,7 +105,7 @@
       "default": 1000,
       "businessContext": "Bir paletin veya konteynerin taşıma kapasitesi",
       "label_i18n": {
-        "en": "Birim Yük Kapasitesi",
+        "en": "Unit load capacity",
         "tr": "Birim Yük Kapasitesi",
         "de": "Einheitslastkapazität",
         "fr": "Capacité de charge unitaire",
@@ -113,7 +113,7 @@
         "ar": "سعة الحمولة للوحدة"
       },
       "businessContext_i18n": {
-        "en": "Bir paletin veya konteynerin taşıma kapasitesi",
+        "en": "Carrying capacity of a pallet or container",
         "tr": "Bir paletin veya konteynerin taşıma kapasitesi",
         "de": "Tragfähigkeit einer Palette oder eines Containers",
         "fr": "Capacité de charge d'une palette ou d'un conteneur",
@@ -129,7 +129,7 @@
       "default": 1.5,
       "businessContext": "Bir birim yükün kapladığı hacim",
       "label_i18n": {
-        "en": "Birim Yük Hacmi",
+        "en": "Unit load volume",
         "tr": "Birim Yük Hacmi",
         "de": "Einheitslastvolumen",
         "fr": "Volume unitaire de charge",
@@ -137,7 +137,7 @@
         "ar": "حجم الحمولة للوحدة"
       },
       "businessContext_i18n": {
-        "en": "Bir birim yükün kapladığı hacim",
+        "en": "Volume occupied by one unit load",
         "tr": "Bir birim yükün kapladığı hacim",
         "de": "Volumen einer Einheitslast",
         "fr": "Volume occupé par une unité de charge",

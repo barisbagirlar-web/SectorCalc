@@ -9,7 +9,7 @@
       "default": 5,
       "businessContext": "Odanın bir kenarının uzunluğu",
       "label_i18n": {
-        "en": "Oda Uzunluğu",
+        "en": "Room Length",
         "tr": "Oda Uzunluğu",
         "de": "Raumlänge",
         "fr": "Longueur de la pièce",
@@ -17,7 +17,7 @@
         "ar": "طول الغرفة"
       },
       "businessContext_i18n": {
-        "en": "Odanın bir kenarının uzunluğu",
+        "en": "Length of one side of the room",
         "tr": "Odanın bir kenarının uzunluğu",
         "de": "Länge einer Seite des Raumes",
         "fr": "Longueur d'un côté de la pièce",
@@ -33,7 +33,7 @@
       "default": 4,
       "businessContext": "Odanın diğer kenarının genişliği",
       "label_i18n": {
-        "en": "Oda Genişliği",
+        "en": "Room Width",
         "tr": "Oda Genişliği",
         "de": "Raumbreite",
         "fr": "Largeur de la pièce",
@@ -41,7 +41,7 @@
         "ar": "عرض الغرفة"
       },
       "businessContext_i18n": {
-        "en": "Odanın diğer kenarının genişliği",
+        "en": "Width of the other side of the room",
         "tr": "Odanın diğer kenarının genişliği",
         "de": "Breite der anderen Seite des Raumes",
         "fr": "Largeur de l'autre côté de la pièce",
@@ -57,7 +57,7 @@
       "default": 1,
       "businessContext": "Süpürgelikten düşülecek kapı boşluğu sayısı",
       "label_i18n": {
-        "en": "Kapı Sayısı",
+        "en": "Number of Doors",
         "tr": "Kapı Sayısı",
         "de": "Anzahl Türen",
         "fr": "Nombre de portes",
@@ -65,7 +65,7 @@
         "ar": "عدد الأبواب"
       },
       "businessContext_i18n": {
-        "en": "Süpürgelikten düşülecek kapı boşluğu sayısı",
+        "en": "Number of door openings to subtract from baseboard",
         "tr": "Süpürgelikten düşülecek kapı boşluğu sayısı",
         "de": "Anzahl der Türöffnungen, die von der Sockelleiste abgezogen werden",
         "fr": "Nombre d'ouvertures de porte à déduire de la plinthe",
@@ -81,7 +81,7 @@
       "default": 0.9,
       "businessContext": "Bir kapı boşluğunun genişliği",
       "label_i18n": {
-        "en": "Kapı Genişliği",
+        "en": "Door Width",
         "tr": "Kapı Genişliği",
         "de": "Türbreite",
         "fr": "Largeur de porte",
@@ -89,7 +89,7 @@
         "ar": "عرض الباب"
       },
       "businessContext_i18n": {
-        "en": "Bir kapı boşluğunun genişliği",
+        "en": "Width of one door opening",
         "tr": "Bir kapı boşluğunun genişliği",
         "de": "Breite einer Türöffnung",
         "fr": "Largeur d'une ouverture de porte",
@@ -105,7 +105,7 @@
       "default": 2.4,
       "businessContext": "Bir süpürgelik parçasının uzunluğu",
       "label_i18n": {
-        "en": "Parça Boyu",
+        "en": "Piece Length",
         "tr": "Parça Boyu",
         "de": "Stücklänge",
         "fr": "Longueur de pièce de plinthe",
@@ -113,7 +113,7 @@
         "ar": "طول القطعة"
       },
       "businessContext_i18n": {
-        "en": "Bir süpürgelik parçasının uzunluğu",
+        "en": "Length of one baseboard piece",
         "tr": "Bir süpürgelik parçasının uzunluğu",
         "de": "Länge eines Sockelleistenstücks",
         "fr": "Longueur d'une pièce de plinthe",
@@ -129,7 +129,7 @@
       "default": 10,
       "businessContext": "Bir süpürgelik parçasının birim fiyatı",
       "label_i18n": {
-        "en": "Parça Fiyatı",
+        "en": "Piece Price (USD)",
         "tr": "Parça Fiyatı",
         "de": "Stückpreis",
         "fr": "Prix unitaire",
@@ -137,7 +137,7 @@
         "ar": "سعر القطعة"
       },
       "businessContext_i18n": {
-        "en": "Bir süpürgelik parçasının birim fiyatı",
+        "en": "Unit price of one baseboard piece",
         "tr": "Bir süpürgelik parçasının birim fiyatı",
         "de": "Einzelpreis eines Sockelleistenstücks",
         "fr": "Prix unitaire d'une pièce de plinthe",
@@ -153,7 +153,7 @@
       "default": 5,
       "businessContext": "Kesme ve hatalardan kaynaklanan ek malzeme yüzdesi",
       "label_i18n": {
-        "en": "Fire Oranı",
+        "en": "Waste Rate",
         "tr": "Fire Oranı",
         "de": "Verschnittanteil",
         "fr": "Taux de perte",
@@ -161,7 +161,7 @@
         "ar": "نسبة الهدر"
       },
       "businessContext_i18n": {
-        "en": "Kesme ve hatalardan kaynaklanan ek malzeme yüzdesi",
+        "en": "Additional material percentage from cutting and errors",
         "tr": "Kesme ve hatalardan kaynaklanan ek malzeme yüzdesi",
         "de": "Prozentsatz des zusätzlichen Materials durch Zuschnitt und Fehler",
         "fr": "Pourcentage de matériau supplémentaire dû aux coupes et erreurs",

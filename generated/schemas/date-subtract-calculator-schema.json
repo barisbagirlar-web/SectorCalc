@@ -9,7 +9,7 @@
       "default": 44927,
       "businessContext": "Başlangıç tarihi seri numarası (ör. 44927 = 2023-01-01)",
       "label_i18n": {
-        "en": "Başlangıç Tarihi (Seri No)",
+        "en": "Start date (serial number)",
         "tr": "Başlangıç Tarihi (Seri No)",
         "de": "Startdatum (Seriennummer)",
         "fr": "Date de début (numéro de série)",
@@ -17,7 +17,7 @@
         "ar": "تاريخ البداية (رقم تسلسلي)"
       },
       "businessContext_i18n": {
-        "en": "Başlangıç tarihi seri numarası (ör. 44927 = 2023-01-01)",
+        "en": "Start date serial number (e.g., 44927 = 2023-01-01)",
         "tr": "Başlangıç tarihi seri numarası (ör. 44927 = 2023-01-01)",
         "de": "Startdatum als Seriennummer (z. B. 44927 = 2023-01-01)",
         "fr": "Numéro de série de la date de début (ex. 44927 = 2023-01-01)",
@@ -33,7 +33,7 @@
       "default": 44937,
       "businessContext": "Bitiş tarihi seri numarası",
       "label_i18n": {
-        "en": "Bitiş Tarihi (Seri No)",
+        "en": "End date (serial number)",
         "tr": "Bitiş Tarihi (Seri No)",
         "de": "Enddatum (Seriennummer)",
         "fr": "Date de fin (numéro de série)",
@@ -41,7 +41,7 @@
         "ar": "تاريخ الانتهاء (رقم تسلسلي)"
       },
       "businessContext_i18n": {
-        "en": "Bitiş tarihi seri numarası",
+        "en": "End date serial number",
         "tr": "Bitiş tarihi seri numarası",
         "de": "Enddatum als Seriennummer",
         "fr": "Numéro de série de la date de fin",
@@ -57,7 +57,7 @@
       "default": 1,
       "businessContext": "Bitiş gününün dahil edilmesi (1: evet, 0: hayır)",
       "label_i18n": {
-        "en": "Son Gün Dahil",
+        "en": "Include last day",
         "tr": "Son Gün Dahil",
         "de": "Letzten Tag einschließen",
         "fr": "Inclure le dernier jour",
@@ -65,7 +65,7 @@
         "ar": "تضمين اليوم الأخير"
       },
       "businessContext_i18n": {
-        "en": "Bitiş gününün dahil edilmesi (1: evet, 0: hayır)",
+        "en": "Include end day (1: yes, 0: no)",
         "tr": "Bitiş gününün dahil edilmesi (1: evet, 0: hayır)",
         "de": "Einbeziehung des Endtages (1: ja, 0: nein)",
         "fr": "Inclusion du dernier jour (1 : oui, 0 : non)",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "Çıktı birim çarpanı (1: gün, 24: saat, 1440: dakika, 86400: saniye)",
       "label_i18n": {
-        "en": "Çıktı Birim Çarpanı",
+        "en": "Output Unit Factor",
         "tr": "Çıktı Birim Çarpanı",
         "de": "Ausgabe-Einheitenfaktor",
         "fr": "Facteur d'unité de sortie",
@@ -89,7 +89,7 @@
         "ar": "مضاعف وحدة الإخراج"
       },
       "businessContext_i18n": {
-        "en": "Çıktı birim çarpanı (1: gün, 24: saat, 1440: dakika, 86400: saniye)",
+        "en": "Output unit multiplier (1: day, 24: hour, 1440: minute, 86400: second)",
         "tr": "Çıktı birim çarpanı (1: gün, 24: saat, 1440: dakika, 86400: saniye)",
         "de": "Ausgabe-Einheitenmultiplikator (1: Tage, 24: Stunden, 1440: Minuten, 86400: Sekunden)",
         "fr": "Multiplicateur d'unité de sortie (1 : jour, 24 : heure, 1440 : minute, 86400 : seconde)",

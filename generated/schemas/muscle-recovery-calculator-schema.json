@@ -9,7 +9,7 @@
       "default": 30,
       "businessContext": "Kullanıcının yaşı, kas iyileşme sürecini etkiler.",
       "label_i18n": {
-        "en": "Yaş",
+        "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
         "fr": "Âge",
@@ -17,7 +17,7 @@
         "ar": "العمر"
       },
       "businessContext_i18n": {
-        "en": "Kullanıcının yaşı, kas iyileşme sürecini etkiler.",
+        "en": "User's age affects muscle recovery process.",
         "tr": "Kullanıcının yaşı, kas iyileşme sürecini etkiler.",
         "de": "Das Alter des Benutzers beeinflusst den Muskelregenerationsprozess.",
         "fr": "L'âge de l'utilisateur influence le processus de récupération musculaire.",
@@ -33,7 +33,7 @@
       "default": 70,
       "businessContext": "Kas kütlesi ve iyileşme gereksinimi üzerinde etkilidir.",
       "label_i18n": {
-        "en": "Vücut Ağırlığı",
+        "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
         "fr": "Poids corporel",
@@ -41,7 +41,7 @@
         "ar": "وزن الجسم"
       },
       "businessContext_i18n": {
-        "en": "Kas kütlesi ve iyileşme gereksinimi üzerinde etkilidir.",
+        "en": "Affects muscle mass and recovery needs.",
         "tr": "Kas kütlesi ve iyileşme gereksinimi üzerinde etkilidir.",
         "de": "Beeinflusst Muskelmasse und Erholungsbedarf.",
         "fr": "Influence la masse musculaire et les besoins de récupération.",
@@ -57,7 +57,7 @@
       "default": 60,
       "businessContext": "Antrenmanın toplam süresi.",
       "label_i18n": {
-        "en": "Antrenman Süresi",
+        "en": "Training Duration",
         "tr": "Antrenman Süresi",
         "de": "Trainingsdauer",
         "fr": "Durée de l'entraînement",
@@ -65,7 +65,7 @@
         "ar": "مدة التمرين"
       },
       "businessContext_i18n": {
-        "en": "Antrenmanın toplam süresi.",
+        "en": "Total duration of the training.",
         "tr": "Antrenmanın toplam süresi.",
         "de": "Gesamtdauer des Trainings.",
         "fr": "Durée totale de l'entraînement.",
@@ -81,7 +81,7 @@
       "default": 5,
       "businessContext": "Algılanan efor derecesi (1: çok hafif, 10: maksimum).",
       "label_i18n": {
-        "en": "Yoğunluk",
+        "en": "Density",
         "tr": "Yoğunluk",
         "de": "Dichte",
         "fr": "Densité",
@@ -89,7 +89,7 @@
         "ar": "الكثافة"
       },
       "businessContext_i18n": {
-        "en": "Algılanan efor derecesi (1: çok hafif, 10: maksimum).",
+        "en": "Perceived exertion rate (1: very light, 10: maximum).",
         "tr": "Algılanan efor derecesi (1: çok hafif, 10: maksimum).",
         "de": "Bewertung der wahrgenommenen Anstrengung (1: sehr leicht, 10: maximal).",
         "fr": "Indice d'effort perçu (1 : très léger, 10 : maximal).",
@@ -105,7 +105,7 @@
       "default": 8,
       "businessContext": "Antrenman sonrası geçen dinlenme süresi.",
       "label_i18n": {
-        "en": "Dinlenme Süresi",
+        "en": "Rest Duration",
         "tr": "Dinlenme Süresi",
         "de": "Ruhezeit",
         "fr": "Temps de repos",
@@ -113,7 +113,7 @@
         "ar": "مدة الراحة"
       },
       "businessContext_i18n": {
-        "en": "Antrenman sonrası geçen dinlenme süresi.",
+        "en": "Rest duration after training.",
         "tr": "Antrenman sonrası geçen dinlenme süresi.",
         "de": "Ruhezeit nach dem Training.",
         "fr": "Temps de repos écoulé après l'entraînement.",

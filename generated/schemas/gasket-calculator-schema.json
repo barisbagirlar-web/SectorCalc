@@ -9,7 +9,7 @@
       "default": 50,
       "businessContext": "Conta iç çapı (mm)",
       "label_i18n": {
-        "en": "İç Çap",
+        "en": "Inner Diameter",
         "tr": "İç Çap",
         "de": "Innendurchmesser",
         "fr": "Diamètre intérieur",
@@ -17,7 +17,7 @@
         "ar": "القطر الداخلي"
       },
       "businessContext_i18n": {
-        "en": "Conta iç çapı (mm)",
+        "en": "Gasket inner diameter (mm)",
         "tr": "Conta iç çapı (mm)",
         "de": "Dichtungsinnendurchmesser (mm)",
         "fr": "Diamètre intérieur du joint (mm)",
@@ -33,7 +33,7 @@
       "default": 100,
       "businessContext": "Conta dış çapı (mm)",
       "label_i18n": {
-        "en": "Dış Çap",
+        "en": "Outer Diameter",
         "tr": "Dış Çap",
         "de": "Außendurchmesser",
         "fr": "Diamètre extérieur",
@@ -41,7 +41,7 @@
         "ar": "القطر الخارجي"
       },
       "businessContext_i18n": {
-        "en": "Conta dış çapı (mm)",
+        "en": "Gasket outer diameter (mm)",
         "tr": "Conta dış çapı (mm)",
         "de": "Dichtungsaußendurchmesser (mm)",
         "fr": "Diamètre extérieur du joint (mm)",
@@ -57,7 +57,7 @@
       "default": 16,
       "businessContext": "Sistem tasarım basıncı (bar)",
       "label_i18n": {
-        "en": "Tasarım Basıncı",
+        "en": "Design Pressure",
         "tr": "Tasarım Basıncı",
         "de": "Auslegungsdruck",
         "fr": "Pression de conception",
@@ -65,7 +65,7 @@
         "ar": "ضغط التصميم"
       },
       "businessContext_i18n": {
-        "en": "Sistem tasarım basıncı (bar)",
+        "en": "System design pressure (bar)",
         "tr": "Sistem tasarım basıncı (bar)",
         "de": "Systemauslegungsdruck (bar)",
         "fr": "Pression de conception du système (bar)",
@@ -81,7 +81,7 @@
       "default": 2.5,
       "businessContext": "ASME contası faktörü (boyutsuz)",
       "label_i18n": {
-        "en": "Conta Faktörü (m)",
+        "en": "Gasket Factor (m)",
         "tr": "Conta Faktörü (m)",
         "de": "Dichtungsfaktor (m)",
         "fr": "Facteur de joint (m)",
@@ -89,7 +89,7 @@
         "ar": "عامل الحشية (m)"
       },
       "businessContext_i18n": {
-        "en": "ASME contası faktörü (boyutsuz)",
+        "en": "ASME gasket factor (dimensionless)",
         "tr": "ASME contası faktörü (boyutsuz)",
         "de": "ASME-Dichtungsfaktor (dimensionslos)",
         "fr": "Facteur de joint ASME (sans dimension)",
@@ -129,7 +129,7 @@
       "default": 4,
       "businessContext": "Flanştaki toplam civata sayısı",
       "label_i18n": {
-        "en": "Civata Sayısı",
+        "en": "Number of Bolts",
         "tr": "Civata Sayısı",
         "de": "Anzahl der Schrauben",
         "fr": "Nombre de boulons",
@@ -137,7 +137,7 @@
         "ar": "عدد البراغي"
       },
       "businessContext_i18n": {
-        "en": "Flanştaki toplam civata sayısı",
+        "en": "Total number of bolts on the flange",
         "tr": "Flanştaki toplam civata sayısı",
         "de": "Gesamtzahl der Schrauben im Flansch",
         "fr": "Nombre total de boulons sur la bride",

@@ -17,7 +17,7 @@
         "ar": "الطول (مم)"
       },
       "businessContext_i18n": {
-        "en": "Dikdörtgenin milimetre cinsinden uzunluğu.",
+        "en": "Length of rectangle in millimeters",
         "tr": "Dikdörtgenin milimetre cinsinden uzunluğu.",
         "de": "Länge des Rechtecks in Millimetern.",
         "fr": "Longueur du rectangle en millimètres.",
@@ -33,7 +33,7 @@
       "default": 1000,
       "businessContext": "Dikdörtgenin milimetre cinsinden genişliği.",
       "label_i18n": {
-        "en": "Genişlik (mm)",
+        "en": "Width (mm)",
         "tr": "Genişlik (mm)",
         "de": "Breite (mm)",
         "fr": "Largeur (mm)",
@@ -41,7 +41,7 @@
         "ar": "العرض (مم)"
       },
       "businessContext_i18n": {
-        "en": "Dikdörtgenin milimetre cinsinden genişliği.",
+        "en": "Width of rectangle in millimeters",
         "tr": "Dikdörtgenin milimetre cinsinden genişliği.",
         "de": "Breite des Rechtecks in Millimetern.",
         "fr": "Largeur du rectangle en millimètres.",
@@ -57,7 +57,7 @@
       "default": 0.000001,
       "businessContext": "Milimetrekareyi metrekareye çevirme faktörü. 1 mm² = 1e-6 m².",
       "label_i18n": {
-        "en": "Alan Dönüşüm Faktörü",
+        "en": "Area Conversion Factor",
         "tr": "Alan dönüşüm faktörü",
         "de": "Flächenumrechnungsfaktor",
         "fr": "Facteur de conversion de surface",
@@ -65,7 +65,7 @@
         "ar": "عامل تحويل المساحة"
       },
       "businessContext_i18n": {
-        "en": "Milimetrekareyi metrekareye çevirme faktörü. 1 mm² = 1e-6 m².",
+        "en": "Factor to convert square millimeters to square meters. 1 mm² = 1e-6 m².",
         "tr": "Milimetrekareyi metrekareye çevirme faktörü. 1 mm² = 1e-6 m².",
         "de": "Faktor zur Umrechnung von Quadratmillimetern in Quadratmeter. 1 mm² = 1e-6 m².",
         "fr": "Facteur de conversion des millimètres carrés en mètres carrés. 1 mm² = 1e-6 m².",
@@ -89,7 +89,7 @@
         "ar": "التسامح (%)"
       },
       "businessContext_i18n": {
-        "en": "İmalat toleransı, her iki boyuta uygulanacak yüzde.",
+        "en": "Manufacturing tolerance, percentage applied to both dimensions.",
         "tr": "İmalat toleransı, her iki boyuta uygulanacak yüzde.",
         "de": "Fertigungstoleranz, Prozentsatz, der auf beide Abmessungen angewendet wird.",
         "fr": "Tolérance de fabrication, pourcentage appliqué aux deux dimensions.",
@@ -105,7 +105,7 @@
       "default": 1,
       "businessContext": "Alan hesaplamasına uygulanacak emniyet çarpanı.",
       "label_i18n": {
-        "en": "Emniyet Faktörü",
+        "en": "Safety Factor",
         "tr": "Emniyet Faktörü",
         "de": "Sicherheitsfaktor",
         "fr": "Facteur de sécurité",
@@ -113,7 +113,7 @@
         "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
-        "en": "Alan hesaplamasına uygulanacak emniyet çarpanı.",
+        "en": "Safety factor applied to area calculation.",
         "tr": "Alan hesaplamasına uygulanacak emniyet çarpanı.",
         "de": "Sicherheitsfaktor, der auf die Flächenberechnung angewendet wird.",
         "fr": "Coefficient de sécurité à appliquer au calcul de surface.",

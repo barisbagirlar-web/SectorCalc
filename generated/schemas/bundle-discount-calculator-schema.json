@@ -9,7 +9,7 @@
       "default": 1,
       "businessContext": "Satın alınan paket adedi",
       "label_i18n": {
-        "en": "Paket Sayısı",
+        "en": "Number of packages",
         "tr": "Paket Sayısı",
         "de": "Paketanzahl",
         "fr": "Nombre de paquets",
@@ -17,7 +17,7 @@
         "ar": "عدد الحزم"
       },
       "businessContext_i18n": {
-        "en": "Satın alınan paket adedi",
+        "en": "Number of packages purchased",
         "tr": "Satın alınan paket adedi",
         "de": "Anzahl der gekauften Pakete",
         "fr": "Nombre de paquets achetés",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "Bir paketteki ürün sayısı",
       "label_i18n": {
-        "en": "Paket Başına Ürün",
+        "en": "Products per package",
         "tr": "Paket Başına Ürün",
         "de": "Produkte pro Paket",
         "fr": "Produits par paquet",
@@ -41,7 +41,7 @@
         "ar": "المنتج لكل حزمة"
       },
       "businessContext_i18n": {
-        "en": "Bir paketteki ürün sayısı",
+        "en": "Number of products in a package",
         "tr": "Bir paketteki ürün sayısı",
         "de": "Anzahl der Produkte in einem Paket",
         "fr": "Nombre de produits dans un paquet",
@@ -57,7 +57,7 @@
       "default": 10,
       "businessContext": "Tek bir ürünün liste fiyatı",
       "label_i18n": {
-        "en": "Birim Fiyatı",
+        "en": "Unit price",
         "tr": "Birim Fiyatı",
         "de": "Stückpreis",
         "fr": "Prix unitaire",
@@ -65,7 +65,7 @@
         "ar": "سعر الوحدة"
       },
       "businessContext_i18n": {
-        "en": "Tek bir ürünün liste fiyatı",
+        "en": "List price of a single product",
         "tr": "Tek bir ürünün liste fiyatı",
         "de": "Listenpreis eines einzelnen Produkts",
         "fr": "Prix catalogue d'un seul produit",
@@ -81,7 +81,7 @@
       "default": 10,
       "businessContext": "Paket olarak alındığında uygulanacak indirim yüzdesi",
       "label_i18n": {
-        "en": "Paket İndirimi (%)",
+        "en": "Package Discount (%)",
         "tr": "Paket İndirimi (%)",
         "de": "Paketrabatt (%)",
         "fr": "Remise par paquet (%)",
@@ -89,7 +89,7 @@
         "ar": "خصم الحزمة (%)"
       },
       "businessContext_i18n": {
-        "en": "Paket olarak alındığında uygulanacak indirim yüzdesi",
+        "en": "Discount percentage applied when purchased as a package",
         "tr": "Paket olarak alındığında uygulanacak indirim yüzdesi",
         "de": "Rabattprozentsatz beim Kauf als Paket",
         "fr": "Pourcentage de remise appliqué lors de l'achat en paquet",
@@ -105,7 +105,7 @@
       "default": 10,
       "businessContext": "Bu sayıda veya daha fazla paket alındığında ek toplu indirim uygulanır",
       "label_i18n": {
-        "en": "Toplu Alım Eşiği",
+        "en": "Bulk Purchase Threshold",
         "tr": "Toplu Alım Eşiği",
         "de": "Mengenschwellenwert",
         "fr": "Seuil d'achat en gros",
@@ -113,7 +113,7 @@
         "ar": "حد الشراء بالجملة"
       },
       "businessContext_i18n": {
-        "en": "Bu sayıda veya daha fazla paket alındığında ek toplu indirim uygulanır",
+        "en": "Additional bulk discount is applied when this number or more packages are purchased",
         "tr": "Bu sayıda veya daha fazla paket alındığında ek toplu indirim uygulanır",
         "de": "Bei Bestellung dieser oder einer höheren Anzahl von Paketen wird ein zusätzlicher Mengenrabatt gewährt",
         "fr": "Remise supplémentaire appliquée pour l'achat de ce nombre ou plus de packs",
@@ -129,7 +129,7 @@
       "default": 5,
       "businessContext": "Toplu alım eşiği aşıldığında, paket indirimi sonrasına uygulanacak ek indirim yüzdesi",
       "label_i18n": {
-        "en": "Toplu İndirim Oranı (%)",
+        "en": "Bulk Discount Rate (%)",
         "tr": "Toplu İndirim Oranı (%)",
         "de": "Mengenrabattsatz (%)",
         "fr": "Taux de remise en gros (%)",
@@ -137,7 +137,7 @@
         "ar": "نسبة الخصم الإضافي (%)"
       },
       "businessContext_i18n": {
-        "en": "Toplu alım eşiği aşıldığında, paket indirimi sonrasına uygulanacak ek indirim yüzdesi",
+        "en": "When the bulk purchase threshold is exceeded, the additional discount percentage applied after the package discount",
         "tr": "Toplu alım eşiği aşıldığında, paket indirimi sonrasına uygulanacak ek indirim yüzdesi",
         "de": "Zusätzlicher Rabattprozentsatz nach Paketrabatt, wenn der Mengenschwellenwert überschritten wird",
         "fr": "Pourcentage de remise supplémentaire appliqué après la remise sur le pack lorsque le seuil d'achat en gros est dépassé",

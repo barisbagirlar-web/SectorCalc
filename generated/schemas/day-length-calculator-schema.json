@@ -17,7 +17,7 @@
         "ar": "خط العرض"
       },
       "businessContext_i18n": {
-        "en": "Gözlem noktasının enlemi (-90 ile 90 arası)",
+        "en": "Observation point latitude (-90 to 90)",
         "tr": "Gözlem noktasının enlemi (-90 ile 90 arası)",
         "de": "Breitengrad des Beobachtungspunkts (-90 bis 90)",
         "fr": "Latitude du point d'observation (entre -90 et 90)",
@@ -33,7 +33,7 @@
       "default": 2024,
       "businessContext": "Gözlem yılı",
       "label_i18n": {
-        "en": "Yıl",
+        "en": "Year",
         "tr": "Yıl",
         "de": "Jahr",
         "fr": "Année",
@@ -41,7 +41,7 @@
         "ar": "السنة"
       },
       "businessContext_i18n": {
-        "en": "Gözlem yılı",
+        "en": "Observation year",
         "tr": "Gözlem yılı",
         "de": "Beobachtungsjahr",
         "fr": "Année d'observation",
@@ -65,7 +65,7 @@
         "ar": "الشهر"
       },
       "businessContext_i18n": {
-        "en": "Gözlem ayı (1–12)",
+        "en": "Observation month (1–12)",
         "tr": "Gözlem ayı (1–12)",
         "de": "Beobachtungsmonat (1–12)",
         "fr": "Mois d'observation (1–12)",
@@ -81,7 +81,7 @@
       "default": 21,
       "businessContext": "Gözlem günü (1–31)",
       "label_i18n": {
-        "en": "Gün",
+        "en": "Day",
         "tr": "Gün",
         "de": "Tag",
         "fr": "Jour",
@@ -89,7 +89,7 @@
         "ar": "اليوم"
       },
       "businessContext_i18n": {
-        "en": "Gözlem günü (1–31)",
+        "en": "Observation day (1–31)",
         "tr": "Gözlem günü (1–31)",
         "de": "Beobachtungstag (1–31)",
         "fr": "Jour d'observation (1–31)",
@@ -105,7 +105,7 @@
       "default": 3,
       "businessContext": "Zaman dilimi UTC farkı (Türkiye için +3)",
       "label_i18n": {
-        "en": "UTC Sapması",
+        "en": "UTC Offset",
         "tr": "UTC Sapması",
         "de": "UTC-Abweichung",
         "fr": "Décalage UTC",
@@ -113,7 +113,7 @@
         "ar": "إزاحة UTC"
       },
       "businessContext_i18n": {
-        "en": "Zaman dilimi UTC farkı (Türkiye için +3)",
+        "en": "Time zone UTC difference (+3 for Turkey)",
         "tr": "Zaman dilimi UTC farkı (Türkiye için +3)",
         "de": "Zeitzonen-UTC-Differenz (für Türkei +3)",
         "fr": "Différence de fuseau horaire UTC (+3 pour la Turquie)",

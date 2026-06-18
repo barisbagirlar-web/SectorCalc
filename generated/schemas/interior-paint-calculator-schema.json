@@ -17,7 +17,7 @@
         "ar": "طول الغرفة (م)"
       },
       "businessContext_i18n": {
-        "en": "Uzunluk, odanın boyutlarını belirler ve boyanacak alan hesabında temel ölçüdür.",
+        "en": "Length determines room dimensions and is the basic measure for calculating the area to be painted.",
         "tr": "Uzunluk, odanın boyutlarını belirler ve boyanacak alan hesabında temel ölçüdür.",
         "de": "Länge, bestimmt die Raummaße und ist das Grundmaß für die Flächenberechnung.",
         "fr": "Longueur, détermine les dimensions de la pièce et est la mesure de base pour le calcul de la surface à peindre.",
@@ -41,7 +41,7 @@
         "ar": "عرض الغرفة (م)"
       },
       "businessContext_i18n": {
-        "en": "Genişlik, odanın boyutlarını belirler.",
+        "en": "Width determines room dimensions.",
         "tr": "Genişlik, odanın boyutlarını belirler.",
         "de": "Breite, bestimmt die Raummaße.",
         "fr": "Largeur, détermine les dimensions de la pièce.",
@@ -65,7 +65,7 @@
         "ar": "ارتفاع الغرفة (م)"
       },
       "businessContext_i18n": {
-        "en": "Yükseklik, duvar alanının hesaplanmasında kullanılır.",
+        "en": "Height is used to calculate wall area.",
         "tr": "Yükseklik, duvar alanının hesaplanmasında kullanılır.",
         "de": "Höhe, wird zur Berechnung der Wandfläche verwendet.",
         "fr": "Hauteur, utilisée pour le calcul de la surface des murs.",
@@ -89,7 +89,7 @@
         "ar": "عدد الأبواب"
       },
       "businessContext_i18n": {
-        "en": "Kapı sayısı, boyanmayacak alanı hesaplamak için standart 2 m² indirim sağlar.",
+        "en": "Number of doors provides a standard 2 m² deduction for unpainted area.",
         "tr": "Kapı sayısı, boyanmayacak alanı hesaplamak için standart 2 m² indirim sağlar.",
         "de": "Anzahl der Türen, bietet einen Standardabzug von 2 m² für nicht zu streichende Flächen.",
         "fr": "Nombre de portes, fournit une déduction standard de 2 m² pour le calcul de la surface non peinte.",
@@ -113,7 +113,7 @@
         "ar": "عدد النوافذ"
       },
       "businessContext_i18n": {
-        "en": "Pencere sayısı, boyanmayacak alanı hesaplamak için standart 1.5 m² indirim sağlar.",
+        "en": "Number of windows provides a standard 1.5 m² deduction for unpainted area.",
         "tr": "Pencere sayısı, boyanmayacak alanı hesaplamak için standart 1.5 m² indirim sağlar.",
         "de": "Anzahl der Fenster, bietet einen Standardabzug von 1,5 m² für nicht zu streichende Flächen.",
         "fr": "Nombre de fenêtres, fournit une déduction standard de 1,5 m² pour le calcul de la surface non peinte.",
@@ -137,7 +137,7 @@
         "ar": "تغطية الدهان (م²/لتر)"
       },
       "businessContext_i18n": {
-        "en": "Boyanın litre başına kapladığı alan, üretici verisine dayanır.",
+        "en": "Paint coverage per liter, based on manufacturer data.",
         "tr": "Boyanın litre başına kapladığı alan, üretici verisine dayanır.",
         "de": "Fläche pro Liter Farbe, basierend auf Herstellerangaben.",
         "fr": "Surface couverte par litre de peinture, basée sur les données du fabricant.",
@@ -161,7 +161,7 @@
         "ar": "عدد الطبقات"
       },
       "businessContext_i18n": {
-        "en": "Uygulanacak kat sayısı, toplam boya ihtiyacını doğrudan etkiler.",
+        "en": "Number of coats to apply directly affects total paint needed.",
         "tr": "Uygulanacak kat sayısı, toplam boya ihtiyacını doğrudan etkiler.",
         "de": "Anzahl der Anstriche, beeinflusst direkt den Gesamtfarbbedarf.",
         "fr": "Le nombre de couches appliquées affecte directement le besoin total en peinture.",
@@ -185,7 +185,7 @@
         "ar": "تضمين السقف (1=نعم، 0=لا)"
       },
       "businessContext_i18n": {
-        "en": "Tavanın boyanıp boyanmayacağını belirler, alan hesabına etki eder.",
+        "en": "Determines whether the ceiling is painted, affecting area calculation.",
         "tr": "Tavanın boyanıp boyanmayacağını belirler, alan hesabına etki eder.",
         "de": "Bestimmt, ob die Decke gestrichen wird, wirkt sich auf die Flächenberechnung aus.",
         "fr": "Détermine si le plafond est peint, influence le calcul de la surface.",

@@ -9,7 +9,7 @@
       "default": 100,
       "businessContext": "Proje kapsamındaki toplam iş paketi veya görev sayısı",
       "label_i18n": {
-        "en": "Toplam Görev Sayısı",
+        "en": "Total Number of Tasks",
         "tr": "Toplam Görev Sayısı",
         "de": "Gesamtzahl der Aufgaben",
         "fr": "Nombre total de tâches",
@@ -17,7 +17,7 @@
         "ar": "إجمالي عدد المهام"
       },
       "businessContext_i18n": {
-        "en": "Proje kapsamındaki toplam iş paketi veya görev sayısı",
+        "en": "Total number of work packages or tasks in the project",
         "tr": "Proje kapsamındaki toplam iş paketi veya görev sayısı",
         "de": "Gesamtzahl der Arbeitspakete oder Aufgaben im Projektumfang",
         "fr": "Nombre total de lots de travail ou de tâches dans le cadre du projet",
@@ -33,7 +33,7 @@
       "default": 5,
       "businessContext": "Bir ekip üyesinin günde tamamlayabileceği ortalama görev sayısı",
       "label_i18n": {
-        "en": "Günlük Tamamlanan Görev",
+        "en": "Daily Completed Tasks",
         "tr": "Günlük Tamamlanan Görev",
         "de": "Täglich abgeschlossene Aufgaben",
         "fr": "Tâches achevées par jour",
@@ -41,7 +41,7 @@
         "ar": "المهام المنجزة يوميًا"
       },
       "businessContext_i18n": {
-        "en": "Bir ekip üyesinin günde tamamlayabileceği ortalama görev sayısı",
+        "en": "Average number of tasks a team member can complete per day",
         "tr": "Bir ekip üyesinin günde tamamlayabileceği ortalama görev sayısı",
         "de": "Durchschnittliche Anzahl von Aufgaben, die ein Teammitglied pro Tag erledigen kann",
         "fr": "Nombre moyen de tâches qu'un membre de l'équipe peut accomplir par jour",
@@ -57,7 +57,7 @@
       "default": 3,
       "businessContext": "Projede çalışan toplam kişi sayısı",
       "label_i18n": {
-        "en": "Ekip Büyüklüğü",
+        "en": "Team Size",
         "tr": "Ekip Büyüklüğü",
         "de": "Teamgröße",
         "fr": "Taille de l'équipe",
@@ -65,7 +65,7 @@
         "ar": "حجم الفريق"
       },
       "businessContext_i18n": {
-        "en": "Projede çalışan toplam kişi sayısı",
+        "en": "Total number of people working on the project",
         "tr": "Projede çalışan toplam kişi sayısı",
         "de": "Gesamtzahl der am Projekt beteiligten Personen",
         "fr": "Nombre total de personnes travaillant sur le projet",
@@ -81,7 +81,7 @@
       "default": 1.2,
       "businessContext": "Proje karmaşıklığına bağlı olarak süreyi artıran çarpan (1.0 = basit, 1.5 = karmaşık)",
       "label_i18n": {
-        "en": "Karmaşıklık Faktörü",
+        "en": "Complexity Factor",
         "tr": "Karmaşıklık Faktörü",
         "de": "Komplexitätsfaktor",
         "fr": "Facteur de complexité",
@@ -89,7 +89,7 @@
         "ar": "عامل التعقيد"
       },
       "businessContext_i18n": {
-        "en": "Proje karmaşıklığına bağlı olarak süreyi artıran çarpan (1.0 = basit, 1.5 = karmaşık)",
+        "en": "Multiplier that increases time based on project complexity (1.0 = simple, 1.5 = complex)",
         "tr": "Proje karmaşıklığına bağlı olarak süreyi artıran çarpan (1.0 = basit, 1.5 = karmaşık)",
         "de": "Multiplikator, der die Dauer basierend auf der Projektkomplexität erhöht (1,0 = einfach, 1,5 = komplex)",
         "fr": "Multiplicateur augmentant la durée en fonction de la complexité du projet (1,0 = simple, 1,5 = complexe)",
@@ -105,7 +105,7 @@
       "default": 15,
       "businessContext": "Öngörülemeyen gecikmeler için ayrılan tampon süre yüzdesi",
       "label_i18n": {
-        "en": "Yedek Süre Oranı",
+        "en": "Buffer Time Ratio",
         "tr": "Yedek Süre Oranı",
         "de": "Pufferzeitanteil",
         "fr": "Taux de temps tampon",
@@ -113,7 +113,7 @@
         "ar": "نسبة الوقت الاحتياطي"
       },
       "businessContext_i18n": {
-        "en": "Öngörülemeyen gecikmeler için ayrılan tampon süre yüzdesi",
+        "en": "Percentage of buffer time allocated for unforeseen delays",
         "tr": "Öngörülemeyen gecikmeler için ayrılan tampon süre yüzdesi",
         "de": "Prozentsatz der Pufferzeit für unvorhergesehene Verzögerungen",
         "fr": "Pourcentage de temps tampon alloué pour les retards imprévus",

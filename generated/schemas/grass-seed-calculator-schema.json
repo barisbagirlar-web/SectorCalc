@@ -17,7 +17,7 @@
         "ar": "الطول"
       },
       "businessContext_i18n": {
-        "en": "Alan uzunluğu",
+        "en": "Area length",
         "tr": "Alan Uzunluğu",
         "de": "Feldlänge",
         "fr": "Longueur de la parcelle",
@@ -33,7 +33,7 @@
       "default": 5,
       "businessContext": "Alan genişliği",
       "label_i18n": {
-        "en": "Genişlik",
+        "en": "Width",
         "tr": "Genişlik",
         "de": "Breite",
         "fr": "Largeur",
@@ -41,7 +41,7 @@
         "ar": "العرض"
       },
       "businessContext_i18n": {
-        "en": "Alan genişliği",
+        "en": "Area width",
         "tr": "Alan Genişliği",
         "de": "Feldbreite",
         "fr": "Largeur de la parcelle",
@@ -57,7 +57,7 @@
       "default": 30,
       "businessContext": "Metrekare başına tohum gram miktarı",
       "label_i18n": {
-        "en": "Tohumlama Oranı",
+        "en": "Seeding Rate",
         "tr": "Tohumlama Oranı",
         "de": "Aussaatrate",
         "fr": "Taux de semis",
@@ -65,7 +65,7 @@
         "ar": "معدل البذر"
       },
       "businessContext_i18n": {
-        "en": "Metrekare başına tohum gram miktarı",
+        "en": "Grams of seed per square meter",
         "tr": "Metrekare başına tohum gram miktarı",
         "de": "Gramm Saatgut pro Quadratmeter",
         "fr": "Quantité de semences en grammes par mètre carré",
@@ -81,7 +81,7 @@
       "default": 10,
       "businessContext": "Uygulama kaybı yüzdesi",
       "label_i18n": {
-        "en": "Fire Faktörü",
+        "en": "Waste Factor",
         "tr": "Fire Faktörü",
         "de": "Ausschussfaktor",
         "fr": "Facteur de rebut",
@@ -89,7 +89,7 @@
         "ar": "عامل الهدر"
       },
       "businessContext_i18n": {
-        "en": "Uygulama kaybı yüzdesi",
+        "en": "Application loss percentage",
         "tr": "Uygulama Kaybı (%)",
         "de": "Anwendungsverlust in Prozent",
         "fr": "Pourcentage de perte d'application",
@@ -105,7 +105,7 @@
       "default": 85,
       "businessContext": "Tohumların çimlenme yüzdesi",
       "label_i18n": {
-        "en": "Çimlenme Oranı",
+        "en": "Germination Rate",
         "tr": "Çimlenme Oranı (%)",
         "de": "Keimrate",
         "fr": "Taux de germination",
@@ -113,7 +113,7 @@
         "ar": "نسبة الإنبات"
       },
       "businessContext_i18n": {
-        "en": "Tohumların çimlenme yüzdesi",
+        "en": "Seed germination percentage",
         "tr": "Tohumların çimlenme yüzdesi",
         "de": "Keimungsrate der Samen",
         "fr": "Pourcentage de germination des semences",
@@ -129,7 +129,7 @@
       "default": 95,
       "businessContext": "Tohum karışımının saflık yüzdesi",
       "label_i18n": {
-        "en": "Tohum Saflığı",
+        "en": "Seed purity",
         "tr": "Tohum Saflığı (%)",
         "de": "Saatgutreinheit",
         "fr": "Pureté des semences",
@@ -137,7 +137,7 @@
         "ar": "نقاوة البذور"
       },
       "businessContext_i18n": {
-        "en": "Tohum karışımının saflık yüzdesi",
+        "en": "Purity percentage of seed mixture",
         "tr": "Tohum karışımının saflık yüzdesi",
         "de": "Reinheitsgrad der Saatgutmischung",
         "fr": "Pourcentage de pureté du mélange de semences",
@@ -153,7 +153,7 @@
       "default": 1,
       "businessContext": "Yeniden tohumlama çarpanı (1 = yeni çim, >1 = mevcut çime ek tohumlama)",
       "label_i18n": {
-        "en": "Yeniden Tohumlama Faktörü",
+        "en": "Reseeding factor",
         "tr": "Yeniden Tohumlama Faktörü",
         "de": "Nachsaatfaktor",
         "fr": "Facteur de resemis",
@@ -161,7 +161,7 @@
         "ar": "عامل إعادة البذر"
       },
       "businessContext_i18n": {
-        "en": "Yeniden tohumlama çarpanı (1 = yeni çim, >1 = mevcut çime ek tohumlama)",
+        "en": "Reseeding multiplier (1 = new lawn, >1 = overseeding existing lawn)",
         "tr": "Yeniden tohumlama çarpanı (1 = yeni çim, >1 = mevcut çime ek tohumlama)",
         "de": "Nachsaat-Multiplikator (1 = neue Aussaat, >1 = Nachsaat in bestehenden Rasen)",
         "fr": "Multiplicateur de resemis (1 = nouvelle pelouse, >1 = sursemis sur pelouse existante)",

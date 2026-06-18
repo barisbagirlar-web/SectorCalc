@@ -9,7 +9,7 @@
       "default": 1,
       "businessContext": "Tek bir atom veya molekülün kütlesi, atomik kütle birimi (u) cinsinden.",
       "label_i18n": {
-        "en": "Atomik Kütle (u)",
+        "en": "Atomic mass (u)",
         "tr": "Atomik Kütle (u)",
         "de": "Atommasse (u)",
         "fr": "Masse atomique (u)",
@@ -17,7 +17,7 @@
         "ar": "الكتلة الذرية (u)"
       },
       "businessContext_i18n": {
-        "en": "Tek bir atom veya molekülün kütlesi, atomik kütle birimi (u) cinsinden.",
+        "en": "Mass of a single atom or molecule, in atomic mass units (u)",
         "tr": "Tek bir atom veya molekülün kütlesi, atomik kütle birimi (u) cinsinden.",
         "de": "Masse eines einzelnen Atoms oder Moleküls in atomaren Masseneinheiten (u).",
         "fr": "Masse d'un atome ou d'une molécule unique, en unités de masse atomique (u).",
@@ -33,7 +33,7 @@
       "default": 6.02214076e+23,
       "businessContext": "Dönüştürülecek toplam atom/molekül sayısı.",
       "label_i18n": {
-        "en": "Varlık Sayısı",
+        "en": "Number of entities",
         "tr": "Varlık Sayısı",
         "de": "Anzahl der Einheiten",
         "fr": "Nombre d'entités",
@@ -41,7 +41,7 @@
         "ar": "عدد الكيانات"
       },
       "businessContext_i18n": {
-        "en": "Dönüştürülecek toplam atom/molekül sayısı.",
+        "en": "Total number of atoms/molecules to convert",
         "tr": "Dönüştürülecek toplam atom/molekül sayısı.",
         "de": "Gesamtzahl der umzurechnenden Atome/Moleküle.",
         "fr": "Nombre total d'atomes/molécules à convertir.",
@@ -57,7 +57,7 @@
       "default": 1.6605390666e-27,
       "businessContext": "1 atomik kütle biriminin kilogram cinsinden karşılığı (CODATA 2018).",
       "label_i18n": {
-        "en": "Dönüşüm Faktörü (u → kg)",
+        "en": "Conversion Factor (u → kg)",
         "tr": "Dönüşüm Faktörü (u → kg)",
         "de": "Umrechnungsfaktor (u → kg)",
         "fr": "Facteur de conversion (u → kg)",
@@ -65,7 +65,7 @@
         "ar": "عامل التحويل (u → kg)"
       },
       "businessContext_i18n": {
-        "en": "1 atomik kütle biriminin kilogram cinsinden karşılığı (CODATA 2018).",
+        "en": "Mass of one atomic mass unit in kilograms (CODATA 2018).",
         "tr": "1 atomik kütle biriminin kilogram cinsinden karşılığı (CODATA 2018).",
         "de": "Entspricht 1 atomaren Masseneinheit in Kilogramm (CODATA 2018).",
         "fr": "Équivalent d'une unité de masse atomique en kilogrammes (CODATA 2018).",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "Eğer birden fazla parti varsa çarpan olarak kullanılır.",
       "label_i18n": {
-        "en": "Parti Büyüklüğü (İsteğe bağlı)",
+        "en": "Batch Size (Optional)",
         "tr": "Parti Büyüklüğü (İsteğe bağlı)",
         "de": "Chargengröße (optional)",
         "fr": "Taille de lot (optionnel)",
@@ -89,7 +89,7 @@
         "ar": "حجم الدفعة (اختياري)"
       },
       "businessContext_i18n": {
-        "en": "Eğer birden fazla parti varsa çarpan olarak kullanılır.",
+        "en": "Used as multiplier if there are multiple batches.",
         "tr": "Eğer birden fazla parti varsa çarpan olarak kullanılır.",
         "de": "Wird als Multiplikator verwendet, wenn mehrere Chargen vorhanden sind.",
         "fr": "Multiplicateur si plusieurs lots.",
@@ -105,7 +105,7 @@
       "default": 1,
       "businessContext": "Çıktı birimini kg'dan başka bir birime dönüştürmek için çarpan (örn: 1000 g için, 1000000 mg için).",
       "label_i18n": {
-        "en": "Çıktı Birim Çarpanı",
+        "en": "Output Unit Factor",
         "tr": "Çıktı Birim Çarpanı",
         "de": "Ausgabe-Einheitenfaktor",
         "fr": "Facteur d'unité de sortie",
@@ -113,7 +113,7 @@
         "ar": "مضاعف وحدة الإخراج"
       },
       "businessContext_i18n": {
-        "en": "Çıktı birimini kg'dan başka bir birime dönüştürmek için çarpan (örn: 1000 g için, 1000000 mg için).",
+        "en": "Factor to convert output from kg to another unit (e.g., 1000 for g, 1000000 for mg).",
         "tr": "Çıktı birimini kg'dan başka bir birime dönüştürmek için çarpan (örn: 1000 g için, 1000000 mg için).",
         "de": "Faktor zur Umrechnung der Ausgabeeinheit von kg in eine andere Einheit (z. B. 1000 für g, 1000000 für mg).",
         "fr": "Facteur pour convertir la sortie de kg vers une autre unité (ex: 1000 pour g, 1000000 pour mg).",

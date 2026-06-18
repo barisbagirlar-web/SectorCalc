@@ -9,7 +9,7 @@
       "default": 5,
       "businessContext": "Kare piramidin taban kenarının metre cinsinden uzunluğu.",
       "label_i18n": {
-        "en": "Taban Kenar Uzunluğu",
+        "en": "Base Edge Length",
         "tr": "Taban Kenar Uzunluğu",
         "de": "Basiskantenlänge",
         "fr": "Longueur du côté de la base",
@@ -17,7 +17,7 @@
         "ar": "طول ضلع القاعدة"
       },
       "businessContext_i18n": {
-        "en": "Kare piramidin taban kenarının metre cinsinden uzunluğu.",
+        "en": "Length of the base edge of the square pyramid in meters.",
         "tr": "Kare piramidin taban kenarının metre cinsinden uzunluğu.",
         "de": "Länge der Basiskante einer quadratischen Pyramide in Metern.",
         "fr": "Longueur du côté de la base de la pyramide carrée en mètres.",
@@ -33,7 +33,7 @@
       "default": 4,
       "businessContext": "Piramidin tabandan tepeye dikey yüksekliği.",
       "label_i18n": {
-        "en": "Yükseklik",
+        "en": "Height",
         "tr": "Yükseklik",
         "de": "Höhe",
         "fr": "Hauteur",
@@ -41,7 +41,7 @@
         "ar": "الارتفاع"
       },
       "businessContext_i18n": {
-        "en": "Piramidin tabandan tepeye dikey yüksekliği.",
+        "en": "Vertical height of the pyramid from base to apex.",
         "tr": "Yükseklik",
         "de": "Senkrechte Höhe der Pyramide von der Basis bis zur Spitze.",
         "fr": "Hauteur verticale de la pyramide de la base au sommet.",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "Eğik kenar yüksekliği biliniyorsa girilir; 0 girilirse taban ve yükseklikten hesaplanır.",
       "label_i18n": {
-        "en": "Yan Yüzey Yüksekliği",
+        "en": "Slant Height",
         "tr": "Yan Yüzey Yüksekliği",
         "de": "Seitenhöhe",
         "fr": "Hauteur de la face latérale",
@@ -65,7 +65,7 @@
         "ar": "ارتفاع السطح الجانبي"
       },
       "businessContext_i18n": {
-        "en": "Eğik kenar yüksekliği biliniyorsa girilir; 0 girilirse taban ve yükseklikten hesaplanır.",
+        "en": "Enter if slant height is known; if 0, it is calculated from base and height.",
         "tr": "Eğik kenar yüksekliği biliniyorsa girilir; 0 girilirse taban ve yükseklikten hesaplanır.",
         "de": "Wird eingegeben, wenn die schräge Kantenhöhe bekannt ist; bei 0 wird sie aus Basis und Höhe berechnet.",
         "fr": "Saisir la hauteur oblique si connue ; si 0, elle est calculée à partir de la base et de la hauteur.",
@@ -81,7 +81,7 @@
       "default": 5,
       "businessContext": "Malzeme kesim ve montaj fire oranı (ondalık olarak, örn. 5 için %5).",
       "label_i18n": {
-        "en": "Fire Oranı",
+        "en": "Waste Rate",
         "tr": "Fire Oranı",
         "de": "Verschnittanteil",
         "fr": "Taux de perte",
@@ -89,7 +89,7 @@
         "ar": "نسبة الهدر"
       },
       "businessContext_i18n": {
-        "en": "Malzeme kesim ve montaj fire oranı (ondalık olarak, örn. 5 için %5).",
+        "en": "Material cutting and mounting waste rate (as decimal, e.g., 5 for 5%).",
         "tr": "Fire Oranı",
         "de": "Materialverschnitt- und Montageverlustrate (als Dezimalzahl, z.B. 5 für 5%).",
         "fr": "Taux de perte de matériau (coupe et montage) en décimal (ex. 5 pour 5%).",

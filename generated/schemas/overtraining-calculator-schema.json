@@ -9,7 +9,7 @@
       "default": 2,
       "businessContext": "Operatörün ortalama günlük eğitim süresi.",
       "label_i18n": {
-        "en": "Günlük Eğitim Saati",
+        "en": "Daily Training Hours",
         "tr": "Günlük Eğitim Saati",
         "de": "Tägliche Schulungsstunden",
         "fr": "Heures de formation quotidiennes",
@@ -17,7 +17,7 @@
         "ar": "ساعات التدريب اليومية"
       },
       "businessContext_i18n": {
-        "en": "Operatörün ortalama günlük eğitim süresi.",
+        "en": "Operator's average daily training duration.",
         "tr": "Operatörün ortalama günlük eğitim süresi.",
         "de": "Durchschnittliche tägliche Schulungsdauer des Bedieners.",
         "fr": "Durée moyenne de formation quotidienne de l'opérateur.",
@@ -33,7 +33,7 @@
       "default": 5,
       "businessContext": "Bir haftada eğitim yapılan gün sayısı.",
       "label_i18n": {
-        "en": "Haftalık Eğitim Günü",
+        "en": "Weekly Training Days",
         "tr": "Haftalık Eğitim Günü",
         "de": "Wöchentliche Schulungstage",
         "fr": "Jours de formation par semaine",
@@ -41,7 +41,7 @@
         "ar": "أيام التدريب الأسبوعية"
       },
       "businessContext_i18n": {
-        "en": "Bir haftada eğitim yapılan gün sayısı.",
+        "en": "Number of training days per week.",
         "tr": "Bir haftada eğitim yapılan gün sayısı.",
         "de": "Anzahl der Tage pro Woche, an denen Schulungen stattfinden.",
         "fr": "Nombre de jours de formation par semaine.",
@@ -57,7 +57,7 @@
       "default": 7,
       "businessContext": "Uyku, beslenme ve dinlenme kalitesini yansıtan 1-10 arası puan.",
       "label_i18n": {
-        "en": "Dinlenme Faktörü",
+        "en": "Rest Factor",
         "tr": "Dinlenme Faktörü",
         "de": "Erholungsfaktor",
         "fr": "Facteur de repos",
@@ -65,7 +65,7 @@
         "ar": "عامل الراحة"
       },
       "businessContext_i18n": {
-        "en": "Uyku, beslenme ve dinlenme kalitesini yansıtan 1-10 arası puan.",
+        "en": "Score from 1-10 reflecting sleep, nutrition, and rest quality.",
         "tr": "Uyku, beslenme ve dinlenme kalitesini yansıtan 1-10 arası puan.",
         "de": "Punktzahl von 1-10, die die Qualität von Schlaf, Ernährung und Erholung widerspiegelt.",
         "fr": "Score de 1 à 10 reflétant la qualité du sommeil, de l'alimentation et du repos.",
@@ -81,7 +81,7 @@
       "default": 2,
       "businessContext": "Operatörün ilgili görevdeki toplam deneyim süresi.",
       "label_i18n": {
-        "en": "Deneyim (yıl)",
+        "en": "Experience (years)",
         "tr": "Deneyim (yıl)",
         "de": "Erfahrung (Jahre)",
         "fr": "Expérience (années)",
@@ -89,7 +89,7 @@
         "ar": "الخبرة (سنوات)"
       },
       "businessContext_i18n": {
-        "en": "Operatörün ilgili görevdeki toplam deneyim süresi.",
+        "en": "Operator's total experience in the relevant task.",
         "tr": "Operatörün ilgili görevdeki toplam deneyim süresi.",
         "de": "Gesamte Erfahrung des Bedieners in der entsprechenden Aufgabe.",
         "fr": "Expérience totale de l'opérateur dans la tâche concernée.",
@@ -105,7 +105,7 @@
       "default": 3,
       "businessContext": "Yapılan işin zorluk ve karmaşıklık derecesi (1: basit, 5: çok karmaşık).",
       "label_i18n": {
-        "en": "İş Karmaşıklığı",
+        "en": "Job Complexity",
         "tr": "İş Karmaşıklığı",
         "de": "Aufgabenkomplexität",
         "fr": "Complexité de la tâche",
@@ -113,7 +113,7 @@
         "ar": "تعقيد العمل"
       },
       "businessContext_i18n": {
-        "en": "Yapılan işin zorluk ve karmaşıklık derecesi (1: basit, 5: çok karmaşık).",
+        "en": "Difficulty and complexity level of the work (1: simple, 5: very complex).",
         "tr": "Yapılan işin zorluk ve karmaşıklık derecesi (1: basit, 5: çok karmaşık).",
         "de": "Schwierigkeits- und Komplexitätsgrad der Arbeit (1: einfach, 5: sehr komplex).",
         "fr": "Degré de difficulté et de complexité du travail (1 : simple, 5 : très complexe).",

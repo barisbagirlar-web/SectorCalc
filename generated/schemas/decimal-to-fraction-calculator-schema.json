@@ -9,7 +9,7 @@
       "default": 0.5,
       "businessContext": "Kesire dönüştürülecek ondalıklı sayı",
       "label_i18n": {
-        "en": "Ondalıklı Değer",
+        "en": "Decimal Value",
         "tr": "Ondalıklı Değer",
         "de": "Dezimalwert",
         "fr": "Valeur décimale",
@@ -17,7 +17,7 @@
         "ar": "القيمة العشرية"
       },
       "businessContext_i18n": {
-        "en": "Kesire dönüştürülecek ondalıklı sayı",
+        "en": "Decimal number to convert to fraction",
         "tr": "Kesire dönüştürülecek ondalıklı sayı",
         "de": "Dezimalzahl, die in einen Bruch umgewandelt werden soll",
         "fr": "Nombre décimal à convertir en fraction",
@@ -41,7 +41,7 @@
         "ar": "المقام الأقصى"
       },
       "businessContext_i18n": {
-        "en": "Kesir yaklaşımı için izin verilen en büyük payda",
+        "en": "Maximum denominator allowed for fraction approximation",
         "tr": "Kesir yaklaşımı için izin verilen en büyük payda",
         "de": "Größter zulässiger Nenner für die Bruchnäherung",
         "fr": "Plus grand dénominateur autorisé pour l'approximation fractionnaire",
@@ -57,7 +57,7 @@
       "default": 1,
       "businessContext": "Kesirin en sade haline getirilmesi (1: Evet, 0: Hayır)",
       "label_i18n": {
-        "en": "Sadeleştirme",
+        "en": "Simplify",
         "tr": "Sadeleştirme",
         "de": "Vereinfachen",
         "fr": "Simplification",
@@ -65,7 +65,7 @@
         "ar": "التبسيط"
       },
       "businessContext_i18n": {
-        "en": "Kesirin en sade haline getirilmesi (1: Evet, 0: Hayır)",
+        "en": "Reduce fraction to simplest form (1: Yes, 0: No)",
         "tr": "Kesirin en sade haline getirilmesi (1: Evet, 0: Hayır)",
         "de": "Bruch auf einfachste Form reduzieren (1: Ja, 0: Nein)",
         "fr": "Réduire la fraction à sa forme la plus simple (1 : Oui, 0 : Non)",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "0: Basit Kesir, 1: Tam Sayılı Kesir, 2: Bileşik Kesir",
       "label_i18n": {
-        "en": "Kesir Formatı",
+        "en": "Fraction Format",
         "tr": "Kesir Formatı",
         "de": "Bruchformat",
         "fr": "Format de fraction",
@@ -89,7 +89,7 @@
         "ar": "تنسيق الكسر"
       },
       "businessContext_i18n": {
-        "en": "0: Basit Kesir, 1: Tam Sayılı Kesir, 2: Bileşik Kesir",
+        "en": "0: Simple Fraction, 1: Mixed Number, 2: Improper Fraction",
         "tr": "0: Basit Kesir, 1: Tam Sayılı Kesir, 2: Bileşik Kesir",
         "de": "0: Einfacher Bruch, 1: Gemischter Bruch, 2: Unechter Bruch",
         "fr": "0: Fraction simple, 1: Fraction mixte, 2: Fraction impropre",
@@ -113,7 +113,7 @@
         "ar": "وضع التقريب"
       },
       "businessContext_i18n": {
-        "en": "0: En Yakın, 1: Aşağı, 2: Yukarı",
+        "en": "0: Nearest, 1: Down, 2: Up",
         "tr": "0: En Yakın, 1: Aşağı, 2: Yukarı",
         "de": "0: Nächster, 1: Abrunden, 2: Aufrunden",
         "fr": "0: Au plus proche, 1: Inférieur, 2: Supérieur",
@@ -137,7 +137,7 @@
         "ar": "التسامح"
       },
       "businessContext_i18n": {
-        "en": "Ondalıklı sayının kesir eşleşmesi için tolerans",
+        "en": "Tolerance for decimal to fraction matching",
         "tr": "Ondalıklı sayının kesir eşleşmesi için tolerans",
         "de": "Toleranz für die Bruchübereinstimmung der Dezimalzahl",
         "fr": "Tolérance pour la correspondance fractionnaire d'un nombre décimal",

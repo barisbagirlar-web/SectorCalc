@@ -9,7 +9,7 @@
       "default": 100,
       "businessContext": "Kolon üzerine uygulanan eksenel basınç yükü.",
       "label_i18n": {
-        "en": "Eksenel Yük (Axial Load)",
+        "en": "Axial Load",
         "tr": "Eksenel Yük",
         "de": "Eksenel Yük (Axiallast)",
         "fr": "Charge axiale",
@@ -17,7 +17,7 @@
         "ar": "الحمل المحوري"
       },
       "businessContext_i18n": {
-        "en": "Kolon üzerine uygulanan eksenel basınç yükü.",
+        "en": "Axial compressive load applied to the column.",
         "tr": "Kolona uygulanan eksenel basınç yükü.",
         "de": "Auf die Stütze wirkende axiale Drucklast.",
         "fr": "Charge de compression axiale appliquée au poteau.",
@@ -41,7 +41,7 @@
         "ar": "الطول الفعال"
       },
       "businessContext_i18n": {
-        "en": "Kolonun burkulma boyu, uç bağlantı koşullarına bağlıdır.",
+        "en": "Column buckling length depends on end connection conditions.",
         "tr": "Kolonun burkulma boyu, uç bağlantı koşullarına bağlıdır.",
         "de": "Knicklänge der Stütze, abhängig von den Endbedingungen.",
         "fr": "Longueur de flambement du poteau, dépend des conditions d'extrémité.",
@@ -57,7 +57,7 @@
       "default": 200,
       "businessContext": "Malzemenin elastikiyet modülü; çelik için ~200 GPa.",
       "label_i18n": {
-        "en": "Elastisite Modülü (Modulus of Elasticity)",
+        "en": "Modulus of Elasticity",
         "tr": "Elastisite Modülü",
         "de": "Elastisite Modülü (Elastizitätsmodul)",
         "fr": "Module d'élasticité",
@@ -65,7 +65,7 @@
         "ar": "معامل المرونة"
       },
       "businessContext_i18n": {
-        "en": "Malzemenin elastikiyet modülü; çelik için ~200 GPa.",
+        "en": "Modulus of elasticity of the material; for steel ~200 GPa.",
         "tr": "Malzemenin elastikiyet modülü; çelik için ~200 GPa.",
         "de": "Elastizitätsmodul des Materials; für Stahl ~200 GPa.",
         "fr": "Module d'élasticité du matériau ; pour l'acier ~200 GPa.",
@@ -89,7 +89,7 @@
         "ar": "عزم القصور الذاتي"
       },
       "businessContext_i18n": {
-        "en": "Kesitin zayıf eksene göre alan atalet momenti.",
+        "en": "Area moment of inertia about the weak axis of the section.",
         "tr": "Kesitin zayıf eksene göre alan atalet momenti.",
         "de": "Flächenträgheitsmoment des Querschnitts um die schwache Achse.",
         "fr": "Moment d'inertie de la section par rapport à l'axe faible.",
@@ -105,7 +105,7 @@
       "default": 50,
       "businessContext": "Kolon kesitinin toplam alanı.",
       "label_i18n": {
-        "en": "Kesit Alanı (Cross-Sectional Area)",
+        "en": "Cross-Sectional Area",
         "tr": "Kesit Alanı",
         "de": "Querschnittsfläche",
         "fr": "Section transversale",
@@ -113,7 +113,7 @@
         "ar": "مساحة المقطع"
       },
       "businessContext_i18n": {
-        "en": "Kolon kesitinin toplam alanı.",
+        "en": "Total area of the column section.",
         "tr": "Kolon kesitinin toplam alanı.",
         "de": "Gesamtfläche des Stützenquerschnitts.",
         "fr": "Aire totale de la section du poteau.",
@@ -129,7 +129,7 @@
       "default": 250,
       "businessContext": "Malzemenin akma mukavemeti; yapı çeliği için tipik 235-355 MPa.",
       "label_i18n": {
-        "en": "Akma Dayanımı (Yield Strength)",
+        "en": "Yield Strength",
         "tr": "Akma Dayanımı",
         "de": "Streckgrenze",
         "fr": "Limite d'élasticité",
@@ -137,7 +137,7 @@
         "ar": "مقاومة الخضوع"
       },
       "businessContext_i18n": {
-        "en": "Malzemenin akma mukavemeti; yapı çeliği için tipik 235-355 MPa.",
+        "en": "Yield strength of the material; typical for structural steel 235-355 MPa.",
         "tr": "Malzemenin akma mukavemeti; yapı çeliği için tipik 235-355 MPa.",
         "de": "Streckgrenze des Materials; für Baustahl typisch 235-355 MPa.",
         "fr": "Résistance à la traction du matériau ; pour l'acier de construction typique 235-355 MPa.",
@@ -153,7 +153,7 @@
       "default": 2,
       "businessContext": "Tasarımda istenen güvenlik katsayısı.",
       "label_i18n": {
-        "en": "Güvenlik Faktörü (Safety Factor)",
+        "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
         "fr": "Facteur de sécurité",
@@ -161,7 +161,7 @@
         "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
-        "en": "Tasarımda istenen güvenlik katsayısı.",
+        "en": "Desired safety factor in design.",
         "tr": "Tasarımda istenen güvenlik katsayısı.",
         "de": "Gewünschter Sicherheitsbeiwert für die Auslegung.",
         "fr": "Coefficient de sécurité souhaité dans la conception.",

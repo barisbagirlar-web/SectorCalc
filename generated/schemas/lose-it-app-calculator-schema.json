@@ -9,7 +9,7 @@
       "default": 30,
       "businessContext": "Kullanıcının yaşı",
       "label_i18n": {
-        "en": "Yaş",
+        "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
         "fr": "Âge",
@@ -17,7 +17,7 @@
         "ar": "العمر"
       },
       "businessContext_i18n": {
-        "en": "Kullanıcının yaşı",
+        "en": "User's age",
         "tr": "Kullanıcının yaşı",
         "de": "Alter des Benutzers",
         "fr": "Âge de l'utilisateur",
@@ -41,7 +41,7 @@
         "ar": "الطول"
       },
       "businessContext_i18n": {
-        "en": "Boy uzunluğu",
+        "en": "Height",
         "tr": "Boy uzunluğu",
         "de": "Körpergröße",
         "fr": "Taille",
@@ -65,7 +65,7 @@
         "ar": "الوزن"
       },
       "businessContext_i18n": {
-        "en": "Vücut ağırlığı",
+        "en": "Body Weight",
         "tr": "Vücut ağırlığı",
         "de": "Körpergewicht",
         "fr": "Poids corporel",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "0 erkek, 1 kadın",
       "label_i18n": {
-        "en": "Cinsiyet (0: Erkek, 1: Kadın)",
+        "en": "Gender (0: Male, 1: Female)",
         "tr": "Cinsiyet (0: Erkek, 1: Kadın)",
         "de": "Geschlecht (0: Männlich, 1: Weiblich)",
         "fr": "Sexe (0 : Homme, 1 : Femme)",
@@ -89,7 +89,7 @@
         "ar": "الجنس (0: ذكر، 1: أنثى)"
       },
       "businessContext_i18n": {
-        "en": "0 erkek, 1 kadın",
+        "en": "0: male, 1: female",
         "tr": "0 erkek, 1 kadın",
         "de": "0 männlich, 1 weiblich",
         "fr": "0 homme, 1 femme",
@@ -113,7 +113,7 @@
         "ar": "مستوى النشاط"
       },
       "businessContext_i18n": {
-        "en": "1.2: sedanter, 1.375: hafif aktif, 1.55: orta, 1.725: yüksek, 1.9: çok yüksek",
+        "en": "1.2: sedentary, 1.375: lightly active, 1.55: moderate, 1.725: active, 1.9: very active",
         "tr": "1,2: sedanter, 1,375: hafif aktif, 1,55: orta, 1,725: yüksek, 1,9: çok yüksek",
         "de": "1,2: sitzend, 1,375: leicht aktiv, 1,55: mäßig, 1,725: hoch, 1,9: sehr hoch",
         "fr": "1,2 : sédentaire, 1,375 : légèrement actif, 1,55 : modéré, 1,725 : élevé, 1,9 : très élevé",
@@ -129,7 +129,7 @@
       "default": -0.5,
       "businessContext": "Negatif: kilo verme, pozitif: kilo alma",
       "label_i18n": {
-        "en": "Hedef Kilo Değişimi (haftada kg)",
+        "en": "Target weight change (kg per week)",
         "tr": "Hedef Kilo Değişimi (haftada kg)",
         "de": "Zielgewichtänderung (kg pro Woche)",
         "fr": "Changement de poids cible (kg par semaine)",

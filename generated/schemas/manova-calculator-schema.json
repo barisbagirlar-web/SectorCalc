@@ -9,7 +9,7 @@
       "default": 30,
       "businessContext": "Birinci grubun gözlem sayısı",
       "label_i18n": {
-        "en": "Grup 1 Örneklem Büyüklüğü",
+        "en": "Group 1 Sample Size",
         "tr": "Grup 1 Örneklem Büyüklüğü",
         "de": "Stichprobengröße Gruppe 1",
         "fr": "Taille d'échantillon du groupe 1",
@@ -17,7 +17,7 @@
         "ar": "حجم العينة للمجموعة 1"
       },
       "businessContext_i18n": {
-        "en": "Birinci grubun gözlem sayısı",
+        "en": "Number of observations in the first group",
         "tr": "Birinci grubun gözlem sayısı",
         "de": "Anzahl der Beobachtungen der ersten Gruppe",
         "fr": "Nombre d'observations du premier groupe",
@@ -33,7 +33,7 @@
       "default": 30,
       "businessContext": "İkinci grubun gözlem sayısı",
       "label_i18n": {
-        "en": "Grup 2 Örneklem Büyüklüğü",
+        "en": "Group 2 Sample Size",
         "tr": "Grup 2 Örneklem Büyüklüğü",
         "de": "Stichprobengröße Gruppe 2",
         "fr": "Taille d'échantillon du groupe 2",
@@ -41,7 +41,7 @@
         "ar": "حجم العينة للمجموعة 2"
       },
       "businessContext_i18n": {
-        "en": "İkinci grubun gözlem sayısı",
+        "en": "Number of observations in the second group",
         "tr": "İkinci grubun gözlem sayısı",
         "de": "Anzahl der Beobachtungen der zweiten Gruppe",
         "fr": "Nombre d'observations du deuxième groupe",
@@ -57,7 +57,7 @@
       "default": 0.5,
       "businessContext": "Birinci bağımlı değişkende iki grup arasındaki ortalama farkı",
       "label_i18n": {
-        "en": "Ortalama Farkı DV1",
+        "en": "Mean Difference DV1",
         "tr": "Ortalama Farkı DV1",
         "de": "Mittelwertdifferenz DV1",
         "fr": "Différence moyenne VD1",
@@ -65,7 +65,7 @@
         "ar": "فرق المتوسط DV1"
       },
       "businessContext_i18n": {
-        "en": "Birinci bağımlı değişkende iki grup arasındaki ortalama farkı",
+        "en": "Mean difference between two groups for the first dependent variable",
         "tr": "Birinci bağımlı değişkende iki grup arasındaki ortalama farkı",
         "de": "Mittelwertdifferenz zwischen den beiden Gruppen für die erste abhängige Variable",
         "fr": "Différence moyenne entre deux groupes sur la première variable dépendante",
@@ -81,7 +81,7 @@
       "default": 0.3,
       "businessContext": "İkinci bağımlı değişkende iki grup arasındaki ortalama farkı",
       "label_i18n": {
-        "en": "Ortalama Farkı DV2",
+        "en": "Mean Difference DV2",
         "tr": "Ortalama Farkı DV2",
         "de": "Mittelwertdifferenz DV2",
         "fr": "Différence moyenne VD2",
@@ -89,7 +89,7 @@
         "ar": "فرق المتوسط DV2"
       },
       "businessContext_i18n": {
-        "en": "İkinci bağımlı değişkende iki grup arasındaki ortalama farkı",
+        "en": "Mean difference between two groups on the second dependent variable",
         "tr": "İkinci bağımlı değişkende iki grup arasındaki ortalama farkı",
         "de": "Mittlerer Unterschied zwischen zwei Gruppen in der zweiten abhängigen Variable",
         "fr": "Différence moyenne entre deux groupes sur la deuxième variable dépendante",
@@ -105,7 +105,7 @@
       "default": 1,
       "businessContext": "Birinci bağımlı değişken için iki grubun havuzlanmış varyansı",
       "label_i18n": {
-        "en": "Havuzlanmış Varyans DV1",
+        "en": "Pooled Variance DV1",
         "tr": "Havuzlanmış Varyans DV1",
         "de": "Gepoolte Varianz DV1",
         "fr": "Variance poolée VD1",
@@ -113,7 +113,7 @@
         "ar": "التباين المجمع DV1"
       },
       "businessContext_i18n": {
-        "en": "Birinci bağımlı değişken için iki grubun havuzlanmış varyansı",
+        "en": "Pooled variance of the two groups for the first dependent variable",
         "tr": "Birinci bağımlı değişken için iki grubun havuzlanmış varyansı",
         "de": "Gepoolte Varianz der beiden Gruppen für die erste abhängige Variable",
         "fr": "Variance poolée des deux groupes pour la première variable dépendante",
@@ -129,7 +129,7 @@
       "default": 1,
       "businessContext": "İkinci bağımlı değişken için iki grubun havuzlanmış varyansı",
       "label_i18n": {
-        "en": "Havuzlanmış Varyans DV2",
+        "en": "Pooled Variance DV2",
         "tr": "Havuzlanmış Varyans DV2",
         "de": "Gepoolte Varianz DV2",
         "fr": "Variance poolée VD2",
@@ -137,7 +137,7 @@
         "ar": "التباين المجمع DV2"
       },
       "businessContext_i18n": {
-        "en": "İkinci bağımlı değişken için iki grubun havuzlanmış varyansı",
+        "en": "Pooled variance of the two groups for the second dependent variable",
         "tr": "İkinci bağımlı değişken için iki grubun havuzlanmış varyansı",
         "de": "Gepoolte Varianz der beiden Gruppen für die zweite abhängige Variable",
         "fr": "Variance poolée des deux groupes pour la deuxième variable dépendante",

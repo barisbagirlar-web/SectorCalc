@@ -9,7 +9,7 @@
       "default": 0,
       "businessContext": "Toplam satış faturası tutarı (TL)",
       "label_i18n": {
-        "en": "Satın Alma Tutarı",
+        "en": "Purchase Amount",
         "tr": "Satın Alma Tutarı",
         "de": "Kaufbetrag",
         "fr": "Montant d'achat",
@@ -17,7 +17,7 @@
         "ar": "مبلغ الشراء"
       },
       "businessContext_i18n": {
-        "en": "Toplam satış faturası tutarı (TL)",
+        "en": "Total sales invoice amount (TL)",
         "tr": "Toplam satış faturası tutarı (TL)",
         "de": "Gesamter Rechnungsbetrag (TL)",
         "fr": "Montant total de la facture de vente (TL)",
@@ -33,7 +33,7 @@
       "default": 5,
       "businessContext": "Nakit iade yüzdesi",
       "label_i18n": {
-        "en": "Nakit İade Oranı",
+        "en": "Cashback Rate",
         "tr": "Nakit İade Oranı",
         "de": "Barrückzahlungsrate",
         "fr": "Taux de remboursement en espèces",
@@ -41,7 +41,7 @@
         "ar": "نسبة الاسترداد النقدي"
       },
       "businessContext_i18n": {
-        "en": "Nakit iade yüzdesi",
+        "en": "Cashback percentage",
         "tr": "Nakit iade yüzdesi",
         "de": "Prozentsatz der Barrückzahlung",
         "fr": "Pourcentage de remboursement en espèces",
@@ -65,7 +65,7 @@
         "ar": "الحد الأدنى للإنفاق"
       },
       "businessContext_i18n": {
-        "en": "Nakit iade kazanmak için gerekli minimum harcama limiti",
+        "en": "Minimum spending limit to earn cashback",
         "tr": "Nakit iade kazanmak için gerekli minimum harcama limiti",
         "de": "Mindestausgabegrenze, um Barrückzahlung zu erhalten",
         "fr": "Seuil de dépense minimum pour bénéficier du remboursement",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "Maksimum nakit iade miktarı (0 = limitsiz)",
       "label_i18n": {
-        "en": "Maksimum İade Limiti",
+        "en": "Maximum Cashback Limit",
         "tr": "Maksimum İade Limiti",
         "de": "Maximale Rückzahlungsgrenze",
         "fr": "Plafond de remboursement",
@@ -89,7 +89,7 @@
         "ar": "الحد الأقصى للاسترداد"
       },
       "businessContext_i18n": {
-        "en": "Maksimum nakit iade miktarı (0 = limitsiz)",
+        "en": "Maximum cashback amount (0 = unlimited)",
         "tr": "Maksimum nakit iade miktarı (0 = limitsiz)",
         "de": "Maximale Rückerstattung (0 = unbegrenzt)",
         "fr": "Montant maximum de remboursement (0 = illimité)",
@@ -105,7 +105,7 @@
       "default": 1,
       "businessContext": "Özel dönem kampanya katsayısı",
       "label_i18n": {
-        "en": "Kampanya Çarpanı",
+        "en": "Campaign Multiplier",
         "tr": "Kampanya Çarpanı",
         "de": "Kampagnenmultiplikator",
         "fr": "Multiplicateur de campagne",
@@ -113,7 +113,7 @@
         "ar": "مضاعف الحملة"
       },
       "businessContext_i18n": {
-        "en": "Özel dönem kampanya katsayısı",
+        "en": "Special period campaign coefficient",
         "tr": "Özel dönem kampanya katsayısı",
         "de": "Sonderperioden-Kampagnenkoeffizient",
         "fr": "Coefficient de campagne pour période spéciale",

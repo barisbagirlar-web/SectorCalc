@@ -9,7 +9,7 @@
       "default": 1200,
       "businessContext": "Oyuncunun mevcut ELO derecesi",
       "label_i18n": {
-        "en": "Mevcut ELO Puanı",
+        "en": "Current ELO Rating",
         "tr": "Mevcut ELO Puanı",
         "de": "Aktuelle ELO-Punktzahl",
         "fr": "Score ELO actuel",
@@ -33,7 +33,7 @@
       "default": 1200,
       "businessContext": "Rakip oyuncunun ELO derecesi",
       "label_i18n": {
-        "en": "Rakip ELO Puanı",
+        "en": "Opponent ELO Rating",
         "tr": "Rakip ELO Puanı",
         "de": "Gegnerische ELO-Punktzahl",
         "fr": "Score ELO de l'adversaire",
@@ -57,7 +57,7 @@
       "default": 0.5,
       "businessContext": "Maç sonucu: 1 (galibiyet), 0.5 (beraberlik), 0 (mağlubiyet)",
       "label_i18n": {
-        "en": "Maç Sonucu",
+        "en": "Match Result",
         "tr": "Maç Sonucu",
         "de": "Spielergebnis",
         "fr": "Résultat du match",
@@ -65,7 +65,7 @@
         "ar": "نتيجة المباراة"
       },
       "businessContext_i18n": {
-        "en": "Maç sonucu: 1 (galibiyet), 0.5 (beraberlik), 0 (mağlubiyet)",
+        "en": "Match result: 1 (win), 0.5 (draw), 0 (loss)",
         "tr": "Maç sonucu: 1 (galibiyet), 0.5 (beraberlik), 0 (mağlubiyet)",
         "de": "Spielergebnis: 1 (Sieg), 0,5 (Unentschieden), 0 (Niederlage)",
         "fr": "Résultat du match : 1 (victoire), 0.5 (nul), 0 (défaite)",
@@ -81,7 +81,7 @@
       "default": 32,
       "businessContext": "Gelişim katsayısı, genellikle 20-40 arası",
       "label_i18n": {
-        "en": "K Faktörü",
+        "en": "K Factor",
         "tr": "K Faktörü",
         "de": "K-Faktor",
         "fr": "Facteur K",
@@ -89,7 +89,7 @@
         "ar": "معامل K"
       },
       "businessContext_i18n": {
-        "en": "Gelişim katsayısı, genellikle 20-40 arası",
+        "en": "Development coefficient, usually between 20-40",
         "tr": "Gelişim katsayısı, genellikle 20-40 arası",
         "de": "Entwicklungskoeffizient, normalerweise zwischen 20 und 40",
         "fr": "Coefficient de développement, généralement entre 20 et 40",

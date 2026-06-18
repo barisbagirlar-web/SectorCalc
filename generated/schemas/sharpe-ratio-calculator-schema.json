@@ -9,7 +9,7 @@
       "default": 10,
       "businessContext": "Portföyün yıllıklandırılmış getiri oranı.",
       "label_i18n": {
-        "en": "Yıllık Portföy Getirisi (%)",
+        "en": "Annual Portfolio Return (%)",
         "tr": "Yıllık Portföy Getirisi (%)",
         "de": "Jährliche Portfoliorendite (%)",
         "fr": "Rendement annualisé du portefeuille (%)",
@@ -17,7 +17,7 @@
         "ar": "العائد السنوي للمحفظة (%)"
       },
       "businessContext_i18n": {
-        "en": "Portföyün yıllıklandırılmış getiri oranı.",
+        "en": "Annualized return rate of the portfolio.",
         "tr": "Portföyün yıllıklandırılmış getiri oranı.",
         "de": "Annualisierte Rendite des Portfolios",
         "fr": "Taux de rendement annualisé du portefeuille.",
@@ -33,7 +33,7 @@
       "default": 2,
       "businessContext": "Genellikle aynı vadedeki devlet tahvili faizi.",
       "label_i18n": {
-        "en": "Yıllık Risksiz Getiri (%)",
+        "en": "Annual Risk-Free Return (%)",
         "tr": "Yıllık Risksiz Getiri (%)",
         "de": "Jährlicher risikofreier Zinssatz (%)",
         "fr": "Taux sans risque annualisé (%)",
@@ -41,7 +41,7 @@
         "ar": "العائد السنوي الخالي من المخاطر (%)"
       },
       "businessContext_i18n": {
-        "en": "Genellikle aynı vadedeki devlet tahvili faizi.",
+        "en": "Usually the government bond interest rate of the same maturity.",
         "tr": "Genellikle aynı vadedeki devlet tahvili faizi.",
         "de": "Üblicherweise der Zinssatz für Staatsanleihen gleicher Laufzeit",
         "fr": "Généralement le taux des obligations d'État de même échéance.",
@@ -57,7 +57,7 @@
       "default": 1.5,
       "businessContext": "Portföyün günlük getirilerinin standart sapması.",
       "label_i18n": {
-        "en": "Günlük Standart Sapma (%)",
+        "en": "Daily Standard Deviation (%)",
         "tr": "Günlük Standart Sapma (%)",
         "de": "Tägliche Standardabweichung (%)",
         "fr": "Écart type quotidien (%)",
@@ -65,7 +65,7 @@
         "ar": "الانحراف المعياري اليومي (%)"
       },
       "businessContext_i18n": {
-        "en": "Portföyün günlük getirilerinin standart sapması.",
+        "en": "Standard deviation of the portfolio's daily returns.",
         "tr": "Portföyün günlük getirilerinin standart sapması.",
         "de": "Standardabweichung der täglichen Portfoliorenditen",
         "fr": "Écart type des rendements quotidiens du portefeuille.",
@@ -81,7 +81,7 @@
       "default": 252,
       "businessContext": "Yıllık işlem günü sayısı; hisse senedi piyasaları için genellikle 252.",
       "label_i18n": {
-        "en": "Yıllık İşlem Günü Sayısı",
+        "en": "Annual Trading Days",
         "tr": "Yıllık İşlem Günü Sayısı",
         "de": "Jährliche Handelstage",
         "fr": "Nombre de jours de bourse par an",
@@ -89,7 +89,7 @@
         "ar": "عدد أيام التداول السنوية"
       },
       "businessContext_i18n": {
-        "en": "Yıllık işlem günü sayısı; hisse senedi piyasaları için genellikle 252.",
+        "en": "Number of trading days per year; typically 252 for stock markets.",
         "tr": "Yıllık işlem günü sayısı; hisse senedi piyasaları için genellikle 252.",
         "de": "Anzahl der jährlichen Handelstage; für Aktienmärkte üblicherweise 252",
         "fr": "Nombre de jours de bourse par an ; généralement 252 pour les marchés boursiers.",

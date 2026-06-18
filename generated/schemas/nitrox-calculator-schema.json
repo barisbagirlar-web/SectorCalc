@@ -9,7 +9,7 @@
       "default": 32,
       "businessContext": "Solunan nitroks gazındaki oksijen yüzdesi. Genellikle %21-40 arasındadır.",
       "label_i18n": {
-        "en": "Oksijen Yüzdesi (FO2)",
+        "en": "Oxygen percentage (FO2)",
         "tr": "Oksijen Yüzdesi (FO2)",
         "de": "Sauerstoffanteil (FO2)",
         "fr": "Pourcentage d'oxygène (FO2)",
@@ -17,7 +17,7 @@
         "ar": "نسبة الأكسجين (FO2)"
       },
       "businessContext_i18n": {
-        "en": "Solunan nitroks gazındaki oksijen yüzdesi. Genellikle %21-40 arasındadır.",
+        "en": "Oxygen percentage in the breathing nitrox gas. Typically between 21-40%.",
         "tr": "Solunan nitroks gazındaki oksijen yüzdesi. Genellikle %21-40 arasındadır.",
         "de": "Sauerstoffanteil im Atemgas. Üblicherweise zwischen 21% und 40%.",
         "fr": "Pourcentage d'oxygène dans le gaz nitrox respiré. Généralement entre 21 et 40 %.",
@@ -33,7 +33,7 @@
       "default": 1.4,
       "businessContext": "Çalışma safhasında maksimum kısmi oksijen basıncı. Standart olarak 1.4 bar.",
       "label_i18n": {
-        "en": "Çalışma PO2",
+        "en": "Working PO2",
         "tr": "Çalışma PO2",
         "de": "Arbeits-PO2",
         "fr": "PO2 de travail",
@@ -41,7 +41,7 @@
         "ar": "PO2 أثناء العمل"
       },
       "businessContext_i18n": {
-        "en": "Çalışma safhasında maksimum kısmi oksijen basıncı. Standart olarak 1.4 bar.",
+        "en": "Maximum partial pressure of oxygen during working phase. Standard is 1.4 bar.",
         "tr": "Çalışma safhasında maksimum kısmi oksijen basıncı. Standart olarak 1.4 bar.",
         "de": "Maximaler Sauerstoffpartialdruck während der Arbeitsphase. Standardmäßig 1,4 bar.",
         "fr": "Pression partielle maximale d'oxygène en phase de travail. Standard à 1,4 bar.",
@@ -65,7 +65,7 @@
         "ar": "PO2 أثناء تخفيف الضغط"
       },
       "businessContext_i18n": {
-        "en": "Dekompresyon duraklarında izin verilen maksimum kısmi oksijen basıncı. Genellikle 1.6 bar.",
+        "en": "Maximum allowable partial pressure of oxygen at decompression stops. Typically 1.6 bar.",
         "tr": "Dekompresyon duraklarında izin verilen maksimum kısmi oksijen basıncı. Genellikle 1.6 bar.",
         "de": "Maximal zulässiger Sauerstoffpartialdruck während Dekompressionsstopps. Üblicherweise 1,6 bar.",
         "fr": "Pression partielle maximale d'oxygène autorisée lors des paliers de décompression. Généralement 1,6 bar.",
@@ -81,7 +81,7 @@
       "default": 30,
       "businessContext": "Eşdeğer hava derinliği (EAD) hesaplaması için gerçek dalış derinliği.",
       "label_i18n": {
-        "en": "Gerçek Derinlik",
+        "en": "Actual depth",
         "tr": "Gerçek Derinlik",
         "de": "Tatsächliche Tiefe",
         "fr": "Profondeur réelle",
@@ -89,7 +89,7 @@
         "ar": "العمق الفعلي"
       },
       "businessContext_i18n": {
-        "en": "Eşdeğer hava derinliği (EAD) hesaplaması için gerçek dalış derinliği.",
+        "en": "Actual dive depth for equivalent air depth (EAD) calculation.",
         "tr": "Eşdeğer hava derinliği (EAD) hesaplaması için gerçek dalış derinliği.",
         "de": "Tatsächliche Tauchtiefe zur Berechnung der äquivalenten Lufttiefe (EAD).",
         "fr": "Profondeur réelle de plongée pour le calcul de la profondeur d'air équivalente (EAD).",

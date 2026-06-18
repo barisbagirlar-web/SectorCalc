@@ -9,7 +9,7 @@
       "default": 0.1,
       "businessContext": "Borunun iç çapı (metre)",
       "label_i18n": {
-        "en": "Boru Çapı",
+        "en": "Pipe diameter",
         "tr": "Boru Çapı",
         "de": "Rohrdurchmesser",
         "fr": "Diamètre du tuyau",
@@ -17,7 +17,7 @@
         "ar": "قطر الأنبوب"
       },
       "businessContext_i18n": {
-        "en": "Borunun iç çapı (metre)",
+        "en": "Inner diameter of pipe (metre)",
         "tr": "Borunun iç çapı (metre)",
         "de": "Innendurchmesser des Rohrs (Meter)",
         "fr": "Diamètre intérieur du tuyau (mètres)",
@@ -33,7 +33,7 @@
       "default": 100,
       "businessContext": "Borunun toplam uzunluğu (metre)",
       "label_i18n": {
-        "en": "Boru Uzunluğu",
+        "en": "Pipe length",
         "tr": "Boru Uzunluğu",
         "de": "Rohrlänge",
         "fr": "Longueur du tuyau",
@@ -41,7 +41,7 @@
         "ar": "طول الأنبوب"
       },
       "businessContext_i18n": {
-        "en": "Borunun toplam uzunluğu (metre)",
+        "en": "Total length of pipe (metre)",
         "tr": "Borunun toplam uzunluğu (metre)",
         "de": "Gesamtlänge des Rohrs (Meter)",
         "fr": "Longueur totale du tuyau (mètres)",
@@ -65,7 +65,7 @@
         "ar": "معدل التدفق"
       },
       "businessContext_i18n": {
-        "en": "Hacimsel akış debisi (metreküp/saniye)",
+        "en": "Volumetric flow rate (cubic metres/second)",
         "tr": "Hacimsel akış debisi (metreküp/saniye)",
         "de": "Volumenstrom (Kubikmeter/Sekunde)",
         "fr": "Débit volumique (mètres cubes/seconde)",
@@ -81,7 +81,7 @@
       "default": 998.2,
       "businessContext": "Akışkanın kütle yoğunluğu (kg/m³) [Su için ~998]",
       "label_i18n": {
-        "en": "Akışkan Yoğunluğu",
+        "en": "Fluid Density",
         "tr": "Akışkan Yoğunluğu",
         "de": "Fluiddichte",
         "fr": "Masse volumique du fluide",
@@ -89,7 +89,7 @@
         "ar": "كثافة المائع"
       },
       "businessContext_i18n": {
-        "en": "Akışkanın kütle yoğunluğu (kg/m³) [Su için ~998]",
+        "en": "Mass density of fluid (kg/m³) [For water ~998]",
         "tr": "Akışkanın kütle yoğunluğu (kg/m³) [Su için ~998]",
         "de": "Massendichte des Fluids (kg/m³) [für Wasser ~998]",
         "fr": "Masse volumique du fluide (kg/m³) [Pour l'eau ~998]",
@@ -113,7 +113,7 @@
         "ar": "اللزوجة الديناميكية"
       },
       "businessContext_i18n": {
-        "en": "Akışkanın dinamik viskozitesi (Pa·s) [Su için ~0.001]",
+        "en": "Dynamic viscosity of fluid (Pa·s) [For water ~0.001]",
         "tr": "Akışkanın dinamik viskozitesi (Pa·s) [Su için ~0.001]",
         "de": "Dynamische Viskosität des Fluids (Pa·s) [für Wasser ~0,001]",
         "fr": "Viscosité dynamique du fluide (Pa·s) [Pour l'eau ~0,001]",
@@ -129,7 +129,7 @@
       "default": 0.000046,
       "businessContext": "Boru iç yüzeyi mutlak pürüzlülüğü (m) [Çelik için ~4.6e-5]",
       "label_i18n": {
-        "en": "Yüzey Pürüzlülüğü",
+        "en": "Surface roughness",
         "tr": "Yüzey Pürüzlülüğü",
         "de": "Oberflächenrauheit",
         "fr": "Rugosité de surface",
@@ -137,7 +137,7 @@
         "ar": "خشونة السطح"
       },
       "businessContext_i18n": {
-        "en": "Boru iç yüzeyi mutlak pürüzlülüğü (m) [Çelik için ~4.6e-5]",
+        "en": "Absolute roughness of pipe inner surface (m) [For steel ~4.6e-5]",
         "tr": "Boru iç yüzeyi mutlak pürüzlülüğü (m) [Çelik için ~4.6e-5]",
         "de": "Absolute Rauheit der Rohrinnenfläche (m) [für Stahl ~4,6e-5]",
         "fr": "Rugosité absolue de la paroi interne du tuyau (m) [Pour l'acier ~4,6e-5]",

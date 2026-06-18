@@ -9,7 +9,7 @@
       "default": 2000,
       "businessContext": "Bireyin dinlenim durumundaki günlük enerji tüketimi",
       "label_i18n": {
-        "en": "Bazal Enerji Harcaması",
+        "en": "Basal Energy Expenditure",
         "tr": "Bazal Enerji Harcaması",
         "de": "Grundumsatz",
         "fr": "Dépense énergétique de base",
@@ -17,7 +17,7 @@
         "ar": "إنفاق الطاقة الأساسي"
       },
       "businessContext_i18n": {
-        "en": "Bireyin dinlenim durumundaki günlük enerji tüketimi",
+        "en": "Daily energy expenditure of an individual at rest.",
         "tr": "Bireyin dinlenim durumundaki günlük enerji tüketimi",
         "de": "Täglicher Energieverbrauch im Ruhezustand",
         "fr": "Consommation énergétique quotidienne au repos",
@@ -33,7 +33,7 @@
       "default": 1500,
       "businessContext": "Diyet sırasında alınan ortalama günlük enerji",
       "label_i18n": {
-        "en": "Günlük Enerji Alımı",
+        "en": "Daily Energy Intake",
         "tr": "Günlük Enerji Alımı",
         "de": "Tägliche Energieaufnahme",
         "fr": "Apport énergétique quotidien",
@@ -41,7 +41,7 @@
         "ar": "الاستهلاك اليومي للطاقة"
       },
       "businessContext_i18n": {
-        "en": "Diyet sırasında alınan ortalama günlük enerji",
+        "en": "Average daily energy intake during diet",
         "tr": "Diyet sırasında alınan ortalama günlük enerji",
         "de": "Durchschnittliche tägliche Energieaufnahme während der Diät",
         "fr": "Énergie quotidienne moyenne ingérée pendant le régime",
@@ -57,7 +57,7 @@
       "default": 30,
       "businessContext": "Kalori açığının uygulandığı süre",
       "label_i18n": {
-        "en": "Diyet Süresi",
+        "en": "Diet Duration",
         "tr": "Diyet Süresi",
         "de": "Diätdauer",
         "fr": "Durée du régime",
@@ -65,7 +65,7 @@
         "ar": "مدة النظام الغذائي"
       },
       "businessContext_i18n": {
-        "en": "Kalori açığının uygulandığı süre",
+        "en": "Duration of calorie deficit application",
         "tr": "Kalori açığının uygulandığı süre",
         "de": "Zeitraum, in dem das Kaloriendefizit angewendet wird",
         "fr": "Période d'application du déficit calorique",
@@ -81,7 +81,7 @@
       "default": 70,
       "businessContext": "Diyet öncesi veya mevcut vücut ağırlığı",
       "label_i18n": {
-        "en": "Vücut Ağırlığı",
+        "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
         "fr": "Poids corporel",
@@ -89,7 +89,7 @@
         "ar": "وزن الجسم"
       },
       "businessContext_i18n": {
-        "en": "Diyet öncesi veya mevcut vücut ağırlığı",
+        "en": "Body weight before diet or current body weight",
         "tr": "Diyet öncesi veya mevcut vücut ağırlığı",
         "de": "Körpergewicht vor der Diät oder aktuelles Körpergewicht",
         "fr": "Poids corporel avant le régime ou actuel",
@@ -113,7 +113,7 @@
         "ar": "ثابت زمن التكيف"
       },
       "businessContext_i18n": {
-        "en": "Termojenik adaptasyonun yarılanma süresi (genellikle 7-14 gün)",
+        "en": "Half-life of thermogenic adaptation (usually 7-14 days)",
         "tr": "Termojenik adaptasyonun yarılanma süresi (genellikle 7-14 gün)",
         "de": "Halbwertszeit der thermogenen Adaptation (normalerweise 7–14 Tage)",
         "fr": "Demi-vie de l'adaptation thermogénique (généralement 7-14 jours)",
@@ -129,7 +129,7 @@
       "default": 50,
       "businessContext": "Kas, kemik ve organlar gibi metabolik olarak aktif dokuların toplamı",
       "label_i18n": {
-        "en": "Yağsız Vücut Kütlesi",
+        "en": "Lean Body Mass",
         "tr": "Yağsız Vücut Kütlesi",
         "de": "Fettfreie Körpermasse",
         "fr": "Masse corporelle maigre",
@@ -137,7 +137,7 @@
         "ar": "كتلة الجسم الخالية من الدهون"
       },
       "businessContext_i18n": {
-        "en": "Kas, kemik ve organlar gibi metabolik olarak aktif dokuların toplamı",
+        "en": "Sum of metabolically active tissues such as muscle, bone, and organs",
         "tr": "Kas, kemik ve organlar gibi metabolik olarak aktif dokuların toplamı",
         "de": "Summe der metabolisch aktiven Gewebe wie Muskeln, Knochen und Organe",
         "fr": "Total des tissus métaboliquement actifs (muscles, os, organes)",

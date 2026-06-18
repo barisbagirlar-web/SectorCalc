@@ -9,7 +9,7 @@
       "default": 1,
       "businessContext": "Toplam kesilen trafik veya lojistik ceza sayısı",
       "label_i18n": {
-        "en": "Kesilen Ceza Sayısı",
+        "en": "Number of Fines Issued",
         "tr": "Kesilen Ceza Sayısı",
         "de": "Anzahl verhängter Strafen",
         "fr": "Nombre d'amendes reçues",
@@ -17,7 +17,7 @@
         "ar": "عدد المخالفات المحررة"
       },
       "businessContext_i18n": {
-        "en": "Toplam kesilen trafik veya lojistik ceza sayısı",
+        "en": "Total number of traffic or logistics fines issued",
         "tr": "Toplam kesilen trafik veya lojistik ceza sayısı",
         "de": "Gesamtzahl der verhängten Verkehrs- oder Logistikstrafen",
         "fr": "Nombre total d'amendes de trafic ou logistiques reçues",
@@ -33,7 +33,7 @@
       "default": 500,
       "businessContext": "Her bir ceza için ödenmesi gereken temel para cezası tutarı",
       "label_i18n": {
-        "en": "Ceza Başına Para Cezası",
+        "en": "Fine Amount per Fine",
         "tr": "Ceza Başına Para Cezası",
         "de": "Geldstrafe pro Verstoß",
         "fr": "Amende par infraction",
@@ -41,7 +41,7 @@
         "ar": "الغرامة المالية لكل مخالفة"
       },
       "businessContext_i18n": {
-        "en": "Her bir ceza için ödenmesi gereken temel para cezası tutarı",
+        "en": "Base fine amount per penalty (USD)",
         "tr": "Her bir ceza için ödenmesi gereken temel para cezası tutarı",
         "de": "Grundbetrag der Geldstrafe, der pro Verstoß zu zahlen ist",
         "fr": "Montant de base de l'amende à payer pour chaque infraction",
@@ -57,7 +57,7 @@
       "default": 1,
       "businessContext": "Ceza ciddiyetine göre çarpan (örn. tekerrür, yük hasarı vb.)",
       "label_i18n": {
-        "en": "Ağırlaştırıcı Çarpan",
+        "en": "Aggravating multiplier",
         "tr": "Ağırlaştırıcı Çarpan",
         "de": "Erschwerungsfaktor",
         "fr": "Multiplicateur aggravant",
@@ -65,7 +65,7 @@
         "ar": "معامل التشديد"
       },
       "businessContext_i18n": {
-        "en": "Ceza ciddiyetine göre çarpan (örn. tekerrür, yük hasarı vb.)",
+        "en": "Multiplier based on penalty severity (e.g., recurrence, damage height, etc.)",
         "tr": "Ceza ciddiyetine göre çarpan (örn. tekerrür, yük hasarı vb.)",
         "de": "Multiplikator je nach Schwere des Verstoßes (z.B. Wiederholung, Ladungsschaden usw.)",
         "fr": "Multiplicateur selon la gravité de l'infraction (ex. récidive, dommage à la cargaison, etc.)",
@@ -81,7 +81,7 @@
       "default": 50,
       "businessContext": "Her ceza için tahsil edilen idari işlem ücreti",
       "label_i18n": {
-        "en": "İşlem Ücreti (Ceza Başına)",
+        "en": "Processing fee per penalty (USD)",
         "tr": "İşlem Ücreti (Ceza Başına)",
         "de": "Bearbeitungsgebühr (pro Verstoß)",
         "fr": "Frais de traitement (par amende)",
@@ -89,7 +89,7 @@
         "ar": "رسوم المعالجة (لكل مخالفة)"
       },
       "businessContext_i18n": {
-        "en": "Her ceza için tahsil edilen idari işlem ücreti",
+        "en": "Administrative processing fee charged per penalty",
         "tr": "Her ceza için tahsil edilen idari işlem ücreti",
         "de": "Verwaltungsgebühr, die pro Verstoß erhoben wird",
         "fr": "Frais administratifs perçus pour chaque amende",
@@ -105,7 +105,7 @@
       "default": 10,
       "businessContext": "Erken ödeme durumunda uygulanacak yüzde indirim (0 ise indirim yok)",
       "label_i18n": {
-        "en": "Erken Ödeme İndirimi (%)",
+        "en": "Early payment discount (%)",
         "tr": "Erken Ödeme İndirimi (%)",
         "de": "Rabatt bei vorzeitiger Zahlung (%)",
         "fr": "Remise pour paiement anticipé (%)",
@@ -113,7 +113,7 @@
         "ar": "خصم الدفع المبكر (%)"
       },
       "businessContext_i18n": {
-        "en": "Erken ödeme durumunda uygulanacak yüzde indirim (0 ise indirim yok)",
+        "en": "Percentage discount applied for early payment (0 means no discount)",
         "tr": "Erken ödeme durumunda uygulanacak yüzde indirim (0 ise indirim yok)",
         "de": "Prozentsatz des Rabatts bei Vorauszahlung (0 = kein Rabatt)",
         "fr": "Pourcentage de remise en cas de paiement anticipé (0 si aucune remise)",

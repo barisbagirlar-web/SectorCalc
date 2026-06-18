@@ -9,7 +9,7 @@
       "default": 44927,
       "businessContext": "Start date as serial day number (e.g., Excel)",
       "label_i18n": {
-        "en": "Başlangıç Tarihi (Seri No)",
+        "en": "Start date (serial number)",
         "tr": "Başlangıç Tarihi (Seri No)",
         "de": "Startdatum (Seriennummer)",
         "fr": "Date de début (numéro de série)",
@@ -33,7 +33,7 @@
       "default": 44957,
       "businessContext": "End date as serial day number",
       "label_i18n": {
-        "en": "Bitiş Tarihi (Seri No)",
+        "en": "End date (serial number)",
         "tr": "Bitiş Tarihi (Seri No)",
         "de": "Enddatum (Seriennummer)",
         "fr": "Date de fin (numéro de série)",
@@ -57,7 +57,7 @@
       "default": 1,
       "businessContext": "1 if start day is included, 0 otherwise",
       "label_i18n": {
-        "en": "Başlangıç Günü Dahil",
+        "en": "Include Start Day",
         "tr": "Başlangıç Günü Dahil",
         "de": "Starttag eingeschlossen",
         "fr": "Jour de début inclus",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "1 if end day is included, 0 otherwise",
       "label_i18n": {
-        "en": "Bitiş Günü Dahil",
+        "en": "Include End Day",
         "tr": "Bitiş Günü Dahil",
         "de": "Endtag eingeschlossen",
         "fr": "Jour de fin inclus",
@@ -105,7 +105,7 @@
       "default": 2,
       "businessContext": "Number of weekend days per week (e.g., 2 for Sat-Sun)",
       "label_i18n": {
-        "en": "Haftalık Tatil Gün Sayısı",
+        "en": "Number of Weekly Vacation Days",
         "tr": "Haftalık Tatil Gün Sayısı",
         "de": "Anzahl der Wochenendtage pro Woche",
         "fr": "Nombre de jours de week-end par semaine",

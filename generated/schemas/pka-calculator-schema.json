@@ -17,7 +17,7 @@
         "ar": "تركيز الحمض"
       },
       "businessContext_i18n": {
-        "en": "Zayıf asidin başlangıç konsantrasyonu",
+        "en": "Initial concentration of weak acid",
         "tr": "Zayıf asidin başlangıç konsantrasyonu",
         "de": "Anfangskonzentration der schwachen Säure",
         "fr": "Concentration initiale de l'acide faible",
@@ -33,7 +33,7 @@
       "default": 3,
       "businessContext": "Çözeltinin ölçülen pH değeri",
       "label_i18n": {
-        "en": "Ölçülen pH",
+        "en": "Measured pH",
         "tr": "Ölçülen pH",
         "de": "Gemessener pH-Wert",
         "fr": "pH mesuré",
@@ -41,7 +41,7 @@
         "ar": "الأس الهيدروجيني المقاس"
       },
       "businessContext_i18n": {
-        "en": "Çözeltinin ölçülen pH değeri",
+        "en": "Measured pH of the solution",
         "tr": "Çözeltinin ölçülen pH değeri",
         "de": "Gemessener pH-Wert der Lösung",
         "fr": "Valeur de pH mesurée de la solution",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "Asit ayrışma sabiti biliniyorsa, doğrudan hesaplama için girin (opsiyonel)",
       "label_i18n": {
-        "en": "Bilinen Ka Değeri",
+        "en": "Known Ka value",
         "tr": "Bilinen Ka Değeri",
         "de": "Bekannter Ka-Wert",
         "fr": "Ka connu",
@@ -65,7 +65,7 @@
         "ar": "قيمة Ka المعروفة"
       },
       "businessContext_i18n": {
-        "en": "Asit ayrışma sabiti biliniyorsa, doğrudan hesaplama için girin (opsiyonel)",
+        "en": "Enter for direct calculation if acid dissociation constant is known (optional)",
         "tr": "Asit ayrışma sabiti biliniyorsa, doğrudan hesaplama için girin (opsiyonel)",
         "de": "Wenn die Säuredissoziationskonstante bekannt ist, für direkte Berechnung eingeben (optional)",
         "fr": "Si la constante de dissociation de l'acide est connue, saisissez-la pour un calcul direct (optionnel)",
@@ -81,7 +81,7 @@
       "default": 25,
       "businessContext": "Çözelti sıcaklığı (hesaplamayı etkilemez, kayıt amaçlı)",
       "label_i18n": {
-        "en": "Sıcaklık",
+        "en": "Temperature",
         "tr": "Sıcaklık",
         "de": "Temperatur",
         "fr": "Température",
@@ -89,7 +89,7 @@
         "ar": "درجة الحرارة"
       },
       "businessContext_i18n": {
-        "en": "Çözelti sıcaklığı (hesaplamayı etkilemez, kayıt amaçlı)",
+        "en": "Solution temperature (does not affect calculation, for recording purposes)",
         "tr": "Çözelti sıcaklığı (hesaplamayı etkilemez, kayıt amaçlı)",
         "de": "Lösungstemperatur (beeinflusst Berechnung nicht, nur für Aufzeichnungszwecke)",
         "fr": "Température de la solution (n'affecte pas le calcul, à des fins d'enregistrement)",

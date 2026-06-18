@@ -9,7 +9,7 @@
       "default": 25,
       "businessContext": "Dry bulb temperature in Celsius",
       "label_i18n": {
-        "en": "Sıcaklık (°C)",
+        "en": "Temperature (°C)",
         "tr": "Sıcaklık (°C)",
         "de": "Temperatur (°C)",
         "fr": "Température (°C)",
@@ -33,7 +33,7 @@
       "default": 60,
       "businessContext": "Relative humidity percentage",
       "label_i18n": {
-        "en": "Bağıl Nem (%)",
+        "en": "Relative Humidity (%)",
         "tr": "Bağıl Nem (%)",
         "de": "Relative Luftfeuchtigkeit (%)",
         "fr": "Humidité relative (%)",
@@ -57,7 +57,7 @@
       "default": 1013.25,
       "businessContext": "Actual atmospheric pressure in hPa",
       "label_i18n": {
-        "en": "Atmosfer Basıncı (hPa)",
+        "en": "Atmospheric Pressure (hPa)",
         "tr": "Atmosfer Basıncı (hPa)",
         "de": "Atmosphärendruck (hPa)",
         "fr": "Pression atmosphérique (hPa)",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "Altitude above sea level in meters (for pressure estimation if pressure not available)",
       "label_i18n": {
-        "en": "Rakım (m)",
+        "en": "Altitude (m)",
         "tr": "Rakım (m)",
         "de": "Höhe über dem Meeresspiegel (m)",
         "fr": "Altitude (m)",

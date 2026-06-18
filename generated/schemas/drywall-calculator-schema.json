@@ -9,7 +9,7 @@
       "default": 5,
       "businessContext": "Odanın uzunluğu (metre cinsinden). Ör: 5",
       "label_i18n": {
-        "en": "Oda Uzunluğu",
+        "en": "Room Length",
         "tr": "Oda Uzunluğu",
         "de": "Raumlänge",
         "fr": "Longueur de la pièce",
@@ -17,7 +17,7 @@
         "ar": "طول الغرفة"
       },
       "businessContext_i18n": {
-        "en": "Odanın uzunluğu (metre cinsinden). Ör: 5",
+        "en": "Length of the room (in meters). Example: 5",
         "tr": "Odanın uzunluğu (metre cinsinden). Ör: 5",
         "de": "Raumlänge (in Metern). Z.B. 5",
         "fr": "Longueur de la pièce (en mètres). Ex : 5",
@@ -33,7 +33,7 @@
       "default": 4,
       "businessContext": "Odanın genişliği (metre cinsinden). Ör: 4",
       "label_i18n": {
-        "en": "Oda Genişliği",
+        "en": "Room Width",
         "tr": "Oda Genişliği",
         "de": "Raumbreite",
         "fr": "Largeur de la pièce",
@@ -41,7 +41,7 @@
         "ar": "عرض الغرفة"
       },
       "businessContext_i18n": {
-        "en": "Odanın genişliği (metre cinsinden). Ör: 4",
+        "en": "Width of the room (in meters). Example: 4",
         "tr": "Odanın genişliği (metre cinsinden). Ör: 4",
         "de": "Raumbreite (in Metern). Z.B. 4",
         "fr": "Largeur de la pièce (en mètres). Ex : 4",
@@ -57,7 +57,7 @@
       "default": 2.5,
       "businessContext": "Duvar yüksekliği (metre cinsinden). Ör: 2.5",
       "label_i18n": {
-        "en": "Oda Yüksekliği",
+        "en": "Room Height",
         "tr": "Oda Yüksekliği",
         "de": "Raumhöhe",
         "fr": "Hauteur de la pièce",
@@ -65,7 +65,7 @@
         "ar": "ارتفاع الغرفة"
       },
       "businessContext_i18n": {
-        "en": "Duvar yüksekliği (metre cinsinden). Ör: 2.5",
+        "en": "Wall height (in meters). E.g., 2.5",
         "tr": "Duvar yüksekliği (metre cinsinden). Ör: 2.5",
         "de": "Wandhöhe (in Metern). Z.B. 2,5",
         "fr": "Hauteur du mur (en mètres). Ex : 2,5",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "Açıklık çıkarılacak kapı sayısı (her kapı 2 m²). Ör: 1",
       "label_i18n": {
-        "en": "Kapı Sayısı",
+        "en": "Number of Doors",
         "tr": "Kapı Sayısı",
         "de": "Anzahl Türen",
         "fr": "Nombre de portes",
@@ -89,7 +89,7 @@
         "ar": "عدد الأبواب"
       },
       "businessContext_i18n": {
-        "en": "Açıklık çıkarılacak kapı sayısı (her kapı 2 m²). Ör: 1",
+        "en": "Number of doors to subtract (each door 2 m²). E.g., 1",
         "tr": "Açıklık çıkarılacak kapı sayısı (her kapı 2 m²). Ör: 1",
         "de": "Anzahl der abzuziehenden Türen (jede Tür 2 m²). Z.B. 1",
         "fr": "Nombre de portes à déduire (chaque porte 2 m²). Ex : 1",
@@ -105,7 +105,7 @@
       "default": 2,
       "businessContext": "Açıklık çıkarılacak pencere sayısı (her pencere 1.5 m²). Ör: 2",
       "label_i18n": {
-        "en": "Pencere Sayısı",
+        "en": "Number of Windows",
         "tr": "Pencere Sayısı",
         "de": "Anzahl der Fenster",
         "fr": "Nombre de fenêtres",
@@ -113,7 +113,7 @@
         "ar": "عدد النوافذ"
       },
       "businessContext_i18n": {
-        "en": "Açıklık çıkarılacak pencere sayısı (her pencere 1.5 m²). Ör: 2",
+        "en": "Number of windows to subtract (each window 1.5 m²). E.g., 2",
         "tr": "Açıklık çıkarılacak pencere sayısı (her pencere 1.5 m²). Ör: 2",
         "de": "Anzahl der abzuziehenden Fenster (jedes Fenster 1,5 m²). Z.B. 2",
         "fr": "Nombre de fenêtres à déduire (chaque fenêtre 1,5 m²). Ex : 2",
@@ -129,7 +129,7 @@
       "default": 2.88,
       "businessContext": "Tek bir alçıpan levhanın alanı (m²). Standart 1.2x2.4m = 2.88 m². Ör: 2.88",
       "label_i18n": {
-        "en": "Alçıpan Alanı",
+        "en": "Drywall Area",
         "tr": "Alçıpan Alanı",
         "de": "Gipskartonfläche",
         "fr": "Surface de plaque de plâtre",
@@ -137,7 +137,7 @@
         "ar": "مساحة ألواح الجبس"
       },
       "businessContext_i18n": {
-        "en": "Tek bir alçıpan levhanın alanı (m²). Standart 1.2x2.4m = 2.88 m². Ör: 2.88",
+        "en": "Area of a single drywall sheet (m²). Standard 1.2x2.4m = 2.88 m². E.g., 2.88",
         "tr": "Tek bir alçıpan levhanın alanı (m²). Standart 1.2x2.4m = 2.88 m². Ör: 2.88",
         "de": "Fläche einer einzelnen Gipskartonplatte (m²). Standard 1,2x2,4m = 2,88 m². Z.B. 2,88",
         "fr": "Surface d'une seule plaque de plâtre (m²). Standard 1,2x2,4m = 2,88 m². Ex : 2,88",
@@ -153,7 +153,7 @@
       "default": 10,
       "businessContext": "Kesim ve kayıp için eklenecek yüzde. Ör: 10",
       "label_i18n": {
-        "en": "Fire Oranı",
+        "en": "Waste Rate",
         "tr": "Fire Oranı",
         "de": "Verschnittanteil",
         "fr": "Taux de perte",
@@ -161,7 +161,7 @@
         "ar": "نسبة الهدر"
       },
       "businessContext_i18n": {
-        "en": "Kesim ve kayıp için eklenecek yüzde. Ör: 10",
+        "en": "Percentage to add for cutting and waste. E.g., 10",
         "tr": "Kesim ve kayıp için eklenecek yüzde. Ör: 10",
         "de": "Prozentsatz für Zuschnitt und Verschnitt. Z.B. 10",
         "fr": "Pourcentage à ajouter pour les coupes et pertes. Ex : 10",

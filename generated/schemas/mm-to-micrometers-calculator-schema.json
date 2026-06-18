@@ -9,7 +9,7 @@
       "default": 0,
       "businessContext": "Dönüştürülecek ölçüm değeri",
       "label_i18n": {
-        "en": "Milimetre Değeri",
+        "en": "Millimeter Value",
         "tr": "Milimetre Değeri",
         "de": "Millimeterwert",
         "fr": "Valeur en millimètres",
@@ -17,7 +17,7 @@
         "ar": "قيمة المليمتر"
       },
       "businessContext_i18n": {
-        "en": "Dönüştürülecek ölçüm değeri",
+        "en": "Measurement value to convert",
         "tr": "Dönüştürülecek ölçüm değeri",
         "de": "Zu konvertierender Messwert",
         "fr": "Valeur de mesure à convertir",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "Ölçüm cihazı kalibrasyon katsayısı",
       "label_i18n": {
-        "en": "Kalibrasyon Düzeltme Faktörü",
+        "en": "Calibration Correction Factor",
         "tr": "Kalibrasyon Düzeltme Faktörü",
         "de": "Kalibrierungskorrekturfaktor",
         "fr": "Facteur de correction d'étalonnage",
@@ -41,7 +41,7 @@
         "ar": "عامل تصحيح المعايرة"
       },
       "businessContext_i18n": {
-        "en": "Ölçüm cihazı kalibrasyon katsayısı",
+        "en": "Measurement device calibration coefficient",
         "tr": "Ölçüm cihazı kalibrasyon katsayısı",
         "de": "Kalibrierungskoeffizient des Messgeräts",
         "fr": "Coefficient d'étalonnage de l'instrument de mesure",
@@ -57,7 +57,7 @@
       "default": 1,
       "businessContext": "Çizim/plan ölçek katsayısı",
       "label_i18n": {
-        "en": "Ölçek Faktörü",
+        "en": "Scale Factor",
         "tr": "Ölçek Faktörü",
         "de": "Skalierungsfaktor",
         "fr": "Facteur d'échelle",
@@ -65,7 +65,7 @@
         "ar": "عامل المقياس"
       },
       "businessContext_i18n": {
-        "en": "Çizim/plan ölçek katsayısı",
+        "en": "Drawing/plan scale coefficient",
         "tr": "Çizim/plan ölçek katsayısı",
         "de": "Skalierungsfaktor der Zeichnung/des Plans",
         "fr": "Coefficient d'échelle du dessin/plan",
@@ -81,7 +81,7 @@
       "default": 0.001,
       "businessContext": "Standart belirsizlik (k=1)",
       "label_i18n": {
-        "en": "Ölçüm Belirsizliği (mm)",
+        "en": "Measurement Uncertainty (mm)",
         "tr": "Ölçüm Belirsizliği (mm)",
         "de": "Messunsicherheit (mm)",
         "fr": "Incertitude de mesure (mm)",
@@ -105,7 +105,7 @@
       "default": 2,
       "businessContext": "Belirsizlik genişletme katsayısı (genelde 2)",
       "label_i18n": {
-        "en": "Genişletme Faktörü (k)",
+        "en": "Expansion Factor (k)",
         "tr": "Genişletme Faktörü (k)",
         "de": "Erweiterungsfaktor (k)",
         "fr": "Facteur d'élargissement (k)",
@@ -113,7 +113,7 @@
         "ar": "عامل التمدد (k)"
       },
       "businessContext_i18n": {
-        "en": "Belirsizlik genişletme katsayısı (genelde 2)",
+        "en": "Uncertainty expansion coefficient (usually 2)",
         "tr": "Belirsizlik genişletme katsayısı (genelde 2)",
         "de": "Erweiterungskoeffizient der Unsicherheit (normalerweise 2)",
         "fr": "Coefficient d'élargissement de l'incertitude (généralement 2)",

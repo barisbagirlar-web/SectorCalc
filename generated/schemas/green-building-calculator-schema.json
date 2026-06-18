@@ -9,7 +9,7 @@
       "default": 1000,
       "businessContext": "Binanın toplam kapalı alanı",
       "label_i18n": {
-        "en": "Toplam Kapalı Alan",
+        "en": "Total floor area",
         "tr": "Toplam Kapalı Alan",
         "de": "Gesamte überdachte Fläche",
         "fr": "Surface totale fermée",
@@ -17,7 +17,7 @@
         "ar": "إجمالي المساحة المغلقة"
       },
       "businessContext_i18n": {
-        "en": "Binanın toplam kapalı alanı",
+        "en": "Total floor area of the building",
         "tr": "Binanın toplam kapalı alanı",
         "de": "Gesamte überdachte Fläche des Gebäudes",
         "fr": "Surface totale fermée du bâtiment",
@@ -33,7 +33,7 @@
       "default": 50000,
       "businessContext": "Şebekeden çekilen yıllık elektrik enerjisi",
       "label_i18n": {
-        "en": "Yıllık Elektrik Tüketimi",
+        "en": "Annual electricity consumption",
         "tr": "Yıllık Elektrik Tüketimi",
         "de": "Jährlicher Stromverbrauch",
         "fr": "Consommation électrique annuelle",
@@ -41,7 +41,7 @@
         "ar": "استهلاك الكهرباء السنوي"
       },
       "businessContext_i18n": {
-        "en": "Şebekeden çekilen yıllık elektrik enerjisi",
+        "en": "Annual electricity drawn from the grid",
         "tr": "Şebekeden çekilen yıllık elektrik enerjisi",
         "de": "Jährlich aus dem Netz bezogene elektrische Energie",
         "fr": "Énergie électrique annuelle tirée du réseau",
@@ -57,7 +57,7 @@
       "default": 0.475,
       "businessContext": "Şebeke elektriği için karbon emisyon faktörü",
       "label_i18n": {
-        "en": "Elektrik Emisyon Faktörü",
+        "en": "Electricity emission factor",
         "tr": "Elektrik Emisyon Faktörü",
         "de": "Strom-Emissionsfaktor",
         "fr": "Facteur d'émission électrique",
@@ -65,7 +65,7 @@
         "ar": "عامل انبعاثات الكهرباء"
       },
       "businessContext_i18n": {
-        "en": "Şebeke elektriği için karbon emisyon faktörü",
+        "en": "Carbon emission factor for grid electricity",
         "tr": "Şebeke elektriği için karbon emisyon faktörü",
         "de": "Kohlenstoff-Emissionsfaktor für Netzstrom",
         "fr": "Facteur d'émission carbone pour l'électricité du réseau",
@@ -81,7 +81,7 @@
       "default": 10000,
       "businessContext": "Yıllık doğalgaz tüketim miktarı",
       "label_i18n": {
-        "en": "Yıllık Doğalgaz Tüketimi",
+        "en": "Annual natural gas consumption",
         "tr": "Yıllık Doğalgaz Tüketimi",
         "de": "Jährlicher Erdgasverbrauch",
         "fr": "Consommation annuelle de gaz naturel",
@@ -89,7 +89,7 @@
         "ar": "استهلاك الغاز الطبيعي السنوي"
       },
       "businessContext_i18n": {
-        "en": "Yıllık doğalgaz tüketim miktarı",
+        "en": "Annual natural gas consumption amount",
         "tr": "Yıllık doğalgaz tüketim miktarı",
         "de": "Jährlicher Erdgasverbrauch",
         "fr": "Quantité annuelle de gaz naturel consommée",
@@ -105,7 +105,7 @@
       "default": 0.184,
       "businessContext": "Doğalgazın standart emisyon faktörü",
       "label_i18n": {
-        "en": "Doğalgaz Emisyon Faktörü",
+        "en": "Natural gas emission factor",
         "tr": "Doğalgaz Emisyon Faktörü",
         "de": "Emissionsfaktor (Erdgas)",
         "fr": "Facteur d'émission du gaz naturel",
@@ -113,7 +113,7 @@
         "ar": "عامل انبعاثات الغاز الطبيعي"
       },
       "businessContext_i18n": {
-        "en": "Doğalgazın standart emisyon faktörü",
+        "en": "Standard emission factor for natural gas",
         "tr": "Doğalgazın standart emisyon faktörü",
         "de": "Standard-Emissionsfaktor für Erdgas",
         "fr": "Facteur d'émission standard du gaz naturel",
@@ -137,7 +137,7 @@
         "ar": "الطاقة المتجددة في الموقع"
       },
       "businessContext_i18n": {
-        "en": "Binada üretilen ve tüketilen yenilenebilir enerji",
+        "en": "Renewable energy produced and consumed in the building",
         "tr": "Binada üretilen ve tüketilen yenilenebilir enerji",
         "de": "Im Gebäude erzeugte und verbrauchte erneuerbare Energie",
         "fr": "Énergie renouvelable produite et consommée sur le bâtiment",

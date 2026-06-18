@@ -9,7 +9,7 @@
       "default": 32,
       "businessContext": "Dönüştürülecek Fahrenheit sıcaklık değeri",
       "label_i18n": {
-        "en": "Fahrenheit Sıcaklık",
+        "en": "Fahrenheit temperature",
         "tr": "Fahrenheit Sıcaklık",
         "de": "Fahrenheit Temperatur",
         "fr": "Température Fahrenheit",
@@ -17,7 +17,7 @@
         "ar": "درجة الحرارة بالفهرنهايت"
       },
       "businessContext_i18n": {
-        "en": "Dönüştürülecek Fahrenheit sıcaklık değeri",
+        "en": "Fahrenheit temperature value to convert",
         "tr": "Dönüştürülecek Fahrenheit sıcaklık değeri",
         "de": "Umzurechnender Fahrenheit-Temperaturwert",
         "fr": "Valeur de température Fahrenheit à convertir",
@@ -33,7 +33,7 @@
       "default": 2,
       "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı (0-10)",
       "label_i18n": {
-        "en": "Ondalık Basamak",
+        "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
         "fr": "Décimales",
@@ -41,7 +41,7 @@
         "ar": "المنازل العشرية"
       },
       "businessContext_i18n": {
-        "en": "Sonuçta gösterilecek ondalık basamak sayısı (0-10)",
+        "en": "Number of decimal places to display in result (0-10)",
         "tr": "Sonuçta gösterilecek ondalık basamak sayısı (0-10)",
         "de": "Anzahl der im Ergebnis anzuzeigenden Dezimalstellen (0-10)",
         "fr": "Nombre de décimales à afficher dans le résultat (0-10)",
@@ -57,7 +57,7 @@
       "default": 1013.25,
       "businessContext": "Ortam basıncı (ISO 9001 kaydı için, hesaplamaya etkisi yok)",
       "label_i18n": {
-        "en": "Atmosfer Basıncı",
+        "en": "Atmospheric pressure",
         "tr": "Atmosfer Basıncı",
         "de": "Atmosphärendruck",
         "fr": "Pression atmosphérique",
@@ -65,7 +65,7 @@
         "ar": "الضغط الجوي"
       },
       "businessContext_i18n": {
-        "en": "Ortam basıncı (ISO 9001 kaydı için, hesaplamaya etkisi yok)",
+        "en": "Ambient pressure (for ISO 9001 record, no effect on calculation)",
         "tr": "Ortam basıncı (ISO 9001 kaydı için, hesaplamaya etkisi yok)",
         "de": "Umgebungsdruck (für ISO 9001-Aufzeichnung, kein Einfluss auf Berechnung)",
         "fr": "Pression ambiante (pour enregistrement ISO 9001, sans effet sur le calcul)",
@@ -81,7 +81,7 @@
       "default": 50,
       "businessContext": "Bağıl nem (ISO 9001 kaydı için)",
       "label_i18n": {
-        "en": "Bağıl Nem",
+        "en": "Relative Humidity",
         "tr": "Bağıl Nem",
         "de": "Relative Luftfeuchtigkeit",
         "fr": "Humidité relative",
@@ -89,7 +89,7 @@
         "ar": "الرطوبة النسبية"
       },
       "businessContext_i18n": {
-        "en": "Bağıl nem (ISO 9001 kaydı için)",
+        "en": "Relative humidity (for ISO 9001 record)",
         "tr": "Bağıl nem (ISO 9001 kaydı için)",
         "de": "Relative Luftfeuchtigkeit (für ISO 9001-Aufzeichnung)",
         "fr": "Humidité relative (pour enregistrement ISO 9001)",

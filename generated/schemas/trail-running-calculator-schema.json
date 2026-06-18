@@ -17,7 +17,7 @@
         "ar": "المسافة"
       },
       "businessContext_i18n": {
-        "en": "Kilometre cinsinden parkur uzunluğu",
+        "en": "Course Length (km)",
         "tr": "Kilometre cinsinden parkur uzunluğu",
         "de": "Streckenlänge in Kilometern",
         "fr": "Longueur du parcours en kilomètres",
@@ -33,7 +33,7 @@
       "default": 500,
       "businessContext": "Metre cinsinden toplam tırmanış (pozitif irtifa kazancı)",
       "label_i18n": {
-        "en": "Tırmanış",
+        "en": "Ascent",
         "tr": "Tırmanış",
         "de": "Anstieg",
         "fr": "Montée",
@@ -41,7 +41,7 @@
         "ar": "الصعود"
       },
       "businessContext_i18n": {
-        "en": "Metre cinsinden toplam tırmanış (pozitif irtifa kazancı)",
+        "en": "Total ascent in meters (positive altitude gain)",
         "tr": "Metre cinsinden toplam tırmanış (pozitif irtifa kazancı)",
         "de": "Gesamtanstieg in Metern (positiver Höhengewinn)",
         "fr": "Dénivelé positif total en mètres (gain d'altitude)",
@@ -57,7 +57,7 @@
       "default": 500,
       "businessContext": "Metre cinsinden toplam iniş (negatif irtifa kaybı)",
       "label_i18n": {
-        "en": "İniş",
+        "en": "Descent",
         "tr": "İniş",
         "de": "Abstieg",
         "fr": "Descente",
@@ -65,7 +65,7 @@
         "ar": "النزول"
       },
       "businessContext_i18n": {
-        "en": "Metre cinsinden toplam iniş (negatif irtifa kaybı)",
+        "en": "Total descent in meters (negative altitude loss)",
         "tr": "Metre cinsinden toplam iniş (negatif irtifa kaybı)",
         "de": "Gesamtabstieg in Metern (negativer Höhenverlust)",
         "fr": "Dénivelé négatif total en mètres (perte d'altitude)",
@@ -81,7 +81,7 @@
       "default": 6,
       "businessContext": "Düz zeminde koşu temposu (dakika:km)",
       "label_i18n": {
-        "en": "Düz Tempo",
+        "en": "Flat Pace",
         "tr": "Düz Tempo",
         "de": "Flaches Tempo",
         "fr": "Allure sur plat",
@@ -89,7 +89,7 @@
         "ar": "السرعة الأساسية"
       },
       "businessContext_i18n": {
-        "en": "Düz zeminde koşu temposu (dakika:km)",
+        "en": "Running pace on flat ground (min:km)",
         "tr": "Düz zeminde koşu temposu (dakika:km)",
         "de": "Lauftempo auf flachem Gelände (min:km)",
         "fr": "Allure de course sur terrain plat (min:km)",
@@ -105,7 +105,7 @@
       "default": 0.1,
       "businessContext": "Her bir metre tırmanış için eklenen süre (dakika)",
       "label_i18n": {
-        "en": "Tırmanış Faktörü",
+        "en": "Ascent Factor",
         "tr": "Tırmanış Faktörü",
         "de": "Anstiegsfaktor",
         "fr": "Facteur de montée",
@@ -113,7 +113,7 @@
         "ar": "عامل الصعود"
       },
       "businessContext_i18n": {
-        "en": "Her bir metre tırmanış için eklenen süre (dakika)",
+        "en": "Additional time per meter of ascent (minutes)",
         "tr": "Her bir metre tırmanış için eklenen süre (dakika)",
         "de": "Zusätzliche Zeit pro Meter Anstieg (Minuten)",
         "fr": "Temps supplémentaire par mètre de montée (minutes)",
@@ -129,7 +129,7 @@
       "default": 0.05,
       "businessContext": "Her bir metre iniş için eklenen süre (dakika)",
       "label_i18n": {
-        "en": "İniş Faktörü",
+        "en": "Descent Factor",
         "tr": "İniş Faktörü",
         "de": "Abstiegsfaktor",
         "fr": "Facteur de descente",
@@ -137,7 +137,7 @@
         "ar": "عامل النزول"
       },
       "businessContext_i18n": {
-        "en": "Her bir metre iniş için eklenen süre (dakika)",
+        "en": "Additional time per meter of descent (minutes)",
         "tr": "Her bir metre iniş için eklenen süre (dakika)",
         "de": "Zusätzliche Zeit pro Meter Abstieg (Minuten)",
         "fr": "Temps supplémentaire par mètre de descente (minutes)",

@@ -9,7 +9,7 @@
       "default": 100000,
       "businessContext": "Faiz ve vergi öncesi net faaliyet karıdır.",
       "label_i18n": {
-        "en": "EBIT (Faiz ve Vergi Öncesi Kar)",
+        "en": "EBIT (Earnings Before Interest and Taxes)",
         "tr": "EBIT (Faiz ve Vergi Öncesi Kar)",
         "de": "EBIT (Ergebnis vor Zinsen und Steuern)",
         "fr": "EBIT (Bénéfice avant intérêts et impôts)",
@@ -17,7 +17,7 @@
         "ar": "EBIT (الأرباح قبل الفوائد والضرائب)"
       },
       "businessContext_i18n": {
-        "en": "Faiz ve vergi öncesi net faaliyet karıdır.",
+        "en": "Net operating profit before interest and taxes.",
         "tr": "Faiz ve vergi öncesi net faaliyet karıdır.",
         "de": "Nettoergebnis aus der Betriebstätigkeit vor Zinsen und Steuern.",
         "fr": "Bénéfice net d'exploitation avant intérêts et impôts.",
@@ -33,7 +33,7 @@
       "default": 20,
       "businessContext": "Kurumlar vergisi oranıdır.",
       "label_i18n": {
-        "en": "Vergi Oranı",
+        "en": "Tax Rate",
         "tr": "Vergi Oranı",
         "de": "Steuersatz",
         "fr": "Taux d'imposition",
@@ -41,7 +41,7 @@
         "ar": "معدل الضريبة"
       },
       "businessContext_i18n": {
-        "en": "Kurumlar vergisi oranıdır.",
+        "en": "Corporate tax rate.",
         "tr": "Kurumlar vergisi oranıdır.",
         "de": "Körperschaftsteuersatz.",
         "fr": "Taux d'impôt sur les sociétés.",
@@ -57,7 +57,7 @@
       "default": 500000,
       "businessContext": "Şirketin toplam kısa ve uzun vadeli borçları.",
       "label_i18n": {
-        "en": "Toplam Borç",
+        "en": "Total Debt",
         "tr": "Toplam Borç",
         "de": "Gesamtschulden",
         "fr": "Dette totale",
@@ -65,7 +65,7 @@
         "ar": "إجمالي الديون"
       },
       "businessContext_i18n": {
-        "en": "Şirketin toplam kısa ve uzun vadeli borçları.",
+        "en": "Total short-term and long-term debts of the company.",
         "tr": "Şirketin toplam kısa ve uzun vadeli borçları.",
         "de": "Gesamte kurzfristige und langfristige Verbindlichkeiten des Unternehmens.",
         "fr": "Dettes totales à court et long terme de l'entreprise.",
@@ -81,7 +81,7 @@
       "default": 500000,
       "businessContext": "Şirketin hissedarlara ait öz sermayesi.",
       "label_i18n": {
-        "en": "Toplam Öz Sermaye",
+        "en": "Total Equity",
         "tr": "Toplam Öz Sermaye",
         "de": "Gesamtes Eigenkapital",
         "fr": "Capitaux propres totaux",
@@ -89,7 +89,7 @@
         "ar": "إجمالي حقوق الملكية"
       },
       "businessContext_i18n": {
-        "en": "Şirketin hissedarlara ait öz sermayesi.",
+        "en": "Shareholders' equity of the company.",
         "tr": "Şirketin hissedarlara ait öz sermayesi.",
         "de": "Eigenkapital der Aktionäre.",
         "fr": "Capitaux propres appartenant aux actionnaires de l'entreprise.",
@@ -113,7 +113,7 @@
         "ar": "النقد وما في حكمه"
       },
       "businessContext_i18n": {
-        "en": "Kasadaki nakit ve likit varlıklar.",
+        "en": "Cash and liquid assets in the till.",
         "tr": "Kasadaki nakit ve likit varlıklar.",
         "de": "Bargeld und liquide Mittel in der Kasse.",
         "fr": "Trésorerie et actifs liquides en caisse.",

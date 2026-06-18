@@ -9,7 +9,7 @@
       "default": 8,
       "businessContext": "Vardiya süresi veya planlanan üretim süresi",
       "label_i18n": {
-        "en": "Planlanan Üretim Süresi",
+        "en": "Planned Production Time",
         "tr": "Planlanan Üretim Süresi",
         "de": "Geplante Produktionszeit",
         "fr": "Temps de production planifié",
@@ -17,7 +17,7 @@
         "ar": "وقت الإنتاج المخطط"
       },
       "businessContext_i18n": {
-        "en": "Vardiya süresi veya planlanan üretim süresi",
+        "en": "Shift duration or planned production time",
         "tr": "Vardiya süresi veya planlanan üretim süresi",
         "de": "Schichtdauer oder geplante Produktionszeit",
         "fr": "Durée du poste ou temps de production planifié",
@@ -33,7 +33,7 @@
       "default": 7.5,
       "businessContext": "Arızalar, duruşlar sonrası net üretim süresi",
       "label_i18n": {
-        "en": "Gerçekleşen Çalışma Süresi",
+        "en": "Actual Operating Time",
         "tr": "Gerçekleşen Çalışma Süresi",
         "de": "Tatsächliche Betriebszeit",
         "fr": "Temps de fonctionnement réel",
@@ -41,7 +41,7 @@
         "ar": "وقت التشغيل الفعلي"
       },
       "businessContext_i18n": {
-        "en": "Arızalar, duruşlar sonrası net üretim süresi",
+        "en": "Net production time after breakdowns and stops",
         "tr": "Arızalar, duruşlar sonrası net üretim süresi",
         "de": "Nettoproduktionszeit nach Störungen und Stillständen",
         "fr": "Temps de production net après pannes et arrêts",
@@ -57,7 +57,7 @@
       "default": 0.5,
       "businessContext": "Bir ürünün ideal üretim süresi",
       "label_i18n": {
-        "en": "İdeal Çevrim Süresi",
+        "en": "Ideal Cycle Time",
         "tr": "İdeal Çevrim Süresi",
         "de": "Ideale Zykluszeit",
         "fr": "Temps de cycle idéal",
@@ -65,7 +65,7 @@
         "ar": "وقت الدورة المثالي"
       },
       "businessContext_i18n": {
-        "en": "Bir ürünün ideal üretim süresi",
+        "en": "Ideal production time per unit",
         "tr": "Bir ürünün ideal üretim süresi",
         "de": "Ideale Produktionszeit eines Produkts",
         "fr": "Temps de production idéal d'un produit",
@@ -81,7 +81,7 @@
       "default": 800,
       "businessContext": "Toplam üretilen parça sayısı",
       "label_i18n": {
-        "en": "Toplam Üretim Adedi",
+        "en": "Total production quantity",
         "tr": "Toplam Üretim Adedi",
         "de": "Gesamtproduktionsmenge",
         "fr": "Quantité totale de production",
@@ -89,7 +89,7 @@
         "ar": "إجمالي عدد الوحدات المنتجة"
       },
       "businessContext_i18n": {
-        "en": "Toplam üretilen parça sayısı",
+        "en": "Total number of parts produced",
         "tr": "Toplam üretilen parça sayısı",
         "de": "Gesamtzahl der produzierten Teile",
         "fr": "Nombre total de pièces produites",
@@ -105,7 +105,7 @@
       "default": 760,
       "businessContext": "Kalite kontrolden geçen ürün sayısı",
       "label_i18n": {
-        "en": "Sağlam Ürün Adedi",
+        "en": "Good Units Count",
         "tr": "Sağlam Ürün Adedi",
         "de": "Anzahl einwandfreier Produkte",
         "fr": "Nombre de produits conformes",
@@ -113,7 +113,7 @@
         "ar": "عدد القطع السليمة"
       },
       "businessContext_i18n": {
-        "en": "Kalite kontrolden geçen ürün sayısı",
+        "en": "Number of units passing quality control",
         "tr": "Kalite kontrolden geçen ürün sayısı",
         "de": "Anzahl der qualitätsgeprüften Produkte",
         "fr": "Nombre de produits ayant passé le contrôle qualité",

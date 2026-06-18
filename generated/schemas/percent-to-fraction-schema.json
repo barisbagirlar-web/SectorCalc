@@ -9,7 +9,7 @@
       "default": 0,
       "businessContext": "Yüzde olarak girilen değer",
       "label_i18n": {
-        "en": "Yüzde Değeri",
+        "en": "Percentage Value",
         "tr": "Yüzde Değeri",
         "de": "Prozentwert",
         "fr": "Valeur en pourcentage",
@@ -17,7 +17,7 @@
         "ar": "قيمة النسبة المئوية"
       },
       "businessContext_i18n": {
-        "en": "Yüzde olarak girilen değer",
+        "en": "Value entered as percentage",
         "tr": "Yüzde olarak girilen değer",
         "de": "Als Prozentsatz eingegebener Wert",
         "fr": "Valeur saisie en pourcentage",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "Kesiri sadeleştirme seçeneği (1: Evet, 0: Hayır) – not: bu sürümde sadeleştirme uygulanmamaktadır",
       "label_i18n": {
-        "en": "Sadeleştir",
+        "en": "Simplify",
         "tr": "Sadeleştir",
         "de": "Vereinfachen",
         "fr": "Simplifier",
@@ -41,7 +41,7 @@
         "ar": "تبسيط"
       },
       "businessContext_i18n": {
-        "en": "Kesiri sadeleştirme seçeneği (1: Evet, 0: Hayır) – not: bu sürümde sadeleştirme uygulanmamaktadır",
+        "en": "Option to simplify the fraction (1: Yes, 0: No) – note: simplification is not applied in this version",
         "tr": "Kesiri sadeleştirme seçeneği (1: Evet, 0: Hayır) – not: bu sürümde sadeleştirme uygulanmamaktadır",
         "de": "Option zum Kürzen des Bruchs (1: Ja, 0: Nein) – Hinweis: In dieser Version wird keine Kürzung angewendet.",
         "fr": "Option de simplification de la fraction (1 : Oui, 0 : Non) – note : la simplification n'est pas appliquée dans cette version",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "Kesir tam sayılı olarak gösterilsin mi? (1: Evet, 0: Hayır)",
       "label_i18n": {
-        "en": "Tam Sayılı Kesir",
+        "en": "Mixed Number Fraction",
         "tr": "Tam Sayılı Kesir",
         "de": "Gemischter Bruch",
         "fr": "Fraction mixte",
@@ -65,7 +65,7 @@
         "ar": "كسر مختلط"
       },
       "businessContext_i18n": {
-        "en": "Kesir tam sayılı olarak gösterilsin mi? (1: Evet, 0: Hayır)",
+        "en": "Should the fraction be displayed as a mixed number? (1: Yes, 0: No)",
         "tr": "Kesir tam sayılı olarak gösterilsin mi? (1: Evet, 0: Hayır)",
         "de": "Soll der Bruch als gemischte Zahl angezeigt werden? (1: Ja, 0: Nein)",
         "fr": "Afficher la fraction sous forme de nombre mixte ? (1 : Oui, 0 : Non)",
@@ -81,7 +81,7 @@
       "default": 2,
       "businessContext": "Yüzde değerinin ondalık basamak sayısı",
       "label_i18n": {
-        "en": "Ondalık Basamak",
+        "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
         "fr": "Décimales",
@@ -89,7 +89,7 @@
         "ar": "المنازل العشرية"
       },
       "businessContext_i18n": {
-        "en": "Yüzde değerinin ondalık basamak sayısı",
+        "en": "Number of decimal places for the percentage value",
         "tr": "Yüzde değerinin ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen des Prozentwerts",
         "fr": "Nombre de décimales pour la valeur en pourcentage",

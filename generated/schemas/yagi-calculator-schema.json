@@ -17,7 +17,7 @@
         "ar": "التردد"
       },
       "businessContext_i18n": {
-        "en": "Çalışma frekansı (MHz)",
+        "en": "Operating Frequency (MHz)",
         "tr": "Çalışma frekansı (MHz)",
         "de": "Arbeitsfrequenz (MHz)",
         "fr": "Fréquence de fonctionnement (MHz)",
@@ -33,7 +33,7 @@
       "default": 3,
       "businessContext": "Reflektör ve sürücü dahil toplam eleman sayısı",
       "label_i18n": {
-        "en": "Eleman Sayısı",
+        "en": "Number of Elements",
         "tr": "Eleman Sayısı",
         "de": "Anzahl der Elemente",
         "fr": "Nombre d'éléments",
@@ -41,7 +41,7 @@
         "ar": "عدد العناصر"
       },
       "businessContext_i18n": {
-        "en": "Reflektör ve sürücü dahil toplam eleman sayısı",
+        "en": "Total number of elements including reflector and driver",
         "tr": "Reflektör ve sürücü dahil toplam eleman sayısı",
         "de": "Gesamtzahl der Elemente inklusive Reflektor und Treiber",
         "fr": "Nombre total d'éléments, réflecteur et driver inclus",
@@ -57,7 +57,7 @@
       "default": 0.95,
       "businessContext": "Kabuk etkisi düzeltme katsayısı, genelde 0.95",
       "label_i18n": {
-        "en": "Hız Faktörü",
+        "en": "Velocity factor",
         "tr": "Hız Faktörü",
         "de": "Geschwindigkeitsfaktor",
         "fr": "Facteur de vitesse",
@@ -65,7 +65,7 @@
         "ar": "عامل السرعة"
       },
       "businessContext_i18n": {
-        "en": "Kabuk etkisi düzeltme katsayısı, genelde 0.95",
+        "en": "Shell effect correction factor, typically 0.95",
         "tr": "Kabuk etkisi düzeltme katsayısı, genelde 0.95",
         "de": "Korrekturfaktor für Hauteffekt, normalerweise 0,95",
         "fr": "Coefficient de correction d'effet de peau, généralement 0,95",
@@ -81,7 +81,7 @@
       "default": 0.2,
       "businessContext": "Elemanlar arası dalga boyu oranı (ör. 0.2λ)",
       "label_i18n": {
-        "en": "Aralık Katsayısı",
+        "en": "Spacing factor",
         "tr": "Aralık Katsayısı",
         "de": "Abstandsfaktor",
         "fr": "Coefficient d'espacement",
@@ -89,7 +89,7 @@
         "ar": "معامل التباعد"
       },
       "businessContext_i18n": {
-        "en": "Elemanlar arası dalga boyu oranı (ör. 0.2λ)",
+        "en": "Wavelength ratio between elements (e.g., 0.2λ)",
         "tr": "Elemanlar arası dalga boyu oranı (ör. 0.2λ)",
         "de": "Wellenlängenverhältnis zwischen Elementen (z. B. 0,2λ)",
         "fr": "Rapport de longueur d'onde entre éléments (ex. 0,2λ)",

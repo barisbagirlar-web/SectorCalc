@@ -9,7 +9,7 @@
       "default": 1000,
       "businessContext": "Dönem boyunca tüketilen toplam enerji miktarı (kWh)",
       "label_i18n": {
-        "en": "Toplam Enerji Tüketimi",
+        "en": "Total Energy Consumption",
         "tr": "Toplam Enerji Tüketimi",
         "de": "Gesamtenergieverbrauch",
         "fr": "Consommation totale d'énergie",
@@ -17,7 +17,7 @@
         "ar": "إجمالي استهلاك الطاقة"
       },
       "businessContext_i18n": {
-        "en": "Dönem boyunca tüketilen toplam enerji miktarı (kWh)",
+        "en": "Total energy consumed during the period (kWh)",
         "tr": "Dönem boyunca tüketilen toplam enerji miktarı (kWh)",
         "de": "Gesamtenergiemenge, die im Zeitraum verbraucht wurde (kWh)",
         "fr": "Quantité totale d'énergie consommée pendant la période (kWh)",
@@ -41,7 +41,7 @@
         "ar": "ذروة الطلب"
       },
       "businessContext_i18n": {
-        "en": "Aynı dönemde ölçülen en yüksek güç talebi (kW)",
+        "en": "Highest power demand measured in the same period (kW)",
         "tr": "Aynı dönemde ölçülen en yüksek güç talebi (kW)",
         "de": "Höchster im gleichen Zeitraum gemessener Leistungsbedarf (kW)",
         "fr": "Demande de puissance la plus élevée mesurée sur la même période (kW)",
@@ -57,7 +57,7 @@
       "default": 30,
       "businessContext": "Ölçüm periyodunun gün cinsinden süresi",
       "label_i18n": {
-        "en": "Gün Sayısı",
+        "en": "Number of Days",
         "tr": "Gün Sayısı",
         "de": "Anzahl der Tage",
         "fr": "Nombre de jours",
@@ -65,7 +65,7 @@
         "ar": "عدد الأيام"
       },
       "businessContext_i18n": {
-        "en": "Ölçüm periyodunun gün cinsinden süresi",
+        "en": "Duration of the measurement period in days",
         "tr": "Ölçüm periyodunun gün cinsinden süresi",
         "de": "Dauer des Messzeitraums in Tagen",
         "fr": "Durée de la période de mesure en jours",
@@ -81,7 +81,7 @@
       "default": 24,
       "businessContext": "Tesisin günlük ortalama çalışma süresi",
       "label_i18n": {
-        "en": "Günlük Çalışma Saati",
+        "en": "Daily Working Hours",
         "tr": "Günlük Çalışma Saati",
         "de": "Günlük Çalışma Saati",
         "fr": "Heures de travail par jour",
@@ -89,7 +89,7 @@
         "ar": "ساعات العمل اليومية"
       },
       "businessContext_i18n": {
-        "en": "Tesisin günlük ortalama çalışma süresi",
+        "en": "Average daily operating time of the system",
         "tr": "Tesisin günlük ortalama çalışma süresi",
         "de": "Durchschnittliche tägliche Betriebszeit der Anlage",
         "fr": "Temps de fonctionnement quotidien moyen de l'installation",

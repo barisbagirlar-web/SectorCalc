@@ -9,7 +9,7 @@
       "default": 12,
       "businessContext": "Dönüştürülecek toplam ay miktarı",
       "label_i18n": {
-        "en": "Ay Sayısı",
+        "en": "Number of months",
         "tr": "Ay Sayısı",
         "de": "Monatsanzahl",
         "fr": "Nombre de mois",
@@ -17,7 +17,7 @@
         "ar": "عدد الأشهر"
       },
       "businessContext_i18n": {
-        "en": "Dönüştürülecek toplam ay miktarı",
+        "en": "Total months to convert",
         "tr": "Dönüştürülecek toplam ay miktarı",
         "de": "Gesamte Monatsmenge zur Umrechnung",
         "fr": "Quantité totale de mois à convertir",
@@ -33,7 +33,7 @@
       "default": 12,
       "businessContext": "Bir yıldaki ay sayısı (standart 12)",
       "label_i18n": {
-        "en": "Yıldaki Ay Sayısı",
+        "en": "Number of months in a year",
         "tr": "Yıldaki Ay Sayısı",
         "de": "Monate pro Jahr",
         "fr": "Nombre de mois dans une année",
@@ -41,7 +41,7 @@
         "ar": "عدد الأشهر في السنة"
       },
       "businessContext_i18n": {
-        "en": "Bir yıldaki ay sayısı (standart 12)",
+        "en": "Number of months in a year (standard 12)",
         "tr": "Bir yıldaki ay sayısı (standart 12)",
         "de": "Anzahl der Monate in einem Jahr (Standard 12)",
         "fr": "Nombre de mois dans une année (standard 12)",
@@ -57,7 +57,7 @@
       "default": 2,
       "businessContext": "Sonuçtaki ondalık basamak sayısı",
       "label_i18n": {
-        "en": "Hassasiyet (Ondalık Basamak)",
+        "en": "Precision (Decimal Places)",
         "tr": "Hassasiyet (Ondalık Basamak)",
         "de": "Genauigkeit (Dezimalstellen)",
         "fr": "Précision (décimales)",
@@ -65,7 +65,7 @@
         "ar": "الدقة (المنازل العشرية)"
       },
       "businessContext_i18n": {
-        "en": "Sonuçtaki ondalık basamak sayısı",
+        "en": "Number of decimal places in the result",
         "tr": "Sonuçtaki ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen im Ergebnis",
         "fr": "Nombre de décimales du résultat",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "1: kalan ay göster, 0: gösterme",
       "label_i18n": {
-        "en": "Kalan Ay Göster",
+        "en": "Show Remaining Months",
         "tr": "Kalan Ay Göster",
         "de": "Restmonate anzeigen",
         "fr": "Afficher les mois restants",
@@ -89,7 +89,7 @@
         "ar": "إظهار الأشهر المتبقية"
       },
       "businessContext_i18n": {
-        "en": "1: kalan ay göster, 0: gösterme",
+        "en": "1: show remaining months, 0: do not show",
         "tr": "1: kalan ay göster, 0: gösterme",
         "de": "1: Restmonate anzeigen, 0: nicht anzeigen",
         "fr": "Afficher le mois lunaire : 1 = oui, 0 = non",

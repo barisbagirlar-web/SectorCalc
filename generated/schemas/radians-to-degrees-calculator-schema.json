@@ -9,7 +9,7 @@
       "default": 0,
       "businessContext": "Dönüştürülecek açının radyan cinsinden değeri.",
       "label_i18n": {
-        "en": "Radian Değeri",
+        "en": "Radian Value",
         "tr": "Radyan Değeri",
         "de": "Radiantwert",
         "fr": "Valeur en radians",
@@ -17,7 +17,7 @@
         "ar": "قيمة الراديان"
       },
       "businessContext_i18n": {
-        "en": "Dönüştürülecek açının radyan cinsinden değeri.",
+        "en": "Value of the angle to convert in radians.",
         "tr": "Dönüştürülecek açının radyan cinsinden değeri.",
         "de": "Wert des umzurechnenden Winkels in Radiant.",
         "fr": "Valeur de l'angle à convertir en radians.",
@@ -33,7 +33,7 @@
       "default": 3.141592653589793,
       "businessContext": "Hassasiyet veya test için özelleştirilmiş pi sayısı. Standart Math.PI kullanmak için varsayılan bırakın.",
       "label_i18n": {
-        "en": "Özel Pi Değeri",
+        "en": "Custom Pi Value",
         "tr": "Özel Pi Değeri",
         "de": "Benutzerdefinierter Pi-Wert",
         "fr": "Valeur personnalisée de Pi",
@@ -41,7 +41,7 @@
         "ar": "قيمة باي المخصصة"
       },
       "businessContext_i18n": {
-        "en": "Hassasiyet veya test için özelleştirilmiş pi sayısı. Standart Math.PI kullanmak için varsayılan bırakın.",
+        "en": "Customized pi for precision or testing. Leave default to use standard Math.PI.",
         "tr": "Hassasiyet veya test için özelleştirilmiş pi sayısı. Standart Math.PI kullanmak için varsayılan bırakın.",
         "de": "Angepasster Pi-Wert für Präzision oder Tests. Für Standard Math.PI leer lassen.",
         "fr": "Valeur de Pi personnalisée pour la précision ou les tests. Laissez par défaut pour utiliser Math.PI standard.",
@@ -57,7 +57,7 @@
       "default": 1,
       "businessContext": "Dönüşüm sonucuna uygulanacak çarpan katsayısı (örn. kalibrasyon).",
       "label_i18n": {
-        "en": "Ölçek Çarpanı",
+        "en": "Scale factor",
         "tr": "Ölçek Çarpanı",
         "de": "Skalierungsfaktor",
         "fr": "Facteur d'échelle",
@@ -65,7 +65,7 @@
         "ar": "عامل القياس"
       },
       "businessContext_i18n": {
-        "en": "Dönüşüm sonucuna uygulanacak çarpan katsayısı (örn. kalibrasyon).",
+        "en": "Multiplier coefficient to apply to the conversion result (e.g., calibration).",
         "tr": "Dönüşüm sonucuna uygulanacak çarpan katsayısı (örn. kalibrasyon).",
         "de": "Multiplikationsfaktor, der auf das Umrechnungsergebnis angewendet wird (z. B. Kalibrierung).",
         "fr": "Coefficient multiplicateur à appliquer au résultat de la conversion (ex. calibration).",
@@ -89,7 +89,7 @@
         "ar": "الإزاحة (بالدرجات)"
       },
       "businessContext_i18n": {
-        "en": "Dönüşüm sonucuna eklenecek sabit derece ofseti.",
+        "en": "Constant degree offset to add to the conversion result.",
         "tr": "Dönüşüm sonucuna eklenecek sabit derece ofseti.",
         "de": "Konstanter Grad-Offset, der zum Umrechnungsergebnis addiert wird.",
         "fr": "Décalage fixe en degrés à ajouter au résultat de la conversion.",
@@ -105,7 +105,7 @@
       "default": 2,
       "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı.",
       "label_i18n": {
-        "en": "Ondalık Hassasiyet",
+        "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
@@ -113,7 +113,7 @@
         "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
-        "en": "Sonuçta gösterilecek ondalık basamak sayısı.",
+        "en": "Number of decimal places to display in the result.",
         "tr": "Sonuçta gösterilecek ondalık basamak sayısı.",
         "de": "Anzahl der im Ergebnis anzuzeigenden Dezimalstellen.",
         "fr": "Nombre de décimales à afficher dans le résultat.",

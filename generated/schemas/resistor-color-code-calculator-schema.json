@@ -17,7 +17,7 @@
         "ar": "1. الشريط (رقم)"
       },
       "businessContext_i18n": {
-        "en": "Direnç değerinin ilk anlamlı basamağı (0-9, standartlarda genellikle 1-9).",
+        "en": "First significant digit of resistance value (0-9, usually 1-9 in standards).",
         "tr": "Direnç değerinin ilk anlamlı basamağı (0-9, standartlarda genellikle 1-9).",
         "de": "Erste signifikante Ziffer des Widerstandswerts (0-9, in Normen meist 1-9).",
         "fr": "Premier chiffre significatif de la valeur de résistance (0-9, généralement 1-9 dans les normes).",
@@ -41,7 +41,7 @@
         "ar": "2. الشريط (رقم)"
       },
       "businessContext_i18n": {
-        "en": "Direnç değerinin ikinci anlamlı basamağı (0-9).",
+        "en": "Second significant digit of resistance value (0-9).",
         "tr": "Direnç değerinin ikinci anlamlı basamağı (0-9).",
         "de": "Zweite signifikante Ziffer des Widerstandswerts (0-9).",
         "fr": "Deuxième chiffre significatif de la valeur de résistance (0-9).",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "Çarpan olarak 10ʼun üssü (0: ×1, 1: ×10, 2: ×100, …).",
       "label_i18n": {
-        "en": "Çarpan (10ˣ)",
+        "en": "Multiplier (10ˣ)",
         "tr": "Çarpan (10ˣ)",
         "de": "Multiplikator (10ˣ)",
         "fr": "Multiplicateur (10ˣ)",
@@ -65,7 +65,7 @@
         "ar": "المضاعف (10ˣ)"
       },
       "businessContext_i18n": {
-        "en": "Çarpan olarak 10ʼun üssü (0: ×1, 1: ×10, 2: ×100, …).",
+        "en": "Exponent of 10 as multiplier (0: ×1, 1: ×10, 2: ×100, …).",
         "tr": "Çarpan olarak 10'un üssü (0: ×1, 1: ×10, 2: ×100, …).",
         "de": "Exponent des Multiplikators 10 (0: ×1, 1: ×10, 2: ×100, …).",
         "fr": "Exposant de 10 comme multiplicateur (0: ×1, 1: ×10, 2: ×100, …).",
@@ -89,7 +89,7 @@
         "ar": "التسامح (%)"
       },
       "businessContext_i18n": {
-        "en": "Yüzde cinsinden tolerans (örn. 5 → ±%5, 10 → ±%10, 20 → ±%20).",
+        "en": "Tolerance in percent (e.g., 5 → ±5%, 10 → ±10%, 20 → ±20%).",
         "tr": "Yüzde cinsinden tolerans (örn. 5 → ±%5, 10 → ±%10, 20 → ±%20).",
         "de": "Toleranz in Prozent (z. B. 5 → ±5%, 10 → ±10%, 20 → ±20%).",
         "fr": "Tolérance en pourcentage (ex. 5 → ±5 %, 10 → ±10 %, 20 → ±20 %).",

@@ -17,7 +17,7 @@
         "ar": "ثانية"
       },
       "businessContext_i18n": {
-        "en": "Ölçülen saniye cinsinden süre",
+        "en": "Measured time in seconds",
         "tr": "Ölçülen saniye cinsinden süre",
         "de": "Gemessene Zeit in Sekunden",
         "fr": "Temps mesuré en secondes",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "Çarpımsal kalibrasyon faktörü (ör. saat kayması için 1.0002)",
       "label_i18n": {
-        "en": "Ölçek Faktörü",
+        "en": "Scale Factor",
         "tr": "Ölçek Faktörü",
         "de": "Skalierungsfaktor",
         "fr": "Facteur d'échelle",
@@ -41,7 +41,7 @@
         "ar": "عامل المقياس"
       },
       "businessContext_i18n": {
-        "en": "Çarpımsal kalibrasyon faktörü (ör. saat kayması için 1.0002)",
+        "en": "Multiplicative calibration factor (e.g., 1.0002 for clock drift)",
         "tr": "Çarpımsal kalibrasyon faktörü (ör. saat kayması için 1.0002)",
         "de": "Multiplikativer Kalibrierungsfaktor (z. B. 1,0002 für Zeitabweichung)",
         "fr": "Facteur de calibration multiplicatif (ex. 1.0002 pour une dérive horaire)",
@@ -65,7 +65,7 @@
         "ar": "الإزاحة (بالثواني)"
       },
       "businessContext_i18n": {
-        "en": "Toplamsal kalibrasyon ofseti (sıfır hatası)",
+        "en": "Additive calibration offset (zero error)",
         "tr": "Toplamsal kalibrasyon ofseti (sıfır hatası)",
         "de": "Additiver Kalibrierungsoffset (Nullpunktfehler)",
         "fr": "Offset de calibration additif (erreur de zéro)",
@@ -89,7 +89,7 @@
         "ar": "دقة التقريب"
       },
       "businessContext_i18n": {
-        "en": "Çıktı dakika için ondalık basamak sayısı",
+        "en": "Number of decimal places for output in minutes",
         "tr": "Çıktı dakika için ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen für die Ausgabe in Minuten",
         "fr": "Nombre de décimales pour la sortie en minutes",
@@ -105,7 +105,7 @@
       "default": 1,
       "businessContext": "Yuvarlama yöntemi: 0=tabana, 1=yuvarla, 2=tavana",
       "label_i18n": {
-        "en": "Yuvarlama Yöntemi",
+        "en": "Rounding method",
         "tr": "Yuvarlama Yöntemi",
         "de": "Rundungsmethode",
         "fr": "Méthode d'arrondi",
@@ -113,7 +113,7 @@
         "ar": "طريقة التقريب"
       },
       "businessContext_i18n": {
-        "en": "Yuvarlama yöntemi: 0=tabana, 1=yuvarla, 2=tavana",
+        "en": "Rounding method: 0=floor, 1=round, 2=ceil",
         "tr": "Yuvarlama yöntemi: 0=tabana, 1=yuvarla, 2=tavana",
         "de": "Rundungsmethode: 0=abrunden, 1=runden, 2=aufrunden",
         "fr": "Méthode d'arrondi : 0=plancher, 1=arrondi, 2=plafond",
@@ -129,7 +129,7 @@
       "default": 20,
       "businessContext": "Termal kompanzasyon için ortam sıcaklığı",
       "label_i18n": {
-        "en": "Sıcaklık",
+        "en": "Temperature",
         "tr": "Sıcaklık",
         "de": "Temperatur",
         "fr": "Température",
@@ -137,7 +137,7 @@
         "ar": "درجة الحرارة"
       },
       "businessContext_i18n": {
-        "en": "Termal kompanzasyon için ortam sıcaklığı",
+        "en": "Ambient temperature for thermal compensation",
         "tr": "Termal kompanzasyon için ortam sıcaklığı",
         "de": "Umgebungstemperatur für thermische Kompensation",
         "fr": "Température ambiante pour compensation thermique",
@@ -153,7 +153,7 @@
       "default": 0,
       "businessContext": "°C başına zamanlama hatası sıcaklık katsayısı",
       "label_i18n": {
-        "en": "Sıcaklık Katsayısı",
+        "en": "Temperature coefficient",
         "tr": "Sıcaklık Katsayısı",
         "de": "Temperaturkoeffizient",
         "fr": "Coefficient de température",
@@ -161,7 +161,7 @@
         "ar": "معامل درجة الحرارة"
       },
       "businessContext_i18n": {
-        "en": "°C başına zamanlama hatası sıcaklık katsayısı",
+        "en": "Timing error temperature coefficient per °C",
         "tr": "°C başına zamanlama hatası sıcaklık katsayısı",
         "de": "Temperaturkoeffizient des Zeitfehlers pro °C",
         "fr": "Erreur de synchronisation par °C due au coefficient de température",
@@ -185,7 +185,7 @@
         "ar": "الرطوبة"
       },
       "businessContext_i18n": {
-        "en": "Bağıl nem (tamlama için dahil edilmiştir, genelde ihmal edilir)",
+        "en": "Relative humidity (included for completeness, usually neglected)",
         "tr": "Bağıl nem (tamlama için dahil edilmiştir, genelde ihmal edilir)",
         "de": "Relative Feuchte (zur Vervollständigung enthalten, normalerweise vernachlässigt)",
         "fr": "Humidité relative (incluse pour complétude, généralement négligée)",

@@ -9,7 +9,7 @@
       "default": 1000,
       "businessContext": "İşlenecek toplam Unicode karakter sayısı",
       "label_i18n": {
-        "en": "Karakter Sayısı",
+        "en": "Character Count",
         "tr": "Karakter Sayısı",
         "de": "Zeichenanzahl",
         "fr": "Nombre de caractères",
@@ -17,7 +17,7 @@
         "ar": "عدد الأحرف"
       },
       "businessContext_i18n": {
-        "en": "İşlenecek toplam Unicode karakter sayısı",
+        "en": "Total number of Unicode characters to process",
         "tr": "İşlenecek toplam Unicode karakter sayısı",
         "de": "Gesamtzahl der zu verarbeitenden Unicode-Zeichen",
         "fr": "Nombre total de caractères Unicode à traiter",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "1: UTF-8 (ortalama 2 byte), 2: UTF-16 (2 byte), 3: UTF-32 (4 byte)",
       "label_i18n": {
-        "en": "Kodlama Seçimi",
+        "en": "Encoding Selection",
         "tr": "Kodlama Seçimi",
         "de": "Kodierungsauswahl",
         "fr": "Choix d'encodage",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "Her bir metin öbeği için ek protokol/metadata byte",
       "label_i18n": {
-        "en": "Ek Yük",
+        "en": "Additional Load",
         "tr": "Ek Yük",
         "de": "Overhead",
         "fr": "Surcharge",
@@ -65,7 +65,7 @@
         "ar": "الحمل الإضافي"
       },
       "businessContext_i18n": {
-        "en": "Her bir metin öbeği için ek protokol/metadata byte",
+        "en": "Extra protocol/metadata bytes per text chunk",
         "tr": "Her bir metin öbeği için ek protokol/metadata byte",
         "de": "Zusätzliche Protokoll-/Metadaten-Bytes pro Textblock",
         "fr": "Octets de protocole/métadonnées supplémentaires par bloc de texte",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "Kaç ayrı metin öbeği (satır/parça) olduğu",
       "label_i18n": {
-        "en": "Öbek Sayısı",
+        "en": "Number of Chunks",
         "tr": "Öbek Sayısı",
         "de": "Anzahl der Blöcke",
         "fr": "Nombre de blocs",
@@ -89,7 +89,7 @@
         "ar": "عدد الكتل"
       },
       "businessContext_i18n": {
-        "en": "Kaç ayrı metin öbeği (satır/parça) olduğu",
+        "en": "Number of separate text chunks (lines/parts)",
         "tr": "Kaç ayrı metin öbeği (satır/parça) olduğu",
         "de": "Anzahl der separaten Textblöcke (Zeilen/Teile)",
         "fr": "Nombre de blocs de texte distincts (lignes/segments)",

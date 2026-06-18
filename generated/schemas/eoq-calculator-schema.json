@@ -9,7 +9,7 @@
       "default": 10000,
       "businessContext": "Yıllık satılan veya kullanılan ürün miktarı",
       "label_i18n": {
-        "en": "Yıllık Talep",
+        "en": "Annual Demand",
         "tr": "Yıllık Talep",
         "de": "Jährliche Nachfrage",
         "fr": "Demande annuelle",
@@ -17,7 +17,7 @@
         "ar": "الطلب السنوي"
       },
       "businessContext_i18n": {
-        "en": "Yıllık satılan veya kullanılan ürün miktarı",
+        "en": "Annual quantity of products sold or used",
         "tr": "Yıllık satılan veya kullanılan ürün miktarı",
         "de": "Jährlich verkaufte oder verwendete Produktmenge",
         "fr": "Quantité de produits vendus ou utilisés par an.",
@@ -33,7 +33,7 @@
       "default": 100,
       "businessContext": "Bir sipariş verildiğinde oluşan sabit maliyet (nakliye, işleme vb.)",
       "label_i18n": {
-        "en": "Sipariş Maliyeti",
+        "en": "Ordering Cost",
         "tr": "Sipariş Maliyeti",
         "de": "Bestellkosten",
         "fr": "Coût de commande",
@@ -41,7 +41,7 @@
         "ar": "تكلفة الطلب"
       },
       "businessContext_i18n": {
-        "en": "Bir sipariş verildiğinde oluşan sabit maliyet (nakliye, işleme vb.)",
+        "en": "Fixed cost per order (shipping, processing, etc.)",
         "tr": "Bir sipariş verildiğinde oluşan sabit maliyet (nakliye, işleme vb.)",
         "de": "Fixe Kosten pro Bestellung (Transport, Bearbeitung usw.)",
         "fr": "Coût fixe engagé lors de la passation d'une commande (transport, traitement, etc.)",
@@ -65,7 +65,7 @@
         "ar": "تكلفة ثابتة تتكبدها كل طلب شراء (مثل: إدارية، فحص، تجهيز النقل)."
       },
       "businessContext_i18n": {
-        "en": "Bir birim stoğun yıllık depolama, sigorta, bozulma vb. maliyeti",
+        "en": "Annual cost per unit for storage, insurance, spoilage, etc.",
         "tr": "Bir birim stoğun yıllık depolama, sigorta, bozulma vb. maliyeti",
         "de": "Jährliche Kosten für Lagerung, Versicherung, Verderb usw. pro Lagereinheit",
         "fr": "Coût annuel de stockage, assurance, détérioration, etc. par unité de stock.",
@@ -89,7 +89,7 @@
         "ar": "تكلفة الوحدة"
       },
       "businessContext_i18n": {
-        "en": "Birim başına satın alma maliyeti (toplam maliyete eklenir, isteğe bağlı)",
+        "en": "Purchase cost per unit (added to total cost, optional)",
         "tr": "Birim başına satın alma maliyeti (toplam maliyete eklenir, isteğe bağlı)",
         "de": "Beschaffungskosten pro Einheit (wird zu Gesamtkosten addiert, optional)",
         "fr": "Coût d'achat unitaire (ajouté au coût total, facultatif)",
@@ -105,7 +105,7 @@
       "default": 5,
       "businessContext": "Siparişin teslim edilme süresi (yeniden sipariş noktası için)",
       "label_i18n": {
-        "en": "Tedarik Süresi",
+        "en": "Lead Time",
         "tr": "Tedarik Süresi",
         "de": "Lieferzeit",
         "fr": "Délai d'approvisionnement",
@@ -113,7 +113,7 @@
         "ar": "تكلفة الوحدة (سعر الشراء)"
       },
       "businessContext_i18n": {
-        "en": "Siparişin teslim edilme süresi (yeniden sipariş noktası için)",
+        "en": "Time for order delivery (for reorder point)",
         "tr": "Siparişin teslim edilme süresi (yeniden sipariş noktası için)",
         "de": "Zeit von der Bestellung bis zur Lieferung (für den Meldebestand)",
         "fr": "Délai de livraison de la commande (pour le point de commande)",
@@ -129,7 +129,7 @@
       "default": 250,
       "businessContext": "Yıllık çalışma gün sayısı (talebin dağılımı için)",
       "label_i18n": {
-        "en": "Yıllık Çalışma Günü",
+        "en": "Annual Working Days",
         "tr": "Yıllık Çalışma Günü",
         "de": "Jährliche Arbeitstage",
         "fr": "Jours ouvrables par an",
@@ -137,7 +137,7 @@
         "ar": "متوسط الوقت من تقديم الطلب إلى الاستلام. ضروري لحساب مخزون الأمان ونقطة إعادة الطلب."
       },
       "businessContext_i18n": {
-        "en": "Yıllık çalışma gün sayısı (talebin dağılımı için)",
+        "en": "Annual working days (for demand distribution)",
         "tr": "Yıllık çalışma gün sayısı (talebin dağılımı için)",
         "de": "Anzahl der Arbeitstage pro Jahr (für die Nachfrageverteilung)",
         "fr": "Nombre de jours ouvrables par an (pour la répartition de la demande)",

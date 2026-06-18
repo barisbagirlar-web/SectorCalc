@@ -9,7 +9,7 @@
       "default": 500,
       "businessContext": "Sağlık planının aylık brüt prim tutarı",
       "label_i18n": {
-        "en": "Aylık Prim",
+        "en": "Monthly Premium",
         "tr": "Aylık Prim",
         "de": "Monatlicher Beitrag",
         "fr": "Prime mensuelle",
@@ -17,7 +17,7 @@
         "ar": "القسط الشهري"
       },
       "businessContext_i18n": {
-        "en": "Sağlık planının aylık brüt prim tutarı",
+        "en": "Monthly gross premium amount for the health plan",
         "tr": "Sağlık planının aylık brüt prim tutarı",
         "de": "Monatlicher Bruttobeitrag des Krankenversicherungsplans",
         "fr": "Montant brut de la prime mensuelle du régime de santé",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "COBRA kapsamındaki kişi sayısı",
       "label_i18n": {
-        "en": "Yararlanıcı Sayısı",
+        "en": "Number of Beneficiaries",
         "tr": "Yararlanıcı Sayısı",
         "de": "Anzahl der Begünstigten",
         "fr": "Nombre de bénéficiaires",
@@ -41,7 +41,7 @@
         "ar": "عدد المستفيدين"
       },
       "businessContext_i18n": {
-        "en": "COBRA kapsamındaki kişi sayısı",
+        "en": "Number of individuals covered under COBRA",
         "tr": "COBRA kapsamındaki kişi sayısı",
         "de": "Anzahl der Personen, die unter COBRA fallen",
         "fr": "Nombre de personnes couvertes par COBRA",
@@ -57,7 +57,7 @@
       "default": 2,
       "businessContext": "Yasal COBRA yönetim ücreti oranı",
       "label_i18n": {
-        "en": "Yönetim Ücreti Oranı",
+        "en": "Administration Fee Rate",
         "tr": "Yönetim Ücreti Oranı",
         "de": "Verwaltungsgebührensatz",
         "fr": "Taux de frais de gestion",
@@ -65,7 +65,7 @@
         "ar": "نسبة رسوم الإدارة"
       },
       "businessContext_i18n": {
-        "en": "Yasal COBRA yönetim ücreti oranı",
+        "en": "Statutory COBRA administration fee rate",
         "tr": "Yasal COBRA yönetim ücreti oranı",
         "de": "Gesetzlicher COBRA-Verwaltungsgebührensatz",
         "fr": "Taux légal des frais de gestion COBRA",
@@ -81,7 +81,7 @@
       "default": 18,
       "businessContext": "COBRA kapsamının devam edeceği ay sayısı",
       "label_i18n": {
-        "en": "Kapsam Süresi",
+        "en": "Coverage Duration",
         "tr": "Kapsam Süresi",
         "de": "Versicherungsdauer",
         "fr": "Durée de couverture",
@@ -89,7 +89,7 @@
         "ar": "مدة التغطية"
       },
       "businessContext_i18n": {
-        "en": "COBRA kapsamının devam edeceği ay sayısı",
+        "en": "Number of months COBRA coverage will continue",
         "tr": "COBRA kapsamının devam edeceği ay sayısı",
         "de": "Anzahl der Monate, in denen der COBRA-Schutz fortgesetzt wird",
         "fr": "Nombre de mois de maintien de la couverture COBRA",
@@ -105,7 +105,7 @@
       "default": 0,
       "businessContext": "İşverenin COBRA maliyetine katkı yüzdesi (varsa)",
       "label_i18n": {
-        "en": "İşveren Katkı Oranı",
+        "en": "Employer Contribution Rate",
         "tr": "İşveren Katkı Oranı",
         "de": "Arbeitgeberbeitragssatz",
         "fr": "Taux de contribution de l'employeur",
@@ -113,7 +113,7 @@
         "ar": "نسبة مساهمة صاحب العمل"
       },
       "businessContext_i18n": {
-        "en": "İşverenin COBRA maliyetine katkı yüzdesi (varsa)",
+        "en": "Percentage of COBRA cost contributed by employer (if any)",
         "tr": "İşverenin COBRA maliyetine katkı yüzdesi (varsa)",
         "de": "Prozentsatz des Arbeitgeberbeitrags zu den COBRA-Kosten (falls vorhanden)",
         "fr": "Pourcentage de contribution de l'employeur au coût COBRA (le cas échéant)",

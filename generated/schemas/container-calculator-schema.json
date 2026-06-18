@@ -17,7 +17,7 @@
         "ar": "العدد الإجمالي"
       },
       "businessContext_i18n": {
-        "en": "Sevk edilecek toplam birim sayısı",
+        "en": "Total number of units to be shipped",
         "tr": "Sevk edilecek toplam birim sayısı",
         "de": "Gesamtzahl der zu versendenden Einheiten",
         "fr": "Nombre total d'unités à expédier",
@@ -33,7 +33,7 @@
       "default": 50,
       "businessContext": "Bir palete sığan birim sayısı",
       "label_i18n": {
-        "en": "Palet Başına Adet",
+        "en": "Units per Pallet",
         "tr": "Palet Başına Adet",
         "de": "Einheiten pro Palette",
         "fr": "Unités par palette",
@@ -41,7 +41,7 @@
         "ar": "عدد الوحدات لكل منصة نقالة"
       },
       "businessContext_i18n": {
-        "en": "Bir palete sığan birim sayısı",
+        "en": "Number of units that fit on one pallet",
         "tr": "Bir palete sığan birim sayısı",
         "de": "Anzahl der Einheiten, die auf eine Palette passen",
         "fr": "Nombre d'unités pouvant tenir sur une palette",
@@ -57,7 +57,7 @@
       "default": 20,
       "businessContext": "Bir konteynere yüklenebilen palet sayısı (ör: 20 palet = TEU)",
       "label_i18n": {
-        "en": "Konteyner Başına Palet",
+        "en": "Pallets per Container",
         "tr": "Konteyner Başına Palet",
         "de": "Paletten pro Container",
         "fr": "Palettes par conteneur",
@@ -65,7 +65,7 @@
         "ar": "عدد المنصات النقالة لكل حاوية"
       },
       "businessContext_i18n": {
-        "en": "Bir konteynere yüklenebilen palet sayısı (ör: 20 palet = TEU)",
+        "en": "Number of pallets that can be loaded into one container (e.g., 20 pallets = TEU)",
         "tr": "Bir konteynere yüklenebilen palet sayısı (ör: 20 palet = TEU)",
         "de": "Anzahl der Paletten, die in einen Container geladen werden können (z.B. 20 Paletten = TEU)",
         "fr": "Nombre de palettes pouvant être chargées dans un conteneur (ex: 20 palettes = EVP)",
@@ -81,7 +81,7 @@
       "default": 5,
       "businessContext": "Hasar, kayıp vb. için ek yedek yüzdesi",
       "label_i18n": {
-        "en": "Yedek Oranı (%)",
+        "en": "Spare Rate (%)",
         "tr": "Yedek Oranı (%)",
         "de": "Reservequote (%)",
         "fr": "Taux de réserve (%)",
@@ -89,7 +89,7 @@
         "ar": "نسبة الاحتياطي (%)"
       },
       "businessContext_i18n": {
-        "en": "Hasar, kayıp vb. için ek yedek yüzdesi",
+        "en": "Additional spare percentage for damage, loss, etc.",
         "tr": "Hasar, kayıp vb. için ek yedek yüzdesi",
         "de": "Zusätzlicher Prozentsatz für Ausschuss, Verlust usw.",
         "fr": "Pourcentage de réserve supplémentaire pour dommages, pertes, etc.",

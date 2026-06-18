@@ -9,7 +9,7 @@
       "default": 60,
       "businessContext": "Kronometre ile ölçülen çevrim süresi",
       "label_i18n": {
-        "en": "Gözlemlenen Süre (saniye)",
+        "en": "Observed Time (seconds)",
         "tr": "Gözlemlenen Süre (saniye)",
         "de": "Beobachtete Zeit (Sekunden)",
         "fr": "Temps observé (secondes)",
@@ -17,7 +17,7 @@
         "ar": "الوقت الملاحظ (ثانية)"
       },
       "businessContext_i18n": {
-        "en": "Kronometre ile ölçülen çevrim süresi",
+        "en": "Cycle time measured with stopwatch",
         "tr": "Kronometre ile ölçülen çevrim süresi",
         "de": "Mit Stoppuhr gemessene Zykluszeit",
         "fr": "Temps de cycle mesuré au chronomètre",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "Ölçülen parça veya operasyon sayısı",
       "label_i18n": {
-        "en": "Tekrar Sayısı",
+        "en": "Number of Repetitions",
         "tr": "Tekrar Sayısı",
         "de": "Anzahl der Wiederholungen",
         "fr": "Nombre de répétitions",
@@ -41,7 +41,7 @@
         "ar": "عدد التكرارات"
       },
       "businessContext_i18n": {
-        "en": "Ölçülen parça veya operasyon sayısı",
+        "en": "Number of parts or operations measured",
         "tr": "Ölçülen parça veya operasyon sayısı",
         "de": "Anzahl der gemessenen Teile oder Vorgänge",
         "fr": "Nombre de pièces ou d'opérations mesurées",
@@ -65,7 +65,7 @@
         "ar": "تقدير الإيقاع (%)"
       },
       "businessContext_i18n": {
-        "en": "İşçinin normal tempoya göre performans yüzdesi (100 = normal)",
+        "en": "Worker performance percentage relative to normal pace (100 = normal)",
         "tr": "İşçinin normal tempoya göre performans yüzdesi (100 = normal)",
         "de": "Prozentsatz der Leistung des Arbeiters im Vergleich zum normalen Tempo (100 = normal)",
         "fr": "Pourcentage de performance du travailleur par rapport à l'allure normale (100 = normal)",
@@ -89,7 +89,7 @@
         "ar": "البدل (%)"
       },
       "businessContext_i18n": {
-        "en": "Dinlenme, gecikme ve kişisel ihtiyaç payı",
+        "en": "Allowance for rest, delays, and personal needs",
         "tr": "Dinlenme, gecikme ve kişisel ihtiyaç payı",
         "de": "Zuschlag für Erholung, Verzögerung und persönliche Bedürfnisse",
         "fr": "Allocation pour repos, retard et besoins personnels",

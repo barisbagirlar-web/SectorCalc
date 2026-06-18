@@ -9,7 +9,7 @@
       "default": 1000,
       "businessContext": "Taşınacak yükün kütlesi (kg)",
       "label_i18n": {
-        "en": "Yük Kütlesi",
+        "en": "Load Mass",
         "tr": "Yük Kütlesi",
         "de": "Lastmasse",
         "fr": "Masse de la charge",
@@ -17,7 +17,7 @@
         "ar": "كتلة الحمولة"
       },
       "businessContext_i18n": {
-        "en": "Taşınacak yükün kütlesi (kg)",
+        "en": "Mass of load to be transported (kg)",
         "tr": "Taşınacak yükün kütlesi (kg)",
         "de": "Masse der zu transportierenden Last (kg)",
         "fr": "Masse de la charge à transporter (kg)",
@@ -33,7 +33,7 @@
       "default": 5,
       "businessContext": "Yolun eğim yüzdesi",
       "label_i18n": {
-        "en": "Eğim (%)",
+        "en": "Slope (%)",
         "tr": "Eğim (%)",
         "de": "Steigung (%)",
         "fr": "Pente (%)",
@@ -41,7 +41,7 @@
         "ar": "الانحدار (%)"
       },
       "businessContext_i18n": {
-        "en": "Yolun eğim yüzdesi",
+        "en": "Road slope percentage",
         "tr": "Yolun eğim yüzdesi",
         "de": "Steigungsprozentsatz der Straße",
         "fr": "Pourcentage de pente de la route",
@@ -57,7 +57,7 @@
       "default": 0.02,
       "businessContext": "Yol yüzeyi yuvarlanma direnci katsayısı (ör: 0.01-0.05)",
       "label_i18n": {
-        "en": "Yuvarlanma Direnci Katsayısı",
+        "en": "Rolling Resistance Coefficient",
         "tr": "Yuvarlanma Direnci Katsayısı",
         "de": "Rollwiderstandskoeffizient",
         "fr": "Coefficient de résistance au roulement",
@@ -65,7 +65,7 @@
         "ar": "معامل مقاومة التدحرج"
       },
       "businessContext_i18n": {
-        "en": "Yol yüzeyi yuvarlanma direnci katsayısı (ör: 0.01-0.05)",
+        "en": "Road surface rolling resistance coefficient (e.g., 0.01-0.05)",
         "tr": "Yol yüzeyi yuvarlanma direnci katsayısı (ör: 0.01-0.05)",
         "de": "Rollwiderstandskoeffizient der Straßenoberfläche (z. B. 0,01-0,05)",
         "fr": "Coefficient de résistance au roulement de la surface de la route (ex: 0,01-0,05)",
@@ -81,7 +81,7 @@
       "default": 1.5,
       "businessContext": "Hedef hareket hızı (m/s)",
       "label_i18n": {
-        "en": "İstenen Hız",
+        "en": "Desired Speed",
         "tr": "İstenen Hız",
         "de": "Gewünschte Geschwindigkeit",
         "fr": "Vitesse souhaitée",
@@ -89,7 +89,7 @@
         "ar": "السرعة المطلوبة"
       },
       "businessContext_i18n": {
-        "en": "Hedef hareket hızı (m/s)",
+        "en": "Target movement speed (m/s)",
         "tr": "Hedef hareket hızı (m/s)",
         "de": "Zielbewegungsgeschwindigkeit (m/s)",
         "fr": "Vitesse de déplacement cible (m/s)",
@@ -105,7 +105,7 @@
       "default": 1000,
       "businessContext": "Bir atın sürekli çekebileceği ortalama kuvvet (N)",
       "label_i18n": {
-        "en": "At Başına Çekme Kuvveti",
+        "en": "Traction Force per Horse",
         "tr": "At Başına Çekme Kuvveti",
         "de": "Zugkraft pro Pferd",
         "fr": "Force de traction par cheval",
@@ -113,7 +113,7 @@
         "ar": "قوة السحب لكل حصان"
       },
       "businessContext_i18n": {
-        "en": "Bir atın sürekli çekebileceği ortalama kuvvet (N)",
+        "en": "Average continuous pulling force of one horse (N)",
         "tr": "Bir atın sürekli çekebileceği ortalama kuvvet (N)",
         "de": "Durchschnittliche Kraft, die ein Pferd kontinuierlich ziehen kann (N)",
         "fr": "Force moyenne qu'un cheval peut tirer en continu (N)",
@@ -137,7 +137,7 @@
         "ar": "الكفاءة"
       },
       "businessContext_i18n": {
-        "en": "Koşum ve aktarma sistemi verimliliği (%)",
+        "en": "Harness and transmission system efficiency (%)",
         "tr": "Koşum ve aktarma sistemi verimliliği (%)",
         "de": "Effizienz von Geschirr und Antriebssystem (%)",
         "fr": "Efficacité du harnais et du système de transmission (%)",

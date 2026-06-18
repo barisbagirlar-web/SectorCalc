@@ -9,7 +9,7 @@
       "default": 1,
       "businessContext": "Torusun merkezinden tüp merkezine olan mesafe",
       "label_i18n": {
-        "en": "Büyük Yarıçap (R)",
+        "en": "Major Radius (R)",
         "tr": "Sonuç gösteriminde istenen ondalık hane sayısı.",
         "de": "Großer Radius (R)",
         "fr": "Grand rayon (R)",
@@ -17,7 +17,7 @@
         "ar": "نصف القطر الكبير (R)"
       },
       "businessContext_i18n": {
-        "en": "Torusun merkezinden tüp merkezine olan mesafe",
+        "en": "Distance from torus center to tube center",
         "tr": "Kalibrasyon Ofseti (psi)",
         "de": "Abstand vom Torusmittelpunkt zur Rohrmitte",
         "fr": "Distance du centre du tore au centre du tube",
@@ -33,7 +33,7 @@
       "default": 0.5,
       "businessContext": "Tüpün yarıçapı",
       "label_i18n": {
-        "en": "Küçük Yarıçap (r)",
+        "en": "Minor Radius (r)",
         "tr": "Sıfır ayarı veya kaydırma düzeltmesi için eklenen ofset.",
         "de": "Kleiner Radius (r)",
         "fr": "Petit rayon (r)",
@@ -41,7 +41,7 @@
         "ar": "نصف القطر الصغير (r)"
       },
       "businessContext_i18n": {
-        "en": "Tüpün yarıçapı",
+        "en": "Radius of the tube",
         "tr": "Büyük Yarıçap (R)",
         "de": "Radius des Rohrs",
         "fr": "Rayon du tube",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "Ağırlık hesabı için opsiyonel; 0 ise atlanır",
       "label_i18n": {
-        "en": "Malzeme Yoğunluğu",
+        "en": "Material Density",
         "tr": "Malzeme Yoğunluğu",
         "de": "Materialdichte",
         "fr": "Densité du matériau",
@@ -65,7 +65,7 @@
         "ar": "كثافة المادة"
       },
       "businessContext_i18n": {
-        "en": "Ağırlık hesabı için opsiyonel; 0 ise atlanır",
+        "en": "Optional for weight calculation; 0 to skip",
         "tr": "Ağırlık hesabı için opsiyonel; 0 ise atlanır",
         "de": "Optional für Gewichtsberechnung; bei 0 wird es übersprungen",
         "fr": "Optionnel pour le calcul du poids ; ignoré si 0",
@@ -81,7 +81,7 @@
       "default": 2,
       "businessContext": "Sonuçlarda gösterilecek ondalık basamak sayısı",
       "label_i18n": {
-        "en": "Ondalık Basamak",
+        "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
         "fr": "Décimales",
@@ -89,7 +89,7 @@
         "ar": "المنازل العشرية"
       },
       "businessContext_i18n": {
-        "en": "Sonuçlarda gösterilecek ondalık basamak sayısı",
+        "en": "Number of decimal places to show in results",
         "tr": "Sonuçlarda gösterilecek ondalık basamak sayısı",
         "de": "Anzahl der in den Ergebnissen anzuzeigenden Dezimalstellen",
         "fr": "Nombre de décimales à afficher dans les résultats",

@@ -9,7 +9,7 @@
       "default": 4,
       "businessContext": "Bebeğin mevcut ağırlığı.",
       "label_i18n": {
-        "en": "Bebeğin Ağırlığı (kg)",
+        "en": "Baby's Weight (kg)",
         "tr": "Bebeğin Ağırlığı (kg)",
         "de": "Babygewicht (kg)",
         "fr": "Poids du bébé (kg)",
@@ -17,7 +17,7 @@
         "ar": "وزن الطفل (كجم)"
       },
       "businessContext_i18n": {
-        "en": "Bebeğin mevcut ağırlığı.",
+        "en": "Baby's current weight.",
         "tr": "Bebeğin mevcut ağırlığı.",
         "de": "Aktuelles Gewicht des Babys.",
         "fr": "Poids actuel du bébé.",
@@ -33,7 +33,7 @@
       "default": 8,
       "businessContext": "Bebeğin günde kaç kez beslendiği.",
       "label_i18n": {
-        "en": "Günlük Öğün Sayısı",
+        "en": "Number of Daily Meals",
         "tr": "Günlük Öğün Sayısı",
         "de": "Anzahl der Mahlzeiten pro Tag",
         "fr": "Nombre de repas par jour",
@@ -41,7 +41,7 @@
         "ar": "عدد الوجبات اليومية"
       },
       "businessContext_i18n": {
-        "en": "Bebeğin günde kaç kez beslendiği.",
+        "en": "How many times a day the baby is fed.",
         "tr": "Bebeğin günde kaç kez beslendiği.",
         "de": "Wie oft das Baby pro Tag gefüttert wird.",
         "fr": "Combien de fois par jour le bébé est nourri.",
@@ -57,7 +57,7 @@
       "default": 150,
       "businessContext": "Bebeğin kg başına günlük ihtiyaç duyduğu hazır mama miktarı (genellikle 150-200 ml).",
       "label_i18n": {
-        "en": "Günlük Sıvı İhtiyacı (ml/kg)",
+        "en": "Daily Fluid Requirement (ml/kg)",
         "tr": "Günlük Sıvı İhtiyacı (ml/kg)",
         "de": "Täglicher Flüssigkeitsbedarf (ml/kg)",
         "fr": "Besoin hydrique quotidien (ml/kg)",
@@ -65,7 +65,7 @@
         "ar": "الاحتياج اليومي للسوائل (مل/كجم)"
       },
       "businessContext_i18n": {
-        "en": "Bebeğin kg başına günlük ihtiyaç duyduğu hazır mama miktarı (genellikle 150-200 ml).",
+        "en": "Daily formula amount needed per kg of baby weight (usually 150-200 ml)",
         "tr": "Bebeğin kg başına günlük ihtiyaç duyduğu hazır mama miktarı (genellikle 150-200 ml).",
         "de": "Tägliche benötigte Fertignahrungsmenge pro kg Babygewicht (normalerweise 150-200 ml).",
         "fr": "Quantité de lait maternisé prêt à l'emploi nécessaire par kg et par jour (généralement 150-200 ml).",
@@ -81,7 +81,7 @@
       "default": 60,
       "businessContext": "Bir ölçek mama tozu için eklenmesi gereken su miktarı (üretici talimatı).",
       "label_i18n": {
-        "en": "Bir Ölçek İçin Su Miktarı",
+        "en": "Water amount per scoop",
         "tr": "Bir Ölçek İçin Su Miktarı",
         "de": "Wassermenge pro Messlöffel",
         "fr": "Quantité d'eau par mesure",
@@ -89,7 +89,7 @@
         "ar": "كمية الماء لكل مغرفة"
       },
       "businessContext_i18n": {
-        "en": "Bir ölçek mama tozu için eklenmesi gereken su miktarı (üretici talimatı).",
+        "en": "Water amount to add per scoop of formula powder (manufacturer's instruction)",
         "tr": "Bir ölçek mama tozu için eklenmesi gereken su miktarı (üretici talimatı).",
         "de": "Wassermenge, die pro Messlöffel Pulver hinzugefügt werden muss (Herstellerangabe).",
         "fr": "Quantité d'eau à ajouter par mesure de poudre (selon les instructions du fabricant).",
@@ -105,7 +105,7 @@
       "default": 4.5,
       "businessContext": "Bir ölçek mama tozunun ağırlığı (genelde 4-5g).",
       "label_i18n": {
-        "en": "Bir Ölçek Toz Ağırlığı",
+        "en": "Weight per scoop of powder",
         "tr": "Bir Ölçek Toz Ağırlığı",
         "de": "Gewicht eines Messlöffels Pulver",
         "fr": "Poids d'une mesure de poudre",
@@ -113,7 +113,7 @@
         "ar": "وزن المغرفة الواحدة من المسحوق"
       },
       "businessContext_i18n": {
-        "en": "Bir ölçek mama tozunun ağırlığı (genelde 4-5g).",
+        "en": "Weight of one scoop of formula powder (usually 4-5g)",
         "tr": "Bir ölçek mama tozunun ağırlığı (genelde 4-5g).",
         "de": "Gewicht eines Messlöffels Pulver (normalerweise 4-5 g).",
         "fr": "Poids d'une mesure de poudre de lait maternisé (généralement 4-5 g).",

@@ -9,7 +9,7 @@
       "default": 250,
       "businessContext": "20 dakikalık maksimum eforda üretilen ortalama güç (watt)",
       "label_i18n": {
-        "en": "20 Dakika Ortalama Güç",
+        "en": "20-Minute Average Power",
         "tr": "20 Dakika Ortalama Güç",
         "de": "20-Minuten-Durchschnittsleistung",
         "fr": "Puissance moyenne sur 20 minutes",
@@ -17,7 +17,7 @@
         "ar": "متوسط القدرة لمدة 20 دقيقة"
       },
       "businessContext_i18n": {
-        "en": "20 dakikalık maksimum eforda üretilen ortalama güç (watt)",
+        "en": "Average power produced during 20-minute maximal effort (watts)",
         "tr": "20 dakikalık maksimum eforda üretilen ortalama güç (watt)",
         "de": "Durchschnittliche Leistung (Watt) bei maximaler Anstrengung über 20 Minuten",
         "fr": "Puissance moyenne produite lors d'un effort maximal de 20 minutes (watts)",
@@ -33,7 +33,7 @@
       "default": 70,
       "businessContext": "Sürücünün ağırlığı (kilogram)",
       "label_i18n": {
-        "en": "Sürücü Ağırlığı",
+        "en": "Rider Weight",
         "tr": "Sürücü Ağırlığı",
         "de": "Fahrergewicht",
         "fr": "Poids du cycliste",
@@ -41,7 +41,7 @@
         "ar": "وزن السائق"
       },
       "businessContext_i18n": {
-        "en": "Sürücünün ağırlığı (kilogram)",
+        "en": "Rider's weight (kilograms)",
         "tr": "Sürücünün ağırlığı (kilogram)",
         "de": "Gewicht des Fahrers in Kilogramm",
         "fr": "Poids du cycliste (kilogrammes)",
@@ -57,7 +57,7 @@
       "default": 0.95,
       "businessContext": "FTP hesaplamak için kullanılan katsayı (standart 20 dk testi için 0.95)",
       "label_i18n": {
-        "en": "Ayarlama Faktörü",
+        "en": "Adjustment Factor",
         "tr": "Ayarlama Faktörü",
         "de": "Anpassungsfaktor",
         "fr": "Facteur d'ajustement",
@@ -65,7 +65,7 @@
         "ar": "عامل التعديل"
       },
       "businessContext_i18n": {
-        "en": "FTP hesaplamak için kullanılan katsayı (standart 20 dk testi için 0.95)",
+        "en": "Coefficient used to calculate FTP (0.95 for standard 20-minute test)",
         "tr": "FTP hesaplamak için kullanılan katsayı (standart 20 dk testi için 0.95)",
         "de": "Koeffizient zur Berechnung des FTP (Standard 20-Minuten-Test: 0,95)",
         "fr": "Coefficient utilisé pour calculer la FTP (0,95 pour un test standard de 20 min)",
@@ -81,7 +81,7 @@
       "default": 20,
       "businessContext": "Testin süresi (dakika), referans amaçlıdır, hesaplamayı etkilemez",
       "label_i18n": {
-        "en": "Test Süresi",
+        "en": "Test Duration",
         "tr": "Test Süresi",
         "de": "Testdauer",
         "fr": "Durée du test",
@@ -89,7 +89,7 @@
         "ar": "مدة الاختبار"
       },
       "businessContext_i18n": {
-        "en": "Testin süresi (dakika), referans amaçlıdır, hesaplamayı etkilemez",
+        "en": "Test duration (minutes), for reference only, does not affect calculation",
         "tr": "Testin süresi (dakika), referans amaçlıdır, hesaplamayı etkilemez",
         "de": "Testdauer in Minuten, dient als Referenz, beeinflusst die Berechnung nicht",
         "fr": "Durée du test (minutes), à titre indicatif, n'affecte pas le calcul",

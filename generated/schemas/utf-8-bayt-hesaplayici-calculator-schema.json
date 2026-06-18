@@ -9,7 +9,7 @@
       "default": 0,
       "businessContext": "1 bayt ile kodlanan karakterler (U+0000–U+007F)",
       "label_i18n": {
-        "en": "ASCII Karakter Sayısı (1 bayt)",
+        "en": "Number of ASCII characters (1 byte)",
         "tr": "ASCII Karakter Sayısı (1 bayt)",
         "de": "ASCII-Zeichenanzahl (1 Byte)",
         "fr": "Nombre de caractères ASCII (1 octet)",
@@ -33,7 +33,7 @@
       "default": 0,
       "businessContext": "2 bayt ile kodlanan karakterler (U+0080–U+07FF)",
       "label_i18n": {
-        "en": "2 Baytlık Karakter Sayısı",
+        "en": "Number of 2-byte characters",
         "tr": "2 Baytlık Karakter Sayısı",
         "de": "2-Byte-Zeichenanzahl",
         "fr": "Nombre de caractères sur 2 octets",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "3 bayt ile kodlanan karakterler (U+0800–U+FFFF)",
       "label_i18n": {
-        "en": "3 Baytlık Karakter Sayısı",
+        "en": "Number of 3-byte characters",
         "tr": "3 Baytlık Karakter Sayısı",
         "de": "3-Byte-Zeichenanzahl",
         "fr": "Nombre de caractères sur 3 octets",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "4 bayt ile kodlanan karakterler (U+10000–U+10FFFF)",
       "label_i18n": {
-        "en": "4 Baytlık Karakter Sayısı",
+        "en": "Number of 4-byte characters",
         "tr": "4 Baytlık Karakter Sayısı",
         "de": "4-Byte-Zeichenanzahl",
         "fr": "Nombre de caractères sur 4 octets",
@@ -105,7 +105,7 @@
       "default": 0,
       "businessContext": "UTF-8 BOM (EF BB BF) 3 bayt ekler",
       "label_i18n": {
-        "en": "BOM Dahil mi? (0=Hayır, 1=Evet)",
+        "en": "Include BOM? (0=No, 1=Yes)",
         "tr": "BOM Dahil mi? (0=Hayır, 1=Evet)",
         "de": "BOM enthalten? (0=Nein, 1=Ja)",
         "fr": "Inclure BOM ? (0=Non, 1=Oui)",

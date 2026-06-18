@@ -9,7 +9,7 @@
       "default": 1,
       "businessContext": "Durgun kütle",
       "label_i18n": {
-        "en": "Kütle (m₀)",
+        "en": "Mass (m₀)",
         "tr": "Kütle (m₀)",
         "de": "Masse (m₀)",
         "fr": "Masse (m₀)",
@@ -17,7 +17,7 @@
         "ar": "الكتلة (m₀)"
       },
       "businessContext_i18n": {
-        "en": "Durgun kütle",
+        "en": "Rest mass",
         "tr": "Durgun kütle",
         "de": "Ruhemasse",
         "fr": "Masse au repos",
@@ -33,7 +33,7 @@
       "default": 299792458,
       "businessContext": "Vakum ışık hızı, ISO 80000-7:2019 sabiti",
       "label_i18n": {
-        "en": "Işık Hızı (c)",
+        "en": "Speed of Light (c)",
         "tr": "Işık Hızı (c)",
         "de": "Lichtgeschwindigkeit (c)",
         "fr": "Vitesse de la lumière (c)",
@@ -41,7 +41,7 @@
         "ar": "سرعة الضوء (c)"
       },
       "businessContext_i18n": {
-        "en": "Vakum ışık hızı, ISO 80000-7:2019 sabiti",
+        "en": "Vacuum speed of light, ISO 80000-7:2019 constant",
         "tr": "Vakum ışık hızı, ISO 80000-7:2019 sabiti",
         "de": "Vakuum-Lichtgeschwindigkeit, ISO 80000-7:2019 Konstante",
         "fr": "Vitesse de la lumière dans le vide, constante ISO 80000-7:2019",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "Cismin hızı, c'den küçük olmalıdır",
       "label_i18n": {
-        "en": "Hız (v)",
+        "en": "Velocity (v)",
         "tr": "Hız (v)",
         "de": "Geschwindigkeit (v)",
         "fr": "Vitesse (v)",
@@ -65,7 +65,7 @@
         "ar": "السرعة (v)"
       },
       "businessContext_i18n": {
-        "en": "Cismin hızı, c'den küçük olmalıdır",
+        "en": "Velocity of the object, must be less than c",
         "tr": "Cismin hızı, c'den küçük olmalıdır",
         "de": "Geschwindigkeit des Objekts, muss kleiner als c sein",
         "fr": "Vitesse de l'objet, doit être inférieure à c",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "Enerji çıktısı için birim dönüşüm çarpanı (1: Joule, 6.2415e12: MeV, 1e-6: MJ)",
       "label_i18n": {
-        "en": "Enerji Birim Çarpanı",
+        "en": "Energy Unit Multiplier",
         "tr": "Enerji Birim Çarpanı",
         "de": "Energieeinheiten-Multiplikator",
         "fr": "Facteur d'unité d'énergie",
@@ -89,7 +89,7 @@
         "ar": "معامل تحويل وحدة الطاقة"
       },
       "businessContext_i18n": {
-        "en": "Enerji çıktısı için birim dönüşüm çarpanı (1: Joule, 6.2415e12: MeV, 1e-6: MJ)",
+        "en": "Unit conversion factor for energy output (1: Joule, 6.2415e12: MeV, 1e-6: MJ)",
         "tr": "Enerji çıktısı için birim dönüşüm çarpanı (1: Joule, 6.2415e12: MeV, 1e-6: MJ)",
         "de": "Umrechnungsfaktor für Energieausgabe (1: Joule, 6,2415e12: MeV, 1e-6: MJ)",
         "fr": "Facteur de conversion d'unité pour la sortie d'énergie (1 : Joule, 6,2415e12 : MeV, 1e-6 : MJ)",

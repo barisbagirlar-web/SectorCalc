@@ -9,7 +9,7 @@
       "default": 3.5,
       "businessContext": "Çekirdek uyku süresinin saat kısmı.",
       "label_i18n": {
-        "en": "Çekirdek Uyku (saat)",
+        "en": "Core Sleep (hours)",
         "tr": "Çekirdek Uyku (saat)",
         "de": "Kernschlaf (Stunden)",
         "fr": "Sommeil de base (heures)",
@@ -17,7 +17,7 @@
         "ar": "النوم الأساسي (ساعة)"
       },
       "businessContext_i18n": {
-        "en": "Çekirdek uyku süresinin saat kısmı.",
+        "en": "Hour part of core sleep duration.",
         "tr": "Çekirdek uyku süresinin saat kısmı.",
         "de": "Stundenanteil der Kernschlafdauer.",
         "fr": "Partie heures de la durée du sommeil de base.",
@@ -33,7 +33,7 @@
       "default": 0,
       "businessContext": "Çekirdek uyku süresinin dakika kısmı.",
       "label_i18n": {
-        "en": "Çekirdek Uyku (dakika)",
+        "en": "Core Sleep (minutes)",
         "tr": "Çekirdek Uyku (dakika)",
         "de": "Kernschlaf (Minuten)",
         "fr": "Sommeil de base (minutes)",
@@ -41,7 +41,7 @@
         "ar": "النوم الأساسي (دقيقة)"
       },
       "businessContext_i18n": {
-        "en": "Çekirdek uyku süresinin dakika kısmı.",
+        "en": "Minute part of core sleep duration.",
         "tr": "Çekirdek uyku süresinin dakika kısmı.",
         "de": "Minutenanteil der Kernschlafdauer.",
         "fr": "Partie minutes de la durée du sommeil de base.",
@@ -57,7 +57,7 @@
       "default": 3,
       "businessContext": "Günlük şekerleme sayısı.",
       "label_i18n": {
-        "en": "Şekerleme Sayısı",
+        "en": "Number of Naps",
         "tr": "Şekerleme Sayısı",
         "de": "Anzahl Nickerchen",
         "fr": "Nombre de siestes",
@@ -65,7 +65,7 @@
         "ar": "عدد القيلولات"
       },
       "businessContext_i18n": {
-        "en": "Günlük şekerleme sayısı.",
+        "en": "Number of daily naps.",
         "tr": "Günlük şekerleme sayısı.",
         "de": "Tägliche Anzahl Nickerchen.",
         "fr": "Nombre de siestes par jour.",
@@ -81,7 +81,7 @@
       "default": 20,
       "businessContext": "Her bir şekerlemenin dakika cinsinden süresi.",
       "label_i18n": {
-        "en": "Şekerleme Süresi (dakika)",
+        "en": "Nap Duration (minutes)",
         "tr": "Şekerleme Süresi (dakika)",
         "de": "Nickerchen-Dauer (Minuten)",
         "fr": "Durée de la sieste (minutes)",
@@ -89,7 +89,7 @@
         "ar": "مدة القيلولة (دقيقة)"
       },
       "businessContext_i18n": {
-        "en": "Her bir şekerlemenin dakika cinsinden süresi.",
+        "en": "Duration of each nap in minutes.",
         "tr": "Her bir şekerlemenin dakika cinsinden süresi.",
         "de": "Dauer jedes Nickerchens in Minuten.",
         "fr": "Durée de chaque bonbon en minutes.",

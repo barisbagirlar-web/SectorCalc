@@ -9,7 +9,7 @@
       "default": 6,
       "businessContext": "Atomdaki proton sayısı (atom numarası)",
       "label_i18n": {
-        "en": "Proton Sayısı",
+        "en": "Number of Protons",
         "tr": "Proton Sayısı",
         "de": "Anzahl der Protonen",
         "fr": "Nombre de protons",
@@ -17,7 +17,7 @@
         "ar": "عدد البروتونات"
       },
       "businessContext_i18n": {
-        "en": "Atomdaki proton sayısı (atom numarası)",
+        "en": "Number of protons in the atom (atomic number)",
         "tr": "Atomdaki proton sayısı (atom numarası)",
         "de": "Anzahl der Protonen im Atom (Ordnungszahl)",
         "fr": "Nombre de protons dans l'atome (numéro atomique)",
@@ -33,7 +33,7 @@
       "default": 6,
       "businessContext": "Atomdaki nötron sayısı",
       "label_i18n": {
-        "en": "Nötron Sayısı",
+        "en": "Number of Neutrons",
         "tr": "Nötron Sayısı",
         "de": "Anzahl der Neutronen",
         "fr": "Nombre de neutrons",
@@ -41,7 +41,7 @@
         "ar": "عدد النيوترونات"
       },
       "businessContext_i18n": {
-        "en": "Atomdaki nötron sayısı",
+        "en": "Number of neutrons in the atom",
         "tr": "Atomdaki nötron sayısı",
         "de": "Anzahl der Neutronen im Atom",
         "fr": "Nombre de neutrons dans l'atome",
@@ -57,7 +57,7 @@
       "default": 6,
       "businessContext": "Atomdaki elektron sayısı (nötr atomda proton sayısına eşit)",
       "label_i18n": {
-        "en": "Elektron Sayısı",
+        "en": "Number of electrons",
         "tr": "Elektron Sayısı",
         "de": "Anzahl der Elektronen",
         "fr": "Nombre d'électrons",
@@ -65,7 +65,7 @@
         "ar": "عدد الإلكترونات"
       },
       "businessContext_i18n": {
-        "en": "Atomdaki elektron sayısı (nötr atomda proton sayısına eşit)",
+        "en": "Number of electrons in the atom (equal to number of protons in a neutral atom)",
         "tr": "Atomdaki elektron sayısı (nötr atomda proton sayısına eşit)",
         "de": "Anzahl der Elektronen im Atom (bei neutralem Atom gleich der Protonenzahl)",
         "fr": "Nombre d'électrons dans l'atome (égal au nombre de protons pour un atome neutre)",
@@ -81,7 +81,7 @@
       "default": 1.007276,
       "businessContext": "Bir protonun atomik kütle birimi cinsinden kütlesi",
       "label_i18n": {
-        "en": "Proton Kütlesi",
+        "en": "Proton mass",
         "tr": "Proton Kütlesi",
         "de": "Masse des Protons",
         "fr": "Masse du proton",
@@ -89,7 +89,7 @@
         "ar": "كتلة البروتون"
       },
       "businessContext_i18n": {
-        "en": "Bir protonun atomik kütle birimi cinsinden kütlesi",
+        "en": "Mass of a proton in atomic mass units",
         "tr": "Bir protonun atomik kütle birimi cinsinden kütlesi",
         "de": "Masse eines Protons in atomaren Masseneinheiten",
         "fr": "Masse d'un proton en unités de masse atomique",
@@ -105,7 +105,7 @@
       "default": 1.008665,
       "businessContext": "Bir nötronun atomik kütle birimi cinsinden kütlesi",
       "label_i18n": {
-        "en": "Nötron Kütlesi",
+        "en": "Neutron mass",
         "tr": "Nötron Kütlesi",
         "de": "Masse des Neutrons",
         "fr": "Masse du neutron",
@@ -113,7 +113,7 @@
         "ar": "كتلة النيوترون"
       },
       "businessContext_i18n": {
-        "en": "Bir nötronun atomik kütle birimi cinsinden kütlesi",
+        "en": "Mass of a neutron in atomic mass units",
         "tr": "Bir nötronun atomik kütle birimi cinsinden kütlesi",
         "de": "Masse eines Neutrons in atomaren Masseneinheiten",
         "fr": "Masse d'un neutron en unités de masse atomique",
@@ -129,7 +129,7 @@
       "default": 0.00054858,
       "businessContext": "Bir elektronun atomik kütle birimi cinsinden kütlesi",
       "label_i18n": {
-        "en": "Elektron Kütlesi",
+        "en": "Electron mass",
         "tr": "Elektron Kütlesi",
         "de": "Elektronenmasse",
         "fr": "Masse de l'électron",
@@ -137,7 +137,7 @@
         "ar": "كتلة الإلكترون"
       },
       "businessContext_i18n": {
-        "en": "Bir elektronun atomik kütle birimi cinsinden kütlesi",
+        "en": "Mass of an electron in atomic mass units",
         "tr": "Bir elektronun atomik kütle birimi cinsinden kütlesi",
         "de": "Masse eines Elektrons in atomaren Masseneinheiten",
         "fr": "Masse d'un électron en unités de masse atomique",
@@ -153,7 +153,7 @@
       "default": 0,
       "businessContext": "Çekirdeğin bağlanma enerjisi (isteğe bağlı, varsa kütle düzeltmesi için)",
       "label_i18n": {
-        "en": "Bağlanma Enerjisi",
+        "en": "Binding energy",
         "tr": "Bağlanma Enerjisi",
         "de": "Bindungsenergie",
         "fr": "Énergie de liaison",
@@ -161,7 +161,7 @@
         "ar": "طاقة الارتباط"
       },
       "businessContext_i18n": {
-        "en": "Çekirdeğin bağlanma enerjisi (isteğe bağlı, varsa kütle düzeltmesi için)",
+        "en": "Binding energy of the nucleus (optional, for mass correction if available)",
         "tr": "Çekirdeğin bağlanma enerjisi (isteğe bağlı, varsa kütle düzeltmesi için)",
         "de": "Bindungsenergie des Kerns (optional, für Massenkorrektur falls vorhanden)",
         "fr": "Énergie de liaison du noyau (optionnel, pour correction de masse si disponible)",

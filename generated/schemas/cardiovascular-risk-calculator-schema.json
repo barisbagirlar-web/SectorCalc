@@ -9,7 +9,7 @@
       "default": 50,
       "businessContext": "Hastanın yaşı (yıl)",
       "label_i18n": {
-        "en": "Yaş",
+        "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
         "fr": "Âge",
@@ -17,7 +17,7 @@
         "ar": "العمر"
       },
       "businessContext_i18n": {
-        "en": "Hastanın yaşı (yıl)",
+        "en": "Patient age (years)",
         "tr": "Hastanın yaşı (yıl)",
         "de": "Alter des Patienten (Jahre)",
         "fr": "Âge du patient (années)",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "Cinsiyet (1: Erkek, 0: Kadın)",
       "label_i18n": {
-        "en": "Cinsiyet (Erkek:1, Kadın:0)",
+        "en": "Gender (Male:1, Female:0)",
         "tr": "Cinsiyet (Erkek:1, Kadın:0)",
         "de": "Geschlecht (Männlich:1, Weiblich:0)",
         "fr": "Sexe (Homme:1, Femme:0)",
@@ -41,7 +41,7 @@
         "ar": "الجنس (ذكر:1، أنثى:0)"
       },
       "businessContext_i18n": {
-        "en": "Cinsiyet (1: Erkek, 0: Kadın)",
+        "en": "Gender (1: Male, 0: Female)",
         "tr": "Cinsiyet (1: Erkek, 0: Kadın)",
         "de": "Geschlecht (1: Männlich, 0: Weiblich)",
         "fr": "Sexe (1: Homme, 0: Femme)",
@@ -105,7 +105,7 @@
       "default": 120,
       "businessContext": "Sistolik kan basıncı (mmHg)",
       "label_i18n": {
-        "en": "Sistolik Kan Basıncı",
+        "en": "Systolic Blood Pressure",
         "tr": "Sistolik Kan Basıncı",
         "de": "Systolischer Blutdruck",
         "fr": "Pression artérielle systolique",
@@ -113,7 +113,7 @@
         "ar": "ضغط الدم الانقباضي"
       },
       "businessContext_i18n": {
-        "en": "Sistolik kan basıncı (mmHg)",
+        "en": "Systolic Blood Pressure (mmHg)",
         "tr": "Sistolik kan basıncı (mmHg)",
         "de": "Systolischer Blutdruck (mmHg)",
         "fr": "Pression artérielle systolique (mmHg)",
@@ -129,7 +129,7 @@
       "default": 0,
       "businessContext": "Sigara içme durumu (1: Evet, 0: Hayır)",
       "label_i18n": {
-        "en": "Sigara (Evet:1, Hayır:0)",
+        "en": "Smoking (Yes:1, No:0)",
         "tr": "Sigara (Evet:1, Hayır:0)",
         "de": "Rauchen (Ja:1, Nein:0)",
         "fr": "Tabagisme (Oui:1, Non:0)",
@@ -137,7 +137,7 @@
         "ar": "التدخين (نعم:1، لا:0)"
       },
       "businessContext_i18n": {
-        "en": "Sigara içme durumu (1: Evet, 0: Hayır)",
+        "en": "Smoking status (1: Yes, 0: No)",
         "tr": "Sigara içme durumu (1: Evet, 0: Hayır)",
         "de": "Raucherstatus (1: Ja, 0: Nein)",
         "fr": "Statut tabagique (1: Oui, 0: Non)",
@@ -161,7 +161,7 @@
         "ar": "السكري (موجود:1، غير موجود:0)"
       },
       "businessContext_i18n": {
-        "en": "Diyabet varlığı (1: Var, 0: Yok)",
+        "en": "Diabetes presence (1: Yes, 0: No)",
         "tr": "Diyabet varlığı (1: Var, 0: Yok)",
         "de": "Diabetes vorhanden (1: Ja, 0: Nein)",
         "fr": "Présence de diabète (1: Oui, 0: Non)",

@@ -9,7 +9,7 @@
       "default": 50,
       "businessContext": "Mil ve delik için ortak nominal çap",
       "label_i18n": {
-        "en": "Nominal Çap",
+        "en": "Nominal Diameter",
         "tr": "Nominal Çap",
         "de": "Nominal çap",
         "fr": "Diamètre nominal",
@@ -17,7 +17,7 @@
         "ar": "القطر الاسمي"
       },
       "businessContext_i18n": {
-        "en": "Mil ve delik için ortak nominal çap",
+        "en": "Common nominal diameter for shaft and hole",
         "tr": "Mil ve delik için ortak nominal çap",
         "de": "Gemeinsamer Nenndurchmesser für Welle und Bohrung",
         "fr": "Diamètre nominal commun pour arbre et alésage",
@@ -33,7 +33,7 @@
       "default": 0.025,
       "businessContext": "Delik tolerans üst sınır sapması (örn. H7 için +0.025mm)",
       "label_i18n": {
-        "en": "Delik Üst Sapma",
+        "en": "Hole Upper Deviation",
         "tr": "Delik Üst Sapma",
         "de": "Delik üst sapma",
         "fr": "Écart supérieur de l'alésage",
@@ -41,7 +41,7 @@
         "ar": "انحراف الفتحة العلوي"
       },
       "businessContext_i18n": {
-        "en": "Delik tolerans üst sınır sapması (örn. H7 için +0.025mm)",
+        "en": "Hole tolerance upper limit deviation (e.g., +0.025mm for H7)",
         "tr": "Delik tolerans üst sınır sapması (örn. H7 için +0.025mm)",
         "de": "Obere Abweichung der Bohrungstoleranz (z. B. für H7 +0,025 mm)",
         "fr": "Écart limite supérieur de tolérance de l'alésage (ex. pour H7 +0,025mm)",
@@ -65,7 +65,7 @@
         "ar": "انحراف الفتحة السفلي"
       },
       "businessContext_i18n": {
-        "en": "Delik tolerans alt sınır sapması (örn. H7 için 0)",
+        "en": "Hole tolerance lower limit deviation (e.g., 0 for H7)",
         "tr": "Delik tolerans alt sınır sapması (örn. H7 için 0)",
         "de": "Untere Abweichung der Bohrungstoleranz (z. B. für H7 0)",
         "fr": "Écart inférieur de tolérance de l'alésage (ex. 0 pour H7)",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "Mil tolerans üst sınır sapması (örn. h6 için 0)",
       "label_i18n": {
-        "en": "Mil Üst Sapma",
+        "en": "Shaft Upper Deviation",
         "tr": "Mil Üst Sapma",
         "de": "Mil üst sapma",
         "fr": "Écart supérieur de l'arbre",
@@ -89,7 +89,7 @@
         "ar": "انحراف العمود العلوي"
       },
       "businessContext_i18n": {
-        "en": "Mil tolerans üst sınır sapması (örn. h6 için 0)",
+        "en": "Shaft tolerance upper limit deviation (e.g., 0 for h6)",
         "tr": "Mil tolerans üst sınır sapması (örn. h6 için 0)",
         "de": "Obere Abweichung der Wellentoleranz (z. B. für h6 0)",
         "fr": "Écart supérieur de tolérance de l'arbre (ex. 0 pour h6)",
@@ -113,7 +113,7 @@
         "ar": "انحراف العمود السفلي"
       },
       "businessContext_i18n": {
-        "en": "Mil tolerans alt sınır sapması (örn. h6 için -0.016mm)",
+        "en": "Shaft tolerance lower limit deviation (e.g., -0.016mm for h6)",
         "tr": "Mil tolerans alt sınır sapması (örn. h6 için -0.016mm)",
         "de": "Untere Abweichung der Wellentoleranz (z. B. für h6 -0,016 mm)",
         "fr": "Écart inférieur de tolérance de l'arbre (ex. -0,016 mm pour h6)",

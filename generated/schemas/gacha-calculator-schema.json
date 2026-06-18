@@ -9,7 +9,7 @@
       "default": 10,
       "businessContext": "Bir gacha çekiminin birim maliyeti.",
       "label_i18n": {
-        "en": "Tek Çekim Maliyeti",
+        "en": "Single Draw Cost",
         "tr": "Tek çekim maliyeti",
         "de": "Kosten pro Einzelziehung",
         "fr": "Coût par tirage unique",
@@ -17,7 +17,7 @@
         "ar": "تكلفة السحب الواحد"
       },
       "businessContext_i18n": {
-        "en": "Bir gacha çekiminin birim maliyeti.",
+        "en": "Unit cost of one gacha draw.",
         "tr": "Bir çekimin birim maliyeti.",
         "de": "Stückkosten einer Gacha-Ziehung",
         "fr": "Coût unitaire d'un tirage unique.",
@@ -33,7 +33,7 @@
       "default": 0.6,
       "businessContext": "Her bir çekimde başarılı sonuç alma olasılığı (yüzde).",
       "label_i18n": {
-        "en": "Temel Başarı Olasılığı",
+        "en": "Base Success Probability",
         "tr": "Temel başarı olasılığı",
         "de": "Basis-Erfolgswahrscheinlichkeit",
         "fr": "Probabilité de succès de base",
@@ -41,7 +41,7 @@
         "ar": "احتمالية النجاح الأساسية"
       },
       "businessContext_i18n": {
-        "en": "Her bir çekimde başarılı sonuç alma olasılığı (yüzde).",
+        "en": "Probability of a successful outcome per draw (percent).",
         "tr": "Her bir çekimde başarılı sonuç alma olasılığı (yüzde).",
         "de": "Wahrscheinlichkeit eines erfolgreichen Ergebnisses pro Ziehung (Prozent)",
         "fr": "Probabilité d'obtenir un résultat réussi à chaque tirage (en pourcentage).",
@@ -57,7 +57,7 @@
       "default": 90,
       "businessContext": "Bu çekim sayısına ulaşıldığında başarı garanti olur. 0 ise garanti yok.",
       "label_i18n": {
-        "en": "Garanti Eşiği (Çekim Sayısı)",
+        "en": "Pity Threshold (Number of Draws)",
         "tr": "Garanti eşiği (çekim sayısı)",
         "de": "Garantieschwelle (Anzahl Ziehungen)",
         "fr": "Seuil de garantie (nombre de tirages)",
@@ -65,7 +65,7 @@
         "ar": "حد الضمان (عدد السحوبات)"
       },
       "businessContext_i18n": {
-        "en": "Bu çekim sayısına ulaşıldığında başarı garanti olur. 0 ise garanti yok.",
+        "en": "Success is guaranteed when this number of draws is reached. 0 means no guarantee.",
         "tr": "Bu çekim sayısına ulaşıldığında başarı garanti olur. 0 ise garanti yok.",
         "de": "Bei Erreichen dieser Ziehungsanzahl ist der Erfolg garantiert. 0 bedeutet keine Garantie.",
         "fr": "Lorsque ce nombre de tirages est atteint, le succès est garanti. 0 signifie aucune garantie.",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "Elde edilmek istenen başarılı sonuç sayısı.",
       "label_i18n": {
-        "en": "Hedef Başarı Sayısı",
+        "en": "Target Number of Successes",
         "tr": "Hedef başarı sayısı",
         "de": "Angestrebte Anzahl Erfolge",
         "fr": "Nombre de succès cible",
@@ -89,7 +89,7 @@
         "ar": "عدد النجاحات المستهدفة"
       },
       "businessContext_i18n": {
-        "en": "Elde edilmek istenen başarılı sonuç sayısı.",
+        "en": "Desired number of successful outcomes.",
         "tr": "Elde edilmek istenen başarılı sonuç sayısı.",
         "de": "Anzahl der gewünschten erfolgreichen Ergebnisse",
         "fr": "Nombre de résultats réussis souhaités.",

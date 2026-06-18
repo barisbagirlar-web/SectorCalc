@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "Her bir cihazın çektiği akım",
       "label_i18n": {
-        "en": "Cihaz Başına Akım (A)",
+        "en": "Current per device (A)",
         "tr": "Cihaz Başına Akım (A)",
         "de": "Strom pro Gerät (A)",
         "fr": "Courant par appareil (A)",
@@ -41,7 +41,7 @@
         "ar": "التيار لكل جهاز (A)"
       },
       "businessContext_i18n": {
-        "en": "Her bir cihazın çektiği akım",
+        "en": "Current drawn by each device",
         "tr": "Her bir cihazın çektiği akım",
         "de": "Stromaufnahme jedes Geräts",
         "fr": "Courant consommé par chaque appareil",
@@ -57,7 +57,7 @@
       "default": 0.8,
       "businessContext": "Yükün güç faktörü (0-1 arası)",
       "label_i18n": {
-        "en": "Güç Faktörü",
+        "en": "Power factor",
         "tr": "Güç Faktörü",
         "de": "Leistungsfaktor",
         "fr": "Facteur de puissance",
@@ -65,7 +65,7 @@
         "ar": "معامل القدرة"
       },
       "businessContext_i18n": {
-        "en": "Yükün güç faktörü (0-1 arası)",
+        "en": "Power factor of the load (0-1)",
         "tr": "Yükün güç faktörü (0-1 arası)",
         "de": "Leistungsfaktor der Last (0-1)",
         "fr": "Facteur de puissance de la charge (entre 0 et 1)",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "Paralel bağlı cihaz sayısı",
       "label_i18n": {
-        "en": "Cihaz Sayısı",
+        "en": "Number of devices",
         "tr": "Cihaz Sayısı",
         "de": "Anzahl der Geräte",
         "fr": "Nombre d'appareils",
@@ -89,7 +89,7 @@
         "ar": "عدد الأجهزة"
       },
       "businessContext_i18n": {
-        "en": "Paralel bağlı cihaz sayısı",
+        "en": "Number of devices connected in parallel",
         "tr": "Paralel bağlı cihaz sayısı",
         "de": "Anzahl parallel geschalteter Geräte",
         "fr": "Nombre d'appareils connectés en parallèle",
@@ -105,7 +105,7 @@
       "default": 1.25,
       "businessContext": "Sürekli yük için NEC %125 kuralı",
       "label_i18n": {
-        "en": "Emniyet Katsayısı",
+        "en": "Safety Factor",
         "tr": "Emniyet Katsayısı",
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
@@ -113,7 +113,7 @@
         "ar": "معامل الأمان"
       },
       "businessContext_i18n": {
-        "en": "Sürekli yük için NEC %125 kuralı",
+        "en": "NEC 125% rule for continuous load",
         "tr": "Sürekli yük için NEC %125 kuralı",
         "de": "NEC 125%-Regel für Dauerlast",
         "fr": "Règle NEC 125% pour charge continue",
@@ -129,7 +129,7 @@
       "default": 16,
       "businessContext": "Devre kesici nominal akımı",
       "label_i18n": {
-        "en": "Sigorta Akımı (A)",
+        "en": "Fuse current (A)",
         "tr": "Sigorta Akımı (A)",
         "de": "Sicherungsstrom (A)",
         "fr": "Courant du fusible (A)",
@@ -137,7 +137,7 @@
         "ar": "تيار المصهر (A)"
       },
       "businessContext_i18n": {
-        "en": "Devre kesici nominal akımı",
+        "en": "Circuit breaker nominal current (A)",
         "tr": "Devre kesici nominal akımı",
         "de": "Nennstrom des Leistungsschalters",
         "fr": "Courant nominal du disjoncteur",

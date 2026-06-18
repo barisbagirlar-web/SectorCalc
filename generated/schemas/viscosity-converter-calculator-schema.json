@@ -9,7 +9,7 @@
       "default": 1,
       "businessContext": "Dönüştürülecek viskozite değeri",
       "label_i18n": {
-        "en": "Değer",
+        "en": "Value",
         "tr": "Değer",
         "de": "Wert",
         "fr": "Valeur",
@@ -17,7 +17,7 @@
         "ar": "القيمة"
       },
       "businessContext_i18n": {
-        "en": "Dönüştürülecek viskozite değeri",
+        "en": "Viscosity value to be converted",
         "tr": "Dönüştürülecek viskozite değeri",
         "de": "Umzurechnender Viskositätswert",
         "fr": "Valeur de viscosité à convertir",
@@ -81,7 +81,7 @@
       "default": 1000,
       "businessContext": "Sıvının yoğunluğu, sadece dinamik ve kinematik viskozite arasında dönüşüm yaparken kullanılır.",
       "label_i18n": {
-        "en": "Yoğunluk",
+        "en": "Density",
         "tr": "Yoğunluk",
         "de": "Dichte",
         "fr": "Densité",
@@ -89,7 +89,7 @@
         "ar": "الكثافة"
       },
       "businessContext_i18n": {
-        "en": "Sıvının yoğunluğu, sadece dinamik ve kinematik viskozite arasında dönüşüm yaparken kullanılır.",
+        "en": "Fluid density, only used when converting between dynamic and kinematic viscosity.",
         "tr": "Sıvının yoğunluğu, sadece dinamik ve kinematik viskozite arasında dönüşüm yaparken kullanılır.",
         "de": "Dichte der Flüssigkeit, nur bei Umrechnung zwischen dynamischer und kinematischer Viskosität verwendet.",
         "fr": "Densité du liquide, utilisée uniquement pour la conversion entre viscosité dynamique et cinématique.",

@@ -9,7 +9,7 @@
       "default": 5,
       "businessContext": "Halı döşenecek odanın ana yöndeki uzunluğu (metre).",
       "label_i18n": {
-        "en": "Oda Uzunluğu",
+        "en": "Room Length",
         "tr": "Oda Uzunluğu",
         "de": "Raumlänge",
         "fr": "Longueur de la pièce",
@@ -17,7 +17,7 @@
         "ar": "طول الغرفة"
       },
       "businessContext_i18n": {
-        "en": "Halı döşenecek odanın ana yöndeki uzunluğu (metre).",
+        "en": "Length of the room to be carpeted in the main direction (meters).",
         "tr": "Halı döşenecek odanın ana yöndeki uzunluğu (metre).",
         "de": "Länge des Raums in Hauptrichtung (Meter)",
         "fr": "Longueur de la pièce dans la direction principale (mètre)",
@@ -33,7 +33,7 @@
       "default": 4,
       "businessContext": "Halı döşenecek odanın enlemesine genişliği (metre).",
       "label_i18n": {
-        "en": "Oda Genişliği",
+        "en": "Room Width",
         "tr": "Oda Genişliği",
         "de": "Raumbreite",
         "fr": "Largeur de la pièce",
@@ -41,7 +41,7 @@
         "ar": "عرض الغرفة"
       },
       "businessContext_i18n": {
-        "en": "Halı döşenecek odanın enlemesine genişliği (metre).",
+        "en": "Width of the room to be carpeted (meters).",
         "tr": "Halı döşenecek odanın enlemesine genişliği (metre).",
         "de": "Breite des Raums quer zur Hauptrichtung (Meter)",
         "fr": "Largeur de la pièce dans le sens transversal (mètre)",
@@ -57,7 +57,7 @@
       "default": 4,
       "businessContext": "Standart halı rulo genişliği; piyasada 3, 4, 5 m olabilir.",
       "label_i18n": {
-        "en": "Halı Rulo Eni",
+        "en": "Carpet Roll Width",
         "tr": "Halı Rulo Eni",
         "de": "Teppichrollenbreite",
         "fr": "Largeur du rouleau de moquette",
@@ -65,7 +65,7 @@
         "ar": "عرض لفة السجاد"
       },
       "businessContext_i18n": {
-        "en": "Standart halı rulo genişliği; piyasada 3, 4, 5 m olabilir.",
+        "en": "Standard carpet roll width; can be 3, 4, 5 m in the market.",
         "tr": "Standart halı rulo genişliği; piyasada 3, 4, 5 m olabilir.",
         "de": "Standard-Teppichrollenbreite; im Handel 3, 4, 5 m möglich",
         "fr": "Largeur standard du rouleau de moquette ; sur le marché, elle peut être de 3, 4 ou 5 m",
@@ -81,7 +81,7 @@
       "default": 50,
       "businessContext": "Seçilen halının metrekare başına satış fiyatı.",
       "label_i18n": {
-        "en": "Halı Birim Fiyatı",
+        "en": "Carpet Unit Price",
         "tr": "Halı Birim Fiyatı",
         "de": "Teppichpreis pro Quadratmeter",
         "fr": "Prix unitaire de la moquette",
@@ -89,7 +89,7 @@
         "ar": "سعر وحدة السجاد"
       },
       "businessContext_i18n": {
-        "en": "Seçilen halının metrekare başına satış fiyatı.",
+        "en": "Sales price per square meter of the selected carpet.",
         "tr": "Seçilen halının metrekare başına satış fiyatı.",
         "de": "Verkaufspreis des gewählten Teppichs pro Quadratmeter",
         "fr": "Prix de vente au mètre carré de la moquette choisie",
@@ -105,7 +105,7 @@
       "default": 10,
       "businessContext": "Kesim, desen uydurma ve ek yerleri için ayrılan ilave malzeme yüzdesi.",
       "label_i18n": {
-        "en": "Fire Oranı",
+        "en": "Waste Rate",
         "tr": "Fire Oranı",
         "de": "Verschnittanteil",
         "fr": "Taux de perte",
@@ -113,7 +113,7 @@
         "ar": "نسبة الهدر"
       },
       "businessContext_i18n": {
-        "en": "Kesim, desen uydurma ve ek yerleri için ayrılan ilave malzeme yüzdesi.",
+        "en": "Additional material percentage for cutting, pattern matching, and seams.",
         "tr": "Kesim, desen uydurma ve ek yerleri için ayrılan ilave malzeme yüzdesi.",
         "de": "Zuschlag für Verschnitt, Musteranpassung und Nahtzugaben in Prozent",
         "fr": "Pourcentage de matériau supplémentaire pour les coupes, l'ajustement des motifs et les joints",
@@ -129,7 +129,7 @@
       "default": 20,
       "businessContext": "Halının serilmesi için usta tarafından metrekare başına alınan işçilik ücreti.",
       "label_i18n": {
-        "en": "Döşeme İşçilik Bedeli",
+        "en": "Installation Labor Cost",
         "tr": "Döşeme İşçilik Bedeli",
         "de": "Verlegekosten",
         "fr": "Frais de main-d'œuvre pour la pose",
@@ -137,7 +137,7 @@
         "ar": "تكلفة عمالة التركيب"
       },
       "businessContext_i18n": {
-        "en": "Halının serilmesi için usta tarafından metrekare başına alınan işçilik ücreti.",
+        "en": "Labor cost per square meter charged by the craftsman for laying the carpet.",
         "tr": "Halının serilmesi için usta tarafından metrekare başına alınan işçilik ücreti.",
         "de": "Vom Handwerker pro Quadratmeter berechneter Arbeitslohn für das Verlegen des Teppichs",
         "fr": "Frais de main-d'œuvre au mètre carré facturés par l'artisan pour la pose de la moquette",

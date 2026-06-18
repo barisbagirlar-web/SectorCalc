@@ -9,7 +9,7 @@
       "default": 100,
       "businessContext": "Birinci sıcaklık değeri (Santigrat)",
       "label_i18n": {
-        "en": "Sıcaklık 1",
+        "en": "Temperature 1",
         "tr": "Sıcaklık 1",
         "de": "Temperatur 1",
         "fr": "Température 1",
@@ -17,7 +17,7 @@
         "ar": "درجة الحرارة 1"
       },
       "businessContext_i18n": {
-        "en": "Birinci sıcaklık değeri (Santigrat)",
+        "en": "First temperature value (Celsius)",
         "tr": "Birinci sıcaklık değeri (Santigrat)",
         "de": "Erster Temperaturwert (Grad Celsius)",
         "fr": "Première valeur de température (Celsius)",
@@ -33,7 +33,7 @@
       "default": 101.325,
       "businessContext": "Birinci basınç değeri (kPa)",
       "label_i18n": {
-        "en": "Basınç 1",
+        "en": "Pressure 1",
         "tr": "Basınç 1",
         "de": "Druck 1",
         "fr": "Pression 1",
@@ -41,7 +41,7 @@
         "ar": "الضغط 1"
       },
       "businessContext_i18n": {
-        "en": "Birinci basınç değeri (kPa)",
+        "en": "First pressure value (kPa)",
         "tr": "Birinci basınç değeri (kPa)",
         "de": "Erster Druckwert (kPa)",
         "fr": "Première valeur de pression (kPa)",
@@ -57,7 +57,7 @@
       "default": 120,
       "businessContext": "İkinci sıcaklık değeri (Santigrat)",
       "label_i18n": {
-        "en": "Sıcaklık 2",
+        "en": "Temperature 2",
         "tr": "Sıcaklık 2",
         "de": "Temperatur 2",
         "fr": "Température 2",
@@ -65,7 +65,7 @@
         "ar": "درجة الحرارة 2"
       },
       "businessContext_i18n": {
-        "en": "İkinci sıcaklık değeri (Santigrat)",
+        "en": "Second temperature value (Celsius)",
         "tr": "İkinci sıcaklık değeri (Santigrat)",
         "de": "Zweiter Temperaturwert (Grad Celsius)",
         "fr": "Deuxième valeur de température (Celsius)",
@@ -81,7 +81,7 @@
       "default": 198.5,
       "businessContext": "İkinci basınç değeri (kPa)",
       "label_i18n": {
-        "en": "Basınç 2",
+        "en": "Pressure 2",
         "tr": "Basınç 2",
         "de": "Druck 2",
         "fr": "Pression 2",
@@ -89,7 +89,7 @@
         "ar": "الضغط 2"
       },
       "businessContext_i18n": {
-        "en": "İkinci basınç değeri (kPa)",
+        "en": "Second pressure value (kPa)",
         "tr": "İkinci basınç değeri (kPa)",
         "de": "Zweiter Druckwert (kPa)",
         "fr": "Deuxième valeur de pression (kPa)",
@@ -113,7 +113,7 @@
         "ar": "ثابت الغاز (R)"
       },
       "businessContext_i18n": {
-        "en": "İdeal gaz sabiti, genellikle 8.314 J/(mol·K)",
+        "en": "Ideal gas constant, typically 8.314 J/(mol·K)",
         "tr": "İdeal gaz sabiti, genellikle 8.314 J/(mol·K)",
         "de": "Ideale Gaskonstante, normalerweise 8,314 J/(mol·K)",
         "fr": "Constante universelle des gaz, généralement 8,314 J/(mol·K)",
@@ -129,7 +129,7 @@
       "default": 18.015,
       "businessContext": "Maddenin molekül ağırlığı (isteğe bağlı, kütleye özgü ısı hesabı için)",
       "label_i18n": {
-        "en": "Molekül Ağırlığı",
+        "en": "Molecular Weight",
         "tr": "Molekül Ağırlığı",
         "de": "Molekulargewicht",
         "fr": "Masse moléculaire",
@@ -137,7 +137,7 @@
         "ar": "الوزن الجزيئي"
       },
       "businessContext_i18n": {
-        "en": "Maddenin molekül ağırlığı (isteğe bağlı, kütleye özgü ısı hesabı için)",
+        "en": "Molecular weight of the substance (optional, for mass-specific heat calculation)",
         "tr": "Maddenin molekül ağırlığı (isteğe bağlı, kütleye özgü ısı hesabı için)",
         "de": "Molekulargewicht der Substanz (optional, für massenspezifische Wärmeberechnung)",
         "fr": "Masse moléculaire de la substance (optionnelle, pour le calcul de la chaleur massique)",

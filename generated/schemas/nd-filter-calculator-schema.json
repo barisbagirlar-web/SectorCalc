@@ -17,7 +17,7 @@
         "ar": "بسط سرعة الغالق"
       },
       "businessContext_i18n": {
-        "en": "Enstantane hızının pay değeri (genellikle 1).",
+        "en": "Numerator of shutter speed (usually 1).",
         "tr": "Enstantane hızının pay değeri (genellikle 1).",
         "de": "Zählerwert der Verschlusszeit (normalerweise 1).",
         "fr": "Valeur du numérateur de la vitesse d'obturation (généralement 1).",
@@ -41,7 +41,7 @@
         "ar": "مقام سرعة الغالق"
       },
       "businessContext_i18n": {
-        "en": "Enstantane hızının payda değeri (örn. 125, 250, 500).",
+        "en": "Denominator of shutter speed (e.g., 125, 250, 500).",
         "tr": "Enstantane hızının payda değeri (örn. 125, 250, 500).",
         "de": "Nennerwert der Verschlusszeit (z. B. 125, 250, 500).",
         "fr": "Valeur du dénominateur de la vitesse d'obturation (ex. 125, 250, 500).",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "ND filtrenin ışık azaltma miktarı (stop cinsinden).",
       "label_i18n": {
-        "en": "ND Stop Değeri",
+        "en": "ND Stop Value",
         "tr": "ND Stop Değeri",
         "de": "ND-Stufenwert",
         "fr": "Valeur de stop ND",
@@ -65,7 +65,7 @@
         "ar": "قيمة توقف ND"
       },
       "businessContext_i18n": {
-        "en": "ND filtrenin ışık azaltma miktarı (stop cinsinden).",
+        "en": "Light reduction amount of ND filter (in stops).",
         "tr": "ND filtrenin ışık azaltma miktarı (stop cinsinden).",
         "de": "Lichtminderungsbetrag des ND-Filters (in Stufen).",
         "fr": "Quantité de réduction de lumière du filtre ND (en stops).",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "ND filtrenin optik yoğunluk değeri (örn. 0.3, 0.6, 0.9).",
       "label_i18n": {
-        "en": "Optik Yoğunluk (OD)",
+        "en": "Optical Density (OD)",
         "tr": "Optik Yoğunluk (OD)",
         "de": "Optische Dichte (OD)",
         "fr": "Densité optique (OD)",
@@ -89,7 +89,7 @@
         "ar": "الكثافة البصرية (OD)"
       },
       "businessContext_i18n": {
-        "en": "ND filtrenin optik yoğunluk değeri (örn. 0.3, 0.6, 0.9).",
+        "en": "Optical density value of ND filter (e.g., 0.3, 0.6, 0.9).",
         "tr": "ND filtrenin optik yoğunluk değeri (örn. 0.3, 0.6, 0.9).",
         "de": "Optischer Dichtewert des ND-Filters (z. B. 0,3, 0,6, 0,9).",
         "fr": "Valeur de densité optique du filtre ND (ex. 0,3, 0,6, 0,9).",

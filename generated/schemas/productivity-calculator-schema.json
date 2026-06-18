@@ -9,7 +9,7 @@
       "default": 1000,
       "businessContext": "Üretim hattından çıkan toplam ürün miktarı",
       "label_i18n": {
-        "en": "Toplam Üretilen Birim",
+        "en": "Total Units Produced",
         "tr": "Toplam Üretilen Birim",
         "de": "Gesamt produzierte Einheiten",
         "fr": "Total des unités produites",
@@ -17,7 +17,7 @@
         "ar": "إجمالي الوحدات المنتجة"
       },
       "businessContext_i18n": {
-        "en": "Üretim hattından çıkan toplam ürün miktarı",
+        "en": "Total quantity of products from the production line",
         "tr": "Üretim hattından çıkan toplam ürün miktarı",
         "de": "Gesamtmenge der aus der Produktionslinie kommenden Produkte",
         "fr": "Quantité totale de produits sortant de la ligne de production",
@@ -33,7 +33,7 @@
       "default": 100,
       "businessContext": "Üretim için harcanan toplam insan gücü süresi",
       "label_i18n": {
-        "en": "Toplam İşçilik Saati",
+        "en": "Total Labor Hours",
         "tr": "Toplam İşçilik Saati",
         "de": "Gesamtarbeitsstunden",
         "fr": "Total des heures de main-d'œuvre",
@@ -41,7 +41,7 @@
         "ar": "إجمالي ساعات العمل"
       },
       "businessContext_i18n": {
-        "en": "Üretim için harcanan toplam insan gücü süresi",
+        "en": "Total human labor time spent on production",
         "tr": "Üretim için harcanan toplam insan gücü süresi",
         "de": "Gesamte menschliche Arbeitszeit für die Produktion",
         "fr": "Temps total de main-d'œuvre consacré à la production",
@@ -57,7 +57,7 @@
       "default": 5,
       "businessContext": "Üretilen ürünler içindeki hatalı oranı",
       "label_i18n": {
-        "en": "Hata Oranı",
+        "en": "Error Rate (%)",
         "tr": "Hata Oranı",
         "de": "Fehlerrate",
         "fr": "Taux de défauts",
@@ -65,7 +65,7 @@
         "ar": "نسبة العيوب"
       },
       "businessContext_i18n": {
-        "en": "Üretilen ürünler içindeki hatalı oranı",
+        "en": "Defect rate among produced products",
         "tr": "Üretilen ürünler içindeki hatalı oranı",
         "de": "Anteil fehlerhafter Produkte an der Gesamtproduktion",
         "fr": "Proportion de produits défectueux parmi les produits fabriqués",
@@ -89,7 +89,7 @@
         "ar": "الإنتاجية القياسية"
       },
       "businessContext_i18n": {
-        "en": "Referans olarak kabul edilen saatlik üretim miktarı",
+        "en": "Reference hourly production quantity",
         "tr": "Referans olarak kabul edilen saatlik üretim miktarı",
         "de": "Als Referenz angenommene stündliche Produktionsmenge",
         "fr": "Quantité de production horaire considérée comme référence",

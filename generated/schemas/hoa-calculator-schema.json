@@ -9,7 +9,7 @@
       "default": 1,
       "businessContext": "Isıtılan veya soğutulan maddenin kütlesi (kg)",
       "label_i18n": {
-        "en": "Kütle (m)",
+        "en": "Mass (m)",
         "tr": "Kütle (m)",
         "de": "Masse (m)",
         "fr": "Masse (m)",
@@ -17,7 +17,7 @@
         "ar": "الكتلة (m)"
       },
       "businessContext_i18n": {
-        "en": "Isıtılan veya soğutulan maddenin kütlesi (kg)",
+        "en": "Mass of the substance being heated or cooled (kg)",
         "tr": "Isıtılan veya soğutulan maddenin kütlesi (kg)",
         "de": "Masse des zu erhitzenden oder kühlenden Materials (kg)",
         "fr": "Masse de la substance chauffée ou refroidie (kg)",
@@ -33,7 +33,7 @@
       "default": 4184,
       "businessContext": "Malzemenin özgül ısı kapasitesi (J/(kg·K)), su için 4184",
       "label_i18n": {
-        "en": "Özgül Isı (c)",
+        "en": "Specific Heat (c)",
         "tr": "Özgül Isı (c)",
         "de": "Spezifische Wärmekapazität (c)",
         "fr": "Chaleur spécifique (c)",
@@ -41,7 +41,7 @@
         "ar": "الحرارة النوعية (c)"
       },
       "businessContext_i18n": {
-        "en": "Malzemenin özgül ısı kapasitesi (J/(kg·K)), su için 4184",
+        "en": "Specific heat capacity of the material (J/(kg·K)), for water 4184",
         "tr": "Malzemenin özgül ısı kapasitesi (J/(kg·K)), su için 4184",
         "de": "Spezifische Wärmekapazität des Materials (J/(kg·K)), für Wasser 4184",
         "fr": "Capacité thermique massique du matériau (J/(kg·K)), pour l'eau : 4184",
@@ -57,7 +57,7 @@
       "default": 20,
       "businessContext": "Başlangıç sıcaklık değeri (°C)",
       "label_i18n": {
-        "en": "Başlangıç Sıcaklığı (T₁)",
+        "en": "Initial Temperature (T₁)",
         "tr": "Başlangıç Sıcaklığı (T₁)",
         "de": "Anfangstemperatur (T₁)",
         "fr": "Température initiale (T₁)",
@@ -65,7 +65,7 @@
         "ar": "درجة الحرارة الابتدائية (T₁)"
       },
       "businessContext_i18n": {
-        "en": "Başlangıç sıcaklık değeri (°C)",
+        "en": "Initial temperature value (°C)",
         "tr": "Başlangıç sıcaklık değeri (°C)",
         "de": "Anfangstemperaturwert (°C)",
         "fr": "Valeur de température initiale (°C)",
@@ -81,7 +81,7 @@
       "default": 100,
       "businessContext": "Hedef veya son sıcaklık değeri (°C)",
       "label_i18n": {
-        "en": "Bitiş Sıcaklığı (T₂)",
+        "en": "Final Temperature (T₂)",
         "tr": "Bitiş Sıcaklığı (T₂)",
         "de": "Endtemperatur (T₂)",
         "fr": "Température finale (T₂)",
@@ -89,7 +89,7 @@
         "ar": "درجة الحرارة النهائية (T₂)"
       },
       "businessContext_i18n": {
-        "en": "Hedef veya son sıcaklık değeri (°C)",
+        "en": "Target or final temperature value (°C)",
         "tr": "Hedef veya son sıcaklık değeri (°C)",
         "de": "Ziel- oder Endtemperaturwert (°C)",
         "fr": "Valeur de température cible ou finale (°C)",
@@ -105,7 +105,7 @@
       "default": 0,
       "businessContext": "Ortam, yalıtım vb. kaynaklı yüzdesel ısı kaybı (0–100)",
       "label_i18n": {
-        "en": "Isı Kaybı Faktörü",
+        "en": "Heat Loss Factor",
         "tr": "Isı Kaybı Faktörü",
         "de": "Wärmeverlustfaktor",
         "fr": "Facteur de perte de chaleur",
@@ -113,7 +113,7 @@
         "ar": "عامل فقدان الحرارة"
       },
       "businessContext_i18n": {
-        "en": "Ortam, yalıtım vb. kaynaklı yüzdesel ısı kaybı (0–100)",
+        "en": "Percentage heat loss due to environment, insulation, etc. (0–100)",
         "tr": "Ortam, yalıtım vb. kaynaklı yüzdesel ısı kaybı (0–100)",
         "de": "Prozentualer Wärmeverlust durch Umgebung, Isolierung usw. (0–100)",
         "fr": "Perte de chaleur en pourcentage due à l'environnement, à l'isolation, etc. (0–100)",

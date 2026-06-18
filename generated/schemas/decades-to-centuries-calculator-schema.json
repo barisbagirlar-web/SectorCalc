@@ -9,7 +9,7 @@
       "default": 1,
       "businessContext": "Dönüştürülecek on yıl miktarı",
       "label_i18n": {
-        "en": "Süre (on yıl)",
+        "en": "Duration (decade)",
         "tr": "Süre (on yıl)",
         "de": "Dauer (Jahrzehnt)",
         "fr": "Durée (décennies)",
@@ -17,7 +17,7 @@
         "ar": "المدة (عقود)"
       },
       "businessContext_i18n": {
-        "en": "Dönüştürülecek on yıl miktarı",
+        "en": "Amount of decades to convert",
         "tr": "Dönüştürülecek on yıl miktarı",
         "de": "Umzurechnende Jahrzehntmenge",
         "fr": "Quantité de décennies à convertir",
@@ -33,7 +33,7 @@
       "default": 3,
       "businessContext": "Hesaplama sonucu ondalık basamak sayısı",
       "label_i18n": {
-        "en": "Hassasiyet (ondalık basamak)",
+        "en": "Precision (decimal places)",
         "tr": "Hassasiyet (ondalık basamak)",
         "de": "Genauigkeit (Dezimalstellen)",
         "fr": "Précision (décimales)",
@@ -41,7 +41,7 @@
         "ar": "الدقة (المنازل العشرية)"
       },
       "businessContext_i18n": {
-        "en": "Hesaplama sonucu ondalık basamak sayısı",
+        "en": "Number of decimal places for calculation result",
         "tr": "Hesaplama sonucu ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen im Berechnungsergebnis",
         "fr": "Nombre de décimales pour le résultat",
@@ -57,7 +57,7 @@
       "default": 95,
       "businessContext": "İstatistiksel güven aralığı yüzdesi",
       "label_i18n": {
-        "en": "Güven Aralığı (%)",
+        "en": "Confidence Interval (%)",
         "tr": "Güven Aralığı (%)",
         "de": "Konfidenzintervall (%)",
         "fr": "Intervalle de confiance (%)",
@@ -65,7 +65,7 @@
         "ar": "فاصل الثقة (%)"
       },
       "businessContext_i18n": {
-        "en": "İstatistiksel güven aralığı yüzdesi",
+        "en": "Statistical confidence interval percentage",
         "tr": "İstatistiksel güven aralığı yüzdesi",
         "de": "Statistisches Konfidenzintervall in Prozent",
         "fr": "Pourcentage de l'intervalle de confiance statistique",
@@ -81,7 +81,7 @@
       "default": 0.01,
       "businessContext": "On yıl cinsinden ölçüm belirsizliği (±)",
       "label_i18n": {
-        "en": "Ölçüm Hatası (on yıl)",
+        "en": "Measurement Error (decade)",
         "tr": "Ölçüm Hatası (on yıl)",
         "de": "Messfehler (Jahrzehnt)",
         "fr": "Erreur de mesure (décennies)",
@@ -89,7 +89,7 @@
         "ar": "خطأ القياس (عقود)"
       },
       "businessContext_i18n": {
-        "en": "On yıl cinsinden ölçüm belirsizliği (±)",
+        "en": "Measurement uncertainty in decades (±)",
         "tr": "On yıl cinsinden ölçüm belirsizliği (±)",
         "de": "Messunsicherheit in Jahrzehnten (±)",
         "fr": "Incertitude de mesure en décennies (±)",
@@ -113,7 +113,7 @@
         "ar": "طريقة التقريب (0=تقريب، 1=تقريب لأسفل، 2=تقريب لأعلى)"
       },
       "businessContext_i18n": {
-        "en": "0: yuvarla, 1: aşağı yuvarla, 2: yukarı yuvarla",
+        "en": "0: round, 1: round down, 2: round up",
         "tr": "0: yuvarla, 1: aşağı yuvarla, 2: yukarı yuvarla",
         "de": "0: runden, 1: abrunden, 2: aufrunden",
         "fr": "0 : arrondi, 1 : plancher, 2 : plafond",
@@ -129,7 +129,7 @@
       "default": 20,
       "businessContext": "Ölçümün yapıldığı ortam sıcaklığı (izlenebilirlik için)",
       "label_i18n": {
-        "en": "Ölçüm Sıcaklığı (°C)",
+        "en": "Measurement Temperature (°C)",
         "tr": "Ölçüm Sıcaklığı (°C)",
         "de": "Messtemperatur (°C)",
         "fr": "Température de mesure (°C)",
@@ -137,7 +137,7 @@
         "ar": "درجة حرارة القياس (°C)"
       },
       "businessContext_i18n": {
-        "en": "Ölçümün yapıldığı ortam sıcaklığı (izlenebilirlik için)",
+        "en": "Ambient temperature of measurement (for traceability)",
         "tr": "Ölçümün yapıldığı ortam sıcaklığı (izlenebilirlik için)",
         "de": "Umgebungstemperatur bei der Messung (für Rückverfolgbarkeit)",
         "fr": "Température ambiante lors de la mesure (pour traçabilité)",

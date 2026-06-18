@@ -9,7 +9,7 @@
       "default": 0,
       "businessContext": "Maruz kalan grupta gerçekleşen olay sayısı (ör. vaka, hata, kayıp)",
       "label_i18n": {
-        "en": "Maruz Kalan Olay Sayısı",
+        "en": "Number of Exposed Events",
         "tr": "Maruz Kalan Olay Sayısı",
         "de": "Anzahl der ausgesetzten Ereignisse",
         "fr": "Nombre d'événements exposés",
@@ -17,7 +17,7 @@
         "ar": "عدد الأحداث في المجموعة المعرضة"
       },
       "businessContext_i18n": {
-        "en": "Maruz kalan grupta gerçekleşen olay sayısı (ör. vaka, hata, kayıp)",
+        "en": "Number of events occurring in the exposed group (e.g., cases, failures, losses)",
         "tr": "Maruz kalan grupta gerçekleşen olay sayısı (ör. vaka, hata, kayıp)",
         "de": "Anzahl der Ereignisse in der exponierten Gruppe (z. B. Fälle, Fehler, Verluste)",
         "fr": "Nombre d'événements survenus dans le groupe exposé (ex. cas, erreurs, pertes)",
@@ -41,7 +41,7 @@
         "ar": "إجمالي المجموعة المعرضة"
       },
       "businessContext_i18n": {
-        "en": "Maruz kalan gruptaki toplam birim/birey sayısı",
+        "en": "Total number of units/individuals in the exposed group",
         "tr": "Maruz kalan gruptaki toplam birim/birey sayısı",
         "de": "Gesamtzahl der Einheiten/Personen in der exponierten Gruppe",
         "fr": "Nombre total d'unités/individus dans le groupe exposé",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "Kontrol grubunda gerçekleşen olay sayısı",
       "label_i18n": {
-        "en": "Kontrol Olay Sayısı",
+        "en": "Number of Control Events",
         "tr": "Kontrol Olay Sayısı",
         "de": "Anzahl der Ereignisse in der Kontrollgruppe",
         "fr": "Nombre d'événements de contrôle",
@@ -65,7 +65,7 @@
         "ar": "عدد الأحداث في المجموعة الضابطة"
       },
       "businessContext_i18n": {
-        "en": "Kontrol grubunda gerçekleşen olay sayısı",
+        "en": "Number of events occurring in the control group",
         "tr": "Kontrol grubunda gerçekleşen olay sayısı",
         "de": "Anzahl der Ereignisse in der Kontrollgruppe",
         "fr": "Nombre d'événements survenus dans le groupe témoin",
@@ -89,7 +89,7 @@
         "ar": "إجمالي المجموعة الضابطة"
       },
       "businessContext_i18n": {
-        "en": "Kontrol grubundaki toplam birim/birey sayısı",
+        "en": "Total number of units/individuals in the control group",
         "tr": "Kontrol grubundaki toplam birim/birey sayısı",
         "de": "Gesamtzahl der Einheiten/Personen in der Kontrollgruppe",
         "fr": "Nombre total d'unités/individus dans le groupe témoin",

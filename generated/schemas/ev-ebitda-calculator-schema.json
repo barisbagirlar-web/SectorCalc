@@ -9,7 +9,7 @@
       "default": 0,
       "businessContext": "Şirketin piyasa değeri (örn. milyon TL, USD)",
       "label_i18n": {
-        "en": "Piyasa Değeri",
+        "en": "Market Value",
         "tr": "Piyasa Değeri",
         "de": "Marktwert",
         "fr": "Valeur de marché",
@@ -17,7 +17,7 @@
         "ar": "القيمة السوقية"
       },
       "businessContext_i18n": {
-        "en": "Şirketin piyasa değeri (örn. milyon TL, USD)",
+        "en": "Company's market value (e.g., million TL, USD)",
         "tr": "Şirketin piyasa değeri (örn. milyon TL, USD)",
         "de": "Marktwert des Unternehmens (z. B. Mio. TL, USD)",
         "fr": "Valeur de marché de l'entreprise (ex. millions de TL, USD)",
@@ -33,7 +33,7 @@
       "default": 0,
       "businessContext": "Kısa ve uzun vadeli borç toplamı",
       "label_i18n": {
-        "en": "Toplam Borç",
+        "en": "Total Debt",
         "tr": "Toplam Borç",
         "de": "Gesamtschulden",
         "fr": "Dette totale",
@@ -41,7 +41,7 @@
         "ar": "إجمالي الديون"
       },
       "businessContext_i18n": {
-        "en": "Kısa ve uzun vadeli borç toplamı",
+        "en": "Total short and long term debt",
         "tr": "Kısa ve uzun vadeli borç toplamı",
         "de": "Summe der kurz- und langfristigen Schulden",
         "fr": "Total des dettes à court et long terme",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "Azınlık hissedarların payları (varsa)",
       "label_i18n": {
-        "en": "Azınlık Payları",
+        "en": "Minority Interests",
         "tr": "Azınlık Payları",
         "de": "Minderheitsanteile",
         "fr": "Intérêts minoritaires",
@@ -65,7 +65,7 @@
         "ar": "حصص الأقلية"
       },
       "businessContext_i18n": {
-        "en": "Azınlık hissedarların payları (varsa)",
+        "en": "Minority shareholders' interests (if any)",
         "tr": "Azınlık hissedarların payları (varsa)",
         "de": "Anteile von Minderheitsaktionären (falls vorhanden)",
         "fr": "Parts des actionnaires minoritaires (le cas échéant)",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "İmtiyazlı hisse senedi değeri (varsa)",
       "label_i18n": {
-        "en": "İmtiyazlı Hisse Senetleri",
+        "en": "Preferred Shares",
         "tr": "İmtiyazlı Hisse Senetleri",
         "de": "Vorzugsaktien",
         "fr": "Actions privilégiées",
@@ -89,7 +89,7 @@
         "ar": "الأسهم الممتازة"
       },
       "businessContext_i18n": {
-        "en": "İmtiyazlı hisse senedi değeri (varsa)",
+        "en": "Preferred share value (if any)",
         "tr": "İmtiyazlı hisse senedi değeri (varsa)",
         "de": "Wert der Vorzugsaktien (falls vorhanden)",
         "fr": "Valeur des actions privilégiées (le cas échéant)",
@@ -113,7 +113,7 @@
         "ar": "النقد وما في حكمه"
       },
       "businessContext_i18n": {
-        "en": "Nakit ve nakde eşdeğer varlıklar toplamı",
+        "en": "Total cash and cash equivalents",
         "tr": "Nakit ve nakde eşdeğer varlıklar toplamı",
         "de": "Summe der Zahlungsmittel und Zahlungsmitteläquivalente",
         "fr": "Total de la trésorerie et des actifs liquides",
@@ -129,15 +129,15 @@
       "default": 0,
       "businessContext": "Faiz, amortisman ve vergi öncesi kar",
       "label_i18n": {
-        "en": "FAVÖK (EBITDA)",
+        "en": "EBITDA",
         "tr": "FAVÖK (EBITDA)",
-        "de": "EBITDA",
+        "de": "FAVÖK (EBITDA)",
         "fr": "EBITDA",
         "es": "EBITDA",
         "ar": "EBITDA (الأرباح قبل الفوائد والضرائب والإهلاك والاستهلاك)"
       },
       "businessContext_i18n": {
-        "en": "Faiz, amortisman ve vergi öncesi kar",
+        "en": "Earnings before interest, depreciation and taxes",
         "tr": "Faiz, amortisman ve vergi öncesi kar",
         "de": "Gewinn vor Zinsen, Abschreibungen und Steuern",
         "fr": "Bénéfice avant intérêts, impôts, dépréciation et amortissement",

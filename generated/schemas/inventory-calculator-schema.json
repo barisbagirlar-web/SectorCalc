@@ -9,7 +9,7 @@
       "default": 1200,
       "businessContext": "Yıllık talep miktarı (adet)",
       "label_i18n": {
-        "en": "Yıllık Talep",
+        "en": "Annual Demand",
         "tr": "Yıllık Talep",
         "de": "Jährliche Nachfrage",
         "fr": "Demande annuelle",
@@ -17,7 +17,7 @@
         "ar": "الطلب السنوي"
       },
       "businessContext_i18n": {
-        "en": "Yıllık talep miktarı (adet)",
+        "en": "Annual demand quantity (units)",
         "tr": "Yıllık talep miktarı (adet)",
         "de": "Jährliche Nachfragemenge (Stück)",
         "fr": "Quantité de demande annuelle (pièces)",
@@ -33,7 +33,7 @@
       "default": 50,
       "businessContext": "Sipariş başına maliyet (TL)",
       "label_i18n": {
-        "en": "Sipariş Maliyeti",
+        "en": "Ordering Cost",
         "tr": "Sipariş Maliyeti",
         "de": "Bestellkosten",
         "fr": "Coût de commande",
@@ -41,7 +41,7 @@
         "ar": "تكلفة الطلب"
       },
       "businessContext_i18n": {
-        "en": "Sipariş başına maliyet (TL)",
+        "en": "Cost per order (TL)",
         "tr": "Sipariş başına maliyet (TL)",
         "de": "Kosten pro Bestellung (TL)",
         "fr": "Coût par commande (TL)",
@@ -65,7 +65,7 @@
         "ar": "تكلفة الاحتفاظ بالوحدة"
       },
       "businessContext_i18n": {
-        "en": "Yıllık birim başına elde tutma maliyeti",
+        "en": "Annual holding cost per unit",
         "tr": "Yıllık birim başına elde tutma maliyeti",
         "de": "Jährliche Lagerhaltungskosten pro Einheit",
         "fr": "Coût de détention annuel par unité",
@@ -81,7 +81,7 @@
       "default": 5,
       "businessContext": "Günlük ortalama talep miktarı",
       "label_i18n": {
-        "en": "Günlük Talep",
+        "en": "Daily demand",
         "tr": "Günlük Talep",
         "de": "Täglicher Bedarf",
         "fr": "Demande quotidienne",
@@ -89,7 +89,7 @@
         "ar": "الطلب اليومي"
       },
       "businessContext_i18n": {
-        "en": "Günlük ortalama talep miktarı",
+        "en": "Average daily demand quantity",
         "tr": "Günlük ortalama talep miktarı",
         "de": "Durchschnittliche tägliche Bedarfsmenge",
         "fr": "Demande quotidienne moyenne",
@@ -105,7 +105,7 @@
       "default": 5,
       "businessContext": "Siparişin teslim süresi (gün)",
       "label_i18n": {
-        "en": "Tedarik Süresi",
+        "en": "Lead Time",
         "tr": "Tedarik Süresi",
         "de": "Lieferzeit",
         "fr": "Délai d'approvisionnement",
@@ -113,7 +113,7 @@
         "ar": "تكلفة الوحدة (سعر الشراء)"
       },
       "businessContext_i18n": {
-        "en": "Siparişin teslim süresi (gün)",
+        "en": "Order lead time (days)",
         "tr": "Siparişin teslim süresi (gün)",
         "de": "Lieferzeit der Bestellung (Tage)",
         "fr": "Délai de livraison (jours)",

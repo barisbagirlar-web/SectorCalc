@@ -9,7 +9,7 @@
       "default": 100,
       "businessContext": "Bir müşteriden aylık olarak elde edilen ortalama gelir.",
       "label_i18n": {
-        "en": "Aylık Ortalama Gelir (ARPU)",
+        "en": "Average Monthly Revenue (ARPU)",
         "tr": "Aylık Ortalama Gelir (ARPU)",
         "de": "Monatlicher Durchschnittsumsatz (ARPU)",
         "fr": "Revenu moyen par utilisateur (ARPU)",
@@ -17,7 +17,7 @@
         "ar": "متوسط الإيرادات الشهرية لكل مستخدم (ARPU)"
       },
       "businessContext_i18n": {
-        "en": "Bir müşteriden aylık olarak elde edilen ortalama gelir.",
+        "en": "Average revenue obtained from a customer per month.",
         "tr": "Bir müşteriden aylık olarak elde edilen ortalama gelir.",
         "de": "Durchschnittlicher monatlicher Umsatz pro Kunde.",
         "fr": "Revenu moyen mensuel par client.",
@@ -33,7 +33,7 @@
       "default": 70,
       "businessContext": "Satılan her birim ürün/hizmetten elde edilen brüt kar yüzdesi.",
       "label_i18n": {
-        "en": "Brüt Kar Marjı (%)",
+        "en": "Gross Profit Margin (%)",
         "tr": "Brüt Kar Marjı (%)",
         "de": "Bruttogewinnmarge (%)",
         "fr": "Marge brute (%)",
@@ -41,7 +41,7 @@
         "ar": "هامش الربح الإجمالي (%)"
       },
       "businessContext_i18n": {
-        "en": "Satılan her birim ürün/hizmetten elde edilen brüt kar yüzdesi.",
+        "en": "Percentage of gross profit from each unit of product/service sold.",
         "tr": "Satılan her birim ürün/hizmetten elde edilen brüt kar yüzdesi.",
         "de": "Prozentsatz des Bruttogewinns pro verkaufter Einheit Produkt/Dienstleistung.",
         "fr": "Pourcentage de marge brute sur chaque unité de produit/service vendue.",
@@ -57,7 +57,7 @@
       "default": 5,
       "businessContext": "Her ay müşteri tabanının ne kadarının kaybedildiğini gösteren oran.",
       "label_i18n": {
-        "en": "Aylık Kayıp Oranı (%)",
+        "en": "Monthly Churn Rate (%)",
         "tr": "Aylık Kayıp Oranı (%)",
         "de": "Monatliche Verlustrate (%)",
         "fr": "Taux de perte mensuel (%)",
@@ -65,7 +65,7 @@
         "ar": "معدل التوقف الشهري (%)"
       },
       "businessContext_i18n": {
-        "en": "Her ay müşteri tabanının ne kadarının kaybedildiğini gösteren oran.",
+        "en": "Rate indicating how much of the customer base is lost each month.",
         "tr": "Her ay müşteri tabanının ne kadarının kaybedildiğini gösteren oran.",
         "de": "Rate, die angibt, wie viel des Kundenstamms jeden Monat verloren geht.",
         "fr": "Taux indiquant la proportion de la clientèle perdue chaque mois.",
@@ -81,7 +81,7 @@
       "default": 10,
       "businessContext": "Gelecekteki nakit akışlarının bugünkü değerini bulmak için kullanılan yıllık iskonto oranı.",
       "label_i18n": {
-        "en": "İskonto Oranı (%)",
+        "en": "Discount Rate (%)",
         "tr": "İskonto Oranı (%)",
         "de": "Diskontsatz (%)",
         "fr": "Taux d'actualisation (%)",
@@ -89,7 +89,7 @@
         "ar": "معدل الخصم (%)"
       },
       "businessContext_i18n": {
-        "en": "Gelecekteki nakit akışlarının bugünkü değerini bulmak için kullanılan yıllık iskonto oranı.",
+        "en": "Annual discount rate used to find the present value of future cash flows.",
         "tr": "Gelecekteki nakit akışlarının bugünkü değerini bulmak için kullanılan yıllık iskonto oranı.",
         "de": "Jährlicher Diskontsatz zur Berechnung des Barwerts zukünftiger Zahlungsströme.",
         "fr": "Taux d'actualisation annuel utilisé pour calculer la valeur actuelle des flux de trésorerie futurs.",
@@ -113,7 +113,7 @@
         "ar": "إجمالي تكلفة الاكتساب"
       },
       "businessContext_i18n": {
-        "en": "Belirli bir dönemdeki toplam pazarlama ve satış harcamaları.",
+        "en": "Total marketing and sales expenses in a given period.",
         "tr": "Belirli bir dönemdeki toplam pazarlama ve satış harcamaları.",
         "de": "Gesamte Marketing- und Vertriebsausgaben in einem bestimmten Zeitraum.",
         "fr": "Dépenses totales de marketing et de vente sur une période donnée.",
@@ -129,7 +129,7 @@
       "default": 100,
       "businessContext": "Aynı dönemde kazanılan yeni müşteri sayısı.",
       "label_i18n": {
-        "en": "Kazanılan Yeni Müşteri Sayısı",
+        "en": "Number of New Customers Acquired",
         "tr": "Kazanılan Yeni Müşteri Sayısı",
         "de": "Anzahl neuer Kunden",
         "fr": "Nombre de nouveaux clients acquis",
@@ -137,7 +137,7 @@
         "ar": "عدد العملاء الجدد المكتسبين"
       },
       "businessContext_i18n": {
-        "en": "Aynı dönemde kazanılan yeni müşteri sayısı.",
+        "en": "Number of new customers acquired in the same period.",
         "tr": "Aynı dönemde kazanılan yeni müşteri sayısı.",
         "de": "Anzahl der im selben Zeitraum gewonnenen Neukunden.",
         "fr": "Nombre de nouveaux clients acquis au cours de la même période.",

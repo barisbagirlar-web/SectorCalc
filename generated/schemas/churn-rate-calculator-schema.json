@@ -9,7 +9,7 @@
       "default": 1000,
       "businessContext": "Ölçüm döneminin başındaki aktif müşteri sayısı",
       "label_i18n": {
-        "en": "Dönem Başı Müşteri Sayısı",
+        "en": "Number of Customers at Start of Period",
         "tr": "Dönem Başı Müşteri Sayısı",
         "de": "Kunden zu Periodenbeginn",
         "fr": "Nombre de clients en début de période",
@@ -17,7 +17,7 @@
         "ar": "عدد العملاء في بداية الفترة"
       },
       "businessContext_i18n": {
-        "en": "Ölçüm döneminin başındaki aktif müşteri sayısı",
+        "en": "Number of active customers at the beginning of the measurement period",
         "tr": "Ölçüm döneminin başındaki aktif müşteri sayısı",
         "de": "Anzahl aktiver Kunden zu Beginn des Messzeitraums",
         "fr": "Nombre de clients actifs au début de la période de mesure",
@@ -33,7 +33,7 @@
       "default": 50,
       "businessContext": "Dönem içinde kaybedilen (churn eden) müşteri sayısı",
       "label_i18n": {
-        "en": "Kaybedilen Müşteri Sayısı",
+        "en": "Number of Lost Customers",
         "tr": "Kaybedilen Müşteri Sayısı",
         "de": "Verlorene Kunden",
         "fr": "Nombre de clients perdus",
@@ -41,7 +41,7 @@
         "ar": "عدد العملاء المفقودين"
       },
       "businessContext_i18n": {
-        "en": "Dönem içinde kaybedilen (churn eden) müşteri sayısı",
+        "en": "Number of customers lost (churned) during the period",
         "tr": "Dönem içinde kaybedilen (churn eden) müşteri sayısı",
         "de": "Anzahl der im Zeitraum verlorenen (abgewanderten) Kunden",
         "fr": "Nombre de clients perdus (désabonnés) au cours de la période",
@@ -57,7 +57,7 @@
       "default": 10000,
       "businessContext": "Dönem başındaki toplam aylık yinelenen gelir",
       "label_i18n": {
-        "en": "Dönem Başı Aylık Yinelenen Gelir (MRR)",
+        "en": "Monthly Recurring Revenue (MRR) at the beginning of the period",
         "tr": "Dönem Başı Aylık Yinelenen Gelir (MRR)",
         "de": "Monatlich wiederkehrender Umsatz (MRR) zu Periodenbeginn",
         "fr": "Revenu mensuel récurrent (MRR) en début de période",
@@ -65,7 +65,7 @@
         "ar": "الإيرادات الشهرية المتكررة (MRR) في بداية الفترة"
       },
       "businessContext_i18n": {
-        "en": "Dönem başındaki toplam aylık yinelenen gelir",
+        "en": "Total monthly recurring revenue at the beginning of the period",
         "tr": "Dönem başındaki toplam aylık yinelenen gelir",
         "de": "Gesamter monatlich wiederkehrender Umsatz zu Periodenbeginn",
         "fr": "Revenu mensuel récurrent total en début de période",
@@ -89,7 +89,7 @@
         "ar": "MRR المفقودة"
       },
       "businessContext_i18n": {
-        "en": "Kaybedilen müşterilerden gelen aylık yinelenen gelir kaybı",
+        "en": "Monthly recurring revenue lost from churned customers",
         "tr": "Kaybedilen müşterilerden gelen aylık yinelenen gelir kaybı",
         "de": "Verlust an monatlich wiederkehrendem Umsatz durch verlorene Kunden",
         "fr": "Perte de revenu mensuel récurrent due aux clients perdus",
@@ -105,7 +105,7 @@
       "default": 1,
       "businessContext": "Kayıp oranının hesaplandığı dönem (genellikle aylık)",
       "label_i18n": {
-        "en": "Ölçüm Dönemi (Ay)",
+        "en": "Measurement period (months)",
         "tr": "Ölçüm Dönemi (Ay)",
         "de": "Messzeitraum (Monate)",
         "fr": "Période de mesure (mois)",
@@ -113,7 +113,7 @@
         "ar": "فترة القياس (شهر)"
       },
       "businessContext_i18n": {
-        "en": "Kayıp oranının hesaplandığı dönem (genellikle aylık)",
+        "en": "Period over which churn rate is calculated (usually monthly)",
         "tr": "Kayıp oranının hesaplandığı dönem (genellikle aylık)",
         "de": "Zeitraum, für den die Verlustrate berechnet wird (normalerweise monatlich)",
         "fr": "Période sur laquelle le taux de perte est calculé (généralement mensuelle)",

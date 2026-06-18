@@ -9,7 +9,7 @@
       "default": 2000,
       "businessContext": "Belgedeki toplam kelime adedi",
       "label_i18n": {
-        "en": "Toplam Kelime Sayısı",
+        "en": "Total Word Count",
         "tr": "Toplam Kelime Sayısı",
         "de": "Gesamtwortanzahl",
         "fr": "Nombre total de mots",
@@ -33,7 +33,7 @@
       "default": 250,
       "businessContext": "Bir sayfaya sığan ortalama kelime sayısı (yazı tipi, boyut, aralıklara göre değişir)",
       "label_i18n": {
-        "en": "Sayfa Başına Kelime",
+        "en": "Words per Page",
         "tr": "Sayfa Başına Kelime",
         "de": "Wörter pro Seite",
         "fr": "Mots par page",
@@ -41,7 +41,7 @@
         "ar": "الكلمات لكل صفحة"
       },
       "businessContext_i18n": {
-        "en": "Bir sayfaya sığan ortalama kelime sayısı (yazı tipi, boyut, aralıklara göre değişir)",
+        "en": "Average number of words that fit on a page (varies by font, size, spacing).",
         "tr": "Bir sayfaya sığan ortalama kelime sayısı (yazı tipi, boyut, aralıklara göre değişir)",
         "de": "Durchschnittliche Wortanzahl pro Seite (variiert je nach Schriftart, Größe, Abständen)",
         "fr": "Nombre moyen de mots par page (varie selon la police, la taille, les espacements)",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "Tam sayfa kaplayan görsel sayısı",
       "label_i18n": {
-        "en": "Tam Sayfa Görsel",
+        "en": "Full Page Image",
         "tr": "Tam Sayfa Görsel",
         "de": "Ganzseitiges Bild",
         "fr": "Image pleine page",
@@ -65,7 +65,7 @@
         "ar": "صور كاملة الصفحة"
       },
       "businessContext_i18n": {
-        "en": "Tam sayfa kaplayan görsel sayısı",
+        "en": "Number of images covering a full page.",
         "tr": "Tam sayfa kaplayan görsel sayısı",
         "de": "Anzahl der Bilder, die eine ganze Seite einnehmen",
         "fr": "Nombre d'images occupant une page entière",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "Yarım sayfa kaplayan görsel sayısı",
       "label_i18n": {
-        "en": "Yarım Sayfa Görsel",
+        "en": "Half Page Image",
         "tr": "Yarım Sayfa Görsel",
         "de": "Halbes Bild",
         "fr": "Image demi-page",
@@ -89,7 +89,7 @@
         "ar": "صورة نصف صفحة"
       },
       "businessContext_i18n": {
-        "en": "Yarım sayfa kaplayan görsel sayısı",
+        "en": "Number of images covering half a page.",
         "tr": "Yarım sayfa kaplayan görsel sayısı",
         "de": "Anzahl der Bilder, die eine halbe Seite einnehmen",
         "fr": "Nombre d'images occupant une demi-page",
@@ -113,7 +113,7 @@
         "ar": "جدول صفحة كاملة"
       },
       "businessContext_i18n": {
-        "en": "Tam sayfa kaplayan tablo sayısı",
+        "en": "Number of tables covering a full page.",
         "tr": "Tam sayfa kaplayan tablo sayısı",
         "de": "Anzahl der Tabellen, die eine ganze Seite einnehmen",
         "fr": "Nombre de tableaux occupant une page entière",
@@ -129,7 +129,7 @@
       "default": 0,
       "businessContext": "Yarım sayfa kaplayan tablo sayısı",
       "label_i18n": {
-        "en": "Yarım Sayfa Tablo",
+        "en": "Half Page Table",
         "tr": "Yarım Sayfa Tablo",
         "de": "Halbe Tabelle",
         "fr": "Tableau demi-page",
@@ -137,7 +137,7 @@
         "ar": "جدول نصف صفحة"
       },
       "businessContext_i18n": {
-        "en": "Yarım sayfa kaplayan tablo sayısı",
+        "en": "Number of tables covering half a page.",
         "tr": "Yarım sayfa kaplayan tablo sayısı",
         "de": "Anzahl der Tabellen, die eine halbe Seite einnehmen",
         "fr": "Nombre de tableaux occupant une demi-page",

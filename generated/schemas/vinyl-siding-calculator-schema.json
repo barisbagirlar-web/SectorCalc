@@ -9,7 +9,7 @@
       "default": 1000,
       "businessContext": "Tüm duvarların brüt alanı",
       "label_i18n": {
-        "en": "Toplam Duvar Alanı",
+        "en": "Total Wall Area",
         "tr": "Toplam Duvar Alanı",
         "de": "Gesamte Wandfläche",
         "fr": "Surface murale totale",
@@ -17,7 +17,7 @@
         "ar": "إجمالي مساحة الجدران"
       },
       "businessContext_i18n": {
-        "en": "Tüm duvarların brüt alanı",
+        "en": "Gross area of all walls",
         "tr": "Tüm duvarların brüt alanı",
         "de": "Bruttofläche aller Wände",
         "fr": "Surface brute de tous les murs",
@@ -33,7 +33,7 @@
       "default": 100,
       "businessContext": "Kaplama yapılmayacak alan",
       "label_i18n": {
-        "en": "Kapı ve Pencere Alanı",
+        "en": "Door and Window Area",
         "tr": "Kapı ve Pencere Alanı",
         "de": "Tür- und Fensterfläche",
         "fr": "Surface des portes et fenêtres",
@@ -41,7 +41,7 @@
         "ar": "مساحة الأبواب والنوافذ"
       },
       "businessContext_i18n": {
-        "en": "Kaplama yapılmayacak alan",
+        "en": "Area not to be covered",
         "tr": "Kaplama yapılmayacak alan",
         "de": "Nicht zu beschichtende Fläche",
         "fr": "Zone non revêtue",
@@ -57,7 +57,7 @@
       "default": 8,
       "businessContext": "Bir panelin kapladığı alan (genellikle 12 ft x 8 inç = 8 sq ft)",
       "label_i18n": {
-        "en": "Panel Kaplama Alanı",
+        "en": "Panel Covering Area",
         "tr": "Panel Kaplama Alanı",
         "de": "Panel-Beschichtungsfläche",
         "fr": "Surface de revêtement du panneau",
@@ -65,7 +65,7 @@
         "ar": "مساحة تغطية الألواح"
       },
       "businessContext_i18n": {
-        "en": "Bir panelin kapladığı alan (genellikle 12 ft x 8 inç = 8 sq ft)",
+        "en": "Area covered by one panel (typically 12 ft x 8 in = 8 sq ft)",
         "tr": "Bir panelin kapladığı alan (genellikle 12 ft x 8 inç = 8 sq ft)",
         "de": "Fläche eines Panels (normalerweise 12 ft x 8 in = 8 sq ft)",
         "fr": "Surface couverte par un panneau (généralement 12 pi x 8 po = 8 pi²)",
@@ -81,7 +81,7 @@
       "default": 10,
       "businessContext": "Bir panelin satın alma maliyeti",
       "label_i18n": {
-        "en": "Panel Başına Fiyat",
+        "en": "Price per Panel",
         "tr": "Panel Başına Fiyat",
         "de": "Preis pro Panel",
         "fr": "Prix par panneau",
@@ -89,7 +89,7 @@
         "ar": "سعر اللوح الواحد"
       },
       "businessContext_i18n": {
-        "en": "Bir panelin satın alma maliyeti",
+        "en": "Purchase cost of one panel",
         "tr": "Bir panelin satın alma maliyeti",
         "de": "Anschaffungskosten eines Panels",
         "fr": "Coût d'achat d'un panneau",
@@ -105,7 +105,7 @@
       "default": 10,
       "businessContext": "Kesme ve hatalardan kaynaklanan ilave malzeme yüzdesi",
       "label_i18n": {
-        "en": "Fire Yüzdesi",
+        "en": "Waste Percentage",
         "tr": "Fire Yüzdesi",
         "de": "Prozessverlust in Prozent",
         "fr": "Pourcentage de rebut",
@@ -113,7 +113,7 @@
         "ar": "نسبة الهدر"
       },
       "businessContext_i18n": {
-        "en": "Kesme ve hatalardan kaynaklanan ilave malzeme yüzdesi",
+        "en": "Additional material percentage due to cutting and errors",
         "tr": "Kesme ve hatalardan kaynaklanan ilave malzeme yüzdesi",
         "de": "Zusätzlicher Materialanteil (%) durch Zuschnitt und Fehler",
         "fr": "Pourcentage de matériau supplémentaire pour les coupes et les défauts",

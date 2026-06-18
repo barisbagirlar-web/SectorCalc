@@ -9,7 +9,7 @@
       "default": 1,
       "businessContext": "Dış yarıçap metre cinsinden.",
       "label_i18n": {
-        "en": "Dış Yarıçap (R)",
+        "en": "Outer Radius (R)",
         "tr": "Dış Yarıçap (R)",
         "de": "Außenradius (R)",
         "fr": "Rayon extérieur (R)",
@@ -17,7 +17,7 @@
         "ar": "نصف القطر الخارجي (R)"
       },
       "businessContext_i18n": {
-        "en": "Dış yarıçap metre cinsinden.",
+        "en": "Outer radius in meters.",
         "tr": "Dış yarıçap metre cinsinden.",
         "de": "Außenradius in Metern.",
         "fr": "Rayon extérieur en mètres.",
@@ -33,7 +33,7 @@
       "default": 0.5,
       "businessContext": "İç yarıçap metre cinsinden (dolu silindir için 0).",
       "label_i18n": {
-        "en": "İç Yarıçap (r)",
+        "en": "Inner Radius (r)",
         "tr": "İç Yarıçap (r)",
         "de": "Innenradius (r)",
         "fr": "Rayon intérieur (r)",
@@ -41,7 +41,7 @@
         "ar": "نصف القطر الداخلي (r)"
       },
       "businessContext_i18n": {
-        "en": "İç yarıçap metre cinsinden (dolu silindir için 0).",
+        "en": "Inner radius in meters (0 for solid cylinder).",
         "tr": "İç yarıçap metre cinsinden (dolu silindir için 0).",
         "de": "Innenradius in Metern (bei Vollzylinder 0).",
         "fr": "Rayon intérieur en mètres (0 pour cylindre plein).",
@@ -57,7 +57,7 @@
       "default": 2,
       "businessContext": "Silindir yüksekliği metre cinsinden.",
       "label_i18n": {
-        "en": "Yükseklik (h)",
+        "en": "Height (h)",
         "tr": "Yükseklik (h)",
         "de": "Höhe (h)",
         "fr": "Hauteur (h)",
@@ -65,7 +65,7 @@
         "ar": "الارتفاع (h)"
       },
       "businessContext_i18n": {
-        "en": "Silindir yüksekliği metre cinsinden.",
+        "en": "Cylinder height in meters.",
         "tr": "Silindir yüksekliği metre cinsinden.",
         "de": "Zylinderhöhe in Metern.",
         "fr": "Hauteur du cylindre en mètres.",
@@ -89,7 +89,7 @@
         "ar": "العدد (n)"
       },
       "businessContext_i18n": {
-        "en": "Üretilecek silindir sayısı.",
+        "en": "Number of cylinders to produce.",
         "tr": "Üretilecek silindir sayısı.",
         "de": "Anzahl der zu produzierenden Zylinder.",
         "fr": "Nombre de cylindres à produire.",

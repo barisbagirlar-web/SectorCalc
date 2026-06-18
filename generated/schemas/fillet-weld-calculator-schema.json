@@ -9,7 +9,7 @@
       "default": 6,
       "businessContext": "Teknik çizimde belirtilen köşe kaynak dikiş kalınlığı",
       "label_i18n": {
-        "en": "Köşe Kaynak Kalınlığı (a)",
+        "en": "Corner Weld Thickness (a)",
         "tr": "Köşe Kaynak Kalınlığı (a)",
         "de": "Kehlnahtdicke (a)",
         "fr": "Épaisseur de la soudure d'angle (a)",
@@ -17,7 +17,7 @@
         "ar": "سمك اللحام الزاوية (a)"
       },
       "businessContext_i18n": {
-        "en": "Teknik çizimde belirtilen köşe kaynak dikiş kalınlığı",
+        "en": "Corner weld seam thickness as specified in the technical drawing.",
         "tr": "Teknik çizimde belirtilen köşe kaynak dikiş kalınlığı",
         "de": "In der technischen Zeichnung angegebene Kehlnahtdicke",
         "fr": "Épaisseur du cordon de soudure d'angle spécifiée sur le plan technique",
@@ -41,7 +41,7 @@
         "ar": "طول اللحام"
       },
       "businessContext_i18n": {
-        "en": "Köşe kaynağının toplam uzunluğu",
+        "en": "Total length of fillet weld",
         "tr": "Köşe kaynağının toplam uzunluğu",
         "de": "Gesamtlänge der Kehlnaht",
         "fr": "Longueur totale de la soudure d'angle",
@@ -57,7 +57,7 @@
       "default": 235,
       "businessContext": "Kullanılan elektrot malzemesinin akma dayanımı (örneğin E42)",
       "label_i18n": {
-        "en": "Elektrot Akma Dayanımı",
+        "en": "Electrode yield strength",
         "tr": "Elektrot Akma Dayanımı",
         "de": "Streckgrenze des Elektrodenmaterials",
         "fr": "Limite d'élasticité de l'électrode",
@@ -65,7 +65,7 @@
         "ar": "مقاومة خضوع القطب"
       },
       "businessContext_i18n": {
-        "en": "Kullanılan elektrot malzemesinin akma dayanımı (örneğin E42)",
+        "en": "Yield strength of the electrode material used (e.g., E42)",
         "tr": "Kullanılan elektrot malzemesinin akma dayanımı (örneğin E42)",
         "de": "Streckgrenze des verwendeten Elektrodenmaterials (z. B. E42)",
         "fr": "Limite d'élasticité du matériau de l'électrode utilisée (ex. E42)",
@@ -81,7 +81,7 @@
       "default": 1.5,
       "businessContext": "Emniyet gerilmesi hesaplaması için yapısal güvenlik kat sayısı",
       "label_i18n": {
-        "en": "Güvenlik Katsayısı",
+        "en": "Safety factor",
         "tr": "Güvenlik Katsayısı",
         "de": "Sicherheitsfaktor",
         "fr": "Coefficient de sécurité",
@@ -89,7 +89,7 @@
         "ar": "معامل الأمان"
       },
       "businessContext_i18n": {
-        "en": "Emniyet gerilmesi hesaplaması için yapısal güvenlik kat sayısı",
+        "en": "Structural safety factor for allowable stress calculation",
         "tr": "Emniyet gerilmesi hesaplaması için yapısal güvenlik kat sayısı",
         "de": "Sicherheitsfaktor für die Berechnung der zulässigen Spannung",
         "fr": "Coefficient de sécurité structurel pour le calcul de la contrainte admissible",
@@ -105,7 +105,7 @@
       "default": 50,
       "businessContext": "Kaynak bağlantısına etkiyen tasarım yükü",
       "label_i18n": {
-        "en": "Tasarım Yükü",
+        "en": "Design load",
         "tr": "Tasarım Yükü",
         "de": "Auslegungslast",
         "fr": "Charge de conception",
@@ -113,7 +113,7 @@
         "ar": "الحمل التصميمي"
       },
       "businessContext_i18n": {
-        "en": "Kaynak bağlantısına etkiyen tasarım yükü",
+        "en": "Design load acting on the weld connection",
         "tr": "Kaynak bağlantısına etkiyen tasarım yükü",
         "de": "Auf die Schweißverbindung wirkende Auslegungslast",
         "fr": "Charge de conception agissant sur l'assemblage soudé",

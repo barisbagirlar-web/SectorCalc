@@ -17,7 +17,7 @@
         "ar": "متوسط التقدير"
       },
       "businessContext_i18n": {
-        "en": "Modelin farklı eğitim setleri üzerindeki tahminlerinin ortalaması",
+        "en": "Average of model predictions on different training sets",
         "tr": "Modelin farklı eğitim setleri üzerindeki tahminlerinin ortalaması",
         "de": "Mittelwert der Vorhersagen des Modells über verschiedene Trainingsdatensätze.",
         "fr": "Moyenne des prédictions du modèle sur différents ensembles d'entraînement.",
@@ -33,7 +33,7 @@
       "default": 0,
       "businessContext": "Hedef değişkenin gerçek değeri",
       "label_i18n": {
-        "en": "Gerçek Değer",
+        "en": "Actual Value",
         "tr": "Gerçek Değer",
         "de": "Tatsächlicher Wert",
         "fr": "Valeur réelle",
@@ -41,7 +41,7 @@
         "ar": "القيمة الفعلية"
       },
       "businessContext_i18n": {
-        "en": "Hedef değişkenin gerçek değeri",
+        "en": "Actual value of the target variable",
         "tr": "Hedef değişkenin gerçek değeri",
         "de": "Tatsächlicher Wert der Zielvariablen.",
         "fr": "Valeur réelle de la variable cible.",
@@ -65,7 +65,7 @@
         "ar": "التباين"
       },
       "businessContext_i18n": {
-        "en": "Tahminlerin varyansı, modelin veriye duyarlılığını gösterir",
+        "en": "Variance of predictions, indicating model sensitivity to data",
         "tr": "Tahminlerin varyansı, modelin veriye duyarlılığını gösterir",
         "de": "Varianz der Vorhersagen, zeigt die Empfindlichkeit des Modells gegenüber den Daten.",
         "fr": "Variance des prédictions, indiquant la sensibilité du modèle aux données.",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "Verideki gürültüden kaynaklanan ve model tarafından yakalanamayan hata",
       "label_i18n": {
-        "en": "İndirgenemez Hata",
+        "en": "Irreducible Error",
         "tr": "İndirgenemez Hata",
         "de": "Unvermeidbarer Fehler",
         "fr": "Erreur irréductible",
@@ -89,7 +89,7 @@
         "ar": "الخطأ غير القابل للاختزال"
       },
       "businessContext_i18n": {
-        "en": "Verideki gürültüden kaynaklanan ve model tarafından yakalanamayan hata",
+        "en": "Error due to noise in data that cannot be captured by the model",
         "tr": "Verideki gürültüden kaynaklanan ve model tarafından yakalanamayan hata",
         "de": "Fehler durch Rauschen in den Daten, der vom Modell nicht erfasst werden kann.",
         "fr": "Erreur due au bruit dans les données, que le modèle ne peut pas capturer.",

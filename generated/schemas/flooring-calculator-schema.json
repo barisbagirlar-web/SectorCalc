@@ -9,7 +9,7 @@
       "default": 5,
       "businessContext": "Döşeme yapılacak odanın uzunluğu (metre cinsinden).",
       "label_i18n": {
-        "en": "Oda Uzunluğu",
+        "en": "Room Length",
         "tr": "Oda Uzunluğu",
         "de": "Raumlänge",
         "fr": "Longueur de la pièce",
@@ -17,7 +17,7 @@
         "ar": "طول الغرفة"
       },
       "businessContext_i18n": {
-        "en": "Döşeme yapılacak odanın uzunluğu (metre cinsinden).",
+        "en": "Length of the room to be floored (in meters)",
         "tr": "Döşeme yapılacak odanın uzunluğu (metre cinsinden).",
         "de": "Länge des Raums, in dem der Bodenbelag verlegt wird (in Metern).",
         "fr": "Longueur de la pièce à carreler (en mètres).",
@@ -33,7 +33,7 @@
       "default": 4,
       "businessContext": "Döşeme yapılacak odanın genişliği (metre cinsinden).",
       "label_i18n": {
-        "en": "Oda Genişliği",
+        "en": "Room Width",
         "tr": "Oda Genişliği",
         "de": "Raumbreite",
         "fr": "Largeur de la pièce",
@@ -41,7 +41,7 @@
         "ar": "عرض الغرفة"
       },
       "businessContext_i18n": {
-        "en": "Döşeme yapılacak odanın genişliği (metre cinsinden).",
+        "en": "Width of the room to be floored (in meters)",
         "tr": "Döşeme yapılacak odanın genişliği (metre cinsinden).",
         "de": "Breite des Raums, in dem der Bodenbelag verlegt wird (in Metern).",
         "fr": "Largeur de la pièce à carreler (en mètres).",
@@ -57,7 +57,7 @@
       "default": 0.3,
       "businessContext": "Bir karonun uzun kenar ölçüsü (metre cinsinden). Örn: 30 cm = 0.3 m.",
       "label_i18n": {
-        "en": "Karo Uzunluğu",
+        "en": "Tile Length",
         "tr": "Karo Uzunluğu",
         "de": "Fliesenlänge",
         "fr": "Longueur du carreau",
@@ -65,7 +65,7 @@
         "ar": "طول البلاطة"
       },
       "businessContext_i18n": {
-        "en": "Bir karonun uzun kenar ölçüsü (metre cinsinden). Örn: 30 cm = 0.3 m.",
+        "en": "Long side measurement of a tile (in meters). E.g., 30 cm = 0.3 m.",
         "tr": "Bir karonun uzun kenar ölçüsü (metre cinsinden). Örn: 30 cm = 0.3 m.",
         "de": "Länge einer Fliese (in Metern). Z. B. 30 cm = 0,3 m.",
         "fr": "Mesure du côté long d'un carreau (en mètres). Ex: 30 cm = 0,3 m.",
@@ -81,7 +81,7 @@
       "default": 0.3,
       "businessContext": "Bir karonun kısa kenar ölçüsü (metre cinsinden). Örn: 30 cm = 0.3 m.",
       "label_i18n": {
-        "en": "Karo Genişliği",
+        "en": "Tile Width",
         "tr": "Karo Genişliği",
         "de": "Fliesenbreite",
         "fr": "Largeur du carreau",
@@ -89,7 +89,7 @@
         "ar": "عرض البلاطة"
       },
       "businessContext_i18n": {
-        "en": "Bir karonun kısa kenar ölçüsü (metre cinsinden). Örn: 30 cm = 0.3 m.",
+        "en": "Short side length of a tile (in meters). E.g., 30 cm = 0.3 m.",
         "tr": "Bir karonun kısa kenar ölçüsü (metre cinsinden). Örn: 30 cm = 0.3 m.",
         "de": "Breite einer Fliese (in Metern). Z. B. 30 cm = 0,3 m.",
         "fr": "Mesure du côté court d'un carreau (en mètres). Ex: 30 cm = 0,3 m.",
@@ -105,7 +105,7 @@
       "default": 15,
       "businessContext": "Bir adet karonun satın alma fiyatı (TL cinsinden).",
       "label_i18n": {
-        "en": "Karo Başına Fiyat",
+        "en": "Price per Tile",
         "tr": "Karo Başına Fiyat",
         "de": "Preis pro Fliese",
         "fr": "Prix par carreau",
@@ -113,7 +113,7 @@
         "ar": "سعر البلاطة الواحدة"
       },
       "businessContext_i18n": {
-        "en": "Bir adet karonun satın alma fiyatı (TL cinsinden).",
+        "en": "Purchase price of one tile (in TL).",
         "tr": "Bir adet karonun satın alma fiyatı (TL cinsinden).",
         "de": "Kaufpreis einer einzelnen Fliese (in TL).",
         "fr": "Prix d'achat d'un carreau (en euros).",
@@ -129,7 +129,7 @@
       "default": 10,
       "businessContext": "Kesim, kırılma gibi kayıplar için eklenecek yüzde oranı. Örn: 10.",
       "label_i18n": {
-        "en": "Fire Oranı",
+        "en": "Waste Rate",
         "tr": "Fire Oranı",
         "de": "Verschnittanteil",
         "fr": "Taux de perte",
@@ -137,7 +137,7 @@
         "ar": "نسبة الهدر"
       },
       "businessContext_i18n": {
-        "en": "Kesim, kırılma gibi kayıplar için eklenecek yüzde oranı. Örn: 10.",
+        "en": "Percentage to add for losses such as cutting, breakage. E.g., 10.",
         "tr": "Kesim, kırılma gibi kayıplar için eklenecek yüzde oranı. Örn: 10.",
         "de": "Prozentsatz für Verluste wie Schnitt oder Bruch. Z.B. 10.",
         "fr": "Pourcentage à ajouter pour les pertes (coupe, casse, etc.). Ex: 10.",

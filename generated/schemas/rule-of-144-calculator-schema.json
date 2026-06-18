@@ -9,7 +9,7 @@
       "default": 7,
       "businessContext": "Yatırımın yıllık bileşik faiz oranı.",
       "label_i18n": {
-        "en": "Yıllık Faiz Oranı",
+        "en": "Annual Interest Rate (%)",
         "tr": "Yıllık Faiz Oranı",
         "de": "Jährlicher Zinssatz",
         "fr": "Taux d'intérêt annuel",
@@ -17,7 +17,7 @@
         "ar": "معدل الفائدة السنوي"
       },
       "businessContext_i18n": {
-        "en": "Yatırımın yıllık bileşik faiz oranı.",
+        "en": "Annual compound interest rate of the investment.",
         "tr": "Yatırımın yıllık bileşik faiz oranı.",
         "de": "Jährlicher Zinssatz der Anlage (Zinseszins).",
         "fr": "Taux d'intérêt composé annuel de l'investissement.",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "Faizin yılda kaç kez bileşiklendiği.",
       "label_i18n": {
-        "en": "Yıllık Bileşik Dönem Sayısı",
+        "en": "Annual Compounding Periods",
         "tr": "Yıllık Bileşik Dönem Sayısı",
         "de": "Anzahl der Zinseszinsperioden pro Jahr",
         "fr": "Nombre de périodes de composition par an",
@@ -41,7 +41,7 @@
         "ar": "عدد فترات المضاعفة السنوية"
       },
       "businessContext_i18n": {
-        "en": "Faizin yılda kaç kez bileşiklendiği.",
+        "en": "Number of times interest is compounded per year.",
         "tr": "Faizin yılda kaç kez bileşiklendiği.",
         "de": "Häufigkeit der Zinseszinsberechnung pro Jahr.",
         "fr": "Nombre de fois par an où les intérêts sont composés.",
@@ -57,7 +57,7 @@
       "default": 1000,
       "businessContext": "Başlangıçta yatırılan ana para.",
       "label_i18n": {
-        "en": "Başlangıç Yatırımı",
+        "en": "Initial Investment",
         "tr": "Başlangıç Yatırımı",
         "de": "Anfangsinvestition",
         "fr": "Investissement initial",
@@ -65,7 +65,7 @@
         "ar": "الاستثمار الأولي"
       },
       "businessContext_i18n": {
-        "en": "Başlangıçta yatırılan ana para.",
+        "en": "Principal invested initially.",
         "tr": "Başlangıçta yatırılan ana para.",
         "de": "Anfänglich investiertes Kapital.",
         "fr": "Capital initial investi.",
@@ -81,7 +81,7 @@
       "default": 2,
       "businessContext": "Yatırımın kaç katına çıkmasının hedeflendiği.",
       "label_i18n": {
-        "en": "Hedef Çarpan",
+        "en": "Target Multiple",
         "tr": "Hedef Çarpan",
         "de": "Zielmultiplikator",
         "fr": "Multiplicateur cible",
@@ -89,7 +89,7 @@
         "ar": "المضاعف المستهدف"
       },
       "businessContext_i18n": {
-        "en": "Yatırımın kaç katına çıkmasının hedeflendiği.",
+        "en": "Target multiple of the investment.",
         "tr": "Yatırımın kaç katına çıkmasının hedeflendiği.",
         "de": "Das angestrebte Vielfache der Anlage.",
         "fr": "Combien de fois l'investissement doit être multiplié.",

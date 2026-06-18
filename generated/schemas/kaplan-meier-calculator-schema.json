@@ -17,7 +17,7 @@
         "ar": "الزمن 1"
       },
       "businessContext_i18n": {
-        "en": "İlk olayın gerçekleştiği zaman (veya ilk aralığın sonu).",
+        "en": "Time of first event (or end of first interval)",
         "tr": "İlk olayın gerçekleştiği zaman (veya ilk aralığın sonu).",
         "de": "Zeitpunkt des ersten Ereignisses (oder Ende des ersten Intervalls).",
         "fr": "Temps auquel le premier événement se produit (ou fin du premier intervalle).",
@@ -33,7 +33,7 @@
       "default": 0,
       "businessContext": "İlk olaydan hemen önce risk altındaki denek sayısı.",
       "label_i18n": {
-        "en": "Risk Altındaki Sayı 1",
+        "en": "Number at Risk 1",
         "tr": "Risk Altındaki Sayı 1",
         "de": "Risikozahl 1",
         "fr": "Nombre à risque 1",
@@ -41,7 +41,7 @@
         "ar": "عدد المعرضين للخطر 1"
       },
       "businessContext_i18n": {
-        "en": "İlk olaydan hemen önce risk altındaki denek sayısı.",
+        "en": "Number of subjects at risk just before the first event.",
         "tr": "İlk olaydan hemen önce risk altındaki denek sayısı.",
         "de": "Anzahl der gefährdeten Probanden unmittelbar vor dem ersten Ereignis.",
         "fr": "Nombre de sujets à risque juste avant le premier événement.",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "Zaman 1'de meydana gelen olay (başarısızlık) sayısı.",
       "label_i18n": {
-        "en": "Olay Sayısı 1",
+        "en": "Number of Events 1",
         "tr": "Olay Sayısı 1",
         "de": "Ereigniszahl 1",
         "fr": "Nombre d'événements 1",
@@ -65,7 +65,7 @@
         "ar": "عدد الحوادث 1"
       },
       "businessContext_i18n": {
-        "en": "Zaman 1'de meydana gelen olay (başarısızlık) sayısı.",
+        "en": "Number of events (failures) occurring at Time 1.",
         "tr": "Zaman 1'de meydana gelen olay (başarısızlık) sayısı.",
         "de": "Anzahl der Ereignisse (Ausfälle), die zum Zeitpunkt 1 aufgetreten sind.",
         "fr": "Nombre d'événements (défaillances) survenus au Temps 1.",
@@ -89,7 +89,7 @@
         "ar": "الزمن 2"
       },
       "businessContext_i18n": {
-        "en": "İkinci olayın gerçekleştiği zaman.",
+        "en": "Time of second event",
         "tr": "İkinci olayın gerçekleştiği zaman.",
         "de": "Zeitpunkt des zweiten Ereignisses.",
         "fr": "Temps auquel le deuxième événement se produit.",
@@ -105,7 +105,7 @@
       "default": 0,
       "businessContext": "İkinci olaydan hemen önce risk altındaki denek sayısı (Zaman 1'deki kayıplar düşüldükten sonra).",
       "label_i18n": {
-        "en": "Risk Altındaki Sayı 2",
+        "en": "Number at Risk 2",
         "tr": "Risk Altındaki Sayı 2",
         "de": "Risikozahl 2",
         "fr": "Nombre à risque 2",
@@ -113,7 +113,7 @@
         "ar": "عدد المعرضين للخطر 2"
       },
       "businessContext_i18n": {
-        "en": "İkinci olaydan hemen önce risk altındaki denek sayısı (Zaman 1'deki kayıplar düşüldükten sonra).",
+        "en": "Number of subjects at risk just before the second event (after subtracting losses at Time 1).",
         "tr": "İkinci olaydan hemen önce risk altındaki denek sayısı (Zaman 1'deki kayıplar düşüldükten sonra).",
         "de": "Anzahl der gefährdeten Probanden unmittelbar vor dem zweiten Ereignis (nach Abzug der Verluste zum Zeitpunkt 1).",
         "fr": "Nombre de sujets à risque juste avant le deuxième événement (après déduction des pertes au Temps 1).",
@@ -129,7 +129,7 @@
       "default": 0,
       "businessContext": "Zaman 2'de meydana gelen olay sayısı.",
       "label_i18n": {
-        "en": "Olay Sayısı 2",
+        "en": "Number of Events 2",
         "tr": "Olay Sayısı 2",
         "de": "Ereigniszahl 2",
         "fr": "Nombre d'événements 2",
@@ -137,7 +137,7 @@
         "ar": "عدد الأحداث 2"
       },
       "businessContext_i18n": {
-        "en": "Zaman 2'de meydana gelen olay sayısı.",
+        "en": "Number of events occurring at Time 2.",
         "tr": "Zaman 2'de meydana gelen olay sayısı.",
         "de": "Anzahl der Ereignisse, die zum Zeitpunkt 2 aufgetreten sind.",
         "fr": "Nombre d'événements survenus au Temps 2.",

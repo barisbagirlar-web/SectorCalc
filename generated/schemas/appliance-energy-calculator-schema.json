@@ -9,7 +9,7 @@
       "default": 1000,
       "businessContext": "Cihazın nominal gücü",
       "label_i18n": {
-        "en": "Güç (Watt)",
+        "en": "Power (Watt)",
         "tr": "Güç (Watt)",
         "de": "Leistung (Watt)",
         "fr": "Puissance (Watt)",
@@ -17,7 +17,7 @@
         "ar": "الطاقة (واط)"
       },
       "businessContext_i18n": {
-        "en": "Cihazın nominal gücü",
+        "en": "Nominal power of the device",
         "tr": "Cihazın nominal gücü",
         "de": "Nennleistung des Geräts",
         "fr": "Puissance nominale de l'appareil",
@@ -33,7 +33,7 @@
       "default": 5,
       "businessContext": "Cihazın günlük ortalama çalışma süresi",
       "label_i18n": {
-        "en": "Günlük Kullanım Saati",
+        "en": "Daily Usage Hours",
         "tr": "Günlük Kullanım Saati",
         "de": "Tägliche Nutzungsdauer",
         "fr": "Heures d'utilisation par jour",
@@ -41,7 +41,7 @@
         "ar": "ساعات الاستخدام اليومي"
       },
       "businessContext_i18n": {
-        "en": "Cihazın günlük ortalama çalışma süresi",
+        "en": "Average daily operating time of the device",
         "tr": "Cihazın günlük ortalama çalışma süresi",
         "de": "Durchschnittliche tägliche Betriebszeit des Geräts",
         "fr": "Temps de fonctionnement quotidien moyen de l'appareil",
@@ -57,7 +57,7 @@
       "default": 30,
       "businessContext": "Cihazın ayda kaç gün kullanıldığı",
       "label_i18n": {
-        "en": "Aylık Kullanım Günü",
+        "en": "Monthly Usage Days",
         "tr": "Aylık Kullanım Günü",
         "de": "Monatliche Nutzungstage",
         "fr": "Jours d'utilisation par mois",
@@ -65,7 +65,7 @@
         "ar": "أيام الاستخدام الشهري"
       },
       "businessContext_i18n": {
-        "en": "Cihazın ayda kaç gün kullanıldığı",
+        "en": "Number of days the device is used per month",
         "tr": "Cihazın ayda kaç gün kullanıldığı",
         "de": "Anzahl der Tage pro Monat, an denen das Gerät genutzt wird",
         "fr": "Nombre de jours d'utilisation de l'appareil par mois",
@@ -81,7 +81,7 @@
       "default": 0.12,
       "businessContext": "1 kWh elektrik enerjisinin maliyeti",
       "label_i18n": {
-        "en": "Elektrik Birim Fiyatı",
+        "en": "Electricity Unit Price",
         "tr": "Elektrik Birim Fiyatı",
         "de": "Strompreis pro Einheit",
         "fr": "Prix unitaire de l'électricité",
@@ -113,7 +113,7 @@
         "ar": "عدد الأجهزة"
       },
       "businessContext_i18n": {
-        "en": "Aynı özellikteki cihaz sayısı",
+        "en": "Number of devices with same specifications",
         "tr": "Aynı özellikteki cihaz sayısı",
         "de": "Anzahl der Geräte mit denselben Eigenschaften",
         "fr": "Nombre d'appareils de mêmes caractéristiques",
@@ -129,7 +129,7 @@
       "default": 0,
       "businessContext": "Cihazın bekleme modunda tükettiği güç",
       "label_i18n": {
-        "en": "StandBy Gücü",
+        "en": "Standby Power (kW)",
         "tr": "StandBy Gücü",
         "de": "Standby-Leistung",
         "fr": "Puissance en veille",
@@ -137,7 +137,7 @@
         "ar": "طاقة الاستعداد"
       },
       "businessContext_i18n": {
-        "en": "Cihazın bekleme modunda tükettiği güç",
+        "en": "Power consumed by the device in standby mode (kW)",
         "tr": "Cihazın bekleme modunda tükettiği güç",
         "de": "Leistungsaufnahme des Geräts im Standby-Modus",
         "fr": "Puissance consommée par l'appareil en mode veille",

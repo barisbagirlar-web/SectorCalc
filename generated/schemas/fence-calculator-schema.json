@@ -9,7 +9,7 @@
       "default": 20,
       "businessContext": "Çit hattının toplam uzunluğu (kapılar hariç)",
       "label_i18n": {
-        "en": "Toplam Çit Uzunluğu",
+        "en": "Total Fence Length",
         "tr": "Toplam Çit Uzunluğu",
         "de": "Gesamte Zaunlänge",
         "fr": "Longueur totale de clôture",
@@ -17,7 +17,7 @@
         "ar": "إجمالي طول السياج"
       },
       "businessContext_i18n": {
-        "en": "Çit hattının toplam uzunluğu (kapılar hariç)",
+        "en": "Total length of the fence line (excluding gates)",
         "tr": "Çit hattının toplam uzunluğu (kapılar hariç)",
         "de": "Gesamtlänge der Zaunlinie (ohne Tore)",
         "fr": "Longueur totale de la ligne de clôture (hors portails)",
@@ -33,7 +33,7 @@
       "default": 1.8,
       "businessContext": "Panel yüksekliği",
       "label_i18n": {
-        "en": "Çit Yüksekliği",
+        "en": "Fence Height",
         "tr": "Çit Yüksekliği",
         "de": "Zaunhöhe",
         "fr": "Hauteur de clôture",
@@ -41,7 +41,7 @@
         "ar": "ارتفاع السياج"
       },
       "businessContext_i18n": {
-        "en": "Panel yüksekliği",
+        "en": "Panel height",
         "tr": "Panel yüksekliği",
         "de": "Paneelhöhe",
         "fr": "Hauteur du panneau",
@@ -57,7 +57,7 @@
       "default": 2.5,
       "businessContext": "Direkler arası mesafe",
       "label_i18n": {
-        "en": "Direk Aralığı",
+        "en": "Post Spacing",
         "tr": "Direk Aralığı",
         "de": "Pfostenabstand",
         "fr": "Espacement des poteaux",
@@ -65,7 +65,7 @@
         "ar": "تباعد الأعمدة"
       },
       "businessContext_i18n": {
-        "en": "Direkler arası mesafe",
+        "en": "Distance between poles",
         "tr": "Direkler arası mesafe",
         "de": "Abstand zwischen den Pfosten",
         "fr": "Distance entre les poteaux",
@@ -81,7 +81,7 @@
       "default": 15,
       "businessContext": "Bir direk maliyeti",
       "label_i18n": {
-        "en": "Direk Birim Fiyatı",
+        "en": "Unit price of pole",
         "tr": "Direk Birim Fiyatı",
         "de": "Stückpreis Pfosten",
         "fr": "Prix unitaire du poteau",
@@ -105,7 +105,7 @@
       "default": 20,
       "businessContext": "Panel malzemesinin metrekare başına fiyatı",
       "label_i18n": {
-        "en": "Panel Metrekare Fiyatı",
+        "en": "Panel price per square meter",
         "tr": "Panel Metrekare Fiyatı",
         "de": "Preis pro Quadratmeter Paneel",
         "fr": "Prix au mètre carré du panneau",
@@ -113,7 +113,7 @@
         "ar": "سعر المتر المربع للوحة"
       },
       "businessContext_i18n": {
-        "en": "Panel malzemesinin metrekare başına fiyatı",
+        "en": "Price per square meter of panel material",
         "tr": "Panel malzemesinin metrekare başına fiyatı",
         "de": "Preis pro Quadratmeter des Paneelmaterials",
         "fr": "Prix au mètre carré du matériau du panneau",
@@ -129,7 +129,7 @@
       "default": 1,
       "businessContext": "Çite eklenecek kapı adedi",
       "label_i18n": {
-        "en": "Kapı Sayısı",
+        "en": "Number of Doors",
         "tr": "Kapı Sayısı",
         "de": "Anzahl Türen",
         "fr": "Nombre de portes",
@@ -137,7 +137,7 @@
         "ar": "عدد الأبواب"
       },
       "businessContext_i18n": {
-        "en": "Çite eklenecek kapı adedi",
+        "en": "Number of gates to add to the fence",
         "tr": "Çite eklenecek kapı adedi",
         "de": "Anzahl der zum Zaun hinzuzufügenden Tore",
         "fr": "Nombre de portails à ajouter à la clôture",
@@ -153,7 +153,7 @@
       "default": 200,
       "businessContext": "Bir kapı maliyeti",
       "label_i18n": {
-        "en": "Kapı Birim Fiyatı",
+        "en": "Unit price of gate",
         "tr": "Kapı Birim Fiyatı",
         "de": "Stückpreis Tor",
         "fr": "Prix unitaire du portail",
@@ -161,7 +161,7 @@
         "ar": "سعر الوحدة للبوابة"
       },
       "businessContext_i18n": {
-        "en": "Bir kapı maliyeti",
+        "en": "Cost of one gate",
         "tr": "Bir kapı maliyeti",
         "de": "Kosten pro Tor",
         "fr": "Coût d'un portail",
@@ -177,7 +177,7 @@
       "default": 5,
       "businessContext": "Bir direk için gerekli betonun toplam maliyeti",
       "label_i18n": {
-        "en": "Direk Başı Beton Maliyeti",
+        "en": "Concrete cost per pole",
         "tr": "Direk Başı Beton Maliyeti",
         "de": "Betonkosten pro Pfosten",
         "fr": "Coût du béton par poteau",
@@ -185,7 +185,7 @@
         "ar": "تكلفة الخرسانة لكل عمود"
       },
       "businessContext_i18n": {
-        "en": "Bir direk için gerekli betonun toplam maliyeti",
+        "en": "Total cost of concrete required for one pole",
         "tr": "Bir direk için gerekli betonun toplam maliyeti",
         "de": "Gesamtkosten des für einen Pfosten benötigten Betons",
         "fr": "Coût total du béton nécessaire pour un poteau",

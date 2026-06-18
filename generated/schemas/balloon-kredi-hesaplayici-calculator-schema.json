@@ -9,7 +9,7 @@
       "default": 100000,
       "businessContext": "Anapara",
       "label_i18n": {
-        "en": "Kredi Tutarı",
+        "en": "Loan Amount",
         "tr": "Kredi Tutarı",
         "de": "Kreditbetrag",
         "fr": "Montant du crédit",
@@ -33,7 +33,7 @@
       "default": 10,
       "businessContext": "Faiz",
       "label_i18n": {
-        "en": "Yıllık Faiz Oranı",
+        "en": "Annual Interest Rate (%)",
         "tr": "Yıllık Faiz Oranı",
         "de": "Jährlicher Zinssatz",
         "fr": "Taux d'intérêt annuel",
@@ -81,7 +81,7 @@
       "default": 30,
       "businessContext": "Balon ödeme, anaparanın yüzdesi",
       "label_i18n": {
-        "en": "Balon Ödeme Yüzdesi",
+        "en": "Balloon Payment Percentage (%)",
         "tr": "Balon Ödeme Yüzdesi",
         "de": "Ballonzahlungsprozentsatz",
         "fr": "Pourcentage de paiement forfaitaire",
@@ -89,7 +89,7 @@
         "ar": "نسبة الدفعة النهائية"
       },
       "businessContext_i18n": {
-        "en": "Balon ödeme, anaparanın yüzdesi",
+        "en": "Balloon payment as percentage of principal",
         "tr": "Balon ödeme, anaparanın yüzdesi",
         "de": "Ballonzahlung als Prozentsatz des Darlehensbetrags",
         "fr": "Paiement forfaitaire, pourcentage du principal",

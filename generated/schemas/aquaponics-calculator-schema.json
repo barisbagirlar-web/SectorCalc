@@ -9,7 +9,7 @@
       "default": 100,
       "businessContext": "Havuzdaki toplam balık sayısı",
       "label_i18n": {
-        "en": "Balık Sayısı",
+        "en": "Number of Fish",
         "tr": "Balık Sayısı",
         "de": "Anzahl der Fische",
         "fr": "Nombre de poissons",
@@ -17,7 +17,7 @@
         "ar": "عدد الأسماك"
       },
       "businessContext_i18n": {
-        "en": "Havuzdaki toplam balık sayısı",
+        "en": "Total number of fish in the pool",
         "tr": "Havuzdaki toplam balık sayısı",
         "de": "Gesamtzahl der Fische im Teich",
         "fr": "Nombre total de poissons dans le bassin",
@@ -33,7 +33,7 @@
       "default": 0.5,
       "businessContext": "Balık başına ortalama ağırlık",
       "label_i18n": {
-        "en": "Ortalama Balık Ağırlığı",
+        "en": "Average Fish Weight (kg)",
         "tr": "Ortalama Balık Ağırlığı",
         "de": "Durchschnittliches Fischgewicht",
         "fr": "Poids moyen du poisson",
@@ -41,7 +41,7 @@
         "ar": "متوسط وزن السمكة"
       },
       "businessContext_i18n": {
-        "en": "Balık başına ortalama ağırlık",
+        "en": "Average weight per fish (kg)",
         "tr": "Balık başına ortalama ağırlık",
         "de": "Durchschnittsgewicht pro Fisch",
         "fr": "Poids moyen par poisson",
@@ -57,7 +57,7 @@
       "default": 2,
       "businessContext": "Günlük vücut ağırlığının yüzdesi olarak yem miktarı",
       "label_i18n": {
-        "en": "Günlük Yemleme Oranı",
+        "en": "Daily Feeding Rate (%)",
         "tr": "Günlük Yemleme Oranı",
         "de": "Tägliche Fütterungsrate",
         "fr": "Taux d'alimentation quotidien",
@@ -65,7 +65,7 @@
         "ar": "معدل التغذية اليومي"
       },
       "businessContext_i18n": {
-        "en": "Günlük vücut ağırlığının yüzdesi olarak yem miktarı",
+        "en": "Daily feed amount as percentage of body weight (%)",
         "tr": "Günlük vücut ağırlığının yüzdesi olarak yem miktarı",
         "de": "Futtermenge als Prozentsatz des Körpergewichts pro Tag",
         "fr": "Quantité d'aliments en pourcentage du poids corporel par jour",
@@ -89,7 +89,7 @@
         "ar": "بروتين العلف"
       },
       "businessContext_i18n": {
-        "en": "Yemdeki protein yüzdesi",
+        "en": "Protein Percentage in Feed (%)",
         "tr": "Yemdeki protein yüzdesi",
         "de": "Proteingehalt im Futter (%)",
         "fr": "Pourcentage de protéines dans l'aliment",
@@ -105,7 +105,7 @@
       "default": 1.5,
       "businessContext": "Birim alan başına günlük azot alımı",
       "label_i18n": {
-        "en": "Bitki Azot Alımı",
+        "en": "Plant Nitrogen Uptake (kg/ha/day)",
         "tr": "Bitki Azot Alımı",
         "de": "Stickstoffaufnahme der Pflanzen",
         "fr": "Absorption d'azote par les plantes",
@@ -113,7 +113,7 @@
         "ar": "امتصاص النيتروجين من النبات"
       },
       "businessContext_i18n": {
-        "en": "Birim alan başına günlük azot alımı",
+        "en": "Daily nitrogen uptake per unit area (kg/ha/day)",
         "tr": "Birim alan başına günlük azot alımı",
         "de": "Tägliche Stickstoffaufnahme pro Fläche",
         "fr": "Absorption quotidienne d'azote par unité de surface",
@@ -129,7 +129,7 @@
       "default": 30,
       "businessContext": "Metreküp başına balık sayısı",
       "label_i18n": {
-        "en": "Balık Yoğunluğu",
+        "en": "Fish Density (fish/m³)",
         "tr": "Balık Yoğunluğu",
         "de": "Fischbesatzdichte",
         "fr": "Densité des poissons",
@@ -137,7 +137,7 @@
         "ar": "كثافة الأسماك"
       },
       "businessContext_i18n": {
-        "en": "Metreküp başına balık sayısı",
+        "en": "Number of fish per cubic meter (fish/m³)",
         "tr": "Metreküp başına balık sayısı",
         "de": "Anzahl Fische pro Kubikmeter",
         "fr": "Nombre de poissons par mètre cube",

@@ -9,7 +9,7 @@
       "default": 6,
       "businessContext": "Düzgün çokgenin kenar sayısı (3 veya daha büyük)",
       "label_i18n": {
-        "en": "Kenar Sayısı",
+        "en": "Number of Edges",
         "tr": "Kenar Sayısı",
         "de": "Anzahl der Kanten",
         "fr": "Nombre d'arêtes",
@@ -17,7 +17,7 @@
         "ar": "عدد الحواف"
       },
       "businessContext_i18n": {
-        "en": "Düzgün çokgenin kenar sayısı (3 veya daha büyük)",
+        "en": "Number of sides of regular polygon (3 or greater)",
         "tr": "Düzgün çokgenin kenar sayısı (3 veya daha büyük)",
         "de": "Anzahl der Seiten des regelmäßigen Vielecks (3 oder größer)",
         "fr": "Nombre de côtés du polygone régulier (3 ou plus)",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "Bir kenarın uzunluğu (metre)",
       "label_i18n": {
-        "en": "Kenar Uzunluğu",
+        "en": "Side Length",
         "tr": "Kenar Uzunluğu",
         "de": "Seitenlänge",
         "fr": "Longueur du côté",
@@ -41,7 +41,7 @@
         "ar": "طول الضلع"
       },
       "businessContext_i18n": {
-        "en": "Bir kenarın uzunluğu (metre)",
+        "en": "Length of one side (meters)",
         "tr": "Bir kenarın uzunluğu (metre)",
         "de": "Länge einer Seite (Meter)",
         "fr": "Longueur d'un côté (mètres)",
@@ -57,7 +57,7 @@
       "default": 1,
       "businessContext": "Çıktı alan için birim dönüşüm katsayısı (örn. m² → cm²: 10000)",
       "label_i18n": {
-        "en": "Birim Ölçek",
+        "en": "Unit Scale",
         "tr": "Birim Ölçek",
         "de": "Einheitsskala",
         "fr": "Échelle unitaire",
@@ -65,7 +65,7 @@
         "ar": "مقياس الوحدة"
       },
       "businessContext_i18n": {
-        "en": "Çıktı alan için birim dönüşüm katsayısı (örn. m² → cm²: 10000)",
+        "en": "Unit conversion factor for output area (e.g., m² → cm²: 10000)",
         "tr": "Çıktı alan için birim dönüşüm katsayısı (örn. m² → cm²: 10000)",
         "de": "Einheitenumrechnungsfaktor für die Ausgabefläche (z. B. m² → cm²: 10000)",
         "fr": "Coefficient de conversion d'unité pour la surface de sortie (ex. m² → cm² : 10000)",
@@ -81,7 +81,7 @@
       "default": 2,
       "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı",
       "label_i18n": {
-        "en": "Ondalık Basamak",
+        "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
         "fr": "Décimales",
@@ -89,7 +89,7 @@
         "ar": "المنازل العشرية"
       },
       "businessContext_i18n": {
-        "en": "Sonuçta gösterilecek ondalık basamak sayısı",
+        "en": "Number of decimal places to show in result",
         "tr": "Sonuçta gösterilecek ondalık basamak sayısı",
         "de": "Anzahl der im Ergebnis anzuzeigenden Dezimalstellen",
         "fr": "Nombre de décimales à afficher dans le résultat",

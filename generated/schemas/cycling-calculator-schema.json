@@ -9,7 +9,7 @@
       "default": 622,
       "businessContext": "ISO 5775'te tanımlı standart jant çapı (ETRTO 622 - 700C)",
       "label_i18n": {
-        "en": "Tekerlek Çapı",
+        "en": "Wheel Diameter",
         "tr": "Tekerlek Çapı",
         "de": "Raddurchmesser",
         "fr": "Diamètre de la roue",
@@ -17,7 +17,7 @@
         "ar": "قطر العجلة"
       },
       "businessContext_i18n": {
-        "en": "ISO 5775'te tanımlı standart jant çapı (ETRTO 622 - 700C)",
+        "en": "Standard rim diameter as defined in ISO 5775 (ETRTO 622 - 700C)",
         "tr": "ISO 5775'te tanımlı standart jant çapı (ETRTO 622 - 700C)",
         "de": "Standard-Felgendurchmesser nach ISO 5775 (ETRTO 622 - 700C)",
         "fr": "Diamètre standard de jante selon ISO 5775 (ETRTO 622 - 700C)",
@@ -41,7 +41,7 @@
         "ar": "الإيقاع"
       },
       "businessContext_i18n": {
-        "en": "Pedal çevirme sıklığı (dakikadaki devir sayısı)",
+        "en": "Pedal cadence (revolutions per minute)",
         "tr": "Pedal çevirme sıklığı (dakikadaki devir sayısı)",
         "de": "Trittfrequenz (Umdrehungen pro Minute)",
         "fr": "Fréquence de pédalage (tours par minute)",
@@ -57,7 +57,7 @@
       "default": 50,
       "businessContext": "Ön aynakol dişli sayısı",
       "label_i18n": {
-        "en": "Ayna Dişli",
+        "en": "Chainring",
         "tr": "Ayna Dişli",
         "de": "Spiegelrad",
         "fr": "Plateau avant",
@@ -65,7 +65,7 @@
         "ar": "الترس الأمامي"
       },
       "businessContext_i18n": {
-        "en": "Ön aynakol dişli sayısı",
+        "en": "Number of front chainring teeth",
         "tr": "Ön aynakol dişli sayısı",
         "de": "Anzahl der Zähne des vorderen Kettenblatts",
         "fr": "Nombre de dents du plateau avant",
@@ -81,7 +81,7 @@
       "default": 17,
       "businessContext": "Arka rubik dişli sayısı",
       "label_i18n": {
-        "en": "Rubik Dişli",
+        "en": "Sprocket",
         "tr": "Rubik Dişli",
         "de": "Rubik-Zahnrad",
         "fr": "Pignon arrière",
@@ -89,7 +89,7 @@
         "ar": "الترس الخلفي"
       },
       "businessContext_i18n": {
-        "en": "Arka rubik dişli sayısı",
+        "en": "Number of rear sprocket teeth",
         "tr": "Arka rubik dişli sayısı",
         "de": "Anzahl der Zähne des hinteren Ritzels",
         "fr": "Nombre de dents du pignon arrière",
@@ -105,7 +105,7 @@
       "default": 60,
       "businessContext": "Hesaplama süresi (dakika)",
       "label_i18n": {
-        "en": "Süre",
+        "en": "Duration",
         "tr": "Süre",
         "de": "Dauer",
         "fr": "Durée",
@@ -113,7 +113,7 @@
         "ar": "المدة"
       },
       "businessContext_i18n": {
-        "en": "Hesaplama süresi (dakika)",
+        "en": "Calculation time (minutes)",
         "tr": "Hesaplama süresi (dakika)",
         "de": "Berechnungszeit (Minuten)",
         "fr": "Durée du calcul (minutes)",

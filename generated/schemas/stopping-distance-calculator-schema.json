@@ -9,7 +9,7 @@
       "default": 50,
       "businessContext": "Araç hızı (km/saat cinsinden)",
       "label_i18n": {
-        "en": "Hız",
+        "en": "Speed",
         "tr": "Hız",
         "de": "Geschwindigkeit",
         "fr": "Vitesse",
@@ -17,7 +17,7 @@
         "ar": "السرعة"
       },
       "businessContext_i18n": {
-        "en": "Araç hızı (km/saat cinsinden)",
+        "en": "Vehicle speed (km/h)",
         "tr": "Araç hızı (km/saat cinsinden)",
         "de": "Fahrzeuggeschwindigkeit (km/h)",
         "fr": "Vitesse du véhicule (en km/h)",
@@ -33,7 +33,7 @@
       "default": 1.5,
       "businessContext": "Sürücünün tepki süresi (saniye)",
       "label_i18n": {
-        "en": "Tepki Süresi",
+        "en": "Reaction time",
         "tr": "Tepki Süresi",
         "de": "Reaktionszeit",
         "fr": "Temps de réaction",
@@ -41,7 +41,7 @@
         "ar": "زمن رد الفعل"
       },
       "businessContext_i18n": {
-        "en": "Sürücünün tepki süresi (saniye)",
+        "en": "Driver's reaction time (seconds)",
         "tr": "Sürücünün tepki süresi (saniye)",
         "de": "Reaktionszeit des Fahrers (Sekunden)",
         "fr": "Temps de réaction du conducteur (en secondes)",
@@ -57,7 +57,7 @@
       "default": 0.7,
       "businessContext": "Lastik ile yol arasındaki sürtünme katsayısı (kuru asfalt: 0.7)",
       "label_i18n": {
-        "en": "Sürtünme Katsayısı (μ)",
+        "en": "Friction coefficient (μ)",
         "tr": "Sürtünme Katsayısı (μ)",
         "de": "Reibungskoeffizient (μ)",
         "fr": "Coefficient de frottement (μ)",
@@ -65,7 +65,7 @@
         "ar": "معامل الاحتكاك (μ)"
       },
       "businessContext_i18n": {
-        "en": "Lastik ile yol arasındaki sürtünme katsayısı (kuru asfalt: 0.7)",
+        "en": "Friction coefficient between tire and road (dry asphalt: 0.7)",
         "tr": "Lastik ile yol arasındaki sürtünme katsayısı (kuru asfalt: 0.7)",
         "de": "Reibungskoeffizient zwischen Reifen und Fahrbahn (trockener Asphalt: 0,7)",
         "fr": "Coefficient de frottement pneu-route (asphalte sec : 0,7)",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "Yolun eğimi (% olarak; pozitif: yokuş yukarı, negatif: yokuş aşağı)",
       "label_i18n": {
-        "en": "Yol Eğimi",
+        "en": "Road grade",
         "tr": "Yol Eğimi",
         "de": "Steigung",
         "fr": "Pente de la route",
@@ -89,7 +89,7 @@
         "ar": "انحدار الطريق"
       },
       "businessContext_i18n": {
-        "en": "Yolun eğimi (% olarak; pozitif: yokuş yukarı, negatif: yokuş aşağı)",
+        "en": "Road grade (%; positive: uphill, negative: downhill)",
         "tr": "Yolun eğimi (% olarak; pozitif: yokuş yukarı, negatif: yokuş aşağı)",
         "de": "Steigung der Straße in Prozent (positiv: bergauf, negativ: bergab)",
         "fr": "Pente de la route en % (positif : montée, négatif : descente)",

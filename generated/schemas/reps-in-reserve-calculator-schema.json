@@ -9,7 +9,7 @@
       "default": 10000,
       "businessContext": "Takım veya bileşenin toplam kullanılabilir tekrar sayısı.",
       "label_i18n": {
-        "en": "Toplam Ömür (Tekrar)",
+        "en": "Total Life (Cycles)",
         "tr": "Toplam Ömür (Tekrar)",
         "de": "Gesamtlebensdauer (Wiederholung)",
         "fr": "Durée de vie totale (cycles)",
@@ -17,7 +17,7 @@
         "ar": "العمر الإجمالي (التكرار)"
       },
       "businessContext_i18n": {
-        "en": "Takım veya bileşenin toplam kullanılabilir tekrar sayısı.",
+        "en": "Total usable cycles of the tool or component.",
         "tr": "Takım veya bileşenin toplam kullanılabilir tekrar sayısı.",
         "de": "Gesamtzahl der möglichen Wiederholungen des Werkzeugs oder Bauteils.",
         "fr": "Nombre total de cycles disponibles pour l'outil ou le composant.",
@@ -33,7 +33,7 @@
       "default": 0,
       "businessContext": "Şu ana kadar yapılan tekrar sayısı.",
       "label_i18n": {
-        "en": "Mevcut Kullanım (Tekrar)",
+        "en": "Current Usage (Cycles)",
         "tr": "Mevcut Kullanım (Tekrar)",
         "de": "Aktuelle Nutzung (Wiederholungen)",
         "fr": "Utilisation actuelle (cycles)",
@@ -41,7 +41,7 @@
         "ar": "الاستخدام الحالي (التكرار)"
       },
       "businessContext_i18n": {
-        "en": "Şu ana kadar yapılan tekrar sayısı.",
+        "en": "Number of cycles performed so far.",
         "tr": "Şu ana kadar yapılan tekrar sayısı.",
         "de": "Bisher durchgeführte Wiederholungen.",
         "fr": "Nombre de cycles déjà effectués.",
@@ -57,7 +57,7 @@
       "default": 100,
       "businessContext": "Günlük ortalama tekrar sayısı.",
       "label_i18n": {
-        "en": "Günlük Kullanım Oranı",
+        "en": "Daily Usage Rate",
         "tr": "Günlük Kullanım Oranı",
         "de": "Tägliche Nutzungsrate",
         "fr": "Taux d'utilisation quotidien",
@@ -65,7 +65,7 @@
         "ar": "معدل الاستخدام اليومي"
       },
       "businessContext_i18n": {
-        "en": "Günlük ortalama tekrar sayısı.",
+        "en": "Average number of cycles per day.",
         "tr": "Günlük ortalama tekrar sayısı.",
         "de": "Durchschnittliche Anzahl Wiederholungen pro Tag.",
         "fr": "Nombre moyen de cycles par jour.",
@@ -81,7 +81,7 @@
       "default": 5,
       "businessContext": "Ömür üzerindeki güvenlik marjı yüzdesi.",
       "label_i18n": {
-        "en": "Güvenlik Faktörü (%)",
+        "en": "Safety Factor (%)",
         "tr": "Güvenlik Faktörü (%)",
         "de": "Sicherheitsfaktor (%)",
         "fr": "Facteur de sécurité (%)",
@@ -89,7 +89,7 @@
         "ar": "عامل الأمان (%)"
       },
       "businessContext_i18n": {
-        "en": "Ömür üzerindeki güvenlik marjı yüzdesi.",
+        "en": "Percentage of safety margin on lifetime.",
         "tr": "Ömür üzerindeki güvenlik marjı yüzdesi.",
         "de": "Prozentuale Sicherheitsmarge auf die Lebensdauer.",
         "fr": "Marge de sécurité en pourcentage sur la durée de vie.",
@@ -105,7 +105,7 @@
       "default": 5000,
       "businessContext": "Gelecek dönemde ihtiyaç duyulan toplam tekrar sayısı.",
       "label_i18n": {
-        "en": "Planlanan Üretim (Tekrar)",
+        "en": "Planned Production (Repeats)",
         "tr": "Planlanan Üretim (Tekrar)",
         "de": "Geplante Produktion (Wiederholungen)",
         "fr": "Production planifiée (cycles)",
@@ -113,7 +113,7 @@
         "ar": "الإنتاج المخطط (التكرار)"
       },
       "businessContext_i18n": {
-        "en": "Gelecek dönemde ihtiyaç duyulan toplam tekrar sayısı.",
+        "en": "Total number of repeats needed in the future period.",
         "tr": "Gelecek dönemde ihtiyaç duyulan toplam tekrar sayısı.",
         "de": "Gesamtzahl der benötigten Wiederholungen im kommenden Zeitraum.",
         "fr": "Nombre total de cycles nécessaires pour la période à venir.",

@@ -9,7 +9,7 @@
       "default": 100000,
       "businessContext": "Faiz ve vergi öncesi net faaliyet kârı (Earnings Before Interest and Taxes).",
       "label_i18n": {
-        "en": "EBIT (Faiz ve Vergi Öncesi Kâr)",
+        "en": "EBIT (Earnings Before Interest and Taxes)",
         "tr": "EBIT (Faiz ve Vergi Öncesi Kâr)",
         "de": "EBIT (Ergebnis vor Zinsen und Steuern)",
         "fr": "EBIT (Bénéfice avant intérêts et impôts)",
@@ -17,7 +17,7 @@
         "ar": "EBIT (الأرباح قبل الفوائد والضرائب)"
       },
       "businessContext_i18n": {
-        "en": "Faiz ve vergi öncesi net faaliyet kârı (Earnings Before Interest and Taxes).",
+        "en": "Net operating profit before interest and taxes (Earnings Before Interest and Taxes).",
         "tr": "Faiz ve vergi öncesi net faaliyet kârı (Earnings Before Interest and Taxes).",
         "de": "Nettoergebnis aus der Betriebstätigkeit vor Zinsen und Steuern.",
         "fr": "Bénéfice net d'exploitation avant intérêts et impôts.",
@@ -41,7 +41,7 @@
         "ar": "مصروفات الفائدة"
       },
       "businessContext_i18n": {
-        "en": "Toplam borç faiz ödemeleri.",
+        "en": "Total debt interest payments.",
         "tr": "Toplam borç faiz ödemeleri.",
         "de": "Gesamte Zinszahlungen auf Schulden.",
         "fr": "Paiements d'intérêts totaux sur la dette.",
@@ -57,7 +57,7 @@
       "default": 0.25,
       "businessContext": "Kurumlar vergisi oranı (ondalık, örn. 0.25).",
       "label_i18n": {
-        "en": "Vergi Oranı",
+        "en": "Tax Rate",
         "tr": "Vergi Oranı",
         "de": "Steuersatz",
         "fr": "Taux d'imposition",
@@ -65,7 +65,7 @@
         "ar": "معدل الضريبة"
       },
       "businessContext_i18n": {
-        "en": "Kurumlar vergisi oranı (ondalık, örn. 0.25).",
+        "en": "Corporate tax rate (decimal, e.g., 0.25).",
         "tr": "Kurumlar vergisi oranı (ondalık, örn. 0.25).",
         "de": "Körperschaftsteuersatz (Dezimal, z. B. 0,25).",
         "fr": "Taux d'impôt sur les sociétés (décimal, ex. 0.25).",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "İmtiyazlı hisse senetlerine ödenen toplam temettü.",
       "label_i18n": {
-        "en": "İmtiyazlı Hisse Temettüsü",
+        "en": "Preferred Stock Dividend",
         "tr": "İmtiyazlı Hisse Temettüsü",
         "de": "Vorzugsdividende",
         "fr": "Dividendes sur actions privilégiées",
@@ -89,7 +89,7 @@
         "ar": "أرباح الأسهم الممتازة"
       },
       "businessContext_i18n": {
-        "en": "İmtiyazlı hisse senetlerine ödenen toplam temettü.",
+        "en": "Total dividends paid on preferred shares.",
         "tr": "İmtiyazlı hisse senetlerine ödenen toplam temettü.",
         "de": "Gesamte Dividende auf Vorzugsaktien.",
         "fr": "Total des dividendes versés sur les actions privilégiées.",

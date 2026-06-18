@@ -9,7 +9,7 @@
       "default": 0,
       "businessContext": "Dönüştürülecek açının radyan cinsinden değeri",
       "label_i18n": {
-        "en": "Radyan Değeri",
+        "en": "Radian Value",
         "tr": "Radyan Değeri",
         "de": "Bogenmaß",
         "fr": "Valeur en radians",
@@ -17,7 +17,7 @@
         "ar": "قيمة الراديان"
       },
       "businessContext_i18n": {
-        "en": "Dönüştürülecek açının radyan cinsinden değeri",
+        "en": "Value of the angle to convert in radians",
         "tr": "Dönüştürülecek açının radyan cinsinden değeri",
         "de": "Wert des umzurechnenden Winkels in Radiant",
         "fr": "Valeur de l'angle à convertir en radians",
@@ -33,7 +33,7 @@
       "default": 57.29577951308232,
       "businessContext": "Radyandan dereceye dönüşüm sabiti (180/π)",
       "label_i18n": {
-        "en": "Dönüşüm Faktörü",
+        "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
@@ -41,7 +41,7 @@
         "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
-        "en": "Radyandan dereceye dönüşüm sabiti (180/π)",
+        "en": "Conversion constant from radians to degrees (180/π)",
         "tr": "Radyandan dereceye dönüşüm sabiti (180/π)",
         "de": "Umrechnungskonstante von Radiant in Grad (180/π)",
         "fr": "Constante de conversion radians en degrés (180/π)",
@@ -65,7 +65,7 @@
         "ar": "إزاحة الدرجة"
       },
       "businessContext_i18n": {
-        "en": "Dönüşüm sonucuna eklenecek ek derece miktarı",
+        "en": "Additional degrees to add to the conversion result",
         "tr": "Dönüşüm sonucuna eklenecek ek derece miktarı",
         "de": "Zusätzlicher Gradbetrag, der zum Umrechnungsergebnis addiert wird",
         "fr": "Degrés supplémentaires à ajouter au résultat de la conversion",
@@ -81,7 +81,7 @@
       "default": 2,
       "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı",
       "label_i18n": {
-        "en": "Ondalık Basamak",
+        "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
         "fr": "Décimales",
@@ -89,7 +89,7 @@
         "ar": "المنازل العشرية"
       },
       "businessContext_i18n": {
-        "en": "Sonuçta gösterilecek ondalık basamak sayısı",
+        "en": "Number of decimal places to show in result",
         "tr": "Sonuçta gösterilecek ondalık basamak sayısı",
         "de": "Anzahl der im Ergebnis anzuzeigenden Dezimalstellen",
         "fr": "Nombre de décimales à afficher dans le résultat",

@@ -9,7 +9,7 @@
       "default": 10,
       "businessContext": "Çatının yatay uzunluğu (saçaklar dahil)",
       "label_i18n": {
-        "en": "Çatı Uzunluğu",
+        "en": "Roof Length",
         "tr": "Çatı Uzunluğu",
         "de": "Dachlänge",
         "fr": "Longueur du toit",
@@ -17,7 +17,7 @@
         "ar": "طول السقف"
       },
       "businessContext_i18n": {
-        "en": "Çatının yatay uzunluğu (saçaklar dahil)",
+        "en": "Horizontal length of the roof (including eaves)",
         "tr": "Çatının yatay uzunluğu (saçaklar dahil)",
         "de": "Horizontale Länge des Daches (einschließlich Überstände)",
         "fr": "Longueur horizontale du toit (avant-toits inclus)",
@@ -33,7 +33,7 @@
       "default": 8,
       "businessContext": "Çatının yatay genişliği (saçaklar dahil)",
       "label_i18n": {
-        "en": "Çatı Genişliği",
+        "en": "Roof Width",
         "tr": "Çatı Genişliği",
         "de": "Dachbreite",
         "fr": "Largeur du toit",
@@ -41,7 +41,7 @@
         "ar": "عرض السقف"
       },
       "businessContext_i18n": {
-        "en": "Çatının yatay genişliği (saçaklar dahil)",
+        "en": "Horizontal width of the roof (including eaves)",
         "tr": "Çatının yatay genişliği (saçaklar dahil)",
         "de": "Horizontale Breite des Daches (einschließlich Überstände)",
         "fr": "Largeur horizontale du toit (avant-toits inclus)",
@@ -57,7 +57,7 @@
       "default": 30,
       "businessContext": "Çatının yatayla yaptığı açı (0-90 derece)",
       "label_i18n": {
-        "en": "Çatı Eğimi",
+        "en": "Roof Pitch",
         "tr": "Çatı Eğimi",
         "de": "Dachneigung",
         "fr": "Pente du toit",
@@ -65,7 +65,7 @@
         "ar": "ميل السقف"
       },
       "businessContext_i18n": {
-        "en": "Çatının yatayla yaptığı açı (0-90 derece)",
+        "en": "Angle of the roof with the horizontal (0-90 degrees)",
         "tr": "Çatının yatayla yaptığı açı (0-90 derece)",
         "de": "Winkel des Daches zur Horizontalen (0-90 Grad)",
         "fr": "Angle du toit par rapport à l'horizontale (0-90 degrés)",
@@ -81,7 +81,7 @@
       "default": 50,
       "businessContext": "Çatı kaplama malzemesinin metrekare fiyatı",
       "label_i18n": {
-        "en": "Malzeme Maliyeti (m² başına)",
+        "en": "Material Cost (per m²)",
         "tr": "Malzeme Maliyeti (m² başına)",
         "de": "Materialkosten (pro m²)",
         "fr": "Coût des matériaux (par m²)",
@@ -89,7 +89,7 @@
         "ar": "تكلفة المواد (لكل متر مربع)"
       },
       "businessContext_i18n": {
-        "en": "Çatı kaplama malzemesinin metrekare fiyatı",
+        "en": "Price per square meter of roofing material",
         "tr": "Çatı kaplama malzemesinin metrekare fiyatı",
         "de": "Preis des Dachdeckmaterials pro Quadratmeter",
         "fr": "Prix au mètre carré du matériau de couverture",
@@ -105,7 +105,7 @@
       "default": 30,
       "businessContext": "İşçilik maliyeti (metrekare başına)",
       "label_i18n": {
-        "en": "İşçilik Maliyeti (m² başına)",
+        "en": "Labor Cost (per m²)",
         "tr": "İşçilik Maliyeti (m² başına)",
         "de": "Arbeitskosten (pro m²)",
         "fr": "Coût de la main-d'œuvre (par m²)",
@@ -113,7 +113,7 @@
         "ar": "تكلفة العمالة (لكل متر مربع)"
       },
       "businessContext_i18n": {
-        "en": "İşçilik maliyeti (metrekare başına)",
+        "en": "Labor cost per square meter",
         "tr": "İşçilik maliyeti (metrekare başına)",
         "de": "Arbeitskosten (pro Quadratmeter)",
         "fr": "Coût de la main-d'œuvre (par mètre carré)",
@@ -129,7 +129,7 @@
       "default": 5,
       "businessContext": "Kesim ve montaj firesi (yüzde olarak)",
       "label_i18n": {
-        "en": "Fire Oranı",
+        "en": "Waste Rate",
         "tr": "Fire Oranı",
         "de": "Verschnittanteil",
         "fr": "Taux de perte",
@@ -137,7 +137,7 @@
         "ar": "نسبة الهدر"
       },
       "businessContext_i18n": {
-        "en": "Kesim ve montaj firesi (yüzde olarak)",
+        "en": "Cutting and installation waste (as percentage)",
         "tr": "Kesim ve montaj firesi (yüzde olarak)",
         "de": "Verschnitt bei Zuschnitt und Montage (in Prozent)",
         "fr": "Perte de coupe et de montage (en pourcentage)",

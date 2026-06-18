@@ -9,7 +9,7 @@
       "default": 760,
       "businessContext": "Ölçülen veya hesaplanan torr cinsinden basınç değeri.",
       "label_i18n": {
-        "en": "Basınç (Torr)",
+        "en": "Pressure (Torr)",
         "tr": "Ortalama Eğim (%)",
         "de": "Druck (Torr)",
         "fr": "Pression (Torr)",
@@ -17,7 +17,7 @@
         "ar": "الضغط (تور)"
       },
       "businessContext_i18n": {
-        "en": "Ölçülen veya hesaplanan torr cinsinden basınç değeri.",
+        "en": "Measured or calculated pressure value in torr.",
         "tr": "Akış yolu boyunca ortalama eğim yüzdesi (%)",
         "de": "Gemessener oder berechneter Druckwert in Torr.",
         "fr": "Valeur de pression mesurée ou calculée en torr",
@@ -33,7 +33,7 @@
       "default": 0.01933677,
       "businessContext": "Standart dönüşüm faktörü; kalibrasyon ihtiyacına göre ayarlanabilir.",
       "label_i18n": {
-        "en": "Dönüşüm Faktörü (psi/Torr)",
+        "en": "Conversion Factor (psi/Torr)",
         "tr": "Basınç (Torr)",
         "de": "Umrechnungsfaktor (psi/Torr)",
         "fr": "Facteur de conversion (psi/Torr)",
@@ -41,7 +41,7 @@
         "ar": "معامل التحويل (psi/Torr)"
       },
       "businessContext_i18n": {
-        "en": "Standart dönüşüm faktörü; kalibrasyon ihtiyacına göre ayarlanabilir.",
+        "en": "Standard conversion factor; adjustable based on calibration needs.",
         "tr": "Ölçülen veya hesaplanan torr cinsinden basınç değeri.",
         "de": "Standard-Umrechnungsfaktor; kann je nach Kalibrierungsbedarf angepasst werden.",
         "fr": "Facteur de conversion standard ; ajustable selon les besoins d'étalonnage",
@@ -57,7 +57,7 @@
       "default": 4,
       "businessContext": "Sonuç gösteriminde istenen ondalık hane sayısı.",
       "label_i18n": {
-        "en": "Ondalık Basamak Sayısı",
+        "en": "Number of Decimal Places",
         "tr": "Ondalık Basamak Sayısı",
         "de": "Anzahl Dezimalstellen",
         "fr": "Nombre de décimales",
@@ -65,7 +65,7 @@
         "ar": "عدد المنازل العشرية"
       },
       "businessContext_i18n": {
-        "en": "Sonuç gösteriminde istenen ondalık hane sayısı.",
+        "en": "Desired number of decimal places in result display.",
         "tr": "Dönüşüm Faktörü (psi/Torr)",
         "de": "Gewünschte Anzahl Dezimalstellen in der Ergebnisanzeige.",
         "fr": "Nombre de décimales souhaité pour l'affichage du résultat",
@@ -89,7 +89,7 @@
         "ar": "إزاحة المعايرة (psi)"
       },
       "businessContext_i18n": {
-        "en": "Sıfır ayarı veya kaydırma düzeltmesi için eklenen ofset.",
+        "en": "Offset added for zero adjustment or shift correction.",
         "tr": "Ondalık Haneler",
         "de": "Offset für Nullpunktabgleich oder Verschiebungskorrektur.",
         "fr": "Offset ajouté pour la mise à zéro ou la correction de dérive",

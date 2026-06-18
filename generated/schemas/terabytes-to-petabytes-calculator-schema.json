@@ -17,7 +17,7 @@
         "ar": "السعة الإجمالية الخام (TB)"
       },
       "businessContext_i18n": {
-        "en": "Tüm disklerin toplam ham depolama kapasitesi.",
+        "en": "Total raw storage capacity of all disks.",
         "tr": "Tüm disklerin toplam ham depolama kapasitesi.",
         "de": "Gesamte Bruttospeicherkapazität aller Festplatten.",
         "fr": "Capacité de stockage brute totale de tous les disques.",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "RAID yapılandırmasına bağlı olarak kullanılabilir kapasitenin ham kapasiteye oranı. Örn: RAID 5 (n-1)/n, RAID 10 = 0.5.",
       "label_i18n": {
-        "en": "RAID Kullanılabilirlik Oranı",
+        "en": "RAID Usability Ratio",
         "tr": "RAID Kullanılabilirlik Oranı",
         "de": "RAID-Nutzungsverhältnis",
         "fr": "Taux d'utilisation RAID",
@@ -41,7 +41,7 @@
         "ar": "نسبة توفر RAID"
       },
       "businessContext_i18n": {
-        "en": "RAID yapılandırmasına bağlı olarak kullanılabilir kapasitenin ham kapasiteye oranı. Örn: RAID 5 (n-1)/n, RAID 10 = 0.5.",
+        "en": "Ratio of usable capacity to raw capacity depending on RAID configuration. E.g., RAID 5 (n-1)/n, RAID 10 = 0.5.",
         "tr": "RAID yapılandırmasına bağlı olarak kullanılabilir kapasitenin ham kapasiteye oranı. Örn: RAID 5 (n-1)/n, RAID 10 = 0,5.",
         "de": "Verhältnis der nutzbaren Kapazität zur Bruttokapazität in Abhängigkeit von der RAID-Konfiguration. Z.B. RAID 5 (n-1)/n, RAID 10 = 0,5.",
         "fr": "Rapport entre la capacité utilisable et la capacité brute selon la configuration RAID. Ex : RAID 5 (n-1)/n, RAID 10 = 0,5.",
@@ -57,7 +57,7 @@
       "default": 5,
       "businessContext": "Dosya sistemi biçimlendirme ve metaveri için ayrılan alan yüzdesi.",
       "label_i18n": {
-        "en": "Formatlama Kaybı (%)",
+        "en": "Formatting Loss (%)",
         "tr": "Formatlama Kaybı (%)",
         "de": "Formatierungsverlust (%)",
         "fr": "Perte due au formatage (%)",
@@ -65,7 +65,7 @@
         "ar": "خسارة التنسيق (%)"
       },
       "businessContext_i18n": {
-        "en": "Dosya sistemi biçimlendirme ve metaveri için ayrılan alan yüzdesi.",
+        "en": "Percentage of space allocated for file system formatting and metadata.",
         "tr": "Dosya sistemi biçimlendirme ve metaveri için ayrılan alan yüzdesi.",
         "de": "Prozentsatz des für Dateisystemformatierung und Metadaten reservierten Speicherplatzes.",
         "fr": "Pourcentage d'espace alloué au formatage du système de fichiers et aux métadonnées.",
@@ -81,7 +81,7 @@
       "default": 1000,
       "businessContext": "1 petabaytın kaç terabayt olduğu. SI: 1000, İkili: 1024.",
       "label_i18n": {
-        "en": "PB Dönüşüm Katsayısı",
+        "en": "PB Conversion Factor",
         "tr": "PB Dönüşüm Katsayısı",
         "de": "PB-Umrechnungsfaktor",
         "fr": "Coefficient de conversion PB",
@@ -89,7 +89,7 @@
         "ar": "معامل تحويل PB"
       },
       "businessContext_i18n": {
-        "en": "1 petabaytın kaç terabayt olduğu. SI: 1000, İkili: 1024.",
+        "en": "How many terabytes in one petabyte. SI: 1000, Binary: 1024.",
         "tr": "1 petabaytın kaç terabayt olduğu. SI: 1000, İkili: 1024.",
         "de": "Anzahl der Terabyte pro Petabyte. SI: 1000, Binär: 1024.",
         "fr": "Nombre de téraoctets dans un pétaoctet. SI : 1000, Binaire : 1024.",

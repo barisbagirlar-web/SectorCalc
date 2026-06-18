@@ -9,7 +9,7 @@
       "default": 5,
       "businessContext": "Sıvanacak duvarın yatay uzunluğu (metre). Tipik ev içi duvar: 3-6m.",
       "label_i18n": {
-        "en": "Duvar Uzunluğu",
+        "en": "Wall Length",
         "tr": "Duvar Uzunluğu",
         "de": "Wandlänge",
         "fr": "Longueur du mur",
@@ -17,7 +17,7 @@
         "ar": "طول الجدار"
       },
       "businessContext_i18n": {
-        "en": "Sıvanacak duvarın yatay uzunluğu (metre). Tipik ev içi duvar: 3-6m.",
+        "en": "Horizontal length of the wall to be plastered (meters). Typical interior wall: 3-6m.",
         "tr": "Sıvanacak duvarın yatay uzunluğu (metre). Tipik ev içi duvar: 3-6m.",
         "de": "Horizontale Länge der zu verputzenden Wand (Meter). Typische Innenwand: 3-6 m.",
         "fr": "Longueur horizontale du mur à enduire (mètres). Mur domestique typique : 3-6 m.",
@@ -33,7 +33,7 @@
       "default": 2.5,
       "businessContext": "Sıvanacak duvarın dikey yüksekliği (metre). Standart tavan yüksekliği: 2.4-2.7m.",
       "label_i18n": {
-        "en": "Duvar Yüksekliği",
+        "en": "Wall Height",
         "tr": "Duvar Yüksekliği",
         "de": "Wandhöhe",
         "fr": "Hauteur du mur",
@@ -41,7 +41,7 @@
         "ar": "ارتفاع الجدار"
       },
       "businessContext_i18n": {
-        "en": "Sıvanacak duvarın dikey yüksekliği (metre). Standart tavan yüksekliği: 2.4-2.7m.",
+        "en": "Vertical height of the wall to be plastered (meters). Standard ceiling height: 2.4-2.7m.",
         "tr": "Sıvanacak duvarın dikey yüksekliği (metre). Standart tavan yüksekliği: 2.4-2.7m.",
         "de": "Vertikale Höhe der zu verputzenden Wand (Meter). Standard-Raumhöhe: 2,4-2,7 m.",
         "fr": "Hauteur verticale du mur à enduire (mètres). Hauteur de plafond standard : 2,4-2,7 m.",
@@ -57,7 +57,7 @@
       "default": 2,
       "businessContext": "Uygulanacak sıva kalınlığı (cm). Tipik iç sıva: 1-2cm, dış sıva: 2-3cm.",
       "label_i18n": {
-        "en": "Sıva Kalınlığı",
+        "en": "Plaster Thickness",
         "tr": "Sıva Kalınlığı",
         "de": "Putzstärke",
         "fr": "Épaisseur de l'enduit",
@@ -65,7 +65,7 @@
         "ar": "سمك التلييس"
       },
       "businessContext_i18n": {
-        "en": "Uygulanacak sıva kalınlığı (cm). Tipik iç sıva: 1-2cm, dış sıva: 2-3cm.",
+        "en": "Plaster thickness to be applied (cm). Typical interior plaster: 1-2cm, exterior plaster: 2-3cm.",
         "tr": "Uygulanacak sıva kalınlığı (cm). Tipik iç sıva: 1-2cm, dış sıva: 2-3cm.",
         "de": "Aufzutragende Putzstärke (cm). Typischer Innenputz: 1-2 cm, Außenputz: 2-3 cm.",
         "fr": "Épaisseur de l'enduit à appliquer (cm). Enduit intérieur typique : 1-2 cm, extérieur : 2-3 cm.",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "Harç karışımında çimento miktarı (hacimce). Örn: 1:4 karışımda çimento=1, kum=4.",
       "label_i18n": {
-        "en": "Çimento Oranı (Hacim)",
+        "en": "Cement Ratio (Volume)",
         "tr": "Çimento Oranı (Hacim)",
         "de": "Zementanteil (Volumen)",
         "fr": "Proportion de ciment (volume)",
@@ -89,7 +89,7 @@
         "ar": "نسبة الأسمنت (حجم)"
       },
       "businessContext_i18n": {
-        "en": "Harç karışımında çimento miktarı (hacimce). Örn: 1:4 karışımda çimento=1, kum=4.",
+        "en": "Amount of cement in the mortar mix (by volume). E.g., in a 1:4 mix, cement=1, sand=4.",
         "tr": "Harç karışımında çimento miktarı (hacimce). Örn: 1:4 karışımda çimento=1, kum=4.",
         "de": "Zementmenge im Mörtelgemisch (Volumen). Z.B. bei Mischung 1:4 ist Zement=1, Sand=4.",
         "fr": "Quantité de ciment dans le mélange de mortier (en volume). Ex : mélange 1:4, ciment=1, sable=4.",
@@ -105,7 +105,7 @@
       "default": 4,
       "businessContext": "Harç karışımında kum miktarı (hacimce). Örn: 1:4 karışımda kum=4.",
       "label_i18n": {
-        "en": "Kum Oranı (Hacim)",
+        "en": "Sand Ratio (Volume)",
         "tr": "Kum Oranı (Hacim)",
         "de": "Sandanteil (Volumen)",
         "fr": "Proportion de sable (volume)",
@@ -113,7 +113,7 @@
         "ar": "نسبة الرمل (حجم)"
       },
       "businessContext_i18n": {
-        "en": "Harç karışımında kum miktarı (hacimce). Örn: 1:4 karışımda kum=4.",
+        "en": "Amount of sand in the mortar mix (by volume). E.g., in a 1:4 mix, sand=4.",
         "tr": "Harç karışımında kum miktarı (hacimce). Örn: 1:4 karışımda kum=4.",
         "de": "Sandmenge im Mörtelgemisch (Volumen). Z.B. bei Mischung 1:4 ist Sand=4.",
         "fr": "Quantité de sable dans le mélange de mortier (en volume). Ex : mélange 1:4, sable=4.",
@@ -129,7 +129,7 @@
       "default": 50,
       "businessContext": "Bir torba çimentonun ağırlığı (kg). Tipik: 50 kg.",
       "label_i18n": {
-        "en": "Çimento Torba Ağırlığı",
+        "en": "Cement Bag Weight",
         "tr": "Çimento Torba Ağırlığı",
         "de": "Zementsackgewicht",
         "fr": "Poids du sac de ciment",
@@ -137,7 +137,7 @@
         "ar": "وزن كيس الأسمنت"
       },
       "businessContext_i18n": {
-        "en": "Bir torba çimentonun ağırlığı (kg). Tipik: 50 kg.",
+        "en": "Weight of one bag of cement (kg). Typical: 50 kg.",
         "tr": "Bir torba çimentonun ağırlığı (kg). Tipik: 50 kg.",
         "de": "Gewicht eines Zementsacks (kg). Typisch: 50 kg.",
         "fr": "Poids d'un sac de ciment (kg). Typique : 50 kg.",
@@ -153,7 +153,7 @@
       "default": 10,
       "businessContext": "Uygulama sırasında oluşan fire (yüzde). Genelde %5-15.",
       "label_i18n": {
-        "en": "Fire Oranı",
+        "en": "Waste Rate",
         "tr": "Fire Oranı",
         "de": "Verschnittanteil",
         "fr": "Taux de perte",
@@ -161,7 +161,7 @@
         "ar": "نسبة الهدر"
       },
       "businessContext_i18n": {
-        "en": "Uygulama sırasında oluşan fire (yüzde). Genelde %5-15.",
+        "en": "Waste during application (percent). Usually 5-15%.",
         "tr": "Uygulama sırasında oluşan fire (yüzde). Genelde %5-15.",
         "de": "Verschnitt bei der Anwendung (Prozent). In der Regel 5-15 %.",
         "fr": "Pertes lors de l'application (pourcentage). Généralement 5-15 %.",

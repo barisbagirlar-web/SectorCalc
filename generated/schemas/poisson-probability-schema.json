@@ -9,7 +9,7 @@
       "default": 5,
       "businessContext": "Belirli bir zaman aralığında beklenen ortalama olay sayısı",
       "label_i18n": {
-        "en": "Ortalama Olay Sayısı (λ)",
+        "en": "Average Number of Events (λ)",
         "tr": "Ortalama Olay Sayısı (λ)",
         "de": "Durchschnittliche Ereignisanzahl (λ)",
         "fr": "Taux d'occurrence moyen (λ)",
@@ -17,7 +17,7 @@
         "ar": "متوسط عدد الأحداث (λ)"
       },
       "businessContext_i18n": {
-        "en": "Belirli bir zaman aralığında beklenen ortalama olay sayısı",
+        "en": "Expected average number of events in a given time interval",
         "tr": "Belirli bir zaman aralığında beklenen ortalama olay sayısı",
         "de": "Erwartete durchschnittliche Anzahl von Ereignissen in einem bestimmten Zeitintervall",
         "fr": "Nombre moyen d'événements attendus dans un intervalle de temps donné",
@@ -33,7 +33,7 @@
       "default": 3,
       "businessContext": "Olasılığı hesaplanacak tam olay sayısı",
       "label_i18n": {
-        "en": "Hedef Olay Sayısı (k)",
+        "en": "Target Number of Events (k)",
         "tr": "Hedef Olay Sayısı (k)",
         "de": "Zielereignisanzahl (k)",
         "fr": "Nombre d'événements cible (k)",
@@ -41,7 +41,7 @@
         "ar": "عدد الأحداث المستهدف (ك)"
       },
       "businessContext_i18n": {
-        "en": "Olasılığı hesaplanacak tam olay sayısı",
+        "en": "Exact number of events for which probability is calculated",
         "tr": "Olasılığı hesaplanacak tam olay sayısı",
         "de": "Exakte Anzahl von Ereignissen, deren Wahrscheinlichkeit berechnet werden soll",
         "fr": "Nombre exact d'événements dont on calcule la probabilité",
@@ -57,7 +57,7 @@
       "default": 3,
       "businessContext": "Kümülatif olasılık için üst sınır (k dahil)",
       "label_i18n": {
-        "en": "Kümülatif (k veya daha az)",
+        "en": "Cumulative (k or less)",
         "tr": "Kümülatif (k veya daha az)",
         "de": "Kumulativ (k oder weniger)",
         "fr": "Cumulatif (k ou moins)",
@@ -65,7 +65,7 @@
         "ar": "تراكمي (ك أو أقل)"
       },
       "businessContext_i18n": {
-        "en": "Kümülatif olasılık için üst sınır (k dahil)",
+        "en": "Upper bound for cumulative probability (including k)",
         "tr": "Kümülatif olasılık için üst sınır (k dahil)",
         "de": "Obergrenze für kumulative Wahrscheinlichkeit (k eingeschlossen)",
         "fr": "Limite supérieure pour la probabilité cumulative (k inclus)",

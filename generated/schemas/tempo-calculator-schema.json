@@ -9,7 +9,7 @@
       "default": 8,
       "businessContext": "Molalar düşüldükten sonraki net çalışma süresi",
       "label_i18n": {
-        "en": "Vardiya Başına Net Çalışma Süresi",
+        "en": "Net working time per shift",
         "tr": "Vardiya Başına Net Çalışma Süresi",
         "de": "Nettoarbeitszeit pro Schicht",
         "fr": "Temps de travail net par quart",
@@ -17,7 +17,7 @@
         "ar": "صافي وقت العمل لكل وردية"
       },
       "businessContext_i18n": {
-        "en": "Molalar düşüldükten sonraki net çalışma süresi",
+        "en": "Net working time after deducting breaks",
         "tr": "Molalar düşüldükten sonraki net çalışma süresi",
         "de": "Nettoarbeitszeit nach Abzug der Pausen",
         "fr": "Temps de travail net après déduction des pauses.",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "Günlük vardiya sayısı",
       "label_i18n": {
-        "en": "Günlük Vardiya Sayısı",
+        "en": "Number of shifts per day",
         "tr": "Günlük Vardiya Sayısı",
         "de": "Anzahl der Schichten pro Tag",
         "fr": "Nombre de quarts par jour",
@@ -41,7 +41,7 @@
         "ar": "عدد الورديات اليومية"
       },
       "businessContext_i18n": {
-        "en": "Günlük vardiya sayısı",
+        "en": "Number of daily shifts",
         "tr": "Günlük vardiya sayısı",
         "de": "Anzahl der Schichten pro Tag",
         "fr": "Nombre de quarts par jour",
@@ -57,7 +57,7 @@
       "default": 1000,
       "businessContext": "Müşterinin günlük talep ettiği ürün adedi",
       "label_i18n": {
-        "en": "Günlük Talep Miktarı",
+        "en": "Daily demand quantity",
         "tr": "Günlük Talep Miktarı",
         "de": "Tägliche Nachfragemenge",
         "fr": "Demande quotidienne",
@@ -65,7 +65,7 @@
         "ar": "الطلب اليومي"
       },
       "businessContext_i18n": {
-        "en": "Müşterinin günlük talep ettiği ürün adedi",
+        "en": "Number of products demanded by customer per day",
         "tr": "Müşterinin günlük talep ettiği ürün adedi",
         "de": "Vom Kunden täglich nachgefragte Stückzahl",
         "fr": "Nombre d'unités demandées par le client par jour",
@@ -81,7 +81,7 @@
       "default": 100,
       "businessContext": "Planlı duruşlar, arızalar vb. kayıpları yansıtan verimlilik oranı",
       "label_i18n": {
-        "en": "Verimlilik Faktörü",
+        "en": "Efficiency Factor",
         "tr": "Verimlilik Faktörü",
         "de": "Wirkungsgradfaktor",
         "fr": "Facteur d'efficacité",
@@ -89,7 +89,7 @@
         "ar": "عامل الكفاءة"
       },
       "businessContext_i18n": {
-        "en": "Planlı duruşlar, arızalar vb. kayıpları yansıtan verimlilik oranı",
+        "en": "Efficiency rate reflecting losses such as planned downtime and breakdowns",
         "tr": "Planlı duruşlar, arızalar vb. kayıpları yansıtan verimlilik oranı",
         "de": "Effizienzrate, die geplante Stillstände, Störungen usw. widerspiegelt",
         "fr": "Taux d'efficacité reflétant les pertes (arrêts planifiés, pannes, etc.)",

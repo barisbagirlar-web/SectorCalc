@@ -9,7 +9,7 @@
       "default": 0.013,
       "businessContext": "Yüzey pürüzlülük katsayısı; beton için 0.013, çakıl için 0.025",
       "label_i18n": {
-        "en": "Manning Pürüzlülük Katsayısı (n)",
+        "en": "Manning's Roughness Coefficient (n)",
         "tr": "Manning Pürüzlülük Katsayısı (n)",
         "de": "Manning-Rauheitsbeiwert (n)",
         "fr": "Coefficient de rugosité de Manning (n)",
@@ -17,7 +17,7 @@
         "ar": "معامل خشونة مانينغ (n)"
       },
       "businessContext_i18n": {
-        "en": "Yüzey pürüzlülük katsayısı; beton için 0.013, çakıl için 0.025",
+        "en": "Surface roughness coefficient; 0.013 for concrete, 0.025 for gravel",
         "tr": "Yüzey pürüzlülük katsayısı; beton için 0.013, çakıl için 0.025",
         "de": "Oberflächenrauheitsbeiwert; für Beton 0,013, für Kies 0,025",
         "fr": "Coefficient de rugosité de surface ; 0,013 pour le béton, 0,025 pour le gravier",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "Kesit alanının ıslak çevreye oranı",
       "label_i18n": {
-        "en": "Hidrolik Yarıçap (R)",
+        "en": "Hydraulic Radius (R)",
         "tr": "Hidrolik Yarıçap (R)",
         "de": "Hydraulischer Radius (R)",
         "fr": "Rayon hydraulique (R)",
@@ -41,7 +41,7 @@
         "ar": "نصف القطر الهيدروليكي (R)"
       },
       "businessContext_i18n": {
-        "en": "Kesit alanının ıslak çevreye oranı",
+        "en": "Ratio of cross-sectional area to wetted perimeter",
         "tr": "Kesit alanının ıslak çevreye oranı",
         "de": "Verhältnis von Querschnittsfläche zu benetztem Umfang",
         "fr": "Rapport de la section mouillée au périmètre mouillé",
@@ -57,7 +57,7 @@
       "default": 1,
       "businessContext": "Akışın gerçekleştiği kesit alanı",
       "label_i18n": {
-        "en": "Kesit Alanı (A)",
+        "en": "Cross-sectional Area (A)",
         "tr": "Kesit Alanı (A)",
         "de": "Querschnittsfläche (A)",
         "fr": "Section transversale (A)",
@@ -65,7 +65,7 @@
         "ar": "مساحة المقطع (A)"
       },
       "businessContext_i18n": {
-        "en": "Akışın gerçekleştiği kesit alanı",
+        "en": "Cross-sectional area where flow occurs",
         "tr": "Akışın gerçekleştiği kesit alanı",
         "de": "Querschnittsfläche, durch die die Strömung stattfindet",
         "fr": "Section transversale où s'écoule le fluide",
@@ -81,7 +81,7 @@
       "default": 0.001,
       "businessContext": "Enerji çizgisi eğimi, boyutsuz veya m/m",
       "label_i18n": {
-        "en": "Kanal Eğimi (S)",
+        "en": "Channel Slope (S)",
         "tr": "Kanal Eğimi (S)",
         "de": "Gerinnegefälle (S)",
         "fr": "Pente du canal (S)",
@@ -89,7 +89,7 @@
         "ar": "ميل القناة (S)"
       },
       "businessContext_i18n": {
-        "en": "Enerji çizgisi eğimi, boyutsuz veya m/m",
+        "en": "Energy line slope, dimensionless or m/m",
         "tr": "Enerji çizgisi eğimi, boyutsuz veya m/m",
         "de": "Energieliniengefälle, dimensionslos oder m/m",
         "fr": "Pente de la ligne d'énergie, sans dimension ou en m/m",

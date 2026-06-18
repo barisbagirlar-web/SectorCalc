@@ -9,7 +9,7 @@
       "default": 10,
       "businessContext": "Toplam öğe sayısı; örnek: bir üretim partisindeki toplam mamul sayısı.",
       "label_i18n": {
-        "en": "n (Toplam Eleman Sayısı)",
+        "en": "n (Total Number of Elements)",
         "tr": "n (Toplam Eleman Sayısı)",
         "de": "n (Gesamtzahl der Elemente)",
         "fr": "n (Nombre total d'éléments)",
@@ -17,7 +17,7 @@
         "ar": "n (إجمالي عدد العناصر)"
       },
       "businessContext_i18n": {
-        "en": "Toplam öğe sayısı; örnek: bir üretim partisindeki toplam mamul sayısı.",
+        "en": "Total number of items; e.g., total products in a production batch.",
         "tr": "Toplam öğe sayısı; örnek: bir üretim partisindeki toplam mamul sayısı.",
         "de": "Gesamtzahl der Elemente; z. B. Gesamtzahl der Fertigprodukte in einer Produktionscharge.",
         "fr": "Nombre total d'éléments ; ex : nombre total de produits finis dans un lot de production.",
@@ -33,7 +33,7 @@
       "default": 3,
       "businessContext": "Kaç adet seçileceği; örnek: kalite kontrol için rastgele alınacak numune sayısı.",
       "label_i18n": {
-        "en": "r (Seçilecek Eleman Sayısı)",
+        "en": "r (Number of Elements to Select)",
         "tr": "r (Seçilecek Eleman Sayısı)",
         "de": "r (Anzahl der auszuwählenden Elemente)",
         "fr": "r (Nombre d'éléments à sélectionner)",
@@ -41,7 +41,7 @@
         "ar": "r (عدد العناصر المختارة)"
       },
       "businessContext_i18n": {
-        "en": "Kaç adet seçileceği; örnek: kalite kontrol için rastgele alınacak numune sayısı.",
+        "en": "How many to select; e.g., number of samples to randomly take for quality control.",
         "tr": "Kaç adet seçileceği; örnek: kalite kontrol için rastgele alınacak numune sayısı.",
         "de": "Wie viele ausgewählt werden sollen; z. B. Anzahl der für die Qualitätskontrolle zufällig zu entnehmenden Proben.",
         "fr": "Combien d'éléments sélectionner ; ex : nombre d'échantillons à prélever aléatoirement pour le contrôle qualité.",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "Sonucun kaç ondalık basamağa yuvarlanacağı (genellikle 0, tamsayı).",
       "label_i18n": {
-        "en": "Ondalık Basamak (Yuvarlama)",
+        "en": "Decimal Places (Rounding)",
         "tr": "Ondalık Basamak (Yuvarlama)",
         "de": "Dezimalstellen (Rundung)",
         "fr": "Décimales (Arrondi)",
@@ -65,7 +65,7 @@
         "ar": "الخانات العشرية (التقريب)"
       },
       "businessContext_i18n": {
-        "en": "Sonucun kaç ondalık basamağa yuvarlanacağı (genellikle 0, tamsayı).",
+        "en": "Number of decimal places to round the result (usually 0 for integer).",
         "tr": "Sonucun kaç ondalık basamağa yuvarlanacağı (genellikle 0, tamsayı).",
         "de": "Auf wie viele Dezimalstellen das Ergebnis gerundet werden soll (normalerweise 0, ganze Zahl).",
         "fr": "Nombre de décimales pour arrondir le résultat (généralement 0, entier).",
@@ -81,7 +81,7 @@
       "default": 1000,
       "businessContext": "Faktöriyel hesaplamada yineleme sınırı (büyük sayılar için koruma).",
       "label_i18n": {
-        "en": "Maksimum İterasyon (Güvenlik Limiti)",
+        "en": "Maximum Iterations (Safety Limit)",
         "tr": "Maksimum İterasyon (Güvenlik Limiti)",
         "de": "Maximale Iterationen (Sicherheitsgrenze)",
         "fr": "Itération maximale (Limite de sécurité)",
@@ -89,7 +89,7 @@
         "ar": "الحد الأقصى للتكرار (حد الأمان)"
       },
       "businessContext_i18n": {
-        "en": "Faktöriyel hesaplamada yineleme sınırı (büyük sayılar için koruma).",
+        "en": "Iteration limit for factorial calculation (protection for large numbers).",
         "tr": "Faktöriyel hesaplamada yineleme sınırı (büyük sayılar için koruma).",
         "de": "Iterationsgrenze bei der Fakultätsberechnung (Schutz für große Zahlen).",
         "fr": "Limite d'itération pour le calcul factoriel (protection pour les grands nombres).",

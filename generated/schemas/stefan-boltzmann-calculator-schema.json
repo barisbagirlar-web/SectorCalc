@@ -9,7 +9,7 @@
       "default": 0.95,
       "businessContext": "Yüzeyin siyah cisim idealine göre yayma oranı",
       "label_i18n": {
-        "en": "Yayma Oranı (ε)",
+        "en": "Emissivity (ε)",
         "tr": "Yayma Oranı (ε)",
         "de": "Emissionsgrad (ε)",
         "fr": "Émissivité (ε)",
@@ -17,7 +17,7 @@
         "ar": "معامل الانبعاثية (ε)"
       },
       "businessContext_i18n": {
-        "en": "Yüzeyin siyah cisim idealine göre yayma oranı",
+        "en": "Emissivity of the surface relative to a blackbody ideal",
         "tr": "Yüzeyin siyah cisim idealine göre yayma oranı",
         "de": "Emissionsgrad der Oberfläche im Vergleich zum schwarzen Körper.",
         "fr": "Rapport d'émission de la surface par rapport à l'idéal du corps noir.",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "Işınım yapan yüzeyin alanı",
       "label_i18n": {
-        "en": "Yüzey Alanı",
+        "en": "Surface Area",
         "tr": "Yüzey Alanı",
         "de": "Oberfläche",
         "fr": "Surface",
@@ -41,7 +41,7 @@
         "ar": "مساحة السطح"
       },
       "businessContext_i18n": {
-        "en": "Işınım yapan yüzeyin alanı",
+        "en": "Area of the radiating surface",
         "tr": "Işınım yapan yüzeyin alanı",
         "de": "Fläche der strahlenden Oberfläche",
         "fr": "Surface de la zone émettrice",
@@ -57,7 +57,7 @@
       "default": 300,
       "businessContext": "Mutlak sıcaklık (Kelvin cinsinden)",
       "label_i18n": {
-        "en": "Sıcaklık",
+        "en": "Temperature",
         "tr": "Sıcaklık",
         "de": "Temperatur",
         "fr": "Température",
@@ -65,7 +65,7 @@
         "ar": "درجة الحرارة"
       },
       "businessContext_i18n": {
-        "en": "Mutlak sıcaklık (Kelvin cinsinden)",
+        "en": "Absolute temperature (in Kelvin)",
         "tr": "Mutlak sıcaklık (Kelvin cinsinden)",
         "de": "Absolute Temperatur (in Kelvin)",
         "fr": "Température absolue (en Kelvin)",
@@ -89,7 +89,7 @@
         "ar": "ثابت ستيفان-بولتزمان"
       },
       "businessContext_i18n": {
-        "en": "Temel fizik sabiti, varsayılan değer TÜV onaylıdır",
+        "en": "Fundamental physical constant, default value is TÜV approved",
         "tr": "Temel fizik sabiti, varsayılan değer TÜV onaylıdır",
         "de": "Grundlegende physikalische Konstante, Standardwert TÜV-geprüft",
         "fr": "Constante physique fondamentale, valeur par défaut approuvée par TÜV.",

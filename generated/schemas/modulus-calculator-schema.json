@@ -17,7 +17,7 @@
         "ar": "الكمية الإجمالية"
       },
       "businessContext_i18n": {
-        "en": "Üretilecek veya bölünecek toplam ürün/parça sayısı.",
+        "en": "Total number of products/parts to be produced or divided.",
         "tr": "Üretilecek veya bölünecek toplam ürün/parça sayısı.",
         "de": "Gesamtzahl der zu produzierenden oder zu teilenden Produkte/Teile.",
         "fr": "Nombre total de produits/pièces à produire ou à diviser.",
@@ -33,7 +33,7 @@
       "default": 10,
       "businessContext": "Her bir partide yer alan ürün/parça sayısı.",
       "label_i18n": {
-        "en": "Parti Büyüklüğü",
+        "en": "Batch Size",
         "tr": "Parti Büyüklüğü",
         "de": "Losgröße",
         "fr": "Taille de lot",
@@ -41,7 +41,7 @@
         "ar": "حجم الدفعة"
       },
       "businessContext_i18n": {
-        "en": "Her bir partide yer alan ürün/parça sayısı.",
+        "en": "Number of products/parts in each batch.",
         "tr": "Her bir partide yer alan ürün/parça sayısı.",
         "de": "Anzahl der Produkte/Teile pro Charge.",
         "fr": "Nombre de produits/pièces par lot.",
@@ -65,7 +65,7 @@
         "ar": "الباقي المستهدف"
       },
       "businessContext_i18n": {
-        "en": "Mod işlemi sonucuyla karşılaştırılacak kalan değer; eşleşme kontrolü için.",
+        "en": "Remainder value to compare with the modulo result; for match check.",
         "tr": "Mod işlemi sonucuyla karşılaştırılacak kalan değer; eşleşme kontrolü için.",
         "de": "Restwert, der mit dem Ergebnis der Mod-Operation verglichen wird; für Übereinstimmungsprüfung.",
         "fr": "Valeur de reste à comparer avec le résultat du modulo ; pour vérification de correspondance.",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "Toplam miktara eklenecek sabit kaydırma; örneğin başlangıç artığı varsa.",
       "label_i18n": {
-        "en": "Başlangıç Kaydırma",
+        "en": "Initial Offset",
         "tr": "Başlangıç Kaydırma",
         "de": "Startverschiebung",
         "fr": "Décalage initial",
@@ -89,7 +89,7 @@
         "ar": "الإزاحة الأولية"
       },
       "businessContext_i18n": {
-        "en": "Toplam miktara eklenecek sabit kaydırma; örneğin başlangıç artığı varsa.",
+        "en": "Fixed offset to be added to the total quantity; e.g., if there is an initial remainder.",
         "tr": "Toplam miktara eklenecek sabit kaydırma; örneğin başlangıç artığı varsa.",
         "de": "Feste Verschiebung, die zur Gesamtmenge addiert wird; z. B. bei Anfangsrest.",
         "fr": "Décalage fixe à ajouter à la quantité totale ; par exemple si un reste initial existe.",

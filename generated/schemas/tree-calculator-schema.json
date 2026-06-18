@@ -9,7 +9,7 @@
       "default": 15,
       "businessContext": "Ağacın toplam yüksekliği (metre).",
       "label_i18n": {
-        "en": "Ağaç Yüksekliği (m)",
+        "en": "Tree Height (m)",
         "tr": "Ağaç Yüksekliği (m)",
         "de": "Baumhöhe (m)",
         "fr": "Hauteur de l'arbre (m)",
@@ -17,7 +17,7 @@
         "ar": "ارتفاع الشجرة (م)"
       },
       "businessContext_i18n": {
-        "en": "Ağacın toplam yüksekliği (metre).",
+        "en": "Total height of the tree (meters).",
         "tr": "Ağacın toplam yüksekliği (metre).",
         "de": "Gesamthöhe des Baumes (Meter).",
         "fr": "Hauteur totale de l'arbre (mètres).",
@@ -33,7 +33,7 @@
       "default": 30,
       "businessContext": "Göğüs yüksekliğindeki çap (1.3 m).",
       "label_i18n": {
-        "en": "Gövde Çapı (cm)",
+        "en": "Trunk Diameter (cm)",
         "tr": "Gövde Çapı (cm)",
         "de": "Stammdurchmesser (cm)",
         "fr": "Diamètre du tronc (cm)",
@@ -41,7 +41,7 @@
         "ar": "قطر الجذع (سم)"
       },
       "businessContext_i18n": {
-        "en": "Göğüs yüksekliğindeki çap (1.3 m).",
+        "en": "Diameter at breast height (1.3 m).",
         "tr": "Göğüs yüksekliğindeki çap (1.3 m).",
         "de": "Durchmesser in Brusthöhe (1,3 m).",
         "fr": "Diamètre à hauteur de poitrine (1,3 m).",
@@ -57,7 +57,7 @@
       "default": 600,
       "businessContext": "Kuru odun yoğunluğu (türe göre 300-900).",
       "label_i18n": {
-        "en": "Odun Yoğunluğu (kg/m³)",
+        "en": "Wood Density (kg/m³)",
         "tr": "Odun Yoğunluğu (kg/m³)",
         "de": "Holzdichte (kg/m³)",
         "fr": "Densité du bois (kg/m³)",
@@ -65,7 +65,7 @@
         "ar": "كثافة الخشب (كجم/م³)"
       },
       "businessContext_i18n": {
-        "en": "Kuru odun yoğunluğu (türe göre 300-900).",
+        "en": "Dry wood density (300-900 depending on species).",
         "tr": "Kuru odun yoğunluğu (türe göre 300-900).",
         "de": "Dichte des trockenen Holzes (je nach Art 300-900).",
         "fr": "Densité du bois sec (300-900 selon l'espèce).",
@@ -81,7 +81,7 @@
       "default": 0.5,
       "businessContext": "Biyokütledeki karbon oranı (genelde 0.47-0.5).",
       "label_i18n": {
-        "en": "Karbon Oranı",
+        "en": "Carbon Ratio",
         "tr": "Karbon Oranı",
         "de": "Kohlenstoffanteil",
         "fr": "Taux de carbone",
@@ -89,7 +89,7 @@
         "ar": "نسبة الكربون"
       },
       "businessContext_i18n": {
-        "en": "Biyokütledeki karbon oranı (genelde 0.47-0.5).",
+        "en": "Carbon ratio in biomass (typically 0.47-0.5).",
         "tr": "Biyokütledeki karbon oranı (genelde 0.47-0.5).",
         "de": "Kohlenstoffanteil in der Biomasse (normalerweise 0,47-0,5).",
         "fr": "Proportion de carbone dans la biomasse (généralement 0,47-0,5).",
@@ -105,7 +105,7 @@
       "default": 0.5,
       "businessContext": "Gövde hacmi düzeltme faktörü (0.4-0.6).",
       "label_i18n": {
-        "en": "Form Faktörü",
+        "en": "Form Factor",
         "tr": "Form Faktörü",
         "de": "Formfaktor",
         "fr": "Facteur de forme",
@@ -113,7 +113,7 @@
         "ar": "عامل الشكل"
       },
       "businessContext_i18n": {
-        "en": "Gövde hacmi düzeltme faktörü (0.4-0.6).",
+        "en": "Stem volume correction factor (0.4-0.6).",
         "tr": "Gövde hacmi düzeltme faktörü (0.4-0.6).",
         "de": "Korrekturfaktor für das Stammvolumen (0,4-0,6).",
         "fr": "Facteur de correction du volume du tronc (0,4-0,6).",
@@ -129,7 +129,7 @@
       "default": 0.3,
       "businessContext": "Gövde biyokütlesine oranla dal miktarı.",
       "label_i18n": {
-        "en": "Dal Biyokütle Oranı",
+        "en": "Branch Biomass Ratio",
         "tr": "Dal Biyokütle Oranı",
         "de": "Astbiomasse-Anteil",
         "fr": "Ratio de biomasse des branches",
@@ -137,7 +137,7 @@
         "ar": "نسبة الكتلة الحيوية للأغصان"
       },
       "businessContext_i18n": {
-        "en": "Gövde biyokütlesine oranla dal miktarı.",
+        "en": "Amount of branches relative to stem biomass.",
         "tr": "Gövde biyokütlesine oranla dal miktarı.",
         "de": "Menge der Äste im Verhältnis zur Stammbiomasse.",
         "fr": "Quantité de branches par rapport à la biomasse du tronc.",

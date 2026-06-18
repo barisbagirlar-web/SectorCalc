@@ -17,7 +17,7 @@
         "ar": "ميل بحري"
       },
       "businessContext_i18n": {
-        "en": "Dönüştürülecek deniz mili miktarı",
+        "en": "Amount of nautical miles to convert",
         "tr": "Dönüştürülecek deniz mili miktarı",
         "de": "Menge der umzurechnenden Seemeilen",
         "fr": "Quantité de milles nautiques à convertir",
@@ -33,7 +33,7 @@
       "default": 1.852,
       "businessContext": "Uluslararası standart dönüşüm katsayısı (1 NM = 1.852 km). Müşteriye özel durumlar için değiştirilebilir.",
       "label_i18n": {
-        "en": "Dönüşüm Faktörü",
+        "en": "Conversion Factor",
         "tr": "Dönüşüm Faktörü",
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
@@ -41,7 +41,7 @@
         "ar": "عامل التحويل"
       },
       "businessContext_i18n": {
-        "en": "Uluslararası standart dönüşüm katsayısı (1 NM = 1.852 km). Müşteriye özel durumlar için değiştirilebilir.",
+        "en": "International standard conversion factor (1 NM = 1.852 km). Can be changed for customer-specific cases.",
         "tr": "Uluslararası standart dönüşüm katsayısı (1 NM = 1.852 km). Müşteriye özel durumlar için değiştirilebilir.",
         "de": "Internationaler Standard-Umrechnungsfaktor (1 NM = 1,852 km). Kann für kundenspezifische Fälle geändert werden.",
         "fr": "Coefficient de conversion standard international (1 NM = 1,852 km). Modifiable pour des cas clients spécifiques.",
@@ -57,7 +57,7 @@
       "default": 1,
       "businessContext": "Aynı mesafenin tekrar sayısı; toplu mesafe hesabı için kullanılır.",
       "label_i18n": {
-        "en": "Sefer Sayısı",
+        "en": "Number of trips",
         "tr": "Sefer Sayısı",
         "de": "Anzahl der Fahrten",
         "fr": "Nombre de trajets",
@@ -65,7 +65,7 @@
         "ar": "عدد الرحلات"
       },
       "businessContext_i18n": {
-        "en": "Aynı mesafenin tekrar sayısı; toplu mesafe hesabı için kullanılır.",
+        "en": "Number of repetitions of the same distance; used for total distance calculation.",
         "tr": "Aynı mesafenin tekrar sayısı; toplu mesafe hesabı için kullanılır.",
         "de": "Wiederholungsanzahl derselben Strecke; wird für die Gesamtstreckenberechnung verwendet.",
         "fr": "Nombre de répétitions de la même distance ; utilisé pour le calcul de distance totale.",
@@ -81,7 +81,7 @@
       "default": 2,
       "businessContext": "Sonuçta gösterilecek ondalık basamak adedi (0–6)",
       "label_i18n": {
-        "en": "Ondalık Basamak",
+        "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
         "fr": "Décimales",
@@ -89,7 +89,7 @@
         "ar": "المنازل العشرية"
       },
       "businessContext_i18n": {
-        "en": "Sonuçta gösterilecek ondalık basamak adedi (0–6)",
+        "en": "Number of decimal places to show in the result (0–6)",
         "tr": "Sonuçta gösterilecek ondalık basamak adedi (0–6)",
         "de": "Anzahl der im Ergebnis anzuzeigenden Dezimalstellen (0–6)",
         "fr": "Nombre de décimales à afficher dans le résultat (0–6)",

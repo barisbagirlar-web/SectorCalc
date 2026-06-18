@@ -9,7 +9,7 @@
       "default": 5,
       "businessContext": "Kirişin toplam uzunluğu (m)",
       "label_i18n": {
-        "en": "Kiriş Uzunluğu",
+        "en": "Beam Length",
         "tr": "Kiriş Uzunluğu",
         "de": "Trägerlänge",
         "fr": "Longueur de la poutre",
@@ -17,7 +17,7 @@
         "ar": "طول العارضة"
       },
       "businessContext_i18n": {
-        "en": "Kirişin toplam uzunluğu (m)",
+        "en": "Total length of beam (m)",
         "tr": "Kirişin toplam uzunluğu (m)",
         "de": "Gesamtlänge des Trägers (m)",
         "fr": "Longueur totale de la poutre (m)",
@@ -33,7 +33,7 @@
       "default": 10,
       "businessContext": "Tekil yükün büyüklüğü (kN)",
       "label_i18n": {
-        "en": "Yük Büyüklüğü",
+        "en": "Load Magnitude",
         "tr": "Yük Büyüklüğü",
         "de": "Lastgröße",
         "fr": "Ampleur de la charge",
@@ -41,7 +41,7 @@
         "ar": "حجم الحمولة"
       },
       "businessContext_i18n": {
-        "en": "Tekil yükün büyüklüğü (kN)",
+        "en": "Magnitude of point load (kN)",
         "tr": "Tekil yükün büyüklüğü (kN)",
         "de": "Größe der Einzellast (kN)",
         "fr": "Ampleur de la charge ponctuelle (kN)",
@@ -57,7 +57,7 @@
       "default": 2.5,
       "businessContext": "Yükün sol mesnetten uzaklığı (m)",
       "label_i18n": {
-        "en": "Yük Konumu",
+        "en": "Load Position",
         "tr": "Yük Konumu",
         "de": "Lastposition",
         "fr": "Position de la charge",
@@ -65,7 +65,7 @@
         "ar": "موقع الحمولة"
       },
       "businessContext_i18n": {
-        "en": "Yükün sol mesnetten uzaklığı (m)",
+        "en": "Distance of load from left support (m)",
         "tr": "Yükün sol mesnetten uzaklığı (m)",
         "de": "Abstand der Last vom linken Auflager (m)",
         "fr": "Distance de la charge depuis l'appui gauche (m)",
@@ -89,7 +89,7 @@
         "ar": "موقع المقطع"
       },
       "businessContext_i18n": {
-        "en": "Moment hesabı yapılan kesitin sol mesnetten uzaklığı (m)",
+        "en": "Distance of section from left support for moment calculation (m)",
         "tr": "Moment hesabı yapılan kesitin sol mesnetten uzaklığı (m)",
         "de": "Abstand des Schnitts vom linken Auflager (m)",
         "fr": "Distance de la section de calcul du moment depuis l'appui gauche (m)",

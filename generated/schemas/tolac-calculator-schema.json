@@ -9,7 +9,7 @@
       "default": 25,
       "businessContext": "Bir işçinin saatlik maliyeti (brüt)",
       "label_i18n": {
-        "en": "Saatlik İşçilik Ücreti",
+        "en": "Hourly Labor Wage",
         "tr": "Saatlik İşçilik Ücreti",
         "de": "Stündlicher Arbeitslohn",
         "fr": "Taux horaire de main-d'œuvre",
@@ -17,7 +17,7 @@
         "ar": "أجر العمالة بالساعة"
       },
       "businessContext_i18n": {
-        "en": "Bir işçinin saatlik maliyeti (brüt)",
+        "en": "Hourly cost of a worker (gross)",
         "tr": "Bir işçinin saatlik maliyeti (brüt)",
         "de": "Stündliche Kosten eines Arbeiters (brutto)",
         "fr": "Coût horaire brut d'un opérateur",
@@ -41,7 +41,7 @@
         "ar": "تكلفة تشغيل الماكينة بالساعة"
       },
       "businessContext_i18n": {
-        "en": "Makinenin amortisman, enerji, bakım dahil saatlik maliyeti",
+        "en": "Hourly cost of the machine including depreciation, energy, and maintenance",
         "tr": "Makinenin amortisman, enerji, bakım dahil saatlik maliyeti",
         "de": "Stündliche Maschinenkosten inkl. Abschreibung, Energie, Wartung",
         "fr": "Coût horaire machine incluant amortissement, énergie et maintenance",
@@ -57,7 +57,7 @@
       "default": 5,
       "businessContext": "Bir birim ürünün işlenme süresi (operasyon süresi)",
       "label_i18n": {
-        "en": "Birim Çevrim Süresi",
+        "en": "Unit Cycle Time",
         "tr": "Birim Çevrim Süresi",
         "de": "Zykluszeit pro Einheit",
         "fr": "Temps de cycle unitaire",
@@ -65,7 +65,7 @@
         "ar": "زمن الدورة للوحدة"
       },
       "businessContext_i18n": {
-        "en": "Bir birim ürünün işlenme süresi (operasyon süresi)",
+        "en": "Processing time for one unit of product (operation time)",
         "tr": "Bir birim ürünün işlenme süresi (operasyon süresi)",
         "de": "Bearbeitungszeit pro Einheit (Operationszeit)",
         "fr": "Temps d'usinage d'une unité de produit (temps opératoire)",
@@ -81,7 +81,7 @@
       "default": 100,
       "businessContext": "Bir partide üretilen toplam ürün sayısı",
       "label_i18n": {
-        "en": "Parti Büyüklüğü",
+        "en": "Batch Size",
         "tr": "Parti Büyüklüğü",
         "de": "Losgröße",
         "fr": "Taille de lot",
@@ -89,7 +89,7 @@
         "ar": "حجم الدفعة"
       },
       "businessContext_i18n": {
-        "en": "Bir partide üretilen toplam ürün sayısı",
+        "en": "Total number of products produced in one batch",
         "tr": "Bir partide üretilen toplam ürün sayısı",
         "de": "Gesamtzahl der produzierten Einheiten pro Charge",
         "fr": "Nombre total de produits fabriqués dans un lot",
@@ -113,7 +113,7 @@
         "ar": "تكلفة المواد لكل وحدة"
       },
       "businessContext_i18n": {
-        "en": "Ürün başına hammadde ve sarf malzeme maliyeti",
+        "en": "Raw material and consumable cost per product",
         "tr": "Ürün başına hammadde ve sarf malzeme maliyeti",
         "de": "Material- und Verbrauchsmaterialkosten pro Einheit",
         "fr": "Coût des matières premières et consommables par produit",
@@ -129,7 +129,7 @@
       "default": 20,
       "businessContext": "İşçilik üzerinden hesaplanan genel üretim giderleri yüzdesi",
       "label_i18n": {
-        "en": "Genel Gider Oranı",
+        "en": "Overhead Rate",
         "tr": "Genel Gider Oranı",
         "de": "Gemeinkostensatz",
         "fr": "Taux de frais généraux",
@@ -137,7 +137,7 @@
         "ar": "نسبة التكاليف العامة"
       },
       "businessContext_i18n": {
-        "en": "İşçilik üzerinden hesaplanan genel üretim giderleri yüzdesi",
+        "en": "General production overhead percentage calculated on labor",
         "tr": "İşçilik üzerinden hesaplanan genel üretim giderleri yüzdesi",
         "de": "Gemeinkostenprozentsatz basierend auf Arbeitskosten",
         "fr": "Pourcentage de frais généraux de production calculé sur la main-d'œuvre",

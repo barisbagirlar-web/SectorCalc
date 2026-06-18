@@ -9,7 +9,7 @@
       "default": 10,
       "businessContext": "Nesnenin serbest düşüşe başladığı yükseklik (metre).",
       "label_i18n": {
-        "en": "Başlangıç Yüksekliği",
+        "en": "Initial height",
         "tr": "Başlangıç Yüksekliği",
         "de": "Anfangshöhe",
         "fr": "Hauteur initiale",
@@ -17,7 +17,7 @@
         "ar": "الارتفاع الابتدائي"
       },
       "businessContext_i18n": {
-        "en": "Nesnenin serbest düşüşe başladığı yükseklik (metre).",
+        "en": "Height from which the object starts free fall (meters).",
         "tr": "Nesnenin serbest düşüşe başladığı yükseklik (metre).",
         "de": "Höhe (in Metern), aus der das Objekt fallen gelassen wird.",
         "fr": "Hauteur à laquelle l'objet commence sa chute libre (en mètres).",
@@ -33,7 +33,7 @@
       "default": 0,
       "businessContext": "Nesnenin ilk düşey hızı (pozitif aşağı yönlü).",
       "label_i18n": {
-        "en": "Başlangıç Hızı",
+        "en": "Initial velocity",
         "tr": "Başlangıç Hızı",
         "de": "Anfangsgeschwindigkeit",
         "fr": "Vitesse initiale",
@@ -41,7 +41,7 @@
         "ar": "السرعة الابتدائية"
       },
       "businessContext_i18n": {
-        "en": "Nesnenin ilk düşey hızı (pozitif aşağı yönlü).",
+        "en": "Initial vertical velocity of the object (positive downward).",
         "tr": "Nesnenin ilk düşey hızı (pozitif aşağı yönlü).",
         "de": "Anfängliche vertikale Geschwindigkeit des Objekts (positiv nach unten).",
         "fr": "Vitesse verticale initiale de l'objet (positive vers le bas).",
@@ -57,7 +57,7 @@
       "default": 9.80665,
       "businessContext": "Standart yerçekimi ivmesi (Dünya için 9.80665 m/s²).",
       "label_i18n": {
-        "en": "Yerçekimi İvmesi",
+        "en": "Gravitational acceleration",
         "tr": "Yerçekimi İvmesi",
         "de": "Erdbeschleunigung",
         "fr": "Accélération gravitationnelle",
@@ -65,7 +65,7 @@
         "ar": "تسارع الجاذبية"
       },
       "businessContext_i18n": {
-        "en": "Standart yerçekimi ivmesi (Dünya için 9.80665 m/s²).",
+        "en": "Standard gravitational acceleration (9.80665 m/s² for Earth).",
         "tr": "Standart yerçekimi ivmesi (Dünya için 9.80665 m/s²).",
         "de": "Standard-Erdbeschleunigung (9,80665 m/s² auf der Erde).",
         "fr": "Accélération gravitationnelle standard (9,80665 m/s² pour la Terre).",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "Nesnenin kütlesi (kinetik enerji hesaplamasında kullanılır).",
       "label_i18n": {
-        "en": "Kütle",
+        "en": "Mass",
         "tr": "Kütle",
         "de": "Masse",
         "fr": "Masse",
@@ -89,7 +89,7 @@
         "ar": "الكتلة"
       },
       "businessContext_i18n": {
-        "en": "Nesnenin kütlesi (kinetik enerji hesaplamasında kullanılır).",
+        "en": "Mass of the object (used for kinetic energy calculation).",
         "tr": "Nesnenin kütlesi (kinetik enerji hesaplamasında kullanılır).",
         "de": "Masse des Objekts (wird für die kinetische Energieberechnung verwendet).",
         "fr": "Masse de l'objet (utilisée pour le calcul de l'énergie cinétique).",

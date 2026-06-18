@@ -9,7 +9,7 @@
       "default": 1000,
       "businessContext": "Kaldırılacak yükün toplam ağırlığı",
       "label_i18n": {
-        "en": "Yük Ağırlığı",
+        "en": "Load Weight",
         "tr": "Yük Ağırlığı",
         "de": "Lastgewicht",
         "fr": "Poids de la charge",
@@ -17,7 +17,7 @@
         "ar": "وزن الحمولة"
       },
       "businessContext_i18n": {
-        "en": "Kaldırılacak yükün toplam ağırlığı",
+        "en": "Total weight of load to be lifted",
         "tr": "Kaldırılacak yükün toplam ağırlığı",
         "de": "Gesamtgewicht der zu hebenden Last",
         "fr": "Poids total de la charge à soulever",
@@ -33,7 +33,7 @@
       "default": 60,
       "businessContext": "Askı açısı yatay düzlemden ölçülür (0° tam yatay, 90° dikey)",
       "label_i18n": {
-        "en": "Askı Açısı (yataydan)",
+        "en": "Sling Angle (from horizontal)",
         "tr": "Askı Açısı (yataydan)",
         "de": "Anschlagwinkel (zur Horizontalen)",
         "fr": "Angle d'élingue (par rapport à l'horizontale)",
@@ -41,7 +41,7 @@
         "ar": "زاوية التعليق (من الأفقي)"
       },
       "businessContext_i18n": {
-        "en": "Askı açısı yatay düzlemden ölçülür (0° tam yatay, 90° dikey)",
+        "en": "Sling angle measured from horizontal plane (0° fully horizontal, 90° vertical)",
         "tr": "Askı açısı yatay düzlemden ölçülür (0° tam yatay, 90° dikey).",
         "de": "Der Anschlagwinkel wird von der horizontalen Ebene gemessen (0° vollständig horizontal, 90° vertikal).",
         "fr": "L'angle d'élingue est mesuré par rapport au plan horizontal (0° complètement horizontal, 90° vertical).",
@@ -57,7 +57,7 @@
       "default": 2,
       "businessContext": "Yükü taşıyan askı kollarının sayısı (genellikle 2 veya 4)",
       "label_i18n": {
-        "en": "Askı Kolu Sayısı",
+        "en": "Number of Sling Legs",
         "tr": "Askı Kolu Sayısı",
         "de": "Anzahl der Anschlagstränge",
         "fr": "Nombre de brins d'élingue",
@@ -65,7 +65,7 @@
         "ar": "عدد أذرع التعليق"
       },
       "businessContext_i18n": {
-        "en": "Yükü taşıyan askı kollarının sayısı (genellikle 2 veya 4)",
+        "en": "Number of sling legs supporting the load (usually 2 or 4)",
         "tr": "Yükü taşıyan askı kollarının sayısı (genellikle 2 veya 4).",
         "de": "Anzahl der die Last tragenden Anschlagstränge (normalerweise 2 oder 4).",
         "fr": "Nombre de brins d'élingue supportant la charge (généralement 2 ou 4).",
@@ -81,7 +81,7 @@
       "default": 5,
       "businessContext": "Tasarımda kullanılan emniyet katsayısı (örn: 5:1)",
       "label_i18n": {
-        "en": "Güvenlik Faktörü",
+        "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
         "fr": "Facteur de sécurité",
@@ -89,7 +89,7 @@
         "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
-        "en": "Tasarımda kullanılan emniyet katsayısı (örn: 5:1)",
+        "en": "Safety factor used in design (e.g., 5:1)",
         "tr": "Tasarımda kullanılan emniyet katsayısı (örn: 5:1).",
         "de": "Sicherheitsfaktor für die Auslegung (z. B. 5:1).",
         "fr": "Coefficient de sécurité utilisé dans la conception (ex : 5:1).",

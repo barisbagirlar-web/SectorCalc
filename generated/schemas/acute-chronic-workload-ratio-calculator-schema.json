@@ -9,7 +9,7 @@
       "default": 100,
       "businessContext": "Kısa dönemde (ör. 7 gün) oluşan toplam iş yükü",
       "label_i18n": {
-        "en": "Akut Yük (Toplam)",
+        "en": "Acute Load (Total)",
         "tr": "Akut Yük (Toplam)",
         "de": "Akute Belastung (Gesamt)",
         "fr": "Charge aiguë (totale)",
@@ -17,7 +17,7 @@
         "ar": "الحمل الحاد (الإجمالي)"
       },
       "businessContext_i18n": {
-        "en": "Kısa dönemde (ör. 7 gün) oluşan toplam iş yükü",
+        "en": "Total workload occurring in a short period (e.g., 7 days).",
         "tr": "Kısa dönemde (ör. 7 gün) oluşan toplam iş yükü",
         "de": "Gesamtarbeitsbelastung über einen kurzen Zeitraum (z. B. 7 Tage).",
         "fr": "Charge de travail totale sur une courte période (ex. 7 jours)",
@@ -33,7 +33,7 @@
       "default": 7,
       "businessContext": "Akut yükün ölçüldüğü gün sayısı",
       "label_i18n": {
-        "en": "Akut Dönem (Gün)",
+        "en": "Acute Period (Days)",
         "tr": "Akut Dönem (Gün)",
         "de": "Akuter Zeitraum (Tage)",
         "fr": "Période aiguë (jours)",
@@ -41,7 +41,7 @@
         "ar": "الفترة الحادة (أيام)"
       },
       "businessContext_i18n": {
-        "en": "Akut yükün ölçüldüğü gün sayısı",
+        "en": "Number of days over which acute load is measured.",
         "tr": "Akut yükün ölçüldüğü gün sayısı",
         "de": "Anzahl der Tage, über die die akute Belastung gemessen wird.",
         "fr": "Nombre de jours sur lequel la charge aiguë est mesurée",
@@ -57,7 +57,7 @@
       "default": 400,
       "businessContext": "Uzun dönemde (ör. 28 gün) oluşan toplam iş yükü",
       "label_i18n": {
-        "en": "Kronik Yük (Toplam)",
+        "en": "Chronic Load (Total)",
         "tr": "Kronik Yük (Toplam)",
         "de": "Chronische Belastung (Gesamt)",
         "fr": "Charge chronique (totale)",
@@ -65,7 +65,7 @@
         "ar": "الحمل المزمن (الإجمالي)"
       },
       "businessContext_i18n": {
-        "en": "Uzun dönemde (ör. 28 gün) oluşan toplam iş yükü",
+        "en": "Total workload occurring over a long period (e.g., 28 days).",
         "tr": "Uzun dönemde (ör. 28 gün) oluşan toplam iş yükü",
         "de": "Gesamtarbeitsbelastung über einen langen Zeitraum (z. B. 28 Tage).",
         "fr": "Charge de travail totale sur une longue période (ex. 28 jours)",
@@ -81,7 +81,7 @@
       "default": 28,
       "businessContext": "Kronik yükün ölçüldüğü gün sayısı",
       "label_i18n": {
-        "en": "Kronik Dönem (Gün)",
+        "en": "Chronic Period (Days)",
         "tr": "Kronik Dönem (Gün)",
         "de": "Chronischer Zeitraum (Tage)",
         "fr": "Période chronique (jours)",
@@ -89,7 +89,7 @@
         "ar": "الفترة المزمنة (أيام)"
       },
       "businessContext_i18n": {
-        "en": "Kronik yükün ölçüldüğü gün sayısı",
+        "en": "Number of days over which chronic load is measured.",
         "tr": "Kronik yükün ölçüldüğü gün sayısı",
         "de": "Anzahl der Tage, über die die chronische Belastung gemessen wird.",
         "fr": "Nombre de jours sur lequel la charge chronique est mesurée",
@@ -105,7 +105,7 @@
       "default": 1.5,
       "businessContext": "Riskli kabul edilen ACWR eşik değeri (genelde 1.5)",
       "label_i18n": {
-        "en": "Eşik Değer",
+        "en": "Threshold Value",
         "tr": "Eşik Değer",
         "de": "Schwellenwert",
         "fr": "Seuil",
@@ -113,7 +113,7 @@
         "ar": "حد التنبيه"
       },
       "businessContext_i18n": {
-        "en": "Riskli kabul edilen ACWR eşik değeri (genelde 1.5)",
+        "en": "ACWR threshold value considered risky (typically 1.5).",
         "tr": "Riskli kabul edilen ACWR eşik değeri (genelde 1.5)",
         "de": "ACWR-Schwellenwert, ab dem das Risiko als erhöht gilt (normalerweise 1,5).",
         "fr": "Seuil de ACWR considéré comme risqué (généralement 1,5)",

@@ -9,7 +9,7 @@
       "default": 1,
       "businessContext": "Kök önündeki katsayı çarpanı",
       "label_i18n": {
-        "en": "Çarpan",
+        "en": "Multiplier",
         "tr": "Çarpan",
         "de": "Multiplikator",
         "fr": "Multiplicateur",
@@ -17,7 +17,7 @@
         "ar": "المعامل"
       },
       "businessContext_i18n": {
-        "en": "Kök önündeki katsayı çarpanı",
+        "en": "Coefficient multiplier before the root",
         "tr": "Kök önündeki katsayı çarpanı",
         "de": "Koeffizient vor der Wurzel",
         "fr": "Coefficient multiplicateur devant la racine",
@@ -33,7 +33,7 @@
       "default": 16,
       "businessContext": "Kök içine yazılan sayı",
       "label_i18n": {
-        "en": "Köklü Sayı",
+        "en": "Radicand",
         "tr": "Köklü Sayı",
         "de": "Radikand",
         "fr": "Nombre sous la racine",
@@ -41,7 +41,7 @@
         "ar": "العدد تحت الجذر"
       },
       "businessContext_i18n": {
-        "en": "Kök içine yazılan sayı",
+        "en": "Number written inside the root",
         "tr": "Kök içine yazılan sayı",
         "de": "Zahl unter der Wurzel",
         "fr": "Nombre inscrit sous la racine",
@@ -57,7 +57,7 @@
       "default": 2,
       "businessContext": "Kökün derecesi (2 karekök, 3 küpkök...)",
       "label_i18n": {
-        "en": "Kök Derecesi",
+        "en": "Root Degree",
         "tr": "Kök Derecesi",
         "de": "Wurzelexponent",
         "fr": "Indice de la racine",
@@ -65,7 +65,7 @@
         "ar": "درجة الجذر"
       },
       "businessContext_i18n": {
-        "en": "Kökün derecesi (2 karekök, 3 küpkök...)",
+        "en": "Degree of the root (2 for square root, 3 for cube root...)",
         "tr": "Kökün derecesi (2 karekök, 3 küpkök...)",
         "de": "Wurzelexponent (2 für Quadratwurzel, 3 für Kubikwurzel...)",
         "fr": "Indice de la racine (2 pour racine carrée, 3 pour racine cubique...)",
@@ -89,7 +89,7 @@
         "ar": "الحد الإضافي"
       },
       "businessContext_i18n": {
-        "en": "Sonuca eklenecek sabit sayı",
+        "en": "Constant to add to the result",
         "tr": "Sonuca eklenecek sabit sayı",
         "de": "Konstante Zahl, die zum Ergebnis addiert wird",
         "fr": "Constante à ajouter au résultat",

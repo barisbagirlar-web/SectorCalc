@@ -9,7 +9,7 @@
       "default": 5,
       "businessContext": "Yıllık envanter devir hızı (satılan mal maliyeti / ortalama envanter)",
       "label_i18n": {
-        "en": "Envanter Devir Hızı",
+        "en": "Inventory Turnover Rate",
         "tr": "Envanter Devir Hızı",
         "de": "Lagerumschlagshäufigkeit",
         "fr": "Taux de rotation des stocks",
@@ -17,7 +17,7 @@
         "ar": "معدل دوران المخزون"
       },
       "businessContext_i18n": {
-        "en": "Yıllık envanter devir hızı (satılan mal maliyeti / ortalama envanter)",
+        "en": "Annual inventory turnover rate (cost of goods sold / average inventory)",
         "tr": "Yıllık envanter devir hızı (satılan mal maliyeti / ortalama envanter)",
         "de": "Jährliche Lagerumschlagshäufigkeit (Kosten der verkauften Waren / durchschnittlicher Lagerbestand)",
         "fr": "Taux de rotation annuel des stocks (coût des marchandises vendues / stock moyen)",
@@ -33,7 +33,7 @@
       "default": 85,
       "businessContext": "Makinelerin fiili çalışma süresinin planlanan süreye oranı",
       "label_i18n": {
-        "en": "Makine Kullanım Oranı",
+        "en": "Machine Utilization Rate",
         "tr": "Makine Kullanım Oranı",
         "de": "Maschinenauslastungsgrad",
         "fr": "Taux d'utilisation des machines",
@@ -41,7 +41,7 @@
         "ar": "نسبة استخدام الماكينة"
       },
       "businessContext_i18n": {
-        "en": "Makinelerin fiili çalışma süresinin planlanan süreye oranı",
+        "en": "Ratio of actual operating time to planned time of machines",
         "tr": "Makinelerin fiili çalışma süresinin planlanan süreye oranı",
         "de": "Verhältnis der tatsächlichen Betriebszeit der Maschinen zur geplanten Zeit",
         "fr": "Rapport entre le temps de fonctionnement réel des machines et le temps planifié",
@@ -57,7 +57,7 @@
       "default": 98,
       "businessContext": "Hatızısız teslim edilen siparişlerin toplam siparişlere oranı",
       "label_i18n": {
-        "en": "Sipariş Doğruluk Oranı",
+        "en": "Order Accuracy Rate",
         "tr": "Sipariş Doğruluk Oranı",
         "de": "Liefertreuequote",
         "fr": "Taux de précision des commandes",
@@ -65,7 +65,7 @@
         "ar": "نسبة دقة الطلبات"
       },
       "businessContext_i18n": {
-        "en": "Hatızısız teslim edilen siparişlerin toplam siparişlere oranı",
+        "en": "Ratio of orders delivered without defects to total orders",
         "tr": "Hatızısız teslim edilen siparişlerin toplam siparişlere oranı",
         "de": "Verhältnis der fehlerfrei gelieferten Aufträge zur Gesamtzahl der Aufträge",
         "fr": "Rapport entre les commandes livrées sans erreur et le total des commandes",
@@ -81,7 +81,7 @@
       "default": 2,
       "businessContext": "Üretimdeki kusurlu ürün oranı",
       "label_i18n": {
-        "en": "Hata Oranı",
+        "en": "Error Rate (%)",
         "tr": "Hata Oranı",
         "de": "Fehlerrate",
         "fr": "Taux de défauts",
@@ -89,7 +89,7 @@
         "ar": "نسبة العيوب"
       },
       "businessContext_i18n": {
-        "en": "Üretimdeki kusurlu ürün oranı",
+        "en": "Defective product rate in production",
         "tr": "Üretimdeki kusurlu ürün oranı",
         "de": "Ausschussrate in der Produktion",
         "fr": "Taux de produits défectueux dans la production",
@@ -105,7 +105,7 @@
       "default": 90,
       "businessContext": "Planlanan bakım görevlerinin zamanında tamamlanma oranı",
       "label_i18n": {
-        "en": "Bakım Uyum Oranı",
+        "en": "Maintenance Compliance Rate",
         "tr": "Bakım Uyum Oranı",
         "de": "Wartungserfüllungsgrad",
         "fr": "Taux de conformité de la maintenance",
@@ -113,7 +113,7 @@
         "ar": "نسبة الامتثال للصيانة"
       },
       "businessContext_i18n": {
-        "en": "Planlanan bakım görevlerinin zamanında tamamlanma oranı",
+        "en": "Rate of planned maintenance tasks completed on time",
         "tr": "Planlanan bakım görevlerinin zamanında tamamlanma oranı",
         "de": "Anteil der planmäßigen Wartungsaufgaben, die termingerecht abgeschlossen wurden",
         "fr": "Pourcentage des tâches de maintenance planifiées terminées à temps",
@@ -129,7 +129,7 @@
       "default": 95,
       "businessContext": "İSG denetim puanı (0-100)",
       "label_i18n": {
-        "en": "İş Güvenliği Skoru",
+        "en": "Occupational Safety Score",
         "tr": "İş Güvenliği Skoru",
         "de": "Arbeitssicherheits-Score",
         "fr": "Score de sécurité au travail",
@@ -137,7 +137,7 @@
         "ar": "درجة السلامة المهنية"
       },
       "businessContext_i18n": {
-        "en": "İSG denetim puanı (0-100)",
+        "en": "OHS audit score (0-100)",
         "tr": "İSG denetim puanı (0-100)",
         "de": "Sicherheitsaudit-Punktzahl (0-100)",
         "fr": "Score d'audit SST (0-100)",

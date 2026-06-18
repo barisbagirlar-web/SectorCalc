@@ -9,7 +9,7 @@
       "default": 1,
       "businessContext": "Seyreltilecek alkollü çözeltinin başlangıç hacmi.",
       "label_i18n": {
-        "en": "Başlangıç Hacmi",
+        "en": "Initial Volume",
         "tr": "Başlangıç Hacmi",
         "de": "Anfangsvolumen",
         "fr": "Volume initial",
@@ -17,7 +17,7 @@
         "ar": "الحجم الأولي"
       },
       "businessContext_i18n": {
-        "en": "Seyreltilecek alkollü çözeltinin başlangıç hacmi.",
+        "en": "Initial volume of the alcoholic solution to be diluted.",
         "tr": "Seyreltilecek alkollü çözeltinin başlangıç hacmi.",
         "de": "Anfangsvolumen der zu verdünnenden alkoholischen Lösung.",
         "fr": "Volume initial de la solution alcoolique à diluer.",
@@ -33,7 +33,7 @@
       "default": 96,
       "businessContext": "Çözeltinin başlangıçtaki hacimce alkol yüzdesi (ör. %96).",
       "label_i18n": {
-        "en": "Başlangıç Alkol Oranı",
+        "en": "Initial Alcohol Percentage",
         "tr": "Başlangıç Alkol Oranı",
         "de": "Anfänglicher Alkoholgehalt",
         "fr": "Taux d'alcool initial",
@@ -41,7 +41,7 @@
         "ar": "نسبة الكحول الأولية"
       },
       "businessContext_i18n": {
-        "en": "Çözeltinin başlangıçtaki hacimce alkol yüzdesi (ör. %96).",
+        "en": "Initial volume percent alcohol of the solution (e.g., 96%).",
         "tr": "Çözeltinin başlangıçtaki hacimce alkol yüzdesi (ör. %96).",
         "de": "Anfänglicher Volumenprozent Alkohol der Lösung (z. B. 96 %).",
         "fr": "Pourcentage d'alcool en volume initial de la solution (ex. 96 %).",
@@ -57,7 +57,7 @@
       "default": 40,
       "businessContext": "Ulaşmak istenen hacimce alkol yüzdesi (ör. %40).",
       "label_i18n": {
-        "en": "Hedef Alkol Oranı",
+        "en": "Target Alcohol Percentage",
         "tr": "Hedef Alkol Oranı",
         "de": "Zielalkoholgehalt",
         "fr": "Taux d'alcool cible",
@@ -65,7 +65,7 @@
         "ar": "نسبة الكحول المستهدفة"
       },
       "businessContext_i18n": {
-        "en": "Ulaşmak istenen hacimce alkol yüzdesi (ör. %40).",
+        "en": "Desired volume percent alcohol (e.g., 40%).",
         "tr": "Ulaşmak istenen hacimce alkol yüzdesi (ör. %40).",
         "de": "Gewünschter Volumenprozent Alkohol (z. B. 40 %).",
         "fr": "Pourcentage d'alcool en volume souhaité (ex. 40 %).",
@@ -81,7 +81,7 @@
       "default": 20,
       "businessContext": "Ortam sıcaklığı; hacim düzeltmesi için referans alınır.",
       "label_i18n": {
-        "en": "Sıcaklık",
+        "en": "Temperature",
         "tr": "Sıcaklık",
         "de": "Temperatur",
         "fr": "Température",
@@ -89,7 +89,7 @@
         "ar": "درجة الحرارة"
       },
       "businessContext_i18n": {
-        "en": "Ortam sıcaklığı; hacim düzeltmesi için referans alınır.",
+        "en": "Ambient temperature; used as reference for volume correction.",
         "tr": "Ortam sıcaklığı; hacim düzeltmesi için referans alınır.",
         "de": "Umgebungstemperatur; als Referenz für die Volumenkorrektur.",
         "fr": "Température ambiante ; utilisée comme référence pour la correction de volume.",

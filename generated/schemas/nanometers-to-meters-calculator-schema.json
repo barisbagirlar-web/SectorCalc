@@ -9,7 +9,7 @@
       "default": 1,
       "businessContext": "Dönüştürülecek nanometre miktarı",
       "label_i18n": {
-        "en": "Nanometre Değeri",
+        "en": "Nanometer Value",
         "tr": "Nanometre Değeri",
         "de": "Nanometer-Wert",
         "fr": "Valeur en nanomètres",
@@ -17,7 +17,7 @@
         "ar": "قيمة النانومتر"
       },
       "businessContext_i18n": {
-        "en": "Dönüştürülecek nanometre miktarı",
+        "en": "Amount of nanometers to convert",
         "tr": "Dönüştürülecek nanometre miktarı",
         "de": "Umzurechnende Nanometer-Menge",
         "fr": "Quantité de nanomètres à convertir",
@@ -33,7 +33,7 @@
       "default": 1000000000,
       "businessContext": "1 metrenin kaç nanometre olduğu; standart 1.000.000.000",
       "label_i18n": {
-        "en": "Dönüşüm Çarpanı",
+        "en": "Conversion Factor",
         "tr": "Dönüşüm Çarpanı",
         "de": "Umrechnungsfaktor",
         "fr": "Facteur de conversion",
@@ -41,7 +41,7 @@
         "ar": "معامل التحويل"
       },
       "businessContext_i18n": {
-        "en": "1 metrenin kaç nanometre olduğu; standart 1.000.000.000",
+        "en": "How many nanometers in 1 meter; standard 1,000,000,000",
         "tr": "1 metrenin kaç nanometre olduğu; standart 1.000.000.000",
         "de": "Anzahl Nanometer in einem Meter; Standard 1.000.000.000",
         "fr": "Nombre de nanomètres dans un mètre ; standard 1 000 000 000",
@@ -57,7 +57,7 @@
       "default": 9,
       "businessContext": "Sonuçta gösterilecek ondalık basamak sayısı",
       "label_i18n": {
-        "en": "Hassasiyet (Ondalık)",
+        "en": "Precision (Decimal)",
         "tr": "Hassasiyet (Ondalık)",
         "de": "Genauigkeit (Dezimalstellen)",
         "fr": "Précision (décimales)",
@@ -65,7 +65,7 @@
         "ar": "الدقة (المنازل العشرية)"
       },
       "businessContext_i18n": {
-        "en": "Sonuçta gösterilecek ondalık basamak sayısı",
+        "en": "Number of decimal places to show in result",
         "tr": "Sonuçta gösterilecek ondalık basamak sayısı",
         "de": "Anzahl der im Ergebnis anzuzeigenden Dezimalstellen",
         "fr": "Nombre de décimales à afficher dans le résultat",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "Sonuç değerini ölçeklendirme katsayısı",
       "label_i18n": {
-        "en": "Ölçekleme",
+        "en": "Scaling",
         "tr": "Ölçekleme",
         "de": "Skalierung",
         "fr": "Mise à l'échelle",
@@ -89,7 +89,7 @@
         "ar": "القياس"
       },
       "businessContext_i18n": {
-        "en": "Sonuç değerini ölçeklendirme katsayısı",
+        "en": "Scaling factor for the result value",
         "tr": "Sonuç değerini ölçeklendirme katsayısı",
         "de": "Skalierungsfaktor für den Ergebniswert",
         "fr": "Coefficient de mise à l'échelle de la valeur de résultat",
@@ -113,7 +113,7 @@
         "ar": "الإزاحة"
       },
       "businessContext_i18n": {
-        "en": "Sonuca eklenecek sabit değer",
+        "en": "Constant value to add to the result",
         "tr": "Sonuca eklenecek sabit değer",
         "de": "Konstanter Wert, der zum Ergebnis addiert wird",
         "fr": "Valeur constante à ajouter au résultat",
@@ -129,7 +129,7 @@
       "default": 1,
       "businessContext": "Metreden istenen birime dönüşüm çarpanı (ör. cm için 100, km için 0.001)",
       "label_i18n": {
-        "en": "Hedef Birim Çarpanı",
+        "en": "Target unit multiplier",
         "tr": "Hedef Birim Çarpanı",
         "de": "Zieleinheiten-Faktor",
         "fr": "Facteur de l'unité cible",
@@ -137,7 +137,7 @@
         "ar": "معامل الوحدة المستهدفة"
       },
       "businessContext_i18n": {
-        "en": "Metreden istenen birime dönüşüm çarpanı (ör. cm için 100, km için 0.001)",
+        "en": "Conversion factor from meters to desired unit (e.g., 100 for cm, 0.001 for km)",
         "tr": "Metreden istenen birime dönüşüm çarpanı (ör. cm için 100, km için 0.001)",
         "de": "Umrechnungsfaktor von Meter in gewünschte Einheit (z. B. 100 für cm, 0,001 für km)",
         "fr": "Facteur de conversion du mètre vers l'unité souhaitée (ex. 100 pour cm, 0,001 pour km)",
@@ -153,7 +153,7 @@
       "default": 0,
       "businessContext": "1 ise sonuç bilimsel notasyonda gösterilir, 0 ise normal",
       "label_i18n": {
-        "en": "Bilimsel Gösterim",
+        "en": "Scientific notation",
         "tr": "Bilimsel Gösterim",
         "de": "Wissenschaftliche Notation",
         "fr": "Notation scientifique",
@@ -161,7 +161,7 @@
         "ar": "الترميز العلمي"
       },
       "businessContext_i18n": {
-        "en": "1 ise sonuç bilimsel notasyonda gösterilir, 0 ise normal",
+        "en": "If 1, result is shown in scientific notation; if 0, normal",
         "tr": "1 ise sonuç bilimsel notasyonda gösterilir, 0 ise normal",
         "de": "1 zeigt Ergebnis in wissenschaftlicher Notation, 0 normal",
         "fr": "1 pour afficher le résultat en notation scientifique, 0 pour normal",

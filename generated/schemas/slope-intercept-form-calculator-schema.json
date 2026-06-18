@@ -9,7 +9,7 @@
       "default": 1,
       "businessContext": "Doğrunun eğimi, y = mx + b denklemindeki m katsayısı.",
       "label_i18n": {
-        "en": "Eğim (m)",
+        "en": "Slope (m)",
         "tr": "Eğim (m)",
         "de": "Steigung (m)",
         "fr": "Pente (m)",
@@ -17,7 +17,7 @@
         "ar": "الميل (م)"
       },
       "businessContext_i18n": {
-        "en": "Doğrunun eğimi, y = mx + b denklemindeki m katsayısı.",
+        "en": "Slope of the line, coefficient m in the equation y = mx + b",
         "tr": "Doğrunun eğimi, y = mx + b denklemindeki m katsayısı.",
         "de": "Steigung der Geraden, Koeffizient m in der Gleichung y = mx + b.",
         "fr": "Pente de la droite, coefficient m dans l'équation y = mx + b.",
@@ -33,7 +33,7 @@
       "default": 0,
       "businessContext": "Doğrunun y eksenini kestiği nokta.",
       "label_i18n": {
-        "en": "y Kesişimi (b)",
+        "en": "y-Intercept (b)",
         "tr": "y Kesişimi (b)",
         "de": "y-Achsenabschnitt (b)",
         "fr": "Ordonnée à l'origine (b)",
@@ -41,7 +41,7 @@
         "ar": "تقاطع y (b)"
       },
       "businessContext_i18n": {
-        "en": "Doğrunun y eksenini kestiği nokta.",
+        "en": "Point where the line crosses the y-axis",
         "tr": "Doğrunun y eksenini kestiği nokta.",
         "de": "Punkt, an dem die Gerade die y-Achse schneidet.",
         "fr": "Ordonnée à l'origine",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "y değerini hesaplamak için verilen x koordinatı.",
       "label_i18n": {
-        "en": "x Değeri",
+        "en": "x Value",
         "tr": "x Değeri",
         "de": "x-Wert",
         "fr": "Valeur de x",
@@ -65,7 +65,7 @@
         "ar": "قيمة x"
       },
       "businessContext_i18n": {
-        "en": "y değerini hesaplamak için verilen x koordinatı.",
+        "en": "Given x coordinate to calculate y value",
         "tr": "y değerini hesaplamak için verilen x koordinatı.",
         "de": "Angegebene x-Koordinate zur Berechnung des y-Werts.",
         "fr": "Coordonnée x donnée pour calculer la valeur de y.",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "x değerini hesaplamak için verilen y koordinatı.",
       "label_i18n": {
-        "en": "y Değeri",
+        "en": "y Value",
         "tr": "y Değeri",
         "de": "y-Wert",
         "fr": "Valeur de y",
@@ -89,7 +89,7 @@
         "ar": "قيمة y"
       },
       "businessContext_i18n": {
-        "en": "x değerini hesaplamak için verilen y koordinatı.",
+        "en": "Given y coordinate to calculate x value",
         "tr": "x değerini hesaplamak için verilen y koordinatı.",
         "de": "Gegebene y-Koordinate zur Berechnung des x-Werts.",
         "fr": "Coordonnée y donnée pour calculer la valeur de x.",

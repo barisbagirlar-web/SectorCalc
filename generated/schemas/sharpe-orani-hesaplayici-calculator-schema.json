@@ -9,7 +9,7 @@
       "default": 5,
       "businessContext": "Portföyün hesaplama dönemindeki yüzde getirisi",
       "label_i18n": {
-        "en": "Beklenen Getiri (Dönem, %)",
+        "en": "Expected Return (Period, %)",
         "tr": "Beklenen Getiri (Dönem, %)",
         "de": "Erwartete Rendite (Periode, %)",
         "fr": "Rendement attendu (période, %)",
@@ -17,7 +17,7 @@
         "ar": "العائد المتوقع (الفترة، %)"
       },
       "businessContext_i18n": {
-        "en": "Portföyün hesaplama dönemindeki yüzde getirisi",
+        "en": "Percentage return of the portfolio over the calculation period",
         "tr": "Portföyün hesaplama dönemindeki yüzde getirisi",
         "de": "Prozentuale Rendite des Portfolios im Berechnungszeitraum",
         "fr": "Rendement en pourcentage du portefeuille sur la période de calcul",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "Aynı dönem için risksiz faiz oranı (ör. devlet tahvili)",
       "label_i18n": {
-        "en": "Risksiz Getiri (Dönem, %)",
+        "en": "Risk-Free Return (Period, %)",
         "tr": "Risksiz Getiri (Dönem, %)",
         "de": "Risikofreier Zinssatz (Periode, %)",
         "fr": "Taux sans risque (période, %)",
@@ -41,7 +41,7 @@
         "ar": "العائد الخالي من المخاطر (الفترة، %)"
       },
       "businessContext_i18n": {
-        "en": "Aynı dönem için risksiz faiz oranı (ör. devlet tahvili)",
+        "en": "Risk-free interest rate for the same period (e.g., government bond)",
         "tr": "Aynı dönem için risksiz faiz oranı (ör. devlet tahvili)",
         "de": "Risikofreier Zinssatz für denselben Zeitraum (z. B. Staatsanleihe)",
         "fr": "Taux d'intérêt sans risque pour la même période (ex. obligation d'État)",
@@ -57,7 +57,7 @@
       "default": 3,
       "businessContext": "Portföy getirisinin aynı dönemdeki oynaklığı/değişkenliği",
       "label_i18n": {
-        "en": "Portföy Standart Sapması (Dönem, %)",
+        "en": "Portfolio Standard Deviation (Period, %)",
         "tr": "Portföy Standart Sapması (Dönem, %)",
         "de": "Portfoliostandardabweichung (Periode, %)",
         "fr": "Écart type du portefeuille (période, %)",
@@ -65,7 +65,7 @@
         "ar": "الانحراف المعياري للمحفظة (الفترة، %)"
       },
       "businessContext_i18n": {
-        "en": "Portföy getirisinin aynı dönemdeki oynaklığı/değişkenliği",
+        "en": "Volatility/variability of portfolio return in the same period",
         "tr": "Portföy getirisinin aynı dönemdeki oynaklığı/değişkenliği",
         "de": "Volatilität/Variabilität der Portfoliorendite im selben Zeitraum",
         "fr": "Volatilité/variabilité du rendement du portefeuille sur la même période",
@@ -81,7 +81,7 @@
       "default": 12,
       "businessContext": "Bir yıldaki hesaplama dönemlerinin sayısı (örn. aylık için 12, günlük için 252)",
       "label_i18n": {
-        "en": "Yıllık Dönem Sayısı",
+        "en": "Number of Periods per Year",
         "tr": "Yıllık Dönem Sayısı",
         "de": "Anzahl der Perioden pro Jahr",
         "fr": "Nombre de périodes par an",
@@ -89,7 +89,7 @@
         "ar": "عدد الفترات السنوية"
       },
       "businessContext_i18n": {
-        "en": "Bir yıldaki hesaplama dönemlerinin sayısı (örn. aylık için 12, günlük için 252)",
+        "en": "Number of calculation periods in a year (e.g., 12 for monthly, 252 for daily)",
         "tr": "Bir yıldaki hesaplama dönemlerinin sayısı (örn. aylık için 12, günlük için 252)",
         "de": "Anzahl der Berechnungsperioden pro Jahr (z. B. 12 für monatlich, 252 für täglich)",
         "fr": "Nombre de périodes de calcul dans une année (ex. 12 pour mensuel, 252 pour quotidien)",

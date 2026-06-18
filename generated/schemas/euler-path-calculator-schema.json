@@ -9,7 +9,7 @@
       "default": 5,
       "businessContext": "Grafikteki toplam düğüm (vertex) sayısı",
       "label_i18n": {
-        "en": "Toplam Düğüm Sayısı",
+        "en": "Total Number of Nodes",
         "tr": "Toplam Düğüm Sayısı",
         "de": "Gesamtzahl der Knoten",
         "fr": "Nombre total de nœuds",
@@ -17,7 +17,7 @@
         "ar": "إجمالي عدد العقد"
       },
       "businessContext_i18n": {
-        "en": "Grafikteki toplam düğüm (vertex) sayısı",
+        "en": "Total number of nodes (vertices) in the graph",
         "tr": "Grafikteki toplam düğüm (vertex) sayısı",
         "de": "Gesamtzahl der Knoten (Vertices) im Graphen",
         "fr": "Nombre total de nœuds (sommets) dans le graphe",
@@ -33,7 +33,7 @@
       "default": 6,
       "businessContext": "Grafikteki toplam kenar (edge) sayısı",
       "label_i18n": {
-        "en": "Toplam Kenar Sayısı",
+        "en": "Total Number of Edges",
         "tr": "Toplam Kenar Sayısı",
         "de": "Gesamtzahl der Kanten",
         "fr": "Nombre total d'arêtes",
@@ -41,7 +41,7 @@
         "ar": "إجمالي عدد الحواف"
       },
       "businessContext_i18n": {
-        "en": "Grafikteki toplam kenar (edge) sayısı",
+        "en": "Total number of edges in the graph",
         "tr": "Grafikteki toplam kenar (edge) sayısı",
         "de": "Gesamtzahl der Kanten (Edges) im Graphen",
         "fr": "Nombre total d'arêtes dans le graphe",
@@ -57,7 +57,7 @@
       "default": 2,
       "businessContext": "Derecesi tek olan düğümlerin sayısı",
       "label_i18n": {
-        "en": "Tek Dereceli Düğüm Sayısı",
+        "en": "Number of Odd-Degree Nodes",
         "tr": "Tek Dereceli Düğüm Sayısı",
         "de": "Anzahl der Knoten mit ungeradem Grad",
         "fr": "Nombre de nœuds de degré impair",
@@ -65,7 +65,7 @@
         "ar": "عدد العقد ذات الدرجة الفردية"
       },
       "businessContext_i18n": {
-        "en": "Derecesi tek olan düğümlerin sayısı",
+        "en": "Number of nodes with odd degree",
         "tr": "Derecesi tek olan düğümlerin sayısı",
         "de": "Anzahl der Knoten mit ungeradem Grad",
         "fr": "Nombre de nœuds dont le degré est impair",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "Grafik bağlı ise 1, değilse 0",
       "label_i18n": {
-        "en": "Bağlantılı Grafik",
+        "en": "Connected Graph",
         "tr": "Bağlantılı Grafik",
         "de": "Zusammenhängender Graph",
         "fr": "Graphe connexe",
@@ -89,7 +89,7 @@
         "ar": "رسم بياني متصل"
       },
       "businessContext_i18n": {
-        "en": "Grafik bağlı ise 1, değilse 0",
+        "en": "1 if graph is connected, 0 otherwise",
         "tr": "Grafik bağlı ise 1, değilse 0",
         "de": "1, wenn der Graph zusammenhängend ist, sonst 0",
         "fr": "1 si le graphe est connexe, 0 sinon",
@@ -113,7 +113,7 @@
         "ar": "الحد الأدنى للدرجة"
       },
       "businessContext_i18n": {
-        "en": "Grafikteki en küçük düğüm derecesi",
+        "en": "Minimum Node Degree in Graph",
         "tr": "Grafikteki en küçük düğüm derecesi",
         "de": "Kleinster Knotengrad im Graphen",
         "fr": "Plus petit degré de nœud dans le graphe",
@@ -137,7 +137,7 @@
         "ar": "الحد الأقصى للدرجة"
       },
       "businessContext_i18n": {
-        "en": "Grafikteki en büyük düğüm derecesi",
+        "en": "Maximum Node Degree in Graph",
         "tr": "Grafikteki en büyük düğüm derecesi",
         "de": "Größter Knotengrad im Graphen",
         "fr": "Plus grand degré de nœud dans le graphe",

@@ -9,7 +9,7 @@
       "default": 1000,
       "businessContext": "İlk dönem sonunda elde edilmesi beklenen nakit akışı (genellikle bir sonraki yıl)",
       "label_i18n": {
-        "en": "İlk Nakit Akışı",
+        "en": "Initial Cash Flow",
         "tr": "İlk Nakit Akışı",
         "de": "Erster Cashflow",
         "fr": "Premier flux de trésorerie",
@@ -17,7 +17,7 @@
         "ar": "التدفق النقدي الأول"
       },
       "businessContext_i18n": {
-        "en": "İlk dönem sonunda elde edilmesi beklenen nakit akışı (genellikle bir sonraki yıl)",
+        "en": "Expected cash flow at the end of the first period (usually next year)",
         "tr": "İlk dönem sonunda elde edilmesi beklenen nakit akışı (genellikle bir sonraki yıl)",
         "de": "Erwarteter Cashflow am Ende der ersten Periode (normalerweise nächstes Jahr)",
         "fr": "Flux de trésorerie attendu à la fin de la première période (généralement l'année suivante)",
@@ -33,7 +33,7 @@
       "default": 10,
       "businessContext": "Yatırımcının beklenen getiri oranı veya sermaye maliyeti, iskonto oranı olarak kullanılır",
       "label_i18n": {
-        "en": "İskonto Oranı",
+        "en": "Discount Rate",
         "tr": "İskonto Oranı",
         "de": "Diskontsatz",
         "fr": "Taux d'actualisation",
@@ -41,7 +41,7 @@
         "ar": "معدل الخصم"
       },
       "businessContext_i18n": {
-        "en": "Yatırımcının beklenen getiri oranı veya sermaye maliyeti, iskonto oranı olarak kullanılır",
+        "en": "Investor's expected rate of return or cost of capital, used as discount rate",
         "tr": "Yatırımcının beklenen getiri oranı veya sermaye maliyeti, iskonto oranı olarak kullanılır",
         "de": "Erwartete Rendite des Investors oder Kapitalkosten, verwendet als Diskontsatz",
         "fr": "Taux de rendement attendu par l'investisseur ou coût du capital, utilisé comme taux d'actualisation",
@@ -57,7 +57,7 @@
       "default": 3,
       "businessContext": "Nakit akışlarının her dönemdeki sabit büyüme oranı, iskonto oranından küçük olmalıdır",
       "label_i18n": {
-        "en": "Büyüme Oranı",
+        "en": "Growth Rate",
         "tr": "Büyüme Oranı",
         "de": "Wachstumsrate",
         "fr": "Taux de croissance",
@@ -65,7 +65,7 @@
         "ar": "معدل النمو"
       },
       "businessContext_i18n": {
-        "en": "Nakit akışlarının her dönemdeki sabit büyüme oranı, iskonto oranından küçük olmalıdır",
+        "en": "Constant growth rate of cash flows each period, must be less than discount rate",
         "tr": "Nakit akışlarının her dönemdeki sabit büyüme oranı, iskonto oranından küçük olmalıdır",
         "de": "Konstante Wachstumsrate der Cashflows pro Periode, muss kleiner als der Diskontsatz sein",
         "fr": "Le taux de croissance constant des flux de trésorerie à chaque période doit être inférieur au taux d'actualisation",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "Nakit akışlarının dönem sonunda mı (0) yoksa dönem başında mı (1) gerçekleştiğini belirtir",
       "label_i18n": {
-        "en": "Ödeme Zamanlaması",
+        "en": "Payment Timing",
         "tr": "Ödeme Zamanlaması",
         "de": "Zahlungszeitpunkt",
         "fr": "Calendrier de paiement",
@@ -89,7 +89,7 @@
         "ar": "توقيت الدفع"
       },
       "businessContext_i18n": {
-        "en": "Nakit akışlarının dönem sonunda mı (0) yoksa dönem başında mı (1) gerçekleştiğini belirtir",
+        "en": "Indicates whether cash flows occur at the end (0) or beginning (1) of the period",
         "tr": "Nakit akışlarının dönem sonunda mı (0) yoksa dönem başında mı (1) gerçekleştiğini belirtir",
         "de": "Gibt an, ob Cashflows am Ende (0) oder am Anfang (1) der Periode anfallen",
         "fr": "Indique si les flux de trésorerie se produisent en fin de période (0) ou en début de période (1)",

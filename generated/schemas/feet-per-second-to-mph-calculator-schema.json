@@ -9,7 +9,7 @@
       "default": 1,
       "businessContext": "Dönüştürülecek hız değeri, feet/saniye cinsinden",
       "label_i18n": {
-        "en": "Hız (ft/s)",
+        "en": "Speed (ft/s)",
         "tr": "Hız (ft/s)",
         "de": "Geschwindigkeit (ft/s)",
         "fr": "Vitesse (ft/s)",
@@ -17,7 +17,7 @@
         "ar": "السرعة (قدم/ثانية)"
       },
       "businessContext_i18n": {
-        "en": "Dönüştürülecek hız değeri, feet/saniye cinsinden",
+        "en": "Speed value to convert, in feet per second",
         "tr": "Dönüştürülecek hız değeri, feet/saniye cinsinden",
         "de": "Umzurechnender Geschwindigkeitswert in Fuß/Sekunde",
         "fr": "Valeur de vitesse à convertir, en pieds/seconde",
@@ -33,7 +33,7 @@
       "default": 2,
       "businessContext": "Çıktıdaki ondalık basamak sayısı",
       "label_i18n": {
-        "en": "Ondalık Hassasiyet",
+        "en": "Decimal Precision",
         "tr": "Ondalık Hassasiyet",
         "de": "Dezimalgenauigkeit",
         "fr": "Précision décimale",
@@ -41,7 +41,7 @@
         "ar": "الدقة العشرية"
       },
       "businessContext_i18n": {
-        "en": "Çıktıdaki ondalık basamak sayısı",
+        "en": "Number of decimal places in the output",
         "tr": "Çıktıdaki ondalık basamak sayısı",
         "de": "Anzahl der Dezimalstellen in der Ausgabe",
         "fr": "Nombre de décimales dans la sortie",
@@ -65,7 +65,7 @@
         "ar": "إزاحة المعايرة"
       },
       "businessContext_i18n": {
-        "en": "Girişe eklenecek sabit ofset (kalibrasyon için)",
+        "en": "Constant offset added to input (for calibration)",
         "tr": "Girişe eklenecek sabit ofset (kalibrasyon için)",
         "de": "Konstanter Offset, der zum Eingang hinzugefügt wird (für Kalibrierung)",
         "fr": "Offset fixe à ajouter à l'entrée (pour étalonnage)",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "mph'yi başka bir birime dönüştürmek için çarpan; mph için 1",
       "label_i18n": {
-        "en": "Çıktı Birim Ölçekleme",
+        "en": "Output Unit Scaling",
         "tr": "Çıktı Birim Ölçekleme",
         "de": "Ausgabe-Einheitsskalierung",
         "fr": "Échelle de l'unité de sortie",
@@ -89,7 +89,7 @@
         "ar": "تحجيم وحدة المخرجات"
       },
       "businessContext_i18n": {
-        "en": "mph'yi başka bir birime dönüştürmek için çarpan; mph için 1",
+        "en": "Multiplier to convert mph to another unit; 1 for mph",
         "tr": "mph'yi başka bir birime dönüştürmek için çarpan; mph için 1",
         "de": "Multiplikator zur Umrechnung von mph in eine andere Einheit; für mph: 1",
         "fr": "Multiplicateur pour convertir mph en une autre unité ; 1 pour mph",

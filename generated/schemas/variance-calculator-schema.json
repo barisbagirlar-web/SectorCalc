@@ -9,7 +9,7 @@
       "default": 1,
       "businessContext": "Veri setindeki gözlem sayısı (örn. 10)",
       "label_i18n": {
-        "en": "Gözlem Sayısı",
+        "en": "Number of observations",
         "tr": "Gözlem Sayısı",
         "de": "Anzahl der Beobachtungen",
         "fr": "Nombre d'observations",
@@ -17,7 +17,7 @@
         "ar": "عدد المشاهدات"
       },
       "businessContext_i18n": {
-        "en": "Veri setindeki gözlem sayısı (örn. 10)",
+        "en": "Number of observations in dataset (e.g., 10)",
         "tr": "Veri setindeki gözlem sayısı (örn. 10)",
         "de": "Anzahl der Beobachtungen im Datensatz (z. B. 10)",
         "fr": "Nombre d'observations dans l'ensemble de données (ex. 10)",
@@ -41,7 +41,7 @@
         "ar": "المجموع (∑x)"
       },
       "businessContext_i18n": {
-        "en": "Tüm gözlem değerlerinin toplamı",
+        "en": "Sum of all observation values",
         "tr": "Tüm gözlem değerlerinin toplamı",
         "de": "Summe aller Beobachtungswerte",
         "fr": "Somme de toutes les valeurs d'observation",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "Her bir gözlem değerinin karesinin toplamı",
       "label_i18n": {
-        "en": "Kareler Toplamı (∑x²)",
+        "en": "Sum of squares (∑x²)",
         "tr": "Kareler Toplamı (∑x²)",
         "de": "Summe der Quadrate (∑x²)",
         "fr": "Somme des carrés (∑x²)",
@@ -65,7 +65,7 @@
         "ar": "مجموع المربعات (∑x²)"
       },
       "businessContext_i18n": {
-        "en": "Her bir gözlem değerinin karesinin toplamı",
+        "en": "Sum of squares of each observation value",
         "tr": "Her bir gözlem değerinin karesinin toplamı",
         "de": "Summe der Quadrate jedes Beobachtungswertes",
         "fr": "Somme des carrés de chaque valeur d'observation",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "1: Popülasyon varyansı, 0: Örneklem varyansı",
       "label_i18n": {
-        "en": "Popülasyon mu?",
+        "en": "Is it population?",
         "tr": "Popülasyon mu?",
         "de": "Grundgesamtheit?",
         "fr": "Population ?",
@@ -89,7 +89,7 @@
         "ar": "هل هو المجتمع؟"
       },
       "businessContext_i18n": {
-        "en": "1: Popülasyon varyansı, 0: Örneklem varyansı",
+        "en": "1: Population variance, 0: Sample variance",
         "tr": "1: Popülasyon varyansı, 0: Örneklem varyansı",
         "de": "1: Varianz der Grundgesamtheit, 0: Stichprobenvarianz",
         "fr": "1 : Variance de population, 0 : Variance d'échantillon",

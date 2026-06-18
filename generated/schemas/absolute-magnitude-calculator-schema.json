@@ -9,7 +9,7 @@
       "default": 0,
       "businessContext": "Gök cisminin gözlemlenen parlaklık değeri",
       "label_i18n": {
-        "en": "Görünür Parlaklık (m)",
+        "en": "Apparent Brightness (m)",
         "tr": "Görünür Parlaklık (m)",
         "de": "Scheinbare Helligkeit (m)",
         "fr": "Luminosité apparente (m)",
@@ -17,7 +17,7 @@
         "ar": "السطوع الظاهري (m)"
       },
       "businessContext_i18n": {
-        "en": "Gök cisminin gözlemlenen parlaklık değeri",
+        "en": "Observed brightness of the celestial object",
         "tr": "Gök cisminin gözlemlenen parlaklık değeri",
         "de": "Beobachteter Helligkeitswert des Himmelskörpers",
         "fr": "Valeur de luminosité observée de l'objet céleste",
@@ -33,7 +33,7 @@
       "default": 10,
       "businessContext": "Gök cisminin Dünya'ya olan uzaklığı (parsek cinsinden)",
       "label_i18n": {
-        "en": "Uzaklık (d)",
+        "en": "Distance (d)",
         "tr": "Uzaklık (d)",
         "de": "Entfernung (d)",
         "fr": "Distance (d)",
@@ -41,7 +41,7 @@
         "ar": "المسافة (d)"
       },
       "businessContext_i18n": {
-        "en": "Gök cisminin Dünya'ya olan uzaklığı (parsek cinsinden)",
+        "en": "Distance of the celestial object from Earth (in parsecs)",
         "tr": "Gök cisminin Dünya'ya olan uzaklığı (parsek cinsinden)",
         "de": "Entfernung des Himmelskörpers von der Erde (in Parsec)",
         "fr": "Distance de l'objet céleste à la Terre (en parsecs)",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "Yıldızlararası toz nedeniyle parlaklık kaybı",
       "label_i18n": {
-        "en": "Sönümleme (A_V)",
+        "en": "Extinction (A_V)",
         "tr": "Sönümleme (A_V)",
         "de": "Extinktion (A_V)",
         "fr": "Extinction (A_V)",
@@ -65,7 +65,7 @@
         "ar": "الامتصاص (A_V)"
       },
       "businessContext_i18n": {
-        "en": "Yıldızlararası toz nedeniyle parlaklık kaybı",
+        "en": "Brightness loss due to interstellar dust",
         "tr": "Yıldızlararası toz nedeniyle parlaklık kaybı",
         "de": "Helligkeitsverlust durch interstellaren Staub",
         "fr": "Perte de luminosité due à la poussière interstellaire",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "Görsel parlaklıktan bolometrik parlaklığa geçiş düzeltmesi",
       "label_i18n": {
-        "en": "Bolometrik Düzeltme (BC)",
+        "en": "Bolometric Correction (BC)",
         "tr": "Bolometrik Düzeltme (BC)",
         "de": "Bolometrische Korrektur (BC)",
         "fr": "Correction bolométrique (BC)",
@@ -89,7 +89,7 @@
         "ar": "التصحيح البولومتري (BC)"
       },
       "businessContext_i18n": {
-        "en": "Görsel parlaklıktan bolometrik parlaklığa geçiş düzeltmesi",
+        "en": "Correction from visual to bolometric brightness",
         "tr": "Görsel parlaklıktan bolometrik parlaklığa geçiş düzeltmesi",
         "de": "Korrektur von visueller zu bolometrischer Helligkeit",
         "fr": "Correction de passage de la luminosité visuelle à la luminosité bolométrique",

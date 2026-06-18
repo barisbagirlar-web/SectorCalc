@@ -9,7 +9,7 @@
       "default": 1000,
       "businessContext": "Sulanacak toplam alan",
       "label_i18n": {
-        "en": "Arazi Alanı",
+        "en": "Land Area",
         "tr": "Arazi Alanı",
         "de": "Arazi Alanı",
         "fr": "Surface du terrain",
@@ -33,7 +33,7 @@
       "default": 2,
       "businessContext": "Her bir damlatıcının saatte verdiği su miktarı",
       "label_i18n": {
-        "en": "Damlatıcı Debisi",
+        "en": "Dripper Flow Rate",
         "tr": "Damlatıcı Debisi",
         "de": "Tropferdurchfluss",
         "fr": "Débit du goutteur",
@@ -41,7 +41,7 @@
         "ar": "معدل تدفق النقاط"
       },
       "businessContext_i18n": {
-        "en": "Her bir damlatıcının saatte verdiği su miktarı",
+        "en": "Amount of water delivered by each dripper per hour",
         "tr": "Her bir damlatıcının saatte verdiği su miktarı",
         "de": "Wassermenge pro Tropfer pro Stunde",
         "fr": "Quantité d'eau fournie par chaque goutteur par heure",
@@ -57,7 +57,7 @@
       "default": 0.3,
       "businessContext": "Lateral üzerindeki damlatıcılar arası mesafe",
       "label_i18n": {
-        "en": "Damlatıcı Aralığı",
+        "en": "Dripper Spacing",
         "tr": "Damlatıcı Aralığı",
         "de": "Tropferabstand",
         "fr": "Espacement des goutteurs",
@@ -65,7 +65,7 @@
         "ar": "تباعد النقاطات"
       },
       "businessContext_i18n": {
-        "en": "Lateral üzerindeki damlatıcılar arası mesafe",
+        "en": "Distance between drippers on the lateral",
         "tr": "Lateral üzerindeki damlatıcılar arası mesafe",
         "de": "Abstand zwischen den Tropfern auf dem Seitenrohr",
         "fr": "Distance entre goutteurs sur la rampe",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "Damlama hatları arası mesafe",
       "label_i18n": {
-        "en": "Lateral Aralığı",
+        "en": "Lateral Spacing",
         "tr": "Lateral Aralığı",
         "de": "Seitenrohrabstand",
         "fr": "Espacement des rampes",
@@ -89,7 +89,7 @@
         "ar": "تباعد الخطوط الجانبية"
       },
       "businessContext_i18n": {
-        "en": "Damlama hatları arası mesafe",
+        "en": "Distance between drip lines",
         "tr": "Damlama hatları arası mesafe",
         "de": "Abstand zwischen den Tropfleitungen",
         "fr": "Distance entre les lignes de goutte-à-goutte",
@@ -105,7 +105,7 @@
       "default": 10,
       "businessContext": "Her sulamada uygulanacak net su yüksekliği",
       "label_i18n": {
-        "en": "Sulama Suyu Derinliği",
+        "en": "Irrigation Water Depth",
         "tr": "Sulama Suyu Derinliği",
         "de": "Bewässerungswassertiefe",
         "fr": "Profondeur d'eau d'irrigation",
@@ -113,7 +113,7 @@
         "ar": "عمق مياه الري"
       },
       "businessContext_i18n": {
-        "en": "Her sulamada uygulanacak net su yüksekliği",
+        "en": "Net water depth to be applied per irrigation",
         "tr": "Her sulamada uygulanacak net su yüksekliği",
         "de": "Netto-Wasserhöhe pro Bewässerung",
         "fr": "Hauteur nette d'eau appliquée par irrigation",
@@ -137,7 +137,7 @@
         "ar": "كفاءة النظام"
       },
       "businessContext_i18n": {
-        "en": "Sulama sisteminin su iletim ve dağıtım verimi (0-100)",
+        "en": "Water conveyance and distribution efficiency of the irrigation system (0-100)",
         "tr": "Sulama sisteminin su iletim ve dağıtım verimi (0-100)",
         "de": "Wasserförder- und Verteilungswirkungsgrad des Bewässerungssystems (0-100)",
         "fr": "Efficacité de transport et de distribution du système d'irrigation (0-100)",

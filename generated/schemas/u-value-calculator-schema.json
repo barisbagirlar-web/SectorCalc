@@ -9,7 +9,7 @@
       "default": 0.13,
       "businessContext": "İç mekan ile duvar yüzeyi arasındaki ısıl direnç (TS EN ISO 6946). Tipik değer: 0.13 (iç yüzey, yatay ısı akışı).",
       "label_i18n": {
-        "en": "İç Yüzey Isıl Direnci (Rsi)",
+        "en": "Internal Surface Thermal Resistance (Rsi) (m²K/W)",
         "tr": "İç Yüzey Isıl Direnci (Rsi)",
         "de": "Innerer Wärmeübergangswiderstand (Rsi)",
         "fr": "Résistance thermique superficielle intérieure (Rsi)",
@@ -17,7 +17,7 @@
         "ar": "المقاومة الحرارية للسطح الداخلي (Rsi)"
       },
       "businessContext_i18n": {
-        "en": "İç mekan ile duvar yüzeyi arasındaki ısıl direnç (TS EN ISO 6946). Tipik değer: 0.13 (iç yüzey, yatay ısı akışı).",
+        "en": "Thermal resistance between interior and wall surface (TS EN ISO 6946). Typical value: 0.13 (internal surface, horizontal heat flow).",
         "tr": "İç mekan ile duvar yüzeyi arasındaki ısıl direnç (TS EN ISO 6946). Tipik değer: 0.13 (iç yüzey, yatay ısı akışı).",
         "de": "Wärmeübergangswiderstand zwischen Innenraum und Wandoberfläche (TS EN ISO 6946). Typischer Wert: 0,13 (Innenoberfläche, horizontaler Wärmefluss).",
         "fr": "Résistance thermique entre l'intérieur et la surface du mur (TS EN ISO 6946). Valeur typique : 0,13 (surface intérieure, flux thermique horizontal).",
@@ -33,7 +33,7 @@
       "default": 0.1,
       "businessContext": "İlk yapı malzemesi katmanının kalınlığı (ör. tuğla, yalıtım). Katman yoksa 0 girin.",
       "label_i18n": {
-        "en": "1. Katman Kalınlığı",
+        "en": "1st Layer Thickness (m)",
         "tr": "1. Katman Kalınlığı",
         "de": "Dicke der 1. Schicht",
         "fr": "Épaisseur de la 1ère couche",
@@ -41,7 +41,7 @@
         "ar": "سمك الطبقة الأولى"
       },
       "businessContext_i18n": {
-        "en": "İlk yapı malzemesi katmanının kalınlığı (ör. tuğla, yalıtım). Katman yoksa 0 girin.",
+        "en": "Thickness of the first building material layer (e.g., brick, insulation). Enter 0 if no layer.",
         "tr": "İlk yapı malzemesi katmanının kalınlığı (ör. tuğla, yalıtım). Katman yoksa 0 girin.",
         "de": "Dicke der ersten Baustoffschicht (z. B. Ziegel, Dämmung). Wenn keine Schicht vorhanden, 0 eingeben.",
         "fr": "Épaisseur de la première couche de matériau de construction (ex. brique, isolation). Saisir 0 si aucune couche.",
@@ -57,7 +57,7 @@
       "default": 0.7,
       "businessContext": "İlk katman malzemesinin ısıl iletkenlik katsayısı (TS 825).",
       "label_i18n": {
-        "en": "1. Katman Isıl İletkenlik (λ)",
+        "en": "1st Layer Thermal Conductivity (λ)",
         "tr": "1. Katman Isıl İletkenlik (λ)",
         "de": "Wärmeleitfähigkeit der 1. Schicht (λ)",
         "fr": "Conductivité thermique de la 1ère couche (λ)",
@@ -65,7 +65,7 @@
         "ar": "الموصلية الحرارية للطبقة الأولى (λ)"
       },
       "businessContext_i18n": {
-        "en": "İlk katman malzemesinin ısıl iletkenlik katsayısı (TS 825).",
+        "en": "Thermal conductivity coefficient of the first layer material (TS 825).",
         "tr": "İlk katman malzemesinin ısıl iletkenlik katsayısı (TS 825).",
         "de": "Wärmeleitfähigkeitskoeffizient des Materials der ersten Schicht (TS 825).",
         "fr": "Coefficient de conductivité thermique du matériau de la première couche (TS 825).",
@@ -81,7 +81,7 @@
       "default": 0.05,
       "businessContext": "İkinci yapı malzemesi katmanının kalınlığı. Katman yoksa 0 girin.",
       "label_i18n": {
-        "en": "2. Katman Kalınlığı",
+        "en": "2nd Layer Thickness",
         "tr": "2. Katman Kalınlığı",
         "de": "Dicke der 2. Schicht",
         "fr": "Épaisseur de la 2ème couche",
@@ -89,7 +89,7 @@
         "ar": "سمك الطبقة الثانية"
       },
       "businessContext_i18n": {
-        "en": "İkinci yapı malzemesi katmanının kalınlığı. Katman yoksa 0 girin.",
+        "en": "Thickness of the second building material layer. Enter 0 if no layer.",
         "tr": "İkinci yapı malzemesi katmanının kalınlığı. Katman yoksa 0 girin.",
         "de": "Dicke der zweiten Baustoffschicht. Wenn keine Schicht vorhanden, 0 eingeben.",
         "fr": "Épaisseur de la deuxième couche de matériau de construction. Saisir 0 si aucune couche.",
@@ -105,7 +105,7 @@
       "default": 0.04,
       "businessContext": "İkinci katman malzemesinin ısıl iletkenlik katsayısı.",
       "label_i18n": {
-        "en": "2. Katman Isıl İletkenlik (λ)",
+        "en": "2nd Layer Thermal Conductivity (λ)",
         "tr": "2. Katman Isıl İletkenlik (λ)",
         "de": "Wärmeleitfähigkeit der 2. Schicht (λ)",
         "fr": "Conductivité thermique de la 2ème couche (λ)",
@@ -113,7 +113,7 @@
         "ar": "الموصلية الحرارية للطبقة الثانية (λ)"
       },
       "businessContext_i18n": {
-        "en": "İkinci katman malzemesinin ısıl iletkenlik katsayısı.",
+        "en": "Thermal conductivity coefficient of the second layer material.",
         "tr": "İkinci katman malzemesinin ısıl iletkenlik katsayısı.",
         "de": "Wärmeleitfähigkeitskoeffizient des Materials der zweiten Schicht.",
         "fr": "Coefficient de conductivité thermique du matériau de la deuxième couche.",
@@ -129,7 +129,7 @@
       "default": 0.02,
       "businessContext": "Üçüncü yapı malzemesi katmanının kalınlığı. Katman yoksa 0 girin.",
       "label_i18n": {
-        "en": "3. Katman Kalınlığı",
+        "en": "3rd Layer Thickness",
         "tr": "3. Katman Kalınlığı",
         "de": "Dicke der 3. Schicht",
         "fr": "Épaisseur de la 3ème couche",
@@ -137,7 +137,7 @@
         "ar": "سمك الطبقة الثالثة"
       },
       "businessContext_i18n": {
-        "en": "Üçüncü yapı malzemesi katmanının kalınlığı. Katman yoksa 0 girin.",
+        "en": "Thickness of the third building material layer. Enter 0 if no layer.",
         "tr": "Üçüncü yapı malzemesi katmanının kalınlığı. Katman yoksa 0 girin.",
         "de": "Dicke der dritten Baustoffschicht. Wenn keine Schicht vorhanden, 0 eingeben.",
         "fr": "Épaisseur de la troisième couche de matériau de construction. Saisir 0 si aucune couche.",
@@ -153,7 +153,7 @@
       "default": 0.5,
       "businessContext": "Üçüncü katman malzemesinin ısıl iletkenlik katsayısı.",
       "label_i18n": {
-        "en": "3. Katman Isıl İletkenlik (λ)",
+        "en": "3rd Layer Thermal Conductivity (λ)",
         "tr": "3. Katman Isıl İletkenlik (λ)",
         "de": "Wärmeleitfähigkeit der 3. Schicht (λ)",
         "fr": "Conductivité thermique de la 3ème couche (λ)",
@@ -161,7 +161,7 @@
         "ar": "الموصلية الحرارية للطبقة الثالثة (λ)"
       },
       "businessContext_i18n": {
-        "en": "Üçüncü katman malzemesinin ısıl iletkenlik katsayısı.",
+        "en": "Thermal conductivity coefficient of the third layer material.",
         "tr": "Üçüncü katman malzemesinin ısıl iletkenlik katsayısı.",
         "de": "Wärmeleitfähigkeitskoeffizient des Materials der dritten Schicht.",
         "fr": "Coefficient de conductivité thermique du matériau de la troisième couche.",
@@ -177,7 +177,7 @@
       "default": 0.04,
       "businessContext": "Duvar dış yüzeyi ile dış ortam arasındaki ısıl direnç (TS EN ISO 6946). Tipik değer: 0.04 (dış yüzey).",
       "label_i18n": {
-        "en": "Dış Yüzey Isıl Direnci (Rse)",
+        "en": "External Surface Thermal Resistance (Rse)",
         "tr": "Dış Yüzey Isıl Direnci (Rse)",
         "de": "Äußerer Wärmeübergangswiderstand (Rse)",
         "fr": "Résistance thermique superficielle extérieure (Rse)",
@@ -185,7 +185,7 @@
         "ar": "المقاومة الحرارية للسطح الخارجي (Rse)"
       },
       "businessContext_i18n": {
-        "en": "Duvar dış yüzeyi ile dış ortam arasındaki ısıl direnç (TS EN ISO 6946). Tipik değer: 0.04 (dış yüzey).",
+        "en": "Thermal resistance between the outer wall surface and the external environment (TS EN ISO 6946). Typical value: 0.04 (external surface).",
         "tr": "Duvar dış yüzeyi ile dış ortam arasındaki ısıl direnç (TS EN ISO 6946). Tipik değer: 0.04 (dış yüzey).",
         "de": "Wärmeübergangswiderstand zwischen Wandaußenfläche und Außenumgebung (TS EN ISO 6946). Typischer Wert: 0,04 (Außenoberfläche).",
         "fr": "Résistance thermique entre la surface extérieure du mur et l'environnement extérieur (TS EN ISO 6946). Valeur typique : 0,04 (surface extérieure).",

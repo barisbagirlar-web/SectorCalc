@@ -9,7 +9,7 @@
       "default": 298.15,
       "businessContext": "Reaksiyonun gerçekleştiği mutlak sıcaklık (Kelvin cinsinden).",
       "label_i18n": {
-        "en": "Sıcaklık (T)",
+        "en": "Temperature (T)",
         "tr": "Sıcaklık (T)",
         "de": "Temperatur (T)",
         "fr": "Température (T)",
@@ -17,7 +17,7 @@
         "ar": "درجة الحرارة (T)"
       },
       "businessContext_i18n": {
-        "en": "Reaksiyonun gerçekleştiği mutlak sıcaklık (Kelvin cinsinden).",
+        "en": "Absolute temperature at which the reaction occurs (in Kelvin).",
         "tr": "Reaksiyonun gerçekleştiği mutlak sıcaklık (Kelvin cinsinden).",
         "de": "Absolute Temperatur, bei der die Reaktion stattfindet (in Kelvin).",
         "fr": "Température absolue à laquelle la réaction a lieu (en Kelvin).",
@@ -33,7 +33,7 @@
       "default": 0,
       "businessContext": "Reaksiyonun standart entalpi değişimi (ürünlerin oluşum entalpileri toplamı - reaktantların oluşum entalpileri toplamı).",
       "label_i18n": {
-        "en": "Entalpi Değişimi (ΔH)",
+        "en": "Enthalpy Change (ΔH)",
         "tr": "Entalpi Değişimi (ΔH)",
         "de": "Enthalpieänderung (ΔH)",
         "fr": "Variation d'enthalpie (ΔH)",
@@ -41,7 +41,7 @@
         "ar": "تغير الإنثالبي (ΔH)"
       },
       "businessContext_i18n": {
-        "en": "Reaksiyonun standart entalpi değişimi (ürünlerin oluşum entalpileri toplamı - reaktantların oluşum entalpileri toplamı).",
+        "en": "Standard enthalpy change of the reaction (sum of formation enthalpies of products minus sum of formation enthalpies of reactants).",
         "tr": "Reaksiyonun standart entalpi değişimi (ürünlerin oluşum entalpileri toplamı - reaktantların oluşum entalpileri toplamı).",
         "de": "Standard-Enthalpieänderung der Reaktion (Summe der Bildungsenthalpien der Produkte minus Summe der Bildungsenthalpien der Reaktanten).",
         "fr": "Variation d'enthalpie standard de la réaction (somme des enthalpies de formation des produits - somme des enthalpies de formation des réactifs).",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "Reaksiyonda oluşan ürünlerin toplam mutlak entropileri.",
       "label_i18n": {
-        "en": "Ürünlerin Toplam Entropisi",
+        "en": "Total Entropy of Products",
         "tr": "Ürünlerin Toplam Entropisi",
         "de": "Gesamtentropie der Produkte",
         "fr": "Entropie totale des produits",
@@ -65,7 +65,7 @@
         "ar": "الإنتروبيا الكلية للنواتج"
       },
       "businessContext_i18n": {
-        "en": "Reaksiyonda oluşan ürünlerin toplam mutlak entropileri.",
+        "en": "Total absolute entropy of the products formed in the reaction.",
         "tr": "Reaksiyonda oluşan ürünlerin toplam mutlak entropileri.",
         "de": "Summe der absoluten Entropien der in der Reaktion gebildeten Produkte.",
         "fr": "Entropie absolue totale des produits formés dans la réaction.",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "Reaksiyona giren reaktantların toplam mutlak entropileri.",
       "label_i18n": {
-        "en": "Reaktantların Toplam Entropisi",
+        "en": "Total Entropy of Reactants",
         "tr": "Reaktantların Toplam Entropisi",
         "de": "Gesamtentropie der Reaktanten",
         "fr": "Entropie totale des réactifs",
@@ -89,7 +89,7 @@
         "ar": "الإنتروبيا الكلية للمتفاعلات"
       },
       "businessContext_i18n": {
-        "en": "Reaksiyona giren reaktantların toplam mutlak entropileri.",
+        "en": "Total absolute entropy of the reactants entering the reaction.",
         "tr": "Reaksiyona giren reaktantların toplam mutlak entropileri.",
         "de": "Summe der absoluten Entropien der an der Reaktion beteiligten Reaktanten.",
         "fr": "Entropie absolue totale des réactifs participant à la réaction.",

@@ -9,7 +9,7 @@
       "default": 10,
       "businessContext": "Birinci sayı",
       "label_i18n": {
-        "en": "Sayı A",
+        "en": "Number A",
         "tr": "Sayı A",
         "de": "Zahl A",
         "fr": "Nombre A",
@@ -17,7 +17,7 @@
         "ar": "الرقم أ"
       },
       "businessContext_i18n": {
-        "en": "Birinci sayı",
+        "en": "First number",
         "tr": "Birinci sayı",
         "de": "Erste Zahl",
         "fr": "Premier nombre",
@@ -33,7 +33,7 @@
       "default": 5,
       "businessContext": "İkinci sayı",
       "label_i18n": {
-        "en": "Sayı B",
+        "en": "Number B",
         "tr": "Sayı B",
         "de": "Zahl B",
         "fr": "Nombre B",
@@ -41,7 +41,7 @@
         "ar": "الرقم ب"
       },
       "businessContext_i18n": {
-        "en": "İkinci sayı",
+        "en": "Second number",
         "tr": "İkinci sayı",
         "de": "Zweite Zahl",
         "fr": "Deuxième nombre",
@@ -57,7 +57,7 @@
       "default": 1,
       "businessContext": "1=Toplama, 2=Çıkarma, 3=Çarpma, 4=Bölme",
       "label_i18n": {
-        "en": "İşlem",
+        "en": "Operation",
         "tr": "İşlem",
         "de": "Operation",
         "fr": "Opération",
@@ -65,7 +65,7 @@
         "ar": "العملية"
       },
       "businessContext_i18n": {
-        "en": "1=Toplama, 2=Çıkarma, 3=Çarpma, 4=Bölme",
+        "en": "1=Addition, 2=Subtraction, 3=Multiplication, 4=Division",
         "tr": "1=Toplama, 2=Çıkarma, 3=Çarpma, 4=Bölme",
         "de": "1=Addition, 2=Subtraktion, 3=Multiplikation, 4=Division",
         "fr": "1=Addition, 2=Soustraction, 3=Multiplication, 4=Division",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "Sonuç ondalık basamak sayısı (0 tamsayıya yuvarla)",
       "label_i18n": {
-        "en": "Ondalık Basamak",
+        "en": "Decimal Places",
         "tr": "Ondalık Basamak",
         "de": "Dezimalstellen",
         "fr": "Décimales",
@@ -89,7 +89,7 @@
         "ar": "المنازل العشرية"
       },
       "businessContext_i18n": {
-        "en": "Sonuç ondalık basamak sayısı (0 tamsayıya yuvarla)",
+        "en": "Number of decimal places in result (0 rounds to integer)",
         "tr": "Sonuç ondalık basamak sayısı (0 tamsayıya yuvarla)",
         "de": "Anzahl der Dezimalstellen im Ergebnis (0 = auf ganze Zahl runden)",
         "fr": "Nombre de décimales du résultat (0 pour arrondir à l'entier)",

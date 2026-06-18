@@ -9,7 +9,7 @@
       "default": 0,
       "businessContext": "Bilinen noktanın x koordinatı",
       "label_i18n": {
-        "en": "x₁ Koordinatı",
+        "en": "x₁ Coordinate",
         "tr": "x₁ Koordinatı",
         "de": "x₁-Koordinate",
         "fr": "Coordonnée x₁",
@@ -17,7 +17,7 @@
         "ar": "إحداثي x₁"
       },
       "businessContext_i18n": {
-        "en": "Bilinen noktanın x koordinatı",
+        "en": "x coordinate of the known point",
         "tr": "Bilinen noktanın x koordinatı",
         "de": "x-Koordinate des bekannten Punktes",
         "fr": "Coordonnée x du point connu",
@@ -33,7 +33,7 @@
       "default": 0,
       "businessContext": "Bilinen noktanın y koordinatı",
       "label_i18n": {
-        "en": "y₁ Koordinatı",
+        "en": "y₁ Coordinate",
         "tr": "y₁ Koordinatı",
         "de": "y₁-Koordinate",
         "fr": "Coordonnée y₁",
@@ -41,7 +41,7 @@
         "ar": "إحداثي y₁"
       },
       "businessContext_i18n": {
-        "en": "Bilinen noktanın y koordinatı",
+        "en": "y coordinate of the known point",
         "tr": "Bilinen noktanın y koordinatı",
         "de": "y-Koordinate des bekannten Punktes",
         "fr": "Coordonnée y du point connu",
@@ -57,7 +57,7 @@
       "default": 1,
       "businessContext": "Doğrunun eğimi",
       "label_i18n": {
-        "en": "Eğim (m)",
+        "en": "Slope (m)",
         "tr": "Eğim (m)",
         "de": "Steigung (m)",
         "fr": "Pente (m)",
@@ -65,7 +65,7 @@
         "ar": "الميل (م)"
       },
       "businessContext_i18n": {
-        "en": "Doğrunun eğimi",
+        "en": "Slope of the line",
         "tr": "Doğrunun eğimi",
         "de": "Steigung der Geraden",
         "fr": "Pente de la droite",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "Üzerinde y hesaplanacak x değeri (varsayılan 0, y kesişimini verir)",
       "label_i18n": {
-        "en": "Hedef x Değeri",
+        "en": "Target x Value",
         "tr": "Hedef x Değeri",
         "de": "Ziel-x-Wert",
         "fr": "Valeur x cible",
@@ -89,7 +89,7 @@
         "ar": "قيمة x المستهدفة"
       },
       "businessContext_i18n": {
-        "en": "Üzerinde y hesaplanacak x değeri (varsayılan 0, y kesişimini verir)",
+        "en": "x value at which to calculate y (default 0, gives y-intercept)",
         "tr": "Üzerinde y hesaplanacak x değeri (varsayılan 0, y kesişimini verir)",
         "de": "x-Wert, für den y berechnet wird (Standard 0, ergibt y-Achsenabschnitt)",
         "fr": "Valeur x pour calculer y (par défaut 0, donne l'ordonnée à l'origine)",

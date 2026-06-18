@@ -9,7 +9,7 @@
       "default": 1000,
       "businessContext": "Poliçe için ödenen aylık prim tutarı",
       "label_i18n": {
-        "en": "Aylık Prim (TL)",
+        "en": "Monthly Premium (TRY)",
         "tr": "Aylık Prim (TL)",
         "de": "Monatsprämie (TL)",
         "fr": "Prime mensuelle (TL)",
@@ -17,7 +17,7 @@
         "ar": "القسط الشهري (ل.ت)"
       },
       "businessContext_i18n": {
-        "en": "Poliçe için ödenen aylık prim tutarı",
+        "en": "Monthly premium amount paid for the policy",
         "tr": "Poliçe için ödenen aylık prim tutarı",
         "de": "Monatlicher Beitrag für die Police",
         "fr": "Montant de la prime mensuelle payée pour la police",
@@ -33,7 +33,7 @@
       "default": 10,
       "businessContext": "Poliçenin toplam süresi",
       "label_i18n": {
-        "en": "Poliçe Süresi (Yıl)",
+        "en": "Policy Term (Years)",
         "tr": "Poliçe Süresi (Yıl)",
         "de": "Vertragslaufzeit (Jahre)",
         "fr": "Durée de la police (ans)",
@@ -41,7 +41,7 @@
         "ar": "مدة الوثيقة (بالسنوات)"
       },
       "businessContext_i18n": {
-        "en": "Poliçenin toplam süresi",
+        "en": "Total duration of the policy",
         "tr": "Poliçenin toplam süresi",
         "de": "Gesamtlaufzeit der Police",
         "fr": "Durée totale de la police",
@@ -57,7 +57,7 @@
       "default": 2,
       "businessContext": "İade edilen primlere uygulanan yıllık bileşik faiz oranı",
       "label_i18n": {
-        "en": "Yıllık Faiz Oranı (%)",
+        "en": "Annual Interest Rate (%)",
         "tr": "Yıllık Faiz Oranı (%)",
         "de": "Jährlicher Zinssatz (%)",
         "fr": "Taux d'intérêt annuel (%)",
@@ -65,7 +65,7 @@
         "ar": "معدل الفائدة السنوي (%)"
       },
       "businessContext_i18n": {
-        "en": "İade edilen primlere uygulanan yıllık bileşik faiz oranı",
+        "en": "Annual compound interest rate applied to refunded premiums",
         "tr": "İade edilen primlere uygulanan yıllık bileşik faiz oranı",
         "de": "Jährlicher Zinssatz für die Verzinsung der zurückgezahlten Beiträge",
         "fr": "Taux d'intérêt composé annuel appliqué aux primes remboursées",
@@ -89,7 +89,7 @@
         "ar": "مطالبة التعويض (0: لا، 1: نعم)"
       },
       "businessContext_i18n": {
-        "en": "Poliçe süresince hasar talebi olup olmadığı",
+        "en": "Whether there has been a claim during the policy term",
         "tr": "Poliçe süresince hasar talebi olup olmadığı",
         "de": "Angabe, ob während der Vertragslaufzeit ein Schaden gemeldet wurde",
         "fr": "Indique s'il y a eu un sinistre pendant la durée de la police",
@@ -105,7 +105,7 @@
       "default": 1,
       "businessContext": "İade tutarından kesilecek yönetim gideri oranı",
       "label_i18n": {
-        "en": "Yönetim Gideri Kesintisi (%)",
+        "en": "Administrative Expense Deduction (%)",
         "tr": "Yönetim Gideri Kesintisi (%)",
         "de": "Verwaltungskostenabzug (%)",
         "fr": "Frais de gestion (%)",
@@ -113,7 +113,7 @@
         "ar": "خصم المصاريف الإدارية (%)"
       },
       "businessContext_i18n": {
-        "en": "İade tutarından kesilecek yönetim gideri oranı",
+        "en": "Administrative expense rate deducted from the refund amount",
         "tr": "İade tutarından kesilecek yönetim gideri oranı",
         "de": "Prozentsatz der Verwaltungskosten, die vom Rückzahlungsbetrag abgezogen werden",
         "fr": "Pourcentage des frais de gestion déduits du montant du remboursement",
@@ -129,7 +129,7 @@
       "default": 5,
       "businessContext": "İade tutarı üzerinden alınan vergi oranı",
       "label_i18n": {
-        "en": "İade Vergi Oranı (%)",
+        "en": "Refund Tax Rate (%)",
         "tr": "İade Vergi Oranı (%)",
         "de": "Steuersatz auf Rückzahlung (%)",
         "fr": "Taux d'imposition du remboursement (%)",
@@ -137,7 +137,7 @@
         "ar": "نسبة استرداد الضريبة (%)"
       },
       "businessContext_i18n": {
-        "en": "İade tutarı üzerinden alınan vergi oranı",
+        "en": "Tax rate applied to the refund amount",
         "tr": "İade tutarı üzerinden alınan vergi oranı",
         "de": "Steuersatz auf den Rückzahlungsbetrag",
         "fr": "Taux d'imposition appliqué au montant du remboursement",

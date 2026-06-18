@@ -9,7 +9,7 @@
       "default": 5,
       "businessContext": "Yatay mesafe",
       "label_i18n": {
-        "en": "Açıklık (Span)",
+        "en": "Span",
         "tr": "Açıklık (Span)",
         "de": "Spannweite",
         "fr": "Portée",
@@ -33,7 +33,7 @@
       "default": 3,
       "businessContext": "Dikey mesafe",
       "label_i18n": {
-        "en": "Yükseklik (Height)",
+        "en": "Height",
         "tr": "Yükseklik (Height)",
         "de": "Höhe",
         "fr": "Hauteur",
@@ -57,7 +57,7 @@
       "default": 4,
       "businessContext": "Brace takılacak bölme sayısı",
       "label_i18n": {
-        "en": "Bölme Sayısı",
+        "en": "Number of Compartments",
         "tr": "Bölme Sayısı",
         "de": "Anzahl der Fächer",
         "fr": "Nombre de divisions",
@@ -65,7 +65,7 @@
         "ar": "عدد الأقسام"
       },
       "businessContext_i18n": {
-        "en": "Brace takılacak bölme sayısı",
+        "en": "Number of compartments for braces",
         "tr": "Brace takılacak bölme sayısı",
         "de": "Anzahl der Fächer, in denen Streben angebracht werden",
         "fr": "Nombre de divisions pour l'installation des entretoises",
@@ -81,7 +81,7 @@
       "default": 0.001,
       "businessContext": "Bir brace'in enine kesit alanı",
       "label_i18n": {
-        "en": "Kesit Alanı",
+        "en": "Cross-sectional Area",
         "tr": "Kesit Alanı",
         "de": "Querschnittsfläche",
         "fr": "Section transversale",
@@ -89,7 +89,7 @@
         "ar": "مساحة المقطع"
       },
       "businessContext_i18n": {
-        "en": "Bir brace'in enine kesit alanı",
+        "en": "Cross-sectional area of a brace",
         "tr": "Bir brace'in enine kesit alanı",
         "de": "Querschnittsfläche einer Strebe",
         "fr": "Aire de la section transversale d'une attache",
@@ -105,7 +105,7 @@
       "default": 7850,
       "businessContext": "Brace malzemesinin yoğunluğu (ör. çelik)",
       "label_i18n": {
-        "en": "Malzeme Yoğunluğu",
+        "en": "Material Density",
         "tr": "Malzeme Yoğunluğu",
         "de": "Materialdichte",
         "fr": "Densité du matériau",
@@ -113,7 +113,7 @@
         "ar": "كثافة المادة"
       },
       "businessContext_i18n": {
-        "en": "Brace malzemesinin yoğunluğu (ör. çelik)",
+        "en": "Density of brace material (e.g., steel)",
         "tr": "Brace malzemesinin yoğunluğu (ör. çelik)",
         "de": "Dichte des Strebenmaterials (z. B. Stahl)",
         "fr": "Densité du matériau de l'attache (ex. acier)",

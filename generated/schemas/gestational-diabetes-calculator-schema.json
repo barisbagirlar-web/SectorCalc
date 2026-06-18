@@ -9,7 +9,7 @@
       "default": 30,
       "businessContext": "Anne adayının yaşı, gestasyonel diyabet riskini etkileyen faktörlerden biridir.",
       "label_i18n": {
-        "en": "Anne Yaşı",
+        "en": "Maternal Age",
         "tr": "Anne Yaşı",
         "de": "Mütterliches Alter",
         "fr": "Âge du puits",
@@ -17,7 +17,7 @@
         "ar": "عمر الأم"
       },
       "businessContext_i18n": {
-        "en": "Anne adayının yaşı, gestasyonel diyabet riskini etkileyen faktörlerden biridir.",
+        "en": "Age of the expectant mother is one of the factors affecting gestational diabetes risk.",
         "tr": "Anne adayının yaşı, gestasyonel diyabet riskini etkileyen faktörlerden biridir.",
         "de": "Das Alter der werdenden Mutter ist einer der Faktoren, die das Risiko für Gestationsdiabetes beeinflussen.",
         "fr": "L'âge de la mère est l'un des facteurs influençant le risque de diabète gestationnel.",
@@ -33,7 +33,7 @@
       "default": 25,
       "businessContext": "Gebelik öncesi BMI, gestasyonel diyabet riskini belirlemede önemli bir parametredir.",
       "label_i18n": {
-        "en": "Vücut Kitle İndeksi (BMI)",
+        "en": "Body Mass Index (BMI)",
         "tr": "Vücut Kitle İndeksi (BMI)",
         "de": "Body-Mass-Index (BMI)",
         "fr": "Indice de Masse Corporelle (IMC)",
@@ -41,7 +41,7 @@
         "ar": "مؤشر كتلة الجسم (BMI)"
       },
       "businessContext_i18n": {
-        "en": "Gebelik öncesi BMI, gestasyonel diyabet riskini belirlemede önemli bir parametredir.",
+        "en": "Pre-pregnancy BMI is an important parameter in determining gestational diabetes risk.",
         "tr": "Gebelik öncesi BMI, gestasyonel diyabet riskini belirlemede önemli bir parametredir.",
         "de": "Der BMI vor der Schwangerschaft ist ein wichtiger Parameter zur Bestimmung des Risikos für Gestationsdiabetes.",
         "fr": "L'IMC avant la grossesse est un paramètre important pour déterminer le risque de diabète gestationnel.",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "Daha önce gestasyonel diyabet geçirmiş olmak, tekrarlama riskini artırır.",
       "label_i18n": {
-        "en": "Önceki Gebelikte GDM Öyküsü",
+        "en": "History of GDM in Previous Pregnancy",
         "tr": "Önceki Gebelikte GDM Öyküsü",
         "de": "Vorherige GDM in der Schwangerschaft",
         "fr": "Antécédents de DG lors d'une grossesse précédente",
@@ -65,7 +65,7 @@
         "ar": "تاريخ سكري الحمل السابق"
       },
       "businessContext_i18n": {
-        "en": "Daha önce gestasyonel diyabet geçirmiş olmak, tekrarlama riskini artırır.",
+        "en": "Having had gestational diabetes before increases the risk of recurrence.",
         "tr": "Daha önce gestasyonel diyabet geçirmiş olmak, tekrarlama riskini artırır.",
         "de": "Eine frühere Gestationsdiabetes erhöht das Risiko eines erneuten Auftretens.",
         "fr": "Avoir déjà eu un diabète gestationnel augmente le risque de récidive.",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "Birinci derece akrabalarda diyabet varlığı risk faktörüdür.",
       "label_i18n": {
-        "en": "Ailede Diyabet Öyküsü",
+        "en": "Family History of Diabetes",
         "tr": "Ailede Diyabet Öyküsü",
         "de": "Familienanamnese für Diabetes",
         "fr": "Antécédents familiaux de diabète",
@@ -89,7 +89,7 @@
         "ar": "تاريخ العائلة مع السكري"
       },
       "businessContext_i18n": {
-        "en": "Birinci derece akrabalarda diyabet varlığı risk faktörüdür.",
+        "en": "Presence of diabetes in first-degree relatives is a risk factor.",
         "tr": "Birinci derece akrabalarda diyabet varlığı risk faktörüdür.",
         "de": "Das Vorliegen von Diabetes bei Verwandten ersten Grades ist ein Risikofaktor.",
         "fr": "La présence de diabète chez les parents au premier degré est un facteur de risque.",
@@ -105,7 +105,7 @@
       "default": 90,
       "businessContext": "Gebelikte açlık kan şekeri düzeyi, diyabet taramasında kullanılır.",
       "label_i18n": {
-        "en": "Açlık Kan Şekeri",
+        "en": "Fasting Blood Sugar",
         "tr": "Açlık Kan Şekeri",
         "de": "Nüchternblutzucker",
         "fr": "Glycémie à jeun",
@@ -113,7 +113,7 @@
         "ar": "سكر الدم الصائم"
       },
       "businessContext_i18n": {
-        "en": "Gebelikte açlık kan şekeri düzeyi, diyabet taramasında kullanılır.",
+        "en": "Fasting blood sugar level during pregnancy is used in diabetes screening.",
         "tr": "Gebelikte açlık kan şekeri düzeyi, diyabet taramasında kullanılır.",
         "de": "Der Nüchternblutzuckerspiegel in der Schwangerschaft wird für das Diabetes-Screening verwendet.",
         "fr": "Le taux de glycémie à jeun pendant la grossesse est utilisé pour le dépistage du diabète.",
@@ -129,7 +129,7 @@
       "default": 140,
       "businessContext": "Oral glukoz tolerans testi 1. saat değeri, tanı kriterlerinden biridir.",
       "label_i18n": {
-        "en": "OGTT 1. Saat Kan Şekeri",
+        "en": "OGTT 1-Hour Blood Sugar",
         "tr": "OGTT 1. Saat Kan Şekeri",
         "de": "OGTT 1-Stunden-Blutzucker",
         "fr": "Glycémie à 1 heure de l'OGTT",
@@ -137,7 +137,7 @@
         "ar": "سكر الدم بعد ساعة واحدة من اختبار تحمل الجلوكوز الفموي"
       },
       "businessContext_i18n": {
-        "en": "Oral glukoz tolerans testi 1. saat değeri, tanı kriterlerinden biridir.",
+        "en": "Oral glucose tolerance test 1-hour value is one of the diagnostic criteria.",
         "tr": "Oral glukoz tolerans testi 1. saat değeri, tanı kriterlerinden biridir.",
         "de": "Der 1-Stunden-Wert des oralen Glukosetoleranztests ist eines der Diagnosekriterien.",
         "fr": "La valeur à 1 heure du test oral de tolérance au glucose est l'un des critères diagnostiques.",
@@ -153,7 +153,7 @@
       "default": 120,
       "businessContext": "Oral glukoz tolerans testi 2. saat değeri, tanı kriterlerinden biridir.",
       "label_i18n": {
-        "en": "OGTT 2. Saat Kan Şekeri",
+        "en": "OGTT 2-Hour Blood Sugar",
         "tr": "OGTT 2. Saat Kan Şekeri",
         "de": "OGTT 2-Stunden-Blutzucker",
         "fr": "Glycémie à 2 heures de l'OGTT",
@@ -161,7 +161,7 @@
         "ar": "سكر الدم بعد ساعتين من اختبار تحمل الجلوكوز الفموي"
       },
       "businessContext_i18n": {
-        "en": "Oral glukoz tolerans testi 2. saat değeri, tanı kriterlerinden biridir.",
+        "en": "Oral glucose tolerance test 2-hour value is one of the diagnostic criteria.",
         "tr": "Oral glukoz tolerans testi 2. saat değeri, tanı kriterlerinden biridir.",
         "de": "Der 2-Stunden-Wert des oralen Glukosetoleranztests ist eines der Diagnosekriterien.",
         "fr": "La valeur à 2 heures du test oral de tolérance au glucose est l'un des critères diagnostiques.",
@@ -177,7 +177,7 @@
       "default": 24,
       "businessContext": "Tarama genellikle 24-28. haftalar arasında yapılır.",
       "label_i18n": {
-        "en": "Gebelik Haftası",
+        "en": "Gestational Week",
         "tr": "Gebelik Haftası",
         "de": "Schwangerschaftswoche",
         "fr": "Semaine de grossesse",
@@ -185,7 +185,7 @@
         "ar": "أسبوع الحمل"
       },
       "businessContext_i18n": {
-        "en": "Tarama genellikle 24-28. haftalar arasında yapılır.",
+        "en": "Screening is usually done between 24-28 weeks.",
         "tr": "Tarama genellikle 24-28. haftalar arasında yapılır.",
         "de": "Das Screening wird in der Regel zwischen der 24. und 28. Woche durchgeführt.",
         "fr": "Le dépistage est généralement effectué entre la 24e et la 28e semaine.",

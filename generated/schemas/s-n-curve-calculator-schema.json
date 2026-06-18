@@ -9,7 +9,7 @@
       "default": 200,
       "businessContext": "Parçaya uygulanan alternatif gerilim genliği",
       "label_i18n": {
-        "en": "Gerilim Genliği (σ_a)",
+        "en": "Stress Amplitude (σ_a)",
         "tr": "Gerilim Genliği (σ_a)",
         "de": "Spannungsamplitude (σ_a)",
         "fr": "Amplitude de contrainte (σ_a)",
@@ -17,7 +17,7 @@
         "ar": "سعة الإجهاد (σ_a)"
       },
       "businessContext_i18n": {
-        "en": "Parçaya uygulanan alternatif gerilim genliği",
+        "en": "Alternating stress amplitude applied to the part.",
         "tr": "Parçaya uygulanan alternatif gerilim genliği",
         "de": "Auf das Bauteil wirkende Wechselspannungsamplitude",
         "fr": "Amplitude de contrainte alternative appliquée à la pièce",
@@ -41,7 +41,7 @@
         "ar": "متوسط الإجهاد (σ_m)"
       },
       "businessContext_i18n": {
-        "en": "Çevrimdeki ortalama statik gerilim",
+        "en": "Mean static stress in the cycle.",
         "tr": "Çevrimdeki ortalama statik gerilim",
         "de": "Mittlere statische Spannung im Zyklus",
         "fr": "Contrainte statique moyenne dans le cycle",
@@ -57,7 +57,7 @@
       "default": 600,
       "businessContext": "Malzemenin kopma (çekme) dayanımı",
       "label_i18n": {
-        "en": "Çekme Dayanımı (σ_u)",
+        "en": "Tensile Strength (σ_u)",
         "tr": "Çekme Dayanımı (σ_u)",
         "de": "Zugfestigkeit (σ_u)",
         "fr": "Résistance à la traction (σ_u)",
@@ -65,7 +65,7 @@
         "ar": "مقاومة الشد (σ_u)"
       },
       "businessContext_i18n": {
-        "en": "Malzemenin kopma (çekme) dayanımı",
+        "en": "Material's ultimate tensile strength",
         "tr": "Malzemenin kopma (çekme) dayanımı",
         "de": "Bruchfestigkeit (Zugfestigkeit) des Materials",
         "fr": "Résistance à la rupture (traction) du matériau",
@@ -81,7 +81,7 @@
       "default": 900,
       "businessContext": "Basquin denklemindeki yorulma dayanım katsayısı",
       "label_i18n": {
-        "en": "Yorulma Dayanım Katsayısı (σ_f')",
+        "en": "Fatigue Strength Coefficient (σ_f')",
         "tr": "Yorulma Dayanım Katsayısı (σ_f')",
         "de": "Ermüdungsfestigkeitskoeffizient (σ_f')",
         "fr": "Coefficient de résistance à la fatigue (σ_f')",
@@ -89,7 +89,7 @@
         "ar": "معامل مقاومة الكلال (σ_f')"
       },
       "businessContext_i18n": {
-        "en": "Basquin denklemindeki yorulma dayanım katsayısı",
+        "en": "Fatigue strength coefficient in Basquin's equation",
         "tr": "Basquin denklemindeki yorulma dayanım katsayısı",
         "de": "Ermüdungsfestigkeitskoeffizient in der Basquin-Gleichung",
         "fr": "Coefficient de résistance à la fatigue dans l'équation de Basquin",
@@ -105,7 +105,7 @@
       "default": -0.1,
       "businessContext": "Basquin denklemindeki yorulma dayanım üsteli (genellikle negatif)",
       "label_i18n": {
-        "en": "Yorulma Dayanım Üsteli (b)",
+        "en": "Fatigue Strength Exponent (b)",
         "tr": "Yorulma Dayanım Üsteli (b)",
         "de": "Ermüdungsexponent (b)",
         "fr": "Exposant de résistance à la fatigue (b)",
@@ -113,7 +113,7 @@
         "ar": "أس مقاومة الكلال (b)"
       },
       "businessContext_i18n": {
-        "en": "Basquin denklemindeki yorulma dayanım üsteli (genellikle negatif)",
+        "en": "Fatigue strength exponent in Basquin's equation (usually negative)",
         "tr": "Basquin denklemindeki yorulma dayanım üsteli (genellikle negatif)",
         "de": "Ermüdungsexponent in der Basquin-Gleichung (normalerweise negativ)",
         "fr": "Exposant de résistance à la fatigue dans l'équation de Basquin (généralement négatif)",

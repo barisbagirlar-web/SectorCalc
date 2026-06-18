@@ -17,7 +17,7 @@
         "ar": "حد التقاطع (b0)"
       },
       "businessContext_i18n": {
-        "en": "Tüm tahmin değişkenleri sıfır olduğunda log-odds değeri.",
+        "en": "Log-odds value when all predictor variables are zero.",
         "tr": "Tüm tahmin değişkenleri sıfır olduğunda log-odds değeri.",
         "de": "Log-Odds-Wert, wenn alle Prädiktorvariablen null sind.",
         "fr": "Valeur log-odds lorsque toutes les variables prédictives sont nulles.",
@@ -33,7 +33,7 @@
       "default": 0,
       "businessContext": "Birinci tahmin değişkenindeki bir birimlik artışın log-odds üzerindeki etkisi.",
       "label_i18n": {
-        "en": "Katsayı 1 (b1)",
+        "en": "Coefficient 1 (b1)",
         "tr": "Katsayı 1 (b1)",
         "de": "Koeffizient 1 (b1)",
         "fr": "Coefficient 1 (b1)",
@@ -41,7 +41,7 @@
         "ar": "المعامل 1 (b1)"
       },
       "businessContext_i18n": {
-        "en": "Birinci tahmin değişkenindeki bir birimlik artışın log-odds üzerindeki etkisi.",
+        "en": "Effect of a one-unit increase in the first predictor variable on the log-odds.",
         "tr": "Birinci tahmin değişkenindeki bir birimlik artışın log-odds üzerindeki etkisi.",
         "de": "Effekt einer Einheit Erhöhung der ersten Prädiktorvariablen auf die Log-Odds.",
         "fr": "Effet d'une augmentation d'une unité de la première variable prédictive sur le log-odds.",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "Birinci tahmin değişkeninin gerçek değeri.",
       "label_i18n": {
-        "en": "Değer 1 (x1)",
+        "en": "Value 1 (x1)",
         "tr": "Değer 1 (x1)",
         "de": "Wert 1 (x1)",
         "fr": "Valeur 1 (x1)",
@@ -65,7 +65,7 @@
         "ar": "القيمة 1 (x1)"
       },
       "businessContext_i18n": {
-        "en": "Birinci tahmin değişkeninin gerçek değeri.",
+        "en": "Actual value of the first predictor variable.",
         "tr": "Birinci tahmin değişkeninin gerçek değeri.",
         "de": "Tatsächlicher Wert der ersten Prädiktorvariablen.",
         "fr": "Valeur réelle de la première variable prédictive.",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "İkinci tahmin değişkenindeki bir birimlik artışın log-odds üzerindeki etkisi.",
       "label_i18n": {
-        "en": "Katsayı 2 (b2)",
+        "en": "Coefficient 2 (b2)",
         "tr": "Katsayı 2 (b2)",
         "de": "Koeffizient 2 (b2)",
         "fr": "Coefficient 2 (b2)",
@@ -89,7 +89,7 @@
         "ar": "المعامل 2 (b2)"
       },
       "businessContext_i18n": {
-        "en": "İkinci tahmin değişkenindeki bir birimlik artışın log-odds üzerindeki etkisi.",
+        "en": "Effect of a one-unit increase in the second predictor variable on the log-odds.",
         "tr": "İkinci tahmin değişkenindeki bir birimlik artışın log-odds üzerindeki etkisi.",
         "de": "Effekt einer Einheit Erhöhung der zweiten Prädiktorvariablen auf die Log-Odds.",
         "fr": "Effet d'une augmentation d'une unité de la deuxième variable prédictive sur le log-odds.",
@@ -105,7 +105,7 @@
       "default": 0,
       "businessContext": "İkinci tahmin değişkeninin gerçek değeri.",
       "label_i18n": {
-        "en": "Değer 2 (x2)",
+        "en": "Value 2 (x2)",
         "tr": "Değer 2 (x2)",
         "de": "Wert 2 (x2)",
         "fr": "Valeur 2 (x2)",
@@ -113,7 +113,7 @@
         "ar": "القيمة 2 (x2)"
       },
       "businessContext_i18n": {
-        "en": "İkinci tahmin değişkeninin gerçek değeri.",
+        "en": "Actual value of the second predictor variable.",
         "tr": "İkinci tahmin değişkeninin gerçek değeri.",
         "de": "Tatsächlicher Wert der zweiten Prädiktorvariablen.",
         "fr": "Valeur réelle de la deuxième variable prédictive.",
@@ -129,7 +129,7 @@
       "default": 0,
       "businessContext": "Üçüncü tahmin değişkenindeki bir birimlik artışın log-odds üzerindeki etkisi.",
       "label_i18n": {
-        "en": "Katsayı 3 (b3)",
+        "en": "Coefficient 3 (b3)",
         "tr": "Katsayı 3 (b3)",
         "de": "Koeffizient 3 (b3)",
         "fr": "Coefficient 3 (b3)",
@@ -137,7 +137,7 @@
         "ar": "المعامل 3 (b3)"
       },
       "businessContext_i18n": {
-        "en": "Üçüncü tahmin değişkenindeki bir birimlik artışın log-odds üzerindeki etkisi.",
+        "en": "Effect of a one-unit increase in the third predictor variable on the log-odds.",
         "tr": "Üçüncü tahmin değişkenindeki bir birimlik artışın log-odds üzerindeki etkisi.",
         "de": "Effekt einer Einheit Erhöhung der dritten Prädiktorvariablen auf die Log-Odds.",
         "fr": "Effet d'une augmentation d'une unité de la troisième variable prédictive sur le log-odds.",
@@ -153,7 +153,7 @@
       "default": 0,
       "businessContext": "Üçüncü tahmin değişkeninin gerçek değeri.",
       "label_i18n": {
-        "en": "Değer 3 (x3)",
+        "en": "Value 3 (x3)",
         "tr": "Değer 3 (x3)",
         "de": "Wert 3 (x3)",
         "fr": "Valeur 3 (x3)",
@@ -161,7 +161,7 @@
         "ar": "القيمة 3 (x3)"
       },
       "businessContext_i18n": {
-        "en": "Üçüncü tahmin değişkeninin gerçek değeri.",
+        "en": "Actual value of the third predictor variable.",
         "tr": "Üçüncü tahmin değişkeninin gerçek değeri.",
         "de": "Tatsächlicher Wert der dritten Prädiktorvariablen.",
         "fr": "Valeur réelle de la troisième variable d'estimation.",

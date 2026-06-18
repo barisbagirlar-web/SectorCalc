@@ -9,7 +9,7 @@
       "default": 0.1,
       "businessContext": "Ölçülen en derin çukur derinliği",
       "label_i18n": {
-        "en": "Maksimum Depresyon Derinliği (mm)",
+        "en": "Maximum depression depth (mm)",
         "tr": "Maksimum Depresyon Derinliği (mm)",
         "de": "Maximale Depressionstiefe (mm)",
         "fr": "Profondeur de dépression maximale (mm)",
@@ -17,7 +17,7 @@
         "ar": "أقصى عمق للانخفاض (مم)"
       },
       "businessContext_i18n": {
-        "en": "Ölçülen en derin çukur derinliği",
+        "en": "Measured deepest pit depth",
         "tr": "Ölçülen en derin çukur derinliği",
         "de": "Gemessene tiefste Muldenvertiefung",
         "fr": "Profondeur de fosse la plus profonde mesurée",
@@ -33,7 +33,7 @@
       "default": 10,
       "businessContext": "Depresyonun yüzey alanı",
       "label_i18n": {
-        "en": "Depresyon Alanı (mm²)",
+        "en": "Depression area (mm²)",
         "tr": "Depresyon Alanı (mm²)",
         "de": "Depressionsfläche (mm²)",
         "fr": "Surface de dépression (mm²)",
@@ -41,7 +41,7 @@
         "ar": "مساحة الانخفاض (مم²)"
       },
       "businessContext_i18n": {
-        "en": "Depresyonun yüzey alanı",
+        "en": "Surface area of depression",
         "tr": "Depresyonun yüzey alanı",
         "de": "Oberfläche der Mulde",
         "fr": "Surface de la dépression",
@@ -57,7 +57,7 @@
       "default": 1,
       "businessContext": "Tespit edilen toplam depresyon adedi",
       "label_i18n": {
-        "en": "Depresyon Sayısı",
+        "en": "Number of depressions",
         "tr": "Depresyon Sayısı",
         "de": "Anzahl der Mulden",
         "fr": "Nombre de dépressions",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "Depresyon kenarlarının keskinlik derecesi (1: yuvarlak, 5: keskin)",
       "label_i18n": {
-        "en": "Kenar Keskinliği (1-5)",
+        "en": "Edge sharpness (1-5)",
         "tr": "Kenar Keskinliği (1-5)",
         "de": "Kantenschärfe (1-5)",
         "fr": "Netteté des bords (1-5)",
@@ -89,7 +89,7 @@
         "ar": "حدة الحافة (1-5)"
       },
       "businessContext_i18n": {
-        "en": "Depresyon kenarlarının keskinlik derecesi (1: yuvarlak, 5: keskin)",
+        "en": "Sharpness degree of depression edges (1: round, 5: sharp)",
         "tr": "Depresyon kenarlarının keskinlik derecesi (1: yuvarlak, 5: keskin)",
         "de": "Schärfegrad der Muldenkanten (1: abgerundet, 5: scharf)",
         "fr": "Degré de netteté des bords de la dépression (1 : arrondi, 5 : net)",
@@ -105,7 +105,7 @@
       "default": 1,
       "businessContext": "Malzemenin depresyona karşı direncini gösteren katsayı (0.5-2.0)",
       "label_i18n": {
-        "en": "Malzeme Direnç Faktörü",
+        "en": "Material resistance factor",
         "tr": "Malzeme Direnç Faktörü",
         "de": "Materialwiderstandsfaktor",
         "fr": "Facteur de résistance du matériau",
@@ -113,7 +113,7 @@
         "ar": "عامل مقاومة المادة"
       },
       "businessContext_i18n": {
-        "en": "Malzemenin depresyona karşı direncini gösteren katsayı (0.5-2.0)",
+        "en": "Coefficient indicating material resistance to depression (0.5-2.0)",
         "tr": "Malzemenin depresyona karşı direncini gösteren katsayı (0.5-2.0)",
         "de": "Koeffizient des Materialwiderstands gegen Muldenbildung (0,5-2,0)",
         "fr": "Coefficient de résistance du matériau à la dépression (0,5-2,0)",

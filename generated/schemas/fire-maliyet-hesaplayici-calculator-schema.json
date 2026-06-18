@@ -17,7 +17,7 @@
         "ar": "إجمالي المواد (كجم)"
       },
       "businessContext_i18n": {
-        "en": "Üretime giren toplam hammadde miktarı",
+        "en": "Total raw material input to production",
         "tr": "Üretime giren toplam hammadde miktarı",
         "de": "Gesamtmenge des in die Produktion eingehenden Rohmaterials",
         "fr": "Quantité totale de matière première entrant en production",
@@ -33,7 +33,7 @@
       "default": 85,
       "businessContext": "Kalite kontrolden geçen nihai ürün ağırlığı",
       "label_i18n": {
-        "en": "İyi Ürün (kg)",
+        "en": "Good product (kg)",
         "tr": "İyi Ürün (kg)",
         "de": "Gutprodukt (kg)",
         "fr": "Bon Produit (kg)",
@@ -41,7 +41,7 @@
         "ar": "المنتج الجيد (كجم)"
       },
       "businessContext_i18n": {
-        "en": "Kalite kontrolden geçen nihai ürün ağırlığı",
+        "en": "Final product weight passing quality control",
         "tr": "Kalite kontrolden geçen nihai ürün ağırlığı",
         "de": "Gewicht des Endprodukts, das die Qualitätskontrolle bestanden hat",
         "fr": "Poids du produit final ayant passé le contrôle qualité",
@@ -57,7 +57,7 @@
       "default": 10,
       "businessContext": "Tamir edilebilir hurda miktarı",
       "label_i18n": {
-        "en": "Yeniden İşlenebilir (kg)",
+        "en": "Reworkable (kg)",
         "tr": "Yeniden İşlenebilir (kg)",
         "de": "Nachbearbeitbar (kg)",
         "fr": "Recyclable (kg)",
@@ -65,7 +65,7 @@
         "ar": "قابل لإعادة التصنيع (كجم)"
       },
       "businessContext_i18n": {
-        "en": "Tamir edilebilir hurda miktarı",
+        "en": "Repairable scrap amount",
         "tr": "Tamir edilebilir hurda miktarı",
         "de": "Menge des reparierbaren Ausschusses",
         "fr": "Quantité de rebut réparable",
@@ -81,7 +81,7 @@
       "default": 2.5,
       "businessContext": "Güncel hurda alım fiyatı",
       "label_i18n": {
-        "en": "Hurda Fiyatı (TL/kg)",
+        "en": "Scrap price (TL/kg)",
         "tr": "Hurda Fiyatı (TL/kg)",
         "de": "Schrottpreis (TL/kg)",
         "fr": "Prix de la ferraille (TL/kg)",
@@ -89,7 +89,7 @@
         "ar": "سعر الخردة (TL/kg)"
       },
       "businessContext_i18n": {
-        "en": "Güncel hurda alım fiyatı",
+        "en": "Current scrap purchase price",
         "tr": "Güncel hurda alım fiyatı",
         "de": "Aktueller Schrottankaufspreis",
         "fr": "Prix d'achat actuel de la ferraille",
@@ -129,7 +129,7 @@
       "default": 5,
       "businessContext": "İşçilik ve genel üretim giderlerinin kg başına dağıtımı",
       "label_i18n": {
-        "en": "İşçilik ve Genel Gider (TL/kg)",
+        "en": "Labor and overhead (TL/kg)",
         "tr": "İşçilik ve Genel Gider (TL/kg)",
         "de": "Arbeits- und Gemeinkosten (TL/kg)",
         "fr": "Main-d'œuvre et frais généraux (TL/kg)",
@@ -137,7 +137,7 @@
         "ar": "العمالة والتكاليف العامة (TL/kg)"
       },
       "businessContext_i18n": {
-        "en": "İşçilik ve genel üretim giderlerinin kg başına dağıtımı",
+        "en": "Distribution of labor and general production costs per kg",
         "tr": "İşçilik ve genel üretim giderlerinin kg başına dağıtımı",
         "de": "Verteilung der Arbeits- und Gemeinkosten pro kg",
         "fr": "Répartition des frais de main-d'œuvre et de production par kg",

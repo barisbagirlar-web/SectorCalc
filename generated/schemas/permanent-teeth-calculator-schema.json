@@ -9,7 +9,7 @@
       "default": 25,
       "businessContext": "Hastanın kronolojik yaşı (yıl olarak)",
       "label_i18n": {
-        "en": "Yaş",
+        "en": "Age",
         "tr": "Yaş",
         "de": "Alter",
         "fr": "Âge",
@@ -17,7 +17,7 @@
         "ar": "العمر"
       },
       "businessContext_i18n": {
-        "en": "Hastanın kronolojik yaşı (yıl olarak)",
+        "en": "Patient's chronological age (years)",
         "tr": "Hastanın kronolojik yaşı (yıl olarak)",
         "de": "Chronologisches Alter des Patienten (in Jahren)",
         "fr": "Âge chronologique du patient (en années)",
@@ -33,7 +33,7 @@
       "default": 0,
       "businessContext": "Geçmişte çekilmiş daimi dişlerin sayısı",
       "label_i18n": {
-        "en": "Çekilen Dişler",
+        "en": "Extracted Teeth",
         "tr": "Çekilen Dişler",
         "de": "Entfernte Zähne",
         "fr": "Dents extraites",
@@ -41,7 +41,7 @@
         "ar": "الأسنان المقلوعة"
       },
       "businessContext_i18n": {
-        "en": "Geçmişte çekilmiş daimi dişlerin sayısı",
+        "en": "Number of permanent teeth extracted in the past",
         "tr": "Geçmişte çekilmiş daimi dişlerin sayısı",
         "de": "Anzahl der in der Vergangenheit entfernten bleibenden Zähne",
         "fr": "Nombre de dents permanentes extraites dans le passé",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "Doğuştan veya kayıp nedeniyle ağızda bulunmayan daimi dişlerin sayısı",
       "label_i18n": {
-        "en": "Eksik Dişler",
+        "en": "Missing Teeth",
         "tr": "Eksik Dişler",
         "de": "Fehlende Zähne",
         "fr": "Dents manquantes",
@@ -65,7 +65,7 @@
         "ar": "الأسنان المفقودة"
       },
       "businessContext_i18n": {
-        "en": "Doğuştan veya kayıp nedeniyle ağızda bulunmayan daimi dişlerin sayısı",
+        "en": "Number of permanent teeth absent from the mouth due to congenital absence or loss",
         "tr": "Doğuştan veya kayıp nedeniyle ağızda bulunmayan daimi dişlerin sayısı",
         "de": "Anzahl der bleibenden Zähne, die von Geburt an fehlen oder verloren gegangen sind",
         "fr": "Nombre de dents permanentes absentes de la bouche (congénitales ou perdues)",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "Yaştan bağımsız tüm 20 yaş dişlerini dahil etmek için 1, yoksa 0",
       "label_i18n": {
-        "en": "Yirmilik Diş Zorla",
+        "en": "Wisdom Tooth Forced",
         "tr": "Yirmilik Diş Zorla",
         "de": "Weisheitszähne erzwingen",
         "fr": "Dents de sagesse forcées",
@@ -89,7 +89,7 @@
         "ar": "إجبار ضرس العقل"
       },
       "businessContext_i18n": {
-        "en": "Yaştan bağımsız tüm 20 yaş dişlerini dahil etmek için 1, yoksa 0",
+        "en": "Set to 1 to include all wisdom teeth regardless of age, otherwise 0",
         "tr": "Yaştan bağımsız tüm 20 yaş dişlerini dahil etmek için 1, yoksa 0",
         "de": "1, um alle Weisheitszähne unabhängig vom Alter einzubeziehen, sonst 0",
         "fr": "Mettre 1 pour inclure toutes les dents de sagesse quel que soit l'âge, 0 sinon",

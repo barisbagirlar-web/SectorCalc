@@ -9,7 +9,7 @@
       "default": 0.15,
       "businessContext": "Kök kanalının apikal bölgesindeki başlangıç çapı, genellikle 0.10-0.30 mm arası.",
       "label_i18n": {
-        "en": "Apikal Çap (D0)",
+        "en": "Apical Diameter (D0)",
         "tr": "Apikal Çap (D0)",
         "de": "Apikaler Durchmesser (D0)",
         "fr": "Diamètre apical (D0)",
@@ -17,7 +17,7 @@
         "ar": "القطر القمي (D0)"
       },
       "businessContext_i18n": {
-        "en": "Kök kanalının apikal bölgesindeki başlangıç çapı, genellikle 0.10-0.30 mm arası.",
+        "en": "Initial diameter at the apical region of the root canal, typically between 0.10-0.30 mm.",
         "tr": "Kök kanalının apikal bölgesindeki başlangıç çapı, genellikle 0.10-0.30 mm arası.",
         "de": "Anfangsdurchmesser im apikalen Bereich des Wurzelkanals, typischerweise 0,10–0,30 mm.",
         "fr": "Diamètre initial dans la région apicale du canal radiculaire, généralement entre 0,10 et 0,30 mm.",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "Aletin 16 mm gerisindeki çapı (standart ISO aletler için tipik 1.0 mm).",
       "label_i18n": {
-        "en": "D16 Çapı",
+        "en": "D16 Diameter",
         "tr": "D16 Çapı",
         "de": "D16-Durchmesser",
         "fr": "Diamètre D16",
@@ -41,7 +41,7 @@
         "ar": "القطر عند 16 مم (D16)"
       },
       "businessContext_i18n": {
-        "en": "Aletin 16 mm gerisindeki çapı (standart ISO aletler için tipik 1.0 mm).",
+        "en": "Diameter of the instrument 16 mm behind (typically 1.0 mm for standard ISO instruments).",
         "tr": "Aletin 16 mm gerisindeki çapı (standart ISO aletler için tipik 1.0 mm).",
         "de": "Durchmesser des Instruments 16 mm hinter der Spitze (bei Standard-ISO-Instrumenten typisch 1,0 mm).",
         "fr": "Diamètre de l'instrument à 16 mm en arrière (typiquement 1,0 mm pour les instruments ISO standard).",
@@ -57,7 +57,7 @@
       "default": 22,
       "businessContext": "Referans noktasından apikale kadar olan çalışma uzunluğu.",
       "label_i18n": {
-        "en": "Çalışma Boyu",
+        "en": "Working Length",
         "tr": "Çalışma Boyu",
         "de": "Arbeitslänge",
         "fr": "Longueur de travail",
@@ -65,7 +65,7 @@
         "ar": "طول العمل"
       },
       "businessContext_i18n": {
-        "en": "Referans noktasından apikale kadar olan çalışma uzunluğu.",
+        "en": "Working length from reference point to apex.",
         "tr": "Referans noktasından apikale kadar olan çalışma uzunluğu.",
         "de": "Arbeitslänge vom Referenzpunkt bis zum Apex.",
         "fr": "Longueur de travail du point de référence à l'apex.",
@@ -81,7 +81,7 @@
       "default": 1.2,
       "businessContext": "İstenen koronal genişlik (orifis çapı).",
       "label_i18n": {
-        "en": "Hedef Koronal Çap",
+        "en": "Target Coronal Diameter",
         "tr": "Hedef Koronal Çap",
         "de": "Zielkoronaler Durchmesser",
         "fr": "Diamètre coronaire cible",
@@ -89,7 +89,7 @@
         "ar": "القطر التاجي المستهدف"
       },
       "businessContext_i18n": {
-        "en": "İstenen koronal genişlik (orifis çapı).",
+        "en": "Desired coronal width (orifice diameter).",
         "tr": "İstenen koronal genişlik (orifis çapı).",
         "de": "Gewünschte koronale Weite (Orifiziumdurchmesser).",
         "fr": "Largeur coronaire souhaitée (diamètre de l'orifice).",

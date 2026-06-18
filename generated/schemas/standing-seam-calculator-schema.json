@@ -9,7 +9,7 @@
       "default": 30,
       "businessContext": "Çatının mahyadan saçağa olan eğim boyu (feet cinsinden)",
       "label_i18n": {
-        "en": "Çatı Uzunluğu (Mahya-Saçak)",
+        "en": "Roof Length (Ridge to Eave)",
         "tr": "Çatı Uzunluğu (Mahya-Saçak)",
         "de": "Dachlänge (First-Traufe)",
         "fr": "Longueur du toit (faîte-avant-toit)",
@@ -17,7 +17,7 @@
         "ar": "طول السقف (من الحافة إلى الطنف)"
       },
       "businessContext_i18n": {
-        "en": "Çatının mahyadan saçağa olan eğim boyu (feet cinsinden)",
+        "en": "Slope length of roof from ridge to eave (feet)",
         "tr": "Çatının mahyadan saçağa olan eğim boyu (feet cinsinden).",
         "de": "Neigungslänge des Daches vom First zur Traufe (in Fuß).",
         "fr": "Longueur de pente du toit du faîte à l'avant-toit (en pieds)",
@@ -33,7 +33,7 @@
       "default": 50,
       "businessContext": "Çatının eğime dik yöndeki toplam genişliği (feet)",
       "label_i18n": {
-        "en": "Çatı Genişliği",
+        "en": "Roof Width",
         "tr": "Çatı Genişliği",
         "de": "Dachbreite",
         "fr": "Largeur du toit",
@@ -41,7 +41,7 @@
         "ar": "عرض السقف"
       },
       "businessContext_i18n": {
-        "en": "Çatının eğime dik yöndeki toplam genişliği (feet)",
+        "en": "Total width of roof perpendicular to slope (feet)",
         "tr": "Çatının eğime dik yöndeki toplam genişliği (feet).",
         "de": "Gesamtbreite des Daches senkrecht zur Neigung (in Fuß).",
         "fr": "Largeur totale du toit perpendiculairement à la pente (en pieds)",
@@ -57,7 +57,7 @@
       "default": 16,
       "businessContext": "Bir panelin kapladığı genişlik (inç). Standing seam paneller için tipik 12-18 inç.",
       "label_i18n": {
-        "en": "Panel Kaplama Genişliği",
+        "en": "Panel Coverage Width",
         "tr": "Panel Kaplama Genişliği",
         "de": "Paneleindeckungsbreite",
         "fr": "Largeur de couverture du panneau",
@@ -65,7 +65,7 @@
         "ar": "عرض تغطية اللوح"
       },
       "businessContext_i18n": {
-        "en": "Bir panelin kapladığı genişlik (inç). Standing seam paneller için tipik 12-18 inç.",
+        "en": "Width covered by one panel (inches). Typical 12-18 inches for standing seam panels.",
         "tr": "Bir panelin kapladığı genişlik (inç). Standing seam paneller için tipik 12-18 inç.",
         "de": "Breite, die ein Panel abdeckt (in Zoll). Bei Stehfalzpanelen typischerweise 12-18 Zoll.",
         "fr": "Largeur couverte par un panneau (en pouces). Pour les panneaux à joint debout, typiquement 12-18 pouces.",
@@ -81,7 +81,7 @@
       "default": 2,
       "businessContext": "Saçakta bırakılan çıkma payı (inç)",
       "label_i18n": {
-        "en": "Saçak Payı",
+        "en": "Eave Overhang",
         "tr": "Saçak Payı",
         "de": "Traufüberstand",
         "fr": "Débord d'avant-toit",
@@ -89,7 +89,7 @@
         "ar": "بدل الطنف"
       },
       "businessContext_i18n": {
-        "en": "Saçakta bırakılan çıkma payı (inç)",
+        "en": "Overhang allowance at eave (inches)",
         "tr": "Saçakta bırakılan çıkma payı (inç).",
         "de": "Überstand an der Traufe (in Zoll).",
         "fr": "Surplomb laissé à l'avant-toit (en pouces)",
@@ -105,7 +105,7 @@
       "default": 24,
       "businessContext": "Her bir panel dikişi boyunca klipslerin merkezden merkeze aralığı (inç). Tipik 12-24 inç.",
       "label_i18n": {
-        "en": "Klips Aralığı",
+        "en": "Clip Spacing",
         "tr": "Klips Aralığı",
         "de": "Klipsabstand",
         "fr": "Espacement des clips",
@@ -113,7 +113,7 @@
         "ar": "تباعد المشابك"
       },
       "businessContext_i18n": {
-        "en": "Her bir panel dikişi boyunca klipslerin merkezden merkeze aralığı (inç). Tipik 12-24 inç.",
+        "en": "Center-to-center spacing of clips along each panel seam (inches). Typical 12-24 inches.",
         "tr": "Her bir panel dikişi boyunca klipslerin merkezden merkeze aralığı (inç). Tipik 12-24 inç.",
         "de": "Mittenabstand der Klipse entlang jeder Paneelnaht (in Zoll). Typischerweise 12-24 Zoll.",
         "fr": "Distance centre à centre des clips le long de chaque joint de panneau (en pouces). Typiquement 12-24 pouces.",

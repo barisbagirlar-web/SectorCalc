@@ -9,7 +9,7 @@
       "default": 0,
       "businessContext": "Yemek öncesi vergi hariç toplam tutar",
       "label_i18n": {
-        "en": "Fatura Tutarı (Vergi Hariç)",
+        "en": "Invoice Amount (Excluding Tax)",
         "tr": "Fatura Tutarı (Vergi Hariç)",
         "de": "Rechnungsbetrag (ohne Steuern)",
         "fr": "Montant de la facture (hors taxe)",
@@ -17,7 +17,7 @@
         "ar": "مبلغ الفاتورة (باستثناء الضريبة)"
       },
       "businessContext_i18n": {
-        "en": "Yemek öncesi vergi hariç toplam tutar",
+        "en": "Total amount before tax, excluding meal.",
         "tr": "Yemek öncesi vergi hariç toplam tutar",
         "de": "Gesamtbetrag vor Steuern auf der Speisenrechnung",
         "fr": "Montant total avant impôt du repas",
@@ -33,7 +33,7 @@
       "default": 0,
       "businessContext": "Yemek faturasındaki toplam vergi miktarı",
       "label_i18n": {
-        "en": "Vergi Tutarı",
+        "en": "Tax Amount",
         "tr": "Vergi Tutarı",
         "de": "Steuerbetrag",
         "fr": "Montant de la taxe",
@@ -41,7 +41,7 @@
         "ar": "مبلغ الضريبة"
       },
       "businessContext_i18n": {
-        "en": "Yemek faturasındaki toplam vergi miktarı",
+        "en": "Total tax amount on the meal invoice.",
         "tr": "Yemek faturasındaki toplam vergi miktarı",
         "de": "Gesamter Steuerbetrag auf der Speisenrechnung",
         "fr": "Montant total de la taxe sur la facture du repas",
@@ -57,7 +57,7 @@
       "default": 15,
       "businessContext": "Vergi öncesi tutara uygulanacak bahşiş yüzdesi",
       "label_i18n": {
-        "en": "Bahşiş Oranı",
+        "en": "Tip Rate",
         "tr": "Bahşiş Oranı",
         "de": "Trinkgeldprozentsatz",
         "fr": "Taux de pourboire",
@@ -65,7 +65,7 @@
         "ar": "نسبة الإكرامية"
       },
       "businessContext_i18n": {
-        "en": "Vergi öncesi tutara uygulanacak bahşiş yüzdesi",
+        "en": "Tip percentage applied to the pre-tax amount.",
         "tr": "Vergi öncesi tutara uygulanacak bahşiş yüzdesi",
         "de": "Trinkgeldprozentsatz, der auf den Betrag vor Steuern angewendet wird",
         "fr": "Pourcentage de pourboire à appliquer sur le montant avant impôt",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "Hesabı paylaşacak kişi sayısı",
       "label_i18n": {
-        "en": "Kişi Sayısı",
+        "en": "Number of People",
         "tr": "Kişi Sayısı",
         "de": "Anzahl der Personen",
         "fr": "Nombre de personnes",
@@ -89,7 +89,7 @@
         "ar": "عدد الأفراد"
       },
       "businessContext_i18n": {
-        "en": "Hesabı paylaşacak kişi sayısı",
+        "en": "Number of people sharing the account",
         "tr": "Hesabı paylaşacak kişi sayısı",
         "de": "Anzahl der Personen, die die Rechnung teilen",
         "fr": "Nombre de personnes partageant l'addition",

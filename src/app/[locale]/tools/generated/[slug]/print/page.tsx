@@ -1,0 +1,89 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { setRequestLocale } from "next-intl/server";
+import { PremiumGeneratedToolPrintContent } from "@/components/reports/PremiumGeneratedToolPrintContent";
+import type { AppLocale } from "@/i18n/routing";
+import { createPageMetadata } from "@/lib/metadata";
+import { getGeneratedToolSchema } from "@/lib/generated-tools/schema-loader";
+import { resolveGeneratedToolTitle } from "@/lib/generated-tools/resolve-tool-display";
+
+interface PrintRouteParams {
+  slug: string;
+  locale: string;
+}
+
+export const dynamic = "force-dynamic";
+export const maxDuration = 300;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<PrintRouteParams>;
+}): Promise<Metadata> {
+  const { slug, locale } = await params;
+  const schema = getGeneratedToolSchema(slug);
+  if (!schema) {
+    return {};
+  }
+
+  const displayName = resolveGeneratedToolTitle(slug, schema, locale);
+
+  return {
+    ...createPageMetadata({
+      title: `${displayName} — Premium Rapor | SectorCalc`,
+      description: `${displayName} premium mühendislik raporu.`,
+      path: `/tools/generated/${slug}/print`,
+      locale: locale as AppLocale,
+    }),
+    robots: { index: false, follow: false },
+  };
+}
+
+export default async function GeneratedToolPrintPage({
+  params,
+}: {
+  params: Promise<PrintRouteParams>;
+}) {
+  const { slug, locale } = await params;
+  setRequestLocale(locale);
+
+  const schema = getGeneratedToolSchema(slug);
+  if (!schema) {
+    notFound();
+  }
+
+  return (
+    <div className="sc-print-full-page">
+      <PremiumGeneratedToolPrintContent slug={slug} />
+      <style>{PRINT_PAGE_GLOBAL_OVERRIDES}</style>
+    </div>
+  );
+}
+
+/**
+ * Override the main site layout so the print page fills the viewport
+ * with the industrial theme instead of the site's default white background.
+ */
+const PRINT_PAGE_GLOBAL_OVERRIDES = `
+  .sc-print-full-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background: #0B1628;
+    z-index: 9999;
+    padding: 0;
+    margin: 0;
+  }
+  .sc-print-full-page body {
+    background: #0B1628;
+  }
+  @media print {
+    .sc-print-full-page {
+      position: static;
+      background: #0B1628;
+    }
+  }
+`;

@@ -9,7 +9,7 @@
       "default": 0,
       "businessContext": "Gerçekleşen ölçüm sonucu (örn. üretim parçasının ölçülen boyutu)",
       "label_i18n": {
-        "en": "Ölçülen Değer",
+        "en": "Measured Value",
         "tr": "Ölçülen Değer",
         "de": "Gemessener Wert",
         "fr": "Valeur mesurée",
@@ -17,7 +17,7 @@
         "ar": "القيمة المقاسة"
       },
       "businessContext_i18n": {
-        "en": "Gerçekleşen ölçüm sonucu (örn. üretim parçasının ölçülen boyutu)",
+        "en": "Actual measurement result (e.g., measured dimension of a manufactured part)",
         "tr": "Gerçekleşen ölçüm sonucu (örn. üretim parçasının ölçülen boyutu)",
         "de": "Gemessener Wert (z. B. gemessene Abmessung des produzierten Teils)",
         "fr": "Résultat de mesure réel (ex. dimension mesurée d'une pièce de production)",
@@ -33,7 +33,7 @@
       "default": 100,
       "businessContext": "Kabul edilen referans veya teorik değer (nominal ölçü)",
       "label_i18n": {
-        "en": "Referans Değer",
+        "en": "Reference Value",
         "tr": "Referans Değer",
         "de": "Referenzwert",
         "fr": "Valeur de référence",
@@ -41,7 +41,7 @@
         "ar": "القيمة المرجعية"
       },
       "businessContext_i18n": {
-        "en": "Kabul edilen referans veya teorik değer (nominal ölçü)",
+        "en": "Accepted reference or theoretical value (nominal measurement)",
         "tr": "Kabul edilen referans veya teorik değer (nominal ölçü)",
         "de": "Akzeptierter Referenz- oder theoretischer Wert (Nennmaß)",
         "fr": "Valeur de référence ou théorique acceptée (mesure nominale)",
@@ -65,7 +65,7 @@
         "ar": "التسامح (%)"
       },
       "businessContext_i18n": {
-        "en": "Kabul edilebilir yüzde hata sınırı (kalite kontrol limiti)",
+        "en": "Acceptable percentage error limit (quality control limit)",
         "tr": "Kabul edilebilir yüzde hata sınırı (kalite kontrol limiti)",
         "de": "Akzeptable prozentuale Fehlergrenze (Qualitätskontrollgrenze)",
         "fr": "Limite d'erreur acceptable en pourcentage (limite de contrôle qualité)",
@@ -81,7 +81,7 @@
       "default": 0.1,
       "businessContext": "Ölçüm prosesinin standart belirsizliği (k=1 için)",
       "label_i18n": {
-        "en": "Ölçüm Belirsizliği",
+        "en": "Measurement Uncertainty",
         "tr": "Ölçüm Belirsizliği",
         "de": "Messunsicherheit",
         "fr": "Incertitude de mesure",
@@ -89,7 +89,7 @@
         "ar": "عدم اليقين في القياس"
       },
       "businessContext_i18n": {
-        "en": "Ölçüm prosesinin standart belirsizliği (k=1 için)",
+        "en": "Standard uncertainty of the measurement process (for k=1)",
         "tr": "Ölçüm prosesinin standart belirsizliği (k=1 için)",
         "de": "Standardunsicherheit des Messprozesses (für k=1)",
         "fr": "Incertitude type du processus de mesure (pour k=1)",
@@ -105,7 +105,7 @@
       "default": 2,
       "businessContext": "Genişletilmiş belirsizlik için katsayı; %95 güven için tipik olarak 2",
       "label_i18n": {
-        "en": "Kapsam Faktörü (k)",
+        "en": "Coverage Factor (k)",
         "tr": "Kapsam Faktörü (k)",
         "de": "Erweiterungsfaktor (k)",
         "fr": "Facteur d'élargissement (k)",
@@ -113,7 +113,7 @@
         "ar": "عامل التغطية (k)"
       },
       "businessContext_i18n": {
-        "en": "Genişletilmiş belirsizlik için katsayı; %95 güven için tipik olarak 2",
+        "en": "Coefficient for expanded uncertainty; typically 2 for 95% confidence",
         "tr": "Genişletilmiş belirsizlik için katsayı; %95 güven için tipik olarak 2",
         "de": "Koeffizient für erweiterte Unsicherheit; typischerweise 2 für 95 % Konfidenz",
         "fr": "Coefficient pour l'incertitude élargie ; typiquement 2 pour un niveau de confiance de 95 %",

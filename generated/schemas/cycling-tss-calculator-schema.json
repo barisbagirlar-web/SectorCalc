@@ -9,7 +9,7 @@
       "default": 60,
       "businessContext": "Toplam sürüş süresi dakika cinsinden.",
       "label_i18n": {
-        "en": "Antrenman Süresi (dakika)",
+        "en": "Training Duration (minutes)",
         "tr": "Antrenman Süresi (dakika)",
         "de": "Trainingszeit (Minuten)",
         "fr": "Durée d'entraînement (minutes)",
@@ -17,7 +17,7 @@
         "ar": "مدة التمرين (بالدقائق)"
       },
       "businessContext_i18n": {
-        "en": "Toplam sürüş süresi dakika cinsinden.",
+        "en": "Total ride time in minutes.",
         "tr": "Toplam sürüş süresi dakika cinsinden.",
         "de": "Gesamte Fahrzeit in Minuten.",
         "fr": "Temps de parcours total en minutes.",
@@ -33,7 +33,7 @@
       "default": 200,
       "businessContext": "Sürüşün normalize gücü, watt cinsinden. Değişken çabaların fizyolojik maliyetini yansıtır.",
       "label_i18n": {
-        "en": "Normalize Güç (NP)",
+        "en": "Normalized Power (NP)",
         "tr": "Normalize Güç (NP)",
         "de": "Normalisierte Leistung (NP)",
         "fr": "Puissance normalisée (NP)",
@@ -41,7 +41,7 @@
         "ar": "القوة الطبيعية (NP)"
       },
       "businessContext_i18n": {
-        "en": "Sürüşün normalize gücü, watt cinsinden. Değişken çabaların fizyolojik maliyetini yansıtır.",
+        "en": "Normalized power of the ride, in watts. Reflects the physiological cost of variable efforts.",
         "tr": "Sürüşün normalize gücü, watt cinsinden. Değişken çabaların fizyolojik maliyetini yansıtır.",
         "de": "Normalisierte Leistung der Fahrt in Watt. Spiegelt die physiologischen Kosten wechselnder Anstrengungen wider.",
         "fr": "Puissance normalisée du parcours, en watts. Reflète le coût physiologique des efforts variables.",
@@ -57,7 +57,7 @@
       "default": 250,
       "businessContext": "Bir saat boyunca sürdürülebilen maksimum ortalama güç watt cinsinden.",
       "label_i18n": {
-        "en": "Fonksiyonel Eşik Gücü (FTP)",
+        "en": "Functional Threshold Power (FTP)",
         "tr": "Fonksiyonel Eşik Gücü (FTP)",
         "de": "Funktionelle Leistungsschwelle (FTP)",
         "fr": "Puissance au seuil fonctionnel (FTP)",
@@ -65,7 +65,7 @@
         "ar": "قوة العتبة الوظيفية (FTP)"
       },
       "businessContext_i18n": {
-        "en": "Bir saat boyunca sürdürülebilen maksimum ortalama güç watt cinsinden.",
+        "en": "Maximum average power sustainable for one hour, in watts.",
         "tr": "Bir saat boyunca sürdürülebilen maksimum ortalama güç watt cinsinden.",
         "de": "Maximale durchschnittliche Leistung, die eine Stunde lang aufrechterhalten werden kann, in Watt.",
         "fr": "Puissance moyenne maximale maintenable pendant une heure, en watts.",
@@ -81,7 +81,7 @@
       "default": 0,
       "businessContext": "Sürüşün aritmetik ortalama gücü. Değişkenlik Endeksi (VI) hesaplamak için isteğe bağlı.",
       "label_i18n": {
-        "en": "Ortalama Güç",
+        "en": "Average Power",
         "tr": "Ortalama Güç",
         "de": "Durchschnittsleistung",
         "fr": "Puissance moyenne",
@@ -89,7 +89,7 @@
         "ar": "متوسط القدرة"
       },
       "businessContext_i18n": {
-        "en": "Sürüşün aritmetik ortalama gücü. Değişkenlik Endeksi (VI) hesaplamak için isteğe bağlı.",
+        "en": "Arithmetic mean power of the ride. Optional for calculating Variability Index (VI).",
         "tr": "Sürüşün aritmetik ortalama gücü. Değişkenlik Endeksi (VI) hesaplamak için isteğe bağlı.",
         "de": "Arithmetische Durchschnittsleistung der Fahrt. Optional zur Berechnung des Variabilitätsindex (VI).",
         "fr": "Puissance moyenne arithmétique du parcours. Optionnel pour calculer l'indice de variabilité (VI).",

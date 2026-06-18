@@ -17,7 +17,7 @@
         "ar": "السعة الاسمية"
       },
       "businessContext_i18n": {
-        "en": "Forkliftin standart yük merkezindeki maksimum taşıma kapasitesi.",
+        "en": "Maximum load capacity at standard load center",
         "tr": "Forkliftin standart yük merkezindeki maksimum taşıma kapasitesi.",
         "de": "Maximale Tragfähigkeit des Gabelstaplers bei standardmäßigem Lastschwerpunkt.",
         "fr": "Capacité de levage maximale du chariot élévateur au centre de charge standard.",
@@ -33,7 +33,7 @@
       "default": 600,
       "businessContext": "Forkliftin nominal kapasitesinin geçerli olduğu standart yük merkezi mesafesi.",
       "label_i18n": {
-        "en": "Standart Yük Merkezi",
+        "en": "Standard Load Center",
         "tr": "Standart Yük Merkezi",
         "de": "Standard-Lastschwerpunkt",
         "fr": "Centre de charge standard",
@@ -41,7 +41,7 @@
         "ar": "مركز الحمل القياسي"
       },
       "businessContext_i18n": {
-        "en": "Forkliftin nominal kapasitesinin geçerli olduğu standart yük merkezi mesafesi.",
+        "en": "Standard load center distance at which the forklift's nominal capacity applies",
         "tr": "Forkliftin nominal kapasitesinin geçerli olduğu standart yük merkezi mesafesi.",
         "de": "Standard-Lastschwerpunktabstand, für den die Nennkapazität des Gabelstaplers gilt.",
         "fr": "Distance standard du centre de charge pour laquelle la capacité nominale du chariot élévateur est valide.",
@@ -57,7 +57,7 @@
       "default": 700,
       "businessContext": "Taşınacak yükün ağırlık merkezinin fork arkasına olan gerçek mesafesi.",
       "label_i18n": {
-        "en": "Gerçek Yük Merkezi",
+        "en": "Actual Load Center",
         "tr": "Gerçek Yük Merkezi",
         "de": "Tatsächlicher Lastschwerpunkt",
         "fr": "Centre de charge réel",
@@ -65,7 +65,7 @@
         "ar": "مركز الحمل الفعلي"
       },
       "businessContext_i18n": {
-        "en": "Taşınacak yükün ağırlık merkezinin fork arkasına olan gerçek mesafesi.",
+        "en": "Actual distance from the center of gravity of the load to the back of the forks",
         "tr": "Taşınacak yükün ağırlık merkezinin fork arkasına olan gerçek mesafesi.",
         "de": "Tatsächlicher Abstand des Schwerpunkts der zu transportierenden Last zur Gabelrückseite.",
         "fr": "Distance réelle entre le centre de gravité de la charge et l'arrière des fourches.",
@@ -81,7 +81,7 @@
       "default": 4,
       "businessContext": "Yükün kaldırılacağı dikey yükseklik.",
       "label_i18n": {
-        "en": "Kaldırma Yüksekliği",
+        "en": "Lift Height",
         "tr": "Kaldırma Yüksekliği",
         "de": "Hubhöhe",
         "fr": "Hauteur de levage",
@@ -89,7 +89,7 @@
         "ar": "ارتفاع الرفع"
       },
       "businessContext_i18n": {
-        "en": "Yükün kaldırılacağı dikey yükseklik.",
+        "en": "Vertical height to which the load will be lifted",
         "tr": "Yükün kaldırılacağı dikey yükseklik.",
         "de": "Vertikale Höhe, auf die die Last angehoben wird.",
         "fr": "Hauteur verticale à laquelle la charge sera levée.",
@@ -105,7 +105,7 @@
       "default": 5,
       "businessContext": "Forkliftin erişebileceği en yüksek nokta.",
       "label_i18n": {
-        "en": "Maksimum Kaldırma Yüksekliği",
+        "en": "Maximum Lift Height",
         "tr": "Maksimum Kaldırma Yüksekliği",
         "de": "Maximale Hubhöhe",
         "fr": "Hauteur de levage maximale",
@@ -113,7 +113,7 @@
         "ar": "أقصى ارتفاع للرفع"
       },
       "businessContext_i18n": {
-        "en": "Forkliftin erişebileceği en yüksek nokta.",
+        "en": "Highest point the forklift can reach",
         "tr": "Forkliftin erişebileceği en yüksek nokta.",
         "de": "Höchster Punkt, den der Gabelstapler erreichen kann.",
         "fr": "Point le plus élevé accessible par le chariot élévateur.",
@@ -129,7 +129,7 @@
       "default": 1.5,
       "businessContext": "Operasyonel emniyet için uygulanan güvenlik katsayısı.",
       "label_i18n": {
-        "en": "Güvenlik Faktörü",
+        "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
         "fr": "Facteur de sécurité",
@@ -137,7 +137,7 @@
         "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
-        "en": "Operasyonel emniyet için uygulanan güvenlik katsayısı.",
+        "en": "Safety factor applied for operational safety",
         "tr": "Operasyonel emniyet için uygulanan güvenlik katsayısı.",
         "de": "Sicherheitsfaktor für die Betriebssicherheit.",
         "fr": "Coefficient de sécurité appliqué pour la sécurité opérationnelle.",

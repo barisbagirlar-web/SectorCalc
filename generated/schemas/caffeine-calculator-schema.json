@@ -9,7 +9,7 @@
       "default": 250,
       "businessContext": "Tek bir porsiyonun hacmi (ml cinsinden)",
       "label_i18n": {
-        "en": "Hacim (Servis Başına)",
+        "en": "Volume (per Service)",
         "tr": "Hacim (Servis Başına)",
         "de": "Volumen (pro Portion)",
         "fr": "Volume (par portion)",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "Tüketilen veya hazırlanan porsiyon sayısı",
       "label_i18n": {
-        "en": "Porsiyon Sayısı",
+        "en": "Number of Portions",
         "tr": "Porsiyon Sayısı",
         "de": "Anzahl Portionen",
         "fr": "Nombre de portions",
@@ -41,7 +41,7 @@
         "ar": "عدد الحصص"
       },
       "businessContext_i18n": {
-        "en": "Tüketilen veya hazırlanan porsiyon sayısı",
+        "en": "Number of portions consumed or prepared.",
         "tr": "Tüketilen veya hazırlanan porsiyon sayısı",
         "de": "Anzahl der konsumierten oder zubereiteten Portionen",
         "fr": "Nombre de portions consommées ou préparées",
@@ -57,7 +57,7 @@
       "default": 40,
       "businessContext": "İçeceğin 100 ml'sinde bulunan kafein miktarı (mg)",
       "label_i18n": {
-        "en": "100 ml'deki Kafein Miktarı",
+        "en": "Caffeine Amount per 100 ml",
         "tr": "100 ml'deki Kafein Miktarı",
         "de": "Koffein pro 100 ml",
         "fr": "Quantité de caféine dans 100 ml",
@@ -65,7 +65,7 @@
         "ar": "كمية الكافيين لكل 100 مل"
       },
       "businessContext_i18n": {
-        "en": "İçeceğin 100 ml'sinde bulunan kafein miktarı (mg)",
+        "en": "Amount of caffeine in 100 ml of the beverage (mg).",
         "tr": "İçeceğin 100 ml'sinde bulunan kafein miktarı (mg)",
         "de": "Koffeinmenge pro 100 ml Getränk (mg)",
         "fr": "Quantité de caféine (mg) dans 100 ml de boisson",
@@ -81,7 +81,7 @@
       "default": 70,
       "businessContext": "Kişinin vücut ağırlığı (kg)",
       "label_i18n": {
-        "en": "Vücut Ağırlığı",
+        "en": "Body Weight",
         "tr": "Vücut Ağırlığı",
         "de": "Körpergewicht",
         "fr": "Poids corporel",
@@ -89,7 +89,7 @@
         "ar": "وزن الجسم"
       },
       "businessContext_i18n": {
-        "en": "Kişinin vücut ağırlığı (kg)",
+        "en": "Person's body weight (kg)",
         "tr": "Kişinin vücut ağırlığı (kg)",
         "de": "Körpergewicht (kg)",
         "fr": "Poids corporel (kg)",

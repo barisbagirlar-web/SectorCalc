@@ -9,7 +9,7 @@
       "default": 5,
       "businessContext": "Batch başına kullanılan malt miktarı",
       "label_i18n": {
-        "en": "Malt Miktarı (kg)",
+        "en": "Malt Amount (kg)",
         "tr": "Malt Miktarı (kg)",
         "de": "Malzmenge (kg)",
         "fr": "Quantité de malt (kg)",
@@ -17,7 +17,7 @@
         "ar": "كمية الشعير (كجم)"
       },
       "businessContext_i18n": {
-        "en": "Batch başına kullanılan malt miktarı",
+        "en": "Malt amount used per batch",
         "tr": "Batch başına kullanılan malt miktarı",
         "de": "Verwendete Malzmenge pro Charge",
         "fr": "Quantité de malt utilisée par lot",
@@ -33,7 +33,7 @@
       "default": 15,
       "businessContext": "Maltın kilogram başına maliyeti",
       "label_i18n": {
-        "en": "Malt Birim Fiyatı (TL/kg)",
+        "en": "Malt Unit Price (TL/kg)",
         "tr": "Malt Birim Fiyatı (TL/kg)",
         "de": "Malzstückpreis (TL/kg)",
         "fr": "Prix unitaire du malt (TL/kg)",
@@ -41,7 +41,7 @@
         "ar": "سعر وحدة الشعير (ليرة تركية/كجم)"
       },
       "businessContext_i18n": {
-        "en": "Maltın kilogram başına maliyeti",
+        "en": "Cost per kilogram of malt",
         "tr": "Maltın kilogram başına maliyeti",
         "de": "Kosten pro Kilogramm Malz",
         "fr": "Coût du malt par kilogramme",
@@ -57,7 +57,7 @@
       "default": 100,
       "businessContext": "Batch başına şerbetçiotu miktarı",
       "label_i18n": {
-        "en": "Şerbetçiotu Miktarı (g)",
+        "en": "Hops Amount (g)",
         "tr": "Şerbetçiotu Miktarı (g)",
         "de": "Hopfenmenge (g)",
         "fr": "Quantité de houblon (g)",
@@ -65,7 +65,7 @@
         "ar": "كمية الجنجل (جم)"
       },
       "businessContext_i18n": {
-        "en": "Batch başına şerbetçiotu miktarı",
+        "en": "Hops amount per batch",
         "tr": "Batch başına şerbetçiotu miktarı",
         "de": "Hopfenmenge pro Charge",
         "fr": "Quantité de houblon par lot",
@@ -81,7 +81,7 @@
       "default": 50,
       "businessContext": "100 gram şerbetçiotu fiyatı",
       "label_i18n": {
-        "en": "Şerbetçiotu 100g Fiyatı (TL)",
+        "en": "Hops 100g Price (TL)",
         "tr": "Şerbetçiotu 100g Fiyatı (TL)",
         "de": "Hopfenpreis pro 100 g (TL)",
         "fr": "Prix du houblon pour 100 g (TL)",
@@ -89,7 +89,7 @@
         "ar": "سعر 100 جرام من الجنجل (ليرة تركية)"
       },
       "businessContext_i18n": {
-        "en": "100 gram şerbetçiotu fiyatı",
+        "en": "Price per 100 grams of hops",
         "tr": "100 gram şerbetçiotu fiyatı",
         "de": "Preis für 100 Gramm Hopfen",
         "fr": "Prix de 100 grammes de houblon",
@@ -113,7 +113,7 @@
         "ar": "تكلفة الخميرة (ليرة تركية)"
       },
       "businessContext_i18n": {
-        "en": "Batch başına maya maliyeti",
+        "en": "Yeast cost per batch",
         "tr": "Batch başına maya maliyeti",
         "de": "Hefekosten pro Charge",
         "fr": "Coût de la levure par lot",
@@ -129,7 +129,7 @@
       "default": 2.5,
       "businessContext": "Fabrika elektrik birim fiyatı",
       "label_i18n": {
-        "en": "Enerji Birim Fiyatı (TL/kWh)",
+        "en": "Energy Unit Price (TL/kWh)",
         "tr": "Enerji Birim Fiyatı (TL/kWh)",
         "de": "Energiestückpreis (TL/kWh)",
         "fr": "Prix unitaire de l'énergie (TL/kWh)",
@@ -137,7 +137,7 @@
         "ar": "سعر وحدة الطاقة (ليرة تركية/كيلوواط ساعة)"
       },
       "businessContext_i18n": {
-        "en": "Fabrika elektrik birim fiyatı",
+        "en": "Factory electricity unit price",
         "tr": "Fabrika elektrik birim fiyatı",
         "de": "Fabrikstrompreis pro Einheit",
         "fr": "Prix unitaire de l'électricité de l'usine",
@@ -153,7 +153,7 @@
       "default": 1000,
       "businessContext": "Batch sonucu elde edilen bira miktarı (litre)",
       "label_i18n": {
-        "en": "Üretim Hacmi (L)",
+        "en": "Production Volume (L)",
         "tr": "Üretim Hacmi (L)",
         "de": "Produktionsvolumen (L)",
         "fr": "Volume de production (L)",
@@ -161,7 +161,7 @@
         "ar": "حجم الإنتاج (لتر)"
       },
       "businessContext_i18n": {
-        "en": "Batch sonucu elde edilen bira miktarı (litre)",
+        "en": "Beer quantity obtained per batch (liters)",
         "tr": "Batch sonucu elde edilen bira miktarı (litre)",
         "de": "Erhaltene Biermenge pro Charge (Liter)",
         "fr": "Quantité de bière obtenue par lot (litres)",
@@ -185,7 +185,7 @@
         "ar": "المصاريف العامة (ليرة تركية)"
       },
       "businessContext_i18n": {
-        "en": "İşçilik, bakım, amortisman vb. dahil batch başına sabit gider",
+        "en": "Fixed cost per batch including labor, maintenance, depreciation, etc.",
         "tr": "İşçilik, bakım, amortisman vb. dahil batch başına sabit gider",
         "de": "Fixe Kosten pro Charge inkl. Arbeit, Wartung, Abschreibung usw.",
         "fr": "Frais fixes par lot incluant main-d'œuvre, entretien, amortissement, etc.",

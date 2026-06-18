@@ -9,7 +9,7 @@
       "default": 2,
       "businessContext": "Gözlemci ile tabela/etiket arasındaki mesafe",
       "label_i18n": {
-        "en": "Görüş Mesafesi",
+        "en": "Viewing Distance",
         "tr": "Görüş Mesafesi",
         "de": "Betrachtungsabstand",
         "fr": "Distance de visualisation",
@@ -17,7 +17,7 @@
         "ar": "مسافة الرؤية"
       },
       "businessContext_i18n": {
-        "en": "Gözlemci ile tabela/etiket arasındaki mesafe",
+        "en": "Distance between observer and sign/label",
         "tr": "Gözlemci ile tabela/etiket arasındaki mesafe",
         "de": "Abstand zwischen Betrachter und Schild/Etikett",
         "fr": "Distance entre l'observateur et le panneau/étiquette",
@@ -33,7 +33,7 @@
       "default": 1,
       "businessContext": "Kullanıcı yaş grubuna göre düzeltme (20-40:1, 40-55:1.2, 55+:1.4)",
       "label_i18n": {
-        "en": "Yaş Faktörü",
+        "en": "Age Factor",
         "tr": "Yaş Faktörü",
         "de": "Altersfaktor",
         "fr": "Facteur d'âge",
@@ -41,7 +41,7 @@
         "ar": "عامل العمر"
       },
       "businessContext_i18n": {
-        "en": "Kullanıcı yaş grubuna göre düzeltme (20-40:1, 40-55:1.2, 55+:1.4)",
+        "en": "Correction based on user age group (20-40:1, 40-55:1.2, 55+:1.4)",
         "tr": "Kullanıcı yaş grubuna göre düzeltme (20-40:1, 40-55:1.2, 55+:1.4)",
         "de": "Korrektur nach Altersgruppe (20-40:1, 40-55:1.2, 55+:1.4)",
         "fr": "Correction selon la tranche d'âge (20-40:1, 40-55:1.2, 55+:1.4)",
@@ -57,7 +57,7 @@
       "default": 1,
       "businessContext": "Ortam aydınlatma koşullarına göre düzeltme (parlak:1, loş:1.5)",
       "label_i18n": {
-        "en": "Aydınlatma Faktörü",
+        "en": "Lighting Factor",
         "tr": "Aydınlatma Faktörü",
         "de": "Beleuchtungsfaktor",
         "fr": "Facteur d'éclairage",
@@ -65,7 +65,7 @@
         "ar": "عامل الإضاءة"
       },
       "businessContext_i18n": {
-        "en": "Ortam aydınlatma koşullarına göre düzeltme (parlak:1, loş:1.5)",
+        "en": "Correction based on ambient lighting conditions (bright:1, dim:1.5)",
         "tr": "Ortam aydınlatma koşullarına göre düzeltme (parlak:1, loş:1.5)",
         "de": "Korrektur nach Umgebungsbeleuchtung (hell:1, dunkel:1.5)",
         "fr": "Correction selon les conditions d'éclairage ambiant (lumineux:1, faible:1.5)",
@@ -81,7 +81,7 @@
       "default": 1,
       "businessContext": "Kritiklik seviyesine göre düzeltme (bilgi:1, uyarı:1.5, tehlike:2)",
       "label_i18n": {
-        "en": "Güvenlik Faktörü",
+        "en": "Safety Factor",
         "tr": "Güvenlik Faktörü",
         "de": "Sicherheitsfaktor",
         "fr": "Facteur de sécurité",
@@ -89,7 +89,7 @@
         "ar": "عامل الأمان"
       },
       "businessContext_i18n": {
-        "en": "Kritiklik seviyesine göre düzeltme (bilgi:1, uyarı:1.5, tehlike:2)",
+        "en": "Correction based on criticality level (info:1, warning:1.5, danger:2)",
         "tr": "Kritiklik seviyesine göre düzeltme (bilgi:1, uyarı:1.5, tehlike:2)",
         "de": "Korrektur nach Kritikalität (Information:1, Warnung:1.5, Gefahr:2)",
         "fr": "Correction selon le niveau de criticité (information:1, avertissement:1.5, danger:2)",

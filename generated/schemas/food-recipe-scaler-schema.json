@@ -17,7 +17,7 @@
         "ar": "الحصة الأصلية"
       },
       "businessContext_i18n": {
-        "en": "Bu alan, tarifteki orijinal porsiyon sayısını belirtir.",
+        "en": "This field indicates the original number of servings in the recipe.",
         "tr": "Bu alan, tarifteki orijinal porsiyon sayısını belirtir.",
         "de": "Dieses Feld gibt die ursprüngliche Anzahl der Portionen im Rezept an.",
         "fr": "Ce champ indique le nombre de portions d'origine dans la recette.",
@@ -41,7 +41,7 @@
         "ar": "الحصة المستهدفة"
       },
       "businessContext_i18n": {
-        "en": "Bu alan, elde edilmek istenen hedef porsiyon sayısını belirtir.",
+        "en": "This field indicates the desired target number of servings.",
         "tr": "Bu alan, elde edilmek istenen hedef porsiyon sayısını belirtir.",
         "de": "Dieses Feld gibt die gewünschte Zielanzahl der Portionen an.",
         "fr": "Ce champ indique le nombre de portions cible souhaité.",
@@ -57,7 +57,7 @@
       "default": 200,
       "businessContext": "Bu alan, ilk malzemenin orijinal miktarını belirtir (gram, ml vb.).",
       "label_i18n": {
-        "en": "Malzeme 1 Miktarı",
+        "en": "Ingredient 1 Quantity",
         "tr": "Malzeme 1 Miktarı",
         "de": "Menge Zutat 1",
         "fr": "Quantité de l'ingrédient 1",
@@ -65,7 +65,7 @@
         "ar": "كمية المكون 1"
       },
       "businessContext_i18n": {
-        "en": "Bu alan, ilk malzemenin orijinal miktarını belirtir (gram, ml vb.).",
+        "en": "This field indicates the original quantity of the first ingredient (grams, ml, etc.).",
         "tr": "Bu alan, ilk malzemenin orijinal miktarını belirtir (gram, ml vb.).",
         "de": "Dieses Feld gibt die ursprüngliche Menge der ersten Zutat an (Gramm, ml usw.).",
         "fr": "Ce champ indique la quantité originale du premier matériau (grammes, ml, etc.).",
@@ -81,7 +81,7 @@
       "default": 100,
       "businessContext": "Bu alan, ikinci malzemenin orijinal miktarını belirtir (gram, ml vb.).",
       "label_i18n": {
-        "en": "Malzeme 2 Miktarı",
+        "en": "Ingredient 2 Quantity",
         "tr": "Malzeme 2 Miktarı",
         "de": "Menge Zutat 2",
         "fr": "Quantité de matériau 2",
@@ -89,7 +89,7 @@
         "ar": "كمية المكون 2"
       },
       "businessContext_i18n": {
-        "en": "Bu alan, ikinci malzemenin orijinal miktarını belirtir (gram, ml vb.).",
+        "en": "This field indicates the original quantity of the second ingredient (grams, ml, etc.).",
         "tr": "Bu alan, ikinci malzemenin orijinal miktarını belirtir (gram, ml vb.).",
         "de": "Dieses Feld gibt die ursprüngliche Menge der zweiten Zutat an (Gramm, ml usw.).",
         "fr": "Ce champ indique la quantité originale du deuxième matériau (grammes, ml, etc.).",
@@ -105,7 +105,7 @@
       "default": 50,
       "businessContext": "Bu alan, üçüncü malzemenin orijinal miktarını belirtir (gram, ml vb.).",
       "label_i18n": {
-        "en": "Malzeme 3 Miktarı",
+        "en": "Ingredient 3 Quantity",
         "tr": "Malzeme 3 Miktarı",
         "de": "Menge Zutat 3",
         "fr": "Quantité de matériau 3",
@@ -113,7 +113,7 @@
         "ar": "كمية المكون 3"
       },
       "businessContext_i18n": {
-        "en": "Bu alan, üçüncü malzemenin orijinal miktarını belirtir (gram, ml vb.).",
+        "en": "Original quantity of the third material (grams, ml, etc.)",
         "tr": "Bu alan, üçüncü malzemenin orijinal miktarını belirtir (gram, ml vb.).",
         "de": "Dieses Feld gibt die ursprüngliche Menge der dritten Zutat an (Gramm, ml usw.).",
         "fr": "Ce champ indique la quantité originale du troisième matériau (grammes, ml, etc.).",

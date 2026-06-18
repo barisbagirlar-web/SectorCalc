@@ -9,7 +9,7 @@
       "default": 0,
       "businessContext": "Mülkün aylık brüt kira geliri (ana kiracıdan elde edilen).",
       "label_i18n": {
-        "en": "Aylık Kira Geliri",
+        "en": "Monthly Rental Income",
         "tr": "Aylık Kira Geliri",
         "de": "Monatliche Mieteinnahmen",
         "fr": "Revenu locatif mensuel",
@@ -17,7 +17,7 @@
         "ar": "دخل الإيجار الشهري"
       },
       "businessContext_i18n": {
-        "en": "Mülkün aylık brüt kira geliri (ana kiracıdan elde edilen).",
+        "en": "Monthly gross rental income of the property (from the main tenant).",
         "tr": "Mülkün aylık brüt kira geliri (ana kiracıdan elde edilen).",
         "de": "Monatliche Bruttomieteinnahmen der Immobilie (vom Hauptmieter).",
         "fr": "Revenu locatif brut mensuel de la propriété (provenant du locataire principal).",
@@ -33,7 +33,7 @@
       "default": 0,
       "businessContext": "Otopark, çamaşırhane, depo kirası gibi ek gelirlerin toplamı.",
       "label_i18n": {
-        "en": "Diğer Aylık Gelirler",
+        "en": "Other Monthly Income",
         "tr": "Diğer Aylık Gelirler",
         "de": "Sonstige monatliche Einnahmen",
         "fr": "Autres revenus mensuels",
@@ -41,7 +41,7 @@
         "ar": "إيرادات شهرية أخرى"
       },
       "businessContext_i18n": {
-        "en": "Otopark, çamaşırhane, depo kirası gibi ek gelirlerin toplamı.",
+        "en": "Total additional income such as parking, laundry, storage rent.",
         "tr": "Otopark, çamaşırhane, depo kirası gibi ek gelirlerin toplamı.",
         "de": "Summe der Nebeneinnahmen wie Parkplatz, Wäscherei, Lagermiete.",
         "fr": "Total des revenus supplémentaires tels que parking, blanchisserie, loyer d'entrepôt.",
@@ -57,7 +57,7 @@
       "default": 50,
       "businessContext": "İşletme giderlerinin efektif brüt gelire oranı (ipotek hariç). 50% kuralına göre varsayılan.",
       "label_i18n": {
-        "en": "Gider Yüzdesi",
+        "en": "Expense Percentage",
         "tr": "Gider Yüzdesi",
         "de": "Ausgabenquote",
         "fr": "Pourcentage des dépenses",
@@ -65,7 +65,7 @@
         "ar": "نسبة المصروفات"
       },
       "businessContext_i18n": {
-        "en": "İşletme giderlerinin efektif brüt gelire oranı (ipotek hariç). 50% kuralına göre varsayılan.",
+        "en": "Ratio of operating expenses to effective gross income (excluding mortgage). Default based on the 50% rule.",
         "tr": "İşletme giderlerinin efektif brüt gelire oranı (ipotek hariç). 50% kuralına göre varsayılan.",
         "de": "Verhältnis der Betriebsausgaben zum effektiven Bruttoertrag (ohne Hypothek). Standard gemäß 50%-Regel.",
         "fr": "Ratio des dépenses d'exploitation par rapport au revenu brut effectif (hors hypothèque). Valeur par défaut selon la règle des 50 %.",
@@ -81,7 +81,7 @@
       "default": 5,
       "businessContext": "Kiracı boşluğu ve tahsilat kaybı nedeniyle gelir kaybı oranı.",
       "label_i18n": {
-        "en": "Boşluk Oranı",
+        "en": "Vacancy Rate",
         "tr": "Boşluk Oranı",
         "de": "Leerstandsquote",
         "fr": "Taux d'inoccupation",
@@ -89,7 +89,7 @@
         "ar": "نسبة الشغور"
       },
       "businessContext_i18n": {
-        "en": "Kiracı boşluğu ve tahsilat kaybı nedeniyle gelir kaybı oranı.",
+        "en": "Income loss rate due to tenant vacancy and collection loss.",
         "tr": "Kiracı boşluğu ve tahsilat kaybı nedeniyle gelir kaybı oranı.",
         "de": "Ertragsausfallrate durch Mieterfluktuation und Inkassoverluste.",
         "fr": "Taux de perte de revenus due à l'inoccupation des locataires et aux pertes de recouvrement.",

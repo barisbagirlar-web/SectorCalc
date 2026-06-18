@@ -9,7 +9,7 @@
       "default": 50,
       "businessContext": "Aylık sabit internet ücreti",
       "label_i18n": {
-        "en": "Aylık Temel Ücret",
+        "en": "Monthly Base Fee",
         "tr": "Aylık Temel Ücret",
         "de": "Monatliche Grundgebühr",
         "fr": "Frais de base mensuels",
@@ -17,7 +17,7 @@
         "ar": "الرسوم الأساسية الشهرية"
       },
       "businessContext_i18n": {
-        "en": "Aylık sabit internet ücreti",
+        "en": "Monthly Fixed Internet Fee",
         "tr": "Aylık sabit internet ücreti",
         "de": "Monatliche Festnetz-Internetgebühr",
         "fr": "Frais internet fixes mensuels",
@@ -33,7 +33,7 @@
       "default": 100,
       "businessContext": "Aylık veri kullanım sınırı",
       "label_i18n": {
-        "en": "Veri Kotası",
+        "en": "Data Quota",
         "tr": "Veri Kotası",
         "de": "Datenvolumen",
         "fr": "Quota de données",
@@ -41,7 +41,7 @@
         "ar": "حزمة البيانات"
       },
       "businessContext_i18n": {
-        "en": "Aylık veri kullanım sınırı",
+        "en": "Monthly Data Usage Limit",
         "tr": "Aylık veri kullanım sınırı",
         "de": "Monatliches Datenlimit",
         "fr": "Limite mensuelle d'utilisation des données",
@@ -57,7 +57,7 @@
       "default": 2,
       "businessContext": "Kota aşımında GB başına ek ücret",
       "label_i18n": {
-        "en": "Aşım Ücreti (GB başına)",
+        "en": "Overage Fee (per GB)",
         "tr": "Aşım Ücreti (GB başına)",
         "de": "Überlastungsgebühr (pro GB)",
         "fr": "Frais de dépassement (par Go)",
@@ -65,7 +65,7 @@
         "ar": "رسوم التجاوز (لكل جيجابايت)"
       },
       "businessContext_i18n": {
-        "en": "Kota aşımında GB başına ek ücret",
+        "en": "Extra Fee per GB for Exceeding Quota",
         "tr": "Kota aşımında GB başına ek ücret",
         "de": "Zusätzliche Gebühr pro GB bei Überschreitung des Datenvolumens",
         "fr": "Frais supplémentaires par Go en cas de dépassement du quota",
@@ -81,7 +81,7 @@
       "default": 120,
       "businessContext": "Gerçekleşen aylık veri kullanımı",
       "label_i18n": {
-        "en": "Kullanım Miktarı",
+        "en": "Usage Amount",
         "tr": "Kullanım Miktarı",
         "de": "Nutzungsmenge",
         "fr": "Quantité utilisée",
@@ -89,7 +89,7 @@
         "ar": "كمية الاستخدام"
       },
       "businessContext_i18n": {
-        "en": "Gerçekleşen aylık veri kullanımı",
+        "en": "Actual Monthly Data Usage",
         "tr": "Gerçekleşen aylık veri kullanımı",
         "de": "Tatsächliche monatliche Datennutzung",
         "fr": "Utilisation mensuelle réelle des données",
@@ -105,7 +105,7 @@
       "default": 10,
       "businessContext": "Sözleşme süresine bağlı yüzde indirim",
       "label_i18n": {
-        "en": "Taahhüt İndirimi",
+        "en": "Commitment Discount",
         "tr": "Taahhüt İndirimi",
         "de": "Vertragsrabatt",
         "fr": "Remise d'engagement",
@@ -113,7 +113,7 @@
         "ar": "خصم الالتزام"
       },
       "businessContext_i18n": {
-        "en": "Sözleşme süresine bağlı yüzde indirim",
+        "en": "Percentage Discount Based on Contract Duration",
         "tr": "Sözleşme süresine bağlı yüzde indirim",
         "de": "Prozentualer Rabatt basierend auf Vertragslaufzeit",
         "fr": "Pourcentage de remise lié à la durée du contrat",
@@ -129,7 +129,7 @@
       "default": 18,
       "businessContext": "Uygulanan vergi yüzdesi",
       "label_i18n": {
-        "en": "Vergi Oranı",
+        "en": "Tax Rate",
         "tr": "Vergi Oranı",
         "de": "Steuersatz",
         "fr": "Taux d'imposition",
@@ -137,7 +137,7 @@
         "ar": "معدل الضريبة"
       },
       "businessContext_i18n": {
-        "en": "Uygulanan vergi yüzdesi",
+        "en": "Applied Tax Percentage",
         "tr": "Uygulanan vergi yüzdesi",
         "de": "Angewandter Steuersatz in Prozent",
         "fr": "Pourcentage de taxe appliqué",

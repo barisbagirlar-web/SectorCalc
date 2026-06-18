@@ -9,7 +9,7 @@
       "default": 30,
       "businessContext": "Analiz edilen metindeki toplam cümle sayısı",
       "label_i18n": {
-        "en": "Toplam Cümle Sayısı",
+        "en": "Total Sentence Count",
         "tr": "Toplam Cümle Sayısı",
         "de": "Gesamtsatzanzahl",
         "fr": "Nombre total de phrases",
@@ -17,7 +17,7 @@
         "ar": "إجمالي عدد الجمل"
       },
       "businessContext_i18n": {
-        "en": "Analiz edilen metindeki toplam cümle sayısı",
+        "en": "Total number of sentences in the analyzed text",
         "tr": "Analiz edilen metindeki toplam cümle sayısı",
         "de": "Gesamtzahl der Sätze im analysierten Text",
         "fr": "Nombre total de phrases dans le texte analysé",
@@ -33,7 +33,7 @@
       "default": 10,
       "businessContext": "Metinde 3 veya daha fazla heceye sahip kelime sayısı",
       "label_i18n": {
-        "en": "Toplam Çok Heceli Kelime Sayısı (3+ hece)",
+        "en": "Total polysyllabic word count (3+ syllables)",
         "tr": "Toplam Çok Heceli Kelime Sayısı (3+ hece)",
         "de": "Gesamtzahl mehrsilbiger Wörter (3+ Silben)",
         "fr": "Nombre total de mots polysyllabiques (3+ syllabes)",
@@ -41,7 +41,7 @@
         "ar": "إجمالي عدد الكلمات متعددة المقاطع (3 مقاطع فأكثر)"
       },
       "businessContext_i18n": {
-        "en": "Metinde 3 veya daha fazla heceye sahip kelime sayısı",
+        "en": "Number of words with 3 or more syllables in the text",
         "tr": "Metinde 3 veya daha fazla heceye sahip kelime sayısı",
         "de": "Anzahl der Wörter mit 3 oder mehr Silben im Text",
         "fr": "Nombre de mots de 3 syllabes ou plus dans le texte",
@@ -57,7 +57,7 @@
       "default": 30,
       "businessContext": "Standart SMOG hesaplamasında kullanılan örneklem cümle sayısı (genelde 30)",
       "label_i18n": {
-        "en": "Örneklem Cümle Sayısı",
+        "en": "Sample sentence count",
         "tr": "Örneklem Cümle Sayısı",
         "de": "Anzahl der Beispielsätze",
         "fr": "Nombre de phrases de l'échantillon",
@@ -65,7 +65,7 @@
         "ar": "عدد جمل العينة"
       },
       "businessContext_i18n": {
-        "en": "Standart SMOG hesaplamasında kullanılan örneklem cümle sayısı (genelde 30)",
+        "en": "Number of sample sentences used in standard SMOG calculation (usually 30)",
         "tr": "Standart SMOG hesaplamasında kullanılan örneklem cümle sayısı (genelde 30)",
         "de": "Anzahl der Beispielsätze für die Standard-SMOG-Berechnung (normalerweise 30)",
         "fr": "Nombre de phrases de l'échantillon utilisé dans le calcul SMOG standard (généralement 30)",
@@ -81,7 +81,7 @@
       "default": 300,
       "businessContext": "Metindeki toplam kelime sayısı (bilgi amaçlı, formülde kullanılmaz)",
       "label_i18n": {
-        "en": "Toplam Kelime Sayısı",
+        "en": "Total Word Count",
         "tr": "Toplam Kelime Sayısı",
         "de": "Gesamtwortanzahl",
         "fr": "Nombre total de mots",
@@ -89,7 +89,7 @@
         "ar": "إجمالي عدد الكلمات"
       },
       "businessContext_i18n": {
-        "en": "Metindeki toplam kelime sayısı (bilgi amaçlı, formülde kullanılmaz)",
+        "en": "Total word count in the text (for information, not used in formula)",
         "tr": "Metindeki toplam kelime sayısı (bilgi amaçlı, formülde kullanılmaz)",
         "de": "Gesamtwortzahl im Text (nur zur Information, nicht in der Formel verwendet)",
         "fr": "Nombre total de mots dans le texte (à titre informatif, non utilisé dans la formule)",

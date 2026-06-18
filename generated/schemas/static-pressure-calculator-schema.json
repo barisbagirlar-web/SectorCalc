@@ -9,7 +9,7 @@
       "default": 1000,
       "businessContext": "Akışkanın yoğunluğu (kg/m³). Su için 1000, hava için yaklaşık 1.225.",
       "label_i18n": {
-        "en": "Akışkan Yoğunluğu",
+        "en": "Fluid Density",
         "tr": "Akışkan Yoğunluğu",
         "de": "Fluiddichte",
         "fr": "Masse volumique du fluide",
@@ -17,7 +17,7 @@
         "ar": "كثافة المائع"
       },
       "businessContext_i18n": {
-        "en": "Akışkanın yoğunluğu (kg/m³). Su için 1000, hava için yaklaşık 1.225.",
+        "en": "Fluid density (kg/m³). For water 1000, for air approximately 1.225.",
         "tr": "Akışkanın yoğunluğu (kg/m³). Su için 1000, hava için yaklaşık 1.225.",
         "de": "Dichte des Fluids (kg/m³). Für Wasser 1000, für Luft ca. 1,225.",
         "fr": "Densité du fluide (kg/m³). Pour l'eau 1000, pour l'air environ 1,225.",
@@ -33,7 +33,7 @@
       "default": 9.81,
       "businessContext": "Yerçekimi ivmesi (m/s²). Dünya yüzeyinde ortalama ~9.81.",
       "label_i18n": {
-        "en": "Yerçekimi İvmesi",
+        "en": "Gravitational acceleration",
         "tr": "Yerçekimi İvmesi",
         "de": "Erdbeschleunigung",
         "fr": "Accélération gravitationnelle",
@@ -41,7 +41,7 @@
         "ar": "تسارع الجاذبية"
       },
       "businessContext_i18n": {
-        "en": "Yerçekimi ivmesi (m/s²). Dünya yüzeyinde ortalama ~9.81.",
+        "en": "Acceleration due to gravity (m/s²). Average ~9.81 on Earth's surface.",
         "tr": "Yerçekimi ivmesi (m/s²). Dünya yüzeyinde ortalama ~9.81.",
         "de": "Erdbeschleunigung (m/s²). Auf der Erdoberfläche im Durchschnitt ~9,81.",
         "fr": "Accélération gravitationnelle (m/s²). À la surface de la Terre, moyenne ~9,81.",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "Sıvı sütununun yüksekliği veya derinlik (m).",
       "label_i18n": {
-        "en": "Yükseklik / Derinlik",
+        "en": "Height / Depth",
         "tr": "Yükseklik / Derinlik",
         "de": "Höhe / Tiefe",
         "fr": "Hauteur / Profondeur",
@@ -65,7 +65,7 @@
         "ar": "الارتفاع / العمق"
       },
       "businessContext_i18n": {
-        "en": "Sıvı sütununun yüksekliği veya derinlik (m).",
+        "en": "Height or depth of liquid column (m).",
         "tr": "Sıvı sütununun yüksekliği veya derinlik (m).",
         "de": "Höhe der Flüssigkeitssäule oder Tiefe (m).",
         "fr": "Hauteur ou profondeur de la colonne de liquide (m).",
@@ -81,7 +81,7 @@
       "default": 101325,
       "businessContext": "Yüzeydeki atmosfer basıncı (Pa). Deniz seviyesinde standart 101325.",
       "label_i18n": {
-        "en": "Atmosfer Basıncı",
+        "en": "Atmospheric pressure",
         "tr": "Atmosfer Basıncı",
         "de": "Atmosphärendruck",
         "fr": "Pression atmosphérique",
@@ -89,7 +89,7 @@
         "ar": "الضغط الجوي"
       },
       "businessContext_i18n": {
-        "en": "Yüzeydeki atmosfer basıncı (Pa). Deniz seviyesinde standart 101325.",
+        "en": "Atmospheric pressure at surface (Pa). Standard at sea level is 101325.",
         "tr": "Yüzeydeki atmosfer basıncı (Pa). Deniz seviyesinde standart 101325.",
         "de": "Atmosphärendruck an der Oberfläche (Pa). Auf Meereshöhe Standard 101325.",
         "fr": "Pression atmosphérique à la surface (Pa). Au niveau de la mer, standard 101325.",

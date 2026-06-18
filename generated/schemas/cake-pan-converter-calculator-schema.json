@@ -9,7 +9,7 @@
       "default": 1,
       "businessContext": "Orijinal kalıbın şekli; 1 ise yuvarlak (çap kullan), 2 ise dikdörtgen (kenarlar)",
       "label_i18n": {
-        "en": "Orijinal Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
+        "en": "Original Mold Shape (1=Round, 2=Rectangle)",
         "tr": "Orijinal Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
         "de": "Ursprüngliche Form des Werkzeugs (1=Rund, 2=Rechteckig)",
         "fr": "Forme du moule d'origine (1=Rond, 2=Rectangulaire)",
@@ -17,7 +17,7 @@
         "ar": "شكل القالب الأصلي (1=دائري، 2=مستطيل)"
       },
       "businessContext_i18n": {
-        "en": "Orijinal kalıbın şekli; 1 ise yuvarlak (çap kullan), 2 ise dikdörtgen (kenarlar)",
+        "en": "Shape of the original mold; 1 for round (use diameter), 2 for rectangle (use sides).",
         "tr": "Orijinal kalıbın şekli; 1 ise yuvarlak (çap kullan), 2 ise dikdörtgen (kenarlar)",
         "de": "Form des ursprünglichen Werkzeugs; 1 für rund (Durchmesser verwenden), 2 für rechteckig (Seiten)",
         "fr": "Forme du moule d'origine ; 1 pour rond (utiliser le diamètre), 2 pour rectangulaire (côtés)",
@@ -33,7 +33,7 @@
       "default": 20,
       "businessContext": "Orijinal kalıbın birinci boyutu",
       "label_i18n": {
-        "en": "Orijinal Kalıp Ölçüsü 1 (Yuvarlak için çap, Dikdörtgen için uzunluk)",
+        "en": "Original Mold Dimension 1 (Diameter for round, Length for rectangle)",
         "tr": "Orijinal Kalıp Ölçüsü 1 (Yuvarlak için çap, Dikdörtgen için uzunluk)",
         "de": "Werkzeugmaß 1 (Durchmesser bei rund, Länge bei rechteckig)",
         "fr": "Dimension 1 du moule d'origine (diamètre pour rond, longueur pour rectangulaire)",
@@ -41,7 +41,7 @@
         "ar": "قياس القالب الأصلي 1 (القطر للدائري، الطول للمستطيل)"
       },
       "businessContext_i18n": {
-        "en": "Orijinal kalıbın birinci boyutu",
+        "en": "First dimension of the original mold.",
         "tr": "Orijinal kalıbın birinci boyutu",
         "de": "Erste Abmessung des ursprünglichen Werkzeugs",
         "fr": "Première dimension du moule d'origine",
@@ -57,7 +57,7 @@
       "default": 0,
       "businessContext": "Orijinal kalıbın ikinci boyutu; yuvarlak için 0",
       "label_i18n": {
-        "en": "Orijinal Kalıp Ölçüsü 2 (Sadece dikdörtgen için genişlik, yuvarlak için 0 bırakın)",
+        "en": "Original Mold Dimension 2 (Width for rectangle only, leave 0 for round)",
         "tr": "Orijinal Kalıp Ölçüsü 2 (Sadece dikdörtgen için genişlik, yuvarlak için 0 bırakın)",
         "de": "Werkzeugmaß 2 (Breite nur bei rechteckig, bei rund 0 eingeben)",
         "fr": "Dimension 2 du moule d'origine (largeur pour rectangulaire uniquement, laisser 0 pour rond)",
@@ -65,7 +65,7 @@
         "ar": "قياس القالب الأصلي 2 (العرض للمستطيل فقط، اترك 0 للدائري)"
       },
       "businessContext_i18n": {
-        "en": "Orijinal kalıbın ikinci boyutu; yuvarlak için 0",
+        "en": "Second dimension of the original mold; 0 for round.",
         "tr": "Orijinal kalıbın ikinci boyutu; yuvarlak için 0",
         "de": "Zweite Abmessung des ursprünglichen Werkzeugs; bei rund 0",
         "fr": "Deuxième dimension du moule d'origine ; 0 pour rond",
@@ -81,7 +81,7 @@
       "default": 5,
       "businessContext": "Orijinal kalıbın derinliği",
       "label_i18n": {
-        "en": "Orijinal Kalıp Derinliği",
+        "en": "Original Mold Depth",
         "tr": "Orijinal Kalıp Derinliği",
         "de": "Ursprüngliche Werkzeugtiefe",
         "fr": "Profondeur du moule d'origine",
@@ -89,7 +89,7 @@
         "ar": "عمق القالب الأصلي"
       },
       "businessContext_i18n": {
-        "en": "Orijinal kalıbın derinliği",
+        "en": "Original mold depth",
         "tr": "Orijinal kalıbın derinliği",
         "de": "Tiefe der Originalform",
         "fr": "Profondeur du moule d'origine",
@@ -105,7 +105,7 @@
       "default": 1,
       "businessContext": "Hedef kalıbın şekli",
       "label_i18n": {
-        "en": "Hedef Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
+        "en": "Target Mold Shape (1=Round, 2=Rectangle)",
         "tr": "Hedef Kalıp Şekli (1=Yuvarlak, 2=Dikdörtgen)",
         "de": "Zielform (1=Rund, 2=Rechteckig)",
         "fr": "Forme du moule cible (1=Rond, 2=Rectangulaire)",
@@ -113,7 +113,7 @@
         "ar": "شكل القالب الهدف (1=دائري، 2=مستطيل)"
       },
       "businessContext_i18n": {
-        "en": "Hedef kalıbın şekli",
+        "en": "Target mold shape",
         "tr": "Hedef kalıbın şekli",
         "de": "Form der Zielform",
         "fr": "Forme du moule cible",
@@ -129,7 +129,7 @@
       "default": 24,
       "businessContext": "Hedef kalıbın birinci boyutu",
       "label_i18n": {
-        "en": "Hedef Kalıp Ölçüsü 1",
+        "en": "Target Mold Dimension 1",
         "tr": "Hedef Kalıp Ölçüsü 1",
         "de": "Zielform Maß 1",
         "fr": "Dimension 1 du moule cible",
@@ -137,7 +137,7 @@
         "ar": "قياس القالب الهدف 1"
       },
       "businessContext_i18n": {
-        "en": "Hedef kalıbın birinci boyutu",
+        "en": "First dimension of target mold",
         "tr": "Hedef kalıbın birinci boyutu",
         "de": "Erste Abmessung der Zielform",
         "fr": "Première dimension du moule cible",
@@ -153,7 +153,7 @@
       "default": 0,
       "businessContext": "Hedef kalıbın ikinci boyutu",
       "label_i18n": {
-        "en": "Hedef Kalıp Ölçüsü 2 (Dikdörtgen için genişlik, yuvarlak için 0)",
+        "en": "Target Mold Dimension 2 (Width for rectangle, 0 for round)",
         "tr": "Hedef Kalıp Ölçüsü 2 (Dikdörtgen için genişlik, yuvarlak için 0)",
         "de": "Zielform Maß 2 (Breite bei Rechteck, 0 bei Rund)",
         "fr": "Dimension 2 du moule cible (largeur pour rectangulaire, 0 pour rond)",
@@ -161,7 +161,7 @@
         "ar": "قياس القالب الهدف 2 (العرض للمستطيل، 0 للدائري)"
       },
       "businessContext_i18n": {
-        "en": "Hedef kalıbın ikinci boyutu",
+        "en": "Second dimension of target mold",
         "tr": "Hedef kalıbın ikinci boyutu",
         "de": "Zweite Abmessung der Zielform",
         "fr": "Deuxième dimension du moule cible",
@@ -177,7 +177,7 @@
       "default": 5,
       "businessContext": "Hedef kalıbın derinliği",
       "label_i18n": {
-        "en": "Hedef Kalıp Derinliği",
+        "en": "Target Mold Depth",
         "tr": "Hedef Kalıp Derinliği",
         "de": "Tiefe der Zielform",
         "fr": "Profondeur de moule cible",
@@ -185,7 +185,7 @@
         "ar": "عمق القالب المستهدف"
       },
       "businessContext_i18n": {
-        "en": "Hedef kalıbın derinliği",
+        "en": "Depth of target mold",
         "tr": "Hedef kalıbın derinliği",
         "de": "Tiefe der Zielform",
         "fr": "Profondeur du moule cible",

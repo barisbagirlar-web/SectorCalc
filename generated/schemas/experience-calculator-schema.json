@@ -9,7 +9,7 @@
       "default": 10,
       "businessContext": "İlk birimin üretim süresi. Öğrenme eğrisi hesaplamalarında temel değerdir.",
       "label_i18n": {
-        "en": "İlk Birim Zamanı",
+        "en": "First unit time (hours)",
         "tr": "İlk Birim Zamanı",
         "de": "Erststückzeit",
         "fr": "Temps de première unité",
@@ -17,7 +17,7 @@
         "ar": "زمن الوحدة الأولى"
       },
       "businessContext_i18n": {
-        "en": "İlk birimin üretim süresi. Öğrenme eğrisi hesaplamalarında temel değerdir.",
+        "en": "Production time of the first unit. Base value for learning curve calculations.",
         "tr": "İlk birimin üretim süresi. Öğrenme eğrisi hesaplamalarında temel değerdir.",
         "de": "Produktionszeit des ersten Stücks. Basiswert für Lernkurvenberechnungen.",
         "fr": "Temps de production de la première unité. Valeur de base pour les calculs de courbe d'apprentissage.",
@@ -33,7 +33,7 @@
       "default": 80,
       "businessContext": "Birikimli üretim iki katına çıktığında birim zamanındaki düşüş yüzdesi. Tipik değerler 70-90 arasındadır.",
       "label_i18n": {
-        "en": "Öğrenme Oranı",
+        "en": "Learning rate (%)",
         "tr": "Öğrenme Oranı",
         "de": "Lernrate",
         "fr": "Taux d'apprentissage",
@@ -41,7 +41,7 @@
         "ar": "معدل التعلم"
       },
       "businessContext_i18n": {
-        "en": "Birikimli üretim iki katına çıktığında birim zamanındaki düşüş yüzdesi. Tipik değerler 70-90 arasındadır.",
+        "en": "Percentage decrease in unit time when cumulative production doubles. Typical values are 70-90%.",
         "tr": "Birikimli üretim iki katına çıktığında birim zamanındaki düşüş yüzdesi. Tipik değerler 70-90 arasındadır.",
         "de": "Prozentuale Verringerung der Stückzeit bei Verdopplung der kumulierten Produktion. Typische Werte zwischen 70 und 90.",
         "fr": "Pourcentage de réduction du temps unitaire lorsque la production cumulée double. Valeurs typiques entre 70 et 90.",
@@ -57,7 +57,7 @@
       "default": 100,
       "businessContext": "Deneyim kazanımının hesaplanacağı kümülatif birim adedi.",
       "label_i18n": {
-        "en": "Toplam Birim Sayısı",
+        "en": "Total number of units",
         "tr": "Toplam Birim Sayısı",
         "de": "Gesamtstückzahl",
         "fr": "Nombre total d'unités",
@@ -65,7 +65,7 @@
         "ar": "إجمالي عدد الوحدات"
       },
       "businessContext_i18n": {
-        "en": "Deneyim kazanımının hesaplanacağı kümülatif birim adedi.",
+        "en": "Cumulative unit count for which experience gain is calculated",
         "tr": "Deneyim kazanımının hesaplanacağı kümülatif birim adedi.",
         "de": "Kumulierte Stückzahl, für die der Lerneffekt berechnet wird.",
         "fr": "Nombre cumulé d'unités pour lequel l'expérience est calculée.",
