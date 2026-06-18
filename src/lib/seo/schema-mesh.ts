@@ -375,40 +375,6 @@ export function buildSpeakableJsonLd(
   }) as JsonLdRecord;
 }
 
-/**
- * Build a VideoObject schema for video content.
- * Videos get rich featured snippets and increased CTR.
- */
-export function buildVideoObjectJsonLd(
-  video: {
-    readonly name: string;
-    readonly description: string;
-    readonly thumbnailUrl: string;
-    readonly contentUrl: string;
-    readonly embedUrl?: string;
-    readonly uploadDate: string;
-    readonly duration?: string;
-  },
-  locale = "en"
-): JsonLdRecord {
-  return sanitizeJsonLd({
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    name: video.name,
-    description: video.description,
-    thumbnailUrl: video.thumbnailUrl,
-    contentUrl: video.contentUrl,
-    ...(video.embedUrl ? { embedUrl: video.embedUrl } : {}),
-    uploadDate: video.uploadDate,
-    ...(video.duration ? { duration: video.duration } : {}),
-    inLanguage: locale,
-    publisher: {
-      "@type": "Organization",
-      "@id": `${siteUrl}/#organization`,
-    },
-  }) as JsonLdRecord;
-}
-
 export function buildHomepageJsonLd(locale = "en"): JsonLdRecord[] {
   return [
     buildOrganizationJsonLd(locale),
