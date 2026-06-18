@@ -2,14 +2,13 @@
 /**
  * Generates public SEO authority TXT files for crawlers and LLMs.
  * llms.txt is owned by export:ai-index — do not overwrite here.
+ * sectorcalc-index.txt and faq-knowledge.txt are dynamic SSR routes — not generated here.
  * Run: npm run seo:authority-txt
  */
 import { writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { siteUrl } from "../src/config/site";
 import { addLocaleToPath } from "../src/lib/i18n/locale-routing";
-import { INDUSTRIES } from "../src/data/industries";
-import { PROGRAMMATIC_SEO_PAGES } from "../src/lib/seo/programmatic-seo-pages";
 import { listPremiumSchemaSlugs } from "../src/lib/premium-schema/schemas/index";
 import { FREE_TRAFFIC_TOOLS } from "../src/lib/tools/free-traffic-catalog";
 
@@ -21,27 +20,6 @@ function writePublicFile(name: string, content: string): void {
   writeFileSync(path, content, "utf8");
   console.log(`Wrote ${path}`);
 }
-
-const index = `# SectorCalc Index
-
-## Core services
-- Free calculators (${FREE_TRAFFIC_TOOLS.length})
-- Premium decision reports (${listPremiumSchemaSlugs().length})
-- Hidden-loss diagnostics
-- Export-ready PDF/CSV reports (paid access)
-
-## Sector categories
-${INDUSTRIES.map((industry) => `- ${industry.name}: ${base}${addLocaleToPath(industry.href, "en")}`).join("\n")}
-
-## Programmatic SEO hubs
-${PROGRAMMATIC_SEO_PAGES.map((page) => `- ${page.title}: ${base}${addLocaleToPath(`/seo/${page.slug}`, "en")}`).join("\n")}
-
-## Internal link map
-- Home → free-tools, premium-tools, categories, industries, pricing, SEO hubs
-- Free tools → related premium analyzer, industries, SEO hubs
-- Premium tools → pricing, free tools, industries
-- SEO hubs → free tools, premium analyzers, industries, pricing
-`;
 
 const services = `# SectorCalc Services & Products
 
@@ -65,51 +43,4 @@ ${listPremiumSchemaSlugs().map((slug) => `- ${slug}: ${base}${addLocaleToPath(`/
 - Print route available for entitled users only
 `;
 
-const faq = `# SectorCalc FAQ Knowledge Base
-
-## What is SectorCalc?
-SectorCalc is a sector-specific calculator and decision-report platform. Free tools give quick estimates; premium analyzers add hidden-loss diagnostics, threshold checks, suggested actions and export-ready output.
-
-## Is SectorCalc an ERP?
-No. SectorCalc is a calculator and decision-report layer, not a full ERP or accounting system.
-
-## Are free calculators free?
-Yes. Free calculators run in your browser with no sign-up required.
-
-## What do premium reports include?
-Premium reports include hidden driver breakdown, threshold interpretation, suggested action plans and export-ready output on paid access.
-
-## Can I export PDF or CSV?
-PDF and CSV export are included with full decision report access on single-report or Pro plans.
-
-## Is this financial, legal or engineering advice?
-No. SectorCalc outputs are technical estimates based on your inputs and stated assumptions.
-
-## How are assumptions handled?
-Each calculator and analyzer shows the inputs and assumptions used. Review them before operational or pricing decisions.
-
-## What sectors are supported?
-SectorCalc covers manufacturing, construction, logistics, energy, agriculture, food, finance and everyday measurement tools across ${INDUSTRIES.length} industry pages.
-
-## How does hidden-loss detection work?
-Hidden-loss diagnostics compare your inputs against threshold bands and surface drivers that free estimates do not show, such as setup loss, scrap, deadhead, peak load or margin leak.
-
-## What is OEE?
-Overall Equipment Effectiveness (OEE) combines availability, performance and quality to estimate productive machine time versus lost capacity.
-
-## What is scrap rate?
-Scrap rate measures material or production loss as a share of expected output. It helps estimate yield and margin exposure.
-
-## What is route deadhead cost?
-Deadhead cost is the expense of running empty or under-loaded route legs, including fuel, driver hours and tolls without matching revenue.
-
-## What is energy peak exposure?
-Peak exposure is the extra utility cost hidden inside average kWh when high-demand hours drive true unit cost.
-
-## What is carbon exposure?
-Carbon exposure is the compliance and cost pressure from emissions tied to energy use, materials and export requirements.
-`;
-
-writePublicFile("sectorcalc-index.txt", index);
 writePublicFile("services-products.txt", services);
-writePublicFile("faq-knowledge.txt", faq);

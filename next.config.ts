@@ -19,15 +19,10 @@ const nextConfig: NextConfig = {
   // Large generated-tool SSG can exceed the default 60s per page.
   staticPageGenerationTimeout: 300,
   webpack: (config, { dev }) => {
-    // Webpack filesystem cache is required — without it, clean compilation OOMs on
-    // 24k-page trees. Build script cleans cache before each deploy to avoid corruption.
-    if (!dev && process.env.VERCEL !== "1") {
-      config.cache = {
-        type: "filesystem",
-        buildDependencies: {
-          config: [path.join(process.cwd(), "next.config.ts")],
-        },
-      };
+    // Webpack filesystem cache disabled for reliability on macOS.
+    // Without it, clean compilation is slower but avoids OOM and corruption issues.
+    if (!dev) {
+      config.cache = false;
     }
     config.resolve.alias = {
       ...config.resolve.alias,
